@@ -420,19 +420,16 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Définition (1.2.1), p. 153",
-          "excerpt": "est algébrique et que tous ses conjugués complexes sont de valeur",
           "match": "The definition: algebraic, with every complex conjugate of absolute value q^{n/2}."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, Lemme (1.7), p. 276",
-          "excerpt": "sont des nombres algébriques dont tous les conjugués complexes",
           "match": "The same condition on Frobenius eigenvalues in Weil I."
         },
         {
           "sourceId": "yu-local-systems",
           "locator": "§1 pp. 2–3; §7.1 p. 64",
-          "excerpt": "σi σi+g = q",
           "match": "The genus-g Weil root bookkeeping and its paired product; the proof is the shared curve purity and duality theorem, not new automorphic work."
         }
       ],
@@ -476,13 +473,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Définition (1.2.12), p. 156",
-          "excerpt": "sont des nombres algébriques totalement réels",
           "match": "Totally real Frobenius polynomials, reached through α + q^n/α."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Remarque (1.2.14), p. 156",
-          "excerpt": "Tout faisceau lisse ponctuellement pur y est facteur direct",
           "match": "A pure object is a direct factor of a totally real one, V ⊕ V^∨(−n), by (iii)."
         }
       ],
@@ -518,13 +513,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, (1.5.1), p. 275",
-          "excerpt": "Une formule analogue vaut pour les itérés de F",
           "match": "Extension of the finite field replaces F by its iterates."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.1, (1.1.13), p. 152",
-          "excerpt": "étant la puissance entière",
           "match": "The Frobenius at a point of degree d maps to the d-th power of the Frobenius substitution."
         }
       ],
@@ -647,13 +640,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.6), p. 154",
-          "excerpt": "Dans toute la suite, nos arguments concerneront séparément",
           "match": "The arguments run one ι at a time, whence the ι-weight (1.2.6.1)."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Remarque (1.2.8), p. 155",
-          "excerpt": "il est commode de leur permettre d'être",
           "match": "ι-weights are allowed to be arbitrary real numbers."
         }
       ],
@@ -700,13 +691,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Remarque (1.2.11), p. 156",
-          "excerpt": "Je ne prétends pas croire à l'existence d'isomorphismes",
           "match": "ι is an expository device, and its existence depends on choice."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Remarque (1.2.11), p. 156",
-          "excerpt": "ne requiert pas l'axiome du choix",
           "match": "Embeddings of the algebraic numbers alone need no choice."
         }
       ],
@@ -744,13 +733,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.6), p. 154",
-          "excerpt": "est alors automatiquement algébrique, sans quoi",
           "match": "Purity at every ι forces algebraicity."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.6), p. 154",
-          "excerpt": "quel nombre transcendant",
           "match": "For transcendental α, ι(α) could be any transcendental number."
         }
       ],
@@ -889,19 +876,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§2, (2.6), p. 282",
-          "excerpt": "(i.e. la dimension du sous-espace propre généralisé correspondant)",
           "match": "The multiplicity of an eigenvalue is the dimension of its generalized eigenspace."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Variante (1.2.4), p. 154",
-          "excerpt": "vectoriels munis d'une action de Frobenius",
           "match": "The weight terminology for vector spaces with a Frobenius."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.6), p. 154",
-          "excerpt": "On notera que, pour k un corps fini, une représentation V",
           "match": "Every Frobenius module over a finite field is ι-mixed."
         }
       ],
@@ -938,7 +922,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, (1.5.3), p. 276",
-          "excerpt": "et observer que les deux membres sont additifs en V dans",
           "match": "Additivity in short exact sequences, used to prove (1.5.3)."
         }
       ],
@@ -972,7 +955,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(i), p. 154",
-          "excerpt": "stable par les opérations de passage au quotient, à un sous-faisceau, par extension, image réciproque,",
           "match": "Pointwise purity is stable under quotients, subobjects and extensions."
         }
       ],
@@ -1009,7 +991,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, (1.5.3), p. 275",
-          "excerpt": "d'un espace vectoriel V, on a une identité de séries",
           "match": "The identity (1.5.3) between the log-derivative of det(1 − Ft)⁻¹ and the traces of the powers of F."
         }
       ],
@@ -1050,7 +1031,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, (1.5.1), p. 275",
-          "excerpt": "Une formule analogue vaut pour les itérés de F",
           "match": "Traces of the iterates of Frobenius, whose eigenvalues are the powers of those of F."
         }
       ],
@@ -1084,7 +1064,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.1, (1.1.13), p. 152",
-          "excerpt": "étant la puissance entière",
           "match": "The Frobenius at a point of degree d maps to the d-th power of the Frobenius substitution."
         }
       ],
@@ -1127,13 +1106,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(ii), p. 154",
-          "excerpt": "Le produit tensoriel de deux faisceaux ponctuellement purs de poids n et m est ponctuel-",
           "match": "Tensor products add weights."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(ii), p. 154",
-          "excerpt": "faisceau lisse ponctuellement pur de poids n est ponctuellement",
           "match": "The dual of a pure lisse sheaf of weight n is pure of weight −n."
         }
       ],
@@ -1168,13 +1145,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78",
-          "excerpt": "products",
           "match": "The distinct-position products and exterior-power interpretation; the triangular-basis proof supplies the general linear-algebra result."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.5, proof (1.5.3), pp. 164–165",
-          "excerpt": "valeur propre",
           "match": "The exterior eigenvalue products used to isolate determinantal weights."
         }
       ],
@@ -1296,13 +1271,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.7), p. 154",
-          "excerpt": "de rang un et pour lequel F soit la multiplication par b.",
           "match": "The rank-one Weil sheaf on which F acts by b."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(iv), p. 154",
-          "excerpt": "est ponctuellement pur de poids —2.",
           "match": "ℚ_ℓ(1) is pointwise pure of weight −2."
         }
       ],
@@ -1343,19 +1316,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§2, (2.5), p. 281",
-          "excerpt": "Le cup-produit commute à l'image réciproque F* par le morphisme de Fro-",
           "match": "Cup product commutes with Frobenius: the equivariance hypothesis."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§2, (2.5), p. 281",
-          "excerpt": "d) Les valeurs propres de F* ont donc la propriété (2.4).",
           "match": "The eigenvalues in the complementary degree are q^m α_j⁻¹, as in (2.4)."
         },
         {
           "sourceId": "yu-local-systems",
           "locator": "§1 pp. 2–3; §7.1 p. 64",
-          "excerpt": "σi σi+g = q",
           "match": "The genus-g Weil root bookkeeping and its paired product; the proof is the shared curve purity and duality theorem, not new automorphic work."
         }
       ],
@@ -1399,7 +1369,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, preuve de (1.7) ⇒ (1.6), p. 277",
-          "excerpt": "sont premiers entre eux",
           "match": "Factors of different weights are coprime."
         }
       ],
@@ -1446,7 +1415,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, preuve de (1.7) ⇒ (1.6), p. 277",
-          "excerpt": "Cet ensemble est stable",
           "match": "The eigenvalues of a given weight form a Galois-stable set, so their polynomial has coefficients in the base field."
         }
       ],
@@ -1491,13 +1459,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, (3.1), p. 284",
-          "excerpt": "Par exemple, Q^(r) est de poids — 2r.",
           "match": "The weight of a lisse sheaf on a curve; ℚ_ℓ(r) has weight −2r."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, (3.1), p. 283",
-          "excerpt": "complément dans P1 d'un ensemble fini de",
           "match": "U₀ is the complement in ℙ¹ of finitely many closed points."
         }
       ],
@@ -1536,7 +1502,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, (3.7), p. 285",
-          "excerpt": "est Zariski-dense dans Sp",
           "match": "π₁ is Zariski-dense in Sp."
         }
       ],
@@ -1573,7 +1538,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, (3.7), p. 285",
-          "excerpt": "L'hypothèse (ii) assure que les coinvariants de",
           "match": "The coinvariants of π₁ are those of Sp, computed by Weyl's theorem."
         }
       ],
@@ -1613,13 +1577,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, (3.7), p. 285",
-          "excerpt": "Cette fonction Z est donc le développement en série de Taylor d'une fonction rationnelle",
           "match": "Z(U₀, ⊗^{2k}F₀, t) is rational, with poles only at q^{−kβ−1}."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§2, Scholie (2.10), p. 282",
-          "excerpt": "si X est affine.",
           "match": "H⁰_c vanishes on an affine curve."
         }
       ],
@@ -1653,7 +1615,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Lemme (3.3), p. 284",
-          "excerpt": "est une série formelle à coefficients rationnels positifs.",
           "match": "The log-derivative has nonnegative rational coefficients."
         }
       ],
@@ -1686,7 +1647,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Lemme (3.4), p. 284",
-          "excerpt": "est sans terme constant",
           "match": "The logarithm has no constant term; exponentiate."
         }
       ],
@@ -1717,7 +1677,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Lemme (3.5), p. 284",
-          "excerpt": "et à coefficients réels positifs.",
           "match": "Power series with nonnegative real coefficients."
         }
       ],
@@ -1749,7 +1708,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Lemme (3.6), p. 284",
-          "excerpt": "Ces nombres sont en effet les rayons de convergence absolue.",
           "match": "The infima are the radii of absolute convergence."
         }
       ],
@@ -1793,19 +1751,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Théorème (3.2), p. 284",
-          "excerpt": "Faisons les hypothèses suivantes",
           "match": "The hypotheses (i)–(iii)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Théorème (3.2), p. 284",
-          "excerpt": "est un sous-groupe ouvert du groupe symplectique",
           "match": "Hypothesis (ii): open symplectic monodromy."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, proof of (3.2), p. 285",
-          "excerpt": "Faisant tendre k vers l'infini, on trouve que",
           "match": "The limit k → ∞."
         }
       ],
@@ -1846,7 +1801,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Corollaire (3.8), p. 286",
-          "excerpt": "Le premier membre est une série formelle à coefficients rationnels",
           "match": "Rationality of Z and the convergence argument."
         }
       ],
@@ -1880,13 +1834,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Corollaire (3.9), p. 286",
-          "excerpt": "Un segment de la suite longue de cohomologie définie par la suite exacte courte",
           "match": "Surjectivity of H¹_c(U, F) → H¹(ℙ¹, j_*F)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3, Corollaire (3.9), p. 287",
-          "excerpt": "La dualité de Poincaré (2.12) assure que",
           "match": "The dual eigenvalue q^{β+1}/α."
         }
       ],
@@ -1991,13 +1943,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, §1, p. 75",
-          "excerpt": "is deﬁned to be the identity",
           "match": "π_V is the identity on the space and f ↦ f^q on functions."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, §1, p. 75",
-          "excerpt": "and so it is an endomorphism of A.",
           "match": "π_A fixes 0, so it is an endomorphism."
         }
       ],
@@ -2033,7 +1983,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Lemma 1.2, p. 76",
-          "excerpt": "Rosati involution on End",
           "match": "Lemma 1.2: π†π = q for the Rosati involution."
         }
       ],
@@ -2071,13 +2020,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Lemma 1.3, p. 77",
-          "excerpt": "is an integer r",
           "match": "Lemma 1.3: α†α = r implies |a|² = r for the roots of P_α."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Lemma 1.3, p. 77",
-          "excerpt": "We ﬁrst show that",
           "match": "ℚ[α] has no nonzero nilpotents."
         }
       ],
@@ -2118,13 +2065,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Theorem 1.1(b), p. 75",
-          "excerpt": "(Riemann hypothesis)",
           "match": "Theorem 1.1(b): |a_i| = q^{1/2}."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Remark 1.4, p. 78",
-          "excerpt": "We have actually proved the following",
           "match": "ℚ[π] is a product of fields, and |σ(π)| = q^{1/2} for every σ."
         }
       ],
@@ -2169,19 +2114,16 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Theorem 1.1(a), p. 75",
-          "excerpt": "T HEOREM 1.1.",
           "match": "Theorem 1.1: N_m = ∏(1 − a_i^m) and the bound."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, proof of Theorem 1.1, p. 76",
-          "excerpt": "is zero — in fact, that this is true for any variety.",
           "match": "dπ = 0, so π − 1 is étale."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78",
-          "excerpt": "C OROLLARY 1.5.",
           "match": "The zeta factorization and its exterior-power interpretation."
         }
       ],
@@ -2221,13 +2163,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter III, Theorem 11.1, p. 118",
-          "excerpt": "The number N of points on C with coordinates in k is equal to",
           "match": "#C(𝔽_q) = 1 − Σa_i + q, and |N − q − 1| ≤ 2g√q."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter III, Corollary 11.4, p. 119",
-          "excerpt": "The zeta function of C is equal to",
           "match": "Z(C, t) = P(t)/((1 − t)(1 − qt))."
         }
       ],
@@ -2269,13 +2209,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter III, Remark 11.5, p. 119",
-          "excerpt": "and so (11.2) can be rewritten as",
           "match": "H¹(C) = H¹(J) = (T_ℓJ)^∨ and the cohomological form of the fixed-point formula."
         },
         {
           "sourceId": "yu-local-systems",
           "locator": "§1 pp. 2–3; §7.1 p. 64",
-          "excerpt": "σi σi+g = q",
           "match": "The genus-g Weil root bookkeeping and its paired product; the proof is the shared curve purity and duality theorem, not new automorphic work."
         }
       ],
@@ -2310,7 +2248,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter III, Theorem 11.1, p. 118",
-          "excerpt": "The number N of points",
           "match": "|N − q − 1| ≤ 2g√q, which for g = 1 is Hasse's bound."
         }
       ],
@@ -2344,7 +2281,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, proof of Theorem 1.1, p. 76",
-          "excerpt": "Hence",
           "match": "Replacing π by π^m."
         }
       ],
@@ -2384,19 +2320,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.1), p. 295",
-          "excerpt": "La partie évanescente de la cohomologie",
           "match": "The vanishing part ℰ, a local system on U."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.1), p. 295",
-          "excerpt": "Le cup-produit est une forme alternée",
           "match": "The alternating cup-product ψ and the induced perfect pairing on ℰ₀/(ℰ₀ ∩ ℰ₀^⊥)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.1), p. 295",
-          "excerpt": "On suppose que X est connexe de dimension paire",
           "match": "X connected of even dimension n + 1."
         }
       ],
@@ -2434,13 +2367,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, Lemme (6.4), p. 295",
-          "excerpt": "tel que son image réci-",
           "match": "Lemma 6.4."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, proof of (6.4), p. 296",
-          "excerpt": "est l'image réciproque d'un faisceau sur Spec",
           "match": "𝒢₀ is a pullback from Spec 𝔽_q."
         }
       ],
@@ -2481,13 +2412,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.4), p. 296",
-          "excerpt": "écrit sous forme irréductible",
           "match": "The factorization of Z(X_x, t)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, (1.5.4), p. 276",
-          "excerpt": "Cette formule est l'interprétation cohomologique de Grothendieck",
           "match": "The cohomological formula for Z."
         }
       ],
@@ -2519,7 +2448,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, proof of (6.7), p. 297",
-          "excerpt": "On procède par récurrence sur",
           "match": "Induction on the size of the family."
         }
       ],
@@ -2554,13 +2482,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.10), p. 297",
-          "excerpt": "par similitudes symplectiques",
           "match": "π₁(U₀) acts by symplectic similitudes."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.10), p. 298",
-          "excerpt": "le sous-groupe défini par l'équation",
           "match": "The group H."
         }
       ],
@@ -2595,13 +2521,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, Lemme (6.12), p. 298",
-          "excerpt": "est un fermé de mesure nulle",
           "match": "Z is closed of measure zero."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, proof of (6.12), p. 298",
-          "excerpt": "et on applique Fubini à la",
           "match": "Fubini over the projection to ℤ̂."
         }
       ],
@@ -2638,7 +2562,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.13), p. 298",
-          "excerpt": "théorème de densité de Gebotarev",
           "match": "Density zero via Chebotarev."
         }
       ],
@@ -2672,13 +2595,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, Proposition (6.6), p. 296",
-          "excerpt": "écrit sous forme irréductible",
           "match": "The denominator in lowest terms."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.13), p. 298",
-          "excerpt": "théorème de densité de Gebotarev",
           "match": "The proof of (6.6)."
         }
       ],
@@ -2710,7 +2631,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, Proposition (6.8), p. 297",
-          "excerpt": "Cette proposition fournit une caractérisation intrinsèque de",
           "match": "The intrinsic characterisation of R(t)."
         }
       ],
@@ -2750,13 +2670,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, Théorème (6.2), p. 295",
-          "excerpt": "est à coefficients rationnels",
           "match": "Theorem 6.2: rational coefficients."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, (6.9), p. 297",
-          "excerpt": "Prouvons (6.5) et donc (6.2) (modulo (6.6))",
           "match": "The proof of 6.2 from 6.6–6.8."
         }
       ],
@@ -2795,7 +2713,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§6, Corollaire (6.3), p. 295",
-          "excerpt": "les hypothèses de (3.2) sont en effet vérifiées par",
           "match": "Corollary 6.3 from (3.2) and (3.9)."
         }
       ],
@@ -2836,7 +2753,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "Weil I §7, Lemme (7.1) and (7.1.1)–(7.1.5), pp. 298–300",
-          "excerpt": "Lemme (7.1)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -2872,7 +2788,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "Weil I §7, Lemme (7.2), pp. 300–301; proof (7.3), p. 301",
-          "excerpt": "Pour k pair",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -2911,7 +2826,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "Weil I §1, Lemme (1.7), p. 276; §7, Lemme (7.2) and proof (7.3), pp. 300–301",
-          "excerpt": "tous les conjugués complexes",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -2945,7 +2859,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.1 (1.1.7)–(1.1.13.1), pp. 150–153",
-          "excerpt": "groupe de Weil",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3035,7 +2948,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.1 (1.1.6), (1.1.10)–(1.1.14), pp. 150–153",
-          "excerpt": "faisceau de Weil",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3124,7 +3036,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2 (1.2.2)–(1.2.8), pp. 153–155",
-          "excerpt": "filtration finie",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3257,7 +3168,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2 (1.2.12)–(1.2.14), pp. 155–156",
-          "excerpt": "totalement réel",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3344,7 +3254,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.3 (1.3.1), (1.3.4), (1.3.6), pp. 156–158; §1.11 (1.11.4), pp. 185–186",
-          "excerpt": "est ponctuellement i-pur",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3378,7 +3287,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.3 Définition (1.3.5), p. 158; Corollaire (1.3.12) and Proposition (1.3.13), p. 161",
-          "excerpt": "poids déterminantiels",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3475,7 +3383,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.3 (1.3.7)–(1.3.15), pp. 158–162",
-          "excerpt": "radical du groupe algébrique",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3509,7 +3416,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.3, Corollaire (1.3.12) and Proposition (1.3.13)(i)–(iii), p. 161",
-          "excerpt": "morphisme dominant de schémas normaux",
           "match": "All three functoriality statements, including the rank constraints on exterior sums."
         }
       ],
@@ -3554,7 +3460,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.5 Théorème (1.5.1), Lemme (1.5.2), proof (1.5.3), pp. 164–165",
-          "excerpt": "ponctuellement",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3592,7 +3497,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.8 Lemme (1.8.1) and Remarque (1.8.2), p. 175",
-          "excerpt": "poids",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3627,7 +3531,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.7 (1.7.1)–(1.7.12), pp. 170–174; §1.8 Théorème (1.8.4), pp. 175–176",
-          "excerpt": "Théorème (1.8.4)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3667,7 +3570,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.8 Corollaires (1.8.5)–(1.8.12), pp. 176–179",
-          "excerpt": "Corollaire (1.8.9)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3699,7 +3601,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.10 (1.10.6), p. 183",
-          "excerpt": "polygone de Newton",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3794,7 +3695,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.10 (1.10.1)–(1.10.9), pp. 182–184",
-          "excerpt": "Corollaire (1.10.7)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3829,7 +3729,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.11 (1.11.1)–(1.11.5), pp. 184–186",
-          "excerpt": "pour tout n",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3865,7 +3764,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§2.1 (2.1.1)–(2.1.9), pp. 187–191; §2.2 Corollaire (2.2.9), pp. 195–196",
-          "excerpt": "Hadamard",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -3903,7 +3801,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§2.2 (2.2.1)–(2.2.8), pp. 192–195; corrected sign in (2.2.8)(i), p. 195",
-          "excerpt": "compact",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4008,7 +3905,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§2.2 Corollaire (2.2.9), pp. 195–196; Corollaire (2.2.10), p. 196",
-          "excerpt": "Corollaire (2.2.10)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4041,7 +3937,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§2.1 (2.1.10)–(2.1.13), pp. 191–192",
-          "excerpt": "converge vaguement",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4079,7 +3974,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.1 (3.1.1)–(3.1.5), pp. 197–200",
-          "excerpt": "(3.1.4.6)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4116,7 +4010,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.2 Proposition (3.2.1), Remarque (3.2.2), p. 200",
-          "excerpt": "coefficients réels",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4163,7 +4056,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.2 (3.2.4)–(3.2.14), pp. 201–204",
-          "excerpt": "(3.2.11)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4204,13 +4096,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.2 Théorème (3.2.3), (3.2.5), (3.2.15), pp. 200–204",
-          "excerpt": "(3.2.15)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         },
         {
           "sourceId": "yu-local-systems",
           "locator": "Proposition 6.1.1 and proof, pp. 42–43",
-          "excerpt": "pureté de Deligne",
           "match": "Distinct cohomological weights 0,1,2 prevent cancellation of the proper curve coefficient factors; Langlands and unitary purity hypotheses are supplied by the automorphic owner."
         }
       ],
@@ -4248,7 +4138,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.2 (3.2.3); §3.3 proof of (3.3.1), pp. 200, 204–205",
-          "excerpt": "Le théorème (3.2.3)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4287,7 +4176,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Weil II §1.2 (1.2.2), (1.2.3), (1.2.6)–(1.2.8), pp. 153–155",
-          "excerpt": "(1.2.8)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4327,7 +4215,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "Weil I §1 (1.6)–(1.8), pp. 275–277; Weil II §3.3 (3.3.9), p. 207",
-          "excerpt": "(1.7)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4364,7 +4251,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Weil II §1.8 (1.8.4), pp. 175–176; the LPV.7 semistable-curve supplier identifies the three pieces",
-          "excerpt": "(1.8.4)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4401,19 +4287,16 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Weil II §3.3 (3.3.7)–(3.3.8), pp. 206–207",
-          "excerpt": "(3.3.7)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Théorème (6.1.13), p. 246",
-          "excerpt": "également mixtes",
           "match": "The nearby-cycle cohomology sheaves remain mixed; this does not assert a single pure weight."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Variante (6.2.7), p. 248",
-          "excerpt": "Variante (6.2.7)",
           "match": "The modified duality convention and proper-direct-image purity over ℤ[1/ℓ]."
         }
       ],
@@ -4450,7 +4333,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.5 (3.5.1)–(3.5.3), pp. 210–211",
-          "excerpt": "Théorème (3.5.3)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4490,7 +4372,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3.5 (3.5.4)–(3.5.7), pp. 211–212",
-          "excerpt": "SU(2)",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4536,7 +4417,6 @@
         {
           "sourceId": "yu-local-systems",
           "locator": "Yu §1 pp. 2–3, Proposition 6.1.1 pp. 42–43, §7.1 p. 64; Weil II (3.2.3)",
-          "excerpt": "pureté de Deligne",
           "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
         }
       ],
@@ -4920,7 +4800,7 @@
       "source": "milne-abelian-varieties",
       "kind": "gap",
       "locator": "Chapter III, proof of Proposition 11.2, p. 119 (footnote 6)",
-      "printed": "Footnote 6 attached to the displayed pullback-degree identity: “Needs fixing.”",
+      "printed": "Footnote 6 marks the displayed identity for pullback degrees as requiring repair.",
       "correction": "The pullback-degree/intersection calculation is explicitly unfinished as printed. No repaired theta-divisor calculation is certified here. The curve-bound node requests the fixed-point formula from its trace/Jacobian supplier and does not use this incomplete proof as a supplied theorem.",
       "reason": "The author marks the displayed identity with a footnote reading \"Needs fixing\"; the degree computation it records is not justified in the printed proof.",
       "affects": "the proof",
@@ -4940,7 +4820,7 @@
       "source": "schiffmann-higgs",
       "kind": "misprint",
       "locator": "arXiv:1406.3839v2, Appendix B pp. 35–36 and bibliography [D1] p. 37; published Appendix B p. 357, [Del74] reference",
-      "printed": "[D1] La conjecture de Weil I., Publ. Math. 52 (1981), 313–428; Appendix B cites 3.5.3.",
+      "printed": "The bibliography lists [D1] as La conjecture de Weil I., in Publ. Math., volume 52, year 1981, pages 313–428; the citation in Appendix B points to 3.5.3.",
       "correction": "The equidistribution source is Deligne, La conjecture de Weil II, Publ. Math. IHÉS 52 (1980), 137–252, §3.5.3. The published reference [Del74] names Weil I but its §3.5.3 citation is likewise a Weil II theorem.",
       "reason": "The volume and theorem locator identify Weil II; Weil I has no §3.5.3 equidistribution theorem.",
       "affects": "nothing",
@@ -4959,7 +4839,7 @@
       "source": "schiffmann-higgs",
       "kind": "error",
       "locator": "arXiv:1406.3839v2, Appendix B p. 35; published Appendix B p. 357",
-      "printed": "The preprint uses H¹(−1) while displaying normalized eigenvalues q^(−n/2)σ_i.",
+      "printed": "The source writes H¹(−1) and gives q^(−n/2)σ_i as the normalized eigenvalues.",
       "correction": "Choose a square root of q with positive ι-image and tensor with its inverse degree character, the chosen half-weight normalization H¹(1/2). This is a rank-one Weil scalar twist, not the integer twist (−1).",
       "reason": "H¹ has weight 1; an ordinary (−1) twist gives weight 3, whereas the displayed normalized spectrum has weight 0.",
       "affects": "a stated result",
@@ -4978,7 +4858,7 @@
       "source": "deligne-weil-ii",
       "kind": "misprint",
       "locator": "(3.5.6)–(3.5.7), p. 212",
-      "printed": "The SU(2) angle density is (1/(2π))sin²θ dθ.",
+      "printed": "The source gives (1/(2π))sin²θ dθ as the angle density for SU(2).",
       "correction": "Use (2/π)sin²θ dθ on [0,π].",
       "reason": "The printed measure has mass 1/4; normalized Haar pushforward has mass 1.",
       "affects": "a stated result",
@@ -4997,7 +4877,7 @@
       "source": "deligne-weil-ii",
       "kind": "misprint",
       "locator": "(3.5.6), p. 212",
-      "printed": "For eigenvalues q^(n/2)e^(±iθ), the point count is given with +2cosθ q^(n/2).",
+      "printed": "The source includes +2cosθ q^(n/2) in the point count corresponding to eigenvalues q^(n/2)e^(±iθ).",
       "correction": "The count is 1+q^n−2cosθ q^(n/2).",
       "reason": "The cohomological trace formula subtracts the H¹ trace.",
       "affects": "a stated result",
@@ -5016,7 +4896,7 @@
       "source": "yu-local-systems",
       "kind": "misprint",
       "locator": "Yu arXiv v5, (6.1.1)–(6.1.2), pp. 42–43",
-      "printed": "H⁰(ℱ₁⊗ℱ₂∨)=Hom(ℱ₁,ℱ₂), with the opposite order likewise in H².",
+      "printed": "The source asserts H⁰(ℱ₁⊗ℱ₂∨)=Hom(ℱ₁,ℱ₂) and similarly reverses the order for H².",
       "correction": "Use H⁰=Hom(ℱ₂,ℱ₁) and H²=Hom(ℱ₁,ℱ₂)∨(−1).",
       "reason": "The tensor–Hom identification fixes the order; the self-pair and absence-of-common-constituent uses are symmetric, so this changes no weight input or pole count.",
       "affects": "nothing",
@@ -5035,7 +4915,7 @@
       "source": "deligne-weil-ii",
       "kind": "misprint",
       "locator": "§1.3, Lemme (1.3.10)(iv), p. 160",
-      "printed": "The image of the centre is called a “sous-groupe fini de Z”.",
+      "printed": "The source describes the centre’s image as a finite subgroup of Z.",
       "correction": "Replace finite subgroup by subgroup of finite index in ℤ.",
       "reason": "A finite subgroup of ℤ is zero, contradicting the positive-degree central element used immediately in (1.3.12); the proof constructs a nonzero degree and thus a finite-index image.",
       "affects": "a stated result",
@@ -5054,7 +4934,7 @@
       "source": "deligne-weil-ii",
       "kind": "misprint",
       "locator": "§2.2, Proposition (2.2.8)(i), p. 195; repeated in §3.5 (3.5.1), p. 211",
-      "printed": "The associated irreducible sheaf is printed as having weight +2Re(r).",
+      "printed": "The source assigns weight +2Re(r) to the associated irreducible sheaf.",
       "correction": "Use −2Re(r) with the source convention ω₁=q^(−deg).",
       "reason": "In (2.1.1), |r(z)|=ω₁(z)^Re(r)=q^(−deg(z)Re(r)); purity therefore gives weight −2Re(r). Taking r=ω₁ gives q⁻¹ and weight −2, while Re(r)=1.",
       "affects": "a stated result",

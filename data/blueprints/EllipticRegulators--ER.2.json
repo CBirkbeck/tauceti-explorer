@@ -141,13 +141,11 @@
         {
           "sourceId": "Schneider.1988",
           "locator": "§2 pp.7–9, Deligne complex and exact sequence (*)",
-          "excerpt": "R(p) := (2πi)^p R",
           "match": "Supplies the Tate convention and proper-variety cone exact sequence."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5 Lemmas 61–62, pp.64–66, (2.97), (2.100), (2.104)",
-          "excerpt": "F²H¹_dR(A(C)) = 0",
           "match": "For an elliptic curve the comparison is an isomorphism, and the geometric minus part is the real target."
         }
       ],
@@ -195,7 +193,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5 Lemma61, p.64, (2.94); Proposition26, p.26",
-          "excerpt": "R(1) = 2πiR ⊂ C",
           "match": "The target is the geometric minus part; the explicit orbit formula is derived from this and the imported ER.1 lattice action."
         }
       ],
@@ -316,7 +313,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5 Lemmas61–62, pp.64–66; §2.6 Proposition66, p.67",
-          "excerpt": "H¹(A(C), R(1))⁻",
           "match": "The real target is a minus eigenspace and the regulator of a rational class lands there; the number-field count follows from ER.1 and the pinned place-count theorem."
         }
       ],
@@ -370,19 +366,16 @@
         {
           "sourceId": "Schneider.1988",
           "locator": "§4 p.28, higher Chern product formula and definition of ch_{i,j}",
-          "excerpt": "(-1)^{j-1}/(j-1)!",
           "match": "At j=2 the Chern-character coefficient is -1; the product coefficient for two weight-one classes is also -1."
         },
         {
           "sourceId": "Nekovar.AuthorCopy",
           "locator": "§7.3 p.23, (7.3.2); §7.4 p.23, (7.4.1)",
-          "excerpt": "π₁",
           "match": "The projection in the cup product is imaginary-valued, so the representative is iη; p.24 misprints are recorded separately."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition67 pp.67–69, (2.122)–(2.123) and conclusion p.69; proof of Theorem68 p.70",
-          "excerpt": "r_A(γ) = r̂_A(η*γ)",
           "match": "Identifies the Beilinson regulator with the η_B wedge pairing; the elliptic integration-by-parts formula gives 2r_E."
         }
       ],
@@ -432,13 +425,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition26 p.26; Lemma62 pp.65–66; Definition16 p.19",
-          "excerpt": "∫_{E⁰(R)} ω = 1",
           "match": "Pins the differential normalization; wedge pairing and symbol integral determine the scalar and orientation sign."
         },
         {
           "sourceId": "Nekovar.AuthorCopy",
           "locator": "§7.5 p.24, displayed pairing before (7.5.1)",
-          "excerpt": "1/(2πi)",
           "match": "An additional factor belongs to this source’s pairing, yielding J=W/(2πi); use the corrected symbol integrand."
         }
       ],
@@ -608,7 +599,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Nekovar.AuthorCopy, §7.5 p.24, sentence describing r_D(f) immediately after the two comparison isomorphisms; this finding concerns only the hashed author copy.",
-      "printed": "df = π₀(ω_f), for ω_f = ∂f/f",
+      "printed": "The source asserts df = π₀(ω_f), specifying ω_f = ∂f/f.",
       "correction": "Replace df by dφ_f, where φ_f=log|f|: dφ_f=π₀(ω_f).",
       "reason": "The pair model (7.3.1) requires the differential of the real-valued φ_f, and (7.4.1) gives φ_f=log|f|. For the local holomorphic unit f=e^z at z=0, df=dz while π₀(df/f)=dx=dlog|f|; the printed equation cannot hold.",
       "known": "new; no correction found in the searches listed; no assertion about the publisher’s version of record.",

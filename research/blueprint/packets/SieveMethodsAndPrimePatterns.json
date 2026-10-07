@@ -1385,7 +1385,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.5, interchange in (1.7)",
-          "excerpt": "Sieve problem.",
           "match": "Same finite interchange, extended to arbitrary real coefficients and the existing weighted carrier."
         }
       ],
@@ -1429,7 +1428,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.2, equation (1.1)",
-          "excerpt": "(1.1)",
           "match": "The exact unweighted identity is specialized to the pinned weighted carrier; Kedlaya Chapter 11, Lemma 11.2 is the weighted inclusion-exclusion motivation."
         }
       ],
@@ -1473,7 +1471,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.3, (1.2)-(1.3)",
-          "excerpt": "(1.3)",
           "match": "Use nu(d)=omega(d)/d, with multiplicativity only on coprime arguments; the pinned carrier already contains the needed data."
         }
       ],
@@ -1514,7 +1511,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.3, Corollary 1.1",
-          "excerpt": "Corollary 1.1",
           "match": "Exact same remainder bound, with nonnegative real weights instead of unit weights."
         }
       ],
@@ -1558,7 +1554,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.5, (1.5), compared with derivation (1.7)",
-          "excerpt": "Sieve problem.",
           "match": "The source's lower coefficient condition; the proof is the same weighted interchange as for its displayed upper bound."
         }
       ],
@@ -1602,7 +1597,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.5, (1.5) and the main/error calculation (1.7)-(1.8)",
-          "excerpt": "Sieve problem.",
           "match": "Lower analogue of the source's upper main/error estimate, on the pinned carrier."
         }
       ],
@@ -1644,7 +1638,6 @@
         {
           "sourceId": "HB-SIEVES",
           "locator": "Section 1, p.5, (1.8); Section 2, p.7, support condition before the quadratic-form calculation",
-          "excerpt": "Sieve problem.",
           "match": "Extracts the explicit consequence of small coefficient support from the source error term; does not claim that SelbergSieve.level proves a remainder distribution estimate."
         }
       ],
@@ -1688,7 +1681,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "Section 11.2, Lemma 11.1 and its pointwise proof; compare Heath-Brown p.5 (1.5)",
-          "excerpt": "Inclusion-exclusion",
           "match": "First lower truncation of the pointwise inclusion-exclusion count, proved directly for the nonnegative weights of BoundingSieve."
         }
       ],
@@ -1732,7 +1724,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -1846,7 +1837,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -1887,7 +1877,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -1927,7 +1916,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -1971,7 +1959,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2011,7 +1998,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2063,7 +2049,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2187,7 +2172,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2229,7 +2213,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2272,7 +2255,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2315,7 +2297,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2370,7 +2351,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
-          "excerpt": "residue classes",
           "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
         }
       ],
@@ -2422,7 +2402,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, Proposition 1, denominator in the statement",
-          "excerpt": "Proposition 1 (Selberg).",
           "match": "Explicit boundary lemma for the source's row denominator. The diagonal argument fills the zero-vector convention without imposing the unnecessary hypothesis that every vector is nonzero."
         }
       ],
@@ -2471,7 +2450,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, equation (4) in the proof of Proposition 1",
-          "excerpt": "Proposition 1 (Selberg).",
           "match": "Same finite quadratic estimate, translated from the source's linear-first convention to Mathlib's conjugate-linear-first convention. Replacing a complex ordered expression by its real part is explicit."
         }
       ],
@@ -2522,7 +2500,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, equation (3), equation (4), and coefficient choice immediately after (4)",
-          "excerpt": "Proposition 1 (Selberg).",
           "match": "The finite Bessel-defect argument with the coefficient misprint corrected explicitly in E9. No completeness or infinite series is used."
         }
       ],
@@ -2565,7 +2542,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, Proposition 1 (statement and complete proof)",
-          "excerpt": "Proposition 1 (Selberg).",
           "match": "The source's stronger weighted theorem, with a precise zero-division convention and derived removal of the unused completeness hypothesis."
         }
       ],
@@ -2611,7 +2587,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, Proposition 1; p.403, reduction to uniform row bound (5)",
-          "excerpt": "Proposition 1 (Selberg).",
           "match": "The direct finite consequence used in the paper's large-sieve proof; the analytic construction and proof of (5) are separate remaining work."
         }
       ],
@@ -2656,13 +2631,11 @@
         {
           "sourceId": "BENNETT-SIKSEK-2020",
           "locator": "§8.2, Theorem 7, printed p.379; application (34), p.380",
-          "excerpt": "Theorem 7.",
           "match": "Exactly routed item PAPER-BENNETT-SIKSEK-20/45, with nonempty indexing explicit and the proof supplied by Bombieri 1971 Proposition 1."
         },
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "pp.402–403, Proposition 1 and uniform-row reduction",
-          "excerpt": "Proposition 1 (Selberg).",
           "match": "Derived unweighted maximum form of the original stronger theorem."
         }
       ],
@@ -2713,7 +2686,6 @@
         {
           "sourceId": "BENNETT-SIKSEK-2020",
           "locator": "§8.2, printed p.380, diagonal/off-diagonal estimates between (34) and (35)",
-          "excerpt": "Applying the large sieve",
           "match": "Finite Gram bookkeeping abstracted from the application. The particular character families, correlation estimates and prime-number theorem asymptotic remain outside this seven-node slice."
         }
       ],
@@ -2751,7 +2723,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, finite expansion underlying the displayed formula for K_M",
-          "excerpt": "A note on the large sieve",
           "match": "Worker-supplied combinatorial decomposition of the source's finite kernel identity, including signed differences and empty sums."
         }
       ],
@@ -2796,7 +2767,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, displayed definition and evaluation of K_M",
-          "excerpt": "A note on the large sieve",
           "match": "Finite coefficient expansion that the paper suppresses; no convergence or infinite Fourier-series theorem is needed."
         }
       ],
@@ -2839,7 +2809,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, sine-quotient evaluation of K_M",
-          "excerpt": "A note on the large sieve",
           "match": "The source's quotient formula with its removable-value restriction made explicit."
         }
       ],
@@ -2876,7 +2845,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, definition of φ_i and the split into its core and taper",
-          "excerpt": "A note on the large sieve",
           "match": "Algebraic form of the source's squared amplitudes; the square root is taken only after nonnegativity is proved."
         }
       ],
@@ -2919,7 +2887,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "pp.402–403, finite support of f and the definition of φ_i",
-          "excerpt": "A note on the large sieve",
           "match": "Faithful finite-dimensional realization of the source's finitely supported ℓ² vectors, with no completeness or infinite-sum infrastructure."
         }
       ],
@@ -3018,7 +2985,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, definition of φ_i",
-          "excerpt": "A note on the large sieve",
           "match": "Coordinate interface for the source's taper construction."
         }
       ],
@@ -3056,7 +3022,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, inner-product identification with S(x_i)",
-          "excerpt": "A note on the large sieve",
           "match": "Promoted core API used to retain every original coefficient."
         }
       ],
@@ -3105,7 +3070,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, displayed off-diagonal inner-product formula after K_M",
-          "excerpt": "A note on the large sieve",
           "match": "Corrected signed equality behind the source's norm estimate; finding E10 does not challenge the final bound."
         }
       ],
@@ -3146,7 +3110,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, displayed diagonal inner product",
-          "excerpt": "A note on the large sieve",
           "match": "Exact diagonal contribution, independent of x."
         }
       ],
@@ -3188,7 +3151,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, off-diagonal estimate preceding the separation sum",
-          "excerpt": "A note on the large sieve",
           "match": "The source's valid bound survives correction of E10; the factor one depends on bounding a difference of two nonnegative kernels."
         }
       ],
@@ -3233,7 +3195,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.403, (f,φ_i)=S(x_i), translated to the native convention",
-          "excerpt": "A note on the large sieve",
           "match": "Exact bridge from the finite Fourier sum to the previously planned Gram inequality."
         }
       ],
@@ -3281,7 +3242,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "pp.403–404, reduction to (5) and its diagonal/off-diagonal decomposition",
-          "excerpt": "A note on the large sieve",
           "match": "Closed finite conditional interface to the paper's still-open separation and taper-optimization steps."
         }
       ],
@@ -3324,7 +3284,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.404, the sine inequality preceding the reciprocal-square sum",
-          "excerpt": "A note on the large sieve",
           "match": "Specializes native Jordan inequality to the circle norm used by the packing argument."
         }
       ],
@@ -3372,7 +3331,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.404, radial intervals I_m and their at-most-two assertion, with E11 corrected",
-          "excerpt": "A note on the large sieve",
           "match": "Provides the exact endpoint-safe finite packing lemma underlying the source row estimate."
         }
       ],
@@ -3419,7 +3377,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.404, displayed reciprocal-square row estimate",
-          "excerpt": "A note on the large sieve",
           "match": "Completes the corrected packing-to-Basel-sum argument, retaining the source factor π²/12."
         }
       ],
@@ -3463,7 +3420,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.404, final integer choice after the row estimate",
-          "excerpt": "A note on the large sieve",
           "match": "An explicit elementary refinement supplies the inequality needed by the proof without appealing to unchecked rounding optimization."
         }
       ],
@@ -3507,7 +3463,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "pp.403–404, estimate (5) after the separation sum",
-          "excerpt": "A note on the large sieve",
           "match": "Composes the prior finite Gram/taper theorem with the now explicit separation estimate."
         }
       ],
@@ -3546,7 +3501,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, replacing the interval length by 2N or 2N+1 and translating the exponential sum",
-          "excerpt": "A note on the large sieve",
           "match": "Makes the source's implicit translation and zero padding a precise native-carrier construction."
         }
       ],
@@ -3639,7 +3593,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, centered coefficient family",
-          "excerpt": "A note on the large sieve",
           "match": "Promoted evaluation API consumed by all subsequent padding lemmas."
         }
       ],
@@ -3679,7 +3632,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, replacement by even/odd centered intervals",
-          "excerpt": "A note on the large sieve",
           "match": "Spells out the parity-dependent support needed by the inherited taper pairing."
         }
       ],
@@ -3721,7 +3673,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, preservation of the coefficient-square sum under translation",
-          "excerpt": "A note on the large sieve",
           "match": "Ensures the original source norm is unchanged by zero extension."
         }
       ],
@@ -3764,7 +3715,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.402, translation and the resulting trigonometric polynomial",
-          "excerpt": "A note on the large sieve",
           "match": "The exact complex equality, stronger than the modulus equality used in the final estimate."
         }
       ],
@@ -3803,7 +3753,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.401, separated-point hypothesis of the main theorem",
-          "excerpt": "A note on the large sieve",
           "match": "Makes the degenerate finite-family branch explicit so that the final theorem keeps its unrestricted positive δ."
         }
       ],
@@ -3852,7 +3801,6 @@
         {
           "sourceId": "BOMBIERI-1971",
           "locator": "p.401, main Theorem; pp.402–404, complete finite proof",
-          "excerpt": "A note on the large sieve",
           "match": "Finishes the source theorem through explicit separation, integer taper and parity-preserving translation."
         }
       ],
@@ -3896,7 +3844,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.1, (16.1.1)–(16.1.2)",
-          "excerpt": "sieve",
           "match": "Expands the integer-numerator spacing argument. Rat.div_int_inj supplies uniqueness; no Farey sequence definition, ordering or neighbour theorem is repeated."
         }
       ],
@@ -3941,7 +3888,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.1, Theorem 16.1 and its proof",
-          "excerpt": "sieve",
           "match": "Same reduced-residue specialization, with an explicitly different inherited additive constant; no claim to have decomposed the sharp additive input."
         }
       ],
@@ -3981,7 +3927,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.2, the exponential convention in τ and S",
-          "excerpt": "sieve",
           "match": "Explicit normalization adapter between two existing character APIs; verified by a complete temporary Lean proof."
         }
       ],
@@ -4031,7 +3976,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.2, proof of Theorem 16.2, |τ(χ)|=√q",
-          "excerpt": "sieve",
           "match": "The source cites the norm formula; the packet supplies its complete route through pinned DFT inversion and primitive character formulas. The algebraic product and real norm were verified by temporary Lean proofs."
         }
       ],
@@ -4078,7 +4022,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.2, proof of Theorem 16.2, primitive Gauss expansion",
-          "excerpt": "sieve",
           "match": "Finite weighted consequence of the already implemented shift formula; inverse characters express conjugation without a competing convention."
         }
       ],
@@ -4121,7 +4064,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.2, character-orthogonality step in Theorem 16.2",
-          "excerpt": "sieve",
           "match": "Finite energy restatement of the existing orthogonality theorem on the unit group, not a new character theory or general Fourier transform."
         }
       ],
@@ -4165,7 +4107,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§16.2, weighted equality and enlargement to all characters",
-          "excerpt": "sieve",
           "match": "Separates the primitive Gauss identity from the positivity step, preventing an invalid application of that identity to imprimitive characters."
         }
       ],
@@ -4206,7 +4147,6 @@
         {
           "sourceId": "KED-ANT-16",
           "locator": "§§16.1–16.2, Theorems 16.1–16.2 and full reduction proof",
-          "excerpt": "sieve",
           "match": "Closes the multiplicative reduction from the already decomposed additive estimate; the source sharper additive input remains a separate gap."
         }
       ],
@@ -4251,7 +4191,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4364,7 +4303,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4404,7 +4342,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4445,7 +4382,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4486,7 +4422,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4531,7 +4466,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4578,7 +4512,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4617,7 +4550,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4661,7 +4593,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4706,7 +4637,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
-          "excerpt": "Vaughan",
           "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
         }
       ],
@@ -4749,7 +4679,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
-          "excerpt": "Cauchy–Schwarz",
           "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
         }
       ],
@@ -4796,7 +4725,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
-          "excerpt": "Cauchy–Schwarz",
           "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
         }
       ],
@@ -4836,7 +4764,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
-          "excerpt": "Cauchy–Schwarz",
           "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
         }
       ],
@@ -4880,7 +4807,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
-          "excerpt": "Cauchy–Schwarz",
           "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
         }
       ],
@@ -4925,7 +4851,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
-          "excerpt": "Cauchy–Schwarz",
           "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
         }
       ],
@@ -4968,7 +4893,6 @@
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
-          "excerpt": "Cauchy–Schwarz",
           "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
         }
       ],
@@ -5012,13 +4936,11 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, definition (1.3) and footnote 1, p. 383; Elliott–Halberstam conjecture, p. 384",
-          "excerpt": "Given θ > 0, we say the primes have ‘level of distribution θ’",
           "match": "The definition verbatim, with (1.3) as the displayed condition. The window form is the estimate used in (5.20)."
         },
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, p. 384",
-          "excerpt": "Elliott and Halberstam [1] conjectured that this could be extended to every θ < 1",
           "match": "The Elliott–Halberstam conjecture as a named hypothesis."
         }
       ],
@@ -5146,13 +5068,11 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, p. 384",
-          "excerpt": "The Bombieri-Vinogradov theorem establishes that the primes have level of distribution θ for every θ < 1/2",
           "match": "The statement in Maynard's normalization."
         },
         {
           "sourceId": "KED-ANT-18",
           "locator": "§18.3, Theorem 18.4 (Bombieri–Vinogradov)",
-          "excerpt": "Bombieri–Vinogradov.",
           "match": "The ψ-form input, with x/φ(N) and Q = x^{1/2}(log x)^{−B}. The conversion to π and to the comparison term π(x)/φ(q) is worker-derived."
         }
       ],
@@ -5199,13 +5119,11 @@
         {
           "sourceId": "GGPY-2009",
           "locator": "§2, Lemma 3 with (2.3)–(2.5), pp. 9–10 (arXiv v1)",
-          "excerpt": "Our next lemma is central to the estimation of the sums that arise in Selberg’s sieve.",
           "match": "GGPY Lemma 3 at κ = 1, where Γ(κ+1) = 1. GGPY cite Halberstam–Richert, Lemmas 5.3 and 5.4, for the proof, which is not read here."
         },
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§6, Lemma 6.1 and its proof, p. 400",
-          "excerpt": "This is [3, Lemma 4], with κ = 1 and slight changes to the notation.",
           "match": "Maynard's use: dimension one only."
         }
       ],
@@ -5246,13 +5164,11 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§6, Lemma 6.1, p. 400",
-          "excerpt": "Let g be the totally multiplicative function deﬁned on primes by g(p) = γ(p)/(p−γ(p)).",
           "match": "The statement in Maynard's normalization."
         },
         {
           "sourceId": "GGPY-2009",
           "locator": "§2, Lemma 4 and its proof, p. 10 (arXiv v1)",
-          "excerpt": "Our next lemma is a variant of the previous one with the terms g(d) weighted by an appropriate function.",
           "match": "The proof: partial summation from Lemma 3."
         }
       ],
@@ -5291,7 +5207,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, p. 383",
-          "excerpt": "if, for every prime p, there is an integer ap such that",
           "match": "The definition verbatim."
         }
       ],
@@ -5400,7 +5315,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, p. 383",
-          "excerpt": "Conjecture (Prime k-tuples conjecture). Let H = {h1, . . . , hk} be admissible.",
           "match": "The conjecture as stated. Here 'integers n' become natural numbers; for large n the two readings agree."
         }
       ],
@@ -5503,7 +5417,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, (4.1) and the following sentence, pp. 388–389",
-          "excerpt": "By the Chinese remainder theorem, we can choose v0 such that v0 + hi is coprime to W for each i since H is admissible.",
           "match": "The construction. Choosing the least residue is a worker normalization."
         }
       ],
@@ -5611,13 +5524,11 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§2, (2.4)–(2.5), p. 387",
-          "excerpt": "Using such weights with λd1,...,dk is the key feature of our method.",
           "match": "The weights and the reason they are new."
         },
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, Proposition 4.1, p. 388; §5, (5.7)–(5.8), p. 393; §6, (6.3), p. 400",
-          "excerpt": "This change is invertible.",
           "match": "The change of variables y ↔ λ and the smooth choice of y. The construction from a general y is the paper's; the Lean packaging is worker-chosen."
         }
       ],
@@ -5753,13 +5664,11 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, Proposition 4.1, p. 388, and Proposition 4.2, p. 389",
-          "excerpt": "let Sk denote the set of Riemann-integrable functions",
           "match": "The functionals and M_k. The L² class is a worker choice with the same supremum."
         },
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§6, remark after Lemma 6.3, p. 404",
-          "excerpt": "which is equivalent to the results obtained using the original GPY method",
           "match": "The radial comparison."
         }
       ],
@@ -5899,7 +5808,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, proof of Proposition 4.2, p. 389",
-          "excerpt": "Since F0 is Riemann-integrable, there is a smooth function F1 such that",
           "match": "The approximation step. The proof is worker-derived."
         }
       ],
@@ -5936,7 +5844,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§2, (2.1) and the following paragraph, p. 386",
-          "excerpt": "then at least one term in the sum over n must have a positive contribution",
           "match": "The criterion."
         }
       ],
@@ -5975,7 +5882,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§5, (5.9) and the following sentence, pp. 393–394",
-          "excerpt": "In the last line we have taken u = dr′, and used the fact τk(dr′) ≥ τk(r′).",
           "match": "The bound. The final Mertens estimate is made explicit here."
         }
       ],
@@ -6018,7 +5924,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§5, Lemma 5.1 and proof, (5.1)–(5.13), pp. 392–395",
-          "excerpt": "We expand out the square, and swap the order of summation to give",
           "match": "The lemma and the steps of its proof."
         }
       ],
@@ -6063,7 +5968,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§5, Lemma 5.2 and proof, (5.14)–(5.27), pp. 395–398",
-          "excerpt": "and our hypothesis that the primes have level of distribution θ",
           "match": "The lemma and the steps of its proof."
         }
       ],
@@ -6104,7 +6008,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§5, Lemma 5.3 and proof, (5.28)–(5.32), pp. 398–399",
-          "excerpt": "We can now evaluate the sum over d1, . . . , dk explicitly.",
           "match": "The lemma and the steps of its proof."
         }
       ],
@@ -6147,7 +6050,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§6, Lemma 6.2 and proof, (6.4)–(6.9), pp. 401–402",
-          "excerpt": "We can now estimate this sum by k applications of Lemma 6.1",
           "match": "The lemma and the steps of its proof."
         }
       ],
@@ -6191,7 +6093,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§6, Lemma 6.3 and proof, (6.10)–(6.22), pp. 402–404",
-          "excerpt": "The estimation of S (m) 2 is similar to the estimation of S 1.",
           "match": "The lemma and the steps of its proof."
         }
       ],
@@ -6230,7 +6131,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, Proposition 4.1, p. 388",
-          "excerpt": "let R = Nθ/2−δ for some small ﬁxed δ > 0",
           "match": "The proposition. Its proof is §§5–6, decomposed in the lemmas above."
         }
       ],
@@ -6274,7 +6174,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, Proposition 4.2 and proof, (4.4), p. 389",
-          "excerpt": "Then there are inﬁnitely many integers n such that at least rk of the n + hi",
           "match": "The proposition and its proof."
         }
       ],
@@ -6315,7 +6214,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, Proposition 4.2, last sentence, p. 389",
-          "excerpt": "In particular, lim infn(pn+rk−1 −pn) ≤max1≤i, j≤k(hi −h j).",
           "match": "The deduction, which the source leaves implicit."
         }
       ],
@@ -6354,7 +6252,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§7, (7.1)–(7.21), pp. 405–408",
-          "excerpt": "We obtain a lower bound for Mk by constructing a function F = Fk",
           "match": "The construction and estimates."
         }
       ],
@@ -6395,7 +6292,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§8, Lemma 8.1 and proof, (8.2)–(8.6), pp. 409–410",
-          "excerpt": "is a polynomial of degree b which depends only on b and j",
           "match": "The lemma, corrected at b = 0."
         }
       ],
@@ -6435,7 +6331,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§8, Lemma 8.2 and proof, (8.7)–(8.10), pp. 410–411",
-          "excerpt": "We now use Lemma 8.1 to obtain a manageable expression",
           "match": "The lemma. The printed statement is right once G is corrected; (8.10) is corrected."
         }
       ],
@@ -6475,7 +6370,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§8, (8.16)–(8.17), p. 412",
-          "excerpt": "For part (1) of Proposition 4.3, we take k = 5 and",
           "match": "The polynomial and the exact ratio."
         }
       ],
@@ -6515,7 +6409,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§8, (8.15) and the following sentence, p. 412",
-          "excerpt": "by taking a rational approximation to the corresponding eigenvector",
           "match": "The computation and its exact-arithmetic verification."
         }
       ],
@@ -6552,7 +6445,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, footnote 2, p. 390",
-          "excerpt": "Explicitly, we can take H = {0, 10, 12, 24, 28, 30, 34, 42, 48, 52, 54, 64, 70, 72, 78, 82, 90, 94, 100, 112,",
           "match": "The set; Maynard attributes it to Engelsma's computations."
         }
       ],
@@ -6592,7 +6484,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§4, proof of Theorem 1.1, p. 391",
-          "excerpt": "of the ﬁrst k primes which are greater than k",
           "match": "The set and its diameter. The admissibility argument is corrected at p = k."
         }
       ],
@@ -6633,7 +6524,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, Theorem 1.3, p. 385; proof, p. 390",
-          "excerpt": "The proof is essentially elementary, relying only on the Bombieri-Vinogradov theorem.",
           "match": "The theorem and its deduction."
         }
       ],
@@ -6679,7 +6569,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, Theorem 1.4, p. 385; proof, p. 390",
-          "excerpt": "Assume that the primes have level of distribution θ for every θ < 1.",
           "match": "The theorem and its deduction."
         }
       ],
@@ -6721,7 +6610,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, Theorem 1.1, p. 384; proof, p. 391",
-          "excerpt": "This gives Theorem 1.1.",
           "match": "The theorem and its deduction."
         }
       ],
@@ -6766,7 +6654,6 @@
         {
           "sourceId": "MAYNARD-2015",
           "locator": "§1, Theorem 1.2, p. 385; proof, p. 391",
-          "excerpt": "We can now establish Theorem 1.2 by a simple counting argument.",
           "match": "The theorem and its deduction."
         }
       ],
@@ -6802,7 +6689,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.4, (11.4.1)",
-          "excerpt": "sieve",
           "match": "A quantified version of the source logarithmic condition; explicit C replaces its bounded additive term."
         }
       ],
@@ -6897,7 +6783,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.3, (12.3.1)",
-          "excerpt": "combinatorial sieve",
           "match": "The source’s dimension condition with a valid explicit logarithmic domain."
         }
       ],
@@ -6996,7 +6881,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.2, display R(x,y) preceding §12.3",
-          "excerpt": "combinatorial sieve",
           "match": "Native-carrier version of the source truncated absolute remainder sum."
         }
       ],
@@ -7092,7 +6976,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.1 remainder discussion and §12.2 R(x,y)",
-          "excerpt": "combinatorial sieve",
           "match": "A worker-specified quantitative family interface for the source’s distribution requirement; the logarithmic parametrization is explicit, not attributed as a definition in the source."
         }
       ],
@@ -7188,7 +7071,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.2, error estimate for R±",
-          "excerpt": "combinatorial sieve",
           "match": "Exact coefficient-sensitive native form, without a claim that truncation proves distribution."
         }
       ],
@@ -7226,7 +7108,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.3, Rankin proof; Exercise 11.6.1",
-          "excerpt": "Rankin",
           "match": "The squarefree weighted analogue of the Euler-product expansion, derived on the existing carrier."
         }
       ],
@@ -7263,7 +7144,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.3, Rankin proof; §11.4, Lemma 11.7 and Exercise 11.6.1",
-          "excerpt": "Rankin",
           "match": "Explicit finite weighted Rankin inequality; no smooth-number carrier or asymptotic estimate is redefined."
         }
       ],
@@ -7300,7 +7180,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.3, Rankin proof; §11.4, Lemma 11.8",
-          "excerpt": "Rankin",
           "match": "A finite Rankin replacement for the integral tail route, with all parameters and endpoints explicit."
         }
       ],
@@ -7340,7 +7219,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.4, Lemma 11.7; Exercise 11.6.1",
-          "excerpt": "sieve",
           "match": "Explicit proof route for the Euler product used in the weighted Rankin exercise; the proof is specified, not implemented."
         }
       ],
@@ -7377,7 +7255,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.4, Lemma 11.7 and Exercise 11.6.1",
-          "excerpt": "sieve",
           "match": "Same weighted sum with ω(d)=dν(d); preserves every uniform parameter."
         }
       ],
@@ -7414,7 +7291,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.4, Lemma 11.8 and (11.4.2)",
-          "excerpt": "sieve",
           "match": "The same finite tail, bounded directly by Rankin instead of the stated integral route."
         }
       ],
@@ -7454,7 +7330,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.4, Theorem 11.9 and Exercise 11.6.3; proof of Theorem 11.11",
-          "excerpt": "sieve",
           "match": "A mass-controlled, explicitly conditional variant derived from finite identities. The exact source statement and the twin-prime application remain gaps."
         }
       ],
@@ -7492,7 +7367,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.2 definition of D± and §12.3 parameter choice",
-          "excerpt": "combinatorial sieve",
           "match": "The exact prefix-dependent construction; the source’s informal parity wording is interpreted as constraints at each position, not a restriction to even/odd divisors."
         }
       ],
@@ -7593,7 +7467,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "Lemma 12.1, its specialization after the proof, and (12.2.1)–(12.2.2)",
-          "excerpt": "combinatorial sieve",
           "match": "Exact pointwise and weighted inequalities, preserving signs and the r=1 case."
         }
       ],
@@ -7630,7 +7503,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.2 definition of λ± and error estimate",
-          "excerpt": "combinatorial sieve",
           "match": "Promoted coefficient API for the fundamental estimate."
         }
       ],
@@ -7666,7 +7538,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.3, support exception for single primes in D−",
-          "excerpt": "combinatorial sieve",
           "match": "Promoted support API, with the source’s exception retained explicitly."
         }
       ],
@@ -7707,7 +7578,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "§12.4 and Theorem 12.2, first two displays",
-          "excerpt": "combinatorial sieve",
           "match": "Source estimate with the lower sign corrected from its first-failure proof."
         }
       ],
@@ -7748,7 +7618,6 @@
         {
           "sourceId": "KED-ANT-12",
           "locator": "Theorem 12.2, consequence display",
-          "excerpt": "combinatorial sieve",
           "match": "Exact weighted native-carrier form of the corrected combinatorial estimate."
         }
       ],
@@ -7789,7 +7658,6 @@
         {
           "sourceId": "KED-ANT-11",
           "locator": "§11.1 rough-number observation",
-          "excerpt": "sieve",
           "match": "Exact endpoint-safe form of the source’s elementary prime-factor transfer. It supplies no sifted count or advanced-sieve analytic input."
         }
       ],
@@ -8048,7 +7916,7 @@
       "source": "KED-ANT-11",
       "kind": "gap",
       "locator": "Live author HTML Chapter 11, proof of Theorem 11.11 invoking Theorem 11.9; accessed 2026-09-27.",
-      "printed": "We will apply Theorem 11.9",
+      "printed": "The source announces an application of Theorem 11.9.",
       "correction": "Supply a version of the sieve estimate valid for the two-residue setup, or verify its missing cutoff hypothesis before applying it. The proof as written checks the remainder bound but does not establish #A_d=0 for d>Cx with a fixed C. No claim is made that Brun's upper bound is false.",
       "reason": "For residue classes 0,-2, membership means d divides n(n+2), not d divides n; n<=x yields only the immediate quadratic cutoff d<=x(x+2). At x=33,z=11,n=33, d=1155=3*5*7*11 is an allowed squarefree divisor and A_d is nonempty despite d>x. This illustrates why the usual linear cutoff for divisibility samples cannot simply be imported; it is not asserted to disprove every possible fixed C.",
       "affects": "the proof",
@@ -8064,7 +7932,7 @@
       "source": "KED-ANT-11",
       "kind": "gap",
       "locator": "Live author HTML Chapter 11, proof of Theorem 11.11 between (11.5.1) and the asserted sieve estimate; accessed 2026-09-27.",
-      "printed": "we can take κ = 2",
+      "printed": "The source says that κ = 2 is an available choice.",
       "correction": "Invoke the stronger precise estimate sum_{p<=z}(log p)/p=log z+O(1), or another result giving the coefficient 1 with bounded additive error, to obtain (11.4.1) with kappa=2 for omega(p)=2. A merely unspecified O(log z) bound is insufficient for that particular value of kappa.",
       "reason": "Multiplying an O(log z) estimate by 2 does not fix its leading constant or bound the excess over 2 log z. The stronger standard estimate repairs this step; this finding concerns the displayed inference, not a claim that the prior homework lacks a stronger result.",
       "affects": "the proof",
@@ -8112,7 +7980,7 @@
       "source": "BOMBIERI-1971",
       "kind": "gap",
       "locator": "Published Acta Arithmetica 18 (1971), p.404, opening definition of I_m and the immediately following assertion that the bins cover all points.",
-      "printed": "I_m: mδ≤‖x_i−x_j‖<(m+1)δ, with (m+1)δ≤1/2; every x_j falls in some I_m.",
+      "printed": "The source defines I_m by mδ≤‖x_i−x_j‖<(m+1)δ, subject to (m+1)δ≤1/2, and claims that some I_m contains each x_j.",
       "correction": "For the off-diagonal points take all m≥1 whose radial bin intersects [0,1/2], retaining the final partial bin and any point at distance exactly 1/2. Equivalently intersect each bin [mδ,(m+1)δ) with [0,1/2] instead of requiring its upper endpoint to be at most 1/2. Prove the at-most-two assertion with the two oriented half-circles and count the antipodal point only once.",
       "reason": "For δ=3/10 and the two points 0 and 2/5 modulo one, separation holds. The distance 2/5 lies in the m=1 bin, but its upper endpoint is 3/5>1/2, so that bin is excluded as printed. No permitted bin contains this point. The same restriction also omits the half-circle endpoint when a bin ends at 1/2. This is a boundary omission in the proof, not a counterexample to the desired cosecant sum; the corrected packing argument remains an explicit obligation.",
       "affects": "the proof",
@@ -8128,7 +7996,7 @@
       "source": "KED-ANT-16",
       "kind": "misprint",
       "locator": "Live author HTML Chapter 16, acquired 2026-09-27, (16.1.2), final display of Theorem 16.2 proof, and final paragraph of Theorem 16.7 proof.",
-      "printed": "m ∈ ℤ; −n. M < m ≤ M+N; a_n. for some N.",
+      "printed": "The source gives m ∈ ℤ and −n, uses the range M < m ≤ M+N, and writes a_n for a choice of N.",
       "correction": "Use the quantified integer m in (16.1.2); index the exponential sum by n consistently; the smooth-number asymptotic has some positive constant c as N grows, rather than some N.",
       "reason": "The first two displayed formulas use a different free dummy name from the one quantified. In the third phrase N is the asymptotic variable already fixed by the argument, while c is the unspecified constant. These are local notation slips; the intended statements are identifiable.",
       "affects": "nothing",
@@ -8160,7 +8028,7 @@
       "source": "KED-ANT-16",
       "kind": "misprint",
       "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.4, theorem invoked before Lemma 16.5.",
-      "printed": "Theorem 16.2",
+      "printed": "The source refers to Theorem 16.2.",
       "correction": "Invoke the additive reduced-residue bound Theorem 16.1 when summing the corrected Lemma 16.5 over q.",
       "reason": "Lemma 16.5 provides a lower bound for reduced additive exponential-sum energies. Theorem 16.2 bounds a different sum over primitive multiplicative characters; its proof compares the multiplicative sum below the additive one, which is the wrong direction for inferring the needed additive upper bound. Theorem 16.1 gives that upper bound directly.",
       "affects": "the proof",
@@ -8224,7 +8092,7 @@
       "source": "KED-ANT-16",
       "kind": "gap",
       "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Definition 16.6, least positive quadratic nonresidue for p prime.",
-      "printed": "p prime",
+      "printed": "The source requires p to be prime.",
       "correction": "Restrict the definition to odd primes, or state a separate convention and treatment for p=2. The least positive nonsquare residue exists for each odd prime.",
       "reason": "Every element of ZMod 2 is a square: 0=0² and 1=1². Hence no positive integer is a quadratic nonresidue modulo 2 under the literal nonsquare-residue definition. The finitely many exceptional primes can be treated separately in the counting theorem.",
       "affects": "a stated result",
@@ -8390,7 +8258,7 @@
       "source": "MAYNARD-2015",
       "kind": "misprint",
       "locator": "Proof of Theorem 1.1, p. 391 (arXiv v3 p. 7)",
-      "printed": "This is admissible, since no element is a multiple of a prime less than k (and there are k elements, so it cannot cover all residue classes modulo any prime greater than k.)",
+      "printed": "The source claims admissibility because none of the k elements is divisible by a prime below k, while k elements cannot occupy every residue class for a prime above k.",
       "correction": "'less than k' should be 'at most k': no element, being a prime greater than k, is divisible by any prime p ≤ k.",
       "reason": "As printed, the argument does not cover p = k when k is prime: k elements can meet all k classes mod k. For k = 5 the set {7, 11, 13, 17, 19} misses 0 mod 5 only because no element is divisible by 5, which is the case the printed wording omits. The conclusion is true.",
       "affects": "the proof",
@@ -8405,7 +8273,7 @@
       "source": "MAYNARD-2015",
       "kind": "misprint",
       "locator": "§7, sentence before (7.10), p. 407 (arXiv v3 p. 19)",
-      "printed": "and then drop the requirement that Σ_{i=1}^{k} u_i > k − T",
+      "printed": "The source then removes the constraint Σ_{i=1}^{k} u_i > k − T.",
       "correction": "Σ_{i=2}^{k} u_i > k − T",
       "reason": "The error integral E_k of (7.7) is over u₂,…,u_k with Σ_{i=2}^{k} u_i > k − T; there is no variable u₁ in (7.7)–(7.10). Checked on the page image.",
       "affects": "nothing",
@@ -8465,7 +8333,7 @@
       "source": "KED-ANT-12",
       "kind": "error",
       "locator": "Live author HTML §12.1, paragraph beginning with the all-prime specialization, and the prime-indicator example before §12.2; acquired 2026-10-05.",
-      "printed": "For z≥x^(1/2), S(x,z)=Σ_{p≤x}f(p). With the prime indicator, S(x,x^(1/2)) counts twin primes.",
+      "printed": "The source gives S(x,z)=Σ_{p≤x}f(p) when z≥x^(1/2), and says that choosing the prime indicator makes S(x,x^(1/2)) a count of twin primes.",
       "correction": "With the displayed divisibility setup and P(z)=∏_{p≤z}p, in the range sqrt(x)≤z≤x and positive samples, S(x,z)=f(1)+Σ_{z<p≤x}f(p). For twin primes use bad classes n≡−2 modulo p and explicitly account for primes p+2≤z and the shifted size bound; the unshifted prime-indicator sieve does not count twins.",
       "reason": "At x=25,z=5 and f the prime indicator, the displayed coprimality sieve retains 7,11,13,17,19,23, so S=6. There are nine primes≤25, and four primes p≤25 with p+2 prime (3,5,11,17). The prime 13 survives the displayed sieve though 15 is composite. For general f, the unit also survives.",
       "affects": "the proof",
@@ -8480,7 +8348,7 @@
       "source": "KED-ANT-12",
       "kind": "error",
       "locator": "Live author HTML §12.1 inclusive P(z) definition versus Lemma 12.1 V(p_n) and p₁<z, and Exercise 12.6.1 hint; acquired 2026-10-05.",
-      "printed": "P(z)=∏_{p≤z,p∈P}p; V(z)=∏_{p|P(z)}(1−g(p)). The hint uses V(z)=1−Σ_{p<z}g(p)V(p).",
+      "printed": "The source defines P(z)=∏_{p≤z,p∈P}p and V(z)=∏_{p|P(z)}(1−g(p)); its hint invokes V(z)=1−Σ_{p<z}g(p)V(p).",
       "correction": "Use the strict convention P(z)=∏_{p<z,p∈P}p and V(p)=∏_{q<p,q∈P}(1−g(q)) consistently throughout the first-failure identity. Alternatively retain inclusive P(z), replace the outer cutoff by p≤z, and use the left-limit product V(p−) in each summand. The planned Brun system uses strict prime cutoffs; it is not silently identified with Chapter 11’s inclusive convention.",
       "reason": "For selected primes {2},g(2)=1/2,z=3 the printed inclusive V(z)=1/2 and V(2)=1/2, whereas the hinted right-hand side is 1−(1/2)(1/2)=3/4. In Lemma 12.1 with y=2,β=2, the upper coefficient at 2 vanishes; V⁺=1 and the printed first-failure term g(2)V(2)=1/4 also gives the wrong V=3/4. The strict left-limit factor V(2−)=1 restores 1/2. At prime z the mismatch also omits the outer boundary prime.",
       "affects": "the proof",

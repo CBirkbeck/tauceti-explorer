@@ -857,13 +857,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, LNM p. 89 (PDF 5)",
-     "excerpt": "The classifying space of C, denoted BC, is the geometric realization of NC.",
      "match": "Quillen's definition of BC as the realisation of the nerve, taken verbatim as the construction."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Characterization 3.1, Recipe 3.1.1 and Definition 3.1.4, pp. IV.24–25",
-     "excerpt": "BC is defined as the geometric realization |N C| of the nerve of C.",
      "match": "Weibel's definition and the naturality property (1) of Characterization 3.1 give the functor B."
     }
    ],
@@ -1021,13 +1019,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 3.1.4, p. IV.25",
-     "excerpt": "attaching an n-cell for each nondegenerate n-simplex x, identifying the boundary faces of the simplex with the (n − 1)-simplices indexed by the ∂i x",
      "match": "The cell attachment whose model arrow this lemma identifies."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, LNM p. 89 (PDF 5)",
-     "excerpt": "It is a CW complex whose p-cells are in one-one correspondence with the p-simplices of the nerve which are nondegenerate",
      "match": "Quillen's description of the cells, citing Milnor and Segal."
     }
    ],
@@ -1073,13 +1069,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 3.1.4, p. IV.25",
-     "excerpt": "attaching an n-cell for each nondegenerate n-simplex x, identifying the boundary faces of the simplex with the (n − 1)-simplices indexed by the ∂i x",
      "match": "Weibel's description of the realisation as a CW complex with one cell per nondegenerate simplex."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Characterization 3.1 (4)–(5), p. IV.24",
-     "excerpt": "If C is a subcategory of D, BC is a subcomplex",
      "match": "The subcomplex and coproduct properties recorded in the node."
     }
    ],
@@ -1204,13 +1198,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, formula (3), LNM p. 91 (PDF 7)",
-     "excerpt": "we note that there is an obvious canonical cellular homeomorphism",
      "match": "Quillen's formula (3) is the statement of the node (scan OCR of C^op)."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "p. IV.25",
-     "excerpt": "this recipe implies a canonical cellular homeomorphism between BC and the realization BC op of the opposite category C op",
      "match": "Confirms the homeomorphism is cellular and comes from the recipe, not from a functor."
     }
    ],
@@ -1251,7 +1243,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, formula (4), LNM p. 92 (PDF 8)",
-     "excerpt": "is a homeomorphism if either BC or BC' is a finite complex",
      "match": "Quillen's finite-complex case of (4); the compactly generated case is H.1/classifying-space-prod-compactly-generated."
     }
    ],
@@ -1289,13 +1280,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, formula (4), LNM p. 92 (PDF 8)",
-     "excerpt": "and also if the product is given the compactly generated topology",
      "match": "Quillen's (4), compactly generated case, citing Milnor."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Characterization 3.1 (6), p. IV.24",
-     "excerpt": "B(C × D) is homeomorphic to (BC) × (BD), where the product is given the compactly generated topology",
      "match": "Weibel's form of the statement."
     }
    ],
@@ -1335,13 +1324,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 2, LNM p. 92 (PDF 8)",
-     "excerpt": "A natural transformation θ: f → g of functors from C to C′ induces a homotopy",
      "match": "Quillen's Proposition 2, stated and proved by viewing θ as a functor C × [1] → C′."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Homotopy-theoretic properties 3.2, p. IV.25",
-     "excerpt": "A natural transformation η: F0 ⇒ F1 between two functors Fi : C → D gives a homotopy BC × [0, 1] → BD between the maps BF0 and BF1 .",
      "match": "Weibel's statement, derived from (4) and (6) of Characterization 3.1."
     }
    ],
@@ -1378,13 +1365,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 2, Corollary 1, LNM p. 92 (PDF 8)",
-     "excerpt": "If a functor f has either a left or a right adjoint, then f is a homotopy equivalence.",
      "match": "Quillen's Corollary 1 to Proposition 2."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "3.2 and Example 3.2.1, p. IV.26",
-     "excerpt": "Any equivalence C0 −→ C between small categories induces a homotopy equivalence BC0 −→ BC, because F has an adjoint.",
      "match": "Weibel's adjoint consequence and the smallness remark."
     }
    ],
@@ -1423,13 +1408,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 2, Corollary 2, LNM p. 92 (PDF 8)",
-     "excerpt": "A category having either an initial or a final object is contractible.",
      "match": "Quillen's Corollary 2."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Example 3.2.2, p. IV.26",
-     "excerpt": "Any category with an initial object is con-tractible, because then the natural functor C → 1 has a left adjoint.",
      "match": "Weibel's statement and its comma-category application."
     }
    ],
@@ -1469,7 +1452,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, before Proposition 3, LNM p. 92 (PDF 8)",
-     "excerpt": "because filtered inductive limits commute with finite projective limits, we have ObC = lim ObC_i, ArC = lim ArC_i, and more generally NC = lim NC_i",
      "match": "Quillen's statement of the lemma, used in the proof of Proposition 3."
     }
    ],
@@ -1510,7 +1492,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 3, LNM p. 92 (PDF 8)",
-     "excerpt": "Let I be a small category which is filtering (= non-empty + directed [Bass, p.41]) and let i ↦ C_i be a functor from I to small categories.",
      "match": "Quillen's Proposition 3 and its proof by lifting finite subcomplexes, summarised in the node."
     }
    ],
@@ -1548,7 +1529,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 3, Corollary 1, LNM p. 92 (PDF 8)",
-     "excerpt": "Suppose in addition that for every arrow i → i' in I the induced functor C_i → C_i', is a homotopy equivalence. Then the functor C_i → C is a homotopy equivalence for each i.",
      "match": "Quillen's Corollary 1 to Proposition 3 (scan OCR; the hypothesis is that the transition functors are homotopy equivalences)."
     }
    ],
@@ -1586,13 +1566,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 3, Corollary 2, LNM p. 93 (PDF 9)",
-     "excerpt": "Any filtering category is contractible.",
      "match": "Quillen's Corollary 2."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.4, p. IV.34",
-     "excerpt": "If C is a filtering category [WHomo, 2.6.13], show that BC is contractible.",
      "match": "Weibel's exercise version with the finite-subcategory hint."
     }
    ],
@@ -1631,13 +1609,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 3 and proof, LNM p. 92 (PDF 8)",
-     "excerpt": "Proposition 3: Let I be a filtering small category",
      "match": "The homology statement is packet-authored from the same lifting of finite subcomplexes that proves Quillen's Proposition 3, together with exactness of filtered colimits."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.5, p. IV.34",
-     "excerpt": "this shows that BL ≃ limn→∞ BCn",
      "match": "Weibel's homotopy-level telescope statement, whose homology consequence this node states; the node itself is packet-authored."
     }
    ],
@@ -1677,7 +1653,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Lemma 3.3, p. IV.27",
-     "excerpt": "Let ∼ be the equivalence relation on obj(C) which is generated by the relation that c ∼ c′ if there is a morphism in C between c and c′ .",
      "match": "Weibel's Lemma 3.3 with π0(C) = obj(C)/∼."
     }
    ],
@@ -1716,13 +1691,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'Coverings of BC and the fundamental group', LNM p. 90 (PDF 6)",
-     "excerpt": "Using [Gabriel-Zisman, App.I, 3.2] it is not difficult to see that when F is morphism-inverting, the map B(F\\C) → BC is locally trivial",
      "match": "Quillen imports the lemma from Gabriel–Zisman for nerves of categories of elements."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.1, pp. IV.33–34",
-     "excerpt": "use the recipe 3.1.1 to show that the forgetful functor",
      "match": "Weibel's exercise form for categories of elements."
     }
    ],
@@ -1767,13 +1740,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.1, pp. IV.33–34; Local coefficients 3.5.1, p. IV.29",
-     "excerpt": "morphism-inverting functors are in 1–1 correspondence with covering spaces of BC",
      "match": "The covering-space correspondence (as 3.5.1 records it)."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'Coverings of BC and the fundamental group', Proposition 1, LNM p. 90 (PDF 6)",
-     "excerpt": "The category of covering spaces of BC is canonically equivalent to the category of morphism-inverting functors F : C → Sets",
      "match": "Quillen's Proposition 1 (the covering part)."
     }
    ],
@@ -1819,13 +1790,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Proposition 1, LNM p. 90 (PDF 6)",
-     "excerpt": "The fundamental group π₁(C,X) is canonically isomorphic to the group of automorphisms of X as an object of the groupoid G.",
      "match": "Quillen's Proposition 1 (fundamental group); the groupoid form is the packet's strengthening, all points of BC being joined to vertices."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Application 3.4.2, p. IV.28",
-     "excerpt": "the group π = π1 (BM ) is the group com-pletion (Ex. II.1.1) of the monoid M",
      "match": "The monoid case, an instance of the node."
     }
    ],
@@ -1864,7 +1833,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Lemma 3.4, p. IV.27",
-     "excerpt": "Suppose that T is a maximal tree in a small connected category C. Then the group π1 (BC) has the following presentation",
      "match": "Weibel's Lemma 3.4, stated as an application of van Kampen's theorem."
     }
    ],
@@ -1904,13 +1872,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Local coefficients 3.5.1, p. IV.29",
-     "excerpt": "the morphism-inverting functors M : C → Ab are in 1–1 correspondence with local coefficient systems on the topological space BC",
      "match": "Weibel's statement of the correspondence for abelian-group coefficients, here for R-modules."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, after Proposition 1, LNM p. 90 (PDF 6)",
-     "excerpt": "It follows in particular that a local coefficient system L of abelian groups on BC may be identified with the morphism-inverting functor",
      "match": "Quillen's statement of the node for abelian groups."
     }
    ],
@@ -1950,13 +1916,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "(3.5) The homology of C and BC, p. IV.28",
-     "excerpt": "More generally, for each functor M : C → Ab we let Hi (C; M ) denote the ith homology of the chain complex",
      "match": "Weibel's definition, with the boundary map and the computation of H0 as the colimit."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The homology of BC', LNM p. 91 (PDF 7)",
-     "excerpt": "(By the homology we mean the homology of the associated normalized chain complex.)",
      "match": "Quillen's definition of H_p(C, A) via the simplicial abelian group ⊔ A(X₀) and its normalised complex."
     }
    ],
@@ -2082,7 +2046,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The homology of BC', unnumbered display before formula (1), LNM p. 91 (PDF 7)",
-     "excerpt": "This is proved by showing that A ↦ H_*(C,A) is an exact ∂-functor which coincides with lim in degree zero and is effaceable in positive degrees.",
      "match": "Quillen's formula (1) identifying the homology with derived functors of the colimit (scan OCR of the display), proved by the effaceability argument recorded in the steps."
     }
    ],
@@ -2124,13 +2087,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The homology of BC', LNM p. 91 (PDF 7)",
-     "excerpt": "This may be proved by filtering the CW complex BC by means of its skeleta and considering the associated spectral sequence.",
      "match": "Quillen states E¹_pq = 0 for q ≠ 0 and E¹_*0 = the normalised chain complex of C_*(C, L); this node is that identification."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Application 3.4.2, p. IV.28",
-     "excerpt": "The cellular chain complex used to form the homology of BG with coefficients in M is the same as the canonical chain complex used to compute the homology of G",
      "match": "The group case."
     }
    ],
@@ -2174,13 +2135,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The homology of BC', unnumbered display before formula (1), LNM p. 91 (PDF 7)",
-     "excerpt": "This may be proved by filtering the CW complex BC by means of its skeleta and considering the associated spectral sequence.",
      "match": "Quillen's statement H_p(BC, L) = H_p(C, L) and its skeletal spectral sequence proof."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Local coefficients 3.5.1, p. IV.29",
-     "excerpt": "the groups Hi (C; M ) are canonically isomorphic to Hi (BC; M ), the topologist’s homology groups of BC with local coefficients M .",
      "match": "Weibel's statement, citing Whitehead VI.4.8."
     }
    ],
@@ -2220,13 +2179,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Example 3.1.3, p. IV.25",
-     "excerpt": "Any group G (or monoid) may be regarded as a category with one object. The realization BG of this category is the space studied in Section 1.",
      "match": "Weibel's definition of BG as B of the one-object category."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Application 3.4.1, p. IV.28",
-     "excerpt": "BG is often called the classifying space of the group G",
      "match": "Names the space."
     }
    ],
@@ -2365,7 +2322,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Translation categories 3.3.1, p. IV.27; Exercise 3.2, p. IV.34",
-     "excerpt": "this shows that B(G G) is contractible, i.e., the universal covering space of BG",
      "match": "Weibel's exercise, whose solution is the argument recorded in the steps."
     }
    ],
@@ -2406,7 +2362,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Application 3.4.1, p. IV.28",
-     "excerpt": "By Lemma 3.4 (with T empty) we see that π1 (BG) = G. In fact, πi (BG) = 0 for all i ≥ 2. (See Ex. 3.2.)",
      "match": "Weibel's statement; Exercise 3.2 supplies the vanishing of higher homotopy groups via the universal cover."
     }
    ],
@@ -2449,7 +2404,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Homotopy-theoretic properties 3.2, p. IV.25",
-     "excerpt": "A natural transformation η: F0 ⇒ F1 between two functors Fi : C → D gives a homotopy",
      "match": "The conjugation homotopy is the case of the natural isomorphism given by h; packet-authored application, the roadmap's H.1 test."
     }
    ],
@@ -2494,7 +2448,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Application 3.4.2 and (3.5), p. IV.28",
-     "excerpt": "The cellular chain complex used to form the homology of BG with coefficients in M is the same as the canonical chain complex used to compute the homology of G, so we have H∗ (BG; M ) = H∗ (G; M ).",
      "match": "Weibel's identification of the cellular complex of BG with the bar complex."
     }
    ],
@@ -2534,7 +2487,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, p. 55 (arXiv v3)",
-     "excerpt": "If C is a groupoid, then N (C) is a Kan complex",
      "match": "Bhatt–Scholze's statement."
     }
    ],
@@ -2574,13 +2526,11 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, pp. 55–56",
-     "excerpt": "If C is a groupoid, then N (C) is a Kan complex, whose geometric realization |N (C)| is a (compactly gener-ated) topological space whose only nonzero homotopy groups are π0 and π1 .",
      "match": "Bhatt–Scholze's statement, with the disjoint-union decomposition on p. 56."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 4.1, p. IV.36",
-     "excerpt": "B(iso S) is homotopy equivalent to the disjoint union of the classifying spaces B Aut(s)",
      "match": "Weibel's form for the core of a symmetric monoidal category."
     }
    ],
@@ -2621,13 +2571,11 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.1, paragraph before Theorem 4.5, printed p. 346 (PDF 355)",
-     "excerpt": "If a map f : X →Y between connected CW complexes induces isomor-phisms f∗ : πn (X)→πn (Y ) for all n , then f is a homotopy equivalence.",
      "match": "Whitehead's theorem, whose hypothesis is the notion defined here; Hatcher calls such a map a weak homotopy equivalence in the surrounding text."
     },
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.1 CW Approximation, printed p. 352 (PDF 361)",
-     "excerpt": "A map f : X →Y is called a weak homotopy equivalence if it induces",
      "match": "Hatcher's definition (isomorphisms on π_n for all n ≥ 0 and all basepoints), adopted by the node."
     }
    ],
@@ -2734,13 +2682,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Homotopy Fiber 1.2, p. IV.3",
-     "excerpt": "is the space of pairs (e, γ), where e ∈ E and γ : [0, 1] → B is a path in B",
      "match": "Weibel's definition of the homotopy fibre and of homotopy fibration sequences (with paths from the basepoint)."
     },
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3 'Pathspace constructions', printed p. 407 (PDF 416)",
-     "excerpt": "It consists of all pairs (a, γ) with a ∈ A and γ a path in B from f (a) to a basepoint b0 ∈ B .",
      "match": "Hatcher's homotopy fibre, whose path convention the node pins."
     }
    ],
@@ -2872,7 +2818,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Proposition 4.64, printed p. 407 (PDF 416)",
-     "excerpt": "The map p : Ef →B , p(a, γ) = γ(1) , is a fibration.",
      "match": "Hatcher's Proposition 4.64 and the deformation retraction described after it."
     }
    ],
@@ -2912,7 +2857,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2, Theorem 4.41 and proof, printed p. 376 (PDF 385)",
-     "excerpt": "the map p∗ : πn (E, F , x0 )→πn (B, b0 ) is an isomorphism for all n ≥ 1",
      "match": "Hatcher's Theorem 4.41, whose proof the steps follow."
     }
    ],
@@ -2954,7 +2898,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Proposition 4.65, printed p. 408 (PDF 417)",
-     "excerpt": "If p : E →B is a fibration, then the inclusion E ֓ Ep is a fiber ho-motopy equivalence. In particular, the homotopy fibers of p are homotopy equivalent to the actual fibers.",
      "match": "Hatcher's Proposition 4.65."
     }
    ],
@@ -2994,13 +2937,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Homotopy Fiber 1.2, p. IV.3",
-     "excerpt": "there is a long exact sequence of homotopy groups/pointed sets",
      "match": "Weibel's long exact sequence, whose boundary map ∂ this node constructs."
     },
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, printed p. 407 (PDF 416)",
-     "excerpt": "This means that πi+1 (B, A, x0 ) can be identified with πi (Ff , γ0 )",
      "match": "Hatcher's identification of relative homotopy with homotopy of the homotopy fibre, underlying the connecting map."
     }
    ],
@@ -3101,19 +3042,16 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2, Theorem 4.41, printed p. 376 (PDF 385)",
-     "excerpt": "Hence if B is path-connected, there is a long exact sequence",
      "match": "Hatcher's long exact sequence for maps with homotopy lifting for discs, applied to E_f → B."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Homotopy Fiber 1.2, p. IV.3",
-     "excerpt": "there is a long exact sequence of homotopy groups/pointed sets",
      "match": "Weibel's statement for an arbitrary map via its homotopy fibre."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The exact homotopy sequence', LNM p. 96 (PDF 12)",
-     "excerpt": "the exact homotopy sequence",
      "match": "Quillen's form used for Theorem B (scan OCR)."
     }
    ],
@@ -3153,13 +3091,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Homotopy Fiber 1.2, p. IV.3",
-     "excerpt": "there is a long exact sequence of homotopy groups/pointed sets",
      "match": "Weibel states exactness in the pointed-set range; the orbit description is the standard refinement, packet-authored here, required by the roadmap's degree-0/1 contract."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.3, p. IV.34",
-     "excerpt": "Conclude that the homotopy fiber of BH → BG is the discrete set G/H",
      "match": "The subgroup example that tests the action."
     }
    ],
@@ -3199,7 +3135,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Proposition 4.61, printed p. 405 (PDF 414)",
-     "excerpt": "For a fibration p : E →B , the fibers Fb = p−1 (b) over each path component of B are all homotopy equivalent.",
      "match": "Hatcher's Proposition 4.61, applied to E_f → B; the explicit concatenation formula is that of its proof."
     }
    ],
@@ -3306,7 +3241,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The exact homotopy sequence', LNM p. 96 (PDF 12)",
-     "excerpt": "is called homotopy-cartesian if the map",
      "match": "Quillen's definition of homotopy-cartesian squares (scan OCR), via the map into the homotopy fibre product."
     }
    ],
@@ -3411,7 +3345,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1 'The exact homotopy sequence', LNM pp. 96–97 (PDF 12–13)",
-     "excerpt": "is homotopy-cartesian",
      "match": "Quillen states the contractible-base criterion right after the definition (scan OCR); the proof steps are packet-authored."
     }
    ],
@@ -3451,7 +3384,6 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "Proof of Theorem B, LNM p. 99 (PDF 15)",
-     "excerpt": "Since the square (1) + (3) ie homotopy-cartesian. it follows that (1) is homotopy-cartesian. hence (1) + (2) is aleo. whence the theorem.",
      "match": "Quillen's use of the pasting lemma (scan OCR); its proof is packet-authored."
     }
    ],
@@ -3492,13 +3424,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Example 3.2.3, p. IV.26",
-     "excerpt": "It follows that there is a natural continuous map from B(F/d) to the homotopy fiber of BC → BD.",
      "match": "Weibel's construction of the canonical map from the comma category."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, LNM p. 96 (PDF 12)",
-     "excerpt": "contracts canonically to the constant map with image Y, and so we obtain a canonical map",
      "match": "Quillen's construction preceding Theorem B (scan OCR)."
     }
    ],
@@ -3597,13 +3527,11 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.K 'Quasifibrations', printed p. 479 (PDF 488)",
-     "excerpt": "An alternative condition for a map p : E →B to be a quasifibration is that the inclusion of each fiber p −1 (b) into the homotopy fiber Fb of p over b is a weak homotopy equivalence.",
      "match": "Hatcher's equivalent definition, used as the node's definition."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, lemma preceding 'Proof of Theorem B', LNM p. 97 (PDF 13)",
-     "excerpt": "quasi-fibration",
      "match": "Quillen's notion in the quasi-fibration lemma (scan OCR)."
     }
    ],
@@ -3695,7 +3623,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.K, Proposition 4K.1 and proof, printed pp. 476-478 (PDF 485-487)",
-     "excerpt": "Let f : (X; A, B)→(Y ; C, D) be a map of excisive triads.",
      "match": "Hatcher's Proposition 4K.1, used in the proof of Lemma 4K.3(a)."
     }
    ],
@@ -3735,13 +3662,11 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.K, Lemma 4K.3, printed p. 480 (PDF 489)",
-     "excerpt": "A map p : E →B is a quasifibration if any one of the following condi-tions is satisfied",
      "match": "Hatcher's Lemma 4K.3, conditions (a)–(c)."
     },
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.K, proof of Lemma 4K.3, printed p. 480 (PDF 489)",
-     "excerpt": "we will consider only the case that the fibers of p are path-connected",
      "match": "The restriction of Hatcher's proof that the node records as a hypothesis gap."
     }
    ],
@@ -3778,7 +3703,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.K, Lemma 4K.3(b) and proof, printed p. 480 (PDF 489)",
-     "excerpt": "B is the union of an increasing sequence of subspaces B1 ⊂ B2 ⊂ ··· with the property that each compact set in B lies in some Bn",
      "match": "Hatcher's criterion (b) (Dold–Lashof Lemma 1.5, as Quillen cites it)."
     }
    ],
@@ -3818,7 +3742,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.K, Lemma 4K.3(c) and proof, printed pp. 480-481 (PDF 489-490)",
-     "excerpt": "There is a deformation Ft of E into a subspace E ′ , covering a deformation",
      "match": "Hatcher's criterion (c) (Dold–Lashof Lemma 1.3, as Quillen cites it)."
     }
    ],
@@ -3859,13 +3782,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Lemma preceding the proof of Theorem A, LNM p. 94 (PDF 10)",
-     "excerpt": "procedures yield the same result:",
      "match": "Quillen's realisation of bisimplicial spaces, defined as a left adjoint, in the lemma hypothesis."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 3.6, p. IV.29",
-     "excerpt": "The geometric realization BX of a bisimplicial set X is ob-tained by taking one copy of the product ∆p × ∆q for each element of Xp,q",
      "match": "Weibel's coend description of the realisation of a bisimplicial set."
     }
    ],
@@ -3978,13 +3899,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Lemma preceding the proof of Theorem A, LNM pp. 94–95 (PDF 10–11)",
-     "excerpt": "procedures yield the same result:",
      "match": "Quillen states the three-way homeomorphism and proves it by representables and the canonical presentation."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 3.6, p. IV.29",
-     "excerpt": "it is well known (see [BF,B.1]) that BX is homeomorphic to B diag(X)",
      "match": "Weibel's formulation for bisimplicial sets, with a citation rather than a proof."
     }
    ],
@@ -4021,7 +3940,6 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix C, paragraph before Proposition C.3, p. 161",
-     "excerpt": "we call a simplicial space X• proper if all the maps Ln X → Xn are h-cofibrations",
      "match": "Nikolaus–Scholze's definition, adopted verbatim."
     }
    ],
@@ -4116,7 +4034,6 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix C, Proposition C.1, p. 160",
-     "excerpt": "The geometric realization functor | − | : Fun(∆op , Top) → Top of Construction B.6 commutes with finite limits.",
      "match": "Nikolaus–Scholze's Proposition C.1 with its proof sketch."
     }
    ],
@@ -4158,7 +4075,6 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix C, Lemma C.2 (Gluing Lemma), p. 161",
-     "excerpt": "Then also the induced map on pushouts B ∪A C → B ′ ∪A′ C ′ is a weak homotopy equivalence.",
      "match": "Nikolaus–Scholze's Lemma C.2, citing Boardman–Vogt for the proof."
     }
    ],
@@ -4195,7 +4111,6 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix C, proof of Proposition C.3, p. 161",
-     "excerpt": "If X• is proper the pushout product axiom implies that the upper morphism is an h-cofibration.",
      "match": "Nikolaus–Scholze's use of the product theorem, cited without proof; Strøm's theorem itself is not among the supplied sources."
     }
    ],
@@ -4241,13 +4156,11 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix C, Proposition C.3, p. 161",
-     "excerpt": "Let f : X• → Y• be a map of proper simplicial spaces that is a levelwise weak homotopy equivalence. Then the realization |X• | → |Y• | is a weak homotopy equivalence as well.",
      "match": "Nikolaus–Scholze's Proposition C.3 with the proof summarised in the steps."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 3.6.1(i), p. IV.29",
-     "excerpt": "If each simplicial map Xp,∗ → Yp,∗ is a homotopy equivalence, so is BX → BY .",
      "match": "Weibel's bisimplicial-set form, cited from Waldhausen 1978 and Quillen."
     }
    ],
@@ -4294,7 +4207,6 @@
     {
      "sourceId": "Weibel-KBook-V",
      "locator": "Proposition 1.7 and proof, p. V.8",
-     "excerpt": "But if X. → Y. → Z. is any sequence of simplicial spaces, and each Xn → Yn → Zn is a fibration with Zn connected, then Ω|Z.| → |X.| → |Y.| → |Z.| is a homotopy fibration sequence; see [Wa78, 5.2].",
      "match": "Weibel's statement of the lemma inside the proof of V.1.7, citing Waldhausen 1978, Lemma 5.2."
     }
    ],
@@ -4338,7 +4250,6 @@
     {
      "sourceId": "Weibel-KBook-V",
      "locator": "Proposition 1.7 and proof, p. V.8",
-     "excerpt": "But if X. → Y. → Z. is any sequence of simplicial spaces, and each Xn → Yn → Zn is a fibration with Zn connected",
      "match": "The connected special case as Weibel quotes it from Waldhausen 1978, 5.2; the π_*-Kan form is Bousfield–Friedlander's Theorem B.4, which is not among the supplied sources."
     }
    ],
@@ -4378,13 +4289,11 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix C, Definition C.4 and Proposition C.5, p. 162",
-     "excerpt": "The (Bousfield-Kan) homotopy colimit of X is defined as the geo-metric realization",
      "match": "Nikolaus–Scholze's definition; the printed X(i_n) is the known misprint PAPER-NIKOLAUS-SCHOLZE-18/E18, corrected to X(i₀) for covariant X."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, lemma preceding 'Proof of Theorem B', LNM pp. 97–98 (PDF 13–14)",
-     "excerpt": "which is a special case of a general result about the realization of a map of simplicial spaces",
      "match": "Quillen's X_I in the quasi-fibration lemma is this homotopy colimit with its map to BI."
     }
    ],
@@ -4494,7 +4403,6 @@
     {
      "sourceId": "NikolausScholze-TC-2018",
      "locator": "Appendix B, Lemma B.7 with proof and footnote 44, p. 149 (arXiv pagination; p. 386 in Acta Math.)",
-     "excerpt": "geometric realization models the homotopy colimit",
      "match": "Nikolaus–Scholze's Lemma B.7 (item PAPER-NIKOLAUS-SCHOLZE-18/153); the classical comparison-map form is the statement it is proved through."
     }
    ],
@@ -4546,13 +4454,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, lemma and proof preceding 'Proof of Theorem B', LNM pp. 97–98 (PDF 13–14)",
-     "excerpt": "which is a special case of a general result about the realization of a map of simplicial spaces",
      "match": "Quillen's lemma is stated and proved from Dold–Lashof Lemmas 1.3–1.5 as described in the proof steps."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 3.6.1(ii), p. IV.29",
-     "excerpt": "and f −1 (i) → f −1 (j) is a homotopy equivalence for every i → j in I, then each B(f −1 (i)) → BX → B(I) is a homotopy fibration sequence",
      "match": "Weibel's bisimplicial-set form of the same statement, cited from Waldhausen and Quillen without proof."
     }
    ],
@@ -4591,7 +4497,6 @@
     {
      "sourceId": "Kahn-RankSpectralSequence-2011",
      "locator": "Theorem 1.4.3 and Lemma 1.4.5, p. 6–7",
-     "excerpt": "There is a canonical weak equivalence δN(D, F) → N(D ∫ F)",
      "match": "Kahn's statement of Thomason's theorem [Th, Th. 1-2] and of the adjunction for F_T."
     }
    ],
@@ -4631,13 +4536,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.7, p. IV.34",
-     "excerpt": "Then show that the row filtration yields a spectral sequence converging to H∗ (C; Z) with Epq = Hp (D; Hq F −1 )",
      "match": "Weibel's exercise for a cofibred functor; its printed double complex has rows d₀\\F and is corrected in the proof steps (source issue on Ex. 3.7)."
     },
     {
      "sourceId": "Kahn-RankSpectralSequence-2011",
      "locator": "Corollary 1.4.6, p. 7",
-     "excerpt": "There is a spectral sequence Ep,q = Hp (D, Hq (FT , A)) ⇒ Hp+q (C, A)",
      "match": "Kahn's general form for an arbitrary functor T."
     }
    ],
@@ -4684,13 +4587,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Theorem A, LNM p. 93 (PDF 9); proof LNM pp. 95–96 (PDF 11–12)",
-     "excerpt": "which is a homotopy equiValence for each q because the category C 'IfX0 has a final object",
      "match": "Key step of Quillen's proof of Theorem A (scan OCR of C′/fX₀); the statement is on LNM p. 93."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "3.7 Quillen's Theorem A with proof, p. IV.30",
-     "excerpt": "Let F : C → D be a functor such that d\\F is contractible for every d in D. Then BF : BC −→ BD is a homotopy equivalence.",
      "match": "Clean statement matching the node; Weibel's proof uses D\\F and Theorem 3.6.1."
     }
    ],
@@ -4731,13 +4632,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Fibered and Cofibered functors 3.7.3, p. IV.31",
-     "excerpt": "We say that a functor F : C → D is pre-fibered if for every d in D the inclusion F −1 (d) ֒→ d\\F has a right adjoint.",
      "match": "Weibel's definition (following SGA 1), and the consequence BF⁻¹(d) ≃ B(d\\F); the comparison with cartesian lifts is packet-authored."
     },
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, LNM p. 93 (PDF 9)",
-     "excerpt": "makes a prefibred category over in the sense of lac.cit.",
      "match": "Quillen states the equivalence with the right adjoint to f⁻¹(Y) → Y\\f (scan OCR)."
     }
    ],
@@ -4773,7 +4672,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Corollary 3.7.4, p. IV.31",
-     "excerpt": "Suppose that F : C → D is either pre-fibered or pre-cofibered, and that F −1 (d) is contractible for each d in D. Then BF is a homotopy equivalence",
      "match": "Weibel's Corollary 3.7.4."
     }
    ],
@@ -4823,13 +4721,11 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, Theorem B and Corollary, LNM p. 97 (PDF 13); proof LNM pp. 98–99 (PDF 14–15)",
-     "excerpt": "Since the square (1) + (3) ie homotopy-cartesian. it follows that (1) is homotopy-cartesian. hence (1) + (2) is aleo. whence the theorem.",
      "match": "Final step of Quillen's proof (scan OCR) matching the last proof step."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "3.8 Quillen's Theorem B with proof, p. IV.31",
-     "excerpt": "Let F : C → D be a functor such that for every morphism d → d′ in D the induced functor d′ \\F → d\\F is a homotopy equivalence.",
      "match": "Hypothesis of Theorem B in Weibel's formulation, followed by the homotopy fibration conclusion and long exact sequence."
     }
    ],
@@ -4868,7 +4764,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Corollary 3.8.1, p. IV.32",
-     "excerpt": "Suppose that F is pre-fibered, and for every f : d → d′ in D the base change f ∗ is a homotopy equivalence.",
      "match": "Weibel's Corollary 3.8.1; the precofibred dual is Exercise 3.6(c)."
     }
    ],
@@ -4906,7 +4801,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.6(c), p. IV.34",
-     "excerpt": "If each cobase change functor f∗ is a homotopy equivalence, show that the geometric realization of F −1 (d) → C −→ D is a homotopy fibration sequence",
      "match": "The precofibred form of Theorem B, applied to the extension; the application is packet-authored."
     }
    ],
@@ -4944,7 +4838,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 1.3, p. IV.4",
-     "excerpt": "We call a topological space F acyclic if it has the homology of a point",
      "match": "Weibel's definition, taken from Hausmann–Husemoller and Berrick."
     }
    ],
@@ -5051,7 +4944,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§2.A, Theorem 2A.1 with proof, printed p. 166 (PDF 175)",
-     "excerpt": "If X is path-connected, then h is surjective and has kernel the commutator subgroup of π1 (X) , so h induces an isomorphism from the abelian- ization of π1 (X) onto H1 (X) .",
      "match": "Statement and proof followed."
     }
    ],
@@ -5096,7 +4988,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Lemma 1.3.1 with proof, p. IV.4",
-     "excerpt": "Let F be an acyclic space. Then F is connected, its fundamental group G = π1 (F ) is a perfect group, and H2 (G; Z) = 0 as well.",
      "match": "Weibel's lemma and its proof via the Serre spectral sequence of F̃ → F → BG."
     }
    ],
@@ -5135,7 +5026,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 1.4, p. IV.4",
-     "excerpt": "A map f : X → Y is called acyclic if the homotopy fiber F (f ) of f is acyclic",
      "match": "Weibel's definition of acyclic maps."
     }
    ],
@@ -5236,7 +5126,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 1.4, p. IV.4",
-     "excerpt": "we see that if X → Y is acyclic then the map π1 (X) → π1 (Y ) is onto, and its kernel P is a perfect normal subgroup of π1 (X).",
      "match": "Weibel's derivation from the exact sequence of homotopy groups."
     }
    ],
@@ -5274,7 +5163,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§3.H, Proposition 3H.4, printed p. 331 (PDF 340)",
-     "excerpt": "If X is a path-connected space having a universal covering space, then the groups Hn (X; E) are naturally isomorphic to the homology groups Hn (X; G) with local coefficients in the Z[π ] module G associated to E , where π = π1 (X) .",
      "match": "Twisted (bundle) chains agree with C(X̃) ⊗_π G; Example 3H.2 (p. 329) gives the cover form."
     }
    ],
@@ -5313,7 +5201,6 @@
     {
      "sourceId": "Hatcher-SpectralSequences-SSAT",
      "locator": "Chapter 1, Proposition 1.12 with proof, pp. 20–21",
-     "excerpt": "Then if two of the three maps F →F 0 , B →B 0 , and X →X 0 induce isomorphisms on H∗ (−; R) with R a principal ideal domain, so does the third.",
      "match": "Statement; SSAT proves the other two cases and omits the case needed here."
     }
    ],
@@ -5360,7 +5247,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Lemma 1.6 with proof, p. IV.5",
-     "excerpt": "A map f : X → Y is acyclic if and only if H∗ (X, M ) ∼ = H∗ (Y, M ) for every π1 (Y )-module M .",
      "match": "Statement and three-step proof reproduced in the node."
     }
    ],
@@ -5408,7 +5294,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 1.4.1, p. IV.5",
-     "excerpt": "An acyclic map f : X → Y is called a +–construction on X (relative to P ) if P is the kernel of π1 (X) → π1 (Y ).",
      "match": "Weibel's definition, and Remark 1.5.1 on the perfect radical."
     }
    ],
@@ -5510,13 +5395,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.2(b), p. IV.14",
-     "excerpt": "is acyclic and f∗ : π1 (X) ∼ = π1 (Y ), show that f is a homotopy equivalence.",
      "match": "Weibel's exercise; the proof steps are the standard solution."
     },
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3 Exercise 16, printed p. 420 (PDF 429)",
-     "excerpt": "Show that a map f : X →Y of connected CW complexes is a homotopy equivalence if it induces an isomorphism on π1 and its homotopy fiber Ff has H̃∗ (Ff ; Z) = 0 .",
      "match": "The same statement for CW complexes."
     }
    ],
@@ -5560,13 +5443,11 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2, Proposition 4.40 with proof and the construction following it, printed p. 374 (PDF 383)",
-     "excerpt": "the induced map π1 (X)→π1 (X + ) is surjective with kernel the normal subgroup generated by H",
      "match": "Hatcher's general construction for a perfect subgroup, proved via covering space, mapping cylinder, van Kampen and excision."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.4, p. IV.14; Theorem 1.5(1), p. IV.5",
-     "excerpt": "Form Y by attaching one 2-cell ep for each element of P",
      "match": "Weibel's exercise outline of part (1) of Theorem 1.5."
     }
    ],
@@ -5670,13 +5551,11 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2, construction after Proposition 4.40, printed p. 374 (PDF 383)",
-     "excerpt": "the induced map π1 (X)→π1 (X + ) is surjective with kernel the normal subgroup generated by H",
      "match": "Hatcher's computation by van Kampen."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.4, p. IV.14",
-     "excerpt": "Form Y by attaching one 2-cell ep for each element of P , so that π1 (Y ) = π1 (X)/P .",
      "match": "The π₁ computation for the 2-/3-cell model itself (the Hatcher excerpt is about the mapping-cylinder model)."
     }
    ],
@@ -5713,7 +5592,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2, Proposition 4.40, printed p. 374 (PDF 383)",
-     "excerpt": "Then there is a simply-connected CW complex X + and a map X →X + inducing isomorphisms on all homology groups.",
      "match": "Hatcher's Proposition 4.40 and its extension to perfect subgroups."
     }
    ],
@@ -5756,13 +5634,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 1.1, p. IV.2",
-     "excerpt": "The notation BGL(R)+ will denote any CW complex X which",
      "match": "Weibel's Definition 1.1 requires the local-coefficient homology isomorphism (1.1(2)), which this node establishes for the cell-attachment model."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 1.5(1) and paragraph before it, p. IV.5",
-     "excerpt": "Part (1) is proven in Ex. 1.4; an explicit proof may be found in §5 of [Berrick].",
      "match": "Weibel defers the existence proof to Exercise 1.4 and Berrick; the source boundary recorded in the gap."
     }
    ],
@@ -5800,7 +5676,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.1, printed p. 342 (PDF 351)",
-     "excerpt": "An important class of abelian spaces is H–spaces, as we show in Example 4A.3.",
      "match": "Hatcher's terminology for spaces with trivial π₁-action on all homotopy groups."
     }
    ],
@@ -5901,7 +5776,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.A, Example 4A.3, printed p. 422 (PDF 431)",
-     "excerpt": "If X is an H–space with identity element x0 , then the action of",
      "match": "Hatcher's Example 4A.3, which proves triviality of the π₁-action on all homotopy groups of an H-space."
     }
    ],
@@ -5940,7 +5814,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2 'Eilenberg–MacLane Spaces' and Proposition 4.30, printed pp. 365–366 (PDF 374–375)",
-     "excerpt": "The homotopy type of a CW complex K(G, n) is uniquely deter-mined by G and n .",
      "match": "Hatcher's construction of K(G,n) by attaching cells (preceding paragraphs) and its uniqueness, Proposition 4.30."
     }
    ],
@@ -6043,7 +5916,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.2, Theorem 4.37 and Lemma 4.38 with proof, printed pp. 371–373 (PDF 380–382)",
-     "excerpt": "If (X, A) is an (n − 1) connected pair of path-connected spaces with n ≥ 2 and A ≠ ∅ , then h′ : πn′ (X, A, x0 )→Hn (X, A) is an isomorphism and Hi (X, A) = 0 for i < n .",
      "match": "Hatcher's general relative Hurewicz theorem, used here in the trivial-action case where π′_n = π_n."
     }
    ],
@@ -6086,7 +5958,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Lemma 4.70 with proof, printed p. 413 (PDF 422)",
-     "excerpt": "Then there exists a fi- bration F →E →B and a map (X, A)→(E, F ) inducing weak homotopy equivalences X →E and A→F iff the action of π1 (A) on πn+1 (X, A) is trivial.",
      "match": "Hatcher's Lemma 4.70; the proof builds B = K(π, n+1) from X/A."
     }
    ],
@@ -6124,7 +5995,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Proposition 4.67 and Corollary 4.68 with proofs, printed pp. 410–411 (PDF 419–420)",
-     "excerpt": "For the Postnikov tower of a connected CW complex X the natural map X → lim Xn is a weak homotopy equivalence, so X is a CW approximation to lim Xn .",
      "match": "Corollary 4.68 (OCR prints the limit symbol on a separate line)."
     }
    ],
@@ -6164,7 +6034,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Theorem 4.57, printed p. 393 (PDF 402)",
-     "excerpt": "There are natural bijections T : hX, K(G, n)i→H n(X; G) for all CW complexes X and all n > 0 , with G any abelian group.",
      "match": "Hatcher's Theorem 4.57, proved via Theorem 4.59 on uniqueness of cohomology theories."
     }
    ],
@@ -6206,7 +6075,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Theorem 4.69, printed p. 412 (PDF 421)",
-     "excerpt": "A connected CW complex X has a Postnikov tower of principal fibra-tions iff π1 (X) acts trivially on πn (X) for all n > 1 .",
      "match": "Hatcher's Theorem 4.69, after the construction of Postnikov towers."
     }
    ],
@@ -6244,7 +6112,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Proposition 4.72 with proof, printed p. 417 (PDF 426)",
-     "excerpt": "A lift W →Xn extending the given A→Xn exists iff ωn = 0 .",
      "match": "Hatcher's Proposition 4.72."
     }
    ],
@@ -6284,7 +6151,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Corollary 4.73, printed p. 417 (PDF 426)",
-     "excerpt": "If X is a connected abelian CW complex and (W , A) is a CW pair such that H n+1 (W , A; πn X) = 0 for all n , then every map A→X can be extended to a map W →X .",
      "match": "Hatcher's Corollary 4.73."
     }
    ],
@@ -6327,7 +6193,6 @@
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3, Proposition 4.74 with proof, printed p. 418 (PDF 427)",
-     "excerpt": "If X and Y are connected abelian CW complexes, then a map f : X →Y inducing isomorphisms on all homology groups is a homotopy equivalence.",
      "match": "Hatcher's Proposition 4.74."
     }
    ],
@@ -6367,7 +6232,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.3, p. IV.14",
-     "excerpt": "Let X and Y be H-spaces having the homotopy type of a CW complex. If f : X → Y is a map which induces an isomorphism H∗ (X, Z) ∼ = H∗ (Y, Z), show that f is a homotopy equivalence.",
      "match": "Weibel's 'standard result' of Exercise 1.3, proved here from Hatcher 4A.3 and 4.74."
     }
    ],
@@ -6411,13 +6275,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 1.5 and the paragraph before it, p. IV.5",
-     "excerpt": "its proof uses topological obstruction theory. Part (1) is proven in Ex. 1.4; an explicit proof may be found in §5 of [Berrick].",
      "match": "Shows the universal property is stated with an external proof reference; the abelian-target proof is from Hatcher."
     },
     {
      "sourceId": "Hatcher-AlgebraicTopology",
      "locator": "§4.3 Exercise 23, printed p. 420 (PDF 429)",
-     "excerpt": "if there is an abelian CW complex Y and a map X →Y inducing an isomorphism H∗ (X; Z) ≈ H∗ (Y ; Z) , then such a Y is unique up to homotopy equivalence",
      "match": "Hatcher's uniqueness for abelian targets, proved from Corollary 4.73."
     }
    ],
@@ -6460,7 +6322,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 1.5(3), p. IV.5",
-     "excerpt": "In particular, if g is another +–construction relative to P , then the map h in (2) is a homotopy equivalence",
      "match": "Weibel's part (3), stated as a consequence of (2)."
     }
    ],
@@ -6496,7 +6357,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "1.1.2, p. IV.3",
-     "excerpt": "a map BGL(R)+ → BGL(R′ )+ , unique up to homotopy, by Theorem 1.5 below",
      "match": "Weibel's functoriality up to homotopy, derived from Theorem 1.5."
     }
    ],
@@ -6538,7 +6398,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 1.8 and Remark 1.8.1, p. IV.6",
-     "excerpt": "The map i : BGL(R) → BGL(R)+ is universal for maps into H-spaces.",
      "match": "Weibel's Theorem 1.8 (proof omitted, citing Gersten) and Remark 1.8.1 (proof indicated in Exercise 1.3), proved here from the abelian obstruction theory."
     }
    ],
@@ -6590,7 +6449,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Proposition 1.7 with proof and Corollary 1.7.1, p. IV.6",
-     "excerpt": "If F (f ) is the homotopy fiber of f then π1 F (f ) is the universal central extension of P , and π2 (BG+ ) ∼ = H2 (P ; Z).",
      "match": "Statement of Proposition 1.7; the proof steps follow Weibel's four-line argument."
     }
    ],
@@ -6635,7 +6493,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Proposition 1.7 with proof and Corollary 1.7.1, p. IV.6",
-     "excerpt": "Thus π1 F (f ) is a central extension of P with kernel π2 (BG+ ).",
      "match": "The identification whose naturality is proved; the naturality itself is packet-authored, as requested by K3BlochGroups V.1."
     }
    ],
@@ -6678,7 +6535,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.8, pp. IV.14–15",
-     "excerpt": "Show that BP + is homotopy equivalent to the universal covering space of BG+ . Hence πn (BP + ) ∼ = πn (BG+ ) for all n ≥ 2.",
      "match": "Weibel's exercise and its GL/E and SL applications; the proof steps are packet-authored from the hint."
     }
    ],
@@ -6727,7 +6583,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.9, p. IV.15",
-     "excerpt": "Show that there is a homotopy fibration BA → BS + → BP + . Conclude that πn (BS + ) = 0 for n ≤ 2",
      "match": "Weibel's exercise and its Steinberg application."
     }
    ],
@@ -6772,7 +6627,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.9, p. IV.15",
-     "excerpt": "Show that there is a homotopy fibration BA → BS + → BP + .",
      "match": "The model case of the relative comparison; the general statement is packet-authored."
     }
    ],
@@ -6810,7 +6664,6 @@
     {
      "sourceId": "Hatcher-SpectralSequences-SSAT",
      "locator": "Chapter 1, Lemma 1.9 with proof, p. 15",
-     "excerpt": "Let F →X →B be a fibration of path-connected spaces, with π1 (B) act- ing trivially on H∗ (F ) . Then if two of F , X , and B have Hn ∈ C for all n > 0 , so does the third.",
      "match": "Cases 1 and 2 of the lemma (SSAT omits case 3, which is not needed)."
     }
    ],
@@ -6853,7 +6706,6 @@
     {
      "sourceId": "Hatcher-SpectralSequences-SSAT",
      "locator": "Chapter 1, Lemma 1.10 with proof, pp. 15–16",
-     "excerpt": "If π ∈ C then Hk (K(π , n)) ∈ C for all k, n > 0 .",
      "match": "Statement and the reduction to n = 1; the cyclic case uses group homology in place of lens spaces."
     }
    ],
@@ -6900,13 +6752,11 @@
     {
      "sourceId": "Hatcher-SpectralSequences-SSAT",
      "locator": "Chapter 1 'Serre Classes', Theorems 1.7 and 1.8, p. 14",
-     "excerpt": "This holds also if X is path-connected and abelian, that is, the action of π1 (X) on πn (X) is trivial for all n ≥ 1 .",
      "match": "Hatcher's Theorem 1.7 for abelian spaces and the mod-C Hurewicz Theorem 1.8."
     },
     {
      "sourceId": "CalmesEtAl-HermitianKIII-2026",
      "locator": "Remark 2.3.20, pp. 48–49",
-     "excerpt": "By Serre class theory, it suffices to show that the ordinary homology groups of the components of Ω∞ GWq (O; 𝜖) are finitely generated.",
      "match": "The first step of the remark is this theorem applied to the components, which are connected H-spaces."
     }
    ],
@@ -6955,7 +6805,6 @@
     {
      "sourceId": "Hatcher-SpectralSequences-SSAT",
      "locator": "Chapter 1, Theorem 1.24 and the paragraph after its proof, pp. 38–39",
-     "excerpt": "The Cartan-Serre theorem applies to H–spaces whose homology groups are finitely generated, according to Theorem 3C.4 of [AT].",
      "match": "Cartan–Serre for abelian spaces and its application to H-spaces."
     }
    ],
@@ -6994,13 +6843,11 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, p. 54",
-     "excerpt": "the subcategory C ≃ ⊂ C consisting of all objects, but only isomorphisms as morphisms, is another symmetric monoidal category (as all extra data concerns isomorphisms).",
      "match": "Bhatt–Scholze's construction of the core and the notion of symmetric monoidal groupoid."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 4.1 and Examples 4.1.1, pp. IV.36–37",
-     "excerpt": "Let iso S denote the subcategory of isomorphisms in S.",
      "match": "Weibel's iso S and the examples (finite sets, P(R), F(R), Pic(R))."
     }
    ],
@@ -7111,7 +6958,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "§4 opening, p. IV.36",
-     "excerpt": "The geometric realization BS of a symmetric monoidal category is an H-space with a homotopy-commutative, homotopy-associative product.",
      "match": "Weibel's statement and its derivation from 3.1(6)."
     }
    ],
@@ -7157,13 +7003,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 4.2, Explanation 4.2.1, Remark 4.2.2, Definition 4.3, pp. IV.37–38",
-     "excerpt": "The objects of S −1 S are pairs (m, n) of objects of S.",
      "match": "Definition 4.2, with the hypotheses and consequences listed in the node taken from the surrounding statements."
     },
     {
      "sourceId": "Carlsson-Deloopings-Handbook-2005",
      "locator": "§1.2, Definition 7, printed p. 9 (PDF 7)",
-     "excerpt": "A symmetric monoidal category is a small category S together with a functor ⊕ : S × S → S and an object 0, together with three natural isomorphisms",
      "match": "Coherence data for the symmetric monoidal structure, which Weibel uses without restating."
     }
    ],
@@ -7294,7 +7138,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definitions 4.7 and 4.7.1, p. IV.41",
-     "excerpt": "If S acts upon X, the category hS, Xi has the same objects as X.",
      "match": "Weibel's definitions of actions, ⟨S, X⟩ and S⁻¹X, with the invertibility remark."
     }
    ],
@@ -7409,7 +7252,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Lemma 4.3.1 with proof, p. IV.38",
-     "excerpt": "The abelian group K0 (S) = π0 (S −1 S) is the group completion of the abelian monoid π0 (S) = S iso .",
      "match": "Weibel's Lemma 4.3.1 and its proof."
     }
    ],
@@ -7448,7 +7290,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 4.4, p. IV.38",
-     "excerpt": "A group completion of X is an H-space Y , together with an H-space map X → Y , such that π0 (Y ) is the group completion of the abelian monoid π0 (X)",
      "match": "Weibel's Definition 4.4, including the homology localisation condition for all commutative rings k."
     }
    ],
@@ -7548,7 +7389,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 4.5, p. IV.46",
-     "excerpt": "Show that the projection S −1 X − → hS, Si is cofibered, where ρ(s, x) = s.",
      "match": "Weibel's exercise (attributed to Quillen)."
     }
    ],
@@ -7587,7 +7427,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 4.6, p. IV.46",
-     "excerpt": "Suppose that S acts invertibly upon a category X. Show that the functors X → S −1 X (x 7→ (s, x)) are homotopy equivalences for every s in S.",
      "match": "Weibel's exercise with its hint."
     }
    ],
@@ -7636,7 +7475,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definitions 4.7, 4.7.1, (4.7.2) and Theorem 4.8 with proof, pp. IV.41–42",
-     "excerpt": "If every map in S is an isomorphism and translations are faithful in S, then the map (4.7.2) is an isomorphism for all X and q.",
      "match": "Theorem 4.8; the proof steps follow Weibel's proof and the two exercises it invokes."
     }
    ],
@@ -7678,7 +7516,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Lemma 4.4.1 with proof, p. IV.39",
-     "excerpt": "If X is a group-like H-space then X its own group completion, and any other group completion f : X → Y is a homotopy equivalence.",
      "match": "Weibel's Lemma 4.4.1."
     }
    ],
@@ -7715,7 +7552,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Phantom maps paragraph and Theorem 4.4.3, p. IV.39",
-     "excerpt": "phantom maps are essentially the only obstruction to uniqueness of group completions",
      "match": "Introduces Theorem 4.4.3 as quoted from [CCMT, 1.2]."
     }
    ],
@@ -7756,7 +7592,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 4.7, p. IV.46",
-     "excerpt": "Show that the sequence S −1 S −−→ S −1 X − → hS, Xi is a homotopy fibration for each x in X",
      "match": "Weibel's exercise and hint; the proof outline is packet-authored from the hint."
     }
    ],
@@ -7797,7 +7632,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.7, p. IV.14",
-     "excerpt": "Show that BGL(R1 × R2 )+ ≃ BGL(R1 )+ × BGL(R2 )+",
      "match": "Weibel's exercise for the product of two rings; its content is that a product of plus constructions is a plus construction. The general lemma is packet-authored (it belongs with H.3's plus construction and may be moved there)."
     }
    ],
@@ -7847,7 +7681,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 1.11, p. IV.15; Exercise 4.9, p. IV.46",
-     "excerpt": "Show that these maps induce an H-space structure on BGL(R)+ .",
      "match": "Weibel's exercises establishing the block-sum H-space structure and the direct group-completion statement."
     }
    ],
@@ -7892,7 +7725,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Example 4.1.1(c), p. IV.36",
-     "excerpt": "There are no maps in F(R) between Rm and Rn if m ≠ n, and the self-maps of Rn form the group GLn (R).",
      "match": "Weibel's definition of F(R) with block sum and concatenation of bases; the matrix convention and the functor to iso P(R) are fixed here to match KTheoryLowDegrees:Z.1."
     }
    ],
@@ -8005,7 +7837,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 4.9 with proof, pp. IV.42–43",
-     "excerpt": "B(S −1 S) ≃ Z × BGL(R)+ .",
      "match": "Displayed conclusion of Theorem 4.9, proved by the telescope and homology-localisation argument recorded above."
     }
    ],
@@ -8048,13 +7879,11 @@
     {
      "sourceId": "CalmesEtAl-HermitianKIII-2026",
      "locator": "Section 3.2, (1)-symmetric case, p. 55",
-     "excerpt": "see [MS76], or [RW13, Corollary 1.2].",
      "match": "Calmès et al. cite McDuff–Segal and Randal-Williams for the identification of the positive component with the plus construction."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Proof of Theorem 4.10, p. IV.44",
-     "excerpt": "the mapping telescope construction mentioned above gives an acyclic map from B Aut(S) to the basepoint component of B(S −1 S), and such a map is by definition a +–construction.",
      "match": "Weibel asserts the acyclicity without proof."
     }
    ],
@@ -8107,13 +7936,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 4.10 with proof, pp. IV.43–44",
-     "excerpt": "the +–construction on B Aut(S) is the connected component of the identity in the group completion K(S)",
      "match": "Weibel's Theorem 4.10 and its proof citing Bass p. 355."
     },
     {
      "sourceId": "CalmesEtAl-HermitianKIII-2026",
      "locator": "Remark 2.3.20, pp. 48–49",
-     "excerpt": "Since every 𝜖-quadratic form is a direct summand in an 𝜖-hyperbolic form, the group completion theorem identifies any such component with the space",
      "match": "The hyperbolic forms form the cofinal sequence of this theorem; the remark's conclusion is its plus-construction identification."
     }
    ],
@@ -8152,7 +7979,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Cofinality Theorem 4.11(a) with proof, p. IV.44",
-     "excerpt": "If T acts on X then S acts on X via f , and S −1 X ≃ T −1 X.",
      "match": "Part (a) of Weibel's Theorem 4.11, split from H.4/cofinality-theorem."
     }
    ],
@@ -8194,7 +8020,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Cofinality Theorem 4.11 with proof, pp. IV.44–45",
-     "excerpt": "Suppose that f : S → T is cofinal. Then",
      "match": "Weibel's Theorem 4.11(b) with the proof summarised; part (a) is H.4/cofinality-action."
     }
    ],
@@ -8236,7 +8061,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Corollary 4.11.1, p. IV.45; Example 4.1.1(c), p. IV.36",
-     "excerpt": "Let S = iso P(R) be the category of finitely generated projective R-modules and their isomorphisms. Then B(S −1 S) ≃ K0 (R) × BGL(R)+ .",
      "match": "Corollary 4.11.1, derived from Theorems 4.9 and 4.11."
     }
    ],
@@ -8286,7 +8110,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Functoriality 1.1.2, p. IV.3",
-     "excerpt": "K(R) is not the product of the H-space BGL(R)+ and the discrete group K0 (R) in a natural way.",
      "match": "Weibel's statement that the maps are natural only up to homotopy and the splitting is not natural; the H-map and naturality statements are packet-authored from Theorem 4.9 and Exercise 1.11."
     }
    ],
@@ -8334,7 +8157,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 4.4, p. IV.46",
-     "excerpt": "show that the group completions K(S) and K(S op ) are homotopy equivalent",
      "match": "Weibel's invariance exercise; the general strictification statement is packet-authored."
     }
    ],
@@ -8372,13 +8194,11 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Definition 12.4, p. 56",
-     "excerpt": "An E∞ -monoid is a functor X : N (Fin∗ ) → S of ∞-categories to the ∞-category S of Kan complexes, such that for all [n] ∈ Fin∗ , the natural map X([n]) → ∏ X([1]) is a weak equivalence",
      "match": "Bhatt–Scholze's definition, of which the strict special Γ-space is the model; π₀ and grouplike from the following paragraphs and Definition 12.7."
     },
     {
      "sourceId": "Carlsson-Deloopings-Handbook-2005",
      "locator": "§1.2, Definition 1, printed p. 6 (PDF 4)",
-     "excerpt": "A Γ-space is a functor from Γop to the category of simplicial sets, so that F(∅+ ) is weakly contractible.",
      "match": "Carlsson's Definition 1; his Γ-spaces already satisfy the Segal condition (Π F(p_i) : F(n) → Π F(1) a weak equivalence), i.e. they are the special Γ-spaces of this node."
     }
    ],
@@ -8484,7 +8304,6 @@
     {
      "sourceId": "Carlsson-Deloopings-Handbook-2005",
      "locator": "§1.2, Definition 1, Proposition 2 with proof, Theorem 3, Examples 4–5, printed pp. 6–8 (PDF 4–6)",
-     "excerpt": "The maps σn are weak equivalences for n > 1, and for n = 0, σ0 can be described as a group completion.",
      "match": "Carlsson's Theorem 3 quotes Segal. It prints 'n > 1'; the node states n ≥ 1, the correct range (source issue StableHomotopyKTheory/E8)."
     }
    ],
@@ -8588,7 +8407,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Construction 12.5 and Remark 12.6, pp. 56–57",
-     "excerpt": "be the nerve of the groupoid of objects XT ∈ C for all T ⊂ S \\ {s} which are equipped with compatible isomorphisms XT ⊔T ′ ∼= XT ⊗ XT ′",
      "match": "Bhatt–Scholze's construction (with the unit condition missing, corrected per E54)."
     }
    ],
@@ -8691,7 +8509,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Proposition 12.10 and Remark 12.11, p. 58",
-     "excerpt": "If X ∈ MonE∞ is k-connected, then BX is (k + 1)-connected. Moreover, the natural map X → ΩBX is an equivalence if and only if X is grouplike.",
      "match": "Bhatt–Scholze's statement of Segal's Proposition 1.4."
     }
    ],
@@ -8733,13 +8550,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Segal's ΩB Method 4.5.1, p. IV.39",
-     "excerpt": "In this case, ΩBX is an infinite loop space and the natural map X → ΩBX is a group completion.",
      "match": "The group-completion theorem for topological monoids, cited by Weibel to [Adams]."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Machine Methods 4.5.2, p. IV.40",
-     "excerpt": "These machines produce an infinite loop space K(S) and a map BS → K(S) which is a group completion.",
      "match": "The same statement for infinite loop space machines applied to symmetric monoidal categories, which is the Γ-space case used here."
     }
    ],
@@ -8792,7 +8607,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Corollary 12.12, p. 58",
-     "excerpt": "In particular, the construction shows that as with classical monoids, one can form the group completion.",
      "match": "Bhatt–Scholze's group completion as ΩB, left adjoint to the inclusion (Corollary 12.12 follows on the page)."
     }
    ],
@@ -8831,7 +8645,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Proposition 12.15 and the paragraph after it, pp. 58–59",
-     "excerpt": "A symmetric monoidal groupoid C is a Picard groupoid if and only if the E∞-monoid N(C) is grouplike.",
      "match": "Bhatt–Scholze's Proposition 12.15 and the paragraph after it."
     }
    ],
@@ -8869,7 +8682,6 @@
     {
      "sourceId": "CalmesEtAl-HermitianKIII-2026",
      "locator": "Section 3.2, pp. 54–55, cases (1)-symmetric through (−1)-quadratic",
-     "excerpt": "Hence, the group completion theorem yields a homotopy equivalence of spaces",
      "match": "Calmès et al. identify each positive component with the plus construction of the infinite automorphism group via the group completion theorem."
     }
    ],
@@ -8907,7 +8719,6 @@
     {
      "sourceId": "CalmesEtAl-HermitianKIII-2026",
      "locator": "Section 3.2, proof of Lemma 3.2.11, p. 59",
-     "excerpt": "One then defines the topological variants of K-theory, GW-theory and L-theory by",
      "match": "Calmès et al.'s definition of the topological variants following Schlichting."
     }
    ],
@@ -9002,13 +8813,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 3.1, p. 34 (PDF 35)",
-     "excerpt": "a sequence of pointed simplicial sets Xn for n ≥ 0",
      "match": "Schwede's symmetric spectra of simplicial sets are built from pointed simplicial sets, their smash product and the simplicial spheres S^n = (S^1)^{∧n} with permutation action."
     },
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Section 1.1 and Definition 1.2.2",
-     "excerpt": "A symmetric spectrum is",
      "match": "Hovey–Shipley–Smith use the simplicial circle S¹ = Δ[1]/∂Δ[1] and the symmetric sequence of spheres."
     }
    ],
@@ -9124,13 +8933,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 3.1, p. 34 (PDF 35)",
-     "excerpt": "A symmetric spectrum of simplicial sets consists of the following data",
      "match": "Schwede's definition, the model adopted here."
     },
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Definition 1.2.2",
-     "excerpt": "A symmetric spectrum is",
      "match": "Hovey–Shipley–Smith's definition via symmetric sequences."
     }
    ],
@@ -9248,7 +9055,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 2.1 and §2.1, pp. 23–24 (PDF 24–25)",
-     "excerpt": "The k-th naive homotopy group of a sequential spectrum X is defined as the colimit π̂k X = colimn πk+n Xn",
      "match": "Schwede's definition and the loop/suspension isomorphisms of Proposition 2.6."
     }
    ],
@@ -9361,19 +9167,16 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 1.15, p. 17 (PDF 18)",
-     "excerpt": "A symmetric spectrum of topological spaces X is an Ω-spectrum if for all n ≥ 0 the map σ̃n : Xn −→ ΩXn+1 which is adjoint to the structure map σn : Xn ∧ S 1 → Xn+1 is a weak homotopy equivalence.",
      "match": "Schwede's definition of Ω-spectra."
     },
     {
      "sourceId": "Carlsson-Deloopings-Handbook-2005",
      "locator": "§1.1, printed p. 4 (chapter PDF 2)",
-     "excerpt": "a spectrum is a family of based topological spaces {Xi }i≥0 , together with bonding maps σi : Xi → ΩXi+1",
      "match": "Carlsson's sequential convention used by the K-theory sources."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Spectra 2.3.1, p. IV.19; remark after Definition 2.4, p. IV.20; Infinite Loop Structure 8.5.5, p. IV.69",
-     "excerpt": "the homotopy groups π∗ (E; Z/ℓ) = lim −→ π∗+r (Er ; Z/ℓ)",
      "match": "Colimit formula for homotopy groups of a spectrum (here with coefficients), matching the integral definition."
     }
    ],
@@ -9464,13 +9267,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Example 1.13, p. 15 (PDF 16)",
-     "excerpt": "Every pointed space K gives rise to a suspension spectrum Σ∞ K via (Σ∞ K)n = K ∧ S n",
      "match": "Schwede's suspension spectra; free spectra are Example 3.20 (p. 42)."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Example 1.8, p. 12 (PDF 13)",
-     "excerpt": "The symmetric sphere spectrum S is given by Sn = S n , where the symmetric group permutes the coordinates",
      "match": "The sphere spectrum."
     }
    ],
@@ -9572,13 +9373,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, §2.1 and Proposition 2.6, pp. 23–24 (PDF 24–25)",
-     "excerpt": "The loop spectrum ΩX of a symmetric or sequential spectrum X is defined by (ΩX)n = Ω(Xn )",
      "match": "Schwede's loop and suspension constructions and their effect on naive homotopy groups."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Example 3.9, p. 37 (PDF 38)",
-     "excerpt": "The shift of a symmetric spectrum X is given by",
      "match": "The shift functor and the map λ_X."
     }
    ],
@@ -9681,13 +9480,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 3.14, p. 38 (PDF 39)",
-     "excerpt": "A symmetric spectrum X is semistable if the morphism λX : S 1 ∧ X −→ sh X is a π̂∗ -isomorphism.",
      "match": "Schwede's definition and the closure properties that follow it."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Propositions 3.15–3.16, pp. 38–39 (PDF 39–40)",
-     "excerpt": "Then A is semistable if and only if B is",
      "match": "The closure properties of semistable spectra used in the statement."
     }
    ],
@@ -9775,19 +9572,16 @@
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Definition 3.1.3",
-     "excerpt": "A map f : X → Y of symmetric spectra is a stable equivalence",
      "match": "Hovey–Shipley–Smith's definition."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Theorem 6.2, p. 107 (PDF 108)",
-     "excerpt": "For every morphism f : A −→ B of symmetric spectra the following are equivalent: (i) the morphism f is a stable equivalence; (ii) the map πk f : πk A −→ πk B of true homotopy groups is an isomorphism for all integers k.",
      "match": "Schwede's characterisation, with the statement that π̂_*-isomorphisms induce isomorphisms of true homotopy groups."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 4.11, p. 65 (PDF 66)",
-     "excerpt": "is a stable equivalence if for every injective Ω-spectrum X the induced map",
      "match": "Schwede's definition, the same as Hovey–Shipley–Smith's."
     }
    ],
@@ -9887,13 +9681,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Theorem 4.23, p. 69 (PDF 70)",
-     "excerpt": "Every π̂∗ -isomorphism of symmetric spectra is a stable equivalence.",
      "match": "The statement; the proof uses Ω^∞sh^∞ and injective Ω-spectra."
     },
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Theorem 3.1.11, p. 24",
-     "excerpt": "Let f be a map of symmetric spectra such that π∗ f is an iso",
      "match": "The same theorem in Hovey–Shipley–Smith."
     }
    ],
@@ -9949,7 +9741,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definition 6.1, Theorem 6.2 and Proposition 6.3, pp. 106–107 (PDF 107–108)",
-     "excerpt": "The k-th true homotopy group of X is given by πk X = π̂k (QX) , the k-th naive homotopy group of the symmetric spectrum QX.",
      "match": "Schwede's definition and the comparison with naive groups for semistable spectra."
     }
    ],
@@ -10056,7 +9847,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Theorem 6.16, p. 116 (PDF 117)",
-     "excerpt": "There is a unique family of natural pairings",
      "match": "Schwede's Theorem 6.16, including the commutativity sign (−1)^{kl}."
     }
    ],
@@ -10102,13 +9892,11 @@
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Theorem 3.4.4",
-     "excerpt": "The category of symmetric spectra with the class of stable equiv-",
      "match": "Hovey–Shipley–Smith's stable model structure."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter III, Theorem 4.11, p. 366 (PDF 367)",
-     "excerpt": "The category of symmetric spectra of space (respectively simplicial sets) admits the fol-lowing stable model structures in which the weak equivalences are the stable equivalences.",
      "match": "Schwede's projective and positive stable model structures."
     }
    ],
@@ -10152,25 +9940,21 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Definition 1.1, p. 217 (PDF 218)",
-     "excerpt": "The stable homotopy category SHC has as objects all symmetric spectra of simplicial sets.",
      "match": "Schwede's definition of SHC."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 1.6, p. 218 (PDF 219)",
-     "excerpt": "The functor γ : Sp −→ SHC is a localization of the category of symmetric spectra at the class of stable equivalences.",
      "match": "The localisation property."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Examples 1.15 and 1.17, p. 225 (PDF 226)",
-     "excerpt": "Let K be a based simplicial set and X an Ω-spectrum.",
      "match": "Representability of homotopy groups and of [K, X₀] in SHC."
     },
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Corollary 5.1.3, p. 47",
-     "excerpt": "Every symmetric spectrum embeds in an injective spectrum by a map that is a level equivalence.",
      "match": "Injective replacements, used with an Ω-spectrum replacement to choose ωY."
     }
    ],
@@ -10289,13 +10073,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Examples 2.4 and 2.6, pp. 229–230 (PDF 230–231)",
-     "excerpt": "For every symmetric spectrum A the ‘cone inclusion’ i1 : A −→ ∆[1] ∧ A = CA is a",
      "match": "Schwede's cone and mapping cone constructions used for distinguished triangles."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, (2.10) and (2.14), pp. 27–29 (PDF 28–30)",
-     "excerpt": "The mapping cone C(f ) of a morphism of symmetric or sequential spectra f : X −→ Y is defined by",
      "match": "The spectrum-level definitions the API constructs."
     }
    ],
@@ -10390,13 +10172,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Proposition 2.12, p. 27 (PDF 28)",
-     "excerpt": "For every morphism f : X −→ Y of sequential spectra the long sequence of abelian groups",
      "match": "Schwede's long exact sequence for the mapping cone; Proposition 2.17 (p. 29) gives the fibre version."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Proposition 6.11, p. 112 (PDF 113)",
-     "excerpt": "The long sequence of true homotopy groups",
      "match": "The true-homotopy version, with the levelwise Kan hypothesis for fibres."
     }
    ],
@@ -10436,7 +10216,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, (2.16) and Proposition 2.17, p. 29 (PDF 30)",
-     "excerpt": "is exact and the morphism h : S 1 ∧ F (f ) −→ C(f ) is a π̂∗ -isomorphism",
      "match": "Schwede's comparison of fibre and cofibre; the stable equivalence follows."
     }
    ],
@@ -10474,7 +10253,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Proposition 2.19, p. 30 (PDF 31)",
-     "excerpt": "For every family of sequential spectra {X i }i∈I and every integer k the canonical map",
      "match": "Schwede's Proposition 2.19 (wedges and finite products); additivity is II Corollary 1.13."
     }
    ],
@@ -10512,7 +10290,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 1.10(ii) and proof, pp. 220–221 (PDF 221–222)",
-     "excerpt": "The stable homotopy category has products. The functor γ : Sp −→ SHC preserves finite products.",
      "match": "Existence of products in SHC via products of injective Ω-spectra."
     }
    ],
@@ -10566,7 +10343,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 2.9, p. 231 (PDF 232)",
-     "excerpt": "The suspension functor and the class of distinguished triangles make the stable homotopy category into a triangulated category.",
      "match": "Schwede's Theorem 2.9."
     }
    ],
@@ -10608,7 +10384,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Construction 5.6 and Theorem 5.10, pp. 83–85 (PDF 84–86)",
-     "excerpt": "The associativity and symmetry isomorphisms make the smash product of symmetric spectra into a symmetric monoidal product with the sphere spectrum S as a strict unit object.",
      "match": "Schwede's construction and Theorem 5.10."
     }
    ],
@@ -10727,13 +10502,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 3.1, p. 239 (PDF 240)",
-     "excerpt": "The stable homotopy category admits a closed symmetric monoidal product ∧L : SHC × SHC −→ SHC , called the derived smash product with the sphere spectrum S as strict unit object.",
      "match": "Schwede's Theorem 3.1."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 3.19 and (3.20), pp. 248–249 (PDF 249–250)",
-     "excerpt": "are exact functors of triangulated categories",
      "match": "Exactness of the derived smash product in each variable."
     }
    ],
@@ -10773,7 +10546,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, (4.3) and Proposition 4.4, p. 250 (PDF 251)",
-     "excerpt": "For all m, n ∈ Z the morphism αm,n : Sm+n −→ Sm ∧L Sn is an isomorphism",
      "match": "Schwede's sphere identifications α_{m,n} and their commutativity sign."
     }
    ],
@@ -10811,7 +10583,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 4.11, p. 252 (PDF 253)",
-     "excerpt": "For morphisms f ∈ [Y, Z]m , f 0 ∈ [Y 0 , Z 0 ]m0 and homotopy classes y ∈ πn Y and y 0 ∈ πn0 Y 0 the relation",
      "match": "Schwede's sign rule for the pairing; the connectivity statement is Proposition 5.22 (p. 264)."
     }
    ],
@@ -10912,7 +10683,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 5.22, p. 264 (PDF 265)",
-     "excerpt": "Then the derived smash product X ∧L Y is (k + l − 1)-connected",
      "match": "Schwede's Proposition 5.22."
     }
    ],
@@ -10955,7 +10725,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Definitions 1.3 and 1.5, pp. 9–10 (PDF 10–11); Theorem 5.25, p. 92 (PDF 93)",
-     "excerpt": "The construction 5.24 which turns an implicit symmetric ring spectrum into a symmetric ring spectrum in sense of the original Definition 1.3 is an isomorphism",
      "match": "Schwede's ring and module spectra and their identification with monoids and modules for ∧."
     }
    ],
@@ -11063,7 +10832,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter IV, Theorem 1.3, p. 386 (PDF 387)",
-     "excerpt": "The category of right R-modules admits the following four stable model structures",
      "match": "Schwede's model structures on module spectra; the triangulated homotopy category is stated in the introduction to IV §1."
     }
    ],
@@ -11152,7 +10920,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter III, Definitions 5.3–5.4 and Examples 5.9–5.12, pp. 368–370 (PDF 369–371)",
-     "excerpt": "An operad O of symmetric spectra consists of",
      "match": "Schwede's operads and their algebras, with the associative, commutative and E∞ examples."
     }
    ],
@@ -11259,13 +11026,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Example 1.14, p. 16 (PDF 17)",
-     "excerpt": "For an abelian group A, the Eilenberg-Mac Lane spectrum HA is defined by (HA)n = A[S n ]",
      "match": "Schwede's construction; p. 17 shows HA is an Ω-spectrum with π̂₀ HA = A."
     },
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Example 1.2.5",
-     "excerpt": "The Eilenberg-Mac Lane spectrum HZ is the sequence of sim-",
      "match": "Hovey–Shipley–Smith's simplicial HZ."
     }
    ],
@@ -11380,7 +11145,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 5.24 and Theorem 5.25, pp. 265-266 (PDF 266-267)",
-     "excerpt": "Uniqueness of Eilenberg-Mac Lane spectra",
      "match": "Schwede's Theorem 5.25 with Proposition 5.24."
     }
    ],
@@ -11428,7 +11192,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Example 1.14, p. 16 (PDF 17)",
-     "excerpt": "the reduced A-linearization of the n-sphere",
      "match": "The linearisation underlying the multiplication on HR."
     }
    ],
@@ -11528,13 +11291,11 @@
     {
      "sourceId": "Shipley-HZAlgebra-2007",
      "locator": "§2, p. 6; Corollary 2.15",
-     "excerpt": "These functors induce functors on the categories of monoids. The composite derived functors",
      "match": "Shipley's composite functors H and Θ between chain complexes (DGAs) and HZ-modules (algebras)."
     },
     {
      "sourceId": "Shipley-HZAlgebra-2007",
      "locator": "§2.2, p. 5",
-     "excerpt": "but in every case Z could be replaced by any discrete commutative ring",
      "match": "The comparison for a commutative ring R."
     }
    ],
@@ -11630,7 +11391,6 @@
     {
      "sourceId": "Shipley-HZAlgebra-2007",
      "locator": "Corollary 2.15, p. 8",
-     "excerpt": "there is a Quillen equivalence between differential graded A-modules and HA-module spectra",
      "match": "The module-level Quillen equivalence for A = ℤ; the homotopy computation is derived from it (not stated by Shipley)."
     }
    ],
@@ -11685,7 +11445,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 6.23, p. 279 (PDF 280)",
-     "excerpt": "For every based simplicial set K, every abelian group A and all k ≥ 0 the map (6.22) from the reduced cohomology of K to the cohomology of the suspension spectrum Σ∞ K is an isomorphism.",
      "match": "Schwede's comparison of spectrum cohomology with ordinary cohomology."
     }
    ],
@@ -11732,7 +11491,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorems 8.1 and 8.3, pp. 295–296 (PDF 296–297)",
-     "excerpt": "The inclusion of the full subcategory of (n − 1)-connected spectra into SHC has a right adjoint",
      "match": "Schwede's connective covers and Postnikov sections with the distinguished triangle (8.4)."
     }
    ],
@@ -11851,7 +11609,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Definition 5.3 and Lemma 5.6, pp. 256–258 (PDF 257–259)",
-     "excerpt": "Let T be a triangulated category, fn : Xn −→ Xn+1 a sequence of composable morphisms and (X̄, ϕn ) a homotopy colimit of the sequence {fn }.",
      "match": "Schwede's homotopy colimit in triangulated categories and its properties."
     }
    ],
@@ -11950,7 +11707,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 5.14, pp. 260-261 (PDF 261-262)",
-     "excerpt": "Let T be a triangulated category with infinite sums and let C be a set of compact objects",
      "match": "Schwede's Proposition 5.14."
     }
    ],
@@ -12001,7 +11757,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 5.21, p. 264 (PDF 265)",
-     "excerpt": "equals the class of (n − 1)-connected spectra",
      "match": "Schwede's Proposition 5.21."
     }
    ],
@@ -12053,13 +11808,11 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Definition 12.8 and footnote 29, p. 57",
-     "excerpt": "The ∞-category of connective spectra Sp≥0 is given by the limit of",
      "match": "Bhatt–Scholze's definition of connective spectra via deloopings."
     },
     {
      "sourceId": "HoveyShipleySmith-SymmetricSpectra-2000",
      "locator": "Theorem 4.3.2, p. 42",
-     "excerpt": "form a Quillen equivalence of the stable model categories",
      "match": "The comparison of symmetric and sequential spectra."
     }
    ],
@@ -12098,7 +11851,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, Theorem 12.9, p. 57",
-     "excerpt": "There is a natural equivalence of ∞-categories",
      "match": "Bhatt–Scholze's Theorem 12.9 (Segal; Lurie), with May–Thomason uniqueness."
     }
    ],
@@ -12138,7 +11890,6 @@
     {
      "sourceId": "BhattScholze-WittGrassmannian-2017",
      "locator": "Appendix §12, after the proof of Proposition 12.15, p. 59",
-     "excerpt": "One can show that this induces an equivalence between Picard groupoids and 1-truncated connective spectra",
      "match": "Bhatt–Scholze's statement, citing Patel §3 (as recorded in the paper extraction)."
     }
    ],
@@ -12181,13 +11932,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Example 3.50, pp. 55–57 (PDF 56–58)",
-     "excerpt": "One very general framework is Waldhausen’s S· -construction which accepts categories with cofibrations and weak equivalences as input and which produces symmetric spectra which are positive Ω-spectra.",
      "match": "Schwede's levels K(C)_n and Σ_n-actions via the S^Q-construction; the structure maps (left as [...] in Schwede) and the iso S^Q ≅ S^{Q−P}S^P ([define]) are packet-authored, from the inclusion of 1-simplices S₁C = C (Weibel IV Remark 8.3.2)."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Infinite Loop Structure 8.5.5, p. IV.69",
-     "excerpt": "forms a connective Ω-spectrum KC, called the K-theory spectrum of C.",
      "match": "Weibel's sequential version."
     }
    ],
@@ -12297,19 +12046,16 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Proposition 8.4 with proof, Definition 8.5, 8.5.3–8.5.5, pp. IV.68–69",
-     "excerpt": "forms a connective Ω-spectrum KC, called the K-theory spectrum of C.",
      "match": "Conclusion of 8.5.5, whose fibration input the source proves in V.1.7."
     },
     {
      "sourceId": "Weibel-KBook-V",
      "locator": "Proposition 1.7 and Remark 1.7.1, p. V.8",
-     "excerpt": "It follows that |wS.B| ≃ Ω|wS.(S.B)|, yielding the formulation of 1.7 given in IV.8.5.3.",
      "match": "The delooping input, proved from additivity in GeneralAlgebraicKTheory:K.4:construction."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Proposition 8.26(i) and Example 8.27, pp. 182–183 (PDF 183–184)",
-     "excerpt": "or Ω-spectra from some point Xn on",
      "match": "Ω-spectra from some level on (such as algebraic K-theory, Example 3.50) are semistable."
     }
    ],
@@ -12365,7 +12111,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Infinite Loop Structure 8.5.5, last paragraph, p. IV.69",
-     "excerpt": "An exact functor f induces a map f∗ : K(B) → K(C) of spaces, and spectra, and of their homotopy groups",
      "match": "Weibel's functoriality of the S.-construction in exact functors (the relative construction 8.5.3 uses it)."
     }
    ],
@@ -12408,13 +12153,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Definition 6.33, p. 284 (PDF 285); Proposition 6.48, p. 287 (PDF 288)",
-     "excerpt": "A Moore spectrum is a connective symmetric spectrum X for which the homology groups Hk (X, Z) are trivial for k 6= 0.",
      "match": "Schwede's Moore spectra and the computation π₂(S/2) = ℤ/4."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 2.1, p. IV.18",
-     "excerpt": "the Moore space",
      "match": "Weibel's space-level Moore spaces P^m(ℤ/ℓ), the unstable analogue."
     }
    ],
@@ -12529,13 +12272,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 2.4 and Spectra 2.3.1, pp. IV.19–20",
-     "excerpt": "the homotopy groups π∗ (E; Z/ℓ) = lim −→ π∗+r (Er ; Z/ℓ)",
      "match": "Weibel's definition of mod-ℓ homotopy of spectra and K-theory with coefficients."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Remark 6.51, p. 288 (PDF 289)",
-     "excerpt": "Moore spectra can be used to introduce coef-ficients",
      "match": "Schwede's coefficient spectra E ∧ SA."
     }
    ],
@@ -12639,13 +12380,11 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.1.1 and Universal Coefficient Sequence 2.2, p. IV.18",
-     "excerpt": "defining P m (Z/ℓ) induces an exact sequence of homotopy groups/pointed sets",
      "match": "Weibel's exact sequence for mod-ℓ homotopy obtained from the defining cofibration, the spectrum form of which is this node."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Proposition 2.12, p. 27 (PDF 28)",
-     "excerpt": "is exact",
      "match": "The long exact sequence of a mapping cone of spectra used for the triangle of E/m."
     }
    ],
@@ -12685,19 +12424,16 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Definition 2.1, 2.1.1, Universal Coefficient Sequence 2.2, Example 2.2.1, Proposition 2.3, 2.3.1, Definition 2.4, Theorem 2.5, Proposition 2.7, pp. IV.18–21",
-     "excerpt": "It is split exact unless ℓ ≡ 2 mod 4. Ex. 2.3 shows that the splitting is not natural in R.",
      "match": "Universal Coefficient Theorem 2.5 for K-theory; the space-level sequence 2.2 and its proof ingredients appear on the preceding page."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Proposition 6.48, p. 287 (PDF 288)",
-     "excerpt": "The short exact sequence (6.47) does not split, and so the group π2 (S/2) is cyclic of order four",
      "match": "The stable non-split example."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, after (6.50), p. 288 (PDF 289)",
-     "excerpt": "is short exact but need not split. The extension is determined by the action of η",
      "match": "Schwede's spectrum-level statement of the mod-2 universal coefficient sequence without splitting."
     }
    ],
@@ -12737,7 +12473,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "after 2.1.1, p. IV.18; Universal Coefficient Sequence 2.2, p. IV.19",
-     "excerpt": "If ℓ is odd, or divisible by 4, F. Peterson showed that there is even a non-canonical splitting",
      "match": "Weibel's attribution of the splitting (space level)."
     }
    ],
@@ -12784,7 +12519,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Proposition 2.7, p. IV.21",
-     "excerpt": "If ℓ = q1 q2 with q1 and q2 relatively prime, then πm (X; Z/ℓ) is naturally isomorphic to",
      "match": "Weibel's space-level statement (its second factor is misprinted as Z/q1, source issue StableHomotopyKTheory/E7)."
     }
    ],
@@ -12824,13 +12558,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 9.9(iii), p. 304 (PDF 305)",
-     "excerpt": "where ψn : S/pn −→ S/pn+1 realizes the map p · − : Z/pn −→ Z/pn+1 on integral homology.",
      "match": "Schwede's transition maps of the mod-p^n Moore tower."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9 The ℓ-adic completion, p. IV.22",
-     "excerpt": "the ℓ-adic completion",
      "match": "Weibel's tower E ∧ P^∞(ℤ/ℓ^ν) used for completion."
     }
    ],
@@ -12934,13 +12666,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, §9.3, p. 303 (PDF 304)",
-     "excerpt": "where S/p∞ is a Moore spectrum for the group Z/p∞ , which can either be defined as the colimit of the groups Z/pn under multiplication by p maps",
      "match": "Schwede's Moore spectrum for ℤ/p^∞."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9 The ℓ-adic completion, p. IV.22",
-     "excerpt": "the ℓ-adic completion",
      "match": "Weibel's coefficient towers, whose colimit version is this node."
     }
    ],
@@ -12980,7 +12710,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Definition 5.3, p. 256 (PDF 257); proof of Theorem 8.3, p. 297 (PDF 298)",
-     "excerpt": "A homotopy colimit of the sequence consists of an object X̄ together with morphisms ϕn : Xn −→ X̄",
      "match": "Schwede's homotopy colimit, whose dual (with products and 1 − shift) defines the homotopy limit used for the Postnikov tower on p. 297."
     }
    ],
@@ -13086,19 +12815,16 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, proof of Theorem 8.3, p. 297 (PDF 298)",
-     "excerpt": "0 −→ lim1n πk (ΣPn X) −→ πk (holimn Pn X) −→ limn πk (Pn X) −→ 0 .",
      "match": "Schwede's Milnor sequence for the Postnikov tower; its lim¹ term is misprinted as lim¹ π_k(ΣP_nX), the correct term being lim¹ π_{k+1}(P_nX) used here."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Lemma 5.6 and Remark 5.9, pp. 257–258 (PDF 258–259)",
-     "excerpt": "The short exact sequence (5.8) is often called the Milnor exact sequence.",
      "match": "Schwede's Milnor sequence for homotopy colimits, of which the tower version is dual."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9 The ℓ-adic completion, p. IV.22",
-     "excerpt": "an extension",
      "match": "Weibel displays the lim¹ extension for ℓ-adic completion without proof."
     }
    ],
@@ -13140,7 +12866,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Remark 5.9, p. 258 (PDF 259)",
-     "excerpt": "we give an example of a Milnor sequence with non-trivial lim1 term.",
      "match": "Schwede notes that the lim¹ term can be nonzero (the example is a '[...]' placeholder in this draft); the tower used here is packet-authored."
     }
    ],
@@ -13182,13 +12907,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, §9.3 and Theorem 9.9(iii), pp. 303–304 (PDF 304–305)",
-     "excerpt": "The p-completion Xp∧ is a homotopy limit in SHC of the tower",
      "match": "Schwede's definition of p-completion and its tower description."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9 The ℓ-adic completion, p. IV.22",
-     "excerpt": "the ℓ-adic completion",
      "match": "Weibel's ℓ-adic completion of spectra as a homotopy limit."
     }
    ],
@@ -13301,7 +13024,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9 The ℓ-adic completion, p. IV.22",
-     "excerpt": "πn (E; Zℓ ) is an extension of the Tate module of πn−1 (E) by the ℓ-adic completion of πn (E)",
      "match": "Weibel's statement under the finiteness hypothesis; the lim¹ sequence is displayed immediately before it without proof."
     }
    ],
@@ -13340,7 +13062,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 9.9(iv), (9.10), p. 304 (PDF 305)",
-     "excerpt": "There is a natural short exact sequence of abelian groups",
      "match": "Schwede's sequence (9.10)."
     }
    ],
@@ -13379,19 +13100,16 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 9.9(iv), p. 304 (PDF 305)",
-     "excerpt": "0 −→ Ext(Z/p∞ , πk X) −→ πk (Xp∧ ) −→ Hom(Z/p∞ , πk−1 X) −→ 0",
      "match": "The sequence from which the finite-type comparison is deduced (Schwede does so on p. 306); the identification with π_k ⊗ ℤ_p uses Mathlib's adic completion of finite modules."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9, p. IV.22",
-     "excerpt": "πn (E; Zℓ ) is an extension of the Tate module of πn−1 (E) by the ℓ-adic completion of πn (E)",
      "match": "Weibel's warning that completion involves the Tate module term."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Remark 9.12 and the following paragraph, p. 306 (PDF 307)",
-     "excerpt": "If the homotopy groups of a symmetric spectrum X are finitely generated, then the terms in the short exact sequence (9.10)",
      "match": "Schwede proves π_k(X^∧_p) ≅ (π_k X)^∧_p for finitely generated homotopy groups."
     }
    ],
@@ -13437,13 +13155,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Remark 9.8 and Theorem 9.9, pp. 303–304 (PDF 304–305)",
-     "excerpt": "The p-completion Xp∧ of every spectrum is p-local.",
      "match": "Schwede's properties of p-completion; criteria (a)–(d) are derived from them (packet-authored for (a))."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "2.9, p. IV.22",
-     "excerpt": "the ℓ-adic completion",
      "match": "Weibel's completion, the setting of the criteria used by the finite-field K-theory roadmap."
     }
    ],
@@ -13482,7 +13198,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorems 9.2 and 9.6, pp. 300–302 (PDF 301–303)",
-     "excerpt": "So the rationalization of X, denoted XQ , is given by HQ ∧L X, or by the Q-linearization Q[X].",
      "match": "Schwede's rationalisation and the structure of rational spectra."
     }
    ],
@@ -13577,13 +13292,11 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 9.6, p. 302 (PDF 303)",
-     "excerpt": "Every rational spectrum is a generalized Eilenberg-Mac Lane spectrum.",
      "match": "Schwede's structure theorem for rational spectra."
     },
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter I, Theorem 1.9, p. 12 (PDF 13)",
-     "excerpt": "Thus for k ≥ 1, the stable stem πks = π̂k S is finite.",
      "match": "Serre's finiteness, which Schwede recalls without proof."
     }
    ],
@@ -13647,7 +13360,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, Theorem 9.9(i)–(ii) and the following paragraph, p. 304 (PDF 305)",
-     "excerpt": "which is called the arithmetic square. This square encodes the way in which a spectrum can be assembled from rational information and profinite information at each prime.",
      "match": "Schwede's arithmetic square and its long exact sequence."
     }
    ],
@@ -13691,7 +13403,6 @@
     {
      "sourceId": "Lurie-HigherAlgebra-2017",
      "locator": "§1.2.2, Definition 1.2.2.9, p. 52",
-     "excerpt": "A filtered object of C is a functor X : N(Z) → C.",
      "match": "Lurie's filtered objects in a stable ∞-category, here modelled in SHC and in symmetric spectra."
     }
    ],
@@ -13801,7 +13512,6 @@
     {
      "sourceId": "Lurie-HigherAlgebra-2017",
      "locator": "§1.2.2, Construction 1.2.2.6 and Proposition 1.2.2.7, p. 49",
-     "excerpt": "Let X ∈ Gap(Z, C) be as in Construction 1.2.2.6.",
      "match": "Lurie's construction of the spectral sequence of a Z-complex, equivalent to the exact couple formulation."
     }
    ],
@@ -13898,13 +13608,11 @@
     {
      "sourceId": "Lurie-HigherAlgebra-2017",
      "locator": "§1.2.2, Definition 1.2.2.9, p. 52",
-     "excerpt": "We will refer to {Erp,q , dr }r≥1 as the spectral sequence associated to the filtered object X.",
      "match": "Lurie's spectral sequence of a filtered object."
     },
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Exercise 3.7, p. IV.34",
-     "excerpt": "Construct a first quadrant double complex",
      "match": "The algebraic prototype (double complexes) used in H.2/functor-homology-spectral-sequence."
     }
    ],
@@ -14013,7 +13721,6 @@
     {
      "sourceId": "Lurie-HigherAlgebra-2017",
      "locator": "§1.2.2, Proposition 1.2.2.14 and proof, pp. 52–53",
-     "excerpt": "Suppose furthermore that X(n) ≃ 0 for n  0. Then the associated spectral sequence (Definition 1.2.2.9) converges",
      "match": "Lurie's convergence statement and its meaning (i)–(iii)."
     }
    ],
@@ -14051,7 +13758,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, proof of Theorem 8.3, p. 297 (PDF 298)",
-     "excerpt": "the lim1 -term is trivial and the inverse limit is isomorphic to πk X, via the Postnikov sections",
      "match": "Schwede's argument for the Postnikov tower, the model for this node."
     }
    ],
@@ -14088,7 +13794,6 @@
     {
      "sourceId": "Schwede-SymmetricSpectra-2012",
      "locator": "Chapter II, proof of Theorem 8.3, p. 297 (PDF 298)",
-     "excerpt": "the lim1 -term is trivial and the inverse limit is isomorphic to πk X, via the Postnikov sections",
      "match": "Context only: the Milnor-sequence argument in the case of vanishing lim¹; the convergence statement is quoted from Boardman, not read."
     }
    ],
@@ -14132,7 +13837,6 @@
     {
      "sourceId": "Lurie-HigherAlgebra-2017",
      "locator": "§1.2.2, Definition 1.2.2.9, p. 52",
-     "excerpt": "We will refer to {Erp,q , dr }r≥1 as the spectral sequence associated to the filtered object X.",
      "match": "The AHSS is the spectral sequence of the skeletal filtered object; packet-authored application."
     }
    ],
@@ -14172,7 +13876,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Theorem 2.8, p. IV.21",
-     "excerpt": "If E is a homotopy associative and commutative ring spectrum, then so is the spectrum E ∧ P ∞ (Z/ℓν ), unless ℓν = 2, 3, 4, 8.",
      "match": "Weibel's statement of Araki–Toda products on mod ℓ^ν homotopy outside ℓ^ν = 2, 3, 4, 8."
     }
    ],
@@ -14211,19 +13914,16 @@
     {
      "sourceId": "Burklund-MultiplicativeMoore-2022",
      "locator": "Theorem 1.5, p. 2",
-     "excerpt": "an object I ∈ C and a map v : I → 1C such that the cofiber 1C /v admits a right unital multiplication",
      "match": "Burklund's general quotient theorem."
     },
     {
      "sourceId": "Burklund-MultiplicativeMoore-2022",
      "locator": "Theorem 5.2, p. 10",
-     "excerpt": "there exists a unique up to equivalence v-compatible En -algebra 1/v q for each q > n",
      "match": "Range q > n and uniqueness up to equivalence."
     },
     {
      "sourceId": "Burklund-MultiplicativeMoore-2022",
      "locator": "Remark 5.7, p. 12",
-     "excerpt": "Although S/2 does not admit a unital multiplication, Q1 (4) = 0 and therefore S/4 admits a unital multiplication.",
      "match": "The input with v = 4 used by Meyer–Wagner (RT-AREA-ktheory-2/29)."
     }
    ],
@@ -14266,7 +13966,6 @@
     {
      "sourceId": "Weibel-KBook-IV",
      "locator": "Scholium 2.8.1, p. IV.21",
-     "excerpt": "Browder [Br] has observed that if πm (E) = 0 for all even m > 0 (and m < 0) then E ∧ P ∞ (Z/ℓν ) is a homotopy associative and commutative ring spectrum even for ℓν = 2, 3, 4, 8.",
      "match": "Requested by KTheoryFiniteLocalFields (request to H.6, item (a))."
     }
    ],
@@ -14313,7 +14012,6 @@
     {
      "sourceId": "Burklund-MultiplicativeMoore-2022",
      "locator": "Theorems 1.1 and 1.2, p. 1",
-     "excerpt": "Theorem 1.1. The Moore spectrum S/8 admits an E1 -algebra structure.",
      "match": "Burklund's main theorems as stated in the introduction (arXiv 2203.14787)."
     }
    ],
@@ -14833,7 +14531,7 @@
    "source": "BhattScholze-WittGrassmannian-2017",
    "kind": "misprint",
    "locator": "Appendix §12, p. 55, paragraph before Definition 12.4, in arXiv:1507.06490v3",
-   "printed": "the simplicial set N (C) whose n-simplices are chains of n − 1 morphisms,",
+   "printed": "The source defines N (C) as a simplicial set with chains containing n − 1 morphisms as its n-simplices.",
    "correction": "whose n-simplices are chains of n composable morphisms X₀ → X₁ → ⋯ → X_n",
    "reason": "The display that follows shows f₀, …, f_{n−1}, i.e. n morphisms between n + 1 objects; 0-simplices are objects (zero morphisms) and 1-simplices are morphisms, as the next sentence says.",
    "affects": "nothing",
@@ -14853,7 +14551,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "error",
    "locator": "Chapter IV, 2.9 The ℓ-adic completion, p. IV.22, in the author's chapter file Kbook.IV.pdf (SHA-256 9f1c1b8c…)",
-   "printed": "K₁(C; Z_ℓ) = π₁(K(C); Z_ℓ) is Z_ℓ",
+   "printed": "The source identifies K₁(C; Z_ℓ) = π₁(K(C); Z_ℓ) with Z_ℓ.",
    "correction": "By the formula of 2.9, π_n(E; ℤ_ℓ) is an extension of T_ℓ π_{n−1}(E) by the ℓ-adic completion of π_n(E); for E = K(ℂ), n = 1: K₁(ℂ) = ℂ^× is divisible, so its completion vanishes, and T_ℓ K₀(ℂ) = T_ℓ ℤ = 0; hence K₁(ℂ; ℤ_ℓ) = 0 and the Tate module ℤ_ℓ of ℂ^× appears in K₂(ℂ; ℤ_ℓ).",
    "reason": "Direct application of the extension stated in the same paragraph; recorded in the reviewed decomposition (REVIEW-EXT-01-EXT-15) and re-checked here.",
    "affects": "nothing",
@@ -14893,7 +14591,7 @@
    "source": "Weibel-KBook-V",
    "kind": "misprint",
    "locator": "Proof of Proposition 1.7, p. V.8, in the author's chapter file Kbook.V.pdf (SHA-256 52dcc8ee…)",
-   "printed": "equivalent to the extension category E(B, Sn f, Sn C) of B by Sn C ... |wS.B| → |wS.(Sn f.)| → |wS.(Sn C)| ... (so that Xn = |wS.B| for all n)",
+   "printed": "The source claims equivalence with E(B, Sn f, Sn C), the category of extensions of B by Sn C. It gives |wS.B| → |wS.(Sn f.)| → |wS.(Sn C)| and takes Xn = |wS.B| for every n.",
    "correction": "S_n f is equivalent to the extension category E(C, S_n f, S_n B) of S_n B by C, and the degreewise split fibrations are |wS.C| → |wS.(S_n f)| → |wS.(S_n B)|, with X_n = |wS.C|; their realisation is the sequence Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)| that the proposition states.",
    "reason": "By IV.8.5.3, S_n f = S_n B ×_{S_n C} S_{n+1} C contains C as the objects (0, C = ⋯ = C) and projects exactly onto S_n B, so the sub term is C and the quotient term S_n B; with the printed roles the realisation would have |wS.B| as its second term, contradicting the statement.",
    "affects": "nothing",
@@ -14913,7 +14611,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "misprint",
    "locator": "§2, paragraph before Definition 2.1, p. IV.18, and proof of Proposition 2.7, p. IV.21, in Kbook.IV.pdf (SHA-256 9f1c1b8c…)",
-   "printed": "It is characterized as having only one nonzero reduced integral homology group, namely H̃ m (P ) = Z/ℓ.",
+   "printed": "The source characterizes it by the vanishing of all reduced integral homology groups except H̃ m (P ) = Z/ℓ.",
    "correction": "P^m(ℤ/ℓ) = S^{m−1} ∪_ℓ e^m has only one nonzero reduced integral homology group, H̃_{m−1}(P) = ℤ/ℓ (and H̃_{m−1}(P) = ℤ/q₁ × ℤ/q₂ in the proof of Proposition 2.7).",
    "reason": "The same sentence defines P^m(ℤ/ℓ) by attaching an m-cell to S^{m−1} by a degree-ℓ map; its cellular chain complex ℤ →ℓ ℤ in degrees m and m − 1 has homology ℤ/ℓ in degree m − 1 and 0 in degree m (ℓ ≥ 1).",
    "affects": "a stated result",
@@ -14933,7 +14631,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "error",
    "locator": "Exercise 1.1, second paragraph, p. IV.14, in Kbook.IV.pdf (SHA-256 9f1c1b8c…)",
-   "printed": "conclude that the canonical map S 3 → X + is a homotopy equivalence.",
+   "printed": "The source asks for the conclusion that the canonical S 3 → X + map gives a homotopy equivalence.",
    "correction": "X⁺ is homotopy equivalent to S³ (by the first part of the exercise there is a homotopy equivalence S³ → X⁺), but the canonical composite S³ → X = S³/Γ → X⁺ is not one: equivalently, the degree-one map X → S³ collapsing the complement of a ball is a plus construction.",
    "reason": "S³ → S³/Γ is a 120-sheeted covering of closed oriented 3-manifolds, of degree 120 on H₃, and X → X⁺ is an isomorphism on H₃; so the composite multiplies H₃ ≅ ℤ by 120.",
    "affects": "a stated result",
@@ -14972,7 +14670,7 @@
    "source": "Carlsson-Deloopings-Handbook-2005",
    "kind": "misprint",
    "locator": "§1.2, Theorem 3, printed p. 8 (PDF 6 of the chapter file), in the published chapter (Handbook of K-theory, vol. 1, 2005)",
-   "printed": "The maps σn are weak equivalences for n > 1, and for n = 0, σ0 can be described as a group completion.",
+   "printed": "The source asserts weak equivalences for σn when n > 1; at n = 0, it describes σ0 as a group completion.",
    "correction": "The maps σ_n : Sp_n(C) → ΩSp_{n+1}(C) are weak equivalences for n ≥ 1; σ₀ is a group completion.",
    "reason": "For n ≥ 1 the simplicial set Sp_n(C) is connected (its zeroth simplicial level Sum_C(∅) has contractible nerve), so the special Γ-space it underlies is grouplike and Segal's theorem makes σ_n a weak equivalence; the printed range omits n = 1, which the statement 'taken together, the functors Sp_n yield a functor to spectra' (an Ω-spectrum from level 1) needs.",
    "affects": "nothing",
@@ -15013,7 +14711,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "error",
    "locator": "Exercise 1.1, second paragraph, p. IV.14, in Kbook.IV.pdf (SHA-256 9f1c1b8c…)",
-   "printed": "The binary icosohedral group Γ = SL2 (F5 ) embeds in O3 (R) as the symmetry group of both the dodecahedron and icosahedron.",
+   "printed": "The source claims that Γ = SL2 (F5 ), the binary icosahedral group, embeds into O3 (R), identifying it with the symmetry group for the dodecahedron as well as the icosahedron.",
    "correction": "Γ = SL₂(F₅) is the preimage in SU(2) = S³ of the icosahedral rotation group A₅ ⊂ SO(3) and acts freely on S³ by left multiplication; it does not embed in O₃(ℝ), whose subgroup of order 120 is the full icosahedral group A₅ × ℤ/2.",
    "reason": "SL₂(F₅) has a unique element of order 2 (−1), while every subgroup of O₃(ℝ) of order 120 is A₅ × ℤ/2, which has many involutions; moreover a free action on S³ is needed, which a subgroup of O₃(ℝ) does not give.",
    "affects": "nothing",
@@ -15033,7 +14731,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "misprint",
    "locator": "Paragraph before Lemma 3.4, p. IV.27, in Kbook.IV.pdf",
-   "printed": "The graph of T is the 1-dimensional subcomplex of BC consisting of the edges corresponding to T and their incident vertices. … If C is connected then a tree T is maximal (a maximal tree) just in case every object of C is either the source or target of a morphism in T.",
+   "printed": "The source defines the graph of T as a 1-dimensional subcomplex in BC formed from the edges represented by T and the vertices incident to them. For connected C, it calls a tree T maximal exactly when each object of C occurs as a source or a target among the morphisms in T.",
    "correction": "The graph of T should contain every object of C as a vertex (the edges of T together with all vertices of BC); a tree is maximal when this graph is a contractible subcomplex containing every vertex. For a one-object category the maximal tree is T = ∅.",
    "reason": "As printed, for a one-object category (a group G) the graph of T = ∅ is empty, hence not contractible, so G has no tree at all, and no object is a source or target of a morphism of ∅; yet Application 3.4.1 applies Lemma 3.4 to BG 'with T empty'.",
    "affects": "nothing",
@@ -15052,7 +14750,7 @@
    "source": "Schwede-SymmetricSpectra-2012",
    "kind": "error",
    "locator": "Chapter II, §6, printed p. 287 (PDF 288), in Symmetric spectra v3.0",
-   "printed": "Specifically, for no n ≥ 2 can the mod-n Moore spectrum be realized as symmetric ring spectra. (prove this later)",
+   "printed": "The source rules out realization of the mod-n Moore spectrum by symmetric ring spectra for every n ≥ 2, and leaves a note to prove this later.",
    "correction": "The mod-8 Moore spectrum and the mod-p² Moore spectra (p odd) admit E₁-algebra structures (Burklund, Theorem 1.1), hence are realised by associative symmetric ring spectra; the claim holds for n = 2 and for odd primes n = p.",
    "reason": "E₁-algebras in spectra rectify to monoids in symmetric spectra, and Burklund's Theorem 1.1 (arXiv:2203.14787, p. 1) gives E₁-structures on S/8 and on S/p² for p odd.",
    "affects": "a stated result",
@@ -15072,7 +14770,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "error",
    "locator": "Chapter IV, Exercise 3.7, p. IV.34, in the author's chapter file Kbook.IV.pdf",
-   "printed": "Construct a first quadrant double complex E 0 in which Epq is the free abelian group on the pairs (dp → · · · → d0 → F (c0 ), c0 → · · · → cq ) ... the row filtration yields a spectral sequence converging to H∗ (C; Z) with Epq = Hp (D; Hq F −1 )",
+   "printed": "The source requests a first quadrant double complex E 0, specifying free abelian generators for Epq: (dp → · · · → d0 → F (c0 ), c0 → · · · → cq ). Filtering by rows is said to give a spectral sequence converging to H∗ (C; Z), whose terms satisfy Epq = Hp (D; Hq F −1 ).",
    "correction": "For a cofibered F take the generators (c₀ → ⋯ → c_q, F(c_q) → d₀ → ⋯ → d_p): the column filtration collapses (F(c_q)\\D has an initial object) and the rows are N(F/d₀) ≃ N(F⁻¹(d₀)), giving E² = H_p(D; H_q F⁻¹). The printed complex has rows N(d₀\\F) and gives E² = H_p(D^op; d ↦ H_q(d\\F)), which is the right statement for a fibered F.",
    "reason": "For D = (0 ⇉ 1) and the cofibred projection of the Grothendieck construction of X(0) = {x, y}, X(1) = {z}, B(0\\F) ≃ S¹ while F⁻¹(0) is two points; the printed complex gives E²_{1,0} = ℤ, E²_{0,1} = ℤ, whereas H_p(D; H_q F⁻¹) has E²_{1,0} = ℤ², E²_{0,1} = 0 (both abut to H₁(BC) = ℤ²).",
    "affects": "a stated result",
@@ -15092,7 +14790,7 @@
    "source": "Carlsson-Deloopings-Handbook-2005",
    "kind": "misprint",
    "locator": "§1.2, Example 4, printed p. 8 (PDF p. 6)",
-   "printed": "Example 4. For C the category of ﬁnite sets, Sp(C) is the sphere spectrum.",
+   "printed": "Example 4 identifies Sp(C) with the sphere spectrum when C consists of finite sets.",
    "correction": "For C the category of finite pointed sets (wedge sum; the one-point set is a zero object), Sp(C) is the sphere spectrum.",
    "reason": "The construction two pages earlier requires 'a category which contains a zero objects, i.e. an object which is both initial and terminal'; in finite sets ∅ is initial but not terminal, so Sum_C is not defined as stated.",
    "affects": "nothing",
@@ -15111,7 +14809,7 @@
    "source": "Schwede-SymmetricSpectra-2012",
    "kind": "gap",
    "locator": "Chapter III, Definitions 5.3–5.4 and Examples 5.11–5.12, pp. 368–370; Chapter II, Proposition 6.23 (p. 279) and Theorem 8.3 (p. 297); Chapter III, proof of Theorem 4.11 (p. 366), in Symmetric spectra v3.0 (2012)",
-   "printed": "(Equivariance) [no text]; [on the right ?]; Example 5.11 (A∞ operads). [no text]; [also for homology]; in the sense of [...]; [fix the rest]",
+   "printed": "The source leaves the equivariance entry and Example 5.11 on A∞ operads empty, asks whether the action is on the right, mentions homology in a note, leaves the sense unspecified, and includes an instruction to fix the remainder.",
    "correction": "Operads: right Σ_n-actions on O(n), γ equivariant for block permutations and block sums, α_n factors over O(n) ∧_{Σ_n} A^{∧n}. Prop. 6.23's homology statement and Thm. 8.3's homotopy-limit claim are not proved in the draft; Thm. 4.11 is supplied by Hovey–Shipley–Smith Thm. 3.4.4.",
    "reason": "The draft book leaves these passages unfinished; the packet states the missing conditions and cites complete sources where available.",
    "affects": "a stated result",

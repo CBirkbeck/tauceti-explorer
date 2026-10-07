@@ -461,7 +461,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, equation (17), p.367",
-          "excerpt": "Fλ : Y 2 = X(X − 1)(X − λ),",
           "match": "Specialization of the existing Weierstrass carrier, not a new elliptic-curve type."
         }
       ],
@@ -557,7 +556,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371",
-          "excerpt": "Fλ0 : Y 2 = X(X − 2)(X − 2λ),",
           "match": "The d=2 model used by the source; extending the scalar d uses the same explicit coefficient comparison."
         }
       ],
@@ -648,7 +646,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.2, p.368",
-          "excerpt": "b/a, a/b, (a − b)/a, a/(a − b), b/(b − a) and (b − a)/b,",
           "match": "With λ=b/a these are the six labelled values."
         }
       ],
@@ -748,7 +745,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, equation (17), p.367; explicit coefficient computation",
-          "excerpt": "Fλ : Y 2 = X(X − 1)(X − λ),",
           "match": "The equation determines these invariants in the pinned convention; the computation is provided explicitly rather than attributing an unstated formula to the paper."
         }
       ],
@@ -793,7 +789,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, F′λ in proof of Lemma 6.6, p.371",
-          "excerpt": "Fλ0 : Y 2 = X(X − 2)(X − 2λ),",
           "match": "Native twist invariant comparison specialized to the scaled equation."
         }
       ],
@@ -834,7 +829,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, six ratios in proof of Lemma 6.2, p.368",
-          "excerpt": "b/a, a/b, (a − b)/a, a/(a − b), b/(b − a) and (b − a)/b,",
           "match": "These are coordinate changes attached to ordered split roots, not the moduli quotient of ModularCurves 9E."
         }
       ],
@@ -877,7 +871,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Legendre discussion p.367 and proof of Lemma 6.2 p.368",
-          "excerpt": "F : Y 2 = X(X − a)(X − b),",
           "match": "The source uses the normalized split equation; this node gives the missing explicit construction from ordered roots."
         }
       ],
@@ -925,7 +918,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, following equation (17), p.367",
-          "excerpt": "Fa has full 2-torsion,",
           "match": "The paper’s full-two-torsion assertion is realized by the root-count and coefficient construction rather than assumed as a new predicate."
         }
       ],
@@ -967,7 +959,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, descent discussion and Lemma 6.5, p.370",
-          "excerpt": "Θ−1 (0, 0) = (1, 1, 1),",
           "match": "The distinguished points label the coordinate evaluations of native descent."
         }
       ],
@@ -1063,7 +1054,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371",
-          "excerpt": "Fλ0 : Y 2 = X(X − 2)(X − 2λ),",
           "match": "Promotes the scaled-model compatibility API because the finite-field specialization consumes it."
         }
       ],
@@ -1108,7 +1098,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemmas 6.3 and 6.5, pp.368,370",
-          "excerpt": "F has full rational 2-torsion,",
           "match": "The source uses full two-torsion; this node supplies the exact enumeration on these equations."
         }
       ],
@@ -1153,7 +1142,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.2(i), pp.367–368; alternate explicit invariant proof",
-          "excerpt": "ordp (λ) = ordp (1 − λ) = 0",
           "match": "The source proves the implication via an odd-primitive integral model; this node gives an independent direct valuation calculation from its equation."
         }
       ],
@@ -1202,7 +1190,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.2(i), pp.367–368",
-          "excerpt": "ordp (λ) = ordp (1 − λ) = 0",
           "match": "Exactly the source theorem, with the model-versus-curve reduction convention made explicit."
         }
       ],
@@ -1251,7 +1238,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.4, p.368",
-          "excerpt": "p is a prime of good reduction for Fλ.",
           "match": "Explains the coefficient-level unit-discriminant step the source uses."
         }
       ],
@@ -1294,7 +1280,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.2(ii), pp.367–368",
-          "excerpt": "Then N odd | M.",
           "match": "The support portion of the source conductor conclusion, separated from the elliptic-conductor bridge."
         }
       ],
@@ -1338,7 +1323,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.2(ii), pp.367–368",
-          "excerpt": "Then N odd | M.",
           "match": "The actual conductor-divisibility assertion, with its precise imported bridge."
         }
       ],
@@ -1388,7 +1372,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, two-descent display preceding Lemma 6.5, p.370",
-          "excerpt": "Θλ : Fλ (Fp ) → F∗p /F∗p 2 × F∗p /F∗p 2 × F∗p /F∗p 2",
           "match": "The displayed triple is the split reading of the already implemented étale-algebra descent."
         }
       ],
@@ -1486,7 +1469,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, two-descent display preceding Lemma 6.5, p.370",
-          "excerpt": "Θλ (Q) = (θ1 (Q), θ2 (Q), θ3 (Q)).",
           "match": "Names only the new identification of native squareclasses with the triple; μ remains the sole descent map."
         }
       ],
@@ -1592,7 +1574,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, two-descent discussion, p.370",
-          "excerpt": "θ1 (Q) = x(Q)F∗p 2 .",
           "match": "The native nonroot branch produces the familiar coordinates; all exclusions needed to form units are retained."
         }
       ],
@@ -1644,7 +1625,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.5 and proof of Lemma 6.6, pp.370–371",
-          "excerpt": "Θ0 (2λ, 0) = (1, 1, 1).",
           "match": "The corrected representative of the native implementation gives the source’s root-coordinate computations."
         }
       ],
@@ -1697,7 +1677,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, two-descent discussion p.370",
-          "excerpt": "θ1 (Q)θ2 (Q)θ3 (Q) = 1F∗p 2",
           "match": "A compatibility lemma for the existing norm map, not a new generic norm theory."
         }
       ],
@@ -1744,7 +1723,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.3, p.368",
-          "excerpt": "a, a − 1 and a − η 2",
           "match": "The source’s square criterion is derived from native descent, including the special root branch."
         }
       ],
@@ -1796,7 +1774,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.3, p.368",
-          "excerpt": "Z/2Z × Z/4Z.",
           "match": "Exactly the source subgroup theorem, with subgroup independence and the count consequence spelled out."
         }
       ],
@@ -1844,7 +1821,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.5, p.370",
-          "excerpt": "2(i, 1 − i) = (0, 0)",
           "match": "Native point construction for the source’s explicit half, not a formal pair with an assumed group law."
         }
       ],
@@ -1949,7 +1925,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.5, p.370",
-          "excerpt": "none of the points of order 4 are 2-divisible.",
           "match": "The proof’s finite group and nonsquare input are retained; it does not assert a cyclic full point group."
         }
       ],
@@ -1998,7 +1973,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.5, p.370",
-          "excerpt": "23 k #F−1 (Fp ).",
           "match": "The source’s exact valuation, not merely divisibility by 8; the finite group bridge is made explicit."
         }
       ],
@@ -2045,7 +2019,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371, corrected by atlas finding E14",
-          "excerpt": "P = 4ivt + 2λ,",
           "match": "The printed x is retained; the y is corrected to 8itv(t+iv), preserving the local proof."
         }
       ],
@@ -2154,7 +2127,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371",
-          "excerpt": "Then 2P = (2λ, 0)",
           "match": "A denominator-checked native doubling calculation for the corrected point."
         }
       ],
@@ -2195,7 +2167,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371",
-          "excerpt": "P is a point of order 4.",
           "match": "This order assertion is separately exported from the coordinate construction."
         }
       ],
@@ -2240,7 +2211,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371",
-          "excerpt": "θ30 (P ) = 4itv",
           "match": "The coordinate driving the source proof is unchanged by the corrected y-coordinate."
         }
       ],
@@ -2287,7 +2257,6 @@
         {
           "sourceId": "BS20",
           "locator": "§5, proof of Lemma 5.2, p.366",
-          "excerpt": "Y 2 = X(X − n/g)(X + n/g).",
           "match": "The equation-specific trace-zero fact isolated from the progression argument; direct counting replaces the unread generic CM citation."
         }
       ],
@@ -2337,7 +2306,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, proof of Lemma 6.6, p.371",
-          "excerpt": "ap (Fλ0 ) = −ap (Fλ ).",
           "match": "The source’s twist-by-two sign is an adapter for the already owned generic BSD.0 comparison."
         }
       ],
@@ -2378,7 +2346,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, split descent discussion p.370",
-          "excerpt": "Θλ (Q) = (θ1 (Q), θ2 (Q), θ3 (Q)).",
           "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
         }
       ],
@@ -2421,7 +2388,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, split descent discussion p.370",
-          "excerpt": "Θλ (Q) = (θ1 (Q), θ2 (Q), θ3 (Q)).",
           "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
         }
       ],
@@ -2463,7 +2429,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.5 proof p.370",
-          "excerpt": "2(i, 1 − i) = (0, 0)",
           "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
         }
       ],
@@ -2503,7 +2468,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.5 proof p.370",
-          "excerpt": "The points of order 4 are (i, 1 − i),",
           "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
         }
       ],
@@ -2543,7 +2507,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, Lemma 6.5 proof p.370",
-          "excerpt": "iF∗p 2 as first coordinate.",
           "match": "Promotes the consuming API item rather than leaving a dependency hidden in a constructor API."
         }
       ],
@@ -2671,7 +2634,7 @@
       "id": "EllipticLegendreCharacterInterfaces/E1",
       "kind": "misprint",
       "locator": "Proof of Lemma 6.6, p.371, in the published version, Annals of Mathematics 191 (2020), 355–392 (publisher PDF, SHA-256 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf) Compared with arXiv:1709.01022v1, pp.14–15.",
-      "printed": "\"P = (4ivt + 2λ, (128iv⁵ − 64iv³)t − 128v⁶ + 96v⁴ − 16v²) ∈ E(F_p). Then 2P = (2λ,0) and so P is a point of order 4.\"",
+      "printed": "The source gives P = (4ivt + 2λ, (128iv⁵ − 64iv³)t − 128v⁶ + 96v⁴ − 16v²) ∈ E(F_p), asserts 2P = (2λ,0), and concludes that the order of P is 4.",
       "correction": "P=(4itv+2λ,8itv(t+iv)) belongs to F′_λ(F_p), not the undefined E(F_p) in this display. Its double is (2λ,0). The x-coordinate and θ′₃(P)=4itv remain unchanged.",
       "reason": "For the local coordinate identity take p=5, t=v=2, i=3, λ=3. Then 2t²+2v²=1, but the printed point is (4,4), with y²=1 and x(x−2)(x−2λ)=4. This is a counterexample to that formula, not to all global hypotheses of the lemma. With r=2t and s=2iv, r²=2λ and s²=2λ−2, the point x=r²+rs, y=rs(r+s) lies on the curve and doubles to (2λ,0), as verified symbolically. Its x-coordinate and descent coordinate are unchanged, so the intended argument is preserved.",
       "affects": "nothing",

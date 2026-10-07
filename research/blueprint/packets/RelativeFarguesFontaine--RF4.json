@@ -545,19 +545,16 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Definition 1.3.7, p. 17",
-     "excerpt": "be a commuting diagram of ring homomorphisms such that the sequence 0 -> R -> R1 (+) R2 -> R12 -> 0 of R-modules, in which the last nontrivial arrow is the difference between the given homomorphisms, is exact. By a glueing datum over this diagram, we will mean ...",
      "match": "The definition verbatim (diagram omitted)."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Definition 1.3.7, p. 17",
-     "excerpt": "When considering a glueing datum, it is natural to consider the kernel M of the map psi1 - psi2 : M1 (+) M2 -> M12. There are natural maps M -> M1, M -> M2 of R-modules",
      "match": "The module of sections and its comparison maps."
     },
     {
      "sourceId": "Stacks-BL",
      "locator": "Section 15.92, before Theorem 15.92.16 (tag 0BP2)",
-     "excerpt": "We will call an object (M', M_1, alpha_1) of Glue(R -> R', f) a glueing datum. It consists of an R'-module M', an R_f-module M_1, and an isomorphism alpha_1 : (M')_f -> M_1 (x)_R R'.",
      "match": "The Beauville-Laszlo instance of the same notion."
     }
    ],
@@ -598,19 +595,16 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Lemma 1.3.8, p. 17",
-     "excerpt": "Consider a finite glueing datum for which M (x)R R1 -> M1 is surjective. Then we have the following. (a) The map psi1 - psi2 : M1 (+) M2 -> M12 is surjective. (b) The map M (x)R R2 -> M2 is also surjective. (c) There exists a finitely generated R-submodule M0 of M ...",
      "match": "Part (i) verbatim."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Lemma 1.3.9, p. 18",
-     "excerpt": "Suppose that for every finite projective glueing datum, the map M (x)R R1 -> M1 is surjective. (a) For any finite projective glueing datum, M is a finitely presented R-module and M (x)R R1 -> M1, M (x)R R2 -> M2 are bijective.",
      "match": "Part (ii)."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Lemma 1.3.9(b), p. 18",
-     "excerpt": "Suppose in addition that the image of Spec(R1 (+) R2) -> Spec(R) contains Maxspec(R). Then with notation as in (a), M is a finite projective R-module.",
      "match": "Part (iii)."
     }
    ],
@@ -648,13 +642,11 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Corollary 1.3.10, p. 19",
-     "excerpt": "Suppose that the hypotheses of Lemma 1.3.9(b) are satisfied. Then the natural functor FEt(R) -> FEt(R1) x_FEt(R12) FEt(R2) is an equivalence of categories.",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Proof of Corollary 1.3.10, p. 19",
-     "excerpt": "Using (1.3.10.1), (1.3.10.2), and the snake lemma, we see that the the trace pairing on A defines an isomorphism A -> HomR(A, R).",
      "match": "The trace pairing step."
     }
    ],
@@ -793,19 +785,16 @@
     {
      "sourceId": "Stacks-BL",
      "locator": "Section 15.92, Glueing pairs, before Lemma 15.92.6",
-     "excerpt": "Let R -> R' be a ring map that induces isomorphisms R/f^nR -> R'/f^nR' for n > 0. Consider the sequence 0 -> R -> R' (+) R_f -> R'_f -> 0 ... If this sequence is exact, then we say that (R -> R', f) is a glueing pair.",
      "match": "The definition."
     },
     {
      "sourceId": "Stacks-BL",
      "locator": "Lemma 15.92.6 (tag 0BNR) and Remark 15.92.7 (tag 0BNS)",
-     "excerpt": "In particular, (R -> R', f) is a glueing pair if and only if R[f^oo] -> R'[f^oo] is bijective. ... Suppose that f is a nonzerodivisor. ... Hence (R, f) is a glueing pair.",
      "match": "The torsion criterion and the nonzerodivisor case."
     },
     {
      "sourceId": "Stacks-BL",
      "locator": "Lemma 15.92.10 (tag 0BNW)",
-     "excerpt": "Thus M is glueable for (R -> R', f) if and only if M[f^oo] -> (M (x)_R R')[f^oo] is bijective.",
      "match": "Glueable modules."
     }
    ],
@@ -859,31 +848,26 @@
     {
      "sourceId": "SW20-berkeley",
      "locator": "Lemma 5.2.9, printed p. 38",
-     "excerpt": "Let R be a commutative ring, let f in R be a non-zero-divisor, and let R-hat be the f-adic completion of R. Then the category of R-modules M where f is not a zero-divisor is equivalent to the category of pairs (M_R-hat, M[f^-1], beta) ... M is finite projective if and only if ...",
      "match": "The statement used throughout the atlas; read again in this session."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "After Lemma 5.2.9, printed p. 38",
-     "excerpt": "This does not follow from fpqc descent because of two subtle points: R -> R-hat might not be flat if R is not noetherian, and also we have not included a descent datum on R-hat (x)_R R-hat.",
      "match": "The two non-noetherian subtleties the stage asks to retain."
     },
     {
      "sourceId": "Stacks-BL",
      "locator": "Theorem 15.92.16 (tag 0BP2)",
-     "excerpt": "Let (R -> R', f) be a glueing pair. The functor Can : Mod_R -> Glue(R -> R', f) determines an equivalence of the category of R-modules glueable for (R -> R', f) and the category Glue(R -> R', f) of glueing data.",
      "match": "Part (a), with a complete non-noetherian proof; this replaces the unread Beauville-Laszlo note."
     },
     {
      "sourceId": "Stacks-BL",
      "locator": "Lemma 15.92.19",
-     "excerpt": "Let (R -> R', f) be a glueing pair. Let M be an R-module which is not necessarily glueable for (R -> R', f). Then M is a finite projective R-module if and only if M (x)_R R' is finite projective over R' and M_f is finite projective over R_f.",
      "match": "Part (b), finite projective case."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Proposition 1.3.6, pp. 16-17",
-     "excerpt": "(a) For any flat R-module M, the sequence 0 -> M -> (M (x)R R[t^-1]) (+) (M (x)R R-hat) -> M (x)R R-hat[t^-1] -> 0 ... is exact. ... In particular, the morphism R -> R[t^-1] (+) R-hat is an effective descent morphism for the category of finite projective modules over rings.",
      "match": "Parts (b) effective descent and (c)."
     }
    ],
@@ -1023,19 +1007,16 @@
     {
      "sourceId": "FS-geometrization",
      "locator": "III.3, printed p. 97",
-     "excerpt": "a modification between E and E' at D is an isomorphism E|_{X_S minus D} -> E'|_{X_S minus D} that is meromorphic along D. The latter means that for any representation in Rep_E(G), the associated isomorphism ... extends to a morphism F -> F'(kD) for k >> 0",
      "match": "The definition for G-bundles; for G = GL_n with the standard and dual representation it is this node."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Theorem 14.1.1(3), printed p. 115",
-     "excerpt": "Quadruples (F, F', beta, T), where F and F' are vector bundles on the Fargues-Fontaine curve X_FF such that F is trivial, beta : F|_{X_FF minus {oo}} -> F'|_{X_FF minus {oo}} is an isomorphism, and T ...",
      "match": "The modification datum beta at a degree-one divisor of the absolute curve."
     },
     {
      "sourceId": "FF18-courbe",
      "locator": "5.3, before Proposition 5.3.1, p. 208",
-     "excerpt": "La categorie C-hat consiste en la donnee d'un fibre sur U, de fibres sur les disques formels (Spec(O-hat_{X,x_i})) et de donnees de recollement sur les disques formels epointes (Spec(K-hat_{x_i}))",
      "match": "The absolute picture: a bundle off finitely many points, bundles on formal discs and gluing on punctured discs."
     }
    ],
@@ -1094,25 +1075,21 @@
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proof of Proposition 19.1.2, printed p. 170",
-     "excerpt": "Recall that S-sharp -> S x Spa Z_p x_{Spa C-flat x Spa Z_p} U is a closed Cartier divisor by Proposition 11.3.1. Thus, the identification with G-torsors over this locus follows from the Tannakian formalism and the Beauville-Laszlo lemma, Lemma 5.2.9.",
      "match": "The gluing of bundles off a Cartier divisor with lattices on its completion."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proof of Theorem 14.1.1, printed p. 116",
-     "excerpt": "Now by the Beauville-Laszlo lemma, Lemma 5.2.9, the datum of F' and beta is equivalent to the datum of a B+dR-lattice in F-hat_oo (x)_{B+dR} BdR = T (x)_Zp BdR.",
      "match": "Modifications at a degree-one divisor are lattices in the completion."
     },
     {
      "sourceId": "HK-admissible",
      "locator": "Section 4.3, p. 29",
-     "excerpt": "by the Tannakian formalism, we reduce to modifications of vector bundles on FF_S by B+dR-lattices, which can be constructed via the Beauville-Laszlo gluing [45, Lemma 5.2.9] (using the equivalence of vector bundles and finite projective modules on affinoids U in FF_S [45, Theorem 5.2.8]).",
      "match": "The relative construction over a perfectoid base S, by exactly this proof."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "VI.1, before Definition VI.1.5, printed p. 192",
-     "excerpt": "Assuming that D_S is affinoid, as is the case locally on S, we let B+_{Div^d_Y}(S) ... be (the global sections of) the completion of O_YS along I_S ... In the case of d = 1, those rings are the ones that are usually denoted B+dR, resp. BdR.",
      "match": "The completed rings B^+_D(S) of arbitrary degree d."
     }
    ],
@@ -1157,19 +1134,16 @@
     {
      "sourceId": "CS17-generic",
      "locator": "Theorem 3.5.1",
-     "excerpt": "There is an equivalence between the category of vector bundles over X(R-flat) (or over X(R-flat, R-flat+)) and the category of triples (M1, M2, iota) ... This equivalence is compatible with tensor products and short exact sequences.",
      "match": "The tensor and exactness compatibility of the gluing, stated by Caraiani-Scholze for Kedlaya-Liu's equivalence."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "VI.1, before Definition VI.1.5, printed p. 192",
-     "excerpt": "This defines v-sheaves B+_{Div^d} contained in B_{Div^d} over Div^d_(-) in all three cases.",
      "match": "The completed rings are v-sheaves, so the gluing is compatible with base change in S."
     },
     {
      "sourceId": "Stacks-BL",
      "locator": "Section 15.92, introduction",
-     "excerpt": "In fact, we will establish the Beauville-Laszlo theorem in the more general setting of a ring map R -> R' which induces isomorphisms R/f^nR -> R'/f^nR' for every n > 0 and an isomorphism R[f^oo] -> R'[f^oo]. This is better suited for globalizing",
      "match": "Coefficient change along maps of glueing pairs."
     }
    ],
@@ -1214,19 +1188,16 @@
     {
      "sourceId": "FS-geometrization",
      "locator": "Definition VI.1.6 and the remark after it, printed p. 193",
-     "excerpt": "the functor sending an affinoid perfectoid S -> Div^d_Y ... to the groupoid of pairs of G-bundles E1, E2 over B+_{Div^d}(S) ... together with an isomorphism E1 = E2 over B_{Div^d}(S).",
      "match": "Modifications along degree-d divisors, whose legs may collide."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proof of Proposition 12.4.6, printed pp. 106-107",
-     "excerpt": "we can use Xi to define a vector bundle over Y[0,oo) which is isomorphic to E0 away from xC, and whose completed stalk at xC is given by Xi. We can repeat this at phi^n(xC) for all n >= 1",
      "match": "Gluing along an infinite locally finite family of disjoint degree-one divisors."
     },
     {
      "sourceId": "FF18-courbe",
      "locator": "Proposition 5.3.1, p. 209",
-     "excerpt": "Les foncteurs FibX -> C, E |-> (E|U, (E_xi)_{1<=i<=r}, (can_i)_{1<=i<=r}) et FibX -> C-hat, E |-> (E|U, (E-hat_xi)_{1<=i<=r}, (can_i)_{1<=i<=r}) sont des equivalences de categories.",
      "match": "The absolute gluing at finitely many points."
     }
    ],
@@ -1266,13 +1237,11 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Lemma 8.9.3, p. 187",
-     "excerpt": "Let Z be the image of the canonical section Spec(A) -> Proj(PR). (a) The open subscheme Proj(PR) - Z of Proj(PR) is affine. (b) The closed subscheme Z of Proj(PR) is a Cartier divisor contained in an open affine subscheme of Proj(PR).",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Proof of Lemma 8.9.3, p. 187",
-     "excerpt": "Thanks to the interpretation of Z as the divisor of the section tX of the line bundle LX, we may invoke Lemma 8.8.8 to deduce (a). To prove (b), define L as in Remark 8.7.6; it then suffices to exhibit some tL in PL,1 whose support in Proj(PR) is disjoint from Z.",
      "match": "The proof route."
     }
    ],
@@ -1409,19 +1378,16 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Definition 8.9.4, p. 187",
-     "excerpt": "By Lemma 8.9.3(a), the complement of Z in Proj(PR) is an affine scheme Spec(R1). By Lemma 8.9.3(b), the completion of Proj(PR) along Z is another affine scheme Spec(R2), and Spec(R1) x_Proj(PR) Spec(R2) is yet another affine scheme Spec(R3).",
      "match": "The construction verbatim."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Definition 8.9.4, p. 187",
-     "excerpt": "One can also identify R2 with the ker(theta)-adic completion of R-tilde^int,1_R and R3 with R2[z^-1] for some z generating ker(theta).",
      "match": "The identification with B^+_dR and B_dR."
     },
     {
      "sourceId": "CS17-generic",
      "locator": "Before Theorem 3.5.1",
-     "excerpt": "Then Spec B+dR,R is the completion of X(R-flat) along Z. Moreover, Spec BdR,R can be identified with the fiber product of Spec B+dR,R and the complement of Z over X(R-flat).",
      "match": "Caraiani-Scholze's naming of R_2, R_3 as B^+_dR,R and B_dR,R."
     }
    ],
@@ -1462,19 +1428,16 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Theorem 8.9.6(a), p. 188",
-     "excerpt": "(a) For any flat quasicoherent sheaf V on Proj(PR), the cohomology of the complex 0 -> Gamma(Spec(R1), V) (+) Gamma(Spec(R2), V) -> Gamma(Spec(R3), V) -> 0 where the arrow is given by the difference ... may be naturally identified with H^i(Proj(PR), V).",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "KL15-foundations",
      "locator": "Remark 8.9.5, p. 187",
-     "excerpt": "In general, one might expect the same to hold, but one cannot quite prove it using faithfully flat descent because it is unclear whether Spec(R2) -> Proj(PR) is a flat morphism.",
      "match": "Why Beauville-Laszlo, not flat descent, is used."
     },
     {
      "sourceId": "FF18-courbe",
      "locator": "Proposition 5.3.3, p. 209",
-     "excerpt": "Il y a des identifications canoniques H0(X, E) = u(M) intersect N ... Plus generalement, RGamma(X, E) est isomorphe au complexe M (+) N -> N (x) K, (x, y) |-> u(x) - y",
      "match": "The absolute case at a geometric point."
     }
    ],
@@ -1525,19 +1488,16 @@
     {
      "sourceId": "KL15-foundations",
      "locator": "Theorem 8.9.6(b),(c), p. 188",
-     "excerpt": "(b) The morphism Spec(R1 (+) R2) -> Proj(PR) is an effective descent morphism for the category of quasicoherent finite locally free sheaves over schemes ... (c) The category of vector bundles on Proj(PR) is equivalent to the category of triples (V1, V2, iota)",
      "match": "The statement; KL's proof is 'This follows from Proposition 1.3.6'."
     },
     {
      "sourceId": "CS17-generic",
      "locator": "Theorem 3.5.1",
-     "excerpt": "There is an equivalence between the category of vector bundles over X(R-flat) (or over X(R-flat, R-flat+)) and the category of triples (M1, M2, iota) ... This equivalence is compatible with tensor products and short exact sequences.",
      "match": "The adic curve via GAGA, and the tensor and exactness compatibility."
     },
     {
      "sourceId": "FF18-courbe",
      "locator": "Corollaire 5.3.2, p. 209",
-     "excerpt": "Supposons U affine et Pic(U) trivial. Soit B = Gamma(U, OX). La categorie des fibres vectoriels sur X est equivalente a celle des triplets (M, N, (ui)) ... En particulier, les classes d'isomorphismes de fibres vectoriels de rang n sur X s'identifient a l'ensemble",
      "match": "The absolute case with the double coset description."
     }
    ],
@@ -1583,25 +1543,21 @@
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proposition 12.4.6, printed p. 106",
-     "excerpt": "The above functor defines an equivalence between shtukas over Spa C-flat with one leg at phi^-1(xC) and the category of pairs (T, Xi), where T is a finite free Zp-module and Xi in T (x)Zp BdR is a B+dR-lattice.",
      "match": "Part (b), first equivalence."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proof of Proposition 12.4.6, printed pp. 106-107",
-     "excerpt": "By the Beauville-Laszlo lemma, Lemma 5.2.9, and as xC defines a closed Cartier divisor, we can use Xi to define a vector bundle over Y[0,oo) which is isomorphic to E0 away from xC, and whose completed stalk at xC is given by Xi.",
      "match": "The gluing step."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proof of Theorem 14.1.1, printed p. 116",
-     "excerpt": "Let us explain the equivalence between (2) and (3). By Corollary 13.5.5, the datum of a trivial vector bundle F is equivalent to the datum of a finite-dimensional Qp-vector space; together with T, this data is equivalent to a finite free Zp-module T.",
      "match": "Part (b), second equivalence."
     },
     {
      "sourceId": "BMS18-integral",
      "locator": "Remark 4.29, p. 43",
-     "excerpt": "For the proof of our main theorems, we only need fully faithfulness of the functor M |-> (T, Xi), which is easy to prove directly.",
      "match": "Why this node feeds only the essential-surjectivity half of Fargues' theorem."
     }
    ],
@@ -1622,8 +1578,8 @@
     "The extension over the closed point in the field case uses that A_inf is a 'two-dimensional regular local ring'-like ring (Kedlaya Hypothesis 2.1); it fails for general R^+"
    ],
    "proofSteps": [
-    "Cover Y-ad by the rational subsets U = {|[x]| <= |p| != 0} = Spa(B_1) and V = {|p| <= |[x]| != 0} = Spa(B_2) with intersection Spa(B_12), where B_1 = A_1<[x]/p>, B_2 = A_2<p/[x]>, A_1 = A[1/p], A_2 = A[1/[x]], A_12 = A[1/p[x]] (Kedlaya Definition 3.5).",
-    "These Huber rings are stably uniform (after completed tensor product with Z_p[p^(1/p^oo)] they become perfectoid and split back by the normalised trace: the sousperfectoid method, AdicSpacesPartII:R5), hence sheafy, and A_2 is uniform (Kedlaya Proposition 3.6).",
+    "Cover Y-ad by the rational subsets U = {|[x]| <= |p| != 0} = Spa(B_1) and V = {|p| <= |[x]| != 0} = Spa(B_2) with intersection Spa(B_12), where B_1 = A_1<[x]/p>, B_2 = A_2<p/[x]>, A_1 = A[1/p], A_2 = A[1/[x]], A_12 = A[1/p[x]] (Kedlaya Definition 3.5). These charts are supplied by RF0:integral-Y/whole-analytic-ainf-locus, rather than by the smaller curly-Y open.",
+    "Import the exact chart sheafiness/stable-uniformity input of RF0:integral-Y/whole-analytic-ainf-sheafiness: A_1,A_12,B_1,B_2,B_12,B_2-prime are stably uniform, whereas A_2 is only asserted uniform (Kedlaya Proposition 3.6). Use the completed coefficient-root extension and continuous module splitting of the R5 supplier. Do not infer stable uniformity of A_2 or treat an underlying-ring isomorphism involving a primed chart as a topological isomorphism.",
     "On each sheafy chart, vector bundles are finite projective modules (Kedlaya Proposition 3.2(c); AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing), and the simple Laurent squares are glueing squares (Proposition 3.2(a,b); AdicSpacesPartII:R3/simple-laurent-glueing-square, AdicSpacesPartII:R3/glueing-square-finite-projective-descent).",
     "Compare the Zariski cover {Spec A_1, Spec A_2} of X-sch with the adic cover through the exact-square gluing of RF4:vector-bundles/finite-projective-glueing-over-exact-square; in the resulting 2-commutative square every functor but Vec(X-sch) -> Vec(Y-ad) is an equivalence (proof of Kedlaya Theorem 3.8).",
     "Field case: Kedlaya Theorem 2.7 (vector bundles on the punctured Spec of A_inf extend uniquely: the gluing stack uses A_inf[1/p] and W(K) over W(K)[1/p], where W(K) is the p-adic completion of A_inf[1/[x]]; Lemma 2.6 proves that its sections are finite free and Lemma 2.3(c) recovers the bundle) combined with Theorem 3.8; Scholze-Weinstein give the same proof (Lemmas 14.2.3, 14.3.1)."
@@ -1643,8 +1599,8 @@
     "AdicSpacesPartII:R3/glueing-square-finite-projective-descent",
     "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
     "AdicSpacesPartII:R5/sousperfectoid-stably-uniform",
-    "RelativeFarguesFontaine:RF0:integral-Y/curly-Y-affinoid-definition",
-    "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+    "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus",
+    "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness",
     "PerfectoidSpaces:P1/witt-vectors-of-perfect-plus-ring",
     "mathlib:WittVector",
     "mathlib:Module.Projective",
@@ -1654,25 +1610,21 @@
     {
      "sourceId": "Kedlaya-Ainf",
      "locator": "Theorem 3.8",
-     "excerpt": "Put A := W(R+) and let X (resp. Y) be the complement in Spec A (resp. Spa(A, A)) of the closed subspace where p = [x] = 0. Then pullback along the morphism Y -> X of locally ringed spaces defines an equivalence of categories VecX -> VecY.",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "Kedlaya-Ainf",
      "locator": "Theorem 3.9",
-     "excerpt": "Put A := W(oK), X := Spa(A, A), Y := X minus {v0}. Let ModffA be the category of finite free A-modules. Then the categories ModffA, VecX, VecY are equivalent",
      "match": "The field case."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Theorem 14.2.1, printed p. 116",
-     "excerpt": "(Kedlaya, [Ked19b, Theorem 3.6]). There is an equivalence of categories between: 1. Finite free Ainf-modules, and 2. Vector bundles on Y.",
      "match": "The field case as used in Fargues' theorem."
     },
     {
      "sourceId": "GR24-prismatic",
      "locator": "Proof of Theorem 4.15, p. 43",
-     "excerpt": "By the algebraicity of vector bundles on Y from [Ked20, Thm. 3.8], it suffices to build an F-vector bundle on the adic space Y.",
      "match": "The use routed to this layer by the Guo-Reinecke extraction (item 129)."
     }
    ],
@@ -1807,19 +1759,16 @@
     {
      "sourceId": "FS-geometrization",
      "locator": "III.3, printed p. 97",
-     "excerpt": "If E, E' in BunG(S) and D in Div1(S), a modification between E and E' at D is an isomorphism E|_{XS minus D} -> E'|_{XS minus D} that is meromorphic along D. The latter means that for any representation in RepE(G), the associated isomorphism ... extends to a morphism F -> F'(kD) for k >> 0",
      "match": "The definition verbatim (abridged)."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Remark 19.1.3, printed p. 170",
-     "excerpt": "In this language, a trivialization of E|... is meromorphic along S-sharp if and only if this holds true for the corresponding vector bundles associated to all algebraic representations of G.",
      "match": "Meromorphy is tested on all representations."
     },
     {
      "sourceId": "HK-admissible",
      "locator": "Section 4.3, p. 29",
-     "excerpt": "We recall, from the Tannakian perspective, the notion of modifications of G-bundles as in [17, III.3].",
      "match": "The relative Tannakian notion over a perfectoid base."
     }
    ],
@@ -1871,19 +1820,16 @@
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proposition 19.1.2, printed p. 170",
-     "excerpt": "it is also equivalent to the functor taking any S in Perf with untilt S-sharp over Spa C to the set of G-torsors E_U on S x Spa Zp x_{Spa C-flat x Spa Zp} U together with a trivialization of E|... that is meromorphic along S-sharp",
      "match": "The torsor-modification description of the B^+_dR-affine Grassmannian."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "III.3, printed pp. 97-98",
-     "excerpt": "Beauville-Laszlo gluing then identifies Gr_G/phi^Z -> Div1 with the moduli of D in Div1(S), E in BunG(XS), and a modification between the trivial G-bundle and E at D, cf. [SW20, Proposition 19.1.2].",
      "match": "The relative identification over Spd E."
     },
     {
      "sourceId": "CS17-generic",
      "locator": "Corollary 3.5.2 and proof",
-     "excerpt": "For any perfectoid affinoid Qp-algebra (R, R+), there is a natural map E : Gr^BdR+_G(R, R+) -> {G-bundles over X(R-flat, R-flat+)}. Proof. If G = GLn, this follows from the discussion above. In general, it follows from the Tannakian formalism.",
      "match": "The Tannakian transfer of the linear gluing."
     }
    ],
@@ -1926,19 +1872,16 @@
     {
      "sourceId": "DM82-tannakian",
      "locator": "Proposition 2.20(b) and its proof",
-     "excerpt": "(b) G is algebraic if and only if Rep_k(G) has a tensor generator X. ... If G is algebraic, then it has a finite-dimensional faithful representation X (see 2.5), and one shows ... that X (+) X^dual is a tensor generator for Rep_k(G).",
      "match": "The tensor-generator property of a faithful representation."
     },
     {
      "sourceId": "DM82-tannakian",
      "locator": "Footnote 11 to Proposition 2.20",
-     "excerpt": "An object X of Rep_k(G) is a tensor generator if every object of Rep_k(G) is isomorphic to a subquotient of P(X, X^dual) for some P in N[t, s].",
      "match": "What 'tensor generator' means."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "III.3, printed p. 97",
-     "excerpt": "The latter means that for any representation in RepE(G), the associated isomorphism between vector bundles, F|_{XS minus D} -> F'|_{XS minus D} extends to a morphism F -> F'(kD) for k >> 0 via F' -> F'(kD).",
      "match": "The definition reduced here to one faithful representation."
     }
    ],
@@ -1978,13 +1921,11 @@
     {
      "sourceId": "DM82-tannakian",
      "locator": "Proposition 2.21(b)",
-     "excerpt": "(b) f is a closed immersion if and only if every object of Rep_k(G) is isomorphic to a subquotient of an object of the form omega^f(X'), X' in ob(Rep_k(G')).",
      "match": "The criterion used for (b)."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Lemma 19.1.5, printed p. 171",
-     "excerpt": "Let rho : G -> H be a closed embedding of reductive groups over C. Then the induced map GrG -> GrH is a closed embedding.",
      "match": "The Grassmannian consumer of the change-of-group compatibility."
     }
    ],
@@ -2024,13 +1965,11 @@
     {
      "sourceId": "FS-geometrization",
      "locator": "VI.1, before Definition VI.1.5, printed p. 192",
-     "excerpt": "This defines v-sheaves B+_{Div^d} contained in B_{Div^d} over Div^d_(-) in all three cases.",
      "match": "Base change in S."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "Definition VI.1.6, printed p. 193",
-     "excerpt": "The local Hecke stack Hck_{G,Div^d_Y} ... is the functor sending an affinoid perfectoid S -> Div^d_Y ... to the groupoid of pairs of G-bundles E1, E2 over B+_{Div^d_Y}(S) ... together with an isomorphism E1 = E2 over B_{Div^d_Y}(S).",
      "match": "Data over degree-d divisors with possibly colliding legs."
     }
    ],
@@ -2090,37 +2029,31 @@
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proposition 19.5.3 and proof, printed pp. 180-181",
-     "excerpt": "Let S in Perf be a perfectoid space of characteristic p and let U in S x Spa Zp be an open subset. The functor on PerfS sending any S' -> S to the groupoid of G-torsors on U x_{S x Spa Zp} S' x Spa Zp is a v-stack.",
      "match": "Part (a)."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "Proof of Proposition VI.1.7, printed p. 193",
-     "excerpt": "The category of vector bundles over B+_{Div^d} ... satisfies v-descent: It is enough to check this modulo powers of the ideal IS, where the result is Proposition VI.1.4. By the Tannakian formalism, it follows that the category of G-bundles also satisfies v-descent",
      "match": "Part (b)."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "Proof of Proposition VI.1.7, printed p. 193",
-     "excerpt": "Any G-bundle over B+_{Div^d_Y}(S) is etale locally on S trivial. Indeed, if S is a geometric point then B+_{Div^d_Y}(S) is a product of complete discrete valuation rings with algebraically closed residue field, so that all G-torsors are trivial.",
      "match": "Part (c), geometric points."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "Proof of Proposition VI.1.7, printed p. 193",
-     "excerpt": "In general, note that triviality of the G-torsor over B+_{Div^d_Y}(S) is implied by triviality modulo IS (as one can always lift sections over nilpotent thickenings). Then the result follows from [GR03, Proposition 5.4.21].",
      "match": "Part (c), the general step and its citation."
     },
     {
      "sourceId": "GR02-almost",
      "locator": "Proposition 5.4.21 (arXiv v3)",
-     "excerpt": "Let t in R be a non-zero-divisor, I in R an ideal, R^ := lim R/t^n I the (t, I)-adic completion of R ... suppose that the pair (R, tI) is henselian. Let X be a smooth quasi-projective R[t^-1]-scheme ... Then the natural map X(R[t^-1]) -> X(R^[t^-1]) has dense image.",
      "match": "The henselian approximation statement; in the arXiv numbering it is the tool FS's citation needs."
     },
     {
      "sourceId": "SW20-berkeley",
      "locator": "Proof of Proposition 19.1.2, printed p. 170",
-     "excerpt": "Any G-torsor E on Spec B+dR(R-sharp) is locally trivial for the etale topology on Spa(R-sharp, R-sharp+). Indeed, its reduction to Spec R-sharp is etale locally trivial ... as H1et(S-sharp, O_S-sharp) = 0, we see that it is trivial.",
      "match": "The degree-one argument."
     }
    ],
@@ -2257,19 +2190,16 @@
     {
      "sourceId": "HK-admissible",
      "locator": "Section 4.3, p. 29",
-     "excerpt": "Moreover, given a lattice L on this G(BdR)-local system, we may form the modification EL of E by L to obtain a new object in BunG(S): by the Tannakian formalism, we reduce to modifications of vector bundles on FFS by B+dR-lattices",
      "match": "The construction verbatim."
     },
     {
      "sourceId": "CS17-generic",
      "locator": "Corollary 3.5.2",
-     "excerpt": "For any perfectoid affinoid Qp-algebra (R, R+), there is a natural map E : Gr^BdR+_G(R, R+) -> {G-bundles over X(R-flat, R-flat+)}.",
      "match": "The trivial-P case."
     },
     {
      "sourceId": "FS-geometrization",
      "locator": "III.3, printed p. 98",
-     "excerpt": "This defines a morphism of v-stacks GrG -> BunG.",
      "match": "The Beauville-Laszlo morphism, owned on the Grassmannian side by GS0."
     }
    ],
@@ -2303,7 +2233,7 @@
    "remaining": [
     "The ramified (W_{O_E}) and equal-characteristic forms of Kedlaya's algebraicity theorem: Kedlaya and Scholze-Weinstein are p-typical, and no source for the general case was read; no node of this packet needs them",
     "Kedlaya-Liu's B-pair statements (8.9.3-8.9.6) are planned in their unramified setting; the general-E relative gluing is the modification form RF4:vector-bundles/meromorphic-modification-at-a-divisor, and the general-E schematic triple form is not stated in a read source",
-    "When RelativeFarguesFontaine:RF0:crystalline-end is created (RT-AREA-padic-1/18), import its charts into RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles (gap 1)",
+    "Discharge the coefficient/root-chart interfaces inherited through the exact RF0 whole-analytic-ainf-locus and whole-analytic-ainf-sheafiness imports; those open proof interfaces remain in RF0’s gaps. No additional crystalline-end stage is needed to name these existing supplier nodes.",
     "Prove arbitrary-complement effectivity in general-E adic geometry (gap: Arbitrary complement data).",
     "Supply the no-leg/one-leg shtuka recovery contracts used by node lattices-and-modifications-of-trivial-bundles(b).",
     "Finish native algebra API and tests; synchronize the read-only reader with review corrections."
@@ -2331,13 +2261,6 @@
   }
  ],
  "gaps": [
-  {
-   "title": "The crystalline end of Spa W(R^+) has no owning layer yet",
-   "neededBy": [
-    "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles"
-   ],
-   "detail": "Kedlaya's algebraicity theorem is stated on Spa W(R^+) minus V(p, [x]), whose rational charts Spa(B_1) = {|[x]| <= |p| != 0} and Spa(B_2') meet the locus [x] = 0. RF0:integral-Y removes V([varpi]) and RF0:annuli removes V(pi), so neither constructs these charts or proves their stable uniformity (Kedlaya Proposition 3.6). The confirmed finding RT-AREA-padic-1/18 proposes a new child RelativeFarguesFontaine:RF0:crystalline-end for them (handed to BP-RelativeFarguesFontaine--RF0); it is not yet an atlas stage, so no prerequisite can name it. Until it exists, the chart construction and the sousperfectoid stable-uniformity argument are carried in the proof steps of RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles, resting on AdicSpacesPartII:R5/sousperfectoid-stably-uniform and RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness. NEXT ACTION: once RF0:crystalline-end exists, make it a prerequisite of that node and add the stage edge RF0:crystalline-end -> RF4:vector-bundles (acyclic: RF0:crystalline-end requires only RF0:integral-Y and RF0:annuli)."
-  },
   {
    "title": "Arbitrary complement data in general-E adic gluing",
    "neededBy": [
@@ -2416,8 +2339,8 @@
    "roadmaps": [
     "RelativeFarguesFontaine"
    ],
-   "detail": "RT-AREA-padic-1/18 (confirmed) proposes a child RF0:crystalline-end owning the charts of Spa W_{O_E}(R^+) at [varpi] = 0, the pi-adic sheafiness of W_{O_E}(R^+)[1/pi], and Kedlaya's algebraicity, and its fix report would leave to RF4 'the phi-module freeness parts' of Guo-Reinecke item 129. The stage does not exist yet, and the accepted Guo-Reinecke route 6 names RF4:vector-bundles; this packet plans Kedlaya's algebraicity here as a patching theorem (its proof is gluing of finite projective modules over exact squares and Beauville-Laszlo squares, Kedlaya section 3 'Adic glueing'), and records the missing charts as a gap.",
-   "proposal": "When RF0:crystalline-end is created, it owns the charts Y_{S,[r,oo]}, their rings and their sheafiness; RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles stays the single owner of the algebraicity theorem and imports the charts (edge RF0:crystalline-end -> RF4:vector-bundles), unless the maintainer prefers to move the node into RF0:crystalline-end, in which case AI.2:essential-surjectivity imports it from there; it must not be planned twice. The phi-module freeness statements of item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13 and Lemma 3.2.6, extraction items PAPER-KEDLAYA-LIU-15/124 and /129, both 'missing') are about Frobenius modules over perfect rings, not patching, and should be routed to the owner of Kedlaya-Liu section 3.2 or to the Guo-Reinecke Part II roadmap that uses them."
+   "detail": "RT-AREA-padic-1/18 proposes a crystalline-end child. Its chart targets are now represented by RF0:integral-Y/whole-analytic-ainf-locus and whole-analytic-ainf-sheafiness, and RF4 imports those exact nodes. Kedlaya’s p-typical algebraicity theorem is singly owned by RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles; RF0’s stable punctured-ainf-bundle-algebraicity id is a presentation/import comparison. This division agrees with the Guo-Reinecke route to RF4 for patching, without duplicating the theorem or requiring a nonexistent stage id.",
+   "proposal": "Keep the chart construction and sheafiness at the two exact RF0:integral-Y nodes and algebraicity at the exact RF4 theorem node. A separate RF0:crystalline-end child, if adopted, reparents the existing chart nodes and preserves their stable ids; it does not create second chart or algebraicity targets. The φ-module freeness statements of Guo-Reinecke item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13 and Lemma 3.2.6, extraction items PAPER-KEDLAYA-LIU-15/124 and /129) require the owner of Frobenius modules over perfect rings or the Guo-Reinecke Part II owner, with their product-of-valuation-rings hypotheses. RF0’s outward RF4 request remains a routing request for that payload, not a claim that RF4’s patching theorem supplies it."
   },
   {
    "action": "rescope",

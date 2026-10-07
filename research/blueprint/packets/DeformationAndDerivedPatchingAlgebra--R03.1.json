@@ -1000,7 +1000,6 @@
         {
           "sourceId": "STACKS-06GC",
           "locator": "Definition 90.3.1, object and morphism convention",
-          "excerpt": "we are in the classical case",
           "match": "The common fixed-residue data are separated from the Artinian condition; the surjective-base specialization eliminates the inseparable-fibre-product counterexample of 90.3.7."
         }
       ],
@@ -1083,7 +1082,6 @@
         {
           "sourceId": "STACKS-06GC",
           "locator": "Definition 90.3.1, morphisms",
-          "excerpt": "local $\\Lambda $-algebra homomorphism",
           "match": "Because both residue maps have maximal kernels, preserving the labelled residue map forces locality."
         }
       ],
@@ -1165,7 +1163,6 @@
         {
           "sourceId": "STACKS-06GW",
           "locator": "Definition 90.4.1, morphisms",
-          "excerpt": "local $\\Lambda $-algebra homomorphisms",
           "match": "The lemma proves the local condition from the genuine fixed-residue data."
         }
       ],
@@ -1202,7 +1199,6 @@
         {
           "sourceId": "STACKS-06GW",
           "locator": "Definition 90.4.1, morphisms",
-          "excerpt": "local $\\Lambda $-algebra homomorphisms",
           "match": "A category-specific wrapper of the native theorem."
         }
       ],
@@ -1240,7 +1236,6 @@
         {
           "sourceId": "STACKS-06GV",
           "locator": "Section 90.4, topology convention",
-          "excerpt": "adic topology",
           "match": "Records the continuity used in representing functors and power-series evaluation."
         }
       ],
@@ -1281,7 +1276,6 @@
         {
           "sourceId": "STACKS-06GC",
           "locator": "Definition 90.3.1",
-          "excerpt": "Artinian local $\\Lambda $-algebra",
           "match": "Uses the fixed-residue specialization of the source category, without adding finiteness of k."
         }
       ],
@@ -1369,13 +1363,11 @@
         {
           "sourceId": "STACKS-06GW",
           "locator": "Definition 90.4.1",
-          "excerpt": "Noetherian complete local $\\Lambda $-algebra",
           "match": "The integrated object ID is preserved; all its previously bundled theorems are split."
         },
         {
           "sourceId": "BCGP-25",
           "locator": "§1.8.2, PDF p.8",
-          "excerpt": "complete Noetherian local",
           "match": "BCGP uses a finite-p-adic base and finite residue field. The arbitrary-residue and arbitrary complete Noetherian base extension is supplied by Stacks 90.3–90.4; it is not attributed to BCGP."
         }
       ],
@@ -1465,7 +1457,6 @@
         {
           "sourceId": "STACKS-06GB",
           "locator": "Example 90.3.7, dual-number ring",
-          "excerpt": "Then $A$ is an object",
           "match": "Supplies concrete split test objects through the existing native square-zero ring, without redefining its multiplication."
         }
       ],
@@ -1544,7 +1535,6 @@
         {
           "sourceId": "STACKS-06GB",
           "locator": "Definition 90.3.2 and Lemma 90.3.3",
-          "excerpt": "nilpotent",
           "match": "The conditions are genuine conditions on an actual residue-preserving algebra homomorphism; smallness includes a nonzero kernel."
         }
       ],
@@ -1627,7 +1617,6 @@
         {
           "sourceId": "STACKS-06GB",
           "locator": "Definition 90.3.2 and Lemma 90.3.3",
-          "excerpt": "small extension",
           "match": "The conditions are genuine conditions on an actual residue-preserving algebra homomorphism; smallness includes a nonzero kernel."
         }
       ],
@@ -1710,7 +1699,6 @@
         {
           "sourceId": "STACKS-06GD",
           "locator": "Definition 90.3.2 and Lemma 90.3.3",
-          "excerpt": "small extension",
           "match": "The conditions are genuine conditions on an actual residue-preserving algebra homomorphism; smallness includes a nonzero kernel."
         }
       ],
@@ -1791,7 +1779,6 @@
         {
           "sourceId": "STACKS-06GD",
           "locator": "Definition 90.3.2",
-          "excerpt": "nonzero principal ideal",
           "match": "The kernel containment needed for the square-zero implication is derived from the actual morphism."
         }
       ],
@@ -1828,7 +1815,6 @@
         {
           "sourceId": "STACKS-06GD",
           "locator": "Definition 90.3.2",
-          "excerpt": "annihilated by",
           "match": "The two kernel factors are not conflated: kernel containment supplies the first."
         }
       ],
@@ -1865,7 +1851,6 @@
         {
           "sourceId": "STACKS-06GE",
           "locator": "Lemma 90.3.3, maximal-ideal-annihilated kernels",
-          "excerpt": "kernels are annihilated by the maximal ideal",
           "match": "The square-zero predicate is weaker than smallness."
         }
       ],
@@ -1905,7 +1890,6 @@
         {
           "sourceId": "STACKS-06GE",
           "locator": "Lemma 90.3.3, first paragraph",
-          "excerpt": "The maximal ideal",
           "match": "Retains the source Artinian hypothesis and the zero-kernel case."
         }
       ],
@@ -1943,7 +1927,6 @@
         {
           "sourceId": "STACKS-06GG",
           "locator": "Lemma 90.3.4, simple-module paragraph",
-          "excerpt": "If $M$ is a simple",
           "match": "The degree is one in the classical fixed-residue case; the reversed degree in the source proof is recorded separately."
         }
       ],
@@ -1982,7 +1965,6 @@
         {
           "sourceId": "STACKS-06GG",
           "locator": "Lemma 90.3.4, finite-filtration paragraph",
-          "excerpt": "choosing a filtration",
           "match": "Provides the precise finite-length input used in the pullback proof."
         }
       ],
@@ -2020,7 +2002,6 @@
         {
           "sourceId": "STACKS-06GH",
           "locator": "Lemma 90.3.8(2), same-kernel paragraph",
-          "excerpt": "a $1$-dimensional $k$-vector space",
           "match": "An exact characterization using the residue scalar action, not an arbitrary chosen k-action."
         }
       ],
@@ -2058,7 +2039,6 @@
         {
           "sourceId": "STACKS-06GE",
           "locator": "Lemma 90.3.3, first factorization",
-          "excerpt": "Hence we get a factorization",
           "match": "Uses r rather than an unbound variable; the identity is represented by an empty chain."
         }
       ],
@@ -2097,7 +2077,6 @@
         {
           "sourceId": "STACKS-06GE",
           "locator": "Lemma 90.3.3, second paragraph",
-          "excerpt": "Take a basis",
           "match": "Separates finite-dimensionality and flag construction from the maximal-power filtration."
         }
       ],
@@ -2135,7 +2114,6 @@
         {
           "sourceId": "STACKS-06GE",
           "locator": "Lemma 90.3.3",
-          "excerpt": "composition of small extensions",
           "match": "The factorization is over the specified residue field and base, so it applies to coefficient lifting predicates."
         }
       ],
@@ -2176,7 +2154,6 @@
         {
           "sourceId": "STACKS-06GH",
           "locator": "Lemma 90.3.8, first paragraph",
-          "excerpt": "It is a local ring",
           "match": "The classical base residue map is surjective, so no extra surjectivity of either arrow or separability hypothesis is required."
         }
       ],
@@ -2215,7 +2192,6 @@
         {
           "sourceId": "STACKS-06GH",
           "locator": "Lemma 90.3.8, length paragraph",
-          "excerpt": "is a $\\Lambda $-submodule",
           "match": "This uses module finite length, not the false claim that an arbitrary subring of an Artinian ring is Artinian."
         }
       ],
@@ -2256,7 +2232,6 @@
         {
           "sourceId": "STACKS-06GH",
           "locator": "Lemma 90.3.8",
-          "excerpt": "the projection",
           "match": "The algebraic construction is native; only its coefficient-category packing and universal property are new."
         }
       ],
@@ -2344,7 +2319,6 @@
         {
           "sourceId": "STACKS-06GH",
           "locator": "Lemma 90.3.8(2)",
-          "excerpt": "with the same kernel",
           "match": "Provides the exact morphism and its inherited kernel action."
         }
       ],
@@ -2384,7 +2358,6 @@
         {
           "sourceId": "STACKS-0BNH",
           "locator": "Lemma 10.97.1 and Lemma 10.97.4",
-          "excerpt": "finite $R$-module",
           "match": "This is a coefficient-category quotient adapter; finite-module completion and exactness themselves remain baseline results."
         }
       ],
@@ -2426,7 +2399,6 @@
         {
           "sourceId": "STACKS-06GV",
           "locator": "Section 90.4, quotient objects and their topology",
-          "excerpt": "quotient",
           "match": "An actual ideal quotient with its fixed residue, not an unlabelled completion."
         }
       ],
@@ -2509,7 +2481,6 @@
         {
           "sourceId": "STACKS-06GW",
           "locator": "Definition 90.4.1, completed category",
-          "excerpt": "Noetherian complete local",
           "match": "The proof uses only native local quotient algebra; the positive exponent keeps the residue field at level zero."
         }
       ],
@@ -2550,7 +2521,6 @@
         {
           "sourceId": "STACKS-06GV",
           "locator": "Section 90.4, compatible quotient systems",
-          "excerpt": "inverse system",
           "match": "The native completion internally also has exponent zero, a zero ring, which is not an Artinian coefficient object; this tower omits it."
         }
       ],
@@ -2635,7 +2605,6 @@
         {
           "sourceId": "STACKS-06GW",
           "locator": "Definition 90.4.1 and complete-ring convention",
-          "excerpt": "complete local",
           "match": "A coefficient-specific Artinian-tower comparison, retaining the existing native inverse-limit implementation."
         }
       ],
@@ -2674,7 +2643,6 @@
         {
           "sourceId": "STACKS-06GV",
           "locator": "Section 90.4, finite-level maps",
-          "excerpt": "Artinian",
           "match": "The source can be complete of positive dimension; a finite-level factorization does not imply it is Artinian."
         }
       ],
@@ -2715,7 +2683,6 @@
         {
           "sourceId": "STACKS-06GE",
           "locator": "Lemma 90.3.3, annihilated kernel",
-          "excerpt": "In this case $I$ is a $k$-vector space",
           "match": "Only the labelled coefficient adapter is planned; the general quotient-module action is native."
         }
       ],
@@ -2797,7 +2764,6 @@
         {
           "sourceId": "STACKS-06GB",
           "locator": "Definition 90.3.6, corrected orientation",
-          "excerpt": "relative cotangent space",
           "match": "Uses the displayed formula for S over R; the source reverses the words in that phrase."
         }
       ],
@@ -2879,7 +2845,6 @@
         {
           "sourceId": "STACKS-06SC",
           "locator": "Lemma 90.4.5, finite basis paragraph",
-          "excerpt": "map to a $k$-basis",
           "match": "The source proof requires congruence modulo the denominator; that correction is made explicit in the derivation node."
         }
       ],
@@ -2922,7 +2887,6 @@
         {
           "sourceId": "STACKS-06GZ",
           "locator": "Lemma 90.4.2",
-          "excerpt": "are equivalent",
           "match": "The proof records the exact source completeness and target separation needed by the native surjectivity result."
         }
       ],
@@ -2962,7 +2926,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, polynomial-series presentation",
-          "excerpt": "power series ring",
           "match": "The coefficient maximal ideal is retained; the variable ideal alone is insufficient in mixed characteristic."
         }
       ],
@@ -3005,7 +2968,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, completion and inverse-limit proof",
-          "excerpt": "power series ring",
           "match": "The two finite-variable topologies are compared explicitly before native evaluation is used."
         }
       ],
@@ -3046,7 +3008,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6",
-          "excerpt": "power series ring",
           "match": "The construction specializes the existing finite-variable series ring; its coefficient-category structure is new."
         }
       ],
@@ -3138,7 +3099,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, chosen variables and lift",
-          "excerpt": "a unique",
           "match": "The maximal-ideal condition and continuity exclude algebraic maps obtained by an unsupported infinite summation."
         }
       ],
@@ -3222,7 +3182,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, relative cotangent basis",
-          "excerpt": "basis",
           "match": "The statement is relative to the full coefficient object A, rather than forgetting its maximal ideal."
         }
       ],
@@ -3263,7 +3222,6 @@
         {
           "sourceId": "STACKS-032A",
           "locator": "Theorem 10.160.8, final paragraph",
-          "excerpt": "the map",
           "match": "The relative version over a specified coefficient base uses the preceding cotangent criterion; no regularity or dimension assertion is added."
         }
       ],
@@ -3306,7 +3264,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, finite power-series rings",
-          "excerpt": "power series ring",
           "match": "This explicit coefficient calculation supplies the nonroutine topology comparison step."
         }
       ],
@@ -3345,7 +3302,6 @@
         {
           "sourceId": "STACKS-05GH",
           "locator": "Lemma 10.97.5, associated-graded paragraph",
-          "excerpt": "Then there is a surjection of rings",
           "match": "This is the hypothesis-specific Noetherianity corollary, not a second construction of Gr."
         }
       ],
@@ -3383,7 +3339,6 @@
         {
           "sourceId": "STACKS-05GH",
           "locator": "Lemma 10.97.5, successive approximation proof",
-          "excerpt": "starting with",
           "match": "A genuine finite-generator correction lemma; the initial-ideal statement supplying its hypothesis is an explicit requested interface."
         }
       ],
@@ -3422,7 +3377,6 @@
         {
           "sourceId": "STACKS-05GH",
           "locator": "Lemma 10.97.5, coefficient limits",
-          "excerpt": "complete",
           "match": "The limit is a finite linear combination of the chosen generators, so it proves algebraic finite generation, not merely density."
         }
       ],
@@ -3463,7 +3417,6 @@
         {
           "sourceId": "STACKS-05GH",
           "locator": "Lemma 10.97.5",
-          "excerpt": "Noetherian",
           "match": "The strengthened source theorem is needed because uncompleted tensor products and flat residue-extension intermediate rings can be non-Noetherian."
         }
       ],
@@ -3503,7 +3456,6 @@
         {
           "sourceId": "STACKS-06H1",
           "locator": "Lemma 90.4.4, completed tensor product",
-          "excerpt": "completion of",
           "match": "The ordinary tensor ring can have other maximal ideals; only the explicit J quotient and its completion are used."
         }
       ],
@@ -3544,7 +3496,6 @@
         {
           "sourceId": "STACKS-06H1",
           "locator": "Lemma 90.4.4",
-          "excerpt": "coproduct",
           "match": "The fixed common residue quotient is the reason this local specialization is Noetherian; the generic adic result does not assert it unconditionally."
         }
       ],
@@ -3585,7 +3536,6 @@
         {
           "sourceId": "STACKS-06H1",
           "locator": "Lemma 90.4.4",
-          "excerpt": "completion of",
           "match": "Plans only the fixed-residue local coefficient packing of the separately owned generic adic completed tensor."
         }
       ],
@@ -3677,7 +3627,6 @@
         {
           "sourceId": "STACKS-06H1",
           "locator": "Lemma 90.4.4",
-          "excerpt": "coproduct",
           "match": "The coproduct is in the fixed-base category; the corresponding geometric construction is a fibre product."
         }
       ],
@@ -3714,7 +3663,6 @@
         {
           "sourceId": "STACKS-06H1",
           "locator": "Lemma 90.4.4, coproduct property",
-          "excerpt": "coproduct",
           "match": "Derived from the local universal property rather than an unsupported associativity of module completions."
         }
       ],
@@ -3751,7 +3699,6 @@
         {
           "sourceId": "STACKS-06H1",
           "locator": "Lemma 90.4.4, coproduct property",
-          "excerpt": "coproduct",
           "match": "Supports finite local deformation products, including the empty product Λ."
         }
       ],
@@ -3793,7 +3740,6 @@
         {
           "sourceId": "STACKS-06SB",
           "locator": "Lemma 90.4.3, pushouts",
-          "excerpt": "pushouts",
           "match": "An explicit CNL presentation consequence of the imported generic tensor, with both quotient ideals extended to the joint ring."
         }
       ],
@@ -3832,7 +3778,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "Lemma 1.1.1, printed p.75",
-          "excerpt": "D’après Artin-Rees",
           "match": "The shifted submodule N is retained exactly; a claim that the same-level quotients are left exact would be false."
         }
       ],
@@ -3871,7 +3816,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "Lemma 1.1.1, printed pp.75–76",
-          "excerpt": "en passant à la limite",
           "match": "The general inverse-limit exactness theorem belongs to the existing derived-sheaf supplier; this node is its concrete algebraic application."
         }
       ],
@@ -3910,7 +3854,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "Lemma 1.1.1, printed p.76",
-          "excerpt": "en prenant une présentation",
           "match": "The native finite-module comparison over a Noetherian base S cannot be applied to arbitrary S; this is the extra routed theorem."
         }
       ],
@@ -3950,7 +3893,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "Lemma 1.1.1, printed pp.75–76",
-          "excerpt": "Ŝ est plat sur R",
           "match": "Exactly the missing arbitrary-flat-algebra case, distinguished from native flatness of completion of R."
         }
       ],
@@ -3990,7 +3932,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "Lemma 1.1.1, printed p.76",
-          "excerpt": "Ŝ est fidèlement plat",
           "match": "Jacobson containment is essential: completion of a faithfully flat ring at a unit ideal is zero."
         }
       ],
@@ -4029,7 +3970,6 @@
         {
           "sourceId": "STACKS-0BNH",
           "locator": "Lemmas 10.97.1 and 10.97.4, finite-module completion",
-          "excerpt": "finite",
           "match": "Applies finite-module completion over B and the nilpotent closed fibre, not an assertion that all tensor products of complete rings are complete."
         }
       ],
@@ -4069,7 +4009,6 @@
         {
           "sourceId": "STACKS-0BNH",
           "locator": "Lemma 10.97.2, exactness and flatness",
-          "excerpt": "flat",
           "match": "The result is deliberately restricted to finite modules and a flat tensor factor; arbitrary completed tensors are not asserted exact."
         }
       ],
@@ -4107,7 +4046,6 @@
         {
           "sourceId": "STACKS-03C3",
           "locator": "Lemma 10.159.1, first paragraph",
-          "excerpt": "monogenic extension",
           "match": "The algebraic monic lift works for inseparable generators as well; Hensel or étale assumptions are not inserted."
         }
       ],
@@ -4145,7 +4083,6 @@
         {
           "sourceId": "STACKS-03C3",
           "locator": "Lemma 10.159.1, directed colimit and transfinite proof",
-          "excerpt": "transfinite recursion",
           "match": "The arbitrary residue field and the possibly non-Noetherian intermediate ring are kept explicit."
         }
       ],
@@ -4186,13 +4123,11 @@
         {
           "sourceId": "STACKS-03C3",
           "locator": "Lemma 10.159.1 and comment 7831",
-          "excerpt": "complete",
           "match": "Completes the source construction using the independently specified Noetherian and faithful-flat completion lemmas."
         },
         {
           "sourceId": "STACKS-05GH",
           "locator": "Lemma 10.97.5",
-          "excerpt": "finitely generated",
           "match": "The intermediate S is allowed to be non-Noetherian."
         }
       ],
@@ -4232,7 +4167,6 @@
         {
           "sourceId": "STACKS-03C3",
           "locator": "Lemma 10.159.1, specification of extension isomorphism",
-          "excerpt": "as an extension of",
           "match": "The label commutes with the original field embedding. It does not identify the new object with CNL_Λ(K) in the classical surjective-base convention."
         }
       ],
@@ -4320,7 +4254,6 @@
         {
           "sourceId": "STACKS-06LD",
           "locator": "Completion and flatness, finite-module comparison",
-          "excerpt": "finite",
           "match": "The mathematical coefficient-change application imports the native finiteness assertions and never substitutes dimension of a residue fibre for finite generation."
         }
       ],
@@ -4363,7 +4296,6 @@
         {
           "sourceId": "STACKS-0327",
           "locator": "Definition 10.160.5",
-          "excerpt": "complete discrete valuation ring",
           "match": "This is the strict, characteristic-zero Cohen ring convention; Artinian quotients are handled separately."
         }
       ],
@@ -4451,7 +4383,6 @@
         {
           "sourceId": "STACKS-0328",
           "locator": "Lemma 10.160.6, corrected current proof",
-          "excerpt": "There exists a Cohen ring",
           "match": "Completing first is essential: the uncompleted arbitrary field-extension ring is not known Noetherian."
         }
       ],
@@ -4490,7 +4421,6 @@
         {
           "sourceId": "STACKS-0323",
           "locator": "Lemma 10.160.7",
-          "excerpt": "formally smooth",
           "match": "The arbitrary-prime-field smoothness input is separately recorded as a source-checked gap, rather than misusing the native essential-finite-type perfect-field instance."
         }
       ],
@@ -4530,7 +4460,6 @@
         {
           "sourceId": "STACKS-032A",
           "locator": "Theorem 10.160.8, positive residue characteristic proof",
-          "excerpt": "let $\\varphi _{n - 1}$ be given",
           "match": "The source diagram explicitly forces compatibility with the previous map. No gap is claimed in this induction."
         }
       ],
@@ -4569,7 +4498,6 @@
         {
           "sourceId": "STACKS-032A",
           "locator": "Theorem 10.160.8, limit of the coefficient maps",
-          "excerpt": "gives a map whose image",
           "match": "The map, not an embedded subring, is the uniform formulation; injectivity needs the stated additional hypothesis."
         }
       ],
@@ -4609,7 +4537,6 @@
         {
           "sourceId": "STACKS-032A",
           "locator": "Theorem 10.160.8, final statement",
-          "excerpt": "quotient",
           "match": "This is an existence presentation with arbitrary k. Regularity, injective parameter presentations and complete-intersection conclusions remain R03.3 consumers."
         }
       ],
@@ -4649,7 +4576,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "§4.4(1), printed p.87",
-          "excerpt": "séparable",
           "match": "André cites Matsumura 29.5–29.6 for the arbitrary-target compatibility. The public substitute read here does not prove the full target statement."
         }
       ],
@@ -4691,7 +4617,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6 and Remark 90.8.4",
-          "excerpt": "Given a surjective ring map",
           "match": "This is the ring-side predicate of the represented deformation functor, not a new general definition of smooth functor."
         }
       ],
@@ -4774,7 +4699,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, forward proof",
-          "excerpt": "choose elements",
           "match": "The variables must lie in the maximal ideal, not arbitrary elements of the complete target."
         }
       ],
@@ -4815,7 +4739,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, reverse proof",
-          "excerpt": "relative cotangent space",
           "match": "The coefficient residue map is surjective; thus the square-zero quotient really is k plus its relative cotangent space."
         }
       ],
@@ -4855,7 +4778,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, reverse proof",
-          "excerpt": "then to a map",
           "match": "Provides actual compatible morphisms, not unrelated existence assertions at each finite level."
         }
       ],
@@ -4899,7 +4821,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.6, entire reverse proof",
-          "excerpt": "if and only if",
           "match": "The theorem uses ring-side continuous formal smoothness, not finite-type algebraic smoothness of A[[X]]/A."
         }
       ],
@@ -4941,7 +4862,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.8, compatible lifting diagrams",
-          "excerpt": "surjective map",
           "match": "Worker algebraic fibre-product calculation supplying the compatibility step needed when a prescribed map to E must be retained."
         }
       ],
@@ -4982,7 +4902,6 @@
         {
           "sourceId": "STACKS-06HF",
           "locator": "Lemma 90.8.8, final proof",
-          "excerpt": "Continuing in this way",
           "match": "Concrete complete-ring specialization of the source compatible-lifting method; no general functor/groupoid theorem is duplicated."
         }
       ],
@@ -5024,7 +4943,6 @@
         {
           "sourceId": "STACKS-06GC",
           "locator": "Definition90.3.1, classical coefficient category",
-          "excerpt": "classical case",
           "match": "The source supplies the general category convention; the specialized moduli category and elliptic deformation problem are imported from the upstream owner."
         }
       ],
@@ -5063,7 +4981,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "§3.4, printed p.84",
-          "excerpt": "Un argument de type Mittag-",
           "match": "Worker explicit pigeonhole bound for the source Artinian parameter quotients; maximal-adic cofinality is what justifies replacing the quotient tower."
         }
       ],
@@ -5103,7 +5020,6 @@
         {
           "sourceId": "PQ-24",
           "locator": "Lemma5.15, first proof paragraph",
-          "excerpt": "hence artinian",
           "match": "The source assumption is on the completion, not on A or on finite generation of its maximal ideal."
         }
       ],
@@ -5143,7 +5059,6 @@
         {
           "sourceId": "PQ-24",
           "locator": "Lemma5.15, printed pp.38–39",
-          "excerpt": "possibly non-noetherian",
           "match": "The finite ideal is essential to the finite Artinian kernel system; native completion exactness for finite modules over a Noetherian A does not prove this case."
         }
       ],
@@ -5183,7 +5098,6 @@
         {
           "sourceId": "STACKS-06SD",
           "locator": "Lemma90.4.6, derivation construction in the proof",
-          "excerpt": "vector space via",
           "match": "Classical surjective-base specialization; derivation continuity into k is automatic."
         }
       ],
@@ -5224,7 +5138,6 @@
         {
           "sourceId": "KW-II-09",
           "locator": "§2.1, p.6, tensor tangent paragraph",
-          "excerpt": "completed tensor product",
           "match": "The topology does not create extra first-order tangent directions."
         }
       ],
@@ -5264,7 +5177,6 @@
         {
           "sourceId": "STACKS-06SE",
           "locator": "Lemma90.4.7, proof via stable Artinian images",
-          "excerpt": "transition maps",
           "match": "Worker module generalization of the source proof. It does not assume m^nM⊆N_n."
         }
       ],
@@ -5301,7 +5213,6 @@
         {
           "sourceId": "STACKS-06SE",
           "locator": "Lemma90.4.7, stabilized-image proof",
-          "excerpt": "Krull",
           "match": "Specialization to the intersection-zero preimage filtration, not an assertion that every local map is a closed embedding."
         }
       ],
@@ -5342,7 +5253,6 @@
         {
           "sourceId": "KW-II-09",
           "locator": "Proposition2.2(ii), proof pp.9–10",
-          "excerpt": "theorem of Chevalley",
           "match": "The hypotheses include an actual O-valued point. Saturation is taken after inverting π, not just an ordinary ideal power."
         }
       ],
@@ -5379,7 +5289,6 @@
         {
           "sourceId": "KW-II-09",
           "locator": "Proposition2.2(ii), generic quotient calculation",
-          "excerpt": "power series ring",
           "match": "Worker explicit finite-jet identification preceding the regular-coordinate comparison."
         }
       ],
@@ -5420,7 +5329,6 @@
         {
           "sourceId": "KW-II-09",
           "locator": "Proposition2.2(ii), finite free tensor quotients",
-          "excerpt": "free",
           "match": "This argument uses maximal-adic cofinality of saturated jets; it does not silently replace it by P-adic cofinality."
         }
       ],
@@ -5460,7 +5368,6 @@
         {
           "sourceId": "KW-II-09",
           "locator": "Proposition2.2(ii), domain assertion",
-          "excerpt": "a domain",
           "match": "The worker extends only the point-based domain argument. The full finite-p-adic generic regularity conclusion is an R03.4 consumer."
         }
       ],
@@ -5499,7 +5406,6 @@
         {
           "sourceId": "BHATT-18",
           "locator": "Lemma5.3, pp.9–10",
-          "excerpt": "are pro-isomorphic",
           "match": "Finite M,N and Noetherian R are essential. E2 owns pro-objects and pro-isomorphisms."
         }
       ],
@@ -5537,7 +5443,6 @@
         {
           "sourceId": "BHATT-18",
           "locator": "Lemma5.3, last sentence",
-          "excerpt": "lim1",
           "match": "This is a module-theoretic inverse-limit application, not new derived-limit infrastructure."
         }
       ],
@@ -5580,7 +5485,6 @@
         {
           "sourceId": "ANS-JAHNKE-22",
           "locator": "Theorem4.1 and Corollary6.5",
-          "excerpt": "Teichmüller Embedding Process",
           "match": "Purely inseparable perfect-hull change uses the embedding process, not the separable Cohen homomorphism theorem6.2."
         }
       ],
@@ -5622,7 +5526,6 @@
         {
           "sourceId": "ANDRE-18",
           "locator": "§4.2 and §4.4(1), pp.86–88",
-          "excerpt": "parfait",
           "match": "This spells out André’s completed coefficient change; reducedness is not inferred from faithful flatness alone."
         }
       ],
@@ -5660,7 +5563,6 @@
         {
           "sourceId": "STACKS-0319",
           "locator": "Lemma10.96.9",
-          "excerpt": "completion with respect to $I$ agrees",
           "match": "The source uses I^n⊆J and J^m⊆I, which suffice for the stated mutual power cofinality."
         }
       ],
@@ -5698,7 +5600,6 @@
         {
           "sourceId": "STACKS-0394",
           "locator": "Lemma10.97.7",
-          "excerpt": "finite",
           "match": "The displayed finite local specialization meets both finite-generation hypotheses of the more general source lemma."
         }
       ],
@@ -5737,7 +5638,6 @@
         {
           "sourceId": "STACKS-07N9",
           "locator": "Lemma10.97.8, Artinian quotient product paragraph",
-          "excerpt": "For every $n",
           "match": "This is a fixed-index compatible comparison, not a choice of unrelated product decompositions."
         }
       ],
@@ -5778,7 +5678,6 @@
         {
           "sourceId": "STACKS-07N9",
           "locator": "Lemma10.97.8",
-          "excerpt": "finite ring map",
           "match": "This theorem and its one-prime specialization preserve the actual algebra maps; no generic infinite-product interchange is asserted."
         }
       ],
@@ -5817,7 +5716,6 @@
         {
           "sourceId": "STACKS-07N9",
           "locator": "Lemma10.97.8, specialization to an already complete base",
-          "excerpt": "equal",
           "match": "Worker domain specialization; the proof is by the finite product comparison, not by asserting locality of every finite algebra."
         }
       ],
@@ -5856,7 +5754,6 @@
         {
           "sourceId": "STACKS-032A",
           "locator": "Theorem10.160.8, coefficient construction in positive residue characteristic",
-          "excerpt": "quotient",
           "match": "Worker extension of the coefficient-map proof to an arbitrary separated complete local ring in equal characteristic, retaining the prime-field formal-smoothness gap."
         }
       ],
@@ -5894,7 +5791,6 @@
         {
           "sourceId": "STACKS-032D",
           "locator": "Lemma10.160.11, finite parameter quotient",
-          "excerpt": "finite",
           "match": "Regularity is unnecessary for this finite-quotient step."
         }
       ],
@@ -5935,7 +5831,6 @@
         {
           "sourceId": "STACKS-032D",
           "locator": "Lemma10.160.11, module finiteness step",
-          "excerpt": "finite",
           "match": "The separate R03.3 dimension argument supplies injectivity of the parameter evaluation when the dimension count applies."
         }
       ],
@@ -5976,7 +5871,6 @@
         {
           "sourceId": "BIP-23",
           "locator": "Lemma3.35, printed p.24",
-          "excerpt": "Let R be a complete local Noetherian k-algebra",
           "match": "Corrected form of the published Lemma3.35, adding its necessary finite-residue-extension hypothesis; the atlas has already recorded this as PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E11."
         }
       ],
@@ -6017,7 +5911,6 @@
         {
           "sourceId": "BIP-23",
           "locator": "Lemma3.36, printed pp.24–25",
-          "excerpt": "O-Cohen ring",
           "match": "The term O-Cohen is relative: no unsupported strict-Cohen identification is made for a ramified base."
         }
       ],
@@ -6057,7 +5950,6 @@
         {
           "sourceId": "BIP-23",
           "locator": "Lemma3.37, printed p.25",
-          "excerpt": "do not get an extra variable T",
           "match": "The statement distinguishes the finite-residue and finite-characteristic-zero cases from local fields in characteristic p."
         }
       ],
@@ -6209,7 +6101,7 @@
       "source": "STACKS-06GB",
       "kind": "misprint",
       "locator": "Definition90.3.6, online version read 5 October 2026",
-      "printed": "$R$ over $S$",
+      "printed": "It describes the relative object as $R$ over $S$.",
       "correction": "The displayed quotient is the relative local cotangent space of S over R.",
       "reason": "The numerator is m_S and the denominator is f(m_R)S+m_S²; its orientation is forced by these actual ideals.",
       "affects": "nothing",
@@ -6251,7 +6143,7 @@
       "source": "STACKS-06SC",
       "kind": "error",
       "locator": "Lemma90.4.5, proof, online version read 5 October 2026",
-      "printed": "Write $a = \\sum a_ i x_ i$",
+      "printed": "It expresses the element by $a = \\sum a_ i x_ i$.",
       "correction": "Use a congruence modulo m_ΛS+m_S², whose two summands are annihilated by every Λ-derivation S→k.",
       "reason": "Set Λ=S=Z_p. The relative cotangent space is zero, so the chosen list x_i is empty; the asserted equality would force a=p to be zero. The corrected congruence suffices because derivations vanish on base multiples and on products of maximal-ideal elements. The finiteness statement remains true.",
       "affects": "the proof",
@@ -6265,7 +6157,7 @@
       "source": "KW-II-09",
       "kind": "misprint",
       "locator": "§2.1, p.6, UCLA author copy, SHA-256 recorded in sourceVersions",
-      "printed": "using the surjectivity",
+      "printed": "The source appeals to surjectivity.",
       "correction": "Replace surjectivity by injectivity of Sp_C(A)→Sp_B(A) for A=F[ε].",
       "reason": "The preceding sentence states the injective functor-map property of a closed immersion. Injectivity on dual numbers dualizes to surjectivity on cotangent spaces and then to surjectivity of the ring map.",
       "affects": "the proof",
@@ -6293,7 +6185,7 @@
       "source": "BIP-23",
       "kind": "error",
       "locator": "Lemma3.35, printed p.24, version of record, Forum of Mathematics, Pi 11 (2023), e30",
-      "printed": "κ(𝔭) is a finite extension of κ(𝔭′)",
+      "printed": "The source claims that the extension of κ(𝔭′) given by κ(𝔭) is finite.",
       "correction": "Add κ(p)/κ(p₀) finite, or restrict p to a closed point of the indicated finite-type fibre. Keep this added condition in the planned theorem.",
       "reason": "Finite type does not force finite residue extension at an arbitrary prime: take R=F_p[[t]], A=R[x], p=p₀=(0). Then κ(p)=F_p((t))(x) is transcendental over κ(p₀)=F_p((t)). In the diagonal residue calculation the independent p-basis directions t and x give at least two cotangent directions, contradicting the printed one-variable comparison when completion(A_p) is a field.",
       "affects": "a stated result",

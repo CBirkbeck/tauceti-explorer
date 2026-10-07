@@ -476,7 +476,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definition1.6, PDF pp.8–9",
-          "excerpt": "TSym",
           "match": "Invariant tensor notation and diagonal powers are used here; the invariant-submodule carrier is specified explicitly and checked against the pinned tensor API."
         }
       ],
@@ -572,7 +571,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Equation(2.1.3), PDF p.14",
-          "excerpt": "moment map",
           "match": "The paper uses a completed target. This node deliberately constructs degree completion; the integral augmentation-adic comparison remains an explicit gap."
         }
       ],
@@ -662,7 +660,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definition1.6 continuation, PDF p.9",
-          "excerpt": "divided power structure",
           "match": "The diagonal divided powers satisfy the factorial relation; the coset-shuffle construction supplies the explicit multiplication contract."
         }
       ],
@@ -750,7 +747,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definition1.6 continuation, PDF p.9",
-          "excerpt": "divided power structure",
           "match": "The comparison is a derived algebraic interface, with an isomorphism stated only for a free module and a natural comparison otherwise."
         }
       ],
@@ -793,7 +789,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definition1.6 and displayed multigrading, PDF pp.8–9",
-          "excerpt": "With the above convention",
           "match": "Restrict the displayed direct-sum isomorphism to finite locally free summands, which are the geometric consumers. Arbitrary nonflat tensor factors require a correction; the invariant carrier itself retains arbitrary modules."
         }
       ],
@@ -838,7 +833,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Notation2.2, PDF p.13",
-          "excerpt": "theorem of the square",
           "match": "The moduli pairs include rigidification and integrable relative connection, with the square condition; the extension is of the dual A∨ and has vector kernel ω_A."
         }
       ],
@@ -934,7 +928,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Notation2.2 and equation(2.1.1), PDF p.13",
-          "excerpt": "Hodge filtration",
           "match": "The Lie sequence is H¹_dR(A/S); dualizing gives H=ω_A♮. The representing connection is an explicit geometric input."
         }
       ],
@@ -975,7 +968,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Equation(2.1.2), moment construction and Remark2.3, PDF pp.13–14",
-          "excerpt": "canonical homomorphism",
           "match": "Iterated coproduct and the split first neighborhood yield compatible moments. The symmetrization is invertible over a Q-algebra; completion uses the explicitly chosen degree topology."
         }
       ],
@@ -1065,7 +1057,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Theorem2.15 and its proof, PDF pp.18–19",
-          "excerpt": "theorem on formal functions",
           "match": "The proof uses the normalized Poincaré direct image, formal functions and determinant-line cancellation. Their exact adapters remain gaps, rather than being inferred from a theorem name."
         }
       ],
@@ -1106,7 +1097,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Theorem2.36 proof and equation(2.7.2), PDF pp.28–29",
-          "excerpt": "square-zero extension",
           "match": "Over a characteristic-zero field, the tangent points identify with the rigidified connection Ext class. The cited Mazur–Messing identity/sign comparison remains a named input."
         }
       ],
@@ -1148,7 +1138,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definitions3.2–3.3 and Theorem3.5, PDF pp.30–32",
-          "excerpt": "identity morphisms",
           "match": "The identity tensor defines d+ν on the truncated smooth coefficient algebra with the source CM splitting. Comparing the first logarithm extension, then symmetric levels, is the proof contract."
         }
       ],
@@ -1190,7 +1179,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Notation5.1 and Proposition5.9, PDF pp.55–56,59–60",
-          "excerpt": "The sets",
           "match": "Retain the ordinary disjoint CM prime sets, p prime to the discriminant and the chosen number-field model. The finite connected kernels exhaust the formal functor; completed base change remains explicit."
         }
       ],
@@ -1236,7 +1224,6 @@
         {
           "sourceId": "DGH",
           "locator": "Proposition2.1 and PropositionB.2 proof, PDF pp.8–9,41–42",
-          "excerpt": "irreducible, regular, quasi-projective",
           "match": "The source constructs the real-analytic product over a regular base, using Da+Zb for type D and locally constant integral changes of frame. Singular bases require restriction to their regular locus."
         }
       ],
@@ -1337,7 +1324,6 @@
         {
           "sourceId": "DGH",
           "locator": "Lemmas2.3–2.6, PDF pp.9–11",
-          "excerpt": "semi-positive",
           "match": "The potential and constant real alternating form fix the factor two. The type-D formula follows by the same coordinate calculation using PropositionB.2; it is recorded as a derived transport, not a printed DGH formula."
         }
       ],
@@ -1443,7 +1429,6 @@
         {
           "sourceId": "DGH",
           "locator": "Equation(2.1) and Proposition2.7, PDF pp.9–12",
-          "excerpt": "positive semi-definite",
           "match": "The explicit positive Hermitian form gives a pointwise kernel proof. This repairs the unjustified integration of null directions in the printed converse and matches the existing extraction E14."
         }
       ],
@@ -1486,7 +1471,6 @@
         {
           "sourceId": "DGH",
           "locator": "Definition1.5 and DefinitionB.4, PDF pp.5,43",
-          "excerpt": "non-empty subset",
           "match": "Use total complex dimension and require a point over the regular base locus. The rank criterion is independent of integral changes of period frame."
         }
       ],
@@ -1578,7 +1562,6 @@
         {
           "sourceId": "DGH",
           "locator": "LemmaB.3, PDF pp.42–43",
-          "excerpt": "Zariski open dense subset",
           "match": "This is a derived birational corollary: identify the common dense open and apply the source maximum-rank invariance under deleting a proper closed subset."
         }
       ],
@@ -1619,7 +1602,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "§5 definition and Lemma6.2, PDF pp.18,31",
-          "excerpt": "not isolated",
           "match": "The definition is on the smooth locus; the vertical-fibre extension is identified explicitly and the constant-rank premise is retained."
         }
       ],
@@ -1710,7 +1692,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Trace conventions; Lemma5.6 and §5.4, PDF pp.2,25,28–29",
-          "excerpt": "trace map",
           "match": "The paper distinguishes the actual C(S)/C trace from the geometric trace and descends the latter after a finite cover. Existence remains an exact gap."
         }
       ],
@@ -1800,7 +1781,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.2/Proposition5.3 proofs, PDF pp.20–22",
-          "excerpt": "closed subgroups",
           "match": "Kronecker supplies countability; the packet spells out the integer-character theorem including disconnected subgroups, with its proof still open."
         }
       ],
@@ -1839,7 +1819,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.2 proof, PDF pp.19–20",
-          "excerpt": "reduced word",
           "match": "The independent elementary word count is at integer lengths and bounds all generators and inverses. Distinct matrices are separated from the later orbit-collision argument."
         }
       ],
@@ -1881,7 +1860,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.6 proof, PDF p.25",
-          "excerpt": "weight −1",
           "match": "The fixed subspace is a homology Hodge substructure of weight −1. Its equivariant inclusion algebraizes over the same curve, including after the finite cover."
         }
       ],
@@ -1920,7 +1898,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Definition1.2, PDF pp.2–3",
-          "excerpt": "dominates",
           "match": "The geometric trace and finite union are essential; a torsion generic point closes to a one-dimensional multisection."
         }
       ],
@@ -2005,7 +1982,6 @@
         {
           "sourceId": "GaoAxSchanuel",
           "locator": "Theorem4.1 setting and Theorem5.2, PDF pp.14–19",
-          "excerpt": "semi-algebraic block",
           "match": "The positive-dimensional graph projection and connected-block conclusion are essential. Horizontal and vertical height estimates are separate source leaves."
         }
       ],
@@ -2050,7 +2026,6 @@
         {
           "sourceId": "GaoAxSchanuel",
           "locator": "Equation(5.1), Proposition5.1 and proof, PDF pp.16,19–20",
-          "excerpt": "lexicographic induction",
           "match": "Specify the arithmetic rational Zariski stabilizer; the three curve cases prove the alternative."
         }
       ],
@@ -2093,7 +2068,6 @@
         {
           "sourceId": "GaoAxSchanuel",
           "locator": "Proposition6.1, §§6–7, PDF pp.20–27",
-          "excerpt": "very general",
           "match": "The proof first replaces the pair by a very general Hilbert-family member. The vector-module and reductive-action arguments are additionally needed for normality in P."
         }
       ],
@@ -2140,7 +2114,6 @@
         {
           "sourceId": "GaoAxSchanuel",
           "locator": "Definition8.1, Theorem8.2 and §§8.1–8.3, PDF pp.27–32",
-          "excerpt": "weakly optimal",
           "match": "Finite rational quotient data allow moving orbit points. The primary normalization of conjugating parameters is kept as an exact proof obligation."
         }
       ],
@@ -2185,7 +2158,6 @@
         {
           "sourceId": "GaoBetti",
           "locator": "Definitions1.5–1.6, PDF pp.4–5; compare the published corrigendum",
-          "excerpt": "positive dimensional",
           "match": "Use closed positive-dimensional subvarieties and their own image bases. The complement is not identified with every point of full Betti rank."
         }
       ],
@@ -2282,7 +2254,6 @@
         {
           "sourceId": "GaoBetti",
           "locator": "Theorem7.1 and Lemma9.1, PDF pp.16–18,22–23",
-          "excerpt": "relative dimension",
           "match": "The universal finite-data proof is separated from the general jumping-fibre repair. The unrestricted Lemma9.1 formula is not imported."
         }
       ],
@@ -2331,7 +2302,6 @@
         {
           "sourceId": "GaoBetti",
           "locator": "Theorem1.1, corrected generic-rank criterion and §9.3, PDF pp.2,15–24",
-          "excerpt": "For each l",
           "match": "Retain the exact l−g_B bound. The higher-dimensional fixed-part dictionary and global closedness repair remain explicit; pointwise rank-locus equality is excluded."
         }
       ],
@@ -2380,7 +2350,6 @@
         {
           "sourceId": "GaoSurvey",
           "locator": "Lemma6.2 and proof, PDF p.15",
-          "excerpt": "both dominant",
           "match": "The tangent kernel proof is valid for each dominating smooth component; geometric generic irreducibility is required before calling the whole product irreducible."
         }
       ],
@@ -2421,7 +2390,6 @@
         {
           "sourceId": "GaoBetti",
           "locator": "Theorem10.1(i)–(ii), AppendixB, PDF pp.26–29,33–35",
-          "excerpt": "cannot directly",
           "match": "The recursive kernel is re-diagonalized. A G-equivariant shear gives the coordinate-preserving linear splitting; kernel maps are endomorphisms. Part(ii) is explicitly supplied for the DGH consumer."
         }
       ],
@@ -2466,7 +2434,6 @@
         {
           "sourceId": "Tate1966",
           "locator": "Hyp(k,A,d,ℓ) and Proposition1 proof, printed pp.136–137 (PDF pp.3–4)",
-          "excerpt": "compact",
           "match": "The actual compact lattice subsequence proves the image/intersection identity. Fixed-polarization finiteness is independent of later unpolarized counting."
         }
       ],
@@ -2511,7 +2478,6 @@
         {
           "sourceId": "Tate1966",
           "locator": "Lemmas1–4, Proposition2 and equations(4)–(5), printed pp.135–139 (PDF pp.2–6)",
-          "excerpt": "commutant",
           "match": "Finite-field rational Hom, integral saturation and the multiplicity pairing are explicit. Split commutation depends directly on the isotropic-image theorem."
         }
       ],
@@ -2552,7 +2518,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, characteristic-polynomial uniqueness criterion, printed p.65 (PDF p.3), scan; explicit independently derived adapter",
-          "excerpt": "characteristic polynomial",
           "match": "A reviewer-checked elementary coefficient-lifting adapter for the source uniqueness criterion: only surjectivity modulo the ideal and monicity are used; the explicit degree is retained."
         }
       ],
@@ -2591,7 +2556,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, characteristic-polynomial uniqueness criterion, printed p.65 (PDF p.3), scan; explicit independently derived adapter",
-          "excerpt": "characteristic polynomial",
           "match": "A reviewer-checked determinant adapter for the source uniqueness criterion: fixed Sylvester sizes commute with reduction modulo an ideal. No silent replacement by reduced natural degrees is made."
         }
       ],
@@ -2631,7 +2595,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, characteristic-polynomial uniqueness criterion, printed p.65 (PDF p.3), scan; explicit independently derived adapter",
-          "excerpt": "characteristic polynomial",
           "match": "A derived proof, not a printed Milne lemma: in O[X]/R use det(π^n(I+π^n m_H)) to obtain slope degR, including inseparable R and arbitrary degree."
         }
       ],
@@ -2670,7 +2633,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, characteristic-polynomial uniqueness criterion, printed p.65 (PDF p.3), scan; explicit independently derived adapter",
-          "excerpt": "characteristic polynomial",
           "match": "A derived proof of the uniqueness input cited by Milne: integral monic factorization plus shifted tests detects each multiplicity. Common nonzero tests avoid the zero-valuation convention."
         }
       ],
@@ -2711,7 +2673,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, characteristic-polynomial uniqueness criterion, printed p.65 (PDF p.3), scan; explicit independently derived adapter",
-          "excerpt": "characteristic polynomial",
           "match": "Specialize the derived DVR criterion using the pinned p-adic approximation theorem. Native PadicInt.valuation sends zero to zero, so both nonzero-resultant hypotheses remain essential."
         }
       ],
@@ -2750,7 +2711,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, printed pp.64–66 (PDF pp.2–4), scanned page images",
-          "excerpt": "anti-equivalence of categories",
           "match": "The finite-kernel rank/length argument is read directly on the scan. Its extension from the finite-field setting to perfect characteristic-p fields uses the exact imported Dieudonne equivalence."
         }
       ],
@@ -2793,7 +2753,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, printed pp.65–66 (PDF pp.3–4), scanned page images",
-          "excerpt": "characteristic polynomial",
           "match": "Commutation with semilinear Frobenius fixes coefficients, and degree/resultant recognition identifies the polynomial. Arbitrary endomorphisms are not asserted semisimple."
         }
       ],
@@ -2840,7 +2799,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartI Theorems5–6 and PartII Theorem1 proof, printed pp.56–57,60–61 (PDF pp.4–5,8–9), scans",
-          "excerpt": "THEOREM 1.",
           "match": "The source separates saturated injection from the rational dimension computation. The corrected plan retains coefficient products and opposite-algebra conventions."
         }
       ],
@@ -2882,7 +2840,6 @@
         {
           "sourceId": "Conrad",
           "locator": "Theorem2.6 proof, PDF p.8; explicit abelian specialization of Lang",
-          "excerpt": "Lang",
           "match": "The source invokes Lang. The plan proves the abelian isogeny part directly and retains the continuous cocycle/torsor dictionary as an exact gap."
         }
       ],
@@ -2922,7 +2879,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definitions2.4/2.7 and equations(2.1.4)–(2.1.5), PDF pp.14–16",
-          "excerpt": "compatible for different n",
           "match": "The finite pushforwards, inverse system, rigidification and two associated-graded sequences are explicit in the source. Arbitrary tensor interchange with the limit is excluded."
         }
       ],
@@ -3014,7 +2970,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "Chapter2 opening, printed pp.526–528 (PDF pp.7–9)",
-          "excerpt": "characteristic polynomial",
           "match": "Integral characteristic polynomials, Weil eigenvalues and base-extension powers are supplied here; reciprocity uses the polarization duality and point count uses the separable isogeny 1−π^r."
         }
       ],
@@ -3112,7 +3067,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "§1.2 and §3.1, printed pp.525,530–531 (PDF pp.6,11–12)",
-          "excerpt": "variance",
           "match": "The source uses contravariance at p. The plan specifies inverse transport for markings directed toward A₀ and the resulting left action."
         }
       ],
@@ -3205,7 +3159,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "§3 and §3.2(15), v1 pp.6,11",
-          "excerpt": "Stab",
           "match": "The orbit decomposition is sound. A single local genus is distinguished from the union of all full-lattice classes."
         }
       ],
@@ -3297,7 +3250,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartII proofs, printed pp.60–61 (PDF pp.8–9), scans",
-          "excerpt": "Frobenius",
           "match": "The finite crossed-product presentation makes the source skew-polynomial quotient explicit, including a reducible coefficient tensor."
         }
       ],
@@ -3389,7 +3341,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Theorem2.8 and proof, PDF p.16",
-          "excerpt": "Functoriality",
           "match": "Restriction to formal neighborhoods and affine pushforward give the stated direction. Étaleness of the dual, or of the universal-vector-extension map, gives the corresponding isomorphism."
         }
       ],
@@ -3432,7 +3383,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Corollary2.9 and Definition2.10, PDF p.17",
-          "excerpt": "Splitting principle",
           "match": "Evaluation at a killed section and the étale-dual inverse yield the torsion splitting. Moment composition is a separate map with a different codomain."
         }
       ],
@@ -3474,7 +3424,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Corollary2.11, PDF p.17",
-          "excerpt": "equivariant sheaves",
           "match": "The inverse of γ_#:P_hat→γ*P_hat gives the linearization; identity and composition provide its cocycle law."
         }
       ],
@@ -3517,7 +3466,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Proposition2.12 and Corollary2.14, PDF pp.17–18",
-          "excerpt": "co-commutative",
           "match": "The biextension partial group law induces the finite and completed coproducts. The symmetric-level comparison is an isomorphism when n! is invertible."
         }
       ],
@@ -3559,7 +3507,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Theorem2.15 and proof, PDF pp.18–19",
-          "excerpt": "Vanishing of cohomology",
           "match": "The ordinary completed Poincaré sheaf has the stated top direct image after twisting. Do not replace its statement by an unspecified connection/logarithm analogue."
         }
       ],
@@ -3603,7 +3550,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Theorem2.36, PDF pp.28–29",
-          "excerpt": "unique up to unique isomorphism",
           "match": "The identity Ext class and chosen unit splitting characterize the first logarithm sheaf; symmetric powers and inverse limits preserve the comparison over Spec k, char k=0."
         }
       ],
@@ -3651,7 +3597,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definition3.3, Theorem3.5 and Corollary3.6, PDF pp.31–33",
-          "excerpt": "quasi-isomorphisms",
           "match": "The H basis corresponds to the tangent vectors, not their duals. The anti-holomorphic connection preserves the ordinary Poincaré subbundle and yields its Dolbeault resolution."
         }
       ],
@@ -3701,7 +3646,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Proposition5.9, equations(5.2.1)–(5.2.4), Lemma5.11, PDF pp.59–61",
-          "excerpt": "non-zero divisor",
           "match": "Dual-étale torsion splitting gives the integral trivialization. Factorial torsion-freeness yields injections; over Cp they are isomorphisms. The projected-connection calculation is algebraic/formal."
         }
       ],
@@ -3749,7 +3693,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Lemmas5.12/5.14 and Definition5.13, PDF pp.62–63",
-          "excerpt": "first two properties",
           "match": "The first two diagrams concern the generic fibre; the last requires an étale dual integrally. Correct the first right-hand side to the moment-composed torsion splitting so its codomain agrees."
         }
       ],
@@ -3796,7 +3739,6 @@
         {
           "sourceId": "DGH",
           "locator": "Proposition2.2(iii), Proposition2.7 and equations(2.5)–(2.7), PDF pp.8,11–13",
-          "excerpt": "semi-positive",
           "match": "The rank/top-form equivalence is established pointwise from the Hessian. Real-analytic continuation supplies the stated comparison with any nonempty Betti neighborhood."
         }
       ],
@@ -3842,7 +3784,6 @@
         {
           "sourceId": "DGH",
           "locator": "Theorem6.2 and proof, PDF pp.26–28",
-          "excerpt": "quasi-finite",
           "match": "Torelli gives quasi-finiteness; obtain a section after a finite cover. The threshold is M≥dim S+1 and the target torus has dimension 2Mg."
         }
       ],
@@ -3892,7 +3833,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Ax-type definition and Lemma5.2, PDF pp.18–20",
-          "excerpt": "semi-algebraic",
           "match": "Checked the finite collision kernels, semirational endpoint and Baire argument; the exact Ax-type definition is now in the statement."
         }
       ],
@@ -3936,7 +3876,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Proposition5.3 and proof, PDF pp.21–22",
-          "excerpt": "monodromy-type",
           "match": "The assumptions on every abelian subvariety and absence of fixed integer vectors are required. The torsion conclusion uses uniqueness of an integral linear system over R."
         }
       ],
@@ -3981,7 +3920,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Proposition5.4 and proof, PDF pp.22–24",
-          "excerpt": "dim S = 1",
           "match": "Closed analytic continuation of an entire Betti leaf works on a curve. The smooth curve, closed Y and torsion-order hypotheses are now explicit."
         }
       ],
@@ -4022,7 +3960,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.5 citing Tits Theorem3, PDF p.25",
-          "excerpt": "Theorem 3",
           "match": "This is the source use and exact semisimple specialization; the primary Tits proof remains an explicit gap, not a claimed fresh full proof read."
         }
       ],
@@ -4064,7 +4001,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.5, PDF p.25",
-          "excerpt": "semisimple algebraic group",
           "match": "Finite index preserves the identity-component closure; the proof needs connected monodromy semisimplicity, not the subsequent trace or growth lemmas."
         }
       ],
@@ -4105,7 +4041,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.6, PDF p.25",
-          "excerpt": "non-zero element",
           "match": "The fixed Hodge substructure and equivariant morphism yield the actual function-field trace; no replacement by geometric trace is made."
         }
       ],
@@ -4153,7 +4088,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Extendability; Lemma5.8 and proof, PDF pp.25–28",
-          "excerpt": "uncountable set",
           "match": "The source hypotheses include all finite étale covers and extendable fibres. The two zero-relative-dimension induction endpoints are supplied explicitly."
         }
       ],
@@ -4201,7 +4135,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Theorem5.1 and §5.4 proof, PDF pp.18,28–30",
-          "excerpt": "Proposition 1.3",
           "match": "The proof imports both extendability outside a countable set and finite maximality of generically special subvarieties. These exact missing leaves are recorded."
         }
       ],
@@ -4251,7 +4184,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "§6 hypotheses and Lemma6.2, PDF pp.30–31",
-          "excerpt": "algebraically closed",
           "match": "The choice of P needs F algebraically closed and analytically dense. The rank proof is on a neighborhood of constant maximal rank."
         }
       ],
@@ -4291,7 +4223,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Theorem5.1 proof, PDF p.29",
-          "excerpt": "Invariance of Domain",
           "match": "The application is between equal-dimensional smooth real manifolds; its primary topological proof remains an explicit gap."
         }
       ],
@@ -4330,7 +4261,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma6.2 proof, PDF p.31",
-          "excerpt": "rank is r",
           "match": "A maximal-rank neighborhood is selected before asserting the fibre dimension. The general primary differential-topological theorem is a gap."
         }
       ],
@@ -4371,7 +4301,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "Lemma5.2 proof and Proposition5.3, PDF pp.20–21",
-          "excerpt": "countably many",
           "match": "A routed export of the same character-duality interface, not a duplicate construction. Disconnected closed subgroups remain allowed."
         }
       ],
@@ -4411,7 +4340,6 @@
         {
           "sourceId": "GaoHabegger",
           "locator": "§5.2, PDF p.22, citing Weil §1",
-          "excerpt": "contractible",
           "match": "The source refines a Riemann-surface cover to relatively compact sets with contractible intersections; the foundational construction remains a gap."
         }
       ],
@@ -4451,7 +4379,6 @@
         {
           "sourceId": "GaoSurvey",
           "locator": "Theorem6.5(i) and footnote6, PDF pp.16–17",
-          "excerpt": "geometric generic fiber",
           "match": "The finite-stabilizer specialization and generic finiteness of the power modular map are stated, with the positive number of factors and irreducible-component convention."
         }
       ],
@@ -4497,7 +4424,6 @@
         {
           "sourceId": "GaoGeKuhne",
           "locator": "Proposition5.2 proof, Step1, equation(5.4), printed pp.212–213 (PDF pp.25–26)",
-          "excerpt": "smooth point",
           "match": "The source chooses the nonvanishing point in a family dominating its base. The general interface states the regular-base convention and the exact dense-image argument."
         }
       ],
@@ -4541,7 +4467,6 @@
         {
           "sourceId": "GaoSurvey",
           "locator": "Lemma6.2 and §8.3 Step1, PDF pp.15,22",
-          "excerpt": "extra factor",
           "match": "Non-degeneracy follows from the independent first factor. No generic injectivity of the full ambient difference map is used."
         }
       ],
@@ -4582,7 +4507,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "Chapter2, printed pp.527–528 (PDF pp.8–9)",
-          "excerpt": "algebraic integer",
           "match": "The source defines Weil numbers by all complex embeddings and separates their minimal polynomial from the Honda multiplicity; real ±√p have degree2."
         }
       ],
@@ -4669,7 +4593,6 @@
         {
           "sourceId": "Tate1966",
           "locator": "Main Theorem; Lemmas1–3; conclusion of §2, printed pp.134–135,138–139 (PDF pp.1–2,5–6)",
-          "excerpt": "torsion-free cokernel",
           "match": "The source establishes the integral isomorphism by the rational commutant theorem and saturation, then obtains Hom by product blocks."
         }
       ],
@@ -4714,7 +4637,6 @@
         {
           "sourceId": "Tate1966",
           "locator": "Proposition1 and proof, printed pp.136–137 (PDF pp.3–4)",
-          "excerpt": "maximal isotropic",
           "match": "The exact finite-polarization/isogeny hypothesis is retained over a general field. The limiting rational endomorphism has image W and need not be invertible."
         }
       ],
@@ -4756,7 +4678,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartI saturation and PartII Theorem1, printed pp.56–57,60–61 (PDF pp.4–5,8–9), scans",
-          "excerpt": "THEOREM 1.",
           "match": "The integral comparison has reversed Dieudonne arguments. It follows from the rational equality and independent saturation."
         }
       ],
@@ -4803,7 +4724,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartII Theorem1 proof, printed pp.60–61 (PDF pp.8–9), scans",
-          "excerpt": "anti-isomorphism",
           "match": "For A=B contravariance gives an algebra anti-isomorphism, or an isomorphism from the opposite; Hom dimensions are unaffected."
         }
       ],
@@ -4848,7 +4768,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartI Theorems3/5 and opening proof of Theorem6, printed pp.55–57 (PDF pp.3–5), scans",
-          "excerpt": "torsion-free",
           "match": "The source finite-basis approximation proof is adapted to scheme-theoretic p-torsion via exact Dieudonne classification, independently of the rational theorem."
         }
       ],
@@ -4894,7 +4813,6 @@
         {
           "sourceId": "Milne1968",
           "locator": "§1, printed p.66 (PDF p.4), scan",
-          "excerpt": "cannot have multiple roots",
           "match": "The q-Frobenius minimal polynomial is squarefree because it is central in the semisimple rational geometric algebra. Arbitrary endomorphisms need not be semisimple."
         }
       ],
@@ -4937,7 +4855,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartII Theorem2 proof, printed p.61 (PDF p.9), scan",
-          "excerpt": "simple algebra",
           "match": "The source block algebra is central simple. The explicit weighted cyclic matrix after algebraic closure supplies the dimension-a splitting even when the initial coefficient algebra is a product."
         }
       ],
@@ -4982,7 +4899,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartII Theorem1 proof, printed pp.60–61 (PDF pp.8–9), scans",
-          "excerpt": "dimension counting",
           "match": "The independent centralizer calculation retains multiplicity e_i and coefficient degree a; the result is ∑d_i e_i²."
         }
       ],
@@ -5027,7 +4943,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartII Theorem2 and proof, printed pp.60–61 (PDF pp.8–9), scans",
-          "excerpt": "anti-isomorphism",
           "match": "The regular-module commutant reverses the Brauer invariant, and contravariant geometric realization reverses it again. Uniformizer-normalized valuations give f_v ord_v(π)/a."
         }
       ],
@@ -5073,7 +4988,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "Chapter2, printed pp.526–528 (PDF pp.7–9)",
-          "excerpt": "THEOREM (Honda)",
           "match": "The multiplicity includes the real-place invariant1/2. Honda existence is stated here; its primary construction remains an explicit proof gap."
         }
       ],
@@ -5120,7 +5034,6 @@
         {
           "sourceId": "Tate1966",
           "locator": "Theorem1(c), printed p.139 (PDF p.6)",
-          "excerpt": "isogenous",
           "match": "Equal characteristic polynomials give isomorphic semisimple Frobenius representations; full faithfulness then supplies the isogeny over the original field."
         }
       ],
@@ -5164,7 +5077,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "Chapter2, printed pp.527–528 (PDF pp.8–9)",
-          "excerpt": "commutative",
           "match": "For a=1 every finite local invariant is integral. The no-real-embedding hypothesis removes the remaining obstruction; the real quadratic quaternionic surface is excluded."
         }
       ],
@@ -5208,7 +5120,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "Theorem6.1 and proof, printed pp.550–551 (PDF pp.31–32)",
-          "excerpt": "THEOREM 6.1",
           "match": "Every order containing π,p/π is realized in a nonreal simple prime-field class. The statement is not extended to arbitrary q or to invertibility of every lattice ideal."
         }
       ],
@@ -5257,7 +5168,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "§1.2 and §3.1, printed pp.525,530–531 (PDF pp.6,11–12)",
-          "excerpt": "anti-equivalence",
           "match": "The source lattice correspondence is rewritten for f:B→A₀. Inverse contravariant transport, finite quotient existence and integral-Hom injectivity are separate obligations."
         }
       ],
@@ -5301,7 +5211,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "§3.1, printed pp.530–532 (PDF pp.11–13)",
-          "excerpt": "isomorphic",
           "match": "Forgetting the marking quotients by rational quasi-automorphisms of A₀; the underlying varying varieties are the sources of the markings."
         }
       ],
@@ -5347,7 +5256,6 @@
         {
           "sourceId": "WaterhouseMilne",
           "locator": "PartII, printed pp.60–61 (PDF pp.8–9), scans",
-          "excerpt": "Frobenius",
           "match": "Only over F_p does the ordinary Z_p-linear transpose of F,V restore covariance. Semisimplicity is inherited from the already proved q-Frobenius theorem."
         }
       ],
@@ -5395,7 +5303,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "§3.1 and Theorem6.1 proof, printed pp.530–531,550–551 (PDF pp.11–12,31–32)",
-          "excerpt": "lattice",
           "match": "The finite-support local modification and quotient construction are read here. The plan adds the explicit dual-lattice identity needed for its covariant prime-field notation."
         }
       ],
@@ -5442,7 +5349,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "§3.1 and Theorem6.1, printed pp.530–532,550–551 (PDF pp.11–13,31–32)",
-          "excerpt": "isomorphic",
           "match": "Injectivity uses integral Hom, surjectivity uses finite-support quotients, and the Γ-action is postcomposition. Marked-pair equivalence is specified explicitly."
         }
       ],
@@ -5497,7 +5403,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "§§3.1–3.2.1, v1 pp.7–14; corrected derived L1–L9/S2–S6 in the routed report",
-          "excerpt": "centralizer",
           "match": "The printed weak-composition count and orbit map are not used. The plan states the derived multiplicity-sensitive bounds and requests their exact GN.2/AA suppliers."
         }
       ],
@@ -5551,7 +5456,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Remark3.2, v1 p.11",
-          "excerpt": "simultaneous centralizer",
           "match": "Over F_p the rational F,V-centralizer equals that of F. The stable-lattice subset is invariant, so its orbit set injects into the larger orbit set."
         }
       ],
@@ -5595,7 +5499,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "§3.2.2(21), v1 p.14, corrected local compact and narrow-class conventions",
-          "excerpt": "strong approximation",
           "match": "The planned statement uses GL_(2d) over the quadratic-center completions and Cl⁺ for the totally definite quaternion factor. The rank-one factor is separate; approximation remains a supplier proof."
         }
       ],
@@ -5637,7 +5540,6 @@
         {
           "sourceId": "Lee",
           "locator": "§2.1 and §3.1–3.2, PDF pp.3,5–6, especially equation(11)",
-          "excerpt": "equidistributed",
           "match": "The elementary ordered-product bound is independently proved. The full Vandermonde bound cannot be applied after zero factors from repeated values are omitted."
         }
       ],
@@ -5682,7 +5584,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "§3.2(15),(20)–(21),(28), v1 pp.11,14,16; independently derived coarse replacement",
-          "excerpt": "Stab",
           "match": "An elementary fibre-surjection and right-translation argument proves the stated conditional D_*³h bound; it is not the source numerical asymptotic."
         }
       ],
@@ -5730,7 +5631,6 @@
         {
           "sourceId": "Lee",
           "locator": "§3.1(5)–(10), PDF pp.4–5; independently derived coarse replacement",
-          "excerpt": "Stab",
           "match": "The exact decomposition is used, with the repaired local inputs explicit. The class-set factor h is retained, and no sharp leading coefficient is claimed."
         }
       ],
@@ -5774,7 +5674,6 @@
         {
           "sourceId": "Conrad",
           "locator": "Lemma2.3 and Theorem2.6, PDF pp.6–8",
-          "excerpt": "symmetric isogeny",
           "match": "The theorem includes nonpositive symmetric isogenies. Geometric realization, Pic⁰ torsor triviality and rigidified descent are kept separate."
         }
       ],
@@ -5822,7 +5721,6 @@
         {
           "sourceId": "Lemmermeyer",
           "locator": "Proposition1 and proof, PDF pp.1–3",
-          "excerpt": "exact sequence",
           "match": "Read the quotient map and both exactness directions. The p.3 surjectivity paragraph produces an ambiguous class; strong ambiguity characterizes the kernel."
         }
       ],
@@ -5878,7 +5776,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Proposition4.11, Example4.13 and Proposition4.16, v1 pp.20–23",
-          "excerpt": "principal polarizations",
           "match": "The proof needs both the norm-unit quotient and the index of the actual order units inside maximal CM-order units. The corrected coarse bound is retained, not the printed sharp exponents."
         }
       ],
@@ -5923,7 +5820,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Lemma5.11, v1 p.33",
-          "excerpt": "9 imaginary quadratic fields",
           "match": "The nine squareclass independence and single all-nonsplit Frobenius element are checked explicitly. Class-number computations and natural-density Chebotarev remain imported inputs."
         }
       ],
@@ -5967,7 +5863,6 @@
         {
           "sourceId": "Waterhouse",
           "locator": "Chapter2, Porism4.3 and Theorem6.1, printed pp.527–528,540,550–551",
-          "excerpt": "THEOREM 6.1",
           "match": "A principal prime above p supplies a norm-p integer; it cannot be real. The nonreal prime-field Honda multiplicity is one and the maximal order is realized."
         }
       ],
@@ -6014,7 +5909,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Lemma5.19, v1 p.36, with the independent small-prime correction",
-          "excerpt": "not both",
           "match": "The Hasse argument works for p≥5, p=3 is checked separately, and p=2 has exactly the trace±1 exceptions."
         }
       ],
@@ -6057,7 +5951,6 @@
         {
           "sourceId": "Tate1966",
           "locator": "Theorem1(c), printed p.139 (PDF p.6), with the determinant calculation from the parent characteristic-polynomial API",
-          "excerpt": "same number of points",
           "match": "Isogeny gives equality of counts over all finite extensions; the separate separable-kernel determinant proof does not assert isomorphism of the point groups."
         }
       ],
@@ -6100,7 +5993,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Lemma2.1 and proof, v1 p.5, independently corrected count",
-          "excerpt": "power",
           "match": "Use2g root occurrences, explicit q-reciprocity and inclusive integer intervals. The safe factor is(4g+1)^g; no equality of coefficient choices is assumed."
         }
       ],
@@ -6147,7 +6039,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Corollary2.2, v1 p.5, with corrected Lemma2.1",
-          "excerpt": "uniquely determined",
           "match": "The upper bound follows from Tate injectivity and the corrected power-sum count alone, independently of the ordinary lower bound."
         }
       ],
@@ -6194,7 +6085,6 @@
         {
           "sourceId": "DiPippoHowe",
           "locator": "Theorem1.3; Lemmas2.1.1/2.1.3/2.5.1–3; Proposition3.1.1; §3.2, PDF pp.2,4,13–18",
-          "excerpt": "c4",
           "match": "The displayed constants/exponents are checked. The geometric root region, rectilinear lattice count, ordinary Honda condition and eventually positive logarithmic passage are separate steps."
         }
       ],
@@ -6248,7 +6138,6 @@
         {
           "sourceId": "Lee",
           "locator": "Theorem1.1 and §3.1(5)–(10), contrasted with §3.2(11), PDF pp.1–9",
-          "excerpt": "Theorem 1.1",
           "match": "The coarse O_p(g²) target has a distinct D_*³h route. The69/4 coefficient is an explicitly conditional specialization, and the45/4 refinement is withheld on this proof evidence."
         }
       ],
@@ -6304,7 +6193,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "§§5.3–5.5, equations(39),(51)–(56), v1 pp.26–33",
-          "excerpt": "factorials",
           "match": "The mass plan retains projective versus free lattices, finitely many local genera, and the corrected factorial leading coefficient1/2. The exact primary mass normalization is a supplier obligation."
         }
       ],
@@ -6356,7 +6244,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Proposition4.17 and Lemma5.11, v1 pp.22–23,33, with corrected mass coefficient",
-          "excerpt": "probability",
           "match": "The numerator requires the unpolarized isomorphism count, not only the isogeny count. The exact event also excludes real-Weil factors; its complement is not asserted to consist only of repeated factors."
         }
       ],
@@ -6400,7 +6287,6 @@
         {
           "sourceId": "LipnowskiTsimerman",
           "locator": "Lemma2.1 proof, v1 p.5; pinned Newton-identity adapter",
-          "excerpt": "symmetric functions",
           "match": "The generic Newton recurrence is already in pinned Mathlib. Only evaluation, descending-coefficient signs and q-reciprocal reconstruction are new adapters."
         }
       ],
@@ -6440,7 +6326,6 @@
         {
           "sourceId": "KingsSprang",
           "locator": "Definition1.6, PDF pp.8–9; independently checked pinned TauCeti Symmetric.lean:78–99",
-          "excerpt": "TSym",
           "match": "Derived degree-two compatibility: the transposition is the native tensor flip, so the two invariant submodules agree; no coinvariant quotient comparison is claimed."
         }
       ],
@@ -10048,7 +9933,7 @@
       "sourceId": "KingsSprang",
       "kind": "error",
       "locator": "arXiv1912.03657v4, Definition1.6 continuation, PDF p.9 (not the unobtained Annals text)",
-      "printed": "With the above convention",
+      "printed": "The source invokes the convention just introduced.",
       "correction": "The displayed multigrading isomorphism needs hypotheses ensuring tensor products commute with invariants, for example finite projective summands. Retain arbitrary-module invariant powers themselves.",
       "reason": "The multidegree(2,1) summand of TSym³(M⊕N) contains (M⊗M⊗N)^S₂, whereas the claimed right side is (M⊗M)^S₂⊗N. These need not agree for nonflat N. Lundkvist arXivmath/0702733v2 Example5.3, pp.16–17, gives a failed base-change map with A=k[s,t] in characteristic2, M=A²/(se₁+te₂), N=A[z]/(z(s+t)). This is compatible with the source coefficient-algebra convention, e.g. use an imaginary quadratic L unramified at2 and algebraically closed k. The actual geometric summands are locally free.",
       "affects": "a stated result",
@@ -10086,7 +9971,7 @@
       "sourceId": "KingsSprang",
       "kind": "error",
       "locator": "arXiv1912.03657v4, Proposition1.5 and proof, PDF p.8",
-      "printed": "Γ-invariants",
+      "printed": "The source uses invariants under Γ.",
       "correction": "Add a torsion-freeness hypothesis on M over R, or the condition that each nontrivial weight difference acts injectively; an arbitrary R-module is insufficient even when R lies in a number field.",
       "reason": "Let L=Q(ζ₅), R=O_L[1/5], Γ the finite-index kernel of O_L×→(R/2R)×, and let M=R/2R have the torus weight of one embedding σ. Every γ∈Γ acts trivially on M, but σ is not of Hecke type (the conjugate-pair weight sums differ), hence contributes no summand on the asserted right side. This proposition is not imported as a node; locally free geometric modules avoid the counterexample.",
       "affects": "a stated result",
@@ -10105,7 +9990,7 @@
       "sourceId": "GaoBettiPublished",
       "kind": "error",
       "locator": "Compositio156(2020), Lemma9.1/proof, printed pp.2493–2494; PDF pp.26–27; also v6 pp.22–23",
-      "printed": "generically finite",
+      "printed": "The source asserts generic finiteness.",
       "correction": "Do not use the unrestricted pullback identity for degeneracy loci across jumping modular fibres. Control the exceptional fibres or prove a stratified global statement; retain this as a gap in the global closedness proof.",
       "reason": "Take a constant abelian surface B, S=Bl₀(B), A=B×S, and X the graph of the blowdown S→B. The modular image is B in a fixed fibre and the map on X has generic relative dimension0. Its exceptional curve E≃P¹ is constant in B; its relative generically special closure over E has relative dimension0<dim E=1, so E⊂X^deg(0). But B in a fixed fibre has empty0-degeneracy locus. Generic finiteness does not imply dimension preservation for every subvariety. This refutes the unrestricted intermediate identity, not the ultimate closedness theorem.",
       "affects": "a stated result",
@@ -10143,7 +10028,7 @@
       "sourceId": "GaoBettiPublished",
       "kind": "error",
       "locator": "Compositio156(2020), AppendixB LemmaB.2 and PropositionB.1 proof, printed pp.2506–2507; PDF pp.39–40",
-      "printed": "linear projection",
+      "printed": "The source uses a projection described as linear.",
       "correction": "Require the splitting projection to be G-equivariant. Straighten a graph with the explicit equivariant shear (v,w)↦(v,w−s(v)), then induct on its kernel.",
       "reason": "An arbitrary linear projection need not preserve G-modules. In the displayed graph decomposition, (i₁+i₁′)∘(q₁,q₁′) is the identity when q₁′ is the quotient along i₁, hence does not put a non-coordinate graph into the standard coordinate factor. Already a graph of a nonzero map Q→Q with trivial G shows the failure. Semisimplicity supplies an equivariant splitting and the corrected shear repairs the step.",
       "affects": "the proof",
@@ -10162,7 +10047,7 @@
       "sourceId": "GaoBettiPublished",
       "kind": "misprint",
       "locator": "Compositio156(2020), AppendixB endomorphism-kernel step, printed p.2508; PDF p.41",
-      "printed": "isogenies",
+      "printed": "The source describes the maps as isogenies.",
       "correction": "Use endomorphisms αᵢ with Wᵢ=(ker αᵢ)⁰ for possibly positive-dimensional Wᵢ; keep the invertible rational change of coordinates ρ as an isogeny.",
       "reason": "An isogeny has finite kernel. A positive-dimensional proper abelian subvariety can be an identity component of an endomorphism kernel, but cannot be the kernel of an isogeny.",
       "affects": "nothing",
@@ -10181,7 +10066,7 @@
       "sourceId": "GaoAxAuthor",
       "kind": "error",
       "locator": "arXiv1806.01408v2 and current author MixedAS.pdf, Lemma8.6 and parameter-space definitions, PDF pp.28–30; publisher PDF inaccessible",
-      "printed": "Ξ is finite",
+      "printed": "The source asserts finiteness of Ξ.",
       "correction": "Parameterize the resulting subgroup/orbit data modulo redundant translation parameters, or choose and justify normalized representatives. Do not infer finiteness of all raw pairs ((g·t),v).",
       "reason": "In the full Kuga case take Y=M and the full unipotent V. The subgroup V⋊G^der is normal in P, so its normalizer is P and the resulting orbit condition is independent of v∈V(R). At an interior generic point satisfying the maximal-intersection condition, all these v lie in Ξ₀ and none lies in the strictly-smaller-orbit exceptional set. Thus a positive-dimensional family of redundant v survives. The finite normalized-data theorem may still hold; its proof remains a gap.",
       "affects": "a stated result",
@@ -10219,7 +10104,7 @@
       "sourceId": "GaoBettiPublished",
       "kind": "error",
       "locator": "Published Proposition6.1 and Theorem1.1(ii), corrected by the2022 corrigendum",
-      "printed": "Proposition 6.1",
+      "printed": "The source refers to Proposition 6.1.",
       "correction": "Use the corrected generic-rank and algebraic-degeneracy assertions; do not identify all pointwise critical points with algebraic degeneracy loci.",
       "reason": "The author’s two-page erratum withdraws the problematic converse. A ramified graph can have an isolated pointwise rank drop without a corresponding positive-dimensional algebraic degeneracy component. The candidate uses only the corrected generic-rank formulation and adds a branched-graph regression specification.",
       "affects": "a stated result",
@@ -10238,7 +10123,7 @@
       "sourceId": "Lee",
       "kind": "error",
       "locator": "arXiv2002.04420v3, §2.1, PDF p.3; IMRN text not obtained",
-      "printed": "two quasi-isogenies",
+      "printed": "The source specifies a pair of quasi-isogenies.",
       "correction": "In the equivalence of marked quasi-isogenies require h and k to be inverse actual isomorphisms of abelian varieties, not arbitrary rational quasi-isogenies.",
       "reason": "For any two markings f:A→A₀ and g:B→A₀ in the isogeny category, h=g⁻¹f and k=f⁻¹g satisfy all printed conditions. The printed relation collapses all markings to one class and cannot classify the different integral lattices of §2.2.",
       "affects": "a stated result",
@@ -10276,7 +10161,7 @@
       "sourceId": "Conrad",
       "kind": "misprint",
       "locator": "Author notes Polarizations, PDF p.9, paragraph before Theorem3.4",
-      "printed": "positive-definite",
+      "printed": "The source asserts positive definiteness.",
       "correction": "For nonzero T, TT* is nonzero positive semidefinite and has positive trace. Positive definiteness requires T invertible.",
       "reason": "With the standard Hermitian product and T=diag(1,0), TT*=diag(1,0) is singular. Its positive trace still proves the intended positivity of the trace pairing.",
       "affects": "nothing",

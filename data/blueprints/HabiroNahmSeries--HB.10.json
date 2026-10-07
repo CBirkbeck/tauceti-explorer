@@ -206,7 +206,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§4.7, Example 4.4, (289), printed p. 57",
-          "excerpt": "We see that this gives an almost trivial element of the Habiro ring",
           "match": "Specialise the rational example, with the parent correction m congruent to 0 modulo 4."
         }
       ],
@@ -314,7 +313,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§4.7, Example 4.4, (289), p. 57",
-          "excerpt": "We see that this gives an almost trivial element of the Habiro ring",
           "match": "The finite-case argument supplies the missing exact local certificate and shows why 2 is inverted."
         }
       ],
@@ -350,7 +348,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§4.3, (256)–(258), printed p. 51",
-          "excerpt": "have eight solutions in two Galois orbits defined over two quartic fields",
           "match": "Take the coordinate formula of (257) literally; do not combine the two orbits."
         }
       ],
@@ -449,7 +446,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§4.3, (256), (257) and (261)–(262), pp. 51–52",
-          "excerpt": "This solution of the Nahm equation is non-degenerate",
           "match": "The exact polynomial-reduction identities certify the hypotheses of the parent membership application."
         }
       ],
@@ -489,7 +485,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§4.3, (257), printed p. 51",
-          "excerpt": "belonging to the real embedding of the quartic number field F of type (2, 1) and discriminant",
           "match": "This explicit lattice certificate refines the stated field discriminant; the basis itself is derived here, not quoted from the paper."
         }
       ],
@@ -531,7 +526,6 @@
         {
           "sourceId": "gw-classes-v1",
           "locator": "Proposition 1.14, (47), printed p. 11; proof (173), p. 30",
-          "excerpt": "The proof of the above theorem uses a manifestly integral formula for the symmetrisation",
           "match": "Take the scalar A=3 case of the integral formula, which avoids inverse square roots and the module theorem."
         }
       ],
@@ -574,7 +568,6 @@
         {
           "sourceId": "gw-classes-v1",
           "locator": "§3.2, (182), printed p. 31",
-          "excerpt": "we use m-congruence",
           "match": "The printed numerator is missing algebraic z-factors. Use the corrected scalar calculation, source issue HabiroNahmSeries/E64."
         }
       ],
@@ -617,13 +610,11 @@
         {
           "sourceId": "gswz-v2",
           "locator": "Theorem 12 and Example 4.1, (231), printed p. 47",
-          "excerpt": "Some cases of the above theorem were first proven in the thesis of Ferdinand Wagner.",
           "match": "The thesis was now read, but supplies no identified residue-descendant proof. The p>3 limitation in Remark 1.8 remains relevant."
         },
         {
           "sourceId": "gw-classes-v1",
           "locator": "Theorem 1.13, p. 11; proof pp. 30–31",
-          "excerpt": "For every symmetric, integer N × N matrix A, we have:",
           "match": "A possible independent unshifted route, with the erroneous auxiliary formula scoped in E64; it is not an all-descendant theorem."
         }
       ],
@@ -667,7 +658,6 @@
         {
           "sourceId": "wagner-thesis",
           "locator": "Corollary 2.13, printed p. 33; Corollary 3.13, p. 41",
-          "excerpt": "If R is étale over A, then q9HdgR/A is the relative Habiro ring HR/A constructed in 2.7.",
           "match": "The explicit composite is an application of the coefficient-ring owners, resolving the old blanket no-export-map gap in relative dimension zero."
         }
       ],
@@ -703,13 +693,11 @@
         {
           "sourceId": "gswz-v2",
           "locator": "Example 4.4, (289), p. 57",
-          "excerpt": "We see that this gives an almost trivial element of the Habiro ring",
           "match": "The source element is transported through the established degree-zero comparison."
         },
         {
           "sourceId": "wagner-thesis",
           "locator": "Corollary 3.13, p. 41",
-          "excerpt": "If R is étale over A",
           "match": "The comparison is applied only to the stated étale localization."
         }
       ],
@@ -748,13 +736,11 @@
         {
           "sourceId": "gswz-v2",
           "locator": "Example 4.1, (231), p. 47",
-          "excerpt": "Specialising to t = 1 we find the expansion",
           "match": "The three coefficients are exported over the localization warranted by the proof; the smaller coefficient ring is conditional."
         },
         {
           "sourceId": "wagner-thesis",
           "locator": "Corollaries 2.13 and 3.13, pp. 33, 41",
-          "excerpt": "the relative Habiro ring HR/A",
           "match": "The ring comparison and degree-zero identification are applied to the explicit cubic localization."
         }
       ],
@@ -804,7 +790,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§4.3, (261)–(263), printed p. 52",
-          "excerpt": "It turns out to be 60-torsion",
           "match": "The source coefficients and torsion assertion are kept separate from an exact proof of torsion. The field and discriminant certificates fix the membership hypotheses."
         }
       ],
@@ -849,13 +834,11 @@
         {
           "sourceId": "gswz-v2",
           "locator": "Theorem 2, (25)–(26), pp. 10–11; proof §3.3, p. 43",
-          "excerpt": "In general, multiplication gives a canonical isomorphism",
           "match": "The coefficient-line map is imported with the source proof limitations already recorded by HabiroNumberFields/E23."
         },
         {
           "sourceId": "wagner-thesis",
           "locator": "Corollary 3.13, printed p. 41",
-          "excerpt": "the relative Habiro ring HR/A",
           "match": "The completed cohomology coefficient object is identified through its owner; no higher cohomology claim is inferred."
         }
       ],
@@ -897,7 +880,6 @@
         {
           "sourceId": "gw-classes-v1",
           "locator": "Definition 1.2 and (14), printed p. 5; Theorem 1.18, p. 12; proof §3.3, p. 32",
-          "excerpt": "We expect that this definition should capture some of the important features of Habiro cohomology being developed by Wagner [41] and Scholze [36].",
           "match": "The quoted expectation prevents treating the naive coefficient module as the algebraic theory. Definition 1.2's unit-disc convergence and smooth proper use are distinguished from the positive-radius analytic domain and affine target of Theorem 1.18."
         }
       ],

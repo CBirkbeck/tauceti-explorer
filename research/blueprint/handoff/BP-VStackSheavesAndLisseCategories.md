@@ -1,149 +1,113 @@
-# Handoff — BP-VStackSheavesAndLisseCategories (issue #1001)
+# Handoff — BP-VStackSheavesAndLisseCategories
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-vstack`.
+Issue [#1001](https://github.com/CBirkbeck/tauceti-explorer/issues/1001). Agent Codex, session `codex-5EVU9E`, branch `codex-5EVU9E-vstack-blueprint`. This run takes only this issue.
 
-## Deliverables
+## Result and coverage
 
-- `research/blueprint/packets/VStackSheavesAndLisseCategories.json` — 21 nodes
-  (5 definitions, 2 constructions, 11 theorems, 2 lemmas, 1 comparison), 45 API
-  items, 28 unit tests, 18 planets, 29 baseline declarations, 7 gaps, 23
-  requests, 2 structural proposals. `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/VStackSheavesAndLisseCategories.md` — the roadmap
-  document, 1440 lines, one section per layer with every node's statement,
-  hypotheses, proof outline, API, unit tests, acceptance items and sources.
-- `research/blueprint/suggested/VStackSheavesAndLisseCategories.lean` — 710
-  lines of suggested signatures and `example` unit tests.
-- This note.
+The target-level pass is complete, with `part: null`, packet status `complete` and every implementation status `unchecked`. All 21 integrated/checkpoint identifiers are preserved; statements and source boundaries are corrected where required. The source reading, backward dependency pass, consumer-driven APIs, discriminating tests and reader reconciliation now cover all six stages. This replaces the previous partial checkpoint, including its unread-source and uncompiled-prototype claims.
 
-## Checks run
+There are 78 nodes: 10 definitions, 21 constructions, 44 theorems, 2 comparisons and 1 application; 182 API items; 93 unit tests; 30 planets; 39 actual pinned declaration citations; 15 gaps and 15 requests. Every definition/construction has uses and at least three discriminating tests. Planets are short source-derived nouns, with at most six per stage.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/VStackSheavesAndLisseCategories.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**, with the pinned declaration index in place so every
-  baseline reference was resolved against it and not merely checked for form.
-- `python3 -m unittest discover -s tests` → 246 tests, OK.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths → 0 problems.
+| Stage | Coverage | Nodes | Planets |
+| --- | --- | ---: | ---: |
+| VS0 | planned | 7 | 5 |
+| VS1 | planned | 22 | 6 |
+| VS2 | planned | 26 | 6 |
+| VS3 | planned | 5 | 3 |
+| VS4 | planned | 7 | 5 |
+| VS5 | planned | 11 | 5 |
 
-**The Lean file was not compiled.** No Lean was run for this job. The Mathlib
-build on this machine is a shared cache that must not be rebuilt, and this
-working tree has no elaborated dependency modules. Nothing in this packet is
-claimed to be formalised and every `implementationStatus` is `unchecked`.
+No stage is closed. The exact target inventory, direct dependency graph, stage refinements and all open interfaces are in [the packet](../packets/VStackSheavesAndLisseCategories.json). The [reader](../readmes/VStackSheavesAndLisseCategories.md) reproduces every node's statement, construction/proof, API, tests, uses, acceptance and source. The [suggested file](../suggested/VStackSheavesAndLisseCategories.lean) supplies the honest typed condensed prototypes and the complete named omission ledger. No application code, atlas data, upstream roadmap or other packet is changed.
 
-## What this job rested on
+## Verification and meaning of compilation
 
-A **reviewed integrated decomposition** already existed
-(`data/decompositions/VStackSheavesAndLisseCategories.json`, review
-`independent-review-REVIEW-EXT-05-EXT-02`, accepted 16 September 2026). All 21
-node identifiers, statements, hypotheses, proof steps, acceptance items,
-locators and excerpts are kept unchanged; excerpts over 400 characters were
-truncated at a word boundary with a pointer back to the decomposition. What this
-job added: prerequisites resolved to the pinned libraries or to a named supplier
-stage, planets, per-layer coverage records, and API outlines with unit tests for
-the five definitions and two constructions.
+The complete suggested file was elaborated with `lean-check` at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. It exited successfully with exactly 34 warnings, all for `sorry`, and no errors or other warnings. Memory availability was over 100 GB before compilation. No language server, dependency build or update was started, and no compiler process remains running.
 
-**Both sources were re-downloaded and both hashes reproduce byte for byte.**
-`Geometrization.pdf` gives `9ab9efbd0df251bf…` and `Condensed.pdf` gives
-`d422561285f3025a…`, matching the values recorded in the decomposition and in
-`references/CATALOGUE.json`. So every locator in this packet rests on the same
-two files the independent review checked. No locator was re-verified against the
-PDFs in this session beyond the hashes; the page-level checking was done by that
-review and is not repeated here.
+The typed portion uses actual `CondensedAb`, `CondensedMod`, `ObjectProperty.FullSubcategory`, sheaf restriction of scalars, finite-type polynomial modules, categorical pullbacks and the existing topological-to-condensed functor. It prototypes SolidAb, its ordinary reflection, corrected general-ring solidity and condensed QCQS predicates, with API signatures and twelve unit-test examples. The cutoff-dependent compact-projective family and enhanced derived reflection are explicitly omitted. The other geometric/enhanced signatures cannot be stated against the pinned carriers; each proposed declaration, API and test name has its exact mathematical contract and named gap in the omission ledger. No arbitrary predicates, assumed theorem fields or generic records simulate those missing carriers. Compilation establishes typing of the concrete prototypes, not proofs or implementation of the roadmap.
 
-## RS-05
+Checks:
 
-The accepted restructuring `RS-05` (review `REV-RS-05`, accepted 23 September
-2026) covers this roadmap. It **keeps** VS0, VS1, VS2, VS3 and VS5 and
-**narrows** VS4 onto `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`,
-`SR.0:derived-extension` and `SR.2`. Its new links into this roadmap —
-`DiamondsAndVStacks:D4 → VS0`, `DiamondSixOperations:S3 → VS0`, `S4 → VS0`,
-`EnhancedDerivedSheaves:E3 → VS2`, and the three `SR` components into VS4 and
-VS5 — are all filed as requests and used as node prerequisites. No layer is
-dropped, so no coverage record is `closed` on that account.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/VStackSheavesAndLisseCategories.json`: zero errors and zero warnings, with the pinned declaration index resolving the baseline names.
+- `lean-check research/blueprint/suggested/VStackSheavesAndLisseCategories.lean`: successful, only the 34 proof-placeholder warnings described above.
+- `git diff --check`: clean.
+- Four-path intake validation and independent source-issue/version validation: clean.
+- Artifact audit: all checkpoint identifiers retained; all target entries resolve and jointly cover the 78 nodes; all packet declaration/API/test names occur in both reader and suggested file; every implementation status is unchecked; no Lean code or proof-placeholder text in the packet/reader; no private paths in deliverables.
 
-## The finding that changed the plan
+## Baseline and ownership
 
-`Mathlib/Condensed/Solid.lean` at the pinned commit `082e2d3` already contains
-`Condensed.finFree`, `Condensed.profiniteFree`, `Condensed.profiniteSolid`,
-`Condensed.profiniteSolidCounit`,
-`Condensed.profiniteSolidIsPointwiseRightKanExtension`,
-`Condensed.profiniteSolidification` and the class `CondensedMod.IsSolid`. The
-file was read at the pinned commit. So the free solid module on a profinite set
-and the solidity predicate over the integers are **not** planned again.
+Read the six reviewed `AUDIT-21` entries in `data/library-coverage.json`, then the actual cited declarations at the pins. VS2's condensed carrier, profinite free/right-Kan-extension objects, map and integer predicate are already built. Their solidity and solidification structure is not. The general-R predicate's own documentation requires polynomial restriction. The new category and corrected criterion reuse that input; they do not redefine the pinned objects. Tau Ceti's smooth-discrete continuity carrier is reused by the SR supplier and does not itself prove the Bun_G equivalence.
 
-Its own docstring then says, verbatim:
+Accepted RS-05 keeps VS0–VS3 and VS5 and narrows VS4 to its sheaf applications. BG owns Bun_G and charts, VB owns bundle classification and Banach–Colmez geometry, SR owns smooth representations/compact induction, EDS owns enhanced categories and coherences. Actual finer supplier nodes replace broad stage requests whenever their read statements suffice. SA.2–SA.4 own generic analytic-ring foundations and AS.2–AS.3 own AnSpec/!-topology/gluing. VS2 specializes these to topological E and discrete (A,Z)-solid coefficients. Locally convex functional analysis is an outgoing consumer, avoiding an incoming cycle.
 
-> TODO: This is not the correct definition of solid `R`-modules for a general
-> `R`. The correct one is as follows: Use this to define solid modules over a
-> finite type `ℤ`-algebra `R`. In particular this gives a definition of solid
-> modules over `ℤ[X]` (polynomials in one variable). Then a solid `R`-module
-> over a general ring `R` is the condition that for every `r ∈ R` and every ring
-> homomorphism `ℤ[X] → R` such that `X` maps to `r`, the underlying
-> `ℤ[X]`-module is solid.
+Important source corrections in the pass: finite Tor amplitude is retained in the torsion compact-image statement; the completed ULA formula uses D_X/S(A)∨ and A∨ and requires proper spatial finite-dimensional f for its Rf* version; torsion/lisse comparisons, boundedness and completion are not silently promoted to arbitrary coefficients. Relative divisor simple connectedness is imported from the existing VB2 node. Algebraic ULA kernels and strict-local formal comparison are exact owner-side requests/gaps, not consequences of perverse or coherent-sheaf carriers.
 
-and two further TODOs record that `((profiniteSolid ℤ).obj S).IsSolid` and its
-mod-`p` analogue are unproved, so the predicate has no proved nonempty instance
-at the pinned commit. The VS2 node therefore owns the corrected general-ring
-definition, Proposition 5.7, the structure theorem (Theorem 5.8), the generators
-and the solid tensor product, and reuses the pinned predicate only over `ℤ` and
-over finite-type `ℤ`-algebras. This matches both the roadmap document's own
-warning and RS-05's note on VS2.
+## Confirmed red-team findings
 
-Tau Ceti's `IsSmoothDiscrete` and `SmoothDiscreteTopRep` are cited as baseline on
-the VS4 classifying-stack node, for exactly the reason RS-05 gives: the pinned
-smooth-discrete continuity exists and **is not** the `Bun_G` equivalence.
+- **RT18:** record L1/L3 to GS1 and the EDC.5 perversity/recollement import; remove unexplained VS3 to GS2:correspondences/GS3:fusion. FS VI's Satake statements use torsion D_et. External changes are proposals, without editing GS.
+- **RT28:** VS3 imports L0 only. L1/L3 scheme/v-sheaf comparison goes to GS0/GS1, while L4–L6 remain scheme-side EDC.6 inputs. The separate VS1 algebraic analytification theorem uses its actual H5 comparison and the explicit algebraic-ULA gap.
+- **RT29:** separate lisse nodes for VII.7.6, VII.7.7, VII.7.8, VII.7.9 and VII.7.10 retain integral/rational coefficients. VII.7.2's left adjoint and VII.2.10's vanishing occur in their prerequisite chains. Propose VS5 to HS1, consuming its existing duality-exchange/coefficient nodes.
+- **RT30:** VII.2.6–8 and VII.2.10 are explicit VS2 nodes, with VS1 Drinfeld and VS0 partial-support dependencies. Properness and bounded-below-or-smooth conditions remain in the solid vanishing statement.
+- **RT31:** read and import VB2:classification/finite-etale-constant-algebras; no duplicate simple-connectedness theorem. Add the SW20 16.3.2 geometric divisor input, E-generality via the supplied classification, and the existing ClassFieldTheory layer-9 Weil object.
 
-`data/library-coverage.json` has no reviewed entry for this roadmap, so the
-pinned declaration index was searched directly. Confirmed absent at the pins and
-therefore not cited: `CategoryTheory.Site`, `CategoryTheory.Presheaf`,
-`CategoryTheory.Limits.HasColimits`, `CategoryTheory.Limits.IsFiltered`,
-`CategoryTheory.Presentable`, `Condensed.Abelian`, `CategoryTheory.Triangulated`.
+## Sources freshly read
 
-## What remains
+The following public copies were downloaded, hashed and read through the needed statements and proof interiors on 2026-10-07. The source ledger contains their URLs, hashes and edition-qualified locators. No source is reported read solely because an old checkpoint supplied its locator.
 
-No layer is closed. The decomposition's five gaps are carried forward unchanged,
-each with a *next source action* naming exact printed pages, and two were added.
-In rough order of how much they block:
+- **[Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf)**: Author-hosted 356-page PDF, freshly read and SHA-256 recorded on 2026-10-07. The arXiv listing has v4 dated 27 November 2024; findings are scoped to this author copy, without claiming byte identity to another edition. Sections: IV.1–IV.7, pp.107–166, statements and proof interiors; V.1–V.7, pp.168–186, statements and proofs; VII.1–VII.7, pp.243–276, statements and proofs; II.1.14, p.54; III.5.1, pp.104–105; IX.1–IX.2, pp.320–323 (boundary checks). SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+- **[Lectures on Condensed Mathematics](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf)**: Author-hosted 78-page lecture-notes PDF, freshly read and SHA-256 recorded on 2026-10-07; PDF page numbering agrees with the printed pagination used here. Sections: Theorems 3.2–3.3, pp.20–23, proof interiors; Lecture IV, Theorems 4.3, 4.5, 4.8; Appendix 4.10–4.17, proofs; Lectures V–VIII, pp.33–61, solidification, tensor/Hom, analytic rings and proofs. SHA-256 `d422561285f3025a53ee71a497d350fc89afaefe28053de78e2255b2d521c69d`.
+- **[Berkeley Lectures on p-adic Geometry](https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf)**: Author PDF dated 27 March 2020 Sections: Theorem 13.5.7, p.114, proof; §§16.3.1–16.3.6, pp.144–148, proofs. SHA-256 `225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc`.
+- **[Modularity theorems for abelian surfaces](https://math.uchicago.edu/~fcale/papers/Modular.pdf)**: Author-hosted arXiv:2502.20645v1 copy, 230 pages Sections: §2.2.1, pp.18–20: solid E-vector spaces, tensor and derived Hom; §2.4.1, pp.30–31: Z-solid analytification and formal complement examples. SHA-256 `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`.
+- **[On local Galois deformation rings: generalised reductive groups](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf)**: Published Forum of Mathematics, Pi (2026), 96-page PDF Sections: Published Appendix A, Lemmas A.1–A.8, pp.88–91, definitions and proofs. SHA-256 `b18abe909131d28524f7a326834e5656d10063039a92f54e627d7cb899350d93`.
 
-1. **FS V.3 is unread** (printed pp. 173–177): Definition V.3.2, Propositions
-   V.3.5 and V.3.6, Theorem V.3.7. Every statement of VS4's strict-locality node
-   rests on it. Requested from `BunGAndNewtonStrata:BG4`, which owns it.
-2. **FS VII.2–VII.5 are unread** (printed pp. 252–268). The four and five
-   operations of VS2 are quoted from the chapter introduction's summary, not
-   from proofs, and three proofs read here invoke Proposition VII.5.2 directly.
-   The node's unit tests say so explicitly.
-3. **FS IV.3, the body of IV.4, IV.6 and IV.7 are unread.** VS1 has the ULA
-   formalism and the *statement* of the Jacobian criterion; formal smoothness,
-   hyperbolic localization and Drinfeld's lemma have no node at all. This is
-   what the first structural proposal is about.
-4. **The proof of Theorem 5.8 (condensed Lecture VI) is unread**, as is
-   Proposition 5.7, whose statement only was read.
-5. Two supplier edges the atlas does not have:
-   `VectorBundlesAndIsocrystals:VB3:general-BC → VS4` (Proposition V.2.1 is a
-   VS4 node and Banach–Colmez geometry is linked only into VS1) and
-   `BunGAndNewtonStrata:BG2:smooth-Artin → VS5` (Theorem V.7.1 needs the
-   cohomological smoothness of `Bun_G`, and RS-05's own VS5 note calls the
-   dimension-zero statement a proved prerequisite). Both are filed as requests
-   here, but a `kind:link` job should draw the edges.
+Source questions are scoped rather than suppressed: the enhanced coherence/Neeman interface, stable-homology Breen input, compact-Hausdorff cohomology comparison, Jacobian deformation estimates, global Haar purity, smooth derived duality and faithful-flat perfect descent remain exact gaps. Restricted FF18 is replaced by the public SW20 proof in the actual needed range.
 
-## Structural proposals
+## Source issues
 
-1. **Split VS1.** Its stage text asks for four independent developments — the
-   ULA formalism (IV.2), formal smoothness and the Jacobian criterion (IV.3–4),
-   hyperbolic localization (IV.6) and Drinfeld's lemma (IV.7) — with four
-   different consumers. Only the first is decomposed. As one layer it can never
-   be closed and a reader cannot see which part is planned.
-2. **Narrow VS2's text.** Its first paragraph is a work plan against Mathlib.
-   Its warning about the restricted predicate is confirmed verbatim by the
-   library, but the construction it asks for is already there. Narrowing the
-   text to the structure theorem, the corrected general-ring definition, the
-   derived solid tensor and Hom and the sheaf-level formalism, and citing the
-   pinned declarations for the rest, would make the boundary with
-   `EnhancedDerivedSheaves` — which RS-05 has just sharpened by naming `E3` the
-   owner of the cutoff and adjoint criteria — visible in the text as well as in
-   the link graph.
+- **E1**, PQ26 at Published Appendix A, Lemma A.8 proof, p.91: For r polynomial equations use g:Aⁿ→Aʳ and the zero point in Aʳ. For an arbitrary defining ideal use the intersection of all closed zero fibres on each profinite source. Reason: The source displays g₁,…,gᵣ; their simultaneous value is an r-tuple. A closed immersion need not have finitely many defining equations over an arbitrary R, so the proof also needs the compact-intersection step, supplied in the corrected node. Status: new.
+- **E2**, FS-geometrization at 356-page author copy, Proposition VII.7.10, p.276: The compact exterior product lies in D_lis(Bun_G,Λ), the target displayed immediately above. Use the lisse Künneth statement for integral/rational coefficients. Reason: The functor domain, codomain and A_i,B_i hypotheses are lisse; the cited identical proof of V.7.2 uses the lisse chart generators established in VII.7.4. The torsion D_et statement cannot cover Λ=Q_ell. Status: new.
+- **E3**, PQ26 at Published Appendix A.1, p.90; inherited PAPER-PASKUNAS-QUAST-26/E10: Use affine representable X=Spec B and Hom_Ralg(B,A(S)), which preserves the sheaf products/equalizers. For general accessible functors impose sufficient descent/exactness conditions. Reason: A constant two-element accessible functor sends the empty profinite set to two elements, violating the sheaf empty-cover condition, and does not preserve disjoint-union products. The affine representation-scheme applications only need the corrected representable construction. Status: Recorded as PAPER-PASKUNAS-QUAST-26/E10 in the paper extraction and source-issue registry; no published correction was identified by that bounded search..
+- **E4**, FS-geometrization at 356-page author copy, Remark IV.1.10, p.110: For nondiscrete locally profinite H an infinite compact open subgroup gives the distribution obstruction. Discrete H gives an étale, cohomologically smooth point map even when H is infinite. Reason: Take H=π^Z, a closed infinite discrete subgroup of GL_1(E). The pullback of *→[*/H] is H→*, a disjoint union of identity maps, so it is separated étale of local dimension zero; the existing theorem that étale maps are cohomologically smooth applies. Its dualizing sheaf is constant F_ell on every discrete point. The source’s distribution argument obstructs infinite compact profinite neighbourhoods, not infinite discrete sets. Status: new.
 
-## Where to resume
+E4 needs independent verification of the source's finite-only exception. The closed infinite discrete subgroup π^Z of GL_1(E) gives a separated étale point map to its classifying stack; the distribution obstruction applies to infinite compact open subgroups. The finding and bounded searches are recorded against the hashed author copy. No assertion is made about an unexamined published edition. E3 carries the existing paper-extraction E10 provenance. E1 retains arbitrary defining ideals by the compact intersection argument, rather than adding an unjustified finite-equations hypothesis. E2 is a notation slip in a lisse proposition, not a license to substitute torsion statements for rational ones.
 
-The packet is complete against the decomposition. The next real work is source
-reading, in the order of the list above: FS V.3 first, since it blocks a node
-that is already written, then VII.2–VII.5, then IV.3/IV.6/IV.7, which is a new
-layer's worth of material rather than a gap in an existing one.
+## Requests and where work resumes
+
+The pass is ready for independent review. To close a stage, first resolve its precise mathematical requests and gaps, replace affected omissions with real signatures, and update the coverage; there is no unread stage to begin from scratch. The direct consumers for every request/gap are in the packet and reader.
+
+- **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**: The abelian smooth category on the existing discrete continuous representation carrier; exact open pro-p invariants in prime-to-p coefficients, including kernels, cokernels and coproducts.
+- **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**: The common EDS enhancement of the smooth category, with continuous torsor descent, derived invariants and their exact open pro-p computation.
+- **SmoothRepresentationsOfLocalGroups:SR.2**: Imported c-Ind_K Λ for open pro-p K, Frobenius reciprocity with K-invariants, exactness and product/coefficient comparisons in ell≠p coefficients. Derived smooth BZ pairing and the compact-generator/perfect-invariant criterion are requested as a Part II extension, rather than claimed to be present in SR.2.
+- **RelativeFarguesFontaine:RF2:untilts**: Div¹=Spd Ĕ/φ^Z in E-generality, the Spd C Weil-torsor presentation and the geometric Gauss-point inertia surjectivity used in FS II.1.14/IV.7; generic divisor and untilt descent.
+- **RelativeFarguesFontaine:RF2:integral-divisors**: Formal Spd O_E, its open generic and closed special fibres, and the perfectoid formal-disc comparison required by FS IV.2.34. Do not substitute the Tate-pair Spd constructor.
+- **RelativeFarguesFontaine:RF3**: Relative curve line-bundle/Proj and restriction identifications needed to form quasiprojective section spaces and their tangent bundles, in the full local-field E range.
+- **AdicSpacesPartII:R5**: Smooth morphisms and continuous differentials on sousperfectoid charts, relative tangent bundles, projective local embeddings and normal-cone deformation in FS IV.4. The existing sousperfectoid-space node supplies only the carrier; add this interface in that direction.
+- **EnhancedDerivedSheaves:E5:presentability**: Λ-linear categorical tensor of compactly generated presentable stable infinity categories and the criterion identifying it from exterior compact generators and Hom tensor comparison; not the Cartesian product of categories.
+- **ClassicalAdicEtaleCohomology:H1:formal-adic-comparison**: The strict-local formal-neighborhood comparison needed for FS V.4.3: identify RΓ over the adic formal tube with the closed-point fibre, preserving the actual ideal, completion, support and prime-to-p coefficient conventions; use the filtered formula outside type (S).
+- **SolidAnalyticRings:SA.2**: Generic analytic-ring carrier and complete module categories. Supply the compatibility with CS Definitions 7.1/7.4: extremally disconnected measure functors, Dirac maps, and the Hom axiom on bounded-above generator complexes. This roadmap does not redeclare the generic analytic-ring object.
+- **SolidAnalyticRings:SA.3**: Finite-type Z-algebra measures R[S]_solid=lim R[S_i] and the restriction criterion for arbitrary R, compared with the pinned finite-type CondensedMod.IsSolid. Separate R-solid and (R,Z)-solid structures.
+- **SolidAnalyticRings:SA.4**: For topological nonarchimedean E, the analytic structure with measures E⊗solid_Z Z[S]_solid, its complete closed tensor/Hom and continuous coefficient extension. Classical functional-analysis equivalences are its consumers.
+- **AnalyticStacks:AS.2**: AnSpec and !-topology descent for the imported analytic rings, its module-category realization, proper induced analytic localization and open/closed excision, specialized to (A,Z)-solid coefficients.
+- **AnalyticStacks:AS.3**: Scheme gluing and formal completion in the analytic-stack category, including the discrete (A,Z)-solid coefficient variant of BCGP25 §2.4.1. Compare that variant with the R-solid scheme embedding; they are not identified without proof.
+- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group**: Use the existing local Weil group, Weil topology, inertia, degree W_E→Z and Frobenius sign; only this imported object, with no new definition or upstream roadmap planning.
+
+Open gaps, including the prototype work:
+
+- **G-cutoffs** (Regular-cardinal, pyknotic and light-site comparison): The pinned Mathlib carrier uses all CompHaus at a universe, whereas CS uses regular uncountable κ and SA uses light condensed objects. Give compatible embeddings, density/sheaf restriction, free-object and derived tensor/Hom comparison at adequate cutoffs. The source integer predicate is reused, but full source theorems are not claimed formally transported until this is supplied.
+- **G-breen** (Stable homology input for Breen–Deligne): CS Appendix 4.16 needs the uniform stable-range finiteness/pseudo-coherence of iterated Eilenberg–Mac Lane homology giving finite multiplicities in each Breen degree. The read StableHomotopyKTheory H3 Serre-class result does not give this functorial uniform statement. Request it as StableHomotopyKTheory, Part II; do not substitute an arbitrary infinite free resolution. Ordinary Dold–Kan and simplicial free resolutions must be related to the EDS enrichment explicitly.
+- **G-topology** (Compact-Hausdorff cohomology inputs): For CS 3.2–3.3 and 4.8, provide topological sheaf/Čech comparison, cofiltered continuity for compact Hausdorff spaces, homotopy invariance for torus powers, Tietze extension and finite partitions of unity in the form used by norm-controlled real cochains. The packet records the actual source proof; it does not treat the ordinary Condensed or Sheaf carrier as these theorems.
+- **G-neeman** (Enhanced compactness and coherent descent interfaces): FS IV.2.19–23 uses Neeman IV.2.20 (exact left adjoint preserving compacts iff the right adjoint preserves sums) and coherent bisimplicial descent without an enough-points hypothesis on every stack site. EDS E3 supplies the general adjoint/localization language, but its read ringed-topos node has narrower hypotheses. Supply these exact enhancements; no duplicate infinity-category model is planned here.
+- **G-jacobian** (Sousperfectoid deformation estimates): Finish the requested R5 differential/normal-cone interface and the relative period-ring estimates of FS IV.4.22–30 for successive Frobenius correction, étale retraction and stabilization of the constructible cone. The positive-slope BC geometry is imported from VB3; mixed-characteristic VB4 is not a general-local-field substitute.
+- **G-haar** (Global dualizing trivialization on Bun_G): The purity step in FS V.5.1 extends the Haar-normalized degree-zero dualizing local system from the semistable locus. Record the exact complement/purity input and coefficient conditions from that proof before asserting the chosen trivialization as a compiled statement; an arbitrary Artin exceptional operation is insufficient.
+- **G-smooth-duality** (Derived smooth duality beyond SR.2): SR.2 owns induction and admissible dual compatibility, but the compact derived smooth BZ involution, compact induction generation, derived pro-p invariant reflexivity/perfection and product-Hom comparison need an explicit Part II extension on SR.0’s enhanced carrier. All VS4/VS5 representation uses import that extension, never redefine a second representation category.
+- **G-perfect-descent** (Perfect coefficient descent): The coefficient-change converse needs faithfully flat descent of perfect derived complexes with a uniform finite Tor-amplitude bound; Module.Finite and EDS E4/perfect-coefficient-change do not by themselves prove that descent theorem. Restrict the converse until this owner-side input is supplied.
+- **G-prototype-VS0** (Suggested-signature carriers for VS0): The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist.
+- **G-prototype-VS1** (Suggested-signature carriers for VS1): The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist.
+- **G-prototype-VS2** (Suggested-signature carriers for VS2): The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist. For SolidAb.generators the full cutoff-dependent compact-projective family signature remains omitted; for solidification_derived the enhanced derived reflection is omitted. The ordinary category and reflection signatures are present.
+- **G-prototype-VS3** (Suggested-signature carriers for VS3): The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist.
+- **G-prototype-VS4** (Suggested-signature carriers for VS4): The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist.
+- **G-prototype-VS5** (Suggested-signature carriers for VS5): The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist.
+- **G-algebraic-ula** (Algebraic relative-kernel ULA criterion): FS IV.2.30 imports the algebraic Lu–Zheng criterion. Existing EDC.1 nodes supply exceptional duality, and the actual H5 comparison node supplies Hub96 3.8.1, but no atlas target names algebraic relative-kernel ULA dualizability. Propose EtaleDualityAndPerverseSheaves, Part II, on EDC.1’s carrier; do not route it to the perverse-only EDC.5 or assume that category contains the criterion. This source interface remains open.
+
+Propose VS2 subdivisions into condensed structure, coefficient applications/points, and solid sheaf operations. Part II extensions are explicitly proposed for derived smooth duality, stable Eilenberg–Mac Lane finiteness and algebraic ULA kernels. Keep existing stage IDs while applying the evidence-backed edge corrections. Generic analytic foundations remain with their existing owners.
+
+All information needed for review or follow-up is in the four deliverables. No scratch asset is required; source URLs and content hashes make the readings reproducible. The run's scratch directory is removed after submission. This run opens one pull request and takes no second claim.

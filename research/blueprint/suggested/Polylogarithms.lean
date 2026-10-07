@@ -1,51 +1,44 @@
 /-
-FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
-Current revision is unchecked and NOT COMPILED. Any earlier compilation
-record below describes only that earlier revision and environment.
-
-P.5 retains Goncharov's concrete current complex; its comparison needs
-the requested early real-Deligne interface, not all of the late M.8 stage.
-P.6's rank-form LeopoldtConjecture below is a local adapter: the shared
-completed-unit map and strong-Leopoldt proposition are requested from I.2.
-Its equivalence with this rank form remains unstated until those carriers
-are available. Keep the weak cyclotomic theorem and L4 abelian theorem
-distinct. Ordinary units require an explicit pro-p or Teichmuller/powering
-passage before a principal-unit logarithm can be used.
--/
-/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/Polylogarithms.md` is definitive. These statements
-suggest Lean forms so that contributors and reviewers can converge on names and
-signatures. They claim no implementation.
+suggest Lean forms so that contributors and reviewers converge on names and
+signatures. They claim no implementation: every node of the blueprint has
+implementationStatus `unchecked`, and every `sorry` is a planning placeholder.
 
-BP-Polylogarithms, revised by the independent review REV-Polylogarithms:
-partial prototype, implementationStatus = unchecked.
+Roadmap `Polylogarithms` (Polylogarithms, explicit regulators and Zagier statements),
+assembled by ASM-Polylogarithms from the suggested files of its six parts:
+the first packet (BP-Polylogarithms, REV-Polylogarithms and its fix rounds) and the
+follow-up parts P.2–P.6 (BP-Polylogarithms--P.2 … --P.6 with their reviews; the P.3
+part's review asks for a revision of its signatures, see the P.3 section).
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Synced with the reviewed packet (75 nodes) and elaborated with the Lean toolchain
-of Mathlib 082e2d3 against its prebuilt library: `sorry` is the only warning. The
-file imports only Mathlib; the Tau Ceti declarations the packet cites (places of a
-function field, their orders and residues, the degree of a principal divisor, the
-unit filtration) are named in comments.
+The file imports individual Mathlib modules only: the Tau Ceti declarations the
+first packet cites (places of a function field, their orders and residues, the degree
+of a principal divisor, the unit filtration) are named in comments.
 
-Objects that another roadmap owns appear as `variable`s, never as invented
-definitions: the pre-Bloch group, its generators, functoriality and the Bloch group
-(K3BlochGroups V.3); indecomposable K_3 and Suslin's map (K3BlochGroups V.4); the
-Borel regulator (BorelRegulators R.4); rational K-groups (GeneralAlgebraicKTheory,
-MotivicEtaleKTheory M.6, SchemeKTheoryOperations S.6); the p-adic logarithm
-(PadicHodgeRegulators D.1). Statements about them are forms, true only once the
-variables are instantiated by the supplier. Nothing below encodes a missing theorem
-as an assumed structure field or as a placeholder `Prop`: the `Prop`-valued definitions
-(the condition `*_n`, and Goncharov's, Zagier's and Leopoldt's statements) have their
-actual content, and none is `True` or `sorry`. `sorry` occurs only as the body of a
-declaration or as a proof obligation inside one, never in a statement.
+Layout. The first packet's declarations come first, in layer order P.1–P.6, in the
+namespace `TauCeti.Polylog`. Each follow-up part follows in its own section with its own
+`open`s: P.2 in `TauCeti.Polylog`, P.3 in `TauCeti.Polylog.WeightThree`, P.4 in
+`TauCeti.Polylog.WeightFour`, P.5 in `TauCeti.CurveRegulator` (the namespace its packet
+records), P.6 in `TauCeti.Polylog`. Names are those of the packets. Where a part
+prototyped an object the first packet declares, the part uses the first packet's
+declaration: P.2's local `D` is `blochWigner`, its `lobachevsky` is the first packet's,
+P.3's `UnitsQ` is `unitsQ`, and P.6's three supplier prototypes are the first packet's
+`polylog`, `singleValuedPolylog` and `blochWigner`.
 
-Unit tests are `example`s whose docstring begins "Test `<name>`" with the name the
-packet gives. An API item or a theorem node that cannot be stated honestly yet is a
-comment `-- <name>: not stated; needs <missing object>`. The main missing objects are
-currents on complex manifolds, Chow varieties, hyperbolic 3-space with its volume,
-and the Deligne-Beilinson complex (packet gaps and requests).
+Conventions. Objects another roadmap owns appear as `variable`s or as parameters, never
+as invented definitions: the pre-Bloch group, its generators and the Bloch group
+(K3BlochGroups V.3); indecomposable K₃ and Suslin's map (K3BlochGroups V.4); the Borel
+regulator (BorelRegulators R.4); rational K-groups; the p-adic logarithm. Statements
+about them are forms, true once the supplier instantiates them. No missing theorem is
+encoded as an assumed structure field or a placeholder `Prop`: the `Prop`-valued
+definitions (the condition `*_n`, Goncharov's, Zagier's and Leopoldt's statements,
+P.4's assertions and homotopy statement) have their actual content. Unit tests are
+`example`s whose docstring or preceding comment names the test the packet gives. An API
+item or theorem that cannot be stated honestly yet is a comment
+`-- <name>: not stated; needs <missing object>` with its exact statement in the roadmap.
 -/
+
 import Mathlib.Algebra.Category.ModuleCat.Basic
 import Mathlib.Algebra.Homology.HomologicalComplex
 import Mathlib.Analysis.Calculus.Deriv.Basic
@@ -83,8 +76,50 @@ import Mathlib.LinearAlgebra.Matrix.Rank
 import Mathlib.Analysis.Calculus.DifferentialForm.Basic
 import Mathlib.MeasureTheory.Integral.Bochner.Basic
 import Mathlib.FieldTheory.Galois.Basic
+import Mathlib.Analysis.SpecialFunctions.Integrability.LogMeromorphic
+import Mathlib.Analysis.SpecialFunctions.Integrals.LogTrigonometric
+import Mathlib.Analysis.Complex.Norm
+import Mathlib.Analysis.PSeries
+import Mathlib.Topology.UniformSpace.UniformConvergence
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.Data.Rat.Cast.Order
+import Mathlib.LinearAlgebra.Finsupp.LinearCombination
+import Mathlib.LinearAlgebra.Finsupp.Defs
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.LinearAlgebra.TensorProduct.Map
+import Mathlib.Algebra.DirectSum.Module
+import Mathlib.LinearAlgebra.Projectivization.Basic
+import Mathlib.RepresentationTheory.Coinvariants
+import Mathlib.RepresentationTheory.Homological.GroupHomology.Basic
+import Mathlib.GroupTheory.Perm.Sign
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.Algebra.Homology.QuasiIso
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.FieldTheory.RatFunc.Basic
+import Mathlib.Analysis.Distribution.Distribution
+import Mathlib.Analysis.Normed.Module.Alternating.Basic
+import Mathlib.LinearAlgebra.ExteriorAlgebra.Basic
+import Mathlib.Data.Fin.Tuple.Basic
+import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Analysis.Normed.Group.InfiniteSum
+import Mathlib.Data.Finsupp.BigOperators
+import Mathlib.Algebra.Homology.HomotopyCategory.MappingCone
+import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
 
 noncomputable section
+
+section FirstPacket
+
+/-
+First packet. P.5 keeps Goncharov's concrete current complex; its comparison with the
+general real Deligne complex needs the early part of MotivicEtaleKTheory M.8, not all of
+M.8. P.6's rank-form `LeopoldtConjecture` is the adapter through which this roadmap reads
+IntegralIwasawaTheory I.2's completed-unit map and strong Leopoldt proposition; its
+equivalence with I.2's form is unstated until those carriers exist. The weak cyclotomic
+theorem and the abelian case (L4) stay distinct. Ordinary units need an explicit pro-p or
+Teichmüller passage before a principal-unit logarithm applies.
+-/
 
 open Complex Filter Topology
 open scoped TensorProduct Real
@@ -480,6 +515,7 @@ example (z : ℂ) : blochWigner z⁻¹ = -blochWigner z := by sorry
 
 -- P.2/hyperbolic-volume: P.2 is the sole owner of the ideal-tetrahedron identity vol I = D(r).
 -- GeometricTopology layer 7 supplies metric/volume foundations; layer 8 supplies the model.
+-- Both layers are explicit stage prerequisites of this node, with separate supplier requests.
 -- The ideal boundary, oriented ideal tetrahedra and finite-region-volume interface require
 -- an early GeometricTopology Part II extension (packet gap), before P.2 and QT.5.
 -- Milnor's Lobachevsky-volume formula is P.2's own separate proof gap. The geometric theorem
@@ -487,7 +523,9 @@ example (z : ℂ) : blochWigner z⁻¹ = -blochWigner z := by sorry
 -- ArithmeticQuantumTopology QT.5 imports this identity for the manifold volume sum; it is
 -- not an input here. Keep r(infinity, 0, 1, z) = z, so D(r) = -D(V.4.crossRatio).
 
-/-- Lobachevsky's function `Л(θ) = -∫₀^θ log |2 sin t| dt`. -/
+/-- P.2/lobachevsky-function: Lobachevsky's function `Л(θ) = -∫₀^θ log |2 sin t| dt`, in
+Milnor's normalization (the Clausen function is `Cl₂(2θ) = 2 Л(θ)`). Its API is in the
+P.2 follow-up section below. -/
 def lobachevsky (θ : ℝ) : ℝ := -∫ t in (0 : ℝ)..θ, Real.log |2 * Real.sin t|
 
 /-- P.2/lobachevsky-identity. -/
@@ -1416,3 +1454,2052 @@ example : blochWigner (I / 2) - blochWigner ((1 + I) / 2) + blochWigner (1 - I) 
     blochWigner ((3 + I) / 2) = 0 := by sorry
 
 end TauCeti.Polylog
+
+end FirstPacket
+
+/-! ## P.2 follow-up: Lobachevsky, Kummer, certified Fourier numerics, Milnor, calibration -/
+
+section P2FollowUp
+
+/-
+P.2 part (BP-Polylogarithms--P.2, REV-Polylogarithms--P.2). The eight first-packet P.2
+nodes are not redeclared. `blochWignerFourierApprox` implements the first packet's
+`blochWignerApprox` contract (P.2/certified-numerics), and its error theorem gives
+`blochWignerApprox_error` with the bound 1/(2·2^p). The ideal-tetrahedron theorem is not
+stated: GeometricTopology's metric and volume and the requested Part II region and boundary
+interface have no pinned carrier; its analytic sector calculation is stated below. The
+exact Borel/Suslin scalar remains a gap, not an axiom or a `Prop` field.
+-/
+
+open MeasureTheory Filter
+open scoped BigOperators Real Interval
+
+namespace TauCeti.Polylog
+
+-- `D` is P.1's Bloch–Wigner function: its integral formula Im Li₂(z) + arg(1 − z) log |z|,
+-- with Li₂(z) = −∫₀¹ log(1 − tz)/t dt, is the definition of `blochWigner` above.
+local notation "D" => blochWigner
+
+-- P.2/lobachevsky-function is the first packet's `lobachevsky` above (one declaration).
+
+theorem lobachevsky_integrand_intervalIntegrable (a b : ℝ) :
+    IntervalIntegrable (fun t => Real.log |2 * Real.sin t|) volume a b := by sorry
+
+@[simp] theorem lobachevsky_zero : lobachevsky 0 = 0 := by sorry
+@[simp] theorem lobachevsky_pi_div_two : lobachevsky (π / 2) = 0 := by sorry
+
+theorem lobachevsky_neg (θ : ℝ) : lobachevsky (-θ) = -lobachevsky θ := by sorry
+
+theorem lobachevsky_add_pi (θ : ℝ) : lobachevsky (θ + π) = lobachevsky θ := by sorry
+
+theorem lobachevsky_continuous : Continuous lobachevsky := by sorry
+
+theorem lobachevsky_hasDerivAt {θ : ℝ} (hθ : Real.sin θ ≠ 0) :
+    HasDerivAt lobachevsky (-Real.log |2 * Real.sin θ|) θ := by sorry
+
+theorem lobachevsky_integral_compat :
+    lobachevsky π = -(∫ t in (0 : ℝ)..π, Real.log (Real.sin t)) - π * Real.log 2 ∧
+      lobachevsky π = 0 := by sorry
+
+/-- Test `lobachevsky_zero`. -/
+example : lobachevsky 0 = 0 := by sorry
+/-- Test `lobachevsky_half_period`. -/
+example : lobachevsky (π / 2) = 0 := by sorry
+/-- Test `lobachevsky_catalan_half`: distinguishes Lambda from Cl_2(2 theta). -/
+example : lobachevsky (π / 4) =
+    (1 / 2 : ℝ) * ∑' k : ℕ, (-1 : ℝ) ^ k / (2 * (k : ℝ) + 1) ^ 2 := by sorry
+/-- Test `lobachevsky_native_integral`. -/
+example : lobachevsky π = -(∫ t in (0 : ℝ)..π, Real.log (Real.sin t)) - π * Real.log 2 ∧
+    lobachevsky π = 0 := by sorry
+
+/-- P.2/lobachevsky-fourier: n begins at 1, and the convergence is uniform in theta. -/
+theorem lobachevsky_fourier :
+    (∀ θ : ℝ, Summable
+      (fun k : ℕ => |Real.sin (2 * ((k + 1 : ℕ) : ℝ) * θ) /
+        (2 * (((k + 1 : ℕ) : ℝ) ^ 2))|)) ∧
+    (∀ θ : ℝ, HasSum
+      (fun k : ℕ => Real.sin (2 * ((k + 1 : ℕ) : ℝ) * θ) /
+        (2 * (((k + 1 : ℕ) : ℝ) ^ 2))) (lobachevsky θ)) ∧
+    TendstoUniformly
+      (fun N θ => ∑ k ∈ Finset.range N,
+        Real.sin (2 * ((k + 1 : ℕ) : ℝ) * θ) / (2 * (((k + 1 : ℕ) : ℝ) ^ 2)))
+      lobachevsky atTop := by sorry
+
+/-- P.2/lobachevsky-duplication. -/
+theorem lobachevsky_duplication (θ : ℝ) :
+    lobachevsky (2 * θ) = 2 * lobachevsky θ + 2 * lobachevsky (θ + π / 2) := by sorry
+
+/-- P.2/unit-circle-fourier, on the canonical P.1 expression. -/
+theorem blochWigner_unit_fourier {w : ℂ} (hw : ‖w‖ = 1) :
+    Summable (fun k : ℕ => |(w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2)|) ∧
+    HasSum (fun k : ℕ => (w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2)) (D w) := by sorry
+
+/-- P.2/unit-circle-fourier-tail; includes w = 1. -/
+theorem blochWigner_unit_fourier_tail {w : ℂ} (hw : ‖w‖ = 1)
+    {N : ℕ} (hN : 1 ≤ N) :
+    |D w - ∑ k ∈ Finset.range N, (w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2)| ≤
+      1 / (N : ℝ) := by sorry
+
+/-- P.2/kummer-unit-reduction. No cut or half-plane restriction. -/
+theorem blochWigner_kummer {z : ℂ} (hz0 : z ≠ 0) (hz1 : z ≠ 1) :
+    let w₀ := z / starRingEnd ℂ z
+    let w₁ := (1 / (1 - z)) / starRingEnd ℂ (1 / (1 - z))
+    let w₂ := (1 - 1 / z) / starRingEnd ℂ (1 - 1 / z)
+    (‖w₀‖ = 1 ∧ ‖w₁‖ = 1 ∧ ‖w₂‖ = 1) ∧
+      D z = (D w₀ + D w₁ + D w₂) / 2 := by sorry
+
+/-- P.2/rational-unit-shapes. All helpers are local rational formulas. -/
+def rationalUnitShapes (z : ℚ × ℚ) : Fin 3 → ℚ × ℚ :=
+  if z = (0, 0) ∨ z = (1, 0) then fun _ => (1, 0)
+  else
+    let ρ : ℚ → ℚ → ℚ × ℚ := fun x y =>
+      ((x ^ 2 - y ^ 2) / (x ^ 2 + y ^ 2), 2 * x * y / (x ^ 2 + y ^ 2))
+    let w₀ := ρ z.1 z.2
+    let w₂ := ρ (z.1 - 1) z.2
+    fun j => match j.val with
+      | 0 => w₀
+      | 1 => ρ (1 - z.1) z.2
+      | _ => (w₂.1 * w₀.1 + w₂.2 * w₀.2, -w₂.1 * w₀.2 + w₂.2 * w₀.1)
+
+local notation "ι" => (fun z : ℚ × ℚ => ((((Prod.fst z) : ℚ) : ℂ) + (((Prod.snd z) : ℚ) : ℂ) * Complex.I))
+
+@[simp] theorem rationalUnitShapes_zero (j : Fin 3) :
+    rationalUnitShapes (0, 0) j = (1, 0) := by sorry
+@[simp] theorem rationalUnitShapes_one (j : Fin 3) :
+    rationalUnitShapes (1, 0) j = (1, 0) := by sorry
+
+theorem rationalUnitShapes_conj (a b : ℚ) (j : Fin 3) :
+    rationalUnitShapes (a, -b) j =
+      ((rationalUnitShapes (a, b) j).1, -(rationalUnitShapes (a, b) j).2) := by sorry
+
+theorem rationalUnitShapes_real (a : ℚ) (j : Fin 3) :
+    rationalUnitShapes (a, 0) j = (1, 0) := by sorry
+
+/-- P.2/rational-unit-shapes-correct; promoted compatibility API. -/
+theorem rationalUnitShapes_correct {q : ℚ × ℚ} (h0 : q ≠ (0, 0)) (h1 : q ≠ (1, 0)) :
+    (∀ j : Fin 3, ‖ι (rationalUnitShapes q j)‖ = 1) ∧
+    (∀ j : Fin 3, ι (rationalUnitShapes q j) =
+      match j.val with
+      | 0 => ι q / starRingEnd ℂ (ι q)
+      | 1 => (1 / (1 - ι q)) / starRingEnd ℂ (1 / (1 - ι q))
+      | _ => (1 - 1 / ι q) / starRingEnd ℂ (1 - 1 / ι q)) := by sorry
+
+/-- Test `unit_shapes_i`. -/
+example : rationalUnitShapes (0, 1) 0 = (-1, 0) ∧
+    rationalUnitShapes (0, 1) 1 = (0, 1) ∧ rationalUnitShapes (0, 1) 2 = (0, 1) := by sorry
+/-- Test `unit_shapes_exceptional`. -/
+example (j : Fin 3) : rationalUnitShapes (0, 0) j = (1, 0) ∧
+    rationalUnitShapes (1, 0) j = (1, 0) := by sorry
+/-- Test `unit_shapes_real_two`. -/
+example (j : Fin 3) : rationalUnitShapes (2, 0) j = (1, 0) := by sorry
+/-- Test `unit_shapes_native_norm`. -/
+example {q : ℚ × ℚ} (h0 : q ≠ (0, 0)) (h1 : q ≠ (1, 0)) (j : Fin 3) :
+    ‖ι (rationalUnitShapes q j)‖ = 1 := by sorry
+
+/-- P.2/rational-fourier-sum. The recurrence computes genuine rational powers. -/
+def rationalFourierSum (w : ℚ × ℚ) (N : ℕ) : ℚ :=
+  let power : ℕ → ℚ × ℚ := fun n =>
+    Nat.rec (1, 0) (fun _ q => (q.1 * w.1 - q.2 * w.2, q.1 * w.2 + q.2 * w.1)) n
+  ∑ k ∈ Finset.range N, (power (k + 1)).2 / (((k + 1 : ℕ) : ℚ) ^ 2)
+
+@[simp] theorem rationalFourierSum_zero (w : ℚ × ℚ) : rationalFourierSum w 0 = 0 := by sorry
+@[simp] theorem rationalFourierSum_one (N : ℕ) : rationalFourierSum (1, 0) N = 0 := by sorry
+
+theorem rationalFourierSum_conj (a b : ℚ) (N : ℕ) :
+    rationalFourierSum (a, -b) N = -rationalFourierSum (a, b) N := by sorry
+
+theorem rationalFourierSum_succ (w : ℚ × ℚ) (N : ℕ) :
+    (rationalFourierSum w (N + 1) : ℝ) = (rationalFourierSum w N : ℝ) +
+      (ι w ^ (N + 1)).im / (((N + 1 : ℕ) : ℝ) ^ 2) := by sorry
+
+/-- P.2/rational-fourier-compatibility; promoted API. -/
+theorem rationalFourierSum_coe (w : ℚ × ℚ) (N : ℕ) :
+    (rationalFourierSum w N : ℝ) =
+      ∑ k ∈ Finset.range N, (ι w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2) := by sorry
+
+/-- Test `fourier_sum_i_three`. -/
+example : rationalFourierSum (0, 1) 3 = 8 / 9 := by sorry
+/-- Test `fourier_sum_empty`. -/
+example : rationalFourierSum (2, 3) 0 = 0 := by sorry
+/-- Test `fourier_sum_one`. -/
+example : rationalFourierSum (1, 0) 7 = 0 := by sorry
+/-- Test `fourier_sum_native_powers`. -/
+example (w : ℚ × ℚ) (N : ℕ) : (rationalFourierSum w N : ℝ) =
+    ∑ k ∈ Finset.range N, (ι w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2) := by sorry
+
+/-- P.2/rational-fourier-approximation; 3*2^p terms per circle. -/
+def blochWignerFourierApprox (z : ℚ × ℚ) (p : ℕ) : ℚ :=
+  (∑ j : Fin 3, rationalFourierSum (rationalUnitShapes z j) (3 * 2 ^ p)) / 2
+
+theorem blochWignerFourierApprox_formula (z : ℚ × ℚ) (p : ℕ) :
+    blochWignerFourierApprox z p =
+      (∑ j : Fin 3, rationalFourierSum (rationalUnitShapes z j) (3 * 2 ^ p)) / 2 := by sorry
+
+@[simp] theorem blochWignerFourierApprox_zero (p : ℕ) :
+    blochWignerFourierApprox (0, 0) p = 0 := by sorry
+@[simp] theorem blochWignerFourierApprox_one (p : ℕ) :
+    blochWignerFourierApprox (1, 0) p = 0 := by sorry
+
+theorem blochWignerFourierApprox_real (a : ℚ) (p : ℕ) :
+    blochWignerFourierApprox (a, 0) p = 0 := by sorry
+
+theorem blochWignerFourierApprox_conj (a b : ℚ) (p : ℕ) :
+    blochWignerFourierApprox (a, -b) p = -blochWignerFourierApprox (a, b) p := by sorry
+
+/-- P.2/rational-fourier-error; promoted compatibility API with the stronger bound. -/
+theorem blochWignerFourierApprox_error {z : ℚ × ℚ}
+    (h0 : z ≠ (0, 0)) (h1 : z ≠ (1, 0)) (p : ℕ) :
+    |(blochWignerFourierApprox z p : ℝ) - D (ι z)| ≤ 1 / (2 * (2 : ℝ) ^ p) ∧
+    |(blochWignerFourierApprox z p : ℝ) - D (ι z)| ≤ 1 / (2 : ℝ) ^ p := by sorry
+
+/-- Strict sign consequence, never merely a nonzero numerical output. -/
+theorem blochWignerFourierApprox_pos {z : ℚ × ℚ}
+    (h0 : z ≠ (0, 0)) (h1 : z ≠ (1, 0)) (p : ℕ)
+    (h : (1 : ℚ) / 2 ^ p < blochWignerFourierApprox z p) : 0 < D (ι z) := by sorry
+
+theorem blochWignerFourierApprox_neg {z : ℚ × ℚ}
+    (h0 : z ≠ (0, 0)) (h1 : z ≠ (1, 0)) (p : ℕ)
+    (h : blochWignerFourierApprox z p < -(1 : ℚ) / 2 ^ p) : D (ι z) < 0 := by sorry
+
+theorem blochWignerFourierApprox_ne_zero {z : ℚ × ℚ}
+    (h0 : z ≠ (0, 0)) (h1 : z ≠ (1, 0)) (p : ℕ)
+    (h : (1 : ℚ) / 2 ^ p < |blochWignerFourierApprox z p|) : D (ι z) ≠ 0 := by sorry
+
+/-- Finite sums carry weighted error radii; Bloch boundary membership is a separate supplier. -/
+theorem blochWignerFourierApprox_sum_error {I : Type*} (s : Finset I)
+    (z : I → ℚ × ℚ) (n : I → ℤ) (p : I → ℕ)
+    (h0 : ∀ i ∈ s, z i ≠ (0, 0)) (h1 : ∀ i ∈ s, z i ≠ (1, 0)) :
+    |(∑ i ∈ s, (n i : ℝ) * (blochWignerFourierApprox (z i) (p i) : ℝ)) -
+      ∑ i ∈ s, (n i : ℝ) * D (ι (z i))| ≤
+        ∑ i ∈ s, |(n i : ℝ)| / (2 : ℝ) ^ p i := by sorry
+
+/-- Test `approx_i_precision_zero`. -/
+example : blochWignerFourierApprox (0, 1) 0 = 8 / 9 := by sorry
+/-- Test `approx_i_precision_one`. -/
+example : blochWignerFourierApprox (0, 1) 1 = 209 / 225 := by sorry
+/-- Test `approx_exceptional`. -/
+example (p : ℕ) : blochWignerFourierApprox (0, 0) p = 0 ∧
+    blochWignerFourierApprox (1, 0) p = 0 := by sorry
+/-- Test `approx_real_two`. -/
+example (p : ℕ) : blochWignerFourierApprox (2, 0) p = 0 := by sorry
+/-- Test `approx_conjugate`. -/
+example : blochWignerFourierApprox (0, -1) 0 = -8 / 9 := by sorry
+
+-- idealTetrahedron_volume_eq_lobachevsky: not stated; requires the canonical
+-- curvature -1 metric/volume from GeometricTopology layers 7–8 and early Part II
+-- ideal boundary, measurable tetrahedron regions and ordered orientation.
+-- The inherited idealTetrahedron_volume_eq_blochWigner uses the same supplier.
+
+/-- Analytic sector integral in the proof of P.2/milnor-angle-volume. -/
+theorem milnor_sector_integral {a : ℝ} (ha : 0 < a) (ha' : a < π / 2) :
+    (∫ x in (0 : ℝ)..Real.cos a,
+      ∫ y in (0 : ℝ)..(x * Real.tan a), 1 / (2 * (1 - x ^ 2 - y ^ 2))) =
+        lobachevsky a / 2 := by sorry
+
+/-- P.2/goncharov-elementary-calibration. Here e12,e21,e22 use indices 0,1. -/
+theorem goncharov_weightTwo_elementaryCalibration :
+    let X : Matrix (Fin 2) (Fin 2) ℂ := fun i j => if i = 0 ∧ j = 1 then 1 else 0
+    let Y : Matrix (Fin 2) (Fin 2) ℂ := fun i j => if i = 1 ∧ j = 0 then 1 else 0
+    let Z : Matrix (Fin 2) (Fin 2) ℂ := fun i j => if i = 1 ∧ j = 1 then 1 else 0
+    let alt := Matrix.trace (X * Y * Z) + Matrix.trace (Y * Z * X) +
+      Matrix.trace (Z * X * Y) - Matrix.trace (X * Z * Y) -
+      Matrix.trace (Z * Y * X) - Matrix.trace (Y * X * Z)
+    alt = -3 ∧ (1 / 2 : ℂ) * alt = -3 / 2 ∧ (-1 / 6 : ℂ) * alt = 1 / 2 := by sorry
+
+-- Exact borel-comparison: not stated. Recompute the failed source calibration,
+-- compare beta_DR with AF.1a and R.4's Burgos class, divide by the fixed Tate
+-- generator 2*pi*i, and compare the natural V.4 Suslin/Hurewicz maps.
+-- R.7/weight-two-bloch-wigner is a consumer of this P.2 result, not a premise.
+
+end TauCeti.Polylog
+
+end P2FollowUp
+
+/-! ## P.3 follow-up: configurations and the weight-three comparison -/
+
+section P3FollowUp
+
+/-
+P.3 part (BP-Polylogarithms--P.3; REV-Polylogarithms--P.3, verdict needs_changes).
+The native configuration and finite-sum prototypes below are meaningful; generic module
+parameters are not the first packet's B₂/B₃ merely because comments call them so, and
+the false universal claims have been removed. Names marked "not stated" need the first
+packet's B₂/B₃ quotient symbols, differential laws, Γ, L₃ and regulator bound into their
+signatures; a revision of the P.3 part binds them. No desired theorem is replaced by a
+`Prop` field.
+-/
+
+open scoped TensorProduct DirectSum
+namespace TauCeti.Polylog.WeightThree
+
+section Relation
+variable {F : Type} [Field F]
+
+private def bracket (z : F) : F →₀ ℚ := Finsupp.single z 1
+private def relationBlock (a b c : F) : F →₀ ℚ :=
+  let A := c*a-a+1
+  let B := b*c-c+1
+  bracket A + bracket (A/(c*a)) + bracket c + bracket (B/(A*b)) -
+    bracket (A/c) + bracket (-B*a/A) - bracket (B/(A*b*c)) - bracket 1
+
+/-- The corrected coordinate formula. Admissibility is required for the quotient theorem. -/
+def relation22 (a b c : F) : F →₀ ℚ :=
+  relationBlock a b c + relationBlock c a b + relationBlock b c a + bracket (-a*b*c)
+
+private def admissible (a b c : F) : Prop :=
+  a ≠ 0 ∧ b ≠ 0 ∧ c ≠ 0 ∧ c*a-a+1 ≠ 0 ∧ a*b-b+1 ≠ 0 ∧ b*c-c+1 ≠ 0
+
+theorem relation22_cyclic (a b c : F) : relation22 a b c = relation22 c a b := by sorry
+
+theorem relation22_map {E : Type} [Field E] (f : F →+* E) (a b c : F) :
+    Finsupp.lmapDomain ℚ ℚ f (relation22 a b c) = relation22 (f a) (f b) (f c) := by sorry
+
+theorem relation22_eval {M : Type} [AddCommGroup M] [Module ℚ M]
+    (v : F → M) (a b c : F) :
+    Finsupp.linearCombination ℚ v (relation22 a b c) =
+      Finsupp.linearCombination ℚ v (relationBlock a b c) +
+      Finsupp.linearCombination ℚ v (relationBlock c a b) +
+      Finsupp.linearCombination ℚ v (relationBlock b c a) + v (-a*b*c) := by sorry
+
+-- TauCeti.Polylog.WeightThree.relation22_quotient: not stated; needs the
+-- actual parent B₃ quotient symbol and its relation-kernel law. An arbitrary
+-- F → B₃ cannot satisfy this statement (R(1,1,1)=3[1]+4[−1]).
+
+/-- Test `TauCeti.Polylog.WeightThree.relation222`. -/
+example : relation22 (2 : ℚ) 2 2 =
+    3 • bracket 3 + 3 • bracket (3/4) + 3 • bracket 2 + 3 • bracket (1/2) +
+    3 • bracket (-2 : ℚ) - 3 • bracket (3/2) - 3 • bracket (1/4) -
+    3 • bracket 1 + bracket (-8 : ℚ) := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.relation111`. -/
+example : relation22 (1 : ℚ) 1 1 = 3 • bracket 1 + 4 • bracket (-1 : ℚ) := by sorry
+
+/-- Native quotient used only to test equality modulo inversion, not to define B₃. -/
+private def inversionSpan : Submodule ℚ (F →₀ ℚ) :=
+  Submodule.span ℚ {v | ∃ z : F, z ≠ 0 ∧ v = bracket z - bracket z⁻¹}
+/-- Test `TauCeti.Polylog.WeightThree.relation11c`. -/
+example (c : F) (hc : c ≠ 0) :
+    (inversionSpan (F := F)).mkQ (relation22 1 1 c) =
+      (inversionSpan (F := F)).mkQ (-bracket (c^2) + 4 • bracket c + 4 • bracket (-c)) := by sorry
+end Relation
+
+section Configurations
+variable (F : Type) [Field F]
+
+/-- Genericity uses native linear independence, including subfamilies shorter than the rank. -/
+private def IsGeneric {q m : ℕ} (l : Fin m → Fin q → F) : Prop :=
+  ∀ k : ℕ, k ≤ q → ∀ e : Fin k → Fin m, Function.Injective e →
+    LinearIndependent F (fun i => l (e i))
+
+def GenericTuple (q m : ℕ) := {l : Fin m → Fin q → F // IsGeneric F l}
+
+private def genericGL {q m : ℕ} (g : Matrix.GeneralLinearGroup (Fin q) F)
+    (l : GenericTuple F q m) : GenericTuple F q m :=
+  ⟨fun i => (g.val).mulVec (l.val i), by sorry⟩
+
+/-- The permutation representation on native finite formal sums of generic tuples. -/
+private def configRepresentation (q m : ℕ) :
+    Representation ℚ (Matrix.GeneralLinearGroup (Fin q) F) (GenericTuple F q m →₀ ℚ) where
+  toFun g := Finsupp.lmapDomain ℚ ℚ (genericGL F g)
+  map_one' := by sorry
+  map_mul' := by sorry
+
+abbrev Config (q m : ℕ) := Representation.Coinvariants (configRepresentation F q m)
+
+def configMk {q m : ℕ} (l : GenericTuple F q m) : Config F q m :=
+  Representation.Coinvariants.mk (configRepresentation F q m) (Finsupp.single l 1)
+
+theorem configMk_gl {q m : ℕ} (g : Matrix.GeneralLinearGroup (Fin q) F)
+    (l : GenericTuple F q m) : configMk F (genericGL F g l) = configMk F l := by sorry
+
+variable {M : Type} [AddCommGroup M] [Module ℚ M]
+
+def configLift {q m : ℕ} (f : GenericTuple F q m → M)
+    (h : ∀ g l, f (genericGL F g l) = f l) : Config F q m →ₗ[ℚ] M := by sorry
+
+/-- The universal property is part of the API, not just existence of a map. -/
+theorem configLift_mk {q m : ℕ} (f : GenericTuple F q m → M)
+    (h : ∀ g l, f (genericGL F g l) = f l) (l : GenericTuple F q m) :
+    configLift F f h (configMk F l) = f l := by sorry
+
+theorem config_ext {q m : ℕ} (f g : Config F q m →ₗ[ℚ] M)
+    (h : ∀ l, f (configMk F l) = g (configMk F l)) : f = g := by sorry
+
+/-- Target tuple size decreases by one; deletion itself works in every row. -/
+def configDelete {q m : ℕ} (i : Fin (m+1)) : Config F q (m+1) →ₗ[ℚ] Config F q m := by sorry
+
+/-- Quotienting by the chosen nonzero vector lowers ambient dimension as well. -/
+def configProject {q m : ℕ} (i : Fin (m+1)) :
+    Config F (q+1) (m+1) →ₗ[ℚ] Config F q m := by sorry
+
+theorem config_coinvariants (q m : ℕ) :
+    Config F q m = Representation.Coinvariants (configRepresentation F q m) := by sorry
+
+/-- Test `TauCeti.Polylog.WeightThree.generic_basis`. -/
+example : IsGeneric ℚ (fun i j : Fin 3 => if i = j then 1 else 0) := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.generic_zero`. -/
+example {q m : ℕ} (hq : 1 ≤ q) (l : Fin m → Fin q → F) (i : Fin m)
+    (hi : l i = 0) : ¬IsGeneric F l := by sorry
+private def pairOne (a : ℚ) (ha : a ≠ 0) : GenericTuple ℚ 1 2 := ⟨![![1], ![a]], by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.config_ratios`. -/
+example : configMk ℚ (pairOne 2 (by norm_num)) ≠ configMk ℚ (pairOne 3 (by norm_num)) := by sorry
+
+abbrev bigrassmannian (m : ℕ) := ⨁ q : {q : ℕ // 3 ≤ q ∧ q < m}, Config F q.val m
+
+def bigrassmannianD (m : ℕ) : bigrassmannian F (m+1) →ₗ[ℚ] bigrassmannian F m := by sorry
+
+/-- Deletion and projection sums; signs refer to zero-based indices. -/
+private def deleteD (q m : ℕ) : Config F q (m+1) →ₗ[ℚ] Config F q m :=
+  ∑ i : Fin (m+1), ((-1 : ℚ)^i.val) • configDelete F i
+private def projectD (q m : ℕ) : Config F (q+1) (m+1) →ₗ[ℚ] Config F q m :=
+  ∑ i : Fin (m+1), ((-1 : ℚ)^i.val) • configProject F i
+
+-- TauCeti.Polylog.WeightThree.bigrassmannianD_component: not stated here;
+-- needs the dependent row-inclusion/projection API for the finite direct sum.
+-- Its required statement is exactly deletion in row q and projection in row q−1.
+theorem bigrassmannianD_sq (m : ℕ) :
+    (bigrassmannianD F m).comp (bigrassmannianD F (m+1)) = 0 := by sorry
+
+def bigrassmannian_corner : bigrassmannian F 4 ≃ₗ[ℚ] Config F 3 4 := by sorry
+
+-- TauCeti.Polylog.WeightThree.bigrassmannian_map: not stated; needs the
+-- induced generic-tuple field map and its native coinvariant map.
+
+/-- Test `TauCeti.Polylog.WeightThree.bigrassmannian_degree3`. -/
+example : Subsingleton (bigrassmannian F 3) := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.bigrassmannian_degree4`. -/
+example : (bigrassmannianD F 3) = 0 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.bigrassmannian_mixed`. -/
+example : (deleteD F 3 5).comp (projectD F 3 6) +
+    (projectD F 3 5).comp (deleteD F 4 6) = 0 := by sorry
+end Configurations
+
+section Ratios
+variable {F : Type} [Field F]
+private def minor {m : ℕ} (l : Fin m → Fin 3 → F) (i j k : Fin m) : F :=
+  Matrix.det (fun a : Fin 3 => (![l i, l j, l k] : Fin 3 → Fin 3 → F) a)
+
+/-- In GR §7's order, the inverse of the V.4 cross-ratio. -/
+def projectedRatio (l : GenericTuple F 3 5) : F :=
+  minor l.val 0 1 3 * minor l.val 0 2 4 /
+    (minor l.val 0 1 4 * minor l.val 0 2 3)
+
+theorem projectedRatio_ne (l : GenericTuple F 3 5) :
+    projectedRatio l ≠ 0 ∧ projectedRatio l ≠ 1 := by sorry
+
+theorem projectedRatio_gl (g : Matrix.GeneralLinearGroup (Fin 3) F)
+    (l : GenericTuple F 3 5) : projectedRatio (genericGL F g l) = projectedRatio l := by sorry
+
+private def scaled {m : ℕ} (s : Fin m → Fˣ) (l : GenericTuple F 3 m) :
+    GenericTuple F 3 m := ⟨fun i => (s i : F) • l.val i, by sorry⟩
+
+theorem projectedRatio_scale (s : Fin 5 → Fˣ) (l : GenericTuple F 3 5) :
+    projectedRatio (scaled s l) = projectedRatio l := by sorry
+-- TauCeti.Polylog.WeightThree.projectedRatio_blochCrossRatio: not stated;
+-- needs V.4's ordered projective quotient-point cross-ratio carrier/map.
+
+private def moment (t : ℚ) : Fin 3 → ℚ := ![1,t,t^2]
+private def moment5 : GenericTuple ℚ 3 5 :=
+  ⟨fun i => moment (![1,2,3,5,7] i), by sorry⟩
+private def permute {q m : ℕ} (l : GenericTuple F q m) (σ : Equiv.Perm (Fin m)) :
+    GenericTuple F q m := ⟨fun i => l.val (σ i), by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.projectedRatio_moment`. -/
+example : projectedRatio moment5 = 6/5 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.projectedRatio_swap`. -/
+example : projectedRatio (permute moment5 (Equiv.swap 3 4)) = 5/6 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.projectedRatio_bad`. -/
+example : ¬ IsGeneric ℚ (![0, moment 2, moment 3, moment 5, moment 7]) := by sorry
+
+def tripleRatio (l : GenericTuple F 3 6) : F :=
+  minor l.val 0 1 3 * minor l.val 1 2 4 * minor l.val 0 2 5 /
+    (minor l.val 0 1 4 * minor l.val 1 2 5 * minor l.val 0 2 3)
+
+theorem tripleRatio_scale (s : Fin 6 → Fˣ) (l : GenericTuple F 3 6) :
+    tripleRatio (scaled s l) = tripleRatio l := by sorry
+
+private def moment6 : GenericTuple ℚ 3 6 :=
+  ⟨fun i => moment (![1,2,3,5,7,11] i), by sorry⟩
+private def ratioOne : GenericTuple ℚ 3 6 :=
+  ⟨![![1,0,0], ![0,1,0], ![0,0,1], ![1,1,1], ![1,2,3], ![1,3,2]], by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.tripleRatio_moment`. -/
+example : tripleRatio moment6 = 10/9 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.tripleRatio_one`. -/
+example : tripleRatio ratioOne = 1 := by sorry
+end Ratios
+
+section ConfigurationMaps
+variable {F : Type} [Field F]
+/-- The rational unit module `F^× ⊗ ℚ`, instantiated natively: the first packet's `unitsQ`. -/
+abbrev UnitsQ (F : Type) [Field F] := TauCeti.Polylog.unitsQ F
+private def unitClass (x : F) : UnitsQ F := by
+  classical
+  exact if h : x = 0 then 0 else TensorProduct.tmul ℤ 1 (Additive.ofMul (Units.mk0 x h))
+private def wedge (x y z : UnitsQ F) : ⋀[ℚ]^3 (UnitsQ F) :=
+  exteriorPower.ιMulti ℚ 3 ![x,y,z]
+private def signQ {m : ℕ} (σ : Equiv.Perm (Fin m)) : ℚ :=
+  ((Equiv.Perm.sign σ : ℤˣ) : ℤ)
+private def alternate {M : Type} [AddCommGroup M] [Module ℚ M] {q m : ℕ}
+    (f : GenericTuple F q m → M) (l : GenericTuple F q m) : M :=
+  ∑ σ : Equiv.Perm (Fin m), signQ σ • f (permute l σ)
+
+private def exteriorFormula (vol : Fˣ) (l : GenericTuple F 3 4) : ⋀[ℚ]^3 (UnitsQ F) :=
+  (-3 : ℚ) • alternate (fun v => wedge
+    (unitClass ((vol : F)*minor v.val 0 1 2))
+    (unitClass ((vol : F)*minor v.val 0 1 3))
+    (unitClass ((vol : F)*minor v.val 0 2 3))) l
+
+def configExterior (vol : Fˣ) : Config F 3 4 →ₗ[ℚ] ⋀[ℚ]^3 (UnitsQ F) :=
+  configLift F (exteriorFormula vol) (by sorry)
+
+theorem configExterior_mk (vol : Fˣ) (l : GenericTuple F 3 4) :
+    configExterior vol (configMk F l) = exteriorFormula vol l := by sorry
+
+theorem configExterior_volume (vol w : Fˣ) : configExterior vol = configExterior w := by sorry
+
+theorem configExterior_alt (vol : Fˣ) (l : GenericTuple F 3 4) (σ : Equiv.Perm (Fin 4)) :
+    configExterior vol (configMk F (permute l σ)) =
+      signQ σ • configExterior vol (configMk F l) := by sorry
+-- TauCeti.Polylog.WeightThree.configExterior_fieldMap: not stated; needs the
+-- canonical tensor extension of the supplier unit map and the config field map.
+
+private def small4 : GenericTuple ℚ 3 4 :=
+  ⟨![![1,8,2], ![7,3,11], ![1,3,2], ![9,4,3]], by sorry⟩
+private def moment4 : GenericTuple ℚ 3 4 :=
+  ⟨fun i => moment (![1,2,3,5] i), by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.configExterior_small`. -/
+example : configExterior (1 : ℚˣ) (configMk ℚ small4) =
+    (18 : ℚ) • wedge (unitClass (5 : ℚ)) (unitClass (67 : ℚ)) (unitClass (197 : ℚ)) := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.configExterior_moment4`. -/
+example : configExterior (1 : ℚˣ) (configMk ℚ moment4) = 0 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.configExterior_native`. -/
+example (x y z : UnitsQ F) : wedge x y z = exteriorPower.ιMulti ℚ 3 ![x,y,z] := by sorry
+
+variable {B2 B3 : Type} [AddCommGroup B2] [Module ℚ B2] [AddCommGroup B3] [Module ℚ B3]
+variable (gen2 : F → B2) (gen3 : F → B3)
+private def middleFormula (vol : Fˣ) (l : GenericTuple F 3 5) : B2 ⊗[ℚ] UnitsQ F :=
+  alternate (fun v => gen2 (projectedRatio v) ⊗ₜ[ℚ]
+    unitClass ((vol : F)*minor v.val 2 3 4)) l
+
+-- TauCeti.Polylog.WeightThree.configMiddle: not stated; middleFormula is
+-- the raw finite sum, but GL descent and volume independence require the actual
+-- B₂ symbol and five-term law. They fail for arbitrary gen2.
+-- TauCeti.Polylog.WeightThree.configMiddle_mk: not stated; needs that descent.
+-- TauCeti.Polylog.WeightThree.configMiddle_volume: not stated; needs five-term.
+-- TauCeti.Polylog.WeightThree.configMiddle_alt: not stated; needs that descent.
+-- TauCeti.Polylog.WeightThree.configMiddle_fieldMap: not stated; needs the
+-- actual B₂/configuration/unit field maps.
+-- Test TauCeti.Polylog.WeightThree.configMiddle_moment: not stated; needs the
+-- parent d₂ formula on symbols. Taking an arbitrary d₂=0 refutes the old test.
+-- Test TauCeti.Polylog.WeightThree.configMiddle_scaleVolume: not stated;
+-- requires the actual B₂ quotient symbol.
+-- Test TauCeti.Polylog.WeightThree.configMiddle_notProjective: not stated;
+-- requires the actual d₂; the rational computations are recorded in the review.
+
+def configTrilog : Config F 3 6 →ₗ[ℚ] B3 :=
+  configLift F (fun l => (-1/5 : ℚ) • alternate (fun v => gen3 (tripleRatio v)) l) (by sorry)
+
+theorem configTrilog_mk (l : GenericTuple F 3 6) :
+    configTrilog gen3 (configMk F l) =
+      (-1/5 : ℚ) • alternate (fun v => gen3 (tripleRatio v)) l := by sorry
+
+theorem configTrilog_alt (l : GenericTuple F 3 6) (σ : Equiv.Perm (Fin 6)) :
+    configTrilog gen3 (configMk F (permute l σ)) =
+      signQ σ • configTrilog gen3 (configMk F l) := by sorry
+-- TauCeti.Polylog.WeightThree.configTrilog_fieldMap: not stated; needs the
+-- canonical parent B₃ field map, not an arbitrary linear map between modules.
+/-- Test `TauCeti.Polylog.WeightThree.configTrilog_normalization`. -/
+example (l : GenericTuple F 3 6) :
+    (5 : ℚ) • configTrilog gen3 (configMk F l) =
+      -alternate (fun v => gen3 (tripleRatio v)) l := by sorry
+
+-- TauCeti.Polylog.WeightThree.seven_term_configuration_relation: not stated;
+-- requires the actual B₃ relation quotient; an arbitrary gen3 has no such law.
+-- TauCeti.Polylog.WeightThree.configuration_chain_comparison: not stated;
+-- requires actual B₂/B₃ symbols, their differentials and explicit Γ. Correct
+-- coefficients are −3 Alt₄ and −(1/5) Alt₆ under the packet's conventions.
+-- TauCeti.Polylog.WeightThree.relation_cobracket: not stated; requires the
+-- parent δ₃ law on the actual quotient, not an arbitrary delta3.
+
+/-- Coordinate (v_p∧v_q)⊗v_r of (δ₂⊗1)δ₃[z]₃ over ℚ.
+The native valuation is zero at z=0; z=1 gives a zero coordinate as required. -/
+private def cobracketCoordinate (p q r : ℕ) (z : ℚ) : ℚ :=
+  ((padicValRat p (1-z) : ℚ) * (padicValRat q z : ℚ) -
+    (padicValRat q (1-z) : ℚ) * (padicValRat p z : ℚ)) * (padicValRat r z : ℚ)
+private def topCoordinate (l : GenericTuple ℚ 3 6) : ℚ :=
+  (-1/5 : ℚ) * ∑ σ : Equiv.Perm (Fin 6),
+    signQ σ * cobracketCoordinate 2 3 2 (tripleRatio (permute l σ))
+private def middleCoordinate (l : GenericTuple ℚ 3 5) : ℚ :=
+  ∑ σ : Equiv.Perm (Fin 5), signQ σ *
+    (((padicValRat 2 (1-projectedRatio (permute l σ)) : ℚ) *
+      (padicValRat 3 (projectedRatio (permute l σ)) : ℚ) -
+      (padicValRat 3 (1-projectedRatio (permute l σ)) : ℚ) *
+      (padicValRat 2 (projectedRatio (permute l σ)) : ℚ)) *
+      (padicValRat 2 (minor (permute l σ).val 2 3 4) : ℚ))
+private def deleteTuple (l : GenericTuple ℚ 3 6) (i : Fin 6) : GenericTuple ℚ 3 5 :=
+  ⟨fun j => l.val (i.succAbove j), by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.configTrilog_cobracketCoordinate`.
+This checks the corrected raw formula without assuming a B₃ interface. -/
+example : topCoordinate ratioOne = -60 ∧
+    (∑ i : Fin 6, (-1 : ℚ)^i.val * middleCoordinate (deleteTuple ratioOne i)) = -60 := by sorry
+end ConfigurationMaps
+
+section GeometricPresentation
+variable (F : Type) [Field F] [Infinite F]
+private abbrev SixPoints := Fin 6 → Projectivization F (Fin 3 → F)
+/-- Span of projective GL changes, repeat/four-collinear degeneracies, seven-term
+relations and the precise intersection R3 family in the reader document. This
+submodule is a proposed construction, not an assumed proposition. -/
+private def geometricRelations : Submodule ℚ (SixPoints F →₀ ℚ) := by sorry
+
+def GeometricTrilog := (SixPoints F →₀ ℚ) ⧸ geometricRelations F
+instance : AddCommGroup (GeometricTrilog F) := inferInstanceAs (AddCommGroup (_ ⧸ _))
+instance : Module ℚ (GeometricTrilog F) := inferInstanceAs (Module ℚ (_ ⧸ _))
+
+def geometricMk (l : SixPoints F) : GeometricTrilog F :=
+  (geometricRelations F).mkQ (Finsupp.single l 1)
+
+theorem geometricMk_alt (l : SixPoints F) (σ : Equiv.Perm (Fin 6)) :
+    geometricMk F (fun i => l (σ i)) = signQ σ • geometricMk F l := by sorry
+
+/-- Native quotient universal property; its hypothesis names the actual generated
+submodule and does not replace its relation families by an unspecified proposition. -/
+def geometricLift {M : Type} [AddCommGroup M] [Module ℚ M]
+    (f : (SixPoints F →₀ ℚ) →ₗ[ℚ] M) (h : geometricRelations F ≤ LinearMap.ker f) :
+    GeometricTrilog F →ₗ[ℚ] M := (geometricRelations F).liftQ f h
+
+/-- The triangle-family class with its specified source degeneration at 1. -/
+def geometricTriangle (z : F) : GeometricTrilog F := by sorry
+
+/-- Test `TauCeti.Polylog.WeightThree.geometric_repeat`. -/
+example (l : SixPoints F) (h : l 0 = l 1) : geometricMk F l = 0 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.geometric_fourCollinear`. -/
+example (l : SixPoints F) (W : Submodule F (Fin 3 → F))
+    (hW : Module.finrank F W = 2)
+    (h : ∀ i : Fin 4, (l (i.castSucc.castSucc)).rep ∈ W) :
+    geometricMk F l = 0 := by sorry
+-- Test TauCeti.Polylog.WeightThree.geometric_triangle_nonzero: not stated;
+-- needs the actual B₃ comparison and descended L₃; the expected value is ζ(3).
+
+-- TauCeti.Polylog.WeightThree.geometric_trilogarithm_comparison: not stated;
+-- needs the actual parent B₃ quotient and a native intersection/projection API.
+-- Existence of an isomorphism to every arbitrary rational module was false.
+-- The packet records the printed Alt M₃=(3/2) Alt[T] and the separate corrected
+-- r₆=−(1/5) Alt[T]. Their full explicit-quotient adapter is still required.
+
+/-- Native vector-configuration duality, not a second Grassmannian definition. -/
+def configurationDual (q m : ℕ) (hq : 0 < q) (hqm : q < m) :
+    Config F q m ≃ₗ[ℚ] Config F (m-q) m := by sorry
+
+-- TauCeti.Polylog.WeightThree.configurationDual_sq: not stated in full
+-- generality; needs the finite-index transport identifying m−(m−q) with q.
+-- The same-rank six-point test below gives the unambiguous special case.
+-- TauCeti.Polylog.WeightThree.configurationDual_matrix: not stated;
+-- needs the dependent Fin-sum transport for the blocks (I_q,B) and (−Bᵀ,I).
+-- TauCeti.Polylog.WeightThree.configurationDual_faces: not stated;
+-- needs the same transport on the deletion/projection source and target rows.
+
+private def dualFourInput : GenericTuple ℚ 2 4 :=
+  ⟨![![1,0], ![0,1], ![1,2], ![1,3]], by sorry⟩
+private def dualFourOutput : GenericTuple ℚ 2 4 :=
+  ⟨![![-1,-1], ![-2,-3], ![1,0], ![0,1]], by sorry⟩
+private def dualWrongInverse : GenericTuple ℚ 2 4 :=
+  ⟨![![1,0], ![0,1], ![3,-2], ![-1,1]], by sorry⟩
+/-- Test `TauCeti.Polylog.WeightThree.configurationDual_four`. -/
+example : configurationDual ℚ 2 4 (by omega) (by omega) (configMk ℚ dualFourInput) =
+    configMk ℚ dualFourOutput := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.configurationDual_six`. -/
+example (x : Config F 3 6) :
+    configurationDual F 3 6 (by omega) (by omega)
+      (configurationDual F 3 6 (by omega) (by omega) x) = x := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.configurationDual_notInverse`. -/
+example : configurationDual ℚ 2 4 (by omega) (by omega) (configMk ℚ dualFourInput) ≠
+    configMk ℚ dualWrongInverse := by sorry
+
+-- TauCeti.Polylog.WeightThree.trilogarithm_duality: not stated;
+-- needs the arbitrary projective six-tuple duality map on the no-four-collinear
+-- locus, then the native M₃ comparison. Its conclusion is [dual x]=−[x], not
+-- a real functional identity. configuration_chain_comparison states its r₆p consequence.
+end GeometricPresentation
+
+section Homology
+variable (F : Type) [Field F] [Infinite F]
+private abbrev HGL (n k : ℕ) :=
+  groupHomology (Rep.trivial ℚ (Matrix.GeneralLinearGroup (Fin n) F) ℚ) k
+-- This type prototype must be specialized to the parent Γ and constrained by
+-- the actual configuration edge construction. Its type and zero test alone
+-- also admit a zero map, and do not validate the planned comparison.
+variable (Gamma : CochainComplex (ModuleCat ℚ) ℕ)
+
+def configurationComparison (n i : ℕ) (hn : 3 ≤ n) (hi : 1 ≤ i ∧ i ≤ 3) :
+    HGL F n (6-i) →ₗ[ℚ] Gamma.homology i := by sorry
+
+-- TauCeti.Polylog.WeightThree.configurationComparison_stabilize: not stated;
+-- needs V.4's native block-stabilization map on group homology.
+-- TauCeti.Polylog.WeightThree.configurationComparison_rank3: not stated;
+-- needs the parent Γ's three module identifications and the hyperhomology edge map.
+-- TauCeti.Polylog.WeightThree.configurationComparison_fieldMap: not stated;
+-- needs the Γ and group-homology field maps from the supplier interfaces.
+-- TauCeti.Polylog.WeightThree.configurationComparison_K: not stated;
+-- needs GeneralAlgebraicKTheory Part II's rational primitive Hurewicz map.
+
+/-- Test `TauCeti.Polylog.WeightThree.configurationComparison_zero`. -/
+example (n i : ℕ) (hn : 3 ≤ n) (hi : 1 ≤ i ∧ i ≤ 3) :
+    configurationComparison F Gamma n i hn hi 0 = 0 := by sorry
+/-- Test `TauCeti.Polylog.WeightThree.configurationComparison_degree2`. -/
+example (n : ℕ) (hn : 3 ≤ n) : HGL F n 4 →ₗ[ℚ] Gamma.homology 2 :=
+  configurationComparison F Gamma n 2 hn ⟨by omega, by omega⟩
+-- Test `TauCeti.Polylog.WeightThree.configurationComparison_stableFixture`:
+-- not stated; needs the same block-stabilization and cycle-to-homology interface.
+-- TauCeti.Polylog.WeightThree.rank_two_vanishing: not stated; needs the
+-- GL₂→GL_n homology map. No Adams/rank filtration equality is assumed.
+-- TauCeti.Polylog.WeightThree.suslin_top_comparison: not stated; needs the
+-- primitive Hurewicz/Milnor diagonal adapter in the precise supplier request.
+-- TauCeti.Polylog.WeightThree.cycle_lifting: not stated; needs the stable
+-- generic-resolution edge map, including the omitted higher differentials.
+end Homology
+
+section Milnor
+variable {F : Type} [Field F]
+variable {B2 : Type} [AddCommGroup B2] [Module ℚ B2]
+variable (d2 : B2 ⊗[ℚ] UnitsQ F →ₗ[ℚ] ⋀[ℚ]^3 (UnitsQ F))
+private def steinbergSpan : Submodule ℚ (⋀[ℚ]^3 (UnitsQ F)) :=
+  Submodule.span ℚ {v | ∃ x y : F, x ≠ 0 ∧ x ≠ 1 ∧ y ≠ 0 ∧
+    v = wedge (unitClass (1-x)) (unitClass x) (unitClass y)}
+
+-- TauCeti.Polylog.WeightThree.steinberg_boundary_image: not stated; requires
+-- the generating parent B₂ symbol and d₂([x]⊗u(y))=(1−x)∧x∧y law.
+-- An arbitrary linear map d₂, in particular zero, has no such range equality.
+-- The kernel equality with Milnor symbols is the imported T.2 presentation;
+-- no new Milnor K-group or new H³Γ equivalence is defined here.
+
+variable {HF HE HL MF ME ML : Type}
+variable [AddCommGroup HF] [Module ℚ HF] [AddCommGroup HE] [Module ℚ HE]
+variable [AddCommGroup HL] [Module ℚ HL] [AddCommGroup MF] [Module ℚ MF]
+variable [AddCommGroup ME] [Module ℚ ME] [AddCommGroup ML] [Module ℚ ML]
+/-- η is the parent's H³–Milnor equivalence; N is the supplier Milnor norm. -/
+def h3Transfer (etaF : HF ≃ₗ[ℚ] MF) (etaE : HE ≃ₗ[ℚ] ME) (N : ME →ₗ[ℚ] MF) :
+    HE →ₗ[ℚ] HF := etaF.symm.toLinearMap.comp (N.comp etaE.toLinearMap)
+
+theorem h3Transfer_eta (etaF : HF ≃ₗ[ℚ] MF) (etaE : HE ≃ₗ[ℚ] ME) (N : ME →ₗ[ℚ] MF) :
+    etaF.toLinearMap.comp (h3Transfer etaF etaE N) = N.comp etaE.toLinearMap := by sorry
+
+theorem h3Transfer_id (etaF : HF ≃ₗ[ℚ] MF) :
+    h3Transfer etaF etaF LinearMap.id = LinearMap.id := by sorry
+
+theorem h3Transfer_comp (etaF : HF ≃ₗ[ℚ] MF) (etaE : HE ≃ₗ[ℚ] ME)
+    (etaL : HL ≃ₗ[ℚ] ML) (NFE : ME →ₗ[ℚ] MF) (NEL : ML →ₗ[ℚ] ME) :
+    (h3Transfer etaF etaE NFE).comp (h3Transfer etaE etaL NEL) =
+      h3Transfer etaF etaL (NFE.comp NEL) := by sorry
+
+-- TauCeti.Polylog.WeightThree.h3Transfer_res: not stated; needs the actual
+-- Milnor restriction and its eta-compatible parent cohomology restriction.
+-- TauCeti.Polylog.WeightThree.h3Transfer_projection: not stated; needs the
+-- supplier graded Milnor product with the degree-1/2 eta comparisons.
+-- TauCeti.Polylog.WeightThree.h3Transfer_residue: not stated; needs the
+-- valuation/residue-field transfer family with finite-integral-closure hypotheses.
+/-- Test `TauCeti.Polylog.WeightThree.h3Transfer_identity`. -/
+example (etaF : HF ≃ₗ[ℚ] MF) (x : HF) : h3Transfer etaF etaF LinearMap.id x = x := by sorry
+-- Test `TauCeti.Polylog.WeightThree.h3Transfer_quadratic`: not stated;
+-- needs the actual quadratic Milnor restriction/transfer maps; coefficient is 2.
+/-- Test `TauCeti.Polylog.WeightThree.h3Transfer_notExteriorNorm`.
+This is a native exterior-power computation of the competing coefficient law. -/
+example (d : ℚ) (v : ⋀[ℚ]^3 (UnitsQ F)) :
+    exteriorPower.map 3 (d • (LinearMap.id : UnitsQ F →ₗ[ℚ] UnitsQ F)) v = d^3 • v := by sorry
+-- TauCeti.Polylog.WeightThree.conditional_complex_transfer: not stated;
+-- needs P.4's weight-four localization quasi-isomorphism in the native derived
+-- category and its residue-at-infinity map. The condition is not a fake Prop field.
+end Milnor
+
+-- The following actual-parent signatures cannot yet be stated faithfully.
+-- TauCeti.Polylog.WeightThree.trilogDescent: not stated; requires the parent
+-- explicit B₃(C) quotient, the actual single-valued L₃, and kernel inclusion
+-- for its linearCombination map. Arbitrary L₃ and gen3C cannot descend.
+-- TauCeti.Polylog.WeightThree.trilogDescent_mk: not stated; same interfaces.
+-- TauCeti.Polylog.WeightThree.trilogDescent_sum: not stated; same interfaces.
+-- TauCeti.Polylog.WeightThree.trilogDescent_conj: not stated; actual conjugation.
+-- TauCeti.Polylog.WeightThree.trilogRegulatorAt: not stated; needs the actual
+-- B₃ embedding map, δ₃ and descended functional, not an arbitrary linear map.
+-- TauCeti.Polylog.WeightThree.trilogRegulatorAt_conj: not stated; same maps.
+-- Test TauCeti.Polylog.WeightThree.trilogDescent_zero: not stated; L₃(0)=0.
+-- Test TauCeti.Polylog.WeightThree.trilogDescent_one: not stated; L₃(1)=ζ(3)>0.
+-- Test TauCeti.Polylog.WeightThree.trilogDescent_minusOne: not stated;
+-- L₃(−1)=−3ζ(3)/4 for the actual function.
+-- TauCeti.Polylog.WeightThree.trilogarithm_functional_relations: not stated;
+-- requires that actual function and the source's continuity hypotheses.
+-- TauCeti.Polylog.WeightThree.configuration_borel_class: not stated;
+-- needs measurable configuration cohomology and its continuous comparison.
+-- TauCeti.Polylog.WeightThree.rational_regulator_calibration: not stated;
+-- needs R.7's original-class/Tate-coordinate adapter, π² times a nonzero rational.
+-- TauCeti.Polylog.WeightThree.regulator_image_containment: not stated;
+-- needs actual K₅ and the R.4 regulator, and the cycle-lifting construction.
+-- TauCeti.Polylog.WeightThree.every_family_special_value: not stated; requires
+-- the actual L₃ regulator on parent cycles and the lifting/calibration suppliers.
+-- For arbitrary regAt the removed determinant statement was false. The intended
+-- equality is det=q sqrt|D_F| π^(−3r₂) ζ_F(3), allowing q=0, with native infinite
+-- places and native NumberField.discr/dedekindZeta as specified in the packet.
+end TauCeti.Polylog.WeightThree
+
+end P3FollowUp
+
+/-! ## P.4 follow-up: specialisation, descent, Zagier assertions, weight four -/
+
+section P4FollowUp
+
+/-
+Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
+Pinned Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
+All packet nodes remain unchecked. `sorry` marks proposed proofs, not results.
+
+The accepted parent owns B_n, the actual delta maps, L_n, number-field embedding
+coordinates and K-groups. Those definitions are not available as Lean imports.
+This file therefore prototypes the new linear algebra on actual Mathlib tensor
+products, exterior powers, kernels, quotients, determinants and cochain complexes.
+Parameters sp, u, p, r and the boundary maps stand for those imported maps, not
+arbitrary replacements asserted to satisfy the mathematical source theorems.
+Their compatibility hypotheses are stated explicitly.
+
+Full relation-specialization induction, analytic differential factorization,
+Suslin rigidity, number-field normalization and the GR regulator interface
+cannot yet be stated against the missing parent/supplier Lean definitions.
+They are omitted, not replaced by Prop fields. Their precise statements and
+proof steps are in the packet. Below are their concrete linear/topological
+reductions, including the six named theorem nodes' available signature parts.
+The test identifiers are attached to `example`s by comments.
+-/
+
+open scoped TensorProduct
+open CategoryTheory
+
+namespace TauCeti.Polylog.WeightFour
+
+universe u
+
+section Specialization
+variable {B B' B'' U U' U'' : Type u}
+variable [AddCommGroup B] [Module ℚ B] [AddCommGroup B'] [Module ℚ B']
+variable [AddCommGroup B''] [Module ℚ B'']
+variable [AddCommGroup U] [Module ℚ U] [AddCommGroup U'] [Module ℚ U']
+variable [AddCommGroup U''] [Module ℚ U'']
+
+def specializeTerm (j : ℕ) (sp : B →ₗ[ℚ] B') (u : U →ₗ[ℚ] U') :
+    B ⊗[ℚ] (⋀[ℚ]^j U) →ₗ[ℚ] B' ⊗[ℚ] (⋀[ℚ]^j U') :=
+  TensorProduct.map sp (exteriorPower.map j u)
+
+theorem specializeTerm_tmul (j : ℕ) (sp : B →ₗ[ℚ] B') (u : U →ₗ[ℚ] U')
+    (b : B) (Y : ⋀[ℚ]^j U) :
+    specializeTerm j sp u (b ⊗ₜ[ℚ] Y) = sp b ⊗ₜ[ℚ] exteriorPower.map j u Y := by
+  sorry
+
+def specializeLast (n : ℕ) (u : U →ₗ[ℚ] U') : ⋀[ℚ]^n U →ₗ[ℚ] ⋀[ℚ]^n U' :=
+  exteriorPower.map n u
+
+theorem specializeTerm_comp (j : ℕ) (sp : B →ₗ[ℚ] B') (sp' : B' →ₗ[ℚ] B'')
+    (u : U →ₗ[ℚ] U') (u' : U' →ₗ[ℚ] U'') :
+    (specializeTerm j sp' u').comp (specializeTerm j sp u) =
+      specializeTerm j (sp'.comp sp) (u'.comp u) := by
+  sorry
+
+theorem specializeTerm_id (j : ℕ) :
+    specializeTerm j (LinearMap.id : B →ₗ[ℚ] B) (LinearMap.id : U →ₗ[ℚ] U) =
+      LinearMap.id := by
+  sorry
+
+theorem specializeLast_wedge (n : ℕ) (u : U →ₗ[ℚ] U') (x : Fin n → U) :
+    specializeLast n u (exteriorPower.ιMulti ℚ n x) =
+      exteriorPower.ιMulti ℚ n (u ∘ x) := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.specialize_unit_product
+-- Apply to the actual additive unit classes t, 2/t and 2 once the parent exists.
+example (sp : B →ₗ[ℚ] B') (u : U →ₗ[ℚ] U') (b : B)
+    (t invtwo two : U) (h : t + invtwo = two) :
+    specializeTerm 1 sp u (b ⊗ₜ[ℚ] exteriorPower.ιMulti ℚ 1 (fun _ => two)) =
+      specializeTerm 1 sp u (b ⊗ₜ[ℚ] exteriorPower.ιMulti ℚ 1 (fun _ => t)) +
+      specializeTerm 1 sp u (b ⊗ₜ[ℚ] exteriorPower.ιMulti ℚ 1 (fun _ => invtwo)) := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.specialize_uniformizer
+example (sp : B →ₗ[ℚ] B') (u : U →ₗ[ℚ] U') (b : B) (π : U) (hπ : u π = 0) :
+    specializeTerm 1 sp u (b ⊗ₜ[ℚ] exteriorPower.ιMulti ℚ 1 (fun _ => π)) = 0 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.specialize_constant_tensor
+example (b : B) (x : Fin 2 → U) :
+    specializeTerm 2 LinearMap.id LinearMap.id
+      (b ⊗ₜ[ℚ] exteriorPower.ιMulti ℚ 2 x) = b ⊗ₜ[ℚ] exteriorPower.ιMulti ℚ 2 x := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.specialize_pole_symbol
+example (j : ℕ) (sp : B →ₗ[ℚ] B') (u : U →ₗ[ℚ] U') (b : B)
+    (hb : sp b = 0) (Y : ⋀[ℚ]^j U) : specializeTerm j sp u (b ⊗ₜ[ℚ] Y) = 0 := by
+  sorry
+
+-- relation-specialization-induction: the native quotient-descent reduction.
+-- The hypothesis is exactly the unresolved relation-preservation input.
+theorem relationSpecialization_descend (R : Submodule ℚ B) (R' : Submodule ℚ B')
+    (sp : B →ₗ[ℚ] B') (h : ∀ x ∈ R, sp x ∈ R') :
+    ∃ S : (B ⧸ R) →ₗ[ℚ] (B' ⧸ R'), S.comp R.mkQ = R'.mkQ.comp sp := by
+  sorry
+
+-- higher-symbol-inversion: even endpoint consequence of imported inversion.
+theorem higherSymbolInversion_even_one (oneSymbol : B)
+    (inversion_at_one : oneSymbol + oneSymbol = 0) : oneSymbol = 0 := by
+  sorry
+end Specialization
+
+section Evaluation
+-- `none` encodes the projective infinity point. eval is the parent's projective
+-- evaluation, never RatFunc.eval's totalized field value at a pole.
+variable (L : Option ℂ → ℝ) (eval : RatFunc ℂ → ℂ → Option ℂ)
+
+def cycleEvaluation : (RatFunc ℂ →₀ ℚ) →ₗ[ℚ] (ℂ → ℝ) :=
+  Finsupp.linearCombination ℚ (fun f a => L (eval f a))
+
+theorem cycleEvaluation_single (f : RatFunc ℂ) (q : ℚ) (a : ℂ) :
+    cycleEvaluation L eval (Finsupp.single f q) a = (q : ℝ) * L (eval f a) := by
+  sorry
+
+theorem cycleEvaluation_add (α β : RatFunc ℂ →₀ ℚ) (a : ℂ) :
+    cycleEvaluation L eval (α + β) a = cycleEvaluation L eval α a + cycleEvaluation L eval β a := by
+  sorry
+
+theorem cycleEvaluation_smul (q : ℚ) (α : RatFunc ℂ →₀ ℚ) (a : ℂ) :
+    cycleEvaluation L eval (q • α) a = (q : ℝ) * cycleEvaluation L eval α a := by
+  sorry
+
+theorem cycleEvaluation_specialize (α : RatFunc ℂ →₀ ℚ) (a : ℂ) :
+    cycleEvaluation L eval α a =
+      (Finsupp.linearCombination ℚ (fun f => L (eval f a))) α := by
+  sorry
+
+theorem cycleEvaluation_constant (f : RatFunc ℂ) (c : Option ℂ)
+    (hc : ∀ a, eval f a = c) (a : ℂ) :
+    cycleEvaluation L eval (Finsupp.single f 1) a = L c := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.evaluation_pole
+example (f : RatFunc ℂ) (a : ℂ) (hpole : eval f a = none) (hinfty : L none = 0) :
+    cycleEvaluation L eval (Finsupp.single f 1) a = 0 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.evaluation_odd_one
+example (a : ℂ) (h1 : eval 1 a = some 1) (zeta3 : ℝ)
+    (hL : L (some 1) = zeta3) (hz : zeta3 ≠ 0) :
+    cycleEvaluation L eval (Finsupp.single 1 1) a = zeta3 ∧
+      cycleEvaluation L eval (Finsupp.single 1 1) a ≠ 0 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.evaluation_even_one
+example (a : ℂ) (h1 : eval 1 a = some 1) (hL : L (some 1) = 0) :
+    cycleEvaluation L eval (Finsupp.single 1 1) a = 0 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.evaluation_cancellation
+example (f g : RatFunc ℂ) (a : ℂ) :
+    cycleEvaluation L eval
+      (Finsupp.single f 1 + Finsupp.single g 1 - Finsupp.single f 1) a = L (eval g a) := by
+  sorry
+
+-- cycle-constancy: topological end of the scalar analytic proof. The omitted
+-- r_n factorization must establish the derivative hypothesis for an actual cycle.
+theorem cycleConstancy (E : ℂ → ℝ) (S : Finset ℂ) (hcont : Continuous E)
+    (hd : ∀ z ∉ S, HasFDerivAt E (0 : ℂ →L[ℝ] ℝ) z) (a b : ℂ) : E a = E b := by
+  sorry
+end Evaluation
+
+section Numerical
+variable {M K M' : Type u}
+variable [AddCommGroup M] [Module ℚ M] [AddCommGroup K] [Module ℚ K]
+variable [AddCommGroup M'] [Module ℚ M']
+
+def normalizedDet {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ)) (c : ℝ) (y : Fin d → M) : ℝ :=
+  c * Matrix.det (fun i j => p (y j) i)
+
+def rationalExistence {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ)) (c ζ : ℝ) : Prop :=
+  ∃ y : Fin d → M, ∃ q : ℚ, q ≠ 0 ∧ normalizedDet p c y = (q : ℝ) * ζ
+
+theorem rationalExistence_of_witness {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (c ζ : ℝ) (y : Fin d → M) (q : ℚ) (hq : q ≠ 0)
+    (hy : normalizedDet p c y = (q : ℝ) * ζ) : rationalExistence p c ζ := by
+  sorry
+
+theorem rationalExistence_nonzero {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (c ζ : ℝ) (hζ : ζ ≠ 0) (h : rationalExistence p c ζ) :
+    ∃ y, normalizedDet p c y ≠ 0 := by
+  sorry
+
+theorem rationalExistence_normalize {d : ℕ} (hd : 0 < d)
+    (p : M →ₗ[ℚ] (Fin d → ℝ)) (c ζ : ℝ) :
+    rationalExistence p c ζ ↔ ∃ y, normalizedDet p c y = ζ := by
+  sorry
+
+theorem rationalExistence_empty (p : M →ₗ[ℚ] (Fin 0 → ℝ)) (c ζ : ℝ) :
+    rationalExistence p c ζ ↔ ∃ q : ℚ, q ≠ 0 ∧ c = (q : ℝ) * ζ := by
+  sorry
+
+theorem rationalExistence_transport {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (e : M ≃ₗ[ℚ] M') (c ζ : ℝ) :
+    rationalExistence p c ζ ↔ rationalExistence (p.comp e.symm.toLinearMap) c ζ := by
+  sorry
+
+def rationalColumn : ℚ →ₗ[ℚ] (Fin 1 → ℝ) where
+  toFun x := fun _ => (x : ℝ)
+  map_add' := by sorry
+  map_smul' := by sorry
+
+-- TauCeti.Polylog.WeightFour.existence_empty_rational
+example : rationalExistence (0 : ℚ →ₗ[ℚ] (Fin 0 → ℝ)) 90 1 ∧
+    normalizedDet (0 : ℚ →ₗ[ℚ] (Fin 0 → ℝ)) 90 (fun i => Fin.elim0 i) ≠ 1 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.existence_zero_factor
+example : ¬ rationalExistence (0 : ℚ →ₗ[ℚ] (Fin 1 → ℝ)) 1 1 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.existence_rank_one
+example : normalizedDet rationalColumn 2 (fun _ => (1 / 2 : ℚ)) = 1 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.existence_transport_test
+example {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ)) (e : M ≃ₗ[ℚ] M') (c ζ : ℝ) :
+    rationalExistence p c ζ = rationalExistence (p.comp e.symm.toLinearMap) c ζ := by
+  sorry
+
+def regulatorComparison {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (r : K →ₗ[ℚ] (Fin d → ℝ)) (A : ℝ) : Prop :=
+  ∃ φ : M ≃ₗ[ℚ] K, ∃ lam : ℚ, lam ≠ 0 ∧
+    ∀ y, p y = ((lam : ℝ) * A) • r (φ y)
+
+theorem regulatorComparison_witness {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (r : K →ₗ[ℚ] (Fin d → ℝ)) (A : ℝ) (h : regulatorComparison p r A) :
+    ∃ φ : M ≃ₗ[ℚ] K, ∃ lam : ℚ, lam ≠ 0 ∧ ∀ y, p y = ((lam : ℝ) * A) • r (φ y) := by
+  sorry
+
+theorem regulatorComparison_forget {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (r : K →ₗ[ℚ] (Fin d → ℝ)) (A : ℝ) (h : regulatorComparison p r A) :
+    Nonempty (M ≃ₗ[ℚ] K) := by
+  sorry
+
+theorem regulatorComparison_rescale {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (r : K →ₗ[ℚ] (Fin d → ℝ)) (A : ℝ) (q : ℚ) (hq : q ≠ 0)
+    (h : regulatorComparison p r A) : regulatorComparison p (q • r) A := by
+  sorry
+
+theorem regulatorComparison_injective {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (r : K →ₗ[ℚ] (Fin d → ℝ)) (A : ℝ) (hA : A ≠ 0)
+    (hr : Function.Injective r) (h : regulatorComparison p r A) : Function.Injective p := by
+  sorry
+
+theorem regulatorComparison_transport {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
+    (r : K →ₗ[ℚ] (Fin d → ℝ)) (e : M ≃ₗ[ℚ] M') (A : ℝ) :
+    regulatorComparison p r A ↔ regulatorComparison (p.comp e.symm.toLinearMap) r A := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.comparison_identity
+example : regulatorComparison rationalColumn rationalColumn 1 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.comparison_zero_period
+example : ¬ regulatorComparison (0 : ℚ →ₗ[ℚ] (Fin 1 → ℝ)) rationalColumn 1 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.comparison_rational_scale
+example : regulatorComparison ((3 : ℚ) • rationalColumn) rationalColumn 1 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.comparison_zero_spaces
+example : regulatorComparison
+    (0 : (Fin 0 → ℚ) →ₗ[ℚ] (Fin 0 → ℝ))
+    (0 : (Fin 0 → ℚ) →ₗ[ℚ] (Fin 0 → ℝ)) Real.pi := by
+  sorry
+
+-- A routine predicate abbreviating the inherited every-family assertion.
+def everyFamily {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ)) (c ζ : ℝ) : Prop :=
+  ∀ y, ∃ q : ℚ, normalizedDet p c y = (q : ℝ) * ζ
+
+-- assertion-logic: rank plus every-family rationality supplies the Q× witness.
+theorem assertionLogic_rank_every {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ)) (c ζ : ℝ)
+    (hrank : ∃ y, normalizedDet p c y ≠ 0) (hall : everyFamily p c ζ) :
+    rationalExistence p c ζ := by
+  sorry
+
+theorem assertionLogic_dimension {d : ℕ} [FiniteDimensional ℚ M]
+    (p : M →ₗ[ℚ] (Fin d → ℝ)) (c ζ : ℝ) (hζ : ζ ≠ 0)
+    (hdim : Module.finrank ℚ M = d) (hex : rationalExistence p c ζ) :
+    everyFamily p c ζ := by
+  sorry
+
+-- period-calibration: concrete exponent identity. R.5 supplies the nonzero
+-- covolume formula; R.7 must still provide the actual scalar period conversion.
+theorem periodCalibration_exponent (n N d : ℤ) :
+    (n - 1) * d + d - N * n = -(n * (N - d)) := by
+  sorry
+
+-- weight-four-totally-real: the Q example catches the empty-determinant error.
+-- ζ_Q(4)=π⁴/90 is imported arithmetic; it is not redefined here.
+theorem weightFourTotallyReal_rational (p : M →ₗ[ℚ] (Fin 0 → ℝ)) :
+    rationalExistence p (Real.pi ^ 4) (Real.pi ^ 4 / 90) := by
+  sorry
+end Numerical
+
+section ExplicitComplex
+variable {B4 B3 B2 U : Type}
+variable [AddCommGroup B4] [Module ℚ B4] [AddCommGroup B3] [Module ℚ B3]
+variable [AddCommGroup B2] [Module ℚ B2] [AddCommGroup U] [Module ℚ U]
+
+def explicitTerms (B4 B3 B2 U : Type)
+    [AddCommGroup B4] [Module ℚ B4] [AddCommGroup B3] [Module ℚ B3]
+    [AddCommGroup B2] [Module ℚ B2] [AddCommGroup U] [Module ℚ U] : ℕ → ModuleCat ℚ
+  | 1 => ModuleCat.of ℚ B4
+  | 2 => ModuleCat.of ℚ (B3 ⊗[ℚ] U)
+  | 3 => ModuleCat.of ℚ (B2 ⊗[ℚ] (⋀[ℚ]^2 U))
+  | 4 => ModuleCat.of ℚ (⋀[ℚ]^4 U)
+  | _ => ModuleCat.of ℚ (Fin 0 → ℚ)
+
+def explicitDifferential
+    (a : B4 →ₗ[ℚ] B3 ⊗[ℚ] U)
+    (b : B3 ⊗[ℚ] U →ₗ[ℚ] B2 ⊗[ℚ] (⋀[ℚ]^2 U))
+    (c : B2 ⊗[ℚ] (⋀[ℚ]^2 U) →ₗ[ℚ] ⋀[ℚ]^4 U) :
+    ∀ i, explicitTerms B4 B3 B2 U i ⟶ explicitTerms B4 B3 B2 U (i + 1)
+  | 0 => 0
+  | 1 => ModuleCat.ofHom a
+  | 2 => ModuleCat.ofHom b
+  | 3 => ModuleCat.ofHom c
+  | _ => 0
+
+def explicitComplex
+    (a : B4 →ₗ[ℚ] B3 ⊗[ℚ] U)
+    (b : B3 ⊗[ℚ] U →ₗ[ℚ] B2 ⊗[ℚ] (⋀[ℚ]^2 U))
+    (c : B2 ⊗[ℚ] (⋀[ℚ]^2 U) →ₗ[ℚ] ⋀[ℚ]^4 U)
+    (hba : b.comp a = 0) (hcb : c.comp b = 0) : CochainComplex (ModuleCat ℚ) ℕ :=
+  CochainComplex.of (explicitTerms B4 B3 B2 U) (explicitDifferential a b c) (by sorry)
+
+variable (a : B4 →ₗ[ℚ] B3 ⊗[ℚ] U)
+variable (b : B3 ⊗[ℚ] U →ₗ[ℚ] B2 ⊗[ℚ] (⋀[ℚ]^2 U))
+variable (c : B2 ⊗[ℚ] (⋀[ℚ]^2 U) →ₗ[ℚ] ⋀[ℚ]^4 U)
+variable (hba : b.comp a = 0) (hcb : c.comp b = 0)
+
+theorem explicitComplex_X (i : ℕ) :
+    (explicitComplex a b c hba hcb).X i = explicitTerms B4 B3 B2 U i := by
+  sorry
+
+theorem explicitComplex_d :
+    (explicitComplex a b c hba hcb).d 1 2 = ModuleCat.ofHom a ∧
+    (explicitComplex a b c hba hcb).d 2 3 = ModuleCat.ofHom b ∧
+    (explicitComplex a b c hba hcb).d 3 4 = ModuleCat.ofHom c := by
+  sorry
+
+theorem explicitComplex_first_kernel :
+    LinearMap.ker ((explicitComplex a b c hba hcb).d 1 2).hom = LinearMap.ker a := by
+  sorry
+
+def explicitComplex_map {X Y : CochainComplex (ModuleCat ℚ) ℕ}
+    (f : ∀ i, X.X i ⟶ Y.X i)
+    (hf : ∀ i, f i ≫ Y.d i (i + 1) = X.d i (i + 1) ≫ f (i + 1)) : X ⟶ Y :=
+  CochainComplex.ofHom f hf
+
+-- TauCeti.Polylog.WeightFour.explicit_degree_one
+example : (explicitComplex a b c hba hcb).X 1 = ModuleCat.of ℚ B4 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.explicit_zero_outside
+example : (explicitComplex a b c hba hcb).X 0 = ModuleCat.of ℚ (Fin 0 → ℚ) ∧
+    (explicitComplex a b c hba hcb).X 5 = ModuleCat.of ℚ (Fin 0 → ℚ) := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.explicit_first_boundary
+example : ((explicitComplex a b c hba hcb).d 1 2).hom = a := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.explicit_no_extra_summand
+example : (explicitComplex a b c hba hcb).X 2 = ModuleCat.of ℚ (B3 ⊗[ℚ] U) := by
+  sorry
+end ExplicitComplex
+
+section Presentation
+def presentationMap {X Y : CochainComplex (ModuleCat ℚ) ℕ}
+    (f : ∀ i, X.X i ⟶ Y.X i)
+    (hf : ∀ i, f i ≫ Y.d i (i + 1) = X.d i (i + 1) ≫ f (i + 1)) : X ⟶ Y :=
+  CochainComplex.ofHom f hf
+
+variable {X Y : CochainComplex (ModuleCat ℚ) ℕ}
+variable (f : ∀ i, X.X i ⟶ Y.X i)
+variable (hf : ∀ i, f i ≫ Y.d i (i + 1) = X.d i (i + 1) ≫ f (i + 1))
+
+theorem presentationMap_first : (presentationMap f hf).f 1 = f 1 := by sorry
+theorem presentationMap_second : (presentationMap f hf).f 2 = f 2 := by sorry
+theorem presentationMap_square :
+    f 1 ≫ Y.d 1 2 = X.d 1 2 ≫ f 2 := by sorry
+
+def presentationMap_cycles :
+    LinearMap.ker (X.d 1 2).hom →ₗ[ℚ] LinearMap.ker (Y.d 1 2).hom :=
+  LinearMap.codRestrict _ ((f 1).hom.comp (LinearMap.ker (X.d 1 2).hom).subtype) (by
+    have hsquare := hf 1
+    sorry)
+
+theorem presentationMap_period {d : ℕ}
+    (pX : X.X 1 →ₗ[ℚ] (Fin d → ℝ)) (pY : Y.X 1 →ₗ[ℚ] (Fin d → ℝ))
+    (hperiod : pY.comp (f 1).hom = pX) (x : X.X 1) :
+    pY ((presentationMap f hf).f 1 x) = pX x := by sorry
+
+-- TauCeti.Polylog.WeightFour.presentation_zero_cycle
+example : presentationMap_cycles f hf 0 = 0 := by sorry
+
+-- TauCeti.Polylog.WeightFour.presentation_pure_tensor
+example {B B' U : Type u} [AddCommGroup B] [Module ℚ B]
+    [AddCommGroup B'] [Module ℚ B'] [AddCommGroup U] [Module ℚ U]
+    (p3 : B →ₗ[ℚ] B') (b : B) (u : U) :
+    TensorProduct.map p3 LinearMap.id (b ⊗ₜ[ℚ] u) = p3 b ⊗ₜ[ℚ] u := by sorry
+
+-- TauCeti.Polylog.WeightFour.presentation_cycle_boundary
+example (x : LinearMap.ker (X.d 1 2).hom) :
+    (Y.d 1 2).hom ((f 1).hom x) = 0 := by
+  have hsquare := hf 1
+  sorry
+
+-- TauCeti.Polylog.WeightFour.presentation_top_identity
+example (h4 : X.X 4 = Y.X 4) (hid : f 4 = eqToHom h4) :
+    (presentationMap f hf).f 4 = eqToHom h4 := by sorry
+end Presentation
+
+section Obstruction
+variable {C D E J : Type u}
+variable [AddCommGroup C] [Module ℚ C] [AddCommGroup D] [Module ℚ D]
+variable [AddCommGroup E] [Module ℚ E] [AddCommGroup J] [Module ℚ J]
+
+def boundaryOnKernel (a : C →ₗ[ℚ] E) (b : D →ₗ[ℚ] J)
+    (p : C →ₗ[ℚ] D) (q : E →ₗ[ℚ] J) (hsq : q.comp a = b.comp p) :
+    LinearMap.ker p →ₗ[ℚ] LinearMap.ker q :=
+  LinearMap.codRestrict _ (a.comp (LinearMap.ker p).subtype) (by sorry)
+
+def obstructionSubmodule (a : C →ₗ[ℚ] E) (b : D →ₗ[ℚ] J)
+    (p : C →ₗ[ℚ] D) (q : E →ₗ[ℚ] J) (hsq : q.comp a = b.comp p) :
+    Submodule ℚ (LinearMap.ker q) := LinearMap.range (boundaryOnKernel a b p q hsq)
+
+def cycleObstruction (a : C →ₗ[ℚ] E) (b : D →ₗ[ℚ] J)
+    (p : C →ₗ[ℚ] D) (q : E →ₗ[ℚ] J) (hsq : q.comp a = b.comp p)
+    (hp : Function.Surjective p) :
+    LinearMap.ker b →ₗ[ℚ] ((LinearMap.ker q) ⧸ obstructionSubmodule a b p q hsq) where
+  toFun y := (obstructionSubmodule a b p q hsq).mkQ
+    ⟨a (Classical.choose (hp y)), by sorry⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+variable (a : C →ₗ[ℚ] E) (b : D →ₗ[ℚ] J)
+variable (p : C →ₗ[ℚ] D) (q : E →ₗ[ℚ] J) (hsq : q.comp a = b.comp p)
+variable (hp : Function.Surjective p)
+
+theorem cycleObstruction_lift (y : LinearMap.ker b) (x : C) (hx : p x = y) :
+    cycleObstruction a b p q hsq hp y =
+      (obstructionSubmodule a b p q hsq).mkQ ⟨a x, by sorry⟩ := by sorry
+
+theorem cycleObstruction_zero_iff (y : LinearMap.ker b) :
+    cycleObstruction a b p q hsq hp y = 0 ↔ ∃ x : C, a x = 0 ∧ p x = y := by sorry
+
+theorem cycleObstruction_image :
+    ∀ y : LinearMap.ker b, y ∈ LinearMap.ker (cycleObstruction a b p q hsq hp) ↔
+      ∃ x : LinearMap.ker a, p x = y := by sorry
+
+theorem cycleObstruction_injective_target (hq : Function.Injective q) :
+    cycleObstruction a b p q hsq hp = 0 := by sorry
+
+-- TauCeti.Polylog.WeightFour.obstruction_explicit_cycle
+example (x : C) (ha : a x = 0) (y : LinearMap.ker b) (hy : p x = y) :
+    cycleObstruction a b p q hsq hp y = 0 := by sorry
+
+-- TauCeti.Polylog.WeightFour.obstruction_change_lift
+example (y : LinearMap.ker b) (x k : C) (hx : p x = y) (hk : p k = 0) :
+    (obstructionSubmodule a b p q hsq).mkQ (⟨a x, by sorry⟩ : LinearMap.ker q) =
+      (obstructionSubmodule a b p q hsq).mkQ (⟨a (x + k), by sorry⟩ : LinearMap.ker q) := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.obstruction_missing_cycle
+-- C=D=E=Q, J=0, p=a=id, b=q=0: a group lift exists, a cycle lift does not.
+example :
+    let a : ℚ →ₗ[ℚ] ℚ := LinearMap.id
+    let b : ℚ →ₗ[ℚ] (Fin 0 → ℚ) := 0
+    let p : ℚ →ₗ[ℚ] ℚ := LinearMap.id
+    let q : ℚ →ₗ[ℚ] (Fin 0 → ℚ) := 0
+    cycleObstruction a b p q (by sorry) (by sorry) ⟨1, by sorry⟩ ≠ 0 := by
+  sorry
+
+-- TauCeti.Polylog.WeightFour.obstruction_injective_square
+example (hq : Function.Injective q) (y : LinearMap.ker b) :
+    ∃ x, p x = y ∧ a x = 0 := by
+  have hsquare := hsq
+  have hsurj := hp
+  sorry
+end Obstruction
+
+section DeterminantTransfer
+variable {M M' : Type u} [AddCommGroup M] [Module ℚ M]
+variable [AddCommGroup M'] [Module ℚ M']
+
+-- weight-four-determinant-lifting: existence needs a map, not a surjective cycle map.
+theorem weightFourDeterminantLifting_existence {d : ℕ} (P : M →ₗ[ℚ] M')
+    (p : M →ₗ[ℚ] (Fin d → ℝ)) (p' : M' →ₗ[ℚ] (Fin d → ℝ))
+    (hperiod : p'.comp P = p) (c ζ : ℝ) (h : rationalExistence p c ζ) :
+    rationalExistence p' c ζ := by sorry
+
+theorem weightFourDeterminantLifting_family {d : ℕ} (P : M →ₗ[ℚ] M')
+    (p : M →ₗ[ℚ] (Fin d → ℝ)) (p' : M' →ₗ[ℚ] (Fin d → ℝ))
+    (hperiod : p'.comp P = p) (c ζ : ℝ) (h : everyFamily p c ζ)
+    (y : Fin d → M') (hlift : ∀ j, ∃ x, P x = y j) :
+    ∃ q : ℚ, normalizedDet p' c y = (q : ℝ) * ζ := by sorry
+
+-- weight-four-regulator-input: κ and reverse image containment are different
+-- typed hypotheses. This reduction transfers all-family rationality from K.
+theorem weightFourRegulatorInput_image {d : ℕ}
+    (p : M →ₗ[ℚ] (Fin d → ℝ)) (r : M' →ₗ[ℚ] (Fin d → ℝ))
+    (c ζ : ℝ) (hall : everyFamily r c ζ)
+    (himage : LinearMap.range p ≤ LinearMap.range r) : everyFamily p c ζ := by sorry
+end DeterminantTransfer
+
+section Residue
+variable {B B' B'' U : Type u}
+variable [AddCommGroup B] [Module ℚ B] [AddCommGroup B'] [Module ℚ B']
+variable [AddCommGroup B''] [Module ℚ B''] [AddCommGroup U] [Module ℚ U]
+
+def residueTensor (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) : B ⊗[ℚ] U →ₗ[ℚ] B' :=
+  TensorProduct.lift
+    { toFun := fun b =>
+        { toFun := fun u => v u • sp b
+          map_add' := by sorry
+          map_smul' := by sorry }
+      map_add' := by sorry
+      map_smul' := by sorry }
+
+theorem residueTensor_tmul (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (b : B) (u : U) :
+    residueTensor sp v (b ⊗ₜ[ℚ] u) = v u • sp b := by sorry
+
+theorem residueTensor_add (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (x y : B ⊗[ℚ] U) :
+    residueTensor sp v (x + y) = residueTensor sp v x + residueTensor sp v y := by sorry
+
+theorem residueTensor_zero_unit (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ)
+    (b : B) (u : U) (hu : v u = 0) : residueTensor sp v (b ⊗ₜ[ℚ] u) = 0 := by sorry
+
+theorem residueTensor_comp (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (h : B' →ₗ[ℚ] B'') :
+    h.comp (residueTensor sp v) = residueTensor (h.comp sp) v := by sorry
+
+theorem residueTensor_uniformizer (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ)
+    (b : B) (π : U) (hπ : v π = 1) : residueTensor sp v (b ⊗ₜ[ℚ] π) = sp b := by sorry
+
+-- TauCeti.Polylog.WeightFour.residue_uniformizer
+example (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (b : B) (π : U) (hπ : v π = 1) :
+    residueTensor sp v (b ⊗ₜ[ℚ] π) = sp b := by sorry
+
+-- TauCeti.Polylog.WeightFour.residue_unit
+example (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (b : B) (u : U) (hu : v u = 0) :
+    residueTensor sp v (b ⊗ₜ[ℚ] u) = 0 := by sorry
+
+-- TauCeti.Polylog.WeightFour.residue_inverse_uniformizer
+example (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (b : B) (π : U) (hπ : v π = 1) :
+    residueTensor sp v (b ⊗ₜ[ℚ] (-π)) = -sp b := by sorry
+
+-- TauCeti.Polylog.WeightFour.residue_symbol_pole
+example (sp : B →ₗ[ℚ] B') (v : U →ₗ[ℚ] ℚ) (b : B) (hb : sp b = 0) (u : U) :
+    residueTensor sp v (b ⊗ₜ[ℚ] u) = 0 := by sorry
+end Residue
+
+-- homotopy-conjecture: this is the real library predicate, without a proof or
+-- an instance. Q and T must be the parent's quotient complex and direct sum
+-- of shifted residue-field complexes; rho must be its finite-place map.
+-- Constructing these requires the finite-place descent gap, so they are explicit
+-- parameters here. This does not assert the conjecture for arbitrary complexes.
+-- The parent's rational-curve model gives an analogue of Gon95 Conjecture 1.39;
+-- identifying it with Gon95's all-smooth-curve model needs a compatible comparison.
+def polylogHomotopyFour {Q T : CochainComplex (ModuleCat ℚ) ℕ}
+    [∀ i, Q.HasHomology i] [∀ i, T.HasHomology i] (rho : Q ⟶ T) : Prop := QuasiIso rho
+
+end TauCeti.Polylog.WeightFour
+
+end P4FollowUp
+
+/-! ## P.5 follow-up: currents, Green classes, the BFT comparison, the elliptic formula -/
+
+section P5FollowUp
+
+/-
+The pinned Mathlib supplies chart test functions/distributions, exterior algebra
+and infinite sums. It has no global LF test forms, manifold currents, Chow
+incidence, higher cycle complexes or real Deligne hypercohomology. The omission
+manifest below names every unavailable packet signature and its precise carrier.
+No arbitrary proposition or assumed comparison field replaces those carriers.
+
+The concrete sections prototype chart signs, the full finite Wang polynomial,
+the three-coordinate auxiliary differential, the comparison's minus sign and
+the explicit two-index elliptic series. The global statements remain mathematical
+targets with the supplier and proof gaps recorded in the packet.
+-/
+
+set_option autoImplicit false
+open scoped BigOperators Distributions
+open MeasureTheory
+
+namespace TauCeti.CurveRegulator
+
+section Chart
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+
+/-- The existing LF chart model, with alternating-form coefficients. -/
+abbrev ChartTestForms (Ω : TopologicalSpace.Opens E) (k : ℕ) :=
+  TestFunction Ω (ContinuousAlternatingMap ℝ E ℂ (Fin k)) ⊤
+
+/-- The top-current chart is the existing real-test-function dual. -/
+abbrev ChartTopCurrent (Ω : TopologicalSpace.Opens E) := Distribution Ω ℂ ⊤
+
+-- ManifoldCurrent.dirac: chart specialization of the packet's test.
+example (Ω : TopologicalSpace.Opens E) (x : E) (φ : TestFunction Ω ℝ ⊤) :
+    (Distribution.delta x : Distribution Ω ℝ ⊤) φ = φ x := by
+  sorry
+
+-- ManifoldCurrent.derivative_sign: the actual existing chart derivative.
+example (Ω : TopologicalSpace.Opens E) (v : E)
+    (T : Distribution Ω ℂ ⊤) (φ : TestFunction Ω ℝ ⊤) :
+    Distribution.lineDerivCLM v T φ = -T (TestFunction.lineDerivCLM ℝ v φ) := by
+  sorry
+
+-- Locally integrable representatives do not bypass Mathlib's integrability condition.
+example (Ω : TopologicalSpace.Opens ℂ) (f : ℂ → ℝ)
+    (hf : LocallyIntegrableOn f Ω volume) (φ : TestFunction Ω ℝ ⊤) :
+    Distribution.ofFun Ω f volume ⊤ φ = ∫ z, φ z * f z := by
+  sorry
+
+def chartDerivative (Ω : TopologicalSpace.Opens ℂ) (v : ℂ) :
+    Distribution Ω ℝ ⊤ →L[ℝ] Distribution Ω ℝ ⊤ := Distribution.lineDerivCLM v
+
+/-- Δ log|z|=2πδ₀: the positively oriented scalar chart of Poincaré–Lelong. -/
+theorem poincareLelong_chart (Ω : TopologicalSpace.Opens ℂ) :
+    let T : Distribution Ω ℝ ⊤ := Distribution.ofFun Ω (fun z : ℂ => Real.log ‖z‖) volume ⊤
+    chartDerivative Ω 1 (chartDerivative Ω 1 T) +
+      chartDerivative Ω Complex.I (chartDerivative Ω Complex.I T) =
+        (2 * Real.pi) • (Distribution.delta (0 : ℂ) : Distribution Ω ℝ ⊤) := by
+  sorry
+end Chart
+
+namespace WangForm
+variable {V : Type*} [AddCommGroup V] [Module ℂ V]
+variable {m : ℕ}
+
+/-- Pointwise logarithmic data: value, ∂ component and bar∂ component. -/
+structure Jet (V : Type*) where
+  value : ℝ
+  hol : V
+  anti : V
+
+def zeroJet : Jet V := ⟨0, 0, 0⟩
+
+/-- An ordered product; exterior-algebra multiplication retains wedge order. -/
+def orderedProduct (jets : Fin m → Jet V) (σ : Equiv.Perm (Fin m)) (i : ℕ) :
+    ExteriorAlgebra ℂ V :=
+  ((List.finRange m).drop 1).foldl
+    (fun acc j => acc * ExteriorAlgebra.ι ℂ
+      (if j.val < i then (jets (σ j)).hol else (jets (σ j)).anti)) 1
+
+/-- Full unaveraged alternating polynomial, with only one factorial division. -/
+def coefficients (jets : Fin m → Jet V) : ExteriorAlgebra ℂ V :=
+  if hm : m = 0 then 1 else
+    (((-2 : ℂ) ^ m) / (2 * (Nat.factorial m : ℂ))) •
+      ∑ i ∈ Finset.range m, (-1 : ℂ) ^ (i + 1) •
+        ∑ σ : Equiv.Perm (Fin m),
+          (((Equiv.Perm.sign σ : ℤ) : ℂ) * (jets (σ ⟨0, Nat.pos_of_ne_zero hm⟩)).value) •
+            orderedProduct jets σ (i + 1)
+
+theorem one (jets : Fin 1 → Jet V) :
+    coefficients jets = (jets 0).value • (1 : ExteriorAlgebra ℂ V) := by
+  sorry
+
+theorem two (jets : Fin 2 → Jet V) :
+    coefficients jets =
+      (jets 0).value • ExteriorAlgebra.ι ℂ ((jets 1).hol - (jets 1).anti) -
+      (jets 1).value • ExteriorAlgebra.ι ℂ ((jets 0).hol - (jets 0).anti) := by
+  sorry
+
+theorem alternating (jets : Fin m → Jet V) (σ : Equiv.Perm (Fin m)) :
+    coefficients (jets ∘ σ) = (((Equiv.Perm.sign σ : ℤ) : ℂ)) • coefficients jets := by
+  sorry
+
+/-- The coefficient-level part of pullback; global Dolbeault morphisms are omitted. -/
+theorem pullback {W : Type*} [AddCommGroup W] [Module ℂ W]
+    (f : V →ₗ[ℂ] W) (jets : Fin m → Jet V) :
+    ExteriorAlgebra.map f (coefficients jets) =
+      coefficients (fun j => ⟨(jets j).value, f (jets j).hol, f (jets j).anti⟩) := by
+  sorry
+
+/-- The function 1 has its entire logarithmic jet zero. -/
+theorem unit_function (jets : Fin m → Jet V) (j : Fin m) (hj : jets j = zeroJet) :
+    coefficients jets = 0 := by
+  sorry
+
+-- WangForm.test_one
+example : coefficients (V := V) (fun _ : Fin 1 => ⟨3, 0, 0⟩) =
+    (3 : ℂ) • (1 : ExteriorAlgebra ℂ V) := by
+  sorry
+
+-- WangForm.test_two
+example (a : V) : coefficients (fun j : Fin 2 =>
+      if j = 0 then (⟨1, 0, 0⟩ : Jet V) else ⟨0, a, 0⟩) = ExteriorAlgebra.ι ℂ a := by
+  sorry
+
+-- WangForm.test_zero, including the empty tuple.
+example : coefficients (V := V) (fun j : Fin 0 => Fin.elim0 j) = 1 := by
+  sorry
+
+example : coefficients (V := V) (fun _ : Fin 1 => zeroJet) = 0 := by
+  sorry
+end WangForm
+
+namespace MixedWangForm
+variable {V : Type*} [AddCommGroup V] [Module ℂ V] {n m : ℕ}
+
+/-- The pointwise concatenated polynomial, before taking current extensions. -/
+def apply (c : Fin n → WangForm.Jet V) (s : Fin m → WangForm.Jet V) :=
+  WangForm.coefficients (Fin.append c s)
+
+theorem cube (c : Fin n → WangForm.Jet V) :
+    apply c (fun j : Fin 0 => Fin.elim0 j) = WangForm.coefficients c := by
+  sorry
+
+theorem simplex (s : Fin m → WangForm.Jet V) :
+    apply (fun j : Fin 0 => Fin.elim0 j) s = WangForm.coefficients s := by
+  sorry
+
+-- MixedWangForm.origin
+example : apply (V := V) (fun j : Fin 0 => Fin.elim0 j)
+    (fun j : Fin 0 => Fin.elim0 j) = 1 := by
+  sorry
+
+-- MixedWangForm.one_each
+example (c s : Fin 1 → WangForm.Jet V) :
+    apply c s = (c 0).value • ExteriorAlgebra.ι ℂ ((s 0).hol - (s 0).anti) -
+      (s 0).value • ExteriorAlgebra.ι ℂ ((c 0).hol - (c 0).anti) := by
+  sorry
+
+-- MixedWangForm.ratio_one, at the coefficient level.
+example (s : Fin m → WangForm.Jet V) :
+    apply (fun _ : Fin 1 => WangForm.zeroJet) s = 0 := by
+  sorry
+end MixedWangForm
+
+namespace BFTAuxiliary
+variable {A B C : ℤ → Type*}
+variable [∀ k, AddCommGroup (A k)] [∀ k, AddCommGroup (B k)] [∀ k, AddCommGroup (C k)]
+
+/-- The shifted simple in degree k is A(k+1) ⊕ B(k) ⊕ C(k). -/
+abbrev Degree (k : ℤ) := A (k + 1) × B k × C k
+
+def differential
+    (dA : ∀ k, A k →+ A (k + 1))
+    (dB : ∀ k, B k →+ B (k + 1))
+    (dC : ∀ k, C k →+ C (k + 1))
+    (g : ∀ k, A k →+ B k) (ρ : ∀ k, A k →+ C k)
+    (k : ℤ) (x : Degree (A := A) (B := B) (C := C) k) :
+    Degree (A := A) (B := B) (C := C) (k + 1) :=
+  (-dA (k + 1) x.1, dB k x.2.1 + g (k + 1) x.1,
+    dC k x.2.2 - ρ (k + 1) x.1)
+
+/-- Pointwise β. Its global quasi-isomorphism requires the support/purity carrier. -/
+def beta (k : ℤ) (z : C k) : Degree (A := A) (B := B) (C := C) k := (0, 0, z)
+
+-- BFTAuxiliary.beta_sign
+example (dA : ∀ k, A k →+ A (k + 1)) (dB : ∀ k, B k →+ B (k + 1))
+    (dC : ∀ k, C k →+ C (k + 1)) (g : ∀ k, A k →+ B k) (ρ : ∀ k, A k →+ C k)
+    (k : ℤ) (z : C k) :
+    differential dA dB dC g ρ k (beta k z) = beta (k + 1) (dC k z) := by
+  sorry
+
+-- BFTAuxiliary.square: actual graded maps and their actual chain identities.
+example (dA : ∀ k, A k →+ A (k + 1)) (dB : ∀ k, B k →+ B (k + 1))
+    (dC : ∀ k, C k →+ C (k + 1)) (g : ∀ k, A k →+ B k) (ρ : ∀ k, A k →+ C k)
+    (hA : ∀ k a, dA (k + 1) (dA k a) = 0)
+    (hB : ∀ k b, dB (k + 1) (dB k b) = 0)
+    (hC : ∀ k c, dC (k + 1) (dC k c) = 0)
+    (hg : ∀ k a, dB k (g k a) = g (k + 1) (dA k a))
+    (hρ : ∀ k a, dC k (ρ k a) = ρ (k + 1) (dA k a))
+    (k : ℤ) (x : Degree (A := A) (B := B) (C := C) k) :
+    differential dA dB dC g ρ (k + 1) (differential dA dB dC g ρ k x) = 0 := by
+  sorry
+end BFTAuxiliary
+
+namespace RegulatorComparison
+variable {Z G F T : Type*} [AddCommGroup T]
+
+/-- The pointwise three summands; the global chain maps are not assumed. -/
+def apply (pc : Z → T) (green : G → T) (φ : F → T) (z : Z) (g : G) (a : F) : T :=
+  pc z - green g + φ a
+
+-- RegulatorComparison.first
+example (pc : Z → T) (green : G → T) (φ : F → T) (z : Z) (g0 : G) (a0 : F)
+    (hg : green g0 = 0) (hφ : φ a0 = 0) : apply pc green φ z g0 a0 = pc z := by
+  sorry
+
+-- RegulatorComparison.third
+example (pc : Z → T) (green : G → T) (φ : F → T) (z0 : Z) (g0 : G) (a : F)
+    (hp : pc z0 = 0) (hg : green g0 = 0) : apply pc green φ z0 g0 a = φ a := by
+  sorry
+
+-- RegulatorComparison.middle_sign
+example (pc : Z → T) (green : G → T) (φ : F → T) (z0 : Z) (g : G) (a0 : F)
+    (hp : pc z0 = 0) (hφ : φ a0 = 0) : apply pc green φ z0 g a0 = -green g := by
+  sorry
+end RegulatorComparison
+
+namespace EllipticTrilog
+/-- A full oriented real lattice; positivity is the actual nondegeneracy condition. -/
+structure OrientedLattice where
+  u : ℂ
+  v : ℂ
+  positiveArea : 0 < (star u * v).im
+
+def area (L : OrientedLattice) : ℝ := (star L.u * L.v).im
+def latticePoint (L : OrientedLattice) (k : ℤ × ℤ) : ℂ :=
+  (k.1 : ℂ) * L.u + (k.2 : ℂ) * L.v
+def character (L : OrientedLattice) (γ z : ℂ) : ℂ :=
+  Complex.exp ((2 * Real.pi * (z * star γ).im / area L : ℝ) * Complex.I)
+
+def summand (L : OrientedLattice) (x y z : ℂ) (k : (ℤ × ℤ) × (ℤ × ℤ)) : ℂ :=
+  let γ₁ := latticePoint L k.1
+  let γ₂ := latticePoint L k.2
+  let γ₃ := -γ₁ - γ₂
+  if γ₁ = 0 ∨ γ₂ = 0 ∨ γ₃ = 0 then 0 else
+    character L γ₁ x * character L γ₂ y * character L γ₃ z *
+      (star γ₃ - star γ₂) / ((‖γ₁‖ ^ 2 * ‖γ₂‖ ^ 2 * ‖γ₃‖ ^ 2 : ℝ) : ℂ)
+
+def kernel (L : OrientedLattice) (x y z : ℂ) : ℂ := ∑' k, summand L x y z k
+
+theorem absoluteSummability (L : OrientedLattice) (x y z : ℂ) :
+    Summable (fun k => ‖summand L x y z k‖) := by
+  sorry
+
+theorem periodic (L : OrientedLattice) (x y z : ℂ) (k : ℤ × ℤ) :
+    kernel L (x + latticePoint L k) y z = kernel L x y z ∧
+    kernel L x (y + latticePoint L k) z = kernel L x y z ∧
+    kernel L x y (z + latticePoint L k) = kernel L x y z := by
+  sorry
+
+theorem translation (L : OrientedLattice) (x y z a : ℂ) :
+    kernel L (x + a) (y + a) (z + a) = kernel L x y z := by
+  sorry
+
+theorem antisymmetric (L : OrientedLattice) (x y z : ℂ) :
+    kernel L x z y = -kernel L x y z := by
+  sorry
+
+def divisors (L : OrientedLattice) (D F H : ℂ →₀ ℤ) : ℂ :=
+  D.sum fun x nx => F.sum fun y ny => H.sum fun z nz =>
+    (nx : ℂ) * (ny : ℂ) * (nz : ℂ) * kernel L x y z
+
+def scaleLattice (L : OrientedLattice) (c : ℂ) (hc : c ≠ 0) : OrientedLattice where
+  u := c * L.u
+  v := c * L.v
+  positiveArea := by sorry
+
+theorem scale (L : OrientedLattice) (c : ℂ) (hc : c ≠ 0) (x y z : ℂ) :
+    kernel (scaleLattice L c hc) (c * x) (c * y) (c * z) =
+      (star c / ((‖c‖ ^ 6 : ℝ) : ℂ)) * kernel L x y z := by
+  sorry
+
+-- EllipticTrilog.diagonal
+example (L : OrientedLattice) (x y : ℂ) : kernel L x y y = 0 := by
+  sorry
+
+-- EllipticTrilog.zero_divisor
+example (L : OrientedLattice) (D F H : ℂ →₀ ℤ) :
+    divisors L 0 F H = 0 ∧ divisors L D 0 H = 0 ∧ divisors L D F 0 = 0 := by
+  sorry
+
+-- EllipticTrilog.scaling_test
+example (L : OrientedLattice) (x y z : ℂ) :
+    kernel (scaleLattice L 2 (by norm_num)) (2*x) (2*y) (2*z) = kernel L x y z / 32 := by
+  sorry
+end EllipticTrilog
+
+end TauCeti.CurveRegulator
+
+/-! Omission manifest — exact packet names and carrier boundaries.
+
+Polylogarithms:P.5/compact-test-forms
+Declaration TestForms: For a second countable smooth oriented real m-manifold M, TestForms^k(M) consists of smooth sections of Λ^k T* M with compact support. Its topology is the locally convex inductive limit over compact K of the Fréchet spaces of sections supported in K, with all coordinate derivative seminorms. Complexification gives complex test forms; complex manifolds have their canonical orientation. Extension by zero is defined for an open embedding only for support compactly contained in that open.
+Signature omitted; precise absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.ext: Equality of sections at every point implies equality.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.chart: On an open finite-dimensional normed-space chart, k-forms identify with TestFunction with continuous alternating-map coefficients, with the same LF topology.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.extendZero: Open embeddings give continuous extension by zero; identity and composition hold when the support is compactly contained.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.d: Exterior derivative is a continuous map TestForms^k→TestForms^(k+1), with square zero.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.empty: TestForms^k of the empty manifold is zero.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.chart_scalar: Degree-zero real test forms on Ω are Mathlib TestFunction Ω R ∞, including its topology.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+Signature omitted — TestForms.support_escape: Bump functions translated to disjoint balls escaping every compact subset of R do not converge to zero in the test LF topology, although they converge to zero in the compact-open smooth topology.
+Absent carrier: global smooth differential-form bundle, compact-support LF topology and manifold chart gluing (early C5).
+
+Polylogarithms:P.5/manifold-currents
+Declaration ManifoldCurrent: On an oriented m-manifold M define a degree-q current as a continuous linear functional on TestForms^(m-q)(M), with real or complex coefficients as specified. Set dT(φ)=(-1)^(q+1)T(dφ). On a complex d-manifold this decomposes as ∂+bar∂ and has bidegrees (p,q). Locally L1 forms α define [α](φ)=∫ α∧φ. Pushforward exists for smooth maps proper on the support, with degree changed by the dimension difference; use holomorphic maps, whose real dimension difference is even, so d commutes. Pullback of arbitrary currents is restricted to submersions (and open embeddings); multiplication is by smooth forms, not by arbitrary currents.
+Signature omitted; precise absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Signature omitted — ManifoldCurrent.ext: Agreement on all test forms implies equality.
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Signature omitted — ManifoldCurrent.ofForm: Locally L1 coefficients yield the integral current, additive and invariant under almost-everywhere equality.
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Signature omitted — ManifoldCurrent.d_apply: dT(φ)=(-1)^(degree T+1)T(dφ); d²=0.
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Signature omitted — ManifoldCurrent.pushforward: For holomorphic maps proper on support, pushforward is functorial and commutes with d, ∂ and bar∂.
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Signature omitted — ManifoldCurrent.pullback: Submersions admit pullback, with identity/composition and compatibility with smooth forms.
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Signature omitted — ManifoldCurrent.chart_top: A top-degree current in an oriented real chart is a scalar Mathlib Distribution under the complementary-degree-zero test-form identification.
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+Prototyped chart/coefficient/graded statement — ManifoldCurrent.dirac: The top-degree Dirac current δx evaluates a scalar test function at x, agreeing with Distribution.delta.
+Prototyped chart/coefficient/graded statement — ManifoldCurrent.derivative_sign: The derivative of a scalar chart distribution evaluates φ as -T(∂vφ), agreeing with Distribution.lineDerivCLM.
+Signature omitted — ManifoldCurrent.no_arbitrary_product: The product δ0·δ0 has no canonical product in this API; smoothing δ0 by scale ε gives squares whose mass grows like ε^(-m).
+Absent carrier: global TestForms continuous dual, differential/type grading, proper-support pushforward and submersion pullback.
+
+Polylogarithms:P.5/analytic-cycle-current
+Declaration CycleCurrent: For a pure-dimensional closed complex analytic subset Y of a complex d-manifold X, integrate complementary test forms over Yreg with its complex orientation. This is locally finite and defines the closed current [Y]raw of bidegree (c,c), c=codim Y. Extend additively to integral cycles. Whenever a proper resolution of Y is supplied, it equals pushforward of its integration current; for algebraic cycles such resolutions are constructed by R09.7, and the normalised BFT current is δY=(2πi)^(-(d-c))[Y]raw.
+Signature omitted; precise absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.add: The current of Z+W is the sum of currents.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.resolution: A proper resolution computes the same raw integration current.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.closed: The integration current of a closed analytic cycle is d-closed.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.bft: In complex dimension d and codimension c the normalised current is (2πi)^(-(d-c)) times the raw current.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.point: In a complex curve the BFT current of a point is the ordinary Dirac current.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.multiplicity: The current of div(z^r) on C is rδ0 for r a positive integer.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+Signature omitted — CycleCurrent.whole_space: For c=0, δX=(2πi)^(-d)[X]raw=[1] in BFT conventions.
+Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
+
+Polylogarithms:P.5/current-resolution
+Declaration currentResolution: On a second countable smooth oriented manifold the inclusion of smooth forms into currents is a quasi-isomorphism of de Rham sheaf complexes. On a complex manifold the same inclusion is a quasi-isomorphism for each Dolbeault complex, compatibly with type and conjugation. Consequently the smooth and current Dolbeault models of real Deligne theory agree after the M.8 comparison is supplied.
+Signature omitted; precise absent carrier: global de Rham/Dolbeault sheaf complexes of forms and currents, their cohomology and inclusion.
+
+Polylogarithms:P.5/poincare-lelong
+Declaration poincareLelong: For a meromorphic function f on a complex manifold which does not vanish identically on any connected component, log|f| is locally L1 and (i/π)∂bar∂[log|f|]=[div f]raw. Define dd^c=(i/π)∂bar∂; this is equivalently bar∂∂[log|f|]=πi[div f]raw. On a complex curve d[darg f]=2π[div f]raw. The BFT degree-one Deligne differential is -2∂bar∂, hence d_D[-log|f|]=-δdiv f with its dimension/twist normalisation.
+Signature omitted; precise absent carrier: meromorphic functions/divisors on a complex manifold and typed global ∂,bar∂ current operators; only the scalar chart Laplacian is prototyped.
+
+Polylogarithms:P.5/admissible-chow-locus
+Declaration AdmissibleChowLocus: Given P^N over C, finitely many specified simplex faces L_I and a general-position hyperplane H, let U_(c,e) be the open locus in the requested degree-e, codimension-c Chow parameter space whose cycles meet every L_I properly and have no irreducible component contained in H where the coordinate-ratio construction requires this (the zero cycle satisfies this condition vacuously). The analytic parameter space Z^c is the disjoint union over e≥0 of these finite-dimensional loci. Its incidence cycle has a proper projection to the parameter space. Face intersection maps and vertex projection maps exist only on the loci where they preserve the prescribed dimensions; their target degree is recorded.
+Signature omitted; precise absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.points: Complex points represent effective cycles of the fixed degree with all required proper face intersections.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.incidence: The incidence cycle projects properly to each finite-degree locus.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.face: Proper intersection with a specified face induces its cycle map and respects iterated faces on the common domain.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.vertex: Projection from a vertex is defined only when dimension and codimension are preserved; no unrestricted map is exported.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.zero: The degree-zero component consists of the zero cycle and has empty incidence cycle.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.line: For lines in P², each line distinct from every fixed one-dimensional face and avoiding every vertex meets all faces properly.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+Signature omitted — AdmissibleChowLocus.face_line: A line equal to a one-dimensional face fails proper intersection with that face and is excluded.
+Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
+
+Polylogarithms:P.5/logarithmic-green-forms
+Declaration LogGreenForm: For smooth projective complex X, a codimension-p cycle z and Y=supp z, a logarithmic Green form is a real Deligne support representative (ω,g) of cl(z) in degree 2p: ω is smooth on X, g is smooth on X\Y, and g pulls back on an embedded resolution of (X,Y) to a logarithmic form along a normal-crossings divisor. Representatives are taken modulo the support-complex boundaries, retaining the support class, not merely the off-support equation d_Dg=ω. A basic representative has g=Σλj αj+β on a resolution, with λj divisor Green functions, αj smooth of type (p-1,p-1), restrictions ∂ and bar∂ closed, and β smooth.
+Signature omitted; precise absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.class: The support Deligne class is cl(z), with the specified Tate twist.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.basic: Every Green-form class has a basic logarithmic representative as stated.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.refine: Passing to a common resolution does not change its class.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.change: Adding a support-complex boundary changes the representative but not its Green-form class.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.principal: For a rational function f, (0,-log|f|) is the Green representative for div f in BFT conventions.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.zero: The zero cycle admits the zero pair.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+Signature omitted — LogGreenForm.residue_required: On P¹ the zero form on the complement of a nonzero point satisfies d_Dg=0 there but is not a Green representative for that point: its support class is zero.
+Absent carrier: early M.8 support Deligne classes and logarithmic representatives on embedded resolutions.
+
+Polylogarithms:P.5/logarithmic-current-estimate
+Declaration logarithmicCurrentEstimate: Let Y have codimension p in a complex manifold X, and let α be a degree-r logarithmic form along Y, defined through a resolution of (X,Y). If r<2p, α is locally L1. If r<2p-1, d[α]=[dα]. In the borderline Green degree, a basic Green representative (ω,g) of cl(z) satisfies d_D[g]+δz=[ω]. These conclusions apply to currents modulo those annihilating test forms vanishing along the boundary used by the normalised cubical model.
+Signature omitted; precise absent carrier: logarithmic form weight filtration, resolution pullback, local integrability and current residue on a global manifold.
+
+Polylogarithms:P.5/green-current-comparison
+Declaration greenCurrentComparison: For smooth projective complex X and a codimension-p cycle z, the map from logarithmic Green-form classes for z to Green current classes for z is an isomorphism. In BFT conventions its image satisfies d_D[g]+δz=[ω]; in unscaled conventions dd^c[g]+[z]raw is smooth. The map respects addition and pullback along morphisms for which the cycle pullback is defined and codimension p is preserved. No pullback of an arbitrary current is asserted.
+Signature omitted; precise absent carrier: logarithmic Green-form quotient, current ∂/bar∂ quotient and their translation spaces.
+
+Polylogarithms:P.5/green-presentation
+Declaration GreenCH: For a smooth projective complex X and p≥1, define GreenCH^p(X) as the abelian group of pairs (z,g), z an integral codimension-p cycle and g a real (p-1,p-1) raw current, with dd^c g+[z]raw smooth, modulo (0,∂u+bar∂v) with the required real condition and principal pairs (div_Y f,-ιY*log|f|), where Y has codimension p-1 and the pushforward uses a resolution if Y is singular. Here dd^c=(i/π)∂bar∂=bar∂∂/(πi). This is the degree-zero complex-variety presentation of G05 equation (38), which was equation (36) in the preprint; it does not define arithmetic Chow groups of an arbitrary arithmetic ring.
+Signature omitted; precise absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.mk: A pair satisfying the Green condition determines a class.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.forget: Forget the Green current to obtain CH^p(X), respecting principal relations.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.curvature: Curvature dd^c g+[z]raw is a well-defined smooth closed (p,p) form on the quotient.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.principal: The principal pair on every codimension-(p-1) Y has zero class.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.current_boundary: Adding ∂u+bar∂v does not change the class.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.P1_principal: On P¹, ([0]-[∞],-log|z|) represents zero.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.point: GreenCH^1(Spec C)=0: cycles vanish and principal pairs for constant f kill every real constant Green function.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+Signature omitted — GreenCH.positive_curvature: A pair on P¹ with z=[0] and curvature integral one cannot be zero, whereas a principal pair has zero curvature.
+Absent carrier: integral cycle group, real (p-1,p-1) global currents, smooth curvature and principal-cycle relation subgroup.
+
+Polylogarithms:P.5/gersten-green-assembly
+Declaration gerstenGreenAssembly: For smooth projective complex X, identify the parent degree-zero higher Arakelov group with GreenCH^p(X), using the graph morphism from the final Gersten terms ⊕_(codim p-2) Λ² C(Y)*→⊕_(codim p-1) C(Y)*→Z^p(X) into the Bloch cycle complex. The requested input is an isomorphism on the last two cohomology groups, together with its compatible tame-symbol/divisor differential; no quasi-isomorphism of the entire complexes is asserted.
+Signature omitted; precise absent carrier: M.4 final Gersten graph comparison in two cohomology degrees and the parent Arakelov cone cohomology.
+
+Polylogarithms:P.5/mixed-wang-forms
+Declaration MixedWangForm.apply: On (P¹)^n×P^m define M_(n,m)=T_(n+m)(y1/x1,…,yn/xn,z1/z0,…,zm/z0), with M_(0,0)=1. Its current differential is the sum of cubical face currents with signs (-1)^(i+j) and simplicial face currents with signs (-1)^(n+i). It restricts to Wn when m=0 and to Gm when n=0. It vanishes on every ratio-one cubical boundary.
+Concrete restricted model above; global specialization still needs: global current extension and its face differential; only ordered concatenation of logarithmic jets is prototyped.
+Prototyped chart/coefficient/graded statement — MixedWangForm.apply: The form is T on the ordered concatenation of cube and simplex ratios.
+Prototyped chart/coefficient/graded statement — MixedWangForm.cube: M_(n,0)=Wn.
+Prototyped chart/coefficient/graded statement — MixedWangForm.simplex: M_(0,m)=Gm.
+Signature omitted — MixedWangForm.boundary: d_D[M_(n,m)] has the cube signs (-1)^(i+j) and simplex signs (-1)^(n+i).
+Absent carrier: global current extension and its face differential; only ordered concatenation of logarithmic jets is prototyped.
+Prototyped chart/coefficient/graded statement — MixedWangForm.origin: M_(0,0)=1.
+Prototyped chart/coefficient/graded statement — MixedWangForm.one_each: M_(1,1) equals T2 of the two coordinate logarithmic jets, with coefficient one in the explicit T2 formula.
+Prototyped chart/coefficient/graded statement — MixedWangForm.ratio_one: The restriction to y1/x1=1 is zero, whereas evaluation at a nonconstant ratio need not vanish.
+
+Polylogarithms:P.5/mixed-regulator
+Declaration MixedRegulator: For the M.4 admissible mixed codimension-p cycle complex on X×□^n×Δ^m, use Δ^m=P^m minus {Σ_(i=0)^m zi=0}. Define Pcs(Z)=πX*(δZ∧M_(n,m)) through projective closure and resolution, in Deligne degree 2p-n-m. The mixed total boundary is δ+(-1)^n∂. The map is a chain map and restricts along the M.4 cubical and simplicial inclusions ic,is to Pc and Ps. To identify the parent simplex convention Σ_(i=1)^m zi=z0 use z0↦-z0; constant factors -1 do not change logarithmic jets.
+Signature omitted; precise absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.cycle: An admissible mixed generator maps to its resolved M current pushed to X.
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.degree: Bidegree (n,m) maps to Deligne degree 2p-n-m.
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.chain: d_D Pcs=Pcs(δ+(-1)^n∂).
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.restrict: Pcs∘ic=Pc and Pcs∘is=Ps in the same BFT model.
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.axes: At (n,0) the map equals Pc, and at (0,m) it equals Ps.
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.degree_test: For p=2,n=1,m=1 the target degree is 2, rather than 3.
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+Signature omitted — MixedRegulator.origin: At (0,0) an admissible cycle maps to δZ.
+Absent carrier: M.4 mixed admissible cycle complex and global current target, with both face directions.
+
+Polylogarithms:P.5/simplicial-cubical-comparison
+Declaration simplicialCubicalComparison: For smooth projective complex X, the M.4 mixed-cycle inclusions is and ic are quasi-isomorphisms and identify the homology maps of Ps and Pc through Pcs. The simplicial regulator is the parent Goncharov cycle formula evaluated in the BFT normalised current model. The additional degreewise conversion from the parent raw G05 model is a separate recorded gap.
+Signature omitted; precise absent carrier: M.4 mixed-inclusion quasi-isomorphisms and induced higher Chow regulator maps.
+
+Polylogarithms:P.5/beilinson-comparison-assembly
+Declaration beilinsonComparisonAssembly: For every smooth projective complex variety X and n≥0, the direct sum of the BFT-normalised simplicial regulators CH_s^p(X,n)_Q→H_D^(2p-n)(X,R(p)), composed with the M.6 rational higher Chern character K_n(X)_Q→⊕pCH_s^p(X,n)_Q, equals the M.8 universal Beilinson regulator. This is the precise content and hypothesis range of BFT Theorem 6.18. Identification with every raw parent convention is conditional on the recorded model-conversion gap.
+Signature omitted; precise absent carrier: M.6 rational higher Chern character and early M.8 Beilinson regulator in the same normalization.
+
+Polylogarithms:P.5/curve-symbol-chern-comparison
+Declaration curveSymbolChernComparison: For a smooth projective geometrically integral curve X over C and a rational K2 class represented by Σj{fj,gj} with vanishing tame symbols in κ(x)*⊗Q, its weight-two real Deligne regulator is represented by iΣjη(fj,gj), η(f,g)=log|f|darg g-log|g|darg f, in the M.8 differential-form model. With ch_(i,j)=(-1)^(j-1)c_(i,j)/(j-1)!, ch_(2,2)=-c_(2,2); multiplicativity and the Chern product coefficient -1 give the positive unit cup product. This fixes the general curve formula once, without adding the elliptic embedding, period or rational-orientation choices owned by ER.2.
+Signature omitted; precise absent carrier: rational Quillen K2 and its tame kernel, M.8 Deligne hypercohomology/cup product/Chern character, parent global η current.
+
+Polylogarithms:P.5/weight-three-relation-descent
+Declaration weightThreeRelationDescent: On a smooth complex curve, the parent formula ρ2({f}2⊗g)=D(f)darg g-(1/3)α(1-f,f)log|g|, α(a,b)=log|a|dlog|b|-log|b|dlog|a|, is compatible with the B2 functional relations and is additive in g. Thus it defines the middle map of the imported weight-three curve polylogarithmic complex. Under the G00 convention Lhat2=iD and α_G00=-α, r3(2)=-ρ2. The neighbouring map is r3(1)=L3, whereas the parent diagonal relation is ρ2({f}2⊗f)=-dL3(f).
+Signature omitted; precise absent carrier: imported B2 relation quotient, function-field tensor complex, single-valued D/L3 and global logarithmic current form.
+
+Polylogarithms:P.5/weight-three-motivic-comparison
+Declaration weightThreeMotivicComparison: Let X be a smooth projective geometrically integral curve over a number field F. The imported rational map c_(2,3):K4(F(X))_Q→H²Γ(F(X),3)_Q is compatible with Quillen residues K3(κ(x))_Q→H¹Γ(κ(x),2)_Q and with the real Deligne regulator. The resulting unramified class from K4(X)_Q has the curve regulator represented by r3(2)=-ρ2 in the D96 convention. The diagram is a compatibility statement, not an isomorphism on K4. The generic-field construction remains subject to the imported P.3 proof gap.
+Signature omitted; precise absent carrier: P.3 K4 comparison, rational polylogarithmic cohomology, Quillen residues and M.8 Deligne regulator.
+
+Polylogarithms:P.5/generalized-elliptic-trilogarithm
+Declaration EllipticTrilog.kernel: Let Λ=Zu+Zv⊂C with A=Im(conj(u)v)>0 and E(C)=C/Λ. For γ∈Λ set χγ(z)=exp(2πi Im(z conjγ)/A). Define K3(x,y,z)=Σ′_(γ1+γ2+γ3=0) χγ1(x)χγ2(y)χγ3(z)(conjγ3-conjγ2)/(|γ1|²|γ2|²|γ3|²), excluding each zero γ. Equivalently sum over two independent Z² indices with γ3=-γ1-γ2. The sum is absolutely convergent and descends to E³. Extend separately linearly to finite integral divisors in each argument. This three-point weight-three kernel is the generalized elliptic trilogarithmic series in D96, not a one-variable weight-two series.
+Concrete restricted model above; global specialization still needs: quotient elliptic-curve uniformization and divisor lifts; the lifted explicit lattice kernel, divisor sums and invariance signatures are prototyped.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.kernel: The explicit absolutely convergent two-index sum defines K3.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.periodic: Adding a lattice element to any argument leaves K3 unchanged.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.translation: K3(x+a,y+a,z+a)=K3(x,y,z).
+Prototyped chart/coefficient/graded statement — EllipticTrilog.antisymmetric: K3(x,z,y)=-K3(x,y,z), hence K3(x,y,y)=0.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.divisors: Finite integral divisors are evaluated by the trilinear finite sum.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.scale: Scaling Λ,x,y,z by λ≠0 multiplies K3 by conjλ/|λ|⁶.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.diagonal: K3(x,y,y)=0, by exchanging the second and third summation variables.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.zero_divisor: Evaluation on a zero divisor is zero in every slot.
+Prototyped chart/coefficient/graded statement — EllipticTrilog.scaling_test: For a positive real scale 2, K3_(2Λ)(2x,2y,2z)=K3_Λ(x,y,z)/32; a weight-two single-index kernel has the wrong exponent.
+
+Polylogarithms:P.5/elliptic-trilogarithm-summability
+Declaration EllipticTrilog.absoluteSummability: For every oriented full lattice Λ in C, the absolute values of the K3 summands over (γ1,γ2)∈Λ² with γ1γ2(γ1+γ2)≠0 are summable, uniformly in x,y,z because all characters have modulus one. Consequently the divisor sum, index permutations, lattice-lift invariance and the scaling identity may be evaluated by absolutely convergent rearrangement.
+Concrete restricted model above; global specialization still needs: no absent carrier for the explicit lifted-lattice summability signature; the analytic proof is unproved.
+
+Polylogarithms:P.5/weight-three-pairing
+Declaration weightThreePairing: For a smooth projective complex curve X, nonzero meromorphic f,1-f,g and a holomorphic or antiholomorphic one-form ω, the locally integrable parent regulator satisfies ∫X ρ2({f}2⊗g)∧ω=-(4/3)∫X log|g|α(1-f,f)∧ω. For r3(2)=-ρ2 the scalar is +4/3. The identities hold termwise, without requiring Σ(1-f)∧f∧g=0; that condition enters the subsequent divisor-only Fourier formula.
+Signature omitted; precise absent carrier: global meromorphic functions, Bloch–Wigner form, locally integrable current pairing and holomorphic/antiholomorphic global one-forms.
+
+Polylogarithms:P.5/elliptic-fourier-comparison
+Declaration ellipticFourierComparison: Let E=C/(Zu+Zv), A=Im(conj(u)v)>0, with positive complex orientation and dz the lifted holomorphic form. For a finite rational symbol cycle Σj{fj}2⊗gj with Σj(1-fj)∧fj∧gj=0 in Λ³(C(E)*⊗Q), put Dj=div gj, Fj=div fj, Hj=div(1-fj). In the explicit character and area convention of K3, the target comparison is Σj∫E log|gj|α(1-fj,fj)∧dbarz = iA³/(4π²) ΣjK3(Dj,Fj,Hj), and hence Σj∫Eρ2({fj}2⊗gj)∧dbarz = -iA³/(3π²)ΣjK3(Dj,Fj,Hj). The constants are derived using ordinary area, not copied from D96’s implicit normalization; rigorous Fourier regularisation and source collation are recorded proof gaps.
+Signature omitted; precise absent carrier: elliptic uniformization, meromorphic divisor/symbol complex and current integral; Fourier regularization and normalization collation remain proof gaps.
+
+Polylogarithms:P.5/bft-current-dictionary
+Declaration bftCurrentDictionary: On a smooth projective complex d-fold, the BFT form current is [α](ω)=(2πi)^(-d)∫ω∧α, and its codimension-p cycle current is δY=(2πi)^(-(d-p))∫Yω. Below Deligne degree 2p a degree-k cochain has ordinary form degree k-1 and twist p-1; the top degree uses closed (p,p) currents of twist p. The top differential is -2∂bar∂=2bar∂∂. Apply the requested M.8 Dolbeault real Deligne functor to the smooth/current quasi-isomorphism to identify cohomology with H_D. This pins the BFT model. Identification of the parent raw simplicial regulator with this normalised map still requires its separate degreewise sign/scale dictionary, recorded as a gap.
+Signature omitted; precise absent carrier: early M.8 Deligne models, Tate twists, smooth/current inclusion and global current degrees.
+
+Polylogarithms:P.5/wang-forms
+Declaration WangForm.coefficients: For a Dolbeault algebra A and u1,…,um∈D¹(A,1), set S_m^i=(-2)^m Alt(u1∂u2∧…∧∂ui∧bar∂u_(i+1)∧…∧bar∂um), with Alt the unaveraged signed permutation sum. Define T0=1 and Tm=(2m!)^(-1)Σ_(i=1)^m(-1)^i S_m^i. It lies in D^m(A,m), ordinary degree m-1 for m>0. For rational functions use uj=-log|fj|, with ∂uj=-½dlog fj and bar∂uj=-½dbarlog fj. Define Wm=Tm(y1/x1,…,ym/xm) and Gm=Tm(z1/z0,…,zm/z0).
+Concrete restricted model above; global specialization still needs: global Dolbeault/Deligne algebra and its rational-function jets; the entire coefficient polynomial and its algebraic naturality are prototyped.
+Prototyped chart/coefficient/graded statement — WangForm.coefficients: The pointwise finite polynomial takes real u-values and holomorphic/antiholomorphic degree-one components, with exactly (-2)^m/(2m!) and signs (-1)^i.
+Prototyped chart/coefficient/graded statement — WangForm.one: T1(u)=u; for f this is -log|f|.
+Prototyped chart/coefficient/graded statement — WangForm.two: T2(u,v)=u(∂v-bar∂v)-v(∂u-bar∂u).
+Prototyped chart/coefficient/graded statement — WangForm.alternating: Permuting inputs multiplies Tm by the permutation sign.
+Prototyped chart/coefficient/graded statement — WangForm.pullback: Pullback by a Dolbeault-algebra morphism commutes with Tm, Wm and Gm.
+Prototyped chart/coefficient/graded statement — WangForm.unit_function: For m>0, Tm(f1,…,1,…,fm)=0.
+Prototyped chart/coefficient/graded statement — WangForm.test_one: T1 with u=3 and zero derivatives is 3, rather than -3 or 6.
+Prototyped chart/coefficient/graded statement — WangForm.test_two: For u=1,v=0, ∂u=bar∂u=bar∂v=0 and ∂v=a, the pointwise T2 is the degree-one form a.
+Prototyped chart/coefficient/graded statement — WangForm.test_zero: T0=1; a tuple containing the zero jet (the logarithmic jet of the constant function 1) gives zero for m>0.
+
+Polylogarithms:P.5/wang-differential
+Declaration wangDifferential: For u_j∈D¹(A,1), Tm is (1/m!) times the alternating right-nested Deligne product uσ1•(uσ2•…•uσm), and d_D Tm=Σ_(j=1)^m(-1)^(j-1)d_Duj•T_(m-1)(u1,…,omit uj,…,um). The nesting is retained: the Deligne product is associative up to homotopy rather than strictly associative.
+Signature omitted; precise absent carrier: typed global ∂,bar∂ and Deligne differential/product, including its homotopy associativity.
+
+Polylogarithms:P.5/r-wang-comparison
+Declaration rWangComparison: For nonzero rational functions f1,…,fm, Tm(-log|f1|,…,-log|fm|)=(-1)^m r_(m-1)(f1,…,fm), where the parent r-form uses unaveraged Alt and coefficients 1/((2j+1)!(m-2j-1)!). Equality is of the off-divisor forms and of their locally integrable extension currents. In particular T1=-r0, T2=r1=iη, and T3=-r2.
+Signature omitted; precise absent carrier: parent global logarithmic r forms and their locally integrable current extension.
+
+Polylogarithms:P.5/wang-boundary-currents
+Declaration wangBoundaryCurrents: For rational functions on a smooth projective complex variety, in the BFT normalisation d_D[Tm]=-[T_(m-1)]∘Res, with the exterior residue placing the uniformiser first and T0=1. On (P¹)^m this gives d_D[Wm]=Σ_(i=1)^mΣ_(j=0,1)(-1)^(i+j)(δ_i^j)*[W_(m-1)], with j=0 the zero face and j=1 the infinity face. For Gm on P^m, d_D[Gm]=Σ_(i=0)^m(-1)^i(∂i)*[G_(m-1)]. The restriction of Wm to a holomorphic map factoring through any ratio-one boundary is zero.
+Signature omitted; precise absent carrier: global Wang currents, cubical/simplicial embeddings and exterior-residue current pushforward.
+
+Polylogarithms:P.5/cubical-regulator
+Declaration CubicalRegulator: For smooth projective complex X and an admissible integral codimension-p cycle Z in X×□^m, □=P¹\{1}, let Zbar be its projective closure and ι:Ztilde→X×(P¹)^m a resolution. Define Pc(Z)=πX*ι*[Tm of the restricted coordinate functions]=πX*(δZ∧Wm) in τ≤2p D_D^(2p-m)(X,p), with the BFT current twists. The product notation is defined through resolution and integration, not by an arbitrary current product. Extend linearly on the M.4 normalised cube complex ∩ker(infinity faces), with differential δ=Σ_i(-1)^i zero-face_i. Pc is independent of resolution and is a chain map.
+Signature omitted; precise absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.cycle: An admissible generator maps to πX* of its resolved Wang current.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.resolution: Different resolutions give the same current.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.boundary: d_D Pc(Z)=Pc(δZ) on the normalised complex.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.zero_degree: Pc at m=0 is the BFT cycle current.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.point: For a point on a complex curve in m=0 the image is its Dirac current.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.P1_unit: For the degree-one point t=a of □ with a≠0,1,∞ and X a point, Pc(a)=-log|a|.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+Signature omitted — CubicalRegulator.face_excluded: A component lying in t=0 is not an admissible input; assigning log 0 to it is not a regulator extension.
+Absent carrier: M.4 admissible normalized cycles, R09.7 resolution and early M.8 Deligne-current complex.
+
+Polylogarithms:P.5/bft-auxiliary-complex
+Declaration BFTAuxiliary.Degree: With M.8 logarithmic Deligne complexes and M.4 admissible cube supports, form DA^(r,-m)=τ≤2p Dlog^r(X×□^m,p), take infinity-face normalisation, and totalise with d_D+(-1)^rδ. Let DA_Z be the corresponding support cone s(Dlog(X×□^m)→Dlog((X×□^m)\Z)), and Hp_m its top support cohomology H_D,Z^(2p). Use the standard maps g1:DA_Z^(2p-*)→Hp_* and ρ:DA_Z→DA. Fix cochain grading: DA_H^q=DA_Z^(q+1)⊕Hp^q⊕DA^q. Define DA_H as the shifted simple of Hp←g1 DA_Z→ρ DA: d(a1,a2,a3)=(-da1, da2+g1a1, da3-ρa1). Its maps are β(α)=(0,0,α) and the cycle map z↦(0,cl(z),0).
+Concrete restricted model above; global specialization still needs: early M.8 support cones/purity, M.4 normalized cube support diagram and top cohomology classes; only the genuine graded additive-group simple and β are prototyped.
+Prototyped chart/coefficient/graded statement — BFTAuxiliary.differential: The three-coordinate differential is exactly the one in the statement.
+Prototyped chart/coefficient/graded statement — BFTAuxiliary.beta: β includes DA as the third coordinate and is a quasi-isomorphism.
+Signature omitted — BFTAuxiliary.cycle: In the fixed (support,cycle,base) order, a cycle z maps to (0,cl(z),0).
+Absent carrier: early M.8 support cones/purity, M.4 normalized cube support diagram and top cohomology classes; only the genuine graded additive-group simple and β are prototyped.
+Signature omitted — BFTAuxiliary.purity: Top support Deligne cohomology is the admissible cycle group tensored with R; g1 is the induced top-class projection.
+Absent carrier: early M.8 support cones/purity, M.4 normalized cube support diagram and top cohomology classes; only the genuine graded additive-group simple and β are prototyped.
+Prototyped chart/coefficient/graded statement — BFTAuxiliary.beta_sign: d(0,0,α)=(0,0,dα), so β is a cochain map.
+Prototyped chart/coefficient/graded statement — BFTAuxiliary.square: For chain maps g1 and ρ, the displayed differential squares to zero on each of the three summands.
+Signature omitted — BFTAuxiliary.point_top: For X a point and p=m=0, the top support cycle class is R and sends the integral generator to 1.
+Absent carrier: early M.8 support cones/purity, M.4 normalized cube support diagram and top cohomology classes; only the genuine graded additive-group simple and β are prototyped.
+
+Polylogarithms:P.5/integration-comparison
+Declaration WangIntegration: For DA^(r,-m), define φ(α)=πX*[α•Wm] in Deligne degree r-m. The product uses the M.8 fixed Deligne product and has ordinary degree r+m-1 before projection, except at m=0,r=2p, where the top Deligne cochain is an ordinary degree-2p form and W0=1 preserves that degree. On the infinity-face normalised DA complex this lands in smooth τ≤2p D(X,p), is a cochain map and a quasi-inverse of the base inclusion τD(X,p)→DA(X,p)_0.
+Signature omitted; precise absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.apply: φ(α)=πX*[α•Wm].
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.chain: φ commutes with the total d_D+(-1)^rδ differential.
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.base: At m=0, φ is the normalised smooth-form inclusion into currents.
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.inverse: On cohomology φ is inverse to base inclusion.
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.base_test: φ at m=0 has current evaluation (2πi)^(-dim X)∫ω∧α.
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.zero: φ(0)=0 in every bidegree.
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+Signature omitted — WangIntegration.degree: An input of bidegree (r,-m) has output Deligne degree r-m, not r+m. At m=0,r=2p (in particular p=1,r=2), W0 preserves the ordinary top degree 2p, rather than the lower-degree formula 2p-1.
+Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
+
+Polylogarithms:P.5/green-wang-product
+Declaration greenWangProduct: For a normalised support representative (ω,g) of degree r over X×□^m, the form g•Wm is locally L1. At r=2p, if cl(ω,g)=cl(z), d_D[g•Wm]=[ω•Wm]-δz•Wm-[δg•W_(m-1)]. At r<2p, d_D[g•Wm]=[d_Dg•Wm]+(-1)^(r-1)[δg•W_(m-1)]. Face sums in δ use the normalised cube differential and support changes. The expression δz•Wm is the resolved cycle current of Pc.
+Signature omitted; precise absent carrier: global logarithmic Green representatives, Wang-current products defined on resolutions and their face residues.
+
+Polylogarithms:P.5/regulator-homotopy
+Declaration RegulatorComparison.apply: On DA_H^(2p-*) define ψ((ω,g),z,α)=Pc(z)-πX*[g•Wm]+φ(α), in the fixed (support,cycle,base) coordinate order, with the bidegree of the support representative specifying m. This is a cochain map to τD_D^(2p-*) and satisfies ψ∘cycle=Pc and ψ∘β=φ. Thus Pc and the Burgos–Feliu support regulator agree on higher Chow homology through the common support complex.
+Concrete restricted model above; global specialization still needs: the specialized auxiliary support complex and the actual Pc/Green/φ maps; only the pointwise three-term formula is prototyped.
+Prototyped chart/coefficient/graded statement — RegulatorComparison.apply: ψ is Pc minus the Green integral plus φ, with the specified grading.
+Signature omitted — RegulatorComparison.chain: ψ commutes with the three-coordinate differential.
+Absent carrier: the specialized auxiliary support complex and the actual Pc/Green/φ maps; only the pointwise three-term formula is prototyped.
+Signature omitted — RegulatorComparison.cycle: ψ(0,z,0)=Pc(z) in the fixed (support,cycle,base) order.
+Absent carrier: the specialized auxiliary support complex and the actual Pc/Green/φ maps; only the pointwise three-term formula is prototyped.
+Signature omitted — RegulatorComparison.beta: ψ(0,0,α)=φ(α).
+Absent carrier: the specialized auxiliary support complex and the actual Pc/Green/φ maps; only the pointwise three-term formula is prototyped.
+Prototyped chart/coefficient/graded statement — RegulatorComparison.first: On a pure cycle the comparison gives Pc.
+Prototyped chart/coefficient/graded statement — RegulatorComparison.third: On a pure third-coordinate form the comparison gives φ.
+Prototyped chart/coefficient/graded statement — RegulatorComparison.middle_sign: On ((ω,g),0,0) in the fixed coordinate order the value is -πX*[g•Wm], rather than its positive.
+
+Polylogarithms:P.5/cubical-beilinson
+Declaration cubicalBeilinson: For smooth projective complex X and p,n≥0, Pc:CH_c^p(X,n)→H_D^(2p-n)(X,R(p)) agrees with the Burgos–Feliu support regulator. After the M.6 rational Chern character K_n(X)_Q≅⊕pCH^p(X,n)_Q and the M.8 universal Chern normalisation, its direct sum is Beilinson’s regulator. This does not redefine the universal Chern classes in P.5.
+Signature omitted; precise absent carrier: M.4 higher Chow homology, M.6 rational K/Chern character and early M.8 universal regulator.
+
+Local analytic-cycle closedness still needs the recorded El Mir positive-current/
+pluripolar extension interface; Poincaré–Lelong needs the normal-current support
+theorem with its order-zero hypotheses. These are not supplied by the scalar chart model.
+
+The fixed auxiliary coordinate order is (support,cycle,base); the finite
+RegulatorComparison.apply helper accepts its inputs in term order (cycle,Green,base).
+BFTAuxiliary.beta is only the graded inclusion here; its quasi-isomorphism API
+requires the omitted purity diagram. Global Wang pullback similarly requires the
+Dolbeault morphism, beyond the coefficient-level ExteriorAlgebra.map statement.
+-/
+
+end P5FollowUp
+
+/-! ## P.6 follow-up: the real differential of the single-valued trilogarithm -/
+
+section P6FollowUp
+
+/-
+P.6 part (BP-Polylogarithms--P.6, REV-Polylogarithms--P.6). The shared strong-Leopoldt
+statement, map and defect belong to IntegralIwasawaTheory I.2; the p-adic regulator and the
+equivalence are in the first packet's P.6 section above. This part adds the real
+differential of the single-valued trilogarithm and its exact tests.
+-/
+
+open Complex
+
+namespace TauCeti.Polylog
+
+-- `polylog`, `singleValuedPolylog` and `blochWigner` are the first packet's declarations above.
+
+/-- P.6/single-valued-trilogarithm-differential, promoted API of P.1's `L_n`.
+The differentiability conjunct is essential: `fderiv` alone is totalised.
+`Im (v/z)` denotes the smooth angular one-form, including on the cut. -/
+theorem singleValuedPolylog_three_differential {z : ℂ} (hz0 : z ≠ 0) (hz1 : z ≠ 1) :
+    DifferentiableAt ℝ (singleValuedPolylog 3) z ∧
+      ∀ v : ℂ, fderiv ℝ (singleValuedPolylog 3) z v =
+        -blochWigner z * (v / z).im +
+          (Real.log ‖z‖ / 3) *
+            (Real.log ‖1 - z‖ * (v / z).re - Real.log ‖z‖ * (v / (z - 1)).re) := by
+  sorry
+
+/-- Test `trilog_diff_half`: the coefficient detects the Bernoulli normalisation. -/
+example : DifferentiableAt ℝ (singleValuedPolylog 3) (1 / 2 : ℂ) ∧
+    ∀ v : ℂ, fderiv ℝ (singleValuedPolylog 3) (1 / 2 : ℂ) v =
+      (4 / 3 : ℝ) * (Real.log 2) ^ 2 * v.re := by
+  sorry
+
+/-- Test `trilog_diff_on_cut`: the principal cut does not restrict the theorem. -/
+example : DifferentiableAt ℝ (singleValuedPolylog 3) (2 : ℂ) ∧
+    ∀ v : ℂ, fderiv ℝ (singleValuedPolylog 3) (2 : ℂ) v =
+      -(1 / 3 : ℝ) * (Real.log 2) ^ 2 * v.re := by
+  sorry
+
+/-- Test `trilog_diff_minus_one`: a zero derivative at a regular point. -/
+example : DifferentiableAt ℝ (singleValuedPolylog 3) (-1 : ℂ) ∧
+    fderiv ℝ (singleValuedPolylog 3) (-1 : ℂ) = 0 := by
+  sorry
+
+/-- Test `trilog_diff_unit_circle`: radial zero and the signed angular derivative. -/
+example {z : ℂ} (hz : ‖z‖ = 1) (hz1 : z ≠ 1) :
+    DifferentiableAt ℝ (singleValuedPolylog 3) z ∧
+      fderiv ℝ (singleValuedPolylog 3) z z = 0 ∧
+        fderiv ℝ (singleValuedPolylog 3) z (I * z) = -blochWigner z := by
+  sorry
+
+/-- Test `trilog_diff_i_sign`: `D(i)>0` imports the separate
+P.1/bloch-wigner-positivity lemma. Its existing minimum-principle proof input
+is recorded as an inherited gap in the packet; the derivative equalities
+themselves do not require positivity. -/
+example : DifferentiableAt ℝ (singleValuedPolylog 3) I ∧
+    fderiv ℝ (singleValuedPolylog 3) I (-1) = -blochWigner I ∧
+      fderiv ℝ (singleValuedPolylog 3) I (-1) < 0 ∧
+        fderiv ℝ (singleValuedPolylog 3) I I = 0 := by
+  sorry
+
+end TauCeti.Polylog
+
+end P6FollowUp

@@ -1143,7 +1143,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.1, proof of Lemma 2.1, p. 9",
-          "excerpt": "Then V̄ = V ⊗F F̄ is a E ⊗F F̄ ≃ F̄ Σ -module, and splitting by idempotents of E ⊗F F̄ we get a decomposition",
           "match": "The splitting used in the proof of Lemma 2.1; the node isolates it as a lemma."
         }
       ],
@@ -1187,7 +1186,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.1, Lemma 2.1, p. 9",
-          "excerpt": "Define the centralizer Z(φ) of φ in the ring of E-linear endomorphisms of V via Z(φ) = {f : V → V an E-linear map, f φ = φf }; it is an F -vector space.",
           "match": "Definition of Z(φ) and its F-structure."
         }
       ],
@@ -1348,13 +1346,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.1, Lemma 2.1 and proof, p. 9",
-          "excerpt": "it is an F -vector space. Then dimF Z(φ) = dimE Z(φe ), where φe : V → V is now E-linear. In particular, dimF Z(φ) ⩽ (dimE V )2 .",
           "match": "Statement of Lemma 2.1."
         },
         {
           "sourceId": "lv2020",
           "locator": "§2.1, proof of Lemma 2.1, p. 9",
-          "excerpt": "projection to the τ0 factor induces an isomorphism e Z(φ) ≃ centralizer of φ on V̄ τ0 .",
           "match": "The key step, reproduced as proof steps 4–5."
         }
       ],
@@ -1399,7 +1395,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.2, p. 31",
-          "excerpt": "Apply Lemma 2.1 to the field extension K(y00 )w /Kv to see that this Frobenius central- izer has Kv -dimension at most (dimK(y00 )w0 Vy00 ,w0 )2 = 4d2 .",
           "match": "The application of Lemma 2.1 to an unramified extension of K_v."
         }
       ],
@@ -1441,7 +1436,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.6, p. 14",
-          "excerpt": "Aff(q) ∼= (Fq )+ o (Fq )∗ ; this group has important applications in the theory of qualifying examinations.",
           "match": "Definition of Aff(q) as a permutation group and its semidirect-product structure."
         }
       ],
@@ -1633,7 +1627,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 42",
-          "excerpt": "If e maps to an element of Aff(q) that is not in F+ q , i.e. has nontrivial image a ∈ F∗q , then (d1 , . . . , dk ) = (1, ordq (a), ordq (a), . . . , ordq (a)). - If e maps to a nonzero element of F+ q then (d1 , . . . , dk ) = (q).",
           "match": "The list of cycle structures used in §8.3."
         }
       ],
@@ -1673,13 +1666,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2, footnote 5, p. 39",
-          "excerpt": "A priori, the map is defined up to conjugation by the normalizer of Aff(q) in Sym(F ). This normalizer is q equal to Aff(q).",
           "match": "Part (b)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2.1, p. 40",
-          "excerpt": "Aff(q) has trivial centralizer in Sym(Fq ), such elements lift uniquely to mapping classes on Z,",
           "match": "Part (a); centre-freeness is the hypothesis of Proposition 7.1."
         }
       ],
@@ -1722,13 +1713,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.6, Lemma 2.11, p. 14",
-          "excerpt": "consists precisely of those (2s)- tuples in F∗q whose entries generate F∗q . The fiber above any point in the image has the same size.",
           "match": "Statement of Lemma 2.11."
         },
         {
           "sourceId": "lv2020",
           "locator": "§2.6, proof of Lemma 2.11, p. 14",
-          "excerpt": "The fiber of Aff(q)2s above y is (in obvious coordinates) an affine space over Fq , and the map f is a nontrivial affine-linear map; each fiber thus has size q 2s−1 (q − 1).",
           "match": "Proof step 2."
         }
       ],
@@ -1771,7 +1760,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 28",
-          "excerpt": "The number of generating (2g)-tuples in Z/N equals #(Z/N )∗ × P2g−1 (Z/N ), which equals N 2g ·",
           "match": "The count and the lower bound ≥ N^{2g}/2 used in Theorem 5.4."
         }
       ],
@@ -1815,7 +1803,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 28",
-          "excerpt": "Now if A is a finite abelian group endowed with a nondegenerate pairing √ A×A → Q/Z then any subgroup B ⊂ A such that hB, Bi = 0 has order at most A.",
           "match": "The statement; LV apply it to the image of 2M with an alternating pairing."
         }
       ],
@@ -1858,7 +1845,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 32",
-          "excerpt": "because it preserves (up to similitude) a bilinear form, we have dim Wy0 ⩽ 12 dim ρy0 , thus (6.8).",
           "match": "The inequality (6.8) in the proof of the Sublemma."
         }
       ],
@@ -1899,7 +1885,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, (2.4), p. 15",
-          "excerpt": "Any unipotent element of Sp(V ) whose fixed space has codimension 1 is of the form (2.4) Tvr : x 7→ x + rhv, xiv for some v ∈ V, r ∈ K. We call Tvr a transvection with center v, and write Tv for Tv1 .",
           "match": "Definition of T_v^r and the characterization recorded as an API item."
         }
       ],
@@ -2067,7 +2052,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, proof of Lemma 2.13, p. 15",
-          "excerpt": "The statement then amounts to the fact that SL(2) is generated, as an algebraic group, by upper and lower triangular matrices.",
           "match": "The algebraic-group generation uses the full unipotent subgroups, which this lemma extracts from the integer powers."
         }
       ],
@@ -2113,7 +2097,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, Lemma 2.13, p. 15",
-          "excerpt": "The Zariski closure of the subgroup generated by Tv1 , Tv2 also contains Tv for every v ∈ Span(v1 , v2 ).",
           "match": "Statement (LV work over ℚ; the proof is valid over any field of characteristic zero)."
         }
       ],
@@ -2159,7 +2142,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, Lemma 2.14, p. 15",
-          "excerpt": "Make a graph whose set of vertices are S, having an edge between v1 and v2 if and only if hv1 , v2 i 6= 0. If this graph is connected, then the Zariski closure of the group generated by the transvections Tv , for v ∈ S, contains Tw for any w in the span of S.",
           "match": "Statement; the proof is the induction reproduced above."
         }
       ],
@@ -2203,7 +2185,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, before Lemma 2.12, p. 14",
-          "excerpt": "The following statement is an algebraic version of Goursat’s lemma (cf. [33, Lemma 5.2.1]). One uses the fact that the Lie algebra spV of Sp(V ) is simple, and that all the automorphisms of spV are inner.",
           "match": "LV cite Ribet's Lemma 5.2.1 for the Lie-algebra Goursat lemma used in Lemma 2.12."
         }
       ],
@@ -2255,7 +2236,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, Lemma 2.12, p. 14–15",
-          "excerpt": "For 1 ⩽ i, j ⩽ N , there exists g ∈ G such that πi (g) and πj (g) are unipotent with fixed spaces of different dimensions.",
           "match": "The unipotent hypothesis whose role is made explicit in proof step 5 (LV give no written proof)."
         }
       ],
@@ -2302,7 +2282,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, Lemma 2.12, p. 14–15",
-          "excerpt": "Suppose G is an algebraic subgroup of Sp(V )N , satisfying the following conditions. • For 1 ⩽ i ⩽ N , the projection πi : G → Sp(V ) onto the i-th factor is surjective.",
           "match": "Statement of Lemma 2.12 (continued by condition (ii) and the conclusion G = Sp(V)^N)."
         }
       ],
@@ -2335,7 +2314,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.1, proof of Lemma 2.1, p. 9",
-          "excerpt": "Then V̄ = V ⊗F F̄ is a E ⊗F F̄ ≃ F̄ Σ -module, and splitting by idempotents of E ⊗F F̄ we get a decomposition",
           "match": "The splitting used in the proof of Lemma 2.1; the node isolates it as a lemma."
         }
       ],
@@ -2378,7 +2356,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, discussion and Lemma 2.12, p. 14",
-          "excerpt": "For 1 ⩽ i, j ⩽ N , there exists g ∈ G such that πi (g) and πj (g) are unipotent with fixed spaces of different dimensions.",
           "match": "Context for the symplectic Goursat application, not a source proof of this general Lie lemma. The elementary ideal/kernel argument is expanded in this node’s proofSteps."
         }
       ],
@@ -2423,7 +2400,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.7, discussion and Lemma 2.12, p. 14",
-          "excerpt": "The following statement is an algebraic version of Goursat’s lemma (cf. [33, Lemma 5.2.1]). One uses the fact that the Lie algebra spV of Sp(V ) is simple, and that all the automorphisms of spV are inner.",
           "match": "Context for the symplectic Goursat application, not a source proof of this general Lie lemma. The elementary ideal/kernel argument is expanded in this node’s proofSteps."
         }
       ],
@@ -2481,7 +2457,6 @@
         {
           "sourceId": "deligne-bourbaki-616",
           "locator": "§3, proof of Théorème 3.1, p. 17 (numdam file)",
-          "excerpt": "représentation l-adique semi-simple de d, p : Gal(k/k) GL(d,Qn) , ~ non ramifiée en dehors de S, uniquement déterminée (à isomorphisme de repré- sentations près)",
           "match": "Deligne's argument ends by concluding from equality of characters that the semisimple representations are isomorphic; this node is that step."
         }
       ],
@@ -2522,7 +2497,6 @@
         {
           "sourceId": "faltings-1983",
           "locator": "§5, proof of Satz 5, p. 362",
-          "excerpt": "Nach den Weil-Vermutungen gibt es f'tir v~S nur endlich viele M~glichkeiten ffir den lokalen L-Faktor Lv(A,s ).",
           "match": "Faltings uses exactly this finiteness (via the Weil conjectures) for the local L-factors."
         }
       ],
@@ -2573,19 +2547,16 @@
         {
           "sourceId": "deligne-bourbaki-616",
           "locator": "§3, proof of Théorème 3.1, pp. 17–18 (numdam file)",
-          "excerpt": "Par Nakayama, pothèse, chaque élément de cette image est un (Pi > les (pi (v T) engendrent ZZl-linéairement E x M .",
           "match": "Deligne's Nakayama step (OCR of the numdam scan): the Frobenius images generate M linearly."
         },
         {
           "sourceId": "faltings-1983",
           "locator": "§5, proof of Satz 5, pp. 362–363",
-          "excerpt": "Dann ist M freier Z r M o d u l vom Rang < 8 g2, und M besitzt Darstellungen auf T~(A0 und T1(A2).",
           "match": "Faltings's version of the same argument (for Tate modules), with the rank bound on M."
         },
         {
           "sourceId": "lv2020",
           "locator": "§2.3, proof of Lemma 2.3, p. 10",
-          "excerpt": "This is a consequence of Hermite–Minkowski finiteness; see the proof of [15, Satz 5], or [46, V, Proposition 2.7].",
           "match": "LV cite this argument for Lemma 2.3."
         }
       ],
@@ -2632,7 +2603,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.3, Lemma 2.3, p. 9",
-          "excerpt": "(Faltings) Fix integers w, d ⩾ 0, and fix K and S as above. There are, up to conjugation, only finitely many semisimple Galois representations ρ : GK → GLd (Qp ) such that (a) ρ is unramified outside S, and (b) ρ is pure of weight w,",
           "match": "Statement of Lemma 2.3 (continued by the integrality condition (c))."
         }
       ],
@@ -2677,13 +2647,11 @@
         {
           "sourceId": "milne-cm",
           "locator": "Chapter I, Proposition 1.4 and Remark 1.6, p. 10",
-          "excerpt": "Note that a number field E is CM if and only if it has exactly one complex conjugation (by (b)).",
           "match": "Proposition 1.4 (b): a CM field is characterized by a single automorphism realizing complex conjugation under every embedding."
         },
         {
           "sourceId": "milne-cm",
           "locator": "Chapter I, Remark 1.6, p. 10",
-          "excerpt": "i.e., it is the subfield corresponding to the closure of the group generated by",
           "match": "The fixed-field description used in the converse direction."
         }
       ],
@@ -2730,13 +2698,11 @@
         {
           "sourceId": "milne-cm",
           "locator": "Chapter I, Remark 1.7, pp. 10–11",
-          "excerpt": "Since a composite of totally real fields is totally real, K contains a largest totally real subfield F .",
           "match": "Existence of the largest totally real subfield; the remark continues with the largest CM subfield K ∩ ℚ^cm."
         },
         {
           "sourceId": "milne-cm",
           "locator": "Chapter I, Corollary 1.5, p. 10",
-          "excerpt": "A finite composite of CM-subfields of a field is CM; in particular, the Galois closure of a CM-field in any larger field is CM.",
           "match": "Why a largest CM subfield exists."
         }
       ],
@@ -2894,19 +2860,16 @@
         {
           "sourceId": "milne-cm",
           "locator": "Chapter I, Infinity types, proof of Proposition 4.9, pp. 37–38",
-          "excerpt": "agree on K 0 if and only if they differ by such a commutator.24",
           "match": "The factorization step (a) ⇒ (b)(i) of Proposition 4.9."
         },
         {
           "sourceId": "milne-cm",
           "locator": "Chapter I, Infinity types, proof of Proposition 4.9, p. 38",
-          "excerpt": "doesn't contain a CM-field, and let K 0 be the largest totally real subfield.",
           "match": "The case without CM subfield."
         },
         {
           "sourceId": "lv2020",
           "locator": "§2.4, before the proof of Lemma 2.8, p. 12",
-          "excerpt": "The key point is due to Artin and Weil: an algebraic Hecke character factors through the norm map to the maximal CM subfield.",
           "match": "LV's statement of the input."
         }
       ],
@@ -2948,7 +2911,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.4, Definition 2.7, p. 12",
-          "excerpt": "(Friendly places). Let K be a number field. • If K has a CM subfield, then let E be its maximal CM subfield and E + the maximal totally real subfield of E. In this case, we say that a place v of K is friendly if it is unramified over Q, and it lies above a place of E + that is inert in E.",
           "match": "The definition, continued by the no-CM case."
         }
       ],
@@ -3104,7 +3066,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.4, proof of Lemma 2.8, pp. 12–13",
-          "excerpt": "In particular, by definition, v lies above an inert prime of E/E + .",
           "match": "The use of friendliness in LV's proof; the node gives a direct group-theoretic argument replacing the Serre-torus computation."
         }
       ],
@@ -3149,19 +3110,16 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "Example 6.3.1 and Proposition 6.3.2, p. 76",
-          "excerpt": "For n ∈ Z, DdR (Qp (n)) is 1-dimensional with its unique filtration jump in degree −n (i.e., gr−n is nonzero). Proposition 6.3.2. If V is de Rham then V is Hodge–Tate and gr(DdR (V )) = DHT (V ) as graded K-vector spaces.",
           "match": "Proof steps 1–2."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Theorem 2.2.7, p. 15",
-          "excerpt": "if η : GK → OK is a continuous character such that η(GK ) is a commu- tative p-adic Lie group of dimension at most 1 (i.e., η(GK ) is finite or contains Zp as an open subgroup) and if CK (η) denotes CK with the twisted GK -action",
           "match": "Proof step 3 (Tate–Sen)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§2.4, p. 12",
-          "excerpt": "This condition is implied by being Hodge–Tate at primes above p, by a theorem of Tate [40, Chapter III, Appendix].",
           "match": "LV's appeal to local algebraicity."
         }
       ],
@@ -3213,7 +3171,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.4, proof of Lemma 2.8, p. 12",
-          "excerpt": "Because of the purity assertion, if λ ∈ K ∗ is a unit at all ramified primes for η, then η(λ) is an algebraic number all of whose conjugates have absolute value NK/Q (λ)w/2 .",
           "match": "The reciprocity-and-purity step, reproduced in proof steps 3–4."
         }
       ],
@@ -3257,13 +3214,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.4, Lemma 2.8, p. 12",
-          "excerpt": "Let v be any friendly place of K, lying above the prime p of Q. For any continuous character η : Gal(K̄/K) −→ Q∗p , ramified at only finitely many places, pure of weight w, and locally algebraic at each prime above p, one has",
           "match": "Statement of Lemma 2.8 (continued: η²|_{K_v^*} = χ · Norm^w, w even, Hodge–Tate weight w/2)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§2.4, after Lemma 2.8, p. 12",
-          "excerpt": "Note that if the coefficients are enlarged from Q∗p to Q∗p2 , the statement above is no longer true; an example is given by the idele class character associated to a CM elliptic curve.",
           "match": "Why the ℚ_p-coefficient hypothesis matters (place-constancy of m)."
         }
       ],
@@ -3301,13 +3256,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.5, (2.2), p. 13",
-          "excerpt": "For a decreasing filtration F • V on a vector space V (with F 0 V = V ) we define the weight of the filtration to be",
           "match": "Definition (2.2)."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Definition 8.1.1, p. 102",
-          "excerpt": "The y-coordinate of the rightmost endpoint of PH (D) is the Hodge number X tH (D) = i · dimF gri (D).",
           "match": "The Hodge number t_H used in the definition."
         }
       ],
@@ -3445,7 +3398,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.5, Lemma 2.9 and proof, p. 13",
-          "excerpt": "Then the weight of the Hodge filtration on VdR equals w/2. Proof. Apply Lemma 2.8 to det(V ).",
           "match": "Statement and proof of Lemma 2.9 (LV state it with D_cris; the de Rham version is equivalent for crystalline V)."
         }
       ],
@@ -3487,7 +3439,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.5, proof of Lemma 2.10, p. 14",
-          "excerpt": "We apply Lemma 2.9 to IndG GL ρ and to the place v.",
           "match": "LV's proof applies p-adic Hodge theory to the induced representation and splits it over the places u | v."
         }
       ],
@@ -3532,7 +3483,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§2.5, Lemma 2.10, p. 13–14",
-          "excerpt": "Let K be a number field, and L ⊃ K a finite extension. Let ρ : GL → GLn (Qp ) be a representation of GL that is crystalline at all primes above p, and pure of",
           "match": "Statement of Lemma 2.10 (continued on p. 14 with the displayed identity)."
         }
       ],
@@ -3576,13 +3526,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Proposition 5.3, p. 29–30",
-          "excerpt": "the fiber Xy0 of X → Y 0 above y 0 is a d-dimensional abelian variety over the field K(y 0 );",
           "match": "The representations to which Lemmas 2.3 and 2.10 are applied in §6."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 32",
-          "excerpt": "because it preserves (up to similitude) a bilinear form, we have dim Wy0 ⩽ 12 dim ρy0 , thus (6.8).",
           "match": "Part (d) is the form used in (6.8)."
         }
       ],
@@ -3628,7 +3576,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, Definition 5.1, p. 25",
-          "excerpt": "An abelian-by-finite family over Y is a sequence of morphisms π X −→ Y 0 −→ Y where π is finite étale, and X → Y 0 is (equipped with the structure of) a polarized abelian scheme.",
           "match": "The definition."
         }
       ],
@@ -3789,13 +3736,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, Definition 5.1, p. 25",
-          "excerpt": "A good model for such a family, over an S-integer ring O ⊂ K, is a family X → Y 0 → Y of smooth, proper O-schemes, satisfying the same conditions and also the assumptions at the start of §3.1, and recovering X → Y 0 → Y on base change to K.",
           "match": "The definition."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.1, p. 15",
-          "excerpt": "Suppose that this admits a good model over O, i.e. it extends to a proper smooth mor- phism π : X → Y of smooth O-schemes.",
           "match": "The assumptions of §3.1 referred to by Definition 5.1."
         }
       ],
@@ -3946,7 +3891,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.1, p. 15",
-          "excerpt": "There is no harm in these as- sumptions, because the sheaves in question are coherent OY -modules which are free over the generic point of O [11, Theorem 5.5]; so the assumptions can always be achieved by possibly enlarging the set S of primes.",
           "match": "Why the conditions can be arranged after enlarging S."
         }
       ],
@@ -3991,13 +3935,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Proposition 5.3, p. 29",
-          "excerpt": "Moreover, the polarization on X induces an Ey -bilinear symplectic pairing 1 1 HdR (Xy /K) × HdR (Xy /K) −→ Ey .",
           "match": "The E_y-structure and the symplectic pairing on the fibres."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.3, proof of Lemma 4.2, p. 22",
-          "excerpt": "by compatibility of Gauss–Manin connection with the cup product, is compatible with their module structures over the corresponding H 0 s.",
           "match": "The ℰ-linearity of the Gauss–Manin connection."
         }
       ],
@@ -4167,7 +4109,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, pp. 16–17",
-          "excerpt": "we may do this so that (z1 , . . . , zm ) generate the kernel of the morphism OY,y0 → O(v)",
           "match": "Choice of parameters; LV continue: the completed local ring is O_v[[z_1, …, z_m]]."
         }
       ],
@@ -4322,7 +4263,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, (3.6) and the following paragraph, pp. 16–17",
-          "excerpt": "We may write down a formal solution to (3.6), where the fi are given by formal power series in K[[z1 , . . . , zm ]].",
           "match": "The formal solution; the integrality estimate is the 'direct computation' LV refer to."
         }
       ],
@@ -4366,7 +4306,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, p. 17",
-          "excerpt": "By assumption, we have p > 2, and v is unramified above p.",
           "match": "The hypotheses used for convergence on the residue disk; LV state convergence for |z_i|_v < |p|_v^{1/(p−1)} just before."
         }
       ],
@@ -4408,7 +4347,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, p. 17",
-          "excerpt": "We may write down a formal solution to (3.6), where the fi are given by formal power series in K[[z1 , . . . , zm ]].",
           "match": "LV assert ι-adic absolute convergence for small |z_i|_ℂ; the node supplies Cauchy's majorant argument."
         }
       ],
@@ -4454,13 +4392,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, (3.7), p. 17",
-          "excerpt": "By assumption, we have p > 2, and v is unramified above p. Thus we obtain an identification q q ∼ (3.7) GM : HdR (Xy0 /Kv ) → HdR (Xy /Kv ) whenever y ∈ Y(Ov ) satisfies y ≡ y0 modulo v,",
           "match": "The transport (3.7)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, (6.3)–(6.6), p. 30",
-          "excerpt": "is compatible with the Gauss-Manin isomorphism 1 GM 1 (6.5) HdR (Xy /Kv ) −→ HdR (Xy0 /Kv ).",
           "match": "Compatibility with the ℰ-structure used in §6."
         }
       ],
@@ -4642,13 +4578,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, (3.8), p. 17",
-          "excerpt": "q q ∼ (3.8) GM : HdR (Xy0 ,C /C) → HdR (Xy,C /C), when y ∈ YC (C) is sufficiently close to y0 .",
           "match": "The complex transport."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.2, p. 16",
-          "excerpt": "In particular, monodromy defines a representation µ : π1 (YC (C), y0 ) −→ GL(VC ),",
           "match": "The Betti local system and its monodromy."
         }
       ],
@@ -4802,19 +4736,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, (3.9), p. 17",
-          "excerpt": "the diag- onal arrows are the canonical identification [6, Corollary 7.4] of crystalline cohomology with the de Rham cohomology of a lift, and the commutativity of the diagram can be deduced from the results of [5, Chapter V] (see Proposition 3.6.4 and prior discussion).",
           "match": "Diagram (3.9) and its sources."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.3, p. 17",
-          "excerpt": "which is semilinear with respect to the Frobenius on the unramified extension Kv /Qp .",
           "match": "The semilinearity of φ_v."
         },
         {
           "sourceId": "berthelot-ogus",
           "locator": "§7, Corollary 7.4, p. 7.4",
-          "excerpt": "Suppose X/S is smooth, is defined by a sub PD ideal of I, and Then there is a natural quasi-isomorphism:",
           "match": "The comparison of crystalline cohomology with the de Rham cohomology of a lift (formula lost in the text extraction)."
         }
       ],
@@ -4975,7 +4906,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
           "match": "LV use Lagrangian Grassmannians and standard symplectic bases (proof of Lemma 6.4) without proof; the node supplies the linear algebra."
         }
       ],
@@ -5023,7 +4953,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
           "match": "LV use Lagrangian Grassmannians and standard symplectic bases (proof of Lemma 6.4) without proof; the node supplies the linear algebra."
         }
       ],
@@ -5068,7 +4997,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
           "match": "LV use Lagrangian Grassmannians and standard symplectic bases (proof of Lemma 6.4) without proof; the node supplies the linear algebra."
         }
       ],
@@ -5113,7 +5041,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
           "match": "LV use Lagrangian Grassmannians and standard symplectic bases (proof of Lemma 6.4) without proof; the node supplies the linear algebra."
         }
       ],
@@ -5158,7 +5085,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
           "match": "LV use Lagrangian Grassmannians and standard symplectic bases (proof of Lemma 6.4) without proof; the node supplies the linear algebra."
         }
       ],
@@ -5211,13 +5137,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "write LGr(V, ω) for the Grassmannian of Lagrangian subspaces.",
           "match": "The object."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.4, p. 33",
-          "excerpt": "Consider the product Gr(V ) × LGr(V, ω)r parametrizing tuples (W, F1 , F2 , . . . , Fr ) such that each Fi is Lagrangian.",
           "match": "LV use LGr as a closed subvariety of a Grassmannian."
         }
       ],
@@ -5398,7 +5322,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.2, p. 31",
-          "excerpt": "Since dimKv Hy00 ,w0 = [K(y 0 )w : Kv ] · d(d+1) 2 ⩾ 4d(d + 1) > 4d2 , Lemma 3.3 completes the proof of Lemma 6.2.",
           "match": "The dimension d(d+1)/2 per factor, used by LV."
         }
       ],
@@ -5450,13 +5373,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Proposition 5.3, p. 29",
-          "excerpt": "Here ResK0,v v denotes Weil restriction of scalars, Gr(Vv , g) classifies free Ev -submodules of rank g inside Vv , and LGr classifies free rank-g submodules on which the symplectic pairing is trivial.",
           "match": "LV define H_v as a Weil restriction; the node defines the same variety as a closed subscheme of a Grassmannian of k-subspaces, which avoids Weil restriction."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Proposition 5.3, p. 29",
-          "excerpt": "each of these Lagrangian subspaces are actually E0,v -stable, so that the period mapping actually takes values inside Hv .",
           "match": "The E-stable Lagrangians of the trace form."
         }
       ],
@@ -5649,13 +5570,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, p. 30",
-          "excerpt": "Also, (6.2) induces the splitting of the variety Hv as a product",
           "match": "The product decomposition of H_v."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.3, p. 23",
-          "excerpt": "The pertinent flag variety H ≃ Gr(V, m) is the variety of m-dimensional subspaces in V ; the splitting (4.7) induces a",
           "match": "The d = 1 case over ℂ used for the S-unit theorem."
         }
       ],
@@ -5709,13 +5628,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.2, (3.5), p. 16",
-          "excerpt": "In particular, monodromy defines a representation µ : π1 (YC (C), y0 ) −→ GL(VC ),",
           "match": "The monodromy representation and its Zariski closure Γ."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, (5.1), p. 25",
-          "excerpt": "We say that the family has full monodromy if the Zariski closure of π1 (Y, y0 ), in its action on the right-hand side, contains the product of symplectic groups:",
           "match": "Definition of full monodromy."
         }
       ],
@@ -5895,13 +5812,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, p. 18",
-          "excerpt": "This gives rise to a Kv -analytic function Φv : Ωv −→ H(Kv ), where Ωv = {y ∈ Y(Ov ) : y ≡ y0 modulo v}.",
           "match": "The p-adic period map."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Proposition 5.3, p. 29",
-          "excerpt": "each of these Lagrangian subspaces are actually E0,v -stable, so that the period mapping actually takes values inside Hv .",
           "match": "The period map lands in the period variety of E₀-stable Lagrangians."
         }
       ],
@@ -6050,7 +5965,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, p. 18",
-          "excerpt": "Indeed, ΦC extends to a map from the universal cover of YCan to HC (C) and this map is equivariant for the monodromy action of π1 (YCan , y0 ) on HC (C).",
           "match": "The continuation and its equivariance."
         }
       ],
@@ -6214,13 +6128,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.3, p. 16",
-          "excerpt": "However, as we now discuss, both identifications can be described as the evaluation of a single power series with K coefficients, which is convergent both for the Kv and C topology.",
           "match": "The common power series."
         },
         {
           "sourceId": "lv2020",
           "locator": "§1.2, p. 3",
-          "excerpt": "the intersection points between the image of (1.3) and a Z(φ)-orbit amount to zeroes of a nonvanishing Kv -analytic function in a residue disc, and are therefore finite.",
           "match": "How the series are used."
         }
       ],
@@ -6268,13 +6180,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, Lemma 3.1, p. 18",
-          "excerpt": "Suppose given a family X → Y , and take notation as above; in particular, Γ is the Zariski closure of monodromy, and hι0 = ΦC (y0 ). Then we have the containment",
           "match": "Statement of Lemma 3.1."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.4, proof of Lemma 3.1, p. 18",
-          "excerpt": "The preimage Φ−1C Z of any algebraic subvariety Z ⊂ HC , with Z ⊃ ΦC (ΩC ), is",
           "match": "The proof, reproduced in the proof steps."
         }
       ],
@@ -6321,7 +6231,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, proof of Lemma 3.2, p. 19",
-          "excerpt": "But if Qv vanishes on B v (Uv ) then Qv (B0 , . . . , BN ) ≡ 0 in Kv [[z1 , . . . , zm ]].",
           "match": "The step of LV's proof that this node justifies."
         }
       ],
@@ -6367,19 +6276,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, Lemma 3.2, p. 18",
-          "excerpt": "Suppose given power series B0 , . . . , BN ∈ K[[z1 , . . . , zm ]] such that all Bi are absolutely convergent, with no common zero, both in the v-adic and complex disks",
           "match": "Statement of Lemma 3.2 (LV use one radius for both disks; the proof does not need that)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.4, proof of Lemma 3.2, p. 19",
-          "excerpt": "We take I the ideal of Z to be that generated by all homogeneous polynomials Q ∈ K[x0 , . . . , xN ] such that Q(B0 , . . . , BN ) is identically zero.",
           "match": "The ideal."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.4, proof of Lemma 3.2, p. 19",
-          "excerpt": "Any Kv -solution of such a linear system is, of course, a Kv -linear combination of K-solutions.",
           "match": "The base-change step."
         }
       ],
@@ -6425,13 +6331,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, Lemma 3.3, p. 19",
-          "excerpt": "The dimension of the Zariski closure (in the Kv -variety HKv ) of Φv (Ωv ) is at least the (complex) dimension of Γ · hι0 .",
           "match": "Statement of Lemma 3.3."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Proposition 5.3, p. 29",
-          "excerpt": "Lemma 3.3, and the assumption of full monodromy, imply that Φv (Ωv ) is Zariski- dense in Hv .",
           "match": "The density statement used in §6."
         }
       ],
@@ -6473,13 +6377,11 @@
         {
           "sourceId": "conrad-strassmann",
           "locator": "Theorem 4.1 and proof, PDF pp. 6–8",
-          "excerpt": "an 's are not all zero then the number of solutions to f (x) = 0 in Zp is at most N (f ).",
           "match": "Strassmann's theorem over ℚ_p; the proof applies verbatim over any complete nonarchimedean field."
         },
         {
           "sourceId": "conrad-strassmann",
           "locator": "Theorem 4.1 and proof, PDF pp. 6–8",
-          "excerpt": "The largest index for a coefficient of maximal absolute value is denoted N (f ).",
           "match": "Definition of N(f)."
         }
       ],
@@ -6532,13 +6434,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.4, after Lemma 3.3, p. 19",
-          "excerpt": "is contained in a proper Kv -analytic subset of Ωv , by which we mean a subset cut out by v-adic power series converging absolutely on Ωv .",
           "match": "LV's analytic-subset formulation; for curves the node makes finiteness explicit."
         },
         {
           "sourceId": "lv2020",
           "locator": "§1.2, p. 3",
-          "excerpt": "the intersection points between the image of (1.3) and a Z(φ)-orbit amount to zeroes of a nonvanishing Kv -analytic function in a residue disc, and are therefore finite.",
           "match": "The finiteness mechanism."
         }
       ],
@@ -6590,19 +6490,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.5, p. 19",
-          "excerpt": "For each y ∈ U the representation ρy (see (3.2)) is crystalline upon restriction to Kv , because of the existence of the model Xy for Xy .",
           "match": "Crystallinity of the fibre representations."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.5, p. 19",
-          "excerpt": "By the crystalline comparison theorem of Faltings [16], the embedding (3.12) carries",
           "match": "LV continue: ρ_y is carried to the triple (H^q_dR(X_y/K_v), φ_v, Hodge filtration)."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "§9.1, Proposition 9.1.9, p. 133",
-          "excerpt": "If V ∈ Repcris Qp (GK ) then the natural map jV : K ⊗K0 Dcris (V ) → DdR (V ) in FilK is an isomorphism. In particular, crystalline representations are de Rham.",
           "match": "The filtration on D_cris over an unramified field is that of D_dR."
         }
       ],
@@ -6650,19 +6547,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, (6.7), p. 30",
-          "excerpt": "where we identify F 1 HdR1 (Xy0 ,w ) with a Lagrangian in the K(y00 )w0 -vector space Vy00 ,w0 using the Gauss–Manin connection (6.6).",
           "match": "The projection formula (6.7)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.2, p. 31",
-          "excerpt": "Under the correspondence of p-adic Hodge theory, ρy0 ,w corresponds to the K(y 0 )w -vector space HdR1 (Xy0 /K(y 0 )w ), together with its natural semilinear Frobe- nius operator φ,",
           "match": "The fibre filtered φ-module used in Lemma 6.2."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.5, p. 19",
-          "excerpt": "where the objects of FL are triples (W, φ, F ) of a Kv -vector space W , a Frobenius- semilinear automorphism φ : W → W , and a descending filtration F of W .",
           "match": "The category of filtered φ-modules."
         }
       ],
@@ -6708,19 +6602,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.5, proof of Proposition 3.4, pp. 19–20",
-          "excerpt": "Now certainly Z(φv ) ⊂ Z(φv v p ), and the right-hand side is now the Kv -points of a Kv -algebraic subgroup of GLKv (Vv ).",
           "match": "The passage from Z(φ) to the algebraic group of units of Z(φ^{f_v})."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.2, p. 31",
-          "excerpt": "Belonging to a fixed isomorphism class means that the projection of Φv (y) to Hy00 ,w0 lies inside a single orbit for the action of the Frobenius centralizer Z(φv ) on Gy00 ,w0 ,",
           "match": "The orbit statement (a)."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "§7.3, Definition 7.3.4, p. 98",
-          "excerpt": "A morphism D ′ → D between two filtered φ-modules is a K0 -linear map D ′ → D that is compatible with both φD′ : D ′ → D ′ and φD : D → D",
           "match": "Morphisms of filtered φ-modules."
         }
       ],
@@ -6771,19 +6662,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.5, proof of Proposition 3.4, p. 20",
-          "excerpt": "By our previous discussion the triple (Vv , φv , Φv (y)) also belongs to a finite set of isomorphism classes (now in the category FL).",
           "match": "From finitely many Galois representations to finitely many filtered φ-modules."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.2, p. 31",
-          "excerpt": "Belonging to a fixed isomorphism class means that the projection of Φv (y) to Hy00 ,w0 lies inside a single orbit for the action of the Frobenius centralizer Z(φv ) on Gy00 ,w0 ,",
           "match": "The factorwise version used in §6."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.2, p. 31",
-          "excerpt": "Since dimKv Hy00 ,w0 = [K(y 0 )w : Kv ] · d(d+1) 2 ⩾ 4d(d + 1) > 4d2 , Lemma 3.3 completes the proof of Lemma 6.2.",
           "match": "The dimension count."
         }
       ],
@@ -6832,19 +6720,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§3.5, Proposition 3.4, pp. 19–20",
-          "excerpt": "is contained in a proper Kv -analytic subvariety of the residue disk of Y (Kv ) at y0 .",
           "match": "LV's conclusion; for a curve the proper analytic subvariety is finite."
         },
         {
           "sourceId": "lv2020",
           "locator": "§3.5, proof of Proposition 3.4, p. 20",
-          "excerpt": "For any y as in (3.14) the Galois representation ρy belongs to a finite set of iso- morphism classes (Lemma 2.3).",
           "match": "The use of Faltings's lemma."
         },
         {
           "sourceId": "lv2020",
           "locator": "§1.3, p. 4",
-          "excerpt": "Unfortunately (*) fails: for t ∈ Zp , if we write ρt for the representation of the Galois group GQp on the (rational) Tate module of Xt , then ρt belongs to only finitely many isomorphism classes so long as the reduction t̄ ∈ Fp is not equal to 0 or 1.",
           "match": "The Legendre acceptance example."
         }
       ],
@@ -6880,13 +6765,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.1, p. 39",
-          "excerpt": "by a “surface” we mean the complement of finitely many interior points inside a connected, orientable, compact two-dimensional manifold with boundary.",
           "match": "LV's convention, adopted verbatim."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§1.1, p. 18",
-          "excerpt": "Any closed, connected, orientable surface is homeomorphic to the connect sum of a 2–dimensional sphere with g ≥ 0 tori.",
           "match": "The genus used in the type."
         }
       ],
@@ -7038,13 +6921,11 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§1.1, Theorem 1.1, p. 18",
-          "excerpt": "Any closed, connected, orientable surface is homeomorphic to the connect sum of a 2–dimensional sphere with g ≥ 0 tori.",
           "match": "The statement; Farb–Margalit refer to the literature for the proof, which is outlined here."
         },
         {
           "sourceId": "gallier-xu",
           "locator": "Lemma 6.1 and Theorem 6.1, pp. 92–98; Appendix E, Theorem E.3, pp. 161–163",
-          "excerpt": "Every cell complex, K, is equivalent to some canonical cell complex.",
           "match": "A read proof source for canonical polygon reduction; Appendix E gives the topological triangulation route."
         }
       ],
@@ -7093,13 +6974,11 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§2.1, printed p. 46 (PDF p. 56)",
-          "excerpt": "The mapping class group of S, denoted Mod(S), is the group Mod(S) = π0(Homeo+(S, ∂S)).",
           "match": "Defines the boundary-fixing isotopy quotient; the following discussion distinguishes marked points and punctures."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§1.3.2, printed p. 40 (PDF p. 50)",
-          "excerpt": "It roughly states that any two collections of simple closed curves in S with the same intersection pattern can be taken to each other via an orientation-preserving homeomorphism of S.",
           "match": "Mapping classes act on configurations of curves."
         }
       ],
@@ -7271,7 +7150,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§1.3.2, printed p. 40 (PDF p. 50)",
-          "excerpt": "It roughly states that any two collections of simple closed curves in S with the same intersection pattern can be taken to each other via an orientation-preserving homeomorphism of S.",
           "match": "The principle; Farb–Margalit leave the verifications to the reader."
         }
       ],
@@ -7320,7 +7198,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§3.1.1, p. 68",
-          "excerpt": "perform the twist map T on the annulus N , and fix every point outside of N .",
           "match": "The definition of T_α."
         }
       ],
@@ -7491,7 +7368,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§6.3, Proposition 6.3, p. 176",
-          "excerpt": "Let a and b be isotopy classes of oriented simple closed curves in Sg . For any k ≥ 0, we have",
           "match": "Farb–Margalit continue: Ψ(T_b^k)([a]) = [a] + k·î(a, b)[b]; the proof is local, which gives the statement on any surface."
         }
       ],
@@ -7541,7 +7417,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§6.2, Proposition 6.2, p. 173",
-          "excerpt": "A nonzero element of H1 (Sg ; Z) is represented by an oriented simple closed curve if and only if it is primitive.",
           "match": "Statement for closed surfaces."
         }
       ],
@@ -7591,7 +7466,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, Theorem 4.6, p. 102",
-          "excerpt": "Let S be a surface with χ(S) < 0, possibly with punctures and/or boundary. Let S ∗ be the surface obtained from S by marking a point x in the interior of S. Then the following se- quence is exact:",
           "match": "The push map and its well-definedness, which Farb–Margalit identify as the content of the theorem."
         }
       ],
@@ -7733,19 +7607,16 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, Theorem 4.6, p. 102",
-          "excerpt": "Let S be a surface with χ(S) < 0, possibly with punctures and/or boundary. Let S ∗ be the surface obtained from S by marking a point x in the interior of S. Then the following se- quence is exact:",
           "match": "The Birman exact sequence."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, Fact 4.7, p. 103",
-          "excerpt": "where a and b are the isotopy classes of the simple closed curves in S ∗ = S − x obtained by pushing α off itself to the left and right, respectively.",
           "match": "Push of a simple loop."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, p. 104",
-          "excerpt": "The isotopy classes a and b are nonseparating in S ∗ if and only if α is nonseparating in S.",
           "match": "Nonseparation."
         }
       ],
@@ -7791,7 +7662,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§3.6.2, Proposition 3.19, p. 89",
-          "excerpt": "Let S ′ be the surface ob- tained from a surface S by capping the boundary component β with a once- marked disk; call the marked point in this disk p.",
           "match": "The capping homomorphism."
         }
       ],
@@ -7836,7 +7706,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§6.3, Theorem 6.4, p. 177",
-          "excerpt": "The representation Ψ : Mod(Sg ) → Sp(2g, Z) is surjective for g ≥ 1.",
           "match": "The theorem."
         }
       ],
@@ -7890,13 +7759,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 38",
-          "excerpt": "Now the long exact sequence for homotopy groups of a fibration gives rise to an exact sequence of topological fundamental groups; in the setting at hand this is short exact because the π2 of Y − {y0 } vanishes.",
           "match": "LV's statement; the vanishing needed for injectivity is that of π₂ of the base Y."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, p. 26",
-          "excerpt": "Note that we can identify π1geom with the profinite completion of a free group on 2g generators x1 , x01 , . . . , xg , x0g in such a way that the loop around y0 corresponds to the conjugacy class of [x1 , x01 ][x2 , x02 ] . . . [xg , x0g ].",
           "match": "The presentation of the punctured surface group."
         }
       ],
@@ -7949,7 +7816,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 42",
-          "excerpt": "The preimage of e under Z → Y is a disjoint union of circles e1 , . . . , ek , with the circles ei in natural bijection with the cycles in the permutation.",
           "match": "LV continue: D_e^{n_e} lifts to the product of the commuting twists D_{e_i}^{n_e/d_i}."
         }
       ],
@@ -8004,13 +7870,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2.3, p. 41",
-          "excerpt": "This identification is compatible with monodromy, and so Theorem 8.1 translates to definition (5.1) of full monodromy.",
           "match": "LV assert the compatibility of the topological monodromy with the lifted point-pushing action; the node supplies the argument."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, Theorem 4.6, p. 102",
-          "excerpt": "Let S be a surface with χ(S) < 0, possibly with punctures and/or boundary. Let S ∗ be the surface obtained from S by marking a point x in the interior of S. Then the following se- quence is exact:",
           "match": "Push maps."
         }
       ],
@@ -8052,7 +7916,6 @@
         {
           "sourceId": "farb-margalit",
           "locator": "§1.1, Theorem 1.1, p. 18",
-          "excerpt": "Any closed, connected, orientable surface is homeomorphic to the connect sum of a 2–dimensional sphere with g ≥ 0 tori.",
           "match": "The statement; Farb–Margalit refer to the literature for the proof, which is outlined here."
         }
       ],
@@ -8140,7 +8003,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 42",
-          "excerpt": "image of a smooth embedding",
           "match": "LV uses oriented smooth embedded circles. The topological isotopy quotient extends this convention using the proposed compatible smoothing and collar comparison; this comparison is an explicit owner gap."
         }
       ],
@@ -8309,19 +8171,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.1, p. 20",
-          "excerpt": "We may freely enlarge both S and K. Thus, we may suppose that S contains all primes above 2 and that K contains the 8th roots of unity.",
           "match": "Reduction (a)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.1, p. 20",
-          "excerpt": "because U ⊂ U1 ∪ U12 ∪ U14 ∪ · · · ∪ U1m .",
           "match": "Reduction (b)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.1, p. 20",
-          "excerpt": "and adjust t1 by a primitive mth root of unity to ensure that t1 is nonsquare.",
           "match": "The m-th power case."
         }
       ],
@@ -8371,13 +8230,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.1, pp. 20–21",
-          "excerpt": "Since t is a nonsquare and µm ⊂ K the order of t in the group (K ∗ )/(K ∗ )m is exactly m.",
           "match": "(a)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.1, p. 21",
-          "excerpt": "There are (Hermite–Minkowski) only finitely many possibilities for K(t1/m ).",
           "match": "(c)."
         }
       ],
@@ -8422,13 +8279,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.1, p. 21",
-          "excerpt": "Choose a prime v of K such that: (i) the class of Frobenius at v generates Gal(L/K); (ii) the prime p of Q below v is unramified in K. (iii) no prime of S lies above p.",
           "match": "The auxiliary place."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.1, p. 21",
-          "excerpt": "In particular, v is inert in L/K;",
           "match": "Inertness."
         }
       ],
@@ -8479,13 +8334,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.2, p. 21",
-          "excerpt": "let π : Y 0 → Y be the map u 7→ um .",
           "match": "The covering π."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.2, p. 21",
-          "excerpt": "Let X → Y 0 be the Legendre family, so that its fiber over t is the curve y 2 = x(x − 1)(x − t);",
           "match": "The family over Y'."
         }
       ],
@@ -8657,13 +8510,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.3, p. 24",
-          "excerpt": "where u ∈ SL(2) is a nontrivial unipotent element, as we see by considering the action of local monodromy near t = 1.",
           "match": "LV use the classical local monodromy of the Legendre family; the node derives it from point-pushing."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, Fact 4.7, p. 103",
-          "excerpt": "where a and b are the isotopy classes of the simple closed curves in S ∗ = S − x obtained by pushing α off itself to the left and right, respectively.",
           "match": "Push of a simple loop, used for γ₀ and γ₁."
         }
       ],
@@ -8707,7 +8558,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.3, p. 24",
-          "excerpt": "We now apply a slight variant of Lemma 2.12 to conclude that Γ ⊃ SL(2)m .",
           "match": "LV's appeal to a variant of the Goursat lemma; the node states the variant used."
         }
       ],
@@ -8756,19 +8606,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.3, Lemma 4.3, p. 21",
-          "excerpt": "Consider the family of curves over C − {0, 1} whose fiber over t ∈ C is the union of the elliptic curves Ez : y 2 = x(x − 1)(x − z), over all mth roots z m = t.",
           "match": "Statement of Lemma 4.3."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.3, p. 24",
-          "excerpt": "Γ transitively permutes the factors on the right-hand side of (4.3), by considering the action of local monodromy near t = 0;",
           "match": "Transitivity."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.3, p. 24",
-          "excerpt": "where u ∈ SL(2) is a nontrivial unipotent element, as we see by considering the action of local monodromy near t = 1.",
           "match": "The factorwise unipotent."
         }
       ],
@@ -8826,25 +8673,21 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.3, Lemma 4.4, p. 22",
-          "excerpt": "There are only finitely many z ∈ L such that z, 1 − z are both p-units, but for which the Galois representation of GL on the Tate module",
           "match": "Statement of Lemma 4.4."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.4, p. 24",
-          "excerpt": "By Lemma 2.10 (applied with K = Q) there is a place w of L above p such that F 1 (WzdR ) = WzdR ;",
           "match": "The purity step."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.4, p. 24",
-          "excerpt": "Because the Newton and Hodge polygons of WzdR have the same endpoint,",
           "match": "The slope step."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.4, proof of Lemma 4.4, p. 24",
-          "excerpt": "It follows there are at most finitely many z ∈ VL for which F 1 HdR 1 (Ez /Lw ) is the slope-1 Frobenius eigenline.",
           "match": "The conclusion; LV derive nonconstancy of the period map from Torelli, the node from full monodromy."
         }
       ],
@@ -8899,19 +8742,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§4.1, Lemma 4.2, p. 21",
-          "excerpt": "Suppose K contains the 8th roots of unity, and S contains all primes above 2. Fix a cyclic field extension L/K, a place v 6∈ S as above, and a basepoint t0 ∈ OS . Let U1,L be as above. Then the set",
           "match": "Statement of Lemma 4.2."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.3, proof of Lemma 4.2, p. 22",
-          "excerpt": "By Lemmas 4.4 and 2.3, it is enough to verify the finiteness of the subset of such t where the pair (K(t1/m ), ρt |GK(t1/m ) ) lies in a fixed isomorphism class;",
           "match": "Reduction to a fixed class of pairs."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4.3, proof of Lemma 4.2, p. 23",
-          "excerpt": "Now we can apply Lemma 2.1 to the field extension Kv (t0 )/Kv and the Kv -linear automorphism Frobv[Kv :Qp ] of HdR",
           "match": "The centralizer bound."
         }
       ],
@@ -8955,13 +8795,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§4, Theorem 4.1, p. 20",
-          "excerpt": "U = {t ∈ OS∗ : 1 − t ∈ OS∗ }",
           "match": "The set shown to be finite."
         },
         {
           "sourceId": "lv2020",
           "locator": "§4, p. 20",
-          "excerpt": "As a first application, and a warm-up to the more complicated case of curves of higher genus, we will show finiteness of the set of solutions to the S-unit equation.",
           "match": "LV's framing."
         }
       ],
@@ -9005,13 +8843,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, Definition 5.2, p. 25",
-          "excerpt": "number of elements of E that belong to Frobv -orbits of size < 8",
           "match": "The numerator of (5.2)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, (5.3), p. 25",
-          "excerpt": "Note that if E → E 0 is a morphism of GK -sets, and all fibers have the same cardinality, then",
           "match": "The monotonicity (5.3)."
         }
       ],
@@ -9158,13 +8994,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 32",
-          "excerpt": "Let e1 , . . . , ek be the cycle structure of Frobv acting on the K̄ points of π −1 (y).",
           "match": "LV identify the cycle structure with the local degrees [K(y')_w : K_v]."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, (6.1), p. 30",
-          "excerpt": "The base change Ey ⊗K Kv splits as a product of fields",
           "match": "The factors indexed by pairs (y', w)."
         }
       ],
@@ -9217,25 +9051,21 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.4, p. 33",
-          "excerpt": "If r ⩾ 8 then E is contained in a proper, Zariski-closed subset of LGr(V, ω)r .",
           "match": "Statement (with r ≥ 8)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.4, p. 33",
-          "excerpt": "In fact our argument will show that r ⩾ 5 is enough.",
           "match": "The bound r ≥ 5."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.4, p. 33",
-          "excerpt": "under a proper map, so it is itself closed.",
           "match": "Closedness."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.4, p. 34",
-          "excerpt": "thus we may choose F5 so that no W satisfies the dimension bound.",
           "match": "The last step, justified in the fifth proof step."
         }
       ],
@@ -9281,19 +9111,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.3, p. 33",
-          "excerpt": "Suppose Lw is a finite unramified extension of Kv of degree r ⩾ 8.",
           "match": "Hypothesis (r ≥ 8 in LV; the proof needs r ≥ 5)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.3, p. 33",
-          "excerpt": "If F ⊂ V is a Lagrangian Lw -subspace, corresponding to a point of A(Kv ), there is no φ-invariant Lw -subspace W of V satisfying (6.12).",
           "match": "Conclusion; W must be nonzero and proper, as in the Sublemma."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.3, p. 33",
-          "excerpt": "we do not use the “cyclic” isomorphism Vr ≃ V1",
           "match": "The identification of the factors."
         }
       ],
@@ -9345,19 +9172,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 31",
-          "excerpt": "Let us call y ∈ Y (K)∗ ∩ Ωv “bad” when, for every (y 0 , w) above (y, v) such that [K(y 0 )w : Kv ] ⩾ 8, the representation ρy0 fails to be simple.",
           "match": "Badness."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 32",
-          "excerpt": "because it preserves (up to similitude) a bilinear form, we have dim Wy0 ⩽ 12 dim ρy0 , thus (6.8).",
           "match": "(6.8)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 32",
-          "excerpt": "Let e1 , . . . , ek be the cycle structure of Frobv acting on the K̄ points of π −1 (y).",
           "match": "The counting."
         }
       ],
@@ -9406,13 +9230,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.1, p. 30",
-          "excerpt": "There is a finite subset F ⊂ Ωv ∩ Y (K)∗ such that, for y ∈ (Ωv ∩ Y (K)∗ ) − F , there exists (y 0 , w) above (y, v) such that:",
           "match": "Statement of Lemma 6.1."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, proof of Lemma 6.1, p. 32",
-          "excerpt": "Such a (y00 , w) exists because of the assumption that y0 ∈ Y (K)∗ .",
           "match": "The choice of a pair of degree ≥ 8."
         }
       ],
@@ -9456,13 +9278,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.2, p. 31",
-          "excerpt": "Fix a finite field extension Kv0 of Kv , with [Kv0 : Kv ] ⩾ 8, and a Galois representation ρ0 of the absolute Galois group of Kv0 .",
           "match": "Statement of Lemma 6.2."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, Lemma 6.2, p. 31",
-          "excerpt": "There are only finitely many y ∈ Ωv ∩ Y (K) for which there exist (y 0 , w) satisfying conditions (i) and (ii) of Lemma 6.1",
           "match": "The conclusion."
         }
       ],
@@ -9512,19 +9332,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, Proposition 5.3, p. 26",
-          "excerpt": "Suppose that X → Y 0 → Y admits a good model over the ring O of S-integers of K.",
           "match": "Hypotheses of Proposition 5.3."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, Proposition 5.3, p. 26",
-          "excerpt": "be a friendly place of K (Definition 2.7).",
           "match": "LV require v ∉ S friendly; the §3 set-up used in §6 also requires p > 2 and no place of S above p, stated explicitly here."
         },
         {
           "sourceId": "lv2020",
           "locator": "§6, p. 31",
-          "excerpt": "Observe that for y ∈ (Ωv ∩ Y (K)∗ ) − F , and y 0 above y, there are only finitely many possibilities for the isomorphism class of the field K(y 0 ).",
           "match": "The finiteness of the fields."
         }
       ],
@@ -9574,7 +9391,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, p. 26",
-          "excerpt": "Note that we can identify π1geom with the profinite completion of a free group on 2g generators x1 , x01 , . . . , xg , x0g in such a way that the loop around y0 corresponds to the conjugacy class of [x1 , x01 ][x2 , x02 ] . . . [xg , x0g ].",
           "match": "The topological input used through the comparison with étale fundamental groups."
         }
       ],
@@ -9617,13 +9433,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 38",
-          "excerpt": "Let Γ, G be groups, with G finite center-free, and c a conjugacy class of morphisms in Hom(Λ, Γ) for some other group Λ;",
           "match": "The set-up."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 38",
-          "excerpt": "There are natural commuting actions of Γ and G on S:",
           "match": "The actions."
         }
       ],
@@ -9756,13 +9570,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 38",
-          "excerpt": "This Γ-action extends uniquely to an action (commuting with G) of any overgroup Γe⊃ Γ in which Γ is normal and whose conjugation action preserves c.",
           "match": "The statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 38",
-          "excerpt": "and so ϕ is determined by its stabilizer in Γ × Gop . (We used that ϕ is surjective and that G is center-free.)",
           "match": "The uniqueness argument."
         }
       ],
@@ -9815,19 +9627,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.3, p. 36",
-          "excerpt": "Equivalently, S(y) is the finite set of isomorphism classes of connected coverings of Y with Galois group G, branched precisely at y.",
           "match": "The fibres of e."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.3, p. 37",
-          "excerpt": "Near the preimage of ∆ on Z the map looks in local coordinates like (z, w) 7→ (z, wn ) for suitable n.",
           "match": "Local structure."
         },
         {
           "sourceId": "sga1",
           "locator": "Exposé XII, Théorème 5.1, p. 251",
-          "excerpt": "Soient X un C-schéma lo- calement de type fini, X an l'espace analytique associé à X.",
           "match": "Riemann existence: finite étale coverings of X^an are algebraic."
         }
       ],
@@ -9984,19 +9793,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.3, Lemma 7.4, p. 37",
-          "excerpt": "The étale cover F : Z ◦ → Y 2 − ∆ can be uniquely extended to a cover FK : ◦ ZK → (Y 2 − ∆)K .",
           "match": "(1)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 38",
-          "excerpt": "The corresponding sequence of geometric étale fundamental groups is obtained by profinite completion; it remains exact by the results of [37].",
           "match": "LV cite exactness including injectivity; the node uses only middle exactness."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.3, proof of Lemma 7.4, p. 39",
-          "excerpt": "For statement (3) we notice that the action of Γ on S(Γ, c, G)/G is in fact trivial.",
           "match": "(3)."
         }
       ],
@@ -10039,25 +9845,21 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.1, Proposition 7.1, p. 34",
-          "excerpt": "Let Y be a curve of genus at least 2 over a number field K, and let G be a center-free finite group.",
           "match": "Hypotheses."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.1, Proposition 7.1, p. 35",
-          "excerpt": "Moreover, if y ∈ Y (K), this identification is GK -equivariant.",
           "match": "Galois equivariance in (i)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.1, Proposition 7.1, p. 35",
-          "excerpt": "If we take the fiber of this morphism of relative curves above y 0 ∈ Y 0 (K̄), the resulting map Zy0 → Y of curves is ramified exactly at π(y 0 ).",
           "match": "(ii)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.3, p. 37",
-          "excerpt": "Let ZK → YK2 be the normalization of YK2 inside the fraction field of ZK",
           "match": "The normalization step."
         }
       ],
@@ -10101,7 +9903,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.2, p. 36",
-          "excerpt": "acts on Pic0 (C1 ), and moreover the connected component of its kernel is isogeneous to the Prym variety described above:",
           "match": "The idempotent construction precedes this sentence."
         }
       ],
@@ -10146,13 +9947,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.2, p. 36",
-          "excerpt": "Xq = relative identity component of Pic0Zq →Yq0 [e00 ],",
           "match": "The definition."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.2, p. 35",
-          "excerpt": "This is an abelian variety of dimension (2g − 1) · q−1 2 , isogenous to (7.2).",
           "match": "The dimension."
         }
       ],
@@ -10304,13 +10103,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2.3, p. 41",
-          "excerpt": "This identification is compatible with monodromy, and so Theorem 8.1 translates to definition (5.1) of full monodromy.",
           "match": "LV's use of the identification of H₁ of the reduced Prym with primitive homology."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.2, p. 35",
-          "excerpt": "This is an abelian variety of dimension (2g − 1) · q−1 2 , isogenous to (7.2).",
           "match": "The dimension."
         }
       ],
@@ -10358,19 +10155,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§7.1, Definition 7.2, p. 35",
-          "excerpt": "The Kodaira-Parshin curve family over Y with parameter q will be the sequence of morphisms",
           "match": "Definition 7.2."
         },
         {
           "sourceId": "lv2020",
           "locator": "§7.2, Definition 7.3, p. 36",
-          "excerpt": "This is an abelian-by-finite family, in the sense of Definition 5.1.",
           "match": "Definition 7.3."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, p. 26",
-          "excerpt": "(ii) The relative dimension dq of Xq → Yq0 is given by dq = (q − 1)(g − 12 ).",
           "match": "Property (ii)."
         }
       ],
@@ -10530,19 +10324,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, p. 26",
-          "excerpt": "(iii) For each y0 ∈ Y (K) there is a GK -equivariant identification of π −1 (y0 ) with the conjugacy classes of surjections",
           "match": "Property (iii)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "Therefore, by Lemma 2.11, all fibers of the map have the same size.",
           "match": "Equal fibres."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "the set Υ consists of those elements (y1 , y10 , . . . , yg , yg0 ) such that the elements y1 , y10 , . . . , yg , yg0 generate (Z/(q − 1)).",
           "match": "The image."
         }
       ],
@@ -10586,13 +10377,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2, p. 39",
-          "excerpt": "An Aff(q)-cover of Y is, by definition, a connected surface Z together with a degree q covering map",
           "match": "The definition."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2, p. 39",
-          "excerpt": "We define two Aff(q)-covers (Z1 , π1 ) and (Z2 , π2 ) to be isomorphic when there is a home- omorphism Z1 ≃ Z2 commuting with the projections to Y ; equivalently, when the associ- ated conjugacy classes of π1 -representations (8.1) coincide.",
           "match": "Isomorphism."
         }
       ],
@@ -10763,13 +10552,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2, p. 39",
-          "excerpt": "Given any covering map π : Z → Y , the pullback and pushforward on homology define a splitting",
           "match": "The splitting."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2, pp. 39–40",
-          "excerpt": "If the pairing on H1 (Z, Q) is nondegenerate, we may identify the primitive homology with the orthogonal complement to π ∗ H1 (Y, Q) in H1 (Z, Q), and in particular",
           "match": "Orthogonality and the induced form."
         }
       ],
@@ -10950,25 +10737,21 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2.1, p. 40",
-          "excerpt": "Since Aff(q) has trivial centralizer in Sym(Fq ), such elements lift uniquely to mapping classes on Z, i.e. there is a homomorphism",
           "match": "Unique lifts."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2.1, p. 40",
-          "excerpt": "This latter action is the monodromy map",
           "match": "Mon."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2.2, p. 40",
-          "excerpt": "Let MCG(Y − {y})0 denote the intersection of the groups MCG(Y − {y})Zi .",
           "match": "The finite-index subgroup."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2.2, p. 40",
-          "excerpt": "Let π1 (Y, y)0 denote the inverse image of MCG(Y − {y})0 in π1 (Y, y); the inclusion π1 (Y, y)0 ⊆ π1 (Y, y) is of finite index.",
           "match": "The point-pushing subgroup."
         }
       ],
@@ -11158,13 +10941,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, Lemma 8.2, p. 42",
-          "excerpt": "Let e be a simple closed curve in Y − {y}. Then the classes of the preimages [e1 ], . . . , [ek ] in the homology of Z are linearly independent; projected to H1Pr (Z, Y ), their span has dimension k − 1.",
           "match": "Statement (the proof uses a CW structure with e in the 1-skeleton, which requires e nonseparating; the node states that hypothesis)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.3, proof of Lemma 8.2, p. 42",
-          "excerpt": "Y admits the structure of a CW complex with one 2-cell such that e belongs to the 1-skeleton.",
           "match": "The proof."
         }
       ],
@@ -11208,7 +10989,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, Lemma 8.3, p. 42",
-          "excerpt": "Then the rank of Mon(DeM ) − Id acting on H1Pr (Z, Y ) determines the conjugacy class of Cov(e) in the symmetric group Sym(Fq ).",
           "match": "Statement (LV take M with D_e^M in the stabilizer; the node takes M a multiple of n_e)."
         }
       ],
@@ -11248,19 +11028,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 42",
-          "excerpt": "We call such a e a liftable curve (for the Aff(q)-cover Z → Y ).",
           "match": "The definition."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 43",
-          "excerpt": "According to our discussion above, De induces a transvection on H1Pr (Z, Y ), with center ee.",
           "match": "The transvection (for D_e^{q−1})."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 43",
-          "excerpt": "Indeed, identifying primitive homology with the kernel of the pushforward, we have q A",
           "match": "The derivation of (8.6)."
         }
       ],
@@ -11412,19 +11189,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 42",
-          "excerpt": "We call such a e a liftable curve (for the Aff(q)-cover Z → Y ).",
           "match": "The definition."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 43",
-          "excerpt": "According to our discussion above, De induces a transvection on H1Pr (Z, Y ), with center ee.",
           "match": "The transvection (for D_e^{q−1})."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.3, p. 43",
-          "excerpt": "Indeed, identifying primitive homology with the kernel of the pushforward, we have q A",
           "match": "The derivation of (8.6)."
         }
       ],
@@ -11473,19 +11247,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.4, Lemma 8.4, p. 44",
-          "excerpt": "Let Sp(V, b) denote the group of automorphisms of V preserving the bilinear form and fixing b. Then the natural map M CG(Y ) → Sp(V, b) is surjective.",
           "match": "Statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.4, proof of Lemma 8.4, p. 44",
-          "excerpt": "The group Sp(V, b) fits into an exact sequence",
           "match": "The proof."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.4, p. 44",
-          "excerpt": "Indeed, it implies M CG(Y ) acts transitively on that subset of H1 (Y, ∂Y ) ≃ Hom(H1 (Y, Z), Z) consisting of elements whose pairing with a fixed boundary circle is 1.",
           "match": "The transitivity consequence."
         }
       ],
@@ -11541,25 +11312,21 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.4, p. 43",
-          "excerpt": "We can choose this map so that H1 (Y, Z) → Z is surjective, so it is given by intersecting with a primitive integral homology class α1 .",
           "match": "The first cut."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.4, p. 45",
-          "excerpt": "The pullback of the cover Z → Y to Y 2 splits, i.e., becomes a disjoint union of q copies of Y 2 .",
           "match": "Splitting over the genus g − 1 part."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.4, Proposition 8.5, p. 45",
-          "excerpt": "The ramification point y belongs to the interior of T◦ ,",
           "match": "Statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.4, Proposition 8.5, p. 45",
-          "excerpt": "the cover Z → Y , when restricted to T◦ , extends over T, i.e. has trivial mon- odromy around the boundary circle of T◦ .",
           "match": "Statement."
         }
       ],
@@ -11609,19 +11376,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.6, Lemma 8.11, p. 48",
-          "excerpt": "There exist q + 1 simple closed curves {γj : 0 ⩽ j ⩽ q} on T◦ , beginning and ending at p, not passing through y, and intersecting ∂D0 only at its endpoints, such that:",
           "match": "Statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.6, proof of Lemma 8.11, p. 49",
-          "excerpt": "We can choose this basis in such a way that all powers β1 β2j with j non-negative are represented by simple closed curves on T◦ , which start and end at p.",
           "match": "LV assert this from a picture; the node realizes the curves as twists T_d^k(β₁)."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.6, proof of Lemma 8.11, p. 50",
-          "excerpt": "according to Schreier's algorithm a generating set for H is given by",
           "match": "The group-theoretic step."
         }
       ],
@@ -11652,7 +11416,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.4, p. 43",
-          "excerpt": "We can choose this map so that H1 (Y, Z) → Z is surjective, so it is given by intersecting with a primitive integral homology class α1 .",
           "match": "The source asserts a primitive integral lift; this supplies its number-theoretic proof and the necessary rank bound."
         }
       ],
@@ -11707,13 +11470,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2, p. 39",
-          "excerpt": "Given any covering map π : Z → Y , the pullback and pushforward on homology define a splitting",
           "match": "The splitting."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2, pp. 39–40",
-          "excerpt": "If the pairing on H1 (Z, Q) is nondegenerate, we may identify the primitive homology with the orthogonal complement to π ∗ H1 (Y, Q) in H1 (Z, Q), and in particular",
           "match": "Orthogonality and the induced form."
         }
       ],
@@ -11770,19 +11531,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.6, p. 46",
-          "excerpt": "The image of π1 (Y, y)0 (see after (8.4) for definition) under the monodromy map",
           "match": "Statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.5, proof of Lemma 8.6, p. 46",
-          "excerpt": "We leave the simple topological proof to the reader.",
           "match": "The source gives no proof; the node supplies one."
         },
         {
           "sourceId": "farb-margalit",
           "locator": "§4.2, Fact 4.7, p. 103",
-          "excerpt": "where a and b are the isotopy classes of the simple closed curves in S ∗ = S − x obtained by pushing α off itself to the left and right, respectively.",
           "match": "Push as a product of twists."
         }
       ],
@@ -11832,19 +11590,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.8, p. 47",
-          "excerpt": "For two non-isomorphic Aff(q)-covers Z1 , Z2 there exists a simple closed curve η in Y such that the cycle decompositions of the monodromy around η in Z1 and Z2 are different.",
           "match": "Statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.5, proof of Lemma 8.8, p. 47",
-          "excerpt": "There exists a simple closed curve η ∈ π1 (Y − y) mapping to β1 β2 β1−1 β2q−c1 under this map π1 (Y − y) → π1 (T − y): see Figure 8.5 and its caption.",
           "match": "Case 3 in LV, justified by a figure."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.5, proof of Lemma 8.8, p. 47",
-          "excerpt": "Then Cov1 (η) is trivial but Cov2 (η) is not trivial.",
           "match": "Conclusion."
         }
       ],
@@ -11896,19 +11651,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.10, p. 48",
-          "excerpt": "There exists a collection of liftable curves A1 , . . . , AN on Y such that:",
           "match": "Statement."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.6, p. 50",
-          "excerpt": "is representable by a simple closed curve on Y .",
           "match": "The concatenated curves."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.6, p. 51",
-          "excerpt": "The connectedness of the “intersection graph” follows from this.",
           "match": "Part (b)."
         }
       ],
@@ -11956,7 +11708,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.9, p. 47",
-          "excerpt": "The monodromy map Mon : MCG(Y )Zi −→ Sp(H1Pr (Zi , Y )) has Zariski- dense image.",
           "match": "Statement (LV write MCG(Y)_{Z_i}; the group is Mod(Y ∖ {y})_{Z_i})."
         }
       ],
@@ -12003,7 +11754,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.7, p. 46",
-          "excerpt": "The monodromy map restricted to MCG(Y − {y})0 ,",
           "match": "Statement: the map has Zariski-dense image."
         }
       ],
@@ -12047,7 +11797,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, p. 46",
-          "excerpt": "Because π1 (Y, y)0 is normal inside MCG(Y − {y})0 and the symplectic groups are almost simple, Theorem 8.1 follows from the subsequent Lemma:",
           "match": "The group theory used to pass from Lemma 8.7 to Theorem 8.1."
         }
       ],
@@ -12098,7 +11847,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2.2, Theorem 8.1, p. 41",
-          "excerpt": "has Zariski-dense image.",
           "match": "Statement (the map (8.5))."
         }
       ],
@@ -12155,19 +11903,16 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.2.3, p. 41",
-          "excerpt": "This isogeny induces an isomorphism of the rational homology groups:",
           "match": "The comparison with primitive homology."
         },
         {
           "sourceId": "lv2020",
           "locator": "§8.2.3, p. 41",
-          "excerpt": "This identification is compatible with monodromy, and so Theorem 8.1 translates to definition (5.1) of full monodromy.",
           "match": "The conclusion."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, p. 26",
-          "excerpt": "(i) It has full monodromy (Theorem 8.1).",
           "match": "Property (i)."
         }
       ],
@@ -12201,7 +11946,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.10, p. 48; application in §8.6, pp. 50–51",
-          "excerpt": "There exists a collection of liftable curves A1 , . . . , AN on Y such that:",
           "match": "The excerpt states the liftable-curve target on p. 48. This node supplies an elementary lattice argument used in its pp. 50–51 proof; it is an explicit proof expansion, not a verbatim source lemma."
         }
       ],
@@ -12240,7 +11984,6 @@
         {
           "sourceId": "lv2020",
           "locator": "§8.5, Lemma 8.10, p. 48; application in §8.6, pp. 50–51",
-          "excerpt": "There exists a collection of liftable curves A1 , . . . , AN on Y such that:",
           "match": "The excerpt states the liftable-curve target on p. 48. This node supplies an elementary lattice argument used in its pp. 50–51 proof; it is an explicit proof expansion, not a verbatim source lemma."
         }
       ],
@@ -12296,13 +12039,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 26",
-          "excerpt": "This is possible by Dirichlet's theorem: we choose q such that q is not congruent to 1 mod ` for any prime ` that either divides the discriminant of K, or that is less than 8[K : Q], and also q is not congruent to 1 mod 4.",
           "match": "The choice of q."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 26",
-          "excerpt": "Then linear disjointness follows: for ramification reasons K 0 ∩ Q(ζq−1 ) = Q.",
           "match": "Linear disjointness; the node makes the role of the prime 2 explicit."
         }
       ],
@@ -12355,13 +12096,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "We will produce v by the Chebotarev density theorem, applied to Gal(K 0 (ζq−1 )/Q).",
           "match": "The method."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "If K admits a CM subfield then the place of E + below ℘ is inert in E, by choice of σ.",
           "match": "Friendliness."
         }
       ],
@@ -12406,13 +12145,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "The Weil pairing is perfect, i.e. the corresponding map M → Hom(M, µ∨ q−1 ) is an iso- morphism.",
           "match": "The pairing."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "The Frobenius at v induces, in particular, an automorphism T : M → M that satisfies",
           "match": "The Frobenius relation ⟨Tv₁, Tv₂⟩ = q_v⁻¹⟨v₁, v₂⟩."
         }
       ],
@@ -12456,13 +12193,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "We want to bound the number of elements of M belonging to T -orbits of size less than 8.",
           "match": "The count."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 28",
-          "excerpt": "Hence, the number of elements of M contained in the union of the submodules ker(T i −1) for 1 ⩽ i ⩽ 8 is at most 8 · 2g (q − 1)g .",
           "match": "The bound."
         }
       ],
@@ -12510,13 +12245,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, (5.4), p. 26",
-          "excerpt": "The key point is to use the mapping (5.5) below and the Weil pairing to give an upper bound on sizev (π −1 (y)).",
           "match": "The strategy."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 27",
-          "excerpt": "Therefore, by Lemma 2.11, all fibers of the map have the same size.",
           "match": "Equal fibres."
         }
       ],
@@ -12565,13 +12298,11 @@
         {
           "sourceId": "lv2020",
           "locator": "§5, Theorem 5.4, p. 26",
-          "excerpt": "Let Y be a curve over the number field K with genus g ⩾ 2. Then Y (K) is finite.",
           "match": "The theorem."
         },
         {
           "sourceId": "lv2020",
           "locator": "§5, proof of Theorem 5.4, p. 26",
-          "excerpt": "We apply Proposition 5.3 to the Kodaira–Parshin family with parameter q.",
           "match": "The assembly."
         }
       ],
@@ -15743,7 +15474,7 @@
       "kind": "misprint",
       "affects": "the proof",
       "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
-      "printed": "ρ is unramified outside S",
+      "printed": "The lemma requires ρ to have no ramification away from S.",
       "correction": "Use a finite set T = S ∪ {w : w divides p} in the finiteness lemma and its applications; impose its Frobenius weight and integrality conditions away from T.",
       "reason": "The standing S excludes every place above p. Good reduction makes p-adic cohomology crystalline there, but does not make it unramified. For example H²_et(P¹,Q_p)=Q_p(−1) is ramified at p although P¹ has good reduction. The finiteness argument allows any fixed finite ramification set: enlargement to T is harmless.",
       "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
@@ -15857,7 +15588,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§7.3, proof of Lemma 7.4: arXiv v3 p. 38; published p. 945.",
-      "printed": "π_2 of Y − {y_0}",
+      "printed": "The proof refers to the group π_2 for Y − {y_0}.",
       "correction": "'… because the π_2 of Y vanishes': the relevant group is π_2 of the base of the fibration, not of its fibre.",
       "reason": "The fibration is the second map of (7.5), (Y² − Δ, y) → (Y, y_0), (y, y') ↦ y', whose fibre over y_0 is Y − {y_0}. Its long exact sequence reads π_2(Y) → π_1(Y − {y_0}) → π_1(Y² − Δ) → π_1(Y) → π_0, so injectivity on the left is governed by π_2 of the base Y; π_2 of the fibre enters the sequence one step earlier and is irrelevant to it. The conclusion is correct because Y is a closed surface of genus ⩾ 2, hence aspherical, so π_2(Y) = 0 — and in any case only the middle exactness, which gives the normality of Γ in Γ̃^geom that the argument goes on to use, is needed.",
       "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
@@ -15933,7 +15664,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§3.4, conclusion of Lemma 3.2: arXiv v3 p. 18; published p. 917.",
-      "printed": "K_v (respectively C); B_C(U_C) (respectively B_v(U_v))",
+      "printed": "The conclusion pairs K_v with B_C(U_C), and C with B_v(U_v), respectively.",
       "correction": "The base extension to K_v is the closure of B_v(U_v), and the base extension to C is the closure of B_C(U_C).",
       "reason": "The respective closures are subschemes of projective spaces over the opposite fields from those paired with them in the sentence. The proof constructs the common ideal over K and gives the correctly matched base changes.",
       "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
@@ -15990,7 +15721,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§6, definition of G_v and H_v: arXiv v3 p. 29; published p. 932.",
-      "printed": "Gr(V_v,g); rank g",
+      "printed": "The source uses Gr(V_v,g) and specifies the rank as g.",
       "correction": "Use Gr(V_v,d) and rank d, where d is the relative abelian dimension in Proposition 5.3. The coefficient algebra in that sentence is E_{0,v}.",
       "reason": "V_v has rank 2d over E_{0,v}; its first Hodge step and its Lagrangians have rank d. The letter g denotes the genus of the base curve and need not equal d: the Kodaira–Parshin formula gives d=(q−1)(g−1/2), for example d=3 when g=2,q=3.",
       "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",

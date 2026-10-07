@@ -397,7 +397,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§11.5, p.268",
-          "excerpt": "11.5.",
           "match": "Arithmetic subgroups over orders and the three archimedean factors are the system used in Proposition 12.2."
         }
       ],
@@ -494,7 +493,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, introduction to Theorem 2, p.180; §2, pp.185–190 (scan headers 196,201–206)",
-          "excerpt": "building",
           "match": "Quillen uses the Tits building of the generic-fiber vector space, including division-algebra orders."
         }
       ],
@@ -585,7 +583,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, definition before Theorem 3, p.181 (scan header 197)",
-          "excerpt": "Steinberg",
           "match": "The coefficient in Quillen’s rank-filtration argument is the top reduced homology of the building."
         }
       ],
@@ -683,7 +680,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, Theorem 2, p.180; §2, proof, pp.186–188 (scan headers 196,202–204)",
-          "excerpt": "THEOREM 2",
           "match": "The quoted Tits theorem supplies the building homology used in the proof."
         }
       ],
@@ -727,7 +723,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, proof of Theorem 1, pp.183–184 (scan headers 199–200)",
-          "excerpt": "Borel-Serre",
           "match": "Quillen’s finiteness proof invokes arithmetic duality for the Steinberg module and integral descent."
         }
       ],
@@ -771,7 +766,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, Theorem 3, p.181 and proof of Theorem 1, pp.182–185 (scan headers 197–201)",
-          "excerpt": "THEOREM 3",
           "match": "The relative groups and finite projective-class sum are the exact input that the owner of the rank filtration needs."
         }
       ],
@@ -813,7 +807,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, proof of Theorem 1, pp.184–185 (scan headers 200–201)",
-          "excerpt": "H-space",
           "match": "The proof passes from finite homology to finite homotopy for the K-theory H-space."
         }
       ],
@@ -856,7 +849,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§10.2(2), p.263",
-          "excerpt": "restriction",
           "match": "The comparison jΓ is restriction in continuous Eilenberg–Mac Lane cohomology."
         }
       ],
@@ -954,7 +946,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§3.1 and §10.2(1)–(5), pp.241–242,263",
-          "excerpt": "10.2.",
           "match": "The invariant-form, relative Lie and continuous realizations describe the same arithmetic map."
         }
       ],
@@ -1050,7 +1041,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§10.3, pp.263–264",
-          "excerpt": "10.3.",
           "match": "The source constructs the natural pullback across the invariant-form and compact-dual realizations."
         }
       ],
@@ -1090,7 +1080,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§10.6 and §12.1, pp.265–266,270",
-          "excerpt": "indecomposable",
           "match": "The rank argument uses the stable Hopf algebra and its indecomposable classes."
         }
       ],
@@ -1130,7 +1119,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§§10.2,10.6 and 11.5, pp.263,265–266,268",
-          "excerpt": "compact dual",
           "match": "The classical compact twins supply the three factor calculations."
         }
       ],
@@ -1174,13 +1162,11 @@
         {
           "sourceId": "borel1974",
           "locator": "§10.6, pp.265–266",
-          "excerpt": "10.6.",
           "match": "The stable compact-space cohomology calculations and primitive degrees are stated here."
         },
         {
           "sourceId": "borel1953",
           "locator": "Propositions 31.3–31.4 and their transgression calculations, pp.203–205",
-          "excerpt": "PROPOSITION 31.4.",
           "match": "Finite-rank generators, the even-rank Euler factor and restriction of transgressive classes justify the conservative bound; the SU quotients remove the determinant degree-one factor."
         }
       ],
@@ -1224,13 +1210,11 @@
         {
           "sourceId": "borel1974",
           "locator": "§§10.1 and 10.6, pp.263,265–266",
-          "excerpt": "stationary",
           "match": "The source uses stationarity in each degree, not an ungraded inverse limit."
         },
         {
           "sourceId": "borel1953",
           "locator": "Propositions 31.3–31.4 and their transgression calculations, pp.203–205",
-          "excerpt": "PROPOSITION 31.4.",
           "match": "Finite-rank generators, the even-rank Euler factor and restriction of transgressive classes justify the conservative bound; the SU quotients remove the determinant degree-one factor."
         }
       ],
@@ -1272,7 +1256,6 @@
         {
           "sourceId": "borel1974",
           "locator": "Theorem 7.5, §§9.3–9.5 and §11.5, pp.259,262,268",
-          "excerpt": "7.5.",
           "match": "Combines the actual arithmetic map, its two bounds, and the explicit rational-rank lower estimate."
         }
       ],
@@ -1319,7 +1302,6 @@
         {
           "sourceId": "borel1974",
           "locator": "Theorem 11.1 and §11.5, pp.266,268",
-          "excerpt": "11.1.",
           "match": "The arithmetic sequence satisfies the comparison hypotheses and yields the stable exterior algebra."
         }
       ],
@@ -1363,7 +1345,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§12.1, p.270",
-          "excerpt": "12.1.",
           "match": "Quillen’s plus construction connects stable arithmetic homology to higher K-homotopy."
         }
       ],
@@ -1404,7 +1385,6 @@
         {
           "sourceId": "borel1974",
           "locator": "§12.1–12.2, pp.270–271",
-          "excerpt": "primitive",
           "match": "The argument reads higher homotopy from the primitive/indecomposable stable Hopf algebra."
         }
       ],
@@ -1444,7 +1424,6 @@
         {
           "sourceId": "borel1974",
           "locator": "Proposition 12.2, p.271",
-          "excerpt": "12.2.",
           "match": "This is the precise generality and period-four endpoint, including nonmaximal orders."
         }
       ],
@@ -1487,7 +1466,6 @@
         {
           "sourceId": "borel1974",
           "locator": "Proposition 12.2, p.271",
-          "excerpt": "period",
           "match": "The odd-degree formulation is a direct specialization of the proven rank theorem."
         }
       ],
@@ -1594,7 +1572,6 @@
         {
           "sourceId": "quillen1973",
           "locator": "§1, Remark (2) after Theorem 1, pp.179–180 (scan headers 195–196)",
-          "excerpt": "localisation",
           "match": "The finite-residue localization argument is the correct route to S-integers."
         }
       ],
@@ -1633,7 +1610,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Proposition 9.22 and Corollary 9.23, pp.84–85",
-          "excerpt": "9.22.",
           "match": "The coefficient twist and embedding conjugation give the actual regulator target."
         }
       ],
@@ -1737,7 +1713,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Proposition 9.22, p.85, including its lattice statement",
-          "excerpt": "lattice",
           "match": "The fixed product of Tate integer lattices determines the reference measure."
         }
       ],
@@ -1840,7 +1815,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Proposition 9.22 and the dimension discussion in §9.2",
-          "excerpt": "9.22.",
           "match": "Simultaneous invariants have the stated signature-dependent dimension."
         }
       ],
@@ -1881,7 +1855,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Definition 9.24 and Remark 4.25, pp.86–87,32",
-          "excerpt": "9.24.",
           "match": "Defines the universal renormalized class; the Chern character fixes factorial and Tate factors."
         }
       ],
@@ -1979,7 +1952,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "§9.7, Propositions 9.25–9.26, pp.87–88",
-          "excerpt": "9.26.",
           "match": "The explicit alternating trace form gives the precise representative and factor two."
         }
       ],
@@ -2085,7 +2057,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Definitions 9.19,9.24 and Proposition 9.21, pp.84–86",
-          "excerpt": "9.21.",
           "match": "The number-field map is assembled from the universal complex-field regulator and its fixed target."
         }
       ],
@@ -2197,7 +2168,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Proposition 9.21 and the product target of Proposition 9.22",
-          "excerpt": "immersions",
           "match": "The componentwise embedding realization determines the specialization to pullback and trace; the trace identity is derived by counting embedding fibers."
         }
       ],
@@ -2298,7 +2268,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Proposition 9.21, pp.84–85",
-          "excerpt": "9.21.",
           "match": "Embeddingwise factorization supplies the components; the transfer formula follows from the imported K-theory base-change and additivity interfaces."
         }
       ],
@@ -2344,7 +2313,6 @@
         {
           "sourceId": "rapoport1988",
           "locator": "§1, Chern character and regulator discussion, pp.171–175",
-          "excerpt": "Chern",
           "match": "The regulator comes from higher Chern characters; exact all-weight Adams compatibility is imported rather than inferred from K0."
         }
       ],
@@ -2388,7 +2356,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Corollary 9.8 and §§9.5–9.6, pp.78,82–85",
-          "excerpt": "9.8.",
           "match": "Borel’s regulator has full real image; the renormalization preserves the real isomorphism."
         }
       ],
@@ -2430,7 +2397,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Corollary 9.8 and Definition 9.19, pp.78,84",
-          "excerpt": "9.19.",
           "match": "Full regulator image and the arithmetic lattice define the covolume only after finite generation."
         }
       ],
@@ -2475,7 +2441,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Definition 9.19 and §9.4, pp.79–84",
-          "excerpt": "covolume",
           "match": "The determinant expression specializes the lattice covolume to the chosen primitive/reference basis."
         }
       ],
@@ -2576,7 +2541,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Definition 9.19 and Remark 9.20, p.84",
-          "excerpt": "9.20.",
           "match": "The chosen renormalized lattice fixes the regulator covolume and its difference from the original one."
         }
       ],
@@ -2674,7 +2638,6 @@
         {
           "sourceId": "borel1977",
           "locator": "§1.4 and §6.4(3)–(5), pp.616,633",
-          "excerpt": "fonctionnelle",
           "match": "The negative-integer leading term is obtained using the functional equation, with the present exact gamma convention supplied by AL.1."
         }
       ],
@@ -2715,7 +2678,6 @@
         {
           "sourceId": "borel1977",
           "locator": "§1.4, p.616",
-          "excerpt": "zéro",
           "match": "The source lists the vanishing orders, which follow from the functional equation."
         }
       ],
@@ -2757,7 +2719,6 @@
         {
           "sourceId": "borel1977",
           "locator": "§6.4(3) and (5), p.633",
-          "excerpt": "lim",
           "match": "The regulator statement uses the first nonzero coefficient, not an unnormalized derivative."
         }
       ],
@@ -2861,7 +2822,6 @@
         {
           "sourceId": "borel1977",
           "locator": "§6.4(4), p.633, interpreted as rational proportionality",
-          "excerpt": "6.4.",
           "match": "The source suppresses rational factors; the formula here explains the discriminant exponent before suppression."
         }
       ],
@@ -2907,13 +2867,11 @@
         {
           "sourceId": "borel1977",
           "locator": "§§3.4–3.5, pp.621–622; §5.2, pp.626–627; §6.2, pp.631–632",
-          "excerpt": "3.5.",
           "match": "The maps, commuting spectral sequences, odd-rank compact-fiber degeneration and primitive splitting are explicitly established here."
         },
         {
           "sourceId": "borel1953",
           "locator": "Proposition 31.4, p.204",
-          "excerpt": "PROPOSITION 31.4.",
           "match": "Odd-dimensional SO is totally nonhomologous to zero; the even case retains an Euler class and is not substituted."
         }
       ],
@@ -2963,13 +2921,11 @@
         {
           "sourceId": "borel1977",
           "locator": "Theorems 5.5 and 6.2, pp.627–632",
-          "excerpt": "5.5.",
           "match": "These are the period and indecomposable determinant statements, with their large-rank hypothesis."
         },
         {
           "sourceId": "borel1980erratum",
           "locator": "p.373, corrections to 5.5(1),(4) and 6.2(5)",
-          "excerpt": "corrections",
           "match": "The discriminant and i-power corrections are included."
         }
       ],
@@ -3012,13 +2968,11 @@
         {
           "sourceId": "borel1977",
           "locator": "§6.4(1)–(5), pp.632–633",
-          "excerpt": "6.4.",
           "match": "Passes from the rational primitive determinant to the homotopy-normalized regulator and leading term."
         },
         {
           "sourceId": "burgos2002",
           "locator": "Theorem 9.12 and Remark 9.20, pp.80,84",
-          "excerpt": "9.12.",
           "match": "Fixes the original π discrepancy and its exact renormalization."
         }
       ],
@@ -3062,7 +3016,6 @@
         {
           "sourceId": "borel1977",
           "locator": "Lemma 2.2 and its proof, pp.617–618",
-          "excerpt": "2.2.",
           "match": "The proof constructs the inner form and explicitly invokes the cyclic splitting-extension input."
         }
       ],
@@ -3105,7 +3058,6 @@
         {
           "sourceId": "borel1977",
           "locator": "Proof of Proposition 2.4, p.619, citing Weil Theorem 3.3.1",
-          "excerpt": "Tamagawa",
           "match": "The cited specialized Tamagawa theorem is indispensable; its proof is not present in Borel’s paper."
         }
       ],
@@ -3147,7 +3099,6 @@
         {
           "sourceId": "borel1977",
           "locator": "Proof of Proposition 2.4, pp.618–619, local factor (2)",
-          "excerpt": "2.4.",
           "match": "The good-place volume is the inverse Euler factor product for a=2,…,e."
         }
       ],
@@ -3195,7 +3146,6 @@
         {
           "sourceId": "borel1977",
           "locator": "Proposition 2.4 and proof, pp.618–619",
-          "excerpt": "2.4.",
           "match": "The archimedean quotient volume is the specialized zeta product, not a generic reduction-theory conclusion."
         }
       ],
@@ -3242,13 +3192,11 @@
         {
           "sourceId": "borel1977",
           "locator": "§§1.5–1.6, pp.616–617",
-          "excerpt": "1.5.",
           "match": "Defines restriction-of-scalars forms and the positive Haar convention."
         },
         {
           "sourceId": "borel1980erratum",
           "locator": "p.373, first paragraph and definition of D½",
-          "excerpt": "discriminant",
           "match": "Replaces the absolute discriminant by the signed embedding determinant in algebraic form normalization."
         }
       ],
@@ -3355,7 +3303,6 @@
         {
           "sourceId": "borel1977",
           "locator": "Theorem 5.5 and proof, pp.628–630",
-          "excerpt": "5.5.",
           "match": "The compact inner-form cycles and primitive restrictions supply the nonzero periods used in the induction."
         }
       ],
@@ -3457,7 +3404,6 @@
         {
           "sourceId": "borel1977",
           "locator": "§§1.5–1.6, Proposition 2.4 and proof of 5.5",
-          "excerpt": "intégrale",
           "match": "The finite-volume invariant-form integral is the concrete bridge between primitive periods and Tamagawa products."
         }
       ],
@@ -3561,7 +3507,6 @@
         {
           "sourceId": "borel1977",
           "locator": "§§2.4,5.5,6.4, pp.618–619,627–633",
-          "excerpt": "2.4.",
           "match": "Supplies the verified Borel side; this citation does not establish the missing Bloch-side convention."
         }
       ],
@@ -3602,7 +3547,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Definition 9.24, final paragraph, pp.86–87",
-          "excerpt": "injective",
           "match": "The proof of the regulator comparison requires injectivity, not just equality after a potentially noninjective map."
         }
       ],
@@ -3643,7 +3587,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Theorems 8.12,8.15, pp.70–71,73; Lemma 10.10 and Proposition 10.11, p.97",
-          "excerpt": "10.11.",
           "match": "The all-weight Beilinson representative is obtained from the infinitesimal diagonal, not extrapolated from a dilogarithm."
         }
       ],
@@ -3688,7 +3631,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Theorem 10.9 and proof, pp.95–97",
-          "excerpt": "10.9.",
           "match": "This fixes the exact scalar for every weight under the adopted primary convention."
         }
       ],
@@ -3734,7 +3676,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Theorem 10.9, pp.95–97, with Definitions 9.19 and 10.8, pp.84,94",
-          "excerpt": "10.9.",
           "match": "The universal comparison yields the map equality, and the determinant power follows by multilinearity."
         }
       ],
@@ -3782,7 +3723,6 @@
         {
           "sourceId": "goncharov2004",
           "locator": "§§5.4–5.5, equations (61),(64), Theorem 5.7 and proof, pp.43–47; introduction equation (11)",
-          "excerpt": "5.7",
           "match": "The source fixes the Dynkin cohomology coefficient; an explicit convention comparison to the Burgos-normalized map remains required."
         }
       ],
@@ -3830,13 +3770,11 @@
         {
           "sourceId": "borel1974",
           "locator": "Proposition 12.2, p.271",
-          "excerpt": "12.2.",
           "match": "Primary rank theorem supplies the zero-rank and imaginary-quadratic cases; the symbol boundary and positivity are explicit applications of V.3 and P.1–P.2."
         },
         {
           "sourceId": "weibelIV",
           "locator": "Theorems 1.17–1.18 and Regulator Maps 1.18.1, pp.12–13, author chapter PDF; corrected as E2",
-          "excerpt": "Theorem 1.18 (Borel).",
           "match": "The signature discussion is here, not in Chapter VI §4. Rationalize both sides of the displayed comparison in Theorem 1.18."
         }
       ],
@@ -3880,7 +3818,6 @@
         {
           "sourceId": "burgos2002",
           "locator": "Propositions 9.21–9.22 and Theorem 10.9",
-          "excerpt": "9.22.",
           "match": "This computational interface is derived from the embeddingwise target and the already normalized map comparison."
         }
       ],
@@ -4398,7 +4335,7 @@
         "BorelRegulators:R.5/borel-zeta-proportionality"
       ],
       "locator": "Borel 1977 pp.616,627,628,632; 5.5(1),(4) and 6.2(5); corrected by the published Borel 1980 erratum p.373",
-      "printed": "“|D|” in the algebraic restriction-of-scalars normalization, and “i^{r₂}” in 5.5(1),(4) and 6.2(5), transcribed from the original mathematical typography.",
+      "printed": "The source uses |D| for the algebraic normalization by restriction of scalars, and places i^{r₂} in 5.5(1),(4) and 6.2(5).",
       "correction": "Use the chosen signed discriminant square root D^{1/2}=det(σ_i(α_a)) in those algebraic form normalizations and delete the specified i^{r2} factors. Positive Haar measure still uses |D|^{1/2}; other orientation phases are not all deleted.",
       "reason": "The embedding determinant squares to the signed discriminant. For Q(i) it is −2i with the stated ordered basis, whereas |D|^{1/2}=2 loses the algebraic phase.",
       "affects": "a stated result",
@@ -4446,7 +4383,7 @@
       "sourceId": "weibelVI",
       "kind": "misprint",
       "locator": "Author Chapter VI PDF, Classical Data 8.1, p.47, version accessed 2026-10-05; published-book collation unavailable",
-      "printed": "the groups K_n(F) are finite when n is even and nonzero",
+      "printed": "The source claims finiteness of K_n(F) for every nonzero even n.",
       "correction": "The finiteness statement concerns K_n(O_S), for a ring of S-integers with finite S, rather than K_n(F). The following finite-group-plus-free-group statement should consistently use O_S too; its rational rank formula agrees with the field after localization.",
       "reason": "For F=Q, localization has K₂(Q)→⊕_p K₁(F_p)→K₁(Z)→K₁(Q). The last map is injective, so the first map is onto an infinite direct sum of finite unit groups, and K₂(Q) is infinite. By contrast K₂(O_S) is finite for finite S by Quillen finite generation and the even-degree rank theorem. The same paragraph starts with O_S and cites the ring-of-integers finite-generation theorem IV.6.9.",
       "affects": "a stated result",

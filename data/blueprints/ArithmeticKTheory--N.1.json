@@ -744,7 +744,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. I.3.8, Relative Class groups (PDF p. 37; book p. 29)",
-     "excerpt": "3.8. Relative Class groups. Suppose that R is a Krull domain and that R_S = S^{−1}R for some multiplicatively closed set S in R. Let D(R, R_S) denote the free abelian group on the height 1 primes 𝔭 of R such that 𝔭 ∩ S ≠ φ.",
      "match": "The K-book treats rings of S-integers as localisations S⁻¹R whose lost primes are those meeting the multiplicative set; condition (ii) is that property for a submonoid of R. The K-book states no theorem of this form: the node follows the library (Mathlib's Set.integer, and Tau Ceti's SInteger/Basic.lean docstring, which records that O_S need not be a localisation)."
     }
    ],
@@ -791,19 +790,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.1.3.5 (PDF p. 191; book p. 183)",
-     "excerpt": "Example 1.3.5. If F is a field then K1(F) = F×, because we have already seen that E(F) = SL(F).",
      "match": "K₁ of the field is its multiplicative group."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.1.3.6 (PDF p. 191; book p. 183)",
-     "excerpt": "Example 1.3.6. If F is a finite field extension of Q (a number field) and R is an integrally closed subring of F, then Bass, Milnor and Serre proved in [19, 4.3] that SK1(R) = 0, so that K1(R) ≅ R×.",
      "match": "Bass–Milnor–Serre: K₁ of the S-integers is their unit group; this is the part imported from U.4."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.1.3.6 (PDF p. 191; book p. 183)",
-     "excerpt": "We mention that if R is finitely generated over Z then, by the Dirichlet Unit Theorem, K1(R) = R× is a finitely generated abelian group isomorphic to µ(F) ⊕ Z^{s−1}, where µ(F) denotes the cyclic group of all roots of unity in F and s is the number of “places at infinity” for R.",
      "match": "Finite generation and the rank s − 1 of K₁(O_{F,S}), with s = r₁ + r₂ + |S| the places at infinity for O_{F,S}; the finitely generated group this node contrasts with F^×."
     }
    ],
@@ -849,19 +845,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. II.2.2, Projection Formula (PDF p. 86; book p. 78)",
-     "excerpt": "2.2. Projection Formula. Let R be a commutative ring, and A an R-algebra which as an R-module is finitely generated projective of rank n.",
      "match": "The setting: A = O_{F′,S′} is finitely generated projective of rank d over R = O_{F,S}."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. II.2.2(b) (PDF p. 86; book p. 78)",
-     "excerpt": "(b) Show that both compositions f^∗f_∗ and f_∗f^∗ are multiplication by [A].",
      "match": "The composite f_∗f^∗ is multiplication by the class [A], not by the rank: the source of the Steinitz-class correction."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.3 (PDF p. 418; book p. 410)",
-     "excerpt": "Suppose that R ⊂ R′ is an inclusion of Dedekind domains, with R′ finitely generated as an R-module. Then the fraction field F′ of R′ is finite over F, so the exact functors M(R′) → M(R) and M(F′) → M(F) inducing the transfer maps (IV.6.3.3) are compatible.",
      "match": "Restriction of scalars along R ⊂ R′ defines the transfer; the node applies it to O_{F,S} ⊂ O_{F′,S′}."
     }
    ],
@@ -902,13 +895,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "I.3, Dedekind domains (PDF p. 30; book p. 22)",
-     "excerpt": "In Number Theory, Pic(O_F) is called the ideal class group of the number field F. A fundamental theorem states that Pic(O_F) is always a finite group",
      "match": "Finiteness of the class group of 𝓞_F, the hypothesis that makes a power of each prime principal."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof (PDF p. 521; book p. 513)",
-     "excerpt": "Set R = O_S[1/ℓ]. For each prime ideal 𝔭 over ℓ, K_{n−1}(R/𝔭) has no ℓ-torsion by IV.1.13. By the localization sequence (V, (6.6) or 6.8), K_n(O_S)_(ℓ) = K_n(R)_(ℓ). Thus we may replace O_S by R = O_S[1/ℓ].",
      "match": "The source uses the presentation O_S[1/ℓ] of a larger ring of S-integers as a localisation."
     }
    ],
@@ -948,13 +939,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.4 (PDF p. 527; book p. 519)",
-     "excerpt": "Theorem 9.4. Let F be a real number field, and let O_S be a ring of S-integers in F containing O_F[1/2].",
      "match": "The source compares rings of S-integers by inclusion (O_S ⊇ O_F[1/2]), which is this lemma."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof (PDF p. 521; book p. 513)",
-     "excerpt": "Set R = O_S[1/ℓ]. For each prime ideal 𝔭 over ℓ, K_{n−1}(R/𝔭) has no ℓ-torsion by IV.1.13. By the localization sequence (V, (6.6) or 6.8), K_n(O_S)_(ℓ) = K_n(R)_(ℓ). Thus we may replace O_S by R = O_S[1/ℓ].",
      "match": "Enlarging S by the primes over ℓ is inverting ℓ in O_S."
     }
    ],
@@ -1000,13 +989,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.3 (PDF p. 418; book p. 410)",
-     "excerpt": "Suppose that R ⊂ R′ is an inclusion of Dedekind domains, with R′ finitely generated as an R-module. Then the fraction field F′ of R′ is finite over F, so the exact functors M(R′) → M(R) and M(F′) → M(F) inducing the transfer maps (IV.6.3.3) are compatible.",
      "match": "The hypothesis the transfers of N.1 and N.2 need; this lemma supplies it for rings of S-integers."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "I.3, Dedekind domains (PDF p. 29; book p. 21)",
-     "excerpt": "Another property of Dedekind domains is that every finitely generated torsionfree R-module M is projective.",
      "match": "The projectivity step."
     }
    ],
@@ -1048,13 +1035,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. II.2.2(b) (PDF p. 86; book p. 78)",
-     "excerpt": "(b) Show that both compositions f^∗f_∗ and f_∗f^∗ are multiplication by [A].",
      "match": "The composite is multiplication by [A]; in degree one [A] acts through its rank."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.3 (PDF p. 418; book p. 410)",
-     "excerpt": "Suppose that R ⊂ R′ is an inclusion of Dedekind domains, with R′ finitely generated as an R-module. Then the fraction field F′ of R′ is finite over F, so the exact functors M(R′) → M(R) and M(F′) → M(F) inducing the transfer maps (IV.6.3.3) are compatible.",
      "match": "The transfer along O_{F,S} ⊂ O_{F′,S′}."
     }
    ],
@@ -1108,19 +1093,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6, Dedekind Domains (PDF p. 417; book p. 409)",
-     "excerpt": "Suppose that R is a Dedekind domain with fraction field F. Then R and F and regular, as are the residue fields R/𝔭, so K∗(R) ≅ G∗(R), etc. Hence the localization sequence of 6.1 with S = R − {0} becomes the long exact sequence:",
      "match": "The sequence (6.6) for a Dedekind domain. 'R and F and regular' is the source's misprint for 'are regular' (sourceIssues)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6 (PDF p. 417; book p. 409)",
-     "excerpt": "Here 𝔭 runs over the nonzero prime ideals of R, and the maps (i𝔭)∗ : Kn(R/𝔭) → Kn(R) are the transfer maps of 3.3.2.",
      "match": "The primes and the transfer maps."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.1 (PDF p. 414; book p. 406)",
-     "excerpt": "We saw in II.6.4.1 that the category M_S(R) of finitely generated S-torsion modules is a Serre subcategory of M(R) with quotient category M(S^{−1}R).",
      "match": "The Serre subcategory and quotient to which the localisation theorem is applied."
     }
    ],
@@ -1162,19 +1144,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.4.4, Application 4.4 (PDF p. 409; book p. 401)",
-     "excerpt": "If S is a central multiplicatively closed set in R, the exact category M_S(R) is the filtered colimit over s ∈ S of the M_s(R).",
      "match": "The torsion category is the filtered colimit of the categories supported at one element s."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.4.3, Application 4.3 (PDF p. 409; book p. 401)",
-     "excerpt": "This applies to finitely generated torsion modules over Dedekind domains and curves, and more generally to finitely generated modules of finite support over any commutative ring or scheme.",
      "match": "Dévissage to semisimple objects applies to finitely generated torsion modules over a Dedekind domain, giving the finite direct sum."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.1.2 (PDF p. 414; book p. 406)",
-     "excerpt": "In particular, when R is a domain we have ∂(s) = [R/sR].",
      "match": "The degree-one boundary is the divisor."
     }
    ],
@@ -1224,19 +1203,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6 (PDF p. 417; book p. 409)",
-     "excerpt": "Writing K1(R) = R× ⊕ SK1(R) (see III.1.1.1), the formula 6.1.2 allows us to identify the ending with the sequence 1 → R× → F× →div D(R) → K0(R) → Z → 0 of I.3.6.",
      "match": "The identification (a) of the end of (6.6)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.1 (PDF p. 417; book p. 409)",
-     "excerpt": "We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5.",
      "match": "The segment (6.6.1) of (b), whose identification with the tame symbol and whose exactness (the tame-kernel sequence) are imported from K2SymbolsBrauer T.3 and T.5."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.1.2 (PDF p. 414; book p. 406)",
-     "excerpt": "In particular, when R is a domain we have ∂(s) = [R/sR].",
      "match": "The degree-one boundary, ∂(s) = [R/sR]."
     }
    ],
@@ -1275,7 +1251,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.3–6.6.4 (PDF p. 418; book p. 410)",
-     "excerpt": "Suppose that R ⊂ R′ is an inclusion of Dedekind domains, with R′ finitely generated as an R-module. Then the fraction field F′ of R′ is finite over F, so the exact functors M(R′) → M(R) and M(F′) → M(F) inducing the transfer maps (IV.6.3.3) are compatible.",
      "match": "The morphism of localisation sequences induced by restriction of scalars."
     }
    ],
@@ -1321,13 +1296,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. I.3.8(a) (PDF p. 37; book p. 29)",
-     "excerpt": "(a) Show that the group Pic(R, R_S) of Ex. 3.7 is a subgroup of D(R, R_S), and that there is an exact sequence compatible with Ex. 3.7 1 → R^× → R^×_S → D(R, R_S) → Cl(R) → Cl(R_S) → 0.",
      "match": "The classical sequence for a localisation R_S = S⁻¹R, here with R = 𝓞_F and R_S = O_{F,S}."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6 (PDF p. 417; book p. 409)",
-     "excerpt": "Writing K1(R) = R× ⊕ SK1(R) (see III.1.1.1), the formula 6.1.2 allows us to identify the ending with the sequence 1 → R× → F× →div D(R) → K0(R) → Z → 0 of I.3.6.",
      "match": "The end of (6.6) whose naturality is used."
     }
    ],
@@ -1372,19 +1345,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, proof (PDF p. 420; book p. 412)",
-     "excerpt": "From the computation of Kn(Fq) in IV.1.13 and the fact that Kn(R) is finitely generated (IV.6.9), we see that SKn(R) is 0 for n > 0 even, and is finite for n odd.",
      "match": "The source's even-degree step, which uses only K_*(𝔽_q); the finite generation it cites is needed for the odd degrees only."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6 (PDF p. 417; book p. 409)",
-     "excerpt": "First, if all of the residue fields R/𝔭 are finite, then K2(R/𝔭) = 0 and we obtain the exact sequence:",
      "match": "The case n = 2, which the source derives from K₂(R/𝔭) = 0; here it is imported from K2SymbolsBrauer T.5."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.1.5.4 (PDF p. 193; book p. 185)",
-     "excerpt": "The ring R = ℝ[x, y]/(x2 + y2 − 1) may be embedded in the ring ℝ^{S1} by x ↦ cos(θ), y ↦ sin(θ). Since the matrix (x −y; y x) maps to A, it represents a nontrivial element of SK1(R).",
      "match": "The degree-one non-example."
     }
    ],
@@ -1432,19 +1402,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.9 (PDF p. 333; book p. 325)",
-     "excerpt": "Theorem 6.9. (Quillen) Let R be either an integrally closed subring of a number field F, finite over Z, or else the coordinate ring of a smooth affine curve over a finite field. Then K_n(R) is a finitely generated group for all n.",
      "match": "Quillen's theorem, verbatim; with 'finite over Z' it covers 𝓞_F, and this node derives the S-integer case from it."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.1, Application 6.1 and (6.1.1) (PDF p. 414; book p. 406)",
-     "excerpt": "The prototype is the case when S = {s^n}. [...] Thus the long exact Localization sequence (5.1.1) becomes: · · · → G_{n+1}(R[s^{−1}]) →∂ G_n(R/sR) →i_* G_n(R) → G_n(R[s^{−1}]) →∂ · · · .",
      "match": "The localisation sequence for R → R[1/s] (cross-reference tags dropped, the elided sentence identifies G(R/sR) with the fibre), applied with R = 𝓞_F."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.13 (PDF p. 277; book p. 269)",
-     "excerpt": "Corollary 1.13. For every finite field F_q, and n ≥ 1, we have K_n(F_q) = π_n BGL(F_q)^+ ≅ Z/(q^i − 1) for n = 2i − 1, 0 for n even.",
      "match": "Quillen's finite-field calculation, which makes the residue terms finite in positive degrees."
     }
    ],
@@ -1591,25 +1558,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
-     "excerpt": "Quillen used a filtration of the Q–construction to prove in [154] that the groups K_n(R) are finitely generated for any Dedekind domain R such that (1) Pic(R) is finite and (2) the homology groups H_n(Aut(P), st(P ⊗_R F)) are finitely generated.",
      "match": "The filtration of the Q-construction that Quillen uses; the source does not give it."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "4.1 (arXiv:1108.2441v3, p. 15)",
-     "excerpt": "Let Qn = Qn(X) be the full subcategory of Q(X) consisting of locally free sheaves of rank ≤n. Then the assumptions of Theorem 2.4.1 are satisfied because, in Q(X), there are no morphisms from a locally free sheaf of rank n to a locally free sheaf of rank < n.",
      "match": "The filtration by rank, and the property (a) that makes the inclusions cellular; Kahn states it for locally free sheaves on a scheme, of which P(A) is the affine case."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "4.1, after (4.1) is introduced (arXiv:1108.2441v3, p. 15)",
-     "excerpt": "Note that Qn −Qn−1 is a groupoid",
      "match": "Property (b)."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "2.3.2, Definition (arXiv:1108.2441v3, p. 10)",
-     "excerpt": "Let T : C →D be a functor. We say that T is cellular if • T is fully faithful. • For any d ∈D −C and any c ∈C, D(d, c) = ∅.",
      "match": "The notion of cellular functor used in (a)."
     }
    ],
@@ -1735,13 +1698,11 @@
     {
      "sourceId": "Sun.2016",
      "locator": "p. 5 (arXiv:1604.04700v1)",
-     "excerpt": "We denote by J(V ) the ordered set of proper layers in V . This consists of pairs (W0, W1) of subspaces of V , with W0 ⊂W1, excluding the pair (0, V ), and where (W0, W1) ≤(W ′ 0, W ′ 1) if W ′ 0 ⊂W0 ⊂W1 ⊂W ′ 1.",
      "match": "The definition of J(V) with its order, verbatim (spacing of the text layer kept)."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "4.3.2 (arXiv:1108.2441v3, p. 17)",
-     "excerpt": "In Corollary 4.2.6, suppose n = 1. Then Qn−1(K) ↓EK has two elements: 0 →EK and EK →0.",
      "match": "The dimension-one case."
     }
    ],
@@ -1783,25 +1744,21 @@
     {
      "sourceId": "Kahn.2014",
      "locator": "4.2.4, Proposition (arXiv:1108.2441v3, p. 16)",
-     "excerpt": "Let E be a (coherent) torsion-free sheaf on X, with generic ﬁbre EK. Then the map F 7→FK deﬁnes a bijection from the set Gr(E) of pure subsheaves of E to the set Gr(EK) of subvector spaces of EK.",
      "match": "Pure submodules of P ↔ subspaces of V (for X = Spec A); the text layer renders ↦ as '7→'."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "4.2.6, Corollary, with its proof (arXiv:1108.2441v3, p. 16)",
-     "excerpt": "Then the functor j∗: Qtf n−1(X) ↓E →Qn−1(K) ↓EK is an equivalence of categories. Proof. These categories are equivalent to the ordered sets of proper layers of torsion-free subsheaves of E and j∗E",
      "match": "The equivalence of the comma category with the poset of proper layers."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "4.2.7, Example (arXiv:1108.2441v3, p. 17)",
-     "excerpt": "As is well-known, a coherent sheaf F over a Dedekind scheme is torsion-free if and only if it is locally free.",
      "match": "For a Dedekind domain the torsion-free and the projective versions agree."
     },
     {
      "sourceId": "PutmanStudenmund.2021",
      "locator": "§4.1, 'Subspace stabilizers and projective modules' (arXiv:1909.01217v4, p. 17)",
-     "excerpt": "For a subspace V of Kn = Q ⊗K, the intersection V ∩Q is a direct summand of Q.",
      "match": "W ∩ P is a direct summand, with the same one-line proof."
     }
    ],
@@ -1842,19 +1799,16 @@
     {
      "sourceId": "Kahn.2014",
      "locator": "4.3.1 (arXiv:1108.2441v3, p. 17)",
-     "excerpt": "By [12, Prop. p. 188], the classifying space of the poset Qn−1(K) ↓EK = J(EK) is GL(EK)-weakly equivalent to the suspension of nerve of the Tits building of EK, which in turn is weakly equivalent to a wedge of (n −2)-spheres by the Solomon-Tits theorem",
      "match": "The statement, with Quillen's proposition as Kahn cites it (Quillen's paper itself was not read; the proof steps are this packet's)."
     },
     {
      "sourceId": "Sun.2016",
      "locator": "p. 6 (arXiv:1604.04700v1)",
-     "excerpt": "However, their deﬁnition takes the homology of Tits buildings rather than reduced homologies. So there is a slight mistake in the paper [1] in the case of n = dim(V ) = 2.",
      "match": "Why the Steinberg module in rank two must be reduced homology."
     },
     {
      "sourceId": "PutmanStudenmund.2021",
      "locator": "§1, 'Special linear group and the Steinberg module' (arXiv:1909.01217v4, p. 3)",
-     "excerpt": "The Solomon–Tits theorem [18, 6] says that Tn(K) is homotopy equivalent to a wedge of (n−2)-spheres. The Steinberg module Stn(K) is eHn−2(Tn(K)).",
      "match": "Solomon–Tits and the definition of the Steinberg module ('eH' is the text layer's H̃), which R.1 supplies."
     }
    ],
@@ -1902,25 +1856,21 @@
     {
      "sourceId": "Kahn.2014",
      "locator": "4.3.3, Theorem (arXiv:1108.2441v3, p. 17)",
-     "excerpt": "If X is an integral scheme, then the E1-terms of the rank spectral sequence (4.2) (with Z-coeﬃcients) are E1 p,q = ⊕ Eα Hq(Aut(Eα), st(Eα)) where Eα runs through the isomorphism classes of torsion-free sheaves of rank p, and st(Eα) = ˜Hp−1((Fp)|Eα) is the [reduced] Steinberg module",
      "match": "The E¹ term, verbatim up to the typesetting of the direct sum; for X = Spec A with A Dedekind the torsion-free sheaves are the projectives (4.2.7)."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "2.4.1, Theorem (arXiv:1108.2441v3, p. 12)",
-     "excerpt": "The functors Tn : Qn−1 →Qn are cellular (2.3.2). • Q = lim −→Qn. Write Fn for FTn. Then, for any abelian group A, there is a spectral sequence of homological type E1 p,q = Hp+q−1(Qp −Qp−1, ˜Fp; A) ⇒Hp+q(Q, A).",
      "match": "The spectral sequence of a cellular filtration (step 1)."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "4.3.4, Remark (arXiv:1108.2441v3, p. 17)",
-     "excerpt": "By an argument of Vogel, the exact sequences from Corollary 2.3.7 then coincide with those of Quillen in [12, Th. 3 p. 181].",
      "match": "Identification with Quillen's Theorem 3."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "Introduction (arXiv:1108.2441v3, p. 1)",
-     "excerpt": "Inspection shows immediately that the exact sequences of [12, Th. 3], used by Quillen to prove that the K-groups of A are finitely generated when A is a ring of S-integers in a global field, assemble to define an exact couple, hence a spectral sequence converging to the homology of KA.",
      "match": "Quillen's exact sequences assemble into this spectral sequence."
     }
    ],
@@ -1966,19 +1916,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
-     "excerpt": "Quillen used a filtration of the Q–construction to prove in [154] that the groups K_n(R) are finitely generated for any Dedekind domain R such that (1) Pic(R) is finite and (2) the homology groups H_n(Aut(P), st(P ⊗_R F)) are finitely generated.",
      "match": "The criterion with both hypotheses, verbatim (reference numbers kept, cross-reference tags dropped); the source gives no proof, which is decomposed here from Kahn's rank spectral sequence."
     },
     {
      "sourceId": "Kahn.2014",
      "locator": "Introduction (arXiv:1108.2441v3, p. 1)",
-     "excerpt": "Inspection shows immediately that the exact sequences of [12, Th. 3], used by Quillen to prove that the K-groups of A are finitely generated when A is a ring of S-integers in a global field, assemble to define an exact couple, hence a spectral sequence converging to the homology of KA.",
      "match": "Quillen's proof runs through these exact sequences."
     },
     {
      "sourceId": "Sun.2016",
      "locator": "p. 7 (arXiv:1604.04700v1)",
-     "excerpt": "Actually, Quillen showed that A satisﬁes (1) Pic(A) is ﬁnite (this is actually a classical result). (2) If d is a ﬁnitely generated projective A-module and V = d ⊗A K, then Hi(Aut(d), St(V )) is a ﬁnitely generated Abelian group for every i.",
      "match": "The two hypotheses in the form used here."
     }
    ],
@@ -2021,25 +1968,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
-     "excerpt": "Quillen used a filtration of the Q–construction to prove in [154] that the groups K_n(R) are finitely generated for any Dedekind domain R such that (1) Pic(R) is finite and (2) the homology groups H_n(Aut(P), st(P ⊗_R F)) are finitely generated.",
      "match": "Hypothesis (2), whose verification for rings of integers this node assembles from R.1."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the sentence before Theorem 6.9 (PDF p. 333; book p. 325)",
-     "excerpt": "He then veriﬁed (2) in [154] (number ﬁeld case) and [75] (aﬃne curves).",
      "match": "Quillen's verification of (2) for number fields, which the source does not reproduce."
     },
     {
      "sourceId": "Sun.2016",
      "locator": "p. 7 (arXiv:1604.04700v1)",
-     "excerpt": "(2) If d is a ﬁnitely generated projective A-module and V = d ⊗A K, then Hi(Aut(d), St(V )) is a ﬁnitely generated Abelian group for every i. In particular, for Γ = Aut(d) and d ∈D −C we may ﬁnd a normal subgroup Γ′ of Γ of ﬁnite index so that there is a Hochschild-Serre spectral sequence",
      "match": "The statement for every projective d, and the descent through a normal subgroup of finite index that R.1's proof uses."
     },
     {
      "sourceId": "PutmanStudenmund.2021",
      "locator": "Theorem C (arXiv:1909.01217v4, p. 4)",
-     "excerpt": "Letting χ: GLn(O) →{±1} be the composition of the determinant homomorphism with the norm map O× →{±1}, we then have D ∼= Stn(K) ⊗(Zχ)⊗(n−1).",
      "match": "The correctly twisted dualizing module on which R.1's finiteness rests (RT-AREA-ktheory-1/1, verifier)."
     }
    ],
@@ -2081,13 +2024,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.9 (PDF p. 333; book p. 325)",
-     "excerpt": "Theorem 6.9. (Quillen) Let R be either an integrally closed subring of a number field F, finite over Z, or else the coordinate ring of a smooth affine curve over a finite field. Then K_n(R) is a finitely generated group for all n.",
      "match": "The theorem, verbatim; this node states its number-field half. 'Finite over Z' makes R a ring of integers."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the sentence before Theorem 6.9 (PDF p. 333)",
-     "excerpt": "He then verified (2) in [154] (number field case) and [75] (affine curves).",
      "match": "The verification of hypothesis (2) for rings of integers, assembled in N.3:finite-generation/steinberg-homology-of-automorphism-groups from BorelRegulators R.1."
     }
    ],
@@ -2144,31 +2085,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18 (PDF p. 279; book p. 271)",
-     "excerpt": "Theorem 1.18. (Borel) Let F be a number field, and A a central simple F-algebra. Then for n ≥ 2 we have K_n(A) ⊗ Q ≅ K_n(F) ⊗ Q and rank K_n(A) ⊗ Q = r_2, n ≡ 3 (mod 4); r_1 + r_2, n ≡ 1 (mod 4); 0, else.",
      "match": "Borel's theorem, verbatim with its cases display written on one line; imported from R.3 with A = F."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.17 (PDF p. 279; book p. 271)",
-     "excerpt": "Theorem 1.17. (Borel) Let A be a finite dimensional semisimple Q-algebra. Then for every order R in A we have K_n(R) ⊗ Q ≅ K_n(A) ⊗ Q for all n ≥ 2.",
      "match": "Borel's comparison for orders, imported from R.3 for the order 𝓞_F; 𝓞_{F,S} with S ≠ ∅ is not an order, which is why this node passes from 𝓞_F to 𝓞_{F,S} itself."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Before IV.1.17 (PDF p. 279)",
-     "excerpt": "Now suppose that A is a finite dimensional semisimple algebra over Q, such as a number field, and that R is a subring of A which is finitely generated over Z and has R ⊗ Q = A (R is an order).",
      "match": "The definition of an order, which excludes 𝓞_{F,S} for S ≠ ∅; hence the localisation step."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Before IV.1.18 (PDF p. 279)",
-     "excerpt": "is a tensor product of r_1 exterior algebras having generators x_i in degrees 4i + 1 (i ≥ 1) and r_2 exterior algebras having generators x_j in degrees 2j + 1 (j ≥ 1).",
      "match": "The degrees of the primitive generators, from which the period-four pattern is read off (numerical check of the rank formula)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18.2, Example 1.18.2 (PDF p. 280; book p. 272)",
-     "excerpt": "The rank of K_1(Z[G]) was given in III.1.8, and does not follow this pattern. For example, if C_p is a cyclic group of prime order p ≥ 3 then r_1 + r_2 = (p + 1)/2 yet K_1(Z[C_p]) has rank (p − 3)/2.",
      "match": "The source's warning that degree one does not follow the pattern."
     }
    ],
@@ -2206,13 +2142,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18, last sentence (PDF p. 279; book p. 271)",
-     "excerpt": "By Theorem 1.17, this also gives the rank of K_n(R) for every order R. In particular, these groups are torsion for every even n ≥ 2.",
      "match": "Torsion of the even groups of an order; with finite generation and the passage to 𝓞_{F,S} this gives finiteness."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513)",
-     "excerpt": "By Chapter IV, 1.18 and 6.9, the groups K_n(F) are finite when n is even and nonzero",
      "match": "The finiteness statement with the misprint K_n(F) for K_n(O_S) (sourceIssues ArithmeticKTheory/E15); this node states it for the ring."
     }
    ],
@@ -2253,13 +2187,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, Theorem 6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then K_n(R) ≅ K_n(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → K_n(R) → K_n(F) → ⊕_p K_{n−1}(R/p) → 0.",
      "match": "The even-degree sequences exhibit K_n(F) as an extension of the infinite group ⊕_p K_{n−1}(R/p) by K_n(R); this node proves the weaker statement it needs without Soulé's theorem."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18, last sentence (PDF p. 279)",
-     "excerpt": "By Theorem 1.17, this also gives the rank of K_n(R) for every order R. In particular, these groups are torsion for every even n ≥ 2.",
      "match": "Torsion of the even groups, for orders and, through Theorem 1.18 with A = F, for the field."
     }
    ],
@@ -2301,13 +2233,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513)",
-     "excerpt": "Let O_S be a ring of integers in a number field F. By Chapter IV, 1.18 and 6.9, the groups K_n(F) are finite when n is even and nonzero; if n is odd and n ≥ 3 the groups K_n(F) are the direct sum of a finite group and Z^r, where r is r_2 when n ≡ 3 (mod 4) and r_1 + r_2 when n ≡ 1 (mod 4).",
      "match": "The combined statement, verbatim, with a misprint: 'the groups K_n(F) are finite when n is even and nonzero' must read K_n(O_S) (K_2(Q) is infinite); see source issue. The odd half is right for F by Soulé's theorem and is stated here for O_S."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18, last sentence (PDF p. 279; book p. 271)",
-     "excerpt": "By Theorem 1.17, this also gives the rank of K_n(R) for every order R. In particular, these groups are torsion for every even n ≥ 2.",
      "match": "The torsion of the even groups of an order, which with finite generation gives their finiteness."
     }
    ],
@@ -2489,31 +2419,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.1.7, Definition 1.7 (PDF p. 476; book p. 468)",
-     "excerpt": "Definition 1.7. For all i ∈ Z, we shall write µ(i) for the abelian group µ, made into a Aut(F)-module by letting g ∈ Aut(F) act as ζ ↦ g^i(ζ). (This modified module structure is called the ith Tate twist of the cyclotomic module µ.)",
      "match": "The Tate twist µ(i), verbatim; g^i(ζ) = ζ^{χ(g)^i}."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, before Definition 2.1 (PDF p. 477; book p. 469)",
-     "excerpt": "The target group µ(i)^G is always the direct sum of its ℓ-primary Sylow subgroups µ^{(ℓ)}(i)^G ≅ Z/ℓ^∞(i)^G.",
      "match": "The primary decomposition of the invariants."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1, Definition 2.1, second half (PDF p. 477)",
-     "excerpt": "If µ(i)^G is a finite group it is cyclic, and we write w_i(F) for its order, so that µ(i)^G ≅ Z/w_i(F). If ℓ is a prime, we write w^{(ℓ)}_i(F) for the order of µ^{(ℓ)}(i)^G. Thus the target of the e-invariant is ⊕_ℓ Z/w^{(ℓ)}_i(F), and w_i(F) = ∏ w^{(ℓ)}_i(F).",
      "match": "Cyclicity, the notation w_i(F) only for a finite group, and the product formula, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.1 (PDF p. 478; book p. 470)",
-     "excerpt": "Example 2.1.1 (finite fields). It is a pleasant exercise to show that w_i(F_q) = q^i − 1 for all i. Since this is the order of K_{2i−1}(F_q) by IV.1.13, we see that in this case, the e-invariant is an isomorphism.",
      "match": "The finite-field value, used as a test; 'for all i' means i ≥ 1 (see source issue)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.2 (PDF p. 478)",
-     "excerpt": "Example 2.1.2. If i is odd, w_i(Q) = 2 and w_i(Q(√−1)) = 4. If i is even then w_i(Q) = w_i(Q(√−1)), and ℓ|w_i(Q) exactly when (ℓ−1) divides i.",
      "match": "The values over Q and Q(√−1), used as tests."
     }
    ],
@@ -2555,19 +2480,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2, Proposition 2.2 (PDF pp. 478–479; book pp. 470–471)",
-     "excerpt": "Proposition 2.2. Fix a prime ℓ ≠ 2, and let F be a field of characteristic ≠ ℓ. Let a ≤ ∞ be maximal such that F(ζ_ℓ) contains a primitive ℓ^a th root of unity and set r = [F(ζ_ℓ) : F]. If i = cℓ^b, where ℓ ∤ c, then the numbers w^{(ℓ)}_i = w^{(ℓ)}_i(F) are ℓ^{a+b} if r | i, and 1 otherwise.",
      "match": "The proposition, verbatim (a ≤ ∞ kept); the cases (a)–(c) follow on PDF p. 479."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2, the proof (PDF p. 479)",
-     "excerpt": "Proof. Since ℓ is odd, G = Gal(F(ζ_{ℓ^ν})/F) is a cyclic group of order rℓ^{ν−a} for all ν ≥ a.",
      "match": "The first step of the proof, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2.2, Example 2.2.2 (PDF p. 479)",
-     "excerpt": "Example 2.2.2. Consider F = Q(ζ_{p^a}). If i = cp^b then w^{(p)}_i(F) = p^{a+b} (p ≠ 2). If ℓ ≠ 2, p then w^{(ℓ)}_i(F) = w^{(ℓ)}_i(Q) for all i. This number is 1 unless (ℓ−1) | i; if (ℓ−1)|i but ℓ ∤ i then w^{(ℓ)}_i(F) = ℓ.",
      "match": "The cyclotomic example, verbatim."
     }
    ],
@@ -2691,13 +2613,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, after Example 2.2.2 (PDF p. 479; book p. 471)",
-     "excerpt": "The situation is more complicated when ℓ = 2, because Aut(µ_{2^ν}) = (Z/2^ν)^× contains two involutions if ν ≥ 3. We say that a field F is exceptional if char(F) = 0 and the Galois groups Gal(F(ζ_{2^ν})/F) are not cyclic for large ν. If F is not exceptional, we say that it is non-exceptional.",
      "match": "The definition, verbatim; 'two involutions' is a misprint for three (source issue)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, after Proposition 2.3 (PDF p. 479)",
-     "excerpt": "Both R and Q_2 are exceptional, and so are each of their subfields. In particular, real number fields (like Q) are exceptional, and so are some totally imaginary number fields, like Q(√−7).",
      "match": "Which fields are exceptional, verbatim; correct for number fields and for Q_2 and its subfields, not for R (source issue)."
     }
    ],
@@ -2738,25 +2658,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.2, Example 2.1.2 (PDF p. 478; book p. 470)",
-     "excerpt": "We have: w_2 = 24, w_4 = 240, w_6 = 504 = 2^3 · 3^2 · 7, w_8 = 480 = 2^5 · 3 · 5, w_10 = 1320 = 2^3 · 3 · 5 · 11, and w_12 = 65,520 = 2^4 · 3^2 · 5 · 7 · 13.",
      "match": "The values for even i, verbatim; all are correct except w_10, which is 264 (source issue)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4, Lemma 2.4 (PDF p. 480; book p. 472)",
-     "excerpt": "Lemma 2.4. If i = 2k is even then w_i(Q) is the denominator of B_k/4k. The prime ℓ divides w_i(Q) exactly when (ℓ−1) divides i.",
      "match": "The Bernoulli description used as the cross-check."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, before Lemma 2.4 (PDF p. 480)",
-     "excerpt": "(We use the topologists’ B_k from [135], all of which are positive. Number theorists would write it as (−1)^{k+1}B_{2k}.) The first few Bernoulli numbers are: B_1 = 1/6, B_2 = 1/30, B_3 = 1/42, B_4 = 1/30, B_5 = 5/66, B_6 = 691/2730",
      "match": "The Bernoulli convention and values used in the cross-check."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, after Birch-Tate Conjecture 8.6 (PDF p. 523; book p. 515)",
-     "excerpt": "For example, when F = Q we have ζ_Q(−1) = −1/12, |K_2(Z)| = 2 and w_2(Q) = 24; see the Classical Data 8.1",
      "match": "The value 24 in the Birch-Tate example, verbatim."
     }
    ],
@@ -2799,13 +2715,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2.1, Lemma 2.2.1 (PDF p. 479; book p. 471)",
-     "excerpt": "Lemma 2.2.1. w^{(ℓ)}_i(F) = max{ℓ^ν | Gal(F(ζ_{ℓ^ν})/F) has exponent dividing i}",
      "match": "The criterion, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2.1, the proof (PDF p. 479)",
-     "excerpt": "Proof. Set ζ = ζ_{ℓ^ν}. Then ζ^{⊗i} is invariant under g ∈ Gal(F̄/F) precisely when g^i(ζ) = ζ, and ζ^{⊗i} is invariant under all of G precisely when the group Gal(F(ζ_{ℓ^ν})/F) has exponent i.",
      "match": "The proof, verbatim; its last clause has a misprint ('exponent i' for 'exponent dividing i')."
     }
    ],
@@ -2849,13 +2763,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, Exercise 2.1 (PDF p. 482; book p. 474)",
-     "excerpt": "2.1. For every prime ℓ with 1/ℓ ∈ F, show that the following are equivalent: (i) F(ζ_ℓ) has only finitely many ℓ-primary roots of 1; (ii) w^{(ℓ)}_i(F) is finite for some i ≡ 0 (mod 2(ℓ−1)); (iii) w^{(ℓ)}_i(F) is finite for all i > 0.",
      "match": "The ℓ-primary finiteness, verbatim; the vanishing for large ℓ, which the global statement needs, is derived from Proposition 2.2(c) in the proof steps."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1, Definition 2.1, second half (PDF p. 477)",
-     "excerpt": "If µ(i)^G is a finite group it is cyclic, and we write w_i(F) for its order, so that µ(i)^G ≅ Z/w_i(F). If ℓ is a prime, we write w^{(ℓ)}_i(F) for the order of µ^{(ℓ)}(i)^G. Thus the target of the e-invariant is ⊕_ℓ Z/w^{(ℓ)}_i(F), and w_i(F) = ∏ w^{(ℓ)}_i(F).",
      "match": "The source writes w_i(F) only for a finite group; this node supplies finiteness for number fields."
     }
    ],
@@ -2899,25 +2811,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.3, Proposition 2.3 (PDF p. 479; book p. 471)",
-     "excerpt": "Proposition 2.3. (ℓ = 2) Let F be a field of characteristic ≠ 2. Let a be maximal such that F(√−1) contains a primitive 2^a th root of unity. If i = c2^b, where 2 ∤ c, then the 2-primary numbers w^{(2)}_i = w^{(2)}_i(F) are: (a) If √−1 ∈ F then w^{(2)}_i = 2^{a+b} for all i.",
      "match": "The proposition and case (a), verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.3, Proposition 2.3 (PDF p. 479)",
-     "excerpt": "(b) If √−1 ∉ F and i is odd then w^{(2)}_i = 2. (c) If √−1 ∉ F, F is exceptional and i is even then w^{(2)}_i = 2^{a+b}. (d) If √−1 ∉ F, F is non–exceptional and i is even then w^{(2)}_i = 2^{a+b−1}.",
      "match": "Cases (b)–(d), verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.3, after the proposition (PDF p. 479)",
-     "excerpt": "The proof of Proposition 2.3(a,b,d) is almost identical to that of 2.2 with r = 1. The proof in the exceptional case (c) is relegated to Exercise 2.2.",
      "match": "The source's proof, which leaves (c) to an exercise."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, Exercise 2.2 (PDF p. 483; book p. 475)",
-     "excerpt": "2.2. Prove Proposition 2.3(c), giving the formula w^{(2)}_i(F) = 2^{a+b} when i is even and F is exceptional. Hint: Consider µ(i)^H, H = Gal(F̄/F(√−1)).",
      "match": "The exercise proving (c), with its hint."
     }
    ],
@@ -2966,31 +2874,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.4, Theorem 8.4 (PDF p. 522; book p. 514)",
-     "excerpt": "Theorem 8.4. Let F be a totally imaginary number field, and let OS be the ring of S-integers in F for some set S of finite places. Then: Kn(OS) ≅ Z ⊕ Pic(OS), for n = 0; Zr2+|S|−1 ⊕ Z/w1(F), for n = 1; ⊕ℓH2et(OS[1/ℓ]; Zℓ(i + 1)) for n = 2i ≥ 2; Zr2 ⊕ Z/wi(F) for n = 2i − 1 ≥ 3.",
      "match": "Theorem 8.4; this node states its odd row n = 2i − 1 ≥ 3, the rows n = 0, 1 being N.1's and the row n = 2i ≥ 2 N.6's."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.4, proof (PDF p. 522; book p. 514)",
-     "excerpt": "Proof. The cases n = 0, 1 and the ranks of Kn are part of the Classical Data 8.1. Since F is totally imaginary, the torsion comes from Theorem 8.2.",
      "match": "The proof: ranks from the classical data, torsion from Theorem 8.2 (proof steps 2 and 3)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.4, the sentence before the theorem (PDF p. 522; book p. 514)",
-     "excerpt": "Combining Theorems 8.1 and 8.2, we obtain a description of K∗(OS) when F is totally imaginary. This includes exceptional number fields such as Q(√−7).",
      "match": "The scope of the theorem, which includes exceptional totally imaginary fields."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.5, Theorem 9.5, opening and part (a) (PDF p. 527; book p. 519)",
-     "excerpt": "Theorem 9.5. Let OS be a ring of S-integers in a number field F. Then for each odd n ≥ 3, the group Kn(OS) ≅ Kn(F) is given by: (a) If F is totally imaginary, Kn(F) ≅ Zr2 ⊕ Z/wi(F);",
      "match": "The same row restated as Theorem 9.5(a), with K_n(O_S) ≅ K_n(F)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI, Exercise 8.5 (PDF p. 524; book p. 516)",
-     "excerpt": "8.5. Show that K3(Z[i]) ≅ Z ⊕ Z/24, K7(Z[i]) ≅ Z ⊕ Z/240 and K4k+1(Z[i]) ≅ Z ⊕ Z/4 for all k > 0.",
      "match": "The worked instances used in the acceptance."
     }
    ],
@@ -3044,43 +2947,36 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.5, Theorem 9.5, opening and part (a) (PDF p. 527; book p. 519)",
-     "excerpt": "Theorem 9.5. Let OS be a ring of S-integers in a number field F. Then for each odd n ≥ 3, the group Kn(OS) ≅ Kn(F) is given by: (a) If F is totally imaginary, Kn(F) ≅ Zr2 ⊕ Z/wi(F);",
      "match": "The opening of Theorem 9.5, with K_n(O_S) ≅ K_n(F)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.5, Theorem 9.5(b) (PDF p. 527; book p. 519)",
-     "excerpt": "(b) If F has r1 > 0 real embeddings then, setting i = (n + 1)/2, Kn(F) ≅ Zr1+r2 ⊕ Z/wi(F), n ≡ 1 (mod 8) Zr2 ⊕ Z/2wi(F) ⊕ (Z/2)r1−1, n ≡ 3 (mod 8) Zr1+r2 ⊕ Z/½wi(F), n ≡ 5 (mod 8) Zr2 ⊕ Z/wi(F), n ≡ 7 (mod 8).",
      "match": "The four rows modulo eight, which this node states."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.5, the remark after the theorem (PDF p. 527; book p. 519)",
-     "excerpt": "Note that these groups are determined only by the number r1, r2 of real and complex places of F and the integers wi(F).",
      "match": "What the groups are determined by; the abstract groups, not the maps."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.5, proof (PDF p. 528; book p. 520)",
-     "excerpt": "The odd torsion is given by Theorem 8.2, so we need only worry about the 2-primary torsion. Since Kn+1(OS) is finite, it follows from Ex. IV.2.6 that the 2-primary subgroup of Kn(OS) is Kn+1(OS; Z/2∞), which we can read off from Theorem 9.4, recalling from 2.3(b) that w(2)i(F) = 2 for odd i.",
      "match": "The proof: odd torsion from Theorem 8.2, two-primary torsion from Theorem 9.4 through universal coefficients (proof steps 3 and 4)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.5.1, Example 9.5.1 (PDF p. 528; book p. 520)",
-     "excerpt": "Example 9.5.1. Kn(Q) ≅ Z for all n ≡ 5 (mod 8) as wi(Q) = 2; see 2.1.2. More generally, if F has a real embedding and n ≡ 5 (mod 8), then Kn(F) has no 2-primary torsion, because ½wi(F) is an odd integer when i is odd; see 2.3(b).",
      "match": "The divisibility in the class n ≡ 5 (mod 8): w_i(F)/2 is odd."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.3, Proposition 2.3(b) and the remark after it (PDF p. 479; book p. 471)",
-     "excerpt": "(b) If √−1 ∉ F and i is odd then w(2)i = 2. ... In particular, real number fields (like Q) are exceptional, and so are some totally imaginary number fields, like Q(√−7).",
      "match": "w_i^{(2)}(F) = 2 for odd i when √−1 ∉ F, and every real number field is exceptional."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.2, Example 2.1.2, second paragraph (PDF p. 478; book p. 470)",
-     "excerpt": "In [108], Lee and Szczarba used a variant of the formula K3(R) = H3(St(R); Z) (Ex. IV.1.9) to show that K3(Z) ≅ K3(Q) ≅ Z/48.",
      "match": "The value K_3(ℤ) ≅ ℤ/48 used in the acceptance."
     }
    ],
@@ -3128,19 +3024,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕𝔭 Kn−1(R/𝔭) → 0.",
      "match": "The theorem, in the source's generality."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, proof (PDF p. 420; book p. 412)",
-     "excerpt": "Let SKn(R) denote the kernel of Kn(R) → Kn(F); from (6.6), it suffices to prove that SKn(R) = 0 for n ≥ 1. For n = 1 this is the Bass-Milnor-Serre Theorem III.2.5 (and III.2.5.1).",
      "match": "The reduction and the degree-one case."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, proof (PDF p. 420; book p. 412)",
-     "excerpt": "Fixing n = 2i − 1 ≥ 1, we may choose a positive integer ℓ annihilating the (finite) torsion subgroup of Kn(R). Thus SKn(R) injects into the subgroup Kn(R)/ℓ of Kn(R; Z/ℓ), which in turn injects into Kn(F; Z/ℓ) by Proposition 6.8.1 below.",
      "match": "The odd-degree argument."
     }
    ],
@@ -3181,19 +3074,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8.1 (PDF p. 420; book p. 412)",
-     "excerpt": "Proposition 6.8.1. (Soulé) Let R be a Dedekind domain whose field of fractions F is a global field. Then for each ℓ and each even n ≥ 2, the boundary map ∂ : Kn(F; Z/ℓ) → ⊕Kn−1(R/𝔭; Z/ℓ) is onto in the localization sequence with coefficients Z/ℓ.",
      "match": "The proposition."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8.1, proof (PDF p. 421; book p. 413)",
-     "excerpt": "Since Kn−1(R/𝔭)/2ℓ = Kn−1(R/𝔭; Z/2ℓ) surjects onto Kn−1(R/𝔭)/ℓ = Kn−1(R/𝔭; Z/ℓ) for each 𝔭, we may increase ℓ to assume that ℓ ≢ 2 (mod 4), so that the product (IV.2.8) is defined on K∗(R; Z/ℓ).",
      "match": "The first reduction."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8.1, proof (PDF p. 421; book p. 413)",
-     "excerpt": "In the general case, we pass to the integral closure R′ of R in the field F′ = F(ζℓ). Every prime ideal 𝔭 of R has a prime ideal 𝔭′ of R′ lying over it, and the transfer maps K2i−1(R′/𝔭′) → K2i−1(R/𝔭) are all onto by IV.1.13.",
      "match": "The passage to F(ζ_ℓ)."
     }
    ],
@@ -3292,19 +3182,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1, Definition 2.1, first half (PDF p. 477; book p. 469)",
-     "excerpt": "Definition 2.1. Let F be a field, with separable closure F̄ and Galois group G = Gal(F̄/F). Since K_*(F) → K_*(F̄) is a homomorphism of G-modules, with G acting trivially on K_n(F), it follows that there is a natural map e : K_{2i−1}(F)_tors → K_{2i−1}(F̄)^G_tors ≅ µ(i)^G.",
      "match": "The definition, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.1.7.1 (PDF p. 476; book p. 468)",
-     "excerpt": "Proposition 1.7.1. If F is algebraically closed and i > 0, the torsion submodule of K_{2i−1}(F) is isomorphic to µ(i) as an Aut(F)-module.",
      "match": "The identification the definition uses, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.2 (PDF p. 478)",
-     "excerpt": "In [108], Lee and Szczarba used a variant of the formula K_3(R) = H_3(St(R); Z) (Ex. IV.1.9) to show that K_3(Z) ≅ K_3(Q) ≅ Z/48. It follows that the e-invariant K_3(Q) → Z/24 cannot be an injection.",
      "match": "The non-injectivity for Q, verbatim."
     }
    ],
@@ -3354,37 +3241,31 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5, Harris-Segal Theorem 2.5 (PDF p. 481; book p. 473)",
-     "excerpt": "Harris-Segal Theorem 2.5. Let F be a field with 1/ℓ ∈ F; if ℓ = 2, we also suppose that F is non-exceptional. Set w_i = w^{(ℓ)}_i(F). Then each K_{2i−1}(F) has a direct summand isomorphic to Z/w_i, detected by the e-invariant.",
      "match": "The theorem for the field, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5, Harris-Segal Theorem 2.5, continued (PDF p. 481)",
-     "excerpt": "If F is the field of fractions of an integrally closed domain R then K_{2i−1}(R) also has a direct summand isomorphic to Z/w_i(F), detected by the e-invariant.",
      "match": "The ring form, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5, the proof (PDF p. 481)",
-     "excerpt": "Suppose first that either ℓ ≠ 2 and ζ_ℓ ∈ R, or that ℓ = 2 and ζ_4 ∈ R. If R has m = ℓ^a ℓ-primary roots of unity, then w^{(ℓ)}_i(Q(ζ_m)) equals w_i = w^{(ℓ)}_i(F) by 2.2 and 2.3. Thus there is no loss in generality in assuming that R = Z[ζ_m].",
      "match": "The first reduction of the proof, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.1.5.2 (PDF p. 475; book p. 467)",
-     "excerpt": "Corollary 1.5.2. If q ≡ 1 (mod ℓ) and m is the order of µ^{(ℓ)}(F_q) then each group K_{2i−1}(Z[ζ_m]) ≅ K_{2i−1}(Q(ζ_m)) contains a cyclic summand mapping isomorphically onto the ℓ-primary component of K_{2i−1}(F_q) ≅ Z/(q^i − 1).",
      "match": "The input from Harris and Segal's theorem, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5.1, Remark 2.5.1 (PDF p. 482; book p. 474)",
-     "excerpt": "Remark 2.5.1. If F is an exceptional field, a transfer argument using F(√−1) shows that there is a cyclic summand in K_{2i−1}(F) whose order is either w_i(F), 2w_i(F) or w_i(F)/2. (Exercise 2.4); we will also call these Harris-Segal summands.",
      "match": "The exceptional case, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.6, Theorem 2.6 (PDF p. 482)",
-     "excerpt": "Theorem 2.6. Let F be a real number field. Then the Harris-Segal summands in K_{2i−1}(F) and K_{2i−1}(O_F) are isomorphic to: (1) Z/w_i(F), if i ≡ 0 (mod 4) or i ≡ 1 (mod 4), [...] (2) Z/2w_i(F), if i ≡ 2 (mod 4), [...] (3) Z/ (1/2)w_i(F), if i ≡ 3 (mod 4)",
      "match": "The orders for real number fields (display flattened, the 'i.e.' clauses elided)."
     }
    ],
@@ -3431,31 +3312,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, Theorem 8.2, the odd rows (PDF p. 521; book p. 513)",
-     "excerpt": "Theorem 8.2. Let F be a number field, and let OS be a ring of integers in F. Fix a prime ℓ; if ℓ = 2 we suppose F totally imaginary. Then for all n ≥ 2: Kn(OS)(ℓ) ≅ ... Zr2(ℓ) ⊕ Z/w(ℓ)i(F) for n = 2i − 1, i even; Zr2+r1(ℓ) ⊕ Z/w(ℓ)i(F) for n = 2i − 1, i odd.",
      "match": "The odd rows of Theorem 8.2 with its hypothesis at the prime two, which this node states."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof, first paragraph (PDF p. 521; book p. 513)",
-     "excerpt": "Proof. Set R = OS[1/ℓ]. For each prime ideal p over ℓ, Kn−1(R/p) has no ℓ-torsion by IV.1.13. By the localization sequence (V, (6.6) or 6.8), Kn(OS)(ℓ) = Kn(R)(ℓ). Thus we may replace OS by R = OS[1/ℓ].",
      "match": "The reduction from O_S to O_S[1/ℓ] through the localisation sequence and Quillen's finite-field computation (proof step 1; the printed R/p is the misprint recorded in sourceIssues)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof, second paragraph (PDF p. 521; book p. 513)",
-     "excerpt": "If F is a number field, the étale ℓ-cohomological dimension of R (and of F) is 2, unless ℓ = 2 and r1 > 0 (F has a real embedding).",
      "match": "Why the hypothesis at two is the cohomological-dimension hypothesis."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof, end of second paragraph (PDF p. 521; book p. 513)",
-     "excerpt": "Kn(R; Z/ℓ∞) ≅ H0(R; Z/ℓ∞(i)) = Z/w(ℓ)i(F) for n = 2i ≥ 2, H1(R; Z/ℓ∞(i)) for n = 2i − 1 ≥ 1. The description of K2i−1(R){ℓ} = K2i(R; Z/ℓ∞) follows.",
      "match": "The identification of the ℓ-primary torsion of K_{2i−1}(R) with H^0(R; ℚ_ℓ/ℤ_ℓ(i)) = ℤ/w_i^{(ℓ)}(F) (proof steps 2 to 4)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.8, Corollary 9.8, the table (PDF p. 530; book p. 522)",
-     "excerpt": "n (mod 8) 1 2 3 4 5 6 7 8 Kn(Z){2} Z/2 Z/2 Z/16 0 0 0 Z/16k 0",
      "match": "The non-example at ℓ = 2 for ℚ: the two-primary part of K_3(ℤ) is ℤ/16, not ℤ/w_2^{(2)}(ℚ) = ℤ/8."
     }
    ],
@@ -3500,31 +3376,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, Theorem 8.2, the even row (PDF p. 521; book p. 513)",
-     "excerpt": "Theorem 8.2. Let F be a number field, and let OS be a ring of integers in F. Fix a prime ℓ; if ℓ = 2 we suppose F totally imaginary. Then for all n ≥ 2: Kn(OS)(ℓ) ≅ H2et(OS[1/ℓ]; Zℓ(i + 1)) for n = 2i > 0;",
      "match": "The even row of Theorem 8.2 with its hypothesis at the prime two, which this node states."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof, first paragraph (PDF p. 521; book p. 513)",
-     "excerpt": "Proof. Set R = OS[1/ℓ]. For each prime ideal p over ℓ, Kn−1(R/p) has no ℓ-torsion by IV.1.13. By the localization sequence (V, (6.6) or 6.8), Kn(OS)(ℓ) = Kn(R)(ℓ). Thus we may replace OS by R = OS[1/ℓ].",
      "match": "The reduction from O_S to O_S[1/ℓ] (proof step 1)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof, last paragraph (PDF p. 522; book p. 514)",
-     "excerpt": "The same argument works for ℓ-adic coefficients Zℓ; for i > 0 we have Hnet(R, Zℓ(i)) = 0 for n ≠ 1, 2, so the spectral sequence (4.2) degenerates to yield K2i−1(R; Zℓ) ≅ H1et(R, Zℓ(i)) and K2i(R; Zℓ) ≅ H2et(R, Zℓ(i + 1)) (which is a finite group by Exercise 8.2).",
      "match": "The ℤ_ℓ-coefficient argument that gives K_{2i}(R; ℤ_ℓ) ≅ H^2(R, ℤ_ℓ(i+1)) (proof steps 2 and 3)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, proof, second paragraph (PDF p. 521; book p. 513)",
-     "excerpt": "If F is a number field, the étale ℓ-cohomological dimension of R (and of F) is 2, unless ℓ = 2 and r1 > 0 (F has a real embedding).",
      "match": "The cohomological-dimension hypothesis."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3.2, Example 8.3.2 (PDF p. 522; book p. 514)",
-     "excerpt": "Example 8.3.2. If ℓ ≠ 2 is a regular prime (see 2.4.1), we claim that K2i(Z[ζℓ]) has no ℓ-torsion.",
      "match": "The regular-prime instance used in the acceptance."
     }
    ],
@@ -3576,55 +3447,46 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.11, Theorem 9.11, hypotheses (PDF p. 532; book p. 524)",
-     "excerpt": "Theorem 9.11. Let F be a number field with at least one real embedding, and let R = OS denote a ring of integers in F containing 1/2. Let j be the signature defect of R, and write wi for w(2)i(F). Then there is an integer ρ, j ≤ ρ < r1, such that, for all n ≥ 2, the two-primary subgroup Kn(OS){2}",
      "match": "The hypotheses of Theorem 9.11 and the integer ρ with j ≤ ρ < r_1."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.11, Theorem 9.11, the eight rows (PDF p. 532; book p. 524)",
-     "excerpt": "H2et(R; Z2(4k + 1)) for n = 8k, Z/2 for n = 8k + 1, H2et(R; Z2(4k + 2)) for n = 8k + 2, (Z/2)r1−1 ⊕ Z/2w4k+2 for n = 8k + 3, (Z/2)ρ ⋊ H2et(R; Z2(4k + 3)) for n = 8k + 4, 0 for n = 8k + 5, H̃2et(R; Z2(4k + 4)) for n = 8k + 6, Z/w4k+4 for n = 8k + 7.",
      "match": "The eight rows, which this node states with the twists."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9, the sentence before Theorem 9.4 (PDF p. 526; book p. 518)",
-     "excerpt": "When n ≡ 5 (mod 8), we have an unknown group extension; to express it, we write A ⋊ B for an abelian group extension of B by A.",
      "match": "The meaning of ⋊: an extension, not a product."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.11, proof (PDF p. 532; book p. 524)",
-     "excerpt": "When n = 2 it is III.6.9.3. To determine the two-primary subgroup Kn(OS){2} of the finite group K2i+2(OS) when n = 2i + 2, we use the universal coefficient sequence 0 → (Z/2∞)r → K2i+3(OS; Z/2∞) → K2i+2(OS){2} → 0,",
      "match": "The proof: the case n = 2 and the universal coefficient sequence for even n (proof steps 2 and 3)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.11, end of the proof (PDF p. 533; book p. 525)",
-     "excerpt": "By mod 2 periodicity 4.8.1, the integer ρ of 9.10 equals the rank of the image of H4(OS, Z/2(4)) ≅ H4(OS, Z/2(4k + 4)) ≅ (Z/2)r1 in Hom(Z/2, Kn(OS)), considered as a quotient of Kn+1(OS; Z/2).",
      "match": "Where ρ comes from (proof step 5)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.10, Corollary 9.10 and the definition of ρ (PDF p. 531; book p. 523)",
-     "excerpt": "Let ρ denote the rank of the image of the group KM4(F) ≅ (Z/2)r1 in K4(F). Corollary 9.10. Let F be a real number field. Then j(OF[1/2]) ≤ ρ ≤ r1 − 1.",
      "match": "The definition of ρ and its bounds."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.10.1, Example 9.10.1, continued (PDF p. 532; book p. 524)",
-     "excerpt": "Hence the image of KM4(F) ≅ (Z/2)2 in K4(Z[√7]) is Z/2 on the symbol σ = {−1, −1, −1, √7}, and this is all of the 2-primary torsion in K4(Z[√7]) by 9.9.",
      "match": "The instance ρ = 1 for ℚ(√7) in the acceptance."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.9.2, Example 9.9.2, last paragraph (PDF p. 531; book p. 523)",
-     "excerpt": "A useful example is F = Q(√2). Note that KM4(F) ≅ (Z/2)2 is generated by the Steinberg symbols {−1, −1, −1, −1} and {−1, −1, −1, 1 + √2}. Both symbols must vanish in K4(Z[√2]), since this group has odd order. This is the case j = 0, r1 = 2 of Corollary 9.10.",
      "match": "The instance ρ = 0 for ℚ(√2)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.8, Corollary 9.8, the table (PDF p. 530; book p. 522)",
-     "excerpt": "n (mod 8) 1 2 3 4 5 6 7 8 Kn(Z){2} Z/2 Z/2 Z/16 0 0 0 Z/16k 0",
      "match": "The table for ℤ used in the acceptance."
     }
    ],
@@ -3758,7 +3620,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413)",
-     "excerpt": "In fact, divK2i(F) is isomorphic to the wild kernel, defined as the intersection (over all valuations v on F) of the kernels of all maps K2i(F) → K2i(Fv). This is proven in [225].",
      "match": "The definition of the wild kernel as the intersection of the kernels of the maps to the completions; the identification with div K_{2i}(F) claimed in the same sentence is corrected in N.6/divisible-subgroup-and-the-wild-kernel."
     }
    ],
@@ -3890,13 +3751,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2, Example 5.2.2 (PDF p. 226; book p. 218)",
-     "excerpt": "Example 5.2.2. The group K2(Z) is cyclic of order 2. This calculation uses the Euclidean algorithm to rewrite elements of St(Z), and is given in §10 of Milnor [131].",
      "match": "The model upper bound: the order-two statement comes from a computation in the Steinberg group, which the source cites."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.1, Example 6.2.1 (PDF p. 240; book p. 232)",
-     "excerpt": "The resulting map K2(R) →{±1} is onto because (−1, −1)∞= −1.",
      "match": "The model lower bound: a surjection onto a group of known order."
     }
    ],
@@ -4014,25 +3873,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.2, Theorem 8.2, the even row (PDF p. 521; book p. 513)",
-     "excerpt": "Theorem 8.2. Let F be a number field, and let OS be a ring of integers in F. Fix a prime ℓ; if ℓ = 2 we suppose F totally imaginary. Then for all n ≥ 2: Kn(OS)(ℓ) ≅ H2et(OS[1/ℓ]; Zℓ(i + 1)) for n = 2i > 0;",
      "match": "The isomorphism K_{2i}(O_S){ℓ} ≅ H^2_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) that supplies the lower bound."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.11, Theorem 9.11, the eight rows (PDF p. 532; book p. 524)",
-     "excerpt": "H2et(R; Z2(4k + 1)) for n = 8k, Z/2 for n = 8k + 1, H2et(R; Z2(4k + 2)) for n = 8k + 2, (Z/2)r1−1 ⊕ Z/2w4k+2 for n = 8k + 3, (Z/2)ρ ⋊ H2et(R; Z2(4k + 3)) for n = 8k + 4, 0 for n = 8k + 5, H̃2et(R; Z2(4k + 4)) for n = 8k + 6, Z/w4k+4 for n = 8k + 7.",
      "match": "The two-primary rows usable at ℓ = 2 with real places, and the row n = 8k + 4 that is not."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.7, Theorem 8.7 (PDF p. 523; book p. 515)",
-     "excerpt": "Theorem 8.7. (Wiles) Let F be a totally real number field. If ℓ is odd and OS = OF[1/ℓ], then for all even integers 2k > 0 there is a rational number uk, prime to ℓ, such that: ζF(1 − 2k) = uk |H2et(OS, Zℓ(2k)| ... |H1et(OS, Zℓ(2k)|.",
      "match": "Wiles's theorem relating zeta values to orders of étale cohomology (denominator |H^1| elided), admissible only as a proved bound."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.8, Theorem 8.8 (PDF p. 523; book p. 515)",
-     "excerpt": "Theorem 8.8. If F is totally real, and Gal(F/Q) is abelian, then for all k ≥ 1: ζF(1 − 2k) = (−1)kr1 2r1 |K4k−2(OF)| ... |K4k−1(OF)|.",
      "match": "Theorem 8.8 relating ζ_F(1 − 2k) to |K_{4k−2}(O_F)|/|K_{4k−1}(O_F)| for abelian F (denominator elided), admissible only as a proved bound."
     }
    ],
@@ -4068,13 +3923,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.4, Theorem 8.4 (PDF p. 522; book p. 514)",
-     "excerpt": "Theorem 8.4. Let F be a totally imaginary number field, and let OS be the ring of S-integers in F for some set S of finite places. Then: Kn(OS) ≅ Z ⊕ Pic(OS), for n = 0; Zr2+|S|−1 ⊕ Z/w1(F), for n = 1; ⊕ℓH2et(OS[1/ℓ]; Zℓ(i + 1)) for n = 2i ≥ 2; Zr2 ⊕ Z/wi(F) for n = 2i − 1 ≥ 3.",
      "match": "Theorem 8.4; this node states its row n = 2i ≥ 2."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI, Exercise 8.4 (PDF p. 524; book p. 516)",
-     "excerpt": "8.4. It is well known that Z[i] is a principal ideal domain. Show that the finite group Kn(Z[i]) has odd order for all even n > 0. Hint: Show that H2et(Z[½, i], µ4) = 0.",
      "match": "The instance for ℤ[i] used in the acceptance."
     }
    ],
@@ -4111,19 +3964,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3, Corollary 8.3 with its proof (PDF p. 522; book p. 514)",
-     "excerpt": "Corollary 8.3. For all odd ℓ and i > 0, K2i(OS)/ℓ ≅ H2et(OS[1/ℓ], µ⊗i+1ℓ). The same formula holds for ℓ = 2 if F is totally imaginary. Proof. Immediate from 8.2 since H2et(R, Zℓ(i + 1))/ℓ ≅ H2et(R, µ⊗i+1ℓ).",
      "match": "Corollary 8.3 with its one-line proof, which this node states and expands."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.8, Corollary 9.8, the table (PDF p. 530; book p. 522)",
-     "excerpt": "n (mod 8) 1 2 3 4 5 6 7 8 Kn(Z){2} Z/2 Z/2 Z/16 0 0 0 Z/16k 0",
      "match": "K_6(ℤ) has no two-primary torsion, used in the non-example."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513)",
-     "excerpt": "The Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)r1 ⊕ ∐v∈S finite (Q/Z) add −→ Q/Z → 0.",
      "match": "The Brauer group of O_S, used in the non-example with S = {2}."
     }
    ],
@@ -4167,25 +4017,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3.1, Example 8.3.1 (PDF p. 522; book p. 514)",
-     "excerpt": "Example 8.3.1. Let F be a number field containing a primitive ℓth root of unity, ℓ ≠ 2, and let S be the set of primes over ℓ in OF. If t is the rank of Pic(OS)/ℓ, then H2et(OS, µℓ) has rank t + |S| − 1 by (8.1.1).",
      "match": "The rank of H^2(O_S, μ_ℓ) from the class group and |S|."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3.1, Example 8.3.1, conclusion (PDF p. 522; book p. 514)",
-     "excerpt": "Hence the ℓ-primary subgroup of the finite group K2i(OF) has t + |S| − 1 nonzero summands for each i ≥ 1.",
      "match": "The consequence for K_{2i}(O_F)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513)",
-     "excerpt": "The Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)r1 ⊕ ∐v∈S finite (Q/Z) add −→ Q/Z → 0.",
      "match": "The Brauer group sequence used in proof step 2 (valid here because S is non-empty; see sourceIssues)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3.2, Example 8.3.2 (PDF p. 522; book p. 514)",
-     "excerpt": "Example 8.3.2. If ℓ ≠ 2 is a regular prime (see 2.4.1), we claim that K2i(Z[ζℓ]) has no ℓ-torsion.",
      "match": "The regular-prime instance."
     }
    ],
@@ -4327,31 +4173,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.6.1, Definition 9.6.1 (PDF p. 528; book p. 520)",
-     "excerpt": "Definition 9.6.1. The signature defect j(R) of R is defined to be the dimension of the cokernel of α1. Since the sign of −1 nontrivial, we have 0 ≤ j(R) < r1. Note that j(F) = 0, and that j(OS) ≤ j(OF) for all S.",
      "match": "The definition, its bounds and monotonicity."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.6, before (9.6) (PDF p. 528; book p. 520)",
-     "excerpt": "Since the sign map σ factors through F×/F×2 = H1et(F, Z/2), the restriction to R× also factors through α1 :H1et(R, Z/2) → (Z/2)r1.",
      "match": "The map α^1 whose cokernel is taken, on H^1_et(R, ℤ/2)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.6.2, after (9.6.2) (PDF p. 529; book p. 521)",
-     "excerpt": "Thus the signature defect j(R) of R is also the dimension of the kernel of Pic+(R)/2 → Pic(R)/2. If we let t and u denote the dimensions of Pic(R)/2 and Pic+(R)/2, respectively, then this means that u = t + j(R).",
      "match": "The narrow-Picard characterisation u = t + j(R)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.10.1, Example 9.10.1 (PDF p. 532; book p. 524)",
-     "excerpt": "Example 9.10.1. (ρ = 1) Consider F = Q(√7), OF = Z[√7] and R = OF[1/2]; here s = 1, t = 0 and j(R) = ρ = 1 (the fundamental unit u = 8+3√7 is totally positive).",
      "match": "The value j = 1 for ℤ[√7][1/2] used in the tests."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.8, proof (PDF p. 530; book p. 522)",
-     "excerpt": "For R = Z[1/2] we have s = 1 and t = u = j = 0.",
      "match": "The value j = 0 for ℤ[1/2]."
     }
    ],
@@ -4397,31 +4238,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.12, Theorem 9.12 (PDF p. 533; book p. 525)",
-     "excerpt": "Theorem 9.12. Let F be a totally real number field, with r1 real embeddings, and let OS be a ring of integers in F. Then for all even i > 0 2r1 · |K2i−2(OS)| ... |K2i−1(OS)| = ∏ℓ |H2et(OS[1/ℓ]; Zℓ(i))| ... ∏ℓ |H1et(OS[1/ℓ]; Zℓ(i))|.",
      "match": "Theorem 9.12; the displayed fraction is printed as a quotient, rendered here with the numerator and denominator separated."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
-     "excerpt": "Write hn,i(ℓ) for the order of Hnet(OS[1/ℓ]; Zℓ(i)). By Ex. 8.3, h1,i(ℓ) = w(ℓ)i(F).",
      "match": "h^{1,i}(ℓ) = w_i^{(ℓ)}(F), cited to Exercise 8.3."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.9.12, proof, second paragraph (PDF p. 533; book p. 525)",
-     "excerpt": "By Theorems 8.2 and 9.11, the ℓ-primary subgroup of K2i−2(OS) has order h2,i(ℓ) for all ℓ, except when ℓ = 2 and 2i−2 ≡ 6 (mod 8) when it is h1,i(2)/2r1.",
      "match": "The order of the ℓ-primary part of K_{2i−2}, with the printed misprint h^{1,i}(2)/2^{r_1}."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI, Exercise 8.3 (PDF p. 524; book p. 516)",
-     "excerpt": "8.3. Let ℓ be an odd prime and F a number field. If i > 1, show that for every ring OS of integers in F containing 1/ℓ, H1et(OS, Zℓ(i)) ≅ H1et(F, Zℓ(i)) ≅ Zrℓ ⊕ Z/w(ℓ)i(F),",
      "match": "Exercise 8.3, stated for odd ℓ only."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.8, Theorem 8.8 (PDF p. 523; book p. 515)",
-     "excerpt": "Theorem 8.8. If F is totally real, and Gal(F/Q) is abelian, then for all k ≥ 1: ζF(1 − 2k) = (−1)kr1 2r1 |K4k−2(OF)| ... |K4k−1(OF)|.",
      "match": "The zeta-value theorem that this order formula feeds, owned by SpecialValuesBirchTate."
     }
    ],
@@ -4536,7 +4372,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413)",
-     "excerpt": "In fact the subgroup divKn(F) of elements of Kn(F) which map to zero in each quotient Kn(F)/ℓ · Kn(F) lies in the torsion subgroup T of Kn(R) (by 6.8.1) and if ℓ · T = 0 then divKn(F) is the kernel of Kn(R; Z/ℓ) → Kn(F; Z/ℓ). Tate observed that divKn(F) can be nonzero even for K2.",
      "match": "The definition of div K_n(F) as the elements vanishing in every K_n(F)/ℓ, and Tate's observation."
     }
    ],
@@ -4579,7 +4414,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413)",
-     "excerpt": "In fact, divK2i(F) is isomorphic to the wild kernel, defined as the intersection (over all valuations v on F) of the kernels of all maps K2i(F) → K2i(Fv). This is proven in [225].",
      "match": "The source's claim that div K_{2i}(F) is isomorphic to the wild kernel, attributed to [225] = Weibel, 'Higher wild kernels and divisibility in the K-theory of number fields', J. Pure Appl. Algebra 206 (2006) 222–244, whose Theorem A proves the corrected statement of this node (see sourceIssues)."
     }
    ],
@@ -4611,7 +4445,6 @@
     {
      "sourceId": "Kbook.IV.chapter",
      "locator": "IV.6.9, PDF p.59",
-     "excerpt": "The affine-curve verification of the Steinberg-homology hypothesis is separately attributed to [GQ82].",
      "match": "Paraphrase of the inspected passage, not a quotation. The affine-curve verification of the Steinberg-homology hypothesis is separately attributed to [GQ82]."
     }
    ],
@@ -4657,7 +4490,6 @@
     {
      "sourceId": "Kbook.IV.chapter",
      "locator": "IV.6.9, PDF p.59",
-     "excerpt": "The coordinate ring of a smooth affine curve over a finite field has finitely generated K-groups.",
      "match": "Paraphrase of the inspected passage, not a quotation. The coordinate ring of a smooth affine curve over a finite field has finitely generated K-groups."
     }
    ],
@@ -4702,7 +4534,6 @@
     {
      "sourceId": "Kbook.VI.chapter",
      "locator": "VI.6.1 proof, PDF p.37",
-     "excerpt": "Harder uses Quillen finite generation; localization supplies the proper-curve passage from IV.6.9.",
      "match": "Paraphrase of the inspected passage, not a quotation. Harder uses Quillen finite generation; localization supplies the proper-curve passage from IV.6.9."
     }
    ],
@@ -4752,7 +4583,6 @@
     {
      "sourceId": "CGZ.1712.04887v3.fix",
      "locator": "Lemma 3.5 and proof, PDF p.20",
-     "excerpt": "The proof uses Keune’s injection on twisted Picard coinvariants, followed by Kummer and valuation arguments.",
      "match": "Paraphrase of the inspected passage, not a quotation. The proof uses Keune’s injection on twisted Picard coinvariants, followed by Kummer and valuation arguments."
     }
    ],
@@ -5239,7 +5069,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "V.6.6, Dedekind Domains, PDF p. 417 (book p. 409)",
-   "printed": "Then R and F and regular, as are the residue fields R/𝔭",
+   "printed": "The source describes R, F and the residue fields R/𝔭 as regular, using “and” between F and “regular”.",
    "correction": "Then R and F are regular, as are the residue fields R/𝔭",
    "reason": "The sentence lists what is regular; 'and' is a slip for 'are'.",
    "affects": "nothing",
@@ -5259,7 +5089,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "V.6.6.1, the paragraph after (6.6.1), PDF p. 417 (book p. 409)",
-   "printed": "In this case, we know that ∂ in K∗(R)-linear",
+   "printed": "The source asserts K∗(R)-linearity of ∂, using “in” to connect ∂ with “K∗(R)-linear”.",
    "correction": "In this case, we know that ∂ is K∗(R)-linear",
    "reason": "Grammar; the reviewed K2SymbolsBrauer packet reads it the same way in a match note but records no issue.",
    "affects": "nothing",
@@ -5279,7 +5109,7 @@
    "source": "Kbook.2013",
    "kind": "gap",
    "locator": "V.6.8, proof of Theorem 6.8, PDF p. 420 (book p. 412)",
-   "printed": "From the computation of Kn(Fq) in IV.1.13 and the fact that Kn(R) is finitely generated (IV.6.9), we see that SKn(R) is 0 for n > 0 even, and is finite for n odd.",
+   "printed": "The proof combines the IV.1.13 computation of Kn(Fq) with finite generation of Kn(R), cited to IV.6.9, to conclude SKn(R) = 0 for even n > 0 and finiteness for odd n.",
    "correction": "For R not of finite type over ℤ or 𝔽_q the finite generation of K_n(R) is not supplied by IV.6.9; reduce to that case by writing R as the filtered union of rings of S-integers with S finite (ℤ_(p) = colim ℤ[1/N], p ∤ N) and using that K_* and the kernel SK_n commute with filtered colimits.",
    "reason": "Theorem 6.8 is stated for every Dedekind domain whose fraction field is global, but IV.6.9 (PDF p. 333) covers integrally closed subrings of a number field finite over ℤ and coordinate rings of smooth affine curves over a finite field. For R = ℤ_(p), K₁(R) = ℤ_(p)^× contains the independent primes ℓ ≠ p and is not finitely generated. The theorem is still true there by the colimit argument.",
    "affects": "the proof",
@@ -5299,7 +5129,7 @@
    "source": "Kbook.2013",
    "kind": "error",
    "locator": "V.6.8, the remark after Proposition 6.8.1, PDF p. 420 (book p. 412)",
-   "printed": "The conclusion of 6.8.1 is false for n = 1. Indeed, the kernel of K0(R) → K0(F) is the finite group Pic(R), so K1(F; Z/ℓ) → ⊕K0(R/𝔭; Z/ℓ) is not onto.",
+   "printed": "The source declares that 6.8.1 fails at n = 1. It identifies the kernel of K0(R) → K0(F) with the finite group Pic(R), and infers that K1(F; Z/ℓ) → ⊕K0(R/𝔭; Z/ℓ) fails to be surjective.",
    "correction": "The conclusion of 6.8.1 can fail for n = 1: the cokernel of ∂ : K₁(F; ℤ/ℓ) → ⊕K₀(R/𝔭; ℤ/ℓ) is Pic(R)/ℓ, so ∂ is onto exactly when Pic(R)/ℓ = 0.",
    "reason": "The mod-ℓ sequence ends K₁(F; ℤ/ℓ) → ⊕ ℤ/ℓ → K₀(R)/ℓ = ℤ/ℓ ⊕ Pic(R)/ℓ → K₀(F)/ℓ = ℤ/ℓ → 0, so the image of ⊕ ℤ/ℓ is Pic(R)/ℓ. For R = ℤ, Pic = 0 and ℚ^×/ℓ → ⊕_p ℤ/ℓ is onto (p ↦ e_p); the remark's 'is false for n = 1' holds only when ℓ divides the class number, e.g. R = 𝓞 of ℚ(√−5), ℓ = 2.",
    "affects": "nothing",
@@ -5319,7 +5149,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "V.6.8.1, proof, second paragraph, PDF p. 421 (book p. 413)",
-   "printed": "then multiplication by β^{i−1} induces an isomorphism ⊕Z/ℓ ≅ ⊕K1(R/𝔭)/ℓ → ⊕K2i−1(R/𝔭) by IV.1.13. That is, every element of ⊕K2i−1(R/𝔭) has the form β^{i−1}a for a in ⊕K1(R/𝔭). … Lifting a to s ∈ K2(F), the element x = β^{i−1}s of K2i(F; Z/ℓ) satisfies ∂(x) = β^{i−1}∂(x) = β^{i−1}a, as desired.",
+   "printed": "The proof cites IV.1.13 for multiplication by β^{i−1} giving the isomorphism ⊕Z/ℓ ≅ ⊕K1(R/𝔭)/ℓ → ⊕K2i−1(R/𝔭). It represents each target element as β^{i−1}a with a in ⊕K1(R/𝔭). Taking a lift s ∈ K2(F), it sets x = β^{i−1}s in K2i(F; Z/ℓ) and claims ∂(x) = β^{i−1}∂(x) = β^{i−1}a.",
    "correction": "Multiplication by β^{i−1} is an isomorphism ⊕K₁(R/𝔭)/ℓ → ⊕K_{2i−1}(R/𝔭; ℤ/ℓ), every element of ⊕K_{2i−1}(R/𝔭; ℤ/ℓ) has the form β^{i−1}a, and ∂(x) = β^{i−1}∂(s) = β^{i−1}a.",
    "reason": "β lies in K₂(R; ℤ/ℓ), so β^{i−1}a lies in K_{2i−1}(R/𝔭; ℤ/ℓ), which is the target in the diagram that follows; the integral group K_{2i−1}(𝔽_q) ≅ ℤ/(q^i − 1) is not ℤ/ℓ in general. '∂(x) = β^{i−1}∂(x)' is a slip for β^{i−1}∂(s), s being the lift. At primes 𝔭 over ℓ the identification ℤ/ℓ ≅ K₁(R/𝔭)/ℓ also fails (K₁(R/𝔭)/ℓ has order prime to the residue characteristic), though multiplication by β^{i−1} is still an isomorphism there.",
    "affects": "nothing",
@@ -5339,7 +5169,7 @@
    "source": "Kbook.2013",
    "kind": "error",
    "locator": "V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413), in the author-hosted combined draft of 29 August 2013",
-   "printed": "In fact, divK2i(F) is isomorphic to the wild kernel, defined as the intersection (over all valuations v on F) of the kernels of all maps K2i(F) → K2i(Fv). This is proven in [225].",
+   "printed": "The source identifies divK2i(F) up to isomorphism with the wild kernel: the intersection, for every valuation v of F, of the kernels of K2i(F) → K2i(Fv). It cites [225] as proof.",
    "correction": "div K_{2i}(F) is a subgroup of the wild kernel of index at most two; they are equal when i is even or F is not special, and div K_{2i}(F) has index two in the wild kernel when i is odd and F is special (Hutchinson's condition). For K_2, div K_2(F) ≠ WK_2(F) exactly when F is special.",
    "reason": "The cited paper [225] (Weibel, J. Pure Appl. Algebra 206 (2006) 222–244; author's preprint of 23 July 2004) proves this in Theorem A and Theorem 5.5, and its Example 5.6 (after Hutchinson) gives F = ℚ(√d), d < 0, d ≡ 2 (mod 16), for instance ℚ(√−14), where {−1, −1} lies in K^w_2(F) but not in div K_2(F) and K^w_2(F) ≅ div K_2(F) ⊕ ℤ/2. Both groups are finite subgroups of K_2(O_F), so they are not isomorphic. For i = 1 the K-book's wild kernel is the classical one: K_2(F) is torsion and K_2(F_v) is μ(F_v) plus a uniquely divisible group (Moore), so the kernel of K_2(F) → K_2(F_v) is the kernel of the Hilbert symbol.",
    "affects": "a stated result",
@@ -5360,7 +5190,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.2.1.1, Example 2.1.1, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
-   "printed": "It is a pleasant exercise to show that w_i(F_q) = q^i − 1 for all i.",
+   "printed": "The source presents w_i(F_q) = q^i − 1 for every i as an exercise.",
    "correction": "... for all i ≥ 1 (and w_{−i} = w_i; W_0(F_q) is infinite).",
    "reason": "For i = 0 the formula gives 0 while W_0(F_q) = µ(F̄_q) is infinite; for i < 0, q^i − 1 is not an integer, and W_{−i}(F_q) = W_i(F_q) has order q^{|i|} − 1.",
    "affects": "nothing",
@@ -5398,7 +5228,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.2.1.3, Remark 2.1.3, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
-   "printed": "Since the map from π_{8k+3}(BO) = Z to π_{8k+3}(BU) = Z has image 2Z",
+   "printed": "The source asserts that the homomorphism from π_{8k+3}(BO) = Z into π_{8k+3}(BU) = Z has image 2Z.",
    "correction": "Since the map from π_{8k+4}(BO) = Z to π_{8k+4}(BU) = Z has image 2Z",
    "reason": "By Bott periodicity π_j(BU) = Z for even j and 0 for odd j, and π_j(BO) = π_{j−1}(O) is Z for j ≡ 0, 4 (mod 8) and 0 for j ≡ 3 (mod 8); the remark's own real e-invariant for i ≡ 2 (mod 4) lands in π_{2i}(BO) with 2i = 8k + 4, where complexification is multiplication by 2.",
    "affects": "nothing",
@@ -5417,7 +5247,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.2.2.1, proof of Lemma 2.2.1, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
-   "printed": "ζ^{⊗i} is invariant under all of G precisely when the group Gal(F(ζ_{ℓ^ν})/F) has exponent i.",
+   "printed": "The source characterizes invariance of ζ^{⊗i} under every element of G by the requirement that Gal(F(ζ_{ℓ^ν})/F) have exponent i.",
    "correction": "... precisely when the group Gal(F(ζ_{ℓ^ν})/F) has exponent dividing i.",
    "reason": "Invariance under g means χ(g)^i ≡ 1 (mod ℓ^ν), i.e. the order of the image of g divides i; the lemma's statement says 'exponent dividing i'. For F = Q, ℓ = 3, ν = 1 and i = 4, (Z/3)^× has exponent 2, not 4, and µ_3(4) is invariant.",
    "affects": "nothing",
@@ -5436,7 +5266,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.2, the paragraph after Example 2.2.2, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
-   "printed": "Aut(µ_{2^ν}) = (Z/2^ν)^× contains two involutions if ν ≥ 3.",
+   "printed": "The source counts two involutions in Aut(µ_{2^ν}) = (Z/2^ν)^× when ν ≥ 3.",
    "correction": "(Z/2^ν)^× contains three involutions (−1 and 2^{ν−1} ± 1) if ν ≥ 3; the point is that it is not cyclic.",
    "reason": "(Z/2^ν)^× ≅ Z/2 × Z/2^{ν−2} for ν ≥ 3 has three elements of order 2; for ν = 3 they are 3, 5 and 7, each squaring to 1 modulo 8.",
    "affects": "nothing",
@@ -5455,7 +5285,7 @@
    "source": "Kbook.2013",
    "kind": "error",
    "locator": "VI.2, the paragraph after Proposition 2.3, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
-   "printed": "Both R and Q_2 are exceptional, and so are each of their subfields.",
+   "printed": "The source calls R and Q_2 exceptional and extends that assertion to all their subfields.",
    "correction": "Q_2 and its subfields are exceptional, and so is every number field embeddable in R; R itself is non-exceptional under the definition given (as is the infinite subfield Q(ζ_{2^∞})^+ of R).",
    "reason": "The definition asks that Gal(F(ζ_{2^ν})/F) be non-cyclic for large ν. For F = R this group is Gal(C/R) ≅ ℤ/2, cyclic; for F = Q(ζ_{2^∞})^+ it is {±1}. For a number field F ⊂ R the group contains −1 (complex conjugation) and has order tending to infinity, and a subgroup of (ℤ/2^ν)^× containing −1 of order at least 4 is not cyclic, so the conclusion for real number fields stands. Nothing in the book uses the exceptionality of R: Proposition 2.3 gives an infinite 2-part for R in cases (c) and (d) alike.",
    "affects": "nothing",
@@ -5474,7 +5304,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513); published GSM 145, p. 564",
-   "printed": "The formulas for K0(OS) = Z ⊕ Pic(OS) and K1(OS) = O×S ≅ Zr2+|S|−1 ⊕ µ(F) are different;",
+   "printed": "The source gives K0(OS) = Z ⊕ Pic(OS); it contrasts this with K1(OS) = O×S ≅ Zr2+|S|−1 ⊕ µ(F).",
    "correction": "K_1(O_S) = O_S^× ≅ ℤ^{r_1+r_2+|S|−1} ⊕ μ(F).",
    "reason": "Dirichlet's S-unit theorem; for F = ℚ and S = {p}, ℤ[1/p]^× = ±p^ℤ has rank 1 = r_1 + r_2 + |S| − 1, not r_2 + |S| − 1 = 0. Theorem 8.4's row n = 1 is right because there r_1 = 0.",
    "affects": "a stated result",
@@ -5493,7 +5323,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.8.1, Classical Data 8.1, PDF p. 521 (book p. 513), author-hosted draft of 29 August 2013",
-   "printed": "By Chapter IV, 1.18 and 6.9, the groups K_n(F) are finite when n is even and nonzero",
+   "printed": "The source cites Chapter IV, 1.18 and 6.9 to assert finiteness of K_n(F) for nonzero even n.",
    "correction": "... the groups K_n(O_S) are finite when n is even and nonzero; the groups K_n(F) are infinite torsion groups for even n > 0.",
    "reason": "K_2(Q) is infinite (the tame symbol maps it onto ⊕_p F_p^×), and in general V.6.8 gives 0 → K_n(O_S) → K_n(F) → ⊕_p K_{n−1}(O_S/p) → 0 for even n ≥ 2, whose right-hand term is infinite. The cited IV.1.18 and IV.6.9 give finiteness for O_S (rank zero and finitely generated), not for F. The odd half of the sentence is right for F by V.6.8.",
    "affects": "a stated result",
@@ -5512,7 +5342,7 @@
    "source": "Kbook.2013",
    "kind": "error",
    "locator": "VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513)",
-   "printed": "The Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)r1 ⊕ ∐v∈S finite (Q/Z) add −→ Q/Z → 0.",
+   "printed": "The source gives the following sequence to specify Br(OS): 0 → Br(OS) → (Z/2)r1 ⊕ ∐v∈S finite (Q/Z) add −→ Q/Z → 0.",
    "correction": "The sum map is onto Q/Z only when S contains a finite place; for S = ∅ the sequence is 0 → Br(O_F) → (ℤ/2)^{r_1} → ℤ/2 (onto if r_1 > 0), i.e. Br(O_F) ≅ (ℤ/2)^{max(r_1 − 1, 0)}.",
    "reason": "For F = ℚ and O_S = ℤ the displayed sequence would read 0 → Br(ℤ) → ℤ/2 → ℚ/ℤ → 0, which is not exact at ℚ/ℤ. All uses of (8.1.1) in the source (Examples 8.3.1 and 8.3.2, the dimension count after (9.6.2), Exercise 9.1) have S non-empty.",
    "affects": "a stated result",
@@ -5532,7 +5362,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.8.2, proof (PDF p. 521; book p. 513)",
-   "printed": "Set R = OS[1/ℓ]. For each prime ideal p over ℓ, Kn−1(R/p) has no ℓ-torsion by IV.1.13.",
+   "printed": "The source puts R = OS[1/ℓ] and cites IV.1.13 to say that Kn−1(R/p) is free of ℓ-torsion for every prime ideal p lying over ℓ.",
    "correction": "K_{n−1}(O_S/𝔭) (the residue field of O_S at 𝔭; the argument also needs K_n(O_S/𝔭), which has no ℓ-torsion for the same reason).",
    "reason": "𝔭 lies over ℓ and ℓ is inverted in R, so R/𝔭 = 0; the localisation sequence for O_S ⊂ O_S[1/ℓ] has the residue fields O_S/𝔭 of characteristic ℓ, whose positive-degree K-groups have order prime to ℓ.",
    "affects": "nothing",
@@ -5552,7 +5382,7 @@
    "source": "Kbook.2013",
    "kind": "error",
    "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515); also the remark after Theorem 8.7 on the same page, author-hosted draft of 29 August 2013",
-   "printed": "If F is a number field, the zeta function ζ_F(s) has a pole of order r_2 at s = −1.",
+   "printed": "The source asserts that, for a number field F, ζ_F(s) has a pole at s = −1 of order r_2.",
    "correction": "ζ_F(s) has a zero of order r_2 at s = −1 (and, after Theorem 8.7, a zero of order r_2 at s = 1 − 2k when F is not totally real).",
    "reason": "ζ_F is holomorphic except for a simple pole at s = 1. By the functional equation the order of vanishing at s = 1 − 2k, k ≥ 1, is r_2. For F = Q(√−1), ζ_F(s) = ζ(s)L(s, χ_{−4}) with ζ(−1) = −1/12 ≠ 0 and L(−1, χ_{−4}) = 0 (χ_{−4} is odd), a simple zero, r_2 = 1. SpecialValuesBirchTate B.1's text already refuses the word 'pole' for the Handbook's version of this passage.",
    "affects": "a stated result",
@@ -5571,7 +5401,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.8.8, proof (PDF p. 524; book p. 516)",
-   "printed": "By Theorem 9.12 in the next section, the power of 2 on the right side equals |H2et(OF[1/ℓ], Z2(2k))|/|H1et(OF[1/ℓ], Z2(2k))|.",
+   "printed": "The source invokes Theorem 9.12 from the following section to identify the right-hand power of 2 with |H2et(OF[1/ℓ], Z2(2k))|/|H1et(OF[1/ℓ], Z2(2k))|.",
    "correction": "|H^2_et(O_F[1/2]; ℤ_2(2k))| / |H^1_et(O_F[1/2]; ℤ_2(2k))|.",
    "reason": "The coefficients are ℤ_2, so the ring is O_F[1/2]; ℓ here was the odd prime of the preceding paragraph.",
    "affects": "nothing",
@@ -5611,7 +5441,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.9.11, proof (PDF p. 532; book p. 524)",
-   "printed": "To determine the two-primary subgroup Kn(OS){2} of the finite group K2i+2(OS) when n = 2i + 2, … we note that H1(OS, Z/2∞(i)) is the direct sum of (Z/2∞)r and a finite group, which must be H2(OS, Z2(i))",
+   "printed": "In computing Kn(OS){2} for the finite group K2i+2(OS), with n = 2i + 2, the source decomposes H1(OS, Z/2∞(i)) into (Z/2∞)r and a finite summand, identifying the latter as H2(OS, Z2(i)).",
    "correction": "With n = 2i + 2 the group compared with K_{2i+3}(O_S; ℤ/2^∞) is H^1(O_S; ℤ/2^∞(i+2)), whose finite part is H^2(O_S; ℤ_2(i+2)).",
    "reason": "By Theorem 9.4, K_{2m−1}(O_S; ℤ/2^∞) involves H^1(O_S; ℤ/2^∞(m)); here 2m − 1 = 2i + 3, so m = i + 2, which matches the twists 4k+1, 4k+2, 4k+3, 4k+4 of Theorem 9.11 for n = 8k, …, 8k+6.",
    "affects": "nothing",
@@ -5631,7 +5461,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.9.11, proof (PDF pp. 532–533; book pp. 524–525)",
-   "printed": "Since α1S(i) : H1(R; Z2(i)) → (Z/2)r1 must vanish on the divisible group (Z/2∞)r,",
+   "printed": "The source says α1S(i) : H1(R; Z2(i)) → (Z/2)r1 necessarily vanishes on (Z/2∞)r because that group is divisible.",
    "correction": "α^1_S(i) : H^1(R; ℤ/2^∞(i)) → (ℤ/2)^{r_1}; the divisible subgroup (ℤ/2^∞)^r lies in H^1 with ℚ_2/ℤ_2 coefficients, whose finite part is H^2(R; ℤ_2(i)).",
    "reason": "H^1(R; ℤ_2(i)) is a finitely generated ℤ_2-module and has no divisible subgroup (ℤ/2^∞)^r; the preceding sentence of the proof is about H^1(O_S, ℤ/2^∞(i)).",
    "affects": "nothing",
@@ -5651,7 +5481,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
-   "printed": "By Theorems 8.2 and 9.11, the ℓ-primary subgroup of K2i−2(OS) has order h2,i(ℓ) for all ℓ, except when ℓ = 2 and 2i−2 ≡ 6 (mod 8) when it is h1,i(2)/2r1.",
+   "printed": "The source cites Theorems 8.2 and 9.11 to give h2,i(ℓ) as the order of the ℓ-primary subgroup of K2i−2(OS), except for ℓ = 2 with 2i−2 ≡ 6 (mod 8), where it gives h1,i(2)/2r1.",
    "correction": "… when it is h^{2,i}(2)/2^{r_1}.",
    "reason": "For 2i − 2 ≡ 6 (mod 8) Theorem 9.11 gives the two-primary part H̃^2(R; ℤ_2(i)), the kernel of the surjection α^2(i) onto (ℤ/2)^{r_1}, of order h^{2,i}(2)/2^{r_1}; only with h^{2,i} does the product formula balance. For F = ℚ, i = 4: K_6(ℤ){2} = 0 (Corollary 9.8), whereas h^{1,4}(2)/2^{r_1} = w_4^{(2)}(ℚ)/2 = 16/2 = 8.",
    "affects": "the proof",
@@ -5671,7 +5501,7 @@
    "source": "Kbook.2013",
    "kind": "gap",
    "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
-   "printed": "Write hn,i(ℓ) for the order of Hnet(OS[1/ℓ]; Zℓ(i)). By Ex. 8.3, h1,i(ℓ) = w(ℓ)i(F).",
+   "printed": "The source denotes the order of Hnet(OS[1/ℓ]; Zℓ(i)) by hn,i(ℓ) and cites Ex. 8.3 for h1,i(ℓ) = w(ℓ)i(F).",
    "correction": "The identity h^{1,i}(2) = w_i^{(2)}(F), used for ℓ = 2, needs its own argument: for F totally real and i even, H^1(O_S[1/2]; ℤ_2(i)) is finite (rank r_2 = 0) and H^0(O_S[1/2]; ℤ_2(i)) = 0, so the Bockstein sequence gives H^1(ℤ_2(i)) ≅ H^0(ℚ_2/ℤ_2(i)) = ℤ/w_i^{(2)}(F).",
    "reason": "Exercise VI.8.3, which the proof cites, is stated only for an odd prime ℓ ('Let ℓ be an odd prime'), yet the next sentence uses h^{1,i}(2).",
    "affects": "the proof",

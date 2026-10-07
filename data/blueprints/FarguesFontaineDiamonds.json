@@ -158,13 +158,11 @@
         {
           "sourceId": "FS",
           "locator": "II.1.1, pp.47–48; II.1.15–16, pp.54–55",
-          "excerpt": "The above defines an analytic adic space",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         },
         {
           "sourceId": "SW",
           "locator": "Lecture 13, Proposition 13.1.1 and proof, pp.108–109; Definition 13.5.1, p.112",
-          "excerpt": "The space Y is an adic space.",
           "match": "The geometric algebraically closed example motivates the imported adic analytic interface. The arbitrary fixed-field statement uses the anchor and FS II.1.1, not an unsupported extension of this example."
         }
       ],
@@ -204,7 +202,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.1, pp.47–48; II.1.15–16, pp.54–55",
-          "excerpt": "The above defines an analytic adic space",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -249,7 +246,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 15.5; Lemma 15.6 and proof, pp.91–92",
-          "excerpt": "Then Y ♢ is a locally spatial diamond,",
           "match": "The D6 analytic adic functor and rational-open discussion identify the category interfaces needed here; actual FF chart maps and their products are imported from the anchor and A1."
         }
       ],
@@ -289,7 +285,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.1, pp.47–48; II.1.15–16, pp.54–55",
-          "excerpt": "The above defines an analytic adic space",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -335,7 +330,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.2, p.49; II.1.17, p.55",
-          "excerpt": "Giving a map T → YS is equivalent to giving a map WOE (R+ ) → A+",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -379,7 +373,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.2, p.49; II.1.17, p.55",
-          "excerpt": "Giving a map T → YS is equivalent to giving a map WOE (R+ ) → A+",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -475,7 +468,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.2, p.49; II.1.17, p.55",
-          "excerpt": "Giving a map T → YS is equivalent to giving a map WOE (R+ ) → A+",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -515,7 +507,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.2, p.49; II.1.17, p.55",
-          "excerpt": "Giving a map T → YS is equivalent to giving a map WOE (R+ ) → A+",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -612,7 +603,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.2, p.49; II.1.17, p.55",
-          "excerpt": "Giving a map T → YS is equivalent to giving a map WOE (R+ ) → A+",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -656,7 +646,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -700,13 +689,11 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         },
         {
           "sourceId": "SW",
           "locator": "Lecture 13, Definition 13.5.1, p.112",
-          "excerpt": "As ϕ acts properly discontinuously",
           "match": "The actual quotient is imported from AdicSpaces Layer 6; this node proves its categorical graph relation beyond the anchor, using A1 fibre products."
         }
       ],
@@ -745,7 +732,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -786,7 +772,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -828,7 +813,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -868,7 +852,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -962,7 +945,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.16–17, pp.54–55",
-          "excerpt": "The action of φ on YS is free and totally discontinuous.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1007,13 +989,11 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 15.5; Lemma 15.6 and proof, pp.91–92",
-          "excerpt": "Then Y ♢ is a locally spatial diamond,",
           "match": "Apply the general analytic adic-to-diamond site comparison to the actual analytic X. The chosen site definition and covering convention are supplied by KL15, rather than proved anew here."
         },
         {
           "sourceId": "KL",
           "locator": "Definitions 8.2.16 and 8.2.19; Lemma 8.2.17, pp.162–163",
-          "excerpt": "whose coverings are set-theoretic coverings.",
           "match": "These are the public site definitions cited by ECD v4 Lemma 15.6, used to check the supplier site convention."
         }
       ],
@@ -1105,7 +1085,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 15.5; Lemma 15.6 and proof, pp.91–92",
-          "excerpt": "Then Y ♢ is a locally spatial diamond,",
           "match": "The rational-open comparison and functorial diamond construction yield the chart square after composing with the F1/F2 identifications; coherence uses the supplier fibre-product maps."
         }
       ],
@@ -1149,7 +1128,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 15.5; Lemma 15.6 and proof, pp.91–92",
-          "excerpt": "Then Y ♢ is a locally spatial diamond,",
           "match": "Lemma 15.6 supplies the site identification. Cyclic descent then uses the F2 graph relation and the explicitly requested D0 effective descent theorem for étale sheaves; the abstract quotient-stack node does not itself state this specialization."
         }
       ],
@@ -1238,7 +1216,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition 10.11(iii), pp.52–53, proof using Proposition 9.7, pp.47–48",
-          "excerpt": "If fe is finite étale, then f is finite étale.",
           "match": "After effective sheaf descent, finite étaleness is checked v-locally on the cover. This supplies the finite-cover restriction rather than the narrower separated-pro-étale perfectoid-base result."
         }
       ],
@@ -1279,7 +1256,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.4, pp.49–50; II.1.18, p.55",
-          "excerpt": "there is a natural closed immersion of adic spaces",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1367,7 +1343,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.4, pp.49–50; II.1.18, p.55",
-          "excerpt": "there is a natural closed immersion of adic spaces",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1409,7 +1384,6 @@
         {
           "sourceId": "FS",
           "locator": "Proof of II.1.1, p.48",
-          "excerpt": "splits off",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1453,7 +1427,6 @@
         {
           "sourceId": "FS",
           "locator": "Proof of II.1.1, p.48",
-          "excerpt": "splits off",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1498,7 +1471,6 @@
         {
           "sourceId": "FS",
           "locator": "Proof of II.1.4, p.50",
-          "excerpt": "the maximum is taken on the Shilov boundary.",
           "match": "The proof invokes a well-known one-variable maximum principle after passage to geometric fibers and tilting. The displayed boundary norm theorem isolates that input and finite-root approximation as an unresolved gap; this citation is not a proof of those omitted details."
         }
       ],
@@ -1544,7 +1516,6 @@
         {
           "sourceId": "SW",
           "locator": "Lecture 11, Proposition 11.3.1 and proof, pp.94–95",
-          "excerpt": "an injective map A → A with closed image.",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1590,7 +1561,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.4, pp.49–50; II.1.18, p.55",
-          "excerpt": "there is a natural closed immersion of adic spaces",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1630,7 +1600,6 @@
         {
           "sourceId": "SW",
           "locator": "Lecture 5, Definitions 5.3.2, 5.3.7; Proposition 5.3.8; Remark 5.3.9, pp.38–40",
-          "excerpt": "one has to check",
           "match": "Import the general uniform-analytic Cartier vocabulary and closed-image criterion into R0; apply it here to the fixed marked Q_p-untilt after the F4 all-rational-affinoids norm argument."
         }
       ],
@@ -1716,7 +1685,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.4, pp.49–50; II.1.18, p.55",
-          "excerpt": "there is a natural closed immersion of adic spaces",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1759,7 +1727,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.4, pp.49–50; II.1.18, p.55",
-          "excerpt": "there is a natural closed immersion of adic spaces",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1849,7 +1816,6 @@
         {
           "sourceId": "FS",
           "locator": "II.1.4, pp.49–50; II.1.18, p.55",
-          "excerpt": "there is a natural closed immersion of adic spaces",
           "match": "Specialize the cited passage to E = Q_p and the fixed field S; the statement spells out the interfaces suppressed in that passage."
         }
       ],
@@ -1889,7 +1855,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
-          "excerpt": "left-completion",
           "match": "Proposition 14.15 identifies diamond D_et with the left completion of the ordinary étale-derived category; Remark 14.14 gives bounded-below agreement. Compose these general results, through C2, with the F3 exact module-topos equivalence. Proposition 14.16 detects membership on cohomology sheaves and is not the bounded-below comparison."
         }
       ],
@@ -1975,7 +1940,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
-          "excerpt": "left-completion",
           "match": "Use the bounded-below agreement of Remark 14.14 and the exact F3 module-topos equivalence. The ordinary derived equivalence itself holds in all degrees; only its unbounded comparison with diamond D_et needs the left completion of Proposition 14.15."
         }
       ],
@@ -2017,7 +1981,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
-          "excerpt": "left-completion",
           "match": "Formal application of the C2 enhanced left-completion and global-sections right-adjoint contracts to the F3 site equivalence. Proposition 14.15 provides the category comparison and Remark 14.14 its bounded-below range, not a separately stated FF global-sections formula."
         }
       ],
@@ -2057,7 +2020,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
-          "excerpt": "left-completion",
           "match": "Use the C2 enhanced monoidal and pullback contracts in the left-completed category of Proposition 14.15, with bounded-below input from Remark 14.14. F3 supplies the FF chart square; coherence is requested from C2, not inferred from a bare triangulated equivalence."
         }
       ],
@@ -2098,7 +2060,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 26.1; Proposition 26.2 and proof; Remark 26.3, pp.161–162",
-          "excerpt": "derived I-complete",
           "match": "Definition 26.1 and Proposition 26.2 give derived-complete coefficients and enhanced finite-level limit detection under the displayed regular-sequence hypotheses. Remark 26.3 supplies completed tensor, pullback and right-adjoint compatibility with coefficient reduction. The L0 request extends these contracts to the adic site."
         }
       ],
@@ -2186,7 +2147,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition 26.1; Proposition 26.2 and proof; Remark 26.3, pp.161–162",
-          "excerpt": "derived I-complete",
           "match": "Apply Proposition 26.2 and Remark 26.3 through the L0 global-sections/reduction/tensor contracts. Regular-sequence devissage supplies the right-adjoint compatibility; the actual comparison map is the coherent limit of finite-level site maps."
         }
       ],
@@ -2416,7 +2376,7 @@
       "source": "FS",
       "kind": "gap",
       "locator": "FS proof of II.1.4, p.50, recorded author-PDF hash; compare Berkeley author draft March 27 2020, proof of 11.3.1, p.95, whose wording differs",
-      "printed": "it is well-known that the maximum is taken on the Shilov boundary.",
+      "printed": "The source calls it a familiar fact that the maximum occurs on the Shilov boundary.",
       "correction": "Supply the classical one-variable boundary theorem for the indicated affinoid subdomains and the argument preserving norm detection through finite-root approximation and geometric fibers. No change to the claimed closed Cartier theorem is proposed.",
       "reason": "The read proofs name the classical maximum principle but give no locator for the exact boundary statement or proof of the perfected-disc approximation. This is an unverified proof-detail finding for independent review, recorded also as the boundary_supremum prerequisite gap; it does not establish a false theorem.",
       "affects": "the proof",

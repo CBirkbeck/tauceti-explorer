@@ -195,13 +195,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.1.3 (Example 2.1.3), printed p. 69 (PDF p. 77)",
-          "excerpt": "Example 2.1.3. (Karoubi) We say a ring R is flasque if there is an R-bimodule M, finitely generated projective as a right module, and a bimodule isomorphism θ : R ⊕ M ≅ M. If R is flasque then K0(R) = 0. This is because for every P we have a natural isomorphism P ⊕ (P ⊗R M) ≅ P ⊗R (R ⊕ M) ≅ (P ⊗R M).",
           "match": "The definition and the swindle. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise I.1.8 (Cone Ring), printed p. 5 (PDF p. 13)",
-          "excerpt": "1.8. Cone Ring. For any ring R, the endomorphism ring EndR(R∞) of the previous exercise contains a smaller ring, namely the subring C(R) consisting of row-and-column finite matrices. The ring C(R) is called the cone ring of R. Show that C(R) is a direct sum ring.",
           "match": "The cone ring; it is an exercise, not an item I.1.8. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -313,7 +311,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1.1 (Definition 4.1.1), printed p. 210 (PDF p. 218)",
-          "excerpt": "Definition 4.1.1 (Contracted functors). Let F be a functor from rings to abelian groups. For each R, we define LF(R) to be the cokernel of the map F(R[t]) ⊕ F(R[t−1]) → F(R[t, t−1]). … We say that F is acyclic if Seq(F, R) is exact for all R. We say that F is a contracted functor if F is acyclic and in addition there is a splitting",
           "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -422,13 +419,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1 (Definition 4.1), printed p. 210 (PDF p. 218)",
-          "excerpt": "Definition 4.1. For n > 0, we inductively define K−n(R) to be the cokernel of the map K−n+1(R[t]) ⊕ K−n+1(R[t−1]) → K−n+1(R[t, t−1]). Clearly, each K−n is a functor from rings to abelian groups.",
           "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.7 (Fundamental Theorem for K0 3.7), printed p. 206 (PDF p. 214)",
-          "excerpt": "Fundamental Theorem for K0 3.7. For every ring R, there is a naturally split exact sequence: 0 → K0(R) → K0(R[t]) ⊕ K0(R[t−1]) → K0(R[t, t−1]) → K−1(R) → 0. Consequently, we have a natural direct sum decomposition: K0(R[t, t−1]) ≅ K0(R) ⊕ K−1(R) ⊕ NK0(R) ⊕ NK0(R).",
           "match": "The first negative group from the Fundamental Theorem for K0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -541,25 +536,21 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
-          "excerpt": "Theorem 8.2. [Fundamental Theorem] There is a canonically split exact sequence 0 → Kn(R) → Kn(R[t]) ⊕ Kn(R[1/t]) → Kn(R[t, 1/t]) → Kn−1(R) → 0. in which the splitting of ∂ is given by multiplication by t ∈ K1(Z[t, t−1]).",
           "match": "The theorem (the bracket is the source's). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.1 (Theorem 8.1), printed p. 430 (PDF p. 438)",
-          "excerpt": "Theorem 8.1. For every R and every n, Niln(R) ≅ NKn+1(R)",
           "match": "The identification of the N-terms with Nil. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8, the opening paragraph, printed p. 430 (PDF p. 438)",
-          "excerpt": "The main goal of this section is to prove the Fundamental Theorem, which gives a decomposition of K∗(R[t, 1/t]). For regular rings, the decomposition simplifies to the formulas NKn(R) = 0 and Kn(R[t, 1/t]) ≅ Kn(R) ⊕ Kn−1(R) of Theorem 6.3.",
           "match": "The regular case. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.3 (Theorem 8.3), printed p. 431 (PDF p. 439)",
-          "excerpt": "Theorem 8.3. For every quasi-projective scheme X we have canonically split exact sequences for all n, where the splitting of ∂ is by multiplication by t.",
           "match": "The scheme version. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -600,19 +591,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.4 (Definition 4.4), printed p. 213 (PDF p. 221)",
-          "excerpt": "Definition 4.4. A theory of negative K-theory for (nonunital) rings consists of a sequence of functions Kn (n ≤ 0) from nonunital rings to abelian groups, together with natural boundary maps ∂ : Kn(R/I) → Kn−1(I) for every 2-sided ideal I ⊂ R, satisfying the following axioms.",
           "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.4, axioms (3)–(4), printed p. 213 (PDF p. 221)",
-          "excerpt": "(3) If Λ is a flasque ring (II.2.1.3), then Kn(Λ) = 0 for all n ≤ 0; (4) The inclusion R ⊂ M(R) = ∪Mm(R) induces an isomorphism Kn(R) ≅ Kn(M(R)) for each n ≤ 0.",
           "match": "The last two axioms, checked against the node's list. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.4.1 (Example 4.4.1), printed p. 214 (PDF p. 222)",
-          "excerpt": "Example 4.4.1. Bass' negative K-groups (4.1) form a theory of negative K-theory for rings.",
           "match": "Bass's groups satisfy the axioms. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -718,7 +706,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.3 (Theorem 4.3), printed pp. 212–213 (PDF pp. 220–221)",
-          "excerpt": "Theorem 4.3 (Mayer-Vietoris). Suppose we are given a ring map f : R → S and an ideal I of R mapped isomorphically into an ideal of S. Then the Mayer-Vietoris sequence of Theorem 2.6 continues as a long exact Mayer-Vietoris sequence of negative K-groups.",
           "match": "The theorem; the displayed sequence follows on p. 213. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -760,25 +747,21 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.1 (Definition 10.1), printed p. 349 (PDF p. 357)",
-          "excerpt": "Definition 10.1. Write LE(R) for the spectrum homotopy cofiber of the map f0 from this homotopy pushout to E(R[x, x−1]), and ΛE(R) for the desuspension ΩLE(R). Since the mapping cone is natural, LE and ΛE are functors and there is a cofibration sequence, natural in E and R",
           "match": "The construction. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.2 (Fundamental Theorem 10.2), printed p. 349 (PDF p. 357)",
-          "excerpt": "Fundamental Theorem 10.2. For any ring R, the map K(R) → ΛK(R) induces a homotopy equivalence between K(R) and the (−1)-connective cover of the spectrum ΛK(R). In particular, Kn(R) ≅ πnΛK(R) for all n ≥ 0.",
           "match": "The first desuspension. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357)",
-          "excerpt": "Corollary 10.3. For k > 0 the map Λk−1K(R) → ΛkK(R) induces a homotopy equivalence between Λk−1K(R) and the (−k)-connective cover of ΛkK(R), with Kn(R) ≅ πnΛkK(R) for n > −k",
           "match": "The iteration (the corollary's last clause carries the misprint recorded as E1). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.4 (Definition 10.4), printed p. 350 (PDF p. 358)",
-          "excerpt": "Definition 10.4. We define KB(R) to be the homotopy colimit of the diagram K(R) → ΩLK(R) ← ΛK(R) → · · · Λk−1K(R) → ΛkΩLK(R) ← ΛkK(R) → · · ·",
           "match": "The Bass spectrum. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -895,19 +878,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1, after Definition 4.1, printed p. 210 (PDF p. 218)",
-          "excerpt": "It follows from Theorem II.7.8 that if R is regular noetherian then Kn(R) = 0 for all n < 0.",
           "match": "The vanishing itself, stated by the source; the packet had not cited it. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8, the opening paragraph, printed p. 430 (PDF p. 438)",
-          "excerpt": "For regular rings, the decomposition simplifies to the formulas NKn(R) = 0 and Kn(R[t, 1/t]) ≅ Kn(R) ⊕ Kn−1(R) of Theorem 6.3.",
           "match": "The vanishing of the N-terms. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "I.3.7.1 (Definition 3.7.1), printed p. 23 (PDF p. 31)",
-          "excerpt": "Definition 3.7.1. A noetherian ring R is called regular if every R-module M has a finite resolution 0 → Pn → · · · → P0 → M → 0 with the Pi projective.",
           "match": "The definition of regular; the packet's 'II.6.5 and I.3.7.1' merged two places. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -951,25 +931,21 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.7 (Theorem 2.7), printed p. 75 (PDF p. 83)",
-          "excerpt": "Theorem 2.7 (Structure Theorem for Morita Equivalence). If R and S are Morita equivalent, and P, Q are as above, then: (a) P and Q are finitely generated projective, both as R-modules and as S-modules;",
           "match": "The structure theorem. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.7.1 (Corollary 2.7.1), printed p. 76 (PDF p. 84)",
-          "excerpt": "Corollary 2.7.1. If R and S are Morita equivalent then K0(R) ≅ K0(S).",
           "match": "Degree zero. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.7.2 (Example 2.7.2), printed p. 76 (PDF p. 84)",
-          "excerpt": "Example 2.7.2. R = Mn(S) is always Morita equivalent to S; P is the bimodule S^n of “column vectors” and Q is the bimodule (S^n)^t of “row vectors.”",
           "match": "The matrix ring. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.3.5 (Morita Invariance 6.3.5), printed p. 321 (PDF p. 329)",
-          "excerpt": "Morita Invariance 6.3.5. Recall from II.2.7 that if two rings R and S are Morita equivalent then there are equivalences P(R) ≅ P(S) and M(R) ≅ M(S). It follows that Kn(R) ≅ Kn(S) and Gn(R) ≅ Gn(S) for all n.",
           "match": "All degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1076,19 +1052,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.9.1.1 (Definition 9.1.1), printed p. 158 (PDF p. 166)",
-          "excerpt": "Definition 9.1.1. A Waldhausen category C is a category with cofibrations, together with a family w(C) of morphisms in C called “weak equivalences” (abbreviated ‘w.e.’). Every isomorphism in C is to be a weak equivalence, and weak equivalences are to be closed under composition",
           "match": "The data a K-theory is built from. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.9.7 (Theorem 9.7, Approximation Theorem), printed p. 167 (PDF p. 175)",
-          "excerpt": "Theorem 9.7 (Approximation Theorem). Let F : A → B be an exact functor between two Waldhausen categories. Suppose also that F satisfies the following conditions: (a) A morphism f in A is a weak equivalence if and only if F(f) is a weak equivalence in B.",
           "match": "The invariance statement at the level of Waldhausen categories, which is what the enhancement hypothesis provides. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Definition 11.1 and Proposition 11.15, pp. 20 and 22",
-          "excerpt": "11.1 Definition. Let A be a Frobenius pair. Its associated category with cofibrations and weak equivalences has as cofibrations the inflations in A and as weak equivalences the maps in A which are isomorphisms in D A. … 11.15 Proposition. Let F : A → B be a map of Frobenius pairs such that DA → DB is a an equivalence. Then K(A) → K(B) is a homotopy equivalence.",
           "match": "Derived invariance for maps of Frobenius pairs: the hypothesis is a map of models, not a bare triangulated equivalence. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1129,25 +1102,21 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2, the paragraph after Example 2.1.3, printed p. 69 (PDF p. 77)",
-          "excerpt": "If R = R1 × R2 then P(R) ≅ P(R1) × P(R2). As in Exercise 1.2, this implies that K0(R) ≅ K0(R1) × K0(R2). Thus K0 may be computed componentwise.",
           "match": "Products in degree zero; the packet attributed this to II.2.1.2, which is Example 2.1.2 (simple rings). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.4 (Elementary properties 6.4), printed p. 321 (PDF p. 329)",
-          "excerpt": "For example, if R1 and R2 are rings then P(R1 × R2) ≅ P(R1) ⊕ P(R2) and we have Kn(R1 × R2) ≅ Kn(R1) ⊕ Kn(R2).",
           "match": "Products in all degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.4, the filtered-colimit clause, printed p. 321 (PDF p. 329)",
-          "excerpt": "Finally, suppose that i ↦ Ai is a functor from some small filtering category I to exact categories and exact functors. Then the filtered colimit A = lim Ai is an exact category (Ex. II.7.9), and QA = lim QAi. … For example, if a ring R is the filtered union of subrings Ri we have Kn(R) ≅ lim Kn(Ri).",
           "match": "Filtered colimits in all degrees; the packet had no citation for the colimit half. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 6.3 and Corollary 6.4, pp. 13–14",
-          "excerpt": "6.3 Lemma. Let i → Ai be a functor from a small, filtered index category I to the category of Frobenius pairs. Then colim Ai is a Frobenius pair and the natural map colim IKn(Ai) → IKn(colim Ai) is an isomorphism for n ≤ 0.",
           "match": "Filtered colimits in negative degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1190,31 +1159,26 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7, 'Products', and Lemma 7.4, printed p. 132 (PDF p. 140)",
-          "excerpt": "Products Let A, B and C be exact categories. A functor F : A × B → C is called biexact if F(A, −) and F(−, B) are exact functors for every A in A and B in B, and F(0, −) = F(−, 0) = 0. … Lemma 7.4. A biexact functor F : A × B → C induces a bilinear map K0A ⊗ K0B → K0C.",
           "match": "The definition and the pairing on K0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.9.5.2 (Definition 9.5.2), printed p. 165 (PDF p. 173)",
-          "excerpt": "Definition 9.5.2. A functor F : A × B → C between Waldhausen categories is called biexact if each F(A, −) and F(−, B) is exact, and the following condition is satisfied",
           "match": "The Waldhausen version (the pairing of spectra is IV.8.11, not here). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.4.1 (Application 7.4.1), printed p. 132 (PDF p. 140)",
-          "excerpt": "Application 7.4.1. Let R be a commutative ring. The tensor product ⊗R defines a biexact functor P(R) × P(R) → P(R), as well as a biexact functor P(R) × M(R) → M(R). The former defines the product [P][Q] = [P ⊗ Q] in the commutative ring K0(R)",
           "match": "The tensor product. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.6 (Definition 6.6), printed p. 322 (PDF p. 330)",
-          "excerpt": "Definition 6.6. If A, B and C are exact categories, a functor ⊗ : A × B → C is called biexact if (i) each partial functor A ⊗ – : B → C and – ⊗ B : A → C is exact, and (ii) A ⊗ 0 = 0 ⊗ B = 0 for the distinguished zero objects of A, B and C.",
           "match": "Higher products for exact categories. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.8.11 (Products), printed p. 342 (PDF p. 350)",
-          "excerpt": "We saw in II.9.5.1 that a biexact functor induces a bilinear map K0(A) ⊗ K0(B) → K0(C). It also induces a morphism of bisimplicial bicategories wS•A × wS•B → wwS•S•C",
           "match": "The pairing of spectra. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1326,13 +1290,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.1.10 (Theorem 1.10, Loday), printed p. 266 (PDF p. 274)",
-          "excerpt": "Theorem 1.10. (Loday) The product map is natural in A and B, bilinear and associative. If A is commutative, the induced product Kp(A) ⊗ Kq(A) → Kp+q(A ⊗ A) → Kp+q(A) is graded-commutative.",
           "match": "Graded commutativity; the packet cited 'IV.1 and the product structure (PDF p. 302)' with a formula that is not in the source. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
-          "excerpt": "in which the splitting of ∂ is given by multiplication by t ∈ K1(Z[t, t−1]).",
           "match": "Multiplication by the class of the variable. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1373,13 +1335,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.3.12 (Projection Formula 3.12), printed p. 395 (PDF p. 403)",
-          "excerpt": "Projection Formula 3.12. Let f : X → Y be a proper morphism of noetherian schemes. Then f∗ : G∗(X) → G∗(Y) is a graded K∗(Y)-module homomorphism: for all x ∈ Gm(X) and y ∈ Kn(Y): f∗(x · f∗y) = f∗(x) · y.",
           "match": "The projection formula for the transfer. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.8.11 (Products), printed p. 342 (PDF p. 350)",
-          "excerpt": "We saw in II.9.5.1 that a biexact functor induces a bilinear map K0(A) ⊗ K0(B) → K0(C). It also induces a morphism of bisimplicial bicategories wS•A × wS•B → wwS•S•C",
           "match": "The spectrum-level pairing the compatibilities are statements about. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1420,13 +1380,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.4.1 (Application 7.4.1), printed p. 132 (PDF p. 140)",
-          "excerpt": "Application 7.4.1. Let R be a commutative ring. The tensor product ⊗R defines a biexact functor P(R) × P(R) → P(R), as well as a biexact functor P(R) × M(R) → M(R). The former defines the product [P][Q] = [P ⊗ Q] in the commutative ring K0(R)",
           "match": "The K0 comparison. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.1.1.1 (Example 1.1.1, SK1), printed p. 180 (PDF p. 188)",
-          "excerpt": "Example 1.1.1 (SK1). If R happens to be commutative, the determinant of a matrix provides a group homomorphism from GL(R) onto the group R× of units of R. It is traditional to write SK1(R) for the kernel of the induced surjection det : K1(R) → R×.",
           "match": "Units in K1; [u] + [u⁻¹] = [u u⁻¹] = 0 since K1 is additive in the product of units. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
@@ -1471,13 +1429,11 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§3.3 to 3.5, pp. 8 to 9",
-          "excerpt": "Recall that a Frobenius category is an exact category with enough injectives and projectives, and where injectives and projectives coincide. Its stable category is a triangulated category. 3.4 Definition. A Frobenius pair A = (A, A_0) is a fully faithful inclusion A_0 -> A of small Frobenius categories. ... 3.5 Definition. If A = (A, A_0) is a Frobenius pair, then the map of small ...",
           "match": "The definitions, verbatim; the ligature and accent damage of the scan has been repaired without changing a word."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§5.3 and Definition 5.4, p. 11",
-          "excerpt": "Declare a sequence in Ch E to be a conflation if it is isomorphic to the split conflation in each degree. This makes Ch E into an exact category. One checks that Ch E is a Frobenius category whose projective-injective objects are the contractible chain complexes. Its stable category is the usual homotopy category K(E). Let Ac(E) be the full subcategory of chain complexes which are ...",
           "match": "The standing example and the definition it feeds, verbatim."
         }
       ],
@@ -1590,19 +1546,16 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 4.2, p. 9",
-          "excerpt": "The countable envelope FE of an exact category E is flasque, i.e., there is an exact functor T : FE -> FE and a natural equivalence T (+) id = T of functors. Proof. Countable direct sums exist in FE and are exact, so the functor sending E to the countable sum and the natural equivalence make FE into a flasque exact category. ... Now the functor A -> TA = sum of the t^i A makes sense and ...",
           "match": "The flasqueness of the envelope with its proof, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§4.1, Definition 4.3, Proposition 4.4 and Definition 4.7, pp. 9 to 10",
-          "excerpt": "The category FE is an exact category whose objects are sequences of inflations in E. The morphism set from a sequence A to B is lim_i colim_j hom(A_i, B_j). ... 4.4 Proposition. Let A be a Frobenius pair. Then the map A -> F A induces a fully faithful map D A -> D F A of triangulated categories. Moreover, D F A has countable coproducts, and it is c-compactly generated by D A. ... 4.7 ...",
           "match": "The envelope, the functor F, its properties and the suspension, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 4.8, p. 10",
-          "excerpt": "If we take M to be the category of Frobenius pairs, then the sequence id -> F -> S of functors from Frobenius pairs to Frobenius pairs satisfies the hypothesis of the set-up (1.3).",
           "match": "The verification that the flasque route satisfies the axioms, verbatim."
         }
       ],
@@ -1713,13 +1666,11 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Definition 1.1, Facts 1.2, Set-up 1.3 and Definition 1.4, pp. 4 to 5",
-          "excerpt": "1.1 Definition. Call a sequence of small triangulated categories A -> B -> C exact if the composition is zero, the map A -> B is fully faithful and the map from B/A to C is cofinal, i.e., it is fully faithful, and every object of C is a direct summand of an object of B/A. ... We define IK_0(T) = K_0 of the idempotent completion. ... 1.3 Set-up. ... We suppose that there are two ...",
           "match": "The set-up and the definition, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§5.5, p. 11",
-          "excerpt": "If E is idempotent complete, then so is D^b(E). In this case IK_0(E) is the usual K_0(E). If E is not idempotent complete, then IK_0(E) = K_0 of the idempotent completion.",
           "match": "The degree-zero identification, verbatim."
         }
       ],
@@ -1828,13 +1779,11 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 1.6, Theorem 1.7, Corollary 1.8 and Remark 1.9, pp. 5 to 6",
-          "excerpt": "1.6 Lemma. The map delta yields a well defined map IK_i(C) -> IK_{i-1}(A) of abelian groups, i <= 0. 1.7 Theorem. Let A -> B -> C be a short exact sequence in M. Then the sequence of abelian groups ... IK_i(A) -> IK_i(B) -> IK_i(C) -> IK_{i-1}(A) -> ... is exact, i <= 0. ... 1.8 Corollary. Let f : A -> B be a map in M such that D(f) is cofinal, e.g. an equivalence of categories. Then ...",
           "match": "The localisation theorem with its corollary and the obstruction remark, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§5.5, p. 11",
-          "excerpt": "Given a sequence A -> B -> C of exact categories such that D^b A -> D^b B -> D^b C is exact, Theorem 1.7 yields a long exact sequence IK_0(A) -> IK_0(B) -> IK_0(C) -> IK_{-1}(A) -> IK_{-1}(B) ... For example, let R be a ring, and let S be a multiplicative set of central non-zero-divisors.",
           "match": "The instance for exact categories and the localisation example, verbatim."
         }
       ],
@@ -1873,7 +1822,6 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 6.1, Corollary 6.2, Lemma 6.3 and Corollary 6.4, pp. 13 to 14",
-          "excerpt": "6.1 Theorem (Additivity). Let F -> G : A -> B be a natural transformation of maps between Frobenius pairs. If F(A) -> G(A) is an inflation for all objects A of A, then G/F is a map of Frobenius pairs and IK_i(F) + IK_i(G/F) = IK_i(G) for all i <= 0. 6.2 Corollary. Let 0 -> F -> G -> H -> 0 be an exact sequence of exact functors between exact categories. Then IK_i(F) + IK_i(H) = IK_i(G) ...",
           "match": "Additivity and the colimit statements, verbatim."
         }
       ],
@@ -1916,25 +1864,21 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Definitions 11.1 and 11.4, Lemma 11.3, pp. 20 to 21",
-          "excerpt": "11.1 Definition. Let A be a Frobenius pair. Its associated category with cofibrations and weak equivalences has as cofibrations the inflations in A and as weak equivalences the maps in A which are isomorphisms in D A. The K-theory space of A is K(A) = Omega |wS.A|. ... 11.3 Lemma. There is a contraction of K(F A), functorial in the Frobenius pair A. ... 11.4 Definition (The IK-theory ...",
           "match": "The construction of the spectrum, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 11.7, p. 21",
-          "excerpt": "11.7 Theorem. Let A be a Frobenius pair. Then the spectrum Omega IK(A) is an Omega-spectrum. The homotopy groups of IK(A) are given by pi_i IK(A) = pi_i K(A) for i > 0 as defined in 11.1, IK_0(A) = K_0 of the idempotent completion of D(A) for i = 0, and IK_i(A) for i < 0 as defined in sections 1 and 4.",
           "match": "The computation of the homotopy groups, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 11.10 and §11.13, pp. 21–22",
-          "excerpt": "11.10 Theorem. Let A -> B -> C be an exact sequence of Frobenius pairs. Then, applying the IK-theory functor yields a homotopy cartesian square. ... 11.13. IK(E), E an exact category. As in 5.4 we define the IK-theory spectrum of an exact category E. ... a sequence A -> B -> C of exact categories induces a long exact sequence.",
           "match": "Localisation at the spectrum level and the instance for exact categories, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Proposition 11.15, p. 22",
-          "excerpt": "11.15 Proposition. Let F : A → B be a map of Frobenius pairs such that DA → DB is a an equivalence. Then K(A) → K(B) is a homotopy equivalence.",
           "match": "The derived-invariance statement, with the bracketed words supplying from the surrounding text what the scan drops."
         }
       ],
@@ -1980,19 +1924,16 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 7.1 and Remark 7.3, pp. 14 to 15",
-          "excerpt": "7.1 Theorem. Let R be a ring. Then there are natural isomorphisms between Bass' and Pedersen's groups K_i(R) and the groups IK_i(R) defined in 5.4 for i <= 0. Let X be a quasi-compact and quasi-separated scheme, then there are natural isomorphisms between Thomason's groups K^B_i(X) and the groups IK_i(X) defined in 5.10 for i <= 0. Let A be an additive category, then there are natural ...",
           "match": "The agreement theorem, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 8.1 and Corollary 8.2, p. 15",
-          "excerpt": "8.1 Lemma. Let E be an exact category and D(E) its unbounded derived category. Then IK_{n-1}(E) = IK_n(Ch E, Ac E), n <= 0. In particular, IK_{-1}(E) = K_0(D(E)). ... 8.2 Corollary. The group IK_{-1}(E) is the quotient of the abelian monoid of isomorphism classes of idempotents in D(E), under direct sum operation, modulo the submonoid of those idempotents which split in D(E). In ...",
           "match": "The presentation of the first negative group, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§9, Examples 9.5 and 9.6, Conjecture 9.7 and Remark 9.8, pp. 16 to 17",
-          "excerpt": "Descending induction on n starting with n = -1 (9.1) shows that IK_n(A) = 0, n < 0, for any noetherian abelian category A. ... 9.5 Example. Regular rings. Let R be a regular ring. Then the inclusion of the category of finitely generated projective R-modules into the category of all finitely generated R-modules induces an equivalence of bounded derived categories. As the latter category is ...",
           "match": "The vanishing theorems, the regular case and the conjecture, verbatim."
         }
       ],
@@ -2095,7 +2036,7 @@
       "source": "Kbook.2013",
       "kind": "misprint",
       "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357); identical in the chapter file Kbook.IV.pdf of 17 August 2012",
-      "printed": "and K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R)",
+      "printed": "The source gives K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R).",
       "correction": "and K−k(R) ≅ π−kΛk−1K(R) ≅ π−kΛkK(R).",
       "reason": "n is not bound in that clause (the preceding clause is 'for n > −k'); since Λ^{k−1}K(R) is the (−k)-connective cover of Λ^kK(R), the group meant is π_{−k}Λ^{k−1}K(R), which equals π_{−k}Λ^kK(R).",
       "affects": "nothing",

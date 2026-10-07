@@ -247,7 +247,6 @@
         {
           "sourceId": "gz-published",
           "locator": "§3, (11), PDF p. 4",
-          "excerpt": "analytic in a finite covering",
           "match": "The printed finite-cover convention is retained exactly; convergence is supplied by a Gaussian majorant."
         }
       ],
@@ -287,13 +286,11 @@
         {
           "sourceId": "gz-published",
           "locator": "Lemma 2.1, (4)–(5), and §4.1",
-          "excerpt": "asymptotic expansion",
           "match": "The asymptotic formula is imported; this continuation supplies a compact, guarded remainder."
         },
         {
           "sourceId": "vz-preprint",
           "locator": "Lemma 2.2(ii), proof (2.3)–(2.4), PDF pp. 3–4",
-          "excerpt": "asymptotic expansion",
           "match": "The small/large summation-index split proves uniformity rather than interchanging a divergent infinite Bernoulli series."
         }
       ],
@@ -331,13 +328,11 @@
         {
           "sourceId": "vz-preprint",
           "locator": "Lemma 2.2(i), PDF p. 3",
-          "excerpt": "for all n, ε we have an inequality",
           "match": "Motivates the all-index estimate; the block proof given here extends the real estimate to roots of unity."
         },
         {
           "sourceId": "gz-published",
           "locator": "§4.3, (27), Claims 2–3, PDF pp. 9–11",
-          "excerpt": "are polynomials defined using Lemma 2.1",
           "match": "Supplies the global input required before the local saddle expansion can control the tails."
         }
       ],
@@ -373,13 +368,11 @@
         {
           "sourceId": "vz-preprint",
           "locator": "Lemma 2.1 and Theorem 2.3, PDF pp. 2, 4–7",
-          "excerpt": "strictly convex",
           "match": "The convexity and expanding-window proof provide the real prototype."
         },
         {
           "sourceId": "gz-published",
           "locator": "§2, (6)–(9); §4.3, Claim 2",
-          "excerpt": "unique solution",
           "match": "Uses the printed critical point and Hessian with the corrected factor 1/(2m) in the Gaussian."
         }
       ],
@@ -417,13 +410,11 @@
         {
           "sourceId": "gz-published",
           "locator": "Proposition 2.2 and §4.3, Claims 2–3, (31)–(32)",
-          "excerpt": "asymptotic expansion",
           "match": "Corrects the logarithmic/exponential confusion and gives the finite-order uniform estimate."
         },
         {
           "sourceId": "vz-preprint",
           "locator": "Theorem 2.3 proof, PDF pp. 5–7",
-          "excerpt": "asymptotic expansion",
           "match": "The overlap −2/3<λ<−1/2 is made concrete by λ=−7/12."
         }
       ],
@@ -461,7 +452,6 @@
         {
           "sourceId": "gz-published",
           "locator": "§4.3, Claim 4, (33)–(35) and following display",
-          "excerpt": "independent of the shift",
           "match": "The parent covolume correction is checked against the journal text; its prefactor error persists."
         }
       ],
@@ -497,7 +487,6 @@
         {
           "sourceId": "gz-published",
           "locator": "§4.3, (24)–(30), Claim 1",
-          "excerpt": "Chinese remainder",
           "match": "The exact CRT identity is retained; subsum asymptotics are expressed as differences, avoiding cancellation errors."
         }
       ],
@@ -538,13 +527,11 @@
         {
           "sourceId": "gz-published",
           "locator": "Theorem 3.1, (17)–(20), §4.2 (21)–(23), §4.3 (36)",
-          "excerpt": "cyclotomic extension",
           "match": "Imports the exact corrected parent formula, while strengthening the proof’s analytic estimates."
         },
         {
           "sourceId": "cgz-published",
           "locator": "§7.1, Theorem 7.1 and Remark 7.3, p. 419",
-          "excerpt": "vanish identically",
           "match": "The printed warning about possible vanishing is respected."
         }
       ],
@@ -593,7 +580,6 @@
         {
           "sourceId": "gz-published",
           "locator": "Theorem 3.1, (20); §3 rational-power convention",
-          "excerpt": "cyclotomic extension",
           "match": "Makes the printed field Q(z^(1/d),ζ) and its coherent m-th roots explicit."
         }
       ],
@@ -724,7 +710,6 @@
         {
           "sourceId": "gz-published",
           "locator": "Theorem 3.1, (20), and §4.3 entire proof",
-          "excerpt": "cyclotomic extension",
           "match": "The field claim is stated, but the analytic proof ends at (36) without the coefficientwise invariance argument."
         }
       ],
@@ -762,13 +747,11 @@
         {
           "sourceId": "cgz-published",
           "locator": "Theorem 7.1, (45)–(46), p. 419",
-          "excerpt": "power series",
           "match": "The simplified theorem is reconciled with GZ and the coherent-root field from HB.3."
         },
         {
           "sourceId": "gz-published",
           "locator": "Theorem 3.1, (15), (17)–(20)",
-          "excerpt": "cyclotomic extension",
           "match": "Keeps the Gauss factor and Dedekind phase that the simplified printed form suppresses."
         }
       ],
@@ -803,7 +786,6 @@
         {
           "sourceId": "cgz-published",
           "locator": "Corollary 7.2 and its proof; Remark 7.3, p. 419",
-          "excerpt": "constant term 1",
           "match": "Makes the formal-root induction and the exact nonvanishing hypothesis explicit."
         }
       ],
@@ -840,13 +822,11 @@
         {
           "sourceId": "cgz-published",
           "locator": "§7.2, (47) and proof of Theorem 7.4, pp. 420–422",
-          "excerpt": "By a famous identity of Andrews and Gordon",
           "match": "Imports the identity from its existing q-series owner and retains the parent coordinate correction."
         },
         {
           "sourceId": "zagier",
           "locator": "II.2C, pp. 39–41, especially the final identity on p. 41",
-          "excerpt": "an equation well known in the physics literature.",
           "match": "Supplies the precise trigonometric Rogers identity requested from Polylogarithms:P.1; the Gaussian/Poisson proof is cited separately by its analytic nodes."
         }
       ],
@@ -904,7 +884,7 @@
       "source": "gz-published",
       "kind": "error",
       "locator": "Theorem 3.1, phase after (17); §4.2 (22), journal PDF pp. 6, 8",
-      "printed": "χ is the 12th root of ζ",
+      "printed": "The source describes χ as the 12th root of ζ.",
       "correction": "Use χ=exp(πi s(a,m)) with weighted-log branch for every numerator a. The printed binomial phase agrees at a=1 but not for all primitive ζ.",
       "reason": "The eta transformation at a/m supplies the Dedekind sum; for a=2,m=3, the two phases differ by exp(−2πi/12).",
       "affects": "a stated result",
@@ -992,7 +972,7 @@
       "source": "gz-published",
       "kind": "error",
       "locator": "§4.3, after (35), general smooth-decay discussion",
-      "printed": "each term of the right-hand side",
+      "printed": "The source refers to every term appearing on the right.",
       "correction": "Use arbitrary-power smallness under Schwartz hypotheses, and exponential smallness only for the polynomial Gaussian actually used in Claim 4. In the rapid-decay definition the intended bound is o(|x|^{−K}); adequate derivative decay, such as the Schwartz condition, must also be retained.",
       "reason": "Smoothness alone does not imply exponentially decreasing Fourier transform. A Schwartz transform exp(−(1+ξ²)^(1/4)) supplies a counterexample. The Gaussian application does have exponential decay.",
       "affects": "the proof",
@@ -1014,7 +994,7 @@
       "source": "cgz-published",
       "kind": "error",
       "locator": "Theorem 7.1, (45)–(46), p. 419",
-      "printed": "positive integer coprime to the denominator",
+      "printed": "The source specifies an integer that is positive and coprime to the denominator.",
       "correction": "Retain odd m as in the cited GZ theorem. Use the Dedekind phase and coherent root/Gauss fields for rational data, and read (46) as an equality of Kummer classes with nonzero constant term.",
       "reason": "The cited GZ theorem assumes odd order. For A=(1),B=(1/4),m=1, z=1/2 and F=Q, the positive leading coefficient is 2^(−1/4); its square is not rational. Thus the printed F and ω²∈F cannot hold with Φ(0)∈F. Rational Q can also give an auxiliary Gauss phase; a quotient class has no distinguished root. Corollary 7.2 uses gcd(m,w_F)=1 through Remark 2.6.",
       "affects": "a stated result",
@@ -1036,7 +1016,7 @@
       "source": "gz-published",
       "kind": "misprint",
       "locator": "§3, sentence after (13), journal PDF p. 5; arXiv v1 after (14), p. 4",
-      "printed": "the valuation of cn approaches zero",
+      "printed": "The source says the valuation of cn tends to zero.",
       "correction": "The coefficient valuations must tend to +∞ (on the even coefficients used by the Gaussian bracket), so the coefficientwise formal sum exists.",
       "reason": "For c_{2j}=1 the Gaussian bracket would have infinitely many nonzero contributions to its constant coefficient. The admissible degree/order filtration in the local expansion instead forces valuations to grow.",
       "affects": "nothing",

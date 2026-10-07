@@ -228,25 +228,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Appendix A, Theorem A.1(b), p. 69 (arXiv v2)",
-     "excerpt": "agrees with prismatic cohomology relative to the $q$-de Rham prism $(\\widehat{A}_p\\qpower,[p]_q)$. Here we denote the $p$-adic Frobenius twist by $(-)^{(p)}\\coloneqq (-\\otimes_{A,\\psi^p}A)_p^\\complete$.",
      "match": "A square in the source's own form: it names the base prism, the completion and the Frobenius linearisation, which is what the record generalises."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 16.1 (arXiv v4)",
-     "excerpt": "Set $A = \\mathbf{Z}_p\\llbracket q-1\\rrbracket$ with $\\delta$-structure given by $\\delta(q) = 0$, and let $[p]_q = \\frac{q^p-1}{q-1} \\in A$ be the $q$-analog of $p$. Note that $\\phi(q-1) = q^p-1 \\in [p]_q A$.",
      "match": "The prism base and its Frobenius, the first entry of the base vocabulary."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Section 3.1, the paragraph before Definition 3.2, p. 20 (arXiv v2)",
-     "excerpt": "For technical reasons, we also need to require the same for the rationalisations of the $p$-completed ($q$-)de Rham complexes, which is why we have to include condition~\\cref{enum:qHodgeRationalpComplete} below.",
      "match": "Why the order of completion and inversion is an item of the record: clauses (c) and (c_p) differ."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 1.17, p. 8 (arXiv v2)",
-     "excerpt": "It is not yet known how algebraic Habiro cohomology relates to the sheaf cohomology of Scholze's analytic Habiro stack $X^\\mathrm{Hab}$",
      "match": "Why the algebraic-against-analytic comparison is not a square."
     }
    ],
@@ -433,25 +429,21 @@
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 16.1 (arXiv v4)",
-     "excerpt": "We shall often use without comment the congruence $[p]_q = p \\mod (q-1)$ and that $(q-1)^{p-1}$ and $p$ differ by a multiplicative unit in $A/[p]_q \\cong \\mathbf{Z}_p[\\zeta_p]$, where $\\zeta_p$ is a primitive $p$-th root of $1$.",
      "match": "Congruences (a) and (b)."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Definition 16.2 and the paragraph after it (arXiv v4)",
-     "excerpt": "Unlike the classical crystalline theory, being a $q$-PD pair is a property of a $\\delta$-pair $(D,I)$ rather than extra structure.",
      "match": "q-PD pairs are a property, with the three conditions of Definition 16.2."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 17.1 (arXiv v4)",
-     "excerpt": "This allows us to view $A$ as a perfect $\\delta$-$\\mathbf{Z}_p\\llbracket q-1\\rrbracket$-algebra that is $(p,q-1)$-completely flat and thus also genuinely flat (see \\cite[Lemma 5.15]{BhattCM}). Let $\\xi = \\phi^{-1}([p]_q)$, so $(A,\\xi)$ is a $q$-PD pair",
      "match": "The perfectoid base, its flatness and its q-PD pair, (d)."
     },
     {
      "sourceId": "scholze-canonical-q-deformations",
      "locator": "Section 4, the paragraph after Lemma 4.1 (arXiv v1)",
-     "excerpt": "Moreover, one gets a map $\\bb Z_p[[q-1]]\\to A_\\mathrm{inf}$ sending $q$ to $[\\epsilon]$, making $A_\\mathrm{inf}$ a faithfully flat $\\bb Z_p[[q-1]]$-algebra.",
      "match": "Faithful flatness in (d)."
     }
    ],
@@ -509,19 +501,16 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 1.17, p. 8 (arXiv v2)",
-     "excerpt": "We expect algebraic and analytic Habiro cohomology to become equal after base change to a suitably completed localisation of Scholze's analytic Habiro ring $\\Hh^\\mathrm{an}$. Note, however, that this base change erases quite some information on either side",
      "match": "The fourth clause, and the model for the second: a comparison expected only after a base change that loses information."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Remark 3.48, p. 49 (arXiv v2)",
-     "excerpt": "For an arbitrary object $(R,\\fil_{\\qHodge}^\\star \\qdeRham_{R/A})$ in $\\cat{AniAlg}_A^{\\qHodge}$, without a smoothness assumption on~$R$, we don't know how to construct a Habiro descent of $\\qdeRham_{R/A}$.",
      "match": "The scope of the q-Hodge modification in the second clause."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 17.2 (arXiv v4)",
-     "excerpt": "All these maps are isomorphisms of $E_\\infty$-$A$-algebras compatible with the Frobenius.",
      "match": "The A_inf comparison is an equivalence over its own base; the atlas records that its base is the perfectoid one."
     }
    ],
@@ -562,25 +551,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Appendix A, Theorem A.1(b), p. 69 (arXiv v2)",
-     "excerpt": "agrees with prismatic cohomology relative to the $q$-de Rham prism $(\\widehat{A}_p\\qpower,[p]_q)$. Here we denote the $p$-adic Frobenius twist by $(-)^{(p)}\\coloneqq (-\\otimes_{A,\\psi^p}A)_p^\\complete$.",
      "match": "The square, in the source's statement."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Construction A.12, p. 75 (arXiv v2)",
-     "excerpt": "For all smooth $A$-algebras $S$, we construct the \\emph{$q$-de Rham complex of $S$ over $A$} as the pullback",
      "match": "The gluing whose p-completion is the corner."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proof of Theorem A.1, p. 75 (arXiv v2)",
-     "excerpt": "By construction, $(\\qOmega_{S/A})_p^\\complete\\simeq \\qOmega_{\\smash{\\widehat{S}}_p/\\smash{\\widehat{A}}_p}$, and so \\cref{enum:GlobalqDeRhamPrismatic} follows from \\cite[Theorem~\\chref{16.18}]{Prismatic}.",
      "match": "Why the commutation is by construction."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 16.18 (arXiv v4)",
-     "excerpt": "Let $R^{(1)}$ be the $p$-completely smooth $D/([p]_q)$-algebra defined via $p$-completed base change along the map $D/I \\to D/([p]_q)$ induced by $\\phi_D$.",
      "match": "The Frobenius twist in the imported identification."
     }
    ],
@@ -627,25 +612,21 @@
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Section 16.3, opening (arXiv v4)",
-     "excerpt": "In this section, we fix a $q$-PD pair $(D,I)$ with $D$ being $A$-flat as well as a $p$-completely smooth $D/I$-algebra $R$.",
      "match": "The standing hypothesis of the imported comparison."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Lemma 16.21 (arXiv v4)",
-     "excerpt": "For each $s \\in S$, the automorphism $\\gamma_s$ of $P$ extends uniquely to an automorphism of $D_{J,q}(P)$ that is congruent to the identity modulo $qX_s - X_s$.",
      "match": "The extension of the coordinate scalings."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 16.22 (arXiv v4)",
-     "excerpt": "Let $(P,S,J)$ be a framed $q$-PD datum in the sense of Construction~\\ref{FramedqPDqdR}. Then there is a canonical quasi-isomorphism $q\\Omega_{R/D} \\simeq q\\Omega_{D_{J,q}(P)/D}^{\\ast,\\square}$.",
      "match": "The imported comparison."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Lemma A.10, p. 74 (arXiv v2)",
-     "excerpt": "Here the left vertical arrow is the quasi-isomorphism from \\cite[Theorem~\\textup{\\chref{16.22}}]{Prismatic} and the right vertical arrow is the usual quasi-isomorphism between crystalline cohomology and PD-de Rham complexes.",
      "match": "The compatibility square, owned by HQ.1."
     }
    ],
@@ -696,31 +677,26 @@
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 17.1 (arXiv v4)",
-     "excerpt": "Choosing a compatible system $\\{\\zeta_{p^n} \\in \\mu_{p^n}(C)\\}$ of primitive $p$-power roots of $1$, we obtain the rank $1$ element $q = [\\underline{\\epsilon}] \\in A := A_{\\inf}(\\mathcal{O}_C)$, where $\\epsilon=(1,\\zeta_p,\\ldots)\\in \\mathcal O_C^\\flat$.",
      "match": "The perfectoid base and its dependence on ε."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 17.2 and Remark 17.3 (arXiv v4)",
-     "excerpt": "The proof will a priori give an isomorphism of $E_1$-$A$-algebras functorially in $R$ and compatibly with the Frobenius. However, this can be upgraded to an isomorphism of $E_\\infty$-$A$-algebras a posteriori",
      "match": "The imported comparison and its E∞-upgrade."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Proof of Theorem 17.2 (arXiv v4)",
-     "excerpt": "we shall build, for each $\\Sigma \\in \\mathcal{C}_S$, explicit functorial complexes computing $q\\Omega_{R/A}$ and $A\\Omega_{R/A}$ and a natural (in $R$ and a choice of $\\Sigma \\in \\mathcal{C}_S$) quasi-isomorphism between them.",
      "match": "The proof strategy, recorded as imported."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 1.8(5) (Corollary 4.12) (arXiv v4)",
-     "excerpt": "Let $(A,I)\\to (B,J)$ be a map of bounded prisms, and let $Y=X\\times_{\\Spf(A/I)} \\Spf(B/J)$. Then the natural map induces an isomorphism",
      "match": "Base change along the map of prisms q ↦ [ε]."
     },
     {
      "sourceId": "scholze-canonical-q-deformations",
      "locator": "Conjecture 4.3 (arXiv v1)",
-     "excerpt": "Let $R$ be a smooth $\\bb Z$-algebra, and let $R_\\roi$ be the $p$-adic completion of $R\\otimes_{\\bb Z} \\roi$. Then, for the $q$-de~Rham complex $q\\!\\op-\\!\\Omega_R$ given by Conjecture~\\ref{ConjA}, one has (functorially in $R$)",
      "match": "The form of the square: the global complex base-changed to A_inf is AΩ."
     }
    ],
@@ -764,25 +740,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proposition 3.47(b), p. 48 (arXiv v2)",
-     "excerpt": "We have $\\L\\eta_{(q-1)}\\qHodge_{S/A}\\simeq \\qOmega_{R/A}$. In particular, $\\L\\eta_{(q-1)}\\qHhodge_{S/A}$ is a Habiro descent of $\\qOmega_{S/A}$.",
      "match": "The square; qΩ_{R/A} is the misprint E2."
     },
     {
      "sourceId": "bms-integral-p-adic-hodge",
      "locator": "Lemma 6.4 (arXiv v3)",
-     "excerpt": "Let $C^\\blob\\in K(\\roi_T)$ be an $\\cal I$-torsion-free complex. Then there is a canonical isomorphism",
      "match": "The cohomology of the décalage (the displayed formula follows the excerpt)."
     },
     {
      "sourceId": "bms-integral-p-adic-hodge",
      "locator": "Lemma 6.20 (arXiv v3)",
-     "excerpt": "Assume that $\\cal I\\subset \\roi_T$ is an invertible ideal sheaf which is locally free of rank $1$. Let $C\\in D(\\roi_T)$ with derived $\\cal I$-adic completion $\\hat{C}$. Then the natural maps",
      "match": "Commutation with completion at the same ideal, with its hypothesis."
     },
     {
      "sourceId": "bms-thh-integral-p-adic-hodge",
      "locator": "Proposition 5.8 (arXiv v2)",
-     "excerpt": "Then $L\\eta_I K$ identifies with the $R$-complex underlying $\\tau^{\\leq 0}_B (I^\\f \\otimes K)$.",
      "match": "The canonical filtration on the décalage."
     }
    ],
@@ -828,25 +800,21 @@
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 15.2 (arXiv v4)",
-     "excerpt": "\\mathrm{Fil}^i_N \\Prism_{S/A}^{(1)} = \\{x\\in \\Prism_{S/A}^{(1)}\\mid \\phi_{S/A}(x)\\in I^i \\Prism_{S/A}\\}",
      "match": "The prismatic Nygaard filtration is defined by Frobenius divisibility."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 15.3 (arXiv v4)",
-     "excerpt": "Let $(A,I)$ be a bounded prism and let $X=\\Spf R$ be an affine smooth $p$-adic formal scheme over $A/I$.",
      "match": "The hypotheses under which it is extended by descent."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proposition 3.22, p. 32 (arXiv v2)",
-     "excerpt": "For smooth $A$-algebras $S$, there exists a unique functorial equivalence of filtered $\\IE_\\infty$-$A[q]/(q^{p^\\alpha}-1)$-algebras",
      "match": "The square, owned by HQ.4."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proposition 3.22, p. 32 (arXiv v2)",
-     "excerpt": "\\embrace{the quotient on the left-hand side is taken in accordance with Convention~\\cref{conv:QuotientConvention}} which in degree~$0$ recovers the equivalence",
      "match": "The quotient convention and the degree-zero restriction."
     }
    ],
@@ -894,31 +862,26 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Theorem 3.11(b), p. 25 (arXiv v2)",
-     "excerpt": "For all $m\\in\\IN$, the quotient $\\qHhodge_{-/A}/(q^m-1)$ admits an exhaustive ascending filtration $ \\fil_\\star ^{\\qIW_m\\Omega}(\\qHhodge_{-/A}/(q^m-1))$ with associated graded",
      "match": "The first statement."
     },
     {
      "sourceId": "wagner-q-witt",
      "locator": "Proposition 4.2 (arXiv v5)",
-     "excerpt": "Let $R$ be smooth over $A$ and let $p$ be a prime. Then for every exponent~$\\alpha$ there exists an equivalence of $p$-complete $\\IE_\\infty$-$A[q]$-algebras",
      "match": "The second statement."
     },
     {
      "sourceId": "wagner-q-witt",
      "locator": "Remark 3.18 (arXiv v5)",
-     "excerpt": "As a consequence of \\cref{par:WhoNeedsRestrictions} and \\cref{prop:qDRWHasFrobenii}, we get a comparison map between ordinary and $q$-de Rham--Witt complexes in the case where $A$ a $\\IZ_{(p)}$-algebra.",
      "match": "The third statement and its hypothesis."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proposition 3.19, p. 31 (arXiv v2)",
-     "excerpt": "Let $A$ be a perfectly covered $\\Lambda$-ring and let $S$ be a smooth $A$-algebra. There's a functorial equivalence of $\\IE_\\infty$-$A[q]/(q^m-1)$-algebras",
      "match": "The reduction of the twisted complex modulo q^m − 1."
     },
     {
      "sourceId": "bms-integral-p-adic-hodge",
      "locator": "Theorem 1.10(i) (arXiv v3)",
-     "excerpt": "Here, the tensor product is $p$-adically completed, and the right side denotes the de~Rham--Witt complex of $\\frak X_k$, which computes crystalline cohomology of $\\frak X_k$.",
      "match": "The classical crystalline corner, imported from CR.4."
     }
    ],
@@ -965,37 +928,31 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Appendix A, Theorem A.1(a), p. 69 (arXiv v2)",
-     "excerpt": "$\\qOmega_{-/A}/(q-1)\\simeq \\Omega_{-/A}^*$ agrees with the usual de Rham complex functor.",
      "match": "Statement (a), underived."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph A.14, p. 76 (arXiv v2)",
-     "excerpt": "It's still true that $\\qdeRham_{-/A}/(q-1)\\simeq \\deRham_{-/A}$",
      "match": "Statement (a), derived."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Definition 3.2(b), p. 20 (arXiv v2)",
-     "excerpt": "In other words, the filtration $ \\fil_{\\qHodge}^\\star \\qdeRham_{R/A}$ has to be a $(q-1)$-deformation of the Hodge filtration.",
      "match": "Statement (b)."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Lemma 3.9, p. 23 (arXiv v2)",
-     "excerpt": "The associated graded of the conjugate filtration $ \\fil_\\star^\\mathrm{conj}\\qHodge_{R/A}/(q-1)$ is given by",
      "match": "Statement (c)."
     },
     {
      "sourceId": "scholze-canonical-q-deformations",
      "locator": "Section 3, after Remark 3.2 (arXiv v1)",
-     "excerpt": "Specializing at $q=1$ gives de~Rham cohomology; more precisely, taking into account the $\\Tor_1$-term, we have short exact sequences",
      "match": "Statement (d)."
     },
     {
      "sourceId": "scholze-canonical-q-deformations",
      "locator": "Section 3, after Remark 3.2 (arXiv v1)",
-     "excerpt": "If the conjecture is true, then we can glue the complexes $q\\!\\op-\\!\\Omega_R$ to get a deformation $q\\!\\op-\\!\\Omega_X$ of the de~Rham complex for any smooth scheme $X$ over $\\bb Z$.",
      "match": "The conditional form in the source, now unconditional by Theorem A.1."
     }
    ],
@@ -1046,25 +1003,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proof of Theorem A.1, p. 75 (arXiv v2)",
-     "excerpt": "Modulo $(q-1)$, the pullback reduces to the usual arithmetic fracture square for $\\Omega_{R/A}$, proving \\cref{enum:GlobalqDeRhamDeformsDeRham}.",
      "match": "The q = 1 commutation (Ω_{R/A} is the misprint E109 for Ω_{S/A})."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proof of Theorem A.1, p. 75 (arXiv v2)",
-     "excerpt": "By construction, $(\\qOmega_{S/A})_p^\\complete\\simeq \\qOmega_{\\smash{\\widehat{S}}_p/\\smash{\\widehat{A}}_p}$, and so \\cref{enum:GlobalqDeRhamPrismatic} follows from \\cite[Theorem~\\chref{16.18}]{Prismatic}.",
      "match": "The local prismatic commutation, and the first step of the A_inf one."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proposition 3.19, p. 31 (arXiv v2)",
-     "excerpt": "Let $A$ be a perfectly covered $\\Lambda$-ring and let $S$ be a smooth $A$-algebra. There's a functorial equivalence of $\\IE_\\infty$-$A[q]/(q^m-1)$-algebras",
      "match": "The crystalline commutation."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Proposition 3.22, p. 32 (arXiv v2)",
-     "excerpt": "For smooth $A$-algebras $S$, there exists a unique functorial equivalence of filtered $\\IE_\\infty$-$A[q]/(q^{p^\\alpha}-1)$-algebras",
      "match": "The Nygaard commutation."
     }
    ],
@@ -1112,25 +1065,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 1.17(a), p. 8 (arXiv v2)",
-     "excerpt": "By construction, algebraic Habiro cohomology of a smooth scheme $X$ will contain no information at primes $p\\leqslant \\dim(X/\\IZ)$.",
      "match": "The upstream loss."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 17.1 (arXiv v4)",
-     "excerpt": "This allows us to view $A$ as a perfect $\\delta$-$\\mathbf{Z}_p\\llbracket q-1\\rrbracket$-algebra that is $(p,q-1)$-completely flat and thus also genuinely flat",
      "match": "The A_inf base change: flat, but only after p-completion."
     },
     {
      "sourceId": "scholze-canonical-q-deformations",
      "locator": "Conjecture 4.3, footnote (arXiv v1)",
-     "excerpt": "This map $\\bb Z[[q-1]]\\to A_\\inf$ depends on a choice of $p$-power roots of unity, while the right-hand side does not.",
      "match": "The dependence on ε of the A_inf base change."
     },
     {
      "sourceId": "bms-integral-p-adic-hodge",
      "locator": "Remark 6.6 (arXiv v3)",
-     "excerpt": "The functor $L\\eta_{\\cal I}:D(\\roi_T) \\to D(\\roi_T)$ constructed above is {\\em not} exact.",
      "match": "The décalage entry."
     }
    ],
@@ -1172,25 +1121,21 @@
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 15.3 (arXiv v4)",
-     "excerpt": "and we endow prismatic cohomology with the Nygaard filtration",
      "match": "The prismatic Nygaard filtration is defined here, by descent from Theorem 15.2, not by a comparison."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 3.20, p. 32 (arXiv v2)",
-     "excerpt": "It is the preimage of the filtered décalage filtration on $\\L\\eta_{\\Phi_p(q)}(\\qOmega_{S/A})_p^\\complete$ under the relative Frobenius",
      "match": "Its expression on the twisted q-de Rham complex."
     },
     {
      "sourceId": "bms-thh-integral-p-adic-hodge",
      "locator": "Theorem 1.12(3) (arXiv v2)",
-     "excerpt": "The filtered $E_\\infty$-ring $\\widehat{\\Prism}_A = \\gr^0 \\TC^-(A; \\mathbb Z_p) = \\gr^0 \\TP(A;\\mathbb Z_p)$ with its Nygaard filtration $\\calN^{\\geq \\f}\\widehat{\\Prism}_A$ is an $E_\\infty$-algebra",
      "match": "The trace construction produces a Nygaard filtration from topological cyclic homology."
     },
     {
      "sourceId": "wagner-ku-q-de-rham",
      "locator": "Theorem 1.2 (arXiv v1)",
-     "excerpt": "Let $R$ be a quasi-syntomic ring such that $2\\in R^\\times$. Assume that $R$ admits a lift to a connective $\\IE_2$-ring spectrum $\\IS_R$ such that $\\IS_R\\otimes\\IZ\\simeq R$.",
      "match": "The trace-theoretic existence statement the staging rule is about."
     }
    ],
@@ -1238,25 +1183,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Remark 1.13, p. 7 (arXiv v2)",
-     "excerpt": "In the (coordinate-dependent) $q$-de Rham complex of $\\IZ[x]$, the $q$-differential sends $x^m\\mapsto [m]_q x^{m-1}\\d x$, where $[m]_q=1+q+\\dotsb+q^{m-1}$ is the $q$-analogue of $m$.",
      "match": "The witness for the local prismatic and q = 1 tests."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 1.10, p. 6 (arXiv v2)",
-     "excerpt": "in which all $q$-differentials in $\\qOmega_{S/\\IZ,\\square}$ get multiplied by $(q-1)$.",
      "match": "The witness for the décalage test."
     },
     {
      "sourceId": "scholze-canonical-q-deformations",
      "locator": "Section 2, footnote (arXiv v1)",
-     "excerpt": "A related observation is that $H^1_\\dR(\\bb A^1_{\\bb Z})=\\bigoplus_{n\\geq 0} \\bb Z/(n+1)\\bb Z\\neq 0$",
      "match": "The de Rham side of the q = 1 test."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 17.2 (arXiv v4)",
-     "excerpt": "All these maps are isomorphisms of $E_\\infty$-$A$-algebras compatible with the Frobenius.",
      "match": "The statement the A_inf test exercises."
     }
    ],
@@ -1304,13 +1245,11 @@
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 16.1 (arXiv v4)",
-     "excerpt": "Note that $\\phi(q-1) = q^p-1 \\in [p]_q A$. We shall often use without comment the congruence $[p]_q = p \\mod (q-1)$",
      "match": "The two arithmetic facts the executable layer proves."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Appendix A, Theorem A.1(b), p. 69 (arXiv v2)",
-     "excerpt": "agrees with prismatic cohomology relative to the $q$-de Rham prism $(\\widehat{A}_p\\qpower,[p]_q)$.",
      "match": "A statement declared against imported data, since neither side exists in either pinned library."
     }
    ],
@@ -1354,19 +1293,16 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 3.14, p. 29 (arXiv v2)",
-     "excerpt": "then $(\\qOmega_{S/A})_p^\\complete\\simeq \\Prism_{T/B}$, and so the desired gluing equivalence can be constructed using the general fact that the relative Frobenius",
      "match": "The square, as the gluing datum of the twisted complexes (with E104)."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Theorem 15.3 (arXiv v4)",
-     "excerpt": "using the d\\'ecalage functor $L\\eta_I$ as e.g.~in \\cite{BMS1}. The map",
      "match": "The relative Frobenius factors through the décalage and the factorisation is an isomorphism."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Paragraph 3.20, p. 32 (arXiv v2)",
-     "excerpt": "It is the preimage of the filtered décalage filtration on $\\L\\eta_{\\Phi_p(q)}(\\qOmega_{S/A})_p^\\complete$ under the relative Frobenius",
      "match": "The Nygaard filtration as the preimage of the décalage filtration."
     }
    ],
@@ -1409,25 +1345,21 @@
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Remark 3.18, p. 30 (arXiv v2)",
-     "excerpt": "The Berthelot--Ogus décalage functors $\\L\\eta_{[m/d]_q}$ and $\\L\\eta_{[n/d]_q}$ come equipped with canonical filtrations (see \\cite[Proposition~\\chref{5.8}]{BMS2}).",
      "match": "The canonical filtrations."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Remark 3.49, p. 49 (arXiv v2)",
-     "excerpt": "However, the filtrations on $\\L\\eta_{[m/d]_q}$ \\emph{do not} glue. This can already be seen in the case $m=p$.",
      "match": "The obstruction."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Remark 3.49, p. 49 (arXiv v2)",
-     "excerpt": "The filtration on $\\L\\eta_{[1]_q}\\simeq \\id$ is trivial. But the trivial filtration on $(\\qOmega_{S/A}\\lotimes_{A[q],\\psi^p}A[q])_{[p]_q}^\\complete$ will not be compatible with the natural filtration on $\\L\\eta_{[p]_q}(\\qOmega_{S/A})_p^\\complete$, so gluing fails.",
      "match": "The reason, in the source's words."
     },
     {
      "sourceId": "wagner-q-hodge-habiro",
      "locator": "Remark 3.49, p. 49 (arXiv v2)",
-     "excerpt": "While it seems hard to get any definite no-go theorem, let us at least explain why the most natural attempt doesn't work.",
      "match": "Why it is not a no-go theorem."
     }
    ],
@@ -1477,13 +1409,11 @@
     {
      "sourceId": "bms-integral-p-adic-hodge",
      "locator": "Theorem 14.1(ii) and its proof, pp. 118–119 (arXiv v3)",
-     "excerpt": "A\\Omega_{\\frak X}\\dotimes_{A_\\inf} \\roi\\simeq \\Omega^{\\bullet,\\cont}_{\\frak X/\\roi}",
      "match": "Supplies the canonical local θ/de Rham arrow, not its compatibility with the global Habiro comparison. The proof compares the crystalline and de Rham–Witt constructions via the Bockstein differential."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 18.1, Theorem 18.2 and proof via Lemma 18.3, pp. 122–124 (arXiv v4)",
-     "excerpt": "The object $\\Prism_{-/A}\\in \\mathcal{C}_{\\mathrm{Sm}_R}$  has no nontrivial endomorphisms",
      "match": "An imported uniqueness criterion for full symmetric monoidal prismatic functors with Hodge–Tate structure map over a perfect prism. It supplies a possible proof route only after its hypotheses have been checked; it does not itself state this target compatibility."
     }
    ],
@@ -1538,13 +1468,11 @@
     {
      "sourceId": "bms-integral-p-adic-hodge",
      "locator": "Theorem 14.1(i) and its proof, pp. 118–119 (arXiv v3)",
-     "excerpt": "A\\Omega_{\\frak X}\\hat{\\dotimes}_{A_\\inf} W(k)\\simeq W\\Omega^\\bullet_{\\frak X_k/W(k)}",
      "match": "Supplies the canonical local Witt-specialization map to ordinary de Rham–Witt, which computes crystalline cohomology. Its proof sketches agreement of two classical constructions; the compatibility with β_S remains a separate target."
     },
     {
      "sourceId": "bhatt-scholze-prisms",
      "locator": "Notation 18.1, Theorem 18.2 and proof via Lemma 18.3, pp. 122–124 (arXiv v4)",
-     "excerpt": "The object $\\Prism_{-/A}\\in \\mathcal{C}_{\\mathrm{Sm}_R}$  has no nontrivial endomorphisms",
      "match": "An imported uniqueness criterion for full symmetric monoidal prismatic functors with Hodge–Tate structure map over a perfect prism. It supplies a possible proof route only after its hypotheses have been checked; it does not itself state this target compatibility."
     }
    ],
@@ -1745,8 +1673,7 @@
    "id": "HabiroCohomologyFoundations/E801",
    "source": "bhatt-scholze-prisms",
    "locator": "Notation 16.1, p. 106, arXiv:1905.08229v4",
-   "printed": "In particular, derived $(p,[p]_q)$-completion coincides with derived $(p,[p]_q)$-completion for any complex of $A$-modules.",
-   "excerpt": "In particular, derived $(p,[p]_q)$-completion coincides with derived $(p,[p]_q)$-completion for any complex of $A$-modules.",
+   "printed": "The source claims, for every complex of $A$-modules, that derived $(p,[p]_q)$-completion agrees with derived $(p,[p]_q)$-completion.",
    "kind": "misprint",
    "correction": "derived (p, [p]_q)-completion coincides with derived (p, q−1)-completion for any complex of A-modules.",
    "reason": "The sentence is deduced ('In particular') from the two congruences just stated: [p]_q ≡ p modulo q−1 puts [p]_q in (p, q−1), and (q−1)^{p−1} = p·unit modulo [p]_q puts (q−1)^{p−1} in (p, [p]_q), so the two ideals have the same radical and define the same derived completion. As printed the sentence is a tautology. arXiv v1, v2 and v3 print (p, q−1).",
@@ -1767,7 +1694,6 @@
    "source": "scholze-canonical-q-deformations",
    "locator": "Section 3, the example R = ℤ[T], p. 6, arXiv:1606.01796v1",
    "printed": "H^1(q\\!\\op-\\!\\Omega^\\bullet_{R[[q-1]]/\\bb Z[[q-1]]}) = \\bb Z[[q-1]]\\oplus \\widehat{\\bigoplus}_{n\\in \\bb Z,n\\neq -1} \\bb Z[[q-1]] / [n+1]_q \\bb Z[[q-1]]",
-   "excerpt": "H^1(q\\!\\op-\\!\\Omega^\\bullet_{R[[q-1]]/\\bb Z[[q-1]]}) = \\bb Z[[q-1]]\\oplus \\widehat{\\bigoplus}_{n\\in \\bb Z,n\\neq -1} \\bb Z[[q-1]] / [n+1]_q \\bb Z[[q-1]]",
    "kind": "misprint",
    "correction": "For R = ℤ[T]: H^1 is the (q−1)-completed direct sum over n ≥ 0 of ℤ⟦q−1⟧/[n+1]_q, with no free summand. The printed formula is the one for the Laurent polynomial ring ℤ[T^{±1}] (the example G_m of section 2), with [n+1]_q read as (q^{n+1} − 1)/(q − 1) for n + 1 < 0.",
    "reason": "In q-Ω_{ℤ[T]}, ∇_q(T^n) = [n]_q T^{n−1}dT for n ≥ 0 only, so the cokernel of ∇_q is the completed sum of ℤ⟦q−1⟧/[m+1]_q · T^m dT over m ≥ 0; the free summand is the class of dT/T, which does not exist in Ω^1_{ℤ[T]}. At q = 1 the corrected formula gives ⊕_{n≥0} ℤ/(n+1) = H^1_dR(A^1_ℤ), the value in the paper's own footnote, while the printed one gives the G_m answer ℤ ⊕ ⊕_{n≠−1} ℤ/(n+1) of section 2.",
@@ -1788,7 +1714,6 @@
    "source": "bhatt-scholze-prisms",
    "locator": "Construction 16.19, p. 114, arXiv:1905.08229v4 (identical in v1–v3)",
    "printed": "\\nabla_q:P \\to \\Omega^1_{P/S} := \\widehat{\\bigoplus}_{s \\in S} P dX_s",
-   "excerpt": "\\nabla_q:P \\to \\Omega^1_{P/S} := \\widehat{\\bigoplus}_{s \\in S} P dX_s",
    "kind": "misprint",
    "correction": "Ω^1_{P/D}: the continuous differentials of P over the base D, free on the dX_s.",
    "reason": "S is the set of coordinates, not a ring; the next display of the same construction and Construction 16.20 write Ω^1_{P/D}.",
@@ -1807,8 +1732,7 @@
    "id": "HabiroCohomologyFoundations/E804",
    "source": "bhatt-scholze-prisms",
    "locator": "Construction 16.20, p. 114, arXiv:1905.08229v4 (identical in v1–v3)",
-   "printed": "Let DJ,q(P) be the q-PD envelope as in Construction 16.10.",
-   "excerpt": "Let $D_{J,q}(P)$ be the $q$-PD envelope as in Construction~\\ref{qPDEnvConstruct}.",
+   "printed": "The source takes DJ,q(P) to be the q-PD envelope specified by Construction 16.10.",
    "kind": "misprint",
    "correction": "as in Lemma 16.10 (Existence of q-PD envelopes).",
    "reason": "The label qPDEnvConstruct is on Lemma 16.10; there is no Construction 16.10.",
@@ -1827,8 +1751,7 @@
    "id": "HabiroCohomologyFoundations/E805",
    "source": "wagner-q-hodge-habiro",
    "locator": "§A.1, first paragraph, p. 70, arXiv:2510.04782v2 (identical in v1)",
-   "printed": "Then (ÂpJq −1K, (q −1)) is a q-PD pair as in [BS19, Definition 16.1]",
-   "excerpt": "Then $(\\widehat{A}_p\\qpower,(q-1))$ is a $q$-PD pair as in \\cite[Definition~\\chref{16.1}]{Prismatic}",
+   "printed": "The source declares (ÂpJq −1K, (q −1)) to be a q-PD pair in the sense of [BS19, Definition 16.1].",
    "kind": "misprint",
    "correction": "[BS19, Definition 16.2].",
    "reason": "In Bhatt–Scholze (arXiv v4, the numbering the paper cites elsewhere: Theorems 15.3, 16.18, 16.22, Lemma 16.10) 16.1 is the Notation fixing ℤ_p⟦q−1⟧ and [p]_q, and q-PD pairs are Definition 16.2.",

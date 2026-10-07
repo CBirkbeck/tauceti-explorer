@@ -216,13 +216,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition I.3.5, p. 19; two-term definition after II.2.1, p. 58",
-          "excerpt": "Definition I.3.5. Let E be a vector bundle on XS . The Banach–Colmez space BC(E) associated with E is the locally spatial diamond over S whose T -valued points, for T ∈ Perf S , are given by BC(E)(T ) = H 0 (XT , E|XT ). Similarly, if E is everywhere of only negative Harder–Narasimhan",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Two-term definition after Proposition II.2.1, p. 58",
-          "excerpt": "homological degrees [0, 1], such that H 0 (XT , E1 |XT ) = 0 for all T ∈ Perf S , we let BC([E1 → E0 ]) : T 7→ H0 (XT , [E1 → E0 ]|XT ) be the corresponding v-sheaf on Perf S . We refer to this as the Banach–Colmez space associated with [E1 → E0 ]. We will usually apply this only when",
           "match": "The original homological [0,1] convention translates to cohomological −1,0."
         }
       ],
@@ -356,25 +354,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.2.2, p. 60",
-          "excerpt": "Proposition II.2.2. Let S = Spa(R, R+ ) be an affinoid perfectoid space over Fq and let S ♯ = Spa(R♯ , R♯+ ) be an untilt of S over E, giving rise to the closed immersion S ♯ ,→ XS . Let OXS (1) be the line bundle on XS corresponding to the isocrystal (E, π −1 ). Then the map −i e ♯+ ) ∼",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         },
         {
           "sourceId": "SW13-moduli",
           "locator": "Theorem A, p. 3",
-          "excerpt": "Theorem A. Let R be an f-semiperfect ring. Then the Dieudonné module functor on p- divisible groups up to isogeny is fully faithful. If moreover R is the quotient R = S/J of a perfect ring S by a regular ideal J ⊂ S, then the Dieudonné module functor on p-divisible groups is fully",
           "match": "Full faithfulness; the compressed explicit Hom comparison remains G-LT."
         },
         {
           "sourceId": "SW13-moduli",
           "locator": "Proposition 3.1.3(iii), p. 22",
-          "excerpt": "Proposition 3.1.3. (i) Let ρ : G1 → G2 be an isogeny. Then the induced morphism ρ̃ : G̃1 → G̃2 is an isomorphism. (ii) Let S → R be a surjection with nilpotent kernel. Then the categories of p-divisible groups over R and S up to isogeny are equivalent. In particular, for any p-divisible",
           "match": "The perfect formal universal-cover shape."
         },
         {
           "sourceId": "SW13-moduli",
           "locator": "Lemma 3.5.1, p. 29",
-          "excerpt": "Lemma 3.5.1. The map G̃(R) → M(G)(S)[p−1 ] agrees with qlog : G̃(R) → M(G)(S)[p−1 ]. Proof. First note that we are allowed to work up to isogeny; in particular, we can again assume that S → R has a topologically nilpotent PD structure. Now note that both mor- phisms are functorial in the",
           "match": "Agreement with the logarithm construction."
         }
       ],
@@ -422,7 +416,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions II.2.3–II.2.4, pp. 60–61",
-          "excerpt": "Proposition II.2.3. For any perfectoid space S with untilt S ♯ over E∞ , the above construction defines an exact sequence 0 → OXS → OXS (1) → OS ♯ → 0 of OXS -modules. II.2. VECTOR BUNDLES ON THE FARGUES–FONTAINE CURVE 61 Proof. The above constructions show that one has a map OXS → I(1)",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -471,7 +464,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.2.16, p. 72",
-          "excerpt": "Proposition II.2.16. Let S be a perfectoid space over Fq . Let E be a vector bundle on XS . Then the Banach–Colmez space BC(E) : T 7→ H 0 (XT , E|XT ) is a locally spatial diamond, partially proper over S. Moreover, the projectivized Banach–Colmez space (BC(E) \\ {0})/E × is a locally",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -519,7 +511,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Lemma II.2.17, pp. 72–74",
-          "excerpt": "Lemma II.2.17. Let X be a taut locally spectral space such that for any x ∈ X, the set Xx ⊂ X ∼ of generalizations of x is a totally ordered chain under specialization. Let γ : X − → X be an automorphism of X such that the subset X0 ⊂ X of fixed points is a spectral space. Moreover,",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -567,7 +558,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.3.1, pp. 75–76; Corollary II.3.3(i), p. 78",
-          "excerpt": "Proposition II.3.1. Let S be a perfectoid space over Fq , and let E be a vector bundle on XS such that all Harder–Narasimhan slopes of E at all geometric points are ≥ 1r , for some r ≥ 1. Then locally (in the analytic topology) on S, there is an exact sequence m 0 → OXS →F →E →0 where F",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -620,7 +610,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.3.5, pp. 79–81",
-          "excerpt": "Proposition II.3.5. Let S be a perfectoid space over Fq . Let [E1 → E0 ] be a map of vector bundles on XS such that at all geometric points of S, the bundle E1 has only negative Harder– Narasimhan slopes. (i) The Banach–Colmez space BC([E1 → E0 ]) : T 7→ H0 (XT , [E1 → E0 ]|XT ) is a",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -676,7 +665,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.3.7, pp. 82–83",
-          "excerpt": "Proposition II.3.7. Let D be an isocrystal with only negative slopes (resp. with only positive slopes), and work on Perf k . (i) The punctured Banach–Colmez space BC(D) \\ {0} (resp. BC(D[1]) \\ {0}) is a spatial diamond. (ii) The quotient BC(D) \\ {0} /E × −→ ∗ resp. BC(D[1]) \\ {0} /E × −→",
           "match": "The pure-sign statement; II.3.6 is the divisor comparison, now a separate node."
         }
       ],
@@ -718,7 +706,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem II.2.19(i) and proof, p. 74",
-          "excerpt": "Theorem II.2.19 ([KL15, …]). Let S be a perfectoid space over Fq and let E be a vector bundle over XS of constant rank n. (i) The function taking a geometric point Spa C → S of S to the Harder–Narasimhan polygon of E|XC is upper semicontinuous.",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -765,7 +752,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem II.2.19(ii) and proof, pp. 74–75",
-          "excerpt": "(ii) Assume that the Harder–Narasimhan polygon of E is constant. Then there exists a global (separated exhaustive decreasing) Harder–Narasimhan filtration E≥λ ⊂ E specializing to the Harder–Narasimhan filtration at each point.",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -810,7 +796,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary II.2.20, p. 75",
-          "excerpt": "Corollary II.2.20 ([KL15, Theorem 8.5.12]). Let S be a perfectoid space. The category of pro-étale E-local systems L is equivalent to the category of vector bundles on XS whose Harder–Narasimhan polygon is constant 0, via L ↦ L ⊗E OXS.",
           "match": "Exact source contract, with the conventions and corrections stated in this node."
         }
       ],
@@ -857,7 +842,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary II.3.3(i)–(iv), pp. 78–79; II.3.2 proof, pp. 76–78",
-          "excerpt": "Corollary II.3.3. Let S be a perfectoid space over Fq and let E be a vector bundle on XS . (i) Assume that all Harder–Narasimhan slopes of E are ≥ 1r . Then locally on S, for some m ≥ 0 there is a short exact sequence m 0 −→ OXS −→ F −→ E −→ 0, where F is fibrewise semistable of slope 1r",
           "match": "The four topology-sensitive forms; rank-degree correction in the proof is recorded as SI-FS-multiplicity."
         }
       ],
@@ -896,7 +880,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.3.4(i)–(iii), p. 79",
-          "excerpt": "Proposition II.3.4. Let S ∈ Perf Fq , and let E be a vector bundle on XS . (i) If at all geometric points of S, all slopes of E are negative, then H 0 (XS , E) = 0. (ii) If at all geometric points of S, all slopes of E are nonnegative, then there is a pro-étale cover Se → S such that H 1",
           "match": "Keeps the universal-affinoid clause only in the strictly positive étale case."
         }
       ],
@@ -942,7 +925,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.3.6, pp. 81–82",
-          "excerpt": "Proposition II.3.6. For any d ≥ 1, the sum map (Div1 )d → Divd : (D1 , . . . , Dd ) 7→ D1 + . . . + Dd 82 II. THE FARGUES–FONTAINE CURVE AND VECTOR BUNDLES is a quasi-pro-étale cover, identifying Divd = (Div1 )d /Σd , where Σd is the symmetric group. In particular, Divd is a diamond.",
           "match": "Comparison and finite permutation cover; RF2 retains ownership of the divisor object."
         }
       ],
@@ -981,13 +963,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Remarks II.3.10–II.3.11, pp. 83–84",
-          "excerpt": "Remark II.3.10. One has to be careful that although the absolute BC(O(d)) \\ {0} is a spatial diamond, (BC(O(d))\\{0})/π Z is not spatial anymore since not quasiseparated, [Far20b, Remarque 2.15]. In this context the good object is the morphism (BC(O(d))\\{0})/π Z → ∗ that is representable",
           "match": "Supplies both the nonspatial quotient and the equal-characteristic distinction."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Lemma II.2.15 and footnote 5, p. 71",
-          "excerpt": "This is patently absurd if E is p-adic, as then the given presentation shows that (A1C♯)♢ is pro-étale over a perfectoid space and thus itself a perfectoid space, but A1C♯ is clearly not a perfectoid space.",
           "match": "The mixed-characteristic non-perfectoid clause; footnote 5 leaves the equal-characteristic case open."
         }
       ],
@@ -1029,7 +1009,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Example II.3.12, p. 84",
-          "excerpt": "Example II.3.12. The absolute BC(O(−1)[1]) \\ {0} classifies extensions 0 −→ OXS (−1) −→ E −→ OXS → 0 that are non-split fiberwise on S. Any such extension is, at each geometric point, isomorphic to OXS (− 12 ). Parametrizing isomorphisms E ∼ = OXS (− 12 ) defines a D× -torsor, where D is",
           "match": "The norm-one quaternion group and untilt-dependent additive quotient."
         }
       ],
@@ -1070,7 +1049,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Example II.3.13, p. 84",
-          "excerpt": "Example II.3.13. The absolute BC(O(−2)[1]) \\ {0} classifies extensions 0 −→ OXS (−1) −→ E −→ OXS (1) −→ 0 that are non-split fiberwise on S. There is only one Harder–Narasimhan stratum and geometrically fiberwise on S, E is a trivial vector bundle. The moduli of surjections OX 2 ↠ O S XS",
           "match": "Open locus and special linear quotient."
         }
       ],
@@ -1104,7 +1082,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.1, Lemmas 7.1.1–7.1.2, pp. 145–146",
-          "excerpt": "Lemma 7.1.1. Let M be a ϕa -module over R̃R . For r > 0, let Mr be the model of M over R̃rR . Let {MI } be the ϕa -bundle associated to M. Suppose that there exists a basis v1 , . . . , vn r/q of M[r/q,r] on which ϕ acts via an invertible matrix F over R̃R . Then v1 , . . . , vn is a",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1140,7 +1117,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.3, Definitions 7.3.1 and 7.3.4, Lemma 7.3.3 and Remarks 7.3.2, 7.3.5, 7.3.11, pp. 147–152",
-          "excerpt": "Definition 7.3.1. Fix integers c, d with d a positive multiple of a. Let M be a ϕa -module over E˜R (resp. R̃bd R , R̃R ). A (c, d)-pure model of M is a W (R)-submodule (resp. R̃R - int submodule, R̃int R -submodule) M0 of M which is bounded (i.e., there exists a finitely generated",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1235,7 +1211,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.3, Proposition 7.3.6, p. 149",
-          "excerpt": "Proposition 7.3.6. Let M be a ϕa -module over ẼR (resp. R̃bd R , R̃R ) admitting a free (c, d)- pure model M0 for some c, d ∈ Z with d a positive multiple of a. Then there exists an R-algebra S which is the completed direct limit of some faithfully finite étale R-subalgebras, int c d",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1269,7 +1244,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.3, Theorem 7.3.7 and Corollaries 7.3.8–7.3.10, pp. 150–151",
-          "excerpt": "Theorem 7.3.7. Let M be a ϕa -module over R̃R of nowhere zero rank. Choose β ∈ M(R) and choose c, d ∈ Z with d a positive multiple of a and c/d = µ(M, β). Suppose that β belongs to the pure locus of M. Then any (c, d)-pure model of M ⊗R̃R R̃H(β) extends to a free local (c, d)-pure model",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1302,7 +1276,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.4, Lemma 7.4.4, p. 152",
-          "excerpt": "Lemma 7.4.4. Let M be a ϕa -module over R̃bd a R admitting a basis on which ϕ acts via a matrix of the form AD, where D is a diagonal matrix with diagonal entries in pZ , and A is 152 a square matrix such that A − 1 has entries in pR̃int R . Then there exist an R-algebra S which is the",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1342,7 +1315,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.4, Theorem 7.4.5, p. 153",
-          "excerpt": "Theorem 7.4.5. For any ϕa -module M over R̃R , the function mapping β ∈ M(R) to the slope polygon of M ⊗R̃R R̃H(β) is lower semicontinuous. In other words, if rank(M) is constant (which is true locally by Lemma 7.2.2), for any x ∈ [0, rank(M)], the y-coordinate of the point of the slope",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1376,7 +1348,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.4, Proposition 7.4.6 and Corollary 7.4.7, pp. 153–154",
-          "excerpt": "Proposition 7.4.6. For any ϕa -module M over R̃R , the function mapping β ∈ M(R) to the slope polygon of M ⊗R̃R R̃H(β) is bounded above and below. Proof. Choose N as in Proposition 6.2.4; we then obtain a surjection R̃mR (−N) → M of ϕ - a modules for some nonnegative integer m. For each β",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1413,7 +1384,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.4, Lemma 7.4.8 and Theorem 7.4.9, pp. 154–155",
-          "excerpt": "Lemma 7.4.8. Let A be an n × n matrix over R̃int bd R which is invertible over R̃R , fix x1 , . . . , xn ∈ R̃R , and choose y1 , . . . , yn ∈ E˜R so that bd X yi − xi = Aij ϕa (yj ) (i = 1, . . . , n). (7.4.8.1) j Then yi ∈ R̃bd ˜ R for i = 1, . . . , n if and only if for each β ∈ M(R),",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1447,7 +1417,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.4, Corollary 7.4.10, p. 155",
-          "excerpt": "Corollary 7.4.10. Let M be a ϕa -module over R̃R such that the slope polygon function of M is constant on M(R). Then there exists a unique filtration 0 = M0 ⊂ · · · ⊂ Ml = M of M by ϕa -submodules such that M1 /M0 , . . . , Ml /Ml−1 are ϕa -modules which are pure of constant slope, and",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1484,7 +1453,6 @@
         {
           "sourceId": "KL15",
           "locator": "§7.4, Corollary 7.4.11 and Remark 7.4.12, pp. 155–156",
-          "excerpt": "Corollary 7.4.11. Let M be a ϕa -module over R̃R with everywhere negative slopes. Then Hϕ0a (M) = 0, Hϕ0a (M ⊗R̃R R̃H(β) ) = 0 for all β ∈ M(R), and the map Y Hϕ1a (M) → Hϕ1a (M ⊗R̃R R̃H(β) ) (7.4.11.1) β∈M(R) is injective. 155 Proof. By Theorem 4.2.12, Hϕ0a (M ⊗R̃R R̃H(β) ) = 0 for all β",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1518,7 +1486,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Remark 8.5.10, p. 172 (arXiv 1301.0792v5)",
-          "excerpt": "Remark 8.5.10. Let (R, R+ ) be a perfect uniform Banach algebra over Fp and put X = Spa(R, R+ ). For ∗ = E, ˜ R̃bd , R̃, there is a natural functor from ϕd -modules over ∗R to ϕ -modules over ∗X ; we sometimes refer to the latter as local ϕd -modules over ∗R . These d functors are fully",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1551,7 +1518,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Lemma 8.5.11, p. 173 (arXiv 1301.0792v5)",
-          "excerpt": "Lemma 8.5.11. Let X be a perfect uniform adic space over Fpd and let M be a ϕd -module over R̃X . Then the pure locus and the étale locus of R̃X are open and partially proper. In particular, by Lemma 8.2.12, if X is taut, then so are the pure locus and the étale locus. Proof. This is",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1589,7 +1555,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Theorem 8.5.12, p. 173 (arXiv 1301.0792v5)",
-          "excerpt": "Theorem 8.5.12. Let X be a perfectoid adic space over Qpd and let X ′ be the corresponding perfect uniform adic space over Fpd . Then the following categories are equivalent. (a) The category of étale (c, d)-Qp -local systems over X. (b) The category of étale (c, d)-Qp -local systems",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1622,7 +1587,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Corollary 8.5.13, p. 173 (arXiv 1301.0792v5)",
-          "excerpt": "Corollary 8.5.13. Let X be a perfect uniform adic space over Fpd . Then a ϕd -module over ẼX , R̃bd ′ ′ X , R̃X is pure of slope s at some x ∈ X if and only if it is (c , d )-pure at x for every (not just one) pair c′ , d′ of integers for which d′ is a positive multiple of d and c′ /d′ =",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1656,7 +1620,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Corollary 8.5.14, p. 173 (arXiv 1301.0792v5)",
-          "excerpt": "Corollary 8.5.14. Let M be a ϕd -module over ẼR , R̃bd R , or R̃R . If M is pointwise pure, then M is pure. Proof. Over R̃R this is immediate from Corollary 7.3.9, so from now on we assume that M is a ϕd -module over ẼR (resp. R̃bd R ). Choose β ∈ M(R), put n = rank(M, β), and choose c",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1689,7 +1652,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Corollary 8.5.15, p. 174 (arXiv 1301.0792v5)",
-          "excerpt": "Corollary 8.5.15. Let (R, R+ ) → (S, S + ) be a bounded homomorphism of perfect uniform adic Banach algebras over Fpd for which Spa(S, S + ) → Spa(R, R+ ) is surjective. Let M be a local ϕd -module over ẼR (resp. R̃bd R , R̃R ). Then M is pure if and only if M ⊗ẼR ẼS (resp. bd M ⊗R̃bd",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1724,7 +1686,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.5, Example 8.5.17, pp. 174–175 (arXiv 1301.0792v5)",
-          "excerpt": "Example 8.5.17. Put K = Fp((q)) for an arbitrary normalization |q| = ω < 1 of the q-adic norm, and define the strictly affinoid algebras B = K{ω²/T, T, U/ω^−2}/(U(T − q) − 1), B1 = K{ω²/T, T/ω²}, B2 = K{1/T, T} over K.",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1757,7 +1718,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.6, Lemma 8.6.3, p. 176 (arXiv 1301.0792v5)",
-          "excerpt": "Lemma 8.6.3. Let 0 → M1 → M → M2 → 0 be a short exact sequence of ϕ-modules over R̃R . If any two of M, M1 , M2 are (c, d)-pure, then so is the third. Proof. By Corollary 7.3.9, it suffices to treat the case that R = L is an analytic field. In this case, the lemma follows immediately from",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1793,7 +1753,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Definition 8.8.10, pp. 182–183 (arXiv 1301.0792v5)",
-          "excerpt": "Definition 8.8.10. Let F be a vector bundle on Proj(PR ). Let M be the ϕa -module over R̃R corresponding to F via Theorem 6.3.12. We define the slope polygon of F as a function on M(R) (and on Spa(R, R+ ) by retraction) as the fiberwise Harder-Narasimhan polygon; 182 this agrees with the",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1887,7 +1846,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Lemma 8.8.11 and its proof, p. 183 (arXiv 1301.0792v5)",
-          "excerpt": "Lemma 8.8.11. For any pointwise ample vector bundle F on Proj(PR ) and any vector bundle G on Proj(PR ), there exists n0 ∈ Z such that F ⊗n ⊗ G is pointwise ample for all n ≥ n0 . Proof. We first observe that this is true if R = L is an analytic field. Namely, if the slopes of F are µ1 ,",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1927,7 +1885,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Lemma 8.8.12(a) and its proof, p. 183 (arXiv 1301.0792v5)",
-          "excerpt": "Lemma 8.8.12. Suppose that R = L is an analytic field. Let F be an ample vector bundle on Proj(PR ). (a) We have H 1 (Proj(PR ), F ) = 0. (b) The bundle F is generated by H 0 (Proj(PR ), F ). Proof. Let M be the ϕa -module over R̃R associated to F via Theorem 6.3.12. To prove (a), by",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1962,7 +1919,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Lemma 8.8.13 and its proof, pp. 183–185 (arXiv 1301.0792v5)",
-          "excerpt": "Lemma 8.8.13. Let F be a vector bundle on Proj(PR ) whose slopes at some β ∈ M(R) are all nonnegative but not all zero. Then there exists a short exact sequence 0 → O(−1) → G → F → 0 of vector bundles on Proj(PR ) such that the slopes of G at β are also all nonnegative. Proof. Let i : Z1",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -1996,7 +1952,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Corollary 8.8.14, p. 185 (arXiv 1301.0792v5)",
-          "excerpt": "Corollary 8.8.14. Let F be a vector bundle on Proj(PR ) whose slopes at some β ∈ M(R) are all nonnegative. Then there exists a short exact sequence 0→H→G→F →0 of vector bundles on Proj(PR ) such that G is étale at β. Proof. This follows from Lemma 8.8.13 by induction on deg(Fβ ), plus",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -2036,7 +1991,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Theorem 8.8.15 and Remark 8.8.16, p. 185 (arXiv 1301.0792v5)",
-          "excerpt": "Theorem 8.8.15. A vector bundle F on Proj(PR ) is ample if and only if it is pointwise ample. Proof. Suppose that F is ample; to prove that F is pointwise ample, we may even assume that F is globally ample. Choose any β ∈ M(R) and let α1 ≥ · · · ≥ αm be the slopes of F at β listed with",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -2075,7 +2029,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Definition 8.8.17, pp. 185–186 (arXiv 1301.0792v5)",
-          "excerpt": "Definition 8.8.17. Let F be a vector bundle on FFX . We say that F is ample if for every choice of A and R and every morphism f : Spa(A, A+ ) → X, the vector bundle f ∗ F on FFR corresponds via Theorem 8.7.7 to an ample vector bundle on Proj(PR ). By Theorem 8.8.15, this is equivalent to",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -2166,7 +2119,6 @@
         {
           "sourceId": "KL15",
           "locator": "§8.8, Lemma 8.8.19 and its proof, p. 186 (arXiv 1301.0792v5)",
-          "excerpt": "Lemma 8.8.19. For X = Spa(A, A+ ), the ϕa -module corresponding to LX is globally pure of slope 1. Proof. Write z = [z] + pz1 . Let M be the ϕa -module over R̃R free on a single generator v satisfying ϕa (v) = z1−1 zv; it is evidently globally étale. Define the convergent product ∞ Y u=",
           "match": "The accepted route’s target; literal source passage read and corrected where recorded below."
         }
       ],
@@ -2202,7 +2154,6 @@
         {
           "sourceId": "KL15",
           "locator": "Definition 8.5.7, p. 172",
-          "excerpt": "Definition 8.5.7. For c, d ∈ Z with d > 0, define an isogeny (c, d)-Zp -local system on a scheme X to be an isogeny Zpd -local system V on X equipped with a semilinear action of the Frobenius automorphism τ of Qpd on sections, such that pc τ d acts as the identity. For c′ , d′ ∈ Z with d′",
           "match": "The Frobenius action is part of the object, not a mere slope annotation."
         }
       ],
@@ -2297,13 +2248,11 @@
         {
           "sourceId": "KL15",
           "locator": "Theorems 8.5.3–8.5.6, pp. 169–171",
-          "excerpt": "Theorem 8.5.3. For (R, R+) a perfect uniform adic Banach algebra over Fpd, the following categories are equivalent. (a) The category of étale Zpd-local systems over Spec(R) (or equivalently Spa(R, R+)). … (d) The category of ϕd-modules over Ẽint_R. (e) The category of ϕd-modules over R̃int_R.",
           "match": "Integral equivalence and its globalization."
         },
         {
           "sourceId": "SW20",
           "locator": "Theorem 12.3.4, book p. 104",
-          "excerpt": "Theorem 12.3.4 ([KL15, Theorem 8.5.3]). The following categories are equiv- alent: 1. ϕ-modules over R e int ; 2. ϕ-modules over W (C [ ); 3. finite free Zp -modules. The functor from (1) to (2) is base extension, and the functor from (2) to (3) is the operation of taking ϕ-invariants.",
           "match": "Algebraically closed absolute specialization."
         }
       ],
@@ -2342,7 +2291,6 @@
         {
           "sourceId": "SW20",
           "locator": "Proposition 22.3.2, book p. 209",
-          "excerpt": "Proposition 22.3.2 ([KL15]). The functor L 7→ L ⊗Zp OY[0,r] (S) defines an equivalence between the category of pro-étale Zp -local systems on S and the category of ϕ−1 -modules on Y[0,r] (S). In particular, any ϕ−1 -module on Y[0,r] (S) has constant Newton polygon equal to 0 when",
           "match": "Integral boundary and rational interior clauses."
         }
       ],
@@ -2379,7 +2327,6 @@
         {
           "sourceId": "SW20",
           "locator": "Proposition 22.6.1, book p. 213",
-          "excerpt": "Proposition 22.6.1. This construction defines an equivalence of categories between pro-étale G(Zp )-torsors on S and ϕ−1 -equivariant G-torsors on Y[0,r] (S). Proof. From Proposition 22.3.2 and the Tannakian formalism of Theorem 19.5.2, we see that the target category is equivalent to",
           "match": "The group-model hypotheses are part of the statement."
         }
       ],
@@ -2415,7 +2362,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.1.1 with footnote 6, p. 12",
-          "excerpt": "More precisely, a Vector Space (VS for short) W is a functor Λ 7→ W(Λ) from sympathetic algebras6 to Qp -vector spaces. By definition, a sequence 0 → W1 → W → W2 → 0 is exact if and only if 0 → W1 (Λ) → W(Λ) → W2 (Λ) → 0 is exact for all Λ. Trivial examples of VS’s are: • finite",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -2511,7 +2457,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.1.1, pp. 12–13",
-          "excerpt": "A Vector Space W is said to be finite Dimensional (a BC for short) if it “is equal to Vd , for some d ∈ N, up to finite dimensional Qp -vector spaces”: there exist finite dimensional Qp -vector spaces V1 , V2 and exact sequences 0 → V1 → Y → Vd → 0, 0 → V2 → Y → W → 0, so that W is",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -2606,13 +2551,11 @@
         {
           "sourceId": "CN25",
           "locator": "Remark 3.1, p. 13",
-          "excerpt": "Remark 3.1. (i) We are, in general, only interested in W = W(C) but, without the extra structure, it would be impossible to speak of its Dimension (for example, C and C ⊕ Qp are isomorphic as topological Qp -vector spaces). (ii) The functor W 7→ W(C) of C-points is faithful for BC’s (this",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         },
         {
           "sourceId": "FF18-courbes",
           "locator": "§8.4.1, main text pp. 245–247",
-          "excerpt": "8.4.1. Espaces de Banach-Colmez. — Soit C|E un corps valué complet algébriquement clos. Colmez a construit dans [13] et [14] une catégorie abélienne que nous noterons BC et qu’il appelle Espaces de Banach de dimension finie. Cette catégorie est munie d’un foncteur exact fidèle BC −→",
           "match": "Exact faithful Banach realization and finite-dimensional coefficient embeddings."
         }
       ],
@@ -2650,13 +2593,11 @@
         {
           "sourceId": "CN25",
           "locator": "Proposition 3.2, p. 13",
-          "excerpt": "Proposition 3.2. (i) The Dimension of a BC is independent of the choices made in its definition. (ii) If f : W1 → W2 is a morphism of BC’s, then Ker f , Coker f and Im f are BC’s, and we have Dim W1 = Dim Ker f + Dim Im f and Dim W2 = Dim Coker f + Dim Im f. (iii) If dim W = 0, then ht W",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         },
         {
           "sourceId": "FF18-courbes",
           "locator": "Preface, Theorem 2.12(i)–(ii), printed pp. 16–17",
-          "excerpt": "Dim W = (dim W, ht W), avec dim W = d et ht W = dimQp V1 − dimQp V2 , ne dépend que de W et pas de la présentation.",
           "match": "Independent and additive Dimension; preface pagination kept distinct."
         }
       ],
@@ -2698,7 +2639,6 @@
         {
           "sourceId": "CN25",
           "locator": "Example 3.3, p. 13",
-          "excerpt": "Example 3.3. The Spaces Bm and Uh,d defined above are BC’s. Their Dimensions are ( (d, h) if d ≥ 0, Dim Bm = (m, 0), Dim Uh,d = (−d, −h) if d < 0. 3.1.2. Canonical filtration. In his thesis [40], [41], Plût introduced a filtration on objects of BC and stated a number of results about this",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -2736,7 +2676,6 @@
         {
           "sourceId": "CN25",
           "locator": "Definition 3.5, p. 13",
-          "excerpt": "Definition 3.5. (Curvature) Let W ∈ BC . We say that W has: • curvature > 0, if Hom(W, V1 ) = 0, • curvature ≥ 0, if Hom(W, B+ dR ) = 0. • curvature = 0, or is affine, if it is a successive extension of V1 , • curvature < 0, if it injects into BddR (or, equivalently, into (B+ d dR ) ), •",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -2844,7 +2783,6 @@
         {
           "sourceId": "CN25",
           "locator": "Remark 3.6, p. 13",
-          "excerpt": "Remark 3.6. (i) If W has curvature > 0 (resp. ≥ 0) and W0 has curvature ≤ 0 (resp. < 0), then HomBC (W, W0 ) = 0. (ii) A sub-VS of an VS with curvature ≤ 0 (resp. < 0) has curvature ≤ 0 (resp. < 0). (iii) A quotient of an VS with curvature ≥ 0 (resp. > 0) has curvature ≥ 0 (resp. > 0).",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -2882,13 +2820,11 @@
         {
           "sourceId": "CN25",
           "locator": "Proposition 3.7 and Remark 3.8, pp. 13–14",
-          "excerpt": "Proposition 3.7. (The canonical filtration) Every W ∈ BC has a unique filtration, called the canonical filtration, W>0 ⊂ W≥0 ⊂ W such that: • W>0 has curvature > 0, • W≥0 /W>0 has curvature 0, • W/W≥0 has curvature < 0. Proof. One defines W>0 as the intersection of the kernels of all",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         },
         {
           "sourceId": "CN25",
           "locator": "§3.2.8, p. 18",
-          "excerpt": "Proposition 3.7. (The canonical filtration) Every W ∈ BC has a unique filtration, called the canonical filtration, W>0 ⊂ W≥0 ⊂ W such that: • W>0 has curvature > 0, • W≥0 /W>0 has curvature 0, • W/W≥0 has curvature <",
           "match": "Explicit HN slope and closed-point support description of the canonical pieces."
         }
       ],
@@ -2991,7 +2927,6 @@
         {
           "sourceId": "CN25",
           "locator": "Remark 3.11, p. 15",
-          "excerpt": "Remark 3.11. It follows for the above formulas that ht(H0 (X, O(λ))) − ht(H1 (X, O(λ))) = h, for all λ. By additivity, this implies the following Euler-Poincaré formula for any vector bundle E on X: ht(H0 (X, E )) − ht(H1 (X, E )) = rk E This extends to coherent sheaves on X. 3.2.4. The",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3030,7 +2965,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.2.4, p. 15",
-          "excerpt": "We note Coh−X the sub-category of Db(CohX) of complexes E• such that Hi(E•) = 0 if i ≠ −1, 0, H−1(E•) has slopes < 0 and H0(E•) has slopes ≥ 0.",
           "match": "The definition of the heart; the preceding sentences of §3.2.4 concern Le Bras’s sheaf realization."
         }
       ],
@@ -3132,7 +3066,6 @@
         {
           "sourceId": "CN25",
           "locator": "Theorem 3.12, p. 15",
-          "excerpt": "Theorem 3.12. (Le Bras, [37, Th. 1.2]) The functor BC realizes an equivalence of categories Coh− X ≃ BC . 7More generally, BC(E ) is an extension of H0 (X, H 0 (E • )) by H1 (X, H −1 (E • )). • 16 PIERRE COLMEZ AND WIESŁAWA NIZIOŁ 3.2.5. Harder-Narasimhan filtration on BC’s. One endows",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3172,7 +3105,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.2.5, p. 16",
-          "excerpt": "3.2.5. Harder-Narasimhan filtration on BC’s. One endows Coh− − X with functions rank rk , de- − gree deg− and slope µ− = deg rk− , by setting: 0 0 rk− (E−1 → E0 ) = deg(E0 ) − deg(E−1 ), deg− (E−1 → E0 ) = rk(E−1 ) − rk(E0 ), which turn it into a Harder-Narasimhan category. By transport",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3274,7 +3206,6 @@
         {
           "sourceId": "CN25",
           "locator": "Remark 3.13 and (3.14), p. 16",
-          "excerpt": "Remark 3.13. (i) Since Qp = U0 , we have µ− (Qp ) = −∞. (ii) BC’s are naturally diamonds (and were amongst the first non trivial examples of diamonds) and, as such, have connected components. If W is a BC, then W>−∞ is the connected component of 0 and the quotient W−∞ is the largest étale",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3309,7 +3240,6 @@
         {
           "sourceId": "CN25",
           "locator": "Remark 3.15, p. 16",
-          "excerpt": "Remark 3.15. (i) The existence of the exact sequence 0 → W>−∞ → W → W−∞ → 0 makes it possible to show that a decreasing sequence of BC’s is stationary: indeed, if (Wn )n∈N is such a sequence, then dim(Wn ) is decreasing and bounded below by 0, hence is constant for n ≥ N . It follows that",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3347,7 +3277,6 @@
         {
           "sourceId": "CN25",
           "locator": "Lemma 3.16, pp. 16–17",
-          "excerpt": "Lemma 3.16. ([11, Prop. 2.4]) A sub-BC W of VN , containing no V1 , satisfies dim(W) < ht(W) or, equivalently, has slopes < −1. THE Cst -CONJECTURE 17 Proof. We will use the equivalence Coh− X ≃ BC . By decomposing W as a direct sum of stable BC’s, it suffices to prove the statement for",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3386,7 +3315,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.2.4 and §3.2.6, pp. 15,17",
-          "excerpt": "3.2.6. Morphisms. We can describe Hom and Ext1 in the category BC using the curve. For example: (1) If Dλ is the division algebra with center Qp and invariant λ, we have EndBC (Uλ ) = End(O(λ)) = Dλ . (2) Recall that, if λ1 = hd11 , λ2 = hd22 , and λ1 +λ2 = hd in minimal form, we have",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3424,7 +3352,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.2.7, pp. 17–18",
-          "excerpt": "3.2.7. Slope 0 and curvature 0. Let x be a closed point of X. The map F 7→ H 0 (X, F ) induces an equivalence of categories from the category of torsion coherent sheaves, supported at x, to the category of finite length B+ + dR (Cx )-modules. A finite length BdR (Cx )-module is a direct",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3460,7 +3387,6 @@
         {
           "sourceId": "CN25",
           "locator": "Proposition 3.17, p. 18",
-          "excerpt": "Proposition 3.17. The functor M ↦ 𝕄 = M ⊗B+dR 𝔹+dR defines an equivalence of categories between the category of B+dR-modules of finite length and the subcategory of BC of objects of curvature 0.",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3497,7 +3423,6 @@
         {
           "sourceId": "CN25",
           "locator": "Corollary 3.18, p. 18",
-          "excerpt": "Corollary 3.18. (i) The kernel and cokernel of a morphism of objects of curvature 0 are of curvature 0. (ii) If W is a torsion B+ + r dR -Module, i.e., a BdR -Module annihilated by t for some r ≥ 1, then + HomVS (W, BdR ) = 0 and HomVS (W, BdR ) = 0. Proof. Point (i) is a direct",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3535,7 +3460,6 @@
         {
           "sourceId": "CN25",
           "locator": "§3.2.8 and Corollary 3.19, p. 18",
-          "excerpt": "Corollary 3.19. (i) W is of curvature < 0 (resp. ≤ 0) if and only if W ≃ H 0 (X, E ), where E is a vector bundle of slopes ≥ 0 (resp. the sum of a vector bundle of slopes ≥ 0 and a torsion sheaf supported at ∞). (ii) An extension of two BC’s of curvature < 0 (resp. ≤ 0) is of curvature <",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3571,7 +3495,6 @@
         {
           "sourceId": "CN25",
           "locator": "Corollary 3.20 and footnote 9, p. 18",
-          "excerpt": "Corollary 3.20. The sign of the curvature determines the sign of the height: (a) curvature 0 implies height 0; (b) curvature < 0 implies height > 0; (c) curvature > 0 implies9 height ≤ 0. Corollary 3.21. The curvature decreases by going to a subobject and increases by taking a quotient:",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3608,7 +3531,6 @@
         {
           "sourceId": "CN25",
           "locator": "Corollary 3.21, p. 18; corrected (iv)",
-          "excerpt": "Corollary 3.21. The curvature decreases by going to a subobject and increases by taking a quotient: (i) A sub-BC of a BC of curvature ≤ 0 (resp. < 0) has curvature ≤ 0 (resp. < 0). (ii) A sub-BC of height 0 of a BC of curvature ≤ 0 has curvature 0. (iii) A quotient of a BC of curvature ≥",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3643,7 +3565,6 @@
         {
           "sourceId": "CN25",
           "locator": "Remark 3.22, p. 19",
-          "excerpt": "Remark 3.22. An important consequence of (ii) of Corollary 3.21 is that a sub-BC U of a torsion B+ + dR -Module W satisfies ht(U) ≥ 0 and U is itself a torsion BdR -Module if and only if ht(U) = 0. This can be proven, without the Harder-Narasimhan decomposition, by induction on the length",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3681,7 +3602,6 @@
         {
           "sourceId": "CN25",
           "locator": "Proposition 3.23, p. 19",
-          "excerpt": "Proposition 3.23. Let f : W1 → W2 be a morphism of BC’s with W2 a B+ dR -Module. Assume that Im(f ) generates W2 as a B+ dR -Module. Then, if Coker(f ) 6 = 0, it is of curvature > 0 and height < 0. Proof. We can assume f to be injective (mod out W1 by Ker(f ) if this is not the case), and",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3719,7 +3639,6 @@
         {
           "sourceId": "CN25",
           "locator": "Lemma 3.24, p. 19",
-          "excerpt": "Lemma 3.24. The following conditions are equivalent: (i) W is of curvature ≤ 0. (ii) There is an exact sequence (3.25) 0 → V → W → M → 0, where M is of curvature 0 and V is finite dimensional over Qp . Proof. Implication (i)⇒(ii) follows from the fact that, if W is of curvature ≤ 0, then",
           "match": "The routed statement, with corrections and ownership boundaries recorded explicitly."
         }
       ],
@@ -3757,13 +3676,11 @@
         {
           "sourceId": "SW20",
           "locator": "Definition 15.2.1, book p. 133",
-          "excerpt": "Definition 15.2.1. Fix an algebraically closed nonarchimedean field C/Qp . The category of Banach-Colmez spaces over C is the thick abelian subcategory of the category of pro-étale sheaves of Qp -modules on PerfdC generated by Qp and G♦ a,C . Remark 15.2.2. This is similar to a category",
           "match": "The smallest abelian extension-closed category, not arbitrary topological Q_p vector spaces."
         },
         {
           "sourceId": "SW20",
           "locator": "Theorem 15.2.12, book p. 139",
-          "excerpt": "Theorem 15.2.12 ([LB18]). All Banach-Colmez spaces are diamonds. The category of Banach-Colmez spaces is equivalent to the full subcategory of the derived category of coherent sheaves on XFF of objects of the form E≥0 ⊕ E<0 [1], where the torsion-free quotient of E≥0 has only nonnegative",
           "match": "Tilted coherent realization and diamond property."
         }
       ],
@@ -3869,7 +3786,6 @@
         {
           "sourceId": "CDN20",
           "locator": "§2.1.2, author preprint p. 21; published p. 328",
-          "excerpt": "2.1.2. Le GF -module Hproét 1 (M∞ ). — Nous allons calculer la multiplicité d’une re- présentation V de GF dans Hproét 1 (M∞ ) comme représentation de G. Si un des poids de Hodge-Tate généralisés de V est 0, il en est de même pour V ∗ et donc HomGF (V, C) 6= 0. Il en résulte que le",
           "match": "Positive BC example with its source coefficient normalization."
         }
       ],
@@ -3906,7 +3822,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions II.2.16 and II.3.5, pp. 72,80",
-          "excerpt": "Proposition II.2.16. Let S be a perfectoid space over Fq . Let E be a vector bundle on XS . Then the Banach–Colmez space BC(E) : T 7→ H 0 (XT , E|XT ) is a locally spatial diamond, partially proper over S. Moreover, the projectivized Banach–Colmez space (BC(E) \\ {0})/E × is a locally",
           "match": "The punctured scalar quotient used throughout the properness arguments."
         }
       ],
@@ -4006,13 +3921,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition I.3.5 and examples, p. 19; II.3.5, pp. 79–81",
-          "excerpt": "of dimension given by the numerator of λ). A special case of this is the identification of BC(OXS (1)) with the universal cover of a Lubin–Tate formal group law, yielding a very close relation between Lubin–Tate theory, and thus local class field theory, and the Fargues–Fontaine curve;",
           "match": "Basic ball dimension, extended through exact presentations."
         },
         {
           "sourceId": "CN25",
           "locator": "Example 3.3 and §3.2.5, pp. 13,16",
-          "excerpt": "Example 3.3. The Spaces Bm and Uh,d defined above are BC’s. Their Dimensions are ( (d, h) if d ≥ 0, Dim Bm = (m, 0), Dim Uh,d = (−d, −h) if d < 0. 3.1.2. Canonical filtration. In his thesis [40], [41], Plût introduced a filtration on objects of BC and stated a number of results about this",
           "match": "Classical Dimension comparison."
         }
       ],
@@ -4432,7 +4345,7 @@
       "id": "VectorBundlesAndIsocrystals/E16",
       "kind": "misprint",
       "locator": "Lemma 3.16, end of proof, p. 17",
-      "printed": "Since U_λ is of Dimension (d,h) and V^h of Dimension (h,0), the existence of an injection implies h < d, as wanted.",
+      "printed": "The proof says that an injection forces h < d because U_λ has Dimension (d,h), whereas V^h has Dimension (h,0).",
       "correction": "implies h > d",
       "reason": "The inequality is reversed relative to both the lemma and its own proof. The lemma asserts dim(W) < ht(W), i.e. d < h, and three lines earlier the proof states its goal as 'we need to show that h > d'. Dimension additivity (Proposition 3.2(ii)) applied to the injection U_λ ↪ V^h gives Dim Coker = (h−d, −h), and ht Coker = −h < 0 forces dim Coker > 0 by Proposition 3.2(iii), i.e. h > d.",
       "affects": "nothing",
@@ -4456,7 +4369,7 @@
       "id": "VectorBundlesAndIsocrystals/E17",
       "kind": "error",
       "locator": "Corollary 3.21(iv), p. 18",
-      "printed": "A quotient of height 0 of a BC of curvature ≥ 0 has curvature 0.",
+      "printed": "The source claims that a height 0 quotient of a BC whose curvature is ≥ 0 must have curvature 0.",
       "correction": "A quotient of height 0 of a BC of curvature ≥ 0 has Harder-Narasimhan slope 0, i.e. is of the form ⊕_x H^0(X,F_x) with each F_x torsion; it has curvature 0 only if in addition the support is {∞}, equivalently if it is a B^+_dR-Module.",
       "reason": "The statement is refuted by the paper's own footnote 9 on the same page, which records that for x ≠ ∞ the object U_1/Q_p t_x has ht = 0 but curvature > 0. Take W = U_1/Q_p t_x with x ≠ ∞ and let the quotient be the identity: W is of curvature > 0, hence of curvature ≥ 0, has height 0, and is a quotient of itself, so (iv) would give it curvature 0. But curvature 0 and curvature > 0 are incompatible for W ≠ 0: a nonzero object of curvature 0 is a finite length B^+_dR-module by Proposition 3.17 and so admits a nonzero map to V_1, whereas §3.2.7 computes Hom_BC(U_1/Q_p t_x, V_1) = 0 and End = C_x. The asymmetry with the correct part (ii) is that curvature ≤ 0 already forces support at ∞ (Corollary 3.19(i)), while curvature ≥ 0 does not.",
       "affects": "a stated result",
@@ -4504,7 +4417,7 @@
       "id": "VectorBundlesAndIsocrystals/E19",
       "kind": "error",
       "locator": "Corollary 3.20(b), p. 18",
-      "printed": "curvature < 0 implies height > 0",
+      "printed": "The source claims that curvature < 0 forces height > 0.",
       "correction": "a nonzero BC of curvature < 0 has height > 0",
       "reason": "The nonvanishing hypothesis is missing: W = 0 has curvature < 0, injecting into B_dR^0, and height 0. By Corollary 3.19(i) a BC of curvature < 0 is H^0(X,E) for E a vector bundle of slopes ≥ 0, and Remark 3.11 gives ht(W) = rk E, which is > 0 precisely when W ≠ 0. A degenerate case only, recorded because a formalisation must carry the hypothesis.",
       "affects": "a stated result",
@@ -4528,7 +4441,7 @@
       "id": "VectorBundlesAndIsocrystals/E20",
       "kind": "gap",
       "locator": "Lemma 3.16, proof, p. 17",
-      "printed": "it suffices to prove the statement for U_λ, with λ = d/h > 0 (here we used the fact that W does not contain V_1)",
+      "printed": "The proof reduces the claim to U_λ with λ = d/h > 0, using the absence of V_1 from W.",
       "correction": "λ = d/h ≥ 0, the summand λ = 0 being treated separately",
       "reason": "The reduction is incomplete. The hypothesis that W contains no V_1 rules out torsion-at-∞ summands and, by §3.2.8, the summands of negative curve slope, but it does not rule out Q_p = U_0: indeed Q_p ⊂ V_1 ⊂ V_N, so the decomposition (3.14) of a sub-BC of V_N may have U_0 summands. Only the proof is incomplete, not the statement: for Q_p one has dim = 0 < 1 = ht and slope −∞ < −1, so the conclusion holds trivially.",
       "affects": "the proof",
@@ -4597,7 +4510,7 @@
       "id": "VectorBundlesAndIsocrystals/E23",
       "kind": "misprint",
       "locator": "Example 8.5.17, first paragraph, p. 174 (arXiv 1301.0792v5)",
-      "printed": "Let σq : B2 → B1 be the substitution T ↦ q²T.",
+      "printed": "The source defines σq : B2 → B1 by substituting q²T for T, namely T ↦ q²T.",
       "correction": "Let σ_q : B_1 → B_2 be the substitution T ↦ q²T (an isomorphism from the ring of the circle |T| = ω² onto that of |T| = 1); equivalently, B_2 → B_1 is T ↦ q^{−2}T.",
       "reason": "In B_1 = K{ω²/T, T/ω²} one has |T| = ω², so a map B_2 → B_1 with T ↦ q²T would send the power-bounded unit T^{−1} of B_2 = K{1/T, T} to q^{−2}T^{−1}, of norm ω^{−4} > 1; it is not a bounded homomorphism. The example subsequently uses σ_q in the direction B_1 → B_2: 'x2 = pσq(x1) ∈ ẼS2 = W(S2)[p−1]' with x_1 ∈ ℰ̃_{S_1}.",
       "affects": "nothing",
@@ -4620,7 +4533,7 @@
       "id": "VectorBundlesAndIsocrystals/E24",
       "kind": "misprint",
       "locator": "Example 8.5.17, first paragraph, p. 174 (arXiv 1301.0792v5)",
-      "printed": "we obtain a strictly affinoid subspace Spa(A, A◦) of the Tate curve over X for the parameter q².",
+      "printed": "The source obtains Spa(A, A◦) as a strictly affinoid subspace in the Tate curve over X with parameter q².",
       "correction": "… of the Tate curve over K for the parameter q².",
       "reason": "No space X is defined in the example; the Tate curve is over the base field K = 𝔽_p((q)), as the next sentence ('a smooth projective curve over K of genus 1') says.",
       "affects": "nothing",
@@ -4643,7 +4556,7 @@
       "id": "VectorBundlesAndIsocrystals/E25",
       "kind": "misprint",
       "locator": "Example 8.5.18, p. 175 (arXiv 1301.0792v5)",
-      "printed": "By Theorems 8.5.8 and 8.5.12, V corresponds to étale ϕ-modules over ẼX, Ẽ^bd_X, R̃X which are not globally étale.",
+      "printed": "The proof invokes Theorems 8.5.8 and 8.5.12 to associate V with étale ϕ-modules over ẼX, Ẽ^bd_X, R̃X, while asserting that these modules fail to be globally étale.",
       "correction": "… over ℰ̃_X, ℛ̃^bd_X, ℛ̃_X …",
       "reason": "The paper has no ring Ẽ^bd (Definitions 5.1.1 and 8.3.4); the three rings of Theorems 8.5.8 and 8.5.12 and of Remark 7.3.5 are ℰ̃, ℛ̃^bd and ℛ̃.",
       "affects": "nothing",
@@ -4666,7 +4579,7 @@
       "id": "VectorBundlesAndIsocrystals/E26",
       "kind": "gap",
       "locator": "Example 8.5.18, p. 175, as invoked in Remark 7.3.5, p. 149 (arXiv 1301.0792v5)",
-      "printed": "Remark 7.3.5: “Over ẼR or R̃bdR, Corollary 8.5.14 will show that (e) implies (c), while Example 8.5.18 will show that (c) does not imply (a).” Example 8.5.18: “By Theorems 8.5.8 and 8.5.12, V corresponds to étale ϕ-modules over ẼX, Ẽ^bd_X, R̃X which are not globally étale.”",
+      "printed": "Remark 7.3.5 says that over ẼR or R̃bdR, Corollary 8.5.14 will give (e) ⇒ (c), and Example 8.5.18 will disprove (c) ⇒ (a). Example 8.5.18 invokes Theorems 8.5.8 and 8.5.12 to associate V with étale ϕ-modules over ẼX, Ẽ^bd_X, R̃X that fail to be globally étale.",
       "correction": "To justify the ring-level invocation, show that the nodal sheaf modules descend to φ-modules over ℰ̃_R and ℛ̃^bd_R. A proposed route is the nodal fibre-product description A≅{(f,g)∈K{X}²:f(±1)=g(±1)} for p≠2, its completed perfection and the corresponding Witt/Robba fibre products, followed by Milnor patching with transitions 1 and p. The completed/bounded coefficient-ring fibre-product statements and φ compatibility must be verified (G-PATCH); the established statement in this packet remains sheaf-level.",
       "reason": "Remark 7.3.5's claim concerns φ-modules over the rings ℰ̃_R and ℛ̃^bd_R, and 'globally étale' is defined for them (Definition 7.3.4). Example 8.5.18 produces modules over the sheaves ℰ̃_X, ℛ̃^bd_X, and Remark 8.5.10 with Example 8.5.17 shows that such modules need not descend to ℰ̃_R, ℛ̃^bd_R. Over ℛ̃_R there is no gap, since Corollary 6.3.13 makes the functor an equivalence. With the descent supplied, the claim of Remark 7.3.5 holds.",
       "affects": "the proof",
@@ -4689,7 +4602,7 @@
       "id": "VectorBundlesAndIsocrystals/E27",
       "kind": "error",
       "locator": "Definition 8.8.18 and Lemma 8.8.19, p. 186; also the proofs of Lemma 8.8.13 (p. 184) and Theorem 8.8.15 (p. 185) and Conjecture 8.8.20 (p. 186) (arXiv 1301.0792v5)",
-      "printed": "Note that LX is pure of slope 1 and hence ample by Theorem 8.8.15. … Lemma 8.8.19. For X = Spa(A, A+), the ϕa-module corresponding to LX is globally pure of slope 1.",
+      "printed": "The source describes LX as pure with slope 1 and invokes Theorem 8.8.15 for its ampleness. Lemma 8.8.19 claims that for X = Spa(A, A+), the corresponding ϕa-module is globally pure with slope 1.",
       "correction": "… L_X is pure of slope 1/a … the φ^a-module corresponding to L_X is globally pure of slope 1/a (globally (1, a)-pure). Likewise deg O(−1) = −1/a: in the proof of Lemma 8.8.13 read 'deg(H_1) ≥ −1/a with equality only if H_1 = O(−1)' (the conclusion deg(H) ≥ 0 still follows because degrees lie in a^{−1}ℤ); in the proof of Theorem 8.8.15 read 'nα_m − 1/a ≥ 0'; in Conjecture 8.8.20, deg(F) takes values in a^{−1}ℤ and the twist is F(−a·deg(F)). Everything is as printed when a = 1.",
       "reason": "Definition 7.2.1 computes degrees of φ^a-modules with Convention 4.1.13 (the p-adic valuation of the determinant, with the sign of Remark 4.1.12, divided by a), and 'pure of slope s' means admitting a (c, d)-pure model, (p^c φ^d)^*M_0 ≅ M_0, with c/d = s (Definitions 7.3.1, 7.3.4). The proof of Lemma 8.8.19 identifies the φ^a-module of L_X with M(1), where M is free on v with φ^a(v) = z_1^{−1}z v and is étale; in M(1) (Definition 6.2.1) φ^a acts by p^{−1} times this unit, so p·φ^a preserves an étale model and M(1) is (1, a)-pure, of degree and slope 1/a. The ampleness conclusions only use positivity and are unaffected.",
       "affects": "a stated result",
@@ -4713,7 +4626,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "FS Proposition II.3.1, p. 75",
-      "printed": "where F is semistable of degree 1/r.",
+      "printed": "The source specifies that F has degree 1/r and is semistable.",
       "correction": "semistable of slope 1/r",
       "reason": "F has rank dr and degree d in the proof; for general d,r its degree is not 1/r. Binding RS15 already records this correction.",
       "affects": "nothing",
@@ -4736,7 +4649,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "FS proof of Proposition II.3.2, p. 77",
-      "printed": "we set m = dr.",
+      "printed": "The source chooses m = dr.",
       "correction": "we set m = d.",
       "reason": "O(1/r) has rank r and degree 1. In 0→G→O(1/r)^m→E→0 with G of slope zero and deg(E)=d, degree additivity forces m=d. dr is the rank of the middle term, not its number of copies. For r=2,d=1 the printed choice gives degree 2 instead of 1.",
       "affects": "the proof",
@@ -4757,7 +4670,7 @@
       "source": "CN25",
       "kind": "error",
       "locator": "CN author preprint, Lemma 3.16, pp. 16–17",
-      "printed": "A sub-BC W of VN , containing no V1 , satisfies dim(W) < ht(W)",
+      "printed": "The source claims dim(W) < ht(W) for a sub-BC W of VN that contains no V1.",
       "correction": "For NONZERO such W, dim(W)<ht(W); every such W, including zero, has all HN slopes <−1.",
       "reason": "The zero subobject has no V1 and dim=ht=0, contradicting the strict inequality. Positive and finite-Q_p nonzero cases prove the corrected claim; the empty slope multiset accounts for the zero case.",
       "affects": "a stated result",
@@ -4778,7 +4691,7 @@
       "source": "CN25",
       "kind": "error",
       "locator": "CN author copy CN5.pdf, §3.2.6(2), p. 17",
-      "printed": "O(λ1)⊗O(λ2) = O(λ1+λ2)^{n(λ1,λ2)}, where n(λ1,λ2) = (h1/h2)h. Also: Hom(O(λ1),O(λ2)) = Hom(O, O(λ2−λ1))",
+      "printed": "The source gives O(λ1)⊗O(λ2) = O(λ1+λ2)^{n(λ1,λ2)}, with n(λ1,λ2) = (h1/h2)h. It also states Hom(O(λ1),O(λ2)) = Hom(O, O(λ2−λ1)).",
       "correction": "n(λ1,λ2) = h1h2/h; and Hom(O(λ1),O(λ2)) = H⁰(O(λ1)^∨⊗O(λ2)) = H⁰(O(λ2−λ1))^{n(−λ1,λ2)}, which equals Hom(O,O(λ2−λ1)) only when h1h2 equals the denominator of λ2−λ1 (for instance when λ1 is an integer).",
       "reason": "Ranks: O(λ1)⊗O(λ2) has rank h1h2 and each copy of O(λ1+λ2) has rank h, so n=h1h2/h. For λ1=λ2=1/2 one has O(1/2)⊗O(1/2)≅O(1)^4, while the printed formula gives n=(2/2)·1=1. For the Hom formula, Hom(O(1/2),O(1/2))=End(O(1/2)) is the quaternion algebra D_{1/2}, of Q_p-dimension 4, whereas Hom(O,O)=Q_p. The surrounding text (End_BC(U_λ)=D_λ in item (1)) is correct.",
       "affects": "nothing",
@@ -4799,7 +4712,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "FS proof of Proposition II.3.5, p. 80 (author PDF; same text in arXiv 2102.13459v4)",
-      "printed": "an exact sequence 0 → BC(E′1[1]) → BC(OXS(−1/r)^m[1]) → BC(G[1]) where G is semistable of slope 1/(2r) everywhere. In particular, BC(G[1]) is separated over S by pro-étale descent and Proposition II.2.5 (i).",
+      "printed": "The source asserts exactness of 0 → BC(E′1[1]) → BC(OXS(−1/r)^m[1]) → BC(G[1]), with G everywhere semistable of slope 1/(2r). It then claims separatedness of BC(G[1]) over S using pro-étale descent and Proposition II.2.5 (i).",
       "correction": "The third term is BC(G^∨[1]), with G^∨ semistable of slope −1/(2r): Corollary II.3.3(iv) is applied to the dual of E′1, giving 0→G→O(1/r)^m→E′→0 with G of slope 1/(2r), and dualizing gives 0→E′^∨→O(−1/r)^m→G^∨→0.",
       "reason": "BC(−[1]) is defined only for bundles with negative slopes, and the cited Proposition II.2.5(i) concerns λ<0. A positive-slope G would have no negative Banach–Colmez space and H¹ vanishing locally, so the displayed separatedness argument only makes sense for G^∨.",
       "affects": "nothing",
@@ -4820,7 +4733,7 @@
       "source": "SW20",
       "kind": "misprint",
       "locator": "SW20, discussion after Definition 15.2.11, book p. 139 (PDF p. 149)",
-      "printed": "Note that if λ = −1, this shows that BC(OXFF(−1)) = Ga,C/Qp, which is a rather interesting space.",
+      "printed": "The source says that λ = −1 yields BC(OXFF(−1)) = Ga,C/Qp and describes this space as interesting.",
       "correction": "BC(O_XFF(−1)[1]) = G_{a,C}/Q_p.",
       "reason": "BC(O(−1)) is the H⁰ sheaf, which is zero since O(−1) has negative slope; the displayed sequence 0→BC(O(λ+1))→G_a^r→BC(O(λ)[1])→0 with λ=−1, r=1 gives G_a/Q_p as the shifted space BC(O(−1)[1]) of Definition 15.2.11.",
       "affects": "nothing",

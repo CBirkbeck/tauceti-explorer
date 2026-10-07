@@ -362,19 +362,16 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "1.1 and Définition 1.2, p. 181 (read on page image)",
-          "excerpt": "un fermé irréductible Y de X, fini et surjectif sur B",
           "match": "Definition of integral point: irreducible closed, finite and surjective over B, with the local L_v-splitting and Omega_v conditions displayed in the same sentence."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Définition 1.2, p. 181",
-          "excerpt": "vérifiant les conditions ci-dessus. Elle est dite complète si",
           "match": "Complete versus incomplete Skolem data."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Remarque 1.8, p. 184",
-          "excerpt": "est une donnée de Skolem complète sans point entier",
           "match": "The counterexample showing incompleteness cannot be dropped."
         }
       ],
@@ -511,13 +508,11 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 1.6.1 and proof, p. 183 (display read on page image)",
-          "excerpt": "En caractéristique 0 il n'y a rien à démontrer.",
           "match": "Start of the proof of Lemme 1.6.1, whose characteristic-p step is transcribed from the page image."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 2.1, p. 185",
-          "excerpt": "si cette condition est superflue",
           "match": "The separability/excellence hypothesis of Lemme 2.1 and the author's remark that he does not know whether it can be removed."
         }
       ],
@@ -557,19 +552,16 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Remarque 1.4, p. 182",
-          "excerpt": "ceci en vertu du lemme de Chow (EGA II, 5.6)",
           "match": "Reduction to quasi-projective f."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Remarque 1.10, p. 184",
-          "excerpt": "Pic(B)=Cl(R) est fini",
           "match": "Finiteness of the class group used to make B - S affine when enlarging Sigma."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Exemple 1.10.1, p. 184",
-          "excerpt": "Par exemple, on peut toujours supposer X lisse sur B.",
           "match": "Consequence: X may be replaced by a smooth open."
         }
       ],
@@ -611,19 +603,16 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 2.2, p. 185",
-          "excerpt": "de dimension 1, quasi-fini et surjectif sur B",
           "match": "The auxiliary one-dimensional closed subset T meeting every Omega_v."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Proof of Lemme 2.3, p. 185",
-          "excerpt": "le théorème de Bertini ([J], chapitre 1, théorème 6.3) implique qu'il existe un ouvert de Zariski non vide",
           "match": "The imported Bertini theorem giving geometrically irreducible sections."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "2.4, p. 186",
-          "excerpt": "nous sommes ainsi ramenés, par récurrence sur",
           "match": "The induction on dim X_K down to relative dimension one."
         }
       ],
@@ -670,25 +659,21 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "3.1, p. 187",
-          "excerpt": "Pour unifier la démonstration nous supposerons z>0 (on peut toujours agrandir Z!).",
           "match": "The curve-case set-up with boundary degree z > 0."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "3.2.4 and Lemme 3.3, p. 187",
-          "excerpt": "qui sont effectifs de degré d, étales",
           "match": "Definition of the local divisor sets Omega_v^[d] used in Lemme 3.3."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "3.4, p. 188",
-          "excerpt": "foncteur de Picard généralisé",
           "match": "Definition of PG(X-bar, Z) as pairs of a line bundle and a trivialisation along Z."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 3.6, p. 189 (inequality read on page image)",
-          "excerpt": "localement triviale en espaces affines de dimension",
           "match": "The affine-space fibration phi_d for d >= 2g + z - 1, of dimension d + 1 - g - z."
         }
       ],
@@ -842,13 +827,11 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 3.7.2(ii), p. 190 (inequalities read on page image)",
-          "excerpt": "le groupe PG(X, Z) étant noté multiplicative- ment",
           "match": "The multiplicativity W^[d] W^[d'] ⊂ W^[d+d'] in the generalized Picard group."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Proof of Lemme 3.8, p. 191",
-          "excerpt": "Le lemme résulte donc du théorème d'approxima- tion forte qui affirme que",
           "match": "Where strong approximation, and hence incompleteness, is used."
         }
       ],
@@ -892,25 +875,21 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 3.9, proof, p. 191 (normalisations read on page image)",
-          "excerpt": "Pour (iii), remarquer que les hypothèses 1.1 sur R et 3.1.2 (iii) sur Z impliquent que Pic(Z) est fini",
           "match": "The normalisation of M_0 in the proof of Lemme 3.9."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 3.9.2, p. 192",
-          "excerpt": "Le groupe topologique G de (3.9.1) est quasi-compact.",
           "match": "The compactness statement driving the choice of (M, alpha)."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Lemme 3.10.2 (printed 3.30.2), p. 192",
-          "excerpt": "Alors le groupe J(F) est compact (pour la topologie déduite de celle de F).",
           "match": "Compactness of local points of the Jacobian."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Proof of Lemme 3.10.4, p. 193",
-          "excerpt": "est un réseau dans l'hyperplan",
           "match": "The Dirichlet unit theorem input to the quasi-compactness of K_Sigma^×/R^×."
         }
       ],
@@ -953,19 +932,16 @@
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "Théorème 1.3, p. 182",
-          "excerpt": "Toute donnée de Skolem incomplète admet un point entier.",
           "match": "Literal statement of the theorem."
         },
         {
           "sourceId": "moret-bailly-1989-II",
           "locator": "p. 182, after Théorème 1.3",
-          "excerpt": "Le présent article est toutefois indépendant de",
           "match": "Part II does not depend on part I; part I (Sigma empty, Rumely) is not an input."
         },
         {
           "sourceId": "moret-bailly-1989-I",
           "locator": "Théorème 1.7 (Rumely) and 1.11, pp. 162-163",
-          "excerpt": "On suppose que X est irréductible",
           "match": "Part I proves the Sigma-empty integral-point theorem (Rumely), confirming the division of labour stated in part II."
         }
       ],
@@ -1011,25 +987,21 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Proof of Theorem 6.1, ordinary case, p. 56",
-          "excerpt": "applying Moret-Bailly theorem 1.3. of part 2 of [47] with this",
           "match": "KW II invoke Théorème 1.3 of part II with prescribed open sets Omega_v, not only Theorem G."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Introduction, Theorem G, pp. 4-5 (printed; read on the page image)",
-          "excerpt": "There is a unique maximal extension K_S/K (inside a given algebraic closure of K) in which all places of S split completely",
           "match": "The field K_S."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Introduction, Theorem G, p. 5 (printed; read on the page image)",
-          "excerpt": "Suppose that X/Spec K is a geometrically irreducible smooth quasi-projective scheme",
           "match": "The hypotheses."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Introduction, Theorem G, p. 5 (printed; read on the page image)",
-          "excerpt": "Then X(K_S) is Zariski dense in X",
           "match": "The conclusion."
         }
       ],
@@ -1071,19 +1043,16 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Proof of Theorem 6.1, last paragraph, p. 57",
-          "excerpt": "we furthermore impose that F is split at a chosen ﬁnite set of primes that are unramiﬁed in L, and whose Frobenii generate the Galois group of the Galois closure of L/Q",
           "match": "The source's mechanism for forcing linear disjointness."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Proof of Theorem 2.1, p. 234",
-          "excerpt": "The property that im(¯ρ) = im(¯ρ|GF ) is ensured if F is linearly disjoint from the ﬁxed ﬁeld of kernel of ¯ρ",
           "match": "The use of linear disjointness to keep the residual image."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Proof of Theorem 2.1, p. 234",
-          "excerpt": "We use the reﬁnement of Moret-Bailly’s theorem (see Theorem G of [51]) given in Proposition 2.1 of [23",
           "match": "KW Annals attribute the disjointness refinement to [23] = Harris-Shepherd-Barron-Taylor, Prop. 2.1 (not in the library)."
         }
       ],
@@ -1134,49 +1103,41 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "section 6, Theorem 6.1, pp. 53-54",
-          "excerpt": "Then there is a totally real ﬁeld F that is Galois over Q of even degree, F is unramiﬁed at p, and even split above",
           "match": "Statement of Theorem 6.1."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Theorem 6.1(ii), p. 54",
-          "excerpt": "and is unramiﬁed if ¯ρ is ﬁnite ﬂat at v), and is of weight 2 at the inﬁnite places",
           "match": "Part (ii) in weight 2."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, solvable case, p. 54",
-          "excerpt": "After this the theorem follows from Theorem 8.2 below.",
           "match": "The solvable-image branch goes through Theorem 8.2."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, non-solvable case, p. 54",
-          "excerpt": "In the proof of Taylor, one has a moduli problem X for Hilbert-Blumenthal abelian va- rieties A with polarisation and level structures",
           "match": "The non-solvable branch uses Taylor's moduli problem."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, p = 2 and k(rho-bar) = 4, pp. 55-56",
-          "excerpt": "The abelian variety A is chosen to have completely toric reduction at primes above 2",
           "match": "The dyadic weight-4 branch."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, ordinary k(rho-bar) = 2 branch, p. 56",
-          "excerpt": "This proves that we can ﬁnd Av which has good ordinary reduction",
           "match": "The obstruction computation producing a good ordinary local point."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, p = 3 branch, p. 56",
-          "excerpt": "Although p = 3 is excluded in (Section 5 of) [59], as explained in Section 2 of [33], Lemma 2.2 of [33] allow one to lift this restriction.",
           "match": "The p = 3 import."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, weight adjustment, p. 57",
-          "excerpt": "using Hida theory (see Section 8 of [30], using also Lemma 2.2 of [33] to avoid the neatness hypothesis there)",
           "match": "Hida theory used to move from parallel weight 2 to weight k(rho-bar)."
         }
       ],
@@ -1239,37 +1200,31 @@
         {
           "sourceId": "kw-annals-2009",
           "locator": "Theorem 2.1, p. 234",
-          "excerpt": "Assume ¯ρ is of S-type in odd residue character- istic, such that ¯ρ|Q(µp) is irreducible",
           "match": "Hypotheses of Theorem 2.1 (the exclusion k ≠ p is read in the same sentence)."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "proof of Theorem 2.1, p. 234",
-          "excerpt": "The supersingular case is covered in [50] explicitly (see Theorem 5.7 of [50]) for p > 3 and it is explained in [25] how to extend this to the case p = 3.",
           "match": "Supersingular branch imported from Taylor 2006 and Khare."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "proof of Theorem 2.1, p. 234",
-          "excerpt": "The ordinary case may be deduced from the arguments of [51] although not explicitly there.",
           "match": "The ordinary branch is a reworking of Taylor 2002."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "proof of Theorem 2.1, p. 237",
-          "excerpt": "Now using the main theorem of [45], we construct a totally real, solvable extension F/E that is unramiﬁed at places above p, Galois over Q",
           "match": "The solvable base change step with its citation."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "proof of Theorem 2.1, p. 237",
-          "excerpt": "Part (i) in the ordinary case follows from this using Corollary 3.5 of [24].",
           "match": "Hida's result gives part (i)."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "proof of Theorem 2.1, printed p. 235",
-          "excerpt": "Note that as we are assuming k(¯ρ)̸ = ℓ, we have n̸ = 1 and Lemma 1.5 applies.",
           "match": "Where k(ρ̄) ≠ p is used."
         }
       ],
@@ -1318,37 +1273,31 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, p. 90",
-          "excerpt": "This exists because of the combined eﬀect of Theorem 6.1",
           "match": "The auxiliary field's existence is referred to Theorem 6.1, Theorem 8.2 and Lemma 4.2 of [33]."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, first bullet, p. 90",
-          "excerpt": "F/Q is a totally real extension, im(¯ρ|F ) is non-solvable for p = 2",
           "match": "Condition (1) on F."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, third bullet, p. 91",
-          "excerpt": "Strengthened versions of (α) and (β) for p > 2",
           "match": "Condition (3): the modular pi' over F."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, third bullet, p. 91",
-          "excerpt": "When we need to consider weight p + 1 liftings, we may assume by Theorem 6.1 and 8.2 that F is split at p.",
           "match": "Splitting at p for weight p + 1."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, fourth bullet, p. 91",
-          "excerpt": "This condition is ensured by using Lemma 4.2 of [33] to see that for each of the ﬁnitely many primes",
           "match": "Condition (4) via Lemma 4.2 of [33] and a local-extension clause of Theorem 6.1."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, fourth bullet, p. 91",
-          "excerpt": "is unramiﬁed and choosing F as in part (c) of",
           "match": "The printed cross-reference '(c)', which does not match the content of Theorem 6.1(iii)(c)."
         }
       ],
@@ -1464,37 +1413,31 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, p. 91",
-          "excerpt": "Consider the deformation ring ¯RψF F over F that parametrises (minimal, odd) deformations of ¯ρF unramiﬁed outside places above p",
           "match": "The deformation ring over the auxiliary field."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, p. 91",
-          "excerpt": "we are in a position to apply Propositions 9.2 and 9.3 to",
           "match": "Finiteness over F from the R = T propositions."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, p. 91",
-          "excerpt": "As ¯ρ and ¯ρ|GF are absolutely irreducible, we have by functoriality",
           "match": "Construction of the restriction morphisms."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 10.1, pp. 91-92",
-          "excerpt": "has ﬁnite image, we deduce that the universal mod p representation",
           "match": "Finite image of the universal mod p representation."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "end of proof of Theorem 10.1, p. 92",
-          "excerpt": "From this we deduce, using 3.14 of [31] or Lemma 3.6 of [34], that",
           "match": "The finite-image finiteness criterion."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Theorem 10.1, p. 90",
-          "excerpt": "Theorem 10.1. The ring ¯Rψ S is ﬁnite as a Zp-module.",
           "match": "The statement."
         }
       ],
@@ -1551,37 +1494,31 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Proposition 4.5, p. 43",
-          "excerpt": "It follows that, in the preceeding formula, each term of the sum over v ∈S is 1 and we ﬁnd",
           "match": "The local contribution to the generator count."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Proposition 4.5, p. 45",
-          "excerpt": "Thus a lower bound for the (absolute) dimension of ¯R□,ψ S is 3|S| + 1 + |S| −1 = 4|S",
           "match": "The dimension lower bound."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Corollary 4.7 and proof, pp. 45-46",
-          "excerpt": "If ¯Rψ S is a ﬁnitely generated Zp-module, then there is a map of CNLO-algebras",
           "match": "Existence of the characteristic-zero point."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "10.3.1, p. 92",
-          "excerpt": "of its spectrum correspond exactly to the p-adic deformations of required type.",
           "match": "Points of the global ring are the lifts of the required type."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Corollary 4.7, p. 45",
-          "excerpt": "Corollary 4.7. If ¯Rψ S is a ﬁnitely generated Zp-module, then there is a map of CNLO-algebras π : ¯Rψ S →O′ for O′ the ring of integers of a ﬁnite extension of Qp.",
           "match": "Points from finiteness and dimension."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Proposition 4.5, p. 45",
-          "excerpt": "We know that ¯R□,loc,ψ S is ﬂat over O such that abs. dim.( ¯R□,loc,ψ S ) = 1 + 3|S|.",
           "match": "The local dimension count."
         }
       ],
@@ -1645,7 +1582,6 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Introduction, Theorem G, p. 5 (printed; page image)",
-          "excerpt": "Then X(K_S) is Zariski dense in X",
           "match": "The statement deduced."
         }
       ],
@@ -1694,7 +1630,6 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 93",
-          "excerpt": "Consider the number ﬁeld F and the cuspidal automorphic representation π′ of the proof of Theorem 10.1. We may assume that F/Q is Galois which we do. Then Theorem 9.7 yields that ρF := ρ|GF arises from a holomor- phic, cuspidal automorphic representation π of GL2(AF ) with respect to the embedding ιp.",
           "match": "The given lift becomes modular over F."
         }
       ],
@@ -1743,13 +1678,11 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "Theorem 6.1 (iii), p. 54",
-          "excerpt": "b) Given ﬁnitely many primes ℓi̸ = p and extensions Fℓi/Qℓi, then we may choose F so that for every embedding F ,→Qℓi, the closure of F contains Fℓi.",
           "match": "(iii)(b)."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "proof of Theorem 6.1, p. 57",
-          "excerpt": "- one can impose that closures of F contain locally given extensions Fℓi, ℓi̸ = 2, p, by successive applications of Grunwald-Wang theorem.",
           "match": "Mechanism for (b)."
         }
       ],
@@ -1793,31 +1726,26 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "section 1, standing hypotheses, printed p. 6 (page image)",
-          "excerpt": "is a continuous representation such that ρ̄ has insoluble image",
           "match": "The insoluble-image hypothesis of the section (rho-bar lost in the text layer); the local shape at l is read on the page image."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "Corrections to [Tay4], first bullet, p. 776 (page image)",
-          "excerpt": "(Without this change the choice of aλ at the top of page 136 becomes impossible.)",
           "match": "Correction replacing det rho-bar(c) = -1 by det rho-bar = epsilon, with its reason."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "choice of p, printed p. 7 (page image)",
-          "excerpt": "p splits completely in the Hilbert class",
           "match": "One of the four conditions defining the auxiliary prime p."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "choice of L, psi, N, M, printed p. 9 (page image)",
-          "excerpt": "not contained in F adjoin a primitive",
           "match": "The first condition on the CM extension L/F."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "choice of N, printed p. 9",
-          "excerpt": "primes above l split in N/N_0",
           "match": "Conditions on the CM field N whose maximal totally real subfield is M."
         }
       ],
@@ -1952,7 +1880,6 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Lemma 1.1 and proof, printed pp. 7-9 (page images)",
-          "excerpt": "This is presumably well known, see for instance lemma 2.1 of [Ta2].",
           "match": "The last step of the proof is imported from [Ta2]; the statement is read on the page image of p. 7-8."
         }
       ],
@@ -1995,19 +1922,16 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "printed p. 13 (page image)",
-          "excerpt": "It follows from lemmas 1.2, 1.3 and 1.4 that for any place x of F above l, p",
           "match": "Local nonemptiness of X at l, p and infinity."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "printed p. 13",
-          "excerpt": "are equivalent.) Applying a theorem of Moret-Bailly [M]",
           "match": "The Moret-Bailly application producing E and A."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "printed p. 13",
-          "excerpt": "every place above l and p split completely and a M-HBAV (A, i, j)/E such that",
           "match": "Output of the application."
         }
       ],
@@ -2050,19 +1974,16 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Lemma 1.5 and proof, printed pp. 14-15 (page images)",
-          "excerpt": "we see that either A has multiplicative reduction over",
           "match": "The reduction-type dichotomy at the start of the proof."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "proof of Lemma 1.5, printed p. 14",
-          "excerpt": "no non-trivial extensions of",
           "match": "The extension-group input giving the connected-étale filtration of A[lambda]."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "proof of Lemma 1.5, printed p. 15",
-          "excerpt": "(see appendix B of [CDT])",
           "match": "Import of CDT appendix B in the semisimple case."
         }
       ],
@@ -2109,31 +2030,26 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "remarks after the Moret-Bailly application, printed p. 13",
-          "excerpt": "is absolutely irreducible, because for any place x of E above p the restriction of",
           "match": "Absolute irreducibility of the wp-torsion over E."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "same paragraph, printed p. 13",
-          "excerpt": "Also note that A has semi-stable reduction at any prime x of E above p, because",
           "match": "Semistability above p."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "same paragraph, printed p. 13",
-          "excerpt": "is ordinary at any prime x of E above p, because A is semistable at x",
           "match": "Ordinarity of T_wp A above p."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "paragraph before Theorem 1.6, printed p. 15",
-          "excerpt": "we may apply theorem 5.1 of [SW3] to deduce that",
           "match": "Skinner-Wiles modularity lifting applied to T_wp A."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "same sentence, printed p. 15",
-          "excerpt": "to deduce that T A is modular",
           "match": "Transfer from T_wp A to T_lambda A (the Greek lambda is lost in the text layer; read on page image)."
         }
       ],
@@ -2177,37 +2093,31 @@
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Theorem 1.6, printed p. 15 (page image)",
-          "excerpt": "totally real extension E/F in which every prime of F above l splits completely, a regular algebraic cuspidal automorphic representation",
           "match": "Conclusion of Theorem 1.6."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Theorem 1.6, 'Moreover' clause, printed p. 15",
-          "excerpt": "may be chosen so that the following holds",
           "match": "The local refinement at unramified places above l."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "paragraph before Theorem 1.6, printed p. 15",
-          "excerpt": "has soluble image follows from known cases of the strong Artin conjecture",
           "match": "The soluble case is referred to Tunnell and Rogawski-Tunnell."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "Corrections to [Tay4], last bullet, p. 777 (page image)",
-          "excerpt": "theorem 1.6 requires some further proof. The following will suffice:",
           "match": "The corrected proof via a quadratic twist and normal closure."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "same bullet, p. 777",
-          "excerpt": "Let E be the normal closure of E′/F. Then l and p split completely in E/F.",
           "match": "How E is made Galois while keeping the splitting."
         },
         {
           "sourceId": "taylor-2002-fontaine-mazur",
           "locator": "Corollary 1.7, printed p. 16 (page image)",
-          "excerpt": "degree at most 2, a regular algebraic cuspidal automorphic representation",
           "match": "Statement of Corollary 1.7; no proof follows in the preprint."
         }
       ],
@@ -2252,19 +2162,16 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "Proposition 4.1 and following remark, pp. 755-756",
-          "excerpt": "We remark that the key improvement of this over results in [Tay4] is the condition that l split completely in F.",
           "match": "The improvement over Taylor 2002 used by KW II when rho-bar|D_p is irreducible."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "end of proof of Proposition 4.1, pp. 762-763",
-          "excerpt": "of [SW2] tells us that there is a algebraic, cuspidal automorphic representation",
           "match": "Skinner-Wiles lifting applied to T_wp1 B."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "Corollary 4.6, p. 763",
-          "excerpt": "Using Langlands base change [Langl] we immediately obtain the following corollary.",
           "match": "Corollary 4.6 via base change."
         }
       ],
@@ -2307,19 +2214,16 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§1, Lemma 1.3, p. 740 (PDF page 12)",
-          "excerpt": "Then we have the following assertions.",
           "match": "Lemma 1.3 (1)–(2); (3)–(4) on p. 741."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§1, proof of Lemma 1.3, p. 741 (PDF page 13)",
-          "excerpt": "Everything now follows from the Jacquet-Langlands theorem.",
           "match": "The proof."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§1, the representations ρ and ρ_𝔪, p. 742 (PDF page 14)",
-          "excerpt": "From the theory of pseudo-representations (or otherwise, see [Ca2]) we deduce",
           "match": "ρ_𝔪 over the non-Eisenstein localisation."
         }
       ],
@@ -2361,7 +2265,6 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§1, proof of Corollary 1.5, p. 743 (PDF page 15)",
-          "excerpt": "This follows easilly from the above lemma together with theorem 5.3, proposition 7.8 and theorem 8.4 of [FL].",
           "match": "Corollary 1.5 from Fontaine–Laffaille (the source prints \"easilly\")."
         }
       ],
@@ -2401,25 +2304,21 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, the pairing and the operators 𝐔, 𝐕, p. 764 (PDF page 36)",
-          "excerpt": "This is easily seen to be a perfect pairing.",
           "match": "The duality used for 𝐕_{ϖ_x}."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, Lemma 5.1, p. 765 (PDF page 37)",
-          "excerpt": "The following lemma is a variant of an unpublished result of Buzzard (see [Bu]).",
           "match": "Lemma 5.1."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, Corollary 5.2, p. 767 (PDF page 39)",
-          "excerpt": "There is a natural surjection",
           "match": "Corollary 5.2."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, Corollary 5.2, p. 767 (PDF page 39)",
-          "excerpt": "This assumption will be veriﬁed if",
           "match": "The sufficient condition (non-Eisenstein, not of the dual ordinary shape)."
         }
       ],
@@ -2456,7 +2355,6 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, proof of Lemma 5.3, p. 768 (PDF page 40)",
-          "excerpt": "Because l splits completely in F such an embedding simply results from multiplication by",
           "match": "The embedding by X^lY − XY^l."
         }
       ],
@@ -2498,13 +2396,11 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, Corollary 5.5, p. 769 (PDF page 41)",
-          "excerpt": "Combining the lemma 5.4 with the main theorem of [SW1]",
           "match": "Corollary 5.5 uses [SW1] = Skinner–Wiles, Base change and a problem of Serre."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, proof of Lemma 5.6, p. 770 (PDF page 42)",
-          "excerpt": "By corollary 5.2 this factors through",
           "match": "Lemma 5.6 from Corollary 5.2."
         }
       ],
@@ -2545,13 +2441,11 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, Theorem 5.7, p. 770 (PDF page 42)",
-          "excerpt": "Finally we have the following version of our potential version of",
           "match": "Theorem 5.7."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§5, proof of Theorem 5.7, p. 771 (PDF page 43)",
-          "excerpt": "The theorem now follows from lemma 5.3.",
           "match": "The last step of the proof."
         }
       ],
@@ -2592,7 +2486,6 @@
         {
           "sourceId": "snowden",
           "locator": "§5.2, proof of Proposition 5.2.2, p. 16",
-          "excerpt": "generates Gal(M",
           "match": "Generating Frobenius primes"
         }
       ],
@@ -2629,7 +2522,6 @@
         {
           "sourceId": "cht",
           "locator": "Lemma 4.1.1 and proof, pp. 116–117",
-          "excerpt": "extends to a continuous character",
           "match": "Extending finite local characters"
         }
       ],
@@ -2670,7 +2562,6 @@
         {
           "sourceId": "cht",
           "locator": "Lemma 4.1.2 and proof, p. 117",
-          "excerpt": "a soluble Galois extension",
           "match": "Soluble extensions with prescribed completions"
         }
       ],
@@ -2711,7 +2602,6 @@
         {
           "sourceId": "qian",
           "locator": "§2 opening facts, preceding Lemma 2.1",
-          "excerpt": "In particular",
           "match": "Disjointness through a field tower"
         }
       ],
@@ -2753,7 +2643,6 @@
         {
           "sourceId": "qian",
           "locator": "Proposition 4.2, statement and application, §4",
-          "excerpt": "every element of S2 is non-archimedean",
           "match": "Moret–Bailly with three local conditions"
         }
       ],
@@ -2799,7 +2688,6 @@
         {
           "sourceId": "blght",
           "locator": "Proposition 6.2, pp. 40–41",
-          "excerpt": "Suppose that M/F is a finite Galois extension",
           "match": "Moret–Bailly above a preliminary field"
         }
       ],
@@ -2844,7 +2732,6 @@
         {
           "sourceId": "bianchi",
           "locator": "Proposition 4.5.1 and proof, pp. 48–49",
-          "excerpt": "Then we can further choose P so that the image",
           "match": "Surjective specialisation of a finite quotient"
         }
       ],
@@ -2887,13 +2774,11 @@
         {
           "sourceId": "bhkt-published",
           "locator": "Lemma 9.1 and diagram (9.1), published pp. 76–77",
-          "excerpt": "geometrically connected finite étale K-scheme",
           "match": "The printed base K is corrected to Y_K by E8; the geometric connectedness is confirmed by the proof and the independent 2025 correction."
         },
         {
           "sourceId": "bhkt-correction",
           "locator": "p. 28, Isom-scheme paragraph",
-          "excerpt": "not finite étale over",
           "match": "The corrected finite-etale base of BHKT Lemma 9.1 is already recorded by Beuzart-Plessis–Harris–Thorne (2025)."
         }
       ],
@@ -2933,7 +2818,6 @@
         {
           "sourceId": "bhkt-published",
           "locator": "Proposition 9.2 and proof, published p. 78",
-          "excerpt": "two further places",
           "match": "Moret–Bailly with unchanged constant field"
         }
       ],
@@ -2975,13 +2859,11 @@
         {
           "sourceId": "bhkt-published",
           "locator": "Theorem 9.3, published pp. 78–79",
-          "excerpt": "a Galois extension",
           "match": "Potential realisation of local Galois data"
         },
         {
           "sourceId": "calegari",
           "locator": "Proposition 3.2 and proof, author pp. 5–6",
-          "excerpt": "linearly disjoint",
           "match": "Totally real number-field local-Galois realization, with avoidance of the full resulting field."
         }
       ],
@@ -3023,7 +2905,6 @@
         {
           "sourceId": "bcgp-published",
           "locator": "Proof of Proposition 9.1.11, p. 458",
-          "excerpt": "restriction of scalars",
           "match": "The restricted auxiliary moduli application"
         }
       ],
@@ -3065,7 +2946,6 @@
         {
           "sourceId": "snowden",
           "locator": "Proposition 8.2.2 and proof, p. 26",
-          "excerpt": "a finite solvable extension",
           "match": "Split fields after a soluble preliminary extension"
         }
       ],
@@ -3109,7 +2989,6 @@
         {
           "sourceId": "snowden",
           "locator": "Theorem 5.1.1 and Proposition 8.2.1, pp. 15, 26",
-          "excerpt": "any odd representation",
           "match": "Potential residual modularity over totally real fields"
         }
       ],
@@ -3151,7 +3030,6 @@
         {
           "sourceId": "bcgp-published",
           "locator": "Proposition 9.1.11 and proof, p. 458",
-          "excerpt": "q-ordinary",
           "match": "Controlled residual modularity after restriction of scalars"
         }
       ],
@@ -3198,7 +3076,6 @@
         {
           "sourceId": "bcgp-published",
           "locator": "Proposition 9.1.12 and proof, pp. 458–459 (corrected statement; source issue E7)",
-          "excerpt": "The general case may be proved in exactly the same way",
           "match": "Local Galois data over a composite field"
         }
       ],
@@ -3239,7 +3116,6 @@
         {
           "sourceId": "thorne",
           "locator": "Theorem 10.2, setup and proof, author pp. 56–58",
-          "excerpt": "a finite O-module",
           "match": "Ordinary global deformation-ring finiteness"
         }
       ],
@@ -3281,7 +3157,6 @@
         {
           "sourceId": "cg",
           "locator": "Theorem 4.8 proof, PDF pp. 65–68, especially the finiteness paragraph on p. 68",
-          "excerpt": "R is finite over O",
           "match": "Finiteness for the Calegari–Geraghty ring"
         }
       ],
@@ -3325,7 +3200,6 @@
         {
           "sourceId": "newton-thorne",
           "locator": "§3, p. 14, Khare–Wintenberger paragraph",
-          "excerpt": "R[1/p] is non-zero",
           "match": "Extracting a point on prescribed components"
         }
       ],
@@ -3922,7 +3796,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Proof of Theorem 10.1, p. 91 of the author's preprint proofs.pdf",
-      "printed": "choosing F as in part (c) of Theorem 6.1, such that a completion of F at ℓi contains Fℓi.",
+      "printed": "The proof chooses F using Theorem 6.1(c), requiring its completion at ℓi to contain Fℓi.",
       "correction": "\"… choosing F as in part (iii) b) of Theorem 6.1 …\"",
       "reason": "In Theorem 6.1 (p. 54) the clause about completions containing prescribed local extensions F_{ℓ_i} is (iii) b); (iii) c) makes F split at p when p > 2 and k(ρ̄) = p + 1. The proof needs the local extensions.",
       "known": "new: present in the author's preprint; the Inventiones version was not obtained",
@@ -3942,7 +3816,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Lemme 3.10.2, printed p. 192 (Numdam scan of Ann. Sci. ÉNS 22 (1989))",
-      "printed": "LEMME 3.30.2. — Soient F un corps localement compact, C une courbe propre, régul",
+      "printed": "The source labels the statement Lemme 3.30.2 and takes a locally compact field F and a proper, regular curve C.",
       "correction": "LEMME 3.10.2",
       "reason": "The lemma sits in 3.10 between 3.10.1 and 3.10.3, and the plan of the paper on p. 182 cites it as (3.10.2) (compactness of Jacobians); there is no §3.30.",
       "known": "new: present in the published article (Numdam scan)",
@@ -3961,7 +3835,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "proof of Lemma 1.5, printed p. 15 (PDF page 16), read on the page image",
-      "printed": "If it acted by ε^{−1} then it would also act by ω^{−1} on some subquotient of A[℘] (see appendix B of [CDT]). Hence χ₁|_{I_x} = ω, which we are assuming does not occur when A[λ] is semi-simple as a G_x-module.",
+      "printed": "The proof says an ε^{−1}-action would give an ω^{−1}-action on a subquotient of A[℘], citing [CDT], appendix B. It deduces χ₁|_{I_x} = ω, which it says the assumptions rule out when A[λ] is semisimple as a G_x-module.",
       "correction": "Hence χ₁|_{I_x} = ω^{−1} (that is, n = 1).",
       "reason": "The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1 (checked in the suggested Lean file).",
       "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
@@ -3981,7 +3855,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "proof of Lemma 1.1, printed p. 8 (PDF page 9), read on the page image",
-      "printed": "coincides with ψ_x on L_y^× for y ∈ S_L",
+      "printed": "The source asserts agreement with ψ_x on L_y^× at each y ∈ S_L.",
       "correction": "coincides with ψ_y on L_y^× for y ∈ S_L.",
       "reason": "The characters ψ_x are indexed by x ∈ S_L; the condition is at each y ∈ S_L separately, as in the preceding sentence 'restricts … to ψ_x on L_x^× for all x ∈ S_L'.",
       "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
@@ -4001,7 +3875,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "choice of α_w, printed p. 7 (PDF page 8), and the proof of Lemma 1.2, second case, printed p. 11 (PDF page 12), read on the page images",
-      "printed": "with a_w chosen so that α_w is congruent modulo λ to an eigenvalue of ρ̄(Frob_w). … an isomorphism i₀ : O_{ℚ(β_v)} ≅ End(A/k(v)) … O_N × O_N → O_{ℚ(α)}, (a, b) ↦ tr_{N/ℚ(α)}(ab^c)",
+      "printed": "The source chooses a_w so that, modulo λ, α_w agrees with an eigenvalue of ρ̄(Frob_w). It also asserts an isomorphism i₀ : O_{ℚ(β_v)} ≅ End(A/k(v)) and gives O_N × O_N → O_{ℚ(α)}, (a, b) ↦ tr_{N/ℚ(α)}(ab^c).",
       "correction": "modulo λ₀; End(A₀/k(v)); ℚ(β_v).",
       "reason": "On p. 7 only λ₀ | l in N₀ has been chosen; λ | λ₀ in N is chosen on p. 10, and α_w ∈ N₀. On p. 11 the abelian variety is A₀ and no α is defined in this case; the pairing is the trace from N to ℚ(β_v), as i₀ and the tensor product O_N = O_{ℚ(β_v)} ⊗ … show.",
       "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
@@ -4021,7 +3895,7 @@
       "kind": "error",
       "affects": "a stated result",
       "locator": "Proposition 9.1.12, published pp. 458–459",
-      "printed": "L′/E is linearly disjoint from E′F(avoid)/E.",
+      "printed": "The proposition asserts linear disjointness over E between L′/E and E′F(avoid)/E.",
       "correction": "Take K/E Galois disjoint from E′Favoid/E, K′=KE′, and L′/K′ Galois with group G. Remove the assertion L′=LE′ for L/K. In (4) use Gal(L′_w/K′_w).",
       "reason": "L′ contains E′, so printed (2) is impossible for E′≠E. Weil restriction supplies a G-cover over KE′ without descent to K. For E=Q, E′=Q(sqrt(2)), S={7}, the two split places permit different local decomposition data, so an L/K descent is not available in general. Lemma 9.2.7 uses only K and L′/K′.",
       "known": "Previously recorded by the accepted BCGP extraction and explicitly assigned in issue #976; reverified in the published edition in this run.",
@@ -4041,7 +3915,7 @@
       "source": "bhkt-published",
       "kind": "misprint",
       "locator": "Lemma 9.1(i), published p. 77; also author v2 p. 51",
-      "printed": "is a geometrically connected finite étale K-scheme.",
+      "printed": "The lemma describes the K-scheme as finite and étale, with geometric connectedness.",
       "correction": "Z_{ψ,φ} is finite étale over Y_K, and is a smooth geometrically connected curve over K. Replace finite étale K-scheme by finite étale Y_K-scheme geometrically connected over K.",
       "reason": "With H trivial, Z=Y_K, a curve of dimension one over K, so it cannot be finite over K. Its relative Isom construction and the proof identify a finite cover of Y_K. Proposition 9.2 itself correctly calls it a curve.",
       "affects": "a stated result",

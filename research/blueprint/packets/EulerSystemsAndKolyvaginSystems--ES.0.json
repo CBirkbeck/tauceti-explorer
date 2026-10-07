@@ -374,13 +374,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Chapter 3, first paragraph, p. 19",
-     "excerpt": "A Selmer triple is a triple (T, F, P) where F is a Selmer structure on T and P is a set of rational primes, disjoint from Σ(F).",
      "match": "Definition of a Selmer triple over ℚ."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Definition 4.1, p. 8",
-     "excerpt": "By Selmer data we mean a tuple (T, F , P, r) where",
      "match": "The same data over a number field K, with the rank r."
     }
    ],
@@ -489,7 +487,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Example 1.1.3, p. 8",
-     "excerpt": "Let QuotR (T ) be the category whose objects are quotients T /IT for all ideals I of R, and where the morphisms from T /IT to T /JT consist of all scalar multiplications r such that rI ⊂ J.",
      "match": "Definition of the category of quotients."
     }
    ],
@@ -584,13 +581,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 1.1.4, p. 8",
-     "excerpt": "Equivalently, F is cartesian on T if whenever α : T1 → T2 is injective, the local condition F on T1 is the same as the local condition obtained by propagating F from T2 to T1 .",
      "match": "The definition, in its equivalent form."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Definition 3.1 and Remark 3.2, p. 7",
-     "excerpt": "If R is a field (i.e., m = 0) then every Selmer structure on T is cartesian.",
      "match": "Cartesian Selmer structures and the two standard sufficient conditions."
     }
    ],
@@ -698,7 +693,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 1.1.5, p. 8",
-     "excerpt": "Thus λ(i) + λ(j) = λ(i + j), and the lemma follows.",
      "match": "Statement and proof of the linearity."
     }
    ],
@@ -740,7 +734,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Example 1.3.3, p. 12",
-     "excerpt": "It is an easy exercise to show that these give the same local condition on T ∗ [I].",
      "match": "The square relating propagation and orthogonal complements."
     }
    ],
@@ -779,19 +772,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 3.5.3, p. 28",
-     "excerpt": "Suppose that (H.1) and (H.3) hold, and I is an ideal of R. Then the inclusion T ∗ [I] ,→ T ∗ induces an isomorphism",
      "match": "Part (a)."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 3.5.4, p. 29",
-     "excerpt": "Suppose R is artinian and principal of length k, T satisfies (H.0), (H.1), (H.3), and (H.6), 0 < i ≤ k, and π is a generator of m.",
      "match": "Part (b)."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Proposition 3.3(i)–(ii), p. 7",
-     "excerpt": "F is a cartesian Selmer structure on T , and T GK = (T ∗ )GK = 0",
      "match": "The same statements over a number field under the invariants hypothesis alone."
     }
    ],
@@ -831,7 +821,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Proposition 2.3.5, p. 17",
-     "excerpt": "The next proposition is Proposition 1.6 of [Wi], adapted to include the case p = 2. It is a consequence of Poitou-Tate global duality, and the proof is the same as in [Wi].",
      "match": "The finite-level Euler characteristic formula."
     }
    ],
@@ -874,13 +863,11 @@
     {
      "sourceId": "mr-higher",
      "locator": "Proposition 3.3(iii) and Definition 3.4, p. 8",
-     "excerpt": "there is a unique integer r, independent of n, such that there is a noncanonical isomorphism",
      "match": "The integer r and the definition of the core rank from it."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.1.5 and Definition 4.1.11, pp. 36–38",
-     "excerpt": "There are nonnegative integers r, s, one of which can be taken to be zero, such that for every n ∈ N there is a noncanonical isomorphism",
      "match": "The same statement over ℚ; the case n = 1 is used here."
     }
    ],
@@ -989,13 +976,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.1.13 and Definition 5.2.4, pp. 38, 56",
-     "excerpt": "By Theorem 4.1.13, the core ranks χ(T /mk T ) and χ(T ∗ [mk ]) are independent of k.",
      "match": "Independence of the modulus."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Corollary 5.2.6, p. 56",
-     "excerpt": "rankR (HF1 (Q, T )) − corankR (HF1 ∗ (Q, T ∗ )) = χ(T ) − χ(T ∗ ).",
      "match": "The rank formula over a discrete valuation ring."
     }
    ],
@@ -1036,19 +1021,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.2.1, p. 23",
-     "excerpt": "We define a canonical Selmer structure Fcan on T by",
      "match": "Definition of F_can over ℚ."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Definition 5.1, pp. 9–10",
-     "excerpt": "the saturation of H 1 (Kp , T )u in H 1 (Kp , T )",
      "match": "Definition of F_ur over a number field."
     },
     {
      "sourceId": "bss2",
      "locator": "§6.2, p. 38",
-     "excerpt": "The canonical Selmer structure Fcan on T (see [11, Def. 3.2.1]) is the following data:",
      "match": "The same structure over a number field and a Gorenstein order."
     }
    ],
@@ -1165,13 +1147,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 5.2.15, p. 59",
-     "excerpt": "Suppose F = Fcan , the canonical Selmer structure on T given by Definition 3.2.1.",
      "match": "Part (a)."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Theorem 5.4, p. 10",
-     "excerpt": "Suppose R is a discrete valuation ring. Then",
      "match": "Part (b)."
     }
    ],
@@ -1211,13 +1191,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "§3.5, pp. 27–28",
-     "excerpt": "(H.2) There is a τ ∈ GQ such that τ = 1 on µp∞ and T /(τ − 1)T is free of rank one over R.",
      "match": "The list (H.0)–(H.6)."
     },
     {
      "sourceId": "mr-ks",
      "locator": "§3.5, p. 27",
-     "excerpt": "(H.5) Pt ⊂ P ⊂ P1 for some t ∈ Z+ , where for k ∈ Z+ Pk is given by Definition 3.1.6.",
      "match": "The condition on the set of primes."
     }
    ],
@@ -1326,13 +1304,11 @@
     {
      "sourceId": "mr-higher",
      "locator": "§4, hypotheses (H.1)–(H.7), p. 9",
-     "excerpt": "(H.4) either T̄ ∼6= T̄ ∗ as k[[GK ]]-modules, or p > 3,",
      "match": "The list of running hypotheses."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Lemma 4.5, p. 9",
-     "excerpt": "Suppose R is artinian and τ is as in (H.2). If q ∈ P(HM , τ ), then Iq = 0.",
      "match": "How (H.7) is obtained."
     }
    ],
@@ -1433,13 +1409,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Remark 3.5.1, p. 28",
-     "excerpt": "is a surjective homomorphism of (complete) local rings and T satisfies (H.i), then so does T ⊗R R0 viewed as an R0 [[GQ ]]-module, for any",
      "match": "Stability under quotients of the coefficient ring."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Remark 4.3, p. 9",
-     "excerpt": "If R is artinian and (H.1) through (H.6) hold, then Lemma 4.5 below shows that (H.1) through (H.7) hold if we replace L by HM and P by P(HM , τ ).",
      "match": "Passage to (H.7)."
     }
    ],
@@ -1480,7 +1454,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 6.1.5 and Proposition 6.1.6, pp. 71–72",
-     "excerpt": "Suppose ρ 6= 1 and ρ 6= ω. Then T satisfies hypotheses (H.0), (H.1), (H.2), (H.3), and (H.4a) of §3.5, and F and Fcan both satisfy (H.6).",
      "match": "Hypotheses and core rank for the twists of ℤ_p(1)."
     }
    ],
@@ -1520,7 +1493,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Proposition 6.2.2 and Lemma 6.2.3, p. 74",
-     "excerpt": "Proposition 6.2.2. χ(T, F) = 0 and χ(T, Fcan ) = 1.",
      "match": "Core ranks and hypotheses for T_pE."
     }
    ],
@@ -1558,13 +1530,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 6.1.5, proof, p. 71",
-     "excerpt": "If ρ 6= 1 and ρ 6= ω, then (H.3) holds as well (note that since ρ has order prime to p, it is not congruent to either 1 or ω modulo p).",
      "match": "The two excluded characters are exactly those for which (H.3) fails."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Remark 2.7, p. 25",
-     "excerpt": "In the exceptional case T = O of Theorem 2.3, SΣp (K, W ∗ ) is finite if and only if Leopoldt’s conjecture holds for K.",
      "match": "What remains true in the excluded case."
     }
    ],
@@ -1604,7 +1574,6 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV §1, p. 55",
-     "excerpt": "Class field theory shows that K(q)/K(1) is unramified outside q, totally ramified above q, and cyclic with Galois group equal",
      "match": "The fields K(q), K(r) and the groups Γ_q, Γ_r."
     }
    ],
@@ -1715,19 +1684,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 2.2.1, p. 16",
-     "excerpt": "Let P` (x) = det(1 − Fr` x | T ) ∈ R[x], and let I` be the ideal of R generated by ` − 1 and P` (1).",
      "match": "I_ℓ, I_n and G_n over ℚ."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Definition 2.2, p. 6",
-     "excerpt": "If q is not principal, let Iq := R. If q is principal, let Iq ⊂ R be the largest power of m",
      "match": "I_q over a number field."
     },
     {
      "sourceId": "howard",
      "locator": "Definition 1.2.1, p. 1444",
-     "excerpt": "By convention 1 ∈ Nk for every k, I1 = 0, and G1 = Z.",
      "match": "The inert-prime variant."
     }
    ],
@@ -1837,19 +1803,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.1.6, p. 21",
-     "excerpt": "T /(mk T + (Fr` − 1)T ) is free of rank one over R/mk , and",
      "match": "The sets P_k."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Definition 4.2, p. 9",
-     "excerpt": "and Frq is conjugate to τ in Gal(L/K)}.",
      "match": "The sets P(L, τ)."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Definition 1.1, p. 57",
-     "excerpt": "If K ⊂f F ⊂ K∞ and M ∈ O is nonzero, define RF,M ⊂ R by",
      "match": "Rubin's sets R_{F,M}."
     }
    ],
@@ -1961,7 +1924,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 1.2.1, p. 10",
-     "excerpt": "The isomorphism of (i) is induced by evaluating cocycle classes in H 1 (GF , T ) on Frobenius.",
      "match": "The two canonical identifications."
     }
    ],
@@ -2000,7 +1962,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 1.1.6(iv) and Lemma 1.2.4, pp. 9, 11",
-     "excerpt": "In other words, (3) has a functorial splitting (depending on L)",
      "match": "Definition of the transverse condition and the splitting."
     }
    ],
@@ -2115,13 +2076,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 1.2.2, p. 10",
-     "excerpt": "Since P (1) = 0, there is a unique polynomial Q(x) ∈ R[x] such that",
      "match": "The comparison map with its tensor factor."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Definition 5.3, pp. 67–68",
-     "excerpt": "We define the “finite-singular comparison” map",
      "match": "Rubin's version with a chosen generator σ_q."
     }
    ],
@@ -2243,13 +2202,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Example 2.1.8, p. 15",
-     "excerpt": "In other words, Fab (c) consists of F together with the strict condition at primes dividing a, the unrestricted condition at primes dividing b, and the transverse condition at primes dividing c.",
      "match": "The modified structures."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Example 2.3.2, p. 17",
-     "excerpt": "By Proposition 1.3.2, the dual Fab (c)∗ of the Selmer structure Fab (c) is (F ∗ )ba (c).",
      "match": "Their duals."
     }
    ],
@@ -2356,7 +2313,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Proposition 1.3.2, p. 12",
-     "excerpt": "The next proposition says that (on suitable modules T ) the finite and transverse conditions are self-dual.",
      "match": "Self-duality of the finite and transverse conditions."
     }
    ],
@@ -2398,13 +2354,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Proposition 3.6.1, p. 30",
-     "excerpt": "For every k ∈ Z+ there is a set S ⊂ Pk of positive density such that for every ` ∈ S, the localizations (ci )` are all nonzero.",
      "match": "The four-class statement."
     },
     {
      "sourceId": "bss2",
      "locator": "Lemma 3.9, p. 17",
-     "excerpt": "Lemma 3.9 ([11, Prop. 3.6.1]). Assume Hypothesis 3.2.",
      "match": "The version over a number field with Gorenstein coefficients."
     }
    ],
@@ -2443,7 +2397,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Proposition 3.6.2, p. 30",
-     "excerpt": "Suppose that the image of R → End(T ) is contained in the image of Zp [[GQ ]] → End(T ).",
      "match": "Prescribed kernels of localisation."
     }
    ],
@@ -2485,13 +2438,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter V, Lemma 2.3, p. 81",
-     "excerpt": "Then there is a finite set Σ = {q1 , . . . , qk } of primes of K satisfying the",
      "match": "The inductive choice of primes."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter V, Lemma 3.1, p. 87",
-     "excerpt": "The extra ‘1’ takes care of the case p = 2.",
      "match": "The weakened form under Hyp(K, V)."
     }
    ],
@@ -2529,13 +2480,11 @@
     {
      "sourceId": "ltxzz",
      "locator": "Definition 2.3.2, arXiv v3 p. 14",
-     "excerpt": "we define its reducibility depth to be the smallest integer rR ⩾ 0 such that",
      "match": "Definition of the reducibility depth."
     },
     {
      "sourceId": "ltxzz",
      "locator": "Lemma 2.3.3, arXiv v3 p. 14",
-     "excerpt": "there exists an integer rR depending on R only, such that R̄(m) has reducibility depth at most rR",
      "match": "The uniform bound."
     }
    ],
@@ -2642,13 +2591,11 @@
     {
      "sourceId": "ltxzz",
      "locator": "Lemma 2.3.4, arXiv v3 p. 15",
-     "excerpt": "Suppose that the map Resρ is injective.",
      "match": "The saturation statement."
     },
     {
      "sourceId": "ltxzz",
      "locator": "Lemma 2.3.5, arXiv v3 pp. 15–16",
-     "excerpt": "Suppose that either one of the following two assumptions holds:",
      "match": "The two criteria for injectivity of restriction."
     }
    ],
@@ -2688,13 +2635,11 @@
     {
      "sourceId": "ltxzz",
      "locator": "Definition 2.6.5, arXiv v3 p. 20",
-     "excerpt": "is (S, γ)-abundant if the image of the",
      "match": "Definition of abundant tuples."
     },
     {
      "sourceId": "ltxzz",
      "locator": "Lemma 2.6.4, arXiv v3 p. 19",
-     "excerpt": "Suppose that the order of γ is coprime to `. Then we have",
      "match": "The printed lemma, used here in its corrected form."
     }
    ],
@@ -2797,19 +2742,16 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Lemma 1.2 and its proof, p. 57",
-     "excerpt": "This and the Cayley-Hamilton Theorem prove (ii), (iii), and (iv).",
      "match": "The identity between the two determinants and the annihilation statements."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Remark 3.2.3, p. 23",
-     "excerpt": "However, it is easy to switch back and forth between the two choices, and they give equivalent theories and isomorphic modules ES(T ).",
      "match": "The two conventions differ and are equivalent."
     },
     {
      "sourceId": "bss2",
      "locator": "§6.1, pp. 36–37",
-     "excerpt": "For a prime q ∈",
      "match": "The convention of Burns–Sakamoto–Sano, P_q(x) = det(1 − Fr_q^{-1}x | T^*(1))."
     }
    ],
@@ -2928,13 +2870,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Definition 1.1, pp. 21–22",
-     "excerpt": "is an Euler system for (T, K, N ) if, whenever K ⊂f F ⊂f F 0 ⊂ K,",
      "match": "The definition."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Remark 2.8, p. 25",
-     "excerpt": "There is always a trivial Euler system defined by cF (r) = 0 for all F and r.",
      "match": "The zero system is an Euler system."
     }
    ],
@@ -3054,13 +2994,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, before Theorem 2.10, p. 25",
-     "excerpt": "By Corollary B.3.4 (see also Proposition IV.6.1) and Lemma I.3.5(ii), if c is an Euler system then cK ∈ S Σp (K, T ).",
      "match": "The classes are unramified outside p."
     },
     {
      "sourceId": "bss2",
      "locator": "Lemma 6.6, p. 38",
-     "excerpt": "Then cF belongs to HF1 can (F, T ) for every F in Ω(K/K).",
      "match": "The same statement for the canonical Selmer structure."
     }
    ],
@@ -3099,7 +3037,6 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Remarks 1.3 and 1.4, pp. 22–23",
-     "excerpt": "Thus we may view an Euler system for (T, Kmin , N ) as such a collection {cF (r) }.",
      "match": "Both presentations."
     }
    ],
@@ -3139,13 +3076,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Proposition 4.2, p. 30",
-     "excerpt": "defined above is an Euler system for (T ⊗ χ, K, fN ).",
      "match": "The twisted family is an Euler system."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Lemma 4.3, p. 31",
-     "excerpt": "and the conductor of L0 /K is equal to the conductor of L/K, then the image of cχF",
      "match": "The restriction formula."
     }
    ],
@@ -3242,13 +3177,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Lemma 6.1, p. 141",
-     "excerpt": "collections of polynomials such that fq (x) ≡ gq (x) (mod N(q) − 1) for every q, and",
      "match": "Changing congruent Euler factors."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Remark 3.2.3, p. 23",
-     "excerpt": "See §9.6 of [Ru6].",
      "match": "The two conventions give isomorphic modules."
     }
    ],
@@ -3288,19 +3221,16 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Definitions 2.1–2.2, p. 58",
-     "excerpt": "The universal Euler system (for (T, N , K∞ /K)) is",
      "match": "Definition of X_{F(r)} and X."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Proposition 3.1, p. 59",
-     "excerpt": "XF (r) is a free O[Gal(F (r)/K(r))]-module of rank [K(r) : K].",
      "match": "Freeness of the universal Euler system."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Proposition 3.4, p. 61",
-     "excerpt": "Proposition 3.4. Suppose r ∈ R, k ≥ 0, and M ∈ O is nonzero.",
      "match": "The Ext¹ vanishing."
     }
    ],
@@ -3400,25 +3330,21 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX §1, p. 133",
-     "excerpt": "is an Euler system. Since there are",
      "match": "The failure of rigidity without condition (ii) and the replacement (ii)′."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Definition 3.1, p. 136",
-     "excerpt": "An Euler system for WM (or an Euler system of depth M ) is a collection of cohomology classes satisfying all the",
      "match": "Finite depth."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Definition 4.1, p. 138",
-     "excerpt": "is a χ-anticyclotomic Euler system for (T, K0 , N ) (or simply for T ) if",
      "match": "Anticyclotomic Euler systems."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Definition 5.1, p. 140",
-     "excerpt": "We say c is trivial at Σ if",
      "match": "Triviality at Σ."
     }
    ],
@@ -3517,7 +3443,6 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Definition 4.1 and (4), p. 62",
-     "excerpt": "We have the easy “telescoping” identity",
      "match": "The operators D_q, D_r and the identity (σ_q − 1)D_q = |Γ_q| − N_q."
     }
    ],
@@ -3629,7 +3554,6 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Lemma 4.2, p. 62",
-     "excerpt": "Further, NF (1)/F Dr xF (r) is independent of the choice of NF (1)/F .",
      "match": "The invariance statement."
     }
    ],
@@ -3666,13 +3590,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Proposition 4.5, pp. 63–64",
-     "excerpt": "For every r ∈ R and every L, K ⊂f L ⊂ K∞ (r) there is a canonical map",
      "match": "The connecting map δ_L and its properties."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Proposition 4.8, p. 65",
-     "excerpt": "These conditions determine each dF uniquely up to an element of HomO[GK ] (XF (r) , WM ).",
      "match": "Existence and uniqueness of the lifts d_F."
     }
    ],
@@ -3714,13 +3636,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Definition 4.10, p. 66",
-     "excerpt": "Lemma 4.2 shows that d(Dr,F xF (r) ) ∈ (WM /WM )GF and we define",
      "match": "Definition of the derivative class."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Lemma 4.13, p. 67",
-     "excerpt": "The class κF,1,M is the image of cF in H 1 (F, WM ).",
      "match": "The three basic properties."
     }
    ],
@@ -3838,19 +3758,16 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Theorem 5.1, p. 67",
-     "excerpt": "Theorem 5.1. Suppose K ⊂f F ⊂ K∞ , M ∈ O is nonzero, and r ∈ RF,M .",
      "match": "Finiteness away from pr."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Theorem 5.4, p. 68",
-     "excerpt": "In other words, the singular part of κF,rq,M at q is controlled by the (finite) localization of κF,r,M at q.",
      "match": "The finite–singular relation."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Theorem 5.2, p. 140",
-     "excerpt": "trivial at Σ, then the derivative classes κF,r,M constructed in",
      "match": "Triviality at Σ is inherited."
     }
    ],
@@ -3891,7 +3808,6 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IV, Corollary 8.1, p. 77",
-     "excerpt": "Corollary 8.1. Suppose c is an Euler system for T , K ⊂f F ⊂ K∞ , q ∈ R is",
      "match": "The congruence relation."
     }
    ],
@@ -3933,19 +3849,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.1.3, p. 20",
-     "excerpt": "Concretely, a Kolyvagin system for (T, F, P) is a collection of cohomology classes",
      "match": "The concrete definition and relation (5)."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.1.6, p. 21",
-     "excerpt": "which in general need not be either injective or surjective.",
      "match": "The generalised module and the map to it."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.1.8, p. 21",
-     "excerpt": "A weak Kolyvagin system for (T, F, P) is a global section of the sheaf",
      "match": "Weak Kolyvagin systems."
     }
    ],
@@ -4068,13 +3981,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Appendix A, Proposition A.2, p. 79",
-     "excerpt": "is a weak Kolyvagin system for (T, F, P) in the sense of Definition 3.1.8.",
      "match": "The raw derivative classes form a weak system."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Appendix A, Theorem A.4, p. 80",
-     "excerpt": "Theorem A.4. If n ∈ N and ` | n then",
      "match": "The formula for the finite parts."
     }
    ],
@@ -4119,19 +4030,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 3.2.4, pp. 23–24",
-     "excerpt": "Then there is a canonical homomorphism ES(T ) → KS(T, Fcan , P) which is GQ - equivariant",
      "match": "The theorem."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Appendix A, proof of Theorem 3.2.4, (33), p. 80",
-     "excerpt": "By inspection we see that since the κn satisfy (5) of §3.1, so do the κ0n .",
      "match": "The corrected classes."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 3.2.7, p. 24",
-     "excerpt": "Suppose in addition that cF ∈ HF1 can (F, T ) for every F and that there is a γ ∈ GQ such that γ − 1 kills µp∞ and γ − 1 is injective",
      "match": "The variant without the p-direction."
     }
    ],
@@ -4240,7 +4148,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Appendix A, Theorem A.4 and (33), p. 80",
-     "excerpt": "where sign(π) is the sign of the permutation π.",
      "match": "The two formulas specialised to two primes."
     }
    ],
@@ -4280,13 +4187,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Remark 4.4, p. 139",
-     "excerpt": "But φfq s is not Gal(K 0 /K)-equivariant; for",
      "match": "The eigenspace shift of the finite–singular map."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX §4, p. 138",
-     "excerpt": "These classes satisfy analogues of Theorems IV.5.1 and IV.5.4, and can be used along with",
      "match": "Derivative classes exist for χ-anticyclotomic systems."
     }
    ],
@@ -4327,13 +4232,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.1.2, pp. 19–20",
-     "excerpt": "The Selmer sheaf associated to (T, F, P) is the simplicial sheaf H = H(T,F ,P) of R-modules on X defined as follows.",
      "match": "The graph and the sheaf."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.1.1, p. 19",
-     "excerpt": "A global section of S is a collection {κv ∈ S(v) : v ∈ V } such that for every",
      "match": "Sheaves on graphs and global sections."
     }
    ],
@@ -4445,7 +4348,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.4.2 and Proposition 3.4.4, pp. 26–27",
-     "excerpt": "We say that the vertex v is a hub of S if for every vertex w there is an S-surjective path from v to w.",
      "match": "Hubs, monodromy and the evaluation map."
     }
    ],
@@ -4558,13 +4460,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Lemma 4.1.7, p. 37",
-     "excerpt": "Lemma 4.1.7. Suppose n` ∈ N with ` prime.",
      "match": "How the Selmer lengths change along an edge."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Corollary 2.3.6, p. 17",
-     "excerpt": "so the right-hand side of Proposition 2.3.5 is unchanged when we replace F by F (n).",
      "match": "Invariance of the length difference."
     }
    ],
@@ -4605,19 +4505,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 4.1.8 and Corollary 4.1.9, p. 38",
-     "excerpt": "that m is a core vertex (of the graph X of Definition 3.1.2).",
      "match": "Core vertices and their existence."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.1.10 and Definition 4.1.11, p. 38",
-     "excerpt": "The ranks of these modules are independent of the choice of core vertex n, and one of them is zero.",
      "match": "Freeness at core vertices and the core rank."
     },
     {
      "sourceId": "mr-higher",
      "locator": "§11, p. 22",
-     "excerpt": "We say that a vertex n ∈ N is a core vertex if λ(n) = 0.",
      "match": "Core vertices over a number field."
     }
    ],
@@ -4729,7 +4626,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.1.16, p. 39",
-     "excerpt": "Then there are infinitely many leading vertices n ∈ N such that L ⊂ HF1 (n) (Q, T ).",
      "match": "Leading vertices through L."
     }
    ],
@@ -4772,25 +4668,21 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 4.3.1, p. 41",
-     "excerpt": "The sheaf of stub Selmer modules",
      "match": "Definition of the stub subsheaf."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.3.4, p. 41",
-     "excerpt": "Then the sheaf H0 is locally cyclic and connected, and every n ∈ N with λ(n, T ∗ ) = 0 is a hub.",
      "match": "Local cyclicity and hubs."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.4.1, p. 45",
-     "excerpt": "Then the inclusion Γ(H0 ) ⊂ Γ(H) is an isomorphism.",
      "match": "Kolyvagin systems are stub sections."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.2.2, p. 40",
-     "excerpt": "Theorem 4.2.2. If the core rank χ(T ) = 0, then KS(T ) = 0.",
      "match": "Vanishing in core rank zero."
     }
    ],
@@ -4901,13 +4793,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 5.2.2, p. 56",
-     "excerpt": "In particular if κ1 6= 0 then HF1 ∗ (Q, T ∗ ) is finite.",
      "match": "The bound over a discrete valuation ring."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Corollary 4.4.5, p. 47",
-     "excerpt": "Suppose κ ∈ KS(T ). If one of the three hypotheses of Theorem 4.4.1 holds for T , or if the hypothesis of Theorem 4.4.3 holds for T and κ, then",
      "match": "The artinian bound."
     }
    ],
@@ -4949,19 +4839,16 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II §2, p. 24",
-     "excerpt": "Hypotheses Hyp(K, T ).",
      "match": "The two hypothesis packages."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Definition 2.1, p. 24",
-     "excerpt": "If c is an Euler system, we define the index of divisibility of c to be",
      "match": "The index of divisibility."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter V, Lemma 3.2, p. 87",
-     "excerpt": "If T 6= O and T 6= O(1) then H 1 (Ω/K, W ) and H 1 (Ω/K, W ∗ )",
      "match": "Finiteness of the error groups."
     }
    ],
@@ -5080,25 +4967,21 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Theorem 2.2, p. 24",
-     "excerpt": "Theorem 2.2. Suppose that p > 2 and that T satisfies Hyp(K, T ). If c is an",
      "match": "The bound with error terms."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter II, Theorem 2.3, p. 24",
-     "excerpt": "Note that Theorem 2.3 holds even if p = 2.",
      "match": "Finiteness under Hyp(K, V)."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter V, Lemma 2.5, p. 82",
-     "excerpt": "Lemma 2.5. Suppose m = pn is a nonzero ideal of O, k ∈ Z+ , M is a power",
      "match": "The key estimate on the cokernel of the singular localisation."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Appendix A, Corollary 2.6, p. 148",
-     "excerpt": "have length at most 2b.",
      "match": "The kernel and cokernel of q(σ) on W_M are bounded."
     }
    ],
@@ -5140,13 +5023,11 @@
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Theorem 3.3, p. 137",
-     "excerpt": "Theorem 3.3. Suppose M ∈ O is nonzero and c is an Euler system for WM .",
      "match": "The finite-depth bound."
     },
     {
      "sourceId": "rubin-es",
      "locator": "Chapter IX, Theorem 4.3, p. 139",
-     "excerpt": "Theorem 4.3. Suppose c is a χ-anticyclotomic Euler system for T . Suppose",
      "match": "The anticyclotomic exponent bound."
     }
    ],
@@ -5186,13 +5067,11 @@
     {
      "sourceId": "ltxzz",
      "locator": "Proposition 2.4.6(2), arXiv v3 p. 17",
-     "excerpt": "exists a positive integer mΣ , depending on R and Σ, such that for every S as in (1) and",
      "match": "Uniform annihilation of localisations."
     },
     {
      "sourceId": "ltxzz",
      "locator": "Proposition 2.6.7, arXiv v3 p. 20",
-     "excerpt": "For every (S, γ)-abundant r-tuple (Ψ1 , . . . , Ψr ), one can choose a basis {s1 , . . . , sr } of S such that",
      "match": "The printed statement, corrected here (PAPER-LIU-ETAL-22/E2 in the register of source mistakes)."
     }
    ],
@@ -5234,19 +5113,16 @@
     {
      "sourceId": "cgls",
      "locator": "Theorem 3.2.1, arXiv v2 p. 17",
-     "excerpt": "for some constant Eα ∈ Z⩾0 depending only on Cα , Tp E, and rankZp (R).",
      "match": "The bound with the error constant."
     },
     {
      "sourceId": "cgls",
      "locator": "Proposition 3.3.6, arXiv v2 p. 19",
-     "excerpt": "Proposition 3.3.6. Suppose α 6= 1. Let c1 , c2 , c3 ∈ H1 (K, T (k) ).",
      "match": "The Chebotarev statement with error terms."
     },
     {
      "sourceId": "cgls",
      "locator": "Lemma 3.3.9, arXiv v2 p. 22",
-     "excerpt": "Lemma 3.3.9. Let N ⊂ M be finitely-generated torsion R-modules.",
      "match": "The module lemma used in the induction."
     }
    ],
@@ -5286,19 +5162,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 5.2.11, pp. 57–58",
-     "excerpt": "For κ ∈ KS(T ) and r ∈ Z+ define (compare Definition 4.5.7)",
      "match": "The invariants over a discrete valuation ring."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Definition 4.5.5, p. 49",
-     "excerpt": "We say that κ ∈ KS(T ) is primitive if the image of κ in",
      "match": "Primitivity."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Definition 4.5.7, p. 49",
-     "excerpt": "The elementary divisors of κ are defined by",
      "match": "The artinian invariants."
     }
    ],
@@ -5416,13 +5289,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Corollary 4.5.2, p. 48",
-     "excerpt": "KS(T ) is a free R-module of rank one.",
      "match": "The artinian statement."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 5.2.10, p. 57",
-     "excerpt": "If χ(T ) = 1 then KS(T ) is a free R-module of rank one, generated by a",
      "match": "The statement over a discrete valuation ring."
     }
    ],
@@ -5468,19 +5339,16 @@
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 5.2.12, p. 58",
-     "excerpt": "Theorem 5.2.12. Suppose χ(T ) = 1 and κ ∈ KS(T ), κ 6= 0. Then",
      "match": "The structure theorem over a discrete valuation ring."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Corollary 5.2.13, p. 58",
-     "excerpt": "with equality if and only if κ is primitive.",
      "match": "Sharpness under primitivity."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.5.9, p. 50",
-     "excerpt": "Theorem 4.5.9. Suppose χ(T ) = 1, κ ∈ KS(T ), and κ1 6= 0. Then",
      "match": "The artinian structure theorem."
     }
    ],
@@ -5524,13 +5392,11 @@
     {
      "sourceId": "mr-ks",
      "locator": "Definition 3.3.1, p. 25",
-     "excerpt": "Kolyvagin-constructed dual Selmer group by",
      "match": "Definition of Sel^*(κ; n)."
     },
     {
      "sourceId": "mr-ks",
      "locator": "Theorem 4.5.12, p. 51",
-     "excerpt": "If κ ∈ KS(T ) is primitive then the canonical map",
      "match": "The isomorphism under primitivity."
     }
    ],
@@ -5622,7 +5488,6 @@
     {
      "sourceId": "mr-ks",
      "locator": "Proposition 6.2.6, p. 75",
-     "excerpt": "If p | c` for some ` 6= p, then κKato is not primitive.",
      "match": "A naturally occurring non-primitive system."
     }
    ],
@@ -5665,19 +5530,16 @@
     {
      "sourceId": "howard",
      "locator": "§1.3, hypotheses H.0–H.5, p. 1446",
-     "excerpt": "H.0) T is a free, rank-two R-module.",
      "match": "The hypothesis list."
     },
     {
      "sourceId": "howard",
      "locator": "§1.3, hypothesis H.4, p. 1446",
-     "excerpt": "There is a perfect, symmetric, R-bilinear pairing",
      "match": "The self-duality hypothesis."
     },
     {
      "sourceId": "howard",
      "locator": "Definition 1.2.3, p. 1445",
-     "excerpt": "be a collection of cohomology classes",
      "match": "Kolyvagin systems over an imaginary quadratic field."
     }
    ],
@@ -5780,13 +5642,11 @@
     {
      "sourceId": "howard",
      "locator": "Proposition 1.4.1, p. 1448",
-     "excerpt": "Proposition 1.4.1. For positive integers s and t with s + t ⩽ k there is a pairing",
      "match": "The pairing."
     },
     {
      "sourceId": "howard",
      "locator": "Lemma 1.5.3, p. 1450",
-     "excerpt": "In particular this implies that ρ(n) (mod 2) is independent of n ∈ N .",
      "match": "Parity is constant on the graph."
     }
    ],
@@ -5820,13 +5680,11 @@
     {
      "sourceId": "howard",
      "locator": "Definition 1.5.4, p. 1451",
-     "excerpt": "b) the stub Selmer module S(n) = mλ(n) H(n).",
      "match": "The self-dual stub module."
     },
     {
      "sourceId": "howard",
      "locator": "Proposition 1.5.9, proof, p. 1452",
-     "excerpt": "kills the lower right quotient. The proposition follows.",
      "match": "Vanishing of localisation propagates along an edge."
     }
    ],
@@ -5870,7 +5728,6 @@
     {
      "sourceId": "howard",
      "locator": "Theorem 1.6.1, p. 1453",
-     "excerpt": "is a free rank-one R module, and there is a finite R-module M such that",
      "match": "The theorem."
     }
    ],
@@ -5915,13 +5772,11 @@
     {
      "sourceId": "bss2",
      "locator": "Definition 2.1, p. 7",
-     "excerpt": "we define the ‘r-th exterior bidual’ of X",
      "match": "The definition, the map ξ and the contraction maps."
     },
     {
      "sourceId": "dk",
      "locator": "§1.2, p. 8",
-     "excerpt": "that ϕ(u) ∈ Z[G] for all r-tuples (ϕ1 , . . . , ϕr ) ∈ HomZ[G] (US,T , Z[G])⊕r . Rubin’s lattice is",
      "match": "The lattice form over ℤ[G], in Rubin's original normalisation."
     }
    ],
@@ -6054,19 +5909,16 @@
     {
      "sourceId": "bss2",
      "locator": "Proposition 2.3, p. 8",
-     "excerpt": "Suppose that R is self-injective, i.e. R",
      "match": "The map into the bidual of a kernel."
     },
     {
      "sourceId": "bss2",
      "locator": "Proposition 2.4, p. 8",
-     "excerpt": "Proposition 2.4. Suppose that R is self-injective. Let X be an R-module and Y an R-",
      "match": "Rank reduction."
     },
     {
      "sourceId": "bss2",
      "locator": "Corollary 2.7, p. 10",
-     "excerpt": "Corollary 2.7. We suppose to be given a surjective homomorphism R → S of self-injective",
      "match": "Coefficient change."
     }
    ],
@@ -6108,19 +5960,16 @@
     {
      "sourceId": "mr-higher",
      "locator": "Definition 6.8, p. 14",
-     "excerpt": "SSr (T, F , P) of Stark systems of rank r to be the inverse limit",
      "match": "Stark systems over principal artinian rings."
     },
     {
      "sourceId": "bss2",
      "locator": "§4.1, p. 19",
-     "excerpt": "By definition, a Stark system of rank r (for (A, F)) is an element",
      "match": "Stark systems in exterior biduals."
     },
     {
      "sourceId": "bss2",
      "locator": "Definition 4.1, p. 20",
-     "excerpt": "Definition 4.1. Let ǫ = (ǫn )n ∈ SSr (A, F). Then for each non-negative integer i we define",
      "match": "The ideals I_i(ε)."
     }
    ],
@@ -6233,19 +6082,16 @@
     {
      "sourceId": "mr-higher",
      "locator": "Theorem 6.10, p. 15",
-     "excerpt": "Then the R-module SSr (T ) is free of rank one, and for every n ∈ N , the image of",
      "match": "Freeness over principal artinian rings."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Theorem 8.9, p. 19",
-     "excerpt": "Theorem 8.9. Suppose R is a discrete valuation ring, ǫ ∈ SSr (T ) and ǫ 6= 0.",
      "match": "The structure theorem."
     },
     {
      "sourceId": "bss2",
      "locator": "Theorem 4.6, p. 21",
-     "excerpt": "is bijective. In particular, the R-module SSr (A, F) is free of rank one.",
      "match": "Freeness and Fitting ideals over self-injective rings."
     }
    ],
@@ -6288,19 +6134,16 @@
     {
      "sourceId": "bss2",
      "locator": "Hypothesis 3.2, p. 13",
-     "excerpt": "(ii) there exists τ ∈ GKM such that A/(τ − 1)A ≃ R as R-modules;",
      "match": "The finite-level hypotheses."
     },
     {
      "sourceId": "bss2",
      "locator": "Hypothesis 4.2, p. 20",
-     "excerpt": "Hypothesis 4.2. There exists an ideal n in N such that",
      "match": "Existence of a relaxed core vertex."
     },
     {
      "sourceId": "bss2",
      "locator": "Hypothesis 4.7, p. 22",
-     "excerpt": "(i) T is an irreducible (R/p)[GK ]-module;",
      "match": "The hypotheses over a Gorenstein order."
     }
    ],
@@ -6405,19 +6248,16 @@
     {
      "sourceId": "mr-higher",
      "locator": "Definition 10.4, p. 21",
-     "excerpt": "tem of rank r for T , if F and P are fixed) is a global section of the Selmer sheaf S.",
      "match": "Kolyvagin systems of rank r."
     },
     {
      "sourceId": "bss2",
      "locator": "§5.2, p. 25",
-     "excerpt": "The regulator map is defined by setting Regr (ǫ) := (κ(ǫn ))n .",
      "match": "The regulator map."
     },
     {
      "sourceId": "mr-higher",
      "locator": "Proposition 12.3, p. 24",
-     "excerpt": "Proposition 12.3. Suppose ǫ = {ǫn : n ∈ N } is a Stark system of rank r for T .",
      "match": "The map Π."
     }
    ],
@@ -6523,19 +6363,16 @@
     {
      "sourceId": "mr-higher",
      "locator": "Theorem 12.4, p. 25",
-     "excerpt": "map Π : SSr (T ) → KS′r (T ) of Proposition 12.3 is an isomorphism.",
      "match": "Stark systems and stub Kolyvagin systems."
     },
     {
      "sourceId": "bss2",
      "locator": "Theorem 5.2, pp. 25–26",
-     "excerpt": "Theorem 5.2. Assume Hypotheses 3.2, 3.3 and 4.2, and also suppose p > 3.",
      "match": "The regulator isomorphism and Fitting bounds."
     },
     {
      "sourceId": "bss2",
      "locator": "Theorem 5.25, p. 36",
-     "excerpt": "Theorem 5.25. Suppose that p > 3.",
      "match": "The statement over a Gorenstein order."
     }
    ],
@@ -6576,13 +6413,11 @@
     {
      "sourceId": "dk",
      "locator": "§1.2, (8)–(10), p. 8",
-     "excerpt": "Choose a prime wj of H above each vj . The map",
      "match": "The unit group and the order map."
     },
     {
      "sourceId": "dk",
      "locator": "§1.2, p. 8",
-     "excerpt": "Rubin conjectured that uRBS lies in a certain Z[G]-lattice that is nowadays called “Rubin’s",
      "match": "Rubin's lattice."
     }
    ],
@@ -6686,13 +6521,11 @@
     {
      "sourceId": "bss2",
      "locator": "Definition 6.4, p. 37",
-     "excerpt": "is said to be an Euler system of rank r for (T, K) if",
      "match": "The definition."
     },
     {
      "sourceId": "bss2",
      "locator": "Hypothesis 6.1, p. 37",
-     "excerpt": "(ii) H 0 (F, T ) = 0 for every F ∈ Ω(K/K).",
      "match": "Reflexivity and vanishing of invariants."
     }
    ],
@@ -6800,19 +6633,16 @@
     {
      "sourceId": "bss2",
      "locator": "Theorem 6.12, p. 41",
-     "excerpt": "Theorem 6.12. Let r be a positive integer and c ∈ ESr (T, K). Let F := Fcan be the",
      "match": "The derivative classes form a Kolyvagin system of rank r."
     },
     {
      "sourceId": "bss2",
      "locator": "Corollary 6.13, p. 42",
-     "excerpt": "‘higher Kolyvagin derivative’ homomorphism",
      "match": "The homomorphism D_r."
     },
     {
      "sourceId": "bss2",
      "locator": "Proposition 6.10, p. 40",
-     "excerpt": "The element κ′ (cn ) is called a Kolyvagin derivative.",
      "match": "The uncorrected derivative."
     }
    ],
@@ -6924,7 +6754,6 @@
     {
      "sourceId": "bss2",
      "locator": "Corollary 6.15, p. 42",
-     "excerpt": "Corollary 6.15. Suppose p > 3. Let r be a positive integer, c ∈ ESr (T, K) and F := Fcan .",
      "match": "The Fitting-ideal bounds."
     }
    ],
@@ -6966,19 +6795,16 @@
     {
      "sourceId": "dk",
      "locator": "§1.2, p. 8",
-     "excerpt": "Define the Rubin–Brumer–Stark element",
      "match": "Definition of u_RBS."
     },
     {
      "sourceId": "dk",
      "locator": "Conjecture 1.5, p. 8",
-     "excerpt": "Conjecture 1.5 (Rubin). We have uRBS ∈ L .",
      "match": "Rubin's conjecture."
     },
     {
      "sourceId": "bss2",
      "locator": "Theorem 7.1, p. 49",
-     "excerpt": "(iii) If the Rubin-Stark Conjecture is valid for LF/K for each F in Ω(K/K), then one",
      "match": "The conditional application."
     }
    ],
@@ -7075,7 +6901,6 @@
     {
      "sourceId": "bss2",
      "locator": "Remark 6.5, p. 37",
-     "excerpt": "Thus our definition generalizes the classical definition of",
      "match": "Rank-one Euler systems are the classical ones."
     }
    ],
@@ -7437,7 +7262,7 @@
    "source": "bss2",
    "kind": "misprint",
    "locator": "Hypothesis 4.7(ii), p. 22 of arXiv:1805.08448v1",
-   "printed": "(ii) there exists τ ∈ G_{K(T)_{p^∞}} such that T/(τ − 1)T ≃ R as R-modules;",
+   "printed": "Condition (ii) requires some τ ∈ G_{K(T)_{p^∞}} for which T/(τ − 1)T ≃ R as R-modules.",
    "correction": "τ should be taken in G_{K_{p^∞}}, where K_{p^∞} = ⋃_m K_{p^m} and K_{p^m} = K(μ_{p^m}, (O_K^×)^{1/p^m})K(1): 'there exists τ ∈ G_{K_{p^∞}} such that T/(τ − 1)T ≃ R'.",
    "reason": "K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 says that Hypothesis 4.7 'clearly' gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group.",
    "affects": "nothing",
@@ -7460,7 +7285,7 @@
    "source": "rubin-es",
    "kind": "misprint",
    "locator": "1999 course draft Chapter IX §1, p.133; also book-format author copy §9.1 p.175 (PDF p.181)",
-   "printed": "the maximal abelian extension of K unramified outside N",
+   "printed": "The source takes the largest abelian extension of K with ramification confined to N.",
    "correction": "For the isolated-initial-class example take the maximal abelian extension unramified at every prime dividing N.",
    "reason": "The printed extension contains the cyclotomic Z_p-extension because p divides N, contrary to the following parenthesis. For a nontrivial extension ramified only at N, the Euler-factor product is empty, hence is 1, and the family c_F=0 for F≠K requires c_K=0. With no ramification at N and class number one, every nontrivial finite abelian extension ramifies at a prime outside N, where the stipulated factor vanishes; the claimed arbitrary c_K family then works.",
    "affects": "a stated result",
@@ -7480,7 +7305,7 @@
    "source": "mr-ks",
    "kind": "error",
    "locator": "Archived author copy, Proposition 3.4.4(ii), p.27 (PDF p.33)",
-   "printed": "Γ(S) is (noncanonically) isomorphic to an ideal of R.",
+   "printed": "The source asserts that Γ(S) admits an isomorphism, without a canonical choice, to an ideal of R.",
    "correction": "Evaluation identifies Γ(S) with a submodule of the cyclic hub stalk. It is isomorphic to an ideal if the hub stalk is free of rank one, or if R is principal artinian. The unrestricted complete noetherian local assertion needs such additional hypotheses.",
    "reason": "Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R.",
    "affects": "a stated result",

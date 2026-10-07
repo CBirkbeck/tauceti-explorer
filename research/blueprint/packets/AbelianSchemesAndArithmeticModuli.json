@@ -221,13 +221,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Theorem 10.9, p. 46",
-          "excerpt": "otherwise, we set deg",
           "match": "Degree 0 for a non-isogeny."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Remark 10.11, p. 47",
-          "excerpt": "We can use this formula to extend the deﬁnition of deg",
           "match": "Extension of deg to End⁰(A) through deg(nα) = n^{2g} deg α."
         }
       ],
@@ -266,7 +264,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Proposition 10.13, p. 47",
-          "excerpt": "is a homogeneous poly-",
           "match": "deg is a homogeneous polynomial function of degree 2g on End⁰(A)."
         }
       ],
@@ -381,13 +378,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Theorem 10.9, p. 46",
-          "excerpt": "There is a unique monic polynomial",
           "match": "Existence and uniqueness of P_α."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, p. 48",
-          "excerpt": "the characteristic polynomial of",
           "match": "P_α is called the characteristic polynomial, and Tr is read off it."
         }
       ],
@@ -428,13 +423,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, p. 43",
-          "excerpt": "is a division algebra",
           "match": "End⁰(A) of a simple A is a division algebra."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, p. 42",
-          "excerpt": "An abelian variety A is said to be simple if there does not exist an abelian variety",
           "match": "The definition of a simple abelian variety."
         }
       ],
@@ -472,7 +465,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Proposition 10.1, p. 42",
-          "excerpt": "is an isogeny.",
           "match": "A1 × … × An → A is an isogeny."
         }
       ],
@@ -512,13 +504,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Lemma 10.6, p. 45",
-          "excerpt": "is injective. In particular,",
           "match": "Hom(A, B) → Hom(T_ℓA, T_ℓB) is injective."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Lemma 10.6, p. 45",
-          "excerpt": "is torsion-free.",
           "match": "Hom(A, B) is torsion-free."
         }
       ],
@@ -561,19 +551,16 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Theorem 10.15, p. 49",
-          "excerpt": "is injective, with torsion-free cokernel. Hence",
           "match": "Injectivity with torsion-free cokernel."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Theorem 10.15, p. 49",
-          "excerpt": "is a free Z-module of ﬁnite rank",
           "match": "Hom(A, B) is free of finite rank."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Corollary 10.18, p. 50",
-          "excerpt": "The N´eron-Severi group of an abelian variety is a free Z-module of",
           "match": "NS(A) is free of finite rank."
         }
       ],
@@ -615,7 +602,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, p. 43",
-          "excerpt": "Shortly, we shall see that",
           "match": "End⁰(A) ≅ ∏ M_{n_i}(D_i), and it is finite-dimensional."
         }
       ],
@@ -646,7 +632,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Lemma 10.21, p. 51",
-          "excerpt": "We need two elementary lemmas.",
           "match": "Lemmas 10.21 and 10.22."
         }
       ],
@@ -676,7 +661,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Lemma 10.22, p. 51",
-          "excerpt": "We need two elementary lemmas.",
           "match": "Lemmas 10.21 and 10.22."
         }
       ],
@@ -716,7 +700,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Proposition 10.20, p. 50",
-          "excerpt": "is the characteristic polynomial of",
           "match": "P_α is the characteristic polynomial of α on V_ℓA."
         }
       ],
@@ -755,7 +738,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§10, Proposition 10.23, p. 52",
-          "excerpt": "Let K be a Q-subalgebra of End",
           "match": "V_ℓA is free over K ⊗ ℚ_ℓ of rank 2g/f, with the trace and degree formulas."
         }
       ],
@@ -791,13 +773,11 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§13, Remark 13.9, p. 60",
-          "excerpt": "are related by",
           "match": "deg λ = deg λ′ · deg(α)²."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§11, Theorem 11.1, p. 54",
-          "excerpt": "Zariski cohomology",
           "match": "deg φ_L = χ(L)², with χ(L) the Euler characteristic."
         }
       ],
@@ -833,7 +813,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§14, Theorem 14.3, p. 62",
-          "excerpt": "is positive deﬁnite, i.e., Tr",
           "match": "Tr(αα†) > 0 for α ≠ 0."
         }
       ],
@@ -877,19 +856,16 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§14, Proposition 14.4, p. 62",
-          "excerpt": "The group of automorphisms of",
           "match": "(a): Aut(A, λ) is finite."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§14, Proposition 14.4, p. 62",
-          "excerpt": "is equal to the identity.",
           "match": "(b): rigidity at level n ≥ 3."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§14, Lemma 14.5, p. 63",
-          "excerpt": "This is impossible because p is prime.",
           "match": "The root-of-unity lemma."
         }
       ],
@@ -1004,19 +980,16 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§14, p. 61",
-          "excerpt": "The Rosati involution on End",
           "match": "The definition α† = λ⁻¹α^∨λ."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§14, p. 61",
-          "excerpt": "This has the following obvious properties:",
           "match": "Additivity, anti-multiplicativity and ℚ-linearity."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "§11, p. 53",
-          "excerpt": "such that, over kal",
           "match": "A polarization is an isogeny that becomes φ_L for L ample over k̄."
         }
       ],
@@ -1120,25 +1093,21 @@
         {
           "sourceId": "poonen-rational-points",
           "locator": "§4.6, Definition 4.6.1, p. 110",
-          "excerpt": "is a k-scheme representing",
           "match": "The functor of points of the restriction of scalars."
         },
         {
           "sourceId": "poonen-rational-points",
           "locator": "§4.6, Remark 4.6.6, p. 112",
-          "excerpt": "One can generalize the notion of restriction of scalars to",
           "match": "Res_{S′/S} for S′ finite locally free over S."
         },
         {
           "sourceId": "stacks-05YF",
           "locator": "Stacks Project, Tag 05YF (Proposition 97.11.5)",
-          "excerpt": "is finite locally free then",
           "match": "Res_{Z/B}(X) is an algebraic space for Z → B finite locally free."
         },
         {
           "sourceId": "stacks-05YC",
           "locator": "Stacks Project, Tag 05YC (Lemma 97.11.2)",
-          "excerpt": "The equality as functors follows immediately from the definitions.",
           "match": "Compatibility with base change."
         }
       ],
@@ -1176,13 +1145,11 @@
         {
           "sourceId": "poonen-rational-points",
           "locator": "§4.6, Proposition 4.6.3, p. 111",
-          "excerpt": "If every ﬁnite subset of X is contained in some aﬃne open",
           "match": "Existence of Res_{L/k}X."
         },
         {
           "sourceId": "poonen-rational-points",
           "locator": "§4.6, Remark 4.6.5, p. 111",
-          "excerpt": "Any quasi-projective variety X over L satisﬁes",
           "match": "Quasi-projective varieties satisfy the hypothesis."
         }
       ],
@@ -1215,7 +1182,6 @@
         {
           "sourceId": "poonen-rational-points",
           "locator": "Exercise 4.7, p. 113",
-          "excerpt": "Assume that the k-variety X := ResL/k X",
           "match": "(Res_{L/k}X)_L ≅ ∏_{σ∈G} σX for L/k Galois."
         }
       ],
@@ -1253,13 +1219,11 @@
         {
           "sourceId": "poonen-rational-points",
           "locator": "§4.6, Example 4.6.8, p. 112",
-          "excerpt": "and is called the nth jet space of X",
           "match": "Res_{A/k}X_A for A = k[t]/(t^{n+1}) is the jet space."
         },
         {
           "sourceId": "stacks-05YC",
           "locator": "Stacks Project, Tag 05YC (Lemma 97.11.2)",
-          "excerpt": "The equality as functors follows immediately from the definitions.",
           "match": "Base change used in the étale-local splitting."
         }
       ],
@@ -1296,7 +1260,6 @@
         {
           "sourceId": "poonen-rational-points",
           "locator": "§4.6, p. 110",
-          "excerpt": "We want to construct a k-variety X whose arithmetic over k mimics the",
           "match": "Res_{L/k}X(k) = X(L), the arithmetic of X over L seen over k."
         }
       ],
@@ -1426,7 +1389,7 @@
       "source": "milne-abelian-varieties",
       "kind": "error",
       "locator": "§14, Proposition 14.4(b), p. 62",
-      "printed": "For any integer n ≥ 3, an automorphism of (A, λ) acting as the identity on A_n(k^al) is equal to the identity.",
+      "printed": "Proposition 14.4(b) asserts that an automorphism of (A, λ) must be the identity if it fixes every point of A_n(k^al), for any integer n ≥ 3.",
       "correction": "Add the hypothesis char k ∤ n, or require α to act as the identity on the finite group scheme A_n.",
       "reason": "A supersingular elliptic curve E over 𝔽̄_2 has E[4](k̄) = 0 and an automorphism group of order 24. Every automorphism preserves the principal polarization, so for n = 4 every automorphism acts as the identity on A_4(k^al), and not all are the identity. The proof uses Lemma 10.16 (through 8.12), which needs trivial action on the group scheme.",
       "affects": "a stated result",
@@ -1440,7 +1403,7 @@
       "source": "milne-abelian-varieties",
       "kind": "error",
       "locator": "§14, proof of Proposition 14.4(a), p. 62",
-      "printed": "But End(A) is discrete in End(A) ⊗ R, and End(A) ⊗ R is compact.",
+      "printed": "The source claims that End(A) sits discretely inside End(A) ⊗ R and that this ambient space is compact.",
       "correction": "The compact set is {α ∈ End(A) ⊗ ℝ : Tr(αα†) = 2g}, an ellipsoid by Theorem 14.3; its intersection with the discrete End(A) is finite.",
       "reason": "A nonzero real vector space is not compact. The finiteness argument needs a compact set containing Aut(A, λ).",
       "affects": "the proof",
@@ -1454,7 +1417,7 @@
       "source": "milne-abelian-varieties",
       "kind": "gap",
       "locator": "§14, proof of Proposition 14.4(b), p. 62",
-      "printed": "Similarly, β′⁴ ≠ 0, and so on, which contradicts the nilpotence of β.",
+      "printed": "The proof claims β′⁴ ≠ 0 and analogous nonvanishing for subsequent powers, treating this as a contradiction to β being nilpotent.",
       "correction": "Add that β and β† commute, because α† = α⁻¹ commutes with α. Then β′ = β†β is nilpotent, since β is, and the nonvanishing of all β′^{2^k} contradicts the nilpotence of β′. Equivalently, Tr(β†β) = 0 contradicts Theorem 14.3.",
       "reason": "Nilpotence of β alone does not make β†β nilpotent: in M_2(ℝ) with the transpose, β = e₁₂ is nilpotent while βᵀβ = e₂₂ is idempotent.",
       "affects": "the proof",
@@ -1482,7 +1445,7 @@
       "source": "milne-abelian-varieties",
       "kind": "gap",
       "locator": "§10, proof of Theorem 10.15, p. 49",
-      "printed": "Let M be the Z-submodule of End(T_ℓA) generated by the e_i. … Now choose the e_i to be a Q-basis for End⁰(A).",
+      "printed": "The proof defines M as the Z-submodule generated by the e_i inside End(T_ℓA), then chooses those e_i as a Q-basis of End⁰(A).",
       "correction": "M must be the ℤ-submodule of End⁰(A) generated by the e_i. The finite-dimensionality of End⁰(A) must be proved first: the rank of any finitely generated saturated submodule is bounded by rank End(T_ℓA) = 4g².",
       "reason": "The degree map is defined on End⁰(A), not on End(T_ℓA), and choosing a ℚ-basis assumes the finite-dimensionality that is being proved.",
       "affects": "the proof",

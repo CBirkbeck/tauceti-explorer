@@ -6,7 +6,7 @@
       "id": "PAPER-COUVEIGNES-20/E1",
       "kind": "misprint",
       "locator": "§3, published p.493 (PDF p.7), Annals of Mathematics 192 (2020), 487–497; arXiv 1907.13617v1/v2 p.5; HAL hal-02375397v1 PDF p.7 (manuscript p.6).",
-      "printed": "We set L = 𝓛 ⊗_Q R as the underlying R-vector space",
+      "printed": "The source defines the underlying vector space over R by L = 𝓛 ⊗_Q R.",
       "correction": "L = 𝓛 ⊗_Z R, the real span of 𝓛 in V_R (equivalently (𝓛 ⊗_Z Q) ⊗_Q R).",
       "reason": "The preceding definition makes 𝓛 the kernel of integral polynomial evaluation in the finite free Z-module V_Z. Its rank ℓ = C(d+r,d) − n is positive: the standing assumptions give ℓ ≥ nr ≥ 1. A basis vector of a nonzero finite free Z-module is not divisible by 2, so this Z-module admits no compatible Q-module structure. Thus the displayed tensor product needs Z as its base ring. Extending the integral evaluation matrix to R identifies 𝓛 ⊗_Z R with its real kernel and real span in V_R. This supplies the space used for orthogonality and successive minima.",
       "affects": "nothing",

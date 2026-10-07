@@ -1,235 +1,151 @@
-# Handoff: BP-AutomorphicGaloisRepresentations (sixth checkpoint)
+# Handoff: BP-AutomorphicGaloisRepresentations — complete target-level pass
 
-Agent: Claude Code, session cc-fb70e5. Refs #685.
+Agent: Codex, session `codex-aAjv2v`. Refs #685. This completes the one claimed planning job; it is not a seventh checkpoint. The earlier checkpoints' 40 node identifiers and the integrated decomposition's retained nodes are preserved.
 
-- Stages R19.1–R19.6 are all partial. The checker reports no errors and no warnings.
-- RS-12 is still **needs_changes**, so the current structure is used.
-- Checkpoints 1–5 were merged in #3857, #3859, #3866, #3870 and #3886.
-- This checkpoint adds 9 nodes in R19.1, for 40 nodes and 18 planets.
+The packet has `status: complete`, `planningLevel: target` and no part suffix. R19.1, R19.2, R19.3, R19.4, R19.5 and R19.6 each have coverage **planned**. None is mathematically closed: the nine exact gaps and 41 grouped supplier requests remain visible. All implementation statuses remain `unchecked`.
 
-## New in checkpoint 6: the proof of the Deligne–Serre theorem
+Inventory: **61 nodes** (13 constructions, 2 definitions, 43 theorems, 3 lemmas), **85 API items**, **61 definition/construction unit tests**, **25 planets**, and **13 checked baseline declarations**. Each layer has at most six planets. The packet, reader and suggested-file inventory agree.
 
-**Source.** Deligne–Serre, *Formes modulaires de poids 1*, Ann. Sci. ÉNS 7 (1974). This is the Numdam PDF with sha256
-65b390f6…, the same file as before.
-- The text layer was used, with printed page = PDF page + 505 (PDF page 1 is the Numdam cover).
-- Every new excerpt was matched against its own page.
-- Read: §5 (5.1–5.6, pp. 518–520), 6.6–6.13 again (pp. 521–523), §7 (pp. 523–524), §8 (8.1–8.7, pp. 525–527) and the
-  bibliography.
-- The arithmetic of 5.2, 5.5, 7.2 (all four cases), 8.3, 8.5–8.6 and 8.7 was checked step by step. No mistakes were
-  found, so there are no new source issues.
+## What this pass adds and corrects
 
-**Nodes (R19.1):**
-- `deligne-serre-condition-c` (definition). This is the condition C(η, M) of 7.1 together with semisimple subgroups.
-  - It has an API of 5 items and 5 unit tests.
-  - One test is a split Cartan subgroup against a cyclic group of the same order. It separates counting polynomials
-    from counting elements.
-- `mod-lambda-representation-of-a-mod-lambda-eigenform` (planet), Théorème 6.7.
-  - It has no node of its own before this checkpoint.
-  - The proof cites the R15.5 reduction and the eigenvalue-lifting nodes, and the R01.5 Lemme 6.13 node.
-- `rankin-bound-for-a-cuspidal-eigenform` (Prop. 5.1). Landau's lemma is Tau Ceti's `TauCeti.LSeries.landau`.
-- `weight-one-eigenvalues-outside-a-sparse-set` (Prop. 5.5).
-- `bounded-semisimple-subgroups-of-gl2` (planet), Prop. 7.2, all four Dickson cases.
-- `uniformly-bounded-residual-images-in-weight-one` (Lemmas 8.3–8.4).
-- `lifting-representations-of-groups-of-order-prime-to-l`. The source calls this 'un argument standard'. The proof
-  given here is Mathlib's Schur–Zassenhaus at each level followed by an inverse limit (Kőnig).
-- `weight-one-characteristic-zero-lift` (8.5–8.6).
-- `weight-one-cuspidal-irreducibility` (8.7).
+- R19.1 now plans Scholl's actual finite-group character projector, the rational newform factor and coefficient-field descent. Individual eigenform Chow projectors are not asserted without the relevant motivic hypotheses. The existing parabolic and S-integral premotivic constructions, classical representations and complete Deligne–Serre chain remain.
+- R19.2 distinguishes Carayol's geometric subset from Taylor's all-cohomological-Hilbert construction, including even-degree fields without a finite discrete-series place. Uniqueness, determinant, total oddness and irreducibility have a separate contract. The routed CM definition, virtual reducibility criterion, ordinary CM splitting and complex-conjugation line statements are included.
+- R19.3 constructs the actual fixed-eigenform family in the early generic carrier supplied by R24.5:operations. It imports purity from R34.6. Dimitrov and Ribet–Momose large-image results and Skinner's density-one/eventual residual properties are planned as properties of this family, with their source hypotheses retained.
+- R19.4 retains full Frobenius-semisimplified Weil–Deligne parameters and monodromy, supplies the all-Hilbert extension, and states the local-factor/conductor and normalisation obligations. Cyclic and non-normal cubic base change are both requested.
+- R19.5 applies generic comparisons to the actual modular/Hilbert representations: Saito, the full published Kisin theorem, Skinner's unrestricted theorem, ordinary lattice intersections, nonordinary crystalline/Wach data, and endpoint-weight contracts. CDN Proposition 5.2 is the concrete Hyodo–Kato/de Rham multiplicity application, with its globalisation, uniformizer, level, coefficient and archimedean hypotheses.
+- R19.6 starts with a geometric rank-two generic Hecke module and constructs its integral law before importing reconstruction. Finite residue fields, continuity, finite quotients, mixed coefficients at characteristic two, nilpotents and local deformation conditions are explicit. Field-valued eigenform points alone do not determine a law over a nonreduced algebra.
 
-The weight-one node now has the full proof outline: the Eisenstein/cuspidal reduction, 8.1 and the chain above. Its
-hypothesis "only 8.1–8.4 were read" is gone.
+The reader gives an architecture and notation discussion, followed by exact declaration contracts, hypotheses, proof outlines, APIs, tests, dependencies and public source anchors. The suggested file uses actual Mathlib representations, linear maps, submodules and matrices. It removes the earlier Boolean Euler-factor and dimension-only Tate-module substitutes. Geometric signatures that cannot be stated at the pinned baseline are honestly omitted, with their names, mathematical contracts and missing imported carriers recorded in the file, as PROTOCOL §13 requires; they are not encoded as fields containing the desired theorem.
 
-**Worked example throughout:** η(z)η(23z), of type (1, (−23/·)) on Γ₀(23).
-- Its q-expansion was computed to 400 terms. a_p = 0, 2 or −1 according as p is inert, splits into principal primes
-  (x² + xy + 6y²) or splits into non-principal primes. This holds for every p < 400, p ≠ 23.
-- Image S₃, and C(0, 3) with the polynomials (1 − T)², 1 − T² and 1 + T + T².
-- At ℓ = 3 the residual image has order 2, since 1 + T + T² ≡ (1 − T)² mod 3.
+## Validation and pinned baseline
 
-**Requests (new):**
-- ArithmeticGaloisRepresentations R01.4: Dickson for semisimple subgroups (Serre 1972, §2, Props. 15–16).
-- ArithmeticGaloisRepresentations R01.5: recognition with finite image (Lemme 3.2), Lemme 6.13, and Frobenius elements
-  of finite images.
-- AutomorphicLFunctionsAndLocalFactors AL.3: Rankin's continuation of ζ(2s − 2k + 2)Σ|a_n|²n^{−s}.
-- Tau Ceti Chebotarev layer 10 (Čebotarev in Dirichlet density) and layer 3 (upper Dirichlet density).
-- Tau Ceti ModularForms layer 0: weight-one Eisenstein eigenvalues χ₁(p) + χ₂(p) (Hecke).
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicGaloisRepresentations.json`: **0 errors, 0 warnings**.
+- `lean-check research/blueprint/suggested/AutomorphicGaloisRepresentations.lean`: **exit 0**, at pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Its only warnings are **12 declarations using `sorry`**. Subsequent source-audit changes affect comments and inventories only.
+- `git diff --check`, authorized-path checks, preserved-node checks and complete API/test-name checks passed before submission.
+- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` declarations were read from the pinned source objects. The suggested file imports Mathlib only, so it makes no claim to have compiled Tau Ceti at that pin.
 
-Existing requests extended:
-- R01.1 and R15.5 now list the mod-λ node.
-- Tau Ceti ModularForms layer 4 now includes the newform reduction of 5.2 and lists the Rankin node.
+The 13 baseline references are `ModularForm`, `CuspForm`, `Matrix.card_GL_field`, `Subgroup.exists_right_complement'_of_coprime`, `nonempty_sections_of_finite_inverse_system`, `DirichletCharacter.LFunction_apply_one_ne_zero`, `riemannZeta_residue_one`, `NumberField.Embeddings.finite_of_norm_le`, `TauCeti.LSeries.landau`, `Representation`, `Submodule.restrictScalars`, `DualNumber.eps` and `Matrix.det_fin_two`. Each actual declaration was read at the recorded pin; the packet records its module and the supplied statement.
 
-**Baseline.** 7 new declarations, each read in the pinned source:
-- Mathlib `Matrix.card_GL_field`, `Subgroup.exists_right_complement'_of_coprime`,
-  `nonempty_sections_of_finite_inverse_system`, `DirichletCharacter.LFunction_apply_one_ne_zero`,
-  `riemannZeta_residue_one` and `NumberField.Embeddings.finite_of_norm_le`;
-- Tau Ceti `TauCeti.LSeries.landau`.
+The new Lean checks include the finite-group projector and its real linear image, a saturated intersection of a fixed lattice with a vector-space line, the division-free mixed coefficient of a two-by-two determinant, and two matrices over `DualNumber ℚ` whose determinants differ although their reduced specialisations agree. The existing finite-group, polynomial, congruence, density-bound and weight-one arithmetic checks remain. No language server, library build, cache download or private repository copy was used.
 
-**Lean.**
-- New real definitions: `ConditionC` and `IsSemisimpleSubgroup`.
-- New statements: Proposition 7.2 (`card_le_of_conditionC`) and the lifting lemma (`exists_lift_of_not_dvd_card`).
-- New unit tests as `example`s.
-- Nine checked examples:
-  - |GL₂(F₃)| = 1·12 + 2·9 + 3·6 via `Matrix.card_GL_field`;
-  - the class-count identity;
-  - case (a) and case (c) of 7.2;
-  - the 5.5 density bound;
-  - E₄, E₆ mod small primes;
-  - (1 + T + T²)(1 − T) = 1 − T³ and 1 + T + T² ≡ (1 − T)² mod 3;
-  - |x + y|² = 2 + 2Re(xȳ) for 8.7;
-  - ℓ − 1 > 2 for ℓ ≥ 5, the lifting non-example.
-- The file compiles with `lake env lean` against Mathlib 082e2d3, with exit code 0. The only warnings are the 10
-  `sorry` stubs: the 4 existing ones and 6 new.
+## Accepted ownership boundaries and all ten findings
 
-**What remains in R19.1:**
-- the construction of nW_l (Bourbaki 355);
-- the coefficient-field descent;
-- Scholl's Kuga–Sato realisation (GH.0).
+RS-12 is **accepted and binding**. The previous checkpoint's `needs_changes` note is superseded. Supplier packets and upstream roadmaps were not edited.
 
-The other stages are unchanged from checkpoint 5 (below).
+| Finding | Resolution in this packet and reader |
+| --- | --- |
+| RT-AREA-langlands-1/25 | IHG.4 owns generic interpolation/descent of determinant laws; IHG.1 owns reconstruction. R19.6 owns the geometric Hecke-law instance and its hypotheses. |
+| RT-AREA-langlands-2/2 | Retain the discrete-series-place hypothesis in the stable Carayol node. Add `R19.2/all-cohomological-hilbert-representation`, all-Hilbert away-prime compatibility, and separate Kisin/Skinner coefficient-prime theorems. The even-degree/no-discrete-series case is an acceptance test. |
+| RT-AREA-langlands-2/4 | R17.4 requests name cyclic **and non-normal cubic** base change with the restriction/local-parameter compatibility used in Carayol §12.2.2. Cyclic transfer does not supply the cubic step. |
+| RT-AREA-langlands-2/5 | Bourbaki 355 Proposition 3.15 is corrected: ordinary characteristic-p fibres have **two** order-p subgroup schemes; supersingular fibres have **one**. E1 and the non-example test retain this correction. |
+| RT-AREA-langlands-2/6 | Apply Chenevier Theorem 2.22(i) for a residually split absolutely irreducible determinant over a henselian local ring. A finite residue field is allowed. Remove the false algebraically-closed-residue gap and the Deligne–Serre bridge. |
+| RT-AREA-langlands-2/8 | Deligne–Serre has the single owner R19.1. The accepted rescope and reader explicitly make ML.1 and ClassicalSerreModularity R27.6 consumers of its Artin representation; their documents were outside this job's authorized paths. |
+| RT-AREA-langlands-2/9 | Use exact `ModularCurvesPartII:R14.6/special-fibre-eichler-shimura` and a precisely stated R14.6 request. R19.1 owns the higher-coefficient/eigenform application, rather than rebuilding weight-two special-fibre geometry. |
+| RT-AREA-langlands-2/10 | Use early `R24.5:operations` for the carrier and R34.6 for purity; R19.3 supplies the actual fixed-form family. No dependency on the later potential-modularity existence theorem remains. |
+| RT-AREA-langlands-2/14 | Read published Kisin §4.3 for arbitrary totally real fields and cohomological multiweights under residual absolute irreducibility. Request R08.3's quotient for **arbitrary A°**, use its exact semistable-height-quotient node for Theorem 2.5.5, and retain finite-Qp-algebra specialisations including nilpotents. The universal deformation-ring statement alone does not suffice. |
+| RT-AREA-padic-2/22 | R06.5 supplies generic proper smooth/semistable comparison, projectors and coefficient functors. R19.5 owns the concrete Scholl/Saito/Kisin/Skinner modular applications; the stable integrated comparison node and its dependencies now follow this boundary. |
 
-## Earlier in this job (checkpoint 5): the proof of Carayol's Theorems (B) and (A)
+## All routed paper items
 
-**Source.** Carayol, Ann. Sci. ÉNS 19 (1986), the Numdam PDF (sha256 d4a5fb6b…, the same file as before; printed page = PDF
-page + 407). It was read on its text layer, with the formulas of 2.1.1, 3.1–3.3, 6.6–6.7, 10.6 and 11.2–11.3 checked on the
-page images. Read: §1 (the summary of [Ca 3]), §2, §3, §4.1–4.8, §5, 6.4–6.7, §10, 11.1–11.4 and 12.1–12.3.
+| Routed extraction items | Node or imported owner |
+| --- | --- |
+| PAPER-NEWTON-THORNE-26/dimitrov-large-image | `R19.3/dimitrov-large-image`, with the fixed family and exact non-CM/large-characteristic hypotheses. |
+| PAPER-NEWTON-THORNE-21/148; PAPER-NEWTON-THORNE-21-B/56 | `R19.3/ribet-momose-classical-large-image`; generic group inputs from R01.4, modular inner-twist application here. |
+| PAPER-DASGUPTA-KAKDE-23/258 | All-Hilbert construction and arithmetic properties in R19.2; ordinary local shape imported from R21.3. |
+| PAPER-DASGUPTA-KAKDE-23/265 | `R19.2/cm-hilbert-eigenform`, with induction from a quadratic extension and its associated self-twist. |
+| PAPER-DASGUPTA-KAKDE-23/266, /267 | `R19.2/virtual-reducibility-implies-cm`, with Ribet's infinite-projective-image hypothesis and BGV's regular real-place argument. |
+| PAPER-DASGUPTA-KAKDE-23/269 | `R19.2/ordinary-cm-primes-split`; the source's CM/infinity-type hypotheses are retained. The companion ordinary-line/conjugation theorem supplies Lemma 9.2. |
+| PAPER-DASGUPTA-KAKDE-23/270 | `R19.2/hilbert-uniqueness-determinant-oddness-irreducibility`; Skinner's p. 256 irreducibility argument is read independently. |
+| PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-2 | `R19.5/shimura-curve-hk-dR-multiplicity`, realising both R19.4 and R19.5; the local p-adic Langlands theory is not replanned here. |
+| PAPER-SKINNER-20/54, /55, /56, /70 | `R19.3/skinner-density-one-ordinary-primes` and Ribet–Momose residual irreducibility. Residual ramification uses the exact R20.2 level-lowering request. The weight-two, squarefree-level, trivial-character hypotheses are retained. |
 
-**Nodes (R19.2):**
-- `carayol-sigma-lambda-construction` (construction, planet): ξ = ⊗[(τ_i∘ν)^{(w−k_i+2)/2}·Sym^{k_i−2}ξ_i], the sheaf F_λ,
-  σ_λ(π) = Hom_{H(G(𝔸^f),K)}(π_f^K, H¹(M_K ⊗ F̄, F_λ)) of dimension 2, and the decomposition of H¹.
-- `carayol-twisting-and-determinant`: σ(χπ) = χ^{−1}σ(π), and det σ(π) = χ_π^{−1}ω^{−1}. §3 gives this only up to a
-  quadratic character; 5.5 removes it.
-- `carayol-vanishing-cycle-filtration`: 0 → σ₁ → σ_𝔭 → σ₂ → 0 from the vanishing cycles, and 5.6.2–5.6.3.
-- `carayol-special-places`: 6.7, and Picard–Lefschetz non-splitting (11.4).
-- `carayol-local-fundamental-representation`: 10.6, π_𝔭 ⊗ σ₂(π)_ℂ ≅ 𝒰_ℂ(π̄_𝔭^∨).
-- `carayol-ordinary-cuspidal-places`: 11.2–11.3, through a CM form with the same local component.
-- `carayol-theorem-b` (planet): cases (a)–(c) of 11.1.
-- `carayol-primitive-restriction-lemma`: 12.1.3.
-- `carayol-cubic-base-change-of-extraordinary`: 12.2.2, through Tunnell's globalisation and the Artin conjecture.
+## Public sources and reading depth
 
-The Theorem (A) node now has 12.3's proof. The source leaves the case 𝔭 = v (only one discrete-series place) to the reader;
-it is written out by quadratic base change split at v.
+The packet records **24 sources**, with public URLs, edition/version, access dates, SHA-256 hashes and read ranges. Fourteen source records are added. Source hashes for the existing public copies were checked; earlier reading ranges remain attributed to the earlier worker/reviewer rather than represented as new full-paper reads.
 
-**Requests (new):**
-- HilbertModularVarietiesAndShimuraCurves R18.5: §§7–9 and Brylinski's appendix.
-- LefschetzPencilsAndVanishingCycles LPV.0: the vanishing-cycle sequence.
-- LefschetzPencilsAndVanishingCycles LPV.7:semistable-curves: Picard–Lefschetz for stable curves.
-- GL2AutomorphicRepresentationsAndTransfer R17.4: base change of degree ≤ 3, with its compatibility with restriction,
-  which Carayol asserts without a reference.
-- GL2AutomorphicRepresentationsAndTransfer R17.5: automorphic induction from CM fields, Tunnell's globalisation and the
-  Artin conjecture.
+New passages read for this pass:
 
-The R18.4, R18.2, R17.3 and R16.3 requests gain the new nodes.
+- Scholl 1990 §1.0–1.3: the explicit projector, the realisations, Theorems 1.2.1/1.2.4 and the deduction; the desingularisation proofs in §§2–3 remain a refinement.
+- Published Kisin 2008 introduction, Theorem 2.5.5, §2.7.5–2.7.7 and **all of §4.1–4.3's interpolation proof**. This is stronger than quoting a weight-two special case from KW.
+- Skinner 2009 introduction and Theorem 1, plus §2.4.2 pp. 255–256, including the complete irreducibility remark. The earlier analytic continuation argument has not been fully read.
+- Dimitrov 2005 Propositions 3.1, 3.5 and 3.8, their proof arguments and the surrounding strong-irreducibility statements; the precise tame-inertia inputs of §3.2 remain an import/refinement.
+- Dasgupta–Kakde §9.1 with Lemmas 9.1–9.2 and their cited sources; BGV's introduction and the regular real-place CM obstruction; Hara–Ochiai §2.1's ordinarity condition and **Appendix A Proposition A.3 with its complete proof**.
+- Ribet 1975 Theorems 2.1/2.3 and the complete group-theoretic proof on page scans; Ribet 1985 pp. 185–192 including Theorems 2.1/3.1 and their proofs. The original Momose proof is still a refinement, not claimed read.
+- CDN §5.2.1's setup, Proposition 5.2 and its complete proof, including the period module, level and globalisation caveats.
+- Newton–Thorne's three routed large-image/strong-irreducibility uses and the 2026 paper's Proposition 5.4 proof. Their symmetric-power automorphy proofs are outside this packet's targets.
+- Skinner's published 2020 §3 p. 350: density-one ordinarity, eventual residual irreducibility and residual ramification by level lowering.
+- Chenevier §2.18–2.22 and Theorem 2.22(i)'s proof for the finite-residue-field reconstruction correction.
 
-**No new source issues.** Two places are not mistakes and are recorded as hypotheses:
-- 12.2.2 says the general "base change = restriction" principle has no reference;
-- 12.3.2 is left to the reader.
+The earlier Deligne–Serre, Deligne Bourbaki 355, Carayol, Saito, DFG, DDT, KW and Skinner–Wiles sources and their detailed read ranges remain in the source inventory. The three inherited source issues E1–E3 are retained: ordinary subgroup count, KW's Saito bibliography mismatch, and DFG arXiv's complementary excluded-prime sets. The WD sign issue is already owned by PadicHodgeTheory/E50 and remains an explicit conversion obligation here. No new source error is asserted.
 
-**Lean.** Three new checked examples:
-- dim W = ∏(k_i − 1);
-- integrality of (w − k_i + 2)/2;
-- the index-3 subgroups of S₄ and A₄.
+For density/style comparison, the full upstream HodgeStructures document and RepresentationTheory/InductionRestriction document were read. The upstream RepresentationTheory index was also read. Upstream ModularForms and neighboring source/dependency files were inspected for their supplier interfaces; this does not claim those whole documents were read.
 
-A missing line break in the earlier comment block is fixed. The file compiles with exit 0; the only warnings are the four
-existing `sorry` stubs.
+## Precise work for independent review and follow-ups
 
-**What remains in R19.2:**
-- Carayol §§7–9 and the appendix (R18.5).
-- 11.5–11.10 (LPV.7).
-- The companion paper [Ca 3] (R18.2).
-- Wiles 1988.
+Independent review should first check the all-Hilbert scope, the geometric/arithmetic dual and Frobenius conventions, and descent over the **whole** generic Hecke algebra with nilpotents. The law is first attached to geometric cohomology; dualise before using the arithmetic determinant convention in a universal deformation ring. O-flatness and closedness, together with integral mixed coefficients, are essential; reduced field points are insufficient.
 
-The earlier gap notes that [Ca 3] is in the supplied library as references/papers/R02_SS_CarayolBadReduction.pdf.
+The following nine gaps are explicit proof refinements or missing exact imported interfaces. They do not leave an unplanned stage target. No follow-up should reconstruct the generic compatible-system, WD, period-ring, modular-geometry or determinant carriers in this roadmap.
 
-## Earlier in this job (checkpoint 4)
+1. **Geometric coefficient projector and minimal coefficient-field descent.** Scholl §1.0–1.3 supplies the explicit ε-projector and its homological newform realisation. The desingularisation and boundary proofs in §§2–3 and the exact minimal coefficient-field descent across the DFG realisation categories need further source-proof transcription. GH.0/R14.3 supply the geometry; do not add an unconditional individual Chow projector or assume trace-field descent.
 
-- `R19.1/integral-structure-of-the-newform-premotive` (construction). Source: Diamond–Flach–Guo arXiv v2 §§1.2, 4.5 and 5.3–5.4.
-  - The S-integral premotivic structure 𝓜(N, ψ)_{M,!} for S ⊇ {ℓ | Nk!}, with lattices in the Betti, de Rham, λ-adic and
-    Fontaine–Laffaille realisations.
-  - Fil^{k−1} is the cusp forms with q-expansion in O_S[[q]], and it is dual to the integral Hecke algebra (Lemma 5.5(a)).
-  - 𝓜_g = 𝓜(N, ψ)_{M,!}[I_g], with K ⊗ 𝓜_g = M_g, G_ℚ-stable lattices with Fontaine–Laffaille descriptions at λ ∉ S, and
-    Fil^{k−1}𝓜_{g,dR} = O_S·g.
-  - Acceptance: 11a1, S = {2, 11}.
-- Source issue **E3** (new): DFG arXiv v2 prints the excluded set as S_N = {ℓ ∤ Nk!} (Theorem 2.4, p. 24) and
-  S′ = {p | p ∤ N′k!} (p. 30), the complements of their own definitions on pp. 13 and 27. Both were checked on the page images.
-  The ÉNS 2004 text has no counterpart.
-- The R19.1 coverage item on integral lattices is replaced by the one that remains: the coefficient-field descent. The R14.3
-  request now also asks for the S-integral versions.
+2. **Taylor auxiliary-new congruence theorem in the all-Hilbert case.** Kisin §4.3 states and uses Taylor’s factorisation through auxiliary-new Hecke quotients modulo every p^s, and its proof was read. The original Taylor 1989 proof and the precise coefficient-model descent were not obtained/read. The target statement and proof chain are planned, but this source input is not claimed independently verified in the original paper. Irreducibility instead has the independently read Skinner p. 256 proof.
 
-## Earlier in this job (checkpoint 3)
+3. **Shimura-curve bad reduction and vanishing-cycle geometric imports.** Carayol’s Galois paper §1, §§2–6 and 10–12 were read in the earlier pass; its companion bad-reduction proofs, §§7–9/appendix and the Picard–Lefschetz calculation §§11.5–11.10 remain supplied by R18.2/R18.5 and LPV.7:semistable-curves. The exact requests name the special-fibre, Drinfeld-level and monodromy statements; these imports are not replanned.
 
+4. **All-Hilbert local compatibility and Skinner analytic proof refinement.** Skinner pp. 241–244 states both full away-p compatibility and Theorem 1 without a residual or auxiliary-place hypothesis. The reduced affinoid construction/irreducibility argument pp. 255–256 was read, but the earlier GL₃ transfer, quadratic descent and analytic continuation/eigenline proof was not fully read. Refine its exact supplier declarations before lemma-level execution; do not replace the theorem by Kisin’s residual-irreducible special case.
 
-## New in this checkpoint
+5. **Cross-source WD normalisation and Saito printed sign.** Use FNF⁻¹=q⁻¹N for geometric Frobenius, so the exponential inertia reconstruction is a homomorphism. Saito’s printed inverse relation is already recorded as PadicHodgeTheory/E50. Carayol σ, Saito σ̌_h, Skinner Rec(π⊗|·|⁻¹/²), CDN ρ(−1) and the arithmetic dual are named separately. A complete functorial dual/twist comparison in the supplied R01.2/R06.3 carriers is still needed; it is not settled by agreeing spherical polynomials alone.
 
-All three nodes are for F = ℚ in weight two. They come from Darmon–Diamond–Taylor, *Fermat's Last Theorem* (2007 revision), which
-was already a source.
+6. **Endpoint residual inertial type and modular-symbol/Wach integral comparison.** The characteristic-zero crystalline statement and the failure of the [0,p−2] Fontaine–Laffaille range at k=p+1 are explicit. The exact residual endpoint-weight/weight-two-lift criterion remains requested from R20.6/R07.4. For Iwasawa consumers the ordinary lattice intersection is specified, but the coefficient/period-line and semilinear Wach lattice comparisons still require the imported P7 and upstream modular-symbol APIs; no arbitrary numerical period normalisation is asserted.
 
-- `R19.6/full-weight-two-hecke-algebra-and-its-galois-representations` (construction).
-  - Sources: DDT §4.1 and Lemmas 1.37–1.39.
-  - The full Hecke algebra 𝕋 of Γ_H(N) acts faithfully and is finite free.
-  - T_ℓ(J_Γ) ⊗ ℚ_ℓ is free of rank two over 𝕋_{ℚ_ℓ}, which gives ρ_𝔭 over 𝕋_K/𝔭 and, for ℓ odd, the residual ρ_𝔪.
-  - Its non-example shows that 𝕋_K is not reduced. At Γ₀(88), T₂ acts on the old space of 11a1 through K[u]/(u²(u² + 2u + 2)).
-- `R19.6/hecke-algebra-representation-classical` (planet).
-  - Source: DDT Lemma 3.27, under the hypotheses (a)–(e) of §3.3.
-  - It constructs ρ^mod_Σ : G_ℚ → GL₂(𝕋_Σ) over the reduced Hecke algebra, using complex conjugation and the matrix-entry
-    argument. It also gives the surjection R_Σ ↠ 𝕋_Σ and properties (b) and (c).
-  - Acceptance: DDT Example 3.28, 57B at ℓ = 3.
-  - It is the F = ℚ counterpart of the quaternionic node, and it avoids Carayol's descent.
-- `R19.6/reduced-hecke-algebra-as-a-localisation` (planet).
-  - Sources: DDT Lemma 4.6 and Proposition 4.7, due to Wiles.
-  - It proves 𝕋_Σ ≅ 𝕋_𝔪 at level N_Σ = ℓ^δ N(ρ̄) ∏_{p∈Σ−{ℓ}} p².
-  - A hypothesis explains why u_p = 0 is a simple root in every case (p ∤ N_f, p ∥ N_f, p² | N_f).
-  - Acceptance: ρ̄_{11a1,3} with Σ = {2} at level 44. The level-88 contrast shows why the exponent is 2.
+7. **Geometric generic rank-two module beyond the weight-two model.** DDT gives the weight-two generic rank-two module over the full Hecke algebra, including its oldspace nilpotents. For higher-weight/Hilbert completed local Hecke algebras, extracting the faithful rank-two generic multiplicity module, with generalised eigenspaces and correct lattice/topology, remains an exact R14/R18 geometric import. The integral descent argument is planned under this input and O-flatness. Torsion/non-flat Hecke algebras require an integral cohomological determinant construction; reduced eigenform points do not supply it.
 
-Other changes:
+8. **Integral local conditions and the DDT type-Σ exercise.** DDT Lemma 3.27 leaves the type-Σ checks to the reader. The previous claim that all Artinian quotients embed in a product of eigenform quotients is removed. Prove the exact flat/ordinary/minimal local functor conditions on finite quotients, or annihilation of the local-condition ideal on the whole generic algebra plus O-flatness. Kisin’s arbitrary-A° finite-algebra quotient supplies the relevant generic family input; dense field points alone cannot detect nilpotents.
 
-- The R19.6 coverage record is updated. Its stale item on V_ℓ(A_f) is removed, since checkpoint 2 read DDT Lemma 1.48 for it.
-- The stale gap "The weight-two decomposition of V_l(A_f) has no source read" is removed for the same reason.
-- A new gap records that DDT leave Lemma 3.27(a)–(c) as an exercise.
-- The roadmap document is regenerated for these sections. The node sections use the same renderer format as before.
+9. **Large-image source refinements.** Dimitrov Propositions 3.1/3.5/3.8 and Ribet 1985 Theorems 2.1/3.1 were read, with the original Ribet 1975 group theorem read on scans. Dimitrov §3.2 tame-inertia exclusions and the original Momose inner-twist openness proof remain refinements. Skinner’s trace-zero density theorem is cited to Serre and requested as the exact R01.5 analytic Chebotarev input, not claimed proved here.
 
-## What remains
+The 41 requests are grouped by canonical supplier in the packet, with exact statements and consuming node IDs. Their owners are:
 
-- **R19.1:** the coefficient-field descent; Deligne–Serre §8; Scholl's Kuga–Sato realisation (GH.0 request).
-- **R19.2:** Carayol §§1–12 and the bad-reduction paper; Wiles 1988 [W2], which is quoted through Skinner–Wiles.
-- **R19.3:** Saito's proof of purity; the compatible-system carrier (R24.5).
-- **R19.4:** Carayol's proof; the comparison of σ with Saito's σ̌_h.
-- **R19.5:** the endpoint weight; Kisin's corollary (JAMS 2008), which is quoted through KW II.
-- **R19.6:**
-  - Carayol's descent (Contemp. Math. 165, not public), matched with Chenevier's Theorem B plus the IHG.1 residue-field descent;
-  - the determinant law over a non-reduced localised Hecke algebra, for general level;
-  - the type-Σ verification in DDT Lemma 3.27 (the gap);
-  - the Taylor–Wiles variant 𝕋_Q (DDT Proposition 4.10), whose consumer is GL2ModularityLifting R22.2.
+- `ModularCurvesPartII:R14.3`
+- `ArithmeticGaloisRepresentations:R01.6`
+- `ArithmeticGaloisRepresentations:R01.1`
+- `ArithmeticGaloisRepresentations:R01.2`
+- `GL2AutomorphicRepresentationsAndTransfer:R16.3`
+- `HilbertModularVarietiesAndShimuraCurves:R18.4`
+- `HilbertModularVarietiesAndShimuraCurves:R18.2`
+- `PotentialModularityAndCompatibleSystems:R24.5:operations`
+- `WeightsInEtaleCohomology:R34.6`
+- `AlgebraicModularFormsAndSerreWeights:R15.5`
+- `IntegralHeckeAndGaloisDeterminants:IHG.1`
+- `GL2AutomorphicRepresentationsAndTransfer:R17.3`
+- `ModularCurvesPartII:R14.2`
+- `GlobalGaloisDeformations:R04.3`
+- `SerreWeightAndLevelOptimisation:R20.6`
+- `AlgebraicModularFormsAndSerreWeights:R15.2`
+- `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`
+- `HilbertModularVarietiesAndShimuraCurves:R18.5`
+- `LefschetzPencilsAndVanishingCycles:LPV.0`
+- `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves`
+- `GL2AutomorphicRepresentationsAndTransfer:R17.4`
+- `GL2AutomorphicRepresentationsAndTransfer:R17.5`
+- `ArithmeticGaloisRepresentations:R01.4`
+- `ArithmeticGaloisRepresentations:R01.5`
+- `AutomorphicLFunctionsAndLocalFactors:AL.3`
+- `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`
+- `tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization`
+- `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`
+- `ModularCurvesPartII:R14.6`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`
+- `OrdinaryAutomorphicFormsAndModularityLifting:R21.3`
+- `GeneralizedHeegnerCycles:GH.0`
+- `LocalGaloisDeformationRings:R08.3`
+- `PadicHodgeTheory:R06.3`
+- `PadicHodgeTheory:R06.5`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`
+- `PadicHodgeTheory:P7`
+- `GL2AutomorphicRepresentationsAndTransfer:R16.6`
+- `SerreWeightAndLevelOptimisation:R20.2`
+- `IntegralHeckeAndGaloisDeterminants:IHG.4`
+- `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`
 
-## Requests made in this checkpoint
-
-- ModularCurvesPartII R14.2: 𝕋_ℤ on J_Γ and T_ℓ(J_Γ), faithfulness, freeness, and rank two over 𝕋_ℚ.
-- GlobalGaloisDeformations R04.3: R_Σ for type-Σ liftings.
-- SerreWeightAndLevelOptimisation R20.6: DDT Theorem 3.15.
-- AlgebraicModularFormsAndSerreWeights R15.2: the generation Lemma 4.1.
-- Tau Ceti ModularForms layer 4: the newform decomposition and the old-space polynomial.
-
-The existing R01.1 and R01.6 requests now also list the new construction.
-
-## Suggested Lean file
-
-It imports Mathlib only. It was compiled with `lake env lean` against the Mathlib 082e2d3 build, with exit code 0. Its only
-warnings are the `sorry` placeholders of the planned declarations.
-
-This checkpoint adds checks on:
-
-- the 57B trace table (every pair is congruent mod 3);
-- σ₀(8) = 4, and the square of u(u² + 2u + 2) against u²(u² + 2u + 2);
-- N_Σ = 44 and the simple root at u = 0 mod 3.
-
-It also replaces the one `sorry` in an example by a proof, `mul_self_eq_one_iff`.
-
-## Source issues
-
-E3 is new in checkpoint 4 (see above). E1 and E2 are unchanged. The note for PadicHodgeTheory/E50 was applied in that packet's checkpoint 3 (#3868).
-
-## Sources
-
-Darmon–Diamond–Taylor was re-downloaded and its SHA-256 matches the packet's record (254f6e29…). Newly read:
-
-- §1.6, Lemmas 1.37–1.39 (pp. 40–42);
-- §3.3 (pp. 93–95), with hypothesis (c), det ρ̄ = ε, checked on the page image;
-- §4.1 (pp. 106–111);
-- §4.2 (pp. 112–113).
+The next work is the independent review of this complete pass, then refinement of the precise gaps above in the owning roadmap. Start from the stage coverage records and the named consumers in each gap; all needed contracts and source locators are committed in the packet and reader. No private source file or scratch script is required to resume.

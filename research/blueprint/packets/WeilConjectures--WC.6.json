@@ -257,13 +257,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Corollary 3.3.9 and its proof, printed 207",
-          "excerpt": "propre et lisse",
           "match": "Supplies nonprojective purity; the proof explicitly invokes the same factor-descent argument as Weil I."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "Proof of 1.7 implies 1.6, printed 276-277",
-          "excerpt": "à coefficients rationnels",
           "match": "The algebraic factor extraction belongs to WC.3 and is applied here, not copied as a second proof."
         }
       ],
@@ -307,13 +305,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "Corollary 3.3.4, printed 206",
-          "excerpt": "mixte de poids",
           "match": "The degreewise compact-support upper bound supplies the surviving divisor weights."
         },
         {
           "sourceId": "sga4half-rapport",
           "locator": "Rapport 3.1-3.4 and 3.6",
-          "excerpt": "formule des traces",
           "match": "The Euler-product/determinant identity is an imported theorem; 3.6 explains compact support."
         }
       ],
@@ -355,7 +351,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "2.3-2.6, printed 281-282, with 1.5.4",
-          "excerpt": "dualité parfaite",
           "match": "The perfect equivariant pairing, q^d reciprocal eigenvalues and zeta functional equation are explicit. WC.2 refines the sign to the actual determinant Delta before WC.6 applies it."
         }
       ],
@@ -398,7 +393,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "3.3.11, printed 207",
-          "excerpt": "rational homology",
           "match": "The explicit dualizing-complex condition replaces smoothness, and the source gives etale-local finite quotients as examples."
         }
       ],
@@ -437,19 +431,16 @@
         {
           "sourceId": "bfp24",
           "locator": "Proof of Proposition 3.1, p.6; Proposition 4.2 proof, p.7",
-          "excerpt": "smooth and proper",
           "match": "The point-count/cohomology argument consumes DM purity; it does not supply the missing general stack formalism."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "3.3.11, printed 207",
-          "excerpt": "groupe fini",
           "match": "Coarse quotient charts motivate the dualizing calculation; the extension from schemes to algebraic spaces is a recorded input."
         },
         {
           "sourceId": "vdbe05-v3",
           "locator": "Section 3, Lemma 3.2 and its proof, printed p.5 (characteristic zero)",
-          "excerpt": "characteristic zero",
           "match": "The written coarse comparison has a narrower base than the desired finite-field application; it cannot be used without an additional theorem."
         }
       ],
@@ -487,7 +478,6 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layer 12 projective-space computation; Layers 13 and worked examples",
-          "excerpt": "hyperplane",
           "match": "Identifies actual cohomology generators and arithmetic zeta, so the missing item here is their agreement with canonical Weil factors."
         }
       ],
@@ -524,7 +514,6 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layer 7 and finite-etale worked examples",
-          "excerpt": "permutation",
           "match": "The orbit calculation belongs to the supplier; this comparison fixes the canonical integral factor and all-power arithmetic interpretation."
         }
       ],
@@ -564,7 +553,6 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layer 11 products/Kunneth compatibility; Layer 12 compact-support Kunneth and Layer 13 determinant formula",
-          "excerpt": "Künneth",
           "match": "The supplier gives geometric tensor compatibility; its consumer computes degree factors and all-power counts."
         }
       ],
@@ -603,7 +591,6 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layers 8 and 15, curve test",
-          "excerpt": "curves",
           "match": "Independent curve cohomology supplies dimensions and the factor before the weight conclusion is used."
         }
       ],
@@ -642,7 +629,6 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layers 8 and 15, specialize the elliptic-curve case",
-          "excerpt": "Frobenius",
           "match": "The curve trace and determinant justify this explicit computed application; the concrete enumeration is given in the proof sketch."
         }
       ],
@@ -678,13 +664,11 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layer 15 curve factors, combined with the Artin-Schreier supplier contract",
-          "excerpt": "curve",
           "match": "The supplied curve factor and trace statements prove the zeta assertion after the explicitly requested geometric-model/genus computation; these are not assumed fields of a cohomology structure."
         },
         {
           "sourceId": "upstream-algebraic-curves",
           "locator": "Layer 10 Artin-Schreier covers (reduced local invariant, different and genus); Layer 7 Hurwitz; Layer 12B-12E model/places/genus dictionary",
-          "excerpt": "reduced local invariant",
           "match": "The unchanged owner specifies the reduced-pole characteristic-p calculus and actual normalized projective model. WC.7 specializes its exports through FA.3 instead of defining a second ramification or curve-model theory."
         }
       ],
@@ -719,7 +703,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "2.6, printed 281-282; specialize the projective-space factors",
-          "excerpt": "équation fonctionnelle",
           "match": "The explicit sign is an application of duality to the actual even-degree example, not a new generic functional-equation proof."
         }
       ],
@@ -755,7 +738,6 @@
         {
           "sourceId": "pr196-trace",
           "locator": "Layer 12 localization and worked G_m test",
-          "excerpt": "localization",
           "match": "Independent compact-support calculation tests the mixed divisor conclusion, as distinct from the supplier weight-facing assertion."
         }
       ],
@@ -789,7 +771,6 @@
         {
           "sourceId": "schroer23",
           "locator": "Section 7, Tate-twist discussion p.20 and Proposition 7.1 proof p.21",
-          "excerpt": "homothety",
           "match": "The source proves the scalar action by base-defined cycle classes and explicitly records f_(i,j)=f_i tensor q^(-j)."
         }
       ],
@@ -825,7 +806,6 @@
         {
           "sourceId": "schroer23",
           "locator": "Proposition 7.1 and proof, printed 20-21",
-          "excerpt": "surjective",
           "match": "Precisely its base-defined cycle hypothesis and odd vanishing produce the product. Geometric connectedness specifies the b_0=1 used in its nonemptiness conclusion."
         }
       ],
@@ -864,7 +844,6 @@
         {
           "sourceId": "schroer23",
           "locator": "Proposition 7.1 point-count conclusion and proof, printed 20-21",
-          "excerpt": "linear terms",
           "match": "The printed conclusion treats r=1; the recorded derivation applies its scalar-action proof to every power, a source-qualified extension rather than a claim that the source states all r."
         }
       ],
@@ -901,7 +880,6 @@
         {
           "sourceId": "schroer23",
           "locator": "Corollary 7.2 and proof, printed 21",
-          "excerpt": "local system",
           "match": "The corrected field is F_q and the duality deduction is b_3=0. The Num-to-cycle/cohomology passage is imported rather than silently axiomatized."
         }
       ],
@@ -934,7 +912,6 @@
         {
           "sourceId": "schroer23",
           "locator": "Corollary 7.3 and proof, printed 21",
-          "excerpt": "25",
           "match": "The printed geometric hypotheses give the ten-dimensional middle cohomology. The pending paper routes own these surface classes and their invariant computation."
         }
       ],
@@ -974,7 +951,6 @@
         {
           "sourceId": "schroer23",
           "locator": "Section 7, Corollary 7.2, printed 21; derived converse recorded as paper item /241",
-          "excerpt": "constant",
           "match": "This is the extraction review supplement, not a printed iff proposition. The proof adds the finite-order lattice/maximal-trace argument to the surface trace formula."
         }
       ],
@@ -1018,13 +994,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "3.3.9 and 3.3.11, printed 207",
-          "excerpt": "entiers",
           "match": "Extends the constant-coefficient proper conclusions; the theorem is an application of the independently owned rationality, duality and weights inputs."
         },
         {
           "sourceId": "pr196-trace",
           "locator": "Layers 13-15 and scope boundary",
-          "excerpt": "rationality",
           "match": "Arithmetic zeta and all-power cohomological trace are supplied upstream. RH and Betti comparison are distinct exports with their own hypotheses."
         }
       ],
@@ -1288,7 +1262,7 @@
       "source": "deligne-weil-ii",
       "kind": "misprint",
       "locator": "Proof of 3.3.5, printed 206, published 1980 scan",
-      "printed": "D'apres (3.3.3)",
+      "printed": "The source cites (3.3.3) as justification.",
       "correction": "Use the upper-weight assertion of 3.3.4 (or 3.3.1), not the integrality refinement 3.3.3.",
       "reason": "The argument applies compact-support upper weights to the dual sheaf. That dual is not assumed integral; integrality is not needed for the desired lower-weight conclusion by duality.",
       "affects": "nothing",
@@ -1332,7 +1306,7 @@
       "source": "kedlaya-weil-published",
       "kind": "gap",
       "locator": "Section 5.3 proof of consequence (a), printed 1446; preprint v3 p.52",
-      "printed": "Part (a) follows from the Lefschetz trace formula",
+      "printed": "The proof derives part (a) using the Lefschetz trace formula.",
       "correction": "Trace and finiteness first give factors over K. Add rational descent and normalized integral rational-series factorization for the existential rationality statement. To identify the actual smooth-proper degree factors as integral, also use all-conjugates purity and degree separation.",
       "reason": "An alternating determinant product alone does not determine or prove integrality of its individual factors. Even equal nonintegral numerator and denominator factors can cancel to 1. WC.3 owns the missing algebraic extraction; no general mixed-factor integrality is inferred.",
       "affects": "the proof",
@@ -1376,7 +1350,7 @@
       "source": "schroer23",
       "kind": "error",
       "locator": "Section 7, p. 20 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "The characteristic polynomials of f_{i,j} have coefficients from ℚ, and the eigenvalues α ∈ ℚ^alg are algebraic integers, of length |α| = q^{i/2−j} in all complex embeddings.",
+      "printed": "The source claims rational coefficients for the characteristic polynomials of f_{i,j}, and says their eigenvalues α ∈ ℚ^alg are algebraic integers satisfying |α| = q^{i/2−j} under every complex embedding.",
       "correction": "Untwisted eigenvalues are algebraic integers; after twist j they are scaled by q^(-j), so for j>0 integrality is not guaranteed.",
       "reason": "The point with Q_ell(1) has scalar q^(-1), which is not an algebraic integer. This packet keeps algebraic weights distinct from integrality.",
       "affects": "a stated result",
@@ -1397,7 +1371,7 @@
       "source": "schroer23",
       "kind": "misprint",
       "locator": "Corollary 7.2 and its proof, p. 21 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "If the local system Num_{X/k} is constant, we have Card X(F_p) = 1 + b₂q + q².",
+      "printed": "The source claims Card X(F_p) = 1 + b₂q + q² whenever the local system Num_{X/k} is constant.",
       "correction": "Replace F_p by F_q in Corollary 7.2 and its count.",
       "reason": "q=p^f can be nonprime; q=4 gives 57 in the ten-dimensional example, while its F_2 count is 25.",
       "affects": "nothing",
@@ -1418,7 +1392,7 @@
       "source": "schroer23",
       "kind": "misprint",
       "locator": "proof of Corollary 7.2, p. 21 (arXiv v3 = author version of 19 July 2022)",
-      "printed": "We have b₀=1, and with Poincaré Duality get b₄=1 and b₁=0.",
+      "printed": "The source states b₀=1 and invokes Poincaré Duality to obtain b₄=1 and b₁=0.",
       "correction": "In Corollary 7.2 proof, Poincare duality gives b_3=0 from the assumed b_1=0.",
       "reason": "Repeating b_1=0 misses the odd-degree-3 vanishing used by Proposition 7.1.",
       "affects": "nothing",

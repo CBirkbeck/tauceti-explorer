@@ -361,13 +361,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, Definition, printed p. 5",
-          "excerpt": "A complete discrete valuation field K is said to have the structure of an n-dimensional local field",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, Lemma, printed p. 7",
-          "excerpt": "The set of all non-zero ideals",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -494,13 +492,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, Examples and Classification Theorem, printed pp. 6-7",
-          "excerpt": "Then K is a complete discrete valuation field",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, Classification Theorem, printed p. 6",
-          "excerpt": "there is a finite extension of K which is a standard field",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -553,13 +549,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.3, before 1.3.1, printed p. 9",
-          "excerpt": "a topology in K which takes into account topologies of the residue fields.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.3.2, Properties (2) and (3), printed p. 11",
-          "excerpt": "If n > 1, then every base of neighbourhoods of 0 is uncountable.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -684,13 +678,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.2, printed p. 8",
-          "excerpt": "do not depend on the choice of parameters",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.2, printed p. 8",
-          "excerpt": "It can be also used in a narrower sense",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -735,7 +727,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov §1.3.4 pp. 13–14 and §1.4.3 pp. 16–18; source issue E1 at p. 6",
-          "excerpt": "Conditions (i) and (ii) in the Lemma are essential.",
           "match": "Admissible expansions and the explicit warning about unrestricted products; use representatives rather than the incorrect mixed-characteristic subfield claim."
         }
       ],
@@ -781,13 +772,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, Examples, printed p. 6",
-          "excerpt": "For a complete discrete valuation field F",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "A complete discrete valuation field K",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -830,7 +819,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov §1.4.1–1.4.2 pp. 14–16; Fesenko §6.2 p. 63",
-          "excerpt": "If n ⩽2, then the multiplicative group K∗is a topological group",
           "match": "Corrects the inherited claim that every n>1 multiplicative topology has only sequential group operations."
         }
       ],
@@ -872,13 +860,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, Remark, printed p. 5",
-          "excerpt": "perfect rather than finite.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.1, Corollary, printed p. 56",
-          "excerpt": "quasi-finite (not necessarily finite)",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -921,13 +907,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.1, printed p. 75",
-          "excerpt": "apply the tame symbol and valuation map of subsection 6.4",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I §6, opening overview, printed p. 61 (the body of §§6.4–6.8 has not been read)",
-          "excerpt": "presents very useful pairings",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -1041,13 +1025,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 57",
-          "excerpt": "If L/K is unramified, the norm map",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I §6, opening overview, printed p. 61 (the body of §§6.4–6.8 has not been read)",
-          "excerpt": "6.8 presents various properties of the norm map on K-groups.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -1091,13 +1073,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 6, subsection 6.0, printed p. 62",
-          "excerpt": "by the intersection",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 6, subsection 6.0, printed p. 62",
-          "excerpt": "as open subgroups of finite index",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1226,13 +1206,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.2, Theorem 1, printed p. 76",
-          "excerpt": "is a homeomorphism.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.2, printed p. 76",
-          "excerpt": "We also deduce that the pairing ( , ]r is non-degenerate.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1277,13 +1255,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 57",
-          "excerpt": "has a filtration",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 58",
-          "excerpt": "the above map induces a surjective homomorphism",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1324,13 +1300,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.1, printed p. 75",
-          "excerpt": "apply the tame symbol and valuation map of subsection 6.4",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.1, printed p. 75",
-          "excerpt": "apply the tame symbol and valuation map of subsection 6.4",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1370,13 +1344,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 6, subsection 6.1, printed p. 62",
-          "excerpt": "is an uncountable uniquely divisible group",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 6, subsection 6.0, printed p. 62",
-          "excerpt": "is not injective in general",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1424,13 +1396,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.1, printed p. 54",
-          "excerpt": "If char(k) = p > 0, then following Illusie [I] we define",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.1, printed p. 54",
-          "excerpt": "J is the subgroup generated by elements of the form",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1562,13 +1532,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I §5.1, Theorem (Kato [K2, Th. 3]), printed pp. 55–56",
-          "excerpt": "Let K be a henselian discrete valuation field",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.1, Corollary, and 5.2, printed p. 56",
-          "excerpt": "Then, i induces an isomorphism",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1623,13 +1591,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 57",
-          "excerpt": "the cohomological dimension of F [K2, p.220] is d.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.1, Corollary, printed p. 56",
-          "excerpt": "Then, i induces an isomorphism",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1682,13 +1648,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. v",
-          "excerpt": "the norm residue homomorphism",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 58",
-          "excerpt": "By Bloch-Kato's theorem",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1742,13 +1706,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.1, printed p. 54",
-          "excerpt": "If char(k) = p > 0, then following Illusie [I] we define",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. v",
-          "excerpt": "Kato's cohomology groups in characteristic p",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -1868,13 +1830,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 56",
-          "excerpt": "The cup product defines a pairing",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iv",
-          "excerpt": "For these fields there is a reciprocity map",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -1928,13 +1888,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.2, printed p. 76",
-          "excerpt": "Using the Artin-Schreier-Witt pairing",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.0, printed p. 53",
-          "excerpt": "First, for the Brauer group Br(K)",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -1985,13 +1943,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 56",
-          "excerpt": "which we call the reciprocity map.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 57",
-          "excerpt": "So, as in the classical case, we have a homomorphism",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2122,13 +2078,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, Isomorphism Theorem, printed p. 57",
-          "excerpt": "We outline a proof.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 58",
-          "excerpt": "We can use an argument similar to the previous one.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2184,13 +2138,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, opening paragraph, printed p. 75",
-          "excerpt": "In this section we use the results and definitions of 6.1-6.5",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.1, printed p. 75",
-          "excerpt": "apply the tame symbol and valuation map of subsection 6.4",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2247,13 +2199,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 10, subsection 10.4.2, Corollary and Proposition 2, printed p. 99",
-          "excerpt": "is the identity map",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 10, subsection 10.4.2, Remark, printed p. 99",
-          "excerpt": "As the example above shows, one cannot define",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2309,13 +2259,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 10, subsection 10.5, Existence Theorem, printed p. 100",
-          "excerpt": "is the norm group of a uniquely determined abelian extension",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 10, subsection 10.5, Remark 1 and Corollary 1, printed p. 100",
-          "excerpt": "is a one-to-one correspondence between finite abelian extensions of F",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2371,13 +2319,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iv",
-          "excerpt": "everywhere dense image; but it is not injective",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 6, subsection 6.0, printed p. 62",
-          "excerpt": "As a corollary of the existence theorem in 10.5",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2431,13 +2377,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 10, subsection 10.5, Theorem 3, printed p. 100",
-          "excerpt": "The following diagram is commutative",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 5, subsection 5.2, printed p. 57",
-          "excerpt": "If L/K is unramified, the norm map",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2488,13 +2432,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 8, opening paragraph, printed p. 81",
-          "excerpt": "the Hilbert symbol for a local field K with finite residue field",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.1, printed p. 75",
-          "excerpt": "apply the tame symbol and valuation map of subsection 6.4",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2617,13 +2559,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 8, subsection 8.1.1, Theorem (Kummer 1858), printed p. 81",
-          "excerpt": "The important point is that one associates to the elements",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 8, subsection 8.1.1, Theorem (Shafarevich 1950), printed p. 81",
-          "excerpt": "using a special basis of the group of principal units.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2674,13 +2614,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 10, subsection 10.5, Existence Theorem proof, printed p. 100",
-          "excerpt": "defined in 6.4.4 (see the theorems in 8.3).",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. v",
-          "excerpt": "Vostokov's explicit formula",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -2727,13 +2665,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. vi",
-          "excerpt": "New lower and upper filtrations are defined",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, printed p. 7",
-          "excerpt": "Epp's theorem on elimination of wild ramification",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2850,13 +2786,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. v",
-          "excerpt": "introduces his exponential homomorphism",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. vi",
-          "excerpt": "depending on the behaviour of the torsion part of a differential module.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -2906,13 +2840,11 @@
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.2, printed p. 76",
-          "excerpt": "Using the Artin-Schreier-Witt pairing",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 7, subsection 7.1, printed p. 75",
-          "excerpt": "apply the tame symbol and valuation map of subsection 6.4",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -2967,13 +2899,11 @@
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 199",
-          "excerpt": "In the case where everything is regularly embedded",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, Example, printed pp. 199-200",
-          "excerpt": "If X and C are smooth at P",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3100,13 +3030,11 @@
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 199",
-          "excerpt": "with respect to certain restrictions on components of adeles",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 200",
-          "excerpt": "is not a field in general.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3232,13 +3160,11 @@
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 200",
-          "excerpt": "We can compare the structure of adelic components in dimension one and two",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part I, section 1, subsection 1.1, printed p. 5",
-          "excerpt": "such that both S and C are regular at x.",
           "match": "Literal short anchor on a freshly read page; formula notation is transcribed in the mathematical statement rather than quoted here. The retained obligation still needs declaration splitting, exact supplier signatures and proof extraction as recorded in coverage and gaps."
         }
       ],
@@ -3286,13 +3212,11 @@
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 199",
-          "excerpt": "with respect to certain restrictions on components of adeles",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "to work with the Milnor K-groups instead of the multiplicative group",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3410,13 +3334,11 @@
         {
           "sourceId": "inv",
           "locator": "Contents, Part II, printed p. xi",
-          "excerpt": "Adelic constructions for direct images of differentials and symbols",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 199",
-          "excerpt": "a flag of irreducible subschemes",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3464,13 +3386,11 @@
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, Example, printed pp. 199-200",
-          "excerpt": "an algebraic projective irreducible surface over a field k",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.2, printed p. 200",
-          "excerpt": "In the one-dimensional case for every character",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3518,13 +3438,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "review on abelian class field theory of arithmetic schemes.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "some blending of class field theories for local fields.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3579,13 +3497,11 @@
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 200",
-          "excerpt": "a duality between points P and curves C",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "it describes abelian extensions of number fields",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3640,13 +3556,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "to work with the Milnor K-groups instead of the multiplicative group",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Part II, section 1, subsection 1.0.1, printed p. 199",
-          "excerpt": "a flag of irreducible subschemes",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3700,13 +3614,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "review on abelian class field theory of arithmetic schemes.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. vi",
-          "excerpt": "abelian totally ramified p-extensions",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3756,13 +3668,11 @@
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iv",
-          "excerpt": "higher local class field theory contains the classical local class field theory as its one-dimensional version.",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         },
         {
           "sourceId": "inv",
           "locator": "Introduction, printed p. iii",
-          "excerpt": "a blending of higher dimensional local class field theories",
           "match": "Literal short anchor for the source role and example inventory. This overview does not prove the entire retained obligation; the complete definitions, hypotheses and proof dependencies indicated in coverage and gaps remain to be extracted."
         }
       ],
@@ -3808,7 +3718,6 @@
         {
           "sourceId": "inv",
           "locator": "Kurihara §5.0 pp. 53–54 and §5.2 pp. 56–57",
-          "excerpt": "which we call the reciprocity map",
           "match": "The higher construction is compared against the ordinary construction; the equality and coefficient-scope proof are obligations, not new ordinary reciprocity definitions."
         }
       ],
@@ -3848,7 +3757,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -3932,7 +3840,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -3969,7 +3876,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4004,7 +3910,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4039,7 +3944,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4078,7 +3982,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4157,7 +4060,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4195,7 +4097,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4292,7 +4193,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4328,7 +4228,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4366,7 +4265,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4405,7 +4303,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4446,7 +4343,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4486,7 +4382,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4523,7 +4418,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4565,7 +4459,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4606,7 +4499,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -4642,7 +4534,6 @@
         {
           "sourceId": "inv",
           "locator": "Zhukov, Part I §1.3.1(a), printed p. 9; additive properties §1.3.2, printed p. 11",
-          "excerpt": "a sequence of neighbourhoods of zero",
           "match": "The coefficient-neighborhood construction. The subgroup-basis formulation and the explicit comparison with the native outer valuation topology are derived here; neither is a claim that the source already gives a Lean interface."
         }
       ],
@@ -5799,7 +5690,7 @@
       "source": "inv",
       "kind": "error",
       "locator": "Zhukov, Part I §1.1, printed p. 6 (physical p. 18), paragraph preceding Classification Theorem; published MSP volume.",
-      "printed": "Then the set of Teichmüller representatives R in O_K is a field isomorphic to K_0.",
+      "printed": "The source asserts that the Teichmüller representatives R inside O_K form a field isomorphic to K_0.",
       "correction": "The stated preceding hypothesis char(k_K)=p includes mixed characteristic. Require char(K)=p for the assertion that these representatives form a field; in mixed characteristic they give multiplicative representatives, not a subfield. Additive expansions require representatives, not a field structure on them.",
       "reason": "For K=Q_3 the last residue field is F_3 and the representatives are 0, 1, −1. They satisfy the stated residue-characteristic hypothesis, but 1+1=2 is not in that set in Q_3. No field of characteristic zero contains a finite subfield. Zhukov p. 14 correctly distinguishes A=K_0 in characteristic p from A=W(K_0) in characteristic zero.",
       "affects": "a stated result",
@@ -5850,7 +5741,7 @@
       "source": "inv",
       "kind": "misprint",
       "locator": "Fesenko, Part I §10.5, Corollary 1, printed p. 100 (physical p. 112), published MSP volume.",
-      "printed": "The reciprocity map Ψ_F: K_n^top(F) → Gal(L/F) is injective.",
+      "printed": "The source asserts injectivity of the reciprocity morphism Ψ_F: K_n^top(F) → Gal(L/F).",
       "correction": "Replace Gal(L/F) by Gal(F^ab/F), the target of Ψ_F defined on p. 99 and used in Theorem 3 on p. 100. A finite-extension target requires quotienting by the norm group.",
       "reason": "The preceding construction defines the absolute reciprocity map. The displayed finite target cannot receive an injection from K_n^top(F), which has an infinite valuation factor. Already for n=1, F=F_q((t)) and L=F the finite-target assertion would inject F× into the trivial group. The printed target was checked visually.",
       "affects": "nothing",

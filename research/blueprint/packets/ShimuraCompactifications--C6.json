@@ -269,7 +269,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -307,7 +306,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Corrects the omitted exclusion of exponent zero in the printed contradiction argument; see E1."
         }
       ],
@@ -351,7 +349,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -390,7 +387,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Equation (5), author copy printed p. 546",
-          "excerpt": "(5)",
           "match": "The scalar unit consequence of the actual Fourier transformation law; the lattice and line trivialization are supplier obligations."
         }
       ],
@@ -432,7 +428,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -476,7 +471,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Section 2 boundary coordinates, author copy printed pp. 529–530; Theorem 8.3, printed p. 547",
-          "excerpt": "8.3",
           "match": "Elementary positivity consequence used to identify the Hilbert boundary ideal; generic toric coordinate construction remains in C0."
         }
       ],
@@ -515,7 +509,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(iii), author copy printed p. 548",
-          "excerpt": "(iii)",
           "match": "The explicit ring-valued equality underlying the source’s zero-divisor formulation."
         }
       ],
@@ -554,7 +547,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(iii), author copy printed p. 548",
-          "excerpt": "(iii)",
           "match": "Coefficient-sensitive consequence; no assertion that every nonparallel character remains nontrivial modulo a prime."
         }
       ],
@@ -586,7 +578,7 @@
       "prerequisites": [
         "ShimuraCompactifications:C0/relative-regular-coordinates",
         "ShimuraCompactifications:C0/relative-boundary-coordinates",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/formal-universal-degeneration",
         "AdicSpacesPartII:F0",
         "HilbertModularVarietiesAndShimuraCurves:H1",
         "HilbertModularVarietiesAndShimuraCurves:H3",
@@ -602,7 +594,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Section 2 completed toric coordinates, author copy printed pp. 529–530; Theorem 8.3 proof, printed p. 547",
-          "excerpt": "8.3",
           "match": "Hilbert specialization of imported completed-coordinate algebra; not a new generic completion theorem."
         }
       ],
@@ -637,8 +628,9 @@
         "ShimuraCompactifications:C6/bounded-cusp-support",
         "HilbertModularVarietiesAndShimuraCurves:H1",
         "HilbertModularVarietiesAndShimuraCurves:H3",
-        "ShimuraCompactifications:C0",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C0/relative-regular-coordinates",
+        "ShimuraCompactifications:C0/relative-boundary-coordinates",
+        "ShimuraCompactifications:C4/formal-universal-degeneration",
         "ShimuraCompactifications:C5",
         "ShimuraCompactifications:C6/uniformized-level-chart",
         "ShimuraCompactifications:C6/cusp-lattice-comparison",
@@ -653,7 +645,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -689,7 +680,7 @@
         "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
         "AdicSpacesPartII:F0",
         "ShimuraCompactifications:C0/relative-boundary-coordinates",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/formal-universal-degeneration",
         "ShimuraCompactifications:C5",
         "HilbertModularVarietiesAndShimuraCurves:H3",
         "SchemeAndStackFoundations:SF.1",
@@ -706,7 +697,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -760,7 +750,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Section 2 boundary coordinates, author copy printed pp. 529–530; equation (5) and Theorem 8.3, printed pp. 546–547",
-          "excerpt": "8.3",
           "match": "Explicit Hilbert-specific consequence of positive support and the boundary-ideal computation, not attributed as a separately numbered theorem in Dimitrov."
         }
       ],
@@ -804,7 +793,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "§3, Definition 3.2 and Proposition 3.3(iv), printed pp. 531–535",
-          "excerpt": "Proposition 3.3.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -829,7 +817,7 @@
       ],
       "prerequisites": [
         "ShimuraCompactifications:C6/cusp-lattice-comparison",
-        "ShimuraCompactifications:C0",
+        "ShimuraCompactifications:C0/arithmetic-admissible-fan",
         "HilbertModularVarietiesAndShimuraCurves:H3"
       ],
       "acceptance": [
@@ -844,7 +832,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Definition 7.1 and proof of Theorem 7.2, printed pp. 541–542",
-          "excerpt": "Définition 7.1.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -883,7 +870,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -920,7 +906,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -956,7 +941,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -993,7 +977,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1034,7 +1017,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii) and equation (5), printed pp. 537, 546",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1133,7 +1115,9 @@
       "prerequisites": [
         "ShimuraCompactifications:C6/cusp-lattice-comparison",
         "ShimuraCompactifications:C6/uniformization-phase-character",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/formal-universal-degeneration",
+        "ShimuraCompactifications:C4/endomorphism-extension",
+        "ShimuraCompactifications:C4/boundary-level-comparison",
         "HilbertModularVarietiesAndShimuraCurves:H1",
         "HilbertModularVarietiesAndShimuraCurves:H3"
       ],
@@ -1149,7 +1133,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(i)–(iii), printed pp. 536–537",
-          "excerpt": "Proposition 4.1.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1193,7 +1176,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.2(i), §§5–6, printed pp. 538–543",
-          "excerpt": "Théorème 7.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1237,13 +1219,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.2(ii), author copy printed pp. 542–543",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Proposition 8.4, printed p. 1766",
-          "excerpt": "finite étale",
           "match": "The finite tame polarization quotient on the open Hilbert variety; extension and boundary freeness are supplied by Dimitrov Theorem 7.2(ii), not by this open torsor statement."
         }
       ],
@@ -1270,7 +1250,8 @@
         "ShimuraCompactifications:C6/hilbert-toroidal-model",
         "ShimuraCompactifications:C6/toroidal-polarization-quotient",
         "ShimuraCompactifications:C6/cusp-lattice-comparison",
-        "ShimuraCompactifications:C0",
+        "ShimuraCompactifications:C0/relative-torus-embedding",
+        "ShimuraCompactifications:C0/relative-boundary-coordinates",
         "HilbertModularVarietiesAndShimuraCurves:H3",
         "AdicSpacesPartII:F0"
       ],
@@ -1286,7 +1267,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.2(i),(ii), printed pp. 541–543",
-          "excerpt": "Théorème 7.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1311,7 +1291,8 @@
       ],
       "prerequisites": [
         "ShimuraCompactifications:C6/hilbert-boundary-formal-comparison",
-        "ShimuraCompactifications:C0",
+        "ShimuraCompactifications:C0/relative-torus-embedding",
+        "ShimuraCompactifications:C0/relative-face-open",
         "AdicSpacesPartII:F0"
       ],
       "acceptance": [
@@ -1325,7 +1306,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Corollary 7.4, printed p. 544",
-          "excerpt": "Corollaire 7.4.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1350,8 +1330,8 @@
       ],
       "prerequisites": [
         "ShimuraCompactifications:C6/hilbert-boundary-etale-charts",
-        "ShimuraCompactifications:C0",
-        "ShimuraCompactifications:C3",
+        "ShimuraCompactifications:C0/smooth-projective-refinement",
+        "ShimuraCompactifications:C3/refinement-map",
         "HilbertModularVarietiesAndShimuraCurves:H1"
       ],
       "acceptance": [
@@ -1365,7 +1345,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Corollary 7.5 and Remark 7.3, printed pp. 543–544",
-          "excerpt": "Corollaire 7.5.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1391,7 +1370,9 @@
       "prerequisites": [
         "ShimuraCompactifications:C6/hilbert-toroidal-model",
         "ShimuraCompactifications:C6/uniformized-level-chart",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/degeneration-effectivity",
+        "ShimuraCompactifications:C4/homomorphism-extension",
+        "ShimuraCompactifications:C4/endomorphism-extension",
         "SchemeAndStackFoundations:SF.1",
         "NeronModelsAndSemistableAbelianVarieties:R11.3",
         "NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation"
@@ -1408,7 +1389,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 7.6, printed p. 544",
-          "excerpt": "Proposition 7.6.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1436,7 +1416,7 @@
       ],
       "prerequisites": [
         "ShimuraCompactifications:C6/hilbert-semiabelian-extension",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/formal-universal-degeneration",
         "HilbertModularVarietiesAndShimuraCurves:H1",
         "HilbertModularVarietiesAndShimuraCurves:H2",
         "HilbertModularVarietiesAndShimuraCurves:H3"
@@ -1453,13 +1433,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 7.6 and opening of section 8, author copy printed pp. 544–546",
-          "excerpt": "Proposition 7.6.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Section 7.1, printed pp. 1759–1760",
-          "excerpt": "conormal sheaf",
           "match": "Identifies the natural invariant differentials of the semiabelian extension. The subsequently modified integral lattice has a different owner and is not identified with this sheaf."
         }
       ],
@@ -1487,7 +1465,7 @@
         "ShimuraCompactifications:C6/hilbert-toroidal-model",
         "ShimuraCompactifications:C6/toroidal-polarization-quotient",
         "ShimuraCompactifications:C6/admissible-fan-specialization",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/degeneration-effectivity",
         "ShimuraCompactifications:C5",
         "NeronModelsAndSemistableAbelianVarieties:R11.3",
         "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension"
@@ -1503,7 +1481,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.7, printed pp. 544–545",
-          "excerpt": "Théorème 7.7.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1543,7 +1520,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(i) and proof citing [9] IX.2.1 / [7] V.2.1, printed pp. 548–549",
-          "excerpt": "(i)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1584,7 +1560,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(ii) and proof, printed pp. 548–549",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1625,7 +1600,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iii) and proof, printed pp. 548–549",
-          "excerpt": "(iii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1666,7 +1640,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iii) and proof, printed pp. 548–549",
-          "excerpt": "(iii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1707,7 +1680,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iii) and proof, printed pp. 548–549",
-          "excerpt": "(iii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1751,7 +1723,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iv), printed p. 548",
-          "excerpt": "(iv)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1791,7 +1762,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(v) and proof using [7] V.2.2, printed pp. 548–549",
-          "excerpt": "(v)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1833,7 +1803,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(v), printed p. 548",
-          "excerpt": "(v)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1877,7 +1846,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(vi) and proof, printed pp. 548–549",
-          "excerpt": "(vi)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1906,7 +1874,7 @@
         "ShimuraCompactifications:C6/hilbert-conormal-comparison",
         "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
         "HilbertModularVarietiesAndShimuraCurves:H3",
-        "ShimuraCompactifications:C0",
+        "ShimuraCompactifications:C0/relative-regular-coordinates",
         "AdicSpacesPartII:F0"
       ],
       "acceptance": [
@@ -1920,7 +1888,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Definition 8.4, equation (5), printed pp. 546–547",
-          "excerpt": "Définition 8.4.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1965,13 +1932,11 @@
         {
           "sourceId": "DIMITROV-TILOUINE-AUTHOR",
           "locator": "§7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586",
-          "excerpt": "Proposition 7.3.",
           "match": "The companion gives the abelian-coefficient injectivity argument and explicitly assumes an inclusion of coefficient algebras; its displayed chart presentation is restricted to nonramified cusps. Dimitrov §8 supplies the general cusp presentation, whose unit phase preserves the argument."
         },
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(i), printed p. 547 (proof delegated to [6], §7)",
-          "excerpt": "(i)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2009,13 +1974,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(i), printed p. 547 (proof delegated to [6], §7)",
-          "excerpt": "(i)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "DIMITROV-TILOUINE-AUTHOR",
           "locator": "§7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586",
-          "excerpt": "Proposition 7.3.",
           "match": "The companion gives the abelian-coefficient injectivity argument and explicitly assumes an inclusion of coefficient algebras; its displayed chart presentation is restricted to nonramified cusps. Dimitrov §8 supplies the general cusp presentation, whose unit phase preserves the argument."
         }
       ],
@@ -2056,13 +2019,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(ii), printed p. 547 (proof delegated to [6], §7)",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "DIMITROV-TILOUINE-AUTHOR",
           "locator": "§7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586",
-          "excerpt": "Proposition 7.3.",
           "match": "The companion gives the abelian-coefficient injectivity argument and explicitly assumes an inclusion of coefficient algebras; its displayed chart presentation is restricted to nonramified cusps. Dimitrov §8 supplies the general cusp presentation, whose unit phase preserves the argument."
         }
       ],
@@ -2099,7 +2060,7 @@
         "AdicSpacesPartII:F0/formal-direct-image-comparison",
         "ShimuraCompactifications:C6/hilbert-boundary-etale-charts",
         "ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres",
-        "ShimuraCompactifications:C0"
+        "ShimuraCompactifications:C0/relative-boundary-coordinates"
       ],
       "acceptance": [
         "No equality π*I_cusp=I_D is claimed; orders of vanishing can change under refinements.",
@@ -2114,7 +2075,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iv),(v) and its proof, author copy printed pp. 548–549; Corollary 7.4, printed p. 544",
-          "excerpt": "(v)",
           "match": "Derived ideal comparison from the source boundary contraction and toric charts, plus the explicitly requested integral global-function theorem in SF.0/C5; not a separately numbered source theorem."
         }
       ],
@@ -2158,13 +2118,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Sections 5.1.2–5.2, printed pp. 1744–1748",
-          "excerpt": "5.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorems 7.2 and 8.6, author copy printed pp. 541–543, 548–549",
-          "excerpt": "Théorème 7.2.",
           "match": "The arithmetic toroidal/minimal models to which the BHW ordinary construction is compared; ramified integral local-model compatibility is separately requested from H2."
         }
       ],
@@ -2209,7 +2167,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.2, Lemma 5.12 proof, pp. 1746–1748; §7.1, pp. 1759–1760",
-          "excerpt": "5.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2250,7 +2207,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW Lemma 5.12 proof, printed p. 1748",
-          "excerpt": "Lemma 5.12.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2299,7 +2255,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.2, pp. 1746–1748; elliptic convention §2.1, p. 1721",
-          "excerpt": "5.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2343,7 +2298,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW Proposition 8.4 and Lemma 8.5, pp. 1766–1767",
-          "excerpt": "Lemma 8.5.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2376,10 +2330,12 @@
         "HilbertModularVarietiesAndShimuraCurves:H2",
         "HilbertModularVarietiesAndShimuraCurves:H3",
         "HilbertModularVarietiesAndShimuraCurves:H4",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/boundary-level-comparison",
         "ShimuraCompactifications:C5",
-        "ShimuraCompactifications:C0",
-        "ShimuraCompactifications:C3"
+        "ShimuraCompactifications:C0/compatible-common-refinement",
+        "ShimuraCompactifications:C0/relative-torus-embedding",
+        "ShimuraCompactifications:C3/level-datum-functoriality",
+        "ShimuraCompactifications:C3/choice-comparison"
       ],
       "acceptance": [
         "The map from full G* to full G level is not generally surjective (BHW §8.2).",
@@ -2394,7 +2350,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1742–1745, 1768–1779",
-          "excerpt": "8.2.",
           "match": "BHW supplies the actual open finite-level maps, effective groups and mixed-level distinction. Extension to compactifications is a C6 comparison using C5 and the explicitly requested C0/C3 fan compatibility; BHW is not cited as proving extension for arbitrary toroidal fans."
         }
       ],
@@ -2439,7 +2394,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §7.1, Definition 7.3 and Proposition 7.4, pp. 1759–1760",
-          "excerpt": "7.1.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2467,7 +2421,7 @@
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:H1",
         "HilbertModularVarietiesAndShimuraCurves:H4",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/tate-degeneration-comparison",
         "ShimuraCompactifications:C5",
         "ModularCurvesPartII:R13.4a",
         "SchemeAndStackFoundations:SF.0"
@@ -2484,13 +2438,11 @@
         {
           "sourceId": "MODULAR-CURVES-II",
           "locator": "R13.4a",
-          "excerpt": "properness, normality",
           "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Section 2.1, printed pp. 1720–1721",
-          "excerpt": "divisor of cusps",
           "match": "The elliptic compactification and Hasse-neighbourhood convention. The algebraic/formal comparison with the Hilbert specialization still uses the separately requested modular-curve contracts."
         }
       ],
@@ -2517,7 +2469,8 @@
       ],
       "prerequisites": [
         "ShimuraCompactifications:C6/modular-toroidal-minimal-comparison",
-        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C4/tate-degeneration-comparison",
+        "ShimuraCompactifications:C4/boundary-level-comparison",
         "ModularCurvesPartII:R13.4a",
         "ModularCurvesPartII:R13.4b",
         "AdicSpacesPartII:F0",
@@ -2536,13 +2489,11 @@
         {
           "sourceId": "MODULAR-CURVES-II",
           "locator": "R13.4a and R13.4b",
-          "excerpt": "components, determinant and cusp fields",
           "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a and R13.4b."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Section 2.1, printed pp. 1720–1721",
-          "excerpt": "divisor of cusps",
           "match": "The elliptic compactification and Hasse-neighbourhood convention. The algebraic/formal comparison with the Hilbert specialization still uses the separately requested modular-curve contracts."
         }
       ],
@@ -2581,7 +2532,6 @@
         {
           "sourceId": "MODULAR-CURVES-II",
           "locator": "R13.4a",
-          "excerpt": "properness, normality",
           "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a."
         }
       ],
@@ -2832,7 +2782,8 @@
       "remaining": [
         "Close the exact supplier requests for arithmetic completed charts, formal effectivity, HBAV local models, determinant section-ring geometry, Hasse/differential extension and modular coarse comparisons; replace the geometric signature omission ledger with the actual native interfaces. In particular close the integral boundary global-function comparison and the compatible/pullback-fan level-map contracts.",
         "Supply the module-valued schematic-density/completion contracts needed by the inclusion q-expansion theorem; specify any separate noninjective-map image formulation and the integral wild-level local-model comparison before enlarging those statements.",
-        "Collate the independently reviewed source issues against the version of record; the accessible-copy independent review is complete."
+        "Collate the independently reviewed source issues against the version of record; the accessible-copy independent review is complete.",
+        "Reconcile the completed-chart, all-prime Hilbert-model and changed-level instantiation gaps recorded by the assembly; exact ordinary C0/C3/C4 ingredients now have node prerequisites, but the wider C5 integral request has no matching node."
       ]
     }
   ],
@@ -2905,6 +2856,50 @@
         "ShimuraCompactifications:C6/hilbert-q-expansion-module-injective"
       ],
       "detail": "Independent review confirms E-C6-1, E-C6-2 and E-C6-3 in the accessed preprint/author copies, with the narrowed zero-module interpretation of E-C6-2 and directed-union repair for E-C6-3. The main author copy has printed pagination differing from the published citation; publisher DOI access failed again. Version-of-record collation remains outstanding, and no result relies on an asserted publisher correction. Fresh public errata searches found no correction, which does not establish that none exists."
+    },
+    {
+      "title": "Completed Hilbert charts and finite changed-lattice maps beyond ordinary C0 nodes",
+      "neededBy": [
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/admissible-fan-specialization",
+        "ShimuraCompactifications:C6/hilbert-boundary-formal-comparison",
+        "ShimuraCompactifications:C6/hilbert-boundary-etale-charts",
+        "ShimuraCompactifications:C6/hilbert-regular-refinement",
+        "ShimuraCompactifications:C6/hilbert-q-expansion-comparison",
+        "ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward",
+        "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison"
+      ],
+      "detail": "Assembly identifies ordinary ingredients by C0/relative-torus-embedding, relative-face-open, relative-regular-coordinates, relative-boundary-coordinates, arithmetic-admissible-fan, compatible-common-refinement and smooth-projective-refinement. These statements do not construct the completed arithmetic unit quotient, its module-valued support/localization description, or the finite normalization induced by a finite lattice map with its pullback fan. Apply the existing F0 completion/detection requests to the actual Hilbert cusp lattices and prove the residual C0 request. In regular local coordinates the boundary UNION ideal is (x_1 ... x_r), whereas the C0 intersection node has ideal (x_j : j in J). Derive the union formula from the monomial basis; do not identify these two ideals. Its quotient-basis/flat geometric-reducedness argument over the integral cusp base and the compatible changed-lattice finite map are explicit missing comparisons, not consequences of face-open or refinement properness alone."
+    },
+    {
+      "title": "Hilbert integral effectivity and minimal geometry outside the good-prime C5 scope",
+      "neededBy": [
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-toroidal-model",
+        "ShimuraCompactifications:C6/hilbert-toroidal-proper",
+        "ShimuraCompactifications:C6/hilbert-hodge-semiampleness",
+        "ShimuraCompactifications:C6/hilbert-minimal-contraction",
+        "ShimuraCompactifications:C6/hilbert-minimal-finite-generation",
+        "ShimuraCompactifications:C6/hilbert-minimal-normal-projective",
+        "ShimuraCompactifications:C6/minimal-polarization-quotient",
+        "ShimuraCompactifications:C6/hilbert-minimal-cusps",
+        "ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres",
+        "ShimuraCompactifications:C6/hilbert-minimal-weight-extension",
+        "ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward",
+        "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison",
+        "ShimuraCompactifications:C6/modular-toroidal-minimal-comparison"
+      ],
+      "detail": "No C5 node supplies the full existing C6-to-C5 request over B=Z[1/N(n)] when the discriminant is not inverted. C5/integral-toroidal-space, formal-completion, valuative-properness and hodge-semiampleness require the good-prime PEL model (the first also a smooth compatible fan); C5/graded-section-finite-generation and integral-minimal-space build on that same model. They cannot be substituted for Hilbert toroidal/minimal existence, Hodge positivity, integral connected/reduced boundary fibres or their structure-sheaf comparison at discriminant primes. C5/projective-normalized-blowup supplies a different projective normalized model conditional on an M4 ramified interior/minimal/lattice-collection interface, not an identification with the H2 Deligne–Pappas model or a proof of its global B-model. Retain the exact C5 stage request, with H1/H2 moduli and local-model inputs. Establish its Hilbert specialization by the Dimitrov construction and the stated formal effectivity/descent, then export the precise determinant-section-ring, Veronese, cusp-fibre and coherent-base-change statements. Degree-one generic comparisons may use the characteristic-zero restriction, but this does not fill the integral all-prime request. No new compactification carrier or broader good-prime theorem is asserted."
+    },
+    {
+      "title": "Hilbert instantiation of generic C3 and C4 boundary morphisms",
+      "neededBy": [
+        "ShimuraCompactifications:C6/hilbert-regular-refinement",
+        "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison",
+        "ShimuraCompactifications:C6/modular-formal-cusp-comparison"
+      ],
+      "detail": "C3/refinement-map and level-datum-functoriality specify the generic characteristic-zero map contract and its separate C5 integral instantiation. C4/boundary-level-comparison supplies degeneration-level and Tate comparisons with M4 normalization inputs. After C6 identifies its actual Hilbert models, transport these map contracts to H1/H2/H4 cusp data: choose compatible fans for each lattice map, prove identity/composition on the completed models, and distinguish a finite pullback-fan normalization from a further proper nonfinite refinement. The discriminant-prime integral model identification and wild-level extension remain the existing H2/H4/C5 request. The referenced generic node does not establish that identification by itself."
     }
   ],
   "sourceIssues": [

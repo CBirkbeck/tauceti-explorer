@@ -229,7 +229,6 @@
         {
           "sourceId": "CGZ",
           "locator": "§6, final circular-unit paragraph, p33",
-          "excerpt": "D ·[ζD]",
           "match": "The cyclotomic paragraph motivates the integral multiple; the stronger antisymmetric boundary calculation is imported from the reviewed parent, rather than inferred from the exterior-square calculation."
         }
       ],
@@ -346,7 +345,6 @@
         {
           "sourceId": "CGZ",
           "locator": "§6, final circular-unit paragraph, p33",
-          "excerpt": "p not dividing D",
           "match": "Invertibility of the root order is the coefficient hypothesis. The generic unit-division API is derived by tensor balancing, not attributed as a separate CGZ theorem."
         }
       ],
@@ -467,7 +465,6 @@
         {
           "sourceId": "KVI",
           "locator": "Theorem VI.5.2, p23",
-          "excerpt": "exact sequence",
           "match": "The imported Suslin exact sequence supplies the fibre, nonemptiness and precisely its enhanced-Tor ambiguity."
         }
       ],
@@ -604,13 +601,11 @@
         {
           "sourceId": "KVI",
           "locator": "VI.5.12, p29, together with the parent’s V.1 homological model",
-          "excerpt": "image of ψ",
           "match": "The surjectivity passage supports existence; it does not produce a chain from finite five-term data."
         },
         {
           "sourceId": "HutchChern",
           "locator": "§2.1, bar resolution and its differential, p2",
-          "excerpt": "bar resolution",
           "match": "Pins the bar sign convention; trivial coefficients remove the distinction between its right-module and Mathlib’s left-representation leading action."
         }
       ],
@@ -764,19 +759,19 @@
         "MotivicEtaleKTheory:M.7",
         "MotivicEtaleKTheory:M.8",
         "mathlib:MulEquiv.trans",
-        "mathlib:MulEquiv.symm"
+        "mathlib:MulEquiv.symm",
+        "K3BlochGroups:V.3/cgz-published-comparison-map",
+        "K3BlochGroups:V.3/cgz-published-lemma-two-two"
       ],
       "sources": [
         {
           "sourceId": "HutchChern",
           "locator": "§2.3, Theorem 2.10 and the universal coefficient sequence, p4",
-          "excerpt": "induces an isomorphism",
           "match": "The finite Chern isomorphism is imported from its owning roadmap; the Milnor quotient vanishes at odd n for number fields."
         },
         {
           "sourceId": "CGZ",
           "locator": "§6, equations (37)–(38), pp32–33",
-          "excerpt": "prime to w2(F)",
           "match": "Supplies the existing HB.2 good-prime isomorphism; composition gives Φ. Its source normalization must not be silently equated with the finite Chern class."
         }
       ],

@@ -347,7 +347,6 @@
         {
           "sourceId": "Kowalski-elementary",
           "locator": "Proposition 1.10, pp.12–13, and Proposition 1.13, p.14",
-          "excerpt": "Proposition 1.13.",
           "match": "The finite-field specialization and field-coordinate reindexing of the already owned general Fourier identities."
         }
       ],
@@ -397,7 +396,6 @@
         {
           "sourceId": "Kowalski-elementary",
           "locator": "Proposition 1.10, pp.12–13; multiplicative zero convention p.15; §2.1 Gauss transport",
-          "excerpt": "Proposition 1.10",
           "match": "Normalized character coefficients followed by Gauss transport; adjust the author’s trivial-zero convention to native MulChar. The explicit boundary formula is derived here."
         }
       ],
@@ -442,7 +440,6 @@
         {
           "sourceId": "Cohen-II-public",
           "locator": "§11.7.4, Lemma 11.7.14 and proof of Corollary 11.7.15, pp.392–394; Gamma distribution Theorem 11.6.14, pp.372–375",
-          "excerpt": "Lemma 11.7.14.",
           "match": "Cyclic Gamma distribution and digit-sum cancellation. The source cites Vol.I Proposition 3.7.1; the fractional-part derivation and reduction above supply the requested digit/factorial interface without claiming to have read the unavailable Vol.I proof."
         }
       ],
@@ -501,13 +498,11 @@
         {
           "sourceId": "Conrad-Gauss-Jacobi",
           "locator": "Appendix p.19, (A.6), denominator convention and footnote 9",
-          "excerpt": "Hasse–Davenport product relation",
           "match": "Exact target normalization; the j=0 trivial factor is −1."
         },
         {
           "sourceId": "Cohen-II-public",
           "locator": "§11.7.4, Corollary 11.7.15 and Theorem 11.7.16(1), complete proofs pp.392–395; Lemma 11.7.12 pp.390–391",
-          "excerpt": "Theorem 11.7.16.",
           "match": "Public Gamma/Gross–Koblitz proof for all finite fields and all characters. The two analytic inputs inherited through L3 remain a gap, rather than claiming source closure."
         }
       ],
@@ -554,7 +549,6 @@
         {
           "sourceId": "BFP-v2",
           "locator": "Lemma 5.2 proof, arXiv v2 pp.8–9, the sums over P¹(F_q) and over all polynomials of degree at most d",
-          "excerpt": "by interpolation.",
           "match": "Makes the implicit prescribed-degree homogenization at infinity precise. The small interpolation API is the finite-field consumer of native polynomial evaluation, not a new general interpolation theory."
         }
       ],
@@ -674,7 +668,6 @@
         {
           "sourceId": "BFP-v2",
           "locator": "Lemma 5.2 proof, arXiv v2 pp.8–9, interpolation sentence",
-          "excerpt": "by interpolation.",
           "match": "Explicit uniform-fibre proof of the paper’s two-point interpolation step. d≥1 suffices for this ingredient; the source uses d≥2 in its subsequent induction."
         }
       ],
@@ -719,7 +712,6 @@
         {
           "sourceId": "BFP-v2",
           "locator": "Lemma 5.2 proof, arXiv v2 pp.8–9, all-polynomial interpolation total",
-          "excerpt": "then the total is zero, by interpolation.",
           "match": "The stronger pairwise theorem and exact multiplicity are derived here. This node is only PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation, not the full Lemma 5.2."
         }
       ],
@@ -766,7 +758,6 @@
         {
           "sourceId": "Kowalski-elementary",
           "locator": "Proof of Proposition 1.10, pp.12–13, product-group characters; norm and trace lift discussion pp.14–15",
-          "excerpt": "Proposition 1.10",
           "match": "The tuple finite-sum factorisation is derived using the native baseline product-of-sums identity. This is the componentwise étale-product comparison, with no cohomological realization."
         }
       ],
@@ -842,7 +833,7 @@
       "source": "Cohen-II-public",
       "kind": "misprint",
       "locator": "Theorem 11.6.14, printed p.372 first line, 2007 scan",
-      "printed": "n ≥ 1 such that p ∤ n",
+      "printed": "The source requires n ≥ 1 with p ∤ n.",
       "correction": "Use N in place of n in both occurrences; N is the multiplier throughout the displayed distribution identity and its proof.",
       "reason": "The remainder of the theorem uses N for the same multiplier; the author explicitly corrects both occurrences.",
       "affects": "nothing",

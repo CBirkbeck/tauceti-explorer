@@ -2439,7 +2439,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "Residue-preserving étale neighbourhoods"
         }
       ],
@@ -2535,7 +2534,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "Tensor products give common targets"
         }
       ],
@@ -2579,7 +2577,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "Parallel algebra maps can be equalized"
         }
       ],
@@ -2621,7 +2618,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "The neighbourhood category is filtered"
         }
       ],
@@ -2666,7 +2662,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "A small model for neighbourhoods"
         }
       ],
@@ -2715,7 +2710,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "Henselization of a ring and ideal"
         }
       ],
@@ -2845,7 +2839,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
-          "excerpt": "has a left adjoint",
           "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
         }
       ],
@@ -2909,7 +2902,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
-          "excerpt": "has a left adjoint",
           "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
         }
       ],
@@ -2968,7 +2960,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
-          "excerpt": "has a left adjoint",
           "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
         }
       ],
@@ -3024,7 +3015,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, proof: the neighbourhood colimit and its reduction; finite-data adaptation to the pinned simple-root predicate",
-          "excerpt": "has a left adjoint",
           "match": "Motivates this diagram-specific proof adapter. The finitary span, inverse-witness and coefficient arguments below are derived from the explicitly cited pinned library statements, not asserted to be separately numbered source theorems."
         }
       ],
@@ -3076,7 +3066,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "The canonical reduction is unchanged"
         }
       ],
@@ -3122,7 +3111,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1 construction, adapted to the unit criterion",
-          "excerpt": "has a left adjoint",
           "match": "This elementary localization argument proves the Jacobson condition required by the pinned simple-root predicate."
         }
       ],
@@ -3171,7 +3159,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "A simple root is realized in a neighbourhood"
         }
       ],
@@ -3211,7 +3198,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "The colimit pair is henselian"
         }
       ],
@@ -3255,7 +3241,6 @@
         {
           "sourceId": "STACKS-00U8",
           "locator": "Lemma 10.143.9, complete proof; applied to the actual etale section after Lemma 10.143.8",
-          "excerpt": "idempotent",
           "match": "The given section is surjective. Its idempotent kernel picks the actual component; these projection and kernel adapters are derived library-based refinements, rather than separately numbered source statements."
         }
       ],
@@ -3303,7 +3288,6 @@
         {
           "sourceId": "STACKS-00U8",
           "locator": "Lemma 10.143.9, complete proof; applied to the actual etale section after Lemma 10.143.8",
-          "excerpt": "idempotent",
           "match": "The given section is surjective. Its idempotent kernel picks the actual component; these projection and kernel adapters are derived library-based refinements, rather than separately numbered source statements."
         }
       ],
@@ -3354,7 +3338,6 @@
         {
           "sourceId": "STACKS-00U8",
           "locator": "Lemma 10.143.9, complete proof; applied to the actual etale section after Lemma 10.143.8",
-          "excerpt": "idempotent",
           "match": "The given section is surjective. Its idempotent kernel picks the actual component; these projection and kernel adapters are derived library-based refinements, rather than separately numbered source statements."
         }
       ],
@@ -3406,7 +3389,6 @@
         {
           "sourceId": "STACKS-00U8",
           "locator": "Lemma 10.143.9, complete proof; applied to the actual etale section after Lemma 10.143.8",
-          "excerpt": "idempotent",
           "match": "The given section is surjective. Its idempotent kernel picks the actual component; these projection and kernel adapters are derived library-based refinements, rather than separately numbered source statements."
         }
       ],
@@ -3454,7 +3436,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, uniqueness paragraph using Algebra 10.151.4 and More on Algebra 15.10.2",
-          "excerpt": "has a left adjoint",
           "match": "The exact uniqueness statement is retained. The current native proof is a derived section-selector and Jacobson-unit cancellation alternative to the source diagonal-idempotent proof."
         }
       ],
@@ -3497,7 +3478,6 @@
         {
           "sourceId": "STACKS-09XD",
           "locator": "Lemma 15.11.6, implication (5)⇒(2), with 15.11.5",
-          "excerpt": "section",
           "match": "Simple-root lifting gives Gabber roots; the displayed finite integral-closure argument gives etale section lifting."
         }
       ],
@@ -3545,7 +3525,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, indicated construction/proof paragraph",
-          "excerpt": "has a left adjoint",
           "match": "The initial henselian pair"
         }
       ],
@@ -3589,7 +3568,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, initial property",
-          "excerpt": "has a left adjoint",
           "match": "Idempotence follows from the initial property and the proved henselian target."
         }
       ],
@@ -3630,7 +3608,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.3, whole proof",
-          "excerpt": "henselization",
           "match": "The ordinary local case follows from the maximal residue quotient and Jacobson containment."
         }
       ],
@@ -3673,7 +3650,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
-          "excerpt": "left adjoint",
           "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
         }
       ],
@@ -3773,7 +3749,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
-          "excerpt": "left adjoint",
           "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
         }
       ],
@@ -3814,7 +3789,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
-          "excerpt": "left adjoint",
           "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
         }
       ],
@@ -3854,7 +3828,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
-          "excerpt": "left adjoint",
           "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
         }
       ],
@@ -3895,7 +3868,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
-          "excerpt": "left adjoint",
           "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
         }
       ],
@@ -3939,7 +3911,6 @@
         {
           "sourceId": "STACKS-0EM7",
           "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
-          "excerpt": "left adjoint",
           "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
         }
       ],
@@ -3982,7 +3953,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4020,7 +3990,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4059,7 +4028,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4100,7 +4068,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4138,7 +4105,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4222,7 +4188,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4260,7 +4225,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4300,7 +4264,6 @@
         {
           "sourceId": "STACKS-0BBY",
           "locator": "Complete statement and proof of Lemma 10.39.2; the detailed native adapters are authored proof decompositions",
-          "excerpt": "flat",
           "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
         }
       ],
@@ -4339,7 +4302,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4378,7 +4340,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete Lemma 10.40.4",
-          "excerpt": "flat",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4416,7 +4377,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete Lemma 10.40.4",
-          "excerpt": "flat",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4454,7 +4414,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete Lemma 10.40.4",
-          "excerpt": "flat",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4493,7 +4452,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4533,7 +4491,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4572,7 +4529,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4611,7 +4567,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4649,7 +4604,6 @@
         {
           "sourceId": "STACKS-07T8",
           "locator": "Complete Lemma 10.40.4",
-          "excerpt": "flat",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4697,7 +4651,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4803,7 +4756,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4841,7 +4793,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4879,7 +4830,6 @@
         {
           "sourceId": "STACKS-00DF",
           "locator": "Complete Lemma 10.12.10",
-          "excerpt": "right exact",
           "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
         }
       ],
@@ -4921,7 +4871,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -4959,7 +4908,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -4997,7 +4945,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5039,7 +4986,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5082,7 +5028,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5120,7 +5065,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5211,7 +5155,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5248,7 +5191,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5285,7 +5227,6 @@
         {
           "sourceId": "STACKS-01JU",
           "locator": "Lemma26.17.6(1), complete statement and displayed proof",
-          "excerpt": "closed immersion",
           "match": "The source identifies the ideal of the inverse-image closed subscheme. These named affine-section comparisons and projection squares are authored deductions using the pinned native ideal data, adjunction and subscheme comparison."
         }
       ],
@@ -5323,7 +5264,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5362,7 +5302,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5443,7 +5382,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5481,7 +5419,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5519,7 +5456,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5560,7 +5496,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5597,7 +5532,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5636,7 +5570,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5756,7 +5689,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5793,7 +5725,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5835,7 +5766,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5915,7 +5845,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5952,7 +5881,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -5989,7 +5917,6 @@
         {
           "sourceId": "STACKS-RT01JU",
           "locator": "Lemma26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
         }
       ],
@@ -6028,7 +5955,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6066,7 +5992,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6169,7 +6094,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6207,7 +6131,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6247,7 +6170,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6286,7 +6208,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6324,7 +6245,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6362,7 +6282,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6401,7 +6320,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6486,7 +6404,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6525,7 +6442,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6562,7 +6478,6 @@
         {
           "sourceId": "STACKS-C7-01JU",
           "locator": "Lemma 26.17.6(1), complete displayed statement and proof",
-          "excerpt": "closed immersion",
           "match": "Source context for the native inverse-image closed subscheme and full image ideal. These canonical map and naturality contracts are authored deductions from the pinned native API, not additional literal claims of this source."
         }
       ],
@@ -6599,7 +6514,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6637,7 +6551,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6717,7 +6630,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6755,7 +6667,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6793,7 +6704,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6832,7 +6742,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6912,7 +6821,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6949,7 +6857,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -6990,7 +6897,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7088,7 +6994,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7126,7 +7031,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7165,7 +7069,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7206,7 +7109,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7245,7 +7147,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7283,7 +7184,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7322,7 +7222,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7409,7 +7308,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7447,7 +7345,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7485,7 +7382,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7530,7 +7426,6 @@
         {
           "sourceId": "STACKS-C8-01HM",
           "locator": "Example 26.4.3, complete displayed example",
-          "excerpt": "sheaf of rings",
           "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
         }
       ],
@@ -7569,7 +7464,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7667,7 +7561,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7708,7 +7601,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7751,7 +7643,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7792,7 +7683,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7834,7 +7724,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7877,7 +7766,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -7919,7 +7807,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -8002,7 +7889,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -8045,7 +7931,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -8088,7 +7973,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -8130,7 +8014,6 @@
         {
           "sourceId": "STACKS-C9-7e92bd-01JU",
           "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
         }
       ],
@@ -8171,7 +8054,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8213,7 +8095,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8317,7 +8198,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8357,7 +8237,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8399,7 +8278,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8441,7 +8319,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8520,7 +8397,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8560,7 +8436,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8603,7 +8478,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8645,7 +8519,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8690,7 +8563,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8868,7 +8740,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8909,7 +8780,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8950,7 +8820,6 @@
         {
           "sourceId": "STACKS-C10-rtOQ9t-01JU",
           "locator": "Lemma26.17.6 complete displayed statement/proof and page comments",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context. These precise composite quotient, native kernel transport and naturality formulas are authored deductions from pinned native APIs and the existing constructions, not quotations of a new source theorem."
         }
       ],
@@ -8992,7 +8861,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9110,7 +8978,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9151,7 +9018,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9192,7 +9058,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9234,7 +9099,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9349,7 +9213,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9389,7 +9252,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9432,7 +9294,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9474,7 +9335,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9598,7 +9458,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9639,7 +9498,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9679,7 +9537,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9720,7 +9577,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9761,7 +9617,6 @@
         {
           "sourceId": "STACKS-C11-7e92bd-01JU",
           "locator": "Lemma 26.17.6 complete displayed statement, proof and page comments",
-          "excerpt": "closed immersion",
           "match": "Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems."
         }
       ],
@@ -9802,7 +9657,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -9848,7 +9702,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -9894,7 +9747,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -9940,7 +9792,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -9986,7 +9837,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10032,7 +9882,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10078,7 +9927,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10124,7 +9972,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10170,7 +10017,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10216,7 +10062,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10262,7 +10107,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10308,7 +10152,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10354,7 +10197,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10400,7 +10242,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10446,7 +10287,6 @@
         {
           "sourceId": "STACKS-C12-7e92bd-01JU",
           "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
-          "excerpt": "immersion",
           "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
         }
       ],
@@ -10493,7 +10333,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10596,7 +10435,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10642,7 +10480,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10688,7 +10525,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10736,7 +10572,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10782,7 +10617,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10828,7 +10662,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10874,7 +10707,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10920,7 +10752,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -10967,7 +10798,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11014,7 +10844,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11061,7 +10890,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11107,7 +10935,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11153,7 +10980,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11199,7 +11025,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11245,7 +11070,6 @@
         {
           "sourceId": "STACKS-C13-7e92bd-01JU",
           "locator": "Lemma26.17.6, whole displayed statement, proof and three page comments; exact comparison equations are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "Source context for the image ideal of a pulled-back closed subscheme. The precise natural-transformation formulas here are authored deductions from existing adapters and pinned native APIs."
         }
       ],
@@ -11290,7 +11114,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11337,7 +11160,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11382,7 +11204,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11427,7 +11248,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11476,7 +11296,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11520,7 +11339,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11566,7 +11384,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11613,7 +11430,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11658,7 +11474,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11706,7 +11521,6 @@
         {
           "sourceId": "STACKS-C14-7e92bd-01JU",
           "locator": "Stacks Lemma26.17.6 whole statement/proof/three page comments; exact coherence formulas are authored deductions.",
-          "excerpt": "closed immersion",
           "match": "The source supplies the image-ideal pullback context; these exact coherence equations follow from the existing native adapters and pinned categorical API."
         }
       ],
@@ -11799,7 +11613,6 @@
         {
           "sourceId": "STACKS-EX-045K",
           "locator": "Definition 10.166.2 and Lemma 10.166.1",
-          "excerpt": "geometrically regular",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -11841,7 +11654,6 @@
         {
           "sourceId": "STACKS-EX-045K",
           "locator": "Definition 10.166.2 and Lemma 10.166.1",
-          "excerpt": "geometrically regular",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -11883,7 +11695,6 @@
         {
           "sourceId": "STACKS-EX-045K",
           "locator": "Definition 10.166.2 and Lemma 10.166.1",
-          "excerpt": "geometrically regular",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -11925,7 +11736,6 @@
         {
           "sourceId": "STACKS-EX-045K",
           "locator": "Definition 10.166.2 and Lemma 10.166.1",
-          "excerpt": "geometrically regular",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12011,7 +11821,6 @@
         {
           "sourceId": "STACKS-EX-07BY",
           "locator": "Definition 15.42.1 and Lemma 15.42.6 (finite field case)",
-          "excerpt": "flat",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12053,7 +11862,6 @@
         {
           "sourceId": "STACKS-EX-07BY",
           "locator": "Definition 15.42.1 and Lemma 15.42.6 (finite field case)",
-          "excerpt": "flat",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12095,7 +11903,6 @@
         {
           "sourceId": "STACKS-EX-07BY",
           "locator": "Definition 15.42.1 and Lemma 15.42.6 (finite field case)",
-          "excerpt": "flat",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12139,7 +11946,6 @@
         {
           "sourceId": "STACKS-EX-07BY",
           "locator": "Definition 15.42.1 and Lemma 15.42.6 (finite field case)",
-          "excerpt": "flat",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12224,7 +12030,6 @@
         {
           "sourceId": "STACKS-EX-07P6",
           "locator": "Opening paragraph of Section 15.48",
-          "excerpt": "regular locus",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12266,7 +12071,6 @@
         {
           "sourceId": "STACKS-EX-07P6",
           "locator": "Opening paragraph of Section 15.48",
-          "excerpt": "regular locus",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12308,7 +12112,6 @@
         {
           "sourceId": "STACKS-EX-07P6",
           "locator": "Opening paragraph of Section 15.48",
-          "excerpt": "regular locus",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12394,7 +12197,6 @@
         {
           "sourceId": "STACKS-EX-07GG",
           "locator": "Definition 15.51.1; Proposition 15.51.6; Proposition 15.51.12",
-          "excerpt": "G-ring",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12436,7 +12238,6 @@
         {
           "sourceId": "STACKS-EX-07GG",
           "locator": "Definition 15.51.1; Proposition 15.51.6; Proposition 15.51.12",
-          "excerpt": "G-ring",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12478,7 +12279,6 @@
         {
           "sourceId": "STACKS-EX-07GG",
           "locator": "Definition 15.51.1; Proposition 15.51.6; Proposition 15.51.12",
-          "excerpt": "G-ring",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12563,7 +12363,6 @@
         {
           "sourceId": "STACKS-EX-07P6",
           "locator": "Definition 15.48.1(3)",
-          "excerpt": "regular locus",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12605,7 +12404,6 @@
         {
           "sourceId": "STACKS-EX-07P6",
           "locator": "Definition 15.48.1(3)",
-          "excerpt": "regular locus",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12647,7 +12445,6 @@
         {
           "sourceId": "STACKS-EX-07P6",
           "locator": "Definition 15.48.1(3)",
-          "excerpt": "regular locus",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12732,7 +12529,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(1)",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12774,7 +12570,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(1)",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12816,7 +12611,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(1)",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12913,7 +12707,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(2), Lemma 15.53.2 and Proposition 15.53.3",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12955,7 +12748,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(2), Lemma 15.53.2 and Proposition 15.53.3",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -12997,7 +12789,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(2), Lemma 15.53.2 and Proposition 15.53.3",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13039,7 +12830,6 @@
         {
           "sourceId": "STACKS-EX-07QS",
           "locator": "Definition 15.53.1(2), Lemma 15.53.2 and Proposition 15.53.3",
-          "excerpt": "excellent",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13125,7 +12915,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(1) and Lemma 29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13167,7 +12956,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(1) and Lemma 29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13210,7 +12998,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(1) and Lemma 29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13301,7 +13088,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(2) and Lemmas 29.20.4–29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13346,7 +13132,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(2) and Lemmas 29.20.4–29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13389,7 +13174,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(2) and Lemmas 29.20.4–29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13432,7 +13216,6 @@
         {
           "sourceId": "STACKS-EX-0HA6",
           "locator": "Definition 29.20.1(2) and Lemmas 29.20.4–29.20.5",
-          "excerpt": "affine open",
           "match": "Read source conditions; the APIs are their exact specializations or recorded open consequences."
         }
       ],
@@ -13467,7 +13250,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13549,7 +13331,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13591,7 +13372,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13633,7 +13413,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13678,7 +13457,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13765,7 +13543,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13807,7 +13584,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13849,7 +13625,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13891,7 +13666,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -13937,7 +13711,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -14038,7 +13811,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -14080,7 +13852,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -14122,7 +13893,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -14166,7 +13936,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -14208,7 +13977,6 @@
         {
           "sourceId": "STACKS-SP-025X",
           "locator": "Definition65.6.1 and Lemma65.6.2; accompanying generality discussion",
-          "excerpt": "diagonal",
           "match": "Native formulation of the geometric conditions, with no extra diagonal quasi-compactness. The transport and from-scheme results are formal Yoneda/pullback consequences, not new general representability claims."
         }
       ],
@@ -14250,7 +14018,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14329,7 +14096,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14408,7 +14174,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14495,7 +14260,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14603,7 +14367,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14681,7 +14444,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14722,7 +14484,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14763,7 +14524,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14804,7 +14564,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14845,7 +14604,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14886,7 +14644,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14928,7 +14685,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -14970,7 +14726,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15014,7 +14769,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15055,7 +14809,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15096,7 +14849,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15137,7 +14889,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15180,7 +14931,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15221,7 +14971,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15262,7 +15011,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15305,7 +15053,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15347,7 +15094,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15425,7 +15171,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15505,7 +15250,6 @@
         {
           "sourceId": "STACKS-N29-0A2J",
           "locator": "59.62, definitions and Lemmas 59.62.1–2; final comparison discussion",
-          "excerpt": "Azumaya",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15583,7 +15327,6 @@
         {
           "sourceId": "STACKS-N29-0A7B",
           "locator": "Definition 47.15.1",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15663,7 +15406,6 @@
         {
           "sourceId": "STACKS-N29-0A87",
           "locator": "Definition 48.2.2",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15740,13 +15482,11 @@
         {
           "sourceId": "STACKS-N29-0AX1",
           "locator": "Lemma 47.16.1, finite local normalized-dualizing comparison",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         },
         {
           "sourceId": "STACKS-NORMALIZED-REV",
           "locator": "Section47.16 opening definition of normalized",
-          "excerpt": "normalized",
           "match": "The opening pins residue-field RHom to the residue field in degree0. Lemma47.16.1 supplies finite-local comparison. The cited47.15.12 proof remains a leaf."
         }
       ],
@@ -15825,7 +15565,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15927,7 +15666,6 @@
         {
           "sourceId": "STACKS-N29-0A86",
           "locator": "Lemma 48.2.1, complete displayed statement/proof and comments",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -15968,7 +15706,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16009,7 +15746,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16050,7 +15786,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16092,7 +15827,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16133,7 +15867,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16175,7 +15908,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16217,7 +15949,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16259,7 +15990,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16300,7 +16030,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16342,7 +16071,6 @@
         {
           "sourceId": "STACKS-N29-0AA3",
           "locator": "Lemma 48.17.7, complete displayed statement/proof",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16384,7 +16112,6 @@
         {
           "sourceId": "STACKS-N29-0FVV",
           "locator": "Lemma 48.27.1, especially (2), (5), (7), and displayed proof",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16425,7 +16152,6 @@
         {
           "sourceId": "STACKS-N29-0FVV",
           "locator": "Lemma 48.27.1, especially (2), (5), (7), and displayed proof",
-          "excerpt": "dualizing",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16467,7 +16193,6 @@
         {
           "sourceId": "STACKS-N29-0AU3",
           "locator": "48.19 properties (1)–(9) and cited proof leaves",
-          "excerpt": "duality",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16546,7 +16271,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16624,7 +16348,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16665,7 +16388,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16745,7 +16467,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16848,7 +16569,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -16928,7 +16648,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17005,7 +16724,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17047,7 +16765,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17088,7 +16805,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17129,7 +16845,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17174,7 +16889,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Appendix A.1 states the composite-derived-functor spectral sequence; the coinduction/retract justification here is an authored argument and its formal categorical comparisons remain gaps. The unrelated Borel flabbiness argument in A.2 is not used."
         }
       ],
@@ -17216,7 +16930,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17258,7 +16971,6 @@
         {
           "sourceId": "KINGS-SPRANG-N29-A",
           "locator": "arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80",
-          "excerpt": "equivariant",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17301,7 +17013,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17380,7 +17091,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17457,7 +17167,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17499,7 +17208,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17540,7 +17248,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17581,7 +17288,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17622,7 +17328,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17666,7 +17371,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17768,7 +17472,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17845,7 +17548,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -17924,7 +17626,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -18003,7 +17704,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -18083,7 +17783,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -18162,7 +17861,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -18207,7 +17905,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -18250,7 +17947,6 @@
         {
           "sourceId": "KISIN-N29-31",
           "locator": "author 99-page PDF, §3.1.1–3.1.2, pp.34–36",
-          "excerpt": "Galois",
           "match": "Selected primary passage read in this pass. Where the signature specializes or translates the source, the proof steps say how; cited recursive proof leaves are gaps, not claimed read or proved."
         }
       ],
@@ -18656,7 +18352,7 @@
       "source": "STACKS-09XD",
       "kind": "misprint",
       "locator": "Lemma15.11.3 (tag0CT7), proof step lifting g_m,h_m; fresh HTML2026-10-05, master more-algebra.tex2474–2476, chapter PDF physical29",
-      "printed": "our lifts g_m, h_m generate the unit ideal in A_n[T]",
+      "printed": "The source asserts that the lifted g_m, h_m together generate A_n[T] as an ideal.",
       "correction": "The lifted polynomials must generate the unit ideal in A_m[T].",
       "reason": "The lifted polynomials have coefficients in A_m, whereas A_n contains their reductions. The nilpotent-kernel argument pulls the unit-ideal property back to A_m[T]. This repairs the displayed coefficient-ring index and preserves the theorem.",
       "affects": "the proof",
@@ -18716,7 +18412,7 @@
       "source": "STACKS-EX-0HA6",
       "kind": "misprint",
       "locator": "Lemma29.20.4 proof(2) implies(1); HTML and master morphisms.tex3456",
-      "printed": "X is universally category",
+      "printed": "The source describes X as universally category.",
       "correction": "X is universally catenary",
       "reason": "The assumed property in(2) and the cited affine-local criterion are universal catenarity; category is a word substitution.",
       "affects": "nothing",
@@ -18754,7 +18450,7 @@
       "source": "KISIN-N29-31",
       "kind": "misprint",
       "locator": "Author99-page PDF, Section3.1.1 physical/printed35, paragraph beginning Conversely; text and rendered page inspected",
-      "printed": "some finite Galois extension k-prime/k contained in k",
+      "printed": "The source chooses a finite Galois extension k-prime/k lying inside k.",
       "correction": "some finite Galois extension k-prime/k contained in the fixed algebraic closure k-bar",
       "reason": "A nontrivial extension of k cannot be a subfield of k. The setup fixes it inside k-bar; this occurrence drops the overbar.",
       "affects": "nothing",
@@ -18773,7 +18469,7 @@
       "source": "KINGS-SPRANG-N29-A",
       "kind": "error",
       "locator": "arXiv1912.03657v4 AppendixA.2 physical/printed81, arbitrary-open section equality and ensuing flabbiness proof; rendered page inspected",
-      "printed": "For every open U, sections on q-inverse(U) of p-inverse(I), invariant under Gamma, equal invariant sections of I on p(q-inverse(U)); the descended sheaf of an equivariant injective I is flabby.",
+      "printed": "The source asserts, for any open U, that Gamma-invariant sections of p-inverse(I) over q-inverse(U) coincide with invariant sections of I over p(q-inverse(U)). It also claims flabbiness for the sheaf descended from an equivariant injective I.",
       "correction": "Do not use this equality/flabbiness conclusion for arbitrary U. Supply an independent acyclicity argument for Borel comparison; equation(A.2.1) itself is not disproved.",
       "reason": "Take X a point, Gamma=Z and I=Map(Z,Q/Z) with translation. It is the coinduction of the injective abelian group Q/Z and hence an injective Gamma-module. On an open arc U in R/Z, descended local sections are I, while global sections are I^Z, the constant functions. Restriction is not surjective: a nonconstant period-two function witnesses this. Openness of p does not identify sections when the fibres inside q-inverse(U) are disconnected. This disproves the proof claim of flabbiness, without disproving the comparison theorem.",
       "affects": "the proof",
@@ -18792,7 +18488,7 @@
       "source": "KINGS-SPRANG-N29-A",
       "kind": "misprint",
       "locator": "arXiv1912.03657v4 AppendixA.1 physical/printed79, over-S action setup; rendered page inspected",
-      "printed": "each gamma in G gives an automorphism",
+      "printed": "The source assigns an automorphism to every gamma in G.",
       "correction": "each gamma in Gamma gives an automorphism",
       "reason": "Gamma is the acting group throughout this paragraph; G is the wrong group letter.",
       "affects": "nothing",

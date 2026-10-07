@@ -476,7 +476,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.1-7.1.2.4, first coefficient expression in (7.1.2.3)",
-          "excerpt": "Fourier–Jacobi coefficients",
           "match": "Uses the coefficient expression on the abelian torsor; does not silently assert arbitrary base change for its pushforward expression."
         }
       ],
@@ -573,13 +572,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.1 and 7.1.2.3-7.1.2.4",
-          "excerpt": "composition",
           "match": "The map is the displayed geometric composition, not a new definition on unrelated formal coefficient sequences."
         },
         {
           "sourceId": "LAN-ERRATA",
           "locator": "Items 75-76",
-          "excerpt": "not necessarily a scheme",
           "match": "Retains the stack and the actual etale descent condition."
         }
       ],
@@ -630,13 +627,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Argument after 7.1.2.5, printed p. 536, read as a rendered page; common completion preceding (6.2.5.22), p. 482, and Remark 6.2.5.30, p. 485",
-          "excerpt": "supported on",
           "match": "The source motivates cone-independent support. Its displayed index issues and unsupported direct-completion step are recorded below. The common-completion route is this packet's proposed repair, not a claim that the printed proof already establishes the requested continuity and coefficient contracts."
         },
         {
           "sourceId": "EGA-I-1960-COMPLETION",
           "locator": "Chapter I, 10.9.1–10.9.3, printed pp. 198–199 (physical PDF 197–198)",
-          "excerpt": "prolongement de f aux complétés",
           "match": "The existing F0 supplier constructs the formal map with its ideal containment and direction. This does not supply character grading, a Mumford family or stack descent."
         }
       ],
@@ -727,7 +722,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.6-7.1.2.8 and preceding argument",
-          "excerpt": "full group",
           "match": "The full-group invariance is a separate argument from the cone-support comparison."
         }
       ],
@@ -769,13 +763,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.9 and proof, using 7.1.1.4-7.1.1.5",
-          "excerpt": "independent",
           "match": "Keeps the coefficient-sensitive section comparison as an explicit supplier, not a consequence of the coefficient-free statement."
         },
         {
           "sourceId": "STACKS-PROJECTIVE",
           "locator": "00NX, equivalence of finite projective and direct summand of finite free",
-          "excerpt": "direct summand of a finite free",
           "match": "Repairs only the projective-module reduction, not the toric higher-direct-image theorem."
         }
       ],
@@ -822,13 +814,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.10-7.1.2.13 and proofs",
-          "excerpt": "constant term",
           "match": "Separates positivity, reduction modulo the stratum ideal, and descent along the cusp-label quotient."
         },
         {
           "sourceId": "LAN-ERRATA",
           "locator": "Item 77",
-          "excerpt": "also invariant",
           "match": "This is a known published correction, not a new source error discovered by this worker."
         }
       ],
@@ -871,7 +861,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "The geometric composition in 7.1.2.3 and the diagram in 7.1.2.14",
-          "excerpt": "with exact rows.",
           "match": "Makes the naturality used by the source diagram a named construction-dependent lemma. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
@@ -915,7 +904,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "First paragraph of the proof of 7.1.2.14, printed p. 539",
-          "excerpt": "left exact because they are defined by taking global sections of sheaves.",
           "match": "Supplies the missing explicit flat-tensor justification before invoking left exactness of sections; it does not replace AF by a scalar tensor product of global sections. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
@@ -962,7 +950,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.14, first paragraph and exact-row diagram on printed p. 539",
-          "excerpt": "left exact because they are defined by taking global sections of sheaves.",
           "match": "Expands the coefficient-family left-exactness input into flatness, products and unique invariant lifts; the proof does not assume exact invariants. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
@@ -1019,25 +1006,21 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.14(1), p. 539; 6.4.1.1(2)-(5), p. 520; 6.4.1.2, p. 523, all in the inspected author revision",
-          "excerpt": "no self-intersections",
           "match": "The neat-level relative boundary description motivates the requested smooth-closure route. Constant fiber component counts alone do not prove that the chosen strata meet them. Neither the full non-neat implication nor arbitrary tensor/completion compatibility is claimed to follow from this excerpt."
         },
         {
           "sourceId": "STACKS-KRULL",
           "locator": "00IP, Lemma 10.51.4",
-          "excerpt": "Krull's intersection theorem",
           "match": "Only local separatedness for a finite stalk over a Noetherian local ring is imported. This does not supply the Shimura chart or fiber-detection statement."
         },
         {
           "sourceId": "STACKS-STEIN-SPACES",
           "locator": "0A18, Theorem 76.36.4 and Lemma 76.36.9 (also tag 0E0D)",
-          "excerpt": "connected geometric fibres",
           "match": "Provides the generic algebraic-space Stein factor. The clopen-image argument and its application to proper smooth stratum closures are the proposed owner proof, spelled out in the reader; the factor is over the arithmetic base, not a Shimura minimal compactification."
         },
         {
           "sourceId": "EGA-I-1960-COMPLETION",
           "locator": "Chapter I, Proposition 10.8.11 and proof, printed p. 197 (physical PDF 196)",
-          "excerpt": "sections nulles dans un voisinage",
           "match": "For a coherent sheaf on a locally Noetherian scheme, the kernel of formal restriction consists of sections vanishing on a neighborhood of the closed subset. The existing F0 node is used in this scheme scope only."
         }
       ],
@@ -1081,7 +1064,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "The left-exact coefficient functors in the proof of 7.1.2.14",
-          "excerpt": "left exact because they are defined by taking global sections of sheaves.",
           "match": "This is a devissage refinement of the source proof, using an existing library diagram lemma; it is not attributed to a separately numbered theorem in Lan. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
@@ -1127,19 +1109,16 @@
         {
           "sourceId": "STACKS-PRIME-FILTRATION",
           "locator": "00L0, Lemma 10.62.1",
-          "excerpt": "filtration by",
           "match": "Supplies only the generic finite-module filtration; the Fourier-Jacobi induction is this packet's application."
         },
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.1.4 and the reduction in 7.1.2.14(1)",
-          "excerpt": "the same reduction steps",
           "match": "Alternative coefficient reduction that keeps the original theorem's geometric component obligation explicit. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         },
         {
           "sourceId": "MATHLIB-PRIME-FILTRATION",
           "locator": "IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime, with its preceding RelSeries existence theorem, at the recorded pinned commit",
-          "excerpt": "it is stable by short exact sequences",
           "match": "The already implemented generic induction principle. Only its instantiation with the constructed geometric coefficient functors is a B5 proof obligation; the prime case retains an explicit linear equivalence and the extension case retains exact coefficient maps."
         }
       ],
@@ -1191,13 +1170,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.14(1), proof, and the module reduction in 7.1.1.4",
-          "excerpt": "injective",
           "match": "Retains the source endpoint but replaces the unexpanded arbitrary-coefficient step by prime filtration and a single finite-generation lift. Geometric component transport is not counted as closed."
         },
         {
           "sourceId": "STACKS-STACK-COLIMIT",
           "locator": "0GQZ, Lemma 103.13.5, G=O_X",
-          "excerpt": "finite presentation",
           "match": "Supplies the section/filtered-colimit comparison on a qcqs stack, not an infinite coefficient-product colimit theorem."
         }
       ],
@@ -1241,7 +1218,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.14(2) and its exact-row diagram",
-          "excerpt": "exact rows",
           "match": "The decisive injectivity is at the quotient coefficient module; no surjectivity of sections after base change is used."
         }
       ],
@@ -1286,7 +1262,6 @@
         {
           "sourceId": "LAN-INTRO",
           "locator": "4.2.7, printed p. 50",
-          "excerpt": "cusp forms",
           "match": "Motivates the canonical/subcanonical section comparison; the boundary exact-sequence proof and coefficient checks are explicit construction obligations, not claimed proved by the overview."
         }
       ],
@@ -1335,19 +1310,16 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.4.3.1–6.4.3.4, pp.527–530",
-          "excerpt": "This surjection is proper",
           "match": "Supplies toroidal translation after refinement, not the missing global coefficient trace."
         },
         {
           "sourceId": "DIAMOND-2022",
           "locator": "§6.1, weight/level pullback convention, p.24",
-          "excerpt": "These satisfy the usual compatibilities",
           "match": "Fixes the norm-scaled pullback convention in the Hilbert specialization; finite correspondence trace is a derived extension requiring the listed suppliers."
         },
         {
           "sourceId": "BCGP-2025",
           "locator": "§1.8, pp.17–18",
-          "excerpt": "transpose",
           "match": "The isogeny correspondence convention is transposed relative to Faltings–Chai; comparison must transport it explicitly."
         }
       ],
@@ -1443,13 +1415,11 @@
         {
           "sourceId": "BCGP-2025",
           "locator": "§1.8, Hecke conventions, pp.17–18",
-          "excerpt": "transpose",
           "match": "Geometric action follows correspondence composition after the stated convention comparison."
         },
         {
           "sourceId": "DIAMOND-2022",
           "locator": "§6.1, p.24",
-          "excerpt": "These satisfy the usual compatibilities",
           "match": "A source specialization of the normalized action; the general geometric convolution proof is a derived target with explicit Mackey/trace requests."
         }
       ],
@@ -1493,13 +1463,11 @@
         {
           "sourceId": "DIAMOND-2022",
           "locator": "§6.1, non-small U and normal fine U′, p.24; §6.2, normal-level invariants argument immediately before Proposition 6.2.1, p.25",
-          "excerpt": "taking invariants",
           "match": "Descent uses invariants without averaging; the general Hecke comparison is the corresponding stack argument."
         },
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.6–7.1.2.8, pp.536–537",
-          "excerpt": "full group",
           "match": "Retains the full stabilizer in Fourier coefficients and compatibility with non-neat descent."
         }
       ],
@@ -1549,13 +1517,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.1–7.1.2.4, pp.534–535",
-          "excerpt": "Fourier–Jacobi expansion",
           "match": "Rank-one specialization is compared to the exact imported Tate/analytic interfaces; it does not rebuild them."
         },
         {
           "sourceId": "LAN-INTRO",
           "locator": "§4.2.7, pp.49–50",
-          "excerpt": "canonical extensions",
           "match": "Explains the section interpretation whose specialized comparison is owned by R15.1."
         }
       ],
@@ -1606,19 +1572,16 @@
         {
           "sourceId": "LAN-HIGHER",
           "locator": "Author-hosted preprint, Proposition 5.6 and proof, pp.11–13; Remark 5.7, p.13",
-          "excerpt": "canonically determined locally free coherent sheaf",
           "match": "Identifies the boundary coefficient bundle; the remark distinguishes the characteristic-zero general construction."
         },
         {
           "sourceId": "LAN-HIGHER",
           "locator": "Author-hosted preprint, Corollaries 5.8–5.9 and Definition 5.10, p.13",
-          "excerpt": "locally free coherent sheaf",
           "match": "Degree-zero specialization gives sections with E0, retaining the completed chart rather than asserting all products are global expansions."
         },
         {
           "sourceId": "MILNE-2018",
           "locator": "VII.4, Conjecture 4.1, p.102",
-          "excerpt": "For Siegel modular varieties, it is proved",
           "match": "The general formal isomorphism is a conjecture in these notes. The node explicitly requires a proven owner interface, with the Siegel case identified separately."
         }
       ],
@@ -1734,13 +1697,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Proposition 7.1.2.14, pp.539–540",
-          "excerpt": "with exact rows.",
           "match": "The scalar proof supplies the devissage pattern; the vector result additionally uses the explicit formal bundle and flatness hypotheses."
         },
         {
           "sourceId": "LAN-HIGHER",
           "locator": "Author-hosted preprint, Proposition 5.6, p.11",
-          "excerpt": "locally free coherent sheaf",
           "match": "Provides the local coefficient bundle needed to carry the scalar detection argument over to vectors."
         }
       ],
@@ -1788,7 +1749,6 @@
         {
           "sourceId": "DIAMOND-2022",
           "locator": "§6.1 and §6.2, pp.24–25",
-          "excerpt": "q-expansion map",
           "match": "Defines q_c, its coefficient line, splitting, full-level denominator and independence at general level."
         }
       ],
@@ -1893,7 +1853,6 @@
         {
           "sourceId": "DIAMOND-2022",
           "locator": "Proposition 6.2.1 and following Iwahori warning, p.25",
-          "excerpt": "qS is injective",
           "match": "States both injectivity and coefficient-subalgebra recognition with the determinant/component condition, and excludes the general Iwahori analogue."
         }
       ],
@@ -1940,7 +1899,6 @@
         {
           "sourceId": "DIAMOND-2022",
           "locator": "§6.3, p.26",
-          "excerpt": "ker(eC )",
           "match": "Defines cusp forms by all constant terms, their unit-invariant values and the flat-coefficient parallelness condition."
         }
       ],
@@ -1992,13 +1950,11 @@
         {
           "sourceId": "DIAMOND-2022",
           "locator": "Proposition 6.5.1, equation (6.1) and Remark 6.5.2, pp.27–29",
-          "excerpt": "The effect of the operators",
           "match": "The formula is for normalized adelic coefficients at infinity; the R15 supplier owns its modular integral specialization."
         },
         {
           "sourceId": "LAN-2021",
           "locator": "5.4.3.8–5.4.3.10 and 6.4.3, pp.438–439 and 527–530",
-          "excerpt": "map from the set of cusp labels",
           "match": "Supplies the geometric cusp assignment. Formal trace/graded extraction compatibility is a derived target and remains an explicit supplier request."
         }
       ],
@@ -2048,7 +2004,6 @@
         {
           "sourceId": "BCGP-2025",
           "locator": "§§4.6.1–4.6.2, pp.81–82; §§4.5.17–4.5.22 for refinement context",
-          "excerpt": "the usual sheaf of modular forms",
           "match": "The finite-dimensional bundle descends to the classical finite-level sheaf with its stated Tate normalization. The source’s general VB construction is imported."
         }
       ],
@@ -2096,7 +2051,6 @@
         {
           "sourceId": "BCGP-2025",
           "locator": "§4.8.1 and Theorem 4.8.2, pp.101–102",
-          "excerpt": "equivariant isomorphisms",
           "match": "States the four-term classical decomposition and attributes the proof to FC90 Theorem 6.2; the uninspected proof is explicitly recorded as a gap."
         }
       ],
@@ -2148,7 +2102,6 @@
         {
           "sourceId": "BCGP-2025",
           "locator": "Theorem 4.8.2, compact-support display, pp.101–102",
-          "excerpt": "Theorem 4.8.2 ([FC90], Thm. 6.2).",
           "match": "The second display uses compact support and the boundary twist in every coherent summand. Proof and actual cohomology carriers remain supplied inputs."
         }
       ],
@@ -2537,7 +2490,7 @@
       "source": "LAN-2021",
       "kind": "gap",
       "locator": "Author revision of 14 March 2021, printed p. 536, passage from the toric open embedding to the morphism of formal stratum charts after Remark 7.1.2.5",
-      "printed": "canonical morphism",
+      "printed": "The source describes the morphism as canonical.",
       "correction": "Supply an actual continuous formal-chart comparison or compare the images of a common boundary-completed section. The open embedding of ordinary charts alone does not construct a morphism between their completions along different strata. The revised cone node requests the common-completion construction rather than assuming the displayed direct morphism.",
       "reason": "For a smooth quadrant cone and a ray face, the relevant completions are k[[x,y]] and k[y,y^-1][[x]]. A coordinate-preserving ring homomorphism from the first to the second would carry the unit 1-y to a nonunit: constant-x coefficient followed by y=1 proves noninvertibility in the target. Thus the generic toric inference used in the passage is invalid. This is a gap in that inference, not a counterexample to the global Fourier-Jacobi support theorem or an assertion that this affine example alone realizes every PEL hypothesis. The common completion defined on p. 482 is a candidate repair whose required geometric maps remain to be proved.",
       "affects": "the proof",
@@ -2558,7 +2511,7 @@
       "source": "LAN-2021",
       "kind": "gap",
       "locator": "Author revision of 14 March 2021, proof of Lemma 7.1.1.4, printed p. 533, PDF page index 560",
-      "printed": "its free submodules",
+      "printed": "The source refers to submodules of it that are free.",
       "correction": "For the finitely generated projective summand already obtained in the proof, split a finite free surjection and pass the natural cohomology comparison to that direct summand. Alternatively use a filtered colimit of finite free modules with general transition maps, not a filtered union of free submodules. The prime-filtration argument in this packet is a separate repair for injectivity, not a replacement proof of all refinement cohomology.",
       "reason": "Flatness alone does not express a module as a filtered union of free submodules. A finitely generated module equal to such a directed union would be one of those submodules: put its finite generating set in a common member. It would therefore be free. A nonprincipal invertible ideal in a Dedekind domain is finite projective but not free. The source notation allows an infinite set of retained primes, so semilocality cannot simply be read into the standing notation. This tests the generic algebra inference, not a constructed PEL counterexample: no claim is made here that a particular nonprincipal ideal has been realized for a chosen PEL datum, or that Lemma 7.1.1.4 or the final expansion principle is false. A separately proved freeness hypothesis for a particular base would also repair that case.",
       "affects": "the proof",

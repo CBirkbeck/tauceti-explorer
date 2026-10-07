@@ -1,3 +1,224 @@
+# Independent review: Hodge structures, Part II
+
+Job `REV-DESIGN-HodgeStructuresPartII`, issue #3548. Codex session
+`codex-JoCdgi`, 7 October 2026. **Completed review: accepted conditional
+planning pass.** The top-level packet review contains a verdict for every node.
+This supersedes the two partial review checkpoints reproduced below.
+
+Acceptance concerns what this pass plans. H.0 remains **partial** and H.1–H.8
+remain **not_read**, with precise follow-up work. The issue expressly permits
+acceptance with honest gaps and requested suppliers. No stage is marked
+planned or closed, no source correspondence is declared proved, and every
+`implementationStatus` remains `unchecked`. The 36 native global omissions
+are permitted by protocol §13: they are named missing interfaces, without
+surrogate `Prop` fields or invented sheaf carriers.
+
+## Counts and corrections
+
+| Item | Completed review |
+| --- | --- |
+| Declaration nodes | 569: 532 verified, 37 corrected, none added |
+| Definitions / constructions / theorems / lemmas / comparisons | 15 / 88 / 18 / 443 / 5 |
+| Baseline declarations | All 280 exact pinned statements and ambient hypotheses read and confirmed; none removed or added in this continuation |
+| API references | 540, representing 498 distinct names |
+| Test references | 491, representing 442 distinct names |
+| Source records / distinct node source-locator pairs | 57 / 64 after corrections |
+| Joining route briefs / item memberships | All eight briefs read; all 149 memberships match their accepted extraction routes |
+| Planets / requests / gaps | Six / five / 13, preserved |
+| Native global signature omissions | 36: node indices 12–46 and 68 |
+
+1. Corrected both `affineChartField.test_exterior_transition` and
+   `test_exterior_zero_iff` descriptions at node 131, and classified them as
+   compatibility tests. They had described the zero two-direction field.
+   Their existing Lean examples actually test the exterior-square transition
+   under two module/coefficient charts and equivalent vanishing on the
+   receiving ring. The mathematical signatures were already correct.
+2. Corrected the Stacks locator in **34 nodes**, indices 224–234 and 242–264:
+   the opening connection definition in §60.15 is unnumbered;
+   **60.15.1 is a lemma**. Its complete proof remains the cited proof.
+3. Corrected the source attribution of `rees-parameter` and
+   `rees-specialization` (45–46). Liu–Zhu Theorem 2.1/Remark 1.10 motivates
+   nilpotent twisted Higgs functoriality, not the finite Rees construction.
+   EG §4.2/Lemma 4.9 now supplies explicitly limited filtered/graded
+   motivation. The generic finite Rees calculation is identified as an
+   authored deduction, with explicit flat ordinary connection, finite bounded
+   locally split Griffiths filtration and relative `dt=0` hypotheses.
+   The proof sketch checks a split chart
+   `Rees = ⊕ₚ Gₚ[t] t⁻ᵖ`, both fibers and localization, then uses the
+   requested canonical sheaf comparisons. No Rees carrier was duplicated.
+4. Replaced superseded current-summary/frontier prose in the packet and
+   roadmap JSON with the actual current boundary. In particular,
+   affine common-λ balancing, categorical triple pullback and finite-projective
+   dual tower coherence already have nodes. They are not still missing affine
+   tasks. Exact sheaf interfaces, universal exterior comparison and
+   arbitrary-Q tensor-valued shuffles remain open. Historical continuation
+   receipts retain their authorship and are explicitly historical.
+5. Added fresh receipts for every baseline entry, every route manifest entry,
+   all three source issues, the complete review, and exact-file validation.
+   Earlier reviewer receipts are preserved in history. Added only a boundary
+   comment to Lean; no mathematical body or import was changed.
+
+## Sources and mathematical fidelity
+
+The fresh primary readings cover every distinct locator used by a present
+node, grouping repeated citations to the same passage. Sources support the
+stated motivation or specialized convention; general affine/ringed-site
+arguments are explicitly authored deductions. The eight joining briefs were
+read in full, but their entire papers and undecomposed endpoints were not
+re-reviewed. This distinction is retained in the route manifest.
+
+- [Esnault–Groechenig published PDF](https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/11915-ACTA-2020-0225-0001-a002.pdf):
+  §2.1 pp.108–109 and §4.2 pp.131–132, including the complete printed
+  Lemma 4.9 proof. SHA-256
+  `0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab`.
+  [Author copy](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf):
+  Definition 1.1/Remark 1.2 p.2, complete §2.1 pp.5–6 including Lemma 2.1,
+  and §4.2 pp.23–24 with Lemma 4.9's whole printed proof. SHA-256
+  `0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35`.
+  The regular-function parameter is narrowed explicitly to `dλ=0` in the
+  reserved integrable carrier; variable-parameter affine defects are kept.
+  The rigid-moduli theorem is not proved by this algebraic prefix.
+- [Liu–Zhu v3](https://arxiv.org/pdf/1602.06282v3): Remark 1.10,
+  §2.1/Theorem 2.1 with tensor/dual formulas and the exterior-complex
+  explanation, Lemma 2.15 with its printed proof, and the filtered setup
+  of Definitions 3.5–3.6/Theorem 3.8. SHA-256
+  `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`.
+  The Tate line is retained. The unbounded period filtration does not become
+  the finite split Rees filtration; its comparison remains a gap.
+- [Heuer published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf):
+  Definition 1.2 pp.262–263, complete Definition 4.1/Remark 4.2
+  pp.297–298, Theorem 4.8/Remark 4.9 and whole displayed proof pp.300–302.
+  SHA-256
+  `7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd`.
+  [Preprint v3](https://arxiv.org/pdf/2307.01303v3): the same defining
+  convention and Theorem 4.8/Remark 4.9 with displayed proof pp.27–28.
+  SHA-256
+  `df8caac5ee92e8bcd5a4f9de8dcd5901d61d5f6f4f5c1c3c5bd6b65880e18943`.
+  The source's finite-dual symmetric action into associative End(E) is
+  respected; the p-adic correspondence belongs to its consumer.
+- Stacks [07J5](https://stacks.math.columbia.edu/tag/07J5): full displayed
+  connection/extension conventions and Lemma 60.15.1 proof and both
+  correction comments. [01CA](https://stacks.math.columbia.edu/tag/01CA):
+  opening sheafified tensor/universal property, Lemmas 17.16.1–5 and the
+  continuation explaining local finite-free tensors. [00H9](https://stacks.math.columbia.edu/tag/00H9):
+  Definition 10.39.1, Lemmas 10.39.5 and 10.39.14 with their proofs.
+  [00EN](https://stacks.math.columbia.edu/tag/00EN): Lemmas 10.23.1–2,
+  all listed conditions and complete proofs.
+  [0FNJ](https://stacks.math.columbia.edu/tag/0FNJ): Lemma 15.74.1 and
+  complete proof. The dualizable/finite-projective criterion motivates,
+  rather than already supplies, the planned connection duality.
+
+All five fresh PDF hashes match the prior edition receipts. Reading a printed
+proof does not certify every recursively cited proof (for example the Simpson
+inputs in EG Lemma 4.9 or the local-correspondence inputs in Heuer).
+
+All three `sourceIssues` are independently **confirmed** in this session:
+EG's published p.108 `integrality`/Ω¹_X slips (visually checked), the historical
+Stacks diagonal Δ→i slip (complete
+[authors patch](https://github.com/stacks/stacks-project/commit/d90e73b0eb86c47faa4724d04a3f06a810a83d36.patch)
+read), and Heuer's p.301 θ_j(e) missing component index (visually checked in
+print and checked in v3). Retain the printed coefficient order. The Stacks
+slip is already fixed. No new corrigendum search is claimed; inherited bounded
+search receipts retain their dates. No additional source issue was found.
+
+## Closure, API and signatures
+
+All statements, hypotheses, proof steps, prerequisites, API entries and tests
+were read, along with every line of the current suggested file. The per-node
+review records the following checked families, with their concrete limitations.
+
+| Indices | Mathematical check |
+| --- | --- |
+| 0–11 | Commuting coordinate derivations, one-λ Leibniz, curvature signs, negative gauge derivative, same-parameter tensor, negative dual, invertible constant-λ rescaling, ordered joint nilpotence. |
+| 12–46 | Balanced additive exterior extension, `λ dλ` scalar defect, flat complex, intrinsic sheaf tensor/dual/pullback/descent, Tate twists, ordered nilpotence and kernels, bounded subbundle Griffiths symbol and relative finite Rees. Sheaf signatures remain conditional on precise supplier interfaces. |
+| 47–70 | Rank-zero and characteristic-two determinant/trace formulas, actual alternating section action, integral Jacobi supplier, associative-target symmetric quotient action, source augmentation powers and exact ordered bound. The characteristic-two x,y example distinguishes ordered I₂≠0 from its zero symmetric image and gives I₃=0. |
+| 71–130 | Actual arbitrary-order tensor steps and units, newest coefficient prepended/rightmost operator acting first, finite-basis detection, arbitrary-Q cross-ring comparison, specified-exponent preservation/reflection, coefficient retract/flatness and principal-cover uniformity. |
+| 131–160 | Exterior projection and two-direction commutator without dividing by 2; finite-coordinate, all-dual, finite-projective retract and local-chart detection. Arbitrary coefficient maps preserve but need not reflect integrability. |
+| 161–223 | Arbitrary-Q tensor curvature cancellation, same-receiving-ring monoidal scalar extension, integral binomial/mixed-word expansion and N+M−1 ordered bound for finite-basis/projective/local-projective coefficients. The full arbitrary-Q tensor-valued shuffle remains open. |
+| 224–283 | Actual balanced same-λ additive tensor with one scalar correction, native horizontal associator/symmetry/unitors, exact variable-λ curvature defect and constant-λ linear curvature. |
+| 284–367 | Supplied calculus maps and semilinear horizontality, actual balanced scalar pullback, generation of the whole receiving module, direct/tower operator equality and monoidal comparisons. Image flatness and source reflection have different hypotheses. |
+| 368–507 | Native ModuleCat objects and faithful forgetful functor, induced symmetric monoidal category, pullback natural/monoidal identity, tower and triple comparisons, whole-map rather than only pointwise coherence. |
+| 508–568 | Actual finite-projective dual/evaluation/bidual, nonconstant-parameter dual defect, dual scalar-extension comparison and whole-equivalence identity/two/three-step coherence; all four/six scalar factors and algebra maps retained. |
+
+No later supplier node was trusted only by name. The own-node prerequisite
+DAG is acyclic. All 19 proposed stage edges introduce no cycle with the frozen
+atlas graph. H.0 is an independent algebraic prefix, followed by the
+moduli/variation/period/deformation and degeneration/locus branches; the real
+Noether–Lefschetz tranche remains mandatory. No reverse dependency on the
+p-adic or rigid-arithmetic consumers was added.
+
+Definitions/constructions have working constructor, extensionality, evaluation,
+transport and compatibility outlines and at least three meaningful test
+references. The repeated five reserved-key API names are references to the
+same downstream construction APIs, not second definitions. Tests discriminate
+noncommuting E12/E21, degree zero, nonreduced and characteristic-two bases,
+nonidentity charts and polynomial substitutions, variable parameters,
+new-scalar derivatives and tensor/dual/tower orientation. Admitted examples
+check types, not the truth of their asserted conclusions; this review also
+checks the mathematical reasoning.
+
+## Ownership and follow-up contracts
+
+The reviewed `data/library-coverage.json` rows and reviewer metadata were read:
+AUDIT-02 for parent Hodge L0–L3, AUDIT-10 for D3, AUDIT-22 for E1.
+The complete HodgeStructures and SchurWeyl upstream documents were read for
+scope and density. The existing Hodge decomposition, polarization, mixed
+strictness and period-domain point carriers are imported. Native tensor,
+symmetric algebra, augmentation, exterior and monoidal carriers are reused.
+The finite locally free key occurs once and includes all survey sample API/tests,
+including locally varying unbounded rank. A finite trivializing cover is not
+part of its definition. Smooth-manifold CovariantDerivative and scheme
+InvertibleSheaf are genuine existing near misses, not replacements for the
+requested general ringed-site connection category.
+
+| Supplier | Independently checked boundary |
+| --- | --- |
+| CR.1 | The whole stage compares crystals with integrable quasi-nilpotent connections on suitable crystalline lifts. It does not yet promise the general ordinary carrier. The exact broader carrier/comparison remains an explicit request and gap; do not narrow the reserved Higgs/λ definition. |
+| E1 | The ordinary sheaf carrier, local-freeness interface, presheaf tensor and underived sheaf pullback already exist. Underived sheaf tensor/dual/exterior/action coherence needed here remains requested on those carriers; do not create new carriers. |
+| DD.1 | The stage promises filtered enhanced modules/Rees where applicable. Exact finite split sheaf Rees and operator-compatible fibers are requested, with the local weighted calculation now explicit. No completion assumptions are imposed on this finite specialization. |
+| D3 | The whole stage owns the common local-system/holomorphic-filtered-bundle variation with opposedness and transversality. Its exact declaration remains requested; no second variation definition is planned here. |
+| Coleman L1 | The existing `derivation-determinant-unit` node exactly supplies integral Jacobi for matrix units with finite decidable indices, including rank zero and characteristic two. Its statement, hypotheses and dual-number proof route were read in full. This is a planned supplier, not a compiled theorem imported into this file. |
+
+The six planet names are mathematical noun phrases at the allowed six-per-layer
+limit: Joint Higgs nilpotence, Higgs and λ-connections, Twisted Higgs bundles,
+Griffiths filtrations, Graded Higgs field and Rees parameter connection.
+The many affine plumbing lemmas and tests do not need separate planets.
+
+The orchestrator should schedule follow-ups from the precise coverage lists:
+exact global supplier contracts and their 36 signatures; universal exterior
+comparison; arbitrary-Q tensor-valued shuffle; determinant/Tate/period/rank
+adapters; and the eight undecomposed later stages. Accepted joining-route
+item sets are preserved, including the DegeneratingHodgeStructures alias.
+The reader Markdown is outside this review's authorized paths; a later
+assembly can synchronize its historical frontier prose with the corrected
+roadmap JSON and packet. No alteration of another owner is proposed here.
+
+## Validation
+
+`python3 scripts/check_blueprint.py research/blueprint/packets/HodgeStructuresPartII.json`
+passes with **0 errors and 0 warnings**. Stable node identities, complete
+per-node verdict coverage, all unchecked implementation statuses, the
+three-test minimum, route membership equality and both dependency graph
+checks pass. `git diff --check` passes.
+
+`lean-check research/blueprint/suggested/HodgeStructuresPartII.lean` completed
+with **exit 0**, **948 expected declaration-uses-sorry warnings**, **0 other
+warnings** and **0 errors**, after checking 105 GB available memory. The exact
+file SHA-256 is
+`6ed48a7197148a1ff556fcb472350542fae5ac2b6776f3bd498ac5cbc404916a`.
+It uses the existing shared build at pinned Mathlib, only individual Mathlib
+imports, and admitted planning bodies. This is an elaboration check of the
+written signatures, not a proof certificate for their conclusions or the
+36 omitted global signatures. No Lean process remains running.
+
+## Historical review checkpoints
+
+The following reports preserve the predecessors' findings and exact historical
+extent. Their unfinished worklists are superseded by the completed review above.
+
+<details>
+<summary>5 October 2026 checkpoints (codex-BjAqvx and codex-tUuT7s)</summary>
+
 # Independent review checkpoint: Hodge structures, Part II
 
 Job `REV-DESIGN-HodgeStructuresPartII`, issue #3548. Codex session
@@ -419,3 +640,5 @@ Mathlib pin. It elaborates with admitted statements; only the expected
 `declaration uses sorry` warnings are permitted. The final hash and diagnostic
 count are recorded in the handoff after the check finishes. These checks do
 not prove the mathematical statements or fill the omitted global signatures.
+
+</details>

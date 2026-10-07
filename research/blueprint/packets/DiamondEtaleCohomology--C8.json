@@ -309,7 +309,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.1(i), p.122",
-          "excerpt": "there exists a chain",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -344,7 +343,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.1(ii), p.122",
-          "excerpt": "a spectral map of locally spectral spaces",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -433,7 +431,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.2, p.122",
-          "excerpt": "there exists a dense subfield",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -542,13 +539,11 @@
         {
           "sourceId": "ECD",
           "locator": "After Definition21.2 and proof of Lemma21.3, p.122",
-          "excerpt": "minimal complete and algebraically closed subfield",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "CONRAD",
           "locator": "Theorem 1.1 and §2, pp.1–3",
-          "excerpt": "The completion CK of K is algebraically closed.",
           "match": "The root-approximation proof adapts to the closure of a dense algebraically closed subfield, without a characteristic-zero assumption."
         }
       ],
@@ -582,7 +577,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3(i) and proof, p.122",
-          "excerpt": "containing K and x1",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -616,7 +610,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3(ii) and proof, p.122",
-          "excerpt": "the algebraic closure of",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -651,7 +644,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5, p.123",
-          "excerpt": "over all complete algebraically closed extensions",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -754,7 +746,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5, p.123",
-          "excerpt": "Lemma 21.3 holds true",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -789,7 +780,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5 and Remark21.8, p.123",
-          "excerpt": "Lemma 21.3 holds true",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -825,7 +815,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.5, p.123",
-          "excerpt": "completed algebraic closures of the completed residue fields",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -909,7 +898,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.6 and proof, p.123",
-          "excerpt": "the rationalized value group does not change",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -946,7 +934,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.7 and Remark21.8, p.123",
-          "excerpt": "choose quasi-pro-étale maps",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1047,7 +1034,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.8, p.123",
-          "excerpt": "a pullback will not increase",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1081,7 +1067,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3, modified paragraph and Definitions21.5–21.7, pp.122–123",
-          "excerpt": "Lemma 21.3 holds true",
           "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
@@ -1117,7 +1102,6 @@
         {
           "sourceId": "ECD",
           "locator": "Convention22.1, p.127; Definitions21.7–21.8, p.123",
-          "excerpt": "which will locally guarantee the assumptions on bounded cohomological dimension",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1187,12 +1171,11 @@
       "statement": "For strictly totally disconnected perfectoid X, every abelian étale sheaf F has H^i(X_et,F)=0 for i>0.",
       "hypotheses": [],
       "proofSteps": [
-        "D1 says each étale cover splits. A locally liftable section under a sheaf epimorphism therefore lifts globally, so global sections is exact.",
-        "Use C0/E1 identification of étale cohomology with the derived global-sections functor."
+        "Apply DiamondEtaleCohomology:C0/std-etale-acyclic to the quasicompact open U=X. Its exactness of global sections gives the asserted vanishing for every abelian étale sheaf. This C8 identifier is an export of the C0 theorem, retained for existing references; it plans no second proof of étale acyclicity."
       ],
       "prerequisites": [
         "DiamondsAndVStacks:D1/strictly-totally-disconnected",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/std-etale-acyclic",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category"
       ],
       "acceptance": [
@@ -1202,7 +1185,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.14, p.125",
-          "excerpt": "vanishing of étale cohomology on strictly totally disconnected spaces",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1227,10 +1209,11 @@
         "D1 Lemma7.19 and D5 quasi-pro-étale representability make the pulled-back source strictly totally disconnected. Apply strictly-disconnected-acyclic."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C1",
+        "DiamondEtaleCohomology:C1/etale-base-change-sheaves",
         "DiamondsAndVStacks:D1/pro-etale-maps-over-std-base",
         "DiamondsAndVStacks:D5/quasi-pro-etale-and-fibre-product-permanence",
-        "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic"
+        "DiamondEtaleCohomology:C0/std-etale-acyclic",
+        "DiamondEtaleCohomology:C0/etale-site-enough-points"
       ],
       "acceptance": [
         "Keep both quasicompact and separated; this proof does not invoke C9."
@@ -1239,7 +1222,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.14, p.125",
-          "excerpt": "quasicompact separated quasi-pro-étale morphisms",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1275,7 +1257,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.13 and proof, p.125",
-          "excerpt": "a quasicompact injection of locally spatial diamonds",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1312,7 +1293,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.9 and proof, pp.123–124",
-          "excerpt": "some profinite group G acting continuously and faithfully",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1347,7 +1327,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.9, uniqueness paragraph, p.124",
-          "excerpt": "unique up to (non- unique) isomorphism",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1373,7 +1352,10 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/point-quotient",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-site",
+        "DiamondEtaleCohomology:C0/std-etale-acyclic",
+        "DiamondEtaleCohomology:C0/quasi-pro-etale-pullback-fully-faithful",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections"
       ],
       "acceptance": [
@@ -1383,7 +1365,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph after Proposition21.9, p.124",
-          "excerpt": "étale sheaves on Y are equivalent to continuous discrete G-modules",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1421,7 +1402,6 @@
         {
           "sourceId": "ECD",
           "locator": "After Proposition21.9, p.124; proof of21.15, p.126",
-          "excerpt": "étale cohomology is equivalent to continuous G-cohomology",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1459,7 +1439,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.10, p.124",
-          "excerpt": "For each maximal point",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1545,7 +1524,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, proof first two paragraphs, p.126",
-          "excerpt": "an inclusion of profinite groups",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1582,7 +1560,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, last proof paragraph, p.126",
-          "excerpt": "amount to a continuous",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1619,7 +1596,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, p.126",
-          "excerpt": "local with closed point",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1656,7 +1632,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, final inequality, p.127",
-          "excerpt": "Therefore we get the desired inequality",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1692,7 +1667,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.17 and proof, p.127",
-          "excerpt": "converges (pointwise) to the identity",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1729,7 +1703,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, first proof paragraph, p.126",
-          "excerpt": "P is a pro-p-group",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1767,7 +1740,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, first proof paragraph, p.126",
-          "excerpt": "This follows from Lemma 21.17",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1802,7 +1774,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, residue-action paragraph, p.126",
-          "excerpt": "acts faithfully and continuously on the discrete field",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1841,13 +1812,11 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, residue-field bound, p.126",
-          "excerpt": "a perfect field with algebraic closure",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "STACKS",
           "locator": "Tag 03RF (Lemma 59.67.11), with Tag 03RD (Theorem 59.67.10, Tsen)",
-          "excerpt": "Then the Brauer group of the function field of $C$ is zero",
           "match": "Supplies the Brauer-group vanishing for every finite extension of K^alg(t); the passage from Brauer vanishing to cd_ℓ≤1 is the remaining gap."
         }
       ],
@@ -1883,7 +1852,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, tame-inertia paragraph, p.127",
-          "excerpt": "the image of",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1920,7 +1888,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, p.127",
-          "excerpt": "This implies that",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1956,7 +1923,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, final proof paragraph, p.127",
-          "excerpt": "using [Bou98, VI.10.3 Corollary 1]",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2002,7 +1968,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, pp.126–127",
-          "excerpt": "be a maximal point",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2042,7 +2007,6 @@
         {
           "sourceId": "KST",
           "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
-          "excerpt": "Its set of n-simplices is given by chains of specialisations",
           "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
@@ -2132,7 +2096,6 @@
         {
           "sourceId": "KST",
           "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
-          "excerpt": "the associated normalized subcomplex, which also computes",
           "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
@@ -2167,7 +2130,6 @@
         {
           "sourceId": "KST",
           "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
-          "excerpt": "Then H n (X, F) = 0",
           "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
@@ -2205,7 +2167,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, first proof paragraph on p.125",
-          "excerpt": "any chain of specializations inside",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2230,9 +2191,12 @@
         "Use the C7 constructible filtration and the exact extension-by-zero quotient to preserve vanishing on U. Reduce through finite extensions to a single stratum."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C7",
+        "DiamondEtaleCohomology:C7/constructible-spatial-characterisation",
+        "DiamondEtaleCohomology:C7/constructible-filtration",
+        "DiamondEtaleCohomology:C7/constructible-sheaf-spectral",
         "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites",
-        "DiamondEtaleCohomology:C5"
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero",
+        "DiamondEtaleCohomology:C5/open-support-triangle"
       ],
       "acceptance": [
         "The stratification is spectral-constructible. An arbitrary point/complement decomposition of a closed disc does not qualify."
@@ -2241,7 +2205,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, proof p.124",
-          "excerpt": "We may assume that there is a constructible sheaf",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2270,7 +2233,9 @@
         "DiamondEtaleCohomology:C8/constructible-support-reduction",
         "DiamondEtaleCohomology:C8/injection-direct-image",
         "DiamondEtaleCohomology:C8/closed-point-bound",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-cohomology-continuity",
+        "DiamondEtaleCohomology:C0/geometric-stalk",
+        "DiamondEtaleCohomology:C0/etale-site-enough-points",
         "DiamondsAndVStacks:D5"
       ],
       "acceptance": [
@@ -2280,7 +2245,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, final proof paragraph, p.125",
-          "excerpt": "This can be checked on stalks, so we can assume",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2321,7 +2285,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11 and Remark21.12, pp.124–125",
-          "excerpt": "for some open subset",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2360,7 +2323,6 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.19 and proof, pp.711–712",
-          "excerpt": "with the Zariski-Riemann space",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2395,7 +2357,6 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.19 and proof, pp.711–712",
-          "excerpt": "the dimension of X is equal",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2432,7 +2393,6 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.21 and proof, p.712",
-          "excerpt": "additivity of transcendence degrees",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2453,13 +2413,12 @@
       "statement": "Let Y be spatial and F a constructible étale sheaf of F_ℓ-vector spaces. For a filtered system C_j in D_et(Y,F_ℓ), uniformly in D^{≥−n} for one n, the canonical map colim_j Hom(F[0],C_j)→Hom(F[0],colim_j C_j) is an isomorphism.",
       "hypotheses": [],
       "proofSteps": [
-        "Use bounded cohomological descent to a strictly totally disconnected cover; the one common lower bound controls totalization.",
-        "The C7 filtration reduces F by finitely many triangles to j!F_ℓ for quasicompact open j.",
-        "Adjunction reduces the comparison to filtered-colimit compatibility of cohomology on the coherent étale site."
+        "For the field Λ=F_ℓ, the constructible sheaf F concentrated in degree zero is perfect-constructible by DiamondEtaleCohomology:C7/perfect-constructible-over-field.",
+        "Apply DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness with A=F[0] and the given single common lower bound. This C9 identifier retains the finite-field statement of Proposition 20.9 as an export of the more general C7 result."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C0",
-        "DiamondEtaleCohomology:C7",
+        "DiamondEtaleCohomology:C7/perfect-constructible-over-field",
+        "DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness",
         "EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent",
         "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites"
       ],
@@ -2470,7 +2429,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.9 and proof, pp.116–117",
-          "excerpt": "complexes uniformly bounded to the left",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2505,7 +2463,6 @@
         {
           "sourceId": "ECD",
           "locator": "First proof paragraphs of20.10 and20.17, pp.117,121",
-          "excerpt": "the hypothesis on cohomological dimension passes",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2531,7 +2488,8 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/uniform-test-bound",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
+        "DiamondEtaleCohomology:C0/algebraic-topoi",
         "EnhancedDerivedSheaves:E2",
         "EnhancedDerivedSheaves:E2/postnikov-finite-cohomological-dimension"
       ],
@@ -2542,7 +2500,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "excerpt": "left-completeness follows from",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2568,7 +2525,7 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/left-completeness",
-        "DiamondEtaleCohomology:C2",
+        "DiamondEtaleCohomology:C2/left-completion-comparison",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category"
       ],
       "acceptance": [
@@ -2578,7 +2535,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "excerpt": "by Proposition 14.15",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2617,7 +2573,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "excerpt": "commutes with arbitrary direct sums",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2644,7 +2599,7 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
         "EnhancedDerivedSheaves:E3",
-        "DiamondEtaleCohomology:C5"
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2653,7 +2608,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "The objects",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2680,7 +2634,9 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/ordinary-derived-comparison",
         "DiamondEtaleCohomology:C9/uniform-test-bound",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-site-enough-points",
+        "DiamondEtaleCohomology:C0/geometric-stalk",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
         "EnhancedDerivedSheaves:E2"
       ],
       "acceptance": [
@@ -2690,7 +2646,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, second proof paragraph, p.121",
-          "excerpt": "vanishes as soon as",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2717,7 +2672,7 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/etale-constant-compact",
         "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
         "EnhancedDerivedSheaves:E3"
       ],
       "acceptance": [
@@ -2727,13 +2682,11 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "A set of compact generators is given",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "STACKS",
           "locator": "Tag 09SQ, Definition 13.37.5",
-          "excerpt": "if there exists a set $E_ i$, $i \\in I$ of compact objects such that $\\bigoplus E_ i$ generates",
           "match": "The meaning of compactly generated used by the node."
         }
       ],
@@ -2766,7 +2719,9 @@
         "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
         "mathlib:CategoryTheory.ObjectProperty.triangEnvelope",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category",
-        "DiamondEtaleCohomology:C7"
+        "DiamondEtaleCohomology:C7/perfect-constructible-filtration",
+        "DiamondEtaleCohomology:C7/perfect-constructible-thick",
+        "DiamondEtaleCohomology:C7/perfect-local-system"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2775,13 +2730,11 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "a retract of a perfect-constructible complex",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "STACKS",
           "locator": "Tag 09SM, Lemmas 13.37.3–13.37.4 and proof of Proposition 13.37.6",
-          "excerpt": "If $C$ is a compact object and $C \\to X_ n$ is a morphism, then there is a factorization",
           "match": "A compact object is a direct summand of an object built from finitely many generators by finitely many extensions; the triangulated form of the thick-closure statement."
         }
       ],
@@ -2808,10 +2761,12 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
+        "DiamondEtaleCohomology:C7/perfect-local-system",
         "DiamondEtaleCohomology:C7",
         "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
-        "DiamondEtaleCohomology:C5",
-        "DiamondEtaleCohomology:C3"
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero",
+        "DiamondEtaleCohomology:C3/etale-tensor",
+        "DiamondEtaleCohomology:C3/internal-hom"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2820,7 +2775,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, end of proof, pp.121–122",
-          "excerpt": "tensoring with the dual",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2847,8 +2801,10 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C7",
-        "DiamondEtaleCohomology:C5"
+        "DiamondEtaleCohomology:C7/perfect-constructible-filtration",
+        "DiamondEtaleCohomology:C7/support-restriction",
+        "DiamondEtaleCohomology:C5/open-support-triangle",
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero"
       ],
       "acceptance": [
         "An arbitrary closed Z without constructibility does not justify the quasicompact complement step."
@@ -2857,7 +2813,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, last proof paragraph, pp.121–122",
-          "excerpt": "by passage to a 2-term resolution",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2892,7 +2847,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "compact if and only if it is perfect-constructible",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2921,7 +2875,7 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/compact-iff-perfect-constructible",
-        "DiamondEtaleCohomology:C7"
+        "DiamondEtaleCohomology:C7/perfect-constructible-over-field"
       ],
       "acceptance": [
         "The field-coefficient equivalence must not be exported unchanged to an arbitrary Λ."
@@ -2930,7 +2884,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.10, p.117",
-          "excerpt": "bounded and all cohomology sheaves are con- structible",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2967,13 +2920,11 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph immediately after Question 21.4, p.123",
-          "excerpt": "There is the following theorem of Temkin",
           "match": "Explicit finite-intermediate-degree theorem; no general answer to the question."
         },
         {
           "sourceId": "TEMKIN",
           "locator": "Lemma 2.2.2; Theorems 3.2.1 and 3.2.3, pp.6–8",
-          "excerpt": "The topological transcendence degree is a monotonic invariant.",
           "match": "Lemma 2.2.2 is monotonicity of the independent degree. Theorem 3.2.3 identifies it with the generating degree when that degree is finite; the ECD paragraph uses exactly this finite case."
         }
       ],
@@ -3010,7 +2961,6 @@
         {
           "sourceId": "ECD",
           "locator": "Finite-degree paragraph and modified invariant before Definition 21.5, p.123",
-          "excerpt": "over all complete algebraically closed extensions",
           "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
@@ -3045,7 +2995,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark 21.8, second paragraph, p.123",
-          "excerpt": "To evaluate this, it is enough to range",
           "match": "The field-point test statement is about topological dim, not a replacement of the point/presentation definition of dim.trg."
         }
       ],
@@ -3083,7 +3032,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions 21.11 and 21.16 combined with 20.10, pp.117,124,126",
-          "excerpt": "the hypothesis on cohomological dimension passes",
           "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
@@ -3118,7 +3066,6 @@
         {
           "sourceId": "TEMKIN",
           "locator": "§2.1.6, p.5",
-          "excerpt": "A set S ⊂ L is topgebraically independent",
           "match": "Temkin's definition of topgebraic independence and of top.tr.deg as the bound on the sizes of independent sets."
         }
       ],
@@ -3206,19 +3153,16 @@
         {
           "sourceId": "TEMKIN",
           "locator": "Theorem 3.2.1, p.8",
-          "excerpt": "In particular, top.tr.deg(L/K) ≤ Top.tr.deg(L/K).",
           "match": "Part (a); Temkin's generating degree Top.tr.deg is ECD's tr.c by finite-topological-generators."
         },
         {
           "sourceId": "TEMKIN",
           "locator": "Remark 2.1.10(i) and Theorem 3.2.3, pp.5 and 8",
-          "excerpt": "Then S also becomes topgebraically independent.",
           "match": "Part (b), the finite case."
         },
         {
           "sourceId": "TEMKIN",
           "locator": "Lemma 2.2.2, p.6",
-          "excerpt": "The topological transcendence degree is a monotonic invariant.",
           "match": "Part (c)."
         }
       ],
@@ -3310,7 +3254,7 @@
     },
     {
       "supplier": "DiamondsAndVStacks:D5",
-      "need": "Localization of a spatial diamond at a point, its chain of generalizations, the field-point presentation, and continuity of sheaf cohomology for these localizations. Existing D5 packet nodes give presentations/permanence but not this precise local-cohomology contract.",
+      "need": "Localization of a spatial diamond at a point, its chain of generalizations, and the quasi-pro-étale field-point presentation, with compatibility with the inverse system of quasicompact open neighbourhoods. C0/etale-cohomology-continuity supplies the cohomology-continuity statement once this geometric localization is supplied. Existing D5 presentation/permanence nodes do not supply the complete geometric localization contract.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/local-stalk-bound"
       ]
@@ -3331,62 +3275,6 @@
       "neededBy": [
         "DiamondEtaleCohomology:C9/etale-constant-compact",
         "DiamondEtaleCohomology:C9/compact-generators"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C0",
-      "need": "Coherent étale sites with enough points, bounded comparisons and continuity at localizations, plus size bounds for a skeleton of qc separated étale test objects.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic",
-        "DiamondEtaleCohomology:C8/point-sheaf-equivalence",
-        "DiamondEtaleCohomology:C8/local-stalk-bound",
-        "DiamondEtaleCohomology:C9/bounded-filtered-compactness",
-        "DiamondEtaleCohomology:C9/left-completeness",
-        "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
-        "DiamondEtaleCohomology:C9/compact-generators"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C1",
-      "need": "Corollary16.10 in the quasi-pro-étale case, with the actual base-change transformation on all abelian étale sheaves used to prove21.13/21.14.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/qpetale-direct-image"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C2",
-      "need": "The canonical14.15 identification of D_et with Postnikov left completion, with enhancement and cutoff compatibility.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C9/ordinary-derived-comparison"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C3",
-      "need": "Derived tensor/internal Hom and their comparison maps, used with the separate C5 étale extension-by-zero adjunction.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C7",
-      "need": "Spectral-constructible and perfect-constructible definitions; constructible approximation and20.8/20.16 filtrations; stability under finite triangles/retracts; dualizability of perfect local systems; over F_ℓ the bounded-constructible equivalence. Prove full faithfulness in20.15 before20.16 and essential surjectivity. Its filtration proof uses point quotients and specialization stabilizers; import the named C8 point-quotient and specialization-stabilizers nodes, whose prerequisites do not include C7, rather than the entire C8 stage. This avoids a stage-level cycle.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/constructible-support-reduction",
-        "DiamondEtaleCohomology:C9/bounded-filtered-compactness",
-        "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible",
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact",
-        "DiamondEtaleCohomology:C9/finite-field-compact-objects"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C5",
-      "need": "Exact étale extension by zero of 19.1, its pullback adjunction, open-support triangle and base-change comparison. This is available before general proper pushforward or Rf!.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/constructible-support-reduction",
-        "DiamondEtaleCohomology:C9/etale-constant-compact",
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact"
       ]
     },
     {
@@ -3413,6 +3301,13 @@
         "DiamondEtaleCohomology:C8/tame-cd-bound",
         "DiamondEtaleCohomology:C8/residue-cd-bound"
       ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C7",
+      "need": "Promote the already planned IsPerfectLocalSystem.dualizable API item of C7/perfect-local-system to a named prerequisite lemma, as PROTOCOL §4 requires: for a commutative coefficient ring Λ and a locally spatial diamond U, every étale locally constant complex L with perfect values is dualizable, with dual RHom_Λ(L,Λ_U), and RHom_Λ(L,A) ≃ L^∨ ⊗^L_Λ A naturally in A. The carrier and proof outline already appear in C7/perfect-local-system; this is an API-granularity task, not a new assertion or an unresolved mathematical theorem.",
+      "neededBy": [
+        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
+      ]
     }
   ],
   "coverage": [
@@ -3436,7 +3331,7 @@
       "stageId": "DiamondEtaleCohomology:C9",
       "status": "planned",
       "remaining": [
-        "Resolve the E2 category-level left-completion and coproduct interfaces, the E3 cutoff interface, the DGAInfinity Layer 6 thick-closure import, and the C0/C2/C3/C5/C7 contracts; preserve one common finite bound.",
+        "Resolve the E2 category-level left-completion and coproduct interfaces, the E3 cutoff interface, the DGAInfinity Layer 6 thick-closure import, and promotion of C7 perfect-local-system dualizability to a prerequisite lemma; preserve one common finite bound. The named C0/C2/C3/C5/C7 suppliers are reconciled, while their recorded E46 and general-Λ E11 gaps remain inherited.",
         "State the omitted enhanced/site signatures against their owning carriers and validate the dimension-bound application."
       ]
     }
@@ -3515,13 +3410,14 @@
     },
     {
       "title": "Finite-window and generation interfaces",
-      "detail": "Object-wise Postnikov convergence and the uniform window are cited from the E2 nodes; the category-level left completion and the coproduct argument remain open requests to E2, the cutoff comparison to E3, and the thick-closure description of compact objects to Tau Ceti DGAInfinity Layer 6. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf.",
+      "detail": "Object-wise Postnikov convergence and the uniform window are cited from the E2 nodes; the category-level left completion and the coproduct argument remain open requests to E2, the cutoff comparison to E3, and the thick-closure description of compact objects to Tau Ceti DGAInfinity Layer 6. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf. The C7 perfect-local-system carrier and its dualizability API are available, but the API item must be promoted to a named prerequisite lemma before C9/perfect-local-system-compact can cite it; the residual C7 request records this exact granularity obligation.",
       "neededBy": [
         "DiamondEtaleCohomology:C9/left-completeness",
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
         "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
         "DiamondEtaleCohomology:C9/compact-generators",
-        "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible"
+        "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible",
+        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
       ]
     },
     {

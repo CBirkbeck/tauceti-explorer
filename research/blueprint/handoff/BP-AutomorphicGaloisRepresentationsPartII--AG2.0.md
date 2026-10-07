@@ -1,112 +1,155 @@
-# Handoff: BP-AutomorphicGaloisRepresentationsPartII--AG2.0 (first checkpoint)
+# Handoff: BP-AutomorphicGaloisRepresentationsPartII--AG2.0
 
-Agent: Claude Code, session cc-fb70e5. Refs #686.
+Codex, session codex-Q1w8rI, 7 October 2026. Refs #686. This completes the target-level planning pass, continuing Claude Code's cc-fb70e5 checkpoint and retaining all 15 previous node identifiers. It is not a checkpoint and is not a claim of mathematical implementation or closure. The packet status is complete; every mathematical node is unchecked. No stage is closed.
 
-- The packet is partial, with 15 nodes and 9 planets. The checker reports no errors and no warnings.
-- RS-12 is still **needs_changes**, so the current structure is used.
-- Scope: AG2.0–AG2.5. AG2.6–AG2.7 are the second part (#687).
+## Deliverables and validation
 
-## What this checkpoint closes: AG2.0 at declaration level
+Only the issue's packet, reader, suggested file and this handoff are changed. Accepted RS-12 and [REV-FIX-RT-RS-12~3](../reviews/REV-FIX-RT-RS-12~3.md) govern the result; the checkpoint's statement that RS-12 still needs changes is superseded.
 
-Sources read for AG2.0:
-- **BLGGT**, arXiv:1010.2561v4 (SHA-256 c953df62…): §2.1 and Appendix A.2. R. Taylor's copy pa3.pdf has the same §2.1.
-- **ACC+** (Annals 197): §§1, 2.2.5, 2.3 and 7.1, and Corollary 7.2.4. Printed page = PDF page + 896.
-- **Patrikis**, arXiv:1306.1242v2: §2.
+The packet has 77 nodes: 5 definitions, 12 constructions, 5 lemmas, 44 theorems and 11 comparisons. It has 78 API items, 58 discriminating tests, 35 planets, four baseline declarations, 50 supplier contracts and 12 gaps. Every definition/construction has recorded uses and at least three tests. Every stage has at most six planets. The checker reports zero errors and zero warnings. An additional read-only consistency audit checks the own-node DAG, all node/API/test names in reader and suggested file, retained identifiers, scope, implementation statuses and planet counts. It also matches all 98 node-source excerpts literally against the downloaded primary PDFs.
 
-Every new excerpt was matched against its page.
+The suggested file elaborates through lean-check against pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, importing only individual modules. There are no Lean errors and its only warnings are four declarations using sorry. The geometric, automorphic and Galois signatures that cannot be expressed at the pinned baseline are individually omitted with the precise missing objects, mathematical statement, API/test name and owner contract. There are no opaque invented carriers, proposition placeholders or tautological hypotheses. The compilation does not implement the missing signatures.
 
-Nodes (AG2.0):
-- `dominant-weights-and-the-weight-w` (definition): (ℤⁿ)^{+}, (ℤⁿ)_w, base change, extremely regular, Ξ_a.
-- `regular-algebraic-of-weight` (definition, planet): regular algebraic of weight a, using BLGGT's and ACC+'s Ξ_a^∨
-  convention, with the twist rules.
-- `polarized-automorphic-representation` (definition, planet): conjugate self-dual, essentially conjugate self-dual and
-  polarized pairs (π, χ), and the totally odd normalisation χ_v(−1) = (−1)^{n+w}.
-- `polarized-galois-representation` (definition, planet): BLGGT's (r, µ) with ε_v = −µ(c_v), totally odd, and the
-  equivalence with 𝒢_n-extensions (GlobalGaloisDeformations G7).
-- `galois-character-of-an-algebraic-hecke-character` (construction): r_{l,ι}(χ), HT_τ = {a_{ιτ}}, wt(χ), the value at c_v,
-  and the transfer.
-- `sign-of-the-polarization-multiplier` (lemma): µ(c_v) = (−1)^{n−1+w}χ_v(−1).
-- `expected-hodge-tate-multiset` (definition): {a_{τ,i} + n − i}, with regularity, polarity and twists.
-- `frobenius-polynomial-and-conventions` (construction, planet):
-  - P_v(X) from ACC+ (2.2.6), and its Satake factorisation;
-  - the geometric (BLGGT/ACC+/HLTT) versus arithmetic (IHG.3/R19) conventions, related by r ↔ r^∨;
-  - the twist and contragredient rules.
-  No local Langlands is used, as the stage requires.
-- `galois-representation-attached-at-good-places` (definition): the interface HLTT/ACC+ Theorem 2.3.2 produce, with
-  uniqueness, twist, dual (r^∨ε^{1−n}), conjugate and base-change rules.
-- `field-of-rationality` (definition, planet): M_π (ACC+ §7.1), kept separate from a field of realisation. The Q₈
-  non-example is included.
+The executable fragments cover dominant/polarized weights, CM embedding conjugation, expected Hodge–Tate combinatorics, Satake polynomial examples and arithmetic/geometric reciprocals, multiplier parity, nontrivial similitude shifts, TY relative-selector denominators, the HLTT discrete twist exponent, Hasse shifts and the E3 matrices. In E3 both matrices satisfy F N = N F/4; the two block profiles have rank N=4, while their third powers have ranks 1 and 0. The matrix computations and scalar identities have actual short proofs.
 
-Carried from the decomposition, with prerequisites derived from its links:
-- the normalisation-comparison node, now of kind comparison and pointing to the AG2.0 dictionary;
-- the polarized-construction inputs (AG2.1a);
-- HLTT (AG2.4);
-- Varma and Caraiani (AG2.5).
+Mathlib's four cited declarations were read at the exact pinned commit: NumberField.IsCMField, its complexConj and complexEmbedding_complexConj, and Multiset.prod_X_sub_C_coeff. The reviewed library audit, the pinned Tau Ceti source tree and its declaration names were checked for the substantive carriers. A newer checkout was not counted as baseline. The two upstream style documents read in full were SchurWeyl and SemisimpleAlgebras. All touching atlas/blueprint links were inspected; no link file or upstream document was changed.
 
-Planets were added for these.
+## Coverage and proof order
 
-## Source issues (new)
+| Stage | Status | Outcome |
+| --- | --- | --- |
+| AG2.0 | planned | Early polynomial/weight/character/rationality dictionary; nontrivial similitude and prescribed crystalline twist; imports AF/IHG/R01/G7. |
+| AG2.1 | source_decomposed | Process aggregate with AG2.1a and AG2.1b as named producers; no node or early comparison prerequisite. |
+| AG2.1a | planned | Exact compact datum, corrected coefficient projector, actual graded cohomology/actions, raw fixed-point and nearby-cycle traces. |
+| AG2.1b | planned | Mantovan Ext/level-colimit formula, ST/END virtual comparison, separate middle-degree concentration and irreducible multiplicity divisibility. |
+| AG2.2 | planned | Shin-regular initial existence, compatible polarization twists, discrete assembly, selected CS transfer and solvable restriction. |
+| AG2.3 | planned | Definite-family approximation, arbitrary-regular finite-point construction, S-general effective patching, Iwahori/index induction, automorphic sign and finite realization field. |
+| AG2.4 | planned | Exact ordinary/boundary/rigid input, finite-slope cusp spaces, Hasse congruences with uniform witnesses, continuous 2n limit, Levi comparison and generic factor separation. |
+| AG2.5 | planned | Good places, CH polarized local bound, two-chart tensor-square purity/Caraiani, then Varma local Bernstein traces and full isotypic monodromy bound; published specializations and GL₂ overlap. |
 
-- **E1** (misprint, BLGGT §2.1, p. 32): "µ_v(−1) = (−1)^n … replacing µ by µδ_{F/F⁺}" means χ.
-- **E2** (error, affects a stated result):
-  - BLGGT's normalisation χ_v(−1) = (−1)^n makes Theorem 2.1.1(1) false when w is odd, and so the remark "by definition
-    ε^{1−n}r(χ) takes every complex conjugation to −1" also fails then.
-  - The correct normalisation is χ_v(−1) = (−1)^{n+w}.
-  - Counterexamples: the Hecke character of a CM elliptic curve (n = 1, w = 1), where the transfer gives µ(c) = +1; and
-    the base change of an odd-weight newform.
-  - Patrikis's general sign (−1)^w ω_v(−1) agrees. No published correction was found.
+The checker counts all eight stages planned, including the process aggregate. Seven mathematical stages retain precise remaining lists. The plan stops at this full pass under PROTOCOL section 0; closure follow-ups supply the contracts and missing proof passages rather than treating complete as closed.
 
-Both are in the packet's `sourceIssues`, and in the local PUBLISHED-ERRATA.md.
+The early dictionary has no ET.6 dependency. Only raw AG2.1a feeds ET.6. AG2.1b imports that local output. R19 constructions are final consumer comparisons, never arbitrary-rank existence inputs. Generic polarization, WD, coefficient descent, determinant interpolation, analytic summands and compatible-system operations stay with their existing owners.
 
-## Requests (new)
+A proof-order issue found during this pass is resolved explicitly: Varma's classical interpolation uses polarized local compatibility. Consequently Caraiani cannot use Varma to obtain its initial polarized semisimple comparison. The separate AG2.5/ch-polarized-local-monodromy-bound imports CH Theorems 2.3 and 3.2.3(a′), with the BC local-family source gap, and precedes Caraiani. Varma's local-trace node then imports Caraiani. The own-node graph is acyclic.
 
-- AutomorphicFormsOnReductiveGroups AF.4: Ξ_a, Harish-Chandra parameters, the C/L-algebraic distinction, and Clozel's
-  rationality theorem.
-- AutomorphicFormsOnReductiveGroups AF.1: (g, K)-modules and infinitesimal characters.
-- IntegralHeckeAndGaloisDeterminants IHG.3: the unitary Satake normalisation; the convention difference is recorded.
-- ArithmeticGaloisRepresentations R01.1: continuous representations.
-- EndoscopicTransferAndUnitaryTraceComparison ET.7: Arthur–Clozel base change, unramified identity.
-- Tau Ceti ClassFieldTheory layer 11: global Artin reciprocity, geometric normalisation, and the transfer.
-- Tau Ceti GlobalNumberFields layers 9–10: Hecke characters, infinity types and weights.
+## Confirmed red-team findings
 
-## Suggested Lean file
+| Finding | Treatment |
+| --- | --- |
+| RT-AREA-langlands-1/2 | Raw fixed-point traces request the coefficient-sensitive Fujiwara/Varshavsky correspondence theorem from EDC.8. ET.5 is not used as a source of geometric traces needed to construct its own spectral input. |
+| RT-AREA-langlands-1/3 | AG2.1b/compact-global-mantovan-formula states the actual alternating Ext and Rapoport–Zink level colimit, dimension twist, global Proposition 5.2 and local tensor factors. ET.6a/HS3/SR provide the local/derived contracts; Sp_s/Jacquet–Langlands cases are included in the explicit local request. |
+| RT-AREA-langlands-1/4 | AG2.1a/compact-shin-pel-instance fixes the anisotropic compact single-signature datum and possibly ramified Drinfeld factors. PEL M1/M4 and IG.0/IG.1 requests state the necessary generality. Shin ST/END retains §6.1 restrictions and §3.6 signs; it does not substitute the quasi-split (n,n) model. |
+| RT-AREA-langlands-1/5 | Reuse the existing AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate node. Add the distinct PEL/IG polarized O_F-linear Kottwitz effectivity contract, positivity, p-adic type and α₀ obstruction. Its absence is a gap, not an inference from unpolarized Honda–Tate. |
+| RT-AREA-langlands-1/18 | CH arbitrary-regular existence has no Shin-regularity or finite-slope hypothesis in its final output. Solvable-index induction handles targets without a finite-slope refinement. Torsion cohomology and potential automorphy are consumers, not inputs to this branch. |
+| RT-AREA-langlands-1/19 | Calegari–Geraghty/Pilloni/BCGP GSp₄-specific theory is routed to proposed GSp4LocalLanglandsAndGaloisRepresentations. That owner does not exist in the atlas, so there is an explicit ownership gap and no invented stage ID. Generic GL_n polarization and purity remain G7/R01.2; the automorphic GL_n sign is AG2.3. |
+| RT-AREA-langlands-1/26 | HLTT uniform congruence, common ramification, continuity and factor extraction are separate nodes. Generic varying-twist separation is requested from IHG.4 independently of TC.2. The current integral witness injection does not directly accept the source quotient: the bridge is a stated gap. |
+| RT-AREA-padic-2/32 | AG2.4/functorial-dagger-rigid-comparison imports GK Theorem 5.1 and HLTT Lemma 6.8 as an exact Frobenius/Hecke-equivariant tube comparison from RD.4. Finiteness is RD.5, log/weight comparison RD.6. It is not supplied by the adic-space carrier alone. |
 
-It imports Mathlib only and was compiled with `lake env lean` against Mathlib 082e2d3, with exit code 0. The only
-warnings are 4 `sorry` placeholders.
+## Nine added paper routes
 
-Real definitions:
-- `DominantWeight` and `IsInW`;
-- `baseChange`;
-- `IsExtremelyRegular`;
-- `expectedHodgeTate`;
-- `heckePolynomial`.
+The extraction files and their corrections were treated as leads or binding ownership decisions; the in-scope statements below were checked in primary sources. GSp₄ material assigned elsewhere is not counted as primary mathematics read or proved in this packet.
 
-Proved:
-- `isInW_baseChange`;
-- `expectedHodgeTate_strictAnti`, `_conj` and `_twist`;
-- `conjugate_eq_comp_complexConj`, which uses Mathlib's `IsCMField`.
+1. Newton–Thorne, Symmetric power functoriality for Hilbert modular forms (arXiv:2212.03595v2, published 2026): §5.1 Theorem 5.1 is an AF.4 rationality/conjugation contract; Lemma 5.2's two coefficient-conjugation formulas are requested for AG2.6. The global character specialization of CHT08 Lemma 4.1.4 stays a source gap.
+2. ACC+: §4.5.1's split-place crystalline twisting character is the new AG2.0 theorem, with the maximized labelled exponent, opposite-place unit prescription, HT sign and global compatibility. HSBT Lemma 2.2 was obtained and read. The Lemma 4.3.2/generic quotient residual export belongs to AG2.7.
+3. Caraiani–Scholze (2017): published Theorem 5.5.4 is split into the existing polarized existence/comparison route and the requested AG2.6 coefficient-prime output. Corollary 5.5.5 is the selected two-block transfer from Corollary 5.5.2 and its cohomological quotient, not a general discrete GL_N theorem. Its L-algebraic norm/parity character is retained. Remark 5.5.6 gives an ET.6 transfer-normalization/generic-principal-series contract; §5.6 simple-Kottwitz variants have a separate ET.7a datum/packet contract. Published numbering was checked rather than copied from the arXiv preprint.
+4. Liu–Tian–Xiao–Zhang–Zhu (2022): Definition 1.1.3 and Definition 3.1.1/Lemma 3.1.2 give the relevant automorphic coefficient-field comparison in AG2.0. Proposition 3.2.4 away-prime compatibility is AG2.5; its coefficient-prime assertion and Definition 3.2.5 strong coefficient field are AG2.6 contracts. Hypothesis 3.2.10 remains conditional; Proposition 3.2.11's proved low-rank range and unpublished KSZ input are explicit. Appendix D.1 genericity is requested for AG2.7 with distinctness and no q-ratio separate.
+5. Calegari–Geraghty, Modularity lifting for non-regular symplectic representations (2020): the confirmed GSp₄-specific route goes to the absent dedicated owner. Its GL_n sign input is supplied by the in-scope Bellaïche–Chenevier automorphic sign theorem; no general irreducibility theorem is asserted here.
+6. Pilloni (2020): GSp₄ higher Coleman, duality and its normalization go to the dedicated owner and coherent-cohomology supplier E27. The gap prevents recreating those constructions in AG2.
+7. Clozel–Thorne (2017): the correct primary paper is Level-raising and symmetric power functoriality, III. Lemma 7.4's rank-two χχ^c and odd infinity exponent are a precise global-character contract in AG2.2. §3.5 selected real branches and stable-base-change trace identities are an ET.7a contract. The normalization locator is §1.1 in the accepted Cambridge copy, not the incorrect §2.1 guess.
+8. BCGP (2021): §2.5 pure WD carrier, filtration and full primitive-string uniqueness are imported from R01.2, in accord with accepted RS-12; generic purity is not redefined here. Lemma 2.5.1's maximal-rank sentence is E3 with an explicit dimension-six counterexample. It makes no claim that the special symplectic dimension-four application fails. That restricted criterion still needs its dedicated proof.
+9. BCGP (2025): the RACSDC GL_n paragraph on pp. 14–15 after equation (1.8.21) is split between AG2.3 existence, AG2.5 away comparison and AG2.6 coefficient-prime/system package. Equation (1.8.21) itself concerns the preceding GSp₄ discussion. The regular GSp₄ route of §1.8.13 and transfer of §1.8.22 remain with the dedicated owner; singular weights are outside this regular blueprint.
 
-Checked examples:
-- the classical weight in (ℤ²)_{k−2};
-- an unpaired weight in no (ℤ²)_w;
-- a non-dominant weight;
-- HT {11, 0};
-- both sign parities behind E2;
-- the n = 2 and n = 3 Satake factorisations;
-- Δ's reciprocal polynomial;
-- the n = 2 twist.
+## Source corrections
 
-## What remains (precisely)
+E1 and E2 from the checkpoint are preserved: BLGGT's χ/µ misprint and the weight-dependent multiplier parity correction χ_v(−1)=(−1)^{n+w}. The geometric rank-one and odd-weight checks and Patrikis sign comparison are retained. Patrikis’s parity calculation was re-read in §4, proof of Proposition 4.1, p. 8; the checkpoint’s Theorem 2.1 locator is corrected. They require independent verification with the rest of the packet.
 
-- **AG2.0:**
-  - the unitary similitude coefficient example, which needs HLTT §§2–3 (the G_n coefficient systems);
-  - Clozel's theorem, via AF.4;
-  - IHG.3's Satake nodes, since that packet has none yet.
-- **AG2.1a:** HLTT and Shin: the raw cohomology of the compact PEL varieties with Kuga–Sato coefficients, the projectors,
-  and the fixed-point/nearby-cycle trace identities. Chenevier–Harris §§1–3.
-- **AG2.1b, AG2.2, AG2.3:** no nodes yet (Shin; Chenevier–Harris §3; eigenvarieties).
-- **AG2.4:** HLTT §§5–7: the overconvergent complex, the congruences and the separation argument.
-- **AG2.5:** Varma §2 (Bernstein centre); Caraiani §§2–4; the partial order of [Ch] §3.1 (see gaps); Taylor–Yoshida.
+E3 is the general maximal-rank error already flagged by the routed BCGP extraction, now supported by fully specified matrices. For q=4, F=diag(8,2,2,1/2,1/2,1/8). Pure chains (0,1,3,5),(2,4) have lengths (4,2) and common centre 0. Impure chains (0,1,3),(2,4,5) have lengths (3,3), centred at 1 and −1. Both operators are admissible and have maximal rank 4 by the graded dimensions (1,2,2,1); only the first is pure of weight 0. Rank of the third power separates them. TY Lemma 1.4(4) proves uniqueness of a pure WD extension up to equivalence, not uniqueness from one rank or equality of matrices in a fixed basis.
 
-The next continuation should read HLTT §§1–3 for the G_n setup and coefficient systems (which also closes the AG2.0
-example), then Shin for AG2.1a/AG2.1b.
+E4 is a new literal codomain error in CH's alternative de Rham proof on p. 12. For n=4, ∧²:GL₄→GL₆ has domain dimension 16 and codomain dimension 36, so it is not an isogeny onto GL₆. It has finite kernel onto its image. The alternate Wintenberger argument must use that image and a justified p-adic Hodge detection theorem; this plan chooses CH's first fixed-weight-family proof. Independent review should confirm both new findings; no errata file outside this job was edited. The versions and author publication pages checked yielded no correction. This is a bounded search report, not a claim that no correction exists anywhere.
+
+## Remaining closure work
+
+The complete reader contains all 50 exact supplier contracts. The following 12 gaps are the precise source/ownership boundaries to resume:
+
+1. **Explicit coefficient realization**. TY cites HT01 pp. 97–98 for the recipe ξ↦m_ξ,t_ξ,ε_ξ. Those pages were unavailable. The B2 and Schur–Weyl requests must provide the recipe and verify its parity and Tate twist; no unspecified projector is accepted as a proof. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.1a/kuga-sato-coefficient-projector`.
+
+2. **Polarized Kottwitz-triple effectivity**. The current Honda–Tate node classifies abelian varieties up to isogeny. Raw fixed-point counting additionally needs a polarized O_F-linear realization with prescribed p-adic isocrystal, positivity and trivial Kottwitz obstruction α₀. Request PEL/IG refinement; do not infer it from the unpolarized Honda–Tate node. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.1a/raw-fixed-point-trace-identity`.
+
+3. **Middle-degree cancellation source step**. Shin Corollary 6.5 imports the Harris–Taylor p. 207 argument, beyond just purity of H^k. That unavailable passage must supply the selected-constituent weight bounds under the exact ST/END hypotheses. Geometric purity plus a virtual rank equality alone is not a proof of concentration. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.1b/weight-separation-middle-degree`.
+
+4. **Irreducible multiplicity divisibility**. Shin Corollary 6.8 invokes HT01 Proposition VII.1.8 and explains the adjusted assumptions in Remark 6.9. The book proof was unavailable. The required lemma is divisibility of every irreducible Galois multiplicity by C_G, using the labelled geometric de Rham dimensions and independence of τ. Numerical rank divisibility is expressly insufficient. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.1b/actual-galois-constituent-from-cohomology`.
+
+5. **Polarization twisting lemma source**. CHT08 Lemma 4.1.4 was not obtained from a working public URL. BLGGT explicitly invokes it in the twisting proof. The global-number-fields request records the exact ψψ^c requirement and compatibility; the packet does not assume arbitrary prescribed local square roots extend globally. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.2/algebraic-character-polarization-twist`.
+
+6. **Definite-unitary density proof source**. CH recalls Chenevier Theorems 3.3 and 3.5 without their analytic proof. The cited Chenevier eigenvariety chapter was not obtained. The request specifies the group-specific classicality and density input; L4 and L2a alone do not imply it. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.3/strongly-regular-classical-density`.
+
+7. **GSp₄ route and dedicated ownership**. Confirmed RT-AREA-langlands-19 routes the regular GSp₄ systems, Calegari–Geraghty Proposition 6.8 GSp₄-valuedness and Sorensen parahoric/inertia bounds, Pilloni Theorem 5.1.7.1 and its normalization and GSp₄ ramified comparisons to the proposed GSp4LocalLanglandsAndGaloisRepresentations owner. No such roadmap/stage exists in the atlas yet, so a fabricated supplier id is not used. The source-route obligation for AG2.2 and AG2.5 is recorded as this explicit ownership gap, pending creation of that owner. The contract must preserve Calegari–Geraghty Proposition 6.8(1)–(2),(5), the Mok/Bellaïche–Chenevier GSp₄-valuedness argument and Sorensen’s Iwahori/Klingen/paraspherical/inertia cases, and Pilloni Theorem 5.1.7.1(2),(5) with its geometric-Frobenius normalization and the routed E27 correction. Coefficient-prime and ordinary-shape clauses go with that owner’s p-adic package, not with this away-prime blueprint. Only the generic GL_n sign theorem is kept in AG2.3; GL₄ polarized construction and generic pure WD theory are imported by the dedicated owner. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.2`, `AutomorphicGaloisRepresentationsPartII:AG2.5`.
+
+8. **Intrinsic boundary-pair independence**. HLTT explicitly says its cohomology should depend only on the intrinsic pair but this is unproved; the plan uses a fixed Σ and the constructed transition-map colimit. A proof of intrinsic compactification/refinement independence is still required for the stronger stage wording; it must not be inferred from Lemma 6.19’s finite-level invariants. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-support-dagger-cohomology`.
+
+9. **HLTT quotient witness versus injection contract**. The current IHG.4 uniform-congruence-witness node is phrased using an injective map into a finite product, whereas the Hasse construction naturally gives a surjective classical Hecke comparison. A generic quotient-descent lemma with continuity and polynomial-law identities, or a construction of the required injective witnesses from these quotients, remains necessary. This contract is requested explicitly; pointwise Hecke congruence is not treated as that lemma. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.4/uniform-integral-hecke-congruence-witnesses`.
+
+10. **Polarized local family comparison source**. CH Theorem 2.3 cites Bellaïche–Chenevier §6.5 for its inertial and monodromy family comparison. That cited proof was not obtained. The exact family specialization contract is requested from IHG.4/SR.3, separately from Varma, so the proof order is acyclic and the polarized upgrade has an honest semisimple-comparison input. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.5/ch-polarized-local-monodromy-bound`.
+
+11. **Liu middle-degree identification range**. Liu et al. Hypothesis 3.2.10 identifies the irreducible automorphic representation with Hom_{G(A_f)} in degree N−1 for its specified indefinite unitary group. Proposition 3.2.11 verifies low ranks N≤3 and cites unpublished Kisin–Shin–Zhu for the further F⁺≠Q range. No public proof of that unpublished input was obtained. Keep the identification conditional outside the proved range; no universal geometric realization is used. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.5/published-racsdc-comparison-specializations`.
+
+12. **Coefficient realization dependency**. CH Proposition 3.2.5 needs the regular Hodge–Tate/de Rham assertion established by its family comparison. The generic p-adic Hodge regular-semisimple criterion is requested here; the automorphic admissibility proof is assigned to AG2.6 and is not used by the early AG2.0 trace-field dictionary. The finite-field target stays planned with this precise dependency, rather than asserting trace-field descent. Affected: `AutomorphicGaloisRepresentationsPartII:AG2.3/finite-number-field-of-realization`.
+
+
+For each mathematical stage, also use its packet coverage remaining list. In particular: AF.4 definite-unitary classicality and rational coefficient model; compact possibly ramified PEL/Igusa geometry; local transfer signs/Sp_s input and Mantovan derived Ext; characteristic-zero affinoid continuity/local specialization; effective patching and global field prescriptions; RD.4 Frobenius/Hecke comparison and log weight contracts; IHG.4 integral quotient descent and independent factor separation; integral Bernstein operators with denominator/type control; and R01.2 full WD partition and pure-extension API. A stage request records exact extra generality rather than pretending its current title is enough.
+
+Two structural recommendations are recorded without changing other roadmaps: local-global extension prescriptions extend GlobalNumberFields and should be placed in its Part II where appropriate; the missing dedicated GSp₄ owner must be created. The R24.5 operations, AG2.6 and AG2.7 export contracts are outputs, not early construction prerequisites. The common finite realization-field node stays open until its regular-Hodge–Tate argument is supplied.
+
+## Primary source ledger
+
+All URLs, full SHA-256 values, editions and read passages are in the packet and reader. Newly checked passages have read date 2026-10-07. Primary source versions used in this pass are:
+
+- [Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor: Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2561v4), arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1. Read: Introduction: Theorems A–D, pp. 1–6 Notation: Artin normalisation, rec, HT_τ(ε_l) = {−1}, algebraic characters, pp. 8–10 §2.1 Terminology: polarized l-adic and mod l representations, totally odd, algebraic, polarized automorphic representations, (ℤⁿ)_w, extremely regular, Ξ_a, weight, ι-ordinary, Theorem 2.1.1 with its proof and remarks, pp. 31–34 §5.1 remark on the weights of r_{l,ι}(χ), p. 65; Theorem 5.5.1's proof and the remark before Theorem 5.5.2, p. 81 Appendix A.2: algebraic characters and their weights (1)–(8), Lemmas A.2.1–A.2.5, pp. 87–90 codex-Q1w8rI, 2026-10-07: §1 notation and §2.1 weight/polarization conventions, pp. 8–10, 31–35; Appendix A.2 algebraic Hecke characters, p. 87. Rechecked the retained parity correction and primary literal excerpts. SHA-256 `c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24`.
+
+- [Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne: Potential automorphy over CM fields](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896). Read: Earlier decomposition: 4.3 Definition 4.3.1 and Lemma 4.3.2 (pp. 972–973); 6.2.28–6.2.31 (pp. 1044–1045) cc-fb70e5, 2026-09-29 (part AG2.0, checkpoint 1): §1 notation (Artin and rec normalisations, rec^T, algebraic characters, regular algebraic of weight ξ, totally odd), pp. 906–909; §2.2.5 with (2.2.6)–(2.2.7), pp. 921–922; Theorems 2.3.2–2.3.3, pp. 935–936; Definition 2.3.6 and the contragredient remark after it, p. 938; §7.1 up to Lemma 7.1.9, p. 1093; Corollary 7.2.4, p. 1100 codex-Q1w8rI, 2026-10-07: §1 notation; §§2.2–2.3 integral Hecke polynomial, good attachment and dual/twist remarks; §4.5.1 prescribed split-place crystalline character, pp. 985–986; §7.1 rationality and coefficient fields. SHA-256 `c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02`.
+
+- [Stefan Patrikis: On the sign of regular algebraic polarizable automorphic representations](https://arxiv.org/pdf/1306.1242v2), arXiv:1306.1242v2, 8 July 2014 (published Math. Ann. 362 (2015), 147–171). Printed page = PDF page. Read: codex-Q1w8rI, 2026-10-07: §§1–3, Theorem 2.1 and archimedean sign calculations; §4 Proposition 4.1 and its proof, pp. 7–8, including the geometric-character sign formula. codex-Q1w8rI, 2026-10-07: §4 Proposition 4.1, proof, p. 8: the integer w, unitary normalization and pairing sign (−1)^w ω_v(−1). SHA-256 `2bfa2a6a00a94465725cd7b0e48d64eef1fed4113a6be4b246a015e7927259f8`.
+
+- [Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne: On the rigid cohomology of certain Shimura varieties](https://www.kwlan.org/articles/rigcoh.pdf), Author's copy rigcoh.pdf (published in Res. Math. Sci. 3 (2016)); read from the supplied extracted text references/text/SS_HLTT.txt. Locators give the article's own page numbers and result numbers. Read: Abstract and Introduction: Theorem A (quoted there as Corollary 7.14), the remark on extending local-global compatibility, the sketch of the argument including the group G_n, its maximal parabolic and Levi, the induced representation Pi(N), the realization in overconvergent p-adic cusp forms of finite slope, Katz's congruence argument, and the dagger-space set-up with the ordinary loci and the subcanonical sheaf, pp. 1-3 Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 (the displayed 2n-dimensional decomposition checked on the page image of p. 2), bibliography entries [CH], [Sh1], [Sh2] codex-Q1w8rI, 2026-10-07: §1, Proposition 1.2 and Corollary 1.3; §3 moduli and §5 boundary charts; §6.1 Lemmas 6.1–6.2 and Proposition 6.5; §§6.2–6.5 Lemmas 6.7–6.9, 6.15–6.27; §7, hypotheses, Proposition 7.12, Theorem 7.13 and Corollary 7.14. SHA-256 `abecfd049d617654dd0bb60e4945bf6967d3953ed20f2126de0624f2bd0bdbc7`.
+
+- [Gaetan Chenevier and Michael Harris: Construction of automorphic Galois representations, II](https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf), Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers. Read: Introduction: the setting (F totally real, K/F totally imaginary quadratic, G = Res_{K/Q} GL(n)), and the main theorem quoted there as Theorem 3.2.3 with its parts (a), (b), (c), p. 1 Reviewer (REVIEW-EXT-10-EXT-07): introduction pp. 1-2 and the paragraph before Theorem 2.3 describing the dominance relation (it implies s = s' and N in the Zariski closure of the conjugacy class of N'), bibliography entry [Ch] = Chenevier, Une application des varietes de Hecke des groupes unitaires cc-fb70e5, 2026-09-29: §4, General Hypotheses 4.1 and Theorem 4.2 (totally real fields), p. 13 codex-Q1w8rI, 2026-10-07: §§1–3: Hypotheses 1.1–1.3, Theorem 1.4; §2 definite-unitary eigenvariety and Theorem 2.3; §3.1 patching and local extensions; §3.2 induction P(m), Theorem 3.2.3 and Proposition 3.2.5. SHA-256 `9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529`.
+
+- [Ila Varma: Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p](https://arxiv.org/pdf/1411.2520), arXiv:1411.2520v1, 10 November 2014; read from the supplied extracted text references/text/SS_VarmaLocalGlobal.txt. Locators give the arXiv version's own page numbers. Read: Abstract, p. 1 1 Introduction: the setting, the known unramified compatibility, Theorem (1^ss), Theorem (1) with the partial order, and the summary of the proof strategy through the Bernstein centre, pp. 1-2 Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 including the construction of the pseudorepresentation T, bibliography entries [9] = HLTT, [10] = Harris-Taylor, [16] = Scholze codex-Q1w8rI, 2026-10-07: §7.2 Bernstein centre and integral operators; §8 pseudorepresentation interpolation; §9 Definitions 1–2, Lemmas 9.2, 9.7–9.8 and Proposition 9.1; §§10–11 factor extraction and descent. SHA-256 `24076dfcc6ca9b9e3168efb0150e75d5200f66e64085625b3e52895cfd1e56ef`.
+
+- [Ana Caraiani: Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), arXiv:1010.2188v1, 11 October 2010 (published Duke Math. J. 161 (2012)); read from references/text/SS_CaraianiMonodromyAway.txt. Locators give the arXiv version's page numbers. Read: Abstract and 1 Introduction: Theorem 1.1, Theorem 1.2 (Ramanujan-Petersson), the statement of what was already known, and the strategy (realizing R_l(Pi)^{tensor 2} in the cohomology of a unitary Shimura system and proving purity by computing the monodromy operator), pp. 1-2 Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 codex-Q1w8rI, 2026-10-07: §4, product of two semistable charts, nearby-cycle tensor product, monodromy and Corollary 4.29; §5, Proposition 5.8, Corollary 5.9 and Proposition 5.10; §7, Proposition 7.2, Corollary 7.3 and Theorem 7.4. SHA-256 `769e68e2384b42caf16861d9011b35afe48018eba006074ce0d6c4111451f3b3`.
+
+- [Ana Caraiani: Monodromy and local-global compatibility for l = p](https://arxiv.org/pdf/1202.4683), arXiv:1202.4683v1, 21 February 2012 (published Algebra Number Theory 8 (2014)); read from references/text/SS_CaraianiMonodromyAtP.txt. Locators give the arXiv version's page numbers. Read: Abstract and 1 Introduction: Theorem 1.1, the statement of what was known from Barnet-Lamb-Gee-Geraghty-Taylor and what is new, and the announcement of a generalization of Mokrane's weight spectral sequence for log crystalline cohomology, p. 1 Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-2, including the use of Theorem 1.2 of [C] and of Lemma 1.4(4) of Taylor-Yoshida SHA-256 `6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e`.
+
+- [Sug Woo Shin: Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), Author copy; article pagination, 61 pages. Read: §2, Mantovan functor, Lemma 2.1 and Propositions 2.2–2.3; §3.6 archimedean transfer conventions; §§5.1–5.3 compact datum, Drinfeld models, Proposition 5.2 and Proposition 5.3; §§6.1–6.2 ST/END, Theorems 6.1 and 6.4, Corollaries 6.5–6.8; §7 theorem and descent. SHA-256 `93f4fe322200a646f337ae8d4aa9a036a866df1bb59ad5fe7bf09373324da75b`.
+
+- [Sug Woo Shin: Counting points on Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), Author copy; article pagination. Read: §§2–4: admissible Kottwitz triples, fixed-point counting and stabilization. Used as the source of an explicit supplier request, not as a universal PEL statement. SHA-256 `e74cbbe4463f003b8ae2eb10636744c7ae032d25a566f8b441004c7f14e2faf0`.
+
+- [Richard Taylor and Teruyoshi Yoshida: Compatibility of local and global Langlands correspondences](https://arxiv.org/pdf/math/0412357), arXiv:math/0412357v2, 7 April 2005; downloaded PDF metadata dated 2018. Read: §1 definitions, Lemma 1.4 and Theorem 1.5; §2, corrected Harris–Taylor projector a_ξ=ε_ξ ε(m_ξ,N)^(2n−1). SHA-256 `a17d283d3a605cd3f031a1178f2914254ee9cbe430b11cfbff8c382e8cd1713b`.
+
+- [Elmar Grosse-Klönne: Rigid analytic spaces with overconvergent structure](https://arxiv.org/pdf/1408.3329), arXiv:1408.3329, author version. Read: §5, Theorem 5.1 and its proof: partially proper dagger tubes and comparison with rigid cohomology. SHA-256 `f75311cc7638b225ec79a528d59abdc71f3cf7e3270ff081287c328d60cb071b`.
+
+- [Ana Caraiani and Peter Scholze: On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Annals of Mathematics 186 (2017), 649–766; published PDF. Read: §5.5, Theorem 5.5.4, Corollary 5.5.5 and Remark 5.5.6, pp. 744–746; §5.6 simple Kottwitz variants and Corollary 5.6.2, pp. 748–750. SHA-256 `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a`.
+
+- [James Newton and Jack A. Thorne: Symmetric power functoriality for Hilbert modular forms](https://arxiv.org/pdf/2212.03595), arXiv:2212.03595v2, 19 February 2025; published Annals 2026. Read: §5.1, Theorem 5.1 and Lemma 5.2: Clozel rationality and coefficient conjugation. SHA-256 `6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c`.
+
+- [Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu: On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://par.nsf.gov/servlets/purl/10323568), Inventiones Mathematicae 228 (2022), 107–375; published PDF. Read: Definitions 1.1.3 and 3.1.1, Lemma 3.1.2, Proposition 3.2.4, Definition 3.2.5, Hypothesis 3.2.10 and Proposition 3.2.11; Appendix D.1, Proposition D.1.3 and Corollary D.1.4. SHA-256 `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97`.
+
+- [George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni: Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf), Publications Mathématiques de l’IHÉS 134 (2021), 153–501; published PDF. Read: §2.5, p. 189, purity definition and Lemma 2.5.1, checked against the arXiv version; generic GL_n claim separated from the GSp₄ application. SHA-256 `b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af`.
+
+- [George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni: Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645), arXiv:2502.20645v1, February 2025. Read: RACSDC paragraph following equation (1.8.21), pp. 14–15, RACSDC GL_n representations; §1.8.13 regular GSp₄ result and §1.8.22 transfer read for ownership only. SHA-256 `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`.
+
+- [Joël Bellaïche and Gaëtan Chenevier: The sign of Galois representations attached to automorphic forms for unitary groups](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D778DCD413972E114657F69ACC7BB6BC/S0010437X11005264a.pdf/the-sign-of-galois-representations-attached-to-automorphic-forms-for-unitary-groups.pdf), Compositio Mathematica 147 (2011), 1337–1352; published PDF. Read: Theorem 1.2 and Corollary 1.3; §§2–3 sign under twists, specialization, eigenvariety approximation and descent. SHA-256 `46a4a8c7dc1394b6ec72c4b908bb7616818db4d608dcadf2f96d0998b3e0caa8`.
+
+- [Michael Harris, Nicholas Shepherd-Barron and Richard Taylor: A family of Calabi–Yau varieties and potential automorphy](https://annals.math.princeton.edu/wp-content/uploads/annals-v171-n2-p04-p.pdf), Annals of Mathematics 171 (2010), 779–813; published PDF. Read: Lemma 2.2, pp. 795–796, compatible idele characters with prescribed units and restriction to the totally real subfield. SHA-256 `5e3fc579911961071bb7e7f7a7a4f4154d621d0abccafcf4d03702fbcfb3d1ab`.
+
+- [Laurent Clozel and Jack A. Thorne: Level-raising and symmetric power functoriality, III](https://www.repository.cam.ac.uk/bitstreams/dc59bf8c-174b-4034-9f2f-070974d101af/download), Accepted Cambridge repository copy, published 2017. Read: §1.1 notation; §3.5 stable base change with selected real branches, pp. 30–31; Lemma 7.4, pp. 47–48, twisting character for rank two. SHA-256 `fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742`.
+
+
+The full Harris–Taylor book passages (pp. 97–98, p. 207 and Proposition VII.1.8), the cited Chenevier eigenvariety chapter, BC §6.5 proof, CHT08 Lemma 4.1.4 and the unpublished KSZ identification proof were not obtained. Secondary primary-author references establish the exact needed contracts, but are not represented as reading those proofs. The at-p Caraiani paper was read for its introduction/target routing only; AG2.6 needs its log-crystalline proof. Failed or incorrect guessed downloads were discarded and are not sources. There are no PDFs, extracted paper text or private paths in the deliverables.
+
+## Review and follow-up
+
+Independent review should first check the corrected ownership/proof order, then the compact projector/weight/multiplicity separation, HLTT uniform quotient-to-witness and continuity contracts, the selected CS transfer, and E2/E3/E4. Compare every stage target with its declaration or named gap rather than equating status complete with closure. The reader includes every node statement, hypothesis, proof outline, API, test, source passage and direct prerequisite; the suggested ledger includes every node/API/test name, with explicit missing-object reasons.
+
+After acceptance, the programme can create closure follow-ups for the seven mathematical stages and assemble them with the AG2.6–AG2.7 part. Those follow-ups should start from the exact gap/contract above; they need no private scratch files. This worker stops after its one pull request and does not claim another issue.

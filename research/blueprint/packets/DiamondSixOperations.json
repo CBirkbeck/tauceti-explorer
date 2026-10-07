@@ -12,7 +12,7 @@
   "DiamondSixOperations:S6"
  ],
  "status": "complete",
- "summary": "Target-level plan of ECD §§22–25, the exceptional operations on small v-stacks and the theory of cohomologically smooth maps. S0: compactifiable morphisms (ECD 22.2), all eight parts of Proposition 22.3 with the corrected local-splitting hypothesis of 22.3(vii) stored as a predicate, and the two eligible classes (compactifiable + representable in locally spatial diamonds + locally finite dim.trg; and the spatial, globally finite variant). S1: Rf_! = Rf‾_* j_! for spatial-eligible maps, its independence of the compactification, Theorem 22.5 with the 3·dim.trg bound and the separate 2·dim.trg bound under spatiality of the compactification, Propositions 22.6–22.7 on proper dim.trg 0 diamonds, and Propositions 22.8–22.12. S2: the proper-support subcategory, Rf_! over quasiseparated locally spatial bases by left Kan extension (22.13–22.15), the coherent support diagram over a simplicial v-hypercover (22.16–22.17), Rf_! for eligible maps of small v-stacks (22.18) with hypercover independence, base change, colimits, composition, étale agreement, the projection formula extended to v-stacks, and the pasting coherences. S3: Rf^! by the adjoint functor theorem (23.1), change of rings, Verdier duality (23.3), composition, Rf^! = f^* for étale f, the formal identity 23.16(i) before smoothness, and the adjunction calculus (traces, twisted pullback, base-change transformations). S4: Propositions 23.4–23.7, invertible objects and ℓ-cohomological smoothness (23.8), the practical criterion, universal openness, the dualizing complex, perfect-constructibility, base change of Rf^!, composition and descent with the hypotheses of 23.13 retained, Remark 23.14, v-locality with local dim.trg finiteness retained, smooth base change and 23.16(iii)–23.17 with their corrected hypotheses. S5: the absolute perfectoid ball and Theorem 24.1, Tate twists, the normalised Λ-valued Haar measure, free and nonfree profinite quotients (24.2–24.3), the computation showing Rq^! ≠ q^*, smooth analytic maps (24.4), Spd ℚ_p (24.5) and the geometric-base criterion (24.6). S6: Verdier duals, biduality and finiteness over Spa(C, O_C) (25.1), the counterexample of 25.2, ℓ-power-torsion coefficients (25.3), conservativity (25.4) with a valuation-theoretic proof of the density of closed points, the counterexample of 25.5 and the conditional 25.6. The enhanced D_ét, the four operations, proper base change and the canonical compactification are imported from DiamondEtaleCohomology C0–C7 (requested) and C8–C9 (nodes); Kan extensions, coCartesian fibrations, adjoint functor theorem and Neeman's criterion from EnhancedDerivedSheaves E0–E3; Huber's trace, duality, constructibility and curve compactification from ClassicalAdicEtaleCohomology H3–H5 (nodes, with their recorded gaps).",
+ "summary": "Target-level plan of ECD §§22–25, the exceptional operations on small v-stacks and the theory of cohomologically smooth maps. S0: compactifiable morphisms (ECD 22.2), all eight parts of Proposition 22.3 with the corrected local-splitting hypothesis of 22.3(vii) stored as a predicate, and the two eligible classes (compactifiable + representable in locally spatial diamonds + locally finite dim.trg; and the spatial, globally finite variant). S1: Rf_! = Rf‾_* j_! for spatial-eligible maps, its independence of the compactification, Theorem 22.5 with the 3·dim.trg bound and the separate 2·dim.trg bound under spatiality of the compactification, Propositions 22.6–22.7 on proper dim.trg 0 diamonds, and Propositions 22.8–22.12. S2: the proper-support subcategory, Rf_! over quasiseparated locally spatial bases by left Kan extension (22.13–22.15), the coherent support diagram over a simplicial v-hypercover (22.16–22.17), Rf_! for eligible maps of small v-stacks (22.18) with hypercover independence, base change, colimits, composition, étale agreement, the projection formula extended to v-stacks, and the pasting coherences. S3: Rf^! by the adjoint functor theorem (23.1), change of rings, Verdier duality (23.3), composition, Rf^! = f^* for étale f, the formal identity 23.16(i) before smoothness, and the adjunction calculus (traces, twisted pullback, base-change transformations). S4: Propositions 23.4–23.7, invertible objects and ℓ-cohomological smoothness (23.8), the practical criterion, universal openness, the dualizing complex, perfect-constructibility, base change of Rf^!, composition and descent with the hypotheses of 23.13 retained, Remark 23.14, v-locality with local dim.trg finiteness retained, smooth base change and 23.16(iii)–23.17 with their corrected hypotheses. S5: the absolute perfectoid ball and Theorem 24.1, Tate twists, the normalised Λ-valued Haar measure, free and nonfree profinite quotients (24.2–24.3), the computation showing Rq^! ≠ q^*, smooth analytic maps (24.4), Spd ℚ_p (24.5) and the geometric-base criterion (24.6). S6: Verdier duals, biduality and finiteness over Spa(C, O_C) (25.1), the counterexample of 25.2, ℓ-power-torsion coefficients (25.3), conservativity (25.4) with a proposed valuation-theoretic proof of the density of closed points whose missing inputs are recorded as a gap, the counterexample of 25.5 and the conditional 25.6. The enhanced D_ét, the four operations, proper base change and the canonical compactification are imported from DiamondEtaleCohomology C0–C7 (requested) and C8–C9 (nodes); Kan extensions, coCartesian fibrations, adjoint functor theorem and Neeman's criterion from EnhancedDerivedSheaves E0–E3; Huber's trace, duality, constructibility and curve compactification from ClassicalAdicEtaleCohomology H3–H5 (nodes, with their recorded gaps).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -110,13 +110,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.2, p. 128",
-     "excerpt": "A morphism f : Y ′ → Y of v-stacks is compactifiable if it can be written as a composite of an open immersion and a partially proper morphism.",
      "match": "The definition, verbatim."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, after Definition 22.2, p. 128",
-     "excerpt": "A key difference to the world of schemes is the presence of a canonical compactification.",
      "match": "The factorisation is canonical (S0/compactifiable-iff-separated-open), which is why only existence is stored."
     }
    ],
@@ -248,13 +246,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(i), p. 128",
-     "excerpt": "The morphism f is compactifiable if and only if it is separated and the natural map Y ′ → Y ′ is an open immersion.",
      "match": "Statement; the target of the natural map is the canonical compactification (overline with superscript /Y lost in the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(i), p. 128",
-     "excerpt": "As open immersions and partially proper morphisms are separated, we see that f is separated.",
      "match": "The first half of the proof."
     }
    ],
@@ -299,13 +295,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(ii), p. 128",
-     "excerpt": "If f is compactifiable, then fe is compactifiable.",
      "match": "Statement (f̃ appears as fe in the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3, p. 128",
-     "excerpt": "Now parts (ii) and (iii) follow easily from (i).",
      "match": "The route through part (i)."
     }
    ],
@@ -347,13 +341,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(iii), p. 128",
-     "excerpt": "If fe is compactifiable and Ye → Y is a surjective map of v-stacks, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3, p. 128",
-     "excerpt": "In particular, the property of being compactifiable is v-local on the target by (iii)",
      "match": "The reformulation as v-locality."
     }
    ],
@@ -397,13 +389,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(iv), p. 128",
-     "excerpt": "If Y1 → Y2 and Y2 → Y3 are compactifiable morphisms of v-stacks, then the composite Y1 → Y3 is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(iv), p. 128",
-     "excerpt": "Now parts (ii) and (iii) follow easily from (i). In Part (iv), we may now assume that Y3 , and",
      "match": "The reduction to separated targets."
     }
    ],
@@ -449,19 +439,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(v), p. 128",
-     "excerpt": "If f is separated and representable in locally spatial diamonds and Y ′ admits a cover by open subfunctors V ⊂ Y ′ such that f |V : V → Y is compactifiable, then f is compactifiable.",
      "match": "Statement, first sentence."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(v), p. 128",
-     "excerpt": "In part (v), it is enough to prove that for any open subspace V ⊂ Y ′ , the composite V → Y ′",
      "match": "The reduction to the open-immersion assertion."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(v), p. 129",
-     "excerpt": "These cover Y ′ , so that Y ′ is open in Y , as desired.",
      "match": "The conclusion of the local argument."
     }
    ],
@@ -505,13 +492,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(vi), p. 128",
-     "excerpt": "If f is separated and étale, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(vi), p. 129",
-     "excerpt": "In that case, Y ′ decomposes as a disjoint union of quasicompact open subspaces of Y , so the result is clear.",
      "match": "The local structure used."
     }
    ],
@@ -552,19 +537,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(vii), p. 128",
-     "excerpt": "there is a separated surjective map g : Z → Y ′ of v-stacks that after pullback to strictly totally disconnected spaces has local sections",
      "match": "The condition, verbatim."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3, footnote 5, p. 128",
-     "excerpt": "In a previous version, it was claimed that in (vii), the local splitting condition on g is not required, but there are counterexamples to that version.",
      "match": "Why the condition is part of the data."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.14 and following paragraph, p. 150",
-     "excerpt": "by Proposition 22.3 (vii), it can be omitted if g has local sections after pullback to strictly totally disconnected spaces.",
      "match": "The second use of the condition."
     }
    ],
@@ -683,13 +665,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(vii), p. 128",
-     "excerpt": "If f is separated and representable in locally spatial diamonds and there is a separated surjective map g : Z → Y ′ of v-stacks that after pullback to strictly totally disconnected spaces has local sections and such that f ◦ g is compactifiable, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(vii), p. 129",
-     "excerpt": "But then g is locally split by assumption, so the result follows from (v).",
      "match": "Where the hypothesis is used."
     }
    ],
@@ -731,13 +711,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(viii), p. 128",
-     "excerpt": "If g : Y → Z is a separated map of v-stacks such that g ◦ f is compactifiable, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(viii), p. 129",
-     "excerpt": "If the composite is an open immersion, then so is the first map (as it is a pullback of the composite).",
      "match": "The proof."
     }
    ],
@@ -786,19 +764,16 @@
     {
      "sourceId": "ECD",
      "locator": "Convention 22.1, p. 127",
-     "excerpt": "we will always work with unbounded derived categories and therefore assume that f is representable in locally spatial diamonds with locally dim. trg f < ∞",
      "match": "The standing hypotheses (b) and (c)."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.18, p. 137",
-     "excerpt": "Let f : Y ′ → Y be a compactifiable map of small v-stacks that is representable in locally spatial diamonds with locally dim. trg f < ∞, and assume nΛ = 0 for some n prime to p.",
      "match": "The three conditions together, as the domain of Rf_!."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, p. 135",
-     "excerpt": "(i.e., after pullback to any spatial diamond Z → Y , any quasicompact open subspace of Y ′ ×Y Z has finite dim. trg over Z)",
      "match": "The meaning of locally dim.trg f < ∞."
     }
    ],
@@ -943,13 +918,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Let f : Y ′ → Y be a compactifiable map of small v-stacks which is representable in spatial diamonds with dim. trg f < ∞, and assume nΛ = 0 for some n prime to p.",
      "match": "The hypotheses of the quasicompact definition."
     },
     {
      "sourceId": "ECD",
      "locator": "Theorem 22.5, p. 130",
-     "excerpt": "The constant 3 may well be an artifact of the proof; if f is still representable in spatial diamonds, it can be replaced by 2, as expected.",
      "match": "The compactification of a spatial-eligible map need not be spatial; spatiality of it is an extra hypothesis."
     }
    ],
@@ -1067,7 +1040,6 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(viii), p. 128",
-     "excerpt": "If g : Y → Z is a separated map of v-stacks such that g ◦ f is compactifiable, then f is compactifiable.",
      "match": "Only compactifiability cancels in the source."
     }
    ],
@@ -1114,19 +1086,16 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Rf! = Rf ∗ ◦ j! : Dét (Y ′ , Λ) → Dét (Y, Λ)",
      "match": "The definition (the overline and /Y on f‾ are lost in the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, before Definition 22.4, p. 129",
-     "excerpt": "Now if f : Y ′ → Y is a quasicompact compactifiable map of small v-stacks, we can write f as",
      "match": "The quasicompact factorisation through the proper canonical compactification."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Our first aim is to prove that this definition is well-behaved on unbounded derived categories.",
      "match": "Why the dimension bound S1/compactification-cd-bound is needed."
     }
    ],
@@ -1216,7 +1185,7 @@
     {
      "name": "lowerShriekQC_generic_point",
      "kind": "non-example",
-     "statement": "For C⁺ ⊂ O_C of rank 2 and j : U = Spa(C, O_C) → Y = Spa(C, C⁺), the canonical compactification of j is Y, Rj_!Λ = j_!Λ, and RΓ(Y, Rj_!Λ) = 0, whereas RΓ(Y, Rj_*Λ) = Λ; so Rf_! is not Rf_* for non-proper f."
+     "statement": "Assume Λ ≠ 0. For C⁺ ⊂ O_C of rank 2 and j : U = Spa(C, O_C) → Y = Spa(C, C⁺), the canonical compactification of j is Y, Rj_!Λ = j_!Λ, and RΓ(Y, Rj_!Λ) = 0, whereas RΓ(Y, Rj_*Λ) = Λ; so Rf_! is not Rf_* for non-proper f."
     },
     {
      "name": "lowerShriekQC_finite_etale",
@@ -1267,13 +1236,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Let f : Y ′ → Y be a compactifiable map of small v-stacks which is representable in spatial diamonds with dim. trg f < ∞, and assume nΛ = 0 for some n prime to p.",
      "match": "The definition fixes the canonical factorisation; independence of it is the target of this node."
     },
     {
      "sourceId": "ECD",
      "locator": "Theorem 19.2, p. 108",
-     "excerpt": "There is a natural transformation of functors j! Rg∗ → Rf∗ j!′ : Dét (U ′ , Λ) → Dét (Y, Λ) .",
      "match": "The proper base change used for the comparison map h."
     }
    ],
@@ -1323,25 +1290,23 @@
     "DiamondEtaleCohomology:C8/qpetale-direct-image",
     "DiamondEtaleCohomology:C3",
     "DiamondEtaleCohomology:C5",
-    "DiamondEtaleCohomology:C4"
+    "DiamondEtaleCohomology:C4",
+    "DiamondEtaleCohomology:C8"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Theorem 22.5, p. 130",
-     "excerpt": "In particular, as j∗ is exact (by Remark 21.14), also Ri f∗ A = 0 for all A ∈ Dét (Y ′ , Λ) concentrated in degree 0 and i > 3 dim. trg f , so that Rf∗ has bounded cohomological dimension.",
      "match": "The conclusion for f and its route through j_*."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 22.5, p. 130",
-     "excerpt": "Unfortunately, for a compactifiable map f : Y ′ → Y of spatial diamonds, we do not know whether",
      "match": "Why the nonspatial argument through the Hausdorff quotient is needed."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 22.5, p. 131",
-     "excerpt": "In fact, we claim that H i (T × Y, B) = 0 for i > dim f . This follows from Proposition 22.7 below,",
      "match": "The topological step."
     }
    ],
@@ -1386,19 +1351,18 @@
     "DiamondEtaleCohomology:C8/analytic-dimension-bound",
     "DiamondEtaleCohomology:C3",
     "DiamondEtaleCohomology:C5",
-    "DiamondEtaleCohomology:C4"
+    "DiamondEtaleCohomology:C4",
+    "DiamondEtaleCohomology:C8"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Theorem 22.5, p. 130",
-     "excerpt": "The constant 3 may well be an artifact of the proof; if f is still representable in spatial diamonds, it can be replaced by 2, as expected.",
      "match": "The refinement and its additional hypothesis (the f there is f‾)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 22.5, p. 130",
-     "excerpt": "and ℓ ̸= p by Proposition 21.16, so the result follows from Proposition 21.11.",
      "match": "The spatial case of the proof."
     }
    ],
@@ -1445,13 +1409,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.6, p. 131",
-     "excerpt": "Then the category of proper diamonds f : Y → X with dim. trg f = 0 is equivalent to the category of compact Hausdorff spaces over π0 X, via sending a compact Hausdorff space T → π0 X to X ×π0 X T .",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.6, p. 131",
-     "excerpt": "Now T = S/S ′ is a compact Hausdorff space, and Y = X ×π0 X T . Using Example 11.12, we see that this gives the desired equivalence of categories.",
      "match": "The end of the proof."
     }
    ],
@@ -1497,7 +1459,6 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.7, p. 132",
-     "excerpt": "This follows from Proposition 14.9 if all Zi are spatial; in general, writing all Zi compatibly as quotients of affinoid perfectoid spaces Xi as in the proof of Lemma 11.22, the equivalence relations Ri = Xi ×Zi Xi are spatial diamonds by Proposition 12.3.",
      "match": "Statement and proof route."
     }
    ],
@@ -1540,13 +1501,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.7, p. 131",
-     "excerpt": "Then pullback under Y → |Y | defines an equivalence",
      "match": "Statement (the superscript + on D_ét is on the preceding line)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.7, p. 132",
-     "excerpt": "Thus, the stalk of Rt∗ t∗ F can also be computed as a direct limit of the cohomologies of t∗ F over these neighborhoods U ×π0 X S, which by the remark above reduces to",
      "match": "The stalk computation."
     }
    ],
@@ -1591,13 +1550,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.8, p. 132",
-     "excerpt": "There is a natural base change equivalence g ∗ Rf! ≃ Rfe! g ′∗ of functors Dét (Y ′ , Λ) → Dét (Ye , Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.8, p. 132",
-     "excerpt": "This follows by combining Theorem 22.5, Proposition 17.6 and Proposition 19.1.",
      "match": "Proof route."
     }
    ],
@@ -1644,13 +1601,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.9, p. 132",
-     "excerpt": "Then there is a natural equivalence Rf! ◦ Rg! ≃ R(f ◦ g)! of functors Dét (Y ′′ , Λ) → Dét (Y, Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.9, p. 133",
-     "excerpt": "However, by Theorem 19.2 and Theorem 22.5 (applied to Y ′′ → Y ′ ), we have j3! Rg1∗ = Rg2∗ j2! ,",
      "match": "The key identity."
     }
    ],
@@ -1687,19 +1642,18 @@
     "DiamondSixOperations:S1/lower-shriek-quasicompact",
     "DiamondSixOperations:S1/lower-shriek-base-change-qc",
     "DiamondSixOperations:S0/separated-etale-compactifiable",
-    "DiamondEtaleCohomology:C5"
+    "DiamondEtaleCohomology:C5",
+    "DiamondSixOperations:S1/lower-shriek-composition-qc"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.10, p. 133",
-     "excerpt": "Then Rf! as defined in Definition 19.1 agrees with Rf! as defined in Definition 22.4.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.10, p. 133",
-     "excerpt": "using that ∆ : Y ′ ,→ Y ′ ×Y Y ′ is an open and closed immersion.",
      "match": "The construction of the comparison map."
     }
    ],
@@ -1745,13 +1699,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.11, p. 133",
-     "excerpt": "Then there is a functorial isomorphism Rf! B ⊗LΛ A ≃ Rf! (B ⊗LΛ f ∗ A) in B ∈ Dét (Y ′ , Λ) and A ∈ Dét (Y, Λ).",
      "match": "Statement; B on the source, A on the base."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.11, p. 134",
-     "excerpt": "As such, it is a (derived) filtered colimit of perfect complexes of Λ-modules. The case of a perfect complex is clear, and so the general case follows from the next proposition.",
      "match": "The last step."
     }
    ],
@@ -1799,13 +1751,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.12, p. 134",
-     "excerpt": "Then for any collection of objects Ai ∈ Dét (Y ′ , Λ), i ∈ I for some set I, the natural map",
      "match": "Statement, first part."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.12, p. 135",
-     "excerpt": "Now the sheaves are small, and the (κ-small) v-topos of a qcqs v-sheaf is coherent, so we get the result by SGA 4 VI Corollaire 5.2.",
      "match": "The key input."
     }
    ],
@@ -1849,13 +1799,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "be the full ∞-subcategory of A ∈ Dét (Y , Λ) such that A ≃ jV ! jV∗ A for some open subspace",
      "match": "The defining condition (D_ét,prop/Y(Y′, Λ) ⊂ D_ét(Y′, Λ); the primes on Y′ sit on the next line of the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "In other words, on the full ∞-subcategory Dét,prop/Y (Y ′ , Λ) ⊂ Dét (Y ′ , Λ) of sheaves “with proper",
      "match": "The meaning of the subcategory."
     }
    ],
@@ -1922,7 +1870,7 @@
     {
      "name": "not_mem_properSupportSubcategory_const",
      "kind": "non-example",
-     "statement": "The constant sheaf Λ on the open unit disc D over Spa(C, O_C) does not have proper support: Λ ≃ j_{V!}j_V^*Λ fails for every quasicompact V ⊊ D, since its stalks off V are nonzero."
+     "statement": "Assume Λ ≠ 0. The constant sheaf Λ on the open unit disc D over Spa(C, O_C) does not have proper support: Λ ≃ j_{V!}j_V^*Λ fails for every quasicompact V ⊊ D, since its stalks off V are nonzero."
     }
    ]
   },
@@ -1934,13 +1882,13 @@
    ],
    "title": "Rf_! over a quasiseparated locally spatial base, by left Kan extension",
    "kind": "construction",
-   "statement": "Let f : Y′ → Y be an eligible map of quasiseparated locally spatial diamonds and Λ with nΛ = 0, n prime to p. Define Rf_! : D_ét(Y′, Λ) → D_ét(Y, Λ) as the left Kan extension (EnhancedDerivedSheaves E3, HTT 4.3.2.14, along the full inclusion) of the functor Rf‾_* ∘ j_! : D_ét,prop/Y(Y′, Λ) → D_ét(Y, Λ) (S2/proper-support-subcategory). It is a functor of stable ∞-categories; the left Kan extension is not replaced by a choice of representatives of complexes. On D_ét,prop/Y it is Rf‾_*j_!, and for A_V = j_{V!}j_V^*A one has Rf_!A_V = R(f|_V)_!(j_V^*A) with f|_V spatial-eligible (S1/lower-shriek-quasicompact).",
+   "statement": "Let f : Y′ → Y be an eligible map of quasiseparated locally spatial diamonds and Λ with nΛ = 0, n prime to p. Define Rf_! : D_ét(Y′, Λ) → D_ét(Y, Λ) as the left Kan extension (EnhancedDerivedSheaves E3, HTT 4.3.2.14, along the full inclusion) of the functor Rf‾_* ∘ j_! : D_ét,prop/Y(Y′, Λ) → D_ét(Y, Λ) (S2/proper-support-subcategory). It is a functor of stable ∞-categories; the left Kan extension is not replaced by a choice of representatives of complexes. On D_ét,prop/Y it is Rf‾_*j_!, and for A_V = j_{V!}j_V^*A one has Rf_!A_V = R(f|_V)_!(j_V^*A) where the terms are computed by S1/lower-shriek-quasicompact after restricting Y to spatial quasicompact opens W: V ×_Y W is quasicompact and the eligible restriction over W has a finite global dimension bound. Relative quasicompactness of V → Y alone does not make f|_V spatial-eligible when Y is not quasicompact.",
    "hypotheses": [
     "f eligible between quasiseparated locally spatial diamonds.",
     "Λ a commutative ring with nΛ = 0 for some integer n prime to p."
    ],
    "proofSteps": [
-    "Rf‾_*j_! is defined on D_ét,prop/Y: for A = j_{V!}j_V^*A, Rf‾_*j_!A = Rf‾_*g_*j′_{V!}(j_V^*A) = R(f|_V)_!(j_V^*A) with g : V‾^{/Y} → (Y′)‾^{/Y} the closed immersion and j′_V : V → V‾^{/Y}, so its values are those of the quasicompact construction.",
+    "Rf‾_*j_! is defined on D_ét,prop/Y: for A = j_{V!}j_V^*A, Rf‾_*j_!A = Rf‾_*g_*j′_{V!}(j_V^*A) = R(f|_V)_!(j_V^*A) with g : V‾^{/Y} → (Y′)‾^{/Y} the closed immersion and j′_V : V → V‾^{/Y}, so its values are those of the quasicompact construction. To compare with S1, first restrict the base to a spatial quasicompact open W ⊂ Y. Then V_W is quasicompact and locally finite dim.trg gives a finite bound there; the local S1 values and their coherent base-change identifications descend by C2. No uniform global bound over a non-quasicompact Y is inferred.",
     "D_ét(Y, Λ) is presentable (C2), so the left Kan extension along the full inclusion exists (E3, HTT 4.3.2.14) and restricts to Rf‾_*j_! on the subcategory.",
     "By the pointwise formula (HTT 4.3.2.2) and filteredness of the index (S2/proper-support-subcategory), Rf_!A = colim_V Rf_!A_V."
    ],
@@ -1953,25 +1901,23 @@
     "DiamondSixOperations:S0/spatial-eligible-morphism",
     "EnhancedDerivedSheaves:E3",
     "DiamondEtaleCohomology:C2",
-    "DiamondEtaleCohomology:C4"
+    "DiamondEtaleCohomology:C4",
+    "DiamondSixOperations:S1/lower-shriek-base-change-qc"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "is defined as the left Kan extension of",
      "match": "Rf_! is defined as a left Kan extension of Rf‾_* j_!."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "write A as a filtered colimit of objects AV = jV ! jV∗ A ∈ Dét,prop/Y (Y ′ , Λ), and then by definition (cf. [Lur09, Definition 4.3.2.2])",
      "match": "The pointwise formula."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, p. 135",
-     "excerpt": "Unfortunately, it is somewhat tricky to resolve all homotopy coherence issues in this approach.",
      "match": "Why the construction is made by an ∞-categorical left Kan extension."
     }
    ],
@@ -1997,7 +1943,7 @@
     {
      "name": "lowerShriekLocSpatial_eq_qc",
      "role": "compatibility",
-     "statement": "If f is quasicompact (spatial-eligible), Rf_! agrees with S1/lower-shriek-quasicompact."
+     "statement": "If f is spatial-eligible, Rf_! agrees with S1/lower-shriek-quasicompact. For a relatively quasicompact eligible f over a non-quasicompact base, this comparison is made after restriction to spatial quasicompact opens of the base; quasicompactness alone supplies no uniform global dim.trg bound."
     },
     {
      "name": "lowerShriekLocSpatial_preservesColimits",
@@ -2033,7 +1979,7 @@
     {
      "name": "lowerShriekLocSpatial_qc",
      "kind": "degenerate",
-     "statement": "If f is quasicompact the construction is S1/lower-shriek-quasicompact."
+     "statement": "If f is spatial-eligible, the construction agrees with S1/lower-shriek-quasicompact. For a relatively quasicompact eligible f over a non-quasicompact base, the S1 comparison holds on each spatial quasicompact base open."
     },
     {
      "name": "lowerShriekLocSpatial_openDisc",
@@ -2043,7 +1989,7 @@
     {
      "name": "lowerShriekLocSpatial_ne_pushforward",
      "kind": "non-example",
-     "statement": "For the open unit disc, Rf_*Λ = Λ in degree 0 (D is cohomologically a point, H4) while Rf_!Λ = Λ(−1)[−2]; the left Kan extension is not Rf‾_* applied to j_! of all objects."
+     "statement": "Assume Λ ≠ 0. For the open unit disc, Rf_*Λ = Λ in degree 0 (D is cohomologically a point, H4) while Rf_!Λ = Λ(−1)[−2]; the left Kan extension is not Rf‾_* applied to j_! of all objects."
     }
    ],
    "planet": {
@@ -2058,7 +2004,7 @@
    ],
    "title": "The filtered-support formula for Rf_!",
    "kind": "theorem",
-   "statement": "For f : Y′ → Y eligible between quasiseparated locally spatial diamonds and A ∈ D_ét(Y′, Λ), the natural map colim_V R(f|_V)_!(j_V^*A) → Rf_!A, over the filtered poset of opens V ⊂ Y′ quasicompact over Y, is an equivalence, and R(f|_V)_!(j_V^*A) = Rf‾_*j_!(j_{V!}j_V^*A).",
+   "statement": "For f : Y′ → Y eligible between quasiseparated locally spatial diamonds and A ∈ D_ét(Y′, Λ), the natural map colim_V R(f|_V)_!(j_V^*A) → Rf_!A, over the filtered poset of opens V ⊂ Y′ quasicompact over Y, is an equivalence, and R(f|_V)_!(j_V^*A) = Rf‾_*j_!(j_{V!}j_V^*A). The terms use S2/lower-shriek-locally-spatial and are identified with S1 locally on spatial quasicompact opens of Y; f|_V need not have a uniform global dim.trg bound.",
    "hypotheses": [
     "f eligible between quasiseparated locally spatial diamonds.",
     "Λ a commutative ring with nΛ = 0 for some integer n prime to p."
@@ -2080,7 +2026,6 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "Note that here, Rf! AV = R(f |V )! (jV∗ A), as",
      "match": "The identification of the terms."
     }
    ],
@@ -2106,7 +2051,7 @@
     "As in S2/lower-shriek-locally-spatial."
    ],
    "proofSteps": [
-    "Write each Aᵢ as colim_V A_{i,V}; then Rf_!(⊕ᵢAᵢ) = colim_V R(f|_V)_!j_V^*(⊕ᵢAᵢ) = colim_V ⊕ᵢ R(f|_V)_!j_V^*Aᵢ by S1/lower-shriek-direct-sums-qc.",
+    "Write each Aᵢ as colim_V A_{i,V}; then Rf_!(⊕ᵢAᵢ) = colim_V R(f|_V)_!j_V^*(⊕ᵢAᵢ) = colim_V ⊕ᵢ R(f|_V)_!j_V^*Aᵢ by S1/lower-shriek-direct-sums-qc after restricting Y to spatial quasicompact opens, as in S2/lower-shriek-locally-spatial; the resulting equality is local on the base.",
     "Exchange the colimits and use S2/filtered-support-formula for each Aᵢ.",
     "An exact functor of stable presentable categories preserving direct sums preserves all colimits (E3)."
    ],
@@ -2122,13 +2067,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.14, p. 135",
-     "excerpt": "commutes with all direct sums; equivalently (cf. [Lur16, Proposition 1.4.4.1 (2)]), with all colimits.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.14, p. 136",
-     "excerpt": "which commutes with arbitrary direct sums by Proposition 22.12.",
      "match": "The quasicompact input."
     }
    ],
@@ -2156,7 +2099,7 @@
    ],
    "proofSteps": [
     "The transformation: j_! commutes with base change (C5) and Rf‾_* has a base-change map (C3); this gives g^*Rf‾_*j_! → Rf̃‾_*j̃_!g′^* on D_ét,prop/Y and, by the universal property of the left Kan extension, g^*Rf_! → Rf̃_!g′^*.",
-    "On D_ét,prop/Y it is an equivalence by S1/lower-shriek-base-change-qc applied to f|_V.",
+    "On D_ét,prop/Y it is an equivalence by S1/lower-shriek-base-change-qc applied to f|_V locally on spatial quasicompact base opens. For a base change, refine the source and target base covers and use the coherent S1 comparison of S2/lower-shriek-locally-spatial; no global dimension bound on f|_V over a non-quasicompact base is assumed.",
     "Both functors commute with the filtered colimit A = colim A_V: g^*Rf_! by definition, Rf̃_!g′^* by S2/lower-shriek-colimits-locally-spatial."
    ],
    "acceptance": [
@@ -2173,13 +2116,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.15, p. 136",
-     "excerpt": "There is a natural base change equivalence g ∗ Rf! ≃ Rfe! g ′∗ of functors Dét (Y ′ , Λ) → Dét (Ye , Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.15, p. 136",
-     "excerpt": "On Dét,prop/Y (Y ′ , Λ), the base change map is an equivalence by Proposition 22.8.",
      "match": "The proof."
     }
    ],
@@ -2228,19 +2169,16 @@
     {
      "sourceId": "ECD",
      "locator": "§22, construction before Lemma 22.16, p. 136",
-     "excerpt": "This is encoded in a coCartesian fibration Dét (Y•′ , Λ)0 → ∆, whose ∞-category of sections is the ∞-derived category Dét (Y•′ , Λ) of the simplicial space Y•′ .",
      "match": "The coherent diagram of coefficient categories."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, construction before Lemma 22.16, p. 136",
-     "excerpt": "As pullbacks preserve this condition, this is still a coCartesian fibration over ∆.",
      "match": "The support subcategories."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, construction before Lemma 22.16, p. 137",
-     "excerpt": "be its left Kan extension, which exists by [Lur09, Corollary 4.3.2.14].",
      "match": "The fibrewise left Kan extension."
     }
    ],
@@ -2308,7 +2246,7 @@
     {
      "name": "hypercoverSupportDiagram_constant",
      "kind": "degenerate",
-     "statement": "For the constant hypercover of a quasiseparated locally spatial Y, the diagram is constant with fibre D_ét(Y′, Λ) and Rf•!⁰ is S2/lower-shriek-locally-spatial."
+     "statement": "For the constant hypercover of a quasiseparated locally spatial Y, the ambient coefficient diagram is constant with fibre D_ét(Y′, Λ), its support subdiagram has fibre D_ét,prop/Y(Y′, Λ), and Rf•!⁰ is S2/lower-shriek-locally-spatial. The two fibres coincide if f is quasicompact."
     },
     {
      "name": "hypercoverSupportDiagram_qc",
@@ -2350,13 +2288,11 @@
     {
      "sourceId": "ECD",
      "locator": "Lemma 22.16, p. 137",
-     "excerpt": "The functor Rf•!0 is given by Rfi! : Dét (Yi′ , Λ) → Dét (Yi , Λ) in the fibre over i ∈ ∆.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Lemma 22.16, p. 137",
-     "excerpt": "Taken together, these imply that the relevant colimits agree (using [Lur09, Proposition 4.3.1.7] to see that one may pass to a cofinal subcategory).",
      "match": "Proof."
     }
    ],
@@ -2397,13 +2333,11 @@
     {
      "sourceId": "ECD",
      "locator": "Lemma 22.17, p. 137",
-     "excerpt": "The functor Rf•!0 : Dét (Y•′ , Λ)0 → Dét (Y• , Λ)0 sends coCartesian edges to coCartesian edges.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Lemma 22.17, p. 137",
-     "excerpt": "This follows from the previous lemma and Proposition 22.15.",
      "match": "Proof."
     }
    ],
@@ -2448,13 +2382,11 @@
     {
      "sourceId": "ECD",
      "locator": "§22, after Lemma 22.17, p. 137",
-     "excerpt": "Rf! : Dét (Y ′ , Λ) ≃ Dét,cart (Y•′ , Λ) → Dét,cart (Y• , Λ) ≃ Dét (Y, Λ) ,",
      "match": "The construction by coCartesian sections."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.18, p. 137",
-     "excerpt": "is the functor obtained from the previous discussion by passage to homotopy categories.",
      "match": "ECD's Rf_! is the homotopy-category functor."
     }
    ],
@@ -2597,7 +2529,6 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.18, p. 137",
-     "excerpt": "It is easy to see that this is independent of the choice of the simplicial v-hypercover, by passing to common refinements.",
      "match": "Statement and proof route."
     }
    ],
@@ -2642,13 +2573,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.19, p. 137",
-     "excerpt": "There is a natural base change equivalence g ∗ Rf! ≃ Rfe! g ′∗ of functors Dét (Y ′ , Λ) → Dét (Ye , Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.19, p. 138",
-     "excerpt": "Repeating the previous discussion over ∆ again over ∆ × ∆1 gives the result.",
      "match": "Proof route."
     }
    ],
@@ -2692,13 +2621,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.20, p. 138",
-     "excerpt": "commutes with all direct sums; equivalently (cf. [Lur16, Proposition 1.4.4.1 (2)]), with all colimits.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.20, p. 138",
-     "excerpt": "This follows from Proposition 22.14 and Proposition 22.19.",
      "match": "Proof."
     }
    ],
@@ -2742,13 +2669,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.21, p. 138",
-     "excerpt": "Then there is a natural equivalence Rf! ◦ Rg! ≃ R(f ◦ g)!",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.21, p. 138",
-     "excerpt": "On the other hand, all functors commute with all colimits by Proposition 22.20, so the full functors can be recovered by left Kan extension (as above).",
      "match": "Proof route."
     }
    ],
@@ -2794,13 +2719,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.22, p. 138",
-     "excerpt": "Then Rf! as defined in Definition 19.1 agrees with Rf! as defined in Definition 22.18.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.22, p. 138",
-     "excerpt": "As moreover both functors commute with all direct sums, one can reduce to the case where Y ′ is quasicompact, where it follows from Proposition 22.10.",
      "match": "Proof."
     }
    ],
@@ -2828,7 +2751,7 @@
    ],
    "proofSteps": [
     "Fix A; on Rf•!⁰ consider the endofunctors − ⊗ A|_{Y′•} and − ⊗ A|_{Y•}; both Rf•!⁰(− ⊗ A|_{Y′•}) and Rf•!⁰(−) ⊗ A|_{Y•} are left Kan extensions from D_ét,prop/Y•(Y′•, Λ)⁰.",
-    "On proper-support objects compare both with Rf‾•_*(j•!(−) ⊗ f‾•^*A|) using j•! ⊣ j•^* and Rf‾•_* ⊣ f‾•^* and that pullback is monoidal (C3); fibrewise these are the open-immersion projection formula and S1/projection-formula-qc.",
+    "On proper-support objects compare both with Rf‾•_*(j•!(−) ⊗ f‾•^*A|) using j•! ⊣ j•^* and f‾•^* ⊣ Rf‾•_* and that pullback is monoidal (C3); fibrewise these are the open-immersion projection formula and S1/projection-formula-qc.",
     "Both functors preserve coCartesian edges, so pass to coCartesian sections and hyperdescent (C2); compatibility in A is checked in the homotopy category."
    ],
    "acceptance": [
@@ -2846,13 +2769,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.23, p. 139",
-     "excerpt": "Then there is a functorial isomorphism Rf! B ⊗LΛ A ≃ Rf! (B ⊗LΛ f ∗ A) in B ∈ Dét (Y ′ , Λ) and A ∈ Dét (Y, Λ).",
      "match": "Statement (printed for small v-sheaves)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.23, p. 139",
-     "excerpt": "This implies the desired result by passage to coCartesian sections (noting that both functors map coCartesian edges to coCartesian edges, as the second functor does).",
      "match": "The descent step."
     }
    ],
@@ -2900,13 +2821,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.19, p. 138",
-     "excerpt": "Repeating the previous discussion over ∆ again over ∆ × ∆1 gives the result.",
      "match": "The pattern: iterate the construction over products of indexing categories."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.23, p. 139",
-     "excerpt": "One then checks that varying A, the relevant diagrams commute in the derived category.",
      "match": "Coherence in the projection formula."
     }
    ],
@@ -2953,13 +2872,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 23.1, p. 140",
-     "excerpt": "Then the functor Rf! : Dét (Y ′ , Λ) → Dét (Y, Λ) admits a right adjoint",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 23.1, p. 140",
-     "excerpt": "This follows from Lurie’s ∞-categorical adjoint functor theorem, [Lur09, Corollary 5.5.2.9], and Proposition 22.20.",
      "match": "Proof."
     }
    ],
@@ -3055,7 +2972,7 @@
     {
      "name": "upperShriek_ne_pullback_profinite",
      "kind": "non-example",
-     "statement": "For q : S × Spa(C, O_C) → Spa(C, O_C) with S an infinite profinite set, Rq^!Λ is the sheaf of Λ-valued distributions T ↦ Hom(C⁰(T, Λ), Λ) and is not q^*Λ (S5/profinite-quotient-upper-shriek)."
+     "statement": "Assume Λ ≠ 0. For q : S × Spa(C, O_C) → Spa(C, O_C) with S an infinite profinite set, Rq^!Λ is the sheaf of Λ-valued distributions T ↦ Hom(C⁰(T, Λ), Λ) and is not q^*Λ (S5/profinite-quotient-upper-shriek)."
     },
     {
      "name": "upperShriek_ball",
@@ -3097,13 +3014,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 23.2, p. 140",
-     "excerpt": "Indeed, this identity of functors is the right adjoint of the identity of functors Rf! (− ⊗Λ′ Λ) = Rf! ⊗Λ′ Λ , which follows from the projection formula, Proposition 22.23.",
      "match": "Statement and proof."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.2, p. 140",
-     "excerpt": "The functor Rf ! is compatible with change of rings g : Λ′ → Λ in the following sense.",
      "match": "Statement."
     }
    ],
@@ -3146,13 +3061,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.3(i), p. 140",
-     "excerpt": "For all A ∈ Dét (Y ′ , Λ), B ∈ Dét (Y, Λ), one has",
      "match": "Statement, (i)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.3, p. 141",
-     "excerpt": "so the result follows from the Yoneda lemma.",
      "match": "Proof route."
     }
    ],
@@ -3198,13 +3111,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.3(ii), p. 140",
-     "excerpt": "For all A, B ∈ Dét (Y, Λ), one has",
      "match": "Statement, (ii)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.3, p. 141",
-     "excerpt": "Similarly, for part (ii), note that for all C ∈ Dét (Y ′ , Λ),",
      "match": "Proof."
     }
    ],
@@ -3246,7 +3157,6 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 143",
-     "excerpt": "But if g = gi is étale, then g ∗ = Rg ! and h∗ = Rh! , so h∗ Rf ! = Rh! Rf ! = Rf ′! Rg ! = Rf ′! g ∗ , as desired.",
      "match": "A use of the composition law (Rh^!Rf^! = R(f ∘ h)^! = R(g ∘ f′)^! = Rf′^!Rg^!) together with S3/upper-shriek-etale."
     }
    ],
@@ -3288,7 +3198,6 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 143",
-     "excerpt": "But if g = gi is étale, then g ∗ = Rg ! and h∗ = Rh! ,",
      "match": "The identity used in ECD 23.4."
     }
    ],
@@ -3332,13 +3241,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.16(i), p. 151",
-     "excerpt": "Assume that g is compactifiable and representable in locally spatial diamonds with locally dim. trg g < ∞, and A ∈ Dét (Y, Λ).",
      "match": "Hypotheses (only on g)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.16, p. 151",
-     "excerpt": "Part (i) follows from Proposition 22.19 by passing to right adjoints.",
      "match": "Proof."
     }
    ],
@@ -3362,7 +3269,7 @@
    ],
    "title": "Units, traces, the twisted-pullback transformation and mates",
    "kind": "construction",
-   "statement": "For an eligible f : Y′ → Y and Λ with nΛ = 0 (n prime to p), construct at the enhanced level: (1) the unit A → Rf^!Rf_!A and the counit (trace) tr_f : Rf_!Rf^!B → B of Rf_! ⊣ Rf^!; (2) the twisted-pullback transformation τ_f : Rf^!Λ ⊗^L_Λ f^*(−) → Rf^!(−), adjoint to Rf_!(Rf^!Λ ⊗ f^*B) ≃ Rf_!Rf^!Λ ⊗ B →(tr ⊗ id) B (projection formula S2/projection-formula); (3) evaluation RHom(A, B) ⊗ A → B and coevaluation for invertible objects, and the tensor–Hom adjunction on D_ét (C3); (4) for a cartesian square with g eligible, the base-change transformation g̃^*Rf^! → Rf′^!g^* (when f is eligible) adjoint to Rf′_!g̃^*Rf^! ≃ g^*Rf_!Rf^! → g^* (S2/lower-shriek-base-change and tr_f), and the transformation Rf^!Λ ⊗ f^* → Rf^! restricted along open immersions used in ECD 23.4(iii)–(iv); (5) the mates of all exchange equivalences of S2. These are compatible with composition (traces compose: tr_{f∘g} = tr_f ∘ Rf_!(tr_g)Rf^!) and with base change, and they are tested on finite étale maps and open immersions before any smoothness statement uses them.",
+   "statement": "For an eligible f : Y′ → Y and Λ with nΛ = 0 (n prime to p), construct at the enhanced level: (1) the unit A → Rf^!Rf_!A and the counit (trace) tr_f : Rf_!Rf^!B → B of Rf_! ⊣ Rf^!; (2) the twisted-pullback transformation τ_f : Rf^!Λ ⊗^L_Λ f^*(−) → Rf^!(−), adjoint to Rf_!(Rf^!Λ ⊗ f^*B) ≃ Rf_!Rf^!Λ ⊗ B →(tr ⊗ id) B (projection formula S2/projection-formula); (3) evaluation RHom(A, B) ⊗ A → B and coevaluation for invertible objects, and the tensor–Hom adjunction on D_ét (C3); (4) for a cartesian square with f eligible and g arbitrary, the base-change transformation g̃^*Rf^! → Rf′^!g^* (when f is eligible) adjoint to Rf′_!g̃^*Rf^! ≃ g^*Rf_!Rf^! → g^* (S2/lower-shriek-base-change and tr_f), and the transformation Rf^!Λ ⊗ f^* → Rf^! restricted along open immersions used in ECD 23.4(iii)–(iv); (5) the mates of all exchange equivalences of S2. These are compatible with composition (traces compose: tr_{f∘g} = tr_f ∘ Rf_!(tr_g)Rf^!) and with base change, and they are tested on finite étale maps and open immersions before any smoothness statement uses them.",
    "hypotheses": [
     "f (and g in (4)) eligible.",
     "Λ a commutative ring with nΛ = 0 for some integer n prime to p."
@@ -3389,19 +3296,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4(i), p. 141",
-     "excerpt": "Rf ! Fℓ ⊗Fℓ f ∗ → Rf ! : Dét (X, Fℓ ) → Dét (Y, Fℓ )",
      "match": "The twisted-pullback transformation of (2), over F_ℓ."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4(i), p. 141",
-     "excerpt": "is an equivalence (using the projection formula, Proposition 22.23, in the equality).",
      "match": "Its construction from the projection formula."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(iii), p. 147",
-     "excerpt": "then the natural transformation of functors g ′∗ Rf ! → Rfe! g ∗ : Dét (Y, Λ) → Dét (Ye ′ , Λ)",
      "match": "The base-change transformation of (4)."
     }
    ],
@@ -3429,7 +3333,7 @@
     {
      "name": "upperShriekBaseChangeTransformation",
      "role": "data",
-     "statement": "For a cartesian square with g and f eligible, g̃^*Rf^! → Rf′^!g^*, adjoint to Rf′_!g̃^*Rf^! ≃ g^*Rf_!Rf^! → g^*."
+     "statement": "For a cartesian square with f eligible and g an arbitrary map of small v-stacks, g̃^*Rf^! → Rf′^!g^*, adjoint to Rf′_!g̃^*Rf^! ≃ g^*Rf_!Rf^! → g^*."
     },
     {
      "name": "shriekTrace_comp",
@@ -3498,7 +3402,7 @@
     {
      "name": "twistedPullback_not_iso_profinite",
      "kind": "non-example",
-     "statement": "For q : S × Spa(C, O_C) → Spa(C, O_C), S an infinite profinite set, τ_q is not an equivalence: on global sections over an open and closed T ⊂ S, Rq^!M is RHom(C⁰(T, Λ), M) while Rq^!Λ ⊗ q^*M is RHom(C⁰(T, Λ), Λ) ⊗ M, and these differ for M = ⊕_ℕ Λ because C⁰(T, Λ) is free of infinite rank; Rq^! does not commute with direct sums, matching criterion (iii) of S4/strictly-local-criteria."
+     "statement": "Assume Λ ≠ 0 and take T infinite (for example T = S). For q : S × Spa(C, O_C) → Spa(C, O_C), S an infinite profinite set, τ_q is not an equivalence: on global sections over an open and closed T ⊂ S, Rq^!M is RHom(C⁰(T, Λ), M) while Rq^!Λ ⊗ q^*M is RHom(C⁰(T, Λ), Λ) ⊗ M, and these differ for M = ⊕_ℕ Λ because C⁰(T, Λ) is free of infinite rank; Rq^! does not commute with direct sums, matching criterion (iii) of S4/strictly-local-criteria."
     }
    ]
   },
@@ -3543,19 +3447,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4, p. 141",
-     "excerpt": "Let X be a strictly totally disconnected perfectoid space, let f : Y → X be a compactifiable map from a locally spatial diamond Y of locally dim. trg f < ∞, and fix a prime ℓ ̸= p. The following conditions are equivalent.",
      "match": "Hypotheses."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 142",
-     "excerpt": "It is clear that (i) implies (ii), and (ii) implies (iii).",
      "match": "The easy implications."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.5, p. 142",
-     "excerpt": "condition (iv) is expressing a version of the idea that “Rf ! commutes with arbitrary pro-étale base change”.",
      "match": "Meaning of (iv)."
     }
    ],
@@ -3600,13 +3501,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4, p. 142",
-     "excerpt": "Moreover, under these conditions, for any ℓ-power-torsion ring Λ, the natural transformation",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 144",
-     "excerpt": "To handle the case of a general ℓ- power-torsion ring Λ, choose m such that ℓm = 0 in Λ.",
      "match": "Proof route."
     }
    ],
@@ -3649,13 +3548,11 @@
     {
      "sourceId": "ECD",
      "locator": "Lemma 23.6, p. 144",
-     "excerpt": "Then for any ring Λ and any C ∈ Dét (Y, Λ), one has a natural isomorphism",
      "match": "Printed hypothesis on Λ (corrected here)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Lemma 23.6, p. 144",
-     "excerpt": "Note that h is proper, so by the projection formula (Proposition 22.11), we get",
      "match": "Proof route, which needs nΛ = 0 with n prime to p."
     }
    ],
@@ -3701,13 +3598,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.7, p. 144",
-     "excerpt": "commutes with arbitrary direct sums if and only if for all constructible sheaves F of Fℓ -vector spaces on Yét and all i ≥ 0, the !-pushforward Ri f! F is constructible on Xét .",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.7, p. 145",
-     "excerpt": "It follows from adjunction that Rf ! commutes with arbitrary direct sums if and only if Rf! preserves compact objects (this simple but powerful observation goes back to Neeman, [Nee96]), so we get the result.",
      "match": "Proof."
     }
    ],
@@ -3728,14 +3623,14 @@
    ],
    "title": "Invertible objects of D_ét",
    "kind": "definition",
-   "statement": "For a locally spatial diamond Y and a ring Λ (in the applications F_ℓ or an ℓ-power-torsion ring), an object D ∈ D_ét(Y, Λ) is invertible if it is locally isomorphic to Λ[n] for some integer n, where locally may be taken equivalently in the v-, the quasi-pro-étale or the étale topology of Y. The integer n is locally constant on |Y|. Invertible objects are ⊗-invertible (D ⊗ RHom(D, Λ) ≃ Λ); the converse is not part of the definition.",
+   "statement": "For a locally spatial diamond Y and a ring Λ (in the applications F_ℓ or an ℓ-power-torsion ring), an object D ∈ D_ét(Y, Λ) is invertible if it is locally isomorphic to Λ[n] for some integer n, where locally may be taken equivalently in the v-, the quasi-pro-étale or the étale topology of Y. For Λ ≠ 0, the degree n is uniquely determined and locally constant on |Y|. For the zero ring every shift is zero, so invertibility is meaningful but a unique degree is not. Invertible objects are ⊗-invertible (D ⊗ RHom(D, Λ) ≃ Λ); the converse is not part of the definition.",
    "hypotheses": [
     "Y a locally spatial diamond; the three topologies give the same notion (ECD's 'equivalently')."
    ],
    "proofSteps": [
     "Define IsInvertible D as: there is an étale cover {Uᵢ → Y} and integers nᵢ with D|_{Uᵢ} ≃ Λ[nᵢ].",
     "Equivalence of the v-, quasi-pro-étale and étale versions: for an isomorphism D|_{Ỹ} ≃ Λ[n] over a v-cover Ỹ → Y, n is constant on an open and closed stratification and the sheaf of isomorphisms D ≃ Λ[n] is separated, étale and surjective over Y by v-descent (ECD proof of 23.12(i); D3/etale-and-finite-etale-are-v-stacks), so it has étale-local sections.",
-    "Local constancy of n: the degree in which the cohomology sheaf of D is nonzero."
+    "For Λ ≠ 0, local constancy and uniqueness of n follow from the unique degree in which the stalk cohomology is nonzero. No unique degree is claimed for Λ = 0."
    ],
    "acceptance": [
     "Λ[2] and Λ(1)[2] (étale locally Λ[2]) are invertible; j_!Λ for a proper open j is not."
@@ -3750,13 +3645,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 23.8, p. 145",
-     "excerpt": "Here, for a locally spatial diamond Y , an object D ∈ Dét (Y, Fℓ ) is invertible if it is locally (equivalently, in the v-, quasi-pro-étale, or étale topology of Y ) isomorphic to Fℓ [n] for some integer",
      "match": "The definition, over F_ℓ."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "as the integer n is constant on an open and closed stratification of Y ′ , and then the space of isomorphisms between Rf ! Λ and Λ[n] is separated, étale and surjective over Y ′ as follows by v- descent.",
      "match": "Why the topologies agree."
     }
    ],
@@ -3802,12 +3695,12 @@
     {
      "name": "IsInvertibleObject.degree",
      "role": "data",
-     "statement": "The locally constant function |Y| → ℤ, y ↦ n with D_y ≃ Λ[n]."
+     "statement": "Assuming Λ ≠ 0, the uniquely determined locally constant function |Y| → ℤ, y ↦ n with D_y ≃ Λ[n]; different connected components may have different degrees."
     },
     {
      "name": "IsInvertibleObject.of_reduction",
      "role": "other",
-     "statement": "For Λ ℓ-power torsion: if D ⊗^L_Λ F_ℓ is invertible over F_ℓ then D is invertible over Λ (extension of m copies; ECD proof of 23.12(i))."
+     "statement": "For Λ = ℤ/ℓ^m with m ≥ 1: if D ⊗^L_{ℤ/ℓ^m} F_ℓ is invertible then D is invertible over ℤ/ℓ^m (ECD proof of 23.12(i)). General ℓ-power-torsion coefficient rings are handled by extension of scalars from ℤ/ℓ^m; there is no assumed map Λ → F_ℓ for an arbitrary such ring."
     }
    ],
    "uses": [
@@ -3832,22 +3725,27 @@
     {
      "name": "IsInvertibleObject.const_zero",
      "kind": "degenerate",
-     "statement": "Λ = Λ[0] is invertible, with degree 0."
+     "statement": "Λ = Λ[0] is invertible, with degree 0. The stated degree is uniquely determined when Λ ≠ 0."
     },
     {
      "name": "IsInvertibleObject.tate_twist",
      "kind": "computation",
-     "statement": "On Spa(C, O_C), Λ(1)[2] is invertible of degree −2 (μ_n is constant after choosing roots of unity)."
+     "statement": "On Spa(C, O_C), Λ(1)[2] is invertible of degree −2 (μ_n is constant after choosing roots of unity). The stated degree is uniquely determined when Λ ≠ 0."
     },
     {
      "name": "not_isInvertibleObject_extensionByZero",
      "kind": "non-example",
-     "statement": "For C⁺ ≠ O_C and j : Spa(C, O_C) → Spa(C, C⁺), j_!Λ is not invertible: its stalk at the closed point is 0."
+     "statement": "Assume Λ ≠ 0. For C⁺ ≠ O_C and j : Spa(C, O_C) → Spa(C, C⁺), j_!Λ is not invertible: its stalk at the closed point is 0."
     },
     {
      "name": "not_isInvertibleObject_sum",
      "kind": "non-example",
-     "statement": "Λ ⊕ Λ is not invertible (rank 2 stalks)."
+     "statement": "Assume Λ ≠ 0 and Y is nonempty. Λ ⊕ Λ is not invertible (rank 2 stalks)."
+    },
+    {
+     "name": "IsInvertibleObject.disjoint_shifts",
+     "kind": "computation",
+     "statement": "For nonzero Λ and Y the disjoint union of two geometric points, the object restricting to Λ on one point and Λ[1] on the other is invertible. Its degree is 0 on the first component and −1 on the second; a single global shift is not required."
     }
    ]
   },
@@ -3883,19 +3781,16 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 23.8, p. 145",
-     "excerpt": "Then f is ℓ-cohomologically smooth if f is compactifiable, locally dim. trg f < ∞, and for any strictly totally disconnected perfectoid space X with a map X → Y with pullback fX : Y ′ ×Y X → X, the functor",
      "match": "The definition."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 23.8, p. 145",
-     "excerpt": "We note that we are not a priori asking that the equivalence between",
      "match": "The equivalence is not assumed natural."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.9, p. 145",
-     "excerpt": "For example, the map M → ∗ for a topological manifold M should be considered smooth, but it is not representable in locally spatial diamonds.",
      "match": "Scope: separated maps representable in locally spatial diamonds only."
     }
    ],
@@ -3926,7 +3821,7 @@
     {
      "name": "isCohomologicallySmooth_iff",
      "role": "characterisation",
-     "statement": "For f compactifiable and representable in spatial diamonds: smooth iff dim.trg f < ∞, constructibility of R^i f_{X!} on constructibles, the open-immersion condition over geometric points, and invertibility of Rf_X^!F_ℓ (S4/practical-smoothness-criterion)."
+     "statement": "For f compactifiable and representable in spatial diamonds: smooth iff dim.trg f_X < ∞ after every strictly totally disconnected base change X → Y, constructibility of R^i f_{X!} on constructibles, the open-immersion condition over geometric points, and invertibility of Rf_X^!F_ℓ (S4/practical-smoothness-criterion)."
     },
     {
      "name": "IsCohomologicallySmooth.baseChange",
@@ -4002,7 +3897,7 @@
     {
      "name": "not_isCohomologicallySmooth_profinite",
      "kind": "non-example",
-     "statement": "For S an infinite profinite set and X strictly totally disconnected, S × X → X is not ℓ-cohomologically smooth: Rq^!F_ℓ is the sheaf of distributions, not invertible."
+     "statement": "Assume X is nonempty. For S an infinite profinite set and X strictly totally disconnected, S × X → X is not ℓ-cohomologically smooth: Rq^!F_ℓ is the sheaf of distributions, not invertible."
     },
     {
      "name": "not_isCohomologicallySmooth_origin",
@@ -4022,14 +3917,14 @@
    ],
    "title": "A practical criterion for ℓ-cohomological smoothness",
    "kind": "theorem",
-   "statement": "Let f : Y′ → Y be a compactifiable map of small v-stacks representable in spatial diamonds and ℓ ≠ p. Then f is ℓ-cohomologically smooth iff: (i) dim.trg f < ∞; (ii) for every strictly totally disconnected X → Y and every constructible étale sheaf F of F_ℓ-vector spaces on Y′ ×_Y X, R^i f_{X!}F is constructible on X for all i ≥ 0; (iii) for every X = Spa(C, C⁺) → Y (C algebraically closed, C⁺ open bounded valuation subring) and quasicompact open j : U → X, with f_U, j′ the pullbacks, the map j′_!Rf_U^!F_ℓ → Rf_X^!j_!F_ℓ adjoint to Rf_X!j′_!Rf_U^!F_ℓ = j_!Rf_U!Rf_U^!F_ℓ → j_!F_ℓ is an equivalence; (iv) for every strictly totally disconnected X → Y, Rf_X^!F_ℓ ∈ D_ét(Y′ ×_Y X, F_ℓ) is invertible.",
+   "statement": "Let f : Y′ → Y be a compactifiable map of small v-stacks representable in spatial diamonds and ℓ ≠ p. Then f is ℓ-cohomologically smooth iff: (i) for each strictly totally disconnected X → Y, dim.trg f_X < ∞; (ii) for every strictly totally disconnected X → Y and every constructible étale sheaf F of F_ℓ-vector spaces on Y′ ×_Y X, R^i f_{X!}F is constructible on X for all i ≥ 0; (iii) for every X = Spa(C, C⁺) → Y (C algebraically closed, C⁺ open bounded valuation subring) and quasicompact open j : U → X, with f_U, j′ the pullbacks, the map j′_!Rf_U^!F_ℓ → Rf_X^!j_!F_ℓ adjoint to Rf_X!j′_!Rf_U^!F_ℓ = j_!Rf_U!Rf_U^!F_ℓ → j_!F_ℓ is an equivalence; (iv) for every strictly totally disconnected X → Y, Rf_X^!F_ℓ ∈ D_ét(Y′ ×_Y X, F_ℓ) is invertible. Here (i) is local on the target. The printed uniform global bound in ECD 23.10 is too strong over arbitrary non-quasicompact Y (source issue E4); it agrees with the printed condition when Y is spatial. Apply the printed criterion to each spatial base change, and use the definition of smoothness to descend.",
    "hypotheses": [
     "f compactifiable and representable in spatial diamonds; ℓ ≠ p."
    ],
    "proofSteps": [
     "Given (ii), condition (iii) for quasicompact U implies it for all U by S4/direct-sum-criterion and a filtered colimit over quasicompact opens.",
     "By S4/direct-sum-criterion, (ii) is equivalent to Rf_X^! commuting with direct sums; with (iii) this is criterion (iii) of S4/strictly-local-criteria, equivalent to τ_{f_X} being an equivalence; (iv) supplies invertibility.",
-    "Conversely smoothness gives (i)–(iv) by S4/smooth-twisted-pullback."
+    "Conversely, after each strictly totally disconnected base change the definition gives (ii) of S4/strictly-local-criteria. That node gives (i), (iii) and (iv) there, and S4/direct-sum-criterion gives constructibility. Spatial representability makes each Y′ ×_Y X quasicompact, so local finiteness gives the finite bound for each f_X in (i), with no uniform bound over all X. This does not use the later global theorem S4/smooth-twisted-pullback."
    ],
    "acceptance": [
     "ECD's proof of 24.1 checks exactly (i)–(iv) for the ball, with Huber's constructibility, duality and trace as inputs."
@@ -4044,13 +3939,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.10, p. 145",
-     "excerpt": "Then f is ℓ-cohomologically smooth if and only if the following conditions are satisfied.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.10, p. 146",
-     "excerpt": "Thus, the result follows from the equivalence of (ii) and (iii) in Proposition 23.4 and Proposition 23.7.",
      "match": "Proof."
     }
    ],
@@ -4095,13 +3988,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.11, p. 146",
-     "excerpt": "Then f is universally open, i.e. for all X → Y , the map |Y ′ ×Y X| → |X| is open.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.11, p. 146",
-     "excerpt": "We claim that the support of Rf! Rf ! Fℓ agrees with the image of |Y ′ | → |X|.",
      "match": "Key step."
     }
    ],
@@ -4146,13 +4037,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(i), p. 147",
-     "excerpt": "is an equivalence, and the dualizing complex Df := Rf ! Λ ∈ Dét (Y ′ , Λ) is invertible, in fact étale locally isomorphic to Λ[n] for some integer n ∈ Z.",
      "match": "Definition and invertibility."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(iii), p. 147",
-     "excerpt": "In particular, the dualizing complex Df commutes with base change, i.e.",
      "match": "Base change."
     }
    ],
@@ -4242,7 +4131,7 @@
     {
      "name": "dualizingComplex_not_const_profinite",
      "kind": "non-example",
-     "statement": "For the profinite projection q : S × X → X (not smooth), Rq^!Λ is the sheaf of distributions on S, not étale-locally Λ[n]."
+     "statement": "Assume S is infinite, X is nonempty and Λ ≠ 0. For the profinite projection q : S × X → X (not smooth), Rq^!Λ is the sheaf of distributions on S, not étale-locally Λ[n]."
     }
    ],
    "planet": {
@@ -4262,7 +4151,7 @@
     "f ℓ-cohomologically smooth; Λ ℓ-power torsion."
    ],
    "proofSteps": [
-    "Over a strictly totally disconnected Y = X: the definition gives (ii) of S4/strictly-local-criteria, hence (i) and, by S4/strictly-local-criteria-torsion, τ_f over Λ; Rf^!Λ ⊗ F_ℓ = Rf^!F_ℓ is invertible, so Rf^!Λ is (extension of m copies of F_ℓ[n], S4/invertible-object).",
+    "Over a strictly totally disconnected Y = X: the definition gives (ii) of S4/strictly-local-criteria, hence (i) and, by S4/strictly-local-criteria-torsion, τ_f over Λ; first take Λ = ℤ/ℓ^m: reduction to F_ℓ and S4/invertible-object give invertibility over ℤ/ℓ^m. For general ℓ-power-torsion Λ, extend scalars from ℤ/ℓ^m using S3/upper-shriek-change-of-rings. This does not tensor an arbitrary Λ over a nonexistent ring map Λ → F_ℓ.",
     "Base change between strictly totally disconnected spaces (first step of S4/smooth-upper-shriek-base-change) shows that Rf^! commutes with pullback along a v-hypercover X̃• → Y by disjoint unions of strictly totally disconnected spaces.",
     "Then τ_f can be checked after pullback to X̃₀, where it holds; invertibility descends étale locally by S4/invertible-object."
    ],
@@ -4275,19 +4164,18 @@
     "DiamondSixOperations:S4/invertible-object",
     "DiamondSixOperations:S4/cohomologically-smooth",
     "DiamondSixOperations:S4/smooth-upper-shriek-base-change",
-    "DiamondEtaleCohomology:C2"
+    "DiamondEtaleCohomology:C2",
+    "DiamondSixOperations:S3/upper-shriek-change-of-rings"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(i), p. 147",
-     "excerpt": "The natural transformation Rf ! Λ ⊗Λ f ∗ → Rf ! : Dét (Y, Λ) → Dét (Y ′ , Λ)",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "this implies also that Rf ! Λ⊗Λ f ∗ → Rf ! is an equivalence, as this can now be checked after base change to X e0 , where we know it.",
      "match": "Descent of the equivalence."
     }
    ],
@@ -4332,13 +4220,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(ii), p. 147",
-     "excerpt": "If f is quasicompact, then for any perfect-constructible A ∈ Dét (Y ′ , Λ), the proper pushforward Rf! A ∈ Dét (Y, Λ) is perfect-constructible.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "We need to see that Rf! preserves compact objects, but this is equivalent to the condition that Rf ! preserves arbitrary direct sums, which follows from part (i).",
      "match": "Proof."
     }
    ],
@@ -4388,19 +4274,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(iii), p. 147",
-     "excerpt": "If g : Ye → Y is a map of small v-sheaves with base change",
      "match": "Statement (printed for v-sheaves Ỹ)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 148",
-     "excerpt": "This implies that n e ≥ n, and that it is an isomorphism if n e = n.",
      "match": "The degree comparison."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "This gives the desired base change result along Spa(C,e O e ) → Spa(C, OC ) in general,",
      "match": "The hypercover step."
     }
    ],
@@ -4443,13 +4326,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.13, p. 149",
-     "excerpt": "If f and g are representable in locally spatial diamonds and ℓ-cohomologically smooth, then f ◦ g is representable in locally spatial diamonds and ℓ-cohomologically smooth.",
      "match": "Statement, first part."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.13, p. 150",
-     "excerpt": "The first part follows from Proposition 23.12.",
      "match": "Proof."
     }
    ],
@@ -4501,13 +4382,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.13, p. 149",
-     "excerpt": "Con- versely, if g and f ◦ g are representable in locally spatial diamonds and ℓ-cohomologically smooth, g is surjective, and f is representable in diamonds and compactifiable, then f is representable in locally spatial diamonds and ℓ-cohomologically smooth.",
      "match": "Statement, second part."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.13, p. 150",
-     "excerpt": "One easily checks that locally dim. trg f ≤ dim. trg(f ◦ g) < ∞ (where one uses the modified tr.",
      "match": "The dimension step."
     }
    ],
@@ -4552,13 +4431,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 23.14, p. 149",
-     "excerpt": "then f is representable in locally spatial diamonds.",
      "match": "Conclusion (the full hypotheses are given in the statement)."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark after 23.14, p. 150",
-     "excerpt": "We do not know if in the second part, one can omit the hypothesis “f is compactifiable”;",
      "match": "The open question; the locally split case is the theorem here."
     }
    ],
@@ -4598,13 +4475,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.15, p. 150",
-     "excerpt": "If f is ℓ-cohomologically smooth, then fe is ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.15, p. 150",
-     "excerpt": "The first statement is clear from the definition.",
      "match": "Proof."
     }
    ],
@@ -4648,13 +4523,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.15, p. 150",
-     "excerpt": "Conversely, if fe is ℓ- cohomologically smooth, g is a surjective map of v-stacks, and locally dim. trg f < ∞, then f is ℓ-cohomologically smooth.",
      "match": "Statement, converse."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.15, p. 150",
-     "excerpt": "It is not clear to us whether the condition that locally dim. trg f < ∞ can be checked v-locally on the target.",
      "match": "Why the dimension hypothesis is retained."
     }
    ],
@@ -4697,13 +4570,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.16(ii), p. 151",
-     "excerpt": "Then for all A ∈ Dét (Y, Λ), the base change morphism g ∗ Rf∗ A → Rf∗′ ge∗ A is an isomorphism.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.16, p. 151",
-     "excerpt": "Part (i) follows from Proposition 22.19 by passing to right adjoints. Now part (ii) follows",
      "match": "Proof."
     }
    ],
@@ -4750,13 +4621,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.16(iii), p. 151",
-     "excerpt": "Assume that g is separated, representable in locally spatial diamonds and ℓ-cohomologically smooth, and Λ is ℓ-power torsion.",
      "match": "Printed hypotheses (f's hypotheses are added)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.16, p. 151",
-     "excerpt": "Finally, for part (iii), we can tensor by Re",
      "match": "Proof route."
     }
    ],
@@ -4796,13 +4665,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.17, p. 151",
-     "excerpt": "There is a functorial isomorphism f ∗ RH om(A, B) ∼ = RH om(f ∗ A, f ∗ B) in A, B ∈ Dét (X, Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.17, p. 151",
-     "excerpt": "This follows from Proposition 23.3 (ii) together with the identification Rf ! = f ∗ ⊗Λ Rf ! Λ, where Rf ! Λ is invertible.",
      "match": "Proof."
     }
    ],
@@ -4844,13 +4711,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 160",
-     "excerpt": "The projection map Y → X is cohomologically smooth (as the composite of an open immersion and a pullback of BC → Spa(C, OC ), cf. Theorem 24.1)",
      "match": "Open immersions are used as smooth maps."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 143",
-     "excerpt": "But if g = gi is étale, then g ∗ = Rg ! and h∗ = Rh! ,",
      "match": "Rg^! = g^* for étale g."
     }
    ],
@@ -4897,13 +4762,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 24.1, p. 152",
-     "excerpt": "Let f : B → ∗ be the projection from the ball to the point, where B(R, R+ ) = R+ .",
      "match": "The definition of B."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 152",
-     "excerpt": "Condition (i) is easy (in fact, dim. trg f = 1).",
      "match": "dim.trg f = 1."
     }
    ],
@@ -4949,7 +4812,7 @@
     {
      "name": "Ball.openDisc",
      "role": "other",
-     "statement": "The open unit disc D = ⋃_n {|T|^n ≤ |ϖ|} ⊂ B × Spa(K, O_K) and the punctured disc D^× = D ∖ {0} are open sub-v-sheaves; D^× = Spa F_p((t^{1/p^∞})) × Spa(C, O_C) over C (ECD 24.5)."
+     "statement": "For a complete algebraically closed perfectoid C of characteristic p, let K = F_p((t^{1/p^∞}))^∧. The punctured open unit disc D_C^× is Spa(K, O_K) × Spa(C, O_C), and is an open subspace of B × Spa(C, O_C) (ECD proof of 24.5)."
     }
    ],
    "uses": [
@@ -5031,13 +4894,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 24.1, p. 152",
-     "excerpt": "one has a canonical isomorphism",
      "match": "The normalisation Λ(1)[2] of the ball's dualizing complex uses this twist."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 152",
-     "excerpt": "RfX! Fℓ (1) = g ∗ RfC! Fℓ (1) → Fℓ [−2] ,",
      "match": "The twisted trace."
     }
    ],
@@ -5157,19 +5018,16 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 24.1, p. 152",
-     "excerpt": "Then f is ℓ-cohomologically smooth for any prime ℓ ̸= p, and for any ring Λ with nΛ = 0 for some n prime to p, one has a canonical isomorphism",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 152",
-     "excerpt": "Condition (iii) is a condition about fX : B × X → X in case X = Spa(C, C + ) is strongly Noetherian. Thus, Huber’s results and in particular [Hub96, Theorem 7.5.3] applies.",
      "match": "Condition (iii)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 153",
-     "excerpt": "Thus, we can assume X = Spa(C, C + ). In this case, the result follows from [Hub96, Theorem 7.5.3].",
      "match": "Condition (iv)."
     }
    ],
@@ -5194,7 +5052,7 @@
    ],
    "title": "The normalised Λ-valued Haar measure of a profinite group of pro-order prime to ℓ",
    "kind": "construction",
-   "statement": "Let K be a profinite group whose supernatural order profiniteOrder K is prime to ℓ (Tau Ceti ProfiniteProPGroups, Layer 1), and Λ an ℓ-power-torsion ring. The normalised Λ-valued Haar measure is the Λ-linear map μ_K : C⁰(K, Λ) → Λ with μ_K(1_{gH}) = [K : H]^{−1} for every open subgroup H and g ∈ K; it is well defined because every [K : H] divides profiniteOrder K (Lagrange) and is therefore a unit in Λ, and it is left and right invariant with total volume μ_K(1) = 1. For K of pro-order divisible by ℓ (e.g. a pro-ℓ group) no such measure exists: [K : H] is then divisible by ℓ for some H and cannot be inverted, so prime-to-ℓ averaging is unavailable.",
+   "statement": "Let K be a profinite group whose supernatural order profiniteOrder K is prime to ℓ (Tau Ceti ProfiniteProPGroups, Layer 1), and Λ an ℓ-power-torsion ring. The normalised Λ-valued Haar measure is the Λ-linear map μ_K : C⁰(K, Λ) → Λ with μ_K(1_{gH}) = [K : H]^{−1} for every open subgroup H and g ∈ K; it is well defined because every [K : H] divides profiniteOrder K (Lagrange) and is therefore a unit in Λ, and it is left and right invariant with total volume μ_K(1) = 1. If Λ ≠ 0 and K has an open subgroup of index divisible by ℓ (in particular if its pro-order is divisible by ℓ), no such measure exists: [K : H] is then divisible by ℓ for some H and cannot be inverted, so prime-to-ℓ averaging is unavailable.",
    "hypotheses": [
     "profiniteOrder K prime to ℓ; ℓ^mΛ = 0."
    ],
@@ -5205,7 +5063,7 @@
     "Invariance under left and right translation is invariance of the finite averages."
    ],
    "acceptance": [
-    "For K = ℤ_p and ℓ ≠ p, μ(1_{a+p^kℤ_p}) = p^{−k} ∈ Λ; for K = ℤ_ℓ no normalised measure exists."
+    "For K = ℤ_p and ℓ ≠ p, μ(1_{a+p^kℤ_p}) = p^{−k} ∈ Λ; for K = ℤ_ℓ and Λ ≠ 0 no normalised measure exists. The trivial pro-ℓ group is outside this obstruction."
    ],
    "prerequisites": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
@@ -5216,13 +5074,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.2, p. 153",
-     "excerpt": "Moreover, if we fix the Λ-valued Haar measure on K with total volume 1, there is a natural equivalence of functors",
      "match": "The measure and its normalisation."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.2, p. 153",
-     "excerpt": "natural trace maps qH,K∗ qH,K → id, which one can divide by [K : H] to make them compatible.",
      "match": "Normalised finite-level traces."
     }
    ],
@@ -5264,6 +5120,11 @@
      "name": "normalizedHaar_finite",
      "role": "compatibility",
      "statement": "For K finite of order prime to ℓ, μ_K(φ) = |K|^{−1} Σ_{k∈K} φ(k)."
+    },
+    {
+     "name": "normalizedHaar_unique",
+     "role": "extensionality",
+     "statement": "Any Λ-linear functional ν on C⁰(K,Λ) invariant under left translations with ν(1)=1 equals μ_K. Finite coset averages determine all locally constant functions."
     }
    ],
    "uses": [
@@ -5311,14 +5172,15 @@
    ],
    "title": "The averaging transformation q^* → Rq^! for profinite quotients",
    "kind": "construction",
-   "statement": "Let f : Y′ → Y be separated, representable in locally spatial diamonds and ℓ-cohomologically smooth, K a profinite group of pro-order prime to ℓ acting on Y′ over Y such that K × Y′ → Y′ ×_Y Y′ is 0-truncated and qcqs (in particular for free actions, where it is an injection), q : Y′ → Y′/K the quotient by the image relation, and Λ ℓ-power torsion. Using the normalised Haar measure (S5/normalized-haar-measure), construct a natural transformation α_q : q^* → Rq^! of functors D_ét(Y′/K, Λ) → D_ét(Y′, Λ), adjoint to a trace Rq_!q^* = Rq_*q^* = q_*q^* → id. For free actions the trace is the colimit over open H ⊂ K of the normalised finite-level traces [K : H]^{−1}tr_{H,K} : q_{H,K*}q_{H,K}^* → id for q_{H,K} : Y′/H → Y′/K; in general it is induced by Rq^!Λ ⊗ q^* → Rq^! and the map Λ → Rq^!Λ adjoint to the integration q_*Λ → Λ over the K-action. q is proper and quasi-pro-étale, so Rq_! = Rq_* = q_* is exact (C8/qpetale-direct-image).",
+   "statement": "Let f : Y′ → Y be eligible (hence separated and representable in locally spatial diamonds), K a profinite group of pro-order prime to ℓ acting on Y′ over Y such that K × Y′ → Y′ ×_Y Y′ is 0-truncated and qcqs (in particular for free actions, where it is an injection), q : Y′ → Y′/K the quotient by the image relation, and Λ ℓ-power torsion. Using the normalised Haar measure (S5/normalized-haar-measure), construct a natural transformation α_q : q^* → Rq^! of functors D_ét(Y′/K, Λ) → D_ét(Y′, Λ), adjoint to a trace Rq_!q^* = Rq_*q^* = q_*q^* → id. For free actions the trace is the colimit over open H ⊂ K of the normalised finite-level traces [K : H]^{−1}tr_{H,K} : q_{H,K*}q_{H,K}^* → id for q_{H,K} : Y′/H → Y′/K; in general it is induced by Rq^!Λ ⊗ q^* → Rq^! and the map Λ → Rq^!Λ adjoint to the integration q_*Λ → Λ over the K-action. The construction uses the quotient-geometric input that q is proper and quasi-pro-étale (for nonfree actions, the precise supplier extension is recorded as a request and gap), so Rq_! = Rq_* = q_* is exact (C8/qpetale-direct-image).",
    "hypotheses": [
-    "K pro-order prime to ℓ; action 0-truncated and qcqs over Y; Λ ℓ-power torsion."
+    "f eligible; K pro-order prime to ℓ; action 0-truncated and qcqs over Y; Λ ℓ-power torsion.",
+    "The image-relation quotient exists and q is proper and quasi-pro-étale; nonfree quotient geometry is a recorded supplier gap. The normalized trace construction itself does not require f cohomologically smooth; that is required by S5/free-quotient-smooth and S5/nonfree-quotient-smooth."
    ],
    "proofSteps": [
-    "q is proper and quasi-pro-étale (it is a pro-system of finite étale maps Y′/H → Y′/K, D3/locally-profinite-torsors), so Rq_! = Rq_* (S1/factorisation-independence) and Rq_* = q_* has cohomological dimension 0 (C8/qpetale-direct-image).",
+    "In the free case, q is the profinite torsor described by D3/locally-profinite-torsors, reduced to perfectoid atlases via D4; its finite-level quotient maps are finite étale. In the nonfree case they need not be étale: use the separately requested image-relation quotient geometry to obtain q proper and quasi-pro-étale, not the torsor argument. Thus Rq_! = Rq_* (S1/factorisation-independence) and Rq_* = q_* has cohomological dimension 0 (C8/qpetale-direct-image).",
     "Free case: q_*q^* = colim_H q_{H,K*}q_{H,K}^* (continuity, C0), and the normalised traces are compatible in H (S5/normalized-haar-measure); their colimit is the trace q_*q^* → id.",
-    "General case: integration over the K-action is a map of sheaves q_*Λ → Λ, constructed v-locally (where the action is a product) and descended; compose with τ_q (S3/adjunction-calculus).",
+    "General case: integration over the K-action defines q_*Λ → Λ v-locally on the quotient and descends. Fibres are K-orbits (with stabilizers allowed), not necessarily products with K. Compose the induced Λ → Rq^!Λ with τ_q (S3/adjunction-calculus).",
     "Adjunction (S3/upper-shriek) gives α_q."
    ],
    "acceptance": [
@@ -5332,19 +5194,18 @@
     "DiamondEtaleCohomology:C8/qpetale-direct-image",
     "DiamondsAndVStacks:D3/locally-profinite-torsors",
     "DiamondEtaleCohomology:C0",
-    "DiamondSixOperations:S4/cohomologically-smooth"
+    "DiamondSixOperations:S0/eligible-morphism",
+    "DiamondsAndVStacks:D4"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.2, p. 153",
-     "excerpt": "This is adjoint to a map Rq! q ∗ = Rq∗ q ∗ = q∗ q ∗ → id. For any open subgroup H ⊂ K, consider",
      "match": "The free-action construction."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.3, p. 155",
-     "excerpt": "This map can be constructed v-locally, and is given by integrating over the K-action, fixing the Λ-valued Haar measure on K with total volume 1.",
      "match": "The nonfree construction."
     }
    ],
@@ -5365,7 +5226,7 @@
     {
      "name": "averagingTransformation_finite",
      "role": "compatibility",
-     "statement": "For K finite (q finite étale), α_q is the identification q^* = Rq^! of S3/upper-shriek-etale."
+     "statement": "For a free action of a finite K of order m prime to ℓ, identify Rq^! ≃ q^* by S3/upper-shriek-etale. Then α_q is multiplication by m^{−1} on q^*, not the canonical identification itself; its adjoint normalized trace is m^{−1} times the sum over the fibre."
     },
     {
      "name": "averagingTransformation_comp_unit",
@@ -5380,7 +5241,7 @@
     {
      "name": "averagingTransformation_restrict_subgroup",
      "role": "relation",
-     "statement": "For open H ⊂ K, α_q factors as α_{q_H} followed by q_H^*α_{q_{H,K}} normalised by [K : H]^{−1}."
+     "statement": "For a free action and an open H ⊂ K, the normalized trace for q : Y′ → Y′/K is the composite of the normalized traces for q_H : Y′ → Y′/H and q_{H,K} : Y′/H → Y′/K. Taking mates gives α_q as q_H^*α_{q_{H,K}} followed by α_{q_H} evaluated at Rq_{H,K}^!; the finite factor [K : H]^{−1} is already in α_{q_{H,K}} and is not applied a second time."
     }
    ],
    "uses": [
@@ -5406,17 +5267,17 @@
     {
      "name": "averagingTransformation_finite_free",
      "kind": "computation",
-     "statement": "For K = ℤ/m (ℓ ∤ m) acting freely, α_q is the identity of q^* and q_*q^*Λ → Λ is m^{−1} times the sum over the fibre."
+     "statement": "For K = ℤ/m (ℓ ∤ m) acting freely, under Rq^! ≃ q^*, α_q is multiplication by m^{−1}; the trace q_*q^*Λ → Λ is m^{−1} times the sum over the fibre. The trace composed with the unit is the identity. Take, for example, Λ = F_5 and m = 2 to distinguish α_q from the canonical identification."
     },
     {
      "name": "averagingTransformation_not_iso_profinite",
      "kind": "non-example",
-     "statement": "For K infinite acting freely on Y′ = K × X over X, α_q : q^* → Rq^! is not an equivalence: Rq^!Λ is the sheaf of distributions (S5/profinite-quotient-upper-shriek); only q^*R(f/K)^! → Rf^! is an equivalence."
+     "statement": "Take K = ℤ_r for a prime r ≠ ℓ, Λ = F_ℓ and nonempty X = Spa(C, O_C). For the free translation action on Y′ = K × X over X, q : Y′ → X is proper quasi-pro-étale and α_q : q^* → Rq^! is not an equivalence: Rq^!Λ is the sheaf of distributions (S5/profinite-quotient-upper-shriek). This example concerns the averaging construction for an eligible f; f = q is not ℓ-cohomologically smooth, so the smooth-quotient theorem does not assert an equivalence here."
     },
     {
      "name": "averagingTransformation_proEll_unavailable",
      "kind": "non-example",
-     "statement": "For K = ℤ_ℓ there is no normalised measure, and the construction does not apply (S5/normalized-haar-measure)."
+     "statement": "Assume Λ ≠ 0. For K = ℤ_ℓ there is no normalised measure, and the construction does not apply (S5/normalized-haar-measure)."
     }
    ]
   },
@@ -5451,19 +5312,19 @@
     "DiamondsAndVStacks:D0/spectral-quotient-criterion",
     "DiamondsAndVStacks:D3/locally-profinite-torsors",
     "DiamondEtaleCohomology:C7",
-    "DiamondEtaleCohomology:C4"
+    "DiamondEtaleCohomology:C4",
+    "DiamondsAndVStacks:D4/quotient-presentations-of-diamonds",
+    "DiamondsAndVStacks:D5/spatial-v-sheaf-criterion"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.2, p. 153",
-     "excerpt": "Then the quotient map f /K : Y ′ /K → Y is separated, representable in locally spatial diamonds, and ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.2, p. 154",
-     "excerpt": "The map to the direct limit factors over some term in the direct limit by compactness of Rf! F.",
      "match": "The key compactness step."
     }
    ],
@@ -5487,17 +5348,17 @@
    ],
    "title": "Rq^! for a profinite quotient is a sheaf of distributions, not q^*",
    "kind": "theorem",
-   "statement": "In the situation of S5/free-quotient-smooth one also has Rf^! = Rq^!R(f/K)^!, but Rq^! ≠ q^* in general. After base change q becomes S × Spa(C, O_C) → Spa(C, O_C) for a profinite set S and algebraically closed C, and then Rq^!Λ is the sheaf on S sending an open and closed T ⊂ S to the distributions Hom_Λ(C⁰(T, Λ), Λ); for S infinite this is not q^*Λ = C⁰-valued constants. A choice of Haar measure gives a natural map q^* → Rq^! (S5/averaging-transformation), which is not an isomorphism. Statements must therefore be made after composing with the quotient's structure map, as in S5/free-quotient-smooth.",
+   "statement": "In the situation of S5/free-quotient-smooth one also has Rf^! = Rq^!R(f/K)^!, but Rq^! ≠ q^* in general. After base change q becomes S × Spa(C, O_C) → Spa(C, O_C) for a profinite set S and algebraically closed C, and then Rq^!Λ is the sheaf on S sending an open and closed T ⊂ S to the distributions Hom_Λ(C⁰(T, Λ), Λ); For a nonzero coefficient ring the infinite case yields the distribution obstruction; a concrete witness is S = ℤ_r, r ≠ ℓ, Λ = F_ℓ, for which the distribution sheaf is not q^*Λ. No non-isomorphism is claimed for Λ = 0. A choice of Haar measure gives a natural map q^* → Rq^! (S5/averaging-transformation), which need not be an isomorphism (and is not one in the concrete infinite example above). Statements must therefore be made after composing with the quotient's structure map, as in S5/free-quotient-smooth.",
    "hypotheses": [
     "S profinite, C algebraically closed; Λ with nΛ = 0, n prime to p."
    ],
    "proofSteps": [
     "Rf^! = Rq^!R(f/K)^! is S3/upper-shriek-composition for f = (f/K) ∘ q (q is eligible: proper quasi-pro-étale, dim.trg 0).",
     "For q : S × Spa(C, O_C) → Spa(C, O_C) and T ⊂ S open and closed with inclusion i_T: Hom(Λ_T, Rq^!Λ) = Hom(Rq_!Λ_T, Λ) = Hom(C⁰(T, Λ), Λ), using Rq_! = Rq_* and S4/profinite-projection-pushforward.",
-    "For S infinite the module of distributions is not C⁰(T, Λ)-valued constants, so Rq^!Λ ≇ q^*Λ."
+    "For the concrete infinite example S = ℤ_r, Λ = F_ℓ, the Dirac distribution at a non-isolated point is not represented by a locally constant density for Haar measure: a density giving zero integral on every clopen disjoint from that point is zero there, and by local constancy also near the point. Thus the averaging map is not surjective; the distribution sheaf is not a rank-one local system. The zero-ring case has both objects zero."
    ],
    "acceptance": [
-    "For S finite of size m, Rq^!Λ = Λ^S = q^*Λ (finite étale); for S = ℤ_p the distributions are Hom(C⁰(ℤ_p, Λ), Λ), which is not C⁰(ℤ_p, Λ)."
+    "For S finite of size m, Rq^!Λ = Λ^S = q^*Λ (finite étale); for S = ℤ_p and Λ = F_ℓ, ℓ ≠ p, the distributions are Hom(C⁰(ℤ_p, Λ), Λ), which is not C⁰(ℤ_p, Λ)."
    ],
    "prerequisites": [
     "DiamondSixOperations:S3/upper-shriek-composition",
@@ -5510,13 +5371,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark after Proposition 24.2, p. 153",
-     "excerpt": "However, it is not true that Rq ! = q ∗ .",
      "match": "The caution."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark after Proposition 24.2, p. 153",
-     "excerpt": "In this case, Rq ! Λ can be identified with the sheaf sending any open and closed subset T ⊂ S to the distributions Hom(C 0 (T, Λ), Λ), as follows easily from the adjunction defining Rq ! .",
      "match": "The computation."
     }
    ],
@@ -5556,19 +5415,18 @@
     "DiamondSixOperations:S4/strictly-local-criteria",
     "DiamondSixOperations:S4/cohomologically-smooth",
     "DiamondSixOperations:S5/free-quotient-smooth",
-    "DiamondEtaleCohomology:C7"
+    "DiamondEtaleCohomology:C7",
+    "DiamondsAndVStacks:D4"
    ],
    "sources": [
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.3, p. 155",
-     "excerpt": "Assume that there is a profinite group K of pro-order prime to ℓ with an action K × Y ′ → Y ′ over Y for which the map K × Y ′ → Y ′ ×Y Y ′ is 0-truncated and qcqs.",
      "match": "Hypotheses."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.3, p. 156",
-     "excerpt": "This implies that R(f /K)! F is a direct summand of Rf! q ∗ F = R(f /K)! Rq! q ∗ F, which is thus constructible.",
      "match": "The constructibility step."
     }
    ],
@@ -5628,19 +5486,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.4, p. 156",
-     "excerpt": "Then f ♢ : (Y ′ )♢ → Y ♢ is ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.4, p. 156",
-     "excerpt": "By Proposition 23.13, it suffices to check that BnY → Y is ℓ-cohomologically smooth.",
      "match": "Reduction to the ball."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.4, p. 156",
-     "excerpt": "The result follows from Proposition 24.3, as we have already verified",
      "match": "The mixed-characteristic step."
     }
    ],
@@ -5669,7 +5524,7 @@
     "ℓ ≠ p."
    ],
    "proofSteps": [
-    "Let K_∞ be the cyclotomic ℤ_p-extension of ℚ_p; K_∞^♭ ≅ F_p((t^{1/p^∞}))^∧ (P1), and (Spa ℚ_p)^♢ = Spa F_p((t^{1/p^∞}))/ℤ_p (D6/spd-is-a-spatial-diamond with the Galois tower).",
+    "Let K_∞ be the cyclotomic ℤ_p-extension of ℚ_p; K_∞^♭ ≅ F_p((t^{1/p^∞}))^∧ (P1), and (Spa ℚ_p)^♢ = Spa(F_p((t^{1/p^∞}))^∧, O_{F_p((t^{1/p^∞}))^∧})/ℤ_p (D6/spd-is-a-spatial-diamond with the Galois tower).",
     "After pullback along the v-cover Spa(C, O_C) → * (C algebraically closed of characteristic p), (Spa ℚ_p)^♢ × Spa(C, O_C) = D^×_C/ℤ_p with D^×_C the punctured open unit disc, an open subset of B × Spa(C, O_C) (S5/perfectoid-ball).",
     "D^×_C → Spa(C, O_C) is smooth (S5/ball-smooth, S4/etale-maps-smooth, S4/smooth-composition) and ℤ_p acts freely with pro-order prime to ℓ, so S5/free-quotient-smooth applies.",
     "Descend along the v-cover by S4/smooth-v-local-on-target, (Spa ℚ_p)^♢ → * having locally finite dim.trg (dim.trg 1 on quasicompact opens)."
@@ -5691,13 +5546,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.5, p. 156",
-     "excerpt": "The map (Spa Qp )♢ → ∗ is ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.5, p. 157",
-     "excerpt": "Using Proposition 24.2, this shows that (Spa Qp )♢ × Spa(C, OC ) → Spa(C, OC ) is ℓ-cohomologically smooth, and thus also (Spa Qp )♢ → ∗.",
      "match": "Proof."
     }
    ],
@@ -5749,13 +5602,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.6, p. 157",
-     "excerpt": "Then f is ℓ-cohomologically smooth if and only if the following conditions are satisfied.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.6, p. 158",
-     "excerpt": "using Proposition 23.16 (i) in the first equation, condition (ii) in the second equation, Proposi- tion 17.6 in the third equation, and a simple projection formula for Rh∗",
      "match": "The final computation."
     }
    ],
@@ -5799,13 +5650,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 25.1, p. 158",
-     "excerpt": "is an equivalence; equivalently, as Rf ! Fℓ is invertible, the double Verdier duality map",
      "match": "The two biduality maps and their equivalence."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 25.4, p. 161",
-     "excerpt": "Assume that A ∈ Dét (X, Fℓ ) satisfies RH omFℓ (A, Rf ! Fℓ ) = 0. Then",
      "match": "The Verdier dual in the conservativity statement."
     }
    ],
@@ -5942,19 +5791,16 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 25.1, p. 158",
-     "excerpt": "Let A ∈ Dét (X, Fℓ ) be a bounded complex with constructible cohomology. Then the double (naive) duality map",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 159",
-     "excerpt": "We are reduced to the case A = j! Fℓ for a quasicompact open immersion j : U → X.",
      "match": "The reduction."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 160",
-     "excerpt": "Thus, it is enough to prove that the latter is trivial. In other words, we may assume that X is proper.",
      "match": "The compactification step."
     }
    ],
@@ -5999,13 +5845,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 25.1, p. 158",
-     "excerpt": "Moreover, if X is quasicompact, then H i (X, A) is finite for all i ∈ Z.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 159",
-     "excerpt": "As the left-hand side commutes with all colimits by Proposition 20.10, it follows that Rf! Rj∗ Fℓ ∈ D(Fℓ ) is compact, i.e. bounded with finite cohomology groups.",
      "match": "Proof."
     }
    ],
@@ -6048,13 +5892,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.2, p. 158",
-     "excerpt": "This theorem does not hold if one replaces Spa(C, OC ) by Spa(C, C + ) for C + ̸= OC , even in the simplest case X = Spa(C, C + ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.2, p. 158",
-     "excerpt": "and so the double dual is also equal to Fℓ , which is different from A = j! Fℓ .",
      "match": "The computation."
     }
    ],
@@ -6102,13 +5944,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.3, p. 158",
-     "excerpt": "The biduality theorem also holds true for a general coefficient ring Λ of ℓ-power- torsion if A ∈ Dét (X, Λ) is perfect-constructible,",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.3, footnote 6, p. 158",
-     "excerpt": "The last step requires explanation for the biduality statement.",
      "match": "The coefficient-change argument."
     }
    ],
@@ -6130,14 +5970,14 @@
    ],
    "title": "Closed points detect vanishing on proper perfectoid spaces over Spa(C, O_C)",
    "kind": "lemma",
-   "statement": "Let C be algebraically closed nonarchimedean of characteristic p, k its residue field, and X an affinoid perfectoid space, proper over Spa(C, O_C) and compactifiable over it, whose connected components are Spa(C′, C′⁺) with C′ complete algebraically closed and C′⁺ ⊂ O_{C′} open and integrally closed. Then |X| is a Jacobson space (Mathlib JacobsonSpace: every nonempty locally closed subset contains a point closed in |X|), and an object A ∈ D(|X|, F_ℓ) whose stalks vanish at all closed points of |X| is zero.",
+   "statement": "Let C be complete algebraically closed nonarchimedean of characteristic p, k its residue field, and X an affinoid perfectoid space, proper over Spa(C, O_C) and compactifiable over it, whose connected components are Spa(C′, C′⁺) with C′ complete algebraically closed and C′⁺ ⊂ O_{C′} open and integrally closed. Then |X| is a Jacobson space (Mathlib JacobsonSpace: every nonempty locally closed subset contains a point closed in |X|), and an object A ∈ D(|X|, F_ℓ) whose stalks vanish at all closed points of |X| is zero.",
    "hypotheses": [
     "X as in the proof of ECD Proposition 25.4 (the compactification of a strictly totally disconnected cover)."
    ],
    "proofSteps": [
     "Connected components of a spectral space are closed; a point closed in its component is closed in |X|, and a nonempty locally closed subset of |X| meets some component in a nonempty locally closed subset; so Jacobson-ness reduces to components.",
     "Each component is open in the Zariski–Riemann space ZR(k′/k) of valuation rings of the residue field k′ of C′ containing k (ECD, using compactifiability over Spa(C, O_C)); open subspaces of Jacobson spaces are Jacobson (mathlib:JacobsonSpace.of_isOpenEmbedding).",
-    "ZR(k′/k) is Jacobson (k algebraically closed): a nonempty locally closed subset contains U₀ ∩ Z ∋ V₀ with U₀ = {V ⊇ A}, A a finitely generated k-subalgebra; a valuation ring W with A ⊆ W ⊆ V₀ minimal for these conditions (Zorn: intersections of chains of valuation rings are valuation rings) has residue field algebraic over k, since otherwise a nontrivial valuation ring of κ(W) containing the image of A (a finitely generated k-algebra, either a non-field or k itself) would give a smaller one; so W is a closed point, W ∈ Z (specialisation of V₀) and W ∈ U₀.",
+    "ZR(k′/k) is Jacobson (k algebraically closed): a nonempty locally closed subset contains U₀ ∩ Z ∋ V₀ with U₀ = {V ⊇ A}, A a finitely generated k-subalgebra; a valuation ring W with A ⊆ W ⊆ V₀ minimal for these conditions (Zorn: intersections of chains of valuation rings are valuation rings) has residue field algebraic over k, since otherwise a nontrivial valuation ring of κ(W) containing the image of A (a finitely generated k-algebra, either a non-field or k itself) would give a smaller one; so W is a closed point, W ∈ Z (specialisation of V₀) and W ∈ U₀. This proposed replacement needs a precise valuation-refinement/extension theorem for the residue field and its finitely generated subalgebra, plus the closed-point characterization of ZR(k′/k). Those inputs are not in the listed suppliers and are recorded as a gap; the sentence about projective limits in ECD is not treated as a confirmed error.",
     "For a sheaf F on a Jacobson space with Fₓ = 0 at closed points: the support of a nonzero section over an open U is nonempty and closed in U, hence locally closed, so it contains a closed point (mathlib:nonempty_inter_closedPoints), contradiction. Apply to the cohomology sheaves of A."
    ],
    "acceptance": [
@@ -6155,13 +5995,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 25.4, p. 161",
-     "excerpt": "In other words, the stalks of A at all closed points vanish, which implies that A = 0, as the closed points are very dense in |X|.",
      "match": "The statement used."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 25.4, p. 161",
-     "excerpt": "But Zariski–Riemann spaces of fields have a very dense set of closed points (by writing them as a cofiltered limit of projective varieties).",
      "match": "ECD's justification, replaced here by the valuation-theoretic argument."
     }
    ],
@@ -6182,7 +6020,7 @@
    ],
    "title": "Conservativity of Verdier duality over Spa(C, O_C)",
    "kind": "theorem",
-   "statement": "Let C be an algebraically closed nonarchimedean field of characteristic p, X a locally spatial diamond with f : X → Spa(C, O_C) compactifiable with locally dim.trg f < ∞, and A ∈ D_ét(X, F_ℓ) with RHom_{F_ℓ}(A, Rf^!F_ℓ) = 0. Then A = 0. No smoothness or constructibility is assumed; the base Spa(C, O_C) is essential (S6/conservativity-counterexample).",
+   "statement": "Let C be an complete algebraically closed nonarchimedean field of characteristic p, X a locally spatial diamond with f : X → Spa(C, O_C) compactifiable with locally dim.trg f < ∞, and A ∈ D_ét(X, F_ℓ) with RHom_{F_ℓ}(A, Rf^!F_ℓ) = 0. Then A = 0. No smoothness or constructibility is assumed; the base Spa(C, O_C) is essential (S6/conservativity-counterexample).",
    "hypotheses": [
     "f compactifiable (hence eligible with the dimension hypothesis); base Spa(C, O_C)."
    ],
@@ -6211,13 +6049,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 25.4, p. 161",
-     "excerpt": "Let C be an algebraically closed nonarchimedean field of characteristic p with ring of integers OC , and let X be a locally spatial diamond with f : X → Spa(C, OC ) compactifiable with locally dim. trg f < ∞.",
      "match": "Hypotheses."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 25.4, p. 161",
-     "excerpt": "which implies that RΓc (U, A) = 0. Using this for U = X and U = X \\ {x} for some closed point x ∈ X, one sees that also the cone of RΓc (U, A) → RΓc (X, A) = RΓ(X, A) is zero, which is the stalk Ax of A at x.",
      "match": "The stalk step."
     }
    ],
@@ -6241,9 +6077,9 @@
    ],
    "title": "Conservativity fails over Spa(C, C⁺) with C⁺ ≠ O_C",
    "kind": "theorem",
-   "statement": "Let X = Spa(C, C⁺) with C⁺ ⊊ O_C, i : {s} → |X| the inclusion of the closed point, and Λ with nΛ = 0. Then RHom_Λ(i_*Λ, Λ) = 0 although i_*Λ ≠ 0 (D_ét(X, Λ) = D(|X|, Λ), X being strictly totally disconnected). Hence S6/verdier-conservativity fails over Spa(C, C⁺): f = id is ℓ-cohomologically smooth with Rf^!Λ = Λ.",
+   "statement": "Let X = Spa(C, C⁺) with C⁺ ⊊ O_C, i : {s} → |X| the inclusion of the closed point, and a nonzero Λ with nΛ = 0, n prime to p. Then RHom_Λ(i_*Λ, Λ) = 0 although i_*Λ ≠ 0 (D_ét(X, Λ) = D(|X|, Λ), X being strictly totally disconnected). Hence S6/verdier-conservativity fails over Spa(C, C⁺): f = id is ℓ-cohomologically smooth with Rf^!Λ = Λ.",
    "hypotheses": [
-    "C⁺ ⊊ O_C."
+    "C⁺ ⊊ O_C; Λ ≠ 0; nΛ = 0 for n prime to p."
    ],
    "proofSteps": [
     "D_ét(X, Λ) = D(|X|, Λ) (C0); |X| is a chain of points with closed point s and generic point η, and i_*Λ is the skyscraper at s.",
@@ -6262,13 +6098,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.5, p. 161",
-     "excerpt": "Again, a similar result fails over Spa(C, C + ) if C + ̸= OC .",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.5, p. 161",
-     "excerpt": "Indeed, if X = Spa(C, C + ) and i : {s} → X is the inclusion of the closed point, then RH omΛ (i∗ Λ, Λ) = 0.",
      "match": "The computation."
     }
    ],
@@ -6310,13 +6144,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.6, p. 161",
-     "excerpt": "A similar result holds with coefficients in a ring Λ (killed by n prime to p) as soon as for any M ∈ D(Λ) with R HomΛ (M, Λ) = 0, one has M = 0.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.6, p. 161",
-     "excerpt": "We do not know in which generality it holds (for example if Λ is noetherian).",
      "match": "The open question."
     }
    ],
@@ -6343,7 +6175,7 @@
    "status": "planned",
    "remaining": [
     "The canonical compactification and proper base change are consumed from DiamondEtaleCohomology C4–C5, whose blueprint (#709) is not yet written; their node ids replace the stage prerequisites when it is.",
-    "Diamond form of 'fibre dimension ≤ dim.trg' used in S1/compactification-cd-bound is cited from C8's analytic nodes; a diamond-level node in C8 would make the citation exact."
+    "The diamond fibre-dimension versus dim.trg inequality and canonical-compactification dimension comparison used in S1/compactification-cd-bound and S1/spatial-compactification-cd-bound are a precise C8 request and recorded gap; the existing analytic inequality is not an exact supplier."
    ]
   },
   {
@@ -6372,7 +6204,8 @@
    "status": "planned",
    "remaining": [
     "S5/ball-smooth inherits the gap recorded in ClassicalAdicEtaleCohomology:H3/curve-poincare-duality for Huber duality over Spa(C, C⁺) with C⁺ ≠ O_C (condition (iii) of the practical criterion).",
-    "The perfectoid tori and cyclotomic tilts used in 24.4–24.5 are requested from PerfectoidSpaces P1 (no blueprint yet)."
+    "The perfectoid tori and cyclotomic tilts used in 24.4–24.5 are requested from PerfectoidSpaces P1 (no blueprint yet).",
+    "The nonfree image-relation quotient geometry used in 24.3 is a precise D4 request and gap; a torsor-only supplier does not cover actions with stabilizers."
    ]
   },
   {
@@ -6380,7 +6213,8 @@
    "status": "planned",
    "remaining": [
     "S6/biduality inherits the gap recorded in ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export (Lütkebohmert's local compactification over a non-discretely valued C).",
-    "S6/closed-points-detect-vanishing uses ECD's assertion that the components of the compactified cover are open in Zariski–Riemann spaces; a node proving that openness from compactifiability is a refinement."
+    "S6/closed-points-detect-vanishing uses ECD's assertion that the components of the compactified cover are open in Zariski–Riemann spaces; a node proving that openness from compactifiability is a refinement.",
+    "Close the valuation-refinement/extension and Zariski–Riemann closed-point inputs of S6/closed-points-detect-vanishing; the proposed Zorn replacement has not established them from its suppliers."
    ]
   }
  ],
@@ -6406,6 +6240,31 @@
     "DiamondSixOperations:S6/verdier-conservativity"
    ],
    "detail": "ECD asserts, using compactifiability over Spa(C, O_C), that the connected components Spa(C′, C′⁺) of the compactified strictly totally disconnected cover are open in the Zariski–Riemann space of their residue field over that of C. The node proves the Jacobson property of the Zariski–Riemann space itself and passes to open subspaces; the openness claim is taken from the source and not yet decomposed."
+  },
+  {
+   "title": "Nonfree profinite image-relation quotient geometry",
+   "neededBy": [
+    "DiamondSixOperations:S5/averaging-transformation",
+    "DiamondSixOperations:S5/nonfree-quotient-smooth"
+   ],
+   "detail": "For a qcqs 0-truncated profinite action on an eligible map, establish the image-relation quotient as a locally spatial diamond relative to the base, prove q proper and quasi-pro-étale, and the quotient eligibility/compactification/dimension facts used in ECD 24.3. D3/locally-profinite-torsors supplies these only for torsors; nonfree actions have stabilizers and finite quotient maps need not be étale. Requested from DiamondsAndVStacks:D4, importing D5 spatiality and C4 compactification rather than duplicating them."
+  },
+  {
+   "title": "Valuation refinement and the Jacobson property of Zariski–Riemann spaces",
+   "neededBy": [
+    "DiamondSixOperations:S6/closed-points-detect-vanishing",
+    "DiamondSixOperations:S6/verdier-conservativity",
+    "DiamondSixOperations:S6/conservativity-general-coefficients"
+   ],
+   "detail": "For k algebraically closed, k′/k arbitrary, A ⊂ k′ finitely generated over k and A ⊂ V₀ a valuation ring, justify the minimal valuation ring W with A ⊂ W ⊂ V₀, the nontrivial residue-field valuation containing the image of A when κ(W)/k is not algebraic, its composition/refinement into W, and the characterization of closed ZR points by algebraic residue field. The listed Mathlib Jacobson lemmas assume the Jacobson property and do not prove these geometric/valuation inputs. Together with the separately recorded component-openness gap, this is needed to replace ECD 25.4’s short argument by the proposed valuation proof."
+  },
+  {
+   "title": "Diamond fibre-dimension bound is not supplied by the analytic bound",
+   "neededBy": [
+    "DiamondSixOperations:S1/compactification-cd-bound",
+    "DiamondSixOperations:S1/spatial-compactification-cd-bound"
+   ],
+   "detail": "C8/analytic-dimension-bound states fibreDimension ≤ analyticDimTrg for morphisms of analytic adic spaces. S1 applies this inequality to arbitrary locally spatial diamonds and their canonical compactifications. Establish fibreDimension(f) ≤ diamondDimTrg(f) for maps representable in locally spatial diamonds, via field-point/presentation comparison, and the compactification dimension comparison used in ECD 22.5. The analytic statement and the definition C8/diamond-dim-trg alone do not establish the transported inequality. Request this from C8 rather than planning its dimension theory here."
   }
  ],
  "requests": [
@@ -6607,6 +6466,22 @@
    "neededBy": [
     "DiamondSixOperations:S5/normalized-haar-measure"
    ]
+  },
+  {
+   "supplier": "DiamondsAndVStacks:D4",
+   "need": "ECD proof of 24.3: for a continuous profinite K-action over Y on an eligible Y′ → Y, with K × Y′ → Y′ ×_Y Y′ 0-truncated and qcqs, form the quotient by the image relation, prove q : Y′ → Y′/K proper and quasi-pro-étale and f/K separated, representable in locally spatial diamonds and eligible. Import D5 for spatiality and C4 for the equivariant canonical compactification. This is the nonfree image-relation quotient, not the stack quotient retaining stabilizers and not merely D3’s torsor statement.",
+   "neededBy": [
+    "DiamondSixOperations:S5/averaging-transformation",
+    "DiamondSixOperations:S5/nonfree-quotient-smooth"
+   ]
+  },
+  {
+   "supplier": "DiamondEtaleCohomology:C8",
+   "need": "Supply the diamond/v-stack form fibreDimension(f) ≤ diamondDimTrg(f) for maps representable in locally spatial diamonds, and the equality/comparison of dim.trg before and after canonical compactification used in ECD 22.5. The current analytic-dimension-bound is restricted to analytic adic spaces; diamond-dim-trg defines the invariant but does not supply this inequality. Import C4 compactification and D5 point presentations.",
+   "neededBy": [
+    "DiamondSixOperations:S1/compactification-cd-bound",
+    "DiamondSixOperations:S1/spatial-compactification-cd-bound"
+   ]
   }
  ],
  "restructure": [
@@ -6628,7 +6503,7 @@
    "source": "ECD",
    "kind": "gap",
    "locator": "proof of Theorem 24.1, p. 152 (arXiv:1709.07343v4)",
-   "printed": "Fix a prime ℓ ̸= p. We check the conditions of Proposition 23.10.",
+   "printed": "The proof chooses a prime ℓ ̸= p and proceeds to verify the hypotheses of Proposition 23.10.",
    "correction": "Proposition 23.10 applies to compactifiable maps representable in spatial diamonds; add the check that f : B → * is compactifiable: B is separated, its canonical compactification is B‾(R, R⁺) = R°, and B → B‾ is the open subfunctor {|T| ≤ 1} (pullback along t ∈ R° is the rational subset {|t| ≤ 1} of Spa(R, R⁺)), so Proposition 22.3(i) applies.",
    "reason": "Proposition 23.10's hypotheses include compactifiability, which conditions (i)–(iv) do not imply; the proof verifies only (i)–(iv). The check is short but is not in the text.",
    "affects": "the proof",
@@ -6637,14 +6512,19 @@
     "arXiv:1709.07343 version history (v1–v4) and the v4 PDF",
     "Peter Scholze's publication page (people.mpim-bonn.mpg.de/scholze)",
     "the errata already recorded in research/blueprint/papers/PAPER-SCHOLZE-17.result.json (E1–E101), 6 October 2026"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The proof on p. 152 invokes Proposition 23.10 without checking its separate compactifiability hypothesis. The stated rational-subset computation supplies that check: a map into R° pulls {|T| ≤ 1} back to {|t| ≤ 1}, an open rational subset. This is an omitted short verification, not a false conclusion.",
+    "by": "REV-DiamondSixOperations"
+   }
   },
   {
    "id": "DiamondSixOperations/E2",
    "source": "ECD",
    "kind": "gap",
    "locator": "proof of Proposition 25.4, p. 161 (arXiv:1709.07343v4)",
-   "printed": "But Zariski–Riemann spaces of fields have a very dense set of closed points (by writing them as a cofiltered limit of projective varieties).",
+   "printed": "The source claims that the closed points form a very dense subset of the Zariski–Riemann spaces of fields, explaining this by expressing those spaces as cofiltered limits of projective varieties.",
    "correction": "Argue valuation-theoretically: for k algebraically closed, every nonempty locally closed subset of ZR(k′/k) contains a closed point. Given V₀ ∈ U₀ ∩ Z with U₀ = {V ⊇ A}, A finitely generated over k, a minimal valuation ring W with A ⊆ W ⊆ V₀ (Zorn) has residue field algebraic over k, hence is closed, and lies in U₀ ∩ Z. Then vanishing of stalks at closed points forces vanishing, since supports of sections are locally closed.",
    "reason": "A cofiltered limit of Jacobson spectral spaces along uncountable index systems need not inherit the property that every nonempty locally closed (not only constructible) subset has a closed point: an inverse limit of nonempty sets of closed points can be empty. The stated reason does not give the conclusion used (vanishing of a complex of arbitrary, non-constructible sheaves).",
    "affects": "the proof",
@@ -6653,14 +6533,19 @@
     "arXiv:1709.07343 version history (v1–v4) and the v4 PDF",
     "Peter Scholze's publication page (people.mpim-bonn.mpg.de/scholze)",
     "the errata already recorded in research/blueprint/papers/PAPER-SCHOLZE-17.result.json (E1–E101), 6 October 2026"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "The finding gives no counterexample to the specific cofiltered system of projective models in ECD, and failure for arbitrary inverse systems does not establish a gap in that proper-model argument. The alternative valuation proof is useful but its residue-field refinement/extension step is itself an unresolved planning input (recorded as a gap). No published-source mistake is established by the submitted reason.",
+    "by": "REV-DiamondSixOperations"
+   }
   },
   {
    "id": "DiamondSixOperations/E3",
    "source": "ECD",
    "kind": "misprint",
    "locator": "Proposition 25.4, p. 161 (arXiv:1709.07343v4)",
-   "printed": "Let C be an algebraically closed nonarchimedean field of characteristic p with ring of integers OC ,",
+   "printed": "The source takes C to be a nonarchimedean field that is algebraically closed, has characteristic p, and has OC as its ring of integers.",
    "correction": "Let C be a complete algebraically closed nonarchimedean field of characteristic p, as in Theorem 25.1.",
    "reason": "Spa(C, O_C) is used as a perfectoid space (and as the base of a compactifiable map of diamonds), which requires C complete; Theorem 25.1 on the preceding page states completeness.",
    "affects": "nothing",
@@ -6669,7 +6554,490 @@
     "arXiv:1709.07343 version history (v1–v4) and the v4 PDF",
     "Peter Scholze's publication page (people.mpim-bonn.mpg.de/scholze)",
     "the errata already recorded in research/blueprint/papers/PAPER-SCHOLZE-17.result.json (E1–E101), 6 October 2026"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "Explicit completeness is appropriate in a formal signature, and is retained here. The paper already uses nonarchimedean field in the perfectoid context: Proposition 3.8 characterizes perfectoid fields without a separately listed completeness condition, whereas Definition 3.1 requires completeness. The literal omission at 25.4 therefore does not establish an independent misprint rather than a field convention.",
+    "by": "REV-DiamondSixOperations"
+   }
+  },
+  {
+   "id": "DiamondSixOperations/E4",
+   "source": "ECD",
+   "kind": "error",
+   "locator": "Proposition 23.10(i), p. 145 (arXiv:1709.07343v4)",
+   "printed": "In (i), the source requires finiteness of the dimension: dim. trg f < ∞.",
+   "correction": "For arbitrary small v-stack Y, require the finite bound after each strictly totally disconnected (hence spatial) base change X → Y, rather than one bound uniform over Y. Equivalently localize the criterion to spatial bases; when Y is spatial the printed finite bound follows from spatial representability and local finiteness.",
+   "reason": "Take Y = ∐_{n≥1} Spa(C,O_C) and Y′ = ∐_{n≥1} B^n_C, where B_C is the perfectoid closed ball over a complete algebraically closed C of characteristic p. The component maps are compactifiable and cohomologically smooth (24.1, products via 23.13, source locality 23.15), of dimensions n. The union map is separated, compactifiable (22.3(v)), representable in spatial diamonds, and locally of finite dim.trg: a quasicompact spatial test space meets only finitely many open-and-closed base components. It is cohomologically smooth by source locality, but its global dim.trg is infinite by 21.7. Thus the global condition is not necessary as literally quantified.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The v4 PDF, Definitions 21.7 and 23.8, Propositions 22.3(v), 23.10, 23.13, 23.15 and Theorem 24.1",
+    "research/blueprint/papers/PAPER-SCHOLZE-17.result.json sourceIssues: no 23.10 uniform-bound finding"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The disjoint-union example satisfies the spatial representability hypothesis because each quasicompact spatial base change meets finitely many components. Source-local smoothness allows the unbounded dimensions, whereas 21.7 defines a global supremum. The corrected per-base-change criterion follows by applying 23.10 on spatial bases; the proof uses no uniform bound across the disjoint union.",
+    "by": "REV-DiamondSixOperations"
+   }
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-DiamondSixOperations",
+  "date": "2026-10-06",
+  "notes": "Completed independent target-level review of all 90 nodes, 188 cited passages, five pinned baseline declarations, all 19 definition/construction APIs and tests, suggested signatures, 31 planets, supplier statements and RT-AREA-padic-1/11 ownership. Corrected 28 packet nodes (61 recorded field edits), added one API and one test, and recorded three additional supplier gaps/requests. Confirmed E1 and new E4; rejected E2/E3 as unestablished source mistakes. The complete pass and seven planned stages remain honest under PROTOCOL §0. Needs changes because significant suggested statements are false or incomplete, required APIs/tests remain comment-only, and some proof inputs are unresolved. See the review report for corrections and precise revision work; no formalization is claimed.",
+  "checked": [
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-morphism",
+    "verdict": "verified",
+    "note": "22.2: an open immersion followed by a partially proper map, with separatedness inherited. C4 owns canonical compactification; constructors and the proper/open cases have the right mathematical scope. Concrete Lean geometry tests still depend on the supplier interface described in the report."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-iff-separated-open",
+    "verdict": "verified",
+    "note": "22.3(i): separatedness and openness of the canonical map characterize compactifiability. C4 supplies the partially proper universal factorization; this is not a new compactification theory in S0."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-base-change",
+    "verdict": "verified",
+    "note": "22.3(ii): the two factorization classes are stable under arbitrary base change. No quasicompactness or smoothness assumption has been added."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-v-local",
+    "verdict": "verified",
+    "note": "22.3(iii): surjective target base change detects the open immersion into the canonical compactification, using C4 base change and descent. The surjectivity hypothesis is retained."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-composition",
+    "verdict": "verified",
+    "note": "22.3(iv): C4 proper/partially proper base change and the composite canonical factorization supply the composition argument; both constituent maps are compactifiable."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-local-on-source",
+    "verdict": "verified",
+    "note": "22.3(v): separated, locally spatial representability is required; local openness in the canonical compactification is checked on source opens using 10.5. Corrected the Lean cover hypothesis from global factorization through one member to EffectiveEpiFamily."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/separated-etale-compactifiable",
+    "verdict": "verified",
+    "note": "22.3(vi): separated étale maps admit the canonical compactification with open source. The packet imports D3 and C4; it does not claim all étale stack maps are representable or separated."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/locally-split-map",
+    "verdict": "verified",
+    "note": "22.3(vii), footnote 5: separated surjective maps with Zariski-local sections after strictly totally disconnected base change. Étale surjective covers over such a base split locally; corrected the finite-cover Lean constructor to use an effective epi family rather than factor every map through one member."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-source-descent",
+    "verdict": "verified",
+    "note": "22.3(vii): source descent needs local splitting as well as separatedness and locally spatial representability of f. Those hypotheses distinguish it from the weaker smooth-surjection statement in 23.13."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/compactifiable-cancellation",
+    "verdict": "verified",
+    "note": "22.3(viii): cancellation of compactifiability requires g separated. The canonical relative factorization is supplied by C4; no finite-dimensional hypothesis is used here."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/eligible-morphism",
+    "verdict": "verified",
+    "note": "Convention 22.1 and 22.18: eligible means compactifiable, representable in locally spatial diamonds, and locally finite dim.trg. The distinction from a uniform global bound is essential and is now respected in S2."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/spatial-eligible-morphism",
+    "verdict": "corrected",
+    "note": "22.4–22.5: spatial eligibility includes a global finite dimension bound, hence relative quasicompactness and separatedness. Corrected the Lean qcqs projection to give both quasicompactness and separatedness; its callers use the first projection."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S0/eligible-cancellation",
+    "verdict": "verified",
+    "note": "22.3(viii) plus the expressly assumed representability and local dimension of f give eligible cancellation. The packet and Lean signature retain these extra assumptions rather than inferring them from the composite."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/lower-shriek-quasicompact",
+    "verdict": "corrected",
+    "note": "22.4: Rf_! = Rfbar_* j_! for spatial-eligible f and prime-to-p torsion coefficients. Corrected the generic-point non-equivalence test to exclude the zero ring. C4/C5 own compactification and proper base change."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/factorisation-independence",
+    "verdict": "verified",
+    "note": "22.4 and 19.2: proper pushforward agreement and factorization independence follow by comparison through canonical compactification and proper base change; the alternate factorization uses a proper map, not an arbitrary partially proper one."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/compactification-cd-bound",
+    "verdict": "unverifiable",
+    "note": "22.5 gives the 3d bound without spatiality of the compactification. Added a C8 request/gap: analytic-dimension-bound is for analytic adic spaces and does not prove the diamond fibre-dimension inequality or compactification comparison used here. Lean now includes dimTrg f ≤ d."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/spatial-compactification-cd-bound",
+    "verdict": "unverifiable",
+    "note": "22.5 gives the sharper 2d bound only when the compactification map is representable in spatial diamonds. Lean now includes dimTrg f ≤ d. The diamond dimension/completed-residue-field comparison is recorded as the same precise C8 supplier gap."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/proper-dim-zero-classification",
+    "verdict": "unverifiable",
+    "note": "22.6: the packet states the relative equivalence over π₀X and cites D1/D4/D5 and C4. Added dimTrg f = 0 to Lean, but its arbitrary CompHaus → V parameter and essential-surjectivity-only conclusion do not express that relative category equivalence."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/qcqs-diamond-continuity",
+    "verdict": "unverifiable",
+    "note": "The qcqs continuity claim in the proof of 22.7 uses compatible affinoid presentations, spatial continuity and bounded-below Čech descent; these suppliers are identified. Lean omits qcqs conditions and permits arbitrary transition maps and cocone legs, so its IsColimit assertion is stronger and can be false."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/proper-dim-zero-topological-comparison",
+    "verdict": "unverifiable",
+    "note": "22.7 is an equivalence of bounded-below derived categories on the topological space and the étale site. Added the missing zero-dimension hypothesis to Lean, but arbitrary Dtop and an arbitrary functor with only Full/Faithful as conclusion still omit both identification and essential surjectivity."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/lower-shriek-base-change-qc",
+    "verdict": "verified",
+    "note": "22.8: arbitrary base change of the spatial-eligible map, proved by proper base change for the canonical compactification and extension-by-zero base change. The packet correctly avoids a smoothness hypothesis on the base change."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/lower-shriek-composition-qc",
+    "verdict": "verified",
+    "note": "22.9: compares canonical compactifications for the two spatial-eligible factors; 19.2 and lower-shriek base change give the canonical composite isomorphism. Both constituent hypotheses are explicit."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/lower-shriek-etale-agreement-qc",
+    "verdict": "corrected",
+    "note": "22.10: added the directly used S1/lower-shriek-composition-qc prerequisite for the diagonal argument. The étale separated case agrees with the existing left adjoint f_!, supplied by C5."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/projection-formula-qc",
+    "verdict": "verified",
+    "note": "22.11: prime-to-p torsion, A on the base and B on the source; use étale-local reduction and the partially proper projection formula. No perfectness assumption is inserted in this lower-shriek formula."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S1/lower-shriek-direct-sums-qc",
+    "verdict": "verified",
+    "note": "22.12: bounded cohomological dimension permits reduction of arbitrary direct sums to uniformly bounded-below objects, where coherent v-topos cohomology applies. C2/E3 own the categorical exactness inputs."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/proper-support-subcategory",
+    "verdict": "corrected",
+    "note": "22.13: the full proper-support subcategory is defined by A ≃ jV! jV* A for a relatively quasicompact open V. Corrected its constant-object negative test to require nonzero coefficients; the prototype negative test still assumes the geometric obstruction instead of constructing the disc."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-locally-spatial",
+    "verdict": "unverifiable",
+    "note": "22.13: corrected local S1 comparison to restrict the target to spatial quasicompact opens before obtaining a finite bound. Relative quasicompactness alone gives no uniform bound. Lean still lacks quasiseparated bases and states only uniqueness, not existence, in its left Kan extension API."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/filtered-support-formula",
+    "verdict": "corrected",
+    "note": "22.13: the filtered-support formula is now explicitly computed with S2, using S1 locally on spatial base opens. This removes the erroneous inference of a global bound for f restricted to a relatively quasicompact V over a non-quasicompact base."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-colimits-locally-spatial",
+    "verdict": "corrected",
+    "note": "22.14: corrected the proof to apply the quasicompact direct-sum theorem after spatial quasicompact base restriction. Filtered support colimits and the enhanced colimit rules then give all colimits; the construction still depends on the E3 request."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-base-change-locally-spatial",
+    "verdict": "unverifiable",
+    "note": "22.15: corrected localization in the proof of base change for support pieces. The packet retains the required quasiseparated locally spatial setup, but the Lean signature has only locallySpatial predicates and omits quasiseparatedness."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/hypercover-support-diagram",
+    "verdict": "unverifiable",
+    "note": "Before 22.16: corrected the constant-hypercover test to distinguish the ambient fibre D_ét from the proper-support fibre. The packet describes four genuine coherent fibrations/functors. Lean returns an opaque Type, its fibre API is P → P, and no stages or coCartesian edges are attached to H."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/fibrewise-lower-shriek",
+    "verdict": "unverifiable",
+    "note": "22.16: fibrewise left Kan extension is identified at each actual hypercover stage, using density of proper support. The Lean theorem compares a descended functor to the constant case for arbitrary H and contains no stage-indexed fibre comparison."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/cocartesian-preservation",
+    "verdict": "unverifiable",
+    "note": "22.17: preservation of coCartesian edges follows from 22.15 plus the fibre calculation. Lean instead states a functor isomorphism across unrelated opaque hypercovers; it has no coCartesian edge data to which the theorem could apply."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek",
+    "verdict": "unverifiable",
+    "note": "22.18: the packet descends to coCartesian sections along a v-hypercover and provides identity, étale, composition and base-change APIs. The Lean data declaration has the expected functor endpoints, but its hypercover implementation/API does not express the construction that justifies them."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/hypercover-independence",
+    "verdict": "unverifiable",
+    "note": "22.18: refinement/common refinement and hyperdescent give canonical independence. Lean compares any two elements of an arbitrary Hypercover type with no refinement maps; the required coherent descent data remain missing."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-base-change",
+    "verdict": "verified",
+    "note": "22.19: the packet constructs the canonical exchange over Δ × Δ¹ and verifies it on support pieces before descent. The endpoint types of the suggested isomorphism have the correct variance; canonical pasting is reviewed separately in S2/exchange-pasting-coherence."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-colimits",
+    "verdict": "verified",
+    "note": "22.20: fibrewise colimit preservation descends via C2/E3; the packet explicitly invokes coherent cartesian sections rather than colimits in unstructured homotopy-category diagrams."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-composition",
+    "verdict": "verified",
+    "note": "22.21: the construction is performed over Δ × [1]² and agrees on proper-support pieces. The two eligible factors give an eligible composite. Canonical associativity is a separate unresolved suggested-file requirement, not merely this endpoint isomorphism."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/lower-shriek-etale-agreement",
+    "verdict": "verified",
+    "note": "22.22: separated étale maps are eligible and lower shriek agrees with C5 étale f_!. This is the arbitrary small-v-stack extension of 22.10, obtained by the same coherent descent."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/projection-formula",
+    "verdict": "corrected",
+    "note": "22.23: corrected the proof adjunction to fbar* ⊣ Rfbar_*, reversing the erroneous printed planning direction. The projection formula uses A on the base, B on the source, and descent of the coherent relative adjoints."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S2/exchange-pasting-coherence",
+    "verdict": "unverifiable",
+    "note": "The pasting/coherence target is required by the proofs of 22.19 and 22.23 and requested from E3. Lean baseChange_comp and comp_assoc merely assert existence of endpoint isomorphisms, with no equality between the specified canonical composite transformations."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/upper-shriek",
+    "verdict": "unverifiable",
+    "note": "23.1: colimit preservation and presentability give the exceptional right adjoint with unit/counit. Corrected the infinite-profinite negative test to exclude zero coefficients. The required upperShriek_restrictScalars API remains a comment without a signature."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/upper-shriek-change-of-rings",
+    "verdict": "unverifiable",
+    "note": "23.2: the packet gives both extension- and restriction-of-scalars compatibilities with eligible f. The one-coefficient Lean context does not name either ring map or scalar functor; the restriction API is only a comment and change-of-rings cannot be checked there."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/verdier-duality-lower-shriek",
+    "verdict": "verified",
+    "note": "23.3(i): the variance and endpoints of Rf_*RHom(A,Rf!B) ≃ RHom(Rf!A,B) are correct. The proof is adjunction plus the lower-shriek projection formula; no cohomological-smoothness hypothesis is necessary."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/upper-shriek-internal-hom",
+    "verdict": "verified",
+    "note": "23.3(ii): Rf!RHom(A,B) ≃ RHom(f*A,Rf!B), with f eligible and prime-to-p torsion. The tensor-Hom adjunction and lower-shriek projection formula provide the stated formal proof."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/upper-shriek-composition",
+    "verdict": "verified",
+    "note": "The proof of 23.4 uses Rg!Rf! ≃ R(fg)!; this is uniqueness of right adjoints to the composite lower shriek, with both factors eligible. Endpoint order is correct in the packet and suggested signature."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/upper-shriek-etale",
+    "verdict": "verified",
+    "note": "For separated étale f, the C5 étale adjunction and lower-shriek étale agreement identify Rf! with f*. No assertion for a nonrepresentable or nonseparated étale stack map is made."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/upper-shriek-pushforward-exchange",
+    "verdict": "verified",
+    "note": "23.16(i): only f is eligible; the other leg g is arbitrary. The upper-shriek/pushforward exchange is obtained by taking mates of lower-shriek base change, with all four functor endpoints in the correct categories."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S3/adjunction-calculus",
+    "verdict": "unverifiable",
+    "note": "23.4 and 23.12: corrected upper-shriek base-change transformation to allow an arbitrary base-change leg g, and qualified the distribution counterexample. The packet mate constructions are meaningful, but Lean finiteEtaleTrace has no summation/degree normalization and shriekTrace_comp remains comment-only."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/strictly-local-criteria",
+    "verdict": "unverifiable",
+    "note": "23.4: the packet retains all four criteria, arbitrary sums and opens in connected geometric components. Lean lists only three conditions, only countable sums, and whole-base opens; it also fills eligibility of restrictions with unfinished proofs instead of expressing the required maps."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/strictly-local-criteria-torsion",
+    "verdict": "unverifiable",
+    "note": "23.4, Moreover: ℓ-power-torsion coefficients reduce through ℤ/ℓ^m and the F_ℓ criterion, using the self-injective resolution. The Lean one-coefficient statement lacks F_ℓ, Λ, m and the change-of-rings operation and does not express this extension."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/profinite-projection-pushforward",
+    "verdict": "unverifiable",
+    "note": "23.6: the packet restricts coefficients to prime-to-p torsion to match its proof using lower shriek; finite levels compute C⁰(S,Λ). Lean has no profinite S or constant function module and states an iff about an arbitrary CS, rather than the indicated natural isomorphism."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/direct-sum-criterion",
+    "verdict": "verified",
+    "note": "23.7: for spatial Y over strictly totally disconnected X, the finite bound gives compact generation, and Neeman identifies preservation of arbitrary sums with preservation of compact/constructible objects. The E3 request explicitly includes Neeman; the Lean constructor predicates need their supplier identifications."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/invertible-object",
+    "verdict": "unverifiable",
+    "note": "23.8: corrected degree uniqueness to require Λ ≠ 0 and allow different component degrees; corrected reduction API to Λ = ℤ/ℓ^m. Added the two-component unequal-shift test and an effective-epi-cover Lean definition. A genuine locally constant degree function and reduction API still lack signatures."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/cohomologically-smooth",
+    "verdict": "unverifiable",
+    "note": "23.8: corrected the infinite-profinite non-example to require a nonempty base, and localized the practical-criterion API finite bound. The packet defines smoothness over F_ℓ. Lean fixes arbitrary coefficients with no primes or F_ℓ specialization, so it cannot express ℓ-cohomological smoothness or its change-of-coefficients consequences."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/practical-smoothness-criterion",
+    "verdict": "unverifiable",
+    "note": "23.10: corrected the uniform bound to a bound after each strictly totally disconnected base change (new confirmed E4), and removed the converse proof dependency on the later global twisted-pullback theorem. Lean still omits condition (iii), so its two-condition iff does not encode the four-part criterion."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-universally-open",
+    "verdict": "verified",
+    "note": "23.11: constructibility of Rf!Rf!F_ℓ identifies its support with the image; generalizing plus constructible gives openness. The reduction is to spatial source pieces over a strictly totally disconnected base and uses the local practical criterion."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/dualizing-complex",
+    "verdict": "unverifiable",
+    "note": "23.12(i),(iii): dualizingComplex is Rf!Λ only for smooth f, with invertibility and base-change APIs. Corrected the profinite nonconstant test to require infinite S, nonempty X and Λ ≠ 0. Its scalar-restriction API is still absent from Lean."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-twisted-pullback",
+    "verdict": "corrected",
+    "note": "23.12(i): corrected the reduction argument to start with ℤ/ℓ^m, then extend scalars to general Λ, and added the upper-shriek change-of-rings prerequisite. There is no assumed ring map from arbitrary Λ to F_ℓ."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-perfect-constructible",
+    "verdict": "verified",
+    "note": "23.12(ii): quasicompact cohomologically smooth f preserves perfect-constructibility under lower shriek. C9 compact/perfect comparison and Neeman, combined with twisted pullback preserving sums, are exactly the indicated proof inputs."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-upper-shriek-base-change",
+    "verdict": "verified",
+    "note": "23.12(iii): local comparison of invertible twists, maximization of degree and coherent hyperdescent prove arbitrary upper-shriek base change. The packet keeps this before the global twisted-pullback proof, avoiding a circular dependency after the criterion correction."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-composition",
+    "verdict": "verified",
+    "note": "23.13: composition of smooth maps follows from exceptional composition and multiplication of invertible twists. Both maps are separated and representable in locally spatial diamonds, as part of their smoothness hypotheses."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-descent-along-smooth-surjection",
+    "verdict": "verified",
+    "note": "23.13 converse: surjectivity of g, compactifiability and diamond representability of f are retained. D0/D5 supply locally spatial descent, and the modified transcendence degree handles local finiteness; conservativity of the smooth twist of g completes the proof."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/representability-descent",
+    "verdict": "verified",
+    "note": "23.14 and following paragraph: universally open separated surjective covers give locally spatial representability, but removing compactifiability in smooth descent additionally requires local splitting. The packet does not identify these two distinct hypotheses."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-stable-under-base-change",
+    "verdict": "verified",
+    "note": "23.15: smoothness survives arbitrary base change; the definition tests strictly totally disconnected covers and the established upper-shriek comparison identifies the invertible twists. No condition on the base-change morphism is introduced."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-v-local-on-target",
+    "verdict": "verified",
+    "note": "23.15: target v-descent requires local finiteness of dim.trg f on the original f. The packet preserves the paper’s explicit warning that this dimension condition is not proved v-local."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-base-change",
+    "verdict": "verified",
+    "note": "23.16(ii): g is smooth and coefficients are ℓ-power torsion; f is arbitrary. Twisted upper shriek, pushforward exchange and invertibility cancellation give ordinary smooth base change."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-upper-shriek-exchange",
+    "verdict": "verified",
+    "note": "23.16(iii): eligibility of f is explicitly restored (the previously recorded E66), so all exceptional pullbacks are defined. The packet uses Λ, not the misprinted F_ℓ, and the smooth g twist cancels to give exchange."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/smooth-pullback-internal-hom",
+    "verdict": "verified",
+    "note": "23.17: the packet retains ℓ-power-torsion coefficients and smooth f. The internal-Hom identity for upper shriek and the invertible dualizing twist give the pullback formula with the right variance."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S4/etale-maps-smooth",
+    "verdict": "verified",
+    "note": "Separated étale maps have f! = f*, hence invertible unit twist over every strictly totally disconnected base; this proves the smoothness assertion used in the proof of 25.1. Eligibility follows from the S0 étale case."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/perfectoid-ball",
+    "verdict": "unverifiable",
+    "note": "24.1: B(R,R⁺)=R⁺ and its canonical compactification R° are the correct objects. Corrected Ball.openDisc to use the completed perfectoid field. Lean Ball.app quantifies an arbitrary plus : V → Type, and three geometric APIs are only comments, so the representing object is not specified faithfully."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/tate-twist",
+    "verdict": "unverifiable",
+    "note": "24.1: the packet defines the twist through μ_n and ℓ-power torsion, with tensor powers, inversion, pullback and classical comparison. Lean has no μ_n or coefficient-ring data and tateTwist_classical is only a comment; generic twist laws do not fix this construction."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/ball-smooth",
+    "verdict": "unverifiable",
+    "note": "24.1: added/confirmed the omitted compactifiability verification through the rational {|t|≤1} subset (E1). The H3 higher-rank geometric-base duality gap is explicitly inherited and its hypotheses are not silently weakened to C⁺=O_C."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/normalized-haar-measure",
+    "verdict": "corrected",
+    "note": "24.2: corrected the obstruction to require nonzero Λ and an open subgroup of index divisible by ℓ. Added uniqueness API and Lean invariant-functional uniqueness, quotient pushforward and right translation. LocallyConstant and Subgroup.index at the pin provide the stated carriers, with finite index supplied by the profinite owner."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/averaging-transformation",
+    "verdict": "unverifiable",
+    "note": "24.2–24.3: corrected finite α to m⁻¹ times the étale identification, subgroup trace normalization, and the infinite-profinite test; generalized the trace construction to eligible f. Added a D4 nonfree quotient request/gap. Lean lacks K/action/Haar input and falsely splits the unit for every eligible q."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/free-quotient-smooth",
+    "verdict": "unverifiable",
+    "note": "24.2: added D4 quotient presentations and D5 spatial-v-sheaf prerequisites. The packet assumes a free action of pro-order prime to ℓ; Lean replaces this with local sections and contains no K-action or prime-to-ℓ hypothesis, so it is not the quotient theorem."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/profinite-quotient-upper-shriek",
+    "verdict": "unverifiable",
+    "note": "After 24.2: corrected coefficients and the concrete infinite witness S=ℤ_r, Λ=F_ℓ; explained the Dirac-distribution obstruction instead of equating distributions with constants. Lean assumes failure of sum preservation and derives non-equivalence, without constructing the distribution sheaf or that obstruction."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/nonfree-quotient-smooth",
+    "verdict": "unverifiable",
+    "note": "24.3: recorded the nonfree image-relation quotient geometry in D4, rather than treating it as a torsor. The packet tests Spa(C,C⁺) geometric fibres. Lean instead assumes smoothness after every strictly totally disconnected pullback, effectively assuming the conclusion’s defining property."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth",
+    "verdict": "unverifiable",
+    "note": "24.4: the packet imports the A2 relative-ball chart definition, D6 diamond functor and P1 root tori, and distinguishes characteristic p, characteristic 0 and mixed characteristic. Lean permits arbitrary Adic, diamond and IsSmoothAdic parameters unrelated to these suppliers; quotient-geometry inputs also remain recorded gaps."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/spd-qp-smooth",
+    "verdict": "unverifiable",
+    "note": "24.5: corrected the cyclotomic tilted-field expression to its completion. The packet identifies Spd ℚ_p via the punctured-disc/ℤ_p presentation. Lean quantifies an arbitrary SpdQp : V, claiming every object maps smoothly to the point."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S5/geometric-base-criterion",
+    "verdict": "unverifiable",
+    "note": "24.6: the packet tests every open in a finite-dimensional ball over an actual perfectoid X and includes invertibility. Lean takes an arbitrary set ballOpens (possibly empty) and no perfectoid-base structure; the test family and finite-stage comparison cannot be verified."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/verdier-dual",
+    "verdict": "unverifiable",
+    "note": "25.1/25.4: the dual functor is RHom(−,Rf!Λ) and its point/ball tests have the correct mathematical intent. Lean verdierDual_extendByZero instead states a special naive-dual calculation, and globalSections is relative pushforward rather than the packet’s geometric-base global-sections formula."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/biduality",
+    "verdict": "unverifiable",
+    "note": "25.1: the packet correctly requires complete algebraically closed C, base Spa(C,O_C), F_ℓ, smooth separated X and bounded constructible A. Its H5 curve compactification gap is inherited. Lean replaces the base by strictlyTotallyDisconnected, contradicted by the packet’s own 25.2 example."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/finiteness-of-cohomology",
+    "verdict": "unverifiable",
+    "note": "25.1 last assertion: quasicompact X and bounded constructible F_ℓ complexes have finite cohomology; the packet gives the compactness argument. Lean omits the geometric-point base and F_ℓ specialization, so it overgeneralizes the theorem."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/biduality-counterexample",
+    "verdict": "verified",
+    "note": "25.2: the packet retains C⁺ properly contained in O_C and the nonzero generic-point extension by zero over F_ℓ. Its two duals become the constant sheaf, illustrating exactly why the positive biduality theorem needs O_C."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/biduality-torsion-coefficients",
+    "verdict": "unverifiable",
+    "note": "25.3 and footnote 6: the packet distinguishes perfect-constructible Λ complexes from arbitrary bounded constructible ones and explains ℤ/ℓ^m reduction plus extension. Lean cannot distinguish coefficient contexts and again weakens Spa(C,O_C) to a strictly totally disconnected base."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/closed-points-detect-vanishing",
+    "verdict": "unverifiable",
+    "note": "25.4 proof: retained explicit completeness and recorded the unproved valuation-refinement/closed-point and component-openness inputs. The existing JacobsonSpace lemmas assume Jacobson and do not establish it for Zariski–Riemann spaces. Lean closedPoints_detect_zero is only the baseline topological lemma."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/verdier-conservativity",
+    "verdict": "unverifiable",
+    "note": "25.4: the packet is over Spa(C,O_C) with complete C, arbitrary étale F_ℓ complex and eligible structural map. Its closed-point reduction depends on the recorded ZR gaps. Lean strictlyTotallyDisconnected again admits the explicit 25.5 counterexample base."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/conservativity-counterexample",
+    "verdict": "corrected",
+    "note": "25.5: corrected nonzero coefficient and prime-to-p annihilator hypotheses so the purported nonzero i*Λ is meaningful. C⁺≠O_C and the closed-point inclusion supply the zero-naive-dual example, not an arbitrary object assumed to have that property."
+   },
+   {
+    "nodeId": "DiamondSixOperations:S6/conservativity-general-coefficients",
+    "verdict": "unverifiable",
+    "note": "25.6: the packet is correctly conditional on RHom_Λ(−,Λ) detecting zero and separates the O_K illustration from prime-to-p torsion coefficients. It inherits the recorded closed-point gaps; Lean still lacks the geometric-point base and a module-category identification for the ring hypothesis."
+   }
+  ]
+ }
 }

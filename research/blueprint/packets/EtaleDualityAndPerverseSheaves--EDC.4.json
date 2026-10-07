@@ -367,13 +367,11 @@
     {
      "sourceId": "Deligne-WeilII-1980",
      "locator": "§4, (4.1.6), p. 218",
-     "excerpt": "Le résultat clef est celui qui donne la dimension cohomologique des variétés affines",
      "match": "Deligne's proof of weak Lefschetz rests on the cohomological dimension of affine varieties (SGA 4 XIV 3.2)."
     },
     {
      "sourceId": "SGA4-XIV",
      "locator": "XIV, Corollaire 3.2, LNM 305 pp. 159–160",
-     "excerpt": "Corollaire 3.2. — Soit 𝑋 un schéma affine de type fini sur un corps 𝑘 séparablement clos. 160 Alors(4) cd 𝑋 ≤ dim 𝑋.",
      "match": "Artin's affine vanishing: cd X ≤ dim X for X affine of finite type over a separably closed field (the retyped text keeps the margin page number 160 and the footnote mark (4))."
     }
    ],
@@ -413,7 +411,6 @@
     {
      "sourceId": "Deligne-WeilII-1980",
      "locator": "§4, (4.1.6), p. 219",
-     "excerpt": "Puisque X−Y est lisse, on a aussi, par dualité de Poincaré",
      "match": "Deligne deduces the vanishing of H^i_c(X − Y) for i < n from affine vanishing and Poincaré duality on the smooth affine X − Y."
     }
    ],
@@ -461,13 +458,11 @@
     {
      "sourceId": "Deligne-WeilII-1980",
      "locator": "§4, (4.1.6), p. 218–219",
-     "excerpt": "La suite exacte longue de cohomologie relative",
      "match": "Deligne's weak Lefschetz: the long exact sequence of relative cohomology together with the vanishing of H^i_c(X − Y) for i < n gives the restriction statement."
     },
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§7, p. 299",
-     "excerpt": "D'après le théorème de Lefschetz faible (corollaire de SGA 4, XIV (3.2), et de la dualité de Poincaré",
      "match": "Weil I derives weak Lefschetz from affine vanishing and Poincaré duality, exactly the route of this node."
     }
    ],
@@ -506,13 +501,11 @@
     {
      "sourceId": "Deligne-WeilII-1980",
      "locator": "§4, (4.1.6), p. 219",
-     "excerpt": "Les morphismes de Gysin, transposés par dualité de Poincaré des morphismes de restriction, sont donc tels que",
      "match": "Deligne states the Gysin (dual) form of weak Lefschetz."
     },
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§7, p. 300",
-     "excerpt": "est surjectif (cet argument est dual de A))",
      "match": "Weil I uses the surjectivity of the Gysin map H^{n−1}(Y)(−1) → H^{n+1}(X) as the dual of weak Lefschetz."
     }
    ],
@@ -551,7 +544,6 @@
     {
      "sourceId": "Deligne-WeilII-1980",
      "locator": "§4, (4.1.6), p. 219",
-     "excerpt": "fournit le renseignement supplémentaire que",
      "match": "Deligne's (4.1.6): the universal coefficient formula gives the torsion-freeness of H^{n+1}_c(X − Y, ℤ_ℓ), hence of H^n(Y, ℤ_ℓ)/H^n(X, ℤ_ℓ)."
     }
    ],
@@ -591,13 +583,11 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§5, (5.7), p. 292",
-     "excerpt": "Les sections hyperplanes de i_r(P) sont les hypersurfaces de degré r de P",
      "match": "Weil I's Veronese re-embedding turns degree-r hypersurface sections into hyperplane sections."
     },
     {
      "sourceId": "Stacks-Morphisms",
      "locator": "Morphisms of Schemes, Lemma 44.18, Tag 0EKE",
-     "excerpt": "Lemma 44.18. Let f : X → S be a universally closed morphism. Let L be an f -ample invertible OX -module. Let s ∈ Γ(X, L). Then Xs → S is an affine morphism.",
      "match": "For X proper (universally closed) and ℒ ample, X_s is affine: the complement of an ample divisor in a proper scheme is affine."
     }
    ],
@@ -643,7 +633,6 @@
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "§16 (aside on complete intersections), p. 110",
-     "excerpt": "For a smooth complete intersection X of dimension m, an induction argument using the Gysin",
      "match": "Milne gives the low-degree calculation, dual high-degree groups and primitive rational decomposition. The integral refinement uses saturated weak Lefschetz and integral duality; it does not assert that high integral hyperplane powers are generators."
     }
    ],
@@ -692,7 +681,6 @@
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "§23, Theorem 23.2, p. 139",
-     "excerpt": "be the associated projective bundle. Let  be the class of O.1/ in H 2 .P.E/; .1//. Then",
      "match": "Milne's projective bundle theorem: H^∗(P(E)) is free over H^∗(X) on 1, ξ, …, ξ^m (text-layer rendering of 'ξ', 'P(E)', 'Λ(1)')."
     }
    ],
@@ -735,7 +723,6 @@
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "§33, proof of Lemma 33.2, p. 194",
-     "excerpt": "The map 'W X  ! X is proper, and so we can apply the proper base change the-",
      "match": "Milne computes the direct images along the blow-up of the codimension-two axis by proper base change: π_*Λ = Λ, R²π_*Λ supported on A ∩ X, other R^r = 0."
     }
    ],
@@ -778,13 +765,11 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§7, p. 299",
-     "excerpt": "Puisque X se déduit de X par éclatement de la sous-variété lisse de codimension",
      "match": "Weil I uses the blow-up formula along the smooth codimension-two centre A ∩ X: H*(X̃) = H*(X) ⊕ H^{*−2}(A ∩ X)(−1)."
     },
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "§33, proof of Lemma 33.2, p. 194",
-     "excerpt": "The Leray spectral se-",
      "match": "Milne obtains H*(X*) ≅ H*(X) ⊕ H*−2(A ∩ X)(−1) from the degenerating Leray spectral sequence of the blow-up."
     }
    ],
@@ -818,13 +803,11 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§7, proof of Lemme (7.1), p. 299",
-     "excerpt": "Puisque X se déduit de X par éclatement de la sous-variété lisse de codimension deux AnX, on a",
      "match": "Weil I passes to the blow-up of X along the smooth codimension-two centre A ∩ X (the axis of the pencil) and uses its cohomology."
     },
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "§33, Lemma 33.2 and proof, p. 193–194",
-     "excerpt": "Then the variety X  obtained from X by blowing up along the axis A \\ X is also",
      "match": "Milne blows up along the axis A ∩ X of a Lefschetz pencil before applying the Leray spectral sequence of X* → P¹."
     }
    ],
@@ -864,7 +847,6 @@
     {
      "sourceId": "Liu-Tian-Xiao-Zhang-Zhu-2022",
      "locator": "§5.11, Lemma 5.11.3(3), p. 98 (arXiv v3)",
-     "excerpt": "(3) The natural map σ ∗ : HiT (P?0 ,?1 , Oλ ) → HiT (Q?0 ,?1 , Oλ ) is injective, and moreover an isomorphism if ?0 6=?1 .",
      "match": "Liu–Tian–Xiao–Zhang–Zhu use injectivity of the pullback along a blow-up with smooth centre or a P¹-bundle (Lemma 5.11.3(3)–(4)); this node is that statement for étale cohomology with O_λ coefficients."
     }
    ],
@@ -988,7 +970,6 @@
     {
      "sourceId": "Deligne-WeilII-1980",
      "locator": "§4.3, before Lemme (4.3.2), p. 222",
-     "excerpt": "La partie évanescente Ev(Y) de H^n(Y) a été définie en (4.2.4). Nous noterons Ev(Y)^⊥ son orthogonal pour la forme (x, y) = Tr(x ∪ y).",
      "match": "Deligne uses the vanishing part of H^n(Y) and its orthogonal for the trace pairing; this node constructs both as subspaces without the hard-Lefschetz splitting."
     }
    ],
@@ -1025,7 +1006,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 1.3.6, p. 31",
-     "excerpt": "Le coeur C := D^{≤0} ∩ D^{≥0} de la t-catégorie D est une sous-catégorie abélienne admissible de D, stable par extensions (1.2.5, 1.2.6). Le foncteur H^0 := τ_{≥0}τ_{≤0} de D dans C est un foncteur cohomologique.",
      "match": "The heart of a t-category is an admissible abelian subcategory and H⁰ is cohomological."
     }
    ],
@@ -1133,7 +1113,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 1.3.6, p. 31",
-     "excerpt": "Le coeur C := D^{≤0} ∩ D^{≥0} de la t-catégorie D est une sous-catégorie abélienne admissible de D, stable par extensions (1.2.5, 1.2.6). Le foncteur H^0 := τ_{≥0}τ_{≤0} de D dans C est un foncteur cohomologique.",
      "match": "H⁰ = τ_{≥0}τ_{≤0} with values in the heart is a cohomological functor."
     }
    ],
@@ -1253,7 +1232,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "1.3.16, p. 36",
-     "excerpt": "Nous dirons que T est t-exact à droite si T(D_1^{≤0}) ⊂ D_2^{≤0}, t-exact à gauche si T(D_1^{≥0}) ⊂ D_2^{≥0}, et t-exact s'il est t-exact à droite et à gauche.",
      "match": "Definition of left/right t-exact functors and the adjoint criterion."
     }
    ],
@@ -1358,7 +1336,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "1.4.3 (1.4.3.1)–(1.4.3.2), p. 44",
-     "excerpt": "(1.4.3.1) i_* admet des adjoints à gauche et à droite exacts. On les note i^* et i^!. (1.4.3.2) j^* admet des adjoints à gauche et à droite exacts. On les note j_! et j_*.",
      "match": "The axioms of a recollement situation (i_*, j^* with adjoints, triangles)."
     }
    ],
@@ -1393,7 +1370,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 1.4.10, p. 48",
-     "excerpt": "Avec les hypothèses et notations précédentes, (D^{≤0},D^{≥0}) est une t-structure sur D. On dira qu'elle est déduite de celles de D_U et D_F par recollement.",
      "match": "The pair (D^{≤0}, D^{≥0}) defined by j^*, i^*, i^! is a t-structure, glued from those on D_U and D_F."
     }
    ],
@@ -1495,7 +1471,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Définition 1.4.22, p. 54",
-     "excerpt": "Le foncteur j_{!*} : C_U → C est le foncteur qui à B dans C_U attache l'image de ^pj_!B dans ^pj_*B .",
      "match": "j_!*B is the image of pj_!B in pj_*B."
     }
    ],
@@ -1627,13 +1602,11 @@
     {
      "sourceId": "BBD-1982",
      "locator": "4.0, (4.0.1)–(4.0.2), p. 102",
-     "excerpt": "(4.0.1) H^i i_x^*K = 0 pour i > -dim(x) et (4.0.2) H^i i_x^!K = 0 pour i < -dim(x) . La condition (4.0.1) caractérise ^pD_c^{≤0} , et (4.0.2) caractérise ^pD_c^{≥0}.",
      "match": "The middle perversity conditions in terms of dim(x) for X of finite type over a field."
     },
     {
      "sourceId": "BBD-1982",
      "locator": "Proposition 2.1.3, p. 57",
-     "excerpt": "Pour chaque perversité p , (^pD^{+,≤0}(X,O) , ^pD^{≥0}(X,O)) est une t-structure sur D^+(X,O).",
      "match": "The perverse t-structure is obtained by gluing along strata."
     }
    ],
@@ -1752,7 +1725,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Corollaire 2.1.23, p. 65",
-     "excerpt": "Les faisceaux p-pervers sur les ouverts de X forment un champ. Preuve (Utilisant 3.2 ; une variante est prouvée, indépendamment de 3.2 , en 2.2.19).",
      "match": "p-perverse sheaves on the opens of X form a stack."
     }
    ],
@@ -1788,7 +1760,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "4.0 (Exemples), p. 102",
-     "excerpt": "Exemples : ℚ̄_ℓ[d] (ou plus généralement un faisceau lisse, placé en degré -d) sur X lisse purement de dimension d , ou un faisceau ponctuel placé en degré cohomologique 0 , sont des faisceaux pervers (cf. 2.2.2).",
      "match": "A lisse sheaf placed in degree −d on X smooth of pure dimension d is perverse."
     }
    ],
@@ -1825,7 +1796,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Propositions 1.4.16 and 1.4.19, pp. 51–53",
-     "excerpt": "(i) Les foncteurs j_! et i^* (resp. j^* et i_* , resp. j_* et i^!) sont t-exacts à droite (resp. t-exacts, resp. t-exacts à gauche). (ii) (^pj_!,^pj^*,^pj_*) et (^pi^*,^pi_*,^pi^!) forment deux suites de 3 foncteurs adjoints.",
      "match": "1.4.16 supplies the one-sided t-exactness; 1.4.19 supplies the five-term sequences. Neither says that an arbitrary closed restriction has amplitude one."
     }
    ],
@@ -1958,7 +1928,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Proposition 2.1.9, p. 59",
-     "excerpt": "Pour B dans M(p,U,O), j_{!*}B est l'unique prolongement P de B dans D(X,O) tel que, pour chaque strate S ⊂ F, notant s son inclusion dans X, on ait H^i s^*P = 0 pour i ≥ p(S) et H^i s^!P = 0 pour i ≤ p(S).",
      "match": "j_!*P is the unique extension with strict stalk and costalk bounds on the strata of F; Deligne's truncation formula."
     }
    ],
@@ -2078,13 +2047,11 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 4.3.1 (ii), p. 112",
-     "excerpt": "alors j_{!*}(L[dim V]) est un faisceau pervers simple sur X . Tous les faisceaux pervers simples sont ainsi obtenus.",
      "match": "Simple perverse sheaves are j_!*(L[d]) of irreducible local systems on smooth irreducible locally closed V."
     },
     {
      "sourceId": "Zhu-2017",
      "locator": "Appendix A.3.1, p. 54 (arXiv v3)",
-     "excerpt": "The definition of perverse sheaves works in this setting without change. In particular, we have the notion of the Goresky-Macpherson intermediate extension, and for every X, the intersection cohomology sheaf ICX .",
      "match": "Zhu uses perverse sheaves, intermediate extension and IC on (models of) perfect spaces exactly as defined here; the perfect-space transport is the proposed Part II."
     }
    ],
@@ -2123,7 +2090,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 4.3.1 (ii), p. 112",
-     "excerpt": "alors j_{!*}(L[dim V]) est un faisceau pervers simple sur X . Tous les faisceaux pervers simples sont ainsi obtenus.",
      "match": "Perv is artinian and noetherian; simple objects are intermediate extensions of irreducible local systems."
     }
    ],
@@ -2168,7 +2134,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "4.0 (autodualité), p. 102",
-     "excerpt": "La perversité p_{1/2} étant autoduale, la dualité de Verdier échange ^pD_c^{≥0} et ^pD_c^{≤0} . Elle induit une anti-autoéquivalence de la catégorie des faisceaux pervers.",
      "match": "For the middle perversity, duality exchanges pD^{≤0} and pD^{≥0} (self-duality of p_{1/2})."
     }
    ],
@@ -2212,7 +2177,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Corollaire 4.1.3, p. 103",
-     "excerpt": "Si f : X → Y est quasi-fini et affine, les foncteurs f_! et f_* sont t-exacts.",
      "match": "Rf_* is right t-exact for f affine; quasi-finite affine maps are t-exact; Artin vanishing as a corollary."
     }
    ],
@@ -2251,7 +2215,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "4.2.4, p. 108",
-     "excerpt": "Si la dimension des fibres de f est ≤ d , on a les estimations suivantes pour l'amplitude cohomologique : f_! : ≤ d f^! : ≥ -d f^* : ≤ d f_* : ≥ -d",
      "match": "Amplitude estimates for f_!, f^!, f^*, f_* when the fibres have dimension ≤ d; duality exchanges them."
     }
    ],
@@ -2288,7 +2251,6 @@
     {
      "sourceId": "Caraiani-Scholze-2017",
      "locator": "discussion after Corollary 6.1.4, p. 87 (arXiv v1)",
-     "excerpt": "But as this sheaf is (up to shift) perverse, one concludes by observing that on the largest stratum where a perverse sheaf is nonzero, it is",
      "match": "Caraiani–Scholze: on the largest stratum where a perverse sheaf is nonzero it is concentrated in one degree."
     }
    ],
@@ -2326,13 +2288,11 @@
     {
      "sourceId": "Mirkovic-Vilonen-2007",
      "locator": "§4, Lemma 4.3, p. 14 (arXiv v5)",
-     "excerpt": "The result below follows directly from dimension counting: 4.3. Lemma. If f is a semi-small stratified map then Rf∗ A ∈ PS (X, k) for all A ∈ PT (Y, k) .",
      "match": "Mirković–Vilonen prove the stratified semismall perverse statement for complex stratified spaces. The étale scheme formulation here is the analogous stalk/costalk dimension argument using the separately requested proper base change and cohomological dimension; it is not a literal scheme theorem quoted from MV."
     },
     {
      "sourceId": "deCataldo-Migliorini-2009",
      "locator": "§4.2, Proposition 4.2.1, p. 56 (arXiv v2)",
-     "excerpt": "The following are equivalent: 1. f∗ QX [n] is a perverse sheaf on Y ; 2. dim X ×Y X ≤ n; 3. dim Sk + 2dk ≤ dim X, for every k = 0, . . . , n.",
      "match": "Definition of semismall maps and perversity of Rf_*Q[n] for semismall f from a smooth source."
     }
    ],
@@ -2369,13 +2329,11 @@
     {
      "sourceId": "deCataldo-Migliorini-2009",
      "locator": "§4.2, Remark 4.2.4, p. 56 (arXiv v2)",
-     "excerpt": "Hence, if Yo ⊆ Y denotes a nonsingular dense open subset over which f is a covering, then we have that f∗ QX [n] = ICY (L), where L is the local system f∗ QX|Yo .",
      "match": "Small maps: Rf_*Q_X[n] is the intersection complex of the generic local system."
     },
     {
      "sourceId": "Yun-Zhang-2019",
      "locator": "§7.1, proof of Proposition 7.1(1), published p. 507",
-     "excerpt": "By Proposition 5.5(3)(4), fd is proper and small. Therefore, Rfd! Q` [m] is a middle extension perverse sheaf from any non-empty open subset of Ad .",
      "match": "Yun–Zhang use smallness to identify a proper pushforward with an IC complex."
     }
    ],
@@ -2490,7 +2448,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "4.0 (a), p. 101, with 3.3.4, p. 99–100",
-     "excerpt": "(a) En ℤ_ℓ-cohomologie, la perversité autoduale p_{1/2} donne lieu à deux t-structures [p_{1/2}] et [p_{1/2}+] (3.3), échangées par dualité.",
      "match": "For coefficients ℤ (or a Dedekind ring), the perversities p and p⁺ glued from the standard t-structures, exchanged by duality."
     }
    ],
@@ -2530,13 +2487,11 @@
     {
      "sourceId": "Scholze-ECD-2026",
      "locator": "§27, Proposition 27.2, p. 163",
-     "excerpt": "If X is any scheme of characteristic p, the functor c^*_X : D_ét(X, Λ) → D_ét(X^♢, Λ) is fully faithful and admits a right adjoint Rc_{X*}.",
      "match": "c_X^* is fully faithful for any scheme X of characteristic p with Λ as in the statement."
     },
     {
      "sourceId": "Scholze-ECD-2026",
      "locator": "§27, Proposition 27.4, p. 165",
-     "excerpt": "Let f : Y → X be a separated map of finite type of qcqs schemes of characteristic p, or the perfection thereof.",
      "match": "Rf^◇_!c_Y^* ≅ c_X^*Rf_! for f separated of finite type between qcqs schemes of characteristic p."
     }
    ],
@@ -2576,7 +2531,6 @@
     {
      "sourceId": "Bhatt-Scholze-proetale-2015",
      "locator": "§§6.5–6.8, especially Proposition 6.6.11, Lemma 6.7.1, Proposition 6.8.14 and Remark 6.8.15, pp. 49–62 (arXiv v2)",
-     "excerpt": "The following proposition shows that the triangulated category Dcons (Xproét , E) is equivalent to the triangulated category traditionally called Dcb (X, E).",
      "match": "Bhatt–Scholze define constructible complexes on X_proét with O and E coefficients and compare them with the classical category."
     }
    ],
@@ -2619,7 +2573,6 @@
     {
      "sourceId": "Bhatt-Scholze-proetale-2015",
      "locator": "Remark 6.8.15, p. 62 (arXiv v2)",
-     "excerpt": "Remark 6.8.15. Let Λ ∈ {OE , E}. Under the same assumptions as in §6.7, the 6 functors are defined on Dcons (Xproét , Λ).",
      "match": "Bhatt–Scholze: the six operations and duality on constructible ℓ-adic complexes on the pro-étale site."
     }
    ],
@@ -2658,7 +2611,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "2.2.18, p. 73",
-     "excerpt": "On définit la t-structure de perversité p sur D^b_c(X,ℚ_ℓ) par passage à la limite sur (S,L) et recollement, comme précédemment.",
      "match": "BBD's treatment of ℚ_ℓ and Q̄_ℓ coefficients for the perverse t-structure."
     }
    ],
@@ -2700,7 +2652,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "6.1.2(A′)–(C′), pp. 149–150",
-     "excerpt": "(B') Pour R un anneau fini, on a une équivalence de catégories ε^* : D^b_c(X,R) ⥲ D^b_c(X(ℂ),R) . L'indice c est pour: \"à faisceaux de cohomologie constructibles\".",
      "match": "Finite and integral comparison are equivalences; rational comparison is fully faithful with the lattice essential image. Commutation with operations is (C′)."
     }
    ],
@@ -2739,7 +2690,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "6.1.2 (B′), p. 149",
-     "excerpt": "(B') Pour R un anneau fini, on a une équivalence de catégories ε^* : D^b_c(X,R) ⥲ D^b_c(X(ℂ),R) . L'indice c est pour: \"à faisceaux de cohomologie constructibles\".",
      "match": "The comparison of étale and analytic constructible categories over ℂ underlying the trace comparison."
     }
    ],
@@ -2776,7 +2726,6 @@
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "§16, p. 110",
-     "excerpt": "For a smooth complete intersection X of dimension m, an induction argument using the Gysin sequence and Poincaré duality again shows that there is a canonical decomposition H",
      "match": "Milne: the primitive rank depends only on m and the degrees, with the explicit hypersurface formula."
     }
    ],
@@ -2815,7 +2764,6 @@
     {
      "sourceId": "Scholze-ECD-2026",
      "locator": "§27, Proposition 27.4, p. 165",
-     "excerpt": "Let f : Y → X be a separated map of finite type of qcqs schemes of characteristic p, or the perfection thereof.",
      "match": "27.4 compares ! operations using c^* for Rf_! and Rc_* for Rf^!; together with 27.2–27.3 it supplies right-adjoint recovery, not an unconditional c^* duality isomorphism."
     }
    ],
@@ -2856,7 +2804,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.4.1, p. 141 (with Stabilités 5.1.14, p. 128)",
-     "excerpt": "Pour que K_o soit de poids ≤ w (resp. ≥ w) , il faut et il suffit que chaque ^pH^iK_o soit de poids ≤ w+i (resp. ≥ w+i) .",
      "match": "Stability of weights under the six operations and duality; weights of perverse cohomology."
     }
    ],
@@ -2890,7 +2837,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Proposition 5.1.15, p. 129",
-     "excerpt": "Soient K_o et L_o dans D^b_m(X_o,ℚ̄_ℓ) . Supposons que, pour un entier w , K_o soit dans D^b_{≤w} et L_o dans D^b_{>w} . Alors (i) Ra_*RHom(K_o,L_o) est dans D^b_{>0}(Spec(𝔽_q)) . (ii) Hom^i(K_o,L_o) = 0 pour i > 0",
      "match": "Vanishing of Hom and Ext¹ between complexes of incompatible weights."
     }
    ],
@@ -2924,7 +2870,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.3.5, p. 136",
-     "excerpt": "Un faisceau pervers mixte admet une unique filtration finie croissante W , la filtration par le poids, telle que Gr^W_iF_o soit pur de poids i . Tout morphisme f : F_o → G_o est strictement compatible aux filtrations par le poids de F_o et G_o .",
      "match": "A mixed perverse sheaf has a unique finite increasing weight filtration with pure graded pieces; morphisms are strict."
     }
    ],
@@ -2966,7 +2911,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Corollaire 5.3.2, p. 135",
-     "excerpt": "En particulier, si F_o est pur, j_{!*}F_o est pur du même poids. Première preuve. Supposons F_o de poids ≤ w . Puisque j est affine, j_!F_o est pervers (4.1.3).",
      "match": "j_!* of a pure perverse sheaf along an affine immersion is pure of the same weight."
     }
    ],
@@ -3007,7 +2951,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.3.8, p. 138",
-     "excerpt": "Si F_o/X_o est un faisceau pervers pur, le faisceau pervers F sur X est somme directe de faisceaux pervers simples, donc de la forme j_{!*}L[d] pour j : U ↪ X l'inclusion de U lisse connexe purement de dimension d",
      "match": "A pure perverse sheaf on X₀ becomes semisimple on X."
     }
    ],
@@ -3046,7 +2989,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.4.5, p. 142",
-     "excerpt": "Si K_o dans D^b_m(X_o,ℚ̄_ℓ) est pur, sur X , K est somme de ses ^pH^iK[-i] .",
      "match": "A pure complex is, over F̄, the direct sum of its shifted perverse cohomology sheaves, which are sums of IC complexes."
     }
    ],
@@ -3084,13 +3026,11 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.4.5, p. 142",
-     "excerpt": "Si K_o dans D^b_m(X_o,ℚ̄_ℓ) est pur, sur X , K est somme de ses ^pH^iK[-i] .",
      "match": "Applied to Rf_*F for f proper and F pure perverse."
     },
     {
      "sourceId": "Zhu-2017",
      "locator": "proof of Lemma 2.11, p. 26 (arXiv v3)",
-     "excerpt": "decomposition theorem (applying to certain model of π : Gr π∗ Qℓ [d] = ICµ ⊕ C, where C is a certain complex of vector spaces supported at Gr0 .",
      "match": "Zhu applies the decomposition theorem to a finite-type model of a resolution of a Schubert variety (PAPER-ZHU-17/E06), the instance this node supplies."
     }
    ],
@@ -3133,7 +3073,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.4.10, p. 144",
-     "excerpt": "(Théorème de Lefschetz difficile relatif). Si F_o est un faisceau pervers pur sur X_o , pour tout i ≥ 0 , le morphisme ℓ^i : ^pH^{-i}f_*F_o → ^pH^if_*F_o(i) est un isomorphisme.",
      "match": "Relative hard Lefschetz: η^i : pH^{−i}f_*F ≅ pH^i f_*F(i) for F pure perverse."
     }
    ],
@@ -3168,7 +3107,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 5.4.10, p. 144",
-     "excerpt": "(Théorème de Lefschetz difficile relatif). Si F_o est un faisceau pervers pur sur X_o , pour tout i ≥ 0 , le morphisme ℓ^i : ^pH^{-i}f_*F_o → ^pH^if_*F_o(i) est un isomorphisme.",
      "match": "The primitive decomposition follows formally from relative hard Lefschetz."
     }
    ],
@@ -3205,7 +3143,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "6.1.8–6.1.10, pp. 155–159; 6.2.4–6.2.6, pp. 162–164",
-     "excerpt": "Pour toute fonction de perversité p sur T , les équivalences 6.1.9 respectent alors les t-structures de perversité p , et il en va de même pour le germe du système d'équivalences (6.1.10.1).",
      "match": "The equivalences are restricted to chosen strata and coefficient families; 6.1.10 warns against a full-category limit. Pure specialization of simple geometric-origin objects is 6.2.6."
     }
    ],
@@ -3245,7 +3182,6 @@
     {
      "sourceId": "BBD-1982",
      "locator": "Théorème 6.2.5, p. 163",
-     "excerpt": "(théorème de décomposition). Soit f : X → Y un morphisme propre. Si K sur X(ℂ) est semi-simple d'origine géométrique, f_*K sur Y(ℂ) l'est aussi.",
      "match": "The decomposition theorem for proper maps over ℂ and complexes of geometric origin."
     }
    ],
@@ -3358,13 +3294,11 @@
     {
      "sourceId": "Lu-Zheng-2022",
      "locator": "§2.2, Construction 2.6, p. 13 (arXiv v4)",
-     "excerpt": "A morphism (X, L) → (Y, M) in C is a cohomological correspondence over S, namely a pair (c, u), where c = (←c, →c) is a correspondence over S and u : ←c^*L → →c^!M is a morphism in D(C, Λ).",
      "match": "A cohomological correspondence (c, u) with u : ←c^*L → →c^!M."
     },
     {
      "sourceId": "Varshavsky-LV-2007",
      "locator": "Definition 1.1.4 and Remark 1.1.5, p. 7 (arXiv v2)",
-     "excerpt": "By a c-morphism, we mean a morphism u : c2! c∗1 F1 → F2 for some F1 ∈ Dctf b b (X1 , Λ) and F2 ∈ Dctf (X2 , Λ). Remark 1.1.5. A c-morphism is usually called a cohomological correspondence lifting c.",
      "match": "Varshavsky's c-morphisms u : c_{2!}c_1^*F_1 → F_2."
     }
    ],
@@ -3466,7 +3400,6 @@
     {
      "sourceId": "Varshavsky-LV-2007",
      "locator": "1.1.6(a), p. 7 (arXiv v2)",
-     "excerpt": "(a) In the notation of 1.1.1 (b) assume any of the following three conditions: (i) the left inner square of (1.1) is Cartesian; (ii) morphisms f1 and f ♮ are proper; (iii) morphisms c1 and b1 are proper.",
      "match": "Push-forward of cohomological correspondences under the three conditions."
     }
    ],
@@ -3558,7 +3491,6 @@
     {
      "sourceId": "Varshavsky-LV-2007",
      "locator": "Definition 1.5.1(a), p. 14 (arXiv v2)",
-     "excerpt": "(a) We say that Z is c-invariant, if c1 (c−1 2 (Z)) ⊂ X is set-theoretically contained in Z.",
      "match": "Restriction of correspondences to open and closed subschemes; locally invariant subschemes."
     }
    ],
@@ -3662,7 +3594,6 @@
     {
      "sourceId": "Lu-Zheng-2022",
      "locator": "§2.2, Construction 2.6, p. 13 (arXiv v4)",
-     "excerpt": "and w is given by the composite",
      "match": "Composite of cohomological correspondences supported on C ×_Y D, with α adjoint to the base change isomorphism."
     }
    ],
@@ -3776,7 +3707,6 @@
     {
      "sourceId": "Varshavsky-LV-2007",
      "locator": "1.2.2(b), formula (1.4), p. 9 (arXiv v2)",
-     "excerpt": "the composition of T rβ and the integration map πβ! : H 0 (β, Kβ ) → Λ. When β is a connected component of F ix(c) which is proper over k, then LTβ (u) is usually called the local term of u at β.",
      "match": "The trace map Tr_c : Hom(c_1^*F, c_2^!F) → H⁰(Fix(c), K_{Fix(c)}) and local terms."
     }
    ],
@@ -3817,7 +3747,6 @@
     {
      "sourceId": "Varshavsky-LV-2007",
      "locator": "Corollary 1.2.6, p. 10 (arXiv v2)",
-     "excerpt": "As a particular case, we deduce the well-known Lefschetz-Verdier trace formula ([Il1, Cor. 4.7]). Corollary 1.2.6. Let c : C → X × X be a proper correspondence over k. Then for every c-morphism u : c2! c∗1 F → F , we have an equality",
      "match": "Trace maps commute with proper push-forward; the Lefschetz–Verdier trace formula."
     }
    ],
@@ -3853,13 +3782,11 @@
     {
      "sourceId": "Varshavsky-LocalTerms-2020",
      "locator": "Example 5.3, Corollary 5.4(b), Corollary 5.6 and Corollary 4.11, pp. 10–11 (arXiv v3)",
-     "excerpt": "(b) Every connected component β of Fix(c|Z ), which is proper over k, is also a connected com- ponent of Fix(c). Moreover, for every c-morphism u ∈ Homc (F , F ), we have an equality LTβ (u) = LTβ (u|Z ).",
      "match": "The normal-cone criteria and diagonalizable-group argument yield the finite-order prime-to-p case; it is not an application of a contracting-correspondence assertion."
     },
     {
      "sourceId": "Hansen-Kaletha-Weinstein-2022",
      "locator": "Proposition 5.6.2, p. 61 (arXiv v4)",
-     "excerpt": "Then for every isolated g-fixed point x, the true local term locx (g, A) equals the naive local term tr(g|Ax ).",
      "match": "HKW state the perfect-scheme version. This finite-type node is proved from Varshavsky; transport to perfectly finite-type schemes and the HKW integral range belong to the recorded Part II."
     }
    ],
@@ -3894,7 +3821,6 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "(2.6), p. 282",
-     "excerpt": "C'est là la formulation de Grothendieck de l'équation fonctionnelle des fonctions Z.",
      "match": "Weil I derives the functional equation of Z(X, t) from the Frobenius-equivariant Poincaré duality pairing."
     }
    ],
@@ -3929,7 +3855,6 @@
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "Remark 27.13, p. 159",
-     "excerpt": "R EMARK 27.13 The sign is C if d is odd or q d=2 occurs an even number of times as an eigenvalue of F acting on H d .X; Q` /, and is otherwise.",
      "match": "Milne: the functional equation of the zeta function with the sign ± determined by the middle degree."
     }
    ],
@@ -3972,13 +3897,11 @@
     {
      "sourceId": "Milne-LEC-v2.21",
      "locator": "Remark 27.13, p. 159",
-     "excerpt": "R EMARK 27.13 The sign is C if d is odd or q d=2 occurs an even number of times as an eigenvalue of F acting on H d .X; Q` /, and is otherwise.",
      "match": "The functional equation Z(X, 1/(q^d t)) = ± q^{dχ/2} t^χ Z(X, t) from Poincaré duality."
     },
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "(2.6), p. 282",
-     "excerpt": "C'est là la formulation de Grothendieck de l'équation fonctionnelle des fonctions Z.",
      "match": "Weil I's functional equation from Poincaré duality."
     }
    ],
@@ -4337,7 +4260,7 @@
    "source": "BBD-1982",
    "kind": "misprint",
    "locator": "2.2.12 (ii)*, p. 71 (Numdam scan of Astérisque 100, 1982; checked on the page image)",
-   "printed": "\"(ii)* Pour tout point (fermé ou non) x de X, notant dim x la dimension de {x}⁻, on a H^i i_x^*K = 0 pour i < p(2dim x) (resp. H^i i_x^!K = 0 pour i > p(2dim x)).\"",
+   "printed": "Condition (ii)* ranges over every x in X, whether closed or not, with dim x denoting the dimension of {x}⁻. It requires H^i i_x^*K = 0 pour i < p(2dim x), respectively H^i i_x^!K = 0 pour i > p(2dim x).",
    "correction": "K ∈ D^{≤p} iff H^i i_x^*K = 0 for i > p(2 dim x); K ∈ D^{≥p} iff H^i i_x^!K = 0 for i < p(2 dim x). Both inequalities are reversed in print.",
    "reason": "The statement is announced as a reformulation of 2.2.2(ii), and the same conditions appear correctly in (4.0.1)–(4.0.2) for p = p_{1/2} (H^i i_x^*K = 0 for i > −dim(x), H^i i_x^!K = 0 for i < −dim(x)). With the printed inequalities, Λ_x placed in degree 0 at a closed point would fail the D^{≤p} condition.",
    "affects": "nothing",
@@ -4357,7 +4280,7 @@
    "source": "BBD-1982",
    "kind": "misprint",
    "locator": "Théorème 4.3.1 (ii), p. 112 (Numdam scan)",
-   "printed": "\"L est un ℚ_ℓ-faisceau lisse irréductible sur V\"",
+   "printed": "The source describes L as an irreducible lisse ℚ_ℓ-sheaf on V.",
    "correction": "L is an irreducible lisse ℚ̄_ℓ-sheaf: §4 works in D^b_c(X, ℚ̄_ℓ) (4.0).",
    "reason": "4.0 fixes ℚ̄_ℓ coefficients for the whole section; the classification of simple objects is over ℚ̄_ℓ.",
    "affects": "nothing",
@@ -4376,7 +4299,7 @@
    "source": "Zhu-2017",
    "kind": "misprint",
    "locator": "Appendix A.3.1, pp. 54–55 (arXiv 1407.8519v3)",
-   "printed": "\"smooth open subset U is canonically isomorphic to Qℓ [2 dim X](dim X)\"",
+   "printed": "The source asserts a canonical isomorphism on the smooth open subset U with Qℓ [2 dim X](dim X).",
    "correction": "IC_X|_U ≅ ℚ̄_ℓ[dim X] (unnormalized; a half-twist normalization is a separate choice).",
    "reason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex); the printed shift 2 dim X is not perverse.",
    "affects": "nothing",

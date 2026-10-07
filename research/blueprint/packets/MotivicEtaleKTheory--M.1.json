@@ -581,13 +581,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "III.6.10 (Sketch of Galois cohomology), printed p. 242 (PDF p. 250)",
-     "excerpt": "We can also make the tensor product of two discrete modules into a discrete module, with G acting diagonally.",
      "match": "The K-book defines μ_m^{⊗2} as the diagonal tensor square and notes Z/m, μ_m, μ_m^{⊗2} share an underlying group; the node extends this to all j ∈ ℤ."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "III.6.10, printed p. 242 (PDF p. 250)",
-     "excerpt": "have the same underlying abelian group, but are isomorphic GF -modules only when µm ⊂ F",
      "match": "Source of the non-example test: the twists must not be identified with ℤ/m without a root of unity in F."
     }
    ],
@@ -753,13 +751,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "§3, p. 262",
-     "excerpt": "Since the maps μ_{l^{i+1}} → μ_{l^i} are surjective this last sequence is exact, and Z_l(1) = lim (μ_{l^i}) is a free Z_l-module of rank 1.",
      "match": "Tate's definition of Z_l(1) and of Z_l(m) for m ∈ ℤ (Z_l(m+1) = Z_l(m) ⊗ Z_l(1), Z_l(m−1) = Hom(Z_l(1), Z_l(m))); excerpt typed from the scan."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI.8.2 proof and Corollary 8.3, printed pp. 513-514 (PDF pp. 521-522)",
-     "excerpt": "Immediate from 8.2 since H 2 (R, Zℓ (i + 1))/ℓ ∼ = H 2 (R, µ⊗i+1 )",
      "match": "The K-book uses ℤ_ℓ(i) with ℤ_ℓ(i)/ℓ ≅ μ_ℓ^{⊗i}; the coefficient sequences are the ones its proofs use."
     }
    ],
@@ -897,13 +893,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "Definition VI.1.7, printed p. 468 (PDF p. 476)",
-     "excerpt": "we shall write µ(i) for the abelian group µ, made into a Aut(F )-module by letting g ∈ Aut(F ) act as ζ 7→ g i (ζ).",
      "match": "Definition of the twist by the j-th power of the action; the Sylow decomposition µ(i) = ⊕Z/ℓ∞(i) is the primewise description."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "Definition VI.2.1, printed p. 469 (PDF p. 477)",
-     "excerpt": "If µ(i)G is a finite group it is cyclic, and we write wi (F ) for its order",
      "match": "Definition of w_i(F) as the order of μ(i)^G; that invariant is ArithmeticKTheory N.4's, built on the module of this node."
     }
    ],
@@ -1004,13 +998,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "III.6.10, (6.10.2), printed p. 242 (PDF p. 250)",
-     "excerpt": "There are also natural cup products in cohomology, such as the product",
      "match": "The product F^× ⊗ F^× → H¹ ⊗ H¹ → H²(F; μ_m^{⊗2}) and its projection formula tr(a ∪ b) = a ∪ N(b) are the degree-(1,1) case of this node."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI Corollary 4.1.1, printed p. 480 (PDF p. 488)",
-     "excerpt": "They form a ring isomorphism",
      "match": "The graded ring ⊕ H^i(k, μ_m^{⊗i}) is the target of the norm residue ring isomorphism."
     }
    ],
@@ -1138,25 +1130,21 @@
     {
      "sourceId": "NSW2020",
      "locator": "II §7, (2.7.6) Corollary, printed p. 142 (PDF p. 156)",
-     "excerpt": "If H i (G, An ) is finite for all n, then i+1 Hcts (G, A) = lim H i+1 (G, An ).",
      "match": "The finite-coefficient case of (a)."
     },
     {
      "sourceId": "Tate1976",
      "locator": "§2, pp. 258-261",
-     "excerpt": "In this section we review the basic definitions and properties of the cohomology theory which is used in the sequel.",
      "match": "Tate's §2 is the source of the limit and exact-sequence properties of continuous cochain cohomology used throughout M.3; excerpt typed from the scan."
     },
     {
      "sourceId": "Tate1976",
      "locator": "§2, (2.2) Proposition and Corollary, p. 261",
-     "excerpt": "(2.2) Proposition. For each n > 0 there is an exact sequence",
      "match": "Tate's lim^1 sequence 0 → lim^1 H^{n−1}(G, T/l^iT) → H^n(G, T) → lim H^n(G, T/l^iT) → 0 and its Corollary (finite groups or surjective transitions), the source of (a); excerpt typed from the scan."
     },
     {
      "sourceId": "Tate1976",
      "locator": "§2, Restriction and Transfer, pp. 259-260",
-     "excerpt": "In relation to the cup-product they satisfy",
      "match": "Tate defines restriction and the cochain transfer for arbitrary topological G-modules, commuting with exact cohomology sequences, with tr(x ∪ res y) = (tr x) ∪ y: the source of (e); excerpt typed from the scan."
     }
    ],
@@ -1201,13 +1189,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.4, printed p. 480 (PDF p. 488)",
-     "excerpt": "For any smooth X, there is a natural map H n (X, Z/m(i)) → Het",
      "match": "The étale twists μ_m^{⊗i} on schemes are the targets of the motivic-to-étale map; this node provides them."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI.8.2 proof, printed p. 514 (PDF p. 522)",
-     "excerpt": "The same argument works for ℓ-adic coefficients Zℓ",
      "match": "The K-book uses continuous ℓ-adic étale cohomology H_et(R, ℤ_ℓ(i)) of S-integer rings."
     }
    ],
@@ -1337,13 +1323,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "III.6.10, printed p. 242 (PDF p. 250)",
-     "excerpt": "The Galois cohomology groups 0 i (F ; M ) (F ; M ) are defined to be its right derived functors.",
      "match": "The K-book writes Galois cohomology as H_et(F; M); this node proves that the étale cohomology of Spec F computes it."
     },
     {
      "sourceId": "NSW2020",
      "locator": "I §5, (1.5.1) Proposition, printed p. 45 (PDF p. 59)",
-     "excerpt": "the cohomology groups H n (Gi , Ai ) form a direct system of abelian groups",
      "match": "NSW (1.5.1): H^n(lim G_i, colim A_i) ≅ colim H^n(G_i, A_i) for a projective system of profinite groups with compatible discrete modules; the filtered-colimit invariance of this node."
     }
    ],
@@ -1393,7 +1377,6 @@
     {
      "sourceId": "MilneADT",
      "locator": "II §2, Proposition 2.9 and its proof, printed pp. 170-171 (PDF pp. 178-179)",
-     "excerpt": "H r .U; F /.`/ D H r .GS ; M /.`/ for all r if ` is invertible on U",
      "match": "Milne's statement for locally constant ℤ-constructible sheaves on an open affine U of X (so S finite); the node specialises to finite modules of invertible order and their twists. The proof uses the Hochschild–Serre sequence for Ũ/U, the Kummer sequence, Pic(Ũ) = 0, Br(Ũ)(ℓ) = 0 via the S-integer Brauer sequence, and high-degree vanishing for totally imaginary fields, as in the proof steps."
     }
    ],
@@ -1433,13 +1416,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI Example 8.5, printed p. 514 (PDF p. 522)",
-     "excerpt": "H 1 (OS ; µ⊗i ℓ ) = OS /OS ⊕ ℓ Pic(OS ) and H (OS ; µℓ ) = Pic(OS )/ℓ ⊕ ℓ Br(OS )",
      "match": "The two Kummer sequences for S-integers (split when μ_ℓ ⊂ O_S)."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "III Example 6.10.1, printed p. 242 (PDF p. 250)",
-     "excerpt": "is refered to as the Kummer sequence",
      "match": "The field case."
     }
    ],
@@ -1476,13 +1457,11 @@
     {
      "sourceId": "Geisser2004",
      "locator": "Theorem 1.2(3), p. 774",
-     "excerpt": "Let R be a henselian local ring of a smooth scheme over B, k the residue field of R, and m ∈ N be invertible in k.",
      "match": "Geisser's motivic rigidity has the same shape; the étale statement of this node is the classical henselian comparison, which Geisser's proof combines with Beilinson–Lichtenbaum."
     },
     {
      "sourceId": "MilneADT",
      "locator": "II §1, Proposition 1.1(b), printed p. 149 (PDF p. 157)",
-     "excerpt": "For any sheaf F on X , the map H r .X; F / ! H r .x; i  F / is an isomorphism all r  0",
      "match": "For X the spectrum of a henselian discrete valuation ring with closed point x, restriction to x is an isomorphism for every étale sheaf: the discrete-valuation case of this node, which ClassicalAdicEtaleCohomology's Gabber theorem extends to henselian local rings and torsion sheaves."
     }
    ],
@@ -1527,19 +1506,16 @@
     {
      "sourceId": "Tate1976",
      "locator": "§5, (5.3), p. 269",
-     "excerpt": "where denotes direct sum. The map d^S is surjective by a theorem of Moore",
      "match": "Tate's K₂ localization sequence 0 → K_2O_S → K_2F → ⊕ k(v)^× → 0, whose étale counterpart is this sequence in degree two; excerpt typed from the scan."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§1, Theorem 1.2(1) (Purity), p. 774",
-     "excerpt": "If i : Y → X is the inclusion of one of the closed fibers, then the canonical map",
      "match": "Purity with shift 2 and twist one along a closed fibre of a Dedekind base, of which the étale form is used here."
     },
     {
      "sourceId": "MilneADT",
      "locator": "II §1, Remark 1.7(b), printed p. 152 (PDF p. 160)",
-     "excerpt": "For this last statement concerning n it is not even necessary to assume that k is perfect.",
      "match": "Purity on a henselian discrete valuation ring: R²i^!μ_n ≅ ℤ/nℤ and R^r i^!μ_n = 0 for r ≠ 2 when n is prime to the residue characteristic, with no perfectness of k; the local input of this node."
     }
    ],
@@ -1581,7 +1557,6 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.9, (9.2), printed p. 518 (PDF p. 526)",
-     "excerpt": "Following Tate, the r1 real embeddings of F define natural maps",
      "match": "Definition of α^n_S(i) and the values of H^n(ℝ; ℤ/2^∞(i))."
     }
    ],
@@ -1691,13 +1666,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.9, after (9.2) and before Lemma 9.3, printed p. 518 (PDF p. 526)",
-     "excerpt": "for the kernel of α1",
      "match": "K-book's H̃¹(O_S; ℤ/2^∞(i)) := ker α¹_S(i), and (9.6): H̃^n(R; ℤ/2) the kernel of α^n."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "(9.6.2), printed p. 521 (PDF p. 529)",
-     "excerpt": "A diagram chase (left to Ex. 9.3",
      "match": "The exact sequence relating H̃¹ to the narrow Picard group, which presupposes the kernel definition."
     }
    ],
@@ -1816,31 +1789,26 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.9, after (9.2), printed p. 518 (PDF p. 526)",
-     "excerpt": "This map is an isomorphism for all n ≥ 3 by Tate-Poitou duality",
      "match": "Part (b). The next sentence, 'It is also an isomorphism for n = 2 and i ≥ 2, as shown in Exercise 9.1', depends on Exercise 8.1 (finiteness from K-theory) and is restated in (c) as an equivalence with the finiteness of H²_cont(R, ℤ_2(i)). The citation [128, I(4.20)] here should be Milne ADT I.4.10(c) (sourceIssues)."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI.8.2 proof, printed p. 513 (PDF p. 521)",
-     "excerpt": "unless ℓ = 2 and r1 > 0 (F has a real embedding)",
      "match": "Part (a)."
     },
     {
      "sourceId": "NSW2020",
      "locator": "VIII §6, (8.6.10), PDF p. 503",
-     "excerpt": "Long Exact Sequence of Poitou-Tate",
      "match": "Source of the high-degree localisation isomorphism."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI.9, after (9.6), printed p. 520 (PDF p. 528)",
-     "excerpt": "it is a surjection for n = 2 (see Ex. 9.2)",
      "match": "Part (c) for M = ℤ/2: α² onto."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "Exercise VI.9.1, printed p. 525 (PDF p. 533)",
-     "excerpt": "use Exercise 8.1 to see that",
      "match": "The n = 2, i ≥ 2 isomorphism for ℤ/2^∞(i) is derived from Exercise 8.1, which uses the finiteness of K_{2i−2}(R); hence (c) states only the equivalence with finiteness of H²_cont(R, ℤ_2(i))."
     }
    ],
@@ -1882,13 +1850,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.8.1, (8.1.1), printed p. 513 (PDF p. 521)",
-     "excerpt": "The Brauer group of OS is determined by the sequence",
      "match": "The displayed sequence (8.1.1) 0 → Br(O_S) → (ℤ/2)^{r_1} ⊕ ∐_{v∈S finite} ℚ/ℤ → ℚ/ℤ → 0."
     },
     {
      "sourceId": "MilneADT",
      "locator": "Chapter II, Proposition 2.1, printed p. 163 (PDF p. 171)",
-     "excerpt": "Let U be an open subset of X , and let S denote the set of all primes of K (including the archimedean primes) not corresponding to a point of U",
      "match": "The exact sequence 0 → H²(U, G_m) → ⊕_{v∈S} Br(K_v) → ℚ/ℤ → H³(U, G_m) → 0, with archimedean places in S; its proof is the divisor-sequence argument of the proof steps."
     }
    ],
@@ -1929,19 +1895,16 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.9, after (9.6.2), printed p. 521 (PDF p. 529)",
-     "excerpt": "If s denotes the number of finite places of OS , then dim H 1 (OS ; Z/2)",
      "match": "Part (a); Lemma 9.6.3 gives part (d)."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "Definition 9.6.1, printed p. 520 (PDF p. 528)",
-     "excerpt": "The signature defect j(R) of R is defined to be the dimension of the cokernel of α1",
      "match": "Part (c)."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "Definition 9.6.1, printed p. 520 (PDF p. 528)",
-     "excerpt": "it is a finite group. Some authors call Pic+ (OS ) the ray class group",
      "match": "Definition 9.6.1: Pic^+(R), the cokernel of the restricted divisor map F^×_+ → ⊕_{𝔭∉S} ℤ, used in (b)–(d)."
     }
    ],
@@ -1977,7 +1940,6 @@
     {
      "sourceId": "Kbook2013",
      "locator": "Lemma VI.9.3, printed p. 518 (PDF p. 526)",
-     "excerpt": "For even i, H 1 (F ; Z/2∞ (i))",
      "match": "Statement of Lemma 9.3, with the splitting for sufficiently large S."
     }
    ],
@@ -2020,13 +1982,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI Exercise 8.3, printed p. 516 (PDF p. 524)",
-     "excerpt": "Let ℓ be an odd prime and F a number field. If i > 1, show that for every ring OS of integers in F containing 1/ℓ,",
      "match": "The torsion of H¹(O_S, ℤ_ℓ(i)) is ℤ/w_i^{(ℓ)}(F) and its rank is r_2 or r_1 + r_2; this node proves the cohomological parts that do not need K-theory."
     },
     {
      "sourceId": "NSW2020",
      "locator": "II §7, (2.7.6), PDF p. 156",
-     "excerpt": "If H i (G, An ) is finite for all n",
      "match": "Limit step in (a)."
     }
    ],
@@ -2067,13 +2027,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "§5, (5.3), p. 269",
-     "excerpt": "The map d^S is surjective by a theorem of Moore",
      "match": "Tate's sequence (5.3) 0 → K_2O_S → K_2F → ∐_{v∉S} k(v)^× → 0 is the top row; excerpt typed from the scan."
     },
     {
      "sourceId": "Tate1976",
      "locator": "§6, proof of (6.2), p. 270",
-     "excerpt": "The square commutes because, for z ∈ μ_l and a ∈ F, we have by definition of the tame symbol",
      "match": "The torsion columns: Tate compares (K_2F)_ℓ → ∐_{v∉S} μ_ℓ with μ_ℓ ⊗ F^× → μ_ℓ ⊗ I_S through (d^S γ(z ⊗ a))_v = d_v{z, a} = z^{v(a)}; Tate's diagram uses Galois cohomology of F only, not H²_et(O_S, μ_m^{⊗2}); excerpt typed from the scan."
     }
    ],
@@ -2118,13 +2076,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "Proposition III.6.10.3 and proof, printed pp. 242-243 (PDF pp. 250-251)",
-     "excerpt": "It suffices to show that a ∪ (1 − a) vanishes for",
      "match": "The proof via factorisation of t^m − a and the projection formula."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(3.1) Theorem and its proof, relation (∗), pp. 262-263",
-     "excerpt": "To prove the theorem we have to show that (,)_F is a “symbol”, i.e., is bilinear and satisfies (∗) (a, 1−a)_F = 0, if a∈F˙, a≠1.",
      "match": "The adic Steinberg relation, (a, b)_F = d_F a ∪ d_F b; Tate writes F˙ for the multiplicative group F^×. Excerpt read from the page image; the OCR garbles the display (∗)."
     }
    ],
@@ -2166,7 +2122,6 @@
     {
      "sourceId": "Kbook2013",
      "locator": "Proposition III.6.10.3, printed p. 242 (PDF p. 250)",
-     "excerpt": "The bilinear pairing (6.10.2) induces a",
      "match": "Statement: the pairing induces a Steinberg symbol K_2(F)/mK_2(F) → H²(F; μ_m^{⊗2}) for every m prime to char(F)."
     }
    ],
@@ -2284,7 +2239,6 @@
     {
      "sourceId": "Tate1976",
      "locator": "(3.1) Theorem, p. 262",
-     "excerpt": "There exists a unique homomorphism",
      "match": "h = h_F : K_2F → H²(F, Z_l(2)) such that h({a, b}) = d_F a ∪ d_F b; excerpt typed from the scan."
     }
    ],
@@ -2394,13 +2348,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "(3.2) Lemma, p. 263",
-     "excerpt": "Let E/F be a finite subextension of F_s/F. Let a ∈ F^* and b ∈ E^*. Then tr_{E/F}(a, b)_E = (a, N_{E/F} b)_F.",
      "match": "Tate's projection formula on symbols; excerpt typed from the scan."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "III.6.10, (6.10.2), printed p. 242 (PDF p. 250)",
-     "excerpt": "which satisfies the following projection formula",
      "match": "The projection formula tr_{E/F}(a ∪ b) = a ∪ N_{E/F}(b)."
     }
    ],
@@ -2436,7 +2388,6 @@
     {
      "sourceId": "Tate1976",
      "locator": "§6, proof of (6.2), p. 270",
-     "excerpt": "we have by definition of the tame symbol",
      "match": "Tate uses the special case ∂^{tame}_v{z, a} = z^{v(a)} for z ∈ μ_ℓ in proving (6.2); the cohomological residue compatibility is not stated in the paper. Excerpt read from the page image."
     }
    ],
@@ -2476,13 +2427,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "§4, Corollary after (4.5), p. 268",
-     "excerpt": "The map h_1 of diagram (3.3) is bijective for any locally compact non-discrete field.",
      "match": "Part (a); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(4.2), p. 266",
-     "excerpt": "Then (with the appropriate sign convention) we have (4.2) h_1({a, b}) = z ⊗ (a, b).",
      "match": "The cyclic-algebra reading of h_1 holds only up to a sign convention; excerpt read from the page image."
     }
    ],
@@ -2530,19 +2479,16 @@
     {
      "sourceId": "Tate1976",
      "locator": "(5.1) Theorem, p. 268",
-     "excerpt": "For a global field F the map h_1 in diagram (3.3) is bijective.",
      "match": "Part (a); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(5.4) Theorem, p. 270",
-     "excerpt": "For a global field F the map h of Theorem (3.1) induces an isomorphism from the l-primary part of K_2F onto the torsion subgroup of H^2(F, Z_l(2)).",
      "match": "Part (b); Tate's l is any prime different from char F. Excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "§5, after (5.3), p. 270",
-     "excerpt": "What is essential for us is the finiteness of Ker d^S. It shows that K_2F is an extension (5.3) of a sum of finite cyclic groups by a finite group.",
      "match": "The input to (b); excerpt read from the page image."
     }
    ],
@@ -2579,7 +2525,6 @@
     {
      "sourceId": "Tate1976",
      "locator": "(6.1) Theorem, p. 270",
-     "excerpt": "In particular, if F contains a primitive l-th root of unity z, then every element of order l in K_2F is of the form {z, a} for some a ∈ F^*.",
      "match": "Statement; Tate prints F˙ for F^*. Excerpt read from the page image."
     }
    ],
@@ -2631,19 +2576,16 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.8.6 discussion, printed p. 515 (PDF p. 523)",
-     "excerpt": "when 1/m ∈ O",
      "match": "The K-book quotes Tate [198] for K_2(O_S)/m ≅ H²_et(O_S, μ_m^{⊗2}) when 1/m ∈ O_S, with no restriction for even m."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(2.3) Proposition, p. 261",
-     "excerpt": "the kernel of the connecting homomorphism δ: H^{n−1}(G, W) → H^n(G, T) is the maximal divisible subgroup of H^{n−1}(G, W), and its image is the torsion subgroup of H^n(G, T).",
      "match": "The identification of torsion in H² with H¹(G, W)/div used for G_{F,S} and G_F; excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(5.4) Theorem, p. 270",
-     "excerpt": "For a global field F the map h of Theorem (3.1) induces an isomorphism from the l-primary part of K_2F onto the torsion subgroup of H^2(F, Z_l(2)).",
      "match": "The field input of the comparison; excerpt read from the page image."
     }
    ],
@@ -2685,13 +2627,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "(6.2) Theorem, p. 270",
-     "excerpt": "Let S be a finite non-empty set of places of F containing the archimedean ones and the ones above l in the number field case.",
      "match": "Hypotheses of (6.2); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(6.2) Theorem, p. 270",
-     "excerpt": "Then there is a natural exact sequence",
      "match": "0 → μ_l ⊗ Pic O_S → K_2O_S/lK_2O_S → (∐_{v∈S−S_c} μ_l)_0 → 0; excerpt read from the page image."
     }
    ],
@@ -2724,13 +2664,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 17.1, printed p. 135 (PDF p. 150)",
-     "excerpt": "We write zi (X, m) for the free abelian group generated by all codimension i subvarieties on X × ∆m which intersect all faces X × ∆ j properly",
      "match": "The simplices and their faces enter Bloch's definition."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§1, printed p. 180 (PDF p. 4)",
-     "excerpt": "The map x ~ 1 - 1/x is an automorphism of p1 which permutes 1, 0, o-o.",
      "match": "Totaro's identification 𝔸^1 ≅ ℙ^1 − {1} (scan text: x ↦ 1 − 1/x permutes 1, 0, ∞), which turns the cube faces {0, 1} into {∞, 0}."
     }
    ],
@@ -2856,19 +2794,16 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 17.1, printed p. 135 (PDF p. 150)",
-     "excerpt": "intersect all faces X × ∆ j properly for all j < m",
      "match": "Bloch's condition, as stated in MVW."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§3, printed p. 778 (PDF p. 6)",
-     "excerpt": "For an equidimensional scheme X, let zn (X, i) be the free abelian group on closed integral subschemes of codimension n of X × i , which intersect all faces properly.",
      "match": "The codimension-indexed groups over a Dedekind base (X × Δ^i in the source)."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§1, Notation, printed p. 775 (PDF p. 3)",
-     "excerpt": "For an integral scheme V over B we define the dimension of V to be the Krull dimension of V if V is contained in one of the closed fibers",
      "match": "Geisser's dimension of integral B-schemes (generic fibre dimension plus one for flat V), used in the dimension indexing over B."
     }
    ],
@@ -2970,19 +2905,16 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 17.1, printed p. 135 (PDF p. 150)",
-     "excerpt": "Each face X × ∆ j is defined by a regular sequence, and intersection of cycles defines a map",
      "match": "Bloch's simplicial cycle group and its face maps."
     },
     {
      "sourceId": "Spitzweck2018",
      "locator": "§3 (Motivic complexes I), PDF p. 8",
-     "excerpt": "Levine’s cycle complex. A representative is the complex with z r ( , 2r − i) in cohomological degree i",
      "match": "The cohomological indexing Z(r) = z^r(−, 2r − •)."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§3, Lemma 3.1, printed p. 778 (PDF p. 6)",
-     "excerpt": "The presheaves zn (−, i) are sheaves for the étale topology on X.",
      "match": "The termwise sheaf property of the cycle complex for the étale (hence Zariski) topology."
     }
    ],
@@ -3105,19 +3037,16 @@
     {
      "sourceId": "Totaro1992",
      "locator": "§1, printed p. 180 (PDF p. 4)",
-     "excerpt": "does not have the right homology groups (as one can see in the case i = 0); we need to mod out by a subcomplex",
      "match": "Totaro's cubical complex with faces at 0 and ∞, d = Σ(−1)^i(∂^∞_i − ∂^0_i), modulo degenerate cycles."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§1, printed p. 181 (PDF p. 5)",
-     "excerpt": "One checks that the isomorphisms between the cubical and the simplicial Chow groups preserve products",
      "match": "Products on cubical cycles and their compatibility with the simplicial product."
     },
     {
      "sourceId": "Park2021",
      "locator": "§2.2, Theorem 2.2.1, p. 4 (PDF p. 4)",
-     "excerpt": "this gives the normalized subcomplex (zdN (Y, •), ∂1∞ ) ֒→ (zd (Y, •), ∂), and this inclusion is a quasi-isomorphism.",
      "match": "The ∞-normalised cubical subcomplex (Bloch's notes, Theorem 4.4.2), for Y of finite type over a field."
     }
    ],
@@ -3235,19 +3164,16 @@
     {
      "sourceId": "Levine1994",
      "locator": "§4, Theorem 4.7, preprint p. 34",
-     "excerpt": "Let X be a scheme over k, s = {S1 , . . . , Sm } a finite collection of closed subsets of X. Then there is a natural quasi-isomorphism",
      "match": "The comparison Z^q(X, *)^c_s → Z^q_s(X, *) in the derived category, via the total complex and its two augmentations; no quasi-projectivity is assumed."
     },
     {
      "sourceId": "Levine1994",
      "locator": "Introduction, preprint p. 1",
-     "excerpt": "We show that the cubical complexes Z q (X, ∗)c are integrally quasi-isomorphic to the simplicial version Z q (X, ∗) (Theorem 4.7)",
      "match": "Integral comparison of the cubical and simplicial models."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§1, printed p. 181 (PDF p. 5)",
-     "excerpt": "One checks that the isomorphisms between the cubical and the simplicial Chow groups preserve products",
      "match": "The comparison is multiplicative (Totaro states it for quasi-projective schemes over a field)."
     }
    ],
@@ -3282,25 +3208,21 @@
     {
      "sourceId": "MVW2006",
      "locator": "Lecture 17, after Exercise 17.3, printed p. 136 (PDF p. 151)",
-     "excerpt": "The push-forward of cycles makes the higher Chow groups covariant for finite morphisms (see 17A.10). It also makes them covariant for proper morphisms",
      "match": "Proper pushforward with the change of codimension index ([Blo86, 1.3])."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lecture 17, after Exercise 17.3, printed p. 136 (PDF p. 151)",
-     "excerpt": "At the chain level, it is easy to prove that the complexes zi (−, ∗), and hence Bloch’s higher Chow groups, are functorial for flat morphisms.",
      "match": "Flat pullback at chain level."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§3, printed p. 778 (PDF p. 6)",
-     "excerpt": "The complex zn (X, ∗) is covariant for proper morphisms (with the appropriate shift in weight and degree) and contravariant for flat morphisms",
      "match": "Both functorialities over a Dedekind base, part (d)."
     },
     {
      "sourceId": "Spitzweck2018",
      "locator": "§3, before Lemma 3.7, PDF p. 9",
-     "excerpt": "Then there is a flat pullback f ∗MX (r) → MY (r).",
      "match": "Flat pullback of the cycle complexes over a Dedekind base."
     }
    ],
@@ -3335,25 +3257,21 @@
     {
      "sourceId": "MVW2006",
      "locator": "Properties 17.4(1), printed p. 136 (PDF p. 151)",
-     "excerpt": "Homotopy Invariance: The projection p : X × A1 → X induces an isomorphism",
      "match": "Stated 'for any scheme X over k', proof [Blo86, 2.1]."
     },
     {
      "sourceId": "Levine1994",
      "locator": "§4, Bloch's property (1), preprint p. 33",
-     "excerpt": "(Theorem 2.1 of [B]) Let X be a scheme over k, s a finite set of closed subsets of X.",
      "match": "The simplicial homotopy property with supports, part (a)."
     },
     {
      "sourceId": "Levine1994",
      "locator": "§4, Theorem 4.5, preprint p. 32",
-     "excerpt": "Suppose X is a k-scheme. Let s = {S1 , . . . , Sn } be a finite collection of closed subsets of X. Let p: X × An → X be the projection.",
      "match": "The cubical homotopy property with supports, part (b)."
     },
     {
      "sourceId": "Levine1994",
      "locator": "§4, Proposition 4.4, preprint p. 32",
-     "excerpt": "Let X be a k-scheme, with a finite collection s = {S1 , . . . , Sm } of closed subsets of X.",
      "match": "The translation moving lemma for X × 𝔸^n and closed subsets H_i ⊂ 𝔸^n, part (c)."
     }
    ],
@@ -3387,19 +3305,16 @@
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 17.6, printed p. 137 (PDF p. 152)",
-     "excerpt": "Let W be a finite correspondence from X to Y , with Y affine. Then the inclusion zi (Y, ∗)W ⊂ zi (Y, ∗) is a quasi-isomorphism.",
      "match": "Part (b): Levine's moving lemma relative to w : W → X (stated for the support of a finite correspondence; the proof treats any locally equidimensional W)."
     },
     {
      "sourceId": "Spitzweck2018",
      "locator": "§5, Theorem 5.8, PDF p. 38",
-     "excerpt": "If X ∈ SmS is affine then the inclusion of zFr (X) into the normalized chain complex associated to z r (X, ●) is a quasi isomorphism.",
      "match": "Part (c): F a finite set of closed immersions in Sm_S, S the spectrum of a Dedekind domain of mixed characteristic."
     },
     {
      "sourceId": "Spitzweck2018",
      "locator": "Introduction, PDF p. 5",
-     "excerpt": "Hereby we rely heavily on a moving Lemma due to Levine (Theorem 5.8).",
      "match": "The arithmetic moving lemma is the input of the strictification of the cycle complexes over a Dedekind domain."
     }
    ],
@@ -3439,31 +3354,26 @@
     {
      "sourceId": "MVW2006",
      "locator": "Properties 17.4(2), printed p. 136 (PDF p. 151)",
-     "excerpt": "Localization Theorem: For any U ⊂ X open, the cokernel of zi (X, •) → zi (U, •) is acyclic. This is proven by Bloch in [Blo94].",
      "match": "Bloch's localization theorem over a field and its long exact sequence for Z of pure codimension c."
     },
     {
      "sourceId": "Park2021",
      "locator": "§1, p. 2 (PDF p. 2)",
-     "excerpt": "it was further generalized to finite type k-schemes when k is a field or a DVR by [6] and [7].",
      "match": "Bloch proved localization for quasi-projective schemes over a field; Levine extended it to schemes of finite type over a field or a DVR."
     },
     {
      "sourceId": "Park2021",
      "locator": "Theorem 1.0.1, p. 1 (PDF p. 1)",
-     "excerpt": "the cokernel C• := coker(j ∗ ) of the flat pull-back j ∗ is acyclic",
      "match": "Cubical localization for Y of finite type over a field."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "Theorem 3.2(a), printed p. 779 (PDF p. 7)",
-     "excerpt": "If i : Z → X is a closed subscheme of codimension c with open complement j : U → X, then the exact sequence",
      "match": "Levine's localization for X essentially of finite type over a discrete valuation ring ([16, Theorem 1.7])."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "Corollary 3.3(a), printed p. 780 (PDF p. 8)",
-     "excerpt": "there is a distinguished triangle in the derived category of Zariski sheaves on X",
      "match": "The sheaf-level localization triangle over a Dedekind base."
     }
    ],
@@ -3503,25 +3413,21 @@
     {
      "sourceId": "Totaro1992",
      "locator": "§1, printed pp. 180-181 (PDF pp. 4-5)",
-     "excerpt": "If X is smooth, then, following Bloch, we can pull back along the diagonal to get the product structure on X's Chow groups",
      "match": "External product on cubical cycles and the cup product by diagonal pullback."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 17.21, printed p. 142 (PDF p. 157)",
-     "excerpt": "In particular, if f1 : X → Y and f2 : Y → Z are morphisms, then ( f2 ◦ f1 )∗ = f1∗ f2∗ .",
      "match": "Functorial pullback on higher Chow groups of smooth schemes (MVW obtain it from the transfers W^* of 17.17 with W = Γ_f)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Example 17.12, printed p. 139 (PDF p. 154)",
-     "excerpt": "If f is flat, then f ∗ is just the flat pullback of cycles.",
      "match": "Agreement of the general pullback with flat pullback."
     },
     {
      "sourceId": "Levine1994",
      "locator": "§5, preprint p. 46",
-     "excerpt": "By Lemma 4.10, (−1)pp (Z × W) = W × Z in homology.",
      "match": "The sign (−1)^{nm} of graded commutativity of the cubical product."
     }
    ],
@@ -3629,13 +3535,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 17.1 and the following paragraph, printed p. 135 (PDF p. 150)",
-     "excerpt": "If X is any scheme, it is easy to check that CH i (X, 0) is the classical Chow group CH i (X) (see 17.3).",
      "match": "Degree zero of Bloch's complex is the classical Chow group; Exercise 17.3 treats the top codimension."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§1, printed p. 179 (PDF p. 3)",
-     "excerpt": "This gives precisely the usual Chow groups",
      "match": "CH^*(X, 0) is defined by killing Z(0) − Z(1) for Z ⊂ X × Δ^1 meeting X × {0}, X × {1} properly, which is rational equivalence (scan text)."
     }
    ],
@@ -3671,13 +3575,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Corollary 4.2, PDF p. 40",
-     "excerpt": "Let X be a smooth scheme over k. Then we have",
      "match": "H^{p,q}(X, ℤ) for q ≤ 1: ℤ(X), O^*(X), Pic(X) in bidegrees (0,0), (1,1), (2,1), stated for Voevodsky's motivic complexes (Theorem 4.1: Z(1) ≃ O^*[−1]); the same groups for Bloch's cycle complex are proved directly in the proof steps, not deduced from this corollary."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§2, printed p. 182 (PDF p. 6)",
-     "excerpt": "Bloch gives a more conceptual proof that",
      "match": "Totaro's computation of CH^1(F, 1) ≅ F^* in the cubical model, and his reference to Bloch's proof through divisors and line bundles (scan text)."
     }
    ],
@@ -3716,13 +3618,11 @@
     {
      "sourceId": "Totaro1992",
      "locator": "§2, Theorem 1 and the first line of its proof, printed p. 181 (PDF p. 5)",
-     "excerpt": "then we have CHt(F, n) = 0, for i > n",
      "match": "Totaro's Theorem 1: CH^i(F, n) = 0 for i > n, proved by the dimension count (scan text: 'CHt(F, n) = 0, for i > n')."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Vanishing Theorem 3.6 and the following paragraph, printed pp. 22–23 (PDF pp. 37–38)",
-     "excerpt": "We will prove in theorem 19.3 that, for every smooth variety X and any abelian group A, we have H p,q (X, A) = 0 for p > 2q as well.",
      "match": "The bounds p > q + dim X and p > 2q, stated for Voevodsky's motivic cohomology; for the cycle complex they are the dimension count of the proof steps."
     }
    ],
@@ -3774,31 +3674,26 @@
     {
      "sourceId": "Totaro1992",
      "locator": "§2, Theorem 1, printed p. 181 (PDF p. 5)",
-     "excerpt": "CHn(F, n) _~ K~n (F).",
      "match": "Theorem 1 (scan text): CH^n(F, n) ≅ K^M_n(F)."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§3, printed pp. 183–184 (PDF pp. 7–8)",
-     "excerpt": "Suslin's reciprocity law ([8]) asserts that for any",
      "match": "The inverse map by Kato's norms and the vanishing on boundaries by Suslin's reciprocity over all points of the compactified normalisation (scan text); Totaro calls the normalisation smooth, which over an imperfect field must be read as regular (sourceIssues)."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§4, Lemma 2, printed p. 185 (PDF p. 9); §5, printed p. 189 (PDF p. 13)",
-     "excerpt": "This shows that p is equivalent in CH\"(F, n) to an F-rational",
      "match": "Every class is a sum of F-rational points: Lemma 2 for infinite F, §5 for finite F (scan text)."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "proof of Corollary 4.4, printed p. 786 (PDF p. 14)",
-     "excerpt": "the map δ agrees with the symbol map",
      "match": "The localization boundary of a discrete valuation ring agrees with the Milnor residue under the diagonal isomorphism (Geisser–Levine, Lemma 3.2)."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI.4, printed p. 480 (PDF p. 488)",
-     "excerpt": "A result of Totaro, and Nesterenko-Suslin",
      "match": "The ring isomorphism K^M_*(k) ≅ ⊕ H^i(k, Z(i)) compatible with multiplication."
     }
    ],
@@ -3838,13 +3733,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI.4, printed p. 480 (PDF p. 488)",
-     "excerpt": "Since H i (k, Z(i))/m ∼= H i (k, Z/m(i))",
      "match": "The diagonal mod-m identification used in the weight-two case."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§2, printed p. 182 (PDF p. 6)",
-     "excerpt": "Take the rational curve",
      "match": "The rational curves whose boundaries give the relations [a] + [b] = [ab] in CH^1(F, 1) and the Steinberg relation (a, 1 − a) = 0 in CH^2(F, 2) (scan text)."
     }
    ],
@@ -3882,7 +3775,6 @@
     {
      "sourceId": "MVW2006",
      "locator": "14.5.2, printed p. 111 (PDF p. 126); Theorem 15.12, printed p. 123 (PDF p. 138)",
-     "excerpt": "then the canonical map induces an isomorphism",
      "match": "The projective bundle theorem for Voevodsky's motives, proved by the same Mayer–Vietoris reduction to X × ℙ^n; the higher Chow statement is Bloch 1986, Theorem 7.1 (not among the supplied sources)."
     }
    ],
@@ -3919,19 +3811,16 @@
     {
      "sourceId": "MVW2006",
      "locator": "Properties 17.4(2), printed p. 136 (PDF p. 151)",
-     "excerpt": "If the complement Z = X − U has pure codimension c, it is easy to see that we have an exact sequence of simplicial abelian groups",
      "match": "Bloch's localization sequence z^{i−c}(Z, •) → z^i(X, •) → z^i(U, •) with acyclic cokernel, for Z of pure codimension c (no smoothness)."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "Remark after Corollary 3.3, display (6), printed p. 780 (PDF p. 8)",
-     "excerpt": "because all complexes are quasi-isomorphic to the cone of",
      "match": "Zariski purity Z(n − c)_Z[−2c] ≅ i^! Z(n)_X ≅ Ri^! Z(n)_X over a Dedekind base, unconditional; Geisser's Theorem 1.2(1) is the étale analogue for closed fibres, truncated and conditional on the Bloch–Kato conjecture, and is not used here."
     },
     {
      "sourceId": "Spitzweck2018",
      "locator": "§3, Corollary 3.2, PDF p. 8",
-     "excerpt": "Let i∶ Z → X be a closed inclusion in Sm′S ′ of codimension c. Then there is a canonical ismorphism",
      "match": "Ri^! M_X(r) ≅ M_Z(r − c)[−2c] for Z, X in Sm'_{S'} (components smooth over S' or over a closed point of S')."
     }
    ],
@@ -3969,19 +3858,16 @@
     {
      "sourceId": "Geisser2004",
      "locator": "§1, Notation, printed p. 775 (PDF p. 3)",
-     "excerpt": "Throughout the paper, B is the spectrum of a Dedekind ring, and X an equidimensional scheme, essentially smooth over B.",
      "match": "Geisser's setting for the arithmetic cycle complex."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§1, Notation, printed p. 775 (PDF p. 3)",
-     "excerpt": "For an integral scheme V over B we define the dimension of V to be the Krull dimension of V if V is contained in one of the closed fibers",
      "match": "The dimension function on B-schemes (generic-fibre dimension plus one for flat ones)."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§3, Lemma 3.1 and Theorem 3.2(b), printed pp. 778–779 (PDF pp. 6–7)",
-     "excerpt": "Motivic cohomology H s (X, Z(n)) agrees with the cohomology of the complex of abelian groups",
      "match": "Z(n) = z^n(−, 2n − •) is a complex of étale sheaves (Lemma 3.1); over a discrete valuation ring hypercohomology is the homology of the global cycle complex (Theorem 3.2(b), Levine)."
     }
    ],
@@ -4099,25 +3985,21 @@
     {
      "sourceId": "Geisser2004",
      "locator": "Theorem 1.1, printed p. 774 (PDF p. 2)",
-     "excerpt": "Then there is an exact sequence of Zariski sheaves on X",
      "match": "The Gersten resolution, conditional on injectivity H^s(V, Z(n)) → H^s(K, Z(n)) for every discrete valuation ring V essentially of finite type over B."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "§4, coniveau filtration, printed p. 782 (PDF p. 10)",
-     "excerpt": "Consider the descending filtration by coniveau on cycles.",
      "match": "The coniveau spectral sequence with E_1 terms the cycle complexes of residue fields."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "Corollary 4.3, printed p. 786 (PDF p. 14)",
-     "excerpt": "If V is the local ring of X at the generic point of the fiber Xb , then the exactness at the first and second term follows from the injectivity",
      "match": "Exact except at the first two terms, which are controlled by V (unconditional local statement)."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "Corollary 4.4 and its proof, printed p. 786 (PDF p. 14)",
-     "excerpt": "Let X be an essentially smooth scheme over B. Then Hi (Z(n)) = 0 for i > n.",
      "match": "Unconditional vanishing of the cohomology sheaves above the weight, via the Milnor residue."
     }
    ],
@@ -4151,13 +4033,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 19.12, printed p. 162 (PDF p. 177)",
-     "excerpt": "Let X be any scheme of finite type over a field. For any scheme T , each zi (− × T ) satisfies Zariski descent on X.",
      "match": "Zariski descent for Bloch's complexes over a field."
     },
     {
      "sourceId": "Geisser2004",
      "locator": "proof of Theorem 3.2 and Corollary 3.3(b), printed p. 780 (PDF p. 8)",
-     "excerpt": "For (b), we employ the criterion of",
      "match": "Brown–Gersten descent over a discrete valuation ring, and p_* Z(n) ≃ Rp_* Z(n) over a Dedekind base."
     }
    ],
@@ -4194,13 +4074,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 1.1, PDF p. 18",
-     "excerpt": "an elementary correspondence from X to Y is an irreducible closed subset W of X ×Y whose associated integral subscheme is finite and surjective over X.",
      "match": "Definition."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 1.7, PDF p. 20 (printed p. 5); corrected by the authors' list of corrections: Y must be normal",
-     "excerpt": "Then V × Z and X ×W intersect properly, and each component of the push-forward of the cycle [T ] of T = (V × Z) ∩ (X ×W ) is finite and surjective over X.",
      "match": "The composition is defined."
     }
    ],
@@ -4331,31 +4209,26 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 2.1, PDF p. 28",
-     "excerpt": "A presheaf with transfers is a contravariant additive functor F : Cork → Ab.",
      "match": "Definition of presheaves with transfers."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 13.1, PDF p. 114 (printed p. 99)",
-     "excerpt": "Then FNis has a unique structure of presheaf with transfers such that F → FNis is a morphism of presheaves with transfers.",
      "match": "Nisnevich sheafification preserves transfers; the theorem also gives abelianness and enough injectives."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 6.2, PDF p. 52 (printed p. 37)",
-     "excerpt": "For any scheme T over k, Ztr (T ) is an étale sheaf.",
      "match": "ℤ_tr is an étale, hence Nisnevich, sheaf."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 6.12, PDF p. 54 (printed p. 39); the Nisnevich case is stated after its proof (and in the authors' corrections, p. 40)",
-     "excerpt": "Let p : U → X be an étale covering of a scheme X. Then Ztr (Ǔ) is an étale resolution of the sheaf Ztr (X)",
      "match": "Exactness of the Čech complex."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 12.7, PDF p. 105 (printed p. 90)",
-     "excerpt": "A presheaf F is a Nisnevich sheaf if and only if F(Q) is a pull-back square for every upper distinguished square Q.",
      "match": "Nisnevich sheaves via distinguished squares."
     }
    ],
@@ -4498,31 +4371,26 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 3.1, PDF p. 36",
-     "excerpt": "For every integer q ≥ 0 the motivic complex Z(q) is defined as the following complex of presheaves with transfers",
      "match": "Definition of ℤ(q)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 5.1, PDF p. 44",
-     "excerpt": "For any field F and any n we have",
      "match": "H^{n,n}(Spec F, ℤ) ≅ K^M_n(F)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Definition 2.14, PDF p. 31",
-     "excerpt": "We will write C• F for the simplicial presheaf",
      "match": "The Suslin complex."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 4.1, PDF p. 40 (printed p. 25)",
-     "excerpt": "There is a quasi-isomorphism of complexes of presheaves with transfers",
      "match": "ℤ(1) ≃ O^×[−1]."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Construction 3.11, PDF p. 39 (printed p. 24)",
-     "excerpt": "For each m and n we construct a map",
      "match": "Products ℤ(m) ⊗ ℤ(n) → ℤ(m + n)."
     }
    ],
@@ -4642,25 +4510,21 @@
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 13.8, PDF p. 115",
-     "excerpt": "Let k be a perfect field and F a homotopy invariant presheaf",
      "match": "Statement; the proof is completed in MVW 24.1, the case n = 0 in 22.3."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Remark before Theorem 13.8, PDF p. 115 (printed p. 100)",
-     "excerpt": "The case n = 0 of 13.8, that FNis is homotopy invariant, will be completed in 22.3.",
      "match": "Where the proof of 13.8 is completed."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Corollary 11.2, PDF p. 98 (printed p. 83)",
-     "excerpt": "Let F be a homotopy invariant presheaf with transfers. If F(Spec E) = 0 for every field E over k, then FZar = 0.",
      "match": "The field criterion, over any field."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 13.9, PDF p. 116 (printed p. 101)",
-     "excerpt": "Let k be a perfect field. If F is a homotopy invariant Nisnevich sheaf with transfers, then for all n and all smooth X",
      "match": "Zariski and Nisnevich cohomology agree."
     }
    ],
@@ -4708,31 +4572,26 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 14.1, PDF p. 124",
-     "excerpt": "The triangulated category of motives over k is defined to",
      "match": "Definition of DM^{eff,−}_Nis(k, R) and M(X)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 14.16, PDF p. 129",
-     "excerpt": "In particular, the motivic cohomology functors X → H n,i (X, R) are representable",
      "match": "Representability."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lecture 14, before Definition 14.1, PDF p. 124 (printed p. 109)",
-     "excerpt": "let EA denote the smallest thick subcategory of D− containing every Rtr (X × A1 ) → Rtr (X) and closed under direct sums",
      "match": "The A¹-weak equivalences."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 14.8, PDF p. 127 (printed p. 112)",
-     "excerpt": "Let k be a perfect field and K a bounded above cochain complex of Nisnevich sheaves of R-modules with transfers. Then K is A1 -local if and only if the sheaves aNis (H n K) are all homotopy invariant.",
      "match": "A¹-local complexes over a perfect field."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 14.11, PDF p. 128 (printed p. 113)",
-     "excerpt": "The category (LNis , ⊗L ) is a tensor triangulated category",
      "match": "The A¹-local complexes model DM^{eff,−}_Nis."
     }
    ],
@@ -4872,25 +4731,21 @@
     {
      "sourceId": "Voevodsky2010Cancel",
      "locator": "Corollary 4.10, PDF p. 14",
-     "excerpt": "Let k be a perfect field. Then for any K, L in DM−ef f (k) the map Hom(K, L) → Hom(K(1), L(1)) is a bijection.",
      "match": "Cancellation over any perfect field (arXiv version read)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 16.25, PDF p. 146",
-     "excerpt": "Then tensoring with Z(1) induces an isomorphism Hom(M, N) → Hom(M(1), N(1)).",
      "match": "MVW's version, assuming resolution of singularities."
     },
     {
      "sourceId": "Voevodsky2010Cancel",
      "locator": "§1 Introduction, PDF p. 1 (arXiv v1)",
-     "excerpt": "We prove that the obvious map Ztr (X) → FX defines a quasi-isomorphism of singular simplicial complexes",
      "match": "The main theorem, Corollary 4.9."
     },
     {
      "sourceId": "Voevodsky2010Cancel",
      "locator": "§4, before Lemma 4.1, PDF p. 9",
-     "excerpt": "let gn denote the rational function (f1n+1 − 1)/(f1n+1 − f2 ) on Gm XGm Y",
      "match": "The function whose divisor defines ρ_n."
     }
    ],
@@ -4934,19 +4789,16 @@
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 17.21, PDF p. 157",
-     "excerpt": "The maps W ∗ defined in 17.17 give the higher Chow groups CH i (−, m) the structure of presheaves with transfers.",
      "match": "Transfers on higher Chow groups."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 17.6, PDF p. 152 (printed p. 137)",
-     "excerpt": "Let W be a finite correspondence from X to Y , with Y affine. Then the inclusion zi (Y, ∗)W ⊂ zi (Y, ∗) is a quasi-isomorphism.",
      "match": "Levine's moving lemma for correspondences."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Definition 17.17, PDF p. 155 (printed p. 140)",
-     "excerpt": "By Jouanolou’s device [Jou73, 1.5], there exist vector bundle torsors",
      "match": "Extension from affine to all smooth schemes."
     }
    ],
@@ -4987,25 +4839,21 @@
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 10.2, PDF p. 90",
-     "excerpt": "Let n be an integer prime to the characteristic of k. Then:",
      "match": "H_L^{p,q}(X, ℤ/n) = H_et^p(X, μ_n^{⊗q})."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "VI.4, before Theorem 4.1, printed p. 480 (PDF p. 488)",
-     "excerpt": "It arises from the forgetful functor a∗ from",
      "match": "The comparison map H^n(X, ℤ/m(i)) → H^n_et(X, μ_m^{⊗i})."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 10.3 and its proof, PDF pp. 90–91 (printed pp. 75–76)",
-     "excerpt": "The theorem is true for q = 1 by 6.4. By 9.25 and 9.31, both µn⊗q and Z/n(q) are A1 -local.",
      "match": "The proof uses the étale A¹-local theory of MVW Lecture 9."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Corollary 4.9, PDF p. 42 (printed p. 27)",
-     "excerpt": "If 1/l ∈ k and X is smooth, then H p,1 (X, Z/l) = 0 for p",
      "match": "Weight one: H^{1,1}(X, ℤ/l) ≅ H^1_et(X, μ_l)."
     }
    ],
@@ -5045,13 +4893,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 3.9 (Colimits), PDF p. 38 (printed p. 23)",
-     "excerpt": "Let k ⊂ F be a field extension and X smooth over k. Then",
      "match": "The colimit formulas (b)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 5.3, PDF p. 45 (printed p. 30)",
-     "excerpt": "If F ⊂ E is a finite field extension, then the proper push-forward of cycles induces a map",
      "match": "Norms on motivic cohomology of fields and the formula res ∘ N = [E : F]_insep Σ j^*, used for (a) on fields."
     }
    ],
@@ -5088,19 +4934,16 @@
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Theorem 6.16, PDF p. 27 (same number in the published version)",
-     "excerpt": "For any pointed simplicial sheaf F• over k one has",
      "match": "The cohomology of F ∧ (BS_l)_+ used to define the operations."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "§9, (9.1) and the definition of P^i and B^i, PDF pp. 34-35",
-     "excerpt": "For u ∈ H̃ 2d,d define",
      "match": "Definition of P^i(u) = D_{d−i}(u) and B^i(u) = C_{d−i}(u)."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Proof of Proposition 3.8, PDF p. 12 (published: Proposition 3.7; the published introduction states that k is perfect)",
-     "excerpt": "Since k is perfect",
      "match": "The construction of the operations (through P^0 = Id) uses that the base field is perfect."
     }
    ],
@@ -5236,25 +5079,21 @@
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Lemmas 9.7-9.8, PDF p. 37 (arXiv v1 numbering; published Lemmas 9.8-9.9)",
-     "excerpt": "For u ∈ H̃ p,q and n > p − q, n ≥ q one has P n (u) = 0.",
      "match": "Instability."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Proposition 9.6, PDF p. 36 (arXiv v1 numbering; published Proposition 9.7)",
-     "excerpt": "For u, v ∈ H̃ ∗,∗ and l 6= 2 one has:",
      "match": "Cartan formula."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Theorem 10.2, PDF p. 39 (same number in the published version)",
-     "excerpt": "Theorem 10.2 Let l = 2 and 0 < a < 2b.",
      "match": "The motivic Adem relations for l = 2, with coefficients τ and ρ."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Lemma 11.1, PDF p. 43 (same number in the published version)",
-     "excerpt": "Admissible monomials generate A∗,∗ (k, Z/l) as a left H ∗,∗ -module.",
      "match": "Generation by admissible monomials; Corollary 11.5 gives their independence."
     }
    ],
@@ -5289,31 +5128,26 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Lemma 5.13, PDF p. 31",
-     "excerpt": "One has the following equality in the motivic Steenrod algebra for l > 2:",
      "match": "Q_0 P^b = P^b Q_0 + P^{b−1} Q_1 + ⋯ + P^0 Q_n."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Lemma 4.1, PDF p. 20",
-     "excerpt": "Recall from [8] that Qn = βqn ± qn β where β is the Bockstein homomorphism.",
      "match": "Definition of Q_n through q_n and β."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "§13, PDF p. 56 (same in the published version)",
-     "excerpt": "where 1 is on the i-th place i.e. Qi is the dual to τi",
      "match": "Definition of Q_i as the dual of τ_i."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Example 13.7, PDF p. 58 (same in the published version)",
-     "excerpt": "Sq 4 Q1 − Q1 Sq 4 = Q2 + ρQ0 Q1 Sq 2",
      "match": "The topological recursive definition of Q_i fails for l = 2 when ρ ≠ 0."
     },
     {
      "sourceId": "Voevodsky2003RPO",
      "locator": "Corollary 14.3, PDF p. 59 (same in the published version)",
-     "excerpt": "Then one has qn (tV ) = sln −1 (V )tV",
      "match": "q_n on Thom classes is the characteristic class s_{l^n−1}."
     }
    ],
@@ -5441,37 +5275,31 @@
     {
      "sourceId": "HW2009Chain",
      "locator": "Definition 0.4, PDF p. 2",
-     "excerpt": "is a smooth projective variety X of dimension d = pn−1 − 1, with sd (X) 6≡ 0 (mod p2 ).",
      "match": "Definition of ν_{n−1}-variety; Definition 0.5 defines Rost varieties."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§6, PDF p. 33",
-     "excerpt": "We say that a smooth connected scheme X splits a modulo l if a becomes zero in KnM (k(X))/l",
      "match": "Splitting."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Introduction, PDF p. 1",
-     "excerpt": "A norm variety for {a} is a smooth projective p-generic splitting variety for {a} of dimension pn−1 −1.",
      "match": "Definition of a norm variety (l-generic splitting variety)."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Definition 0.5, PDF p. 2",
-     "excerpt": "A Rost variety for a sequence a = (a1 , ..., an ) of units in k is a νn−1 -variety such that",
      "match": "Definition of a Rost variety: splitting, ν_i-varieties mapping to X, exactness of (0.6)."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Definition 6.2, PDF p. 34",
-     "excerpt": "A smooth projective variety X over k is called a ν≤n -variety if X is a νn -variety and for all i < n there exists a νi -variety Xi and a morphism Xi → X.",
      "match": "Definition of ν_{≤n}-varieties."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Proof of Lemma 6.12, PDF p. 39",
-     "excerpt": "Since X is a ν≤0 -variety it has a point over a finite field extension of degree not divisible by l2",
      "match": "The convention for ν_0-varieties: zero-dimensional of degree prime to l²."
     }
    ],
@@ -5624,25 +5452,21 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Lemma 4.1, PDF p. 20",
-     "excerpt": "Let X be a smooth projective variety of dimension d = ln − 1 where n > 0. Then one has",
      "match": "Q_n(t̃) = (deg(s_{l^n−1}(X))/l) v mod l."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 4.4, PDF p. 23",
-     "excerpt": "Assume that there exists a class α ∈ H p,q (X , Z/l) such that the following conditions hold",
      "match": "The motivic degree theorem."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§4 before Theorem 4.4, PDF p. 22",
-     "excerpt": "Let X be an embedded simplicial scheme, n > 0 an integer and X be a νn -variety such that M (X) = M (X, Z/l) lies in DMX (Z/l).",
      "match": "The standing hypotheses of Theorem 4.4 (n > 0)."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 4.4, PDF p. 23",
-     "excerpt": "Then s ◦ τX : Z/lX (d)[2d] → N is not zero.",
      "match": "The conclusion of the motivic degree theorem."
     }
    ],
@@ -5680,7 +5504,6 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "§1, PDF p. 2",
-     "excerpt": "In the Z/2-coefficients case the Pfister quadrics provide canonical νn−1 splitting varieties for symbols of length n.",
      "match": "For l = 2 the ν_{n−1} splitting varieties are Pfister quadrics (neighbours)."
     }
    ],
@@ -5795,31 +5618,26 @@
     {
      "sourceId": "HW2009Chain",
      "locator": "Theorem 0.1, PDF p. 1",
-     "excerpt": "Let {a} ∈ KnM (k)/p be a nontrivial symbol, where k is a p-special field.",
      "match": "Rost's Chain Lemma."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Theorem 0.3, PDF p. 2",
-     "excerpt": "Suppose that k is a p-special field and that X is a norm variety for some nontrivial symbol {a}.",
      "match": "Norm Principle."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Introduction, PDF p. 1",
-     "excerpt": "Throughout this paper, p is a fixed prime, and k is a field of characteristic 0, containing the p-th roots of unity.",
      "match": "Standing hypotheses: characteristic 0 and μ_l ⊂ k."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Theorem 8.1, PDF p. 22",
-     "excerpt": "projective bundle P(A) has dimension d = pn − 1 and p2 - sd (P(A)).",
      "match": "ℙ(A) over the Chain Lemma variety is a ν_n-variety."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Corollary 9.8, PDF p. 25",
-     "excerpt": "Corollary 9.8 (Theorem 0.7(3)). If k is p-special then",
      "match": "Every element of Ā_0(X, 𝒦_1) is [x, α] with [k(x) : k] ∈ {1, l}, and N is injective."
     }
    ],
@@ -5861,25 +5679,21 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 6.3, PDF p. 34",
-     "excerpt": "For any a = (a1 , . . . , an ) there exists a ν≤(n−1) -variety X such that:",
      "match": "Rost's theorem as used by Voevodsky (proved in Suslin–Joukhovitski)."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Introduction, PDF p. 1",
-     "excerpt": "Given (0), Rost varieties exist; this is Theorem 0.7 below",
      "match": "The deduction from the Chain Lemma and the Norm Principle."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Introduction, before Theorem 0.7, PDF p. 3",
-     "excerpt": "It assumes that the Bloch-Kato conjecture holds for n − 1.",
      "match": "The existence theorem is proved under the degree-(n − 1) induction hypothesis."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Introduction, PDF p. 1",
-     "excerpt": "Throughout this paper, p is a fixed prime, and k is a field of characteristic 0, containing the p-th roots of unity.",
      "match": "Standing hypotheses of Theorem 0.7."
     }
    ],
@@ -5920,31 +5734,26 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "§1, PDF p. 2",
-     "excerpt": "Up to an equivalence, embedded simplicial schemes correspond to subsheaves of the constant one point sheaf on Sm/k",
      "match": "Embedded simplicial schemes and the Čech construction."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "Appendix B, Lemma 9.3, printed p. 102 (PDF p. 44)",
-     "excerpt": "Let Y be a smooth scheme which has a rational point over an extension of",
      "match": "The exponent bound n·H̃^{*,*}(𝒳̃, ℤ) = 0; the same page states the weak-equivalence criterion X(k) ≠ ∅."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§7, Lemma 7.3, printed p. 96 (PDF p. 38)",
-     "excerpt": "Lemma 7.3. — Let X be a non empty smooth scheme over k. Then the homomorphisms",
      "match": "Č(X) → Spec k is an isomorphism on Lichtenbaum motivic cohomology for X ≠ ∅."
     },
     {
      "sourceId": "Voevodsky2010MSS",
      "locator": "§6, Lemma 6.9, PDF p. 30",
-     "excerpt": "The subcategory DMX coincides with the subcategory of objects",
      "match": "DM_𝒳 is the full subcategory of N with N ⊗ M(𝒳) → N an isomorphism."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§6, before Lemma 6.6, PDF p. 36",
-     "excerpt": "Note that for a smooth connected variety X one has M (X) ∈ DMX if and only if X splits a.",
      "match": "The embedded simplicial scheme 𝒳_a of a symbol."
     }
    ],
@@ -6120,25 +5929,21 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 5.16 and Corollary 5.17, PDF p. 32",
-     "excerpt": "The motive Ml−1 is restricted.",
      "match": "The Rost motive M_{l−1} is restricted and self-dual."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§5, PDF p. 32",
-     "excerpt": "Then the composition p : Dλ ◦ φ ◦ λ : M (X) → M (X) is a projector i.e. p2 = p and its image is Ml−1 .",
      "match": "The projector cutting out the Rost motive."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§5, (5.2)-(5.6), PDF pp. 26-27",
-     "excerpt": "where Q̃0 is the intergal-valued Bockstein homomorphism",
      "match": "μ = Q̃_0Q_1⋯Q_{n−1}(δ) in the indexing of §5 (ν_n-variety, δ ∈ H^{n+1,n}); the node uses §6 indexing, n replaced by n − 1."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§5 opening, PDF p. 25",
-     "excerpt": "In this section we work over fields of characteristic zero to be able to use the results of Section 2 and the motivic duality.",
      "match": "The characteristic-0 hypothesis of the Rost motive construction."
     }
    ],
@@ -6282,25 +6087,21 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI Corollary 4.1.1, printed p. 480 (PDF p. 488)",
-     "excerpt": "If k is a field containing 1/m, the norm residue symbols are",
      "match": "The norm residue symbols K^M_i(k)/m → H^i_et(k, μ_m^{⊗i}) and their ring structure."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 6.1, PDF p. 33",
-     "excerpt": "Then the norm residue homomorphisms",
      "match": "The map whose bijectivity is proved."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "III Theorem 7.11(2) and its proof, printed p. 256 (PDF p. 264)",
-     "excerpt": "the Kummer isomorphism from F × /F ×n to H 1 (F ; µn ) extends uniquely to a graded ring homomorphism",
      "match": "The construction of h_F from the Kummer map, cup products and the Steinberg identity (Bass–Tate), for every field with n invertible."
     },
     {
      "sourceId": "Kbook2013",
      "locator": "III proof of Theorem 7.11, printed p. 256 (PDF p. 264)",
-     "excerpt": "By Proposition 6.10.3, the Steinberg identity is satisfied",
      "match": "Well-definedness through the cohomological Steinberg relation (M.3/cohomological-steinberg)."
     }
    ],
@@ -6447,31 +6248,26 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Proposition 6.11, PDF p. 39",
-     "excerpt": "In view of Lemma 6.9 in order to finish the proof of Theorem 6.1 it remains to prove the following result.",
      "match": "The key vanishing H^{n+1,n}(𝒳, ℤ_(l)) = 0."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Lemma 6.4, PDF p. 34",
-     "excerpt": "Assume that Theorem 6.1 holds in degrees ≤ n − 1 and the a = (a1 , . . . , an ) is a symbol which is not zero in KnM (k)/l.",
      "match": "The induction hypothesis."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§6, Lemma 6.9, PDF p. 38",
-     "excerpt": "Let X be a νn−1 -variety which splits a. Then there is an exact sequence",
      "match": "Part (d)."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§6, after Theorem 6.1, PDF p. 33",
-     "excerpt": "As was shown in [6, pp.96-97], in order to prove Theorem 6.1 it is sufficient to construct",
      "match": "The reduction of Hilbert 90 in weight n to the extensions K_a = k(X)."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§7, proof of Theorem 7.4, printed p. 97 (PDF p. 39)",
-     "excerpt": "in order to prove H90(w, 2) it is sufficient to show that for any element a",
      "match": "The tower argument of part (e), written for l = 2 and valid for every l given (d)."
     }
    ],
@@ -6522,25 +6318,21 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 6.1, PDF p. 33",
-     "excerpt": "Let k be a field of characteristic zero which contains a primitive l-th root of unity.",
      "match": "Characteristic-zero statement with μ_l ⊂ k; the removal of the root of unity is a transfer argument."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 6.17, PDF p. 42",
-     "excerpt": "are isomorphisms for p ≤ q and monomorphisms for p =",
      "match": "The simplicial-scheme form (Beilinson–Lichtenbaum)."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "§6, Theorem 6.16, PDF p. 41",
-     "excerpt": "Let k be a field of characteristic 6= l. Then the norm residue homomorphisms",
      "match": "The mod-l theorem for every field of characteristic ≠ l; the source attributes its deduction from Theorem 6.1 to [6] (see sourceIssues)."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§6, Corollary 6.10, printed p. 91 (PDF p. 33)",
-     "excerpt": "Corollary 6.10. — Assume that H90(w, l) holds. Then for any k of characteristic not",
      "match": "Bijectivity of the norm residue map from Hilbert 90."
     }
    ],
@@ -6580,13 +6372,11 @@
     {
      "sourceId": "Kbook2013",
      "locator": "VI Corollary 4.1.1, printed p. 480 (PDF p. 488)",
-     "excerpt": "isomorphisms for all i",
      "match": "K^M_i(k)/m ≅ H^i_et(k, μ_m^{⊗i}) for all i, as a ring isomorphism."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 6.16, PDF p. 41",
-     "excerpt": "Let k be a field of characteristic 6= l. Then the norm residue homomorphisms",
      "match": "Mod-l statement for all fields of characteristic ≠ l."
     }
    ],
@@ -6634,13 +6424,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "(3.3) and (3.4) Lemma, pp. 263-264",
-     "excerpt": "The top row is not necessarily exact at the left-hand K_2F, but is exact everywhere else.",
      "match": "Diagram (3.3); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(3.5) Theorem and Corollary, p. 265",
-     "excerpt": "(a) The kernel of the map h in diagram (3.3) contains (K_2F)_{l-div}, and h maps (K_2F)_l onto H^2(F, Z_l(2))_l. (b) Suppose the map h_1 in diagram (3.3) is injective. Then the kernel of h is (K_2F)_{l-div} and the cokernel of h is l-torsion free.",
      "match": "Parts (b) and (c); (d) is the prime-power consequence drawn from (c). Excerpt read from the page image."
     }
    ],
@@ -6684,25 +6472,21 @@
     {
      "sourceId": "Tate1976",
      "locator": "(4.1) Lemma, p. 265",
-     "excerpt": "Let E = F(μ_l). If h_1^E is injective (resp. bijective) then h_1^F is injective (resp. bijective).",
      "match": "Part (a); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(4.3) Proposition, p. 266",
-     "excerpt": "For a, b ∈ F˙ the following statements are equivalent: (i) {a, b} ∈ lK_2F, (ii) h_1({a, b}) = 0, (ii)' (a, b) = 0, (iii) b is a norm from the extension F(a^{1/l}).",
      "match": "Part (b); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(4.4) Theorem, p. 266",
-     "excerpt": "If μ_l ⊂ F the kernel of the map h_1 in diagram (3.3) is isomorphic to Ker u/(Ker u)', where u: F˙⊗F˙ → Br_l F is the map given by the cyclic algebra symbol (a, b)",
      "match": "Part (c); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(4.5) Proposition, p. 267",
-     "excerpt": "If Br_l F is cyclic, then the conditions (i) and (ii) of the corollary to Theorem (4.4) are satisfied, and h_1 is injective.",
      "match": "Part (d); excerpt read from the page image."
     }
    ],
@@ -6743,13 +6527,11 @@
     {
      "sourceId": "Tate1976",
      "locator": "(6.3) Theorem, p. 271",
-     "excerpt": "Then the kernel of the map γ in diagram (3.3) is an elementary abelian group of order l^{r_2+ε}. In particular, if F contains a primitive l-th root of unity z, and if A is the group of elements a ∈ F˙ such that {z, a} = 0, then (A : (F˙)^l) = l^{r_2+1}.",
      "match": "Part (a); excerpt read from the page image."
     },
     {
      "sourceId": "Tate1976",
      "locator": "(6.5) Theorem, p. 272",
-     "excerpt": "We have H^1(F, Z_l(2)) ≈ Z_l^{r_2} × (Z/l^m Z), where m is the largest integer ≥ 0 such that F(μ_{l^m}) is contained in a composite of quadratic extensions of F.",
      "match": "Part (b); excerpt read from the page image."
     }
    ],
@@ -6796,13 +6578,11 @@
     {
      "sourceId": "Geisser2004",
      "locator": "§4, coniveau spectral sequence, printed p. 782 (PDF p. 10)",
-     "excerpt": "Consider the descending filtration by coniveau on cycles.",
      "match": "The coniveau filtration and its E_1 terms ⊕_{x∈X^{(s)}} H^{2n−s+t}(k(x), Z(n − s)), here for a smooth quasi-projective variety over a field."
     },
     {
      "sourceId": "Totaro1992",
      "locator": "§2, printed p. 182 (PDF p. 6)",
-     "excerpt": "Take the rational curve",
      "match": "Graph-type rational curves realise [a] + [b] = [ab] and the Steinberg relation as cubical boundaries."
     }
    ],
@@ -6850,25 +6630,21 @@
     {
      "sourceId": "MVW2006",
      "locator": "Definition 8.2, PDF p. 71 (printed p. 56)",
-     "excerpt": "If F and G are objects of R(A ), choose projective resolutions P∗ → F and Q∗ → G and define F ⊗L G to be P ⊗ Q",
      "match": "Definition of ⊗_tr and ⊗^L_tr."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Example 8.10, PDF p. 72 (printed p. 57)",
-     "excerpt": "By lemma 8.1, hX = Rtr (X) is projective and Rtr (X) ⊗tr Rtr (Y ) = Rtr (X ×Y ).",
      "match": "Representables and smash products."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Definition 14.2, PDF p. 124 (printed p. 109)",
-     "excerpt": "In particular, the derived category D− of bounded above complexes of Nisnevich sheaves with transfers is a tensor triangulated category",
      "match": "The Nisnevich derived category is tensor triangulated."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Proposition 8A.7, PDF p. 79 (printed p. 64)",
-     "excerpt": "Then the localization D[W −1 ] is also a tensor triangulated category.",
      "match": "Descent of the tensor structure to localisations."
     }
    ],
@@ -6993,13 +6769,11 @@
     {
      "sourceId": "MVW2006",
      "locator": "Theorem 7.20, PDF p. 66 (printed p. 51)",
-     "excerpt": "Let F be a homotopy invariant presheaf with transfers, such that the groups F(X) are torsion of exponent prime to char k. Then Fét is locally constant.",
      "match": "Suslin's rigidity theorem."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Example 12.4, PDF p. 105 (printed p. 90)",
-     "excerpt": "A Hensel local ring or scheme (R, m) is a local ring such that any finite R-algebra S is a product of local rings.",
      "match": "Henselian local schemes used in the reduction."
     }
    ],
@@ -7043,19 +6817,16 @@
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 9.21, PDF p. 86 (printed p. 71)",
-     "excerpt": "If f : L → L is an A1 -weak equivalence and L, L are A1 -local then f is an isomorphism in D−",
      "match": "(b)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Corollary 9.25, PDF p. 87 (printed p. 72)",
-     "excerpt": "Let M be a locally constant étale sheaf of torsion prime to char k. Then M is A1 -local.",
      "match": "(c)."
     },
     {
      "sourceId": "MVW2006",
      "locator": "Lemma 9.31, PDF p. 88 (printed p. 73)",
-     "excerpt": "Suppose that 1/m ∈ k and cdm (k) < ∞. If K is a bounded above complex of étale sheaves of Z/m-modules with transfers, then TotC∗ (K) is A1 -local.",
      "match": "(d), with its hypothesis cd_m(k) < ∞."
     }
    ],
@@ -7093,19 +6864,16 @@
     {
      "sourceId": "HW2009Chain",
      "locator": "Appendix A, Theorem A.1, PDF p. 28",
-     "excerpt": "In this appendix, we give a proof of the following Degree Theorem, which is used in the proof of Theorem 9.7",
      "match": "The DN theorem is the degree formula behind the Norm Principle."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Theorem A.1, PDF p. 28",
-     "excerpt": "Then f is dominant and of degree prime to p.",
      "match": "Conclusion of the DN theorem."
     },
     {
      "sourceId": "HW2009Chain",
      "locator": "Appendix A, PDF p. 28",
-     "excerpt": "The proof will use two ingredients: the degree formulas A.2 and A.5 below, due to Levine and Morel",
      "match": "The proof rests on algebraic cobordism (a recorded gap) and complex cobordism."
     }
    ],
@@ -7158,13 +6926,11 @@
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 3.8, PDF p. 19",
-     "excerpt": "Let α ∈ H̃ 2n+1,n (X , Z/l) be a motivic cohomology class. Then there exists c ∈ (Z/l)∗ such that",
      "match": "φ_{l−1}(α) = cβP^n(α); the node writes m for the source n."
     },
     {
      "sourceId": "Voevodsky2011",
      "locator": "Theorem 2.1, PDF p. 4; Lemma 2.3, PDF p. 5",
-     "excerpt": "for K2n which is a direct sum of Tate motives by [11, Theorem 3.74]",
      "match": "The uniqueness theorem rests on the Tate decomposition of motivic Eilenberg–MacLane spaces (characteristic 0)."
     }
    ],
@@ -7218,25 +6984,21 @@
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§6, Theorem 6.6, printed p. 90 (PDF p. 32)",
-     "excerpt": "Assume that H90(w, l) holds. Then for any k such that char(k) ≠ l the complex K(w) ⊗ Z(l ) is quasi-isomorphic to zero",
      "match": "Beilinson–Lichtenbaum in weight w from Hilbert 90 in weight w."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§6, Corollaries 6.9-6.10, printed p. 91 (PDF p. 33)",
-     "excerpt": "Corollary 6.10. — Assume that H90(w, l) holds. Then for any k of characteristic not",
      "match": "The norm residue isomorphism in weights ≤ w (Corollary 6.10)."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§6, Lemma 6.13, printed p. 94 (PDF p. 36)",
-     "excerpt": "Assume that H90(w − 1, l) holds and let k be a field of characteristic not equal to l, X a smooth scheme over k and U a dense open subscheme in X.",
      "match": "Part (c)."
     },
     {
      "sourceId": "Voevodsky2003MCZ2",
      "locator": "§5, Theorem 5.9, printed p. 88 (PDF p. 30)",
-     "excerpt": "Theorem 5.9. — Assume that BK(w, l) holds and let k be a field of characteristic not",
      "match": "Part (d), with the computation finishing the proof of Theorem 7.4 on p. 97."
     }
    ],
@@ -7595,7 +7357,7 @@
    "source": "Kbook2013",
    "kind": "error",
    "locator": "VI.8.1 Classical Data, display (8.1.1), printed p. 513 (PDF p. 521), K-book version of August 29, 2013",
-   "printed": "The Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)^{r1} ⊕ ∐_{v∈S finite} (Q/Z) --add--> Q/Z → 0. (8.1.1)",
+   "printed": "The source specifies the Brauer group of OS through (8.1.1): 0 → Br(OS) → (Z/2)^{r1} ⊕ ∐_{v∈S finite} (Q/Z) --add--> Q/Z → 0.",
    "correction": "The final map is onto only when S contains a finite place. In general 0 → Br(O_S) → (ℤ/2)^{r_1} ⊕ ⊕_{v∈S finite} ℚ/ℤ → ℚ/ℤ → H³_et(O_S, G_m) → 0 (Milne ADT II.2.1).",
    "reason": "In VI.8 O_S is the ring of S-integers for a set S of finite places, which may be empty (Theorem 8.4: 'for some set S of finite places'). For F = ℚ(i) and S = ∅ the display reads 0 → Br(ℤ[i]) → 0 → ℚ/ℤ → 0, which is impossible; for F = ℚ and S = ∅ the image of add is ½ℤ/ℤ. Every use in VI.8–9 (Examples 8.3.1–8.3.2, (9.6), Lemma 9.6.3) has S nonempty.",
    "affects": "nothing",
@@ -7616,7 +7378,7 @@
    "source": "Kbook2013",
    "kind": "misprint",
    "locator": "VI.9, sentence after (9.2), printed p. 518 (PDF p. 526), K-book version of August 29, 2013",
-   "printed": "This map is an isomorphism for all n ≥ 3 by Tate-Poitou duality [128, I(4.20)].",
+   "printed": "The source invokes Tate-Poitou duality [128, I(4.20)] to claim that this map is an isomorphism whenever n ≥ 3.",
    "correction": "Cite [128, I(4.10)(c)] (Milne ADT Theorem I.4.10(c), finite modules, S finite), passing to the colimit over ν for ℤ/2^∞(i).",
    "reason": "Milne ADT Theorem I.4.20 (numbering unchanged from the 1986 edition, per the preface of the 2nd edition) concerns finitely generated modules and assumes that S omits only finitely many primes; here S is finite and ℤ/2^∞(i) is not finitely generated. Theorem I.4.10(c) states that H^r(G_S, M) → ∏_{v real} H^r(K_v, M) is bijective for r ≥ 3 and finite M of order a unit in R_{K,S}; with filtered colimits it gives the claim. VI.8 cites [128, 4.10] correctly for the same circle of results.",
    "affects": "nothing",
@@ -7637,7 +7399,7 @@
    "source": "Kbook2013",
    "kind": "gap",
    "locator": "VI.8.6 (Birch–Tate Conjecture), printed p. 515 (PDF p. 523), K-book version of August 29, 2013",
-   "printed": "The odd part of this conjecture was proven by Wiles in [229], using Tate's calculation that K2(OS)/m ≅ H²_et(OS, µm^{⊗2}) when 1/m ∈ OS (see [198] or III(6.10.4)).",
+   "printed": "The source credits Wiles [229] with proving the conjecture’s odd part, using an attributed calculation of Tate: K2(OS)/m ≅ H²_et(OS, µm^{⊗2}) for 1/m ∈ OS. It refers to [198] or III(6.10.4).",
    "correction": "The cited places give the field statement (Tate [198] (5.4), (6.6); III.6.10.4) and, for μ_ℓ ⊂ F, Tate's (6.2) description 0 → μ_ℓ ⊗ Pic O_S → K_2O_S/ℓ → (∐_{v∈S−S_c} μ_ℓ)_0 → 0; they do not construct a map K_2(O_S)/m → H²_et(O_S, μ_m^{⊗2}). The ring isomorphism is the K-book's Corollary VI.8.3 (ℓ odd, via the motivic spectral sequence) or follows from an étale Chern class c_{2,2}.",
    "reason": "Tate 1976 works only with Galois cohomology of the field (pp. 268–273, page images read). A map on K_2(O_S)/m cannot be read off from the field symbol, because H²_et(O_S, μ_m^{⊗2}) → H²(F, μ_m^{⊗2}) has kernel (Pic(O_S)/m) ⊗ μ_m when μ_m ⊂ F, nonzero for F = ℚ(μ_37), m = 37.",
    "affects": "nothing",
@@ -7658,7 +7420,7 @@
    "source": "Tate1976",
    "kind": "misprint",
    "locator": "Proof of (6.2) Theorem, p. 270 (Invent. Math. 36 (1976), published version, GDZ scan)",
-   "printed": "Since γ is surjective (Theorem (5.1)), the cokernel of d^S is the same as that of the arrow below it.",
+   "printed": "The proof cites Theorem (5.1) for surjectivity of γ, then identifies the cokernel of d^S with the cokernel of the arrow beneath it.",
    "correction": "The surjectivity of γ onto (K_2F)_l is Theorem (6.1); the reference should read (Theorem (6.1)), as in the proof of (6.3) on p. 271 ('γ^S is surjective because γ is (Theorem (6.1))').",
    "reason": "Theorem (5.1) states that h_1 is bijective; the statement that the image of γ is (K_2F)_l is Theorem (6.1) (p. 270), deduced from (5.4). The argument is correct once the reference is corrected.",
    "affects": "nothing",
@@ -7678,7 +7440,7 @@
    "source": "Totaro1992",
    "kind": "error",
    "locator": "§3, printed p. 183 (PDF p. 7), the published K-Theory 6 (1992) text supplied as Totaro1992",
-   "printed": "\"Let D be the normalization of C; then D is a smooth curve with a finite map D → C, as is well known.\" and \"Let P(D) be the unique smooth compactification of D\"",
+   "printed": "The source takes D to be the normalization of C, calls it a smooth curve, and asserts a finite map D → C. It then defines P(D) as the sole smooth compactification of D.",
    "correction": "D is a regular curve and P(D) is the regular proper model of the function field F(C); over an imperfect field F neither need be smooth over F, and residue fields of closed points may be inseparable over F. The argument goes through verbatim with 'regular', because Suslin's reciprocity law (with Kato's norms) is a statement about all places of the function field of one variable, i.e. the closed points of the regular proper model.",
    "reason": "Over F = 𝔽_p(s), p odd, the curve y² = x^p − s is regular at the point (y, x^p − s) (its maximal ideal is generated by y, since x^p − s = y²) but not smooth there (both partial derivatives 2y and p x^{p−1} vanish). Normalisations of curves in the cube can therefore be regular without being smooth.",
    "affects": "the proof",
@@ -7698,7 +7460,7 @@
    "source": "MVW2006",
    "kind": "gap",
    "locator": "Theorem 10.2 and Theorem 10.3 with its proof, printed pp. 75–76 (PDF pp. 90–91); Lemma 9.31, printed p. 73 (PDF p. 88), under the running assumption stated before Lemma 9.26, printed p. 72; CMI PDF of the published monograph",
-   "printed": "Theorem 10.2: 'Let n be an integer prime to the characteristic of k. Then: H_L^{p,q}(X, Z/n) = H_ét^p(X, μ_n^{⊗q})'. Proof of 10.3: 'By 9.25 and 9.31, both μ_n^{⊗q} and Z/n(q) are A1-local.' Lemma 9.31: 'Suppose that 1/m ∈ k and cd_m(k) < ∞.'",
+   "printed": "Theorem 10.2 gives H_L^{p,q}(X, Z/n) = H_ét^p(X, μ_n^{⊗q}) for any integer n coprime to the characteristic of k. The proof of 10.3 invokes 9.25 and 9.31 for A1-locality of both μ_n^{⊗q} and Z/n(q). Lemma 9.31 assumes 1/m ∈ k and cd_m(k) < ∞.",
    "correction": "The statement of 10.2/10.3 is correct for every field with n invertible, but the proof as written covers only fields with cd_n(k) < ∞. The missing step: check the quasi-isomorphism on stalks at strict henselisations of smooth k-schemes, write each stalk as a filtered colimit of stalks over finitely generated subfields (Exercise 1.13, Lemma 3.9), and replace such a subfield by its finite separable extension adjoining √−1 when n is even (Proposition 3.8); finitely generated fields of this kind have finite cd_n, where 9.31 applies.",
    "reason": "For k = ℝ (or ℚ) and n = 2, cd_2(k) = ∞, so Lemma 9.31, and with it Lemma 9.29's convergence of the hyperext spectral sequence (which rests on 9.27), is not available, yet Theorem 10.2 is stated for such k and its proof cites 9.31.",
    "affects": "the proof",
@@ -7718,7 +7480,7 @@
    "source": "MVW2006",
    "kind": "misprint",
    "locator": "Corollary 4.8, printed p. 27 (PDF p. 42)",
-   "printed": "'Corollary 4.8. There is a quasi-isomorphism of complexes of étale sheaves Z/l(1)_ét ≃ μ_l.'",
+   "printed": "Corollary 4.8 asserts Z/l(1)_ét ≃ μ_l as a quasi-isomorphism between complexes of étale sheaves.",
    "correction": "The hypothesis 1/l ∈ k must be added (the Kummer sequence 1 → μ_l → O^× → O^× → 1 is étale-exact only when l is invertible).",
    "reason": "In characteristic p with l = p, μ_p is the trivial étale sheaf on Sm/k while O^×/p ≠ 0 étale-locally, so Z/p(1)_ét ≃ O^× ⊗^L Z/p[−1] is not μ_p.",
    "affects": "a stated result",
@@ -7738,7 +7500,7 @@
    "source": "MVW2006",
    "kind": "gap",
    "locator": "Lemma 1.7, printed p. 5 (PDF p. 20)",
-   "printed": "'Lemma 1.7. Let V ⊂ X × Y and W ⊂ Y × Z be irreducible closed subsets which are finite and surjective over X and Y respectively. Then V × Z and X × W intersect properly …'",
+   "printed": "Lemma 1.7 takes V ⊂ X × Y finite and surjective over X, and W ⊂ Y × Z finite and surjective over Y, assuming both subsets closed and irreducible. It claims proper intersection of V × Z with X × W.",
    "correction": "Y must be normal, so that Lemma 1.6 applies; for the composition in Cor_k, Y is smooth, hence normal.",
    "reason": "The proof applies Lemma 1.6, whose hypothesis is a normal base, to W̃ → Y.",
    "affects": "nothing",
@@ -7817,7 +7579,7 @@
    "source": "Voevodsky2011",
    "kind": "gap",
    "locator": "Theorem 6.3, p. 34, arXiv 0805.4430v2",
-   "printed": "For any a = (a1, . . . , an) there exists a ν≤(n−1)-variety X such that: 1. X splits a 2. the sequence H−1,−1(X × X, Z) → H−1,−1(X, Z) → k∗ is exact.",
+   "printed": "Theorem 6.3 asserts that every a = (a1, . . . , an) admits a ν≤(n−1)-variety X splitting a and making H−1,−1(X × X, Z) → H−1,−1(X, Z) → k∗ an exact sequence.",
    "correction": "The cited proof (Suslin–Joukhovitski) assumes the Bloch–Kato conjecture in degree n − 1, a nonzero symbol and μ_l ⊂ k (Haesemeyer–Weibel, introduction to Theorem 0.7); the theorem should carry these hypotheses.",
    "reason": "Haesemeyer–Weibel: 'It assumes that the Bloch-Kato conjecture holds for n − 1'. Voevodsky applies Theorem 6.3 only in Lemmas 6.7 and 6.15, inside the induction where that hypothesis holds, so the proof of Theorem 6.1 is unaffected.",
    "affects": "nothing",
@@ -7837,7 +7599,7 @@
    "source": "HW2009Chain",
    "kind": "misprint",
    "locator": "§9, p. 24 (author's copy dated 2 January 2009)",
-   "printed": "X is a norm variety (a p-generic splitting variety of dimension p^n − 1)",
+   "printed": "The source calls X a norm variety, specifying a p-generic splitting variety with dimension p^n − 1.",
    "correction": "dimension p^{n−1} − 1, as in the definition in the introduction (p. 1).",
    "reason": "The introduction defines norm varieties for symbols of length n with dimension p^{n−1} − 1, and Theorem 0.7(2) makes them ν_{n−1}-varieties; p^n − 1 is the dimension of ℙ(A) (Theorem 8.1).",
    "affects": "nothing",
@@ -7875,7 +7637,7 @@
    "source": "Voevodsky2003RPO",
    "kind": "misprint",
    "locator": "Theorem 10.3, second relation, p. 42, arXiv v1 (p. 37 of the published version)",
-   "printed": "And for 0 ≥ a ≥ lb one has: P^aB^b = ... (arXiv v1); And for a ≥ lb ≥ 0 one has: ... (published)",
+   "printed": "The arXiv v1 statement gives the range 0 ≥ a ≥ lb for P^aB^b = ...; the published statement instead gives a ≥ lb ≥ 0 for that relation.",
    "correction": "The relation for P^aB^b = P^aβP^b holds for 0 < a ≤ lb, as in topology (Steenrod–Epstein, Theorem VIII.1.6, which the proof invokes).",
    "reason": "With b > 0 the printed v1 range 0 ≥ a ≥ lb is empty; the published range a ≥ lb includes a ≥ lb + 1, where P^aβP^b is an admissible monomial and no Adem relation applies. The proof says the relations are exactly the topological ones, whose range is a ≤ lb.",
    "affects": "nothing",
@@ -7895,7 +7657,7 @@
    "source": "Voevodsky2011",
    "kind": "gap",
    "locator": "§6, sentence before Theorem 6.16, PDF p. 41 (arXiv:0805.4430v2; the Annals version was not read)",
-   "printed": "The deduction of the following two results from Theorem 6.1 can be found in [6].",
+   "printed": "The source attributes to [6] a derivation from Theorem 6.1 of the two results that follow.",
    "correction": "[6] (Motivic cohomology with Z/2-coefficients, Publ. IHÉS 98, 2003) contains the general implication from Hilbert 90 to the Bloch–Kato and Beilinson–Lichtenbaum statements over every field of characteristic ≠ l (Theorem 6.6, Corollaries 6.9-6.10), and proves the case l = 2 directly over every field of characteristic ≠ 2, but it contains no passage from fields of characteristic 0 to fields of characteristic p ≠ l. For odd l and char k = p > 0, Theorem 6.16 needs an additional step, for example specialisation from the fraction field of W(k^perf) using rigidity of K^M_*/l and the split residue sequence of Galois cohomology of a complete discretely valued field.",
    "reason": "MCZ2 read in its published version (§§1, 5-7, Appendix B): every hypothesis is char k ≠ l or char k ≠ 2, Theorem 7.4 is proved directly in each characteristic ≠ 2 with Pfister quadrics, and no specialisation, Witt-vector or henselian lifting argument occurs. The extensions K_a that [6, pp. 96-97] needs come, for odd l, from norm varieties and the Rost motive, which Voevodsky 2011 constructs only in characteristic 0 (§5: 'we work over fields of characteristic zero'), so [6] does not supply them in characteristic p.",
    "affects": "the proof",
@@ -7915,7 +7677,7 @@
    "source": "Voevodsky2011",
    "kind": "misprint",
    "locator": "§6, after Theorem 6.1, PDF p. 33 (arXiv:0805.4430v2)",
-   "printed": "In the next section we will extend this theorem to all fields of characteristic not equal to l.",
+   "printed": "The source announces that the next section will generalize this theorem to every field whose characteristic differs from l.",
    "correction": "'Further on in this section' (Theorem 6.16): §6 is the last section of the paper.",
    "reason": "The table of contents and the text end with §6; the extension is Theorem 6.16 on p. 41 of the same section.",
    "affects": "nothing",

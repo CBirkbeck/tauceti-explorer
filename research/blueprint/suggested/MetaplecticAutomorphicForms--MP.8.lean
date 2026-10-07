@@ -3,7 +3,9 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 can converge on names and signatures. Proof placeholders are not implementations. Missing supplier-owned conditions and
 partial native comparison signatures are identified by comments and the packet
-signatureOmissions fields. Raw-function sketches are not unconditional claims.
+signatureOmissions fields and the reader's per-node signature boundaries.
+Raw-function sketches are not unconditional claims; the nine recorded proof gaps
+remain open after the reader revision.
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 -/
@@ -697,7 +699,9 @@ def IsFiniteKMatrixCoefficient (phi : KTwo → ℂ) : Prop :=
     ∃ v : Fin d → ℂ, ∃ T : (Fin d → ℂ) →ₗ[ℂ] ℂ,
       ∀ q, phi q = T (v ᵥ* (sigma q : Matrix (Fin d) (Fin d) ℂ))
 
--- Corrected from the evaluated integrals (3.26)–(3.27), not the p.562 normalizer.
+-- The corrected pair follows the evaluated integrals (3.26)–(3.27), p.565.
+-- Both integrals contain the inverse of the FIRST gamma argument below.
+-- Cancellation leaves the second gamma factor; the negative pair itself is unchanged.
 def jacquetGammaArguments (eps n : ℤ) (s r : ℂ) : ℂ × ℂ :=
   let e : ℂ := eps
   let t : ℂ := n

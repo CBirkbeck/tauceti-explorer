@@ -361,13 +361,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.5, printed pp.82–83 (Ka-14/15)",
-          "excerpt": "There is a unique invertible sheaf",
           "match": "Sections of the imported Hodge line; the surrounding passage specifies holomorphy at infinity."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "2.1, author DVI pp.3–4",
-          "excerpt": "By a modular form of type",
           "match": "The displayed definition uses the compactified algebraic stack; Greek notation and spacing are rendered from the DVI. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -456,19 +454,16 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Theorem 1.8.1 and its proof, printed pp. 85-86 (Ka-17/18)",
-          "excerpt": "Let R",
           "match": "Level-two base change with the exact hypothesis that 2 is invertible; OCR prints 'k >= 1' as 'k > i'."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Remark 1.8.2.2, printed p. 87 (Ka-19)",
-          "excerpt": "The above theorem becomes",
           "match": "Explicit failure of level-one base change at p = 2 and p = 3, which is the source basis for treating small levels by descent rather than on the coarse curve."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Theorem 1.8.2 and its proof, printed pp. 86-87 (Ka-18/19)",
-          "excerpt": "Let R",
           "match": "Checked on the page image: the level-one theorem is stated over Z, not only over Z[1/6]. Added by the reviewer."
         }
       ],
@@ -554,19 +549,16 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Theorem 1.6.1 and Corollary 1.6.2, printed pp. 83-84 (Ka-15/16)",
-          "excerpt": "vanishes identically",
           "match": "The literal hypothesis 'on each of the phi(n) connected components ... at least one cusp' that this node retains."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Corollary 1.9.1, printed p. 88 (Ka-20)",
-          "excerpt": "there are three",
           "match": "The level 1 and 2 form of the principle, where a single cusp suffices."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Proof of Theorem 1.6.1, printed pp. 84-85 (Ka-16/17)",
-          "excerpt": "it is Cohen-Macaulay",
           "match": "The depth argument that completes the vanishing proof, now recorded in the proof steps. Added by the reviewer."
         }
       ],
@@ -622,25 +614,21 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Theorem 1.12.1, printed p. 94 (Ka-26)",
-          "excerpt": "are polynomials in",
           "match": "The literal divisibility hypothesis '(p-1) | k' (printed 'p-!Ik') retained in the statement."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Corollary 1.12.2, printed p. 95 (Ka-27)",
-          "excerpt": "Strong q-expansion principle",
           "match": "Literal statement of the corollary with the ring Z[1/an] in which the primes p with (p-1)|k have been inverted."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.12, Result 1.12.0, printed p. 93 (Ka-25) and p. 94 (Ka-26)",
-          "excerpt": "are constants",
           "match": "Result1.12.0 is invoked here and proved in 4.4.1; its characteristic-p hypothesis is retained. The characteristic-zero field case is separately recorded as a proof input."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "4.4.1, printed p.151 (Ka-83)",
-          "excerpt": "The following conditions are equivalent",
           "match": "The m=1 ordinary weight criterion excludes nonzero constant expansions when (p−1) does not divide the positive weight."
         }
       ],
@@ -679,13 +667,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Theorem 1.7.1 and the following Remark, printed p. 85 (Ka-17)",
-          "excerpt": "Theorem 1.7.1",
           "match": "Literal hypotheses n >= 3 and (k >= 2 or (k = 1 and n <= 11)) retained in the node statement."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Remark following Theorem 1.7.1, printed p. 85 (Ka-17)",
-          "excerpt": "The author does not know whether or not",
           "match": "Records the exact boundary of the base-change theorem in weight one. The page image shows 'n >= 12' (underlined inequality); the drafter's excerpt 'n > 12' was an artefact of the text layer and was corrected by the reviewer."
         }
       ],
@@ -729,19 +715,16 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Formula 1.11.1 (1.11.1.2), printed p. 92 (Ka-24)",
-          "excerpt": "the convention that",
           "match": "The literal q-expansion formula for T_l, transcribed from the page image (the text layer garbles the primes on alpha_n). The drafter's reading a_{i/l}(l alpha_n) + a_{li}(alpha_n) was corrected by the reviewer."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Corollary 1.11.4, printed p. 93 (Ka-25)",
-          "excerpt": "Corollarg 1.11.4",
           "match": "Integral Hecke operators on level-one forms with arbitrary Z-module coefficients, the form needed for reduction mod p; OCR prints 'k >= 2' as 'k > 2'."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.11.0.0-1.11.0.2, printed p. 90 (Ka-22)",
-          "excerpt": "which we will not use",
           "match": "Fixes which level structure enters the definition of T_l. Added by the reviewer."
         }
       ],
@@ -821,7 +804,6 @@
         {
           "sourceId": "ddt",
           "locator": "§4.1, Lemma 4.1, p. 107 (revision of 9 September 2007)",
-          "excerpt": "TR is generated as an R-algebra by either of the following",
           "match": "Parts (a) and (b), with the references [DI] Proposition 3.5.1 and [W3] p. 491."
         }
       ],
@@ -874,13 +856,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "2.0, printed p. 97 (Ka-29)",
-          "excerpt": "Let R",
           "match": "Literal derivation of the weight p-1 transformation law from p-linearity of absolute Frobenius."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "2.0, printed pp. 97-98 (Ka-29/30)",
-          "excerpt": "An alternative method of establishing holomorphy",
           "match": "The normalization A(Tate(q), omega_can) = 1 at the cusp; the page image shows the Frobenius acting on the dual basis eta_can of H^1, not on omega_can. Corrected by the reviewer."
         }
       ],
@@ -963,19 +943,16 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "2.1, printed p. 98 (Ka-30)",
-          "excerpt": "For p",
           "match": "Literal statement of Deligne's congruence together with the q-expansion argument used to prove it."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "2.1, printed pp. 98-99 (Ka-30/31)",
-          "excerpt": "it is not possible to lift",
           "match": "The literal exceptional treatment at p = 2 and p = 3 with its level range, transcribed from the page image (the text layer drops the inequality signs)."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Remark in 2.1, printed p. 99 (Ka-31)",
-          "excerpt": "there exists a lifting",
           "match": "The full Remark: the p = 2 lifting extends to every n divisible by 3, 5, 7 or 11, and is open only for the remaining n. Extended by the reviewer."
         }
       ],
@@ -1020,13 +997,11 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "3.1, p. 7 of the DVI",
-          "excerpt": "increases degrees by",
           "match": "Literal construction of theta with its degree shift and its effect on q-expansions; '#' is the conversion's rendering of theta. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "3.1, p. 7 of the DVI",
-          "excerpt": "The commutation relations",
           "match": "The exact filtration hypothesis 'p does not divide k' and the Hecke commutation relation retained above. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -1111,13 +1086,11 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "3.2, p. 8 of the DVI",
-          "excerpt": "A proof of this fact for level",
           "match": "The literal restriction 'at least for p > 3' and the separate p = 2 statement, both retained. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "Proposition 3.3 and its proof, pp. 8-9 of the DVI",
-          "excerpt": "Then the",
           "match": "The hypotheses of Prop. 3.3, including w(f) = k, which the node keeps. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -1163,19 +1136,16 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "Theorem 3.4, p. 9 of the DVI",
-          "excerpt": "there exist integers",
           "match": "Literal statement including the restriction to l different from p. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "7.5 Proof of Theorem 3.4, p. 25 of the DVI",
-          "excerpt": "combined with Propositions",
           "match": "Records that the proof is run for N >= 5 and that the small levels need a separate argument. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "7.5, p. 26 of the DVI",
-          "excerpt": "For these remaining two cases",
           "match": "The level-one characteristic-2 and -3 cases rest on an unread import. Added by the reviewer. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -1220,7 +1190,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "engendrée",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1253,7 +1222,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "l'homomorphisme",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1336,7 +1304,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "idéal premier",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1376,7 +1343,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "l'homomorphisme",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1410,7 +1376,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "support",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1447,7 +1412,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "support",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1486,7 +1450,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "support",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1523,7 +1486,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "la sous-algèbre de End (M)",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1557,7 +1519,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "multiple",
           "match": "A declaration-sized expansion of the indicated step, not a separately numbered lemma in the paper."
         }
       ],
@@ -1601,7 +1562,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "valeurs propres",
           "match": "The original reviewed node ID is retained. The main conclusion is the source lemma; the intervening nodes spell out a normalization-and-support proof without assuming a split generic algebra."
         }
       ],
@@ -1640,7 +1600,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "Noter",
           "match": "New explicit regression example for the warning in 6.11; this matrix is not claimed to be printed in the source."
         }
       ],
@@ -1676,7 +1635,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "fini",
           "match": "New explicit regression example for the finite fraction-field extension in 6.11; not an attributed example from the paper."
         }
       ],
@@ -1710,7 +1668,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.11 and its proof, printed p. 522 (Numdam PDF page 17, zero-based index 16)",
-          "excerpt": "support",
           "match": "New negative test for the support argument used in 6.11; it explains why the faithfulness step cannot be omitted."
         }
       ],
@@ -1747,13 +1704,11 @@
         {
           "sourceId": "serre87-duke",
           "locator": "Proposition 1, section 2.1, printed p. 183",
-          "excerpt": "sont de niveau 1 ou 2",
           "match": "Literal statement of Proposition 1; the OCR renders phi as 'p' and the exponents are lost, but the dichotomy and the conjugacy relation phi' = phi^p are the content quoted."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "Proof of Proposition 1 and 2.2, printed p. 183",
-          "excerpt": "sous-espace stable de dimension",
           "match": "The irreducibility argument in the level-2 case, retained as part of the node statement."
         }
       ],
@@ -1801,13 +1756,11 @@
         {
           "sourceId": "serre87-duke",
           "locator": "2.2, formulas (2.2.1)-(2.2.5), printed pp. 183-184",
-          "excerpt": "Ceci fait, l'entier",
           "match": "The weight formula in the level-2 case under the normalization 0 <= a < b <= p-1 recorded just above it in the source."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "2.3, Remark 2, printed p. 185",
-          "excerpt": "un comportement quelque peu exceptionnel",
           "match": "Serre's own explanation that k = p in the unramified case is a convention, not a computation - the exact point at which Edixhoven's k(rho) differs."
         }
       ],
@@ -1914,19 +1867,16 @@
         {
           "sourceId": "serre87-duke",
           "locator": "2.4, (2.4.6)-(2.4.7), printed p. 186",
-          "excerpt": "nous dirons que",
           "match": "The literal definition of peu ramifie in terms of the p-divisibility of the valuations of the Kummer generators."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "2.4 (ii_2), formula (2.4.9), printed p. 187",
-          "excerpt": "On ajoute",
           "match": "The tres ramifie correction with its explicit p = 2 value 2, which the roadmap requires to be recorded separately."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "Proposition 8.5, p. 28 of the DVI",
-          "excerpt": "the integer",
           "match": "Edixhoven's version of Serre's Remark (1): eps_1 = eps_2 for the unramified characters of (2.4.2), x_i in Q_p^*, and the extra value m = 3 at p = 2 that Serre's remark omits. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -2008,13 +1958,11 @@
         {
           "sourceId": "serre87-duke",
           "locator": "Proposition 2 (2.5.1) with its proof, printed p. 187",
-          "excerpt": "est déterminée par",
           "match": "Literal statement that the determinant on inertia pins down k mod (p-1), which is the content of this node."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "1.3, (1.3.7)-(1.3.9), printed pp.181–182",
-          "excerpt": "On peut ainsi identifier",
           "match": "Records that the oddness condition is vacuous at p = 2, a hypothesis distinction the roadmap's parity rule must keep."
         }
       ],
@@ -2059,37 +2007,31 @@
         {
           "sourceId": "raynaud74-type-p-p",
           "locator": "Proposition 3.3.2, parts 2 and 3, printed p. 267",
-          "excerpt": "il existe deux prolongements",
           "match": "The uniqueness hypothesis is e < p-1; the e = p-1 case admits two prolongations. With R = Z_p^{nr} (e = 1) this is p >= 3 versus p = 2, which is the precise reason Serre's proof of his Proposition 4 is written only for p different from 2."
         },
         {
           "sourceId": "raynaud74-type-p-p",
           "locator": "Corollary 3.4.4, printed p. 270",
-          "excerpt": "Soit H un quotient de Jordan-Hôlder",
           "match": "The literal exponent bound 0 <= n_j <= e that Serre uses, with e = 1, to reduce to the four character possibilities in the proof of Proposition 4."
         },
         {
           "sourceId": "raynaud74-type-p-p",
           "locator": "Corollary 3.3.6, printed p. 268",
-          "excerpt": "Tout morphisme de G dans H",
           "match": "Confirms verbatim the statement that FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 undertakes to prove, including the flatness of kernel and cokernel and the Ext-injectivity."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "Proof of Proposition 4, printed p. 190",
-          "excerpt": "Ce cas est traité",
           "match": "Serre's printed citation is to 'th. 2.4.3' (confirmed on the page image of p. 190). Raynaud's Bull. SMF 102 (1974), which is Serre's [35], has no section 2.4: its section 2 consists of 2.1-2.3 and its numbered results there are 2.2.2, 2.2.3 and 2.3.1. The theorem that treats exactly this case - prolongability of the F-vector space scheme attached to a character psi - is Theorem 3.4.3, p. 270, which is therefore the plausible intended referent."
         },
         {
           "sourceId": "raynaud74-type-p-p",
           "locator": "Theorem 3.3.3 and Remarks 3.3.4-3.3.5, printed p. 268",
-          "excerpt": "admet au plus un prolongement",
           "match": "The uniqueness theorem cited by Edixhoven as [21], 3.3.3 in the p > 2 step of Prop. 8.2. Added by the reviewer."
         },
         {
           "sourceId": "raynaud74-type-p-p",
           "locator": "Remark 3.4.6, printed p. 271",
-          "excerpt": "ne nous apprennent rien",
           "match": "At p = 2 (e = 1 = p-1 over Z_2^{nr}) the exponent bound is vacuous and every F-vector space scheme prolongs over a strictly henselian R. Added by the reviewer."
         }
       ],
@@ -2126,19 +2068,16 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "8.1 and Proposition 8.2, p. 26 of the DVI",
-          "excerpt": "The following conditions are equivalent",
           "match": "The hypothesis that theta_1, theta_2 are unramified and the literal list of equivalent finiteness conditions. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "8.4, equations 8.4.3, p. 28 of the DVI",
-          "excerpt": "From this we conclude",
           "match": "The valuation dichotomy of 8.4.3, which gives Prop. 8.5 (tres ramifie forces eps_1 = eps_2); the source writes 'lambda = 1 and eps is trivial', eps being the unramified character, not chi. The drafter's 'chi is trivial' and its use as the proof of 8.2 were corrected by the reviewer. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "End of 8.3, p. 27 of the DVI",
-          "excerpt": "This completes the proof",
           "match": "The actual location of the proof of (1) <=> (2), including the explicit p = 2 argument. Added by the reviewer. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -2184,19 +2123,16 @@
         {
           "sourceId": "serre87-duke",
           "locator": "Proposition 4 and its proof, printed pp. 189-190",
-          "excerpt": "On a k = 2 si et seulement si",
           "match": "Literal statement of the two conditions characterizing k = 2."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "Proof of Proposition 4, printed p. 190",
-          "excerpt": "en nous bornant, pour simplifier",
           "match": "The source does not write out the p = 2 case of case (ii); this packet records that as an unresolved boundary rather than as an available input. The inequality sign, lost in the text layer, was restored from the page image by the reviewer."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "2.8, before Proposition 4, printed p. 189",
-          "excerpt": "schémas en Fq vectoriels",
           "match": "The coefficient hypothesis of Proposition 4 and the pointer to Raynaud F-vector space schemes for general F_q coefficients."
         }
       ],
@@ -2245,13 +2181,11 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "Definition 4.3 case 2(b), p. 10 of the DVI",
-          "excerpt": "not finite at",
           "match": "Literal statement of the extension-sensitive clause, phrased through 'finite at p' rather than through Serre's Kummer-valuation condition. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "Remark 4.4.1, p. 10 of the DVI",
-          "excerpt": "they differ only in two cases",
           "match": "The exact comparison between the two weight recipes, including the p = 2 discrepancy, which the roadmap requires the local table to record. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -2297,13 +2231,11 @@
         {
           "sourceId": "serre87-duke",
           "locator": "2.6, printed p. 188",
-          "excerpt": "Pour p = 2, on a k = 2 si l'action de Ip est triviale, ou peu ramifiée, et k = 4 si",
           "match": "The p = 2 values of the recipe and Serre's quadratic-field example."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§1, p. 2 (authors' preprint)",
-          "excerpt": "In the case of p = 2, the values of k(ρ̄) can either be 2 or 4, with the former if and only if ρ̄ is finite at 2.",
           "match": "The dichotomy as Khare–Wintenberger use it."
         }
       ],
@@ -2358,25 +2290,21 @@
         {
           "sourceId": "serre87-duke",
           "locator": "3.1, (3.1.3), printed p. 194",
-          "excerpt": "ne dépend pas du choix",
           "match": "The independence-of-place and dimension statement that makes the definition of residual modularity well posed."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "3.1, (3.1.6), printed pp. 194-195",
-          "excerpt": "commutent entre eux",
           "match": "The explicit use of Deligne-Serre Lemme 6.11 inside the definition chain, justifying the R15.5 -> R15.6 dependency."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "4.2 and the paragraph following it, pp. 9-10 of the DVI",
-          "excerpt": "Katz's definition",
           "match": "Records the change of definition that separates k_rho from k(rho) and licenses weight 1. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "3.2, Remark (6) and footnote 2, printed p. 197",
-          "excerpt": "faux pour",
           "match": "A small-characteristic difference between the reduction definition and Katz's definition. Added by the reviewer."
         }
       ],
@@ -2418,13 +2346,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.13 with proof, printed p. 523",
-          "excerpt": "les coefficients des polynômes",
           "match": "Literal statement of the descent of the field of definition by characteristic polynomials."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Proof of Lemme 6.13, printed p. 523",
-          "excerpt": "le groupe de Brauer d'un corps fini est trivial",
           "match": "The finiteness hypothesis is used exactly through the vanishing of the Brauer group."
         }
       ],
@@ -2474,13 +2400,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§1, p. 2 (authors' preprint)",
-          "excerpt": "We say that such a representation is of Serre-type, or S-type, for short.",
           "match": "S-type: continuous, absolutely irreducible, two-dimensional and odd."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§1, p. 2 (authors' preprint)",
-          "excerpt": "By arises from f we mean that there is an integral model ρ : GQ → GL2 (O) of the p-adic representation ρf associated",
           "match": "\"Arises from\", \"modular\" and \"arises from S_{k(ρ̄)}(Γ₁(N(ρ̄)))\"."
         }
       ],
@@ -2579,19 +2503,16 @@
         {
           "sourceId": "serre87-duke",
           "locator": "3.2, (3.2.1)-(3.2.5), printed pp. 195-196",
-          "excerpt": "peut être choisie de type",
           "match": "The refined statement that fixes the type (N, k, eps) to be the invariants of the recipe rather than any admissible type."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "3.2, Remark (5), printed p. 197",
-          "excerpt": "sont minimaux",
           "match": "The source itself only conjectures minimality; this packet does not record minimality as an established input. Transcribed from the page image by the reviewer (the text layer garbles the inequalities)."
         },
         {
           "sourceId": "serre87-duke",
           "locator": "1.2, (1.2.2), printed p. 181",
-          "excerpt": "invariant sauvage",
           "match": "The Artin conductor exponent with its wild part, the definition of N used in the statement."
         }
       ],
@@ -2673,13 +2594,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.5, printed pp.82–83 (Ka-14/15)",
-          "excerpt": "There is a unique invertible sheaf",
           "match": "Sections of the imported Hodge line; the surrounding passage specifies holomorphy at infinity."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "2.1, author DVI pp.3–4",
-          "excerpt": "By a modular form of type",
           "match": "The displayed definition uses the compactified algebraic stack; Greek notation and spacing are rendered from the DVI. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -2761,7 +2680,6 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.5, printed pp.82–83 (Ka-14/15)",
-          "excerpt": "There is a unique invertible sheaf",
           "match": "Sections of the imported Hodge line; the surrounding passage specifies holomorphy at infinity."
         }
       ],
@@ -2846,13 +2764,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.5, printed pp.82–83 (Ka-14/15)",
-          "excerpt": "There is a unique invertible sheaf",
           "match": "Sections of the imported Hodge line; the surrounding passage specifies holomorphy at infinity."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "2.1, author DVI pp.3–4",
-          "excerpt": "By a modular form of type",
           "match": "The displayed definition uses the compactified algebraic stack; Greek notation and spacing are rendered from the DVI. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -2891,19 +2807,16 @@
         {
           "sourceId": "pan22-preprint",
           "locator": "4.1.2, preprint p.34",
-          "excerpt": "Everything here is compatible under varying",
           "match": "Kodaira–Spencer is the composite of the Hodge inclusion, logarithmic connection and quotient; level compatibility follows in this passage."
         },
         {
           "sourceId": "katz73-padic-properties",
           "locator": "A1.3.17–A1.3.18, printed p.169 (Ka-101), and 1.5, pp.82–83",
-          "excerpt": "Kodaira-Spencer",
           "match": "Katz fixes the elliptic trivialization and Tate normalization; Appendix A constructs the map."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "Lemma 7.4, author DVI p.25",
-          "excerpt": "One uses the formula for the Kodaira-Spencer map",
           "match": "Proves isogeny compatibility from Gauss–Manin and the cup product; spacing normalized from DVI."
         }
       ],
@@ -2944,13 +2857,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "1.5, printed pp.82–83 (Ka-14/15)",
-          "excerpt": "There is a unique invertible sheaf",
           "match": "Sections of the imported Hodge line; the surrounding passage specifies holomorphy at infinity."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "2.1, author DVI pp.3–4",
-          "excerpt": "By a modular form of type",
           "match": "The displayed definition uses the compactified algebraic stack; Greek notation and spacing are rendered from the DVI. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -2989,13 +2900,11 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "Theorem 1.7.1, printed p.85 (Ka-17)",
-          "excerpt": "Theorem 1.7.1",
           "match": "Holomorphic fine-level base change in its exact weight/level range; the cusp/character reduction criterion is separately stated in this node."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "2.6–2.7, printed pp.511–512",
-          "excerpt": "libre de type fini",
           "match": "Classical integral Hecke-stable lattice and rational base change; geometric cusp/character comparison requires the explicitly recorded input."
         }
       ],
@@ -3080,7 +2989,6 @@
         {
           "sourceId": "calegari-dimitrov-tang25",
           "locator": "Lemma 4.2.2, printed p.655",
-          "excerpt": "It follows from [Shi71, Theorem 3.52]",
           "match": "The holomorphic congruence form fΔ^m has bounded denominators; Δ^−1 is integral in the selected Laurent parameter."
         }
       ],
@@ -3116,7 +3024,6 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.3, printed pp.313–316",
-          "excerpt": "We recall in this section how the Hecke algebra",
           "match": "Defines its action on coherent cohomology, including torsion coefficients and cusp twists."
         }
       ],
@@ -3199,7 +3106,6 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.3, printed pp.313–316",
-          "excerpt": "We recall in this section how the Hecke algebra",
           "match": "Defines its action on coherent cohomology, including torsion coefficients and cusp twists."
         }
       ],
@@ -3282,7 +3188,6 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.3, printed pp.313–316",
-          "excerpt": "We recall in this section how the Hecke algebra",
           "match": "Defines its action on coherent cohomology, including torsion coefficients and cusp twists. The weight-n square uses x^n, correcting the source’s weight-one scalar E21; the i=1 extension is derived on sheaves, rather than inferred from its misprinted target E22."
         }
       ],
@@ -3359,7 +3264,6 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.3, printed pp.313–316",
-          "excerpt": "We recall in this section how the Hecke algebra",
           "match": "Defines its action on coherent cohomology, including torsion coefficients and cusp twists."
         }
       ],
@@ -3396,13 +3300,11 @@
         {
           "sourceId": "katz77",
           "locator": "II, Theorem and Corollaries, printed pp.55–56",
-          "excerpt": "increases degrees by",
           "match": "Extends the theta construction and exact-filtration results to every characteristic and prime-to-p full level N ≥ 3."
         },
         {
           "sourceId": "calegari-geraghty20",
           "locator": "Proof of Lemma 8.14, local p.66 (final p.866)",
-          "excerpt": "We have operators U and V defined by the formulas",
           "match": "The GL2 q-expansion model distinguishes weight one from higher weights and uses UV=id."
         }
       ],
@@ -3493,7 +3395,6 @@
         {
           "sourceId": "katz77",
           "locator": "II, Theorem and Corollaries, printed pp.55–56",
-          "excerpt": "increases degrees by",
           "match": "Extends the theta construction and exact-filtration results to every characteristic and prime-to-p full level N ≥ 3."
         }
       ],
@@ -3530,7 +3431,6 @@
         {
           "sourceId": "katz73-padic-properties",
           "locator": "4.4.1–4.4.2, printed pp.151–152 (Ka-83/84)",
-          "excerpt": "The following conditions are equivalent",
           "match": "Uses the full unit-group monodromy on the ordinary Igusa tower; the dyadic exponent is explicitly different."
         }
       ],
@@ -3569,19 +3469,16 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "Proof of Theorem3.11, printed pp.327–328",
-          "excerpt": "The operator T p acts in this setting",
           "match": "CG18 explicitly imports Gross §4 for the torsion weight-one action and checks the V term and sufficient weight divisibility."
         },
         {
           "sourceId": "calegari-geraghty20",
           "locator": "Proof of Lemma 8.14, local p.66",
-          "excerpt": "and T D U C hpiV in weight 1",
           "match": "OCR renders T=U+⟨p⟩V; the surrounding proof distinguishes this from sufficiently high weight."
         },
         {
           "sourceId": "katz77",
           "locator": "II, Theorem and Corollaries, printed pp.55–56",
-          "excerpt": "increases degrees by",
           "match": "Extends the theta construction and exact-filtration results to every characteristic and prime-to-p full level N ≥ 3."
         }
       ],
@@ -3629,13 +3526,11 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.5, after Lemma3.7, printed pp.322–323",
-          "excerpt": "is not Hecke equivariant",
           "match": "The next displayed composition includes KS and (w*)∨, and has the x^{1−n} scalar."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "Proposition7.3 and Lemma7.4, author DVI pp.24–25",
-          "excerpt": "The exact sequence",
           "match": "DVI text of the supersingular sequence compatibility; the proof checks the isogeny degree factor. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -3673,7 +3568,6 @@
         {
           "sourceId": "serre87-duke",
           "locator": "2.7–2.9, printed pp.188–191",
-          "excerpt": "résulte immédiatement des définitions",
           "match": "Local consequences of the explicit recipe, rather than a definition by modularity."
         }
       ],
@@ -3714,13 +3608,11 @@
         {
           "sourceId": "serre87-duke",
           "locator": "2.7–2.9, printed pp.188–191",
-          "excerpt": "résulte immédiatement des définitions",
           "match": "Local consequences of the explicit recipe, rather than a definition by modularity."
         },
         {
           "sourceId": "edixhoven-weight",
           "locator": "Theorems2.5–2.6 and Definition4.3, author DVI pp.5–6,10",
-          "excerpt": "Theorem. (Fontaine)",
           "match": "Edixhoven’s geometric theorem for modular forms is a related comparison, not a proof of the requested Fontaine–Laffaille module classification. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation."
         }
       ],
@@ -3760,7 +3652,6 @@
         {
           "sourceId": "serre87-duke",
           "locator": "2.9 Proposition5 and its proof, printed p.191",
-          "excerpt": "Si E a bonne réduction",
           "match": "The Tate Kummer class gives the multiplicative valuation criterion; the p=2 correction follows from §2.4/2.6, not the displayed p+1 formula alone."
         }
       ],
@@ -3798,13 +3689,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Lemma6.2(ii), preprint p.11",
-          "excerpt": "then ρ̄ has weight either",
           "match": "States the normalized two-value consequence for S-type and p≥3."
         },
         {
           "sourceId": "dieulefait-pacetti21",
           "locator": "Lemma1.14 and proof, pp.8–9",
-          "excerpt": "Then either p = 2k",
           "match": "Separates niveau2 (2k−3) and niveau1 (2k−1); proof also refers to Ribet Proposition2.2."
         }
       ],
@@ -3848,7 +3737,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "6.9–6.11, printed p.522",
-          "excerpt": "Le produit/.E^ est donc congru à/mod?i",
           "match": "The weight shift preserves reduction; OCR renders the form and prime poorly. The next paragraph applies 6.11 to the integral module."
         }
       ],
@@ -3889,7 +3777,6 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Introduction, preprint pp.1–2",
-          "excerpt": "arises from",
           "match": "Defines modularity through newforms and their reductions; stable lattices and semisimplification are supplied by the representation owner."
         }
       ],
@@ -3987,13 +3874,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "6.9–6.11, printed p.522",
-          "excerpt": "Le produit/.E^ est donc congru à/mod?i",
           "match": "The weight shift preserves reduction; OCR renders the form and prime poorly. The next paragraph applies 6.11 to the integral module."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "6.8 and 6.12–6.13, pp.522–523",
-          "excerpt": "le théorème pour/équivaut au théorème pour/",
           "match": "Good-prime eigenvalue and determinant congruences identify the residual semisimplification; OCR merges f with the slash."
         }
       ],
@@ -4066,7 +3951,6 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.3, printed p.314, preceding the definition of W_x",
-          "excerpt": "Note that this is not really an involution",
           "match": "Defines the quotient tuple, then computes w_x²=⟨x⟩ and π₂=π₁∘w_x. The cited compactification input remains a supplier request."
         }
       ],
@@ -4147,13 +4031,11 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "§7, between (7.2.1) and Proposition7.3, author DVI p.24",
-          "excerpt": "We let w act on modular forms",
           "match": "Defines w* by the isogeny differential pullback, not merely by the curve action. DVI prose is quoted with word spacing restored."
         },
         {
           "sourceId": "calegari-geraghty18",
           "locator": "3.2.5, printed pp.322–323",
-          "excerpt": "is not Hecke equivariant",
           "match": "The displayed correction uses the dual of w* on H⁰ with K/O dual coefficients."
         }
       ],
@@ -4201,7 +4083,6 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "7.1, equation7.1.1, author DVI p.23",
-          "excerpt": "Let S(N,k)",
           "match": "Defines the finite supersingular fibre space and the Hasse exact sequence for every integer k."
         }
       ],
@@ -4302,7 +4183,6 @@
         {
           "sourceId": "edixhoven-weight",
           "locator": "Proposition7.2 and its second proof, author DVI pp.23–24",
-          "excerpt": "Since A has a simple zero",
           "match": "The derivative of the simple Hasse zero followed by Kodaira–Spencer constructs the all-characteristic section and Hecke twist."
         }
       ],
@@ -4352,7 +4232,6 @@
         {
           "sourceId": "calegari-geraghty18",
           "locator": "Remark3.4, printed p.316, corrected as PAPER-CALEGARI-GERAGHTY-18/E23",
-          "excerpt": "acts transitively on the set of cusps",
           "match": "The quoted assertion is false. The corrected fibre-by-fibre Tate calculation gives the Eisenstein conclusion used by Lemma3.7(2), without the asserted all-cusp scalar."
         }
       ],
@@ -4757,7 +4636,7 @@
       "kind": "error",
       "affects": "nothing",
       "locator": "2.4, Remarques (1), printed p. 186",
-      "printed": "et l’on a alors m = 1 ou m = 2",
+      "printed": "The source concludes that either m = 1 or m = 2.",
       "correction": "… et l'on a alors m = 1 ou m = 2 si p > 2, et m = 1, 2 ou 3 si p = 2.",
       "reason": "For p = 2 the Kummer classes live in K₀^*/K₀^{*2}, whose unit part is larger than for odd p (there is no isomorphism D^*/D^{*p} ≅ F̄_p as in Edixhoven (8.5.1)), and the Frobenius-compatibility equations 8.4.2 allow a third independent class; Edixhoven's Proposition 8.5 states m ∈ {1, 2} for p > 2 and m ∈ {1, 2, 3} for p = 2. The weight k does not depend on m, so the recipe is unaffected.",
       "known": "Edixhoven, The weight in Serre's conjectures on modular forms, Invent. Math. 109 (1992), Proposition 8.5 (\"Compare [26], §2.4, Remarques\")",
@@ -4816,7 +4695,7 @@
       "kind": "error",
       "affects": "the proof",
       "locator": "Remark3.4, printed p.316 (published author-hosted PDF)",
-      "printed": "acts transitively on the set of cusps",
+      "printed": "The source claims that the action is transitive on cusps.",
       "correction": "Diamonds preserve cusp types. On a general type the eigenvalue is ψ₁(x)+ψ₂(x)x^{n−1} with ψ₁ψ₂=ε; 1+ε(x)x^{n−1} is specific to the ∞-type. All boundary eigensystems remain Eisenstein.",
       "reason": "The diamond-invariant map to X₀(NQ) has distinct cusps 0 and ∞. The normalized Tate-isogeny sum gives ε(x)+x^{n−1} over 0. At N=7,n=3,p=5,x=3, ε=(·/7), this is 3, whereas the printed ∞-formula gives 2. The non-Eisenstein localization conclusion survives the fibre-by-fibre repair.",
       "known": "PAPER-CALEGARI-GERAGHTY-18/E23, independently confirmed by REV-PAPER-CALEGARI-GERAGHTY-18; retained at its consuming blueprint nodes.",

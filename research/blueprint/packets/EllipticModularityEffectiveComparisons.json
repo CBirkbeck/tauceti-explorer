@@ -292,7 +292,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Definitions 1A–1D and the Möbius term of Theorem 1, p.2",
-          "excerpt": "multiplicative function satisfying",
           "match": "Define localTerms(p,e) in Q^5, ordered (s,v∞,v2,v3,m), with e=0 giving (1,1,1,1,1). For a prime p and e≥1: s is 1−1/p for e=1, 1−1/p−1/p² for e=2, and (1−1/p)(1−1/p²) for e≥3. v∞ is 0 for odd e, p−2 for e=2, and p^(e/2−2)(p−1)² for even e≥4. For v2, at p=2 the values for e=1,2,3 are −1,−1,1 and thereafter 0; at odd p≡1 mod4 they are 0,−1 and thereafter 0; at odd p≡3 mod4 they are −2,1 and thereafter 0. For v3, at p=3 the values for e=1,2,3 are −1,−1,1 and thereafter 0; at p≡1 mod3 they are 0,−1 and thereafter 0; at p≡2 mod3 they are −2,1 and thereafter 0. m=−1 for e=1 and 0 for e≥2. For nonprime p and e>0 set the whole vector to zero. These are one finite table, not new factorization or modular-form carriers. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -375,7 +374,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Theorem 1 at k=2 and Definitions 1A–1F, p.2",
-          "excerpt": "Theorem 1",
           "match": "For N>0 let (S,I,A,B,M) be the coordinatewise product of localTerms(p,N.factorization(p)) over p in N.primeFactors. Define martinValue(N)=N S/12−I/2−A/4−B/3+M in Q. Set martinValue(0)=0 only as a total-function convention. The equality with an actual modular-form dimension is a separate comparison theorem. In particular this definition does not use a freely supplied dimension or an assumed newspace. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -468,7 +466,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Theorem 1 and its §2 proof; specialization k=2",
-          "excerpt": "λ = µ ∗ µ",
           "match": "For N>0, martinValue(N) equals the complex dimension g(N) of cuspFormsNew(N,2) intersected with cuspFormCharSpace(2,1). The latter is the weight-two Gamma0(N) newspace through the native trivial-character equivalence, not the whole Gamma1(N) newspace. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -509,7 +506,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 17, p.14",
-          "excerpt": "checked on prime powers directly",
           "match": "For N>0 and the five products (S,I,A,B,M) defining martinValue, NS≤φ(N), |A|≤2^ω, |B|≤2^ω, 0≤I≤sqrt(N), and |M|≤1, where ω is the number of distinct prime divisors of N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -546,7 +542,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Corollary 18, p.15",
-          "excerpt": "bounds given in Lemma 17",
           "match": "For N>0, 12 martinValue(N)≤φ(N)+7·2^ω(N)+12. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -583,7 +578,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 16, p.14",
-          "excerpt": "For every prime p",
           "match": "For every prime p, 12 martinValue(p)≤p+1, with equality exactly when p≡11 mod12. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -622,7 +616,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 19, p.15",
-          "excerpt": "at most two distinct prime factors",
           "match": "If N is composite, N>1521 and ω(N)≤2, then 12 martinValue(N)<N+1. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -659,7 +652,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 19, final finite calculation, p.15",
-          "excerpt": "equality N = 35",
           "match": "For composite 1<N≤1521 with ω(N)≤2, 12 martinValue(N)≤N+1, and equality holds exactly at N=35. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -698,7 +690,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 20, p.15",
-          "excerpt": "divisible by the sixth power of a prime",
           "match": "If N>0 and p^6 divides N for some prime p, then 12 martinValue(N)≤N−6, with the subtraction interpreted in Q. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -737,7 +728,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 21, p.15",
-          "excerpt": "two of which exceed 5",
           "match": "If N has at least three distinct prime factors and at least two exceed 5, then 12 martinValue(N)≤N−9. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -776,7 +766,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 22, pp.15–16",
-          "excerpt": "prime factor exceeding 41",
           "match": "If N≥1548, gcd(N,6)>1 and a prime p>41 divides N, then 12 martinValue(N)≤N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -813,7 +802,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Lemma 22, finite calculation, p.16",
-          "excerpt": "check by direct calculation",
           "match": "For 1≤N<1548 with gcd(N,6)>1 and a prime divisor exceeding 41, 12 martinValue(N)≤N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -850,7 +838,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Proof of Theorem 2, residual finite calculation, p.16",
-          "excerpt": "10,125 integers",
           "match": "For p in {7,11,13,17,19,23,29,31,37,41} and a,b,c,d in {0,…,5} with at least three positive entries, put N=2^a 3^b 5^c p^d. Then 12 martinValue(N)≤N−18. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -898,7 +885,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "Theorem 2, p.3, and its complete §4 proof, pp.14–16",
-          "excerpt": "with equality holding",
           "match": "For N>0 the actual trivial-nebentypus weight-two newspace has dimension g(N)≤(N+1)/12. Equality holds if and only if N=35 or N is prime and N≡11 mod12. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -936,7 +922,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Lemma 2.2 proof, p.359; explicit nonvanishing step",
-          "excerpt": "in all the real embeddings",
           "match": "Let K be a number field, c∈K, p≥2, s∈{1,−1}, and σ:K→C an embedding with |σ(c)|≤2 sqrt(p). Then α=p+1−s c is nonzero. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -974,7 +959,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Lemma 2.2 proof, p.359",
-          "excerpt": "in all the real embeddings",
           "match": "For K/Q of degree d, c∈K, p≥2 and s∈{1,−1}, if |σ(c)|≤2 sqrt(p) for every complex embedding σ, then |Norm_K/Q(p+1−s c)|≤(sqrt(p)+1)^(2d). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1015,7 +999,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Theorem 3, Lemmas 2.1(ii) and 2.2, pp.358–359",
-          "excerpt": "The following lemma will be invaluable to us",
           "match": "Let E/Q have conductor M and nonzero minimal discriminant Δ. Let ell≥3 be prime with E[ell] irreducible. Define M0 by deleting each prime q exactly once when ord_q(M)=1 and ell divides the integer valuation ord_q(Δ). If p≠ell is prime, ord_p(M)=1 and ell divides ord_p(Δ), then ell≤(sqrt(p)+1)^((M0+1)/6). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1056,7 +1039,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, equation (5), the three threshold displays and Theorem 4, p.360",
-          "excerpt": "quantitative version",
           "match": "For N>0 put I(N)=[SL2(Z):Gamma0(N)] using the native subgroup index, and g(N)=finrank_C(cuspFormsNew(N,2)∩cuspFormCharSpace(2,1)). Define krausF(N)=(sqrt(I(N)/6)+1)^(2g(N)). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1132,7 +1114,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, equation (5), the three threshold displays and Theorem 4, p.360",
-          "excerpt": "quantitative version",
           "match": "For N>0 define krausG(N)=(sqrt(I(lcm(N,4))/6)+1)^2, where I is the native Gamma0 index. The lcm is essential and is not replaced by 4N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1209,7 +1190,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, equation (5), the three threshold displays and Theorem 4, p.360",
-          "excerpt": "H(n) = max(F (n), G(n))",
           "match": "For N>0 define krausH(N)=max(krausF(N),krausG(N)). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1297,7 +1277,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "§2, equations (13)–(15), p.9",
-          "excerpt": "λ = µ ∗ µ",
           "match": "For prime p and e≥0, the Dirichlet-convolution square λ=μ*μ of the native Möbius arithmetic function has λ(p^0)=1, λ(p)=−2, λ(p²)=1, and λ(p^e)=0 for e≥3. Consequently λ*τ is the convolution identity, where τ counts positive divisors. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1337,7 +1316,6 @@
         {
           "sourceId": "martin-2003",
           "locator": "§2, proof of Theorem 1, equation (16) and following calculations, p.9",
-          "excerpt": "1 ∗ λ = 1 ∗ µ ∗ µ = µ",
           "match": "At every N>0, convolving each full-space dimension term with λ=μ*μ gives respectively N S(N), I(N), A(N), B(N), and μ(N), where (S,I,A,B,μ) are the products of localTerms. Thus the inverse of the full cusp-dimension function is martinValue. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1377,7 +1355,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, proof of Lemma 2.1, p.359",
-          "excerpt": "the dimension",
           "match": "Let f be an actual normalized weight-two newform of positive level L and trivial character, K_f its coefficient field generated by all coefficients. Then [K_f:Q]≤g_new(L). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1419,7 +1396,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, proof of Lemma 2.1, p.359",
-          "excerpt": "and so",
           "match": "Let K be a number field, λ a nonzero prime ideal of O_K lying above a rational prime ell, and x∈λ. Then ell divides the integer Algebra.norm(Z,x). If x≠0, this integer norm is nonzero and ell≤|Norm_Z(x)|. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1466,7 +1442,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, Lemma 2.1, pp.358–359",
-          "excerpt": "by comparing the traces of Frobenius",
           "match": "Let E/Q have conductor M, ell≥3 prime and irreducible E[ell]. Let M0 be the exact deletion level owned by R20.6. If p≠ell is prime, p∥M and ell divides the integer exponent v_p(Δ_min(E)), then ell≤(√p+1)^(2[K_f:Q]) for the R20.6 normalized weight-two trivial-character newform f at M0. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1503,7 +1478,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§2, Lemma 2.2, p.359",
-          "excerpt": "completing the proof",
           "match": "For L>0, d≤g_new(L), p≥2, and 12g_new(L)≤L+1, one has (√p+1)^(2d)≤(√p+1)^((L+1)/6), where the right power is the real power. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1544,7 +1518,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.1, conditions (a),(b), pp.1143–1144",
-          "excerpt": "newform normalisée",
           "match": "Let E/Q be modular, ell≥5 prime, with irreducible E[ell] of Serre weight 2, and N its full prime-to-ell Artin conductor. There is an actual normalized weight-two newform f on Γ0(N), with trivial character and a prime λ|ell of its own integral coefficient field, whose semisimple residual representation is isomorphic to E[ell]. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1588,7 +1561,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.2, Lemme 1 and its proof, pp.1144–1145",
-          "excerpt": "newform normalisée",
           "match": "If a normalized weight-two newform f of level N and trivial character has a_q(f)∈Z for every prime q≤μ(N)/6, then all its coefficients lie in Z and K_f=Q. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1626,7 +1598,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.2, proof of Théorème 3, pp.1144–1145",
-          "excerpt": "newform normalisée",
           "match": "If K_f≠Q for such f, there is a prime q≤μ(N)/6 with a_q(f)∉Z, and this q does not divide N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1665,7 +1636,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.2, proof of Théorème 3, pp.1144–1145",
-          "excerpt": "newform normalisée",
           "match": "If g_new(N)≥1 and B=μ(N)/6>0, then B<(√B+1)^(2g_new(N))=F(N). Hence any prime q≤B is different from a prime ell>F(N). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1707,7 +1677,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.2, proof of Théorème 3, pp.1144–1145",
-          "excerpt": "newform normalisée",
           "match": "For q∤N and a_q(f)∉Z, let b be either an elliptic good-reduction trace at q, or s(q+1) with s=±1. Then b−a_q(f) is a nonzero algebraic integer and |Norm_K/Q(b−a_q(f))|≤(√q+1)^(2[K_f:Q]). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1754,7 +1723,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.2, Théorème 3 proof, pp.1144–1145",
-          "excerpt": "newform normalisée",
           "match": "Under exact-weight-two-lift, ell>F(N) implies K_f=Q. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1800,7 +1768,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.1 rational-newform realization before Théorème 3, p.1143, and end of §3.2 proof, p.1145",
-          "excerpt": "newform normalisée",
           "match": "The rational normalized weight-two newform f at exact level N has an elliptic modular quotient E_f/Q of conductor exactly N. At every good prime q, a_q(E_f)=a_q(f), and E_f[ell]≅E[ell] under the lifting congruence. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1838,7 +1805,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Théorème 3, p.1144",
-          "excerpt": "newform normalisée",
           "match": "For E/Q modular and ell≥5 prime with E[ell] irreducible of Serre weight two and prime-to-ell residual conductor N, ell>F(N) produces E_f/Q of conductor exactly N with E_f[ell]≅E[ell]. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1876,7 +1842,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Appendix II, §8.1, p.1160",
-          "excerpt": "Définissons des opérateurs",
           "match": "For a commutative ring R, p,e∈N and a∈R, define the pair krausLocalFilters(p,e,a)=(V,V′) in R[X]². For p=2,e=0 use (1−aX+2X²,1); for p=2,e=1 use (1−aX,1); for p=2,e≥2 use (1,1). For p≠2,e=0 use (1,1); for p≠2,e=1 use (1,1−(p+1−a)X); for p≠2,e≥2 use (1,1−(p+1)X+pX²). At prime p with e=v_p(N), X acts as R_p:h(z)↦h(pz), so X² acts as R_(p²). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -1964,7 +1929,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Appendix II, §8.1, p.1159",
-          "excerpt": "n impair",
           "match": "The series g(z)=Σ_(n≥1 odd) σ₁(n)q^n is a holomorphic weight-two modular form of trivial character on Γ0(4), with zero constant term, integral coefficients and odd-prime Euler factor (1−(p+1)p^(−s)+p^(1−2s))^−1. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2007,7 +1971,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Appendix II, §8.1, pp.1159–1160",
-          "excerpt": "Définissons des opérateurs",
           "match": "Let f be a normalized integral weight-two trivial-character newform at N, λ a coefficient prime, m≥1, and M=lcm(N,4). Apply the products of the first local filters to f and the second local filters to g, over p|2N with e=v_p(N). The resulting forms are weight two at M; if a_q≡q+1 mod λ^m for q≤μ(M)/6, q∤2N, and (q+1)(a_q−1)∈λ^m for q≤μ(M)/6, q|2N, q²∤4N, their coefficients agree mod λ^m through index μ(M)/6. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2046,7 +2009,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Appendix II, Proposition 2 and conclusion of §8.1, pp.1158–1160",
-          "excerpt": "newform normalisée",
           "match": "Under the finite-prime hypotheses of filtered-coefficients, one has a_q(f)≡q+1 mod λ^m for every prime q∤2N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2087,7 +2049,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Appendix II, Corollaire and proof, p.1159",
-          "excerpt": "4 divise nl",
           "match": "Let C/Q be modular of conductor N. If there is a prime q∤2N with 4∤#C(F_q), there is such a prime q≤μ(lcm(N,4))/6. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2124,7 +2085,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.3, proof of Théorème 4, p.1146",
-          "excerpt": "4 divise nl",
           "match": "For B=μ(lcm(N,4))/6≥0, B<(√B+1)²=G(N). Consequently q≤B and ell>G(N) imply q≠ell. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2170,7 +2130,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.3, proof of Théorème 4, p.1146",
-          "excerpt": "4 divise nl",
           "match": "Let E have full rational two-torsion, ell≥5, and C of exact residual conductor N with C[ell]≅E[ell]. If ell>G(N), then 4 divides #C(F_q) for every q∤2N. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2210,7 +2169,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.3 proof of Théorème 4, p.1146, and the explicit mod-two Chebotarev argument",
-          "excerpt": "4 divise nl",
           "match": "If C/Q has 4|#C(F_q) at every good odd prime, then C has a rational point of order two. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2251,7 +2209,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.3 proof of Théorème 4, p.1146; two-isogeny lemma [18], Proposition 3",
-          "excerpt": "4 divise nl",
           "match": "If C/Q has 4|#C(F_q) at every good odd prime, then there is a Q-isogeny C→F of degree one or two with F[2](Q)≅(Z/2Z)². The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2297,7 +2254,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "Théorème 4 and proof, pp.1145–1146",
-          "excerpt": "4 divise nl",
           "match": "Let E/Q have full rational two-torsion, ell≥5 prime, irreducible E[ell] of Serre weight two, and prime-to-ell residual conductor N. If ell>H(N)=max(F(N),G(N)), there is a modular elliptic curve F/Q of conductor exactly N, with full rational two-torsion and F[ell]≅E[ell]. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2342,13 +2298,11 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.1, p.1142 (prime-to-p residual conductor) and p.1143 (local congruences); the full away-from-ell conductor comparison is the explicit R01.3 supplier obligation",
-          "excerpt": "conducteur",
           "match": "For ell≥5 and an elliptic curve E/Q, at every prime q≠ell the residual Artin exponent equals the characteristic-zero elliptic conductor exponent except that it is zero at q∥M with ell|v_q(Δ_min). Thus the prime-to-ell part of the R20.6 deletion level is N(E[ell]). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         },
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Equation (3), p.358, exact deletion level; the local conductor identification is a requested comparison",
-          "excerpt": "the largest power",
           "match": "For ell≥5 and an elliptic curve E/Q, at every prime q≠ell the residual Artin exponent equals the characteristic-zero elliptic conductor exponent except that it is zero at q∥M with ell|v_q(Δ_min). Thus the prime-to-ell part of the R20.6 deletion level is N(E[ell]). This display defines M0; it does not identify M0 with the residual conductor without the stated local comparison."
         }
       ],
@@ -2393,7 +2347,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.1 condition (c) and its p≥11 reduction consequence, p.1143",
-          "excerpt": "semi-stable",
           "match": "Let ell≥5 be prime and E/Q elliptic. Assume E has good reduction at ell, or multiplicative reduction at ell with ell|v_ell(Δ_min). Then the exact R20.6 deletion level M0 equals the full prime-to-ell conductor N(E[ell]). Kraus §3.1 deduces this reduction alternative from Serre weight two for ell≥11. At ell=5,7 the reduction alternative remains an additional explicit hypothesis; weight two alone is not substituted for it here. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2434,7 +2387,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§§3–4, Proposition 3.1 and Corollary 4.4, pp.140–145",
-          "excerpt": "potentially good reduction",
           "match": "If E/Q has a Q-rational cyclic r-isogeny with prime r=11 or r≥17, then E has potentially good reduction at every prime q≠2. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2477,7 +2429,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§5, Lemma 5.2 and Proposition 5.1, pp.149–151",
-          "excerpt": "isogeny character",
           "match": "For E/Q with a prime r-isogeny, r=11 or r≥17, its kernel character has the form αχ_r^k, with α^(2t)=1, 2t|12, and k modulo m=(r−1)/2, with t=gcd(m,6), and k equal to 0,1,1/2,1/3 or 2/3; the fractional cases occur only when m is respectively not divisible by 2 or 3. Passing to the dual replaces k by 1−k. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2519,7 +2470,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§6, Proposition 6.3 and Corollary 6.1, pp.152–153",
-          "excerpt": "isogeny character",
           "match": "Under the isogeny-character hypotheses, at an odd prime q≠r, potential good reduction gives a trace a over F_q with a≡β(q)q^k+β(q)^−1 q^(1−k) mod r, and over F_(q^12) the trace A satisfies A≡q^(12k)+q^(12−12k) mod r. Here β is the unramified part of the finite-order local character, with order dividing 12. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2557,7 +2507,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§6, example (6.3) and §7 k=0 calculation, pp.153–154",
-          "excerpt": "hand-calculation",
           "match": "The traces over F_(3^12) of elliptic curves defined over F3 are 658,−1358,1458. The analogous traces over F_(5^12) are obtained by the recurrence A0=2,A1=a,A_(n+1)=a A_n−q A_(n−1), using the actual possible traces over F5. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2595,7 +2544,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§7, k=0, pp.153–154",
-          "excerpt": "k = 0",
           "match": "If the exponent in isogeny-character-exponents is k=0 after duality and r=11 or r≥17, then r=37. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2633,7 +2581,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§7, k=1/3, p.154",
-          "excerpt": "isogeny character",
           "match": "If k=1/3 after duality, then r=11 or r=17 in the positive-genus range. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2673,7 +2620,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§7, k=1/2, pp.154–155",
-          "excerpt": "class number one",
           "match": "If k=1/2, then r≡3 mod4 and the imaginary quadratic field Q(√−r) has class number one; consequently r∈{11,19,43,67,163} in the positive-genus range. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2716,7 +2662,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "Theorem 1, p.129; Theorem 7.1 and proof, pp.153–155",
-          "excerpt": "prime number",
           "match": "If E/Q admits a nontrivial rational cyclic isogeny of prime degree r, then r∈{2,3,5,7,11,13,17,19,37,43,67,163}. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2759,7 +2704,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§2, pp.5–6, minimal positive-genus composite levels",
-          "excerpt": "Mazur’s strategy",
           "match": "If E/Q has a rational cyclic n-isogeny and n is not an allowed genus-zero degree or an allowed prime degree, some divisor d|n has positive genus and either is a prime covered by Mazur or belongs to {14,15,20,21,24,26,27,32,35,36,39,49,50,65,91,125,169}. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2797,7 +2741,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§2, minimal-level discussion and Table 1.1, pp.2,4–5",
-          "excerpt": "Cyclic isogenies over Q.",
           "match": "The noncuspidal rational points at levels 14,15,20,21,24,27,32,36,49 have respective cardinalities 2,4,0,4,0,1,0,0,0, with the corresponding rational elliptic models and j-maps. These are exact point tables, not a rank-only assertion. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2837,7 +2780,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "Introduction and §2, Ken79/Ken80a/Ken80b/Ken81 references, pp.2,4–5",
-          "excerpt": "consists only of the cusps",
           "match": "For d∈{39,65,91,125,169}, every rational point of X0(d) is a cusp. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2879,7 +2821,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§2, Mazur’s strategy, pp.4–5",
-          "excerpt": "Mazur’s strategy",
           "match": "For the prime-isogeny and genus-one rational point tables, no noncuspidal point lifts to a larger cyclic-isogeny degree outside {1,…,19,21,25,27,37,43,67,163}; the additional minimal obstruction levels 26,35,50 also have no noncuspidal rational points. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2920,7 +2861,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "Theorem 1.1 and Table 1.1, p.2",
-          "excerpt": "Cyclic isogenies over Q.",
           "match": "Every rational cyclic isogeny of an elliptic curve over Q has degree n∈{1,…,19,21,25,27,37,43,67,163}. In particular, there is no even degree greater than 18. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -2962,7 +2902,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§3, one rational two-point irreducibility use, p.363",
-          "excerpt": "2-torsion",
           "match": "If E/Q has a point of exact order two and reducible E[ell] for an odd prime ell, it admits a rational cyclic isogeny of degree 2ell. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3000,7 +2939,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Lemma 3.3, p.361 and proof p.362; explicit cyclic four-isogeny argument",
-          "excerpt": "2-torsion",
           "match": "If E/Q has full rational two-torsion, choose distinct rational order-two subgroups T,T′. For E′=E/T, the composite E′→E→E/T′ of the dual first isogeny and the second quotient is a rational cyclic four-isogeny. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3040,7 +2978,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Lemma 3.3, p.361 and proof p.362; explicit cyclic four-isogeny argument",
-          "excerpt": "2-torsion",
           "match": "If E/Q has full rational two-torsion and reducible E[ell] for an odd prime ell, a Q-isogenous curve admits a rational cyclic 4ell-isogeny. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3077,7 +3014,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "§3, p.363",
-          "excerpt": "2-torsion",
           "match": "If E/Q has a rational point of order two, then E[ell] is irreducible for every prime ell≥11. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3117,7 +3053,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Lemma 3.3, p.361 and proof p.362; explicit cyclic four-isogeny argument",
-          "excerpt": "2-torsion",
           "match": "If E/Q has full rational two-torsion, then E[ell] is irreducible for every prime ell≥7. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3161,7 +3096,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, start of proof of Theorem 1.1, p.5",
-          "excerpt": "rational isogeny",
           "match": "If E/Q has a rational prime isogeny of degree r∈{19,43,67,163}, then E has geometric complex multiplication. Therefore a non-CM curve with a nontrivial rational cyclic isogeny has a rational prime isogeny with degree r∈{2,3,5,7,11,13,17,37}. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3198,7 +3132,6 @@
         {
           "sourceId": "serre-1981",
           "locator": "§8.4, Lemmas18 and18′, printed pp.397–398 / archive197–198",
-          "excerpt": "Lemme 18",
           "match": "For E/Q and prime p>37, the projective image of E[p] is not isomorphic to A4, S4 or A5. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3237,7 +3170,6 @@
         {
           "sourceId": "bilu-parent-rebolledo",
           "locator": "Theorem1.1 and identification Xsplit(p)≅X0^+(p²), pp.958–960; Theorem4.1(i), Proposition5.9",
-          "excerpt": "Theorem 1.1",
           "match": "For non-CM E/Q and prime p>37, the image of E[p] is not contained in the normalizer of a split Cartan subgroup. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3280,7 +3212,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "Theorem 2.3, p.6",
-          "excerpt": "non-split Cartan subgroup",
           "match": "For non-CM E/Q and prime p>37, if the image of E[p] is proper in GL₂(F_p), it is contained in the normalizer of a non-split Cartan. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3322,7 +3253,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "Proposition 2.2 and complete proof, pp.4–5",
-          "excerpt": "potentially good reduction",
           "match": "If p≥5 and the image of E[p] is contained in a non-split Cartan normalizer, every potentially multiplicative reduction prime q satisfies q≠p and q≡±1 mod p. In particular E has potentially good reduction at p. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3363,7 +3293,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§3, Proposition 3.2 and proof, pp.8–9",
-          "excerpt": "Hecke operators",
           "match": "For r∈{2,3,5,7,13}, prime p∉{2,3,5,7,13}, the correspondence through X0(r)×_(X(1)) X(p)/(Nsp∩Nns) induces a prime-to-p Hecke-equivariant homomorphism from Jac(X0(rp²)/w_(p²)) to Jac(X0,ns^+(r,p)) that is zero on the p-old part. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3405,7 +3334,6 @@
         {
           "sourceId": "darmon-merel",
           "locator": "Proposition 7.1 proof, author-version pp.20–21",
-          "excerpt": "winding quotient",
           "match": "In the actual new quotient B of Jac(X0(rp²)/w_(p²)), let e_B be the image of the rational winding class from 0 to infinity and I_e its annihilator in the rational Hecke algebra. Every eigenform surviving B/I_e B has L(f,1)≠0, because its period against e_B is L(f,1). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3446,7 +3374,6 @@
         {
           "sourceId": "darmon-merel",
           "locator": "Proposition 7.2, author-version pp.21–22; Lemos Theorem 3.4 sketch",
-          "excerpt": "winding quotient",
           "match": "For r∈{2,3,5,7,13}, p prime outside that set, the image e_B of the 0-to-infinity winding class in the new quotient of Jac(X0(rp²)/w_(p²)) is nonzero. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3489,7 +3416,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "Theorem 3.4 and sketch, p.10; Darmon–Merel Proposition 7.1",
-          "excerpt": "optimal quotient",
           "match": "For r∈{2,3,5,7,13}, prime p outside that set, Jac(X0,ns^+(r,p)) has a nonzero optimal quotient A/Q with A(Q) finite and kernel stable under every T_n with (n,p)=1. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3534,7 +3460,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§3, concluding formal-immersion argument, p.10; Darmon–Merel §8",
-          "excerpt": "cusps",
           "match": "For the Cartan fibre-product curve X0,ns^+(r,p), every cusp has residue field Q(ζ_p)^+. At a prime q∤rp, a rational noncuspidal point with v_q(j)<0 specializes to a cusp, and an F_q-rational cusp exists only if q≡±1 mod p. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3578,7 +3503,6 @@
         {
           "sourceId": "darmon-merel",
           "locator": "Lemma 8.2, author-version pp.23–24; Lemos §3 conclusion",
-          "excerpt": "formal immersion",
           "match": "For r∈{2,3,5,7,13}, prime p>37 and prime q≡±1 mod p, let A be finite-winding-quotient. The map φ:P↦[P−∞] followed by the quotient to A, extended to the smooth integral model at q, is a formal immersion at the cusp infinity. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3620,7 +3544,6 @@
         {
           "sourceId": "darmon-merel",
           "locator": "Lemma 8.3, author-version p.24",
-          "excerpt": "torsion",
           "match": "For a rational point P on X0,ns^+(r,p) and a cusp infinity over K=Q(ζ_p)^+, its image φ(P) in A(K) is torsion. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3663,7 +3586,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "Theorem 1.4 and §3 concluding proof, pp.3,10",
-          "excerpt": "formal immersion",
           "match": "For r∈{2,3,5,7,13}, p>37, and E/Q with a rational r-isogeny and residual image contained in a non-split Cartan normalizer, j(E) lies in Z[1/p]. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3706,7 +3628,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "Proposition 2.1 and proof, p.5",
-          "excerpt": "potentially good reduction",
           "match": "For non-CM E/Q with a rational r-isogeny, r∈{2,3,5,7,13}, and prime p>37, a proper mod-p image implies j(E)∈Z. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3741,7 +3662,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, j-map table, p.6",
-          "excerpt": "monic polynomial",
           "match": "Define lemosNumerator(r) in Z[X] by the five formulas: r=2:(X+16)³; r=3:(X+27)(X+3)³; r=5:(X²+10X+5)³; r=7:(X²+5X+1)³(X²+13X+49); r=13:(X⁴+7X³+20X²+19X+1)³(X²+5X+13). At every other r set it to zero. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3838,7 +3758,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, table and references [3] pp.179–180, [7] p.54, p.6",
-          "excerpt": "monic polynomial",
           "match": "For r∈{2,3,5,7,13}, identify X0(r) with P1_Q in the specified coordinate, sending the two cusps to t=0 and t=infinity. On the noncuspidal open t∈Q×, the actual j-map is lemosNumerator(r)(t)/t. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3876,7 +3795,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, denominator and constant-term calculation, pp.6–7",
-          "excerpt": "monic polynomial",
           "match": "For r∈{2,3,5,7,13} and t∈Q×, if lemosNumerator(r)(t)/t is an integer, then t is a nonzero integer dividing lemosNumerator(r)(0). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -3913,7 +3831,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, five finite sets, p.7",
-          "excerpt": "integers that divide",
           "match": "Define lemosIntegralJ(r) as the finite set of integers lemosNumerator(r)(t)/t for all signed nonzero divisors t of the polynomial’s constant term; use the exact integer quotient, and the empty set outside the five levels. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4001,7 +3918,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, paragraph following the S11,S17,S37 lists, p.5",
-          "excerpt": "quadratic twist",
           "match": "For prime p≥5 and quadratic-twist elliptic curves E,E′ over Q, their mod-p representations are surjective simultaneously. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4041,7 +3957,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, S11,S17,S37 and CM observation, pp.5–6",
-          "excerpt": "j-invariant",
           "match": "For r=11,17,37 the possible rational noncuspidal j-values are respectively {−11·131³,−2^15,−11²}, {−17²·101³/2,−17·373³/2^17}, and {−7·137³·2083³,−7·11³}. Among these seven values, −2^15 is the only geometric CM value. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4082,7 +3997,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, LMFDB check of the seven j-values, pp.5–6",
-          "excerpt": "non-surjective prime",
           "match": "For each of the six non-CM j-values in large-isogeny-j-table, every E/Q with that j-value has surjective mod-p representation for every prime p>37. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4124,7 +4038,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, final LMFDB check, p.7",
-          "excerpt": "non-surjective prime",
           "match": "For each non-CM integer j in the union of lemosIntegralJ(r) over r∈{2,3,5,7,13}, every E/Q with that j-value is surjective mod p for every prime p>37. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4167,7 +4080,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "Theorem 1.1 and complete §2 proof, pp.1,5–7",
-          "excerpt": "non-trivial cyclic Q-isogeny",
           "match": "Let E/Q satisfy End_(Qbar)(E)=Z and admit a rational cyclic isogeny of degree greater than one. Then for every prime p>37 the actual mod-p Galois representation E[p] has image GL₂(F_p). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4212,7 +4124,6 @@
         {
           "sourceId": "kraus-1997",
           "locator": "§3.3, p.1146, the two-isogeny lemma [18], Proposition 3; explicit coordinate and Chebotarev proof of this comparison",
-          "excerpt": "4 divise nl",
           "match": "Let C:y²=x(x²+ax+b) over Q be nonsingular, with its rational point (0,0). If 4 divides #C(F_q) at every good odd prime q, then b or a²−4b is a square in Q. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4250,7 +4161,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§1, p.2, the five Kenku levels; bibliography Ken79: Math. Proc. Camb. Phil. Soc.85 (1979),21–23",
-          "excerpt": "consists only of the cusps",
           "match": "Every Q-rational point of the actual modular curve X0(39) is a cusp. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4288,7 +4198,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§1, p.2, the five Kenku levels; bibliography Ken80b: Math. Proc. Camb. Phil. Soc.87 (1980),15–20",
-          "excerpt": "consists only of the cusps",
           "match": "Every Q-rational point of the actual modular curve X0(65) is a cusp. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4326,7 +4235,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§1, p.2, the five Kenku levels; bibliography Ken80b: Math. Proc. Camb. Phil. Soc.87 (1980),15–20",
-          "excerpt": "consists only of the cusps",
           "match": "Every Q-rational point of the actual modular curve X0(91) is a cusp. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4364,7 +4272,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§1, p.2, the five Kenku levels; bibliography Ken81: J. London Math. Soc.23 (1981),415–427",
-          "excerpt": "consists only of the cusps",
           "match": "Every Q-rational point of the actual modular curve X0(125) is a cusp. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4402,7 +4309,6 @@
         {
           "sourceId": "banwait-najman-padurariu",
           "locator": "§1, p.2, the five Kenku levels; bibliography Ken80a: J. London Math. Soc.22 (1980),239–244",
-          "excerpt": "consists only of the cusps",
           "match": "Every Q-rational point of the actual modular curve X0(169) is a cusp. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4441,7 +4347,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "Proof of Corollary 4.4, p.145, citing the finite Eisenstein quotient theorem [19], III 3.1",
-          "excerpt": "Eisenstein quotient",
           "match": "For prime r=11 or r≥17, the Eisenstein-ideal quotient of J0(r) has a nonzero optimal quotient Jtilde/Q with Jtilde(Q) finite, equipped with the required prime-to-r Hecke action. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4482,7 +4387,6 @@
         {
           "sourceId": "mazur-1978",
           "locator": "§3, Proposition 3.1 and proof, pp.142–143",
-          "excerpt": "formal immersion",
           "match": "For Jtilde as in finite-eisenstein-quotient, the Abel–Jacobi map X0(r)→Jtilde based at infinity is a formal immersion at that cusp in residue characteristic q≠2, with the integral models and cotangent comparison specified by Mazur Proposition 3.1. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4523,7 +4427,6 @@
         {
           "sourceId": "serre-1981",
           "locator": "§8.4, Lemma18′ and its full proof, printed pp.397–398 / archive197–198",
-          "excerpt": "groupe d'inertie",
           "match": "For E/Q and a prime p≥5, the projective image of inertia at p in E[p] contains an element of order at least (p−1)/4. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4566,7 +4469,6 @@
         {
           "sourceId": "bilu-parent-rebolledo",
           "locator": "Theorem4.1(i) and proof, pp.970–972",
-          "excerpt": "An Upper Bound for p",
           "match": "For a prime p>1.4·10^7, every rational point of X0^+(p²) is a cusp or CM point. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4608,7 +4510,6 @@
         {
           "sourceId": "bilu-parent-rebolledo",
           "locator": "§5.1–5.2, Propositions5.2,5.5,5.6 and Corollary5.7, pp.974–976",
-          "excerpt": "integer resultant",
           "match": "For prime p≥11, p≠13, suppose there is a negative fundamental discriminant −D with χ_D(p)∈{0,−1} and p not dividing gcd_(2≤c≤7)Res(H′_(−D),H′_(−c²D)). Then every point of X0^+(p²)(Q) is cusp or CM. The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4648,7 +4549,6 @@
         {
           "sourceId": "bilu-parent-rebolledo",
           "locator": "§5.2, Proposition5.9, pp.977–979; §6 table/code certificate source",
-          "excerpt": "VeryBad",
           "match": "For every prime 11≤p<10^14, p≠13, the Heegner–Gross split criterion excludes every rational non-CM noncuspidal point of X0^+(p²). The source locator identifies the argument; the proof steps list the precise specialization and imported interfaces."
         }
       ],
@@ -4688,7 +4588,6 @@
         {
           "sourceId": "lemos-2017",
           "locator": "§2, denominator and signed-divisor argument, pp.6–7",
-          "excerpt": "integers that divide",
           "match": "For r∈{2,3,5,7,13} and j∈Z, j∈lemosIntegralJ(r) if and only if there is a noncuspidal rational point P of the actual X0(r) with j(P)=j. The source locator identifies the argument; proof steps distinguish the specialization, supplier interfaces and recorded gaps."
         }
       ],
@@ -5183,7 +5082,7 @@
       "source": "lemos-2017",
       "kind": "error",
       "locator": "arXiv1702.01985v2, §2 proof of Theorem1.1, p.5",
-      "printed": "whose Jacobian has rank 0",
+      "printed": "The source assigns rank 0 to its Jacobian.",
       "correction": "Jac(X0(37)) has a rank-one elliptic quotient; use the exact rational-point theorem for S37 instead of this rank-zero assertion.",
       "reason": "The quotient X0^+(37) is E37a1:y²+y=x³−x. Its point(0,0) is nonzero and nontorsion: good-reduction point counts at2,3 are5,7, so its rational torsion is trivial. The quotient identification is recorded at https://www.lmfdb.org/EllipticCurve/Q/37/a/1 . Consequently Jac(X0(37))(Q) has rank at least one.",
       "affects": "the proof",
@@ -5204,7 +5103,7 @@
       "source": "lemos-2017",
       "kind": "error",
       "locator": "arXiv1702.01985v2, §3 before Proposition3.2, p.8",
-      "printed": "preserve degrees of divisors",
+      "printed": "The source claims that divisor degrees remain unchanged.",
       "correction": "Preserve degree-zero divisors. Pullback d* multiplies the degree by deg(d); the finite-map pushforward preserves degree.",
       "reason": "For the degree-p degeneracy map d, a degree-one divisor pulls back to degree p. The Pic0/Jacobian construction only requires degree zero to remain zero, which does hold.",
       "affects": "nothing",
@@ -5224,7 +5123,7 @@
       "source": "bennett-siksek-2020",
       "kind": "misprint",
       "locator": "Published Annals191 (2020), equation(3), p.358",
-      "printed": "the largest power of a prime q dividing a nonzero integer",
+      "printed": "The source defines the quantity as the greatest prime power of q that divides a nonzero integer.",
       "correction": "ord_q(x) is the largest integer exponent e with q^e dividing x, namely v_q(x).",
       "reason": "The deletion condition ell|ord_q(Δ) must mean ell divides the valuation exponent. Taking ord_q=q^e would make every q≠ell impossible to delete, contradicting the subsequent removed-prime Lemma2.2 and the Tate extension criterion.",
       "affects": "nothing",

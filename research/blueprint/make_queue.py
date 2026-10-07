@@ -54,7 +54,7 @@ METHOD = """METHOD
    Build on existing roadmaps and never duplicate them (PROTOCOL.md section 15): what a Tau Ceti roadmap or another proposed roadmap plans is imported through (b) or (c), never planned again in (d). If you need more than an existing roadmap provides in its own direction, propose the addition as "<that roadmap>, Part II" in `restructure`.
 {DETAIL}
 4. Uses, API and unit tests. For every definition and construction, first find where and how it is used, in the sources and in the layers that consume it (the stage links in the atlas extracts, and other packets), and record each use in `uses` as {{"where", "how"}}. Then give it an `api` outline that serves those uses (PROTOCOL.md section 4) and a `tests` list of at least three unit tests (section 12), chosen so that a plausible wrong definition fails one of them: a value in a small case, the degenerate case, agreement with the closest Mathlib or Tau Ceti notion wherever both are defined, and a non-example. Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
-5. Sources. Every node cites the passage that states or proves it. Keep excerpts short. Record every mistake you find in a source under the packet's `sourceIssues` (PROTOCOL.md section 18): misprints, errors and gaps, quoted at their locators, with the correction, the reason, and whether a published correction exists; nodes use the corrected statements.
+5. Sources. Every node cites where its source states or proves it: the theorem, section and page in `locator`, and what that place states, in your own words, in `match`. Never copy a passage of a source into the repository, and never summarise a source section by section (a standing rule of the maintainer, PROTOCOL.md section 5): record no `excerpt`, and delete any that a packet you edit still has. Record every mistake you find in a source under the packet's `sourceIssues` (PROTOCOL.md section 18): misprints, errors and gaps, each described at its locator in your own words, with the correction, the reason, and whether a published correction exists; nodes use the corrected statements.
 6. Check. Run `python3 scripts/check_blueprint.py {OUTPUT}` and fix every error. Record anything you could not establish as a gap; never paper over a missing step.
 7. Document. Write {README} in the style and density of the upstream Tau Ceti roadmap documents. For each layer in scope, give:
    - the objects, with exact definitions and pinned conventions;
@@ -120,7 +120,7 @@ Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md
 3. For each item, search the pinned libraries ({BASELINE}/declarations.tsv, then open the Lean file and read the statement) and the atlas: data/atlas.json (layers and their descriptions), the new roadmaps in research/blueprint/roadmaps/, the packets in research/blueprint/packets/, and the reviewed library audit data/library-coverage.json. Mark it `library`, `planned` or `missing`, and cite what you found.
 4. Route every missing item exactly once: `source` of existing layers of a proposed roadmap, `part-ii` of an existing roadmap (a Tau Ceti roadmap is extended this way, never re-planned), or `new`. Build on what exists (PROTOCOL.md section 15). For each part-ii or new route, write the brief its design job will follow.
 5. List the prerequisite papers the atlas does not yet cover.
-5a. Record every mistake you find in the paper under `sourceIssues` (PROTOCOL.md section 18), including those noted earlier in this extraction's items, gaps and report: misprints, errors and gaps, each quoted at its locator with the correction and the reason, how far it reaches, and whether a published erratum or a later version already corrects it (say where you looked). Keep the list even if it is empty, which says you found none. Items use the corrected statements. A `sourceIssues` list in an older form is converted, keeping everything it says.
+5a. Record every mistake you find in the paper under `sourceIssues` (PROTOCOL.md section 18), including those noted earlier in this extraction's items, gaps and report: misprints, errors and gaps, each described at its locator in your own words, with the correction and the reason, how far it reaches, and whether a published erratum or a later version already corrects it (say where you looked). Keep the list even if it is empty, which says you found none. Items use the corrected statements. A `sourceIssues` list in an older form is converted, keeping everything it says.
 6. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors. Set "status": "complete" only when the whole paper is extracted and every missing item is routed. Otherwise leave "partial" and write a handoff note, research/blueprint/handoff/{PAPER}.md.
    An extraction does not decompose or prove the results the paper cites: each cited result is one item with its status and route, and proving missing items is the work of the roadmaps they are routed to (PROTOCOL.md section 16). Open proof closure, API outlines or supplier audits never keep an extraction partial. A handoff's resume list names only parts of the paper not yet extracted and items not yet routed.
 
@@ -190,7 +190,7 @@ ERRATA_TEMPLATE = HEADER + """
 JOB: record the mistakes in a published source that earlier work on it found (PROTOCOL.md section 18).
 Source: {CITATION}.
 Earlier work on it: {WORK}. Its worker read the source line by line and noted mistakes in passing: in statements and locators, gaps, notes and the report (misprints, false statements, steps that fail, gaps, published errata used). Read all of it, and the source at each place it points to.
-Write research/blueprint/errata/{OWNER}.json, {{"{KEY}": "{OWNER}", "protocol": "errata-v1", "sourceIssues": [...]}}, with every mistake in the source in the format of PROTOCOL.md section 18 (ids {OWNER}/E1, {OWNER}/E2, ...): each quoted at its locator, with the correction, the reason, how far it reaches, and whether a published erratum or later version already corrects it (look in the journal's errata listing, the arXiv versions and the authors' pages, and say where you looked). Corrections a published erratum already makes are recorded too, with the erratum as `known`. Findings the earlier work recorded in an older form are converted, keeping everything they say. Add any other mistake you find while checking; if there are none, write an empty list. Explain each finding for a mathematician in research/blueprint/errata/{OWNER}.md: what the source says, why it is wrong or incomplete, the correction, and whether it touches the main results.
+Write research/blueprint/errata/{OWNER}.json, {{"{KEY}": "{OWNER}", "protocol": "errata-v1", "sourceIssues": [...]}}, with every mistake in the source in the format of PROTOCOL.md section 18 (ids {OWNER}/E1, {OWNER}/E2, ...): each described at its locator in your own words, with the correction, the reason, how far it reaches, and whether a published erratum or later version already corrects it (look in the journal's errata listing, the arXiv versions and the authors' pages, and say where you looked). Corrections a published erratum already makes are recorded too, with the erratum as `known`. Findings the earlier work recorded in an older form are converted, keeping everything they say. Add any other mistake you find while checking; if there are none, write an empty list. Explain each finding for a mathematician in research/blueprint/errata/{OWNER}.md: what the source says, why it is wrong or incomplete, the correction, and whether it touches the main results.
 Do not edit the earlier work. Record what you read in `sourceVersions` — published, preprint or author copy, with the url and the date — and scope every finding to that text: a quoted sentence may differ between a preprint and the version of record (PROTOCOL.md section 18). Run `python3 scripts/check_errata.py research/blueprint/errata/{OWNER}.json` until it reports no errors.
 Edit only those two files, a handoff note research/blueprint/handoff/{JOB}.md if you stop early, and your scratch directory.
 Sources: {LIBRARY}/ (the maintainer's reference library); public versions may be fetched into your scratch directory with provenance (URL, SHA-256, date), never into the repository.
@@ -288,7 +288,7 @@ REVIEW: {TARGETS}
 Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Reference library: {LIBRARY}/. Public sources may be fetched into your scratch directory with provenance, never into the repository.
 
 Check each item below, and correct it in place wherever the fix is clear. Record every change you make.
-1. Sources. Check every node's locator and excerpt against the source text. Statements keep the source's hypotheses exactly.
+1. Sources. Open each source at every node's locator, and check the node and its `match` against what is there. Statements keep the source's hypotheses exactly, in the worker's own words. Quote nothing yourself, and delete any verbatim `excerpt` you find (a standing rule of the maintainer, PROTOCOL.md section 5).
 2. Baseline. For every `baseline.declarations` entry, open the Lean file at the cited module and confirm two things: that the declaration exists under that name at the pinned commit, and that its statement provides what the citing nodes need, with the same or weaker hypotheses and the same conventions. Remove or replace a wrong citation. A near miss becomes a node.
 3. Closure. For every node, ask whether its proofSteps really follow from its prerequisites plus routine steps.
    - Where they do not, add the missing prerequisites or lemma nodes, marking each added node with "addedBy": "{JOB}", or record a gap.
@@ -302,6 +302,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
 7. Library audit. Nothing that the reviewed audit (data/library-coverage.json) shows in the libraries is planned as a new node, and a duplicated layer is requested from its owner rather than planned again.
 8. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
 9. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
+10. Reader document. It is one of the files under review: bring it in line with every correction you make, so that it says nothing the corrected packet contradicts. A reader that only lags behind your corrections is yours to fix, not a reason to send the plan back.
 <<HANDED-FINDINGS-REVIEW>>
 <<HANDED-KEYDEFS-REVIEW>>
 Then add a top-level "review" object to each packet:
@@ -718,17 +719,33 @@ def excerpt(text, size=500):
     return (cut if len(cut) > size // 3 else text[:size].rsplit(" ", 1)[0]) + " …"
 
 
-def paper_designs(calls, roadmaps):
+def split_offs():
+    """The Part II directions the orchestrator split off combined design jobs, by the roadmap their paper
+    routes name (research/blueprint/splits.json, PROTOCOL.md section 9)."""
+    try:
+        decisions = json.loads((BP / "splits.json").read_text()).get("splits", [])
+    except (OSError, ValueError):
+        return {}
+    return {rid: decision for decision in decisions for rid in decision.get("roadmaps", [])}
+
+
+def paper_designs(calls, roadmaps, splits=None):
     """One design job for each roadmap the paper extractions call for (PROTOCOL.md sections 15 and 16).
 
     Every Part II proposal for the same parent, from whichever paper, becomes one
     job planning a single "<parent>, Part II": proposals from different papers
     overlap, and planning them separately would duplicate work. Where the atlas
     already has that Part II, the job plans a Part III on top of it. A new roadmap
-    that several papers call for is one job too. calls: (route, paper, origin)."""
+    that several papers call for is one job too. A direction the orchestrator has
+    split off such a combined job (split_offs) becomes a design job of its own,
+    for the roadmap its routes name. calls: (route, paper, origin)."""
+    splits = split_offs() if splits is None else splits
     grouped = {}
     for route, paper, origin in calls:
-        key = ("part-ii", route["parent"]) if route["route"] == "part-ii" else ("new", route["roadmap"])
+        if route["route"] == "part-ii" and (splits.get(route["roadmap"]) or {}).get("parent") == route["parent"]:
+            key = ("split", route["roadmap"])
+        else:
+            key = ("part-ii", route["parent"]) if route["route"] == "part-ii" else ("new", route["roadmap"])
         grouped.setdefault(key, []).append((route, paper, origin))
     designs = []
     for (kind, name), members in grouped.items():
@@ -748,6 +765,16 @@ def paper_designs(calls, roadmaps):
             brief = (f"The roadmap is \"{title}\": it extends {name} and starts where that roadmap stops (PROTOCOL.md section 15).{built} "
                      f"The paper extractions propose {count} in this direction. Plan them as this one roadmap, merging what overlaps; if they "
                      "split into independent directions, plan the first here and record a restructure proposal for the rest.\n" + proposals)
+        elif kind == "split":
+            decision = splits[name]
+            rid, title = name, members[0][0]["title"]
+            note = (decision.get("notes") or {}).get(name)
+            brief = (f"The roadmap is \"{title}\": it extends {decision['parent']} and starts where that roadmap stops (PROTOCOL.md "
+                     f"section 15). The design job {decision['design']} was given this direction together with others. It planned "
+                     f"one of them and proposed this one as a roadmap of its own (the `restructure` proposal in {decision['packet']}), "
+                     "and the orchestrator accepted the split (research/blueprint/splits.json). Plan this direction only, within the "
+                     f"boundary that proposal sets, and import what {decision['parent']} and its other Part IIs own."
+                     + (f" {note}" if note else "") + "\n" + proposals)
         else:
             rid, title = name, members[0][0]["title"]
             several = f", which {len(members)} paper extractions call for: plan them as this one roadmap" if len(members) > 1 else ""
@@ -1361,10 +1388,10 @@ def main():
             bp_jobs_of[rid].append(job_id)
             parts_of[rid].append((job_id, output, readme, suggested))
             review_id = "REV-" + job_id[3:]
-            plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output}, its suggested Lean file {suggested} and its reader document {readme} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
             rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_id])
             add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
-                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested],
+                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested, readme],
                  "after": [job_id], "avoidAccountOf": job_id}, rtext)
 
     # Priority 0: status mapping, already specified.
@@ -1426,8 +1453,12 @@ def main():
                ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF, None),
                ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF, None),
                ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF, None)]
-    designs += [d for d in paper_designs(calls, roadmaps) if d[0] not in {x[0] for x in designs}]
+    splits = split_offs()
+    designs += [d for d in paper_designs(calls, roadmaps, splits) if d[0] not in {x[0] for x in designs}]
     for position, (job_id, rid, group, brief, name) in enumerate(designs, 1):
+        # A design waits for the designs of the roadmaps it builds on, when they are planned at the same time.
+        after = ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else []
+        after += [f"DESIGN-{r}" for r in ((splits.get(rid) or {}).get("after") or {}).get(rid, [])]
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
         fields = dict(JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output, DETAIL=DETAIL[level(rid)],
@@ -1437,12 +1468,13 @@ def main():
         plan_prompts[job_id] = (DESIGN_TEMPLATE, fields)
         add({"id": job_id, "kind": "design", "priority": 1, "order": position, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
-             "after": ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else [], "timeout": 8 * 3600}, text)
+             "after": after, "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
-        plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
+        plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output}, its suggested Lean file {suggested} and its reader document research/blueprint/readmes/{rid}.md")
         rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_id])
         add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid], **({"name": name} if name else {}),
-             "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested],
+             "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested,
+                         f"research/blueprint/readmes/{rid}.md"],
              "after": [job_id], "avoidAccountOf": job_id, "timeout": 8 * 3600}, rtext)
     upstream = [rid for rid in roadmaps if rid.startswith("tauceti:")]
     upstream.sort(key=lambda r: (LINK_PRIORITY.index(r) if r in LINK_PRIORITY else 100, r))
@@ -1577,10 +1609,10 @@ def main():
                       "roadmapIds": [rid], "scope": [sid], "outputs": [output, readme, suggested], "after": [review_id],
                       "followUpOf": job["id"]}
             add(follow, text)
-            plan_reviews[review_job(fid)] = dict(JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
+            plan_reviews[review_job(fid)] = dict(JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output}, its suggested Lean file {suggested} and its reader document {readme} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
             rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_job(fid)])
             add({"id": review_job(fid), "kind": "review", "priority": 2, "order": job.get("order", 0), "roadmapIds": [rid],
-                 "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested], "after": [fid],
+                 "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested, readme], "after": [fid],
                  "avoidAccountOf": fid}, rtext)
             taken.add(review_job(fid))
             bp_jobs_of[rid].append(fid)
@@ -1634,8 +1666,10 @@ def main():
                      "before it was split by layer. Take from them only what no part carried over, and do not edit them.")
         # The handoff note is the one output that cannot exist before the assembly runs: the
         # document and suggested file may be a part's own, which would make the job look finished.
+        # Reconciling the parts' cross-part prerequisites edits their packets, so those are deliverables too:
+        # without them the intake refused every assembly that touched a part (2026-10-07).
         add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid],
-             "outputs": [readme, suggested, f"research/blueprint/handoff/{job_id}.md"],
+             "outputs": [readme, suggested, f"research/blueprint/handoff/{job_id}.md"] + [p[1] for p in parts if p[1] not in (readme, suggested)],
              # A part sent back by its review is joined once its latest revision is reviewed.
              "after": [latest_review.get(p[0], review_job(p[0])) for p in parts]}, text)
     # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).

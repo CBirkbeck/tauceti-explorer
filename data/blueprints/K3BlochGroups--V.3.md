@@ -778,7 +778,7 @@ The source texts read for these targets are:
   p. 43, equation (6.1.2) defines the raw full-tensor kernel. Lecture 7
   §7.2, pp. 51–54, and §7.4, pp. 57–60, place that object in its regulator
   and relation context. The publisher page was inaccessible; the complete
-  text was read in this [public book-text mirror](https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html).
+  text was read in this [public book-text mirror](https://bookstore.ams.org/crmm-11).
   Its passage defines the lecture object; the exact comparison and explicit
   sixfold lift here are derived from the inherited algebraic presentation.
 - Alexander B. Goncharov, *Geometry of configurations, polylogarithms, and

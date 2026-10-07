@@ -19,154 +19,154 @@
         "kind": "abbrev",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean",
         "provides": "Full subcategory of right comodules with Module.Finite; over a field this is the finite-dimensional algebraic representation category.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.FGComoduleCat.instMonoidalCategory",
         "kind": "instance",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Monoidal.lean",
         "provides": "Diagonal tensor product and trivial tensor unit on finite comodules over a bialgebra, in matching universes.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.FGComoduleCat.instBraidedCategory",
         "kind": "instance",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Symmetric.lean",
         "provides": "Tensor swap is a braiding for finite comodules over a commutative bialgebra.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.FGComoduleCat.hasBinaryBiproducts",
         "kind": "instance",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Product.lean",
         "provides": "Binary biproducts of finite comodules.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0",
         "kind": "def",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
         "provides": "Split Grothendieck group of an essentially small category with zero morphisms and binary biproducts.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0.of",
         "kind": "def",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
         "provides": "Class of an object, invariant under isomorphism.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0.liftRingHom",
         "kind": "def",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
         "provides": "Lift a biproduct-additive invariant taking the tensor unit to 1 and tensor products to products to a ring homomorphism.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0.of_mul_of",
         "kind": "theorem",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
         "provides": "[X][Y]=[X⊗Y] for an essentially small monoidal preadditive category with binary biproducts.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0.mapRingHom",
         "kind": "def",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
         "provides": "An additive strong monoidal functor induces a ring homomorphism on the existing SplitK0.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.DiagonalizableGroup.weightSpace",
         "kind": "def",
         "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
         "provides": "Weight submodule of a right C-comodule corestricted along C→R[X], indexed by x∈X.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.DiagonalizableGroup.isInternal_weightSpace",
         "kind": "theorem",
         "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
         "provides": "All these weight submodules form an internal direct sum.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.DiagonalizableGroup.finite_setOf_weightSpace_ne_bot",
         "kind": "theorem",
         "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
         "provides": "A Module.Finite comodule has finitely many nonzero weight submodules after corestriction.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.Comodule.baseChange",
         "kind": "def",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/BaseChange.lean",
         "provides": "Actual base change: an R,H-comodule M becomes an A,A⊗[R]H-comodule on A⊗[R]M. This is stronger than the finite scalar-extension functor whose target is only SemimoduleCat.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.Comodule.matrixCoefficientSubcoalgebra",
         "kind": "def",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/MatrixCoefficient/Subcoalgebra.lean",
         "provides": "For a finite free right comodule M over a coalgebra C over a commutative semiring R, the matrix coefficients span a subcoalgebra of C. Over a field every finite-dimensional M is free.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.Comodule.matrixCoefficientSubcoalgebra_finite",
         "kind": "instance",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/MatrixCoefficient/Subcoalgebra.lean",
         "provides": "The underlying R-module of the matrix-coefficient subcoalgebra of a finite free comodule is finite.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.Symplectic.coordinateHopfAlgebra",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
         "provides": "O(Sp₂g), the Hopf quotient of the general-linear coordinate ring by XJXᵀ−J.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebra",
         "kind": "def",
         "module": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Coordinate/HopfAlgebra.lean",
         "provides": "O(GL_n), with its determinant localization and matrix-inverse Hopf structure.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.char_extPowerRep_diagonal",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/ClassicalGroups/ExteriorPower.lean",
         "provides": "Over a field, the abstract exterior-power standard GL_n character on diag(t_i) is the elementary symmetric polynomial in the t_i. It supplies the underlying trace computation, not the GSp comodule itself.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "mathlib:MonoidAlgebra.domCongr",
         "kind": "def",
         "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
         "provides": "A multiplicative equivalence of the indexing monoids induces an algebra equivalence of their monoid algebras.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "mathlib:MvPolynomial.esymmAlgEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/MvPolynomial/Symmetric/FundamentalTheorem.lean",
         "provides": "For any commutative ring R and a finite variable set of cardinality n, elementary symmetric polynomials give an R-algebra equivalence with the symmetric subalgebra; no denominators.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.Comodule.Hom.ker",
         "kind": "def",
         "module": "TauCeti/Algebra/Coalgebra/Subcomodule/Comap.lean",
-        "provides": "Kernel of a comodule morphism as a Subcomodule; its underlying submodule is the linear kernel.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "provides": "Over a commutative ring R with Module.Flat R C, the kernel of a comodule morphism is a Subcomodule whose underlying submodule is the linear kernel. Flatness is automatic for the field coefficients used here.",
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       },
       {
         "ref": "tauceti:TauCeti.Comodule.Hom.ker_finite",
         "kind": "theorem",
         "module": "TauCeti/Algebra/Coalgebra/Subcomodule/Comap.lean",
-        "provides": "The kernel of a comodule map out of a Noetherian module is Module.Finite.",
-        "checked": "Statement read in the supplied source tree at the recorded pinned commit, 2026-10-05."
+        "provides": "With the same Module.Flat R C hypothesis as ker, the kernel of a comodule map out of an IsNoetherian R M module is Module.Finite. Finite-dimensional modules over the coefficient field satisfy the Noetherian hypothesis.",
+        "checked": "Independently read declaration, section hypotheses and citing use at the recorded exact pinned commit, 2026-10-05; REV-DESIGN-ClassicalGroupsPartII."
       }
     ]
   },
@@ -205,7 +205,7 @@
       "sha256": "7d81adf60297c1a756e899028ca077a0861ee21275e62992bd7dc8ec670f88bb",
       "accessed": "2026-10-05",
       "readSections": [
-        "§7.9, pp.131–132: Cartan products and symplectic fundamental representations"
+        "§7.9, pp.131–132 and the symplectic dimension calculation continuing onto p.133: Cartan products and symplectic fundamental representations"
       ]
     },
     {
@@ -261,7 +261,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -355,13 +354,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -469,13 +466,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -569,7 +564,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -686,13 +680,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, complement 22.12, printed p.466",
-          "excerpt": "A central isogeny",
           "match": "Specifies the finite-index character-lattice inclusion and central-kernel descent of highest-weight representations. The explicit square-root cover proves the GSp specialization."
         }
       ],
@@ -744,13 +736,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -850,7 +840,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -869,6 +858,11 @@
           "name": "TauCeti.GSpCharacter.standard_finrank",
           "role": "data",
           "statement": "dim_K V_g(K)=2g."
+        },
+        {
+          "name": "TauCeti.GSpCharacter.standard_coaction",
+          "role": "compatibility",
+          "statement": "Under standardCoordinates, the coaction of v is Σ_a e_a⊗(Σ_b v_b x_ab). This pins the matrix convention over the coordinate Hopf algebra, before evaluation at points."
         },
         {
           "name": "TauCeti.GSpCharacter.standard_point_action",
@@ -945,7 +939,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1020,7 +1013,8 @@
         "Use the pinned Comodule.Hom.ker and ker_finite to take the kernel as a finite subcomodule; bundle it through FGComoduleCat. The boundary degrees have the stated values."
       ],
       "acceptance": [
-        "The untwisted contraction is equivariant only after restricting to Sp; over GSp its target must contain ν."
+        "The untwisted contraction is equivariant only after restricting to Sp; over GSp its target must contain ν.",
+        "The pinned kernel API requires flatness of the coordinate coalgebra and a Noetherian source for kernel finiteness; both follow here from field coefficients and finite dimension."
       ],
       "prerequisites": [
         "ClassicalGroupsPartII:CG.1/standard-representation",
@@ -1032,13 +1026,11 @@
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1067,6 +1059,11 @@
           "name": "TauCeti.GSpCharacter.contraction_pair",
           "role": "simp",
           "statement": "κ_2(v∧w)=ω(v,w) in ν."
+        },
+        {
+          "name": "TauCeti.GSpCharacter.alternatingForm_coordinates",
+          "role": "compatibility",
+          "statement": "In standardCoordinates the scalar-valued form used to describe the ν-valued pairing is ω(v,w)=Σ_ab v_a J_ab w_b, for J=[[0,I],[-I,0]]. Thus contraction_pair uses this specific alternating form."
         }
       ],
       "tests": [
@@ -1114,7 +1111,7 @@
         "g≥1; all coefficient fields have characteristic zero. Scalar extensions K/F are field extensions; BC_K denotes the Q-to-K specialization."
       ],
       "proofSteps": [
-        "The contraction and wedge-by-inverse-form operators satisfy the symplectic Lefschetz commutator [κ,L]=(g−k) in degree k. On the Lefschetz summands this proves surjectivity for k≤g in characteristic zero; the twist records the equivariance of each map.",
+        "Choose the standard basis e_i,f_i with ω(e_i,f_j)=δ_ij. After trivializing the underlying multiplier line, let L be wedge multiplication by Σ_i e_i∧f_i; its equivariant form carries the appropriate multiplier twist. With the stated positive contraction on e_i∧f_i, [κ,L]=(g−k) in degree k. The Lefschetz decomposition has nonzero contraction coefficients in characteristic zero and proves surjectivity for k≤g. This explicit normalization avoids identifying L with a bivector of the opposite sign.",
         "Use semisimplicity for the splitting. The vector e_1∧⋯∧e_k lies in the kernel with the stated highest weight; the imported Sp highest-weight/dimension theorem and the corrected dimension computation identify the kernel as the corresponding fundamental simple module.",
         "The central cover transfers simplicity to GSp and verifies absolute simplicity. Antisymmetrization splits Λ^kV out of V^⊗k because k! is invertible; the pairing splits ν out of V^⊗2."
       ],
@@ -1133,14 +1130,12 @@
       "sources": [
         {
           "sourceId": "sternberg-2004",
-          "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
+          "locator": "§7.9, pp.131–132 and symplectic dimension calculation at the start of p.133",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1185,7 +1180,6 @@
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -1210,7 +1204,7 @@
       ],
       "proofSteps": [
         "The explicit primitive highest vectors and the a_k give a rational highest tensor vector. Its generated subcomodule is the span of coefficient extractions from its coaction: restrict to the existing pinned matrixCoefficientSubcoalgebra D, whose finite underlying module is supplied by matrixCoefficientSubcoalgebra_finite, and apply id⊗φ for φ∈D*. Coassociativity makes this span stable and minimal. The finite-dual and span constructions commute with flat field extension, so the rational generated component extends to the complex Cartan component.",
-        "After extension to C the imported highest-weight/Cartan-product theory identifies that generated submodule with the simple Sp highest-weight module u; the centre acts by Σu_i. The central parity criterion descends it to GSp.",
+        "After extension to C, apply imported semisimplicity to the tensor product and the highest-weight classification/uniqueness to its simple summands. The tensor highest vector is killed by positive-root operators and its weight u is the unique top weight, with a one-dimensional weight space. Its projection to a simple summand is either zero or a highest vector of weight u; uniqueness and the one-dimensional top line leave exactly one such summand. The generated submodule is therefore that simple Sp module: this proves the Cartan-component step here, rather than requesting it from the classification layer. The centre acts by Σu_i, and the central parity criterion descends the component to GSp.",
         "Faithful extension proves simplicity and scalar endomorphisms over Q. The generic Hom base-change theorem makes End_K one-dimensional for every K/Q; semisimplicity over K therefore proves that each model remains simple. Twisting by ν^m gives every central-compatible highest weight, including negative m."
       ],
       "acceptance": [
@@ -1233,19 +1227,16 @@
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1332,19 +1323,16 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §c, Lemma 22.39 and Theorem 22.42, pp.477–479",
-          "excerpt": "A representation of G",
           "match": "Semisimplicity descends under field extension and holds for connected reductive groups in characteristic zero."
         }
       ],
@@ -1386,13 +1374,11 @@
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1485,13 +1471,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -1595,13 +1579,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -1644,13 +1626,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         }
       ],
@@ -1753,7 +1733,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1841,13 +1820,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         }
       ],
@@ -1887,7 +1864,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1973,7 +1949,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2076,7 +2051,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2162,7 +2136,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2253,13 +2226,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         }
       ],
@@ -2303,7 +2274,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2392,7 +2362,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2492,7 +2461,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
-      "need": "The existing simple highest-weight module/Cartan-component result: in the tensor product of finite-dimensional simple semisimple-Lie-algebra modules, the submodule generated by the tensor of highest vectors is the simple module of the sum highest weight, with highest-line multiplicity one. Used only through the complex symplectic realization.",
+      "need": "The existing highest-weight classification and uniqueness of finite-dimensional simple semisimple-Lie-algebra modules, used through the complex symplectic realization. The simplicity of the tensor-generated Cartan component is derived in CG.1/irreducible-rational-model from this classification, its one-dimensional tensor top line and semisimplicity already requested from ReductiveGroups Layer 6. No separate Cartan-component theorem is assigned to this classification layer.",
       "neededBy": [
         "ClassicalGroupsPartII:CG.1/irreducible-rational-model"
       ]
@@ -2587,10 +2556,78 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Author online-book page and the current linked author PDF, accessed 2026-10-05",
-        "Darij Grinberg, Errata to Lie algebras, 29 June 2019, https://darijgrinberg.gitlab.io/algebra/sternberg-errata1.pdf: covers Chapter 1, not p.131",
-        "Web search for Sternberg Lie algebras errata and the displayed lower index, 2026-10-05"
-      ]
+        "Sternberg author online-books page https://people.math.harvard.edu/~shlomo/ and its current linked 23 April 2004 PDF; rechecked 2026-10-05",
+        "Darij Grinberg errata catalogue https://www.cip.ifi.lmu.de/~grinberg/algebra/algerrata.html and 29 June 2019 Chapter 1 list https://darijgrinberg.gitlab.io/algebra/sternberg-errata1.pdf; no Chapter 7 entry, 2026-10-05",
+        "Public web searches: Sternberg Lie algebras errata chapter 7 131 contraction dimension; Sternberg errata 132; Sternberg errata highest weights; Sternberg Lie algebras j−2 errata, 2026-10-05; no existing correction found"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The 23 April 2004 author PDF visibly prints 2j−2 on p.131. The displayed surjective contraction has target Λ^(j−2), so rank-nullity gives the corrected index. For n=j=2, the intended dimension is 6−1=5; the printed index would give 6−6=0.",
+        "by": "REV-DESIGN-ClassicalGroupsPartII"
+      }
+    },
+    {
+      "id": "ClassicalGroupsPartII/E2",
+      "source": "sternberg-2004",
+      "kind": "misprint",
+      "locator": "Author PDF, 23 April 2004, §7.9, printed p.131, first paragraph on the Cartan product",
+      "printed": "highest weights λ and σ",
+      "correction": "Replace the second highest-weight symbol σ by μ. The representations remain (V,ρ) and (W,σ), and the tensor highest weight is λ+μ.",
+      "reason": "The next clause and the displayed tensor highest vector use μ, while σ already names the representation on W. This is a symbol slip, not a different weight convention.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Sternberg author online-books page https://people.math.harvard.edu/~shlomo/ and its current linked 23 April 2004 PDF; rechecked 2026-10-05",
+        "Darij Grinberg errata catalogue https://www.cip.ifi.lmu.de/~grinberg/algebra/algerrata.html and 29 June 2019 Chapter 1 list https://darijgrinberg.gitlab.io/algebra/sternberg-errata1.pdf; no Chapter 7 entry, 2026-10-05",
+        "Public web searches: Sternberg Lie algebras errata chapter 7 131 contraction dimension; Sternberg errata 132; Sternberg errata highest weights; Sternberg Lie algebras j−2 errata, 2026-10-05; no existing correction found"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected the rendered author PDF and checked the correction from the adjacent definitions; The next clause and the displayed tensor highest vector use μ, while σ already names the representation on W. This is a symbol slip, not a different weight convention.",
+        "by": "REV-DESIGN-ClassicalGroupsPartII"
+      }
+    },
+    {
+      "id": "ClassicalGroupsPartII/E3",
+      "source": "sternberg-2004",
+      "kind": "misprint",
+      "locator": "Author PDF, 23 April 2004, §7.9, printed p.132, definition of r_i",
+      "printed": "r_i = l_i − 1 = a + n − i",
+      "correction": "The final a needs its index: r_i=l_i−1=a_i+n−i.",
+      "reason": "The preceding definition is l_i=a_i+n−i+1; subtracting 1 gives the correction for every i. The tuple a_i is not a common scalar.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Sternberg author online-books page https://people.math.harvard.edu/~shlomo/ and its current linked 23 April 2004 PDF; rechecked 2026-10-05",
+        "Darij Grinberg errata catalogue https://www.cip.ifi.lmu.de/~grinberg/algebra/algerrata.html and 29 June 2019 Chapter 1 list https://darijgrinberg.gitlab.io/algebra/sternberg-errata1.pdf; no Chapter 7 entry, 2026-10-05",
+        "Public web searches: Sternberg Lie algebras errata chapter 7 131 contraction dimension; Sternberg errata 132; Sternberg errata highest weights; Sternberg Lie algebras j−2 errata, 2026-10-05; no existing correction found"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected the rendered author PDF and checked the correction from the adjacent definitions; The preceding definition is l_i=a_i+n−i+1; subtracting 1 gives the correction for every i. The tuple a_i is not a common scalar.",
+        "by": "REV-DESIGN-ClassicalGroupsPartII"
+      }
+    },
+    {
+      "id": "ClassicalGroupsPartII/E4",
+      "source": "sternberg-2004",
+      "kind": "misprint",
+      "locator": "Author PDF, 23 April 2004, §7.9, printed p.132, displayed ratios for r_i−r_j in the second fundamental representation",
+      "printed": "∏_(j=3)^n j/(j−1) · ∏_(j=3)^n j/(j−2) = ∏_(j=3)^n j/(j−2)",
+      "correction": "The numerator of the second product is j−1: ∏ j/(j−1) · ∏ (j−1)/(j−2) = ∏ j/(j−2), over j=3,…,n.",
+      "reason": "For a_1=a_2=1 and a_j=0 for j>2, the i=2 difference is r_2−r_j=j−1, versus j−2 for the trivial weight. At n=3 the printed left side is 9/2 but the displayed right side is 3; the corrected left side is 3. The final dimension on p.133 is correct with the corrected factors.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Sternberg author online-books page https://people.math.harvard.edu/~shlomo/ and its current linked 23 April 2004 PDF; rechecked 2026-10-05",
+        "Darij Grinberg errata catalogue https://www.cip.ifi.lmu.de/~grinberg/algebra/algerrata.html and 29 June 2019 Chapter 1 list https://darijgrinberg.gitlab.io/algebra/sternberg-errata1.pdf; no Chapter 7 entry, 2026-10-05",
+        "Public web searches: Sternberg Lie algebras errata chapter 7 131 contraction dimension; Sternberg errata 132; Sternberg errata highest weights; Sternberg Lie algebras j−2 errata, 2026-10-05; no existing correction found"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected the rendered author PDF and checked the correction from the adjacent definitions; For a_1=a_2=1 and a_j=0 for j>2, the i=2 difference is r_2−r_j=j−1, versus j−2 for the trivial weight. At n=3 the printed left side is 9/2 but the displayed right side is 3; the corrected left side is 3. The final dimension on p.133 is correct with the corrected factors.",
+        "by": "REV-DESIGN-ClassicalGroupsPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -2615,6 +2652,150 @@
         "tauceti:TauCetiRoadmap/ReductiveGroups"
       ],
       "note": "The upstream classical document fixes C and uses its reductive/highest-weight suppliers. This Part II supplies the Q GSp central lattice and descent explicitly. Generic essentially-small/monoidal-preadditive finite-comodule instance glue and exterior comodule scalar-extension interfaces remain supplier requests in ReductiveGroups Layer 1; existing pinned finite-comodule data are reused."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+      ],
+      "note": "Independent review read Layer 4 classification and Layer 5 complete reducibility. Layer 4 does not explicitly promise a Cartan-component theorem. The packet now requests only its existing classification and derives the required component in the GSp construction using the separately requested semisimplicity. No upstream edit or new upstream scope is proposed."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ClassicalGroupsPartII",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review of all 26 nodes, all sources/locators/excerpts, 22 declarations at both exact baseline pins, supplier scope, proof closure, APIs, 58 tests and 21 planets. Five nodes corrected; two API contracts added; kernel hypotheses clarified; the original Sternberg misprint confirmed and three additional misprints recorded. Eleven explicit supplier requests and the existing scheme/descent signature gap remain honest; all four stages are planned, none closed, and all declarations unchecked. No exact shared build at both pins exists; lean-check stopped at a missing import object before elaboration.",
+    "checked": [
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.0/coordinate-hopf-algebra",
+        "verdict": "verified",
+        "note": "The polynomial quotient, Hopf matrix convention and unique multiplier agree with the imported ST.5 group for g≥1; rank-one and multiplier-one fibres use the cited native coordinates."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.0/similitude-weight-lattice",
+        "verdict": "corrected",
+        "note": "The central degree and parity pullback are correct; negative multiplier twists remain dominant. Made the two elementary weight constructors explicit in the sketch."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.0/diagonal-torus",
+        "verdict": "verified",
+        "note": "The diagonal coordinates, type-C roots and t=1 specialization agree with the parent Sp torus; scheme/root-datum registration is an explicit supplier obligation."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.0/weyl-action",
+        "verdict": "verified",
+        "note": "Reciprocal reflection adds u_i to m and negates u_i; signed-permutation relations and integral fixed subring are correct."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.0/central-cover",
+        "verdict": "verified",
+        "note": "The cover has μ₂ kernel and fppf local square-root lifts; no Q-point surjectivity is asserted. The omitted scheme/descent signature is honestly recorded as a gap."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/rational-representation-ring",
+        "verdict": "verified",
+        "note": "Finite algebraic comodules and existing SplitK0 are used, with precise missing generic instance requests; characteristic-zero semisimplicity identifies the split classes."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/standard-representation",
+        "verdict": "corrected",
+        "note": "Right coaction e_b↦Σ_a e_a⊗x_ab has the correct column convention. Added its coordinate formula to both API and sketch, before point evaluation."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/multiplier-line",
+        "verdict": "verified",
+        "note": "The one-dimensional ν^m coaction and tensor law include all integer twists; ν⁻¹ is correctly excluded from nonnegative standard tensor degrees."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/primitive-exterior-powers",
+        "verdict": "corrected",
+        "note": "The contraction sign and ν twist are correct. Added the exact J pairing equation to API/sketch and documented the pinned kernel flatness/Noetherian hypotheses."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/primitive-exterior-decomposition",
+        "verdict": "corrected",
+        "note": "The primitive dimension, highest line and tensor summands follow from Lefschetz contraction, Sp classification/dimension and antisymmetrization. Fixed the Lefschetz sign normalization and extended the source locator through the completed rank-two calculation."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/hom-and-weight-base-change",
+        "verdict": "verified",
+        "note": "Finite coefficient linear equations prove generic K/F Hom and weight base change; the infinite-field invertible-locus argument reflects isomorphisms without asserting functor fullness."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/irreducible-rational-model",
+        "verdict": "corrected",
+        "note": "The finite coefficient-generated rational component and its flat base change are justified. Replaced the overclaimed imported Cartan theorem by the explicit top-line/semisimplicity argument and narrowed the Lie supplier request."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/rational-highest-weight-classification",
+        "verdict": "verified",
+        "note": "Finitely generated coefficient-field descent avoids assuming K embeds in C; Hom base change identifies the descended simple with an absolute rational model. Multiplicities and endomorphisms follow."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.1/scalar-extension-ring-equivalence",
+        "verdict": "verified",
+        "note": "The map is the existing SplitK0 map of additive strong monoidal scalar extension and is bijective on the simple-class basis; it is a ring equivalence, not a category equivalence."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.2/formal-torus-character",
+        "verdict": "verified",
+        "note": "Existing internal torus weight decomposition gives integral finite support; tensor/additive laws and evaluation as trace feed the native SplitK0 lift."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.2/character-injectivity",
+        "verdict": "verified",
+        "note": "The maximal highest weight in a finite nonzero integer combination proves injectivity; the finite-point-group character theorem is correctly not used."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.2/fundamental-exterior-characters",
+        "verdict": "verified",
+        "note": "The signed exterior degree convention makes E_(−1)=0, E_0=1 and F_1=E_1; generating function and rank-two coefficients agree."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.2/integral-invariant-presentation",
+        "verdict": "verified",
+        "note": "Reciprocal orbit recurrences and the native symmetric-polynomial equivalence are integral; the triangular F_k/e_k substitution has leading coefficient 1."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.2/primitive-character-identity",
+        "verdict": "verified",
+        "note": "Surjective ν-valued contraction and split decomposition give primitive characters; determinant of V equals ν^g."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.2/rational-character-isomorphism",
+        "verdict": "verified",
+        "note": "Injectivity and the primitive/multiplier generators prove the exact rational character ring equivalence, with unrestricted inverse multiplier."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.3/positive-laurent-subring",
+        "verdict": "verified",
+        "note": "Generator support is exactly m+Σmin(u_i,0)≥0; closure uses all subset linear inequalities rather than falsely treating min as additive. Signed coefficients are permitted."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.3/positive-invariant-presentation",
+        "verdict": "verified",
+        "note": "Nonzero-coordinate flip orbit sums avoid doubling zero orbits; the same integral triangular substitution gives Z[t,F_1,…,F_g] and independence."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.3/tensor-constituent-subring",
+        "verdict": "verified",
+        "note": "The subring uses simple tensor-power summands and contains degree-zero unit; tensor closure explains its integer span. It differs from the ring generated only by V."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.3/tensor-constituent-criterion",
+        "verdict": "verified",
+        "note": "Dominant tensor weights force m≥0 and d=2m+Σu_i; the rational highest component and ν summand prove sufficiency at that exact degree."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.3/tensor-character-isomorphism",
+        "verdict": "verified",
+        "note": "Positive support and the integral invariant generators identify the constituent subring with positive Weyl invariants; inverse ν is excluded."
+      },
+      {
+        "nodeId": "ClassicalGroupsPartII:CG.3/integral-tensor-generation",
+        "verdict": "verified",
+        "note": "Transporting the two polynomial presentations proves integral independent generators and localization by ν; the negative exterior index remains zero."
+      }
+    ]
+  }
 }

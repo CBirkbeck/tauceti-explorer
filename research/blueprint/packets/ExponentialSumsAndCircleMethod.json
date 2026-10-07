@@ -1280,7 +1280,7 @@
       "source": "BennettSiksek2020",
       "kind": "error",
       "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
-      "printed": "τ(q) ≤ q^(1/log log 3q) for all q ≥ 1.",
+      "printed": "The source claims τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
       "correction": "Use AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound or /uniform-divisor-subpower-bound; absorb its constant at the explicit threshold k≥(8Cε)^(64/17).",
       "reason": "At q=120 the left side is 16 while the displayed power is about14.89222. The current small-conductor application uses ε=1/(64c) and 8Cε≤k^(17/64), not the false universal estimate.",
       "affects": "a stated result",
@@ -1310,7 +1310,7 @@
       "source": "BennettSiksek2020",
       "kind": "misprint",
       "locator": "Published Theorem6 pp.376–377 and Case1 pp.377–378; known E11.",
-      "printed": "conductor q_i",
+      "printed": "The source calls q_i the conductor.",
       "correction": "Use ambient modulus q_i for general factors, retaining primitivity for the distinguished first factor. A principal factor's conductor is1. Permit an empty family of principal factors when M2=1; the accepted review rejects the alleged missing-case error.",
       "reason": "The finite sums depend on the displayed modulus while a principal character always has primitive conductor1. The displayed factorization permits r=s, and the original r−2 factor count remains sufficient; no extra missing-case finding is asserted.",
       "affects": "nothing",
@@ -1325,7 +1325,7 @@
       "source": "IwaniecKowalskiChapter11Author",
       "kind": "misprint",
       "locator": "First additive-character orthogonality display, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
-      "printed": "q if x = 1",
+      "printed": "The source assigns the value q when x = 1.",
       "correction": "In additive-character orthogonality the exceptional argument is x=0, not x=1.",
       "reason": "Over F₂ the two additive characters have values 1,1 at zero, summing to 2, and 1,−1 at one, summing to 0. The following sentence itself says the relation solves x=0.",
       "affects": "a stated result",
@@ -1342,7 +1342,7 @@
       "source": "IwaniecKowalskiChapter11Author",
       "kind": "misprint",
       "locator": "Sentence before the multiplicative orthogonality display, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
-      "printed": "characters of order δ",
+      "printed": "The source specifies characters having order δ.",
       "correction": "The subgroup consists of characters whose orders divide δ, equivalently characters annihilated by the δ-th power map. Exact order δ is not a subgroup when δ>1.",
       "reason": "For F₅ and δ=4 the character group has four elements but only two have exact order four. The identity has order one and must belong to every subgroup.",
       "affects": "a stated result",
@@ -1359,7 +1359,7 @@
       "source": "IwaniecKowalskiChapter11Author",
       "kind": "misprint",
       "locator": "Opening continuation of the multiplicative Hilbert 90 paragraph, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
-      "printed": "unique up to multiplication by an element in F_n*",
+      "printed": "The source asserts uniqueness modulo multiplication by an element of F_n*.",
       "correction": "For the degree-n extension F_n/F, solutions of a=σ(b)/b are unique up to multiplication by F*, the fixed-field units, not by arbitrary F_n*.",
       "reason": "If b and c are two solutions, σ(c/b)=c/b, so c/b lies in F*. For F₉/F₃ the map b↦b² on eight nonzero elements has kernel {1,−1}, not all eight elements.",
       "affects": "a stated result",
@@ -1376,7 +1376,7 @@
       "source": "AssingCircle2022",
       "kind": "error",
       "locator": "§6 pp.33–34, nonnegative representation count and its Fourier identity, identified 1 April 2022 author-hosted lecture notes; not a published paper.",
-      "printed": "non-negative integers",
+      "printed": "The source allows integer entries that are non-negative.",
       "correction": "The sum T on p.34 runs from 1 to P and its kth power counts positive entries. Either call the identity a positive representation count, as Theorem6.5 later does, or include x=0 in T when retaining the nonnegative count.",
       "reason": "For degree one, two variables and m=2, nonnegative ordered representations are (0,2),(1,1),(2,0), whereas the displayed T from1to2 gives the integral count1. This packet uses positive intervals and does not conflate the two counts.",
       "affects": "a stated result",
@@ -1392,7 +1392,7 @@
       "source": "AssingCircle2022",
       "kind": "gap",
       "locator": "§6.1 p.34, sentence after definition of the closed major arcs, 1 April 2022 author-hosted lecture notes; visually inspected.",
-      "printed": "These intervals do not overlap",
+      "printed": "The source asserts that the intervals are pairwise disjoint.",
       "correction": "Impose a size condition. For denominator bound Q and closed torus radius η, 2ηQ²<1 suffices. With Q=⌊P^δ⌋ and η=P^(−d+δ), require 0<δ<d/3 and sufficiently large P. The bare condition δ>0 is not enough.",
       "reason": "With degree d=2, P=16, δ=3/2 the cutoff is64 and the radius is1/4. Both centres0and1/2 are indexed and their closed arcs meet at1/4. General separation follows from the nonzero integer ar−bq−zqr.",
       "affects": "the proof",
@@ -1408,7 +1408,7 @@
       "source": "BDG2016",
       "kind": "misprint",
       "locator": "§3 p.637, paragraph extending the weight exponent E, published Annals184(2016) PDF.",
-      "printed": "Theorem 1.1 holds true for all weights",
+      "printed": "The source claims Theorem 1.1 applies to every weight.",
       "correction": "The weighted decoupling assertion is Theorem1.2; Theorem1.1 is the arithmetic count and has no spatial weight. Both references to Theorem1.1 in this paragraph’s dimensional/weighted induction discussion should refer to the corresponding decoupling theorem.",
       "reason": "Source Theorem1.1 onp.633 bounds J, whereas Theorem1.2 onp.635 compares weighted extension norms. The paragraph discusses induction for arbitrary w_{B,E}.",
       "affects": "nothing",
@@ -1423,7 +1423,7 @@
       "source": "AssingCircle2022",
       "kind": "error",
       "locator": "Lemma6.16 pp.46–47, author-hosted 1April2022 lecture notes; statement visually inspected p.46.",
-      "printed": "S(a,p^v)=p^{n-1}S(a,p^{v-n}) for v>n",
+      "printed": "The source asserts S(a,p^v)=p^{n-1}S(a,p^{v-n}) whenever v>n.",
       "correction": "Exclude the exceptional quadratic two-adic case n=p=2,v=3. The proof needs v−τ−1≥2 when p=2 and τ=1, which fails there. Treat that base separately; the blanket v>n range cannot be imported unchanged.",
       "reason": "For n=2,a=1,p=2,v=3, the square residues modulo8 occur with multiplicities2at0,4at1,2at4. Hence S(1,8)=4e(1/8), of norm4. But S(1,2)=1+e(1/2)=0, so the asserted2S(1,2) vanishes. The quadratic two-adic binomial expansion used in(13) retains the omitted4y² term.",
       "affects": "a stated result",
@@ -1519,7 +1519,7 @@
       "source": "AssingCircle2022",
       "kind": "misprint",
       "locator": "Lemma6.4 proof p.37, sentence after the phase replacement; source text read.",
-      "printed": "replacing m with P^k",
+      "printed": "The source substitutes P^k for m.",
       "correction": "Replace m with P^n, as in the immediately following display and the estimate m−P^n≪P^{n−1}.",
       "reason": "n is the degree and k the number of variables. Only P^n approximates m from P=ceil(m^{1/n}); replacing m by P^k has no asserted small error.",
       "affects": "the proof",
@@ -1551,7 +1551,7 @@
       "source": "AssingCircle2022",
       "kind": "gap",
       "locator": "Theorem6.13 proof p.44, use of(12) for n>2; source text read.",
-      "printed": "2^n+1≥Γ(n) for n>2",
+      "printed": "For n>2, the source invokes 2^n+1≥Γ(n).",
       "correction": "The proof presented covers n>2. Supply a separate quadratic primitive-solubility argument to deduce the stated n=2 case; the node using this proof is restricted to d≥3.",
       "reason": "The theorem is stated without n>2, but its proof explicitly invokes that restriction. At n=2 the only even-degree bound just proved is Γ(2)≤8, which does not imply positivity for five variables. This is a proof boundary, not a counterexample to the quadratic conclusion.",
       "affects": "the proof",
@@ -1599,7 +1599,7 @@
       "source": "HeathBrown2002",
       "kind": "misprint",
       "locator": "Lemma3 discussion and proof pp.566–567. Version: arXiv math/0405392v1,20May2004; no publisher-scan collation.",
-      "printed": "factor of degree d",
+      "printed": "The source describes a factor whose degree is d.",
       "correction": "The two concluding consistency references refer to degreeδ, the fixed parameter0<δ<d, not degree d.",
       "reason": "The lemma detects a proper factor of degreeδ. A degree-d factor of the degree-d form would be the whole form, and cannot characterize this condition.",
       "affects": "the proof",
@@ -1615,7 +1615,7 @@
       "source": "HeathBrown2002",
       "kind": "misprint",
       "locator": "§3 p.571, determinant column-elimination paragraph. Version: arXiv math/0405392v1,20May2004; no publisher-scan collation.",
-      "printed": "remaining n−1 columns",
+      "printed": "The source counts n−1 columns still remaining.",
       "correction": "The matrix has E columns, so the remaining column count is E−1.",
       "reason": "The matrix was defined as E×E and there is no equality E=n. The following elimination argument and valuation calculation do run through all E columns.",
       "affects": "nothing",
@@ -1680,7 +1680,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1723,7 +1722,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1765,7 +1763,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1808,7 +1805,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1851,7 +1847,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1891,7 +1886,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1932,7 +1926,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -1974,7 +1967,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -2020,7 +2012,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation",
-          "excerpt": "Case 1.",
           "match": "Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction."
         }
       ],
@@ -2062,7 +2053,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, printed pp.377–378, Case 1, factor conditions (a)–(c)",
-          "excerpt": "Case 1.",
           "match": "Worker-derived extraction lemma exposing the arithmetic behind the asserted grouping of prime factors; not a separately numbered theorem of the source."
         }
       ]
@@ -2109,7 +2099,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, printed pp.377–378, Case 1, factor conditions (a)–(e)",
-          "excerpt": "Case 1.",
           "match": "Makes the bounded prime-block grouping and its single residual explicit. It permits an empty list instead of assuming every family has a last block."
         }
       ]
@@ -2161,7 +2150,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, printed pp.377–378, Case 1, (a)–(e) and r−2 bound; accepted E11 review",
-          "excerpt": "Case 1.",
           "match": "Arithmetic part of routed item 95. The accepted errata review allows the principal family to be empty; this theorem keeps that convention and the original two-residual count. It does not claim the external Graham–Ringrose proof or the character CRT adapters are supplied."
         }
       ]
@@ -2207,7 +2195,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, printed p.378, displayed r−2 logarithmic bound",
-          "excerpt": "Case 1.",
           "match": "Makes the strict numerical constant and the two exceptional blocks explicit. This estimate is independent of the unproved analytic character-sum bound."
         }
       ]
@@ -2253,7 +2240,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, printed p.378, displayed R₀ inequality",
-          "excerpt": "Case 1.",
           "match": "Pure size calculation underlying the use of Theorem 6; supplies an explicit threshold omitted under the source's sufficiently-large-k convention."
         }
       ]
@@ -2316,7 +2302,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; the incomplete η-sums on p.379",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2376,7 +2361,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; the bound for each inner η-sum on p.379",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2441,7 +2425,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.379, inner sums indexed by k/(2d)<n≤k/d",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2512,7 +2495,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.379, change from m to nd",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2588,7 +2570,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.378, Möbius divisor identity; p.379, first finite interchange",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2652,7 +2633,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.379, final Möbius expansion",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2727,7 +2707,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.379, final displayed character-sum bound",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2794,7 +2773,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.378, direct period estimate in Case 2",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2858,7 +2836,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; p.378, the direct bound preceding the assumption on M₂",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2928,7 +2905,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, Case 2, pp.378–379; pp.378–379, end of Case 2, using the corrected divisor estimate",
-          "excerpt": "Case 2.",
           "match": "The source motivates this finite-sum interface. Generic periodic/reindexing lemmas and the explicit corrected threshold are worker derivations from the listed pinned APIs, not additional theorems attributed to the paper."
         }
       ],
@@ -2991,13 +2967,11 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case2, printed pp.378–379",
-          "excerpt": "Case 2.",
           "match": "Worker-derived explicit consequence of the corrected divisor input; the source's invalid universal divisor estimate is not reused."
         },
         {
           "sourceId": "TaoDivisor2008",
           "locator": "Small/large-prime proof; AN.5 explicit and uniform divisor nodes",
-          "excerpt": "The divisor bound",
           "match": "The AN.5 packet owns the proof and exact constant. This node only composes its statement with the already planned character estimate."
         }
       ],
@@ -3074,13 +3048,11 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case2, printed pp.378–379",
-          "excerpt": "Case 2.",
           "match": "Worker-derived explicit consequence of the corrected divisor input; the source's invalid universal divisor estimate is not reused."
         },
         {
           "sourceId": "TaoDivisor2008",
           "locator": "Small/large-prime proof; AN.5 explicit and uniform divisor nodes",
-          "excerpt": "The divisor bound",
           "match": "The AN.5 packet owns the proof and exact constant. This node only composes its statement with the already planned character estimate."
         }
       ],
@@ -3144,13 +3116,11 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, Case2, printed pp.378–379",
-          "excerpt": "Case 2.",
           "match": "Worker-derived explicit consequence of the corrected divisor input; the source's invalid universal divisor estimate is not reused."
         },
         {
           "sourceId": "TaoDivisor2008",
           "locator": "Small/large-prime proof; AN.5 explicit and uniform divisor nodes",
-          "excerpt": "The divisor bound",
           "match": "The AN.5 packet owns the proof and exact constant. This node only composes its statement with the already planned character estimate."
         }
       ],
@@ -3214,7 +3184,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3279,7 +3248,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3347,7 +3315,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3429,7 +3396,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3504,7 +3470,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3575,7 +3540,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3646,7 +3610,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3726,7 +3689,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed p.377 and Case 2, pp.378–379",
-          "excerpt": "primitive",
           "match": "Worker decomposition of the reviewed modulus/conductor correction. The primitive construction and general conductor laws are already in the pinned library; this node states only the indicated arithmetic adapter, not a new construction or a verbatim theorem from the paper."
         }
       ],
@@ -3778,7 +3740,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker-defined adapter composing the pinned CRT and unit-character equivalences for the block factors used in Case 1; the paper does not name this equivalence separately."
         }
       ],
@@ -3903,7 +3864,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation supplying the precise meaning of the source product notation through native changeLevel."
         }
       ],
@@ -3945,7 +3905,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation of the all-integer product identity needed inside the source interval sum; equality on units alone would not suffice."
         }
       ],
@@ -3989,7 +3948,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Finite-family adapter for the primitive factors on p.377, importing the owned binary theorem instead of rebuilding it."
         }
       ],
@@ -4036,7 +3994,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation making the source primitive/principal distinction precise for arbitrary CRT groupings."
         }
       ],
@@ -4082,7 +4039,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation of exactly the distinguished-factor primitivity required by Theorem 6; it also recovers the source principal factors when their moduli are coprime to the conductor."
         }
       ],
@@ -4121,7 +4077,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation preserving the quadratic nature of the source factors without adding a new quadratic-character definition."
         }
       ],
@@ -4163,7 +4118,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation identifying the corrected excluded-prime summand on pp.377–379 with a native character at the reduced period."
         }
       ],
@@ -4210,7 +4164,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker assembly of the corrected source factorization, preserving the existing r−2 arithmetic bound and accepted empty-principal-family convention. General subsequent factors are permitted by the corrected Theorem 6 modulus interface."
         }
       ],
@@ -4281,7 +4234,6 @@
         {
           "sourceId": "BennettSiksek2020",
           "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
-          "excerpt": "We can write",
           "match": "Worker derivation of the complete arithmetic/character input to Case 1, importing both precise CA.1 classification statements. This realizes the factor-block portion of routed item 95 and leaves the external analytic proof explicit."
         }
       ],
@@ -4321,7 +4273,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "A(k, l)",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4438,7 +4389,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "A(k, k)",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4480,7 +4430,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "A(k, l)",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4519,7 +4468,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "off-diagonal",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4561,7 +4509,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "supported",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4603,7 +4550,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "translation invariance",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4645,7 +4591,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "translation invariance",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4687,7 +4632,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "A(k, l)",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4726,7 +4670,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "k and l",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4772,7 +4715,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "square",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4817,7 +4759,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "square",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4860,7 +4801,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
-          "excerpt": "off-diagonal",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4904,7 +4844,6 @@
         {
           "sourceId": "Polymath2014",
           "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2110, K=⌊N/r⌋ and (4-22)–(4-24).",
-          "excerpt": "K",
           "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
         }
       ],
@@ -4953,7 +4892,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.633 and Theorem4.1 pp.637–638",
-          "excerpt": "e(z)",
           "match": "The torus phase and weighted finite sums follow the published normalization; extension to a finite carrier is finite algebra."
         }
       ],
@@ -5068,7 +5006,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.633 and Theorem4.1 pp.637–638",
-          "excerpt": "e(z)",
           "match": "The torus phase and weighted finite sums follow the published normalization; extension to a finite carrier is finite algebra."
         }
       ],
@@ -5115,7 +5052,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.633; §5 p.639",
-          "excerpt": "Js,n",
           "match": "Matches the moment sum used for the mean-value integral and keeps all n coordinates."
         }
       ],
@@ -5212,7 +5148,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.633, opening definition",
-          "excerpt": "Js,n",
           "match": "The two s-tuples and all equations are exactly the published solution count; boundary conventions are explicit extensions."
         }
       ],
@@ -5333,7 +5268,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.633, analytic representation",
-          "excerpt": "Js,n",
           "match": "The equality is the exact analytic representation, with boundary cases justified by finite expansion."
         }
       ],
@@ -5372,7 +5306,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5469,7 +5402,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5568,7 +5500,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5664,7 +5595,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5757,7 +5687,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5797,7 +5726,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5840,7 +5768,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 p.34, Farey fractions and arc definitions; page visually inspected",
-          "excerpt": "major arcs",
           "match": "Replaces the representative-dependent shorthand by native torus balls; reduced 0/1 represents the source endpoint 1/1. The missing size restriction is recorded in E16."
         }
       ],
@@ -5878,7 +5805,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 pp.634–635 and §3 p.637",
-          "excerpt": "Γ",
           "match": "The moment curve, extension operator and family of polynomial spatial weights are the published inputs. Euclidean norm and Lebesgue measure are explicit."
         }
       ],
@@ -5968,7 +5894,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 pp.634–635 and §3 p.637",
-          "excerpt": "Γ",
           "match": "The moment curve, extension operator and family of polynomial spatial weights are the published inputs. Euclidean norm and Lebesgue measure are explicit."
         }
       ],
@@ -6060,7 +5985,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 pp.634–635 and §3 p.637",
-          "excerpt": "Γ",
           "match": "The moment curve, extension operator and family of polynomial spatial weights are the published inputs. Euclidean norm and Lebesgue measure are explicit."
         }
       ],
@@ -6175,7 +6099,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.634, weight-exponent discussion",
-          "excerpt": "100n",
           "match": "Makes the source’s integrability requirement explicit; the dyadic-shell argument is an elementary proof obligation, not an implemented theorem."
         }
       ],
@@ -6217,7 +6140,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "Theorem1.2 p.635; weight extension p.637; §§6–10",
-          "excerpt": "Theorem 1.2",
           "match": "Matches the full critical statement, uniformity and actual proof route; the external base and Kakeya/BL inputs are not falsely attributed as proved in this paper."
         }
       ],
@@ -6261,7 +6183,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "Theorem4.1 and proof pp.637–638",
-          "excerpt": "Theorem 4.1",
           "match": "Specializes to critical exponent and R=N^n, keeping complex coefficients and normalized weighted measure. One-sided approximants repair endpoint support details without changing the stated bound."
         }
       ],
@@ -6305,7 +6226,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "Theorem1.1 p.633; Corollary4.2 pp.638–639",
-          "excerpt": "Theorem 1.1",
           "match": "Matches source quantifiers, both exponents and the near-solution proof route; not a formalization claim."
         }
       ],
@@ -6346,7 +6266,6 @@
         {
           "sourceId": "BDG2016",
           "locator": "§1 p.633, source system specialized to n=1",
-          "excerpt": "Js,n",
           "match": "The source declares n≥2; this degree-one extension is an elementary argument supplied here, not a claim that the source proves it."
         }
       ],
@@ -6398,7 +6317,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "Lemma5.1 and proof pp.28–31; Lemma5.2 and proof pp.31–32",
-          "excerpt": "Weyl’s inequality",
           "match": "The selected classical differencing and divisor proofs were read in full. Native forward differences and the exact AN.5 divisor supplier replace informal algebraic/analytic black boxes."
         }
       ],
@@ -6445,7 +6363,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "Lemma5.1 and proof pp.28–31; Lemma5.2 and proof pp.31–32",
-          "excerpt": "Weyl’s inequality",
           "match": "The selected classical differencing and divisor proofs were read in full. Native forward differences and the exact AN.5 divisor supplier replace informal algebraic/analytic black boxes."
         }
       ],
@@ -6486,7 +6403,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6583,7 +6499,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6623,7 +6538,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6714,7 +6628,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6754,7 +6667,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6838,7 +6750,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6877,7 +6788,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -6961,7 +6871,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -7001,7 +6910,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -7093,7 +7001,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -7184,7 +7091,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -7230,7 +7136,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs; pp.45–46 visually checked",
-          "excerpt": "singular series",
           "match": "The selected classical local-factor proof is read, with the quadratic two-adic exception E18 excluded from any blanket recursion."
         }
       ],
@@ -7274,7 +7179,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.34–39, statements and full proofs, with E15–16 and E23–24 corrected",
-          "excerpt": "Theorem 6.5",
           "match": "Positive variables, symmetric frequency truncations and strict arc-size constraints are retained. The degree-two local proof boundary is not silently imported."
         }
       ],
@@ -7368,7 +7272,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.34–39, statements and full proofs, with E15–16 and E23–24 corrected",
-          "excerpt": "Theorem 6.5",
           "match": "Positive variables, symmetric frequency truncations and strict arc-size constraints are retained. The degree-two local proof boundary is not silently imported."
         }
       ],
@@ -7468,7 +7371,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.34–39, statements and full proofs, with E15–16 and E23–24 corrected",
-          "excerpt": "Theorem 6.5",
           "match": "Positive variables, symmetric frequency truncations and strict arc-size constraints are retained. The degree-two local proof boundary is not silently imported."
         }
       ],
@@ -7511,7 +7413,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "Lemma6.3 and proof pp.35–36",
-          "excerpt": "Lemma 6.3",
           "match": "Tracks the underlying q(1+|β|P^d) estimate, using a valid bounded-variation/quadrature argument. The precise native sum-integral interface is a recorded analytic frontier."
         }
       ],
@@ -7553,7 +7454,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "Lemma6.1 and proof pp.34–35",
-          "excerpt": "Lemma 6.1",
           "match": "Correct positive-sum convention, explicit degree/variable range and the source proof’s positive saving are retained."
         }
       ],
@@ -7597,7 +7497,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.2 Lemmas6.10–6.13 pp.41–44, statements and proofs; E25–26",
-          "excerpt": "χ(p)>0",
           "match": "The primitive lifting condition is explicit; the uniform source proof is used only in degree at least three."
         }
       ],
@@ -7639,7 +7538,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.2 Lemmas6.10–6.13 pp.41–44, statements and proofs; E25–26",
-          "excerpt": "χ(p)>0",
           "match": "The primitive lifting condition is explicit; the uniform source proof is used only in degree at least three."
         }
       ],
@@ -7685,7 +7583,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.34–39, statements and full proofs, with E15–16 and E23–24 corrected",
-          "excerpt": "Theorem 6.5",
           "match": "Positive variables, symmetric frequency truncations and strict arc-size constraints are retained. The degree-two local proof boundary is not silently imported."
         }
       ],
@@ -7728,7 +7625,6 @@
         {
           "sourceId": "AssingCircle2022",
           "locator": "§6.1 pp.34–39, statements and full proofs, with E15–16 and E23–24 corrected",
-          "excerpt": "Theorem 6.5",
           "match": "Positive variables, symmetric frequency truncations and strict arc-size constraints are retained. The degree-two local proof boundary is not silently imported."
         }
       ],
@@ -7773,7 +7669,6 @@
         {
           "sourceId": "HeathBrown2002",
           "locator": "§1 pp.553–555 and562; §2 p.564; complete §3 pp.567–575 in the specified arXiv reprint",
-          "excerpt": "Theorem 14",
           "match": "Exact normalized projective representatives, anisotropic box sizes, coefficient height and theorem uniformity are retained; unacquired external proof interfaces are recorded as gaps."
         }
       ],
@@ -7876,7 +7771,6 @@
         {
           "sourceId": "HeathBrown2002",
           "locator": "§1 pp.553–555 and562; §2 p.564; complete §3 pp.567–575 in the specified arXiv reprint",
-          "excerpt": "Theorem 14",
           "match": "Exact normalized projective representatives, anisotropic box sizes, coefficient height and theorem uniformity are retained; unacquired external proof interfaces are recorded as gaps."
         }
       ],
@@ -7924,7 +7818,6 @@
         {
           "sourceId": "HeathBrown2002",
           "locator": "§1 pp.553–555 and562; §2 p.564; complete §3 pp.567–575 in the specified arXiv reprint",
-          "excerpt": "Theorem 14",
           "match": "Exact normalized projective representatives, anisotropic box sizes, coefficient height and theorem uniformity are retained; unacquired external proof interfaces are recorded as gaps."
         }
       ],
@@ -7975,7 +7868,6 @@
         {
           "sourceId": "HeathBrown2002",
           "locator": "§1 pp.553–555 and562; §2 p.564; complete §3 pp.567–575 in the specified arXiv reprint",
-          "excerpt": "Theorem 14",
           "match": "Exact normalized projective representatives, anisotropic box sizes, coefficient height and theorem uniformity are retained; unacquired external proof interfaces are recorded as gaps."
         }
       ],

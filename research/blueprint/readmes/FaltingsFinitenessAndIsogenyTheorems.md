@@ -1,8 +1,8 @@
 # Faltings finiteness, semisimplicity and isogeny theorems
 
-Blueprint for `FaltingsFinitenessAndIsogenyTheorems`, originally job `BP-FaltingsFinitenessAndIsogenyTheorems` (#729). This reader was synchronized in `FIX-RT-AREA-padic-2~3` (#5537), 2 October 2026, from the current packet, including the additions of `REV-FaltingsFinitenessAndIsogenyTheorems` and the corrections of `REV-FIX-RT-AREA-padic-2~2`.
+Blueprint for `FaltingsFinitenessAndIsogenyTheorems`, originally job `BP-FaltingsFinitenessAndIsogenyTheorems` (#729). This reader was synchronized in `FIX-RT-AREA-padic-2~3` (#5537), 2 October 2026, from the current packet, including the additions of `REV-FaltingsFinitenessAndIsogenyTheorems` and the corrections of `REV-FIX-RT-AREA-padic-2~2`. `FIX-RT-AREA-padic-2~4` (#6518), 7 October 2026, added the one correction `REV-FIX-RT-AREA-padic-2~3` made to the packet afterwards: the Tate-curve acceptance example of the Lemma 6 node now says that, at a place above l, inertia acts on the toric submodule through the cyclotomic character.
 
-Packet: [FaltingsFinitenessAndIsogenyTheorems.json](../packets/FaltingsFinitenessAndIsogenyTheorems.json). Suggested Lean file: [FaltingsFinitenessAndIsogenyTheorems.lean](../suggested/FaltingsFinitenessAndIsogenyTheorems.lean). Round-three fix report: [RT-AREA-padic-2.fixes-3.md](../redteam/RT-AREA-padic-2.fixes-3.md).
+Packet: [FaltingsFinitenessAndIsogenyTheorems.json](../packets/FaltingsFinitenessAndIsogenyTheorems.json). Suggested Lean file: [FaltingsFinitenessAndIsogenyTheorems.lean](../suggested/FaltingsFinitenessAndIsogenyTheorems.lean). Fix reports: [round three](../redteam/RT-AREA-padic-2.fixes-3.md), [round four](../redteam/RT-AREA-padic-2.fixes-4.md).
 
 **Status: partial.** The six layers remain `source_decomposed`; this is a plan, with unresolved supplier proofs and interfaces. The packet contains 56 nodes, 29 API items, 17 unit-test specifications, 55 pinned-library declarations, 12 gaps and 37 supplier requests. All 56 nodes are stated below, including the 24 additions missing from the previous reader. The packet retains its `needs_changes` review and prior review history pending independent review of these fixes. Synchronizing the reader does not prove the mathematics or close the outstanding requests.
 
@@ -1069,7 +1069,7 @@ Let K be a number field, R = O_K, p: A → Spec(R) semiabelian with proper gener
 
 - Good reduction (T_s = 0): T_l(H_i) = T_l(A), the quotient is 0 and the lemma is empty.
 - Tate curve E_q over K_i (B_s = 0, t = 1): T_l(T) = ℤ_l(1) = T_l(H_i), and T_l(E_q)/ℤ_l(1) ≅ ℤ_l with trivial action for split multiplicative reduction and the unramified quadratic character for non-split reduction.
-- The conclusion concerns the quotient only: on T_l(E_q) itself inertia acts through a nontrivial unipotent matrix when l ∤ v(q).
+- The conclusion concerns the quotient only: at v_i | l the toric submodule T_l(T) = ℤ_l(1) of the split Tate curve E_q carries the cyclotomic character χ_l, whose restriction to inertia has infinite image. Thus inertia on T_l(E_q) itself is not trivial and need not be unipotent. The unipotent-inertia statement for semistable reduction uses an auxiliary Tate-module prime different from the residue characteristic; that is not this node's setting.
 - The orthogonality ⟨T_l(T), T_l(H_i)⟩ = 0 is the imported SGA 7 input, not a consequence of the definitions used here.
 
 **Prerequisites.**

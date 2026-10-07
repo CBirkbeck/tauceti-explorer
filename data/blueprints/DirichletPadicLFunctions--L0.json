@@ -1158,7 +1158,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Lemma 4.2 and Proposition 4.6, printed pp. 136–137 / PDF 37–38.",
-          "excerpt": "We have",
           "match": "Comparison of the source's complex notation with an explicit rational value using the existing corrected negative-zeta formula. No transport of arbitrary complex values is asserted."
         }
       ],
@@ -1205,7 +1204,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "exponentially at infinity",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1242,7 +1240,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "holomorphic",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1284,7 +1281,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "integration by parts",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1333,7 +1329,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "integration by parts",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1382,7 +1377,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "fundamental theorem of calculus",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1421,7 +1415,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "by iteration",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1476,7 +1469,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "by iteration",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1613,7 +1605,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "by iteration",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1651,7 +1642,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "converges",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1702,7 +1692,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "by iteration",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1743,7 +1732,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
-          "excerpt": "the result",
           "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
         }
       ],
@@ -1787,7 +1775,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -1829,7 +1816,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -1869,7 +1855,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -1923,7 +1908,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -1967,7 +1951,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -2017,7 +2000,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -2069,7 +2051,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
-          "excerpt": "geometric series",
           "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
         }
       ],
@@ -2108,7 +2089,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2262,7 +2242,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2300,7 +2279,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2347,7 +2325,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2384,7 +2361,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2421,7 +2397,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2467,7 +2442,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2509,7 +2483,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2559,7 +2532,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2602,7 +2574,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2642,7 +2613,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2683,7 +2653,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
-          "excerpt": "generating function",
           "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; the separate nodes bernoulli-mellin-dirichlet-sum through bernoulli-mellin-zeta-comparison establish the Lemma2.7 comparison."
         }
       ],
@@ -2733,7 +2702,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026.",
-          "excerpt": "Lemma 2.7",
           "match": "The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole."
         }
       ],
@@ -2778,7 +2746,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026.",
-          "excerpt": "Lemma 2.7",
           "match": "The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole."
         }
       ],
@@ -2816,7 +2783,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026.",
-          "excerpt": "Lemma 2.7",
           "match": "The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole."
         }
       ],
@@ -2867,7 +2833,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026.",
-          "excerpt": "Lemma 2.7",
           "match": "The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole."
         }
       ],
@@ -2920,7 +2885,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026.",
-          "excerpt": "Lemma 2.7",
           "match": "The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole."
         }
       ],
@@ -2976,7 +2940,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3201,7 +3164,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3246,7 +3208,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3283,7 +3244,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3320,7 +3280,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3368,7 +3327,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3422,7 +3380,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3463,7 +3420,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3508,7 +3464,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3551,7 +3506,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3594,7 +3548,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3633,7 +3586,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3673,7 +3625,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context.",
-          "excerpt": "rapidly decreasing",
           "match": "The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces."
         }
       ],
@@ -3721,7 +3672,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
-          "excerpt": "Lemma 4.2",
           "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
         }
       ],
@@ -3765,7 +3715,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
-          "excerpt": "Lemma 4.2",
           "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
         }
       ],
@@ -3806,7 +3755,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
-          "excerpt": "Lemma 4.2",
           "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
         }
       ],
@@ -3858,7 +3806,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
-          "excerpt": "Lemma 4.2",
           "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
         }
       ],
@@ -3899,7 +3846,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
-          "excerpt": "Lemma 4.2",
           "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
         }
       ],
@@ -3945,7 +3891,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
-          "excerpt": "Lemma 4.2",
           "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
         }
       ],
@@ -4010,7 +3955,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
-          "excerpt": "(4-1)",
           "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
         }
       ],
@@ -4057,7 +4001,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
-          "excerpt": "(4-1)",
           "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
         }
       ],
@@ -4107,7 +4050,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, definition of f_a and Lemma4.2, printed136/PDF37; §2.3, Theorem2.4, printed110–111/PDF11–12. Page37 freshly read as text and image on3 October2026.",
-          "excerpt": "rapidly decreasing",
           "match": "Worker deduction from the source smoothing expression and the inherited native divided-difference extension. The paper does not state this composition API. The proof uses the existing L0 kernel, origin derivatives and zeta comparisons; it constructs neither a second Mellin transform nor an arithmetic measure."
         }
       ],
@@ -4152,7 +4094,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, definition of f_a and Lemma4.2, printed136/PDF37; §2.3, Theorem2.4, printed110–111/PDF11–12. Page37 freshly read as text and image on3 October2026.",
-          "excerpt": "rapidly decreasing",
           "match": "Worker deduction from the source smoothing expression and the inherited native divided-difference extension. The paper does not state this composition API. The proof uses the existing L0 kernel, origin derivatives and zeta comparisons; it constructs neither a second Mellin transform nor an arithmetic measure."
         }
       ],
@@ -4216,7 +4157,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, definition of f_a and Lemma4.2, printed136/PDF37; §2.3, Theorem2.4, printed110–111/PDF11–12. Page37 freshly read as text and image on3 October2026.",
-          "excerpt": "rapidly decreasing",
           "match": "Worker deduction from the source smoothing expression and the inherited native divided-difference extension. The paper does not state this composition API. The proof uses the existing L0 kernel, origin derivatives and zeta comparisons; it constructs neither a second Mellin transform nor an arithmetic measure."
         }
       ],
@@ -4259,7 +4199,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, definition of f_a and Lemma4.2, printed136/PDF37; §2.3, Theorem2.4, printed110–111/PDF11–12. Page37 freshly read as text and image on3 October2026.",
-          "excerpt": "rapidly decreasing",
           "match": "Worker deduction from the source smoothing expression and the inherited native divided-difference extension. The paper does not state this composition API. The proof uses the existing L0 kernel, origin derivatives and zeta comparisons; it constructs neither a second Mellin transform nor an arithmetic measure."
         }
       ],
@@ -4319,7 +4258,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, definition of f_a and Lemma4.2, printed136/PDF37; §2.3, Theorem2.4, printed110–111/PDF11–12. Page37 freshly read as text and image on3 October2026.",
-          "excerpt": "rapidly decreasing",
           "match": "Worker deduction from the source smoothing expression and the inherited native divided-difference extension. The paper does not state this composition API. The proof uses the existing L0 kernel, origin derivatives and zeta comparisons; it constructs neither a second Mellin transform nor an arithmetic measure."
         }
       ],
@@ -4366,7 +4304,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§4.1, definition of f_a and Lemma4.2, printed136/PDF37; §2.3, Theorem2.4, printed110–111/PDF11–12. Page37 freshly read as text and image on3 October2026.",
-          "excerpt": "rapidly decreasing",
           "match": "Worker deduction from the source smoothing expression and the inherited native divided-difference extension. The paper does not state this composition API. The proof uses the existing L0 kernel, origin derivatives and zeta comparisons; it constructs neither a second Mellin transform nor an arithmetic measure."
         }
       ],
@@ -4424,7 +4361,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Corollary2.8, printed112 / physical13; §5.2, Lemma5.9, printed144 / physical45.",
-          "excerpt": "Lemma 5.9.",
           "match": "Domain-specific comparison of the supplier finite Bernoulli formula with the complex L-values motivated by these passages; not a formula printed in RJW."
         }
       ],
@@ -4469,7 +4405,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.3, Corollary2.8, printed112 / physical13; §5.2, Lemma5.9, printed144 / physical45.",
-          "excerpt": "Corollary 2.8.",
           "match": "Worker endpoint comparison with the existing zeta and conductor-change results. Native ordinary B_1 is not substituted for B_1(1)."
         }
       ],
@@ -4517,7 +4452,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.4.1, printed112–113 / physical13–14; §5.2, Theorem5.7 and Remark5.8(2), printed143 / physical44.",
-          "excerpt": "finite extension",
           "match": "Makes the source special-value comparison arithmetic through a single number-field element and explicit embeddings."
         }
       ],
@@ -4564,7 +4498,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.4.1, printed112–113 / physical13–14; §5.2, Remark5.8(2), printed143 / physical44.",
-          "excerpt": "finite extension",
           "match": "Worker algebraic-number comparison; no identification of the complex and p-adic ambient fields and no uncorrected Euler-factor claim."
         }
       ],
@@ -4608,7 +4541,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.1, printed106 / physical7; §2.2.1, Theorem2.2, printed108 / physical9.",
-          "excerpt": "nonzero ideals",
           "match": "Worker explicit norm-coefficient comparison needed to apply the existing one-sided class-number limit."
         }
       ],
@@ -4651,7 +4583,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.2.1, Theorem2.2, printed108 / physical9; §2.4.2, printed113–115 / physical14–16.",
-          "excerpt": "simple pole",
           "match": "The missing analytic instance is obtained from the existing Tate owner, not inferred from a one-sided real limit."
         }
       ],
@@ -4693,7 +4624,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
-          "excerpt": "residue",
           "match": "Native-limit transport, a worker adapter rather than a fresh class-number proof."
         }
       ],
@@ -4733,7 +4663,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
-          "excerpt": "residue",
           "match": "Worker comparison of the analytic germ coefficient with the pre-existing arithmetic limit; it does not assert that the native totalized series is analytic at the pole."
         }
       ],
@@ -4774,7 +4703,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
-          "excerpt": "simple pole",
           "match": "Worker simple-pole proof from imported analytic continuation plus the native positive residue."
         }
       ],
@@ -4817,7 +4745,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.2.1, Theorem2.2, printed108 / physical9.",
-          "excerpt": "class number",
           "match": "Worker distinction between a complex meromorphic residue and the native real one-sided limit."
         }
       ],
@@ -4858,7 +4785,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.4.2, Propositions2.9(i) and2.11, printed113–114 / physical14–15.",
-          "excerpt": "continuous characters",
           "match": "Source-specific evaluation adapter for the imported rational dictionary."
         }
       ],
@@ -4903,7 +4829,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.4.2, Propositions2.9(ii) and2.11, printed113–114 / physical14–15.",
-          "excerpt": "continuous characters",
           "match": "Source-specific comparison; classification and connectedness remain with the upstream owners."
         }
       ],
@@ -4948,7 +4873,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.4.2, Propositions2.9 and2.11, printed113–114 / physical14–15.",
-          "excerpt": "continuous characters",
           "match": "Worker sign bookkeeping for the canonical dictionary; no second infinity-type classification."
         }
       ],
@@ -4997,7 +4921,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§2.4.2, Proposition2.11, printed114 / physical15; §2.1, printed106 / physical7.",
-          "excerpt": "Dirichlet characters",
           "match": "Worker derivation checked against AL.1’s explicit χ(𝔭)=ω_v(ϖ_v) convention. RJW does not pin the arithmetic ideal-character orientation."
         }
       ],
@@ -5048,7 +4971,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§6, Theorem6.1(i) and footnote10, printed149–150 / physical50–51.",
-          "excerpt": "Baker’s theorem",
           "match": "Worker algebraic-input decomposition of the terminal corollary; Baker’s theorem itself is imported."
         }
       ],
@@ -5089,7 +5011,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§6, footnote10, printed149 / physical50.",
-          "excerpt": "Baker’s theorem",
           "match": "Domain-specific application; generic basis reduction is requested from the existing transcendence owner, not redefined here."
         }
       ],
@@ -5129,7 +5050,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§6, footnote10 and Theorem6.1(i), printed149–150 / physical50–51.",
-          "excerpt": "Baker’s theorem",
           "match": "Terminal source obligation with an explicitly unresolved routing gap; neither its proof nor L0 closure is claimed."
         }
       ],
@@ -5287,7 +5207,7 @@
       "source": "RJW-published",
       "kind": "error",
       "locator": "Parameter choice and decay assertion in §4.1 immediately before Lemma 4.2: printed p. 136 / PDF 37; arXiv v2 p. 26. The related polynomial aside in §10.2, published p. 165 / PDF 66, was checked in the published version.",
-      "printed": "“an integer coprime to p”",
+      "printed": "The source specifies an integer relatively prime to p.",
       "correction": "Require a positive integer coprime to p for the asserted rapidly decreasing smoothed function and its Mellin integral. The nondegenerate arithmetic construction takes a>1, as the campaign already specifies.",
       "reason": "The printed condition permits a=−1. For t>0, f_{−1}(t)=1/(e^t−1)+1/(e^{−t}−1)=−1, which does not tend to zero and is not rapidly decreasing. The hypothesis used to apply Theorem 2.4 therefore fails for an allowed parameter. Restricting a>0 repairs this step; a=1 gives the zero function and is used only as a boundary test here. The same positivity qualification is needed for the §10.2 assertion that ((1+T)^a−1)/T is a polynomial: for the allowed integer a=−1 it is −1/(1+T), a unit formal series with infinitely many nonzero coefficients. The Coleman comparison still uses the correct formal series.",
       "affects": "the proof",
@@ -5356,7 +5276,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Definition2.10 and its following paragraph, published printed114 / physical PDF15, visually inspected4October2026. No assertion about the preprint wording.",
-      "printed": "The ideles form a topological ring",
+      "printed": "The source describes the ideles as a ring with a topology.",
       "correction": "Replace topological ring by topological group under multiplication. The adele ring and its idele group are distinct.",
       "reason": "The two principal ideles1 and−1 are units; their coordinatewise sum is0, which is not an idele. Thus the displayed restricted product is not closed under the adele addition. The multiplicative quotient and Proposition2.11 remain correct as intended.",
       "affects": "nothing",

@@ -6527,6 +6527,11 @@ end AlmostDictionary
 
 /-! ## PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi (lemma) -/
 
+-- This node and P1/deformation-lifting-of-perfectoid-mod-varpi-algebras form the optional
+--   alternative route retained for RT-AREA-padic-1/5. Only the latter uses the former;
+--   neither is a prerequisite of the mandatory P1 equivalences. P0's own finite-étale
+--   lifting still uses P0/almost-deformation-theory.
+
 -- Parts (a)–(c) of P1/cotangent-complex-vanishing-mod-varpi are not stated here in full; they
 --   need the cotangent complex `L_{B/A₀}` (Mathlib has only the naive one) and its almost form
 --   (supplier: DerivedDeRhamCohomology:DD.0, via P0/almost-cotangent-complex). The naive core
@@ -6545,9 +6550,9 @@ theorem kaehlerDifferential_subsingleton_of_perfectRing_core (p : ℕ) [Fact p.P
 -- P1/deformation-lifting-of-perfectoid-mod-varpi-algebras is not stated here as a deformation
 --   statement; it needs the almost cotangent complex and almost deformation theory (obstructions in
 --   `Ext²`, torsors under `Ext¹`) (supplier: DerivedDeRhamCohomology:DD.0, via
---   P0/almost-deformation-theory). Its conclusion for the full (non-flat) categories is
---   P1/perfectoid-mod-varpi-equivalence below; the flat categories are the full subcategories
---   stated there.
+--   P0/almost-deformation-theory). The separate primitive-ideal and Frobenius-limit route
+--   supplies P1/perfectoid-mod-varpi-equivalence below without this deformation theorem;
+--   the alternative route compares only the flat full subcategories stated here.
 
 section ModVarpiDefs
 

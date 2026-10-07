@@ -1,0 +1,2989 @@
+{
+  "roadmapId": "HodgeStructuresPartII",
+  "protocol": "blueprint-v1",
+  "part": "H.2",
+  "scope": [
+    "HodgeStructuresPartII:H.2"
+  ],
+  "status": "complete",
+  "summary": "Target-level plan of complex polarized variations without a lattice, real/rational mixed and admissible variations, logarithmic canonical extensions, geometric and unitary Gauss–Manin variations, fixed parts, isotypic evaluation and connected algebraic monodromy. Common variations, intrinsic connections, fibre Hodge theory and linear monodromy filtrations are imported. Every target is traced to exact native declarations, supplier contracts or explicit gaps; no implementation is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.LocalCoefficientSystem",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+        "provides": "Functor FundamentalGroupoid X to ModuleCat R, with no global trivialization or freeness implicit.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.LocalCoefficientSystem.constantFunctor",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+        "provides": "Constant local coefficient system of a supplied module.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.LocalCoefficientSystem.pullback",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+        "provides": "Contravariant pullback along continuous maps, with native identity/composition natural isomorphisms.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.LocalCoefficientSystem.transport",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+        "provides": "Path-class transport as an R-linear equivalence of fibres.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+        "provides": "Representation of FundamentalGroup X x on the actual fibre, with constant and pullback comparisons.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Hodge/Structure.lean",
+        "provides": "Bounded decreasing filtration F on a complex vector space with a supplied conjugation, satisfying F^p complementary to conjugate F^(n+1−p); F_bot follows from opposedness.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+        "provides": "Finite rational W, finite complex F and pure rational weight-graded pieces after abstract base change; its integral carrier is an arbitrary abelian group, not a finite free lattice.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure.gradedHodgeStructure",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+        "provides": "Pure weight-k structure on the complexified rational W_k/W_(k−1), with F exactly the induced filtration.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Hodge/Mixed/Morphism.lean",
+        "provides": "A single rational linear map preserving W whose derived complexification preserves F; no independent unrelated complex map.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F",
+        "kind": "theorem",
+        "module": "TauCeti/Geometry/Hodge/Mixed/Strictness.lean",
+        "provides": "Every native mixed Hodge morphism is strict for F.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ",
+        "kind": "theorem",
+        "module": "TauCeti/Geometry/Hodge/Mixed/Strictness.lean",
+        "provides": "Every native mixed Hodge morphism is strict for rational W.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "mathlib:Representation.invariants",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Invariants.lean",
+        "provides": "Submodule of vectors fixed by every element of a group representation.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      },
+      {
+        "ref": "mathlib:Representation.mem_invariants",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Invariants.lean",
+        "provides": "Membership is equivalent to ρ(g)v=v for every g.",
+        "checked": "Actual declaration and ambient hypotheses read at the recorded pinned commit; not inferred from the name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "LL24",
+      "title": "Canonical representations of surface groups",
+      "authors": "Aaron Landesman and Daniel Litt",
+      "edition": "arXiv:2205.15352v4, 23 February 2025",
+      "url": "https://arxiv.org/pdf/2205.15352v4",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§4.1–4.2 complete statements and printed proofs, pp.24–26; §5.1.1–5.1.3 and §5.3 Gauss–Manin setup, pp.27–29. The mixed-Hodge-module proof cited in §4.1 is not independently established here."
+      ],
+      "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb"
+    },
+    {
+      "id": "LL22",
+      "title": "Geometric local systems on very general curves and isomonodromy",
+      "authors": "Aaron Landesman and Daniel Litt",
+      "edition": "arXiv:2202.00039v3",
+      "url": "https://arxiv.org/pdf/2202.00039v3",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§4.1 pp.27–29: Definitions 4.1.1–4.1.3, Proposition 4.1.4 and its entire printed proof; parabolic assertions routed to H.4, not redeveloped here."
+      ],
+      "sha256": "4f291599d8259d8084677c9f4325cc4329e7460d246ff0b311aa739da45763ab"
+    },
+    {
+      "id": "Del70",
+      "title": "Équations différentielles à points singuliers réguliers",
+      "authors": "Pierre Deligne",
+      "edition": "Lecture Notes in Mathematics 163 (1970), IAS public scan; corrected by April 1971 erratum",
+      "url": "https://publications.ias.edu/sites/default/files/Number9.pdf?download=1",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "II §5: Propositions 5.2–5.4, Remark 5.5, Corollary 5.6 and full construction; II §6: Corollary 6.10, Propositions 6.13–6.14 and proof §§6.17–6.18. Supporting local comparison lemmas 3.15/6.9 not fully checked."
+      ],
+      "sha256": "0dc37edd7758198cc4cd7ebed0dae63ff821336cebe739636a31591671593ba2"
+    },
+    {
+      "id": "Del70Err",
+      "title": "Erratum to Équations différentielles à points singuliers réguliers",
+      "authors": "Pierre Deligne",
+      "edition": "April 1971, all three pages",
+      "url": "https://publications.ias.edu/sites/default/files/Erratum%20to%20SLN%20163.pdf?download=1",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Entire erratum: removal of II.1.23–1.24, corrected regularity proof for II.4.1, and reference corrections."
+      ],
+      "sha256": "d603a393015cec4ed55a7ee852957b513526379092ad89231ec6f66e4ec59d2b"
+    },
+    {
+      "id": "Del71",
+      "title": "Théorie de Hodge II",
+      "authors": "Pierre Deligne",
+      "edition": "Publications Mathématiques de l’IHÉS 40 (1971), 5–58, published scan",
+      "url": "https://www.numdam.org/item/PMIHES_1971__40__5_0.pdf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§4.1–4.2, pp.40–48, complete printed proofs of invariant cycles, fixed part, semisimplicity and algebraic monodromy; earlier Hodge foundations consumed from upstream."
+      ],
+      "sha256": "748edefb44fded8af67869abfed87062d66977d25b5d12f7d014f1810a063c3f"
+    },
+    {
+      "id": "Del87",
+      "title": "Un théorème de finitude pour la monodromie",
+      "authors": "Pierre Deligne",
+      "edition": "Progress in Mathematics 67 (1987), 1–19, IAS public author scan",
+      "url": "https://publications.ias.edu/sites/default/files/56_Untheoremede.pdf?download=1",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§1.11–1.14, printed pp.8–10: fixed part, semisimplicity discussion, isotypic structures and grading-lift proof. Underlying complex semisimplicity in §1.12 cites Nori; its proof is a recorded gap."
+      ],
+      "sha256": "efbfd98f93f1ae0f34f1f983bfb8b07c3cae9ab02638cc6a4ad2d13c9b84602b"
+    },
+    {
+      "id": "SZ85",
+      "title": "Variation of mixed Hodge structure. I",
+      "authors": "Joseph Steenbrink and Steven Zucker",
+      "edition": "Inventiones Mathematicae 80 (1985), 489–542, GDZ published scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0080/LOG_0032.pdf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§2.1–2.11, pp.498–502: relative monodromy discussion; §§3.1–3.17, pp.507–512: definitions and non-examples; §§4.1–4.20, pp.513–518: cohomology and curve fixed part with full printed proof; §5.26 strictness; Appendix A.1–A.10, pp.537–541, full printed arguments. Cited Schmid and Zucker analytic engines are distinguished from these arguments."
+      ],
+      "sha256": "d8a41457f4174ac5844ca2129c3db842e5f0ae37e8e8c4ec3bcdb006627e88ad"
+    },
+    {
+      "id": "Timm87",
+      "title": "Mixed Hodge theory for unitary local systems",
+      "authors": "Klaus Timmerscheidt",
+      "edition": "Journal für die reine und angewandte Mathematik 379 (1987), 152–171, GDZ published scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0379/LOG_0011.pdf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§5 Theorem 5.1 and its reduction to the 1986 appendix; §6 Lemma 6.2, Theorem 6.3 and Proposition 6.4 proof; §7 Theorem 7.1 and realification/direct-summand proof, pp.163–170. The 1986 harmonic-form appendix is a separate missing proof input."
+      ],
+      "sha256": "603f6c75a04fdc3fd5035764d6119ceb6c0f4ce3668bb62bf7b460e7b3e65025"
+    },
+    {
+      "id": "Peters",
+      "title": "Deformations and rigidity for mixed period maps",
+      "authors": "Gregory Pearlstein and Chris Peters",
+      "edition": "53-page author preprint; Appendix A pagination belongs to this version",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~peters/Articles/bisect_AG.pdf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Appendix A, pp.51–53, complete definitions of pre-admissibility and curve-test admissibility, Kashiwara reference and non-admissible Hodge–Tate example. No identification with the 2024 version-of-record pagination is claimed."
+      ],
+      "sha256": "884152764d3854fc8f31327b41dc68114bde2d6244a8e34507a8d5b7ca6e6456"
+    },
+    {
+      "id": "Andre92",
+      "title": "Mumford–Tate groups of mixed Hodge structures and the theorem of the fixed part",
+      "authors": "Yves André",
+      "edition": "Compositio Mathematica 82 (1992), 1–24, published PDF",
+      "url": "https://www.numdam.org/item/CM_1992__82_1_1_0.pdf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§2 and 4, pp.3–4 and 8–9, MT and good integral variations; §5 Theorem 1 and Corollaries 1–2 with entire proof, pp.10–11. Its higher-dimensional curve reduction is followed to Katz §4.3.4.0."
+      ],
+      "sha256": "074b1c8edfaef320e24b617bf4dda594e80ac5f555f28dc8cee9fcb371d2d14e"
+    },
+    {
+      "id": "Milne",
+      "title": "Introduction to Shimura Varieties",
+      "authors": "James S. Milne",
+      "edition": "2017 notes",
+      "url": "https://www.jmilne.org/math/xnotes/svi.pdf?download=1",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§2 pp.28–29: pure real variations and the opposed filtration/transversality convention, imported from ShimuraData:D3."
+      ],
+      "sha256": "f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e"
+    },
+    {
+      "id": "Katz72",
+      "title": "Algebraic solutions of differential equations (p-curvature and the Hodge filtration)",
+      "authors": "Nicholas M. Katz",
+      "edition": "Inventiones Mathematicae 18 (1972), 1–118, author-hosted GDZ scan",
+      "url": "https://web.math.princeton.edu/~nmk/old/algsoln.pdf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§4.3.3–4.3.6, printed pp.69–71, complete curve-reduction and geometric fixed-part/Leray proofs; no claim to have read the other 115 pages."
+      ],
+      "sha256": "bc428a0280a71c5237ca99db058ca9117f045bf640660e69ba30a1d97759b836"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HodgeStructuresPartII:H.2/complex-pvhs",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Complex polarized variation of Hodge structure",
+      "kind": "definition",
+      "statement": "For a complex manifold S and n∈Z, a complex PVHS is a finite-rank complex local system L, the associated smooth flat bundle (V,D), a finite smooth decomposition V=⊕_(p+q=n)V^(p,q), and a D-flat nondegenerate Hermitian form ψ. Different summands are ψ-orthogonal; (−1)^p ψ is positive definite on V^(p,n−p). D maps V^(p,q) into A^(1,0)(V^(p,q)⊕V^(p−1,q+1)) ⊕ A^(0,1)(V^(p,q)⊕V^(p+1,q−1)). The holomorphic structure is D^(0,1); F^a=⊕_(p≥a)V^(p,n−p) is a holomorphic subbundle and D F^a⊂F^(a−1)⊗Ω¹. No conjugation, rational form, lattice or quasi-unipotence is implicit.",
+      "hypotheses": [
+        "S complex manifold; rank locally finite and constant on components; pure weight n."
+      ],
+      "proofSteps": [
+        "Use the native local coefficient functor and the H.0 flat-connection interface. Impose the displayed smooth differential condition, orthogonality and positivity; derive holomorphic F from D^(0,1).",
+        "Compare real/rational complexifications with ShimuraData:D3/variation; ψ is the sesquilinear polarization, not the integral bilinear form itself."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.LocalCoefficientSystem",
+        "ShimuraData:D3/variation",
+        "ShimuraData:D3/flat-bundle-local",
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:H.0/intrinsic-curvature",
+        "ComplexComparisonPartII:C0"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL22",
+          "locator": "Definitions 4.1.1–4.1.2, pp.27–28",
+          "match": "Exact smooth, Hermitian and differential convention; no real structure required."
+        }
+      ],
+      "acceptance": [
+        "A type-(p,n−p) constant line has F^a=C for a≤p, zero otherwise, and ψ=(−1)^p z conjugate(w).",
+        "An infinite-image unitary line of type (0,0) is allowed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/ComplexPvhs",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "ComplexPVHS.localSystem",
+          "role": "projection",
+          "statement": "Forget decomposition and polarization to the native complex local coefficient system."
+        },
+        {
+          "name": "ComplexPVHS.hodgeFiltration",
+          "role": "data",
+          "statement": "F^a=⊕_(p≥a)V^(p,n−p); its associated holomorphic bundle is defined by D^(0,1)."
+        },
+        {
+          "name": "ComplexPVHS.pullback",
+          "role": "functoriality",
+          "statement": "Holomorphic pullback pulls back L,D,ψ and each smooth summand; identity/composition agree with native local-system pullback."
+        },
+        {
+          "name": "ComplexPVHS.ofReal",
+          "role": "compatibility",
+          "statement": "The complexification of a polarized real variation has the same opposed F and ψ(v,w)=i^(−n)Q(v,conjugate(w)) in the LL sign convention, with Q normalized so i^(2p−n)Q(v,conjugate(v))>0."
+        },
+        {
+          "name": "ComplexPVHS.hom",
+          "role": "characterisation",
+          "statement": "A morphism is a flat complex-linear map preserving each Hodge summand; preservation of the polarizing form is not required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComplexPVHSTest.lineFiltration",
+          "kind": "computation",
+          "statement": "For a constant type-(p,n−p) line, F^a is top iff a≤p, and bottom otherwise."
+        },
+        {
+          "name": "ComplexPVHSTest.zeroRank",
+          "kind": "degenerate",
+          "statement": "The zero local system has the unique zero decomposition and vacuous positive-definiteness."
+        },
+        {
+          "name": "ComplexPVHSTest.noRealSymmetry",
+          "kind": "non-example",
+          "statement": "A weight-zero line of type (1,−1) is a complex PVHS but cannot be a nonzero real Hodge structure of that sole type, because conjugation would require (−1,1)."
+        },
+        {
+          "name": "ComplexPVHSTest.nativeRealFiber",
+          "kind": "compatibility",
+          "statement": "For a real variation complexified with its actual conjugation, its fibre F is the F of HodgeStructureOn, including n-opposedness."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL22 Proposition 4.1.4",
+          "how": "The decomposition and ψ supply semisimplicity and shifted isotypic summands."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.3 and H.5",
+          "how": "The holomorphic F supplies period derivatives; no integral lattice may be added to arbitrary complex PVHS."
+        }
+      ],
+      "planet": {
+        "name": "Complex polarized variation"
+      },
+      "suggestedDeclaration": "ComplexPVHS",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "ComplexPVHS",
+          "ComplexPVHS.localSystem",
+          "ComplexPVHS.hodgeFiltration",
+          "ComplexPVHS.pullback",
+          "ComplexPVHS.ofReal",
+          "ComplexPVHS.hom",
+          "ComplexPVHSTest.lineFiltration",
+          "ComplexPVHSTest.zeroRank",
+          "ComplexPVHSTest.noRealSymmetry",
+          "ComplexPVHSTest.nativeRealFiber"
+        ],
+        "omitted": [],
+        "reason": "G1"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/realification",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Realification of a complex polarized variation",
+      "kind": "construction",
+      "statement": "For a complex PVHS L of weight n, L⊕conjugate(L) has the canonical real form {(v,conjugate(v))}; conjugation exchanges factors. Put the conjugate of L^(q,p) in bidegree (p,q) on the second factor and extend F by direct sum. The corresponding real bilinear polarization is chosen with the fixed weight sign so that its associated Hermitian form restricts to ψ on L. This gives a polarizable real VHS with L as a complex Hodge direct summand. A pre-existing real form on L is additional choice, not produced canonically by this construction.",
+      "hypotheses": [
+        "Finite-rank complex PVHS of weight n."
+      ],
+      "proofSteps": [
+        "Swap the two factors conjugate-linearly; compute the fixed locus and its scalar extension.",
+        "Pair complementary bidegrees using ψ and its conjugate, with the parity sign (−1)^n; verify opposedness, positivity and transversality factorwise."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "ShimuraData:D3/variation",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del87",
+          "locator": "§1.11, printed p.8",
+          "match": "Complex variations are treated by adding their complex conjugate."
+        },
+        {
+          "sourceId": "Timm87",
+          "locator": "Theorem 7.1 proof, pp.169–170",
+          "match": "Unitary special case: V⊕V dual and fixed real subsystem."
+        }
+      ],
+      "acceptance": [
+        "Real dimension is twice complex rank, not four times.",
+        "Conjugation swaps both the factors and p,q; simply taking the same type in both factors fails."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/Realification",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "ComplexPVHS.realification",
+          "role": "constructor",
+          "statement": "Real polarized variation on the canonical fixed locus of L⊕conjugate(L)."
+        },
+        {
+          "name": "ComplexPVHS.realificationComplexEquiv",
+          "role": "equivalence",
+          "statement": "Its complexification is isomorphic to L⊕conjugate(L), respecting connection and Hodge type."
+        },
+        {
+          "name": "ComplexPVHS.realificationInclusion",
+          "role": "projection",
+          "statement": "The complex inclusion of L is flat and preserves Hodge type."
+        },
+        {
+          "name": "ComplexPVHS.realificationMap",
+          "role": "functoriality",
+          "statement": "A flat Hodge map f induces f⊕conjugate(f), with identity and composition laws."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RealificationTest.rankOne",
+          "kind": "computation",
+          "statement": "A complex line realifies to a real plane; its complexification has complex dimension two."
+        },
+        {
+          "name": "RealificationTest.typeSwap",
+          "kind": "computation",
+          "statement": "A complex (1,−1) line yields real types (1,−1) and (−1,1), not two copies of (1,−1)."
+        },
+        {
+          "name": "RealificationTest.alreadyReal",
+          "kind": "compatibility",
+          "statement": "For L=V_R⊗C, canonical doubled realification is V_R⊕V_R, not a canonical choice of one summand."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Del87 §1.11",
+          "how": "Reduces the complex fixed-part theorem to real analytic fixed part."
+        },
+        {
+          "where": "LL24 Theorem 4.2.2",
+          "how": "Provides a real recipient when an irreducible complex system has no real form."
+        }
+      ],
+      "suggestedDeclaration": "ComplexPVHS.realification",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "ComplexPVHS.realification",
+          "ComplexPVHS.realification",
+          "ComplexPVHS.realificationComplexEquiv",
+          "ComplexPVHS.realificationInclusion",
+          "ComplexPVHS.realificationMap",
+          "RealificationTest.rankOne",
+          "RealificationTest.typeSwap",
+          "RealificationTest.alreadyReal"
+        ],
+        "omitted": [],
+        "reason": "G1/G2"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/mixed-variation",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Real and rational variations of mixed Hodge structure",
+      "kind": "definition",
+      "statement": "For K=Q or R on a complex manifold S, a VMHS is a finite-rank K-local system L with a bounded increasing filtration W by local subsystems and a bounded decreasing filtration F by holomorphic subbundles of E=L⊗_K O_S. Each fibre (L_s,W_s,F_s) is a mixed K-Hodge structure; equivalently Gr^W_k with induced F is a pure weight-k variation. Require Griffiths transversality ∇F^p⊂F^(p−1)⊗Ω¹. Morphisms are flat K-linear maps preserving W and F; complex maps are derived by scalar extension. The rational fibres use the native MixedHodgeStructure through V_Z=V_Q as a Z-module and identity rational model, with no finite free Z-lattice implied. Complexification of a real VMHS is provided; arbitrary complex mixed variations require two opposed filtrations and are not silently identified with real ones.",
+      "hypotheses": [
+        "K=Q or R; finite rank; bounded filtrations locally uniformly; locally free graded holomorphic bundles."
+      ],
+      "proofSteps": [
+        "Import pure variations and the fibre mixed-Hodge/strictness interface; form weight subsystems and induced pure variations.",
+        "The connection on each weight subsystem is induced by the native local system. F is analytic, not a collection of independently chosen fibre flags."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.LocalCoefficientSystem",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom",
+        "ShimuraData:D3/variation",
+        "HodgeStructuresPartII:H.0/griffiths-filtration",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Definitions 3.4–3.5, pp.508–509",
+          "match": "Bounded W by subsystems, F by subbundles and pure graded variation."
+        }
+      ],
+      "acceptance": [
+        "Flatness of W is mandatory; F need not be flat.",
+        "A rational VMHS does not automatically possess an integral lattice."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/MixedVariation",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "MixedVariation.localSystem",
+          "role": "projection",
+          "statement": "Underlying native K-local coefficient system."
+        },
+        {
+          "name": "MixedVariation.fiber",
+          "role": "data",
+          "statement": "Native rational MHS, or the requested real analogue, at s, with the actual W and F."
+        },
+        {
+          "name": "MixedVariation.hom",
+          "role": "characterisation",
+          "statement": "Flat K-map preserving W and F; its complex action is its base change."
+        },
+        {
+          "name": "MixedVariation.pullback",
+          "role": "functoriality",
+          "statement": "Holomorphic pullback preserves both filtrations, identity and composition."
+        },
+        {
+          "name": "MixedVariation.ofPure",
+          "role": "constructor",
+          "statement": "A pure weight-n variation has W_k=0 for k<n and W_k=L for k≥n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MixedVariationTest.pureWeight",
+          "kind": "computation",
+          "statement": "For ofPure(V,n), Gr^W_k=0 unless k=n and Gr^W_n=V."
+        },
+        {
+          "name": "MixedVariationTest.zero",
+          "kind": "degenerate",
+          "statement": "Rank zero satisfies all bounds, opposedness and transversality."
+        },
+        {
+          "name": "MixedVariationTest.nativeFiber",
+          "kind": "compatibility",
+          "statement": "Over a point, rational VMHS is the native MixedHodgeStructure with V_Z=V_Q; a morphism is exactly its native Hom."
+        },
+        {
+          "name": "MixedVariationTest.nonflatWeight",
+          "kind": "non-example",
+          "statement": "On a disc the moving line span((1,z)) in the trivial rank-two flat bundle cannot serve as W_0, although it is a holomorphic line subbundle."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SZ85 §4 and LL24 §4.2",
+          "how": "The fixed part and evaluation maps are morphisms of mixed variations."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.6",
+          "how": "Boundary weight filtration is transported as a local subsystem."
+        }
+      ],
+      "planet": {
+        "name": "Variation of mixed Hodge structure"
+      },
+      "suggestedDeclaration": "MixedVariation",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "MixedVariation",
+          "MixedVariation.localSystem",
+          "MixedVariation.fiber",
+          "MixedVariation.hom",
+          "MixedVariation.pullback",
+          "MixedVariation.ofPure",
+          "MixedVariationTest.pureWeight",
+          "MixedVariationTest.zero",
+          "MixedVariationTest.nativeFiber"
+        ],
+        "omitted": [
+          "MixedVariationTest.nonflatWeight"
+        ],
+        "reason": "G1/G2"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/graded-variation",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Weight-graded pure variation",
+      "kind": "construction",
+      "statement": "For a mixed K-variation V and k∈Z, the quotient subsystem W_k/W_(k−1), induced holomorphic filtration (F^p∩W_k+W_(k−1))/W_(k−1), and induced connection form a pure weight-k K-variation. For rational fibres this agrees with MixedHodgeStructure.gradedHodgeStructure, through the rational quotient/base-change identification. A mixed morphism induces a pure graded morphism, functorially.",
+      "hypotheses": [
+        "A mixed variation; k∈Z."
+      ],
+      "proofSteps": [
+        "Construct quotient local systems using the supplier sheaf/module exactness; induced F is locally free by strictness.",
+        "Identify fibre quotients with native rational weightGradedRat; invoke the defining graded purity and induced transversality."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/mixed-variation",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure.gradedHodgeStructure",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Definition 3.4, p.508",
+          "match": "The defining weight-graded pure variation."
+        }
+      ],
+      "acceptance": [
+        "For a pure input only its weight-n quotient survives."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/GradedVariation",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "MixedVariation.graded",
+          "role": "constructor",
+          "statement": "Gr^W_k as a pure variation."
+        },
+        {
+          "name": "MixedVariation.gradedFiber",
+          "role": "compatibility",
+          "statement": "The rational fibre equals native gradedHodgeStructure under quotient base change."
+        },
+        {
+          "name": "MixedVariation.gradedMap",
+          "role": "functoriality",
+          "statement": "Induced quotient maps preserve identity/composition and the induced Hodge filtration."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GradedVariationTest.pure",
+          "kind": "computation",
+          "statement": "Gr^W_n(ofPure(V,n))≅V."
+        },
+        {
+          "name": "GradedVariationTest.otherWeight",
+          "kind": "degenerate",
+          "statement": "Gr^W_k(ofPure(V,n))=0 for k≠n."
+        },
+        {
+          "name": "GradedVariationTest.native",
+          "kind": "compatibility",
+          "statement": "Its rational fibre filtration is exactly native gradedF, not the restriction of F to W_k without quotienting."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24 §4.1 and Theorem 4.2.2",
+          "how": "Weight graded polarization and the irreducible constituent are found on Gr^W."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.6",
+          "how": "Relative monodromy is centred at k on this quotient."
+        }
+      ],
+      "suggestedDeclaration": "MixedVariation.graded",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "MixedVariation.graded",
+          "MixedVariation.graded",
+          "MixedVariation.gradedFiber",
+          "MixedVariation.gradedMap",
+          "GradedVariationTest.pure",
+          "GradedVariationTest.otherWeight",
+          "GradedVariationTest.native"
+        ],
+        "omitted": [],
+        "reason": "G1"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/graded-polarizable",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Graded polarization of a mixed variation",
+      "kind": "definition",
+      "statement": "A graded polarization of a mixed K-variation consists, for every k, of a flat nondegenerate K-bilinear polarization Q_k on Gr^W_k with parity (−1)^k, target K(−k), orthogonality Q_k(F^p,F^(k+1−p))=0, and positivity i^(2p−k)Q_k(v,conjugate(v))>0 on each nonzero (p,k−p) vector. It imposes no nondegenerate form on the entire mixed extension and no integral or unimodular structure. Graded-polarizable means such a family exists; retain chosen Q_k when constructing duals and norms.",
+      "hypotheses": [
+        "K=Q or R; mixed variation with pure weight-graded quotients."
+      ],
+      "proofSteps": [
+        "Use the imported pure-polarization contract on each graded variation.",
+        "Do not apply the native integral polarization predicate to a real system without a lattice; request the coefficient-general extension from upstream L1."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/graded-variation",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+        "ShimuraData:D3/polarized-integral-variation"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Definition 3.5, p.509",
+          "match": "Polarization on graded pieces, not the whole mixed object."
+        }
+      ],
+      "acceptance": [
+        "Nontrivial extensions of weights zero and minus two are allowed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/GradedPolarizable",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "GradedPolarization.gradedForm",
+          "role": "data",
+          "statement": "The flat weight-k form Q_k."
+        },
+        {
+          "name": "GradedPolarization.pullback",
+          "role": "functoriality",
+          "statement": "Each Q_k pulls back; no new monodromy condition."
+        },
+        {
+          "name": "GradedPolarization.ofPure",
+          "role": "compatibility",
+          "statement": "On ofPure(V,n), a graded polarization is the pure polarization on V; zero other grades."
+        },
+        {
+          "name": "GradedPolarization.dual",
+          "role": "structure",
+          "statement": "The dual variation has weights −k, with the corresponding dual pure forms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GradedPolarizationTest.tate",
+          "kind": "computation",
+          "statement": "Q(1) has only weight −2 and type (−1,−1); its graded polarization has the chosen positive Hodge sign."
+        },
+        {
+          "name": "GradedPolarizationTest.zeroGrade",
+          "kind": "degenerate",
+          "statement": "A zero graded quotient satisfies nondegeneracy and positivity vacuously."
+        },
+        {
+          "name": "GradedPolarizationTest.noWholeForm",
+          "kind": "non-example",
+          "statement": "A non-split mixed extension of Q(0) by Q(1) can be graded-polarizable although there is no pure polarization of a single weight on the whole extension."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SZ85 Definition 3.13 and Theorem 4.1",
+          "how": "Admissibility and cohomological fixed part require polarizable pure graded objects."
+        },
+        {
+          "where": "LL24 Theorems 4.1.1 and 4.2.2",
+          "how": "Unitary cohomology and isotypic evaluation use graded polarizations."
+        }
+      ],
+      "suggestedDeclaration": "GradedPolarization",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "GradedPolarization",
+          "GradedPolarization.gradedForm",
+          "GradedPolarization.pullback",
+          "GradedPolarizationTest.tate",
+          "GradedPolarizationTest.zeroGrade",
+          "GradedPolarizationTest.noWholeForm"
+        ],
+        "omitted": [
+          "GradedPolarization.ofPure",
+          "GradedPolarization.dual"
+        ],
+        "reason": "G1/G2; L1/L2 requests"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/admissible-disc",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Admissibility on a punctured disc",
+      "kind": "definition",
+      "statement": "Let V be a graded-polarizable real/rational VMHS on Δ* with unipotent monodromy T. Set N=log T (no factor 2πi), z on the universal cover with s=exp(2πiz), and Ψ(s)=exp(−zN)F(z). It is admissible precisely when Ψ extends holomorphically to s=0 as a flag whose induced filtrations on every Gr^W_k have the original graded dimensions (equivalently the extended F and Gr^W F are subbundles), and the relative monodromy filtration M(N,W) exists. Import the relative-filtration contract: NM_j⊂M_(j−2), and on Gr^W_k the induced M is the monodromy filtration centred at k. Nilpotence of N alone does not imply this existence. For quasi-unipotent T, use a finite cyclic cover killing its semisimple part; cover independence is a theorem, not a condition assumed without proof.",
+      "hypotheses": [
+        "Graded-polarizable VMHS; unipotent T for the two-condition criterion; quasi-unipotent T explicitly for the finite-cover variant."
+      ],
+      "proofSteps": [
+        "Use the canonical unipotent extension to express Ψ and its graded-compatible limit.",
+        "Use the existing LPV.1 relative-monodromy uniqueness/ordinary-monodromy nodes rather than owning these linear algebra definitions here.",
+        "SZ85 A.9 proves the limit MHS and N type (−1,−1) from these two conditions and pure graded degeneration; that analytic engine is an explicit proof gap."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/graded-polarizable",
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/relative-monodromy-uniqueness"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Definition 3.13 and Appendix A.9, pp.510–511 and 540",
+          "match": "The third condition is deduced from the first two in Appendix A."
+        },
+        {
+          "sourceId": "Peters",
+          "locator": "Appendix A, Definition A.1, pp.51–53",
+          "match": "The graded-compatible limit and relative filtration are separate requirements."
+        }
+      ],
+      "acceptance": [
+        "N=0 still requires a limiting flag; essential singularities in extension classes are excluded.",
+        "The centre on Gr^W_k is k, not zero."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/AdmissibleDisc",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "AdmissibleDisc.limitFiltration",
+          "role": "data",
+          "statement": "The extended F_∞ on the canonical unipotent fibre, compatible with Gr^W."
+        },
+        {
+          "name": "AdmissibleDisc.relativeWeight",
+          "role": "projection",
+          "statement": "The unique relative M(N,W); not ordinary monodromy centred at one chosen weight."
+        },
+        {
+          "name": "AdmissibleDisc.reparametrize",
+          "role": "compatibility",
+          "statement": "Changing s by a holomorphic coordinate with nonzero derivative conjugates F_∞ by exp(cN) and leaves M unchanged."
+        },
+        {
+          "name": "AdmissibleDisc.finiteCover",
+          "role": "characterisation",
+          "statement": "For quasi-unipotent T, admissibility is invariant under a further finite cyclic cover; N becomes eN and M is unchanged."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdmissibleDiscTest.constant",
+          "kind": "degenerate",
+          "statement": "A constant MHS has T=1, N=0, F_∞=F and M=W."
+        },
+        {
+          "name": "AdmissibleDiscTest.noRelative",
+          "kind": "non-example",
+          "statement": "On R e_0⊕R a⊕R b with W_(−1)=R a⊕R b, W_0=V and Ne_0=a, Na=Nb=0, no relative M exists: induced graded N are zero so M=W, but NM_0 is not contained in M_(−2)=0. The weight −1 real plane may carry the usual two conjugate Hodge types."
+        },
+        {
+          "name": "AdmissibleDiscTest.essentialSingularity",
+          "kind": "non-example",
+          "statement": "The Hodge–Tate extension with weights zero and two and period coordinate exp(1/s), T=1, has relative M=W but no limiting flag, hence is not admissible."
+        },
+        {
+          "name": "AdmissibleDiscTest.ramification",
+          "kind": "computation",
+          "statement": "For s=t^e, log(T^e)=eN, and the relative M is unchanged; the logarithmic connection residue is multiplied by e."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SZ85 Theorem 4.1",
+          "how": "The boundary relative filtration produces the logarithmic mixed-Hodge complex."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.6",
+          "how": "Supplies admissibility data; H.6 owns pure nilpotent orbits and multi-variable estimates."
+        }
+      ],
+      "planet": {
+        "name": "Admissible variation"
+      },
+      "suggestedDeclaration": "AdmissibleDisc",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "AdmissibleDisc",
+          "AdmissibleDisc.limitFiltration",
+          "AdmissibleDisc.relativeWeight",
+          "AdmissibleDisc.finiteCover",
+          "AdmissibleDiscTest.constant",
+          "AdmissibleDiscTest.noRelative",
+          "AdmissibleDiscTest.ramification"
+        ],
+        "omitted": [
+          "AdmissibleDisc.reparametrize",
+          "AdmissibleDiscTest.essentialSingularity"
+        ],
+        "reason": "G1/G3/G4/G5"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/admissible-variation",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Curve-test admissibility",
+      "kind": "definition",
+      "statement": "For a graded-polarizable real/rational VMHS on a smooth quasiprojective S with quasi-unipotent boundary monodromy, admissibility means that for every holomorphic disc map f:Δ→Sbar into a smooth SNC compactification with f(Δ*)⊂S, f*V satisfies the punctured-disc finite-cover criterion. Maps tangent to or meeting several boundary components are included. Kashiwara’s theorem makes this independent of the SNC compactification and stable under holomorphic pullback. This packet specifies the quasi-unipotent convention; its identification with the more general real mixed-Hodge-module convention used in LL24 for arbitrary unitary coefficients remains an explicit gap.",
+      "hypotheses": [
+        "Smooth quasiprojective S; smooth SNC compactification; quasi-unipotent boundary monodromy, an extra assumption when no lattice is present."
+      ],
+      "proofSteps": [
+        "Apply the local disc criterion to all boundary arcs.",
+        "Use the curve-test invariance theorem cited by Peters Appendix A; full Kashiwara proof and arbitrary real-exponent generalization remain gaps, not borrowed from H.6."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/admissible-disc",
+        "HodgeStructuresPartII:H.2/graded-polarizable"
+      ],
+      "sources": [
+        {
+          "sourceId": "Peters",
+          "locator": "Appendix A, first three paragraphs, p.51",
+          "match": "Admissibility by all curves, compactification independence and the explicitly assumed quasi-unipotence."
+        }
+      ],
+      "acceptance": [
+        "Checking only transverse arcs through generic boundary points is not this definition."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/AdmissibleVariation",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "AdmissibleVariation.curveTest",
+          "role": "characterisation",
+          "statement": "Every permitted disc pullback is admissible."
+        },
+        {
+          "name": "AdmissibleVariation.pullback",
+          "role": "functoriality",
+          "statement": "Holomorphic pullback between smooth algebraic bases preserves admissibility, with all boundary arcs tested."
+        },
+        {
+          "name": "AdmissibleVariation.compactificationIndependent",
+          "role": "equivalence",
+          "statement": "The predicate is the same for any smooth SNC compactification."
+        },
+        {
+          "name": "AdmissibleVariation.constant",
+          "role": "constructor",
+          "statement": "A constant graded-polarizable MHS gives an admissible variation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdmissibleVariationTest.point",
+          "kind": "degenerate",
+          "statement": "Over a point a graded-polarizable MHS is admissible."
+        },
+        {
+          "name": "AdmissibleVariationTest.curve",
+          "kind": "compatibility",
+          "statement": "On a smooth curve the definition is exactly admissibility at every puncture of its smooth completion."
+        },
+        {
+          "name": "AdmissibleVariationTest.productArc",
+          "kind": "computation",
+          "statement": "For commuting unipotent boundary T_1,T_2, the arc (s^a,s^b) has N=aN_1+bN_2 and requires M(N,W), including a,b>0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24 Theorem 4.2.1",
+          "how": "Fixed part on arbitrary smooth quasiprojective bases needs admissibility, not just a holomorphic mixed filtration."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.6",
+          "how": "Boundary restrictions receive the common predicate without a reverse dependency."
+        }
+      ],
+      "suggestedDeclaration": "AdmissibleVariation",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "AdmissibleVariation",
+          "AdmissibleVariation.curveTest",
+          "AdmissibleVariation.pullback",
+          "AdmissibleVariation.compactificationIndependent",
+          "AdmissibleVariation.constant",
+          "AdmissibleVariationTest.point",
+          "AdmissibleVariationTest.curve",
+          "AdmissibleVariationTest.productArc"
+        ],
+        "reason": "G1/G5/G6"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/limit-mhs",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Limit mixed Hodge structure from admissibility",
+      "kind": "theorem",
+      "statement": "For an admissible unipotent punctured-disc mixed variation, (V_R,M(N,W),F_∞) is a real MHS, N is a morphism to its Tate twist by −1 (equivalently type (−1,−1)), and the induced pure-graded limits agree with the imported monodromy filtrations centred at their original weights. This is a consequence of the two admissibility conditions, not a third independent axiom.",
+      "hypotheses": [
+        "Unipotent admissible graded-polarizable VMHS; normalization N=log T."
+      ],
+      "proofSteps": [
+        "Apply the pure one-variable degeneration theorem separately to Gr^W_k; its complete analytic proof is a recorded gap.",
+        "Follow SZ85 Appendix A.9: use relative M uniqueness, finite bifiltration splittings and strictness of mixed Hodge extensions to lift graded purity and N type through W.",
+        "Identify the resulting F and M on the unchanged underlying vector space. No multi-variable orbit estimate is asserted."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/admissible-disc",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+        "LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Appendix A.9, pp.540–541",
+          "match": "Full printed proof reduces to pure graded degeneration and extension strictness."
+        }
+      ],
+      "acceptance": [
+        "N=0 gives the original constant MHS, with M=W.",
+        "A rank-two weight-one unipotent block has M_0=im N, M_1=ker N and M_2=V."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/LimitMhs",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "AdmissibleDisc.limitMixedHodgeStructure",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "AdmissibleDisc.limitMixedHodgeStructure"
+        ],
+        "reason": "G2/G3/G4"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/admissible-operations",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Tensor and internal Hom preserve admissibility",
+      "kind": "theorem",
+      "statement": "Admissible graded-polarizable real/rational variations are closed under tensor product, dual and internal Hom. Tensor W and F are convolution filtrations, N=N_V⊗1+1⊗N_U and relative M is the convolution of the relative filtrations; dual/Hom use the corresponding dual weight shifts and commutator N. The flat evaluation Hom(V,U)⊗V→U is a mixed-variation morphism. All statements are in the quasi-unipotent convention of this packet.",
+      "hypotheses": [
+        "Two admissible graded-polarizable VMHS on the same smooth quasiprojective base."
+      ],
+      "proofSteps": [
+        "SZ85 A.4 constructs the tensor relative filtration by induction on W with its extension-splitting corrections; do not infer it from nilpotence alone.",
+        "SZ85 A.10 uses unipotent canonical-extension tensor compatibility to extend F and its graded quotients; reduce quasi-unipotent case to a common finite cover.",
+        "The fibre tensor/dual/Hom Hodge operations come from upstream L2; flat evaluation preserves convolution filtrations by their defining inequalities."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/admissible-variation",
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "HodgeStructuresPartII:H.2/unipotent-tensor",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+        "HodgeStructuresPartII:H.0/intrinsic-tensor",
+        "HodgeStructuresPartII:H.0/intrinsic-dual"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Appendix A.4 and A.10, pp.537–541",
+          "match": "Relative-weight tensor proof and admissibility closure are printed."
+        }
+      ],
+      "acceptance": [
+        "Hom of pure weights a,b has weight b−a.",
+        "The constant Tate tensor shifts both W and F; evaluation has type (0,0)."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/AdmissibleOperations",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "AdmissibleVariation.tensorHom",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "AdmissibleVariation.tensorHom"
+        ],
+        "reason": "G1/G2/G5"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/canonical-extension",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Deligne canonical logarithmic extension",
+      "kind": "construction",
+      "statement": "For a finite-rank complex local system L on U=X\\D, where X is a complex manifold and D a simple normal crossing divisor, let (E,∇)=L⊗O_U with its flat connection. There is a unique extension (Ebar,∇bar) by a locally free O_X-module with integrable logarithmic connection whose residue eigenvalues lie in the half-open strip 0≤Re(α)<1; restriction to U is the given flat bundle. Uniqueness includes extension of all horizontal morphisms. For unipotent local monodromy the residues are nilpotent. Locally choose commuting residues A_i with exp(−2πi A_i)=T_i and a frame satisfying ∇bar=d+Σ A_i dz_i/z_i. This choice of strip is the canonical extension, not the dual/tensor extension without eigenvalue corrections.",
+      "hypotheses": [
+        "Complex manifold X; SNC D; native finite-rank complex local system on U. The analytic extension needs no quasi-unipotence assumption. Algebraic existence additionally requires regular singularity."
+      ],
+      "proofSteps": [
+        "Del70 II.5.2 constructs the nilpotent-residue extension from commuting unipotent T_i.",
+        "Del70 II.5.4 decomposes arbitrary commuting monodromy into rank-one characters times unipotent blocks and chooses the indicated logarithm representatives.",
+        "Use nonresonance and the horizontal growth characterization for uniqueness and gluing; regular algebraic comparison uses the corrected Del70 erratum."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.LocalCoefficientSystem",
+        "ShimuraData:D3/flat-bundle-local",
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:H.0/intrinsic-curvature",
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del70",
+          "locator": "II.5, Propositions 5.2 and 5.4, Remark 5.5(i)",
+          "match": "Existence, uniqueness and the specified strip; not asserted tensor monoidal in general."
+        }
+      ],
+      "acceptance": [
+        "For monodromy −1 the chosen line residue is 1/2.",
+        "For monodromy 1 the chosen line residue is zero."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/CanonicalExtension",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "CanonicalExtension.restrict",
+          "role": "compatibility",
+          "statement": "Restriction of (Ebar,∇bar) to U is the supplied flat bundle."
+        },
+        {
+          "name": "CanonicalExtension.residue",
+          "role": "projection",
+          "statement": "Along D_i, Res_i∇bar is an endomorphism of Ebar|D_i with eigenvalues in [0,1) by real part."
+        },
+        {
+          "name": "CanonicalExtension.map",
+          "role": "functoriality",
+          "statement": "Every horizontal map extends uniquely, preserving identities/composites."
+        },
+        {
+          "name": "CanonicalExtension.unique",
+          "role": "universal-property",
+          "statement": "An extension with the strip condition has a unique horizontal isomorphism restricting to the identity on U."
+        },
+        {
+          "name": "CanonicalExtension.unipotentResidue",
+          "role": "characterisation",
+          "statement": "All T_i unipotent iff all canonical residue eigenvalues are zero, hence all residues nilpotent."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CanonicalExtensionTest.trivial",
+          "kind": "degenerate",
+          "statement": "The trivial local system extends to (O_X,d) with residue zero."
+        },
+        {
+          "name": "CanonicalExtensionTest.minusOne",
+          "kind": "computation",
+          "statement": "On Δ*, a line with T=−1 has residue 1/2 and exp(−2πi/2)=−1."
+        },
+        {
+          "name": "CanonicalExtensionTest.integerShift",
+          "kind": "non-example",
+          "statement": "Residue 3/2 also has T=−1 but is not canonical because 3/2 is outside the strip."
+        },
+        {
+          "name": "CanonicalExtensionTest.tensorCorrection",
+          "kind": "computation",
+          "statement": "Two canonical lines of residue 3/4 have tensor residue 3/2; the canonical extension of their tensor has residue 1/2, obtained locally by frame z^(−1)(e⊗e)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24 Theorem 4.1.1",
+          "how": "The relative logarithmic de Rham complex uses exactly this extension."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.4 and H.6",
+          "how": "Residues supply parabolic weights and degeneration normalization."
+        }
+      ],
+      "planet": {
+        "name": "Deligne canonical extension"
+      },
+      "suggestedDeclaration": "CanonicalExtension",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "CanonicalExtension",
+          "CanonicalExtension.residue",
+          "CanonicalExtension.map",
+          "CanonicalExtension.unique",
+          "CanonicalExtension.unipotentResidue",
+          "CanonicalExtensionTest.trivial",
+          "CanonicalExtensionTest.minusOne",
+          "CanonicalExtensionTest.integerShift",
+          "CanonicalExtensionTest.tensorCorrection"
+        ],
+        "omitted": [
+          "CanonicalExtension.restrict"
+        ],
+        "reason": "G1/G7"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/extension-exact",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Exactness of canonical extension",
+      "kind": "theorem",
+      "statement": "For a fixed logarithm branch represented by 0≤Re(α)<1, canonical extension is exact on finite-rank complex local systems on a fixed SNC complement: a short exact sequence gives a short exact sequence of locally free logarithmic bundles with connection. The restriction identifications commute with all maps. Exactness does not imply compatibility with tensor products or ordinary dual bundles.",
+      "hypotheses": [
+        "Fixed X,D and fixed strip; short exact sequence of finite-rank complex local systems."
+      ],
+      "proofSteps": [
+        "Use the simultaneous generalized-eigenspace decomposition of local monodromy from Del70 II.5.4.",
+        "On each character component use the nilpotent logarithm construction, which sends invariant subspaces and quotients to their tensor O_X modules. Glue by unique horizontal extension."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del70",
+          "locator": "II.5.4, property (c) and its proof",
+          "match": "Exactness of the chosen extension functor."
+        }
+      ],
+      "acceptance": [
+        "An invariant Jordan-block line and its quotient extend exactly despite non-split monodromy.",
+        "The residue-3/4 tensor example still fails ordinary tensor compatibility."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/ExtensionExact",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "CanonicalExtension.exact",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "CanonicalExtension.exact"
+        ],
+        "reason": "G1/G7"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/residue-monodromy",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Residue and local monodromy",
+      "kind": "theorem",
+      "statement": "In the commuting logarithmic frame ∇=d+Σ A_i dz_i/z_i of the canonical extension, positive local loops have T_i=exp(−2πi A_i). On a unipotent block N_i=log T_i=−2πi A_i. Under s=t^e, the pulled-back residue is eA; if its eigenvalues leave the strip, recanonicalization shifts them by integers. In the unipotent case no shift occurs and N becomes eN.",
+      "hypotheses": [
+        "Canonical logarithmic extension near an SNC chart; orientation of loops is positive; the residue matrix is in the supplied constant local normal form."
+      ],
+      "proofSteps": [
+        "Solve horizontal sections z_i^(−A_i)v and continue log z_i by 2πi.",
+        "Pull back dz/z=e dt/t. Apply uniqueness of the canonical extension after eigenvalue normalization."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/canonical-extension"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del70",
+          "locator": "II.5.2–5.4 local construction",
+          "match": "The local commuting residue frame fixes the sign."
+        }
+      ],
+      "acceptance": [
+        "A=1/2 gives T=−1; a unipotent Jordan residue A has exp(−2πiA)=1−2πiA when A²=0.",
+        "The real relative-monodromy operator is N=log T, not the complex residue A."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/ResidueMonodromy",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "CanonicalExtension.residueMonodromy",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "CanonicalExtension.residueMonodromy"
+        ],
+        "reason": "G1/G7; rank-one scalar adapter is present"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/unipotent-tensor",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Tensor compatibility on the unipotent branch",
+      "kind": "theorem",
+      "statement": "For local systems with unipotent local monodromy on the same SNC complement, canonical extension commutes with tensor products, duals and internal Hom. Residues on the tensor are A⊗1+1⊗B, on the dual −A transpose, and on Hom B∘f−f∘A. They are nilpotent, so remain in the strip. These comparisons are coherent and restrict to the ordinary flat tensor/dual/Hom comparisons.",
+      "hypotheses": [
+        "All local monodromy operators of each factor are unipotent."
+      ],
+      "proofSteps": [
+        "Construct tensor/dual connections from the H.0 operations. Commuting sums of nilpotents are nilpotent.",
+        "Invoke canonical uniqueness rather than assuming a general tensor theorem."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "HodgeStructuresPartII:H.0/intrinsic-tensor",
+        "HodgeStructuresPartII:H.0/intrinsic-dual"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del70",
+          "locator": "II.5.2, tensor property and uniqueness",
+          "match": "The nilpotent branch is tensor compatible."
+        }
+      ],
+      "acceptance": [
+        "Residue-zero constant factors have ordinary tensor and dual extensions.",
+        "The residue-3/4 example shows the unipotent hypothesis cannot be removed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/UnipotentTensor",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "CanonicalExtension.unipotentTensor",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "CanonicalExtension.unipotentTensor"
+        ],
+        "reason": "G1; H.0 global tensor/dual suppliers"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/filtered-extension",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Extended Hodge filtration at an admissible boundary",
+      "kind": "construction",
+      "statement": "For an admissible unipotent mixed variation on Δ*, extend F by its untwisted limiting flag inside the canonical extension. The resulting Fbar^p are holomorphic subbundles, restrict to F^p, have locally free Gr^W Gr_F, and satisfy logarithmic transversality ∇bar Fbar^p⊂Fbar^(p−1)⊗Ω¹(log{0}). For quasi-unipotent monodromy use a finite cover and the corresponding canonical-eigenvalue normalization; the descended filtration is the intersection/saturated extension determined by the original F and Ebar, not an arbitrarily chosen limit flag. Global SNC gluing requires the multi-variable admissibility extension theorem, recorded separately as a gap.",
+      "hypotheses": [
+        "Admissible graded-polarizable disc variation in the packet convention; unipotent case first."
+      ],
+      "proofSteps": [
+        "The admissibility limit constructs Fbar in the unipotent canonical frame. Apply residue/monodromy normalization and limiting N type to extend transversality.",
+        "For a short exact sequence use SZ85 §5.26 and limit MHS strictness to obtain exact Fbar subbundles; descent of the finite-cover variant needs its stated theorem."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/admissible-disc",
+        "HodgeStructuresPartII:H.2/limit-mhs",
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "HodgeStructuresPartII:H.2/residue-monodromy",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "§3.13 and §5.26, pp.510–511 and 534",
+          "match": "Admissible limit and exact extended filtration."
+        },
+        {
+          "sourceId": "LL22",
+          "locator": "Proposition 4.1.4(4), p.28 and proof",
+          "match": "Pure curve canonical-extension transversality cites Brunebarbe §7."
+        }
+      ],
+      "acceptance": [
+        "For a constant variation the extension has constant F; for a non-admissible essential singularity it is undefined."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/FilteredExtension",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "FilteredExtension.restrict",
+          "role": "compatibility",
+          "statement": "Fbar^p restricts to F^p under the canonical extension identification."
+        },
+        {
+          "name": "FilteredExtension.limit",
+          "role": "projection",
+          "statement": "The fibre of Fbar at zero is the untwisted F_∞ in the unipotent frame."
+        },
+        {
+          "name": "FilteredExtension.graded",
+          "role": "compatibility",
+          "statement": "Weight-graded Fbar is the extended pure-graded filtration; intersections/quotients are locally free."
+        },
+        {
+          "name": "FilteredExtension.map",
+          "role": "functoriality",
+          "statement": "A mixed-variation map extends and preserves Fbar; identities/composites agree."
+        },
+        {
+          "name": "FilteredExtension.exact",
+          "role": "relation",
+          "statement": "Every Fbar^p sequence attached to a short exact sequence of admissible variations is exact."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FilteredExtensionTest.constant",
+          "kind": "degenerate",
+          "statement": "For a constant type-(0,0) line, Fbar^0=O_Δ and Fbar^1=0."
+        },
+        {
+          "name": "FilteredExtensionTest.limit",
+          "kind": "computation",
+          "statement": "For a unipotent nilpotent-orbit model F(z)=exp(zN)F_∞ satisfying admissibility, the untwisted Fbar is constant with fibre F_∞."
+        },
+        {
+          "name": "FilteredExtensionTest.noEssential",
+          "kind": "non-example",
+          "statement": "The period coordinate exp(1/s) Hodge–Tate example cannot be supplied as an admissible input."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.6",
+          "how": "Supplies logarithmic Hodge filtration with the residue normalization."
+        },
+        {
+          "where": "SZ85 §4 and LL24 §4.1",
+          "how": "Filtered logarithmic complexes compute Hodge filtrations and strict evaluation."
+        }
+      ],
+      "suggestedDeclaration": "FilteredExtension",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "FilteredExtension",
+          "FilteredExtension.restrict",
+          "FilteredExtension.limit",
+          "FilteredExtension.graded",
+          "FilteredExtension.map",
+          "FilteredExtension.exact",
+          "FilteredExtensionTest.constant",
+          "FilteredExtensionTest.limit",
+          "FilteredExtensionTest.noEssential"
+        ],
+        "reason": "G1/G5/G8"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/log-comparison",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Canonical-extension logarithmic de Rham comparison",
+      "kind": "comparison",
+      "statement": "For U=X\\D as above and its canonical extension, the analytic logarithmic complex DR_log(Ebar)=[Ebar→Ebar⊗Ω¹_X(log D)→…] is quasi-isomorphic to Rj_*L. Thus H^q(X,DR_log(Ebar))≅H^q(U,L). The strip excludes positive integer residue eigenvalues, as required by Del70 II.6.10. The coefficient/log comparison engine belongs to ComplexComparisonPartII:C5; this node is its canonical-strip adapter, not a new generic de Rham comparison theory.",
+      "hypotheses": [
+        "SNC boundary; canonical extension; sheaf hypercohomology and coefficient singular/sheaf comparison supplied by C5."
+      ],
+      "proofSteps": [
+        "Use the canonical residue strip to discharge the no-positive-integer hypothesis of Del70 II.6.10.",
+        "Invoke the requested local logarithmic Poincaré lemma and coefficient sheaf comparison; pass to derived global sections using E1. Supporting local proof input remains explicit until supplied."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "ComplexComparisonPartII:C5",
+        "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del70",
+          "locator": "II.6.10, and local inputs II.3.15/6.9",
+          "match": "Canonical strip satisfies the comparison hypothesis."
+        }
+      ],
+      "acceptance": [
+        "For a punctured disc constant line, the two-term logarithmic complex has H^0=C and H^1=C.",
+        "For scalar residue 1/2, local invariants and local coinvariants vanish, matching the logarithmic complex."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/LogComparison",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "canonicalLogComparison",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "canonicalLogComparison"
+        ],
+        "reason": "G7; C5/E1 suppliers"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/gauss-manin",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Gauss–Manin system and logarithmic comparison",
+      "kind": "construction",
+      "statement": "For a smooth proper morphism f:X→S of smooth complex algebraic varieties and q≥0, H_Q=R^q f_*Q is a finite-rank rational local system, E=H_Q⊗O_(S^an) has the flat Gauss–Manin connection, and E≅(R^q f_*Ω^•_(X/S))^an with base change compatibility. More generally, for a proper smooth compactification fbar:Xbar→S with relative SNC boundary D and U=Xbar\\D, and a finite-rank flat complex system L on U with canonical extension, E=R^q f_*L⊗O_S is identified with relative logarithmic de Rham hypercohomology of its extension and carries the same connection. The relative SNC compactification is essential for local freeness over the whole base; for a general smooth nonproper morphism assert these properties only on the dense open supplied by Del70 II.6.13.",
+      "hypotheses": [
+        "Smooth base; proper smooth compactified family; relative SNC boundary, if present; coefficient local system; q≥0; proper case rational coefficients."
+      ],
+      "proofSteps": [
+        "Use local topological triviality of the smooth relative SNC pair to form the native local system.",
+        "Invoke requested relative/log coefficient comparison and proper coherent base change; identify the absolute differential-induced connection with the local-system connection (Del70 II.6.14 and §§6.17–6.18).",
+        "Record the dense-open caveat outside the compactifiable family hypotheses."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.LocalCoefficientSystem",
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:H.0/intrinsic-curvature",
+        "ComplexComparisonPartII:C5",
+        "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+        "HodgeStructuresPartII:H.2/log-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del70",
+          "locator": "II.6.13–6.14 and §§6.17–6.18",
+          "match": "Full-base local freeness uses a smooth proper relative SNC compactification."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "§5.1 setup and equation (5.3), pp.27–29",
+          "match": "Curve coefficient instance consumed by the period derivative."
+        }
+      ],
+      "acceptance": [
+        "A product family has the constant cohomology local system and connection d.",
+        "An elliptic proper family gives rank two in degree one."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/GaussManin",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "GaussManin.localSystem",
+          "role": "data",
+          "statement": "R^q f_* of the supplied coefficient system, as a native local coefficient system."
+        },
+        {
+          "name": "GaussManin.deRhamEquiv",
+          "role": "equivalence",
+          "statement": "Its associated holomorphic bundle is the relative (logarithmic) de Rham hypercohomology bundle, carrying the compared connection."
+        },
+        {
+          "name": "GaussManin.baseChange",
+          "role": "functoriality",
+          "statement": "Pullback of the smooth relative SNC family yields the corresponding local system and de Rham connection; identity/composition coherence."
+        },
+        {
+          "name": "GaussManin.fiber",
+          "role": "projection",
+          "statement": "The fibre at s is H^q(U_s,L_s), with its de Rham comparison and path transport."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GaussManinTest.product",
+          "kind": "computation",
+          "statement": "For U=Y×S with pulled-back coefficients, Gauss–Manin is the constant H^q(Y,L) local system with connection d."
+        },
+        {
+          "name": "GaussManinTest.degreeZero",
+          "kind": "degenerate",
+          "statement": "For a proper family with connected fibres and trivial coefficients, R^0 f_*Q is the constant Q system."
+        },
+        {
+          "name": "GaussManinTest.nativeTransport",
+          "kind": "compatibility",
+          "statement": "Parallel transport in the de Rham bundle matches native local-system path transport, not an independently specified map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24 §§4.1 and 5.1",
+          "how": "Constructs coefficient curve variation and its flat bundle."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.3 and H.8",
+          "how": "Supplies the geometric connection for period derivatives."
+        }
+      ],
+      "planet": {
+        "name": "Gauss–Manin connection"
+      },
+      "suggestedDeclaration": "GaussManin",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "GaussManin",
+          "GaussManin.localSystem",
+          "GaussManin.baseChange",
+          "GaussManin.fiber",
+          "GaussManinTest.product",
+          "GaussManinTest.degreeZero",
+          "GaussManinTest.nativeTransport"
+        ],
+        "omitted": [
+          "GaussManin.deRhamEquiv"
+        ],
+        "reason": "G1/G7; C5 relative-cohomology supplier"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/geometric-pure",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Geometric pure polarized variation",
+      "kind": "theorem",
+      "statement": "If f:X→S is smooth projective of relative dimension d over a smooth complex algebraic base with a relative ample class, the torsion-free degree-q integral cohomology local system with Hodge filtration induced from relative de Rham cohomology is a polarized integral VHS of weight q. Use the primitive Lefschetz decomposition and its signed cup-product forms to polarize the full cohomology. The fibre is the imported cohomological pure Hodge structure, the connection is Gauss–Manin, and Griffiths transversality holds. Projectivity/relative polarization is explicit; smooth proper complex fibres are not automatically treated as projective polarized ones.",
+      "hypotheses": [
+        "Smooth projective f; relative ample class; q≥0; torsion-free lattice H^q(X_s,Z)/torsion."
+      ],
+      "proofSteps": [
+        "Use the fibre cohomological Hodge decomposition and Hodge–Riemann/Hard Lefschetz engine, which is a recorded supplier gap beyond the intrinsic fibre library.",
+        "Construct F via relative de Rham degeneration; differentiate representatives to prove Griffiths transversality.",
+        "Combine primitive signed polarizations through the Lefschetz decomposition; compare with ShimuraData:D3/polarized-integral-variation."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/gauss-manin",
+        "ShimuraData:D3/polarized-integral-variation",
+        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del71",
+          "locator": "§4.1.1–4.1.2, pp.40–43",
+          "match": "Proper/projective geometric fixed-part setup."
+        },
+        {
+          "sourceId": "Del71",
+          "locator": "§4.2.9(a), p.47",
+          "match": "Polarizable geometric local systems supply integral monodromy."
+        }
+      ],
+      "acceptance": [
+        "Degree one of a smooth elliptic family has weight one and ranks h^(1,0)=h^(0,1)=1.",
+        "The cup-product sign must agree with the intrinsic pure polarization convention."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/GeometricPure",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "geometricPureVariation",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "geometricPureVariation"
+        ],
+        "reason": "G1/G9"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Unitary cohomology of a punctured curve",
+      "kind": "theorem",
+      "statement": "For a smooth projective complex curve C, reduced D, U=C\\D, and finite-rank orthogonal real local system V_R with complexification V, H¹(U,V_R) has a functorial graded-polarizable real MHS with only weights 1 and 2. W_1 is the image of H¹(C,j_*V_R), W_2=H¹(U,V_R), and F¹ is the image of H⁰(C,Ebar⊗Ω¹_C(log D)) in logarithmic hypercohomology; F⁰=H_C, F²=0. Canonical extension uses [0,1). For arbitrary unitary complex V, apply realification V⊕V dual and project to V to obtain weight/Hodge/conjugate-Hodge filtrations, without asserting a real structure on H¹(U,V) itself.",
+      "hypotheses": [
+        "Smooth projective curve, finite reduced boundary, orthogonal real coefficients; or complex unitary coefficients for the direct-summand version."
+      ],
+      "proofSteps": [
+        "Timm87 Theorem 6.3 identifies the log complex as a mixed Hodge complex using residue strata and its Theorem 5.1 harmonic-form Hodge decomposition. The 1986 appendix and the generic mixed-Hodge-complex engine remain explicit gaps.",
+        "Lemma 6.2 gives the weight range and W_1; Theorem 7.1(a) gives E_1 degeneration and the displayed F¹ image.",
+        "Theorem 7.1 realifies V with its dual; split the coefficient log complexes to descend the filtrations to complex V."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/log-comparison",
+        "HodgeStructuresPartII:H.2/graded-polarizable",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+        "ComplexComparisonPartII:C1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Timm87",
+          "locator": "Lemma 6.2, Theorem 6.3/Proposition 6.4, Theorem 7.1(a), pp.166–170",
+          "match": "Weight range, mixed complex proof and complex coefficient degeneration."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "Theorem 4.1.1 proof, pp.24–25",
+          "match": "Precisely this fibre calculation is used in the family."
+        }
+      ],
+      "acceptance": [
+        "For constant R on a genus-g curve with r>0 punctures, dim W_1=2g and dim Gr^W_2=r−1.",
+        "For C=P¹ and D={0,∞}, H¹(U,R)=R(−1), of type (1,1); for D empty all H¹ has weight one."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/UnitaryCurveFiber",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "unitaryCurveFiber",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "unitaryCurveFiber"
+        ],
+        "reason": "G2/G10/G11"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/unitary-curve-family",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Unitary curve Gauss–Manin mixed variation",
+      "kind": "theorem",
+      "statement": "Let π:C→M be a smooth proper family of curves over a smooth quasiprojective base with disjoint sections D and U=C\\D, and let V_R be a finite-rank orthogonal real local system on U. R¹π°_*V_R, its Gauss–Manin bundle and the fibrewise filtrations of the preceding node form a graded-polarizable real VMHS: W_1=R¹π_*j_*V_R included into R¹π°_*V_R, W_2 is the whole system, and F¹=im π_*(Ebar⊗Ω¹_(C/M)(log D)). Under quasi-unipotent boundary monodromy on M this is admissible in this packet’s finite-cover convention. LL24 asserts admissibility for arbitrary unitary real coefficients using real mixed Hodge modules; retaining that broader claim requires the recorded real-exponent convention gap and mixed-Hodge-module direct-image engine.",
+      "hypotheses": [
+        "Smooth pointed curve family; smooth quasiprojective M; orthogonal real V_R; quasi-unipotence on base boundary for the finite-cover admissibility conclusion."
+      ],
+      "proofSteps": [
+        "Use relative log comparison/base change to glue the fibre Hodge filtration, and the unitary fibre theorem for graded purity.",
+        "There are only F⁰,F¹,F²=0, so Griffiths transversality follows directly.",
+        "LL24 invokes Saito/Schnell real mixed Hodge modules: Rπ_*Rj_*V_R and its locally constant degree-one cohomology yield graded polarization/admissibility. Those cited proof engines are gaps, not established by the fibre argument."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/gauss-manin",
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+        "HodgeStructuresPartII:H.2/admissible-variation",
+        "HodgeStructuresPartII:H.2/mixed-variation"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Theorem 4.1.1 and complete printed proof, pp.24–25",
+          "match": "Family formula plus the separate mixed-Hodge-module argument."
+        }
+      ],
+      "acceptance": [
+        "For a product pointed family with constant coefficients the mixed variation is constant.",
+        "F¹ is an image, not blindly identified with all global logarithmic one-forms when relative H⁰ contributes a differential."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/UnitaryCurveFamily",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "unitaryCurveFamily",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "unitaryCurveFamily"
+        ],
+        "reason": "G1/G6/G15"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/unitary-bigrading",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Unitary curve Hodge bigrading",
+      "kind": "theorem",
+      "statement": "For the complex unitary curve cohomology system H_V of the preceding family, let conjugate F be induced using V dual ≅conjugate V. Define H^(1,0)=F¹∩W_1, H^(0,1)=conjugate F¹∩W_1 and H^(1,1)=F¹∩conjugate F¹. Then H_V is the direct sum of these three smooth subbundles; conjugation exchanges H_V^(p,q) with H_(V dual)^(q,p). In general these summands are not flat local subsystems.",
+      "hypotheses": [
+        "Unitary complex coefficient system on the pointed smooth projective curve family; conjugate filtration transported through the unitary duality identification."
+      ],
+      "proofSteps": [
+        "Apply the real unitary fibre MHS and its two-step weight/Hodge filtration; check the direct decomposition fibrewise.",
+        "Use V⊕V dual realification and split the coefficient filtrations; the conjugation comparison is factor exchange, not a claimed self-conjugation on V."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/unitary-curve-family",
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Lemma 4.1.2, equations (4.1)–(4.2), p.25",
+          "match": "Exact three-component formula and dual-conjugate comparison."
+        }
+      ],
+      "acceptance": [
+        "For C*, constant coefficients have only H^(1,1); for a proper elliptic curve only H^(1,0),H^(0,1).",
+        "No flatness of the Hodge summands is inferred."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/UnitaryBigrading",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "unitaryBigrading",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "unitaryBigrading"
+        ],
+        "reason": "G1/G2"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/curve-cohomology-mhs",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Cohomology of an admissible mixed variation on a curve",
+      "kind": "theorem",
+      "statement": "For a smooth algebraic curve S with smooth projective completion Sbar and finite boundary, and an admissible graded-polarizable real/rational VMHS V, H^i(S,V) carries a natural functorial mixed Hodge structure. The evaluation H⁰(S,V)→V_s is a mixed Hodge morphism and its image is a mixed Hodge substructure independent of s under parallel transport. The comparison uses the logarithmic two-term complex of the canonical extension, with its Hodge filtration and the corrected boundary weight filtration; W is not simply the original coefficient W with no cohomological shift.",
+      "hypotheses": [
+        "Admissible graded-polarizable VMHS; smooth curve and finite boundary; same quasi-unipotent convention."
+      ],
+      "proofSteps": [
+        "Follow SZ85 §4.1–4.17: extend F; construct the filtered logarithmic two-term complex with Z_k=NW_k+(M_(k−1)∩W_(k−1)) at each unipotent boundary point and the indicated décalage/cohomological shifts.",
+        "Its Gr^W pieces split into the pure-coefficient cohomological Hodge complex and supported boundary graded-cokernel terms (with Tate twist). The Zucker pure-coefficient cohomology theorem and the mixed-Hodge-complex engine are explicit gaps.",
+        "Apply §4.19: restriction to a fibre is a mixed-Hodge-complex morphism; strictness gives the constant sub-MHS. Finite-cover descent handles quasi-unipotence."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/admissible-variation",
+        "HodgeStructuresPartII:H.2/filtered-extension",
+        "HodgeStructuresPartII:H.2/log-comparison",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Theorem 4.1, §§4.2–4.17, Corollary 4.19, pp.513–518",
+          "match": "Complete printed construction and curve fixed-part corollary; cited analytic engine separated."
+        }
+      ],
+      "acceptance": [
+        "For V=R(0) on C*, H⁰=R(0), H¹=R(−1).",
+        "A constant MHS gives H⁰ the original mixed weights, not a forced single weight."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/CurveCohomologyMhs",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "curveCohomologyMHS",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "curveCohomologyMHS"
+        ],
+        "reason": "G1/G11"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/mixed-fixed-part",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Theorem of the fixed part for mixed variations",
+      "kind": "construction",
+      "statement": "For an admissible graded-polarizable real/rational VMHS V on a connected smooth quasiprojective S, the native monodromy invariant subspace I_s=(ρ_s).invariants≅H⁰(S,V) has the induced mixed Hodge structure W_k I=I∩W_k V_s, F^p I_C=I_C∩F^p V_s. These filtrations are independent of s under native path transport. The evaluation of the constant system I into V is a mixed-variation morphism; it identifies I with the largest constant sub-local system. Constancy of the underlying system alone does not supply the assertion without admissibility.",
+      "hypotheses": [
+        "Connected smooth quasiprojective S; admissible graded-polarizable VMHS; finite rank; real/rational coefficient convention."
+      ],
+      "proofSteps": [
+        "Use SZ85 Corollary 4.19 on curves and strict native mixed morphisms.",
+        "Use Katz §4.3.4.0 connecting nearby points by smooth affine curves; a global invariant stays invariant on every such curve. Apply functorial Deligne splitting of fibre MHS to each component and propagate it along all such curves, so each component is flat and globally invariant. This identifies the invariant sub-MHS and its constant filtrations. The curve-existence and analytic continuation interfaces are gaps.",
+        "The inclusion/evaluation is strict by native fibre MHS strictness; its maximal constant universal property is the native invariants condition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/curve-cohomology-mhs",
+        "HodgeStructuresPartII:H.2/mixed-variation",
+        "mathlib:Representation.invariants",
+        "mathlib:Representation.mem_invariants",
+        "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
+        "tauceti:TauCeti.LocalCoefficientSystem.transport",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F",
+        "tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne"
+      ],
+      "sources": [
+        {
+          "sourceId": "SZ85",
+          "locator": "Corollary 4.19 and proof, p.518",
+          "match": "Curve theorem; no higher-dimensional claim attributed to this corollary."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "Theorem 4.2.1, p.26",
+          "match": "Smooth quasiprojective mixed fixed part."
+        },
+        {
+          "sourceId": "Andre92",
+          "locator": "§5, proof after Theorem 1, pp.10–11",
+          "match": "Reduction to curves follows Katz §4.3.4.0."
+        },
+        {
+          "sourceId": "Katz72",
+          "locator": "§4.3.4.0, printed p.70",
+          "match": "Connect nearby points by smooth affine curves; global invariants remain curve-invariant."
+        }
+      ],
+      "acceptance": [
+        "For a constant mixed variation the fixed part is its entire original MHS.",
+        "Infinite-image nontrivial unitary rank-one coefficients have zero fixed part."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/MixedFixedPart",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "MixedFixedPart.structure",
+          "role": "constructor",
+          "statement": "MHS on the native invariant module with induced W and F."
+        },
+        {
+          "name": "MixedFixedPart.evaluation",
+          "role": "projection",
+          "statement": "Strict injection of the constant invariant MHS system into V."
+        },
+        {
+          "name": "MixedFixedPart.transport",
+          "role": "compatibility",
+          "statement": "Native path transport identifies the MHS on I_s and I_t, independently of path on invariants."
+        },
+        {
+          "name": "MixedFixedPart.map",
+          "role": "functoriality",
+          "statement": "A mixed-variation morphism restricts to a mixed Hodge map of invariants; identity/composition laws."
+        },
+        {
+          "name": "MixedFixedPart.constantUniversal",
+          "role": "universal-property",
+          "statement": "Any mixed-variation map from a constant MHS factors uniquely through the evaluation map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MixedFixedPartTest.constant",
+          "kind": "degenerate",
+          "statement": "For a constant MHS Q, its fixed part is Q with exactly its W,F."
+        },
+        {
+          "name": "MixedFixedPartTest.nontrivialLine",
+          "kind": "computation",
+          "statement": "A rank-one character with some ρ(g)≠1 has zero native invariant submodule and zero fixed MHS."
+        },
+        {
+          "name": "MixedFixedPartTest.nativeInvariant",
+          "kind": "compatibility",
+          "statement": "The underlying module is Representation.invariants of the native monodromyRepresentation, with induced inclusion into the actual fibre."
+        },
+        {
+          "name": "MixedFixedPartTest.twoWeights",
+          "kind": "non-example",
+          "statement": "For constant Q(0)⊕Q(1), the fixed MHS has weights zero and minus two; it is not a pure weight-zero Hodge structure."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24 Proposition 4.2.2",
+          "how": "H⁰(Hom(tilde L,V)) is the constant multiplicity MHS for evaluation."
+        },
+        {
+          "where": "André92 §5",
+          "how": "Fixed tensors over finite covers control algebraic monodromy."
+        }
+      ],
+      "planet": {
+        "name": "Theorem of the fixed part"
+      },
+      "suggestedDeclaration": "MixedFixedPart",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [
+          "MixedFixedPartTest.constant",
+          "MixedFixedPartTest.nontrivialLine",
+          "MixedFixedPartTest.nativeInvariant"
+        ],
+        "omitted": [
+          "MixedFixedPart",
+          "MixedFixedPart.structure",
+          "MixedFixedPart.evaluation",
+          "MixedFixedPart.transport",
+          "MixedFixedPart.map",
+          "MixedFixedPart.constantUniversal",
+          "MixedFixedPartTest.twoWeights"
+        ],
+        "reason": "G1/G2/G12"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/complex-fixed-part",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Fixed part of a complex polarized variation",
+      "kind": "theorem",
+      "statement": "For a complex PVHS L on a connected smooth quasiprojective S, its invariant space H⁰(S,L) decomposes into constant Hodge types, and the flat inclusion of this constant complex polarized Hodge structure into L preserves the smooth decomposition. The induced Hermitian form is nondegenerate with the required type signs. This theorem does not assume a lattice or quasi-unipotent boundary monodromy.",
+      "hypotheses": [
+        "Finite-rank complex PVHS; S smooth quasiprojective, hence an open subset of a compact analytic variety."
+      ],
+      "proofSteps": [
+        "Realify L. Del87 §1.11 applies Schmid growth bounds to invariant vectors and bounded plurisubharmonic Hodge norms on the compactification; constancy forces their Hodge components to be horizontal.",
+        "Split back to L; the invariant type components are orthogonal and each has definite signed metric, so their total restricted form is nondegenerate. The full analytic Schmid/Griffiths engine remains a recorded gap."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.2/realification",
+        "mathlib:Representation.invariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del87",
+          "locator": "§1.11, p.8, complete printed proof",
+          "match": "Complex fixed part through realification and Hodge norm constancy."
+        }
+      ],
+      "acceptance": [
+        "An infinite-image unitary type-(0,0) line has fixed part zero.",
+        "A constant type-(1,−1) complex line retains that type; no real symmetry is imposed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/ComplexFixedPart",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "complexFixedPart",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "complexFixedPart"
+        ],
+        "reason": "G1/G13"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/complex-semisimple",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Semisimplicity of the underlying complex local system",
+      "kind": "theorem",
+      "statement": "The underlying finite-rank complex local system of a complex PVHS on a smooth connected quasiprojective complex variety is semisimple. Consequently it is a finite direct sum of irreducible complex local systems, and its algebraic monodromy group is reductive. This is different from semisimplicity of the category of Hodge subobjects, and different from semisimplicity of the connected algebraic monodromy group.",
+      "hypotheses": [
+        "Complex PVHS; connected smooth quasiprojective base."
+      ],
+      "proofSteps": [
+        "Del87 §1.12 explicitly asserts this result in the algebraic/Kähler compactification setting and cites Nori; LL22 Proposition 4.1.4(1) gives the punctured-projective-curve instance.",
+        "The source’s Nori proof is not supplied there. A complete published proof in the stated noncompact generality is a gap; a projective-only harmonic-metric proof does not discharge it.",
+        "Once module semisimplicity is established, use the upstream characteristic-zero faithful-representation reductivity criterion."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del87",
+          "locator": "§1.12, pp.8–9",
+          "match": "Separates Hodge-category semisimplicity from underlying complex-system semisimplicity."
+        },
+        {
+          "sourceId": "LL22",
+          "locator": "Proposition 4.1.4(1), p.28",
+          "match": "Curve instance, not alone a general-base proof."
+        }
+      ],
+      "acceptance": [
+        "A nontrivial unipotent Jordan representation on C* cannot be a complex PVHS.",
+        "A nontrivial infinite unitary line is semisimple as a representation but has connected algebraic closure G_m, which is not a semisimple group."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/ComplexSemisimple",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "complexSemisimple",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "complexSemisimple"
+        ],
+        "reason": "G1/G14; RG1/RG6"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/isotypic-hodge",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Isotypic Hodge decomposition and shift uniqueness",
+      "kind": "theorem",
+      "statement": "For a complex PVHS L on smooth connected quasiprojective S, write its semisimple local system as ⊕_i S_i⊗M_i with pairwise nonisomorphic irreducible S_i and M_i=Hom_loc(S_i,L). Each S_i supports a complex PVHS unique up to integral renumbering of the single Hodge index; choose its weight consistently with this renumbering. Each M_i then has a constant complex polarized Hodge structure and evaluation ⊕S_i⊗M_i→L is a Hodge isomorphism. For fixed total weight, shifts on S_i and M_i are opposite; a shift need not be an integral real Tate twist. The statement concerns complex type grading, without adding a real or integral structure.",
+      "hypotheses": [
+        "Complex PVHS; algebraic base; choice of representatives and Hodge-index shifts for irreducible constituents."
+      ],
+      "proofSteps": [
+        "Use underlying semisimplicity and the standard semisimple isotypic decomposition from RG1.",
+        "Del87 §1.13 applies complex fixed part to End(L); each simple matrix block has a Hodge grading. Lift its G_m grading from PGL to GL using §1.14 and choose a homogeneous rank-one projector. Its image yields the constituent PVHS.",
+        "Apply fixed part to Hom(S_i,L); evaluation identifies the multiplicity grading. Central scalar lifts differ by a character, giving exactly the integral shift ambiguity."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/complex-fixed-part",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del87",
+          "locator": "§§1.13–1.14 and full proof, pp.9–10",
+          "match": "Matrix grading lift, homogeneous projector and shift ambiguity."
+        },
+        {
+          "sourceId": "LL22",
+          "locator": "Proposition 4.1.4(2), p.28",
+          "match": "Isotypic version used by Landesman–Litt."
+        }
+      ],
+      "acceptance": [
+        "For L=S⊕S the multiplicity is a two-dimensional constant Hodge structure, not a second nonconstant variation.",
+        "For rank one, different single-index assignments differ by integer renumbering."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/IsotypicHodge",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "isotypicHodge",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "isotypicHodge"
+        ],
+        "reason": "G1/G14; RG1/RG4"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/irreducible-real-form",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Real variation attached to an irreducible constituent",
+      "kind": "construction",
+      "statement": "Given an irreducible complex local system L occurring in the complexification of a graded-polarizable real VMHS, choose a pure weight-graded quotient in which L occurs and its complex PVHS from isotypic decomposition. If L admits an actual real form, choose that form and the compatible real Hodge grading (weight may be renumbered). Otherwise use the canonical real form of L⊕conjugate(L). Call the resulting real PVHS tilde L. A self-conjugate irreducible representation can be quaternionic; an isomorphism L≅conjugate L alone is not enough to choose the first branch. Choices are recorded and unique only up to the appropriate isomorphism/renumbering.",
+      "hypotheses": [
+        "Irreducible complex L; nonzero map L→V_C for graded-polarizable real mixed V; an actual real-form choice in the first branch."
+      ],
+      "proofSteps": [
+        "Choose the least weight step meeting the injected irreducible L to obtain a nonzero pure-graded map.",
+        "Use isotypic shift uniqueness and conjugation to obtain the compatible real grading when an involutive real form exists; otherwise use doubled realification.",
+        "Do not convert existence of a real form into a canonical selected real structure."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/graded-variation",
+        "HodgeStructuresPartII:H.2/isotypic-hodge",
+        "HodgeStructuresPartII:H.2/realification"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Equation (4.3) and Proposition 4.2.2 proof, p.26",
+          "match": "Exactly the real-form versus doubled branch."
+        }
+      ],
+      "acceptance": [
+        "The complexification of tilde L is L in the chosen real branch, and L⊕conjugate L in the doubled branch."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/IrreducibleRealForm",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "IrreducibleRealForm.variation",
+          "role": "constructor",
+          "statement": "Chosen real PVHS tilde L with the displayed branch."
+        },
+        {
+          "name": "IrreducibleRealForm.complexification",
+          "role": "equivalence",
+          "statement": "Compare with L or L⊕conjugate L, respecting flat maps and Hodge type."
+        },
+        {
+          "name": "IrreducibleRealForm.choiceInvariant",
+          "role": "compatibility",
+          "statement": "Changing real form or Hodge shift yields the corresponding isomorphism and compensating multiplicity Hodge shift, rather than literal equality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IrreducibleRealFormTest.realLine",
+          "kind": "computation",
+          "statement": "A trivial complex line with chosen ordinary real form has real rank one in the first branch."
+        },
+        {
+          "name": "IrreducibleRealFormTest.nonrealCharacter",
+          "kind": "computation",
+          "statement": "A line character whose image is not contained in R* has no real form and yields a real rank-two doubled variation."
+        },
+        {
+          "name": "IrreducibleRealFormTest.quaternionic",
+          "kind": "non-example",
+          "statement": "For an irreducible L with a conjugate-linear intertwiner J satisfying J²=−1 and no involutive one, self-conjugacy does not permit the real-form branch."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24 Proposition 4.2.2",
+          "how": "Supplies the pure real factor in a mixed evaluation map."
+        }
+      ],
+      "suggestedDeclaration": "IrreducibleRealForm",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "IrreducibleRealForm",
+          "IrreducibleRealForm.variation",
+          "IrreducibleRealForm.complexification",
+          "IrreducibleRealForm.choiceInvariant",
+          "IrreducibleRealFormTest.realLine",
+          "IrreducibleRealFormTest.nonrealCharacter",
+          "IrreducibleRealFormTest.quaternionic"
+        ],
+        "reason": "G1/G2; real-form/descent carrier"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/irreducible-evaluation",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Fixed-part evaluation for an irreducible constituent",
+      "kind": "theorem",
+      "statement": "Let V be an admissible graded-polarizable real VMHS on smooth connected quasiprojective S, and let irreducible complex L have Hom_loc(L,V_C)≠0. For the chosen tilde L, assuming its pure variation is admissible in the same convention, Q=H⁰(S,Hom(tilde L,V)) is a nonzero constant real MHS and the flat evaluation Q⊗tilde L→V is a nonzero mixed-variation morphism. Q is allowed to be mixed and the map is not asserted surjective. LL24 asserts the same conclusion in its general real-admissibility convention without the extra finite-cover hypothesis; matching those conventions is recorded as a gap.",
+      "hypotheses": [
+        "Admissible graded-polarizable real V; irreducible complex L occurring in V_C; selected tilde L; compatible admissibility of its pure factor."
+      ],
+      "proofSteps": [
+        "Construct tilde L on a nonzero weight-graded constituent.",
+        "Tensor/Hom admissibility makes Hom(tilde L,V) admissible; mixed fixed part gives Q its constant MHS.",
+        "A nonzero complex map and its conjugate, or real/imaginary part in the real branch, give Q≠0; evaluation preserves the filtrations by convolution."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/irreducible-real-form",
+        "HodgeStructuresPartII:H.2/admissible-operations",
+        "HodgeStructuresPartII:H.2/mixed-fixed-part"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Proposition 4.2.2 and complete proof, p.26",
+          "match": "Q is a constant real mixed Hodge structure and evaluation is nonzero."
+        }
+      ],
+      "acceptance": [
+        "For constant V=R(0)⊕R(−1) and L=C trivial, Q contains both weights; evaluation is not restricted to pure multiplicity.",
+        "For V with two nonisomorphic constituents the chosen L evaluation need not cover the other constituent."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/IrreducibleEvaluation",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "irreducibleEvaluation",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "irreducibleEvaluation"
+        ],
+        "reason": "G1/G2/G6"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/algebraic-monodromy",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Algebraic monodromy group and identity component",
+      "kind": "construction",
+      "statement": "For a finite-rank K-local system L, K=Q,R,C, on connected S with base point s, define G_mon(L,s) as the Zariski closure over K of the native representation π₁(S,s)→GL(L_s). Its geometric identity component G_mon° is used for connected-monodromy statements. The coefficient field, base point and fibre identification are retained; path transport identifies groups by conjugation. Passing to a finite connected topological cover replaces the image by a finite-index subgroup and leaves G_mon° unchanged. Generic closed subgroup schemes, geometric components and representation theory belong to ReductiveGroups.",
+      "hypotheses": [
+        "Connected locally path connected base; finite-dimensional fibre over K; native local coefficient system and monodromy representation."
+      ],
+      "proofSteps": [
+        "Take the schematic reduced Zariski closure of the image in the native finite-dimensional GL group, using RG0/RG3.",
+        "Apply the native path-transport monodromy conjugacy; finite-index image gives the same identity component because its finitely many cosets cover the closure."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
+        "tauceti:TauCeti.LocalCoefficientSystem.transport",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del71",
+          "locator": "§4.2.9, pp.47–48",
+          "match": "Connected algebraic monodromy is the identity component of the closure."
+        }
+      ],
+      "acceptance": [
+        "Finite monodromy has trivial geometric identity component; infinite unitary monodromy need not."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/AlgebraicMonodromy",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "api": [
+        {
+          "name": "AlgebraicMonodromy.group",
+          "role": "constructor",
+          "statement": "The K-Zariski closure of native monodromy inside GL(L_s)."
+        },
+        {
+          "name": "AlgebraicMonodromy.identityComponent",
+          "role": "projection",
+          "statement": "The geometric identity component with its K-form in characteristic zero."
+        },
+        {
+          "name": "AlgebraicMonodromy.transport",
+          "role": "functoriality",
+          "statement": "Path transport conjugates closures; composites give coherent conjugacies."
+        },
+        {
+          "name": "AlgebraicMonodromy.finiteCover",
+          "role": "compatibility",
+          "statement": "Finite connected covers leave the identity component unchanged."
+        },
+        {
+          "name": "AlgebraicMonodromy.invariants",
+          "role": "characterisation",
+          "statement": "A vector/tensor is fixed by the closure iff fixed by every native monodromy element."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AlgebraicMonodromyTest.trivial",
+          "kind": "degenerate",
+          "statement": "A constant system has the trivial algebraic group."
+        },
+        {
+          "name": "AlgebraicMonodromyTest.finite",
+          "kind": "computation",
+          "statement": "A line with image {1,−1} has finite closure μ₂ and trivial identity component."
+        },
+        {
+          "name": "AlgebraicMonodromyTest.unipotent",
+          "kind": "computation",
+          "statement": "The Z representation m↦[[1,m],[0,1]] over Q has closure G_a, which is connected and unipotent."
+        },
+        {
+          "name": "AlgebraicMonodromyTest.unitaryInfinite",
+          "kind": "non-example",
+          "statement": "For the complex rank-one Z character m↦exp(2πiθm), θ irrational, the closure is G_m; unitarity does not force finite image or a semisimple connected algebraic group."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Del71 §4.2.9 and André92 §5",
+          "how": "Supplies the group to which semisimple/unipotent-radical conclusions apply."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.5",
+          "how": "Retains infinite unitary rank-one examples when discussing integrality."
+        }
+      ],
+      "suggestedDeclaration": "AlgebraicMonodromy",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "AlgebraicMonodromy",
+          "AlgebraicMonodromy.group",
+          "AlgebraicMonodromy.identityComponent",
+          "AlgebraicMonodromy.transport",
+          "AlgebraicMonodromy.finiteCover",
+          "AlgebraicMonodromy.invariants",
+          "AlgebraicMonodromyTest.trivial",
+          "AlgebraicMonodromyTest.finite",
+          "AlgebraicMonodromyTest.unipotent",
+          "AlgebraicMonodromyTest.unitaryInfinite"
+        ],
+        "reason": "G18; RG0/RG3"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/finite-determinant",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Finite determinant for integral polarized monodromy",
+      "kind": "lemma",
+      "statement": "For a polarizable integral VHS on a smooth connected quasiprojective complex variety, every irreducible complex constituent of its underlying local system has finite-order determinant character. A merely complex or rational polarized variation without a preserved lattice does not satisfy this conclusion in general.",
+      "hypotheses": [
+        "Finite free preserved Z-lattice; pure polarizable variation; algebraic base; irreducible complex constituent."
+      ],
+      "proofSteps": [
+        "Del71 §4.2.8: isotypic Hodge decomposition and fixed part of its endomorphisms make the determinant characters unitary.",
+        "The lattice makes eigenvalues algebraic integers and supplies all conjugate constituents, all with unit-modulus determinant. Apply the Kronecker algebraic-integer theorem; finite generation of π₁ makes the resulting torsion determinant image finite.",
+        "Record the exact Kronecker/finite-generation suppliers as gaps until declaration-level imports are verified."
+      ],
+      "prerequisites": [
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.2/isotypic-hodge",
+        "HodgeStructuresPartII:H.2/complex-fixed-part",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del71",
+          "locator": "§4.2.8(iv), pp.45–47",
+          "match": "The lattice and conjugate determinant argument are essential."
+        }
+      ],
+      "acceptance": [
+        "The irrational unitary rank-one character fails the lattice hypothesis and has infinite determinant.",
+        "A polarizable rank-one integral character has image in {1,−1}."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/FiniteDeterminant",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "finiteDeterminant",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "finiteDeterminant"
+        ],
+        "reason": "G1/G16"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/connected-semisimple",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Semisimplicity of connected integral monodromy",
+      "kind": "theorem",
+      "statement": "For a polarizable integral VHS on a connected smooth quasiprojective complex variety, the geometric connected algebraic monodromy group G_mon° is semisimple. In particular this holds for the torsion-free cohomology local systems of smooth projective polarized families. Without a preserved lattice only reductivity follows from complex PVHS semisimplicity; an irrational unitary line has G_mon°=G_m.",
+      "hypotheses": [
+        "Polarizable integral pure variation; connected smooth quasiprojective base."
+      ],
+      "proofSteps": [
+        "Underlying representation is semisimple, so the characteristic-zero closure is reductive.",
+        "After a finite cover keep the same identity component. The finite-determinant lemma makes every irreducible constituent determinant trivial on G_mon°.",
+        "Use the reductive-group decomposition: a connected central torus acts by scalar characters on irreducibles; its determinant powers being trivial forces every scalar character trivial, and faithfulness kills the torus. A connected reductive group with finite centre is semisimple."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/algebraic-monodromy",
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/finite-determinant",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.2/geometric-pure"
+      ],
+      "sources": [
+        {
+          "sourceId": "Del71",
+          "locator": "§4.2.9(a) and proof, pp.47–48",
+          "match": "Connected semisimplicity from integral polarizable monodromy."
+        }
+      ],
+      "acceptance": [
+        "A non-isotrivial elliptic family with Zariski-dense SL₂ monodromy has G_mon°=SL₂.",
+        "The infinite unitary line counterexample prevents dropping integrality."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/ConnectedSemisimple",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "connectedMonodromySemisimple",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "connectedMonodromySemisimple"
+        ],
+        "reason": "G1/G14/G16/G18"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII:H.2/mixed-monodromy",
+      "parentStageId": "HodgeStructuresPartII:H.2",
+      "realises": [
+        "HodgeStructuresPartII:H.2"
+      ],
+      "title": "Unipotent radical of connected mixed monodromy",
+      "kind": "theorem",
+      "statement": "For an admissible graded-polarizable integral VMHS on a connected smooth quasiprojective base, G_mon° has semisimple graded quotient and unipotent radical equal to the kernel of its action on ⊕_k Gr^W_k V. In particular its connected solvable radical is unipotent; the whole connected group need not be semisimple. Integral means a finite free Z-local system whose rational variation and W are as above; no integral splitting of W is assumed.",
+      "hypotheses": [
+        "Admissible graded-polarizable rational VMHS plus a preserved finite free integral lattice; connected algebraic base."
+      ],
+      "proofSteps": [
+        "Apply pure integral connected monodromy to all graded pieces, retaining the joint graded representation. Fixed part on tensor constructions or André92 §5 normality in the derived generic MT group gives semisimplicity of this joint graded image, not the unjustified claim that an arbitrary subgroup of a product of semisimple groups is semisimple.",
+        "The kernel acts as identity on each W-graded piece, hence is upper triangular unipotent. It is a normal unipotent subgroup.",
+        "The reductive graded quotient forces R_u into that kernel, and maximality gives equality; use RG5/RG6. André’s generic MT alternative and its supporting normality engine remain a recorded refinement."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.2/algebraic-monodromy",
+        "HodgeStructuresPartII:H.2/graded-variation",
+        "HodgeStructuresPartII:H.2/mixed-fixed-part",
+        "HodgeStructuresPartII:H.2/connected-semisimple",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Andre92",
+          "locator": "§5, Theorem 1, Corollaries 1–2 and proof, pp.10–11",
+          "match": "Integral good variations and connected monodromy: pure semisimplicity, mixed unipotent radical."
+        }
+      ],
+      "acceptance": [
+        "A nontrivial admissible mixed Tate logarithm variation can have connected monodromy G_a.",
+        "A split constant mixed variation has trivial monodromy even if its fibre MHS is non-split as a Hodge extension."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Variation/MixedMonodromy",
+        "namespace": "TauCeti.Hodge.Variation"
+      },
+      "suggestedDeclaration": "mixedMonodromyRadical",
+      "suggestedCoverage": {
+        "scope": "Pointwise rational/complex fibre, necessary disc data, rank-one residue or constant/product-family shadow only. No full global carrier or theorem is asserted.",
+        "represented": [],
+        "omitted": [
+          "mixedMonodromyRadical"
+        ],
+        "reason": "G1/G17/G18"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ComplexComparisonPartII:C0",
+      "need": "On algebraic analytifications, finite locally free analytic O-modules, subbundles, quotients and scalar extension must agree with holomorphic vector bundles, with local frames and sheaf tensor/exterior operations. The existing coherent-pullback node alone supplies no flat connection or smooth-Hermitian bundle. Arbitrary complex-manifold carriers remain G1 below.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.2/canonical-extension"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C1",
+      "need": "Supply the analytic sheaf/Dolbeault resolution, local logarithmic frame gluing and coherent hypercohomology interfaces on SNC complements needed for extension and unitary coefficient cohomology. Do not claim the harmonic-form Hodge theorem is part of ordinary coherent cohomology.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C5",
+      "need": "Extend the existing smooth-proper trivial-coefficient comparison node to flat local coefficients on SNC complements: the logarithmic Poincaré quasi-isomorphism Rj_*L≃DR_log(E) when residue eigenvalues avoid positive integers, and relative smooth-proper/relative-SNC de Rham comparison with the Gauss–Manin connection, local freeness and base change. Current C5 text includes nonproper curves; the full relative-SNC higher-dimensional coefficient case requires an explicit expansion of that supplier, not an assumed existing node.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/log-comparison",
+        "HodgeStructuresPartII:H.2/gauss-manin"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E1",
+      "need": "Supply ordinary sheaf-module kernels/cokernels and exact coefficient change, quotient local systems, derived global sections/pushforwards and coherent bounded logarithmic hypercohomology, compared with the already native local coefficient functor. The general enhanced derived carrier is imported, never rebuilt here.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/graded-variation",
+        "HodgeStructuresPartII:H.2/extension-exact",
+        "HodgeStructuresPartII:H.2/log-comparison",
+        "HodgeStructuresPartII:H.2/curve-cohomology-mhs"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+      "need": "Extend the intrinsic pure polarization interface from finite free integral base-change models to finite-dimensional rational and real models with the same bilinear parity and i^(2p−n) positivity sign; provide the bilinear-to-Hermitian comparison ψ=i^(−n)Q(−,conjugate(−)), dual and realification operations. No lattice or unimodularity may be inferred for complex/real systems.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/realification",
+        "HodgeStructuresPartII:H.2/graded-polarizable",
+        "HodgeStructuresPartII:H.2/geometric-pure"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+      "need": "Reuse native rational MHS, gradedHodgeStructure, Hom and strictness. Supply the real-coefficient analogue and functorial tensor, dual, internal Hom and Deligne splitting compatible with rational base change. Arbitrary complex mixed structures need two filtrations and are a separate coefficient generalization; this packet only uses real/rational VMHS and their complexification. This request does not assign cohomological mixed-Hodge-complex theory to the intrinsic L2 scope.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/mixed-variation",
+        "HodgeStructuresPartII:H.2/limit-mhs",
+        "HodgeStructuresPartII:H.2/admissible-operations",
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+        "HodgeStructuresPartII:H.2/unitary-bigrading",
+        "HodgeStructuresPartII:H.2/curve-cohomology-mhs",
+        "HodgeStructuresPartII:H.2/mixed-fixed-part"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+      "need": "Represent finite-dimensional GL_K(V), its rational points and their action on V, with the field K retained and compatibility with native group representations.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/algebraic-monodromy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+      "need": "Finite-dimensional semisimple isotypic decomposition ⊕S_i⊗Hom(S_i,V), including evaluation isomorphism and endomorphism matrix blocks, compatible with existing Mathlib irreducibility/Schur APIs; scalar action of the connected central torus on irreducibles. No duplicate Schur lemma is requested.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/isotypic-hodge",
+        "HodgeStructuresPartII:H.2/finite-determinant"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+      "need": "Zariski closure of a subgroup of GL_K(V) in characteristic zero, geometric identity components, conjugation/base change, finite-index invariance of the identity component and equality of vector/tensor invariants with those of the dense subgroup.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/algebraic-monodromy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+      "need": "A grading of a finite-dimensional matrix algebra over C by G_m, viewed as G_m→PGL(V), lifts to GL(V); any two lifts differ by an integer character. Supply the split diagonalizable central-extension calculation used in Del87 §1.14.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/isotypic-hodge"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+      "need": "A subgroup acting trivially on every step-graded quotient of a finite filtration is unipotent; compare this kernel with the maximal connected normal unipotent subgroup.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/mixed-monodromy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+      "need": "In characteristic zero a faithful completely reducible representation detects reductivity; a connected reductive group with finite centre is semisimple; control connected central tori on irreducibles. For a normal unipotent kernel with reductive quotient, the kernel is the unipotent radical.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/connected-semisimple",
+        "HodgeStructuresPartII:H.2/mixed-monodromy"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HodgeStructuresPartII:H.2",
+      "status": "planned",
+      "remaining": [
+        "Close G1–G3/G18 and the analytic/fibre/relative-filtration/algebraic-group supplier contracts; replace the partial suggested signatures with full global carriers.",
+        "Close G4–G8: pure degeneration input, Kashiwara finite-cover/curve test, real-exponent convention, local logarithmic comparison and SNC filtered extension.",
+        "Route and close G9–G11/G15: cohomological Hodge, unitary harmonic-form, mixed-Hodge-complex and real mixed-Hodge-module engines.",
+        "Close G12–G14: curve propagation, analytic fixed-part proof and full quasiprojective underlying-complex semisimplicity.",
+        "Close G16–G17: exact lattice arithmetic declarations and joint graded monodromy semisimplicity.",
+        "Read all requested supplier outputs after their reviews; ShimuraData:D3 and LPV.1 are needs_changes plans, not accepted/native implementations."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "G1 — Global analytic variation carriers",
+      "detail": "The native fibre and local coefficient libraries do not bundle complex manifolds, smooth/holomorphic vector bundles, flat analytic connections, sesquilinear bundle metrics and holomorphic/antiholomorphic type subbundles. H.0 and ShimuraData:D3 are conditional plans (D3 review needs_changes), not implementations. C0 only covers algebraic analytifications. The suggested file therefore exposes actual native local systems and fibre flags but omits the differential/holomorphic conditions and all global signatures that require them; it must not be interpreted as a full variation definition.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.2/realification",
+        "HodgeStructuresPartII:H.2/mixed-variation",
+        "HodgeStructuresPartII:H.2/graded-variation",
+        "HodgeStructuresPartII:H.2/graded-polarizable",
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "HodgeStructuresPartII:H.2/filtered-extension",
+        "HodgeStructuresPartII:H.2/gauss-manin"
+      ]
+    },
+    {
+      "title": "G2 — Real and complex coefficient fibre generalizations",
+      "detail": "Native MixedHodgeStructure is rational with abstract integral/rational/complex base-change data, and native pure polarization starts from an integral bilinear form. No finite free lattice follows from those abstract data. Real MHS/polarizations and arbitrary complex mixed two-filtration structures need the L1/L2 contracts above. Rational fibres can be tested natively; a real condition is not replaced by an opaque proposition in Lean.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/realification",
+        "HodgeStructuresPartII:H.2/mixed-variation",
+        "HodgeStructuresPartII:H.2/graded-polarizable",
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+        "HodgeStructuresPartII:H.2/mixed-fixed-part",
+        "HodgeStructuresPartII:H.2/irreducible-real-form"
+      ]
+    },
+    {
+      "title": "G3 — Relative monodromy carrier supplier",
+      "detail": "LPV.1/monodromy-filtration and /relative-monodromy-uniqueness already own the linear algebra; their packet is needs_changes. The exact unique relative-filtration contract is imported, but there is no installed Lean bundled carrier or finite-cover naturality interface. The suggested file uses explicit necessary equations on supplied filtrations, without claiming uniqueness or existence of a full relative filtration.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/admissible-disc",
+        "HodgeStructuresPartII:H.2/limit-mhs",
+        "HodgeStructuresPartII:H.2/admissible-operations"
+      ]
+    },
+    {
+      "title": "G4 — Pure analytic degeneration input to SZ85 A.9",
+      "detail": "The complete Schmid one-variable pure graded degeneration proof (limiting Hodge flag, monodromy-centred purity and N type) cited in SZ85 A.9 has not been read/closed here. This is an external proof gap, not an H.6 prerequisite: H.6 already consumes H.2, so adding that edge creates a cycle. H.2 supplies only its mixed admissibility consequence; H.6 owns orbit estimates and multi-variable refinements.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/limit-mhs",
+        "HodgeStructuresPartII:H.2/filtered-extension"
+      ]
+    },
+    {
+      "title": "G5 — Curve-test and finite-cover invariance",
+      "detail": "Peters Appendix A states Kashiwara curve-test/compactification invariance and the finite-cover trick but does not prove the full statements. Read Kashiwara §§1.7–1.8 and prove compatibility of the graded-compatible limit with ramification, descent and all SNC arcs. No check restricted to generic transverse arcs suffices.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/admissible-disc",
+        "HodgeStructuresPartII:H.2/admissible-variation",
+        "HodgeStructuresPartII:H.2/admissible-operations",
+        "HodgeStructuresPartII:H.2/filtered-extension"
+      ]
+    },
+    {
+      "title": "G6 — General real admissibility versus the finite-cover convention",
+      "detail": "LL24 Theorem 4.1.1 permits arbitrary orthogonal/unitary real coefficients and uses real mixed Hodge modules. Such coefficients need not have quasi-unipotent boundary monodromy: a product family with an irrational unitary rank-two real character pulled from the base is a counterexample to that implication. This packet states its finite-cover admissibility corollary with quasi-unipotence explicit. Supply a precise real-exponent/R-specializable admissibility definition and the comparison with that corollary before exporting LL24 in its unrestricted form. This is a convention/proof gap, not a claim of an error in LL24.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/admissible-variation",
+        "HodgeStructuresPartII:H.2/unitary-curve-family",
+        "HodgeStructuresPartII:H.2/irreducible-evaluation"
+      ]
+    },
+    {
+      "title": "G7 — Logarithmic comparison local proof",
+      "detail": "Del70 II.6.10 and its hypotheses were read; the complete local proof in II.3.15 and II.6.9 has not been closed. C5 must supply the coefficient logarithmic Poincaré lemma and its sheaf hypercohomology/relative comparison interfaces. Ordinary proper trivial-coefficient comparison is not enough.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/log-comparison",
+        "HodgeStructuresPartII:H.2/gauss-manin"
+      ]
+    },
+    {
+      "title": "G8 — Filtered extension beyond a disc",
+      "detail": "The unipotent disc construction and SZ85 §5.26 exactness were read. Quasi-unipotent descended filtrations and global SNC locally free intersections/graded quotients need the multi-variable extension theorem (LL22 points to Brunebarbe §7). Until supplied, the construction node promises the disc interface and records global SNC gluing as this gap.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/filtered-extension"
+      ]
+    },
+    {
+      "title": "G9 — Cohomological pure Hodge and polarization engine",
+      "detail": "The intrinsic upstream Hodge library supplies fibre structures and Hodge–Riemann predicates, not the cohomology-to-Hodge decomposition, relative E₁ degeneration, Hard Lefschetz or geometric Hodge–Riemann theorem. Del71’s geometric argument assumes these. The upstream document places this in its separate bicomplex/cohomological sibling (issue 173), without an atlas stage we can honestly name as supplier. Record this routing need; do not add a false L0/L1 request for a cohomological theorem.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/geometric-pure"
+      ]
+    },
+    {
+      "title": "G10 — Unitary harmonic-form coefficient theorem",
+      "detail": "Timm87 §5.1 explicitly reduces to Timmerscheidt’s appendix in Esnault–Viehweg, Inventiones 86 (1986), 161–194. Its L²/logarithmic harmonic-form proof has not been read, nor has the required Kähler-identity resolution been verified in the baseline. C1 supplies sheaf analysis only; the Hodge decomposition analytic engine remains a separate proof input.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber"
+      ]
+    },
+    {
+      "title": "G11 — Mixed-Hodge-complex cohomology engine",
+      "detail": "Timm87 §6.4 and SZ85 §4 construct filtered coefficient log complexes and invoke Deligne mixed-Hodge-complex theory and Zucker pure-coefficient cohomology. The intrinsic L2 scope does not own cohomological mixed Hodge complexes; no suitable reviewed node was found in the catalogue screen. The next pass must route a general mixed-Hodge-complex/cohomology supplier (the bicomplex sibling is a lead), then read the exact Deligne III and Zucker theorem proofs. Do not duplicate generic derived sheaves in H.2.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+        "HodgeStructuresPartII:H.2/curve-cohomology-mhs"
+      ]
+    },
+    {
+      "title": "G12 — Curve reduction and global fixed-part formal interface",
+      "detail": "Katz §4.3.4.0’s complete argument was read. It uses existence of smooth affine algebraic curves through nearby points and analytic propagation of flat sections. For the mixed case use the functorial native Deligne splitting on fibre MHS to propagate every component; a restriction to a larger curve-invariant space alone does not prove the global invariant subspace is a sub-MHS. The curve-existence/analytic propagation declarations and their owner have not been verified.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/mixed-fixed-part"
+      ]
+    },
+    {
+      "title": "G13 — General complex fixed-part analytic proof",
+      "detail": "Del87 §1.11’s entire printed norm argument was read, but its cited Schmid norm bounds and Griffiths horizontal-Hodge-component theorem were not. Obtain their exact noncompact hypotheses and complete proof. This gap is not resolved by assuming quasi-unipotence or a lattice on a complex PVHS.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/complex-fixed-part"
+      ]
+    },
+    {
+      "title": "G14 — Underlying complex semisimplicity proof",
+      "detail": "Del87 §1.12 cites Nori for the semisimplicity of the underlying complex local system in the algebraic/Kähler compactification setting; the proof is not printed there. LL22 gives the punctured-projective-curve statement; Simpson92 harmonic-metric correspondence gives the projective case, not the entire quasiprojective claim. Locate/read a published proof in the required generality or refine via curve restriction with a proven fundamental-group surjectivity theorem.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/isotypic-hodge",
+        "HodgeStructuresPartII:H.2/connected-semisimple"
+      ]
+    },
+    {
+      "title": "G15 — Family real mixed-Hodge-module direct images",
+      "detail": "LL24 Theorem 4.1.1 uses Saito/Schnell real mixed Hodge modules, Rj_*, proper Rπ_* and the locally constant smooth-object criterion (Schnell Theorem 21.1). These are not consequences of the fibre Timm87 theorem and were not independently read. No existing atlas owner supplying exactly real mixed Hodge modules was found. Route this general engine before claiming the family graded-polarizable/admissible result closed.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/unitary-curve-family"
+      ]
+    },
+    {
+      "title": "G16 — Lattice determinant arithmetic inputs",
+      "detail": "Read the Del71 §4.2.8 proof, but verify exact pinned Kronecker algebraic-integer and finite-generation-of-π₁ declarations or supply their owning stages. The all-conjugates/unit-modulus argument uses a preserved lattice; do not replace it with merely rational coefficients or invoke bounded complex unitary image as finite.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/finite-determinant"
+      ]
+    },
+    {
+      "title": "G17 — Joint graded monodromy semisimplicity",
+      "detail": "The image of the joint graded representation is not semisimple merely because each separate graded closure is semisimple. André92 §5 applies fixed part to all tensor constructions and generic derived MT normality. Supply that precise normality/representation engine, with generic MT distinguished from special-fibre MT and coefficient lattices retained, or prove the determinant/central-torus argument simultaneously for all graded weights.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/mixed-monodromy"
+      ]
+    },
+    {
+      "title": "G18 — Installed algebraic-group signatures",
+      "neededBy": [
+        "HodgeStructuresPartII:H.2/algebraic-monodromy",
+        "HodgeStructuresPartII:H.2/connected-semisimple",
+        "HodgeStructuresPartII:H.2/mixed-monodromy"
+      ],
+      "detail": "Generic GL group schemes, K-Zariski closures, geometric identity components and unipotent radicals are supplier contracts RG0/RG3/RG5/RG6, not installed typed carriers used by this suggested file. Omit the group-valued definitions, group properties and their tests until those interfaces are available; a native abstract group representation alone does not supply an algebraic-group scheme."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HodgeStructuresPartII/E1",
+      "source": "Del70",
+      "kind": "error",
+      "locator": "II, Théorème 1.23 and Proposition 1.24; April 1971 erratum, p.1",
+      "printed": "Under the hypotheses II.1.23(a)–(c), the regularity locus of the relative connection is asserted to be closed: « est fermé dans S ». (Theorem statement, printed p.58.)",
+      "correction": "Remove II.1.23 and II.1.24 as stated; the vector-field argument needs a no-poles assumption. For the regularity result II.4.1 use the erratum proof through canonical extension, resolution and meromorphic detection; use its corrected references on pp.124 and 127.",
+      "reason": "Allowing poles in the vector field invalidates the asserted restriction argument. Deligne’s published erratum explicitly removes those results and replaces the dependent regularity proof. This packet uses corrected II.4.1 and II.5, never the deleted statements.",
+      "affects": "a stated result",
+      "known": "Deligne, Erratum to LNM 163, April 1971, all three pages (source Del70Err).",
+      "searched": [
+        "IAS publication page and original LNM scan",
+        "IAS April 1971 erratum, all three pages"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://publications.ias.edu/sites/default/files/Number9.pdf?download=1",
+      "citation": "Lecture Notes in Mathematics 163 (1970), IAS public scan; corrected by April 1971 erratum",
+      "read": "2026-10-07",
+      "sha256": "0dc37edd7758198cc4cd7ebed0dae63ff821336cebe739636a31591671593ba2"
+    },
+    {
+      "kind": "published",
+      "url": "https://publications.ias.edu/sites/default/files/Erratum%20to%20SLN%20163.pdf?download=1",
+      "citation": "April 1971, all three pages",
+      "read": "2026-10-07",
+      "sha256": "d603a393015cec4ed55a7ee852957b513526379092ad89231ec6f66e4ec59d2b"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PMIHES_1971__40__5_0.pdf",
+      "citation": "Publications Mathématiques de l’IHÉS 40 (1971), 5–58, published scan",
+      "read": "2026-10-07",
+      "sha256": "748edefb44fded8af67869abfed87062d66977d25b5d12f7d014f1810a063c3f"
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0080/LOG_0032.pdf",
+      "citation": "Inventiones Mathematicae 80 (1985), 489–542, GDZ published scan",
+      "read": "2026-10-07",
+      "sha256": "d8a41457f4174ac5844ca2129c3db842e5f0ae37e8e8c4ec3bcdb006627e88ad"
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0379/LOG_0011.pdf",
+      "citation": "Journal für die reine und angewandte Mathematik 379 (1987), 152–171, GDZ published scan",
+      "read": "2026-10-07",
+      "sha256": "603f6c75a04fdc3fd5035764d6119ceb6c0f4ce3668bb62bf7b460e7b3e65025"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/CM_1992__82_1_1_0.pdf",
+      "citation": "Compositio Mathematica 82 (1992), 1–24, published PDF",
+      "read": "2026-10-07",
+      "sha256": "074b1c8edfaef320e24b617bf4dda594e80ac5f555f28dc8cee9fcb371d2d14e"
+    },
+    {
+      "kind": "published",
+      "url": "https://web.math.princeton.edu/~nmk/old/algsoln.pdf",
+      "citation": "Inventiones Mathematicae 18 (1972), 1–118, author-hosted GDZ scan",
+      "read": "2026-10-07",
+      "sha256": "bc428a0280a71c5237ca99db058ca9117f045bf640660e69ba30a1d97759b836"
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/HodgeStructures"
+      ],
+      "note": "Its native rational MixedHodgeStructure permits an arbitrary abelian integral carrier. Setting V_Z=V_Q as a Z-module gives a rational fibre without a finite free lattice. Real-coefficient MHS and polarization are missing extensions; preserve this distinction in the L1/L2 coefficient API. The upstream document explicitly points to a separate cohomological/bicomplex sibling (TauCetiRoadmap issue 173); intrinsic Hodge predicates alone do not prove the geometric Hodge theorem."
+    }
+  ],
+  "readingAudit": {
+    "upstreamDocuments": [
+      "content/tau-ceti/HodgeStructures/README.md",
+      "content/tau-ceti/UniversalCovers/README.md"
+    ],
+    "libraryAudit": "data/library-coverage.json: no HodgeStructuresPartII entry; parent L0/L1/L3 built and L2 partly built. Read the exact native MHS and strictness statements rather than plan these again.",
+    "importReviewBoundary": "Parent DESIGN-HodgeStructuresPartII accepted; ShimuraData and LefschetzPencilsAndVanishingCycles--LPV.0 need_changes; ComplexComparisonPartII is a pending repair packet. Exact imported IDs are plans, not Lean library declarations.",
+    "catalogueScreen": "Read roadmap, parent packet coverage, catalogue stages, relevant links and exact supplier nodes. General connections/Higgs/Rees remain H.0, generic comparisons C5, intrinsic fibre Hodge upstream, linear monodromy LPV.1; H.1/H.3–H.8 are consumers or separate owners."
+  },
+  "suggestedCheck": {
+    "fullFile": "Attempted with lean-check; not elaborated: missing cached TauCeti.AlgebraicTopology.LocalCoefficient object, before type checking. No library build, cache fetch or language server was started.",
+    "mathlibProbe": "Separate Mathlib-only residue, necessary relative-filtration and invariant tests elaborated with placeholder-proof warnings only; this is not a full suggested-file check.",
+    "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "sharedTauSourceCommit": "cf386627e9176a3827c1a5fe804989fd94a4d216",
+    "sourceAgreement": "All 23 transitive TauCeti imports of the suggested file have unchanged source bytes between f790474821cf4256814db967cb154e7af3d0c369 and the shared source HEAD. Required TauCeti cached objects are absent.",
+    "memory": "At least 96 GiB available before checks.",
+    "representedNames": 64,
+    "omittedNames": 66
+  }
+}

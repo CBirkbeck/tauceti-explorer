@@ -458,7 +458,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§3.2, printed pp.53–55",
-          "excerpt": "random access machine",
           "match": "Exact instruction model, with explicit failure for undefined addresses or division by zero."
         }
       ],
@@ -538,7 +537,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§3.2, printed pp.53–55",
-          "excerpt": "random access machine",
           "match": "Exact instruction model, with explicit failure for undefined addresses or division by zero."
         }
       ],
@@ -615,7 +613,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§3.2, printed pp.53–55",
-          "excerpt": "random access machine",
           "match": "Exact instruction model, with explicit failure for undefined addresses or division by zero."
         }
       ],
@@ -695,7 +692,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§3.2, printed pp.53–55",
-          "excerpt": "random access machine",
           "match": "Exact instruction model, with explicit failure for undefined addresses or division by zero."
         }
       ],
@@ -778,7 +774,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§3.6, printed p.72",
-          "excerpt": "model of computation",
           "match": "Unit-cost RAM arithmetic and bit/circuit costs are distinct."
         }
       ],
@@ -858,7 +853,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§§3.2,3.6, pp.55,72",
-          "excerpt": "model of computation",
           "match": "A quantitative transfer with an explicit per-instruction bound, without a constant-factor claim."
         }
       ],
@@ -894,7 +888,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–5.3, pp.7–9",
-          "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
       ],
@@ -977,7 +970,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–5.3, pp.7–9",
-          "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
       ],
@@ -1054,7 +1046,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–5.3, pp.7–9",
-          "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
       ],
@@ -1089,7 +1080,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–5.3, pp.7–9",
-          "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
       ],
@@ -1124,7 +1114,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–5.3, pp.7–9",
-          "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
       ],
@@ -1159,7 +1148,6 @@
         {
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19",
-          "excerpt": "floating-point",
           "match": "Finite precision is a coset; the zero-centered case and absolute precision are explicit."
         }
       ],
@@ -1247,7 +1235,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§3.2, printed pp.54–55",
-          "excerpt": "bounded in absolute value",
           "match": "Retains the source’s magnitude condition separately from raw machine executions."
         }
       ],
@@ -1325,7 +1312,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -1409,7 +1395,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -1487,7 +1472,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -1525,7 +1509,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -1557,7 +1540,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§10.2, pp.308–310",
-          "excerpt": "Miller–Rabin test",
           "match": "The strong-liar set with the actual uniform sampling space."
         }
       ],
@@ -1637,7 +1619,6 @@
         {
           "sourceId": "Shoup",
           "locator": "Theorem 10.3, prime-input case, p.309",
-          "excerpt": "Miller–Rabin test",
           "match": "No false rejection for odd prime inputs."
         }
       ],
@@ -1671,7 +1652,6 @@
         {
           "sourceId": "Shoup",
           "locator": "Theorem 10.3, pp.309–312",
-          "excerpt": "Miller–Rabin test",
           "match": "Exact one-quarter bound; denominator n−1 rather than φ(n)."
         }
       ],
@@ -1708,7 +1688,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§10.2 algorithm and Theorem 10.3, pp.309–312",
-          "excerpt": "Miller–Rabin test",
           "match": "Independent repetition gives error at most 4^(−k)."
         }
       ],
@@ -1740,7 +1719,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§21.2, pp.549–550; Figure 21.1, p.550",
-          "excerpt": "Algorithm AKS",
           "match": "Uses Shoup’s exact parameter search, not a silently substituted AKS variant."
         }
       ],
@@ -1814,7 +1792,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§21.2, pp.549–550; Figure 21.1, p.550",
-          "excerpt": "Algorithm AKS",
           "match": "The polynomial checks in the actual ring modulo n."
         }
       ],
@@ -1891,7 +1868,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§21.2, pp.549–550; Figure 21.1, p.550",
-          "excerpt": "Algorithm AKS",
           "match": "All branches and the precise truncation parameter of the source algorithm."
         }
       ],
@@ -1972,7 +1948,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§21.2 and Lemmas 21.6–21.11, pp.549–558",
-          "excerpt": "Algorithm AKS",
           "match": "Unconditional correctness, separately from the cost model."
         }
       ],
@@ -2004,7 +1979,6 @@
         {
           "sourceId": "Thery",
           "locator": "Theorem 6.1 and corrected Theorem 6.2, p.9",
-          "excerpt": "Pocklington",
           "match": "The read proof gives the partial-factor criterion; replace the printed F>N by F²>N."
         }
       ],
@@ -2038,7 +2012,6 @@
         {
           "sourceId": "Thery",
           "locator": "Theorem 6.1 and corrected Theorem 6.2, p.9",
-          "excerpt": "Pocklington",
           "match": "The read proof gives the partial-factor criterion; replace the printed F>N by F²>N."
         }
       ],
@@ -2075,7 +2048,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -2159,7 +2131,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -2196,7 +2167,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -2232,7 +2202,6 @@
         {
           "sourceId": "Thery",
           "locator": "Theorem 6.1 and corrected Theorem 6.2, p.9",
-          "excerpt": "Pocklington",
           "match": "The read proof gives the partial-factor criterion; replace the printed F>N by F²>N."
         }
       ],
@@ -2313,7 +2282,6 @@
         {
           "sourceId": "Thery",
           "locator": "Theorem 6.1 and corrected Theorem 6.2, p.9",
-          "excerpt": "Pocklington",
           "match": "The read proof gives the partial-factor criterion; replace the printed F>N by F²>N."
         }
       ],
@@ -2348,7 +2316,6 @@
         {
           "sourceId": "Shoup",
           "locator": "Theorem 19.14, pp.515–516; Chapter 20",
-          "excerpt": "finite fields",
           "match": "The finite-field algorithms remain FF.3 imports; this declaration transports their checked output through a fixed presentation."
         }
       ],
@@ -2380,7 +2347,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§16.5–16.6, pp.439–441",
-          "excerpt": "minimal polynomial",
           "match": "Uses exact rational polynomials and irreducibility; a complete integer/rational factor search and its source decomposition remain a stated gap."
         }
       ],
@@ -2465,7 +2431,6 @@
         {
           "sourceId": "Shoup",
           "locator": "§16.5–16.6, pp.439–441",
-          "excerpt": "minimal polynomial",
           "match": "Exact-field output contract. The full integer/rational algorithm is a target with a separately recorded unread proof source, not attributed as a theorem of these sections."
         }
       ],
@@ -2543,7 +2508,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, Proposition 9.3, pp.234–235",
-          "excerpt": "number rings",
           "match": "The multiplier ring of the p-radical is the improving overorder."
         }
       ],
@@ -2621,7 +2585,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, pp.233–235",
-          "excerpt": "number rings",
           "match": "The p-primary overorder and the condition that R already equals its p-saturation."
         }
       ],
@@ -2702,7 +2665,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, pp.233–234",
-          "excerpt": "number rings",
           "match": "Computing the p-radical as a Frobenius kernel in R/pR."
         }
       ],
@@ -2736,7 +2698,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§12, pp.248–250",
-          "excerpt": "number rings",
           "match": "Corrects the torsion convention when using the regulator as a stopping certificate."
         }
       ],
@@ -2774,7 +2735,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§12, pp.248–252",
-          "excerpt": "number rings",
           "match": "Separates relation-lattice completeness from mere discovery and makes the positive-integer stopping argument explicit."
         }
       ],
@@ -2808,7 +2768,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, pp.233–235",
-          "excerpt": "number rings",
           "match": "General full-order coordinates replace the initial monogenic basis after an overorder step."
         }
       ],
@@ -2888,7 +2847,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§2, pp.212–213, Theorem 2.2; §7, p.226; §9, pp.233–235",
-          "excerpt": "number rings",
           "match": "The native finite multiplication-stable lattice is integral by its multiplication-matrix characteristic polynomial and Cayley–Hamilton. The quoted number-ring theorem supplies the integral-element context; the exact certificate adapter is a formalization design."
         }
       ],
@@ -2924,7 +2882,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "Equation (9-2) and following paragraph, pp.234–235",
-          "excerpt": "number rings",
           "match": "The p-radical and its finite-algebra computation."
         }
       ],
@@ -3004,7 +2961,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "Proposition 9.3 and its proof, p.235",
-          "excerpt": "number rings",
           "match": "The exact local stopping criterion; no monogenic or unramified assumption is added."
         }
       ],
@@ -3044,7 +3000,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, pp.233–235",
-          "excerpt": "number rings",
           "match": "The p-primary overorders at all critical primes generate the maximal order."
         }
       ],
@@ -3130,7 +3085,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, pp.233–235",
-          "excerpt": "number rings",
           "match": "The local-to-global Pohst–Zassenhaus algorithm with an independent stopping criterion."
         }
       ],
@@ -3207,7 +3161,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§9, pp.234–235; §12, p.248",
-          "excerpt": "number rings",
           "match": "General maximal-order quotient algebra computations handle common index divisors."
         }
       ],
@@ -3290,7 +3243,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§12, exact sequence and relation matrix, p.248",
-          "excerpt": "number rings",
           "match": "The found relation lattice is a sublattice of the full relation kernel."
         }
       ],
@@ -3372,7 +3324,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§12, formula for h′, p.248",
-          "excerpt": "number rings",
           "match": "The relation quotient order is an integer multiple of the true class number."
         }
       ],
@@ -3408,7 +3359,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§12, pp.245–248",
-          "excerpt": "number rings",
           "match": "An unconditional complete factor base comes from Minkowski, independent of relation discovery."
         }
       ],
@@ -3444,7 +3394,6 @@
         {
           "sourceId": "NumberRings",
           "locator": "§12, pp.248–252",
-          "excerpt": "number rings",
           "match": "This is the actual joint completeness condition, with torsion retained."
         }
       ],
@@ -3476,7 +3425,6 @@
         {
           "sourceId": "GMN",
           "locator": "§1.2, Definition 1.6, p.7",
-          "excerpt": "φ-adic development",
           "match": "Euclidean division by a monic positive-degree polynomial gives the exact expansion used by the residual polygon algorithm."
         }
       ],
@@ -3557,7 +3505,6 @@
         {
           "sourceId": "GMN",
           "locator": "§1.2, p.7",
-          "excerpt": "min",
           "match": "The coefficientwise valuation on integral polynomials, including zero at infinity."
         }
       ],
@@ -3635,7 +3582,6 @@
         {
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19",
-          "excerpt": "precision",
           "match": "The finite p-adic remainder convention extends to a supplied discretely valued local field; chosen residue lifts are additional data, not an existing layer-0 extraction theorem."
         }
       ],
@@ -3716,7 +3662,6 @@
         {
           "sourceId": "Stein",
           "locator": "Lemma 2.20 and Remark 2.21, pp.20–21",
-          "excerpt": "Miller basis",
           "match": "Defines the integral structure whose explicit basis is certified; keep cusp and full modular spaces distinct."
         }
       ],
@@ -3799,7 +3744,6 @@
         {
           "sourceId": "Stein",
           "locator": "Lemma 2.20, pp.20–21",
-          "excerpt": "Miller basis",
           "match": "The Miller basis is a basis of cusp forms with integral coefficients."
         }
       ],
@@ -3881,7 +3825,6 @@
         {
           "sourceId": "Stein",
           "locator": "Algorithm 2.18 and Lemma 2.20, pp.19–21",
-          "excerpt": "Miller basis",
           "match": "Constructs the unitriangular integral basis, with normalization explicit."
         }
       ],
@@ -3967,7 +3910,6 @@
         {
           "sourceId": "Stein",
           "locator": "Theorem 9.18, pp.171–172, level-one case",
-          "excerpt": "Sturm",
           "match": "Congruence vanishing with the prime-ideal reduction condition."
         }
       ],
@@ -4005,7 +3947,6 @@
         {
           "sourceId": "BCG",
           "locator": "§2.3, proof of Theorem 2.4, p.515",
-          "excerpt": "a107(f)",
           "match": "The stated exact coefficient and ordinary reduction, with unit-constant Eisenstein normalization."
         }
       ],
@@ -4039,7 +3980,6 @@
         {
           "sourceId": "BCG",
           "locator": "§2.3, p.515",
-          "excerpt": "a107(f)",
           "match": "Separates exact coefficient recovery from its short modular check."
         }
       ],
@@ -4074,7 +4014,6 @@
         {
           "sourceId": "Stein",
           "locator": "Proposition 2.31, p.24; Lemma 2.20, pp.20–21",
-          "excerpt": "modular function",
           "match": "The coefficient recurrence in an integral basis determines exact matrices."
         }
       ],
@@ -4156,7 +4095,6 @@
         {
           "sourceId": "Stein",
           "locator": "Proposition 2.31, p.24; Lemma 2.20, pp.20–21",
-          "excerpt": "modular function",
           "match": "Exact integer coordinates precede reduction modulo a prime."
         }
       ],
@@ -4239,7 +4177,6 @@
         {
           "sourceId": "BCG",
           "locator": "Corollary 3.2 proof, p.518",
-          "excerpt": "non-ordinary",
           "match": "The finite determinant witness for the routed weight-38 example."
         }
       ],
@@ -4275,7 +4212,6 @@
         {
           "sourceId": "BCG",
           "locator": "Corollary 3.2 and Remark 3.3, p.518",
-          "excerpt": "non-ordinary",
           "match": "Exact determinant criterion for the finite computations; the Galois interpretation is imported."
         }
       ],
@@ -4352,7 +4288,6 @@
         {
           "sourceId": "BCG",
           "locator": "Remark 3.3, p.518",
-          "excerpt": "second smallest",
           "match": "A finite exhaustive theorem, not only two positive examples."
         }
       ],
@@ -4387,7 +4322,6 @@
         {
           "sourceId": "BCG",
           "locator": "Remark 3.3, p.518; reviewed routed item",
-          "excerpt": "non-ordinary",
           "match": "The routed exhaustive pair table, with its stated range."
         }
       ],
@@ -4425,7 +4359,6 @@
         {
           "sourceId": "BCG",
           "locator": "Theorem 2.4 proof, p.515",
-          "excerpt": "cohomological normalization",
           "match": "The complete companion target, with the inverse cyclotomic convention translated explicitly."
         }
       ],
@@ -4464,7 +4397,6 @@
         {
           "sourceId": "BCG",
           "locator": "Theorem 2.1 and §2.3, pp.513–515; Remark 3.3, p.518",
-          "excerpt": "companion form",
           "match": "The complete residual eigenvalue convention for the ordinary computation."
         }
       ],
@@ -4545,13 +4477,11 @@
         {
           "sourceId": "BCG",
           "locator": "Remark 3.3, p.518; ComputationalNumberTheory/E11",
-          "excerpt": "companion form",
           "match": "Retains the valid primes and explicitly removes the failed 151 witnesses."
         },
         {
           "sourceId": "CG13",
           "locator": "§§6–7, pp.11–12 and appendix table C, p.14",
-          "excerpt": "companion forms",
           "match": "The table lists the smaller weight of each ordinary companion pair: at p=151 it is 52, so the partner weight is 100; both fail the BCG gcd hypothesis. This checks the table binding, not complete simultaneous-eigensystem certificates."
         }
       ],
@@ -4585,7 +4515,6 @@
         {
           "sourceId": "Arb",
           "locator": "§3.1.2, p.5; §4, p.6; §5, p.7",
-          "excerpt": "Multiplication",
           "match": "Arb supplies enclosure arithmetic and its inclusion requirement. The four-corner exact rational endpoint formula is an ordered-field adapter designed here; it is not quoted as Arb’s midpoint-radius formula."
         }
       ],
@@ -4665,7 +4594,6 @@
         {
           "sourceId": "Arb",
           "locator": "§3.1.2, p.5; §4, p.6; §5, p.7",
-          "excerpt": "Multiplication",
           "match": "Arb supplies enclosure arithmetic and its inclusion requirement. The four-corner exact rational endpoint formula is an ordered-field adapter designed here; it is not quoted as Arb’s midpoint-radius formula."
         }
       ],
@@ -4699,7 +4627,6 @@
         {
           "sourceId": "Arb",
           "locator": "§3.1, pp.4–6; §5, pp.7–8",
-          "excerpt": "error",
           "match": "Directed enclosing arithmetic motivates the adapter. The exact reciprocal reverses endpoints and is defined only when the rational interval excludes zero; its ordered-field proof is a formalization design."
         }
       ],
@@ -4779,7 +4706,6 @@
         {
           "sourceId": "Arb",
           "locator": "§3.1, pp.4–6; §5, pp.7–8",
-          "excerpt": "error",
           "match": "Directed enclosing arithmetic motivates the adapter. The exact reciprocal reverses endpoints and is defined only when the rational interval excludes zero; its ordered-field proof is a formalization design."
         }
       ],
@@ -4813,7 +4739,6 @@
         {
           "sourceId": "Arb",
           "locator": "§3.1, p.4; §5, p.7",
-          "excerpt": "rounding",
           "match": "Directed rounding motivates this exact rational floor/ceiling grid adapter; its explicit width estimate is proved from ordered-field inequalities."
         }
       ],
@@ -4893,7 +4818,6 @@
         {
           "sourceId": "Arb",
           "locator": "§3.1, p.4; §5, p.7",
-          "excerpt": "rounding",
           "match": "Directed rounding motivates this exact rational floor/ceiling grid adapter; its explicit width estimate is proved from ordered-field inequalities."
         }
       ],
@@ -4927,7 +4851,6 @@
         {
           "sourceId": "Arb",
           "locator": "§2.3, pp.3–4",
-          "excerpt": "integer",
           "match": "Exact recovery from a rigorous enclosure also requires integrality of the target."
         }
       ],
@@ -5003,7 +4926,6 @@
         {
           "sourceId": "Arb",
           "locator": "§2.3, pp.3–4",
-          "excerpt": "integer",
           "match": "Separates numerical enclosure from the independent integrality input."
         }
       ],
@@ -5037,7 +4959,6 @@
         {
           "sourceId": "CT",
           "locator": "Remark 2.11, pp.281–282",
-          "excerpt": "effective elements",
           "match": "The effectivity restriction makes entrywise rational lower bounds sufficient."
         }
       ],
@@ -5069,7 +4990,6 @@
         {
           "sourceId": "CT",
           "locator": "Remark 2.11, pp.281–282",
-          "excerpt": "effective elements",
           "match": "Explicit general-vector alternative; the source uses the weaker effective-vector condition."
         }
       ],
@@ -5104,7 +5024,6 @@
         {
           "sourceId": "CT",
           "locator": "Algorithm 2.4.4, pp.282–283",
-          "excerpt": "Check rigorously",
           "match": "Only the final rigorous inequality certifies the search result."
         }
       ],
@@ -5189,7 +5108,6 @@
         {
           "sourceId": "CT",
           "locator": "Algorithm 2.4.4, step 4, pp.282–283",
-          "excerpt": "Check rigorously",
           "match": "The exact endpoint check implies the real quadratic inequality."
         }
       ],
@@ -5225,7 +5143,6 @@
         {
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19, corrected error computation",
-          "excerpt": "precision",
           "match": "Uses the read absolute-precision formulas, correcting the printed second-order and inverse-radius slips."
         }
       ],
@@ -5311,7 +5228,6 @@
         {
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19, corrected error computation",
-          "excerpt": "precision",
           "match": "Uses the read absolute-precision formulas, correcting the printed second-order and inverse-radius slips."
         }
       ],
@@ -5388,7 +5304,6 @@
         {
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19, corrected error computation",
-          "excerpt": "precision",
           "match": "Uses the read absolute-precision formulas, correcting the printed second-order and inverse-radius slips."
         }
       ],
@@ -5471,7 +5386,6 @@
         {
           "sourceId": "CarusoPublished",
           "locator": "§2.1.1, pp.17–19, corrected error computation",
-          "excerpt": "precision",
           "match": "Uses the read absolute-precision formulas, correcting the printed second-order and inverse-radius slips."
         }
       ],
@@ -5551,7 +5465,6 @@
         {
           "sourceId": "Arb",
           "locator": "§5 and §5.3, pp.7–8",
-          "excerpt": "rectangular complex intervals",
           "match": "Product boxes preserve enclosure semantics and make branch-cut crossings explicit."
         }
       ],
@@ -5629,7 +5542,6 @@
         {
           "sourceId": "CL",
           "locator": "§3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint",
-          "excerpt": "restes",
           "match": "Public French counterpart of CL19 Proposition 9.3.18 and p.277; the English publication was not collated in this pass."
         }
       ],
@@ -5709,7 +5621,6 @@
         {
           "sourceId": "CL",
           "locator": "§3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint",
-          "excerpt": "restes",
           "match": "Public French counterpart of CL19 Proposition 9.3.18 and p.277; the English publication was not collated in this pass."
         }
       ],
@@ -5744,7 +5655,6 @@
         {
           "sourceId": "CL",
           "locator": "§3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint",
-          "excerpt": "restes",
           "match": "Public French counterpart of CL19 Proposition 9.3.18 and p.277; the English publication was not collated in this pass."
         }
       ],
@@ -5782,13 +5692,11 @@
         {
           "sourceId": "CL",
           "locator": "§3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint",
-          "excerpt": "restes",
           "match": "Public French counterpart of CL19 Proposition 9.3.18 and p.277; the English publication was not collated in this pass."
         },
         {
           "sourceId": "CT",
           "locator": "Proposition 4.4 and proof, pp.298–299",
-          "excerpt": "formulas",
           "match": "The G formulas and the Fourier normalization; the positivity implication has a separate GRH hypothesis."
         }
       ],
@@ -5872,13 +5780,11 @@
         {
           "sourceId": "CL",
           "locator": "§3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint",
-          "excerpt": "restes",
           "match": "Public French counterpart of CL19 Proposition 9.3.18 and p.277; the English publication was not collated in this pass."
         },
         {
           "sourceId": "Arb",
           "locator": "§5, pp.7–8",
-          "excerpt": "enclosures",
           "match": "The finite approximation, propagated rounding and rigorous truncation error are separate steps."
         }
       ],
@@ -5955,7 +5861,6 @@
         {
           "sourceId": "Arb",
           "locator": "§5, pp.7–8",
-          "excerpt": "enclosures",
           "match": "Enclosures and precision refinement are the numerical framework; the exact root-count and separation algorithm still requires its own source proof."
         }
       ],
@@ -6046,7 +5951,6 @@
         {
           "sourceId": "Platt",
           "locator": "§§4–6 and §7, pp.3–15",
-          "excerpt": "Euler-MacLaurin",
           "match": "The computational target uses the continued function and independently bounded analytic errors. Only the specified passages, not the complete algorithm proof, have been read."
         }
       ],
@@ -6131,7 +6035,6 @@
         {
           "sourceId": "Platt",
           "locator": "Theorems 7.1–7.2, pp.14–15",
-          "excerpt": "primitive character modulus",
           "match": "The published computation is a target to certify; no machine data or Turing certificates have been replayed in this pass."
         }
       ],
@@ -6167,7 +6070,6 @@
         {
           "sourceId": "Platt",
           "locator": "Theorems 7.1–7.2, pp.14–15",
-          "excerpt": "primitive character modulus",
           "match": "The published computation is a target to certify; no machine data or Turing certificates have been replayed in this pass."
         }
       ],
@@ -6202,13 +6104,11 @@
         {
           "sourceId": "Platt",
           "locator": "Theorems 7.1–7.2, pp.14–15",
-          "excerpt": "primitive character modulus",
           "match": "The published computation is a target to certify; no machine data or Turing certificates have been replayed in this pass."
         },
         {
           "sourceId": "BennettSiksek",
           "locator": "§7, proof of Proposition 7.2, p.376",
-          "excerpt": "real zeros",
           "match": "The routed application combines both Platt computations."
         }
       ],
@@ -6243,7 +6143,6 @@
         {
           "sourceId": "CT",
           "locator": "Remark 2.11 and §2.4.3, pp.281–282",
-          "excerpt": "effective elements",
           "match": "The downstream effectivity filter and its completeness implication; generic Fincke–Pohst enumeration belongs to GN.5."
         }
       ],
@@ -6327,7 +6226,6 @@
         {
           "sourceId": "CT",
           "locator": "Algorithms 2.4.4–2.4.5, pp.282–284",
-          "excerpt": "Check rigorously",
           "match": "Raw numerical search output is accepted only after this exact inequality."
         }
       ],
@@ -6410,7 +6308,6 @@
         {
           "sourceId": "CT",
           "locator": "Stored certificates of §§2.4.6,4.1–4.3",
-          "excerpt": "certificates",
           "match": "Replay every listed witness, while retaining the separate completeness and admissibility obligations."
         }
       ],
@@ -6490,7 +6387,6 @@
         {
           "sourceId": "CT",
           "locator": "§2.4.2, Equation (2.4.4), p.278 and reduction pp.280–281; Algorithm 2.4.5, p.283; ComputationalNumberTheory/E12",
-          "excerpt": "quadratic form",
           "match": "The numerical adapter uses the corrected diagonal and witness lift, not a false equality of unit-sphere minima."
         }
       ],
@@ -6524,7 +6420,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -6601,7 +6496,6 @@
         {
           "sourceId": "PrattNotes",
           "locator": "pp.1–4, formal proof system and its length bound",
-          "excerpt": "formal proof system",
           "match": "Recursive-tree packaging of the same Lucas prime-divisor checks; n≥2 guards are explicit."
         }
       ],
@@ -6637,7 +6531,6 @@
         {
           "sourceId": "GMN",
           "locator": "Definitions 1.6–1.9, pp.7–8",
-          "excerpt": "negative rational number",
           "match": "Exact finite side certificate with maximal contact segment and the source’s negative geometric slope."
         }
       ],
@@ -6717,7 +6610,6 @@
         {
           "sourceId": "GMN",
           "locator": "Definition 1.9, p.8",
-          "excerpt": "residual polynomial",
           "match": "Coefficient-normalized residual data; no division takes place in characteristic p."
         }
       ],
@@ -6795,7 +6687,6 @@
         {
           "sourceId": "GMN",
           "locator": "Theorem 1.19 and Corollary 1.20, pp.14–15",
-          "excerpt": "number of irreducible factors",
           "match": "Single residual factor of multiplicity one; finite side and all integrality hypotheses retained."
         }
       ],
@@ -6832,7 +6723,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–5.3, pp.7–9",
-          "excerpt": "set inclusions",
           "match": "The presentation and decoding below are formalization designs: exact root identity is separate from an enclosing rectangle. This source motivates enclosures, not a proved algebraic root-isolation algorithm."
         }
       ],
@@ -6914,7 +6804,6 @@
         {
           "sourceId": "Arb",
           "locator": "§§5–6, pp.7–10",
-          "excerpt": "rigorous",
           "match": "Numerical enclosure design applied to the already existing continued function, not a theorem constructing its continuation."
         }
       ],
@@ -7004,7 +6893,6 @@
         {
           "sourceId": "Stein",
           "locator": "Theorem 9.18, pp.171–172; §9.4",
-          "excerpt": "Sturm",
           "match": "The finite-data adapter uses the already built characteristic-zero equality theorem. Congruence modulo a prime is a separate node."
         }
       ],
@@ -7550,7 +7438,7 @@
       "source": "Stein",
       "kind": "misprint",
       "locator": "Theorem 9.18 proof, p.172, author PDF",
-      "printed": "so f = 0",
+      "printed": "The source concludes f = 0.",
       "correction": "Conclude f≡0 modulo the prime ideal.",
       "reason": "Infinite order after reduction says all coefficients vanish modulo the prime ideal, not that the original complex form is identically zero.",
       "affects": "the proof",
@@ -7571,7 +7459,7 @@
       "source": "NumberRings",
       "kind": "error",
       "locator": "§12, p.248, published MSRI 44 PDF",
-      "printed": "is the free abelian group of rank #T+r+s−1",
+      "printed": "The source describes the group as free abelian, with rank #T+r+s−1.",
       "correction": "The T-unit group has finite torsion μ(K); its quotient by μ(K) is free of that rank.",
       "reason": "Already K=ℚ has the nontrivial torsion unit −1. The following examples explicitly contain a factor generated by −1.",
       "affects": "a stated result",
@@ -7611,7 +7499,7 @@
       "source": "CarusoPublished",
       "kind": "misprint",
       "locator": "Proof of Proposition 2.1.3, printed II–19, published PDF p.20",
-      "printed": "hh′ is divisible by p^(v+v′)",
+      "printed": "The source claims p^(v+v′) divides hh′.",
       "correction": "Use hh′∈p^(N+N′)ℤ_p⊆p^(v+N′)ℤ_p since N≥v.",
       "reason": "The printed divisibility by p^(v+v′) does not imply divisibility by p^(v+N′). The stronger bound follows directly from the input errors h and h′.",
       "affects": "the proof",
@@ -7712,7 +7600,7 @@
       "id": "ComputationalNumberTheory/E11",
       "kind": "error",
       "locator": "Remark 3.3, p. 518 (published; the same list is in arXiv v2 and v3, and arXiv v1 §3.1 has it as 'companion forms also exist for p = 139, 151, 173, 179, . . . in weights k with (p − 1, k − 1) = 1')",
-      "printed": "\"and modular forms satisfying the hypotheses of Theorem 2.1 for p = 107, 139, 151, 173, 179, . . ..\"",
+      "printed": "The source claims that modular forms meeting Theorem 2.1’s hypotheses exist at the listed primes: p = 107, 139, 151, 173, 179, . . ..",
       "correction": "p = 107, 139, 173, 179, 191, 193, . . . (remove 151).",
       "reason": "For an ordinary f the shape ρ̄_f|G_{Q_p} ≅ ψ̄ ⊕ ψ̄^{−1}ε̄^{1−k} determines k mod p − 1 up to replacing k by p + 1 − k (the companion), and gcd(p − 1, k − 1) = gcd(p − 1, p − k) is the same for both. At p = 151 the only ordinary level-one eigensystems with ρ̄_f|G_{Q_p} semisimple are the companion pair in weights 52 and 100 ([CG13] table: 151, C[52]). This was confirmed by matching the characteristic polynomials of T_2 and T_3 on S_52 and on S_100 (twisted by ℓ^{99}) mod 151; no other pair (k, 152 − k) with 12 ≤ k < 76 matches, and the self-pair k = 76 = (p+1)/2 has (150, 75) ≠ 1. Since (150, 51) = (150, 99) = 3, hypothesis (2) of Theorem 2.1 fails at 151. (Theorem 3.1 does apply at 151, through the non-ordinary pair (60, 94).) The same search finds pairs with gcd 1 at 107, 139, 173, 179, 191 and 193.",
       "affects": "a stated result",
@@ -7736,7 +7624,7 @@
       "id": "ComputationalNumberTheory/E12",
       "kind": "error",
       "locator": "Section 2.4.2, the paragraph before Corollary 2.9 and Corollary 2.9, pp. 280–281; Section 2.4.5, 'Output', p. 283; the elements x displayed in Section 2.4.6 (Step 3, p. 284) and Section 4.1 (p. 296). Published version; the same in arXiv v1",
-      "printed": "'We have a natural inclusion ρ: R^{r′} → R^r sending e_l to (1/√m_l) Σ_{i∈P_l} e_i … This embedding is an isometry … and it follows from Formula (2.4.4) that we have β_Q^F(ρ(x), ρ(y)) = β_{Q′}^F(x, y)'; Corollary 2.9: '… and if these inequalities hold we have μ_{Q′}^F = μ_Q^F'; Output: 'For j = 2, …, m, set x_j = (1/√m_j) Σ ϖ … Then for the element x = t_1 (1/√m)(π_1 + ⋯ + π_m) + Σ_{i=2}^r t_i x_i of RΠ_alg we have C^{F_ℓ}(x, x) ≤ β_Q^{F_ℓ}(t, t) < 0'",
+      "printed": "The source calls ρ: R^{r′} → R^r an isometric inclusion with e_l mapped to (1/√m_l) Σ_{i∈P_l} e_i, and asserts β_Q^F(ρ(x), ρ(y)) = β_{Q′}^F(x, y). Corollary 2.9 concludes μ_{Q′}^F = μ_Q^F when the inequalities hold. The output sets x_j = (1/√m_j) Σ ϖ for j = 2, …, m, and claims C^{F_ℓ}(x, x) ≤ β_Q^{F_ℓ}(t, t) < 0 for x = t_1 (1/√m)(π_1 + ⋯ + π_m) + Σ_{i=2}^r t_i x_i in RΠ_alg.",
       "correction": "With β_Q as printed in (2.4.4) (the factor 1/m_i on F̂(i/4π); this is what the authors' code computes), β_Q(ρx, ρy) = β_{Q′}(Dx, Dy) with D = diag(√m_l); μ_Q < 0 ⟺ μ_{Q′} < 0 still holds, but μ_{Q′} = μ_Q does not. The inequality C(x, x) ≤ β_Q(t, t) holds for x = (t_1/m)(π_1 + ⋯ + π_m) + Σ_{i=2}^r (t_i/m_i) Σ_{ϖ ↦ i} ϖ (weights 1/m, not 1/√m); and j runs over 2, …, r. Alternatively, replace (2.4.4) by β_Q(e_i, e_j) = F̂(i/4π) e_i·e_j − √(m_i m_j)(J_F(U_i·U_j) + F̂(0) δ_i δ_j (1 − ε(U_i·U_j))/4), for which the printed statements hold.",
       "reason": "One block of size 2 (r = 2, r′ = 1, K = J_F(U·U) + its e⊥ term): β_Q = ((A − K, −K), (−K, A − K)) has μ_Q = A − 2K for K > 0, while β_{Q′} = A/2 − K, so μ_Q = 2μ_{Q′}. The worker ported the authors' formulas (without_GRH.gp, testfin.gp), checked the port against seven of their certificate values (six digits), and evaluated the displayed elements. In Section 2.4.6 the printed C-values −0.173, −0.198, −0.147 are exactly β_Q(t, t), that is C(x′, x′) for the weights t_1/2; the displayed x (weights t_1/√2) have C ≈ −0.293, −0.321, −0.251. In Section 4.1 the displayed x (ℓ = 8.75) has C(x, x) ≈ +0.078 > 0 (every root number ε(U·U_j) involved is +1, so no e⊥ term enters): it is not a counterexample to Proposition 2.2. Its t is the least eigenvector of the printed Gram matrix (eigenvalue ≈ −0.0198, which is C(x′, x′)); the printed −0.0023 matches neither value. Every certificate in the paper is a negative value of β_Q as printed, which gives C(x′, x′) < 0 for the corrected x′, so Theorems 3–7, Proposition 4.1 and Lemma 4.3 are unaffected; the false statements are the equality in Corollary 2.9 and the inequality claimed in the Output of Algorithm 2.4.5.",
       "affects": "a stated result",
@@ -7760,7 +7648,7 @@
       "id": "ComputationalNumberTheory/E13",
       "kind": "misprint",
       "locator": "Proof of Theorem 3 and Proposition 4.1, Section 4.1, p. 296 (published version; the same in arXiv v1)",
-      "printed": "'For this we proceed as in the first paragraph of the proof and obtain an explicit set U1 with 12230 elements.' and, below, 'an explicit list of 12293 − 187 = 12106 triples'",
+      "printed": "The source follows the proof’s opening procedure to construct an explicit set U1 containing 12230 elements. It later gives an explicit list containing 12293 − 187 = 12106 triples.",
       "correction": "The list the proof runs over has 12293 elements (12106 excluded by a certificate, 187 not).",
       "reason": "The authors' log log_w23_mult1 records #lw23 = 12293 for liste_qfminim(9.74, 23, 1), and their certificate file db_w23_mult1 has 12293 distinct U (12106 negative values, 187 not). liste_qfminim enlarges the bound to 1.001·F̂(i/4π). Recomputing B_∞(U, U)/F̂(i/4π) for these U with the worker's port of the authors' formulas gives 12217 with ratio ≤ 1, 12230 with ratio ≤ 1.0001 and 12293 with ratio ≤ 1.001: the printed 12230 is the count for a smaller safety margin, inconsistent with the 12293 used later. Both lists contain U_1 as defined, so the proof is unaffected.",
       "affects": "nothing",
@@ -7783,7 +7671,7 @@
       "id": "ComputationalNumberTheory/E14",
       "kind": "misprint",
       "locator": "Section 4.1, pp. 296–297 (published version; the same in arXiv v1)",
-      "printed": "'We obtained contradictions with Inequality (2.3.7) for all but 187 elements of U2.' and 'Among the 187 aforementioned \"resistant\" elements of U2, six of them are multiplicity free'",
+      "printed": "The source says Inequality (2.3.7) yields contradictions for every element of U2 except 187, and that six of these remaining elements are multiplicity free.",
       "correction": "U_1 in both places: the 187 unresolved elements are elements of U_1.",
       "reason": "The run described is over U_1 (δ = m = 1). In the authors' files only 100 of the 187 unresolved U of db_w23_mult1 occur in the U_2 list db_w23_mult2, and the worker's recomputation gives B_∞(U, U) > F̂(i/4π)/2 for 88 of them, so they are not in U_2.",
       "affects": "nothing",
@@ -7806,7 +7694,7 @@
       "id": "ComputationalNumberTheory/E15",
       "kind": "gap",
       "locator": "Proof of Theorem 3 and Proposition 4.1, Section 4.1, p. 297; Proposition 4.1(1), p. 295; Section 1.3, p. 266 (published version; the same in arXiv v1)",
-      "printed": "'Assertion (b) above and the fact that I1 + I7 + I13 + I17 + I21 + 2 I23 is not in V imply assertion (1) of Proposition 4.1.' (and in Section 1.3: 'an explicit list L of 182 weights … for which there might also be two such π which are the dual of each other … all of those putative 183 representations')",
+      "printed": "The source derives Proposition 4.1(1) from assertion (b) and a claimed non-membership in V for the expression I1 + I7 + I13 + I17 + I21 + 2 I23. Section 1.3 describes L as an explicit list containing 182 weights, allowing two mutually dual π at one weight, and refers to 183 putative representations.",
       "correction": "U_(1) = I_1 + I_7 + I_13 + I_17 + I_21 + 2I_23 is in V: the δ = m = 1 computation does not exclude a self-dual π with L(π_∞) = U_(1). The proof of Proposition 4.1(1) therefore needs a further step: there are no two distinct self-dual π with L(π_∞) = U_(1). Algorithm 2.4.5 with U = U_(1), δ = 1, m = 2 gives this; the worker's floating-point run finds β_Q/F̂(i/4π) ≈ −0.175 at ℓ = 7.75 with S′ = {1, Δ_21, Sym²Δ_11, Δ_{23,7}}, far from 0, to be certified in interval arithmetic. With it, Proposition 4.1 holds as stated (a pair containing one self-dual π is impossible by (b), since π′^∨ would be a third element). The weights of Section 1.3 then number 181 (V itself) and the putative representations at most 182.",
       "reason": "In the authors' certificate file db_w23_mult1 the entry for U_(1) has the non-negative value +0.036 (ℓ = 6.5), and it is one of the 187 unresolved elements; the 181 elements of V are these 187 minus the six multiplicity-free ones, so U_(1) ∈ V. The GRH worksheet sheet_w23_grh.gp treats U_(1) inside the list of 198 resistant elements, consistent with this. The paper's other use of U_(1) (Theorem 4, under GRH) excludes it altogether and is unaffected.",
       "affects": "the proof",
@@ -7830,7 +7718,7 @@
       "id": "ComputationalNumberTheory/E16",
       "kind": "error",
       "locator": "Section 4.1, after Proposition 4.1, p. 295 (published version; the same in arXiv v1)",
-      "printed": "'The set of 181 possible U mentioned above can be found in [CT19b]. They all satisfy 14 ≤ dim U ≤ 42.'",
+      "printed": "The source points to [CT19b] for the 181 possible U and claims each satisfies 14 ≤ dim U ≤ 42.",
       "correction": "They all satisfy 10 ≤ dim U ≤ 38.",
       "reason": "The element B = I_1 + I_9 + I_15 + I_19 + 2I_23 of V, named in the proof of Theorem 4, has dimension 12. In the authors' data the 181 elements of V have dimensions from 10 (e.g. I_5 + I_11 + I_19 + 2I_23) to 38. The printed bounds exceed the true ones by exactly 4, as if each U were counted with two extra coordinates.",
       "affects": "nothing",
@@ -7853,7 +7741,7 @@
       "id": "ComputationalNumberTheory/E17",
       "kind": "misprint",
       "locator": "Proof of Theorem 4, Section 4.3, p. 299 (published version; the same in arXiv v1)",
-      "printed": "'Applying Algorithm 2.4.5 to the element U of Proposition 4.1 (1), δ = m = 2 and the set S of 27 known elements'",
+      "printed": "The source applies Algorithm 2.4.5 with the element U from Proposition 4.1 (1), parameters δ = m = 2, and S containing 27 known elements.",
       "correction": "δ = 0, m = 2 (δ takes values in {0, 1}).",
       "reason": "The authors' worksheet sheet_w23_grh.gp runs testfin_liste with multiplicity 2 on this U, and their code sets δ = 0 whenever m ≠ 1 (readme).",
       "affects": "nothing",
@@ -7876,7 +7764,7 @@
       "id": "ComputationalNumberTheory/E18",
       "kind": "misprint",
       "locator": "Proof of Lemma 4.3, Section 4.2, p. 298 (published version; the same in arXiv v1)",
-      "printed": "'to the set S of 15 elements of Πalg having motivic weight ≤ 23 and dimension ≤ 4'",
+      "printed": "The source uses S containing 15 elements of Πalg, each with dimension ≤ 4 and motivic weight ≤ 23.",
       "correction": "16 elements (15 triples in 𝒮, as Δ¹_23 and Δ²_23 have the same parameter).",
       "reason": "The elements of Π_alg of motivic weight ≤ 23 and dimension ≤ 4 are 1, Δ_11, Δ_15, Δ_17, Δ_19, Δ_21, Sym²Δ_11, Δ_{19,7}, Δ_{21,5}, Δ_{21,9}, Δ_{21,13}, Δ¹_23, Δ²_23, Δ_{23,7}, Δ_{23,9}, Δ_{23,13}: 16 representations. The worksheet sheet_w24_reg.gp uses pc[1..15], the first 15 pairs [U, m], one of them with m = 2. Elsewhere the paper distinguishes |S| and |𝒮| (footnote 13; |S| = 24, |𝒮| = 23 in Section 4.1).",
       "affects": "nothing",
@@ -7899,7 +7787,7 @@
       "id": "ComputationalNumberTheory/E19",
       "kind": "misprint",
       "locator": "Section 2.4.3, p. 281 (published version; the same in arXiv v1)",
-      "printed": "'and of a simple rapidly converging series with given tail estimates [CL19, (3) p.127]'",
+      "printed": "The source mentions a simple series that converges rapidly, with tail bounds supplied by [CL19, (3) p.127].",
       "correction": "[CL19, (3) p. 277].",
       "reason": "Section 4.3 (p. 299) cites the same tail estimates as '[CL19, (3) p. 277]', and the proof of Proposition 4.4 cites pp. 275–276 of [CL19] for the neighbouring formulas. In the book, Chapter 9 ('Proofs of the Main Theorems', containing §9.3 on the explicit formula) is pp. 245–309, while p. 127 lies in Chapter 5 ('Theta Series and Even Unimodular Lattices', pp. 123–144), according to the chapter records at Crossref (doi:10.1007/978-3-319-95891-0_5 and _9).",
       "affects": "nothing",
@@ -7924,7 +7812,7 @@
       "source": "NumberRings",
       "kind": "misprint",
       "locator": "Proposition 9.3 proof, published p.235, PDF p.27",
-      "printed": "sufficiently high powers of I_p contain pR",
+      "printed": "The source claims that pR is contained in sufficiently large powers of I_p.",
       "correction": "Use I_p^d ⊆ pR for sufficiently large d; after multiplying the exponent, I_p^(dr)O_p ⊆ p^r O_p ⊆ R.",
       "reason": "The nilradical of R/pR is nilpotent, so its high powers vanish in the quotient. This is the required containment direction in the multiplier argument.",
       "affects": "the proof",
@@ -8022,7 +7910,7 @@
       "source": "Stein",
       "kind": "misprint",
       "locator": "Author PDF, introduction to Theorem 9.22, p.175; compare Definition 4.18 p.71",
-      "printed": "largest divisor c",
+      "printed": "The source selects c as the divisor of greatest size.",
       "correction": "The conductor is the smallest divisor c through which the character on units factors.",
       "reason": "The principal character modulo 5 factors through both 1 and 5; its conductor is 1. The book’s own Definition 4.18 says smallest.",
       "affects": "nothing",

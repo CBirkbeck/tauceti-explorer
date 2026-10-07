@@ -2,7 +2,7 @@
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/DiamondSixOperations.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers converge on names and
-signatures. They claim no implementation; every proof is `sorry`.
+signatures. They claim no implementation; unfinished proof and construction bodies use `sorry`.
 
 BP-DiamondSixOperations (ECD §§22–25). Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -11,14 +11,19 @@ Neither pinned library has perfectoid spaces, small v-stacks, diamonds or their 
 categories. Those carriers belong to DiamondsAndVStacks (D1–D6) and
 DiamondEtaleCohomology (C0–C9), whose blueprints are not implemented. This prototype
 is therefore written against one explicit supplier interface, `SupplierContext`: its
-fields are the supplier categories, functors and morphism classes, each documented with
-the stage that owns it, and nothing in it asserts a theorem. When the suppliers exist,
-each field is replaced by the owner's declaration. The definitions of this roadmap
-(compactifiable, locally split, eligible, Rf_! = Rf‾_* ∘ j_!, proper support, invertible
-objects, ℓ-cohomological smoothness, the dualizing complex, the Verdier dual, the
-normalised Haar measure) are genuine definitions over that interface; constructions whose
-data need ∞-categorical left Kan extensions or the adjoint functor theorem
-(EnhancedDerivedSheaves E3) are `sorry`-bodied data, never `Prop` placeholders.
+fields include supplier categories, functors, morphism classes and laws. This interface is
+incomplete: it does not identify the geometry, coefficients, tensor structure or t-structure
+with the requested suppliers. Several signatures below consequently do not express the
+packet's statements. They remain revision requirements, not established generalizations.
+
+Independent review REV-DiamondSixOperations: NEEDS_CHANGES. See
+`research/blueprint/reviews/REV-DiamondSixOperations.md` for the complete audit. The review
+corrects varying local shifts, numeric dimension hypotheses and part of the Haar API below.
+It does not certify the remaining signatures. In particular, the hypercover construction,
+canonical coherence, coefficient changes, four-part smoothness criterion, quotient-action
+geometry and geometric bases of S6 still need faithful supplier types. Conditions that are
+not expressible must be documented as missing, rather than replaced by unrelated predicates.
+Elaboration with `sorry` establishes syntax only.
 
 The homotopy-category functors `D Y` stand for ECD's D_ét(Y, Λ); the enhanced
 statements of the roadmap are recorded at that level. Coefficients Λ are fixed in the
@@ -26,6 +31,7 @@ context; change of rings uses a second context with the same geometry.
 -/
 import Mathlib.CategoryTheory.MorphismProperty.Basic
 import Mathlib.CategoryTheory.Adjunction.Basic
+import Mathlib.CategoryTheory.EffectiveEpi.Basic
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.HasPullback
 import Mathlib.CategoryTheory.Limits.Preserves.Basic
 import Mathlib.CategoryTheory.Shift.Basic
@@ -86,6 +92,8 @@ structure SupplierContext where
   /-- Local finiteness and a global bound for dim.trg (C8). -/
   locFinDimTrg : MorphismProperty V
   finDimTrg : MorphismProperty V
+  /-- C8's numeric dimension data; the supplier must relate this to the preceding predicates. -/
+  dimTrg : ∀ {X Y : V}, (X ⟶ Y) → WithTop ℕ
   /-- Finite étale maps (D3) and quasi-pro-étale maps (D3). -/
   finiteEtale : MorphismProperty V
   quasiProEtale : MorphismProperty V
@@ -188,7 +196,7 @@ source on which `f` is compactifiable. -/
 theorem IsCompactifiable.of_openCover {X Y : 𝒞.V} (f : X ⟶ Y) (hs : 𝒞.separated f)
     (hr : 𝒞.reprLocSpatial f) {ι : Type} (U : ι → 𝒞.V) (u : ∀ i, U i ⟶ X)
     (hu : ∀ i, 𝒞.openImmersion (u i))
-    (hcov : ∀ (T : 𝒞.V) (t : T ⟶ X), 𝒞.strictlyTotallyDisconnected T → ∃ i, ∃ s : T ⟶ U i, s ≫ u i = t)
+    (hcov : EffectiveEpiFamily U u)
     (hU : ∀ i, IsCompactifiable (u i ≫ f)) : IsCompactifiable f := by sorry
 
 /-- `S0/separated-etale-compactifiable` (ECD 22.3(vi)); API `IsCompactifiable.of_separated_etale`. -/
@@ -240,7 +248,7 @@ lemma IsLocallySplit.of_clopen_sections {Z Y' : 𝒞.V} (g : Z ⟶ Y') (hsep : �
     (h : ∀ (T : 𝒞.V) (t : T ⟶ Y'), 𝒞.strictlyTotallyDisconnected T →
       ∃ (n : ℕ) (U : Fin n → 𝒞.V) (u : ∀ i, U i ⟶ T) (s : ∀ i, U i ⟶ Z),
         (∀ i, 𝒞.openImmersion (u i)) ∧
-        (∀ (T' : 𝒞.V) (t' : T' ⟶ T), ∃ i, ∃ r : T' ⟶ U i, r ≫ u i = t') ∧ ∀ i, s i ≫ g = u i ≫ t) :
+        EffectiveEpiFamily U u ∧ ∀ i, s i ≫ g = u i ≫ t) :
     IsLocallySplit g := by sorry
 
 lemma IsLocallySplit.baseChange {Z Y' Y'' : 𝒞.V} {g : Z ⟶ Y'} (h : IsLocallySplit g)
@@ -327,7 +335,7 @@ theorem IsEligible.of_isSpatialEligible {X Y : 𝒞.V} {f : X ⟶ Y} (hf : IsSpa
     IsEligible f := hf.isEligible
 
 theorem IsSpatialEligible.qcqs {X Y : 𝒞.V} {f : X ⟶ Y} (hf : IsSpatialEligible f) :
-    𝒞.quasicompact f := by sorry
+    𝒞.quasicompact f ∧ 𝒞.separated f := by sorry
 
 theorem isSpatialEligible_iff {X Y : 𝒞.V} (f : X ⟶ Y) :
     IsSpatialEligible f ↔ IsEligible f ∧ 𝒞.quasicompact f ∧ 𝒞.reprSpatial f ∧ 𝒞.finDimTrg f := by
@@ -362,7 +370,7 @@ example (X : 𝒞.V) (hr : 𝒞.reprSpatial (𝟙 X)) (hd : 𝒞.finDimTrg (𝟙
 
 -- unit test `not_isSpatialEligible_openDisc`: an eligible map which is not quasicompact.
 example {X Y : 𝒞.V} (f : X ⟶ Y) (hqc : ¬ 𝒞.quasicompact f) : ¬ IsSpatialEligible f :=
-  fun h => hqc h.qcqs
+  fun h => hqc h.qcqs.1
 
 -- unit test `IsSpatialEligible.qc_open_immersion`
 example {U X : 𝒞.V} (j : U ⟶ X) (hj : 𝒞.openImmersion j) (hqc : 𝒞.quasicompact j)
@@ -407,7 +415,7 @@ theorem lowerShriekQC_amplitude {X Y : 𝒞.V} (f : X ⟶ Y) (hf : IsSpatialElig
 /-- `S1/compactification-cd-bound` (ECD 22.5): `R^i f‾_* A = 0` for `i > 3 d` on objects in
 degree 0, with `d` a bound for dim.trg f (`hd` relates `d` to the supplier's bound). -/
 theorem lowerShriekQC_cd_le_three_mul {X Y : 𝒞.V} (f : X ⟶ Y) (hf : IsSpatialEligible f)
-    (d : ℕ) (hd : ∀ (T : 𝒞.V) (t : T ⟶ Y), 𝒞.finDimTrg (pullback.snd f t))
+    (d : ℕ) (hd : 𝒞.dimTrg f ≤ (d : WithTop ℕ))
     (A : 𝒞.D (𝒞.cpt f)) (hA₀ : 𝒞.isGE _ 0 A) (hA₁ : 𝒞.isLE _ 0 A) :
     𝒞.isLE Y (3 * d) ((𝒞.push (𝒞.cptMap f)).obj A) := by sorry
 
@@ -415,14 +423,14 @@ theorem lowerShriekQC_cd_le_three_mul {X Y : 𝒞.V} (f : X ⟶ Y) (hf : IsSpati
 the compactification is representable in spatial diamonds. -/
 theorem lowerShriekQC_cd_le_two_mul_of_spatial {X Y : 𝒞.V} (f : X ⟶ Y)
     (hf : IsSpatialEligible f) (hsp : 𝒞.reprSpatial (𝒞.cptMap f)) (d : ℕ)
-    (A : 𝒞.D (𝒞.cpt f)) (hA₀ : 𝒞.isGE _ 0 A) (hA₁ : 𝒞.isLE _ 0 A) :
+    (hd : 𝒞.dimTrg f ≤ (d : WithTop ℕ)) (A : 𝒞.D (𝒞.cpt f)) (hA₀ : 𝒞.isGE _ 0 A) (hA₁ : 𝒞.isLE _ 0 A) :
     𝒞.isLE Y (2 * d) ((𝒞.push (𝒞.cptMap f)).obj A) := by sorry
 
 /-- `S1/proper-dim-zero-classification` (ECD 22.6), recorded as essential surjectivity of
 `T ↦ X ×_{π₀X} T` onto proper dim.trg 0 diamonds over a strictly totally disconnected `X`;
 `prodPi0` is the supplier's functor from compact Hausdorff spaces over π₀X (D4, ECD 11.12). -/
 theorem properDimTrgZero_equiv_compHaus (X : 𝒞.V) (hX : 𝒞.strictlyTotallyDisconnected X)
-    {Y : 𝒞.V} (f : Y ⟶ X) (hp : 𝒞.proper f) (h0 : 𝒞.finDimTrg f)
+    {Y : 𝒞.V} (f : Y ⟶ X) (hp : 𝒞.proper f) (h0 : 𝒞.dimTrg f = 0)
     (prodPi0 : CompHaus → 𝒞.V) : ∃ T : CompHaus, Nonempty (prodPi0 T ≅ Y) := by sorry
 
 /-- `S1/qcqs-diamond-continuity` (claim in the proof of ECD 22.7), for a cofiltered system
@@ -443,7 +451,7 @@ theorem qcqsDiamond_cohomology_continuous [HasColimitsOfSize.{0, 0} (𝒞.D 𝒞
 is an equivalence onto bounded-below étale objects; `Dtop` is the derived category of
 sheaves on the topological space |Y| and `t` the supplier's pullback functor. -/
 theorem properDimTrgZero_topological_equiv {Y X : 𝒞.V} (f : Y ⟶ X)
-    (hX : 𝒞.strictlyTotallyDisconnected X) (hp : 𝒞.proper f) (h0 : 𝒞.finDimTrg f)
+    (hX : 𝒞.strictlyTotallyDisconnected X) (hp : 𝒞.proper f) (h0 : 𝒞.dimTrg f = 0)
     (Dtop : Type w) [Category.{w} Dtop] (t : Dtop ⥤ 𝒞.D Y) : t.Full ∧ t.Faithful := by sorry
 
 /-- `S1/lower-shriek-base-change-qc` (ECD 22.8). -/
@@ -524,7 +532,7 @@ lemma properSupportSubcategory.of_isQuasicompact {X Y : 𝒞.V} (f : X ⟶ Y)
 
 -- unit test `properSupportSubcategory_of_qc`
 example {X Y : 𝒞.V} (f : X ⟶ Y) (h : IsSpatialEligible f) (A : 𝒞.D X) :
-    properSupportSubcategory f A := properSupportSubcategory.of_isQuasicompact f h.qcqs A
+    properSupportSubcategory f A := properSupportSubcategory.of_isQuasicompact f h.qcqs.1 A
 
 -- unit test `properSupportSubcategory_disc`: extension by zero from a quasicompact open
 example {W X Y : 𝒞.V} (f : X ⟶ Y) (jW : W ⟶ X) (h : 𝒞.openImmersion jW)
@@ -887,10 +895,14 @@ Coefficients: the context's Λ plays the role of `F_ℓ` (or an ℓ-power-torsio
 section S4
 variable {𝒞}
 
-/-- `S4/invertible-object` (ECD 23.8): étale locally isomorphic to a shift of Λ. -/
+/-- `S4/invertible-object` (ECD 23.8): a jointly covering étale family with a shift
+on each member. The shifts may differ between connected components. `EffectiveEpiFamily`
+is Mathlib's actual covering-family universal property; its geometric comparison with
+v-covers must come from the suppliers, not an invented `Prop` field. -/
 def IsInvertibleObject {X : 𝒞.V} (A : 𝒞.D X) : Prop :=
-  ∃ (U : 𝒞.V) (u : U ⟶ X) (n : ℤ), 𝒞.etale u ∧ 𝒞.surjective u ∧
-    Nonempty ((𝒞.pull u).obj A ≅ (𝒞.unitObj U)⟦n⟧)
+  ∃ (I : Type u) (U : I → 𝒞.V) (u : ∀ i, U i ⟶ X) (n : I → ℤ),
+    EffectiveEpiFamily U u ∧ (∀ i, 𝒞.etale (u i)) ∧
+      ∀ i, Nonempty ((𝒞.pull (u i)).obj A ≅ (𝒞.unitObj (U i))⟦n i⟧)
 
 lemma IsInvertibleObject.shift {X : 𝒞.V} {A : 𝒞.D X} (h : IsInvertibleObject A) (m : ℤ) :
     IsInvertibleObject (A⟦m⟧) := by sorry
@@ -904,47 +916,53 @@ lemma IsInvertibleObject.tensor {X : 𝒞.V} {A B : 𝒞.D X} (hA : IsInvertible
 lemma IsInvertibleObject.pullback {X Y : 𝒞.V} (f : X ⟶ Y) {A : 𝒞.D Y}
     (hA : IsInvertibleObject A) : IsInvertibleObject ((𝒞.pull f).obj A) := by sorry
 
-/-- Étale-local invertibility is equivalent to v-local invertibility (`v` the supplier's
-v-covers, here: surjective maps). -/
+/-- V-local invertibility expressed using a covering family. This does not impose one
+integer shift on the whole cover. The geometric/topological comparison is a supplier input. -/
 lemma isInvertibleObject_iff_etale_local {X : 𝒞.V} (A : 𝒞.D X) :
-    IsInvertibleObject A ↔ ∃ (U : 𝒞.V) (u : U ⟶ X) (n : ℤ), 𝒞.surjective u ∧
-      Nonempty ((𝒞.pull u).obj A ≅ (𝒞.unitObj U)⟦n⟧) := by sorry
+    IsInvertibleObject A ↔ ∃ (I : Type u) (U : I → 𝒞.V) (u : ∀ i, U i ⟶ X) (n : I → ℤ),
+      EffectiveEpiFamily U u ∧
+        ∀ i, Nonempty ((𝒞.pull (u i)).obj A ≅ (𝒞.unitObj (U i))⟦n i⟧) := by sorry
 
 lemma IsInvertibleObject.tensor_dual {X : 𝒞.V} {A : 𝒞.D X} (hA : IsInvertibleObject A) :
     Nonempty (((𝒞.tensor X).obj A).obj (((𝒞.ihom X).obj (Opposite.op A)).obj (𝒞.unitObj X)) ≅ 𝒞.unitObj X) := by
   sorry
 
-/-- The local degree, as a function on a cover where `A` is trivialised. -/
+/-- Partial prototype: the local degrees on a trivializing family. The required uniquely
+locally constant function on |X|, for nonzero coefficients, needs the actual topological
+carrier of the supplier and is not represented by this signature. -/
 lemma IsInvertibleObject.degree {X : 𝒞.V} {A : 𝒞.D X} (hA : IsInvertibleObject A) :
-    ∃ (U : 𝒞.V) (u : U ⟶ X) (n : ℤ), 𝒞.etale u ∧ Nonempty ((𝒞.pull u).obj A ≅ (𝒞.unitObj U)⟦n⟧) := by
-  obtain ⟨U, u, n, he, -, e⟩ := hA
-  exact ⟨U, u, n, he, e⟩
+    ∃ (I : Type u) (U : I → 𝒞.V) (u : ∀ i, U i ⟶ X) (n : I → ℤ),
+      EffectiveEpiFamily U u ∧ (∀ i, 𝒞.etale (u i)) ∧
+        ∀ i, Nonempty ((𝒞.pull (u i)).obj A ≅ (𝒞.unitObj (U i))⟦n i⟧) := hA
 
--- `IsInvertibleObject.of_reduction` (invertibility over Λ from invertibility of `A ⊗ F_ℓ`)
--- needs two coefficient rings; it is listed at the end of the file.
+-- `IsInvertibleObject.of_reduction` requires Λ = ℤ/ℓ^m, m ≥ 1, and its map to F_ℓ.
+-- An arbitrary ℓ-power-torsion ring has no assumed map to F_ℓ. This API is still missing.
 
 -- unit test `IsInvertibleObject.const_zero`
 example (X : 𝒞.V) (hs : 𝒞.surjective (𝟙 X)) (he : 𝒞.etale (𝟙 X)) :
     IsInvertibleObject ((𝒞.unitObj X)⟦(0 : ℤ)⟧) := IsInvertibleObject.const X 0 hs he
 
+-- unit test `IsInvertibleObject.disjoint_shifts`: the two components of a cover may
+-- carry Λ and Λ[1]. Joint coverage and the two local identifications are data, rather
+-- than assuming the invertibility to be tested. The concrete two-point carrier is a supplier.
+example {X : 𝒞.V} (A : 𝒞.D X) (U : Bool → 𝒞.V) (u : ∀ i, U i ⟶ X)
+    (hc : EffectiveEpiFamily U u) (he : ∀ i, 𝒞.etale (u i))
+    (h₀ : Nonempty ((𝒞.pull (u false)).obj A ≅ 𝒞.unitObj (U false)))
+    (h₁ : Nonempty ((𝒞.pull (u true)).obj A ≅ (𝒞.unitObj (U true))⟦(1 : ℤ)⟧)) :
+    IsInvertibleObject A := by sorry
+
 -- unit test `IsInvertibleObject.tate_twist`: stated in S5 (`tateTwist_isInvertible`).
 
--- unit test `not_isInvertibleObject_extensionByZero`: an object with a zero pullback to a
--- surjective étale cover's every point is not invertible; recorded as: if every pullback of
--- `A` to an étale `u` is zero then `A` is not invertible (unit objects are nonzero).
-example {X : 𝒞.V} (A : 𝒞.D X)
-    (hz : ∀ (U : 𝒞.V) (u : U ⟶ X) (n : ℤ), 𝒞.etale u → 𝒞.surjective u →
-      IsEmpty ((𝒞.pull u).obj A ≅ (𝒞.unitObj U)⟦n⟧)) : ¬ IsInvertibleObject A := by
-  rintro ⟨U, u, n, he, hs, ⟨e⟩⟩
-  exact (hz U u n he hs).false e
+-- unit test `not_isInvertibleObject_extensionByZero`: partial obstruction signature.
+-- Concrete Spa(C,C⁺), its closed point and the zero stalk calculation still need suppliers.
+example {U X P : 𝒞.V} (j : U ⟶ X) (hj : 𝒞.openImmersion j) (x : P ⟶ X)
+    (hunit : ¬ IsZero (𝒞.unitObj P))
+    (hz : IsZero ((𝒞.pull x).obj ((𝒞.openShriek j hj).obj (𝒞.unitObj U)))) :
+    ¬ IsInvertibleObject ((𝒞.openShriek j hj).obj (𝒞.unitObj U)) := by sorry
 
--- unit test `not_isInvertibleObject_sum`
-example {X : 𝒞.V} [HasBinaryBiproducts (𝒞.D X)]
-    (h : ∀ (U : 𝒞.V) (u : U ⟶ X) (n : ℤ), 𝒞.etale u → 𝒞.surjective u →
-      IsEmpty ((𝒞.pull u).obj (𝒞.unitObj X ⊞ 𝒞.unitObj X) ≅ (𝒞.unitObj U)⟦n⟧)) :
-    ¬ IsInvertibleObject (𝒞.unitObj X ⊞ 𝒞.unitObj X) := by
-  rintro ⟨U, u, n, he, hs, ⟨e⟩⟩
-  exact (h U u n he hs).false e
+-- unit test `not_isInvertibleObject_sum`: nonzero coefficients on a nonempty base.
+example {X : 𝒞.V} [HasBinaryBiproducts (𝒞.D X)] (hunit : ¬ IsZero (𝒞.unitObj X)) :
+    ¬ IsInvertibleObject (𝒞.unitObj X ⊞ 𝒞.unitObj X) := by sorry
 
 /-- `S4/cohomologically-smooth` (ECD 23.8, with the misprint E64 corrected: the twist is
 `D ⊗ f_X^*`). The twist is not required to be natural. -/
@@ -992,6 +1010,8 @@ theorem upperShriek_preservesCoproducts_iff {X Y : 𝒞.V} (f : X ⟶ Y) (hf : I
     (∀ J : Type, PreservesColimitsOfShape (Discrete J) (upperShriek f hf.isEligible)) ↔
       ∀ A : 𝒞.D X, 𝒞.constructible X A → 𝒞.constructible Y ((lowerShriek f hf.isEligible).obj A) := by sorry
 
+-- REVIEW: the packet localizes condition (i) after spatial base change (E4).
+-- This prototype still omits condition (iii), the open-extension comparison.
 /-- `S4/practical-smoothness-criterion` (ECD 23.10); API `isCohomologicallySmooth_iff`. -/
 theorem isCohomologicallySmooth_iff_practical {X Y : 𝒞.V} (f : X ⟶ Y) (hf : IsSpatialEligible f) :
     IsCohomologicallySmooth f ↔
@@ -1254,7 +1274,22 @@ lemma normalizedHaar_index_isUnit (H : OpenSubgroup K) : IsUnit ((H : Subgroup K
 lemma normalizedHaar_finite [Finite K] [DiscreteTopology K] [Fintype K] (φ : LocallyConstant K Λ) :
     normalizedHaar K Λ hunit φ * (Fintype.card K : Λ) = ∑ k, φ k := by sorry
 
--- `normalizedHaar_pushforward` (compatibility with quotients K → K/N) is listed at the end.
+/-- Compatibility with a continuous surjective group homomorphism, including K → K/N. -/
+lemma normalizedHaar_pushforward (L : Type) [Group L] [TopologicalSpace L]
+    [IsTopologicalGroup L] [CompactSpace L] [TotallyDisconnectedSpace L] [T2Space L]
+    (π : K →* L) (hπ : Continuous π) (hsurj : Function.Surjective π)
+    (hunitL : ∀ H : OpenSubgroup L, IsUnit ((H : Subgroup L).index : Λ))
+    (φ : LocallyConstant L Λ) :
+    normalizedHaar K Λ hunit (φ.comap ⟨π, hπ⟩) = normalizedHaar L Λ hunitL φ := by sorry
+
+/-- Uniqueness of the normalized invariant linear functional. -/
+lemma normalizedHaar_unique (ν : LocallyConstant K Λ →ₗ[Λ] Λ) (hone : ν 1 = 1)
+    (hinv : ∀ (k : K) (φ ψ : LocallyConstant K Λ),
+      (∀ x, ψ x = φ (k * x)) → ν ψ = ν φ) : ν = normalizedHaar K Λ hunit := by sorry
+
+lemma normalizedHaar_translate_right (k : K) (φ ψ : LocallyConstant K Λ)
+    (h : ∀ x, ψ x = φ (x * k)) :
+    normalizedHaar K Λ hunit ψ = normalizedHaar K Λ hunit φ := by sorry
 
 -- unit test `normalizedHaar_trivial`
 example [Subsingleton K] (φ : LocallyConstant K Λ) : normalizedHaar K Λ hunit φ = φ 1 := by sorry
@@ -1267,7 +1302,11 @@ example (Λ : Type) [CommRing Λ] (ℓ : ℕ) (hℓ : ¬ IsUnit (ℓ : Λ)) (μ 
     [NeZero ℓ] (hinv : ∀ (a : ZMod ℓ) (φ : ZMod ℓ → Λ), μ (fun x => φ (x + a)) = μ φ)
     (hone : μ (fun _ => 1) = 1) : False := by sorry
 
-/-- `S5/averaging-transformation`: `q^* → Rq^!` for a profinite quotient `q`. -/
+/-- INCOMPLETE SIGNATURE (`S5/averaging-transformation`). The K-action, prime-to-ℓ
+hypothesis and normalized trace are missing below. Eligibility alone cannot supply the
+normalized splitting: the empty map to a nonempty point is an immediate counterexample.
+The finite API also needs the degree m and must say α = m⁻¹ times the étale identification,
+as corrected in the packet. These signatures require replacement, not an extra opaque Prop. -/
 def averagingTransformation {X Y : 𝒞.V} (q : X ⟶ Y) (hq : IsEligible q) :
     𝒞.pull q ⟶ upperShriek q hq := by sorry
 
@@ -1393,6 +1432,12 @@ lemma verdierDual_pullback_smooth {X X' S : 𝒞.V} (g : X' ⟶ X) (hg : IsCohom
       ((𝒞.ihom X').obj (Opposite.op ((𝒞.pull g).obj A))).obj ((𝒞.pull g).obj B)) :=
   hg.pullback_internalHom A B
 
+/- REVIEW: the hgeom hypotheses in this section DO NOT express Spa(C,O_C).
+Spa(C,C⁺) with C⁺ ≠ O_C is also strictly totally disconnected and gives the paper's
+counterexamples (25.2, 25.5). Actual geometric-point and coefficient supplier types are
+required for every positive result below. The F_ℓ and ℓ-power-torsion cases must also be
+separated. These retained signatures are unresolved revision items. -/
+
 /-- `S6/biduality` (ECD 25.1): over `S = Spa(C, O_C)` (`hgeom`), smooth separated `X`,
 bounded constructible `A`. -/
 theorem biduality {X S : 𝒞.V} {f : X ⟶ S} (h : IsCohomologicallySmooth f)
@@ -1474,7 +1519,7 @@ name. They are specified in the roadmap document and are prototyped once the sup
 declarations exist:
 `upperShriek_restrictScalars` (Remark 23.2), `IsInvertibleObject.of_reduction`,
 `dualizingComplex_restrictScalars`, `shriekTrace_comp`, `shriekTrace_finiteEtale_degree`,
-`normalizedHaar_pushforward`, `averagingTransformation_baseChange`,
+`averagingTransformation_baseChange`,
 `averagingTransformation_restrict_subgroup`, `normalizedHaar_Zp`, `normalizedHaar_finite_cyclic`,
 `hypercoverSupportDiagram_homotopy_category_insufficient`, `tateTwist_classical`,
 `tateTwist_point`, `tateTwist_not_const_Qp`, `Ball.prod_affinoid`, `Ball.diamond_relativeBall`,

@@ -166,7 +166,6 @@
         {
           "sourceId": "Kbook.V",
           "locator": "V.3.3.2 and V.3.11, chapter pp.21,29",
-          "excerpt": "Suppose in addition that X has finite flat dimension over Y",
           "match": "V.3.11 constructs the proper perfect transfer; V.3.3.2 identifies finite affine transfer with restriction of scalars. Nonzero elliptic isogenies satisfy these hypotheses through E.1; the actual maps are imported from S.2."
         }
       ],
@@ -208,13 +207,11 @@
         {
           "sourceId": "Kbook.V",
           "locator": "V.3.12, chapter pp.29–30; accepted parent E.5 determinant calculation",
-          "excerpt": "exists and is a graded K∗(Y)-module homomorphism: the same formula holds",
           "match": "V.3.12, with finite flat dimension, gives f_*(x·f*y)=f_*(x)·y in higher K. Apply x=1 and the accepted parent determinant theorem, then E.2 rank–Pic multiplication; integral degree multiplication needs trivial determinant."
         },
         {
           "sourceId": "accepted-parent",
           "locator": "E.5/class-of-the-pushed-forward-structure-sheaf and E.5/projection-formula-and-isogenies, corrected by REV-EllipticKTheory",
-          "excerpt": "If f is separable, det(f_*O_{E′})^{⊗2} ≅ O_E",
           "match": "Import the determinant, trace-pairing, odd multiplication-map and separable degree-two clauses; the new comparison expresses their action in the accepted E.2 coordinates."
         }
       ],
@@ -257,7 +254,6 @@
         {
           "sourceId": "Kbook.V",
           "locator": "V.1.5 and V.1.5.1, chapter p.4 (proof continues on p.5)",
-          "excerpt": "Let P(E) be a projective bundle over a quasi-projective scheme X.",
           "match": "V.1.5 uses the O(−i) basis. The rank-two trivial bundle gives the imported S.5 O,O(−1) decomposition; the inverse and line-sheaf formulas are S.5 specializations, and L.1 supplies the finite-field summands."
         }
       ],
@@ -306,7 +302,6 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6 opening and Theorem VI.6.1, chapter p.37; IV.6.9; VI.4.7",
-          "excerpt": "For n ≥ 1, each Kn(X) is a finite group of order prime to p.",
           "match": "VI.6.1 supplies the elliptic specialization. Its proof requires affine finite generation, higher Milnor vanishing and Geisser–Levine plus all-degree localization; the faulty attribution of K₂ tame-kernel finiteness to III.7.2(a) is handled by the separate T.5 request and accepted parent E1."
         }
       ],
@@ -354,13 +349,11 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.3–6.4, chapter p.38; VI.4.6.1",
-          "excerpt": "the universal coefficient theorem (Ex. IV.2.6) shows that Kn(X̄; Z/ℓ∞) is isomorphic to the ℓ-primary subgroup of Kn−1(X̄).",
           "match": "VI.6.4 displays the integral Galois modules and the divisible-coefficient table separately. For genus one J=E; the coefficient group in degree 2i−1 has twist i−1, whereas integral K₂ᵢ has twist i. Use the geometric curve in both tables, as corrected by E17."
         },
         {
           "sourceId": "Kbook.IV",
           "locator": "IV.2.3.1–2.5, chapter pp.19–20; Exercise IV.2.6, p.23",
-          "excerpt": "the Moore spectrum P∞(Z/ℓ) is equivalent to the (spectrum) cofiber of multiplication by ℓ on the sphere spectrum.",
           "match": "The spectrum formulation supplies universal coefficients beyond the unstable range m≥3. Exercise IV.2.6 takes the divisible-coefficient limit. Applied to the actual scheme K-spectrum, this is the natural degree shift requested from H.6; it does not assert a natural splitting."
         }
       ],
@@ -401,7 +394,6 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.5–6.6, chapter p.39, with accepted parent sourceIssue E5",
-          "excerpt": "For a smooth projective curve X over Fq, ℓ ∤ q and i ≥ 2 we have:",
           "match": "VI.6.6 compares divisible cohomology, integral cohomology shifted by one and geometric invariants only for twist ≥2. Preserve that range, and replace VI.6.5’s blanket rational-invariants justification with continuous Hochschild–Serre and the invertibility of Frobenius−1 in these twists."
         }
       ],
@@ -445,13 +437,11 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.7 and proof, chapter pp.39–40",
-          "excerpt": "the real content of the following theorem is that Kn(X) → Kn(X̄)^G is an isomorphism.",
           "match": "VI.6.7 identifies the actual base-change map K_n(X)→K_n(X̄)^G as an isomorphism for n>0. Its proof computes the degree-(n+1) divisible-coefficient group, so the H.6 coefficient shift and M.6/M.7 comparison compatibility are direct inputs; K₁ is treated separately."
         },
         {
           "sourceId": "Kbook.IV",
           "locator": "IV.2.3.1–2.5, chapter pp.19–20; Exercise IV.2.6, p.23",
-          "excerpt": "the Moore spectrum P∞(Z/ℓ) is equivalent to the (spectrum) cofiber of multiplication by ℓ on the sphere spectrum.",
           "match": "The spectrum formulation supplies universal coefficients beyond the unstable range m≥3. Exercise IV.2.6 takes the divisible-coefficient limit. Applied to the actual scheme K-spectrum, this is the natural degree shift requested from H.6; it does not assert a natural splitting."
         }
       ],
@@ -494,7 +484,6 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.4 and VI.6.7, chapter pp.38–40; VI.1.7 convention",
-          "excerpt": "for even n, we have the less concrete description K2i(X̄)^G ≅ J(X̄)[1/p](i)^G.",
           "match": "VI.6.4–6.7 give the even integral term J(X̄)[1/p](i)^G. With the elliptic origin J=E, arithmetic q-power on points makes its fixed-point condition q^iπ(P)=P. The prime-to-p restriction and twist are essential; the subgroup is a new specialization on the existing point group."
         }
       ],
@@ -608,7 +597,6 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.7, chapter pp.39–40; VI.6 opening for K₁",
-          "excerpt": "For odd n, we see from 6.4 and 2.3 that K2i−1(X̄)^G ≅ Z/(q^i−1) ⊕ Z/(q^i−1);",
           "match": "The displayed equation immediately following this excerpt on VI p.39 is K₂ᵢ₋₁(X̄)^G ≅ Z/(q^i−1) ⊕ Z/(q^i−1). VI.6.7 identifies these invariants with the finite-curve groups. The cyclic generators are not canonical; K₁ agrees with the two unit-group summands on p.37."
         }
       ],
@@ -652,7 +640,6 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.4–6.7, chapter pp.38–40; cokernel form derived by the lattice exact sequence",
-          "excerpt": "for even n, we have the less concrete description K2i(X̄)^G ≅ J(X̄)[1/p](i)^G.",
           "match": "The displayed term on VI p.39 is J(X̄)[1/p](i)^G; VI.6.7 descends it to K₂ᵢ(X). For an elliptic curve this is B_i. The Tate-lattice cokernel is an additional derived presentation, from 0→TℓE→VℓE→E[ℓ∞]→0 with 1−q^iπ invertible on VℓE, not a claim stated in Weibel."
         }
       ],
@@ -696,7 +683,6 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.7, chapter pp.39–40, with the elliptic Frobenius degree calculation imported from upstream",
-          "excerpt": "the finite groups Kn(X) for n > 0 are given by:",
           "match": "VI.6.7 supplies the finite groups whose orders are computed here. The determinant 1−a_q q^i+q^(2i+1), its equality with the separable-isogeny degree and positivity use the upstream elliptic quadratic-degree/Hasse inputs, rather than a new K-book theorem or an invariant-factor inference."
         }
       ],

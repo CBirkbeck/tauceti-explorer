@@ -483,7 +483,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "Let T := ResOF |Z Gm",
           "match": "T(ℤ_p) = (𝒪_F ⊗ ℤ_p)^× is the group whose characters form the weight spaces."
         }
       ],
@@ -569,7 +568,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "defined by x 7→(x2, NF/Q(x))",
           "match": "N_{F/ℚ} on T(ℤ_p), used in the weight map; here constructed as the norm of 𝒪_p over ℤ_p."
         }
       ],
@@ -654,7 +652,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 4.5(1), printed p. 1736",
-          "excerpt": "let T be the weight space parameter given by the function κun(q) −1",
           "match": "AIP's coordinate T lives on the pro-p part; the principal units are its Hilbert analogue."
         }
       ],
@@ -741,13 +738,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1(ii), printed p. 1756",
-          "excerpt": "W∗:= Spf(ZpJT(Zp)K)an",
           "match": "The weight space for G*; its L-points are characters T(ℤ_p) → L^×."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "an L-point of W∗is just a map T(Zp) →L×",
           "match": "Points of 𝒲* are characters."
         }
       ],
@@ -835,13 +830,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1(i), printed p. 1756",
-          "excerpt": "W := Spf(ZpJT(Zp) × Z×",
           "match": "The weight space for G."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "An L-point (w, t) ∈W(L) is a pair of maps",
           "match": "Points are pairs (w, t)."
         }
       ],
@@ -924,13 +917,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "the morphism associated to the map",
           "match": "BHW define ρ through a group map T(ℤ_p) → T(ℤ_p) × ℤ_p^×; the printed map x ↦ (x², N(x)) is corrected to x ↦ (x², N(x)^{-1}) (E1)."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "§9, proof of Lemma 9.2, (9.1), printed p. 1781",
-          "excerpt": "The relation of wκ and κ given in Definition 6.2 implies that",
           "match": "(9.1) κ^{-1}(η)w(η²) = t∘N(η) holds for the inverted map."
         }
       ],
@@ -1013,13 +1004,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "we let ρ : W →W∗be the morphism associated to the map",
           "match": "The morphism ρ, defined through a group map."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, after Definition 6.2, printed p. 1757",
-          "excerpt": "which we use to see any weight for G as a weight for G∗",
           "match": "Weights for G are regarded as weights for G* through ρ."
         }
       ],
@@ -1101,7 +1090,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "For (w, t) ∈W(Cp) we write κ = w2·(t−1◦NF/Q)",
           "match": "The displayed formula; exponents checked on the page image."
         }
       ],
@@ -1139,7 +1127,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.1, printed p. 1756",
-          "excerpt": "noting that κ(x)·w(x−2) factors through some power of the norm",
           "match": "The factorisation through the norm."
         }
       ],
@@ -1187,7 +1174,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§9, proof of Lemma 9.2, (9.1), printed p. 1781",
-          "excerpt": "The relation of wκ and κ given in Definition 6.2 implies that",
           "match": "(9.1): κ^{-1}(η)w(η²) = t∘N_{F/ℚ}(η) = 1 for η ∈ 𝒪_F^{×,+}."
         }
       ],
@@ -1236,13 +1222,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, after Definition 6.2, printed p. 1757",
-          "excerpt": "The weight κ is then bounded if and only if",
           "match": "BHW's |T_κ| (supremum over 𝒪_p^× × U), corrected to the pro-p subgroup (E2)."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 4.5(1), printed p. 1736",
-          "excerpt": "let T be the weight space parameter given by the function κun(q) −1",
           "match": "AIP's coordinate is on the pro-p part."
         }
       ],
@@ -1325,7 +1309,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Definition 6.2, printed p. 1756",
-          "excerpt": "We say that κ is bounded if its image in W or W∗is contained in some affinoid open subspace.",
           "match": "Bounded means image in an affinoid; at the coefficient level this is the uniform Banach algebra case."
         }
       ],
@@ -1382,13 +1365,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1, Proposition 6.3, p.1757",
-          "excerpt": "Proposition 6.3.",
           "match": "The existential extension is retained; the printed numerical formula is excluded by E3."
         },
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "§2.4.3, Proposition 2.8, p.9",
-          "excerpt": "Proposition 2.8.",
           "match": "The universal character extends on coordinate-dependent principal-unit neighbourhoods, uniformly on the given interval."
         }
       ],
@@ -1431,7 +1412,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.2, p.1756",
-          "excerpt": "Definition 6.2.",
           "match": "Bounded smooth families are the coefficient parameters used throughout §§6–10."
         }
       ],
@@ -1511,7 +1491,6 @@
         {
           "sourceId": "BP-HIGHER",
           "locator": "§6.2, pp.147–152",
-          "excerpt": "6.2.",
           "match": "Algebraic representations and analytic coefficient induction distinguish finite projective coefficients from infinite induced modules."
         }
       ],
@@ -1611,7 +1590,6 @@
         {
           "sourceId": "BP-HIGHER",
           "locator": "§6.2.2–6.2.4, p.148; §6.2.20, pp.152–153",
-          "excerpt": "6.2.20. Distributions.",
           "match": "The source distinguishes finite algebraic coefficients from induced Banach coefficients and their topological duals; the finite-projective tensor/dual law is the routine idempotent argument from the listed baseline representations and R0."
         }
       ],
@@ -1656,7 +1634,6 @@
         {
           "sourceId": "BP-HIGHER",
           "locator": "§6.2.4, pp.148–149; Remark 6.2.8, pp.149–150; §6.2.20, pp.152–153",
-          "excerpt": "6.2.4. Analytic inductions.",
           "match": "The defining space is the genuine adic neighbourhood of a closed subgroup with Iwahori decomposition. Ordinary Banach duals and the projective bounded-open-polydisc distribution modules are distinguished."
         }
       ],
@@ -1762,7 +1739,6 @@
         {
           "sourceId": "BP-HIGHER",
           "locator": "§6.2.9, Lemma 6.2.10 and §6.2.11, p.150; Proposition 6.3.6, p.154",
-          "excerpt": "Lemma 6.2.10.",
           "match": "The finite twist extends to M1 and is trivial on M1∩Mn. Algebraic restriction carries the positive-monoid scalar; the sheaf comparison supplies maps, with no blanket dual surjectivity."
         }
       ],
@@ -1802,7 +1778,6 @@
         {
           "sourceId": "DING-2025",
           "locator": "§4.2.2, pp.66–67, definitions before Proposition 4.14",
-          "excerpt": "4.2.2. Local-global compatibility.",
           "match": "The completed automorphic coefficient representation is the input for Jacquet–Emerton eigenvarieties."
         }
       ],
@@ -1884,7 +1859,6 @@
         {
           "sourceId": "DING-2025",
           "locator": "§4.2.2, p.67, immediately before Proposition 4.14",
-          "excerpt": "JB",
           "match": "The support construction and its point criterion require the full T(K)-character space."
         }
       ],
@@ -1924,7 +1898,6 @@
         {
           "sourceId": "DING-2025",
           "locator": "Proposition 4.14(1)–(2), p.67",
-          "excerpt": "Proposition 4.14.",
           "match": "Dimension and Cohen–Macaulayness are proved together using local regularity."
         }
       ],
@@ -1964,7 +1937,6 @@
         {
           "sourceId": "DING-2025",
           "locator": "Proposition 4.14(3) and proof, p.67",
-          "excerpt": "(3) ℰ (U℘ ) is reduced.",
           "match": "Reducedness has a separate density argument and therefore a separate node."
         }
       ],
@@ -2008,7 +1980,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definitions 6.4–6.5, pp.1757–1758",
-          "excerpt": "Definition 6.4.",
           "match": "BHW uses a left level action and inverse scalar coefficient equivariance. The right noncommutative abstraction requires the explicit inversion conversion; the paper is not cited for a right cz+d law."
         }
       ],
@@ -2146,7 +2117,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.5 and Proposition 6.6, p.1758",
-          "excerpt": "Definition 6.5.",
           "match": "Invariant coefficient functions give the actual sheaf, with analytic local freeness proved separately."
         }
       ],
@@ -2241,7 +2211,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§9, Lemmas 9.3–9.7, pp.1782–1786",
-          "excerpt": "Lemma 9.3.",
           "match": "Comparison of the presentations retains coefficient actions and their descent data."
         }
       ],
@@ -2280,7 +2249,6 @@
         {
           "sourceId": "HEUER-2022",
           "locator": "Corollary 1.4, p.3; Proposition 3.8, p.16",
-          "excerpt": "Proposition 3.8.",
           "match": "Heuer’s formal cocycle lies in O(𝔛∞)× and its proof uses a natural map to analytic O+. The dense-open criterion is for v-lines on a smooth rigid space over a perfectoid extension of Q_p."
         }
       ],
@@ -2329,7 +2297,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§5.3 and §6.2, Definitions 5.17 and 6.4–6.5, pp.1751,1757–1758",
-          "excerpt": "Definition 6.4.",
           "match": "The cocycle is used only on weight-dependent anticanonical domains."
         }
       ],
@@ -2419,7 +2386,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.4, p.1757",
-          "excerpt": "κ(cz + d)",
           "match": "The extension is evaluated at the actual Hodge–Tate factor, not at its reduction."
         }
       ],
@@ -2507,13 +2473,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.4 and the construction following it, pp.1757–1758",
-          "excerpt": "κ(cz + d)",
           "match": "The matrix automorphy identity makes the displayed Γ-action a group action."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "§5.2.1, Definition 5.14, pp.1749–1750; §5.5, Lemma 5.31, p.1755; §8.2, Definition 8.8, p.1768",
-          "excerpt": "Definition 5.14.",
           "match": "The level action is left and the tautological frame transforms by cz+d. The displayed left cocycle law follows by matrix multiplication."
         }
       ],
@@ -2559,7 +2523,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.5 and Proposition 6.6, p.1758",
-          "excerpt": "Definition 6.5.",
           "match": "The perfectoid definition and analytic-line theorem are independent of the later AIP construction."
         }
       ],
@@ -2645,7 +2608,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.5 and Remark 6.7, p.1758; Definition 7.13, p.1764",
-          "excerpt": "Remark 6.7.",
           "match": "The definitions at level zero are transported by Atkin–Lehner and the classical specialisations retain this transport."
         }
       ],
@@ -2690,7 +2652,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 6.7, p.1758",
-          "excerpt": "Remark 6.7.",
           "match": "Classical algebraic weights recover the corresponding Hodge powers, with determinant weight separated from the trivial character."
         }
       ],
@@ -2736,7 +2697,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.5, p.1758",
-          "excerpt": "integral subsheaf",
           "match": "The integral sheaf is defined using O+, with freeness supplied by Theorem 7.14."
         }
       ],
@@ -2824,7 +2784,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.8, p.1786",
-          "excerpt": "or equivalently by inverting p.",
           "match": "The source rationalization is a sheaf statement and requires integral descent rather than arbitrary invariants/localization interchange."
         }
       ],
@@ -2871,13 +2830,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§6.1–6.2, Definitions 6.2 and 6.5, pp.1756–1758",
-          "excerpt": "Definition 6.2.",
           "match": "The sheaves are defined on X×U with a universal family factor; pullback is coefficient-compatible."
         },
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "Remark 3.15, p.17",
-          "excerpt": "Remark 3.15.",
           "match": "Integral base change can fail because finite group cohomology obstructs invariants."
         }
       ],
@@ -2922,7 +2879,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 6.8, p.1758",
-          "excerpt": "Definition 6.8.",
           "match": "Fixed-radius spaces are global sections with the polarisation ideal, level and weight base retained."
         }
       ],
@@ -3010,7 +2966,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definitions 6.5–6.8 and Remark 6.9, pp.1758–1759",
-          "excerpt": "overconvergent Hilbert modular forms",
           "match": "The roadmap separates fixed positive radii, their colimit and the ordinary endpoint; AIP supplies their Banach models."
         }
       ],
@@ -3097,7 +3052,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§7.1, pp.1759–1761",
-          "excerpt": "away from the Rapoport locus",
           "match": "The ramified integral construction modifies the differential lattice before forming the torsor."
         }
       ],
@@ -3143,7 +3097,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.1(1), pp.1780–1781",
-          "excerpt": "(1)",
           "match": "The Γ0*(p^n)-action on X_{U,Γ*(p∞)} gives this distinct presentation and its precise coefficient multiplier."
         }
       ],
@@ -3232,7 +3185,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.1(2), pp.1780–1781",
-          "excerpt": "(2)",
           "match": "The Γ0(p^n)-action on X_{U,Γ(p∞)} gives this distinct presentation and its precise coefficient multiplier."
         }
       ],
@@ -3320,7 +3272,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.1(3), pp.1780–1781",
-          "excerpt": "(3)",
           "match": "The E(p^n)-action on X_{U,Γ(p∞)} gives this distinct presentation and its precise coefficient multiplier."
         }
       ],
@@ -3411,7 +3362,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.1(4), pp.1780–1781",
-          "excerpt": "(4)",
           "match": "The PΓ0(p^n)-action on X_{G,U,Γ(p∞)} gives this distinct presentation and its precise coefficient multiplier."
         }
       ],
@@ -3495,7 +3445,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Lemma 9.2 and equation (9.1), pp.1781–1782",
-          "excerpt": "κ−1 (η)wκ (η 2 )",
           "match": "The norm-one identity is exactly what makes both quotient actions well-defined."
         }
       ],
@@ -3542,7 +3491,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Lemma 9.3, pp.1782–1783",
-          "excerpt": "Lemma 9.3.",
           "match": "The source supplies the explicit torsor span and inverse map, not just equality of dimensions."
         }
       ],
@@ -3588,7 +3536,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.4 and Lemma 9.5, p.1783",
-          "excerpt": "ε ·wκ f := wκ (ε) · (ε−1 )∗ f",
           "match": "The inverse pullback and weight twist define the correct finite polarisation action."
         }
       ],
@@ -3676,7 +3623,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Lemma 9.6, p.1784",
-          "excerpt": "Lemma 9.6.",
           "match": "Finite twisted Δ(N)-invariants give the intermediate arithmetic presentation."
         }
       ],
@@ -3724,7 +3670,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Equation (9.5) and Lemma 9.7, pp.1784–1786",
-          "excerpt": "wκ (x−1 )wκ (det γ)wκ (eβ )",
           "match": "The pairing transformation is the nontrivial coefficient twist in the comparison."
         }
       ],
@@ -3774,7 +3719,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.10, pp.1786–1787",
-          "excerpt": "Px (f ) − f",
           "match": "The quotient over polarisation ideals is essential because Hecke maps change c."
         }
       ],
@@ -3861,7 +3805,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 10.6, p.1791; Definition 9.10, pp.1786–1787",
-          "excerpt": "Remark 10.6.",
           "match": "The arithmetic normalisation removes polarisation choices; G* retains a comparison choice."
         }
       ],
@@ -3907,19 +3850,16 @@
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "§4.1–4.2, Definition before Proposition 4.3, pp.15–16",
-          "excerpt": "wn,r,I",
           "match": "AIP eigenfunctions are constructed on the modified differential frame torsor."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 7.9, p.1761",
-          "excerpt": "Definition 7.9.",
           "match": "The generic-fibre AIP construction is recalled independently of the perfectoid one."
         },
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "§6.4, finite-character construction before Theorem 6.7, p.29",
-          "excerpt": "This is a coherent sheaf,",
           "match": "The full finite-character factor is stated coherent and invertible over the ordinary locus and analytic fibre; this does not assert invertibility over the entire formal model."
         }
       ],
@@ -4006,13 +3946,11 @@
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "Propositions 4.3 and 4.7, pp.16–18",
-          "excerpt": "Proposition 4.7.",
           "match": "Integral local freeness and the canonical changes of interval/radius/Igusa level are distinct ingredients."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Proposition 7.10, p.1762",
-          "excerpt": "Proposition 7.10",
           "match": "The local coefficient sheaves glue on overlaps."
         }
       ],
@@ -4065,7 +4003,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Theorem 7.14 and proof, pp.1764–1765",
-          "excerpt": "Theorem 7.14.",
           "match": "The comparison is an integral sheaf isomorphism built from the tautological torsor map, not a dimension comparison."
         }
       ],
@@ -4114,13 +4051,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Definition 9.11 and Theorem 9.12, p.1787",
-          "excerpt": "Theorem 9.12.",
           "match": "The arithmetic comparison is the explicit descent chain, retaining its pairing and unit-action twists."
         },
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "§4, weight convention before Theorem 4.4, pp.26–28",
-          "excerpt": "κ",
           "match": "AIP’s plus-norm convention is converted by inverting the second arithmetic character."
         }
       ],
@@ -4168,13 +4103,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Proofs of Theorems 7.14 and 9.12, pp.1764–1765,1787",
-          "excerpt": "Theorem 9.12.",
           "match": "The maps arise from the same tautological sections and hence are natural with respect to their compatible pullbacks."
         },
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "Proposition 4.7, pp.17–18",
-          "excerpt": "Proposition 4.7.",
           "match": "AIP change-of-chart identifications supply the other side of the diagram."
         }
       ],
@@ -4220,7 +4153,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 6.9 and Remark 9.9, pp.1759,1786",
-          "excerpt": "ωcκ (−∂)",
           "match": "Cusp forms are sections vanishing at the toroidal boundary, rather than all sections extending there."
         }
       ],
@@ -4308,13 +4240,11 @@
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "§8.4, Proposition 8.4, pp.36–37 (statement p.37)",
-          "excerpt": "Proposition 8.4.",
           "match": "The pushforward comparison is Koecher extension, not cuspidality."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 6.9, p.1759",
-          "excerpt": "Koecher principle",
           "match": "The source introduces the boundary ideal separately from extension."
         }
       ],
@@ -4365,7 +4295,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Lemma 10.1 and Definition 10.2, pp.1788–1789",
-          "excerpt": "Definition 10.2.",
           "match": "The tame operator is explicitly normalized pullback–identify–trace between polarisation components."
         }
       ],
@@ -4465,7 +4394,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "§10.2, Lemma 10.3 and Definition 10.4, pp.1789–1790",
-          "excerpt": "Definition 10.4.",
           "match": "The operator uses degree q_𝔭 trace and an integral coefficient map, with the extra level l=ne+1."
         }
       ],
@@ -4562,7 +4490,6 @@
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "§3.7, Remark 3.28, p.24",
-          "excerpt": "Remark 3.28.",
           "match": "The Hecke action respects weight families and cuspidality; finite level automorphisms are the degree-one correspondences."
         }
       ],
@@ -4651,7 +4578,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Proposition 10.8 and proof, pp.1791–1792",
-          "excerpt": "Proposition 10.8.",
           "match": "The coefficient maps are compared on isogeny torsors before trace is taken."
         }
       ],
@@ -4705,7 +4631,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 6.9; Proposition 10.8, pp.1759,1791–1792",
-          "excerpt": "Proposition 10.8.",
           "match": "The torsor comparison and boundary-compatible correspondence yield the expansion diagrams; the full family expansion input is explicitly requested."
         }
       ],
@@ -4754,7 +4679,6 @@
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "Theorem 4.4 and proof, p.28; Theorem 3.16, p.18",
-          "excerpt": "Theorem 4.4.",
           "match": "The fixed-radius cusp module is projective Banach and has surjective specialisation; projective does not mean finite rank."
         }
       ],
@@ -4803,7 +4727,6 @@
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "Lemma 3.27 and proof, p.24",
-          "excerpt": "restriction map",
           "match": "The compactness proof factors through restriction between the nested Hasse neighbourhoods."
         }
       ],
@@ -4850,13 +4773,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 10.6, p.1791",
-          "excerpt": "Up",
           "match": "The controlling operator is the product with ramification multiplicities."
         },
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "Lemma 3.25(4) and Lemma 3.27, pp.22–24",
-          "excerpt": "Lemma 3.27.",
           "match": "The product improves all partial radii before the compact restriction factor."
         }
       ],
@@ -4946,13 +4867,11 @@
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "Lemma 3.27, p.24",
-          "excerpt": "Lemma 3.27.",
           "match": "The concrete compact restriction factor proves complete continuity."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Remark 10.6, p.1791",
-          "excerpt": "compact operator",
           "match": "BHW identifies this controlling product with the AIP compact operator."
         }
       ],
@@ -5000,7 +4919,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Lemma 10.3 and Remark 10.7, pp.1789–1791",
-          "excerpt": "after renormalisation.",
           "match": "The wild coefficient map is integral, but its rational trace normalizer need not preserve the lattice."
         }
       ],
@@ -5043,13 +4961,11 @@
         {
           "sourceId": "HEUER-2022",
           "locator": "Proposition 3.8 and proof, p.16",
-          "excerpt": "Proposition 3.8.",
           "match": "The proof supplies the ordered formal completion and a natural equivariant map to analytic O+(X∞). It does not prove that this map is generally an isomorphism."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Proof of Proposition 6.6, p.1758",
-          "excerpt": "Igusa tower",
           "match": "The ordinary formal tower provides the actual integral coefficient trivializations."
         }
       ],
@@ -5143,13 +5059,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Proposition 6.6 and §9, pp.1758,1781–1787",
-          "excerpt": "Igusa tower",
           "match": "Ordinary Igusa functions carry the same inverse-weight relation and arithmetic twists as the coefficient sheaves."
         },
         {
           "sourceId": "HEUER-2022",
           "locator": "Proposition 3.8, p.16",
-          "excerpt": "1-cocycle",
           "match": "Integral weight actions on the formal tower descend through compatible finite reductions."
         }
       ],
@@ -5242,7 +5156,6 @@
         {
           "sourceId": "HEUER-2022",
           "locator": "Proof of Proposition 3.8, p.16",
-          "excerpt": "Proposition 3.8.",
           "match": "Heuer constructs a natural map, not a general identification with O+. The exact isomorphism for the actual ordinary Igusa models is an additional unverified P9 target."
         }
       ],
@@ -5289,7 +5202,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Proof of Proposition 6.6 and Theorem 7.14, pp.1758,1764–1765",
-          "excerpt": "Igusa tower",
           "match": "The ordinary coefficient frame is the restriction of the same independent torsor comparison."
         }
       ],
@@ -5384,13 +5296,11 @@
         {
           "sourceId": "HEUER-2022",
           "locator": "Proposition 3.8, p.16",
-          "excerpt": "Proposition 3.8.",
           "match": "Integral formal Igusa cocycles define the descended analytic line."
         },
         {
           "sourceId": "AIP-ADIC-2016",
           "locator": "§8.4, discussion after Proposition 8.4, p.37",
-          "excerpt": "ordinary",
           "match": "The ordinary restriction recovers the Katz/Hida coefficient model, with further Hida theorems separate."
         }
       ],
@@ -5437,13 +5347,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Proposition 10.8, pp.1791–1792",
-          "excerpt": "Proposition 10.8.",
           "match": "The torsor/isogeny comparison restricts to the ordinary coefficient model."
         },
         {
           "sourceId": "HEUER-2022",
           "locator": "Proposition 3.8, p.16",
-          "excerpt": "Proposition 3.8.",
           "match": "Compatible finite-level integral reductions supply the completed version of the same diagrams."
         }
       ],
@@ -5491,7 +5399,6 @@
         {
           "sourceId": "AIP-CUSP-2016",
           "locator": "Theorem 3.17, Corollary 3.20 and Proposition 3.22 with footnote, pp.18–21",
-          "excerpt": "Theorem 3.17.",
           "match": "Cuspidal vanishing and the explicitly refined affinoid neighbourhood supply the Banach argument."
         }
       ],
@@ -5971,7 +5878,7 @@
       "source": "BHW-2023",
       "kind": "misprint",
       "locator": "Definition7.1(1), p1759; arXiv v4 §7.1",
-      "printed": "of order pm",
+      "printed": "The source specifies order pm.",
       "correction": "The O_F-linear canonical subgroup is of order p^(mg), g=[F:Q], while it is locally O_F/p^mO_F as an O_F-module.",
       "reason": "An O_F/p^mO_F module has p^(m[F:Q]) elements. The same definition gives this local module model; order p^m agrees only in degree1.",
       "affects": "nothing",

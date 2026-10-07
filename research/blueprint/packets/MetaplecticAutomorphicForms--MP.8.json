@@ -217,11 +217,12 @@
       "edition": "Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
       "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
       "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c",
-      "read": "2026-10-06",
+      "read": "2026-10-07",
       "readSections": [
         "Published Inventiones pp.543–618: introduction and §§1–9 plus references read in extracted text; all formula/proof passages cited in the nodes were inspected in rendered pages, including the previously unread pp.558–612.",
         "Physical page index = printed page minus 542 in the 77-page scan; physical page 1 is the repository cover sheet. Branches, transpose placement and N powers were checked in rendered formulas rather than inferred from OCR.",
-        "BFH §9 is read to determine the BSD.2 boundary; its final nonvanishing/positivity argument is not planned here. External references used for omitted proofs remain the precise gaps listed in this packet."
+        "BFH §9 is read to determine the BSD.2 boundary; its final nonvanishing/positivity argument is not planned here. External references used for omitted proofs remain the precise gaps listed in this packet.",
+        "2026-10-07 revision: re-fetched the public published scan and verified the SHA-256. Selectively rechecked rendered pp.547–548, 550–551, 562, 565, 569, 574–577, 582–583, 585–589, 591–599, 600–603 for the review corrections. The preceding full-source read is the original/review record above; external unread references remain gaps."
       ]
     }
   ],
@@ -230,7 +231,7 @@
       "kind": "published",
       "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
       "citation": "Published Invent. Math. 102 (1990), 543–618 scan with publisher header and journal pagination, read throughout. DOI 10.1007/BF01233440; publisher metadata checked independently. This is distinct from the BFH Annals 131 (1990), 53–127 paper.",
-      "read": "2026-10-06",
+      "read": "2026-10-07",
       "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c"
     }
   ],
@@ -271,7 +272,6 @@
         {
           "sourceId": "BFH90",
           "locator": "(2.9), printed p.552; lattice parameter in the proof on p.553",
-          "excerpt": "λ ∈ N⁻ʲ Z²",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -372,7 +372,6 @@
         {
           "sourceId": "BFH90",
           "locator": "(2.6), p.552, and (2.10), p.553",
-          "excerpt": "4mT",
           "match": "The source uses the integral symmetric matrix U. The native quadratic-form invariant is U/N, with the level factor kept explicit; the definitions are identified through the polynomial Q(x)=xᵀTx."
         }
       ],
@@ -463,7 +462,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
-          "excerpt": "4mT",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -505,7 +503,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
-          "excerpt": "4mT",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -550,7 +547,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
-          "excerpt": "4mT",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -592,7 +588,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
-          "excerpt": "4mT",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -640,7 +635,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
-          "excerpt": "4mT",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -686,7 +680,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
-          "excerpt": "4mT",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -729,7 +722,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2 proof, (2.9)–(2.10) and the paragraph defining C_j, pp.552–553",
-          "excerpt": "Bⱼ(g; T, R)",
           "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
         }
       ],
@@ -765,7 +757,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.546, definition of H₂",
-          "excerpt": "Z = X + iY",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -815,7 +806,7 @@
         },
         {
           "where": "BFH §2, pp.551–553, definition of θ and Proposition 2.1",
-          "how": "Uses siegel upper half-space of degree two in genus-two theta normal convergence: For a>0, on every compact subset of H₂×C² the θ_{a,ν} series and all coordinate derivatives converge absolutely and uniformly. Hence θ is jointly holomorphic and termwise differentiation, residue-class regrouping and compact-torus integration are valid. The bound uses the least eigenvalue of Im Z uniformly bounded belo"
+          "how": "Control the least eigenvalue of Im Z on compact subsets, giving uniform Gaussian majorants for the theta series and its coordinate derivatives."
         }
       ]
     },
@@ -850,7 +841,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, pp.545–546, unnumbered GSp⁺ definition and fractional-linear action",
-          "excerpt": "gZ = (AZ+B)(CZ+D)⁻¹",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -896,7 +886,7 @@
         },
         {
           "where": "BFH §1, pp.546–549, (1.4)–(1.9)",
-          "how": "Uses positive genus-two symplectic similitudes in similitude action on the jacobi group: For the MP.6 Heisenberg group H(W)=W×R with law (w,t)(w',t')=(w+w',t+t'+ω(w,w')/2), every g∈GSp₄(R) acts by (w,t)↦(gw,μ(g)t). Pulling this action back along the double-cover projection gives the native semidirect product H(W)⋊G̃Sp₄. A fixed central character e(mt) is preserved only by μ=1; general positive similitudes "
+          "how": "Track the Heisenberg center under t↦μ(g)t and the resulting central-character transport; pull the action back along the rank-two cover projection."
         }
       ],
       "planet": {
@@ -933,7 +923,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.546, unnumbered fractional-linear action; §2, p.552, (2.7)",
-          "excerpt": "CZ+D",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -980,7 +969,7 @@
       "uses": [
         {
           "where": "BFH §2, pp.552–554, (2.7)–(2.14); §8, p.601",
-          "how": "Uses positive similitude action on siegel space in genus-two square-root double cover: The positive real cover consists of (g,h), g∈GSp₄⁺(R), h:H₂→C continuous with h(Z)²=d(g,Z). Multiplication is (g,h)(g',h')=(gg',Z↦h(g'Z)h'(Z)). Its projection is a continuous surjective homomorphism with kernel {(1,1),(1,−1)}. On μ=1 compare it with MP.1's intrinsic metaplectic double cover, preserving the central sign"
+          "how": "Use the Siegel action in the square-root cocycle h(g′Z)h′(Z) and compare the μ=1 restriction with the intrinsic metaplectic cover."
         },
         {
           "where": "BFH §1, pp.548–549, (1.12)–(1.17)",
@@ -988,7 +977,7 @@
         },
         {
           "where": "BFH §1, p.547, (1.1)",
-          "how": "Uses positive similitude action on siegel space in bfh symplectic jacobi slash operator: For m∈Z and γ∈Sp₄(R), on functions Φ(g,W) define (Φ|γ)(g,W)=e(−m Wᵀ(CZ_g+D)⁻¹CW) Φ(γg,(CZ_g+D)⁻ᵀW). This is the coordinate realization of the imported MP.6 Jacobi action with central character ψ_m. The operator is restricted to the symplectic factor; extending it to similitudes requires scaling the central character."
+          "how": "Evaluate the transformed Siegel coordinate and CZ+D factor in the BFH realization of the imported symplectic Jacobi action."
         }
       ]
     },
@@ -1023,7 +1012,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.552–554, (2.7)–(2.14); §8, p.601",
-          "excerpt": "√(−det Z)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1065,11 +1053,11 @@
       "uses": [
         {
           "where": "BFH §3, pp.557–559, (3.1)–(3.8)",
-          "how": "Uses genus-two square-root double cover in genus-two archimedean whittaker functions: For k≥2 even and φ(κ)=T(vσ(κ)) with the BFH SO(2) weight k, define W^ε(y₁,y₂;s)=(y₁y₂)^(4−s)y₂^(k/2)∫_{R³} √(−det(X+iI))/|det(X+iI)|^s e(εy₁x₁)e(y₂(x₂'+iy₂'))(y₂')^(k/2)φ(κ(X))dX. Here ε=+1,−1 or 0, X=[[x₄,x₃],[x₃,x₁]], x₂'=−x₃(x₁+x₄)/(1+x₁²+x₃²), y₂'=√(1+x₁²+2x₃²+x₄²+(x₁x₄−x₃²)²)/(1+x₁²+x₃²)>0. κ(X) is uniquely specif"
+          "how": "Use the BFH section and its chosen cover branch in the archimedean Whittaker integral, with the prescribed finite K-type."
         },
         {
           "where": "BFH §1, pp.546–549, (1.4)–(1.9)",
-          "how": "Uses genus-two square-root double cover in similitude action on the jacobi group: For the MP.6 Heisenberg group H(W)=W×R with law (w,t)(w',t')=(w+w',t+t'+ω(w,w')/2), every g∈GSp₄(R) acts by (w,t)↦(gw,μ(g)t). Pulling this action back along the double-cover projection gives the native semidirect product H(W)⋊G̃Sp₄. A fixed central character e(mt) is preserved only by μ=1; general positive similitudes "
+          "how": "Track the Heisenberg center under t↦μ(g)t and the resulting central-character transport; pull the action back along the rank-two cover projection."
         },
         {
           "where": "BFH §1, pp.545–546, definition of GSp⁺(4,R)",
@@ -1116,7 +1104,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, pp.548–549, (1.12)–(1.17)",
-          "excerpt": "A + iB ∈ U(2)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1154,7 +1141,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.547, (1.6)–(1.9)",
-          "excerpt": "C ≡ 0 mod N",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1239,7 +1225,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.547, (1.1)",
-          "excerpt": "(CZ_g+D)⁻ᵀW",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1281,11 +1266,11 @@
       "uses": [
         {
           "where": "BFH §1, p.547, (1.2)–(1.5)",
-          "how": "Uses bfh symplectic jacobi slash operator in bfh elliptic translation operator: Define (Φ||[λ;ρ])(g,W)=e(m Z_g[λ]+2m Wᵀλ) Φ(g,W+Z_gλ+ρ), for real λ,ρ. For the order (Φ||[λ;ρ])||[κ;ν], the operator at [λ+κ;ρ+ν] is multiplied by e(2mνᵀλ). The lattice used by BFH kills this scalar because N|m. This is an explicit specialization of the MP.6 Heisenberg central character, not a commutative translation a"
+          "how": "Check the central phase when combining a symplectic slash with elliptic translations; the BFH lattice kills the phase under N|m."
         },
         {
           "where": "BFH §2, pp.551–553, (2.2)–(2.3)",
-          "how": "Uses bfh symplectic jacobi slash operator in bfh fourier coefficient extraction: For j=0 or 1, define B_j(g;T,R)=N^(−3j)∫_{[0,N^j)^3}∫_{[0,1)^2} Φ_j(n(X)g,W)e(−N^(−j)tr(T(Z_g+X))−N^(1−j)RᵀW)dW dX. X=[[x₄,x₃],[x₃,x₁]], T is the half-integral matrix of Q, R∈Z², and both measures are coordinate Lebesgue measures. The coefficient excludes the exponential in Z_g; it is not the unnormalized torus Fourier"
+          "how": "Use the slash covariance to identify the normalized two-cusp Fourier coefficient, retaining both its level factors and the exponential in the Siegel coordinate."
         },
         {
           "where": "BFH Proposition 2.2, p.552, (2.7)–(2.8)",
@@ -1325,7 +1310,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.547, (1.2)–(1.5)",
-          "excerpt": "2mλᵀρ ∈ Z",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1411,7 +1395,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, p.551, (2.1)",
-          "excerpt": "R ≡ ν mod 2N₀",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1500,7 +1483,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.551–553, (2.2),(2.9)",
-          "excerpt": "half-integral symmetric matrices",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1586,7 +1568,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.551–553, (2.2)–(2.3)",
-          "excerpt": "N⁻³ʲ",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1632,7 +1613,7 @@
         },
         {
           "where": "BFH §2, pp.552–553, before Proposition 2.2",
-          "how": "Uses bfh fourier coefficient extraction in theta-component fourier coefficients: C_j(g;U,ν) is the Fourier coefficient B_j(g;T,ν) with T=(U+N^(2−j)ννᵀ)/(4m); set it to zero if this is not an integral quadratic form, equivalently a half-integral symmetric matrix. This computational construction is defined before imposing Jacobi invariance. For the actual BFH family, the shift theorem makes the resid"
+          "how": "Specialize B_j to T=(U+N^(2−j)ννᵀ)/(4m), setting the coefficient to zero for a nonintegral quadratic index; invoke the shift theorem for residue independence."
         },
         {
           "where": "BFH §2, pp.556–557, Proposition 2.7, Corollary 2.8",
@@ -1674,7 +1655,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.1, p.551",
-          "excerpt": "√det Y / (2N₀)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1714,7 +1694,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.552–553, (2.9)",
-          "excerpt": "W − (Z_g+X)λ",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1758,7 +1737,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2, pp.552–554, (2.4)–(2.6)",
-          "excerpt": "U = 4mT − N²⁻ʲRRᵀ",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1796,7 +1774,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, p.554, (2.12)–(2.13)",
-          "excerpt": "1/(2N₀)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1836,7 +1813,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2, p.552, (2.7)–(2.8)",
-          "excerpt": "√(−det Z_g)/(2m)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1875,7 +1851,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.547, (1.6)–(1.9)",
-          "excerpt": "Φ₁ = Φ₀|J",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -1960,7 +1935,6 @@
         {
           "sourceId": "BFH90",
           "locator": "Proposition 2.2, pp.552–554, (2.4)–(2.6)",
-          "excerpt": "𝓔_j(g;ν)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2010,7 +1984,7 @@
         },
         {
           "where": "BFH §6, pp.583,585–586, definitions before Propositions 6.1–6.2",
-          "how": "Uses bfh theta component projection in genus-two whittaker coefficient extraction: For ν=(0,r), D∈Z, n₂=q/N>0 and n₁=N(r²−D)/(4m) integral, define C₁(s;D,n₂,r;y₁,y₂)=N⁻¹∫₀ᴺ C₁(m(E(x₂))m(√y₁diag(y₂,1));U₁(−ND),ν)e(−n₂x₂)dx₂. Define C₀ by the finite Fourier sum Σμ e(−Nν·μ/(2m)) of C₀ at m(E(−x₂)ᵀ)m(√y₁diag(y₂,1)), index U₀(−D), and the same normalized x₂ integral. The latter vanishes unless 4m|D; both "
+          "how": "Extract the finite theta/Fourier coefficients at the two cusps before the normalized x₂ Whittaker integral, preserving the opposite-cusp finite Fourier sum."
         }
       ]
     },
@@ -2046,7 +2020,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.552–553, before Proposition 2.2",
-          "excerpt": "U = 4mT−N^(2−j)ννᵀ",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2096,7 +2069,7 @@
         },
         {
           "where": "BFH §6, pp.583,585–586, definitions before Propositions 6.1–6.2",
-          "how": "Uses theta-component fourier coefficients in genus-two whittaker coefficient extraction: For ν=(0,r), D∈Z, n₂=q/N>0 and n₁=N(r²−D)/(4m) integral, define C₁(s;D,n₂,r;y₁,y₂)=N⁻¹∫₀ᴺ C₁(m(E(x₂))m(√y₁diag(y₂,1));U₁(−ND),ν)e(−n₂x₂)dx₂. Define C₀ by the finite Fourier sum Σμ e(−Nν·μ/(2m)) of C₀ at m(E(−x₂)ᵀ)m(√y₁diag(y₂,1)), index U₀(−D), and the same normalized x₂ integral. The latter vanishes unless 4m|D; both "
+          "how": "Extract the finite theta/Fourier coefficients at the two cusps before the normalized x₂ Whittaker integral, preserving the opposite-cusp finite Fourier sum."
         }
       ]
     },
@@ -2134,7 +2107,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, pp.547–550, (1.11)–(1.16)",
-          "excerpt": "I(gzκ) = I(g)σ(κ)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2180,7 +2152,7 @@
         },
         {
           "where": "BFH §3, pp.557–559, (3.1)–(3.8)",
-          "how": "Uses elliptic-newform section on genus-two similitudes in genus-two archimedean whittaker functions: For k≥2 even and φ(κ)=T(vσ(κ)) with the BFH SO(2) weight k, define W^ε(y₁,y₂;s)=(y₁y₂)^(4−s)y₂^(k/2)∫_{R³} √(−det(X+iI))/|det(X+iI)|^s e(εy₁x₁)e(y₂(x₂'+iy₂'))(y₂')^(k/2)φ(κ(X))dX. Here ε=+1,−1 or 0, X=[[x₄,x₃],[x₃,x₁]], x₂'=−x₃(x₁+x₄)/(1+x₁²+x₃²), y₂'=√(1+x₁²+2x₃²+x₄²+(x₁x₄−x₃²)²)/(1+x₁²+x₃²)>0. κ(X) is uniquely specif"
+          "how": "Use the BFH section and its chosen cover branch in the archimedean Whittaker integral, with the prescribed finite K-type."
         },
         {
           "where": "BFH §3, p.559, Proposition 3.2",
@@ -2219,7 +2191,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.549, (1.17)",
-          "excerpt": "det(Y_g)ˢᐟ²",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2302,7 +2273,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.549, definition of E_s",
-          "excerpt": "P ∩ Γ \\ Γ",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2348,7 +2318,7 @@
         },
         {
           "where": "BFH §1, p.549, I_s; §2, pp.553–554; §8, p.601",
-          "how": "Uses genus-two jacobi eisenstein series in genuine normalized induced-section comparison: For the actual BFH theta-component vector E_j, lift to the double cover by ℰ_j(g,h)=h(iI₂)E_j(g). The kernel −1 acts by −1. On the positive Siegel Levi Q, the determinant-root magnitude is |detQ|^−1/2. Thus the section derived from I_s has unnormalized real exponent |detQ|^(s−1/2), while δ_P^(1/2)=|detQ|^(3/2); its nor"
+          "how": "Lift the actual theta-component family by h(iI₂), verify its genuine central sign, and compare its Levi exponent with normalized induction at ν=s−2."
         },
         {
           "where": "RankZeroOneBSD:BSD.2",
@@ -2391,7 +2361,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.557–559, (3.1)–(3.8)",
-          "excerpt": "W⁺, W⁻",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2437,11 +2406,11 @@
         },
         {
           "where": "BFH §3, pp.559–561, (3.10)–(3.15)",
-          "how": "Uses genus-two archimedean whittaker functions in two-parameter jacquet integral: For the BFH K-type, let F_v(n(E(x₂))m(Y)κ)=|det Y|^s y₂^r vσ(κ), Y=√y₁ diag(y₂,1). Define V^ε(y₁,y₂;s,r)= (−1)^(k/2)y₁^(4−s)y₂^(5−r−s)∫_{R×R³} F_v(Jm(E(x₂))n(X))√(−det(X+iI))e(εy₁x₁)e(y₂x₂)dX dx₂. Set W^ε(s,r)=π^−r Γ(r+k/2)V^ε(s,r). The section is homogeneous exactly as (3.10); both integrals are initially interpreted "
+          "how": "Relate the initial Whittaker integral to the two-parameter Jacquet integral in its absolute-convergence chamber, then continue it using the reflected identities."
         },
         {
           "where": "BFH §3, pp.567–569, Propositions 3.7–3.8",
-          "how": "Uses genus-two archimedean whittaker functions in whittaker test coefficient algebra: Let R_k be the algebraic span of actual finite-dimensional U(2) matrix coefficients with the prescribed SO(2) weight k and trivial action of −I₄; its closure is taken in the uniform topology. In the κ(X) chart the three weight-zero polynomial coefficients are φ₁=det B=|det(X+iI)|^−1, φ₂=(det(X)²−1)x₁/|det(X+iI)|⁴ and φ"
+          "how": "Choose actual finite U(2) matrix coefficients of the prescribed SO(2) weight and use the global signed divisor to control the local analytic tests."
         }
       ]
     },
@@ -2475,7 +2444,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.559, Proposition 3.1",
-          "excerpt": "α > 1/2",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2512,7 +2480,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.559, Proposition 3.2",
-          "excerpt": "converges absolutely if re(s) > 2",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2549,7 +2516,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.559–561, (3.10)–(3.15)",
-          "excerpt": "π⁻ʳ Γ(r+k/2)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2628,7 +2594,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.560–561, Proposition 3.3",
-          "excerpt": "W±(y₁,y₂;s,r) = W±(y₁,y₂;s,1−r)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2666,7 +2631,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.562, Proposition 3.4, (3.18)–(3.19); pp.563–565, (3.26)–(3.27) and explicit V̂ displays",
-          "excerpt": "(s,r) ↦ (r+3/2,s−3/2)",
           "match": "The p.562 printed normalizer needs correction E-MP8-6; the p.565 evaluated formulas determine the corrected two signs."
         }
       ],
@@ -2704,7 +2668,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.565–566, Proposition 3.5",
-          "excerpt": "analytic continuation to re(s) > 3/2",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2742,7 +2705,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.566–567, Proposition 3.6",
-          "excerpt": "(y₁y₂)⁻ᶜ ξ(y₁,y₂)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2778,7 +2740,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.574–576, Proposition 3.14, (3.46)–(3.47)",
-          "excerpt": "rapidly decreasing in y₂",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2815,7 +2776,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.567–569, Propositions 3.7–3.8",
-          "excerpt": "finite dimensional representations",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2872,7 +2832,7 @@
       "uses": [
         {
           "where": "BFH §3, p.568, Proposition 3.9; p.571, (3.41)",
-          "how": "Uses whittaker test coefficient algebra in bounded holomorphic strip for test coefficients: Every finite matrix coefficient h, including its right translate by κ₀∈K, admits a bounded holomorphic extension in x₁ on |Im x₁|≤ε, uniformly for real x₃,x₄ and κ₀, for each 0<ε<1. This includes polynomials in φ₁,φ₂,φ₃ and suffices for the upward contour shift in (3.41). The printed one-sided region includes the singu"
+          "how": "Extend finite compact matrix coefficients to |Im x₁|≤ε<1 uniformly in the other real coordinates and compact right translates, as needed for the upward contour shift."
         },
         {
           "where": "BFH §3, p.576, (3.48)–(3.49)",
@@ -2880,7 +2840,7 @@
         },
         {
           "where": "BFH §3, pp.573–574, Proposition 3.12",
-          "how": "Uses whittaker test coefficient algebra in nonzero novodvorsky tests with vanishing rank zero: For every even k≥2 and (u,s) with Re s>3/2, Re(u−s+5/2)>0, there exist an actual finite-dimensional σ, weight-k v, T and y₂>0 such that both continued TF⁺ and TF⁻ are analytic in the asserted domain, each is nonzero at the given point (with suitable y₂), and Tτ is identically zero. One may take the coefficient divisibl"
+          "how": "Choose a weight-compatible coefficient with the global divisor required for nonzero continued nondegenerate transforms and identically vanishing rank-zero transform."
         }
       ]
     },
@@ -2913,8 +2873,7 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.568, Proposition 3.9; p.571, (3.41)",
-          "excerpt": "bounded and analytic",
-          "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
+          "match": "Proposition 3.9 is used with the corrected bounded strip from E-MP8-4; the source contour shift uses only the upward portion of that strip."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2950,8 +2909,7 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.569–571, Proposition 3.10, (3.31)–(3.39)",
-          "excerpt": "divisible by φ₁",
-          "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
+          "match": "The source states Proposition 3.10, but its global chart substitution needs E-MP8-7. The revised target retains the actual compact product; its uniform majorant remains a gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2987,7 +2945,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.570, (3.37); pp.571–574, Propositions 3.11–3.12",
-          "excerpt": "not absolutely convergent",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3076,7 +3033,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.571–574, Propositions 3.11–3.12",
-          "excerpt": "re(u−s+5/2)>0",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3112,7 +3068,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.571, (3.39)–(3.41)",
-          "excerpt": "τ(s,y₂;v,σ)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3154,7 +3109,7 @@
       "uses": [
         {
           "where": "BFH §3, pp.573–574, Proposition 3.12",
-          "how": "Uses rank-zero laplace coefficient in nonzero novodvorsky tests with vanishing rank zero: For every even k≥2 and (u,s) with Re s>3/2, Re(u−s+5/2)>0, there exist an actual finite-dimensional σ, weight-k v, T and y₂>0 such that both continued TF⁺ and TF⁻ are analytic in the asserted domain, each is nonzero at the given point (with suitable y₂), and Tτ is identically zero. One may take the coefficient divisibl"
+          "how": "Choose a weight-compatible coefficient with the global divisor required for nonzero continued nondegenerate transforms and identically vanishing rank-zero transform."
         },
         {
           "where": "BFH §3, p.574, Proposition 3.13",
@@ -3202,7 +3157,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.576, (3.48)–(3.49)",
-          "excerpt": "2s−8",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3248,7 +3202,7 @@
         },
         {
           "where": "BFH §8, pp.601–614, Proposition 8.1",
-          "how": "Uses degenerate boundary mellin coefficients in bfh two-variable polar combination: Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z⁺ TF⁺(u,s;N⁻¹y₂)+Z⁻ TF⁻(u,s;N⁻¹y₂)]. It continues meromorphically to Re s>3/2, Re u>0 and Re u>Re s−5/2. Near (u,s)=(1/2,2), A minus the following sum is jointly holomorphic: −N^(−s+4+k/2)L(s,0)TM(s,N⁻¹y₂)/(u−s+5/2) + N^(7−s−k/2)P(s,0,r)y₂^(2s−5)TM̃(s,N⁻¹y₂)/(u+s−5/2) + N^−s y₂^(3−s+k"
+          "how": "Supply the degenerate Mellin coefficients in the three boundary fractions, with transforms evaluated at N⁻¹y₂ and their stated parameter powers."
         },
         {
           "where": "RankZeroOneBSD:BSD.2",
@@ -3288,7 +3242,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, pp.573–574, Proposition 3.12",
-          "excerpt": "not identically zero",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3325,8 +3278,7 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.574, Proposition 3.13",
-          "excerpt": "Tτ(s,y₂;v,σ) ≠ 0",
-          "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
+          "match": "The source states Proposition 3.13. Its nonzero-restriction argument does not establish a nonzero even Laplace pushforward; the revised proof requires the explicitly recorded weight/divisor-compatible construction."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3363,7 +3315,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§3, p.577, Proposition 3.15",
-          "excerpt": "M(2,y₂;v,σ) ≠ 0",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3405,7 +3356,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, pp.546–549, (1.4)–(1.9)",
-          "excerpt": "e(2mᵗρλ)",
           "match": "BFH gives the slash law and its central multiplier. The general Heisenberg statement is the required comparison with the MP.6 supplier, derived from the similitude identity, not a claimed new BFH definition."
         }
       ],
@@ -3445,7 +3395,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, pp.545–546, definition of GSp⁺(4,R)",
-          "excerpt": "GSp⁺(4,R)",
           "match": "This is an explicitly derived real extension of BFH's positive component. BFH does not assert its finite-place compatibility; that boundary remains a supplier request."
         }
       ],
@@ -3487,7 +3436,7 @@
       "uses": [
         {
           "where": "BFH §1, pp.545–549; §2, p.553, (2.6)",
-          "how": "Uses full real similitude extension in arithmetic and adelic cover compatibility: Use the MP.4 restricted product of normalized local rank-two metaplectic covers, the rational splitting on Sp₄(Q), and the Schrödinger–Weil lattice model. Construct the map from the BFH real arithmetic lift of Γ_N into the quotient by the rational splitting with the finite vector fixed by its specified compact-open sub"
+          "how": "Compare the real arithmetic cover lift with the MP.4 restricted product and rational splitting, including the prescribed finite theta vector and dyadic compact-open lift."
         }
       ]
     },
@@ -3527,7 +3476,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, pp.545–549; §2, p.553, (2.6)",
-          "excerpt": "Weil representation",
           "match": "BFH supplies the concrete classical family and asserts its continuation. The stated intrinsic cover/adelic reformulation and the AS adaptation are target-level plans, with explicit source/interface gaps; this citation does not claim BFH proves that reformulation."
         }
       ],
@@ -3564,7 +3512,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.554–555, Proposition 2.3, Corollary 2.4",
-          "excerpt": "N | n",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3601,7 +3548,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.555–556, Propositions 2.5–2.6",
-          "excerpt": "4m | V₂₂",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3641,7 +3587,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.556–557, Proposition 2.7, Corollary 2.8",
-          "excerpt": "yᵀTy",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3678,7 +3623,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§4, pp.577–578, definition before Proposition 4.1",
-          "excerpt": "μ(H)=gcd(a,b)μ(a)μ(b)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3720,7 +3664,7 @@
       "uses": [
         {
           "where": "BFH §4, pp.577–578, paragraph before Proposition 4.1 and Proposition 4.2",
-          "how": "Uses matrix möbius function in primitive symmetric pairs and symplectic completion: For an integral pair (C,D) of full row rank two satisfying CDᵀ=DCᵀ, call it primitive if every rational G with GC,GD integral is integral. It is primitive exactly when it occurs as the bottom row of a matrix in Sp₄(Z). Every such full-rank symmetric pair factors (C,D)=H(C₀,D₀) with H nonsingular integral and (C₀,D₀) pr"
+          "how": "Remove primitive-pair constraints by the matrix Möbius inversion, using full row rank and CDᵀ=DCᵀ and the required integral completion."
         },
         {
           "where": "BFH §4, p.578, Proposition 4.1",
@@ -3760,7 +3704,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§4, pp.577–578, paragraph before Proposition 4.1 and Proposition 4.2",
-          "excerpt": "CᵗD is symmetric",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3796,7 +3739,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§4, p.578, Proposition 4.1",
-          "excerpt": "0 otherwise",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3832,7 +3774,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§4, p.579, Propositions 4.3–4.4",
-          "excerpt": "gcd(det H,N)=1",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3872,7 +3813,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§5, p.580, (5.2); p.582, (5.4)",
-          "excerpt": "D mod NC",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -3957,7 +3897,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§5, p.580, definition of H before Proposition 5.1",
-          "excerpt": "1/(2mN³)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4039,7 +3978,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§5, pp.580–582, Proposition 5.1",
-          "excerpt": "C₁₂ ≡ 0 mod N",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4081,7 +4019,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§5, pp.582–583, Proposition 5.2",
-          "excerpt": "rank one",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4120,7 +4057,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§6, pp.583,585–586, definitions before Propositions 6.1–6.2",
-          "excerpt": "n₂ ∈ N⁻¹Z",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4162,7 +4098,7 @@
       "uses": [
         {
           "where": "BFH §6, pp.583–584; §7, p.589, (7.1)",
-          "how": "Uses genus-two whittaker coefficient extraction in bfh first-cusp dirichlet series: For the preceding parameters and the original normalized newform f with Fourier coefficients a(n), set L(s,D,n₂)=Σ_{α,δ>0; β mod Nδ;N|β;α|Nn₂δ} S₁([[α,β],[0,δ]];U₁(n₁),ν)(αδ)^−s(α/δ)^(k/2)a(Nn₂δ/α)e(n₂β/α). Put L(s,D)=L(s,D,N⁻¹). Positive real powers use the real logarithm. The congruence and divisibility constraints a"
+          "how": "Use the first-cusp Whittaker extraction to identify its arithmetic coefficient with the Dirichlet series of the original newform, preserving congruence and divisibility restrictions."
         }
       ]
     },
@@ -4203,7 +4139,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§6, pp.583–584; §7, p.589, (7.1)",
-          "excerpt": "α | Nn₂δ",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4292,7 +4227,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§6, pp.585–586, definition of P",
-          "excerpt": "Γ₀(N)\\SL(2,Z)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4338,7 +4272,7 @@
         },
         {
           "where": "BFH §7, p.589, Remark following Proposition 7.1",
-          "how": "Uses bfh opposite-cusp dirichlet series in opposite-cusp zero coefficient regularity: For the fixed BFH arithmetic data and r, P(s,0,r) is holomorphic in a neighborhood of s=2, and P(s,D,r) grows at most polynomially in D uniformly on compact parameter sets avoiding its poles. One route evaluates the ramified cusp factors to express P(s,0,r) as L(s,0) times a rational function in p^−s for p|N with denom"
+          "how": "Compute the actual ramified cusp factors and prove their denominators nonzero near s=2 before using P-regularity in full Eisenstein regularity."
         }
       ]
     },
@@ -4377,7 +4311,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§6, pp.584–585, Proposition 6.1",
-          "excerpt": "if Δ=0",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4419,7 +4352,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§6, pp.586–588, Proposition 6.2",
-          "excerpt": "since F is cuspidal",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4456,7 +4388,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, pp.592–593, (7.10)–(7.11)",
-          "excerpt": "λ₁ mod pᵃ, λ₂ mod pᵈ",
           "match": "Correct the mixed modulus in published (7.10) as E-MP8-8, using the preceding matrix parametrization and direct finite cardinalities."
         }
       ],
@@ -4538,7 +4469,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, pp.595–597, Lemma 7.3",
-          "excerpt": "otherwise",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4578,7 +4508,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, pp.590–594, Lemma 7.2, (7.9),(7.12)–(7.16)",
-          "excerpt": "p³",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4621,7 +4550,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, pp.594–599, (7.20),(7.33)–(7.34), and the unnumbered D=0 formulas on p.599",
-          "excerpt": "L_p(s,D)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4663,7 +4591,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, pp.588–589, Proposition 7.1; pp.599–600, (7.35)",
-          "excerpt": "re(u) > 3/4",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4702,7 +4629,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§2, pp.551–553, definition of θ and Proposition 2.1",
-          "excerpt": "theta functions",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -4749,8 +4675,7 @@
       "sources": [
         {
           "sourceId": "BFH90",
-          "locator": "§1, p.549, I_s; §2, pp.553–554; §8, p.601",
-          "excerpt": "Selberg–Langlands theory",
+          "locator": "§1, p.549, I_s; §2, pp.553–554; §8, pp.601–602",
           "match": "BFH supplies I_s and its half-weight theta factor. The exponent s−2 is derived here from that factor and the Siegel modulus. The cover/adelic equivariant identification is a target requiring the precise recorded comparison gap, not a theorem proved by this source."
         }
       ],
@@ -4793,7 +4718,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§1, p.549, definition of E_s; §5, p.580, Proposition 5.1",
-          "excerpt": "re(s) sufficiently large",
           "match": "BFH supplies the concrete classical family and asserts its continuation. The stated intrinsic cover/adelic reformulation and the AS adaptation are target-level plans, with explicit source/interface gaps; this citation does not claim BFH proves that reformulation."
         }
       ],
@@ -4835,8 +4759,7 @@
       "sources": [
         {
           "sourceId": "BFH90",
-          "locator": "§8, p.601, first continuation paragraph",
-          "excerpt": "constant terms",
+          "locator": "§8, pp.601–602, continuation and constant-term discussion",
           "match": "BFH supplies the concrete classical family and asserts its continuation. The stated intrinsic cover/adelic reformulation and the AS adaptation are target-level plans, with explicit source/interface gaps; this citation does not claim BFH proves that reformulation."
         }
       ],
@@ -4878,7 +4801,7 @@
       "uses": [
         {
           "where": "BFH §8, p.601; pp.611–614, (8.10)–(8.16)",
-          "how": "Uses genuine siegel intertwining operators in genuine eisenstein constant-term formula: Along the Siegel unipotent radical, the genuine Eisenstein constant term is the identity section plus M(w,s) applied to the inducing section, initially in the common convergence chamber and then meromorphically. The intermediate rank-one Bruhat contribution vanishes by elliptic cuspidality. The theta/Fourier specializa"
+          "how": "Identify the long-Weyl contribution with the genuine intertwiner and prove that elliptic cuspidality removes the intermediate rank-one term."
         }
       ],
       "signatureOmissions": "Archimedean integral and right-translation compatibility are native. Composition omits membership in the actual normalized genuine induced space, dual cusp identification and avoidance of operator poles. It is a signature sketch, not an unconditional identity on all functions."
@@ -4917,8 +4840,7 @@
       "sources": [
         {
           "sourceId": "BFH90",
-          "locator": "§8, p.601; pp.611–614, (8.10)–(8.16)",
-          "excerpt": "poles arising from the constant terms",
+          "locator": "§8, pp.601–602; pp.611–614, (8.10)–(8.16)",
           "match": "BFH supplies the concrete classical family and asserts its continuation. The stated intrinsic cover/adelic reformulation and the AS adaptation are target-level plans, with explicit source/interface gaps; this citation does not claim BFH proves that reformulation."
         }
       ],
@@ -4961,8 +4883,7 @@
       "sources": [
         {
           "sourceId": "BFH90",
-          "locator": "§8, p.601, continuation paragraph; §1, pp.550–551",
-          "excerpt": "meromorphic continuation",
+          "locator": "§8, pp.601–602, continuation and pole discussion; §1, pp.550–551, newform L-functions",
           "match": "BFH supplies the concrete classical family and asserts its continuation. The stated intrinsic cover/adelic reformulation and the AS adaptation are target-level plans, with explicit source/interface gaps; this citation does not claim BFH proves that reformulation."
         }
       ],
@@ -5005,7 +4926,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, p.589, Remark following Proposition 7.1",
-          "excerpt": "We omit this calculation",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -5046,7 +4966,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§8, pp.601–614, proof of Proposition 8.1",
-          "excerpt": "very rapidly convergent",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -5083,7 +5002,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§8, p.601, definition before Proposition 8.1",
-          "excerpt": "Z⁺(u,s), Z⁻(u,s)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -5174,7 +5092,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§8, pp.601–614, Proposition 8.1",
-          "excerpt": "neighborhood of (u,s)=(1/2,2)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -5224,7 +5141,6 @@
         {
           "sourceId": "BFH90",
           "locator": "§7, pp.588–589, Proposition 7.1; §9, pp.614–617",
-          "excerpt": "m = N rad(N)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -5372,16 +5288,15 @@
       "status": "planned",
       "remaining": [
         "Rank-two adelic and similitude comparison: The exact MP.4 rational/finite-place splitting and its extension to Qˣ similitudes have not been established here. Specify the finite theta lattice vector and dyadic compact-open lift at 8M|N, compare its real square-root multiplier including the J phase, and identify it with the MP.6 native Jacobi model. The real reflection extension is a chosen explicit extension, not evidence that an adelic GSp cover is canonically split.",
-        "Confluent Whittaker integral identities: BFH pp.560–564 uses Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent Whittaker integral, its symmetry and gamma normalization. Those source entries have not been read. Establish their exact convergence domains, branch and continuation identity; retain the distinction between V holomorphy and gamma-normalized W meromorphy.",
+        "Confluent Whittaker integral identities: BFH pp.560–565 uses Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent Whittaker integral, its symmetry and gamma normalization. Those source entries have not been read. Establish their exact convergence domains, branch and continuation identity; retain the distinction between V holomorphy and gamma-normalized W meromorphy.",
         "Compact convolution growth estimates: BFH Propositions 3.5–3.6 invoke Jacquet–Piatetski-Shapiro–Shalika section 8.3.3 for compact-convolution nondegenerate rapid decay and the degenerate polynomial bound. That passage has not been inspected. Supply its representation, differentiation, uniform parameter and Sobolev hypotheses, including why W⁰ has only the asserted y₂ decay.",
-        "Primitive pair completion and rank-one normal form: BFH p.577 cites Maass section 11 for completion of an integral primitive symmetric pair, and p.582 cites Maass p.160 for rank-one normal form. These passages are unread. The target includes full row rank and CDᵀ=DCᵀ, not CᵀD symmetry. Prove the integral completion and the exact congruence/coset reductions or verify those sources.",
+        "Primitive pair completion and rank-one normal form: BFH p.577 cites Maass section 11 for completion of an integral primitive symmetric pair, and p.587 cites Maass p.160 for rank-one normal form. These passages are unread. The target includes full row rank and CDᵀ=DCᵀ, not CᵀD symmetry. Prove the integral completion and the exact congruence/coset reductions or verify those sources.",
         "Degenerate Bessel formula and residue test: BFH Inventiones Proposition 3.14 (pp.575–576) directs its omitted Bessel calculation to section 5 of the distinct BFH Annals 131 (1990), 53–127 paper, DOI 10.2307/1971508. Only that paper’s publisher metadata has been inspected. Read its formula, reconcile k,s,y₂ and measures with W⁰, and give the explicit finite K-type construction proving Proposition 3.15, whose proof Inventiones also omits.",
         "Ramified opposite-cusp regularity: The argument asserted and omitted at BFH p.589 must establish P(s,0,r) regular near 2 and polynomial coefficient growth for the actual ramified cusp data. Choose the independent arithmetic route: compute factors at p|N and show their denominators do not vanish at 2. Do not first derive P-regularity from E-regularity and then use P-regularity to prove E-regularity.",
-        "Cover-specific spectral adaptation and joint meromorphy: BFH p.601 invokes Selberg–Langlands continuation without giving a genuine-cover reduction. Prove the normalized inducing exponent ν=s−2, topology and measure comparison, absolute convergence chamber, long-Weyl intertwiner/reflection 4−s, rank-one cuspidal cancellation and constant-term pole control. Supply locally uniform denominator-cleared estimates for compact Fourier integrals and tail sums and a genuine two-variable meromorphic topology. Native one-variable MeromorphicOn and separate holomorphy do not replace that last input.",
+        "Cover-specific spectral adaptation and joint meromorphy: BFH pp.601–602 invokes Selberg–Langlands continuation without giving a genuine-cover reduction. Prove the normalized inducing exponent ν=s−2, topology and measure comparison, absolute convergence chamber, long-Weyl intertwiner/reflection 4−s, rank-one cuspidal cancellation and constant-term pole control. Supply locally uniform denominator-cleared estimates for compact Fourier integrals and tail sums and a genuine two-variable meromorphic topology. Native one-variable MeromorphicOn and separate holomorphy do not replace that last input.",
         "Global compact rotation and uniform majorant: Repair the false published (3.31) global-to-chart equality: compute the residual compact transition on both signs of 1+zx₁, retain φ₁(q)=det(Im q) globally and show divisibility at the boundary. Prove a z-uniform integrable majorant for the actual kernel (3.38), including its prefactor, for compact s-sets in Re s>3/2. The rational coordinate map and signed determinant calculation alone do not prove the stated rotated bound or its subsequent continuation consequences.",
         "Nonzero even Laplace pushforward: For the rank-zero τ test, construct an actual finite K-coefficient with the prescribed SO(2) weight and global divisor whose even pushforward under z↦√(1+z²), including the branch/amplitude factors, is nonzero. Establish its weighted integrability before applying Laplace injectivity. A nonzero restriction in z is insufficient because odd contributions cancel. Peter–Weyl localization must respect both weight and divisor.",
-        "Discharge the 15 precise supplier requests and complete all recorded Lean signature refinements.",
-        "Synchronize the reader with this independently corrected packet before acceptance; the review issue does not authorize reader edits. All eight sourceIssues now have independent verdicts."
+        "Discharge the 15 precise supplier requests and complete all recorded Lean signature refinements."
       ]
     }
   ],
@@ -5402,7 +5317,7 @@
         "MetaplecticAutomorphicForms:MP.8/jacquet-weyl-reflection",
         "MetaplecticAutomorphicForms:MP.8/whittaker-continuation"
       ],
-      "detail": "BFH pp.560–564 uses Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent Whittaker integral, its symmetry and gamma normalization. Those source entries have not been read. Establish their exact convergence domains, branch and continuation identity; retain the distinction between V holomorphy and gamma-normalized W meromorphy."
+      "detail": "BFH pp.560–565 uses Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent Whittaker integral, its symmetry and gamma normalization. Those source entries have not been read. Establish their exact convergence domains, branch and continuation identity; retain the distinction between V holomorphy and gamma-normalized W meromorphy."
     },
     {
       "title": "Compact convolution growth estimates",
@@ -5419,7 +5334,7 @@
         "MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding",
         "MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion"
       ],
-      "detail": "BFH p.577 cites Maass section 11 for completion of an integral primitive symmetric pair, and p.582 cites Maass p.160 for rank-one normal form. These passages are unread. The target includes full row rank and CDᵀ=DCᵀ, not CᵀD symmetry. Prove the integral completion and the exact congruence/coset reductions or verify those sources."
+      "detail": "BFH p.577 cites Maass section 11 for completion of an integral primitive symmetric pair, and p.587 cites Maass p.160 for rank-one normal form. These passages are unread. The target includes full row rank and CDᵀ=DCᵀ, not CᵀD symmetry. Prove the integral completion and the exact congruence/coset reductions or verify those sources."
     },
     {
       "title": "Degenerate Bessel formula and residue test",
@@ -5448,7 +5363,7 @@
         "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
         "MetaplecticAutomorphicForms:MP.8/two-variable-polar-combination"
       ],
-      "detail": "BFH p.601 invokes Selberg–Langlands continuation without giving a genuine-cover reduction. Prove the normalized inducing exponent ν=s−2, topology and measure comparison, absolute convergence chamber, long-Weyl intertwiner/reflection 4−s, rank-one cuspidal cancellation and constant-term pole control. Supply locally uniform denominator-cleared estimates for compact Fourier integrals and tail sums and a genuine two-variable meromorphic topology. Native one-variable MeromorphicOn and separate holomorphy do not replace that last input."
+      "detail": "BFH pp.601–602 invokes Selberg–Langlands continuation without giving a genuine-cover reduction. Prove the normalized inducing exponent ν=s−2, topology and measure comparison, absolute convergence chamber, long-Weyl intertwiner/reflection 4−s, rank-one cuspidal cancellation and constant-term pole control. Supply locally uniform denominator-cleared estimates for compact Fourier integrals and tail sums and a genuine two-variable meromorphic topology. Native one-variable MeromorphicOn and separate holomorphy do not replace that last input."
     },
     {
       "title": "Global compact rotation and uniform majorant",
@@ -5474,7 +5389,7 @@
       "source": "BFH90",
       "kind": "error",
       "locator": "Published Invent. Math.102(1990), §1, p.548, paragraph defining K",
-      "printed": "K is the stabilizer of iE",
+      "printed": "Authored problem summary: The p.548 stabilizer description omits the positive scalar factor when the acting group is GSp₄⁺.",
       "correction": "K=GSp⁺(4,R)∩O(4) is the stabilizer in Sp(4,R). In GSp⁺(4,R), the stabilizer is R_{>0}·K, with the positive scalar matrices included.",
       "reason": "Take g=2I₄. Then gᵀJg=4J, so g∈GSp⁺, and (2iE)(2E)⁻¹=iE; but gᵀg=4I₄, so g is not in O(4) or K. For the full corrected description, normalize a positive-similitude stabilizer by μ(g)^(−1/2) and use its symplectic stabilizer equations. Equation (1.14) already treats central scalars separately.",
       "affects": "a stated result",
@@ -5495,7 +5410,7 @@
       "source": "BFH90",
       "kind": "misprint",
       "locator": "Published Invent. Math.102(1990), §1, p.550, (1.21) and the completion immediately before (1.22)",
-      "printed": "f(−1/(Nτ))=ε(−1)^(k/2)(√N τ)^k f(τ); Λ(s,f)=(2π)^(−s)Γ(s)N^(s/2)L(s,f)",
+      "printed": "Authored problem summary: The original conductor-M newform is given an auxiliary-N Fricke and completion normalization on p.550.",
       "correction": "For the original normalized newform f of level M, replace N by M in its Fricke equation and its completed L-function. Keep the level N in the separately defined transform f̂(τ)=τ^(−k)f(−1/(Nτ)) on p.547.",
       "reason": "The introduction p.543 uses M, and the twisted completion (1.24) on p.551 uses D²M. If one sets Λ_N=(N/M)^(s/2)Λ_M, the functional equation gains the factor (N/M)^(s−k/2). As a direct Fricke check, the weight12 level1 discriminant form at N=8 satisfies Δ(−1/(8τ))=(8τ)^12Δ(8τ); the printed formula would instead require 8^6τ^12Δ(τ), contradicted by the leading powers of q as Im(τ)→∞. This is a normalization slip, not a counterexample to the paper’s main nonvanishing theorem.",
       "affects": "the proof",
@@ -5516,7 +5431,7 @@
       "source": "BFH90",
       "kind": "error",
       "locator": "§3, p.568, Proposition 3.9",
-      "printed": "im(x₁) < ε, where ε is any positive constant less than one",
+      "printed": "Authored problem summary: Proposition 3.9 uses a one-sided imaginary-part condition whose region contains the branch singularity −i.",
       "correction": "Use the bounded strip |Im x₁|≤ε with 0<ε<1, or the upward closed half-strip 0≤Im x₁≤ε sufficient for the later contour shift.",
       "reason": "With x₃=x₄=0, the explicit coefficient φ₁ from (3.29) is (1+x₁²)^(−1/2), singular at x₁=−i. That point lies in the printed one-sided region for every ε>0. Both factors stay away from zero on the corrected bounded strip; the complexified matrix-coefficient proof must retain that branch domain.",
       "affects": "a stated result",
@@ -5537,7 +5452,7 @@
       "source": "BFH90",
       "kind": "misprint",
       "locator": "§8, p.602, Proposition 8.1, displayed definition of A",
-      "printed": "TF^±(u,s,y₂)",
+      "printed": "Authored problem summary: The nondegenerate transforms in (8.1) and (8.3) have an unscaled second argument although the unfolding and evaluated terms require N⁻¹y₂.",
       "correction": "The transform argument in A is N⁻¹y₂: TF^±(u,s,N⁻¹y₂), matching the scaled M, M̃ and τ boundary terms.",
       "reason": "At n₂=N⁻¹, Proposition 6.1 has Whittaker second argument N⁻¹y₂. Its substitution into the Novodvorsky integral and the (8.4) variable change give TF(u,s,N⁻¹y₂), with N^(−s+4+k/2) outside. Both the displayed A in (8.1) and the printed left side of (8.3) omit N⁻¹, whereas the evaluated boundary terms on p.603 carry it. This is an argument-normalization discrepancy, not a refutation of the nonvanishing theorem.",
       "affects": "a stated result",
@@ -5558,9 +5473,9 @@
       "source": "BFH90",
       "kind": "error",
       "locator": "Published Invent. Math.102(1990), §3, p.562, normalizer immediately before Proposition 3.4; compare p.565 (3.26)–(3.27)",
-      "printed": "Γ((∓r+s∓n∓1)/2) Γ((±r+s∓n)/2)",
+      "printed": "Authored problem summary: The sign-dependent p.562 gamma product does not cancel the inverse factors in the evaluated integrals on p.565.",
       "correction": "For + use Γ((s−r+n)/2)Γ((s+r+n+1)/2); for − use Γ((s−r−n−1)/2)Γ((s+r−n)/2).",
-      "reason": "The explicit evaluated V+ in (3.26) has inverse Γ((s−r+n)/2), and V− in (3.27) has inverse Γ((s+r−n)/2). Cancellation produces exactly the p.565 displayed V̂ expressions, invariant when the remaining confluent parameter changes sign. The printed p.562 factors do not cancel those denominators and differ from those evaluated expressions. The packet also flattened ∓1 to +1 and is corrected.",
+      "reason": "The evaluated positive-sign integral in (3.26) has inverse Γ((s−r+n)/2); the negative-sign integral in (3.27) has inverse Γ((s−r−n−1)/2). Multiplication by the corrected pair cancels that inverse factor, leaving Γ((s+r+n+1)/2) or Γ((s+r−n)/2), exactly the remaining factors in the two V̂ displays on p.565. The p.562 printed normalizer does not yield those displays. This verifies the corrected pair; the confluent-function continuation and reflection proof remains subject to the recorded source gap.",
       "affects": "a stated result",
       "known": "new (no relevant correction located in the recorded searches; no priority claim)",
       "searched": [
@@ -5577,7 +5492,7 @@
       "source": "BFH90",
       "kind": "error",
       "locator": "Published Invent. Math.102(1990), §3, p.569, (3.31),(3.35); p.570 (3.38)",
-      "printed": "φ(κκ_z)=φ(X(z)); boundary value 0",
+      "printed": "Authored problem summary: The compact product is identified globally with its positive chart substitution, and boundary vanishing is asserted without the necessary divisor condition.",
       "correction": "Evaluate the actual global compact product; introduce its residual compact transition in the chart. The global divisor has signed factor (1+zx₁)/Δ_z, whereas its chart value has |1+zx₁|/Δ_z.",
       "reason": "A constant compact coefficient equals 1 at the chart boundary, contradicting the claimed zero for arbitrary coefficients. More decisively, the allowed global weight-zero coefficient φ₁=det(Im q) at X=diag(0,−2),z=1 equals −1/√10 after right rotation, while its positive chart formula at X(z)=diag(0,3) equals +1/√10. Thus the chart substitution also fails away from the boundary. Global divisibility gives boundary vanishing but does not remove the missing transition on the negative branch.",
       "affects": "the proof",
@@ -5596,7 +5511,7 @@
       "source": "BFH90",
       "kind": "misprint",
       "locator": "Published Invent. Math.102(1990), §7, p.592, (7.10), mixed congruence modulus",
-      "printed": "p^min(a,b)",
+      "printed": "Authored problem summary: The mixed congruence in (7.10) uses exponents a,b instead of a,d from the preceding matrix parametrization.",
       "correction": "Use p^min(a,d), leaving Lemma 7.3’s table unchanged.",
       "reason": "The preceding p.591 matrix parametrization takes x₀ modulo α₁β₃δ₂; its finite character sum yields the mixed modulus min(a,d). At p=3,m=16,N=8,r=1,n₁=0,a=b=2,d=1 there are six solutions (λ₁∈{0,3,6},λ₂∈{0,1}); the printed modulus gives two, contradicting the table’s N₂=2p. Direct enumeration with the corrected modulus matches all 2,016 small cases tested against the unchanged table. This finite check supplements the matrix derivation.",
       "affects": "a stated result",
@@ -5615,7 +5530,7 @@
       "source": "BFH90",
       "kind": "misprint",
       "locator": "Published Invent. Math.102(1990), §5, p.582, displayed definition of S₀",
-      "printed": "D mod NC",
+      "printed": "Authored problem summary: The S₀ summation identifies D only modulo NC instead of the C-period required by its unfolding.",
       "correction": "Use D mod C, with the same primitive and congruence restrictions.",
       "reason": "The three period-one symmetric X-coordinate integrations identify C⁻¹D modulo integral symmetric translations, hence D modulo CS. The phases are invariant under those shifts. Since C≡0 mod N, D₁₂ mod N and the determinant condition are also preserved. Quotienting only by NCS repeats every class N³ times and disagrees with the unfolding normalization; the packet already uses the corrected modulus.",
       "affects": "a stated result",
@@ -5636,10 +5551,10 @@
       "roadmaps": [
         "MetaplecticAutomorphicForms",
         "QSeriesPartitionsAndMockModularForms",
-        "AutomorphicConverseTheorems"
+        "AutomorphicCongruences"
       ],
       "detail": "Apply the confirmed RT-AREA-automorphic-1/20 and its independent verification. The older MP.8 checkpoint’s rank-one/general-Jacobi ownership in QM.1 conflicts with that accepted finding.",
-      "proposal": "Place general H(W)⋊Sp(W), its unitary analogue, Schrödinger–Weil action, weight/index/multiplier Jacobi spaces, Fourier–Jacobi extraction and theta decomposition in MP.6 before MP.7. MP.8 specializes this supplier to BFH genus two and owns GSp₄ compatibility and the actual cover-specific Eisenstein comparison. QM.1 imports MP.6 and retains its q-series/eta/mock-modular applications. The converse-theorem L2 input and subsequent L2/L2s stages consume MP input. Add no dependency from MP to QM or to an AC consumer and no consumer-to-supplier cycle. No other packet or stage file is changed in this job."
+      "proposal": "Place general H(W)⋊Sp(W), its unitary analogue, Schrödinger–Weil action, weight/index/multiplier Jacobi spaces, Fourier–Jacobi extraction and theta decomposition in MP.6 before MP.7. MP.8 specializes this supplier to BFH genus two and owns GSp₄ compatibility and the actual cover-specific Eisenstein comparison. QM.1 imports MP.6 and retains its q-series/eta/mock-modular applications. AutomorphicCongruences:L2s requests a separately source-qualified unitary Jacobi instance. No L2 dependency follows from its embedded L2s paragraph; the verified evidence establishes only L2s’s use. Add no dependency from MP to QM or to an AC consumer and no consumer-to-supplier cycle. No other packet or stage file is changed in this job."
     }
   ],
   "audit": {
@@ -5649,439 +5564,448 @@
     "ownership": "Read MP.0–7 descriptions and the existing MP.0 component, AS.1–2, AF.1, AL.3, GN.0–2, BSD.2, QM.1 and the confirmed RT-AREA-automorphic-1/20 with its review. Screened all matching link entries and reserved ids: no stage-specific MP.8 entry or conflicting reservation. General Jacobi ownership follows MP.6; classical newforms are upstream ModularForms inputs.",
     "closure": "Every target in MP.8 has declaration-level nodes. Every prerequisite chain terminates in checked baseline statements, same-packet nodes, explicitly requested supplier stages or the nine precise gaps. None of the analytic conclusions is a field of the Eisenstein seed. Complete denotes a finished planning pass; MP.8 remains planned, not closed.",
     "checkpointCorrections": "The earlier E-MP8-1 is withdrawn: rendered p.545 already says N|m. The previously unread middle of the source has been inspected. The earlier QM.1 ownership proposal is superseded by the confirmed MP.6 owner. Prefix transpose is interpreted as QQᵀ, CDᵀ and XQ⁻ᵀ throughout.",
-    "independentReview": "Independent session codex-4ye5ct read every node, API/test and suggested signature; inspected the full published BFH source and all 28 pinned baseline statements; corrected locators, original-f coefficients, gamma factors, rotation, mixed root modulus, three-exponent local sums and supplier routing. Read upstream CompactGroups and InductionRestriction, ModularForms contracts, MP/AF/AS/AL/GN/GL₂ supplier descriptions, AUDIT-15 and independently confirmed RT-AREA-automorphic-1/20. The nine source/proof gaps remain explicit; no closure or implementation claim."
+    "independentReview": "Independent session codex-4ye5ct read every node, API/test and suggested signature; inspected the full published BFH source and all 28 pinned baseline statements; corrected locators, original-f coefficients, gamma factors, rotation, mixed root modulus, three-exponent local sums and supplier routing. Read upstream CompactGroups and InductionRestriction, ModularForms contracts, MP/AF/AS/AL/GN/GL₂ supplier descriptions, AUDIT-15 and independently confirmed RT-AREA-automorphic-1/20. The nine source/proof gaps remain explicit; no closure or implementation claim.",
+    "revision": "Session codex-IBx3ju synchronized every node, API, test, supplier, signature omission and gap in the reader; preserved the independent review object and all source-issue verdicts. Rechecked source formulas, all 28 pinned baseline statements, the audited MP.8 row, CompactGroups and InductionRestriction examples, requested supplier scopes and the verified MP.6 ownership route. Corrected the inverse-gamma explanatory sentence and the Maass/continuation locators, while retaining the accepted gamma pair. Source matches and source-issue problem descriptions are authored paraphrases under the standing no-excerpts instruction; legacy excerpt fields are removed under the updated protocol. No gap was discharged by document synchronization. During submission, retained the concurrently landed REV-FIX-RT-AREA-automorphic-1~3 review and its full archived original review; synchronized its source-qualified L2s ownership wording without promoting any verdict."
   },
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8",
-    "date": "2026-10-06",
-    "notes": "Independent review complete. Clear errors are corrected in authorized packet/Lean files, with eight independently adjudicated sourceIssues. Acceptance is withheld because the reader still contains the original contradictory gamma, chart, root-modulus, original-f and supplier statements and is outside this issue’s editable paths; the global rotation and even-Laplace proof repairs also remain explicit gaps. MP.8 remains planned, not closed; no formalization is claimed. See the review report and handoff for exact follow-up obligations.",
-    "checked": [
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-shift",
-        "verdict": "verified",
-        "note": "Integral shift uses native quadratic maps; no division by 2 in Z."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
-        "verdict": "verified",
-        "note": "Discriminant is 4aT minus the residue-vector square, with the cusp scaling retained."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
-        "verdict": "verified",
-        "note": "Expanded the shifted discriminant; quadratic and mixed terms cancel."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/residue-shift",
-        "verdict": "verified",
-        "note": "Residue congruence is modulo 2a; nonzero a is needed to recover a shift."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
-        "verdict": "verified",
-        "note": "Recover T by canceling 4a only under the stated nonzero hypothesis."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/shift-parameter-injective",
-        "verdict": "verified",
-        "note": "Recover the shift from the residue vector by canceling 2a."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/orbit-classification",
-        "verdict": "verified",
-        "note": "Orbit classification combines equal discriminant with the exact coordinatewise residue congruence."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/unique-residue-lift",
-        "verdict": "verified",
-        "note": "Unique bounded residue representative uses positive modulus and preserves the discriminant."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-invariants",
-        "verdict": "verified",
-        "note": "Coefficient invariants descend through the actual shift orbit, rather than assuming invariance as input."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-space",
-        "verdict": "verified",
-        "note": "Native symmetric complex matrices with positive-definite imaginary part; real/asymmetric nonexamples distinguish the domain."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/positive-similitudes",
-        "verdict": "corrected",
-        "note": "Positive multiplier and transpose-symplectic equation; native Sp is only the multiplier-one boundary."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-action",
-        "verdict": "corrected",
-        "note": "Block action and determinant/multiplier factor; added the native-to-raw action value equation."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-cover",
-        "verdict": "verified",
-        "note": "Actual continuous square roots and multiplication law; central sign distinguishes the double cover."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/compact-stabilizer",
-        "verdict": "corrected",
-        "note": "Checked scalar 2I counterexample and Cholesky route; recorded the incomplete compact-stabilizer Lean signature."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup",
-        "verdict": "verified",
-        "note": "Three integral block congruences match Γ; the lower-unipotent counterexample tests its level."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-slash",
-        "verdict": "corrected",
-        "note": "Slash exponential and inverse-transpose W action match (1.1), not the previously cited locator."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-translation",
-        "verdict": "corrected",
-        "note": "Translation character and integrality condition for composition match (1.2)–(1.5)."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/genus-two-theta",
-        "verdict": "corrected",
-        "note": "Genus-two theta residue sum has index a and two-dimensional lattice; diagonal test uses native jacobiTheta₂."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/quadratic-matrix",
-        "verdict": "verified",
-        "note": "Integral quadratic maps correctly encode half-integral symmetric matrices without inverting 2 over Z."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-coefficient",
-        "verdict": "verified",
-        "note": "Fourier extraction uses the two cusp period lattices and Lebesgue normalization."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-pairing",
-        "verdict": "corrected",
-        "note": "Theta torus measure has det Y Jacobian; Cholesky and two existing scalar Gaussian theorems supply the norm."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-shift-analytic",
-        "verdict": "verified",
-        "note": "Coefficient shift follows Jacobi translation and changes of variables; exact N powers preserved."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-decomposition",
-        "verdict": "verified",
-        "note": "Unique theta components and integral discriminant support match Proposition 2.2; convergence is a separate node."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
-        "verdict": "verified",
-        "note": "Checked positive inverse-W transform and negative finite Fourier-kernel sign in (2.12)."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-component-fourier-law",
-        "verdict": "verified",
-        "note": "Finite S-matrix normalization and determinant-root phase agree with (2.7)–(2.8)."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-jacobi-specialization",
-        "verdict": "corrected",
-        "note": "General Jacobi space is imported from MP.6; the two BFH period-lattice specializations stay here."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-components",
-        "verdict": "verified",
-        "note": "Theta components have reconstruction and uniqueness APIs; their construction does not assert convergence as a field."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-coefficient",
-        "verdict": "verified",
-        "note": "Theta coefficient has the half-integrality guard and zero extension, tested at both cusps."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-seed",
-        "verdict": "corrected",
-        "note": "Seed uses actual K-representation and normalized newform; conductor M differs from auxiliary N."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/induced-seed-family",
-        "verdict": "verified",
-        "note": "I_s derives its y powers and covariance from the seed, without assuming Eisenstein analytic conclusions."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacobi-eisenstein",
-        "verdict": "verified",
-        "note": "Jacobi Eisenstein family is an actual quotient sum; convergence and genuine spectral comparison are later targets."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-functions",
-        "verdict": "verified",
-        "note": "Checked complex-root branch, sign character and (y₁y₂)^(4−s)y₂^(k/2) prefactor in W."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-majorant",
-        "verdict": "verified",
-        "note": "The three majorant inequalities match Proposition 3.1 and are not replaced by a single vague large-s assumption."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-initial-convergence",
-        "verdict": "corrected",
-        "note": "Initial convergence uses genuine finite K-coefficients and Re s>2; corrected Proposition 3.2 page."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter",
-        "verdict": "corrected",
-        "note": "Two-parameter normalization and specialization retain the π/Gamma factor and its initial chamber."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-r-reflection",
-        "verdict": "corrected",
-        "note": "Holomorphic continuation cone differs from raw-integral convergence; reflection checks both reflected cones. Proof boundary: Confluent Whittaker integral identities."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-weyl-reflection",
-        "verdict": "corrected",
-        "note": "Explicit evaluated rank-one integrals determine the two corrected Gamma arguments; torus projections need a broader input. Proof boundary: Confluent Whittaker integral identities."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-continuation",
-        "verdict": "corrected",
-        "note": "Continuation is a continued W family, not the out-of-chamber totalized integral; GR identities remain a gap. Proof boundary: Confluent Whittaker integral identities."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-rapid-decay",
-        "verdict": "corrected",
-        "note": "Nondegenerate rapid decay differs from degenerate polynomial behavior; exact JPSS smoothing passage remains unread. Proof boundary: Compact convolution growth estimates."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-whittaker-continuation",
-        "verdict": "verified",
-        "note": "W⁰ has y₁^(4−s) scaling, so only y₂ rapid decay is asserted; omitted Bessel calculation remains a gap."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra",
-        "verdict": "corrected",
-        "note": "Global coefficient det(Im q) and global divisibility are necessary; added a negative-chart-branch test."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-strip",
-        "verdict": "corrected",
-        "note": "Bounded strip excludes −i; right translates and compact-uniform bounds are retained."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound",
-        "verdict": "corrected",
-        "note": "The chart replacement fails on the negative branch; actual compact product is typed and uniform proof repair is a gap. Proof boundary: Compact convolution growth estimates, Global compact rotation and uniform majorant."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-transform",
-        "verdict": "corrected",
-        "note": "Novodvorsky uses inner z and outer positive Mellin integration; expanded-kernel absolute convergence is not asserted."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation",
-        "verdict": "corrected",
-        "note": "Continuation depends on the repaired rotation estimate; joint analytic target keeps the precise u−s+5/2 condition. Proof boundary: Global compact rotation and uniform majorant."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/tau-transform",
-        "verdict": "corrected",
-        "note": "τ is the direct rank-zero exponential compact integral; it is distinct from the W⁰ Mellin boundary."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients",
-        "verdict": "unverifiable",
-        "note": "M and M̃ retain exponent 2s−8 and the distinct compact multiplication order; exact Bessel input remains unread. Proof boundary: Degenerate Bessel formula and residue test."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-f",
-        "verdict": "verified",
-        "note": "Nonzero F tests retain φ₁φ₂ divisibility and τ vanishing; no unsupported common y₂ is demanded for both signs. Proof boundary: Global compact rotation and uniform majorant."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-tau",
-        "verdict": "corrected",
-        "note": "Nonzero z restriction alone does not ensure a nonzero Laplace transform; an even-pushforward construction is now a gap. Proof boundary: Global compact rotation and uniform majorant, Nonzero even Laplace pushforward."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-m",
-        "verdict": "unverifiable",
-        "note": "Proposition 3.15 omits its proof; the finite-K-type nonzero M test remains an honest target, not an assumed field. Proof boundary: Degenerate Bessel formula and residue test."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-heisenberg-comparison",
-        "verdict": "unverifiable",
-        "note": "Coordinate Heisenberg action is typed; comparison with the MP.6 native group and index transport remains an interface gap. Proof boundary: Rank-two adelic and similitude comparison."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/full-real-cover",
-        "verdict": "unverifiable",
-        "note": "The chosen reflection extension is distinguished from the positive square-root cover and does not assert an adelic splitting."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
-        "verdict": "unverifiable",
-        "note": "Rational/adelic splitting and dyadic finite-lattice comparison need MP.4; the paper's classical formulas do not prove them. Proof boundary: Rank-two adelic and similitude comparison."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-levi-transform",
-        "verdict": "verified",
-        "note": "Levi covariance keeps transposes, determinants, arithmetic congruences and residue action."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-unipotent-transforms",
-        "verdict": "verified",
-        "note": "Upper and lower unipotent targets are retained; suggested signature only handles the upper specialization."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-levi-transform",
-        "verdict": "verified",
-        "note": "Quadratic-form congruence matches Levi index transport; exact B_j/C_j covariance is an explicit signature omission."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius",
-        "verdict": "verified",
-        "note": "Matrix Möbius uses scalar μ on Smith invariants and its rank-two local p/p² values."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/primitive-symplectic-pairs",
-        "verdict": "unverifiable",
-        "note": "Primitive pair has full row rank and CDᵀ=DCᵀ; Maass completion/rank-one passages remain unread. Proof boundary: Primitive pair completion and rank-one normal form."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-divisor-identity",
-        "verdict": "verified",
-        "note": "Content-divisor identity includes the identity case and cancellation of nontrivial content."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-inversion",
-        "verdict": "corrected",
-        "note": "Restricted inversion now chooses N-adapted upper Hermite representatives to preserve D₁₂ modulo N."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/finite-exponential-sums",
-        "verdict": "verified",
-        "note": "Finite sums distinguish primitive/restricted S₁ and S₀; S₀ uses D mod C, correcting the printed NC quotient."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-unfolding-kernel",
-        "verdict": "verified",
-        "note": "The H kernel has its actual elliptic seed and Fourier character; linearity tests do not assume covariance for arbitrary seeds."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding",
-        "verdict": "corrected",
-        "note": "Cusp-one unfolding has the C₁₂ congruence and primitive-pair quotient; Maass completion is a separate gap. Proof boundary: Primitive pair completion and rank-one normal form."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion",
-        "verdict": "unverifiable",
-        "note": "Opposite cusp separates all three ranks and keeps N³; exact rank-one reduction is a recorded source gap. Proof boundary: Primitive pair completion and rank-one normal form."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-coefficient-extraction",
-        "verdict": "verified",
-        "note": "Coefficient extraction retains period N, parity guard and actual coefficient data; no L-values are substituted as fields."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series",
-        "verdict": "corrected",
-        "note": "First-cusp a(n) is the original f coefficient sequence recovered by unfolding the auxiliary Fricke seed."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-p-dirichlet-series",
-        "verdict": "corrected",
-        "note": "Opposite-cusp a_γ remains genuinely transformed cusp data; its supplier is ModularForms layer 6."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion",
-        "verdict": "corrected",
-        "note": "First-cusp extraction is a family C(s); original-f and actual-Eisenstein supplier conditions are honestly omitted in the sketch."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion",
-        "verdict": "corrected",
-        "note": "Opposite-cusp extraction is also C(s); N³ and the w-rotated functional agree with Proposition 6.2."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-prime-root-counts",
-        "verdict": "corrected",
-        "note": "Mixed modulus min(a,d) follows matrix parametrization; the six-solution example refutes the printed min(a,b)."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-root-count-table",
-        "verdict": "corrected",
-        "note": "Kept all published root-table rows; 2,016 direct finite cardinalities match after correcting the preceding definition."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-mobius-factors",
-        "verdict": "verified",
-        "note": "Four μ₂ local terms and their p,p²,p³ weights agree with (7.16); no table-row alteration is needed."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/unramified-euler-factors",
-        "verdict": "corrected",
-        "note": "β-difference changes the second exponent only; fundamental and D=0 ratios keep symmetric-square factors in the numerator."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/squarefactor-polynomial-bound",
-        "verdict": "verified",
-        "note": "Squarefactor polynomial uses a fixed newform bound and finite bad factors; layer 7 owns coefficient growth."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
-        "verdict": "verified",
-        "note": "Gaussian lattice majorants precede termwise differentiation and theta holomorphy; the prototype explicitly omits derivative signatures."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison",
-        "verdict": "unverifiable",
-        "note": "Genuine sign and determinant-root magnitude give ν=s−2; full finite-vector/measure induced-space comparison remains a gap. Proof boundary: Rank-two adelic and similitude comparison, Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence",
-        "verdict": "unverifiable",
-        "note": "AS.1 linear estimates need a proved genuine-cover adaptation before use; no automatic spectral applicability is claimed. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-intertwining-operators",
-        "verdict": "unverifiable",
-        "note": "Intertwiner topology, Weyl target and cocycle/dual data remain explicit refinement obligations. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-constant-term",
-        "verdict": "unverifiable",
-        "note": "Constant term is an actual unipotent quotient integral; the Euclidean prototype needs measure/arithmetic comparison. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation",
-        "verdict": "unverifiable",
-        "note": "Continuation and residue assertions require genuine spectral adaptation and denominator-cleared estimates, recorded as gaps. Proof boundary: Ramified opposite-cusp regularity, Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity",
-        "verdict": "unverifiable",
-        "note": "P(s,0,r) regularity is to be proved from ramified factors first; the circular inference through E is explicitly excluded. Proof boundary: Ramified opposite-cusp regularity."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
-        "verdict": "unverifiable",
-        "note": "Fourier/residue interchange needs compact-uniform domination in the automorphic topology; one-variable slices do not suffice. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-twist-series",
-        "verdict": "corrected",
-        "note": "Twist series has the exact signed discriminant support, raw initial chamber and original-f coefficient sequence."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-polar-combination",
-        "verdict": "unverifiable",
-        "note": "Two-variable polar identity uses scaled N⁻¹y₂ transform and separate rank-zero boundaries; joint meromorphy is not discharged. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
-      },
-      {
-        "nodeId": "MetaplecticAutomorphicForms:MP.8/bsd2-export",
-        "verdict": "unverifiable",
-        "note": "BSD.2 receives ν=s−2, continued L-functions and the polar identity; no consumer-to-MP dependency is introduced."
-      }
-    ]
-  }
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+    "date": "2026-10-07",
+    "notes": "Independent scoped review of RT-AREA-automorphic-1/20, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.8. Verified the common MP.6 Jacobi owner and the source-specific BFH genus-two specialization. Corrected the embedded restructuring proposal's unsupported L2 attribution to the actual AutomorphicCongruences:L2s consumer; no new whole-scope unitary theorem is asserted. The broader review's concrete gamma/chart/modulus/original-function and supplier contradictions remain in the uneditable reader, alongside the stated global-rotation/even-Laplace proof obligations. The current reader's L2 claim also needs synchronization. No suggested-file change or fresh all-baseline audit was needed for this narrow correction; Lean was not compiled."
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8",
+      "date": "2026-10-06",
+      "notes": "Independent review complete. Clear errors are corrected in authorized packet/Lean files, with eight independently adjudicated sourceIssues. Acceptance is withheld because the reader still contains the original contradictory gamma, chart, root-modulus, original-f and supplier statements and is outside this issue’s editable paths; the global rotation and even-Laplace proof repairs also remain explicit gaps. MP.8 remains planned, not closed; no formalization is claimed. See the review report and handoff for exact follow-up obligations.",
+      "checked": [
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+          "verdict": "verified",
+          "note": "Integral shift uses native quadratic maps; no division by 2 in Z."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+          "verdict": "verified",
+          "note": "Discriminant is 4aT minus the residue-vector square, with the cusp scaling retained."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
+          "verdict": "verified",
+          "note": "Expanded the shifted discriminant; quadratic and mixed terms cancel."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/residue-shift",
+          "verdict": "verified",
+          "note": "Residue congruence is modulo 2a; nonzero a is needed to recover a shift."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
+          "verdict": "verified",
+          "note": "Recover T by canceling 4a only under the stated nonzero hypothesis."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/shift-parameter-injective",
+          "verdict": "verified",
+          "note": "Recover the shift from the residue vector by canceling 2a."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/orbit-classification",
+          "verdict": "verified",
+          "note": "Orbit classification combines equal discriminant with the exact coordinatewise residue congruence."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/unique-residue-lift",
+          "verdict": "verified",
+          "note": "Unique bounded residue representative uses positive modulus and preserves the discriminant."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-invariants",
+          "verdict": "verified",
+          "note": "Coefficient invariants descend through the actual shift orbit, rather than assuming invariance as input."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-space",
+          "verdict": "verified",
+          "note": "Native symmetric complex matrices with positive-definite imaginary part; real/asymmetric nonexamples distinguish the domain."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/positive-similitudes",
+          "verdict": "corrected",
+          "note": "Positive multiplier and transpose-symplectic equation; native Sp is only the multiplier-one boundary."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-action",
+          "verdict": "corrected",
+          "note": "Block action and determinant/multiplier factor; added the native-to-raw action value equation."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-cover",
+          "verdict": "verified",
+          "note": "Actual continuous square roots and multiplication law; central sign distinguishes the double cover."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/compact-stabilizer",
+          "verdict": "corrected",
+          "note": "Checked scalar 2I counterexample and Cholesky route; recorded the incomplete compact-stabilizer Lean signature."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup",
+          "verdict": "verified",
+          "note": "Three integral block congruences match Γ; the lower-unipotent counterexample tests its level."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-slash",
+          "verdict": "corrected",
+          "note": "Slash exponential and inverse-transpose W action match (1.1), not the previously cited locator."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-translation",
+          "verdict": "corrected",
+          "note": "Translation character and integrality condition for composition match (1.2)–(1.5)."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/genus-two-theta",
+          "verdict": "corrected",
+          "note": "Genus-two theta residue sum has index a and two-dimensional lattice; diagonal test uses native jacobiTheta₂."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/quadratic-matrix",
+          "verdict": "verified",
+          "note": "Integral quadratic maps correctly encode half-integral symmetric matrices without inverting 2 over Z."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-coefficient",
+          "verdict": "verified",
+          "note": "Fourier extraction uses the two cusp period lattices and Lebesgue normalization."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-pairing",
+          "verdict": "corrected",
+          "note": "Theta torus measure has det Y Jacobian; Cholesky and two existing scalar Gaussian theorems supply the norm."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-shift-analytic",
+          "verdict": "verified",
+          "note": "Coefficient shift follows Jacobi translation and changes of variables; exact N powers preserved."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-decomposition",
+          "verdict": "verified",
+          "note": "Unique theta components and integral discriminant support match Proposition 2.2; convergence is a separate node."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
+          "verdict": "verified",
+          "note": "Checked positive inverse-W transform and negative finite Fourier-kernel sign in (2.12)."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-component-fourier-law",
+          "verdict": "verified",
+          "note": "Finite S-matrix normalization and determinant-root phase agree with (2.7)–(2.8)."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-jacobi-specialization",
+          "verdict": "corrected",
+          "note": "General Jacobi space is imported from MP.6; the two BFH period-lattice specializations stay here."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-components",
+          "verdict": "verified",
+          "note": "Theta components have reconstruction and uniqueness APIs; their construction does not assert convergence as a field."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-coefficient",
+          "verdict": "verified",
+          "note": "Theta coefficient has the half-integrality guard and zero extension, tested at both cusps."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-seed",
+          "verdict": "corrected",
+          "note": "Seed uses actual K-representation and normalized newform; conductor M differs from auxiliary N."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/induced-seed-family",
+          "verdict": "verified",
+          "note": "I_s derives its y powers and covariance from the seed, without assuming Eisenstein analytic conclusions."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/jacobi-eisenstein",
+          "verdict": "verified",
+          "note": "Jacobi Eisenstein family is an actual quotient sum; convergence and genuine spectral comparison are later targets."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-functions",
+          "verdict": "verified",
+          "note": "Checked complex-root branch, sign character and (y₁y₂)^(4−s)y₂^(k/2) prefactor in W."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-majorant",
+          "verdict": "verified",
+          "note": "The three majorant inequalities match Proposition 3.1 and are not replaced by a single vague large-s assumption."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-initial-convergence",
+          "verdict": "corrected",
+          "note": "Initial convergence uses genuine finite K-coefficients and Re s>2; corrected Proposition 3.2 page."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter",
+          "verdict": "corrected",
+          "note": "Two-parameter normalization and specialization retain the π/Gamma factor and its initial chamber."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-r-reflection",
+          "verdict": "corrected",
+          "note": "Holomorphic continuation cone differs from raw-integral convergence; reflection checks both reflected cones. Proof boundary: Confluent Whittaker integral identities."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-weyl-reflection",
+          "verdict": "corrected",
+          "note": "Explicit evaluated rank-one integrals determine the two corrected Gamma arguments; torus projections need a broader input. Proof boundary: Confluent Whittaker integral identities."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-continuation",
+          "verdict": "corrected",
+          "note": "Continuation is a continued W family, not the out-of-chamber totalized integral; GR identities remain a gap. Proof boundary: Confluent Whittaker integral identities."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-rapid-decay",
+          "verdict": "corrected",
+          "note": "Nondegenerate rapid decay differs from degenerate polynomial behavior; exact JPSS smoothing passage remains unread. Proof boundary: Compact convolution growth estimates."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-whittaker-continuation",
+          "verdict": "verified",
+          "note": "W⁰ has y₁^(4−s) scaling, so only y₂ rapid decay is asserted; omitted Bessel calculation remains a gap."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra",
+          "verdict": "corrected",
+          "note": "Global coefficient det(Im q) and global divisibility are necessary; added a negative-chart-branch test."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-strip",
+          "verdict": "corrected",
+          "note": "Bounded strip excludes −i; right translates and compact-uniform bounds are retained."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound",
+          "verdict": "corrected",
+          "note": "The chart replacement fails on the negative branch; actual compact product is typed and uniform proof repair is a gap. Proof boundary: Compact convolution growth estimates, Global compact rotation and uniform majorant."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-transform",
+          "verdict": "corrected",
+          "note": "Novodvorsky uses inner z and outer positive Mellin integration; expanded-kernel absolute convergence is not asserted."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation",
+          "verdict": "corrected",
+          "note": "Continuation depends on the repaired rotation estimate; joint analytic target keeps the precise u−s+5/2 condition. Proof boundary: Global compact rotation and uniform majorant."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/tau-transform",
+          "verdict": "corrected",
+          "note": "τ is the direct rank-zero exponential compact integral; it is distinct from the W⁰ Mellin boundary."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients",
+          "verdict": "unverifiable",
+          "note": "M and M̃ retain exponent 2s−8 and the distinct compact multiplication order; exact Bessel input remains unread. Proof boundary: Degenerate Bessel formula and residue test."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-f",
+          "verdict": "verified",
+          "note": "Nonzero F tests retain φ₁φ₂ divisibility and τ vanishing; no unsupported common y₂ is demanded for both signs. Proof boundary: Global compact rotation and uniform majorant."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-tau",
+          "verdict": "corrected",
+          "note": "Nonzero z restriction alone does not ensure a nonzero Laplace transform; an even-pushforward construction is now a gap. Proof boundary: Global compact rotation and uniform majorant, Nonzero even Laplace pushforward."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-m",
+          "verdict": "unverifiable",
+          "note": "Proposition 3.15 omits its proof; the finite-K-type nonzero M test remains an honest target, not an assumed field. Proof boundary: Degenerate Bessel formula and residue test."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-heisenberg-comparison",
+          "verdict": "unverifiable",
+          "note": "Coordinate Heisenberg action is typed; comparison with the MP.6 native group and index transport remains an interface gap. Proof boundary: Rank-two adelic and similitude comparison."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/full-real-cover",
+          "verdict": "unverifiable",
+          "note": "The chosen reflection extension is distinguished from the positive square-root cover and does not assert an adelic splitting."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
+          "verdict": "unverifiable",
+          "note": "Rational/adelic splitting and dyadic finite-lattice comparison need MP.4; the paper's classical formulas do not prove them. Proof boundary: Rank-two adelic and similitude comparison."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-levi-transform",
+          "verdict": "verified",
+          "note": "Levi covariance keeps transposes, determinants, arithmetic congruences and residue action."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-unipotent-transforms",
+          "verdict": "verified",
+          "note": "Upper and lower unipotent targets are retained; suggested signature only handles the upper specialization."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-levi-transform",
+          "verdict": "verified",
+          "note": "Quadratic-form congruence matches Levi index transport; exact B_j/C_j covariance is an explicit signature omission."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius",
+          "verdict": "verified",
+          "note": "Matrix Möbius uses scalar μ on Smith invariants and its rank-two local p/p² values."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/primitive-symplectic-pairs",
+          "verdict": "unverifiable",
+          "note": "Primitive pair has full row rank and CDᵀ=DCᵀ; Maass completion/rank-one passages remain unread. Proof boundary: Primitive pair completion and rank-one normal form."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-divisor-identity",
+          "verdict": "verified",
+          "note": "Content-divisor identity includes the identity case and cancellation of nontrivial content."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-inversion",
+          "verdict": "corrected",
+          "note": "Restricted inversion now chooses N-adapted upper Hermite representatives to preserve D₁₂ modulo N."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/finite-exponential-sums",
+          "verdict": "verified",
+          "note": "Finite sums distinguish primitive/restricted S₁ and S₀; S₀ uses D mod C, correcting the printed NC quotient."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-unfolding-kernel",
+          "verdict": "verified",
+          "note": "The H kernel has its actual elliptic seed and Fourier character; linearity tests do not assume covariance for arbitrary seeds."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding",
+          "verdict": "corrected",
+          "note": "Cusp-one unfolding has the C₁₂ congruence and primitive-pair quotient; Maass completion is a separate gap. Proof boundary: Primitive pair completion and rank-one normal form."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion",
+          "verdict": "unverifiable",
+          "note": "Opposite cusp separates all three ranks and keeps N³; exact rank-one reduction is a recorded source gap. Proof boundary: Primitive pair completion and rank-one normal form."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-coefficient-extraction",
+          "verdict": "verified",
+          "note": "Coefficient extraction retains period N, parity guard and actual coefficient data; no L-values are substituted as fields."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series",
+          "verdict": "corrected",
+          "note": "First-cusp a(n) is the original f coefficient sequence recovered by unfolding the auxiliary Fricke seed."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-p-dirichlet-series",
+          "verdict": "corrected",
+          "note": "Opposite-cusp a_γ remains genuinely transformed cusp data; its supplier is ModularForms layer 6."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion",
+          "verdict": "corrected",
+          "note": "First-cusp extraction is a family C(s); original-f and actual-Eisenstein supplier conditions are honestly omitted in the sketch."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion",
+          "verdict": "corrected",
+          "note": "Opposite-cusp extraction is also C(s); N³ and the w-rotated functional agree with Proposition 6.2."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/local-prime-root-counts",
+          "verdict": "corrected",
+          "note": "Mixed modulus min(a,d) follows matrix parametrization; the six-solution example refutes the printed min(a,b)."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/local-root-count-table",
+          "verdict": "corrected",
+          "note": "Kept all published root-table rows; 2,016 direct finite cardinalities match after correcting the preceding definition."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/local-mobius-factors",
+          "verdict": "verified",
+          "note": "Four μ₂ local terms and their p,p²,p³ weights agree with (7.16); no table-row alteration is needed."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/unramified-euler-factors",
+          "verdict": "corrected",
+          "note": "β-difference changes the second exponent only; fundamental and D=0 ratios keep symmetric-square factors in the numerator."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/squarefactor-polynomial-bound",
+          "verdict": "verified",
+          "note": "Squarefactor polynomial uses a fixed newform bound and finite bad factors; layer 7 owns coefficient growth."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
+          "verdict": "verified",
+          "note": "Gaussian lattice majorants precede termwise differentiation and theta holomorphy; the prototype explicitly omits derivative signatures."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison",
+          "verdict": "unverifiable",
+          "note": "Genuine sign and determinant-root magnitude give ν=s−2; full finite-vector/measure induced-space comparison remains a gap. Proof boundary: Rank-two adelic and similitude comparison, Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence",
+          "verdict": "unverifiable",
+          "note": "AS.1 linear estimates need a proved genuine-cover adaptation before use; no automatic spectral applicability is claimed. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-intertwining-operators",
+          "verdict": "unverifiable",
+          "note": "Intertwiner topology, Weyl target and cocycle/dual data remain explicit refinement obligations. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-constant-term",
+          "verdict": "unverifiable",
+          "note": "Constant term is an actual unipotent quotient integral; the Euclidean prototype needs measure/arithmetic comparison. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation",
+          "verdict": "unverifiable",
+          "note": "Continuation and residue assertions require genuine spectral adaptation and denominator-cleared estimates, recorded as gaps. Proof boundary: Ramified opposite-cusp regularity, Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity",
+          "verdict": "unverifiable",
+          "note": "P(s,0,r) regularity is to be proved from ramified factors first; the circular inference through E is explicitly excluded. Proof boundary: Ramified opposite-cusp regularity."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
+          "verdict": "unverifiable",
+          "note": "Fourier/residue interchange needs compact-uniform domination in the automorphic topology; one-variable slices do not suffice. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-twist-series",
+          "verdict": "corrected",
+          "note": "Twist series has the exact signed discriminant support, raw initial chamber and original-f coefficient sequence."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-polar-combination",
+          "verdict": "unverifiable",
+          "note": "Two-variable polar identity uses scaled N⁻¹y₂ transform and separate rank-zero boundaries; joint meromorphy is not discharged. Proof boundary: Cover-specific spectral adaptation and joint meromorphy."
+        },
+        {
+          "nodeId": "MetaplecticAutomorphicForms:MP.8/bsd2-export",
+          "verdict": "unverifiable",
+          "note": "BSD.2 receives ν=s−2, continued L-functions and the polar identity; no consumer-to-MP dependency is introduced."
+        }
+      ]
+    }
+  ]
 }

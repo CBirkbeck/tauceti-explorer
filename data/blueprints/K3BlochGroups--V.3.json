@@ -173,7 +173,7 @@
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer Bloch",
       "edition": "CRM Monograph Series 11, AMS (2000), DOI 10.1090/crmm/011; book text in a public HTML mirror",
-      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "url": "https://bookstore.ams.org/crmm-11",
       "accessed": "2026-10-05",
       "sha256": "3a275bf712085565937d3410f049a59f2e72f13dc17145d4c0c67dcb8e21c4f2",
       "readSections": [
@@ -278,7 +278,6 @@
         {
           "sourceId": "Bloch2000",
           "locator": "§6.1, p. 43, (6.1.2)",
-          "excerpt": "B(f ) = Ker λ.",
           "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
         }
       ],
@@ -371,7 +370,6 @@
         {
           "sourceId": "Bloch2000",
           "locator": "§6.1, p. 43, (6.1.2)",
-          "excerpt": "B(f ) = Ker λ.",
           "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
         }
       ],
@@ -463,7 +461,6 @@
         {
           "sourceId": "Bloch2000",
           "locator": "§6.1, p. 43, (6.1.2)",
-          "excerpt": "B(f ) = Ker λ.",
           "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
         }
       ],
@@ -507,7 +504,6 @@
         {
           "sourceId": "Bloch2000",
           "locator": "§6.1, p. 43, (6.1.2)",
-          "excerpt": "B(f ) = Ker λ.",
           "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
         }
       ],
@@ -548,13 +544,11 @@
         {
           "sourceId": "Goncharov1995",
           "locator": "pp. 202–203 and §2.3 pp. 253–254",
-          "excerpt": "B₂(F)",
           "match": "The generic reduced-generator cross-ratio presentation. Mathematical formulas in statements are transcriptions; no extra degenerate specializations are inferred."
         },
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.8, p. 218, definition before the Bloch–Suslin complex",
-          "excerpt": "ℤ[P¹_F\\{0,1,∞}]",
           "match": "The source explicitly excludes the three degenerate generators and uses the antisymmetric tensor wedge."
         }
       ],
@@ -652,13 +646,11 @@
         {
           "sourceId": "Goncharov1995",
           "locator": "pp. 202–203 and §2.3 pp. 253–254",
-          "excerpt": "B₂(F)",
           "match": "The generic reduced-generator cross-ratio presentation. Mathematical formulas in statements are transcriptions; no extra degenerate specializations are inferred."
         },
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.8 p. 218, displayed Bloch–Suslin complex",
-          "excerpt": "δ₂ : [x] ↦ (1−x) ∧ x",
           "match": "The sign is opposite to the inherited boundary; the target wedge is defined on the same page by adjacent antisymmetry relations."
         }
       ],
@@ -711,7 +703,6 @@
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.9, pp. 221–224, (1.25a) and Corollary 1.19",
-          "excerpt": "𝓑₂(F)",
           "match": "The rational smooth-curve-specialization presentation, with all connected smooth curves, not only F(t)."
         }
       ],
@@ -803,13 +794,11 @@
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.9, pp. 221–224, (1.25a) and Corollary 1.19",
-          "excerpt": "𝓑₂(F)",
           "match": "The rational smooth-curve-specialization presentation, with all connected smooth curves, not only F(t)."
         },
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.9 pp. 221–222, Lemma 1.16",
-          "excerpt": "Lemma 1.16.",
           "match": "The curve relation group is annihilated by the boundary; this plan uses the already-owned rational degree-two valuation calculation for the algebraic step."
         }
       ],
@@ -897,13 +886,11 @@
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.9, p. 225, Conjecture 1.20",
-          "excerpt": "Conjecture 1.20.",
           "match": "Equality of generic and all-curve relation groups is conjectural in the source. The unconditional plan supplies the quotient map and its exact kernel; it does not assert injectivity."
         },
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.9, pp. 221–224, (1.25a) and Corollary 1.19",
-          "excerpt": "𝓑₂(F)",
           "match": "The rational smooth-curve-specialization presentation, with all connected smooth curves, not only F(t)."
         }
       ],
@@ -951,7 +938,6 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Definition 2.1",
-          "excerpt": "We define the modified Bloch group",
           "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
         }
       ],
@@ -1041,13 +1027,11 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Definition 2.1",
-          "excerpt": "We define the modified Bloch group",
           "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
         },
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Lemma 2.2 and proof",
-          "excerpt": "There is a surjection",
           "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
         }
       ],
@@ -1093,7 +1077,6 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Definition 2.1",
-          "excerpt": "We define the modified Bloch group",
           "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
         }
       ],
@@ -1185,13 +1168,11 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Definition 2.1",
-          "excerpt": "We define the modified Bloch group",
           "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
         },
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Lemma 2.2 and proof",
-          "excerpt": "There is a surjection",
           "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
         }
       ],
@@ -1284,13 +1265,11 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Lemma 2.2 and proof",
-          "excerpt": "There is a surjection",
           "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
         },
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Definition 2.1",
-          "excerpt": "We define the modified Bloch group",
           "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
         }
       ],
@@ -1383,7 +1362,6 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Lemma 2.2 and proof",
-          "excerpt": "There is a surjection",
           "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
         }
       ],
@@ -1426,13 +1404,11 @@
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Lemma 2.2 and proof",
-          "excerpt": "There is a surjection",
           "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
         },
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Definition 2.1",
-          "excerpt": "We define the modified Bloch group",
           "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
         }
       ],
@@ -1481,19 +1457,16 @@
         {
           "sourceId": "Bloch2000",
           "locator": "§6.1, p. 43, (6.1.2)",
-          "excerpt": "B(f ) = Ker λ.",
           "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
         },
         {
           "sourceId": "CGZ2023",
           "locator": "§2.1, p. 391, Lemma 2.2 and proof",
-          "excerpt": "There is a surjection",
           "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
         },
         {
           "sourceId": "Goncharov1995",
           "locator": "§1.9, p. 225, Conjecture 1.20",
-          "excerpt": "Conjecture 1.20.",
           "match": "Equality of generic and all-curve relation groups is conjectural in the source. The unconditional plan supplies the quotient map and its exact kernel; it does not assert injectivity."
         }
       ],
@@ -1551,7 +1524,7 @@
       "id": "K3BlochGroups/E101",
       "kind": "error",
       "locator": "CGZ published 2023, §2.1, p. 391, Lemma 2.2 (field unrestricted in the statement)",
-      "printed": "There is a surjection B(F) → B̃(F)",
+      "printed": "Lemma 2.2 asserts surjectivity of the map B(F) → B̃(F).",
       "correction": "Assume |F|≥4 for the stated surjection with 2-torsion kernel. Here B̃ denotes the published modified group, not the older exterior group. Its exact kernel is B(F)∩H.",
       "reason": "The full extended relation matrices give B_new(F₂)=ℤ/3 while B(F₂)=0, so surjectivity fails. Over F₃, Z[P¹]/C_ext=ℤ/2 and its modified boundary is an isomorphism to Q_neg=ℤ/2, so B_new=0; B(F₃)=2ℤ has an infinite kernel not killed by 2. The proof’s cited angle-torsion identities require |F|≥4. This is the published-version continuation of accepted finding K3BlochGroups/E14 for arXiv-v3, not a new claim that the old invalid target persists.",
       "affects": "a stated result",
@@ -1592,7 +1565,7 @@
       "source": "Goncharov1995",
       "kind": "error",
       "locator": "Published Goncharov 1995 §1.8 p. 217 (arbitrary field), §1.9 p. 225 Conjecture 1.20, with the literal reduced five-tuple presentation on p. 218",
-      "printed": "Rₙ(F)=𝓡ₙ(F) for n=2,3.",
+      "printed": "The source asserts Rₙ(F)=𝓡ₙ(F) when n=2,3.",
       "correction": "The equality cannot include F₃ with the literal generic five-tuple relations: G₂^gen(F₃)⊗ℚ≅ℚ but G₂^curv(F₃)=0. A comparison-isomorphism formulation must exclude this field or use an explicitly changed small-field presentation. For fields with at least four elements, injectivity remains unestablished in this pass; no correction here asserts that general equality.",
       "reason": "P¹(F₃) has four points, so no injective five-tuple exists and G₂^gen is ℤ on [−1]. For the rational curve presentation, [0],[∞] are zero, [1] is zero by [t]+[1−t], and [−1]+[−1]=0 by specializing the rational cycle [t]+[t⁻¹] at −1 and 0 on P¹. Every rational generator is therefore zero. Multiplying the inversion cycle by 2 also gives an integral cycle, so the conclusion is compatible with rationalizing the integral relation definition. The rational comparison kernel is ℚ.",
       "affects": "a stated result",
@@ -1632,7 +1605,7 @@
   "sourceVersions": [
     {
       "kind": "published",
-      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "url": "https://bookstore.ams.org/crmm-11",
       "read": "2026-10-05",
       "sha256": "3a275bf712085565937d3410f049a59f2e72f13dc17145d4c0c67dcb8e21c4f2",
       "citation": "Public HTML book-text mirror of Bloch (2000); the publisher endpoint did not supply text, and the raw-kernel locator is scoped to the text read."

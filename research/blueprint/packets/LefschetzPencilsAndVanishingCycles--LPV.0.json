@@ -330,13 +330,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, Rappel 1.1.3, p. 7",
-          "excerpt": "Le foncteur F ↦ F̄ muni de l'action de Gal(k̄/k) est une équivalence de la catégorie des faisceaux d'ensembles sur Y avec la catégorie des faisceaux d'ensembles sur Ȳ munis d'une action continue de Gal(k̄/k) compatible à l'action de Gal(k̄/k) sur Ȳ.",
           "match": "The galoisian description used throughout (OCR cleaned)."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 0.2.5, p. 5",
-          "excerpt": "On note S̄ le spectre du normalisé de V dans k(η̄), de corps résiduel une extension inséparable de k(s̄).",
           "match": "Conventions on S̄ and geometric points."
         }
       ],
@@ -444,13 +442,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, Construction 1.2.4, p. 10",
-          "excerpt": "Les faisceaux F sur Y ×_s S s'identifient aux triples (a) F_s est un faisceau sur Y, soit encore un faisceau F_s̄ sur Ȳ = Y ⊗_s s̄, muni d'une action continue de Gal(s̄/s) compatible à l'action de Gal(s̄/s) sur Ȳ (b) F_η est un faisceau F_η̄ sur Ȳ, muni d'une action continue de Gal(η̄/η), compati…",
           "match": "The galoisian description of the topos (OCR cleaned)."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 1.2.2(b), p. 9",
-          "excerpt": "Via l'équivalence (a), le foncteur i^*j_* s'identifie au foncteur 'invariants sous I'.",
           "match": "Identification of i^*j_* with inertia invariants."
         }
       ],
@@ -542,13 +538,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 1.3.1, p. 13",
-          "excerpt": "Ce foncteur n'est pas en général le foncteur image directe d'un morphisme de topos.",
           "match": "Nature of Ψ."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 1.3.6, p. 15",
-          "excerpt": "Le morphisme de changement de base induit un morphisme de foncteurs Ψ f_* -> f_* Ψ qui est un isomorphisme pour f propre (SGA4 XII 5.1(i)).",
           "match": "Proper compatibility at the underived level (OCR cleaned)."
         }
       ],
@@ -642,13 +636,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 1.4.3, p. 17",
-          "excerpt": "Le groupe d'inertie I agit trivialement sur K'_s. Pour tout σ ∈ I l'endomorphisme σ − 1 de K'_η se factorise donc par un morphisme Var(σ): coker(φ') -> K'_η",
           "match": "Definition of the variation (OCR cleaned)."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, (1.4.3.2)-(1.4.3.4), p. 17",
-          "excerpt": "σ = 1 + Var(σ) q (sur K_η); σ = 1 + q Var(σ) (sur Φ(K)_η); Var(στ) = Var(σ) q Var(τ) + Var(σ) + Var(τ)",
           "match": "The identities satisfied by Var."
         }
       ],
@@ -755,19 +747,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 2.1.1, p. 17",
-          "excerpt": "Soient S un trait hensélien comme en (0.2.5) et A un anneau de torsion premier à la caractéristique résiduelle p de S (0.2.7).",
           "match": "Coefficient hypothesis."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, Proposition 2.1.4, p. 19",
-          "excerpt": "On a (RΨ(K))_(x̄,η̄) = RΓ(X_(x̄) ×_{S^nr} η̄, K); en particulier, R^iΨ(K)_(x̄,η̄) = H^i(X_(x̄) ×_{S^nr} η̄, K)",
           "match": "Stalk formula (OCR cleaned)."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, Reformulation 2.1.5, p. 19",
-          "excerpt": "Si f est lisse et F un faisceau localement constant, on a RΦ(F) = 0",
           "match": "Local acyclicity."
         }
       ],
@@ -880,13 +869,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 2.1.7.1-2, p. 20",
-          "excerpt": "D'après le théorème de changement de base pour un morphisme propre (SGA4 XII 5.1), ce morphisme est un isomorphisme si f est propre. ... D'après le théorème de changement de base pour un morphisme lisse (SGA4 XVI 1.2), ce morphisme est un isomorphisme si f est lisse.",
           "match": "Proper and smooth compatibilities (OCR cleaned)."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, 2.1.8.9, p. 22",
-          "excerpt": "Le complexe évanescent RΦ(K) exprime donc la différence entre les cohomologies des fibres géométriques X_η̄ et X_s̄ (à valeurs dans l'image réciproque de K). D'après (2.1.8.7), la variation Var(σ) détermine l'action du groupe d'inertie I sur H^i(X_η̄, K). Ces faits sont à la base de toutes les ap…",
           "match": "The specialization sequence and its use (OCR cleaned)."
         }
       ],
@@ -927,7 +914,6 @@
         {
           "sourceId": "illusie-2006",
           "locator": "§1.1, classical trait diagram",
-          "excerpt": "henselian trait",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -967,7 +953,6 @@
         {
           "sourceId": "illusie-2006",
           "locator": "§2.1–2.4, especially 2.2.3 and 2.3.4",
-          "excerpt": "oriented product",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1009,7 +994,6 @@
         {
           "sourceId": "illusie-2006",
           "locator": "§1.1, finiteness theorem and change of trait",
-          "excerpt": "constructible",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1052,7 +1036,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "XIII 2.1.7.5 and 2.1.13, pp. 18, 24–25",
-          "excerpt": "changement",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1090,7 +1073,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "§4.4, extension to adic coefficients",
-          "excerpt": "adique",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1128,7 +1110,6 @@
         {
           "sourceId": "caraiani-scholze",
           "locator": "§4.6, p. 63, Huber comparison used in finite-level semiperversity",
-          "excerpt": "Hub96",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1168,13 +1149,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XIII, (1.4.3.2)–(1.4.3.4), p. 17",
-          "excerpt": "Var",
           "match": "The two unnormalized composition identities; normalized var is obtained by the explicitly stated finite-polynomial argument, not asserted in this passage."
         },
         {
           "sourceId": "illusie-1994",
           "locator": "§1.5, pp. 12–13, (1.5.1)–(1.5.4)",
-          "excerpt": "log",
           "match": "The nilpotent logarithm and twisted monodromy; combined with XIII 1.4.3 and the finite polynomial log(T)/(T−1)."
         }
       ],
@@ -1214,7 +1193,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "§1.5, pp. 12–13, (1.5.1)–(1.5.2)",
-          "excerpt": "log",
           "match": "Definition of the logarithm on an open unipotent inertia subgroup and its canonical twisted form."
         }
       ],
@@ -1322,7 +1300,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "§§1.2–1.4, geometric theorem (1.4)",
-          "excerpt": "géométrique",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1364,7 +1341,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.6.14 and 1.7.2, pp. 169–172",
-          "excerpt": "choix de N",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1402,7 +1378,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.6.1–7 and 1.6.14, pp. 165–170",
-          "excerpt": "filtration",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1521,7 +1496,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.6.3–8 and 1.6.10–11, pp. 165–168",
-          "excerpt": "primitive",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1559,7 +1533,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.6.9–12 and 1.6.14, pp. 167–170",
-          "excerpt": "produit tensoriel",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1596,7 +1569,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.6.13–14, pp. 168–170",
-          "excerpt": "au plus",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1640,13 +1612,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.7.8–10, pp. 172–174",
-          "excerpt": "restriction à E",
           "match": "Kummer tame restriction, its dependence on local defining equations, and the intrinsic normal-bundle formulation; commuting logarithms follow from commuting tame factors."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "1.9.1–6, pp. 179–181",
-          "excerpt": "filtration",
           "match": "Weight-dependent relative-filtration existence; an outgoing weight application, not an input to LPV’s linear uniqueness."
         }
       ],
@@ -1684,7 +1654,6 @@
         {
           "sourceId": "qian-2023",
           "locator": "Published Definition 3.6",
-          "excerpt": "maximally unipotent",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1787,7 +1756,6 @@
         {
           "sourceId": "kisin-pappas-2018",
           "locator": "§4.7.1, p. 212, semisimple trace of RΨ",
-          "excerpt": "semi-simple trace",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1888,7 +1856,6 @@
         {
           "sourceId": "illusie-2021",
           "locator": "§6.3, pp. 104–105, formulas (6.2)–(6.4)",
-          "excerpt": "Rapoport–Zink",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -1985,7 +1952,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "§1.5, p. 13, (1.5.3)–(1.5.4)",
-          "excerpt": "Frobenius",
           "match": "Canonical twisted N and the displayed geometric-Frobenius relation NF=qFN."
         }
       ],
@@ -2023,19 +1989,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Proposition 3.1.2, p. 24",
-          "excerpt": "Proposition 3.1.2. (i) Les faisceaux R^i Phi(Lambda) sont nuls pour i != n. (ii) Le faisceau R^n Phi(Lambda) est nul en dehors de Sigma. Sa restriction a Sigma est un faisceau de Lambda-modules de rang 1. (iii) Pour tout point geometrique xbar de Sigma, la forme (a,b) (2.2.5 (C)) met en dualite l…",
           "match": "The full printed statement, read from a 300 dpi rendering of the page image (the OCR of this scan renders 'nul' as 'seul' and loses the Phi/psi distinction). Note that the source's Sigma is this packet's E, and that part (iii) is about psi, not Phi. (part 1 of 2 of the passage)"
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Proposition 3.1.2, p. 24",
-          "excerpt": "Ceux-ci sont libres de rang un pour n != 0, de rang 2 pour n = 0.",
           "match": "The full printed statement, read from a 300 dpi rendering of the page image (the OCR of this scan renders 'nul' as 'seul' and loses the Phi/psi distinction). Note that the source's Sigma is this packet's E, and that part (iii) is about psi, not Phi. (part 2 of 2 of the passage)"
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, proof of 3.1.2, p. 24",
-          "excerpt": "Les assertions de 3.1.2 sont de nature locale pour la topologie étale. Ceci permet de ne traiter que le cas où S est strictement hensélien, et où X est l'hypersurface de l'espace affine relatif A^{n+1}_S défini par une équation quadratique vérifiant 2.2.1 (a) (b) (appliquer 1.3.2).",
           "match": "Reduction to the standard model."
         }
       ],
@@ -2077,19 +2040,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Proposition 3.2.1, pp. 24-25",
-          "excerpt": "Proposition 3.2.1. (i) Pour x in Sigma, le groupe H^n_{x}(R^n psi_eta(Lambda(m))) a un generateur naturel delta, bien defini au signe pres, caracterise par les conditions d'etre naturel en Lambda et de verifier (delta,delta) = (-1)^m 2 (pour n = 0, ajouter la condition Tr(delta) = 0).",
           "match": "The full printed statement, read from 300 dpi and 200 dpi renderings of printed pages 24-25. Part (i) uses psi_eta and part (ii) uses Phi_eta; the source's 'x in Sigma' is this packet's 'x in E'. (part 1 of 2 of the passage)"
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Proposition 3.2.1, pp. 24-25",
-          "excerpt": "(ii) Pour un caractere epsilon_x : I -> {+-1} convenable (independant de Lambda) du groupe d'inertie I, la variation s'ecrit Var(sigma)(a) = (-1)^m ((epsilon_x(sigma) - 1)/2)(a delta) delta (pour a in R^n Phi_eta(Lambda(m))). Il resulte que sigma(delta) = epsilon_x(sigma) . delta.",
           "match": "The full printed statement, read from 300 dpi and 200 dpi renderings of printed pages 24-25. Part (i) uses psi_eta and part (ii) uses Phi_eta; the source's 'x in Sigma' is this packet's 'x in E'. (part 2 of 2 of the passage)"
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 3.2.3, pp. 25-26",
-          "excerpt": "La variation est nulle si b est de valuation paire, et sinon ε_x = ε",
           "match": "Explicit character in residue characteristic ≠ 2."
         }
       ],
@@ -2132,19 +2092,16 @@
         {
           "sourceId": "illusie-2021",
           "locator": "§6.1, pp. 103–104; §6.3, pp. 104–105",
-          "excerpt": "Picard–Lefschetz",
           "match": "The author describes the algebraic proof through the two-component Rapoport–Zink calculation; original proof interior is not claimed read."
         },
         {
           "sourceId": "illusie-2002-erratum",
           "locator": "p. 251 line 18 of the 2002 paper",
-          "excerpt": "|i| > 1",
           "match": "Corrected concentration bound used in the local calculation."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "XV 3.3.2–6, pp. 26–30",
-          "excerpt": "ε_b",
           "match": "The original formula, coefficient character and quadric normalization; its transcendental proof is not used as the algebraic proof."
         }
       ],
@@ -2206,19 +2163,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.2), p. 288",
-          "excerpt": "Voici l'analogue de (4.1) en géométrie algébrique abstraite",
           "match": "The algebraic setting: a proper family over a henselian trait with one ordinary quadratic point."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.3), (4.3.1)–(4.3.3), p. 288",
-          "excerpt": "Ce cycle est bien défini au signe près",
           "match": "The vanishing cycle δ ∈ H^n(X_η̄, ℚ_ℓ)(m), the isomorphisms (4.3.2) and the exact sequence (4.3.3), whose middle map x ↦ Tr(x ∪ δ) was read on the page image."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.13) B), p. 294",
-          "excerpt": "Les résultats du § 4 sont démontrés dans les exposés XIII, XIV et XV de SGA 7",
           "match": "The proofs are in SGA 7 XIII–XV."
         }
       ],
@@ -2266,25 +2220,21 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.3) A), p. 288",
-          "excerpt": "On dispose d'un homomorphisme canonique",
           "match": "t_ℓ : I → ℤ_ℓ(1) and σx = x ± t_ℓ(σ)(x, δ)δ for n odd."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.3) B), p. 289",
-          "excerpt": "il existe un unique caractère d'ordre deux",
           "match": "The even case with the quadratic character ε, p ≠ 2."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.3), p. 289",
-          "excerpt": "sont les mêmes qu'en (4.1)",
           "match": "The signs are those of the complex table (4.1)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.1), p. 287",
-          "excerpt": "Sur C, les résultats locaux de Lefschetz sont les suivants",
           "match": "The complex table of signs, (δ, δ) and Tδ by n mod 4, read on the page image."
         }
       ],
@@ -2325,13 +2275,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.4) a), p. 289",
-          "excerpt": "Ces résultats apportent les informations suivantes",
           "match": "Case δ ≠ 0: constancy for i ≠ n and R^n f_* = j_*j^*R^n f_*."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4, (4.4) b), p. 289",
-          "excerpt": "C'est là un cas exceptionnel",
           "match": "Case δ = 0, only for n odd, with the skyscraper sequence in degree n + 1 (read on the page image)."
         }
       ],
@@ -2440,19 +2388,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 1.1, p. 2",
-          "excerpt": "La forme Q est dite ordinaire si elle n'est nulle en aucun point de S et que la quadrique qu'elle définit est lisse sur S.",
           "match": "The definition. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 1.1 a), p. 2",
-          "excerpt": "a) pour n pair ou car(A) ≠ 2 : Q ordinaire ⟺ Q non dégénéré ;",
           "match": "The criterion for even rank or characteristic not 2 (XII writes n for the rank). Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 1.1 b), p. 2",
-          "excerpt": "le noyau N de la forme bilinéaire (alternée) associée Φ est de dimension un, et que Q n'est pas nul sur N.",
           "match": "The criterion in characteristic 2 and odd rank. Transcribed from the page image."
         }
       ],
@@ -2489,13 +2434,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Proposition 1.2, p. 2",
-          "excerpt": "Si Q est ordinaire et si n = 2m (resp. n = 2m +1), alors, localement pour la topologie étale sur S, V admet une base e telle que",
           "match": "The statement; the formulas are on p. 3. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, proof of 1.2, p. 3",
-          "excerpt": "Prouvons 1.2 par récurrence sur m.",
           "match": "The inductive proof by splitting off a hyperbolic plane. Transcribed from the page image."
         }
       ],
@@ -2599,19 +2542,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Proposition 1.5, p. 5",
-          "excerpt": "le centre Z(Q) de C⁺(Q) est une algèbre étale localement libre de rang 2 sur A et C⁺(Q) est une algèbre d'Azumaya sur Z(Q).",
           "match": "The centre of the even Clifford algebra. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Proposition 1.12, p. 8",
-          "excerpt": "Alors, e(W₁) = e(W₂) si et seulement si dim(W₁/W₁ ∩ W₂) est pair.",
           "match": "The parity criterion for the two families. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Proposition 2.8, p. 13",
-          "excerpt": "Sous les hypothèses de 2.7, p : Gén(X) → S est projectif et lisse, et (2.7.1) est sa factorisation de Stein.",
           "match": "The generatrices and their Stein factorisation through Z(X). Transcribed from the page image."
         }
       ],
@@ -2713,19 +2653,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 2.1, p. 9",
-          "excerpt": "Une quadrique lisse de dimension n sur k est un schéma X sur k isomorphe au sous-schéma de P(V*) défini par l'équation Q=0, pour Q une forme quadratique ordinaire sur k.",
           "match": "Smooth quadrics over an algebraically closed field. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Définition 2.4, p. 10",
-          "excerpt": "Une quadrique lisse de dimension n sur un schéma S est un S-schéma f : X → S, propre et lisse sur S, dont les fibres géométriques sont des quadriques lisses.",
           "match": "The relative definition. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 2.4, p. 10",
-          "excerpt": "Pour n = 0, une quadrique lisse de dimension 0 sur S n'est autre qu'un revêtement étale double de S.",
           "match": "The case n = 0. Transcribed from the page image."
         }
       ],
@@ -2773,19 +2710,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Théorème 3.3, p. 14",
-          "excerpt": "Soit p : X → S une quadrique lisse de dimension n sur S et ℓ un nombre premier inversible sur S",
           "match": "The theorem; (ii)–(iii) are on p. 15. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Théorème 3.3 (iii)(b), p. 15",
-          "excerpt": "pour m impair : cℓ(α)² = cℓ(β)² = 0 , Tr(cℓ(α).cℓ(β)) = 1.",
           "match": "The intersection form on the two generatrix classes, m odd. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Vérification 3.4, p. 17",
-          "excerpt": "Compte tenu de 3.3, la formule des traces de Lefschetz donne la formule classique",
           "match": "The point count over 𝔽_q. Transcribed from the page image."
         }
       ],
@@ -2830,19 +2764,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 3.5, p. 17",
-          "excerpt": "on appellera partie primitive de Rⁿf_*ℤ_ℓ(m) l'orthogonal de ηᵐ",
           "match": "The primitive part and quotient. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, 3.6, p. 18",
-          "excerpt": "Pour n pair, l'homomorphisme de restriction r_i est un isomorphisme pour i ≠ n,2n ; pour n impair, c'est un isomorphisme pour i ≠ n-1.",
           "match": "The restriction maps in the localisation sequence. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XII, Table 3.7, p. 20",
-          "excerpt": "Ces groupes ont, localement, des générateurs naturels définis au signe près, notés δ pour les groupes de cohomologie à support propre et δ' pour les autres.",
           "match": "The generators δ, δ′; the table's values of Tr(δδ′) and Tr(δ²) were read on the page image. Transcribed from the page image."
         }
       ],
@@ -2947,19 +2878,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Définition 1.2.1, p. 4",
-          "excerpt": "on dit que y est un point quadratique ordinaire de Y si le complété Ô_{Y,y} de l'anneau local de Y en y est isomorphe au quotient de k[[x₁,...,x_{n+1}]] par l'idéal engendré par une seule série formelle f",
           "match": "The definition over an algebraically closed field. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 1.2.2, pp. 4–5",
-          "excerpt": "Pour que y soit un point quadratique non dégénéré de Y, il faut et il suffit qu'il soit un point quadratique ordinaire et que soit p ≠ 2, soit n est impair.",
           "match": "Non-degenerate quadratic points. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Exemple 1.2.4, p. 5",
-          "excerpt": "y₀ est un point quadratique ordinaire du sous-schéma Y₀ de E^{n+1}_k d'équation Q = 0.",
           "match": "The degenerate model (x₀² − a) + Σ a_ij x_i x_j in characteristic 2. Transcribed from the page image."
         }
       ],
@@ -2994,13 +2922,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Lemme 1.2.7, p. 6",
-          "excerpt": "est monogène, concentré en y et de rang 1 sur k . En particulier k(y) = k .",
           "match": "The non-degenerate case (the source writes J^n_{Y/k} here). Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Lemme 1.2.8, p. 7",
-          "excerpt": "est monogène, concentré en y et de rang 2 sur k .",
           "match": "The degenerate case p = 2, n even. Transcribed from the page image."
         }
       ],
@@ -3038,7 +2964,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Théorème 1.1.2 (Tougeron-Artin), p. 2",
-          "excerpt": "Soient S le spectre d'un anneau local hensélien A , f : X → S un morphisme comme en 1.1.1., a et I deux idéaux de A distincts de A",
           "match": "The statement, continued on p. 3. Transcribed from the page image."
         }
       ],
@@ -3075,13 +3000,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Théorème 1.1.4 (R. Elkik), p. 4",
-          "excerpt": "Il existe une S-déformation hensélienne verselle de X₀ (et une seule à isomorphisme non unique près).",
           "match": "The existence and uniqueness statement. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 1.1.4, p. 4",
-          "excerpt": "Pour la démonstration de ce théorème délicat, on renvoie à R. Elkik (séminaire de l'ENS, 1971/72).",
           "match": "The proof is not in SGA 7. Transcribed from the page image."
         }
       ],
@@ -3119,13 +3042,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Théorème 1.2.6, p. 5",
-          "excerpt": "Il existe alors un k'-schéma Y₀ ⊂ E^{n+1}_{k'} du type 1.2.3. ou 1.2.4., et un k-isomorphisme φ entre l'hensélisé Y_(y) de Y en y et l'hensélisé Y₀(y₀) de Y₀ en y₀ .",
           "match": "The canonical form. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, proof of 1.2.6, p. 7",
-          "excerpt": "D'après le théorème des fonctions implicites 1.1.2.",
           "match": "The non-degenerate case through the implicit function theorem. Transcribed from the page image."
         }
       ],
@@ -3161,13 +3082,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Corollaire 1.3.2 (i), p. 11",
-          "excerpt": "le S-schéma hensélisé de X en x soit isomorphe à l'hensélisé en l'origine du sous-schéma de E^{n+1}_S d'équation (1.3.1(i)) Q − b = 0 .",
           "match": "The non-degenerate case. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Remarque 1.3.3, p. 12",
-          "excerpt": "on peut prendre Q = x₀² + bx₀ + c + Σ a_ij x_i x_j , avec c ≡ ā mod l'idéal maximal.",
           "match": "The degenerate case with the square present, and the choice extending a given special-fibre isomorphism. Transcribed from the page image."
         }
       ],
@@ -3202,7 +3121,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Corollaire 1.3.4, p. 12",
-          "excerpt": "Il existe un voisinage U de x dans X tel que les points de non lissité de f contenus dans U soient des points quadratiques ordinaires de leur fibre.",
           "match": "The statement. Transcribed from the page image."
         }
       ],
@@ -3233,7 +3151,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Lemme 2.1.3, p. 14",
-          "excerpt": "Si f₀ est homotope à f₁ , alors f₀* coïncide avec f₁* .",
           "match": "The homotopy lemma and its proof by smooth base change. Transcribed from the page image."
         }
       ],
@@ -3269,13 +3186,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Proposition 2.1.2, p. 13",
-          "excerpt": "Cette proposition se démontre par un argument d'homotopie, qu'il nous va falloir formaliser.",
           "match": "The proposition (displays (i) and (ii) read on the page image) and its proof. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Corollaire 2.1.4, p. 15",
-          "excerpt": "On applique le lemme des 5 au diagramme",
           "match": "The comparison of the punctured cone with its henselisation. Transcribed from the page image."
         }
       ],
@@ -3314,13 +3229,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Lemme 2.1.6, p. 16",
-          "excerpt": "Les flèches notées η et −η de 2.1.5.1 sont les cup-produits avec la classe de cohomologie d'une section hyperplane.",
           "match": "The Gysin maps in (2.1.5.1). Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.1.7, p. 16",
-          "excerpt": "est un analogue local de la 2ᵉ ligne de (2.1.5.1).",
           "match": "The local sequence of (X̃_(0), Y₀). Transcribed from the page image."
         }
       ],
@@ -3353,7 +3266,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Lemme 2.7.8 (= 2.1.8), p. 17",
-          "excerpt": "C'est là un general non-sense.",
           "match": "The anticommutative diagram (displayed on the page) and the proof by reduction through 2.1.7. Transcribed from the page image."
         }
       ],
@@ -3453,13 +3365,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.2.1, p. 17",
-          "excerpt": "Soient S un trait hensélien et s, η, s̄, η̄ comme en XIII 0.2.5 , Λ = ℤ/k , avec k premier à la caractéristique résiduelle de S",
           "match": "The setting; the equation and its projective closure (2.2.1.1) are on p. 18. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.2.1 (a)–(b), p. 18",
-          "excerpt": "la forme quadratique Σ_{i≤j} a_ij x_i x_j est ordinaire;",
           "match": "Hypothesis (a); hypothesis (b) says X_s̄ is a quadratic cone. Transcribed from the page image."
         }
       ],
@@ -3502,19 +3412,16 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Proposition 2.2.3, p. 18",
-          "excerpt": "Sous les hypothèses de 2.2.1, les morphismes",
           "match": "The isomorphisms (displayed on p. 19) and their proof. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Corollaire 2.2.4, p. 19",
-          "excerpt": "est encore un cône quadratique",
           "match": "If the geometric generic fibre is singular, the vanishing cycles are 0. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.2.5 C, p. 20",
-          "excerpt": "met en dualité parfaite les Λ-modules libres",
           "match": "The duality (a, b) = Tr(a ∧ b). Transcribed from the page image."
         }
       ],
@@ -3557,13 +3464,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.2.5 D, (2.2.5.3)–(2.2.5.6), p. 21",
-          "excerpt": "Soit Z l'extension quadratique séparable de k(η) centre de la partie paire de l'algèbre de Clifford de la forme quadratique (2.2.1.1).",
           "match": "The character ε and the variation formula (2.2.5.6), read on the page image. Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.2.5 F, p. 21",
-          "excerpt": "Le groupe d'inertie I agit trivialement sur la cohomologie de",
           "match": "The odd case: trivial action on the cohomology of X_η̄ and (2.2.5.9)–(2.2.5.10) on pp. 21–22. Transcribed from the page image."
         }
       ],
@@ -3603,13 +3508,11 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, 2.2.6, p. 22",
-          "excerpt": "Nous allons donner des cycles δ et δ' de (D) et (E) une description de nature locale pour la topologie étale.",
           "match": "The local description, including (2.2.6.1). Transcribed from the page image."
         },
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XV, Lemme 2.2.7, pp. 22–23",
-          "excerpt": "au quotient primitif de la cohomologie de dimension 2m de la quadrique Y₀ de dimension 2m",
           "match": "The identification through (2.2.6.2), proved on p. 23 by applying 2.1.8. Transcribed from the page image."
         }
       ],
@@ -3647,7 +3550,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4.1, pp. 287–288",
-          "excerpt": "Picard-Lefschetz",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3687,7 +3589,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "4.2.1–3, pp. 220–221",
-          "excerpt": "caractéristique 2",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3725,7 +3626,6 @@
         {
           "sourceId": "fsy-2022",
           "locator": "§5.1.3, pp. 43–44; citation [30, Corollary 2.10] in the downloaded arXiv text",
-          "excerpt": "quadratic non-ordinary isolated singularity",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3764,7 +3664,6 @@
         {
           "sourceId": "fsy-2022",
           "locator": "§5.1.3, pp. 41–44, including determinant calculation on p. 44",
-          "excerpt": "discriminant",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -3882,19 +3781,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.1), p. 289",
-          "excerpt": "forment le pinceau d'axe A",
           "match": "The pencil of hyperplanes containing the axis A and the diagram X ← X̃ → D (5.1.1)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.6), p. 291",
-          "excerpt": "forment un pinceau de Lefschetz de sections hyperplanes si les conditions suivantes sont vérifiées",
           "match": "The definition, with conditions A)–C) over an algebraically closed field."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.6), p. 292",
-          "excerpt": "la théorie de Lefschetz locale du § 4 s'applique au spectre",
           "match": "The local theory of §4 applies at each s ∈ S."
         }
       ],
@@ -3993,7 +3889,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.4), p. 290",
-          "excerpt": "la variété duale de X : c'est l'ensemble des",
           "match": "The dual variety X̌: the t such that H_t is tangent to X (X_t singular or X ⊂ H_t); it is irreducible (p. 291)."
         }
       ],
@@ -4036,19 +3931,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.7), p. 292",
-          "excerpt": "il se peut qu'aucun pinceau de sections hyperplanes de X ne soit de Lefschetz",
           "match": "For p ≠ 0 the given embedding may admit no Lefschetz pencil."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.7), p. 292",
-          "excerpt": "un pinceau assez général de sections hypersurfaces",
           "match": "For r ≥ 2 a sufficiently general pencil of degree-r hypersurface sections is Lefschetz; the dimension of the Veronese space, C(N+r, N) − 1, was read on the page image."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.13) C), p. 294",
-          "excerpt": "est démontré dans SGA 7, XVII",
           "match": "The proof is SGA 7 XVII."
         }
       ],
@@ -4082,7 +3974,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "Exposé XVII, 2.5, 3.2–7 and 4.1–3; Proposition 4.3 for the degree-two two-point jet bound",
-          "excerpt": "Veronese",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4122,7 +4013,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "XVIII §§2–3; XVII 2.2",
-          "excerpt": "éclatement",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4165,7 +4055,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§7.1, p. 299, choice of pencil after finite extension",
-          "excerpt": "extension finie",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4208,7 +4097,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "4.2.1–3 and 4.2.7, pp. 219–221",
-          "excerpt": "transversal",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4256,25 +4144,21 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8), p. 292",
-          "excerpt": "en excluant le cas",
           "match": "The exclusion of p = 2 with n even, and tame ramification of R^n f_*ℚ_ℓ at each s ∈ S."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8) a) 1)–2), p. 292",
-          "excerpt": "Si les cycles évanescents sont non nuls",
           "match": "Constancy for i ≠ n and R^n f_* = j_*j^*R^n f_*."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8) b), p. 293",
-          "excerpt": "cycles évanescents sont nuls",
           "match": "The exceptional case, with the sequence 0 → ⊕_{s∈S} ℚ_ℓ(m − n)_s → R^{n+1} f_*ℚ_ℓ → ℱ → 0, read on the page image."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.13) D), p. 294",
-          "excerpt": "est démontré dans SGA 7, XVIII",
           "match": "The proof of (5.8) is SGA 7 XVIII."
         }
       ],
@@ -4383,13 +4267,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.2), p. 290",
-          "excerpt": "partie évanescente de la cohomologie",
           "match": "E is the span of the vanishing cycles (the complex case)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8) a) 3), p. 292",
-          "excerpt": "le sous-espace de la cohomologie engendré par les cycles évanescents",
           "match": "E ⊂ H^n(X_u, ℚ_ℓ) in the ℓ-adic setting, stable under π₁(U, u)."
         }
       ],
@@ -4425,13 +4307,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, Proposition (5.3), p. 290",
-          "excerpt": "c'est clair sur (5.2.1)",
           "match": "E^⊥ is the monodromy invariants: clear from the local formula (5.2.1), since the γ_s generate."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.3), p. 290",
-          "excerpt": "le sous-espace des invariants",
           "match": "The statement E^⊥ = invariants."
         }
       ],
@@ -4536,19 +4416,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.9), p. 293",
-          "excerpt": "est le noyau de la restriction à E de la forme",
           "match": "E ∩ E^⊥ is the kernel of the form restricted to E."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.9), p. 293",
-          "excerpt": "Cette forme induit donc une forme bilinéaire non dégénérée",
           "match": "The induced nondegenerate form ψ with values in ℚ_ℓ(−n)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.9), p. 293",
-          "excerpt": "alternée pour n impair, et symétrique pour n pair",
           "match": "Parity, and ρ : π₁(U, u) → Sp(E/(E ∩ E^⊥), ψ) for n odd."
         }
       ],
@@ -4582,7 +4459,6 @@
         {
           "sourceId": "SGA7II-1973",
           "locator": "XVIII §§2–4 and 5.1",
-          "excerpt": "restriction",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4626,7 +4502,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§§6–7, pp. 294–300, pencil reduction",
-          "excerpt": "Leray",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4669,7 +4544,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5.3 and 5.8–9, pp. 289–292",
-          "excerpt": "invariants",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4709,7 +4583,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "Remark 5.12, p. 294",
-          "excerpt": "hypersurface",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -4758,13 +4631,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.4), p. 291",
-          "excerpt": "D'après un théorème de Lefschetz, pour D assez générale",
           "match": "Over ℂ: π₁(D − S) → π₁(P̌ − X̌) is surjective for D general."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8), p. 292",
-          "excerpt": "devient le théorème de Bertini",
           "match": "In the algebraic setting Lefschetz's π₁ theorem becomes Bertini's theorem."
         }
       ],
@@ -4807,19 +4678,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, Théorème (5.4), p. 290",
-          "excerpt": "(pris au signe près) sont conjugués sous",
           "match": "The statement over ℂ."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.4), p. 291",
-          "excerpt": "deux points du lieu lisse de",
           "match": "Connectedness of the smooth locus of the irreducible X̌ makes the loops γ_x conjugate."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8), p. 292",
-          "excerpt": "lemme d'Abhyankar pour contrôler la ramification",
           "match": "In the algebraic proof, Abhyankar's lemma controls the ramification of R^•g_*ℚ_ℓ along the smooth codimension-one locus of X̌."
         }
       ],
@@ -4859,19 +4727,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8), p. 292",
-          "excerpt": "Le groupe fondamental modéré de U est un quotient du complété profini du groupe fondamental transcendant analogue",
           "match": "The tame fundamental group of U and the transfer of Lefschetz's arguments."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.8) a) 3), p. 292",
-          "excerpt": "est engendrée (topologiquement)",
           "match": "The image of π₁ in GL(E/(E ∩ E^⊥)) is topologically generated by the x ↦ x ± (x, δ_s)δ_s, and E^⊥ is the invariant subspace (read on the page image)."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, Proposition (5.3), p. 290",
-          "excerpt": "c'est clair sur (5.2.1)",
           "match": "Over ℂ: E is stable and E^⊥ is the invariants because the γ_s generate π₁."
         }
       ],
@@ -4913,19 +4778,16 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, Corollaire (5.5), p. 291",
-          "excerpt": "est absolument irréductible",
           "match": "The action of π₁(U, u) on E/(E ∩ E^⊥) is absolutely irreducible."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.5), p. 291",
-          "excerpt": "Ceci prouve (5.5)",
           "match": "The argument through a vector x with (x, δ_s) ≠ 0 and conjugacy."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, (5.13) D), p. 294",
-          "excerpt": "La démonstration dans le cas général",
           "match": "SGA 7 XVIII proves irreducibility of E only when E ∩ E^⊥ = 0; the radical quotient is the general case."
         }
       ],
@@ -4967,13 +4829,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, Lemme (5.11), p. 293",
-          "excerpt": "V est une représentation simple de",
           "match": "Hypothesis (i); the statement and hypothesis (ii) read on the page image."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.11), p. 294",
-          "excerpt": "On conclut en notant que l'algèbre de Lie",
           "match": "The final step: sp(V, ψ) is generated by the N(δ), δ ∈ V."
         }
       ],
@@ -5008,7 +4868,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.10), p. 293",
-          "excerpt": "est un sous-groupe compact, donc analytique",
           "match": "The image of ρ is compact, hence an ℓ-adic analytic subgroup, and openness reduces to its Lie algebra being sp."
         }
       ],
@@ -5054,13 +4913,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, Théorème (5.10), p. 293",
-          "excerpt": "(Kajdan-Margulis)",
           "match": "The theorem, attributed to Kazhdan and Margulis: the image of ρ is open."
         },
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5, proof of (5.10), p. 293",
-          "excerpt": "Il suffit de montrer que son algèbre de Lie",
           "match": "Reduction to the Lie algebra being sp(E/(E ∩ E^⊥), ψ), then Lemma 5.11."
         }
       ],
@@ -5095,7 +4952,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "4.2.3–8, pp. 220–221",
-          "excerpt": "conjugués",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5135,7 +4991,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "4.4.1–4, pp. 227–229",
-          "excerpt": "ouvert ou fini",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5178,7 +5033,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "4.4.8–9, pp. 230–231",
-          "excerpt": "A, D, E",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5218,7 +5072,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "4.3.10, p. 226, and 4.5.1–2 with proof, pp. 231–233",
-          "excerpt": "torsion",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5257,7 +5110,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "4.5–4.6, pp. 47–49",
-          "excerpt": "pervers",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5298,7 +5150,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "4.6, pp. 48–49",
-          "excerpt": "Φ",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5342,7 +5193,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "4.2–4.4, pp. 44–47",
-          "excerpt": "dualité",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5384,7 +5234,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "4.5–4.6 (exactness); image argument using the EDC.5 definition",
-          "excerpt": "exact",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5428,7 +5277,6 @@
         {
           "sourceId": "illusie-1994",
           "locator": "4.4–4.6, pp. 47–49",
-          "excerpt": "coefficients",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5469,7 +5317,6 @@
         {
           "sourceId": "caraiani-scholze",
           "locator": "§4.6, pp. 60–63, finite-level lower bounds and cofinal models",
-          "excerpt": "colimit",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -5512,7 +5359,6 @@
         {
           "sourceId": "caraiani-scholze",
           "locator": "§4.6, Theorem 4.6.1 and its finite-level comparison proof",
-          "excerpt": "semiperverse",
           "match": "The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here."
         }
       ],
@@ -6027,7 +5873,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XII, 1.1 b), p. 2",
-      "printed": "b) pour n impair et card(A) = 2 : Q est ordinaire si et seulement si …",
+      "printed": "In b), the source treats odd n with card(A) = 2, stating that Q is ordinary if and only if …",
       "correction": "b) pour n impair et car(A) = 2 : …",
       "reason": "Case a) is 'n pair ou car(A) ≠ 2', so b) is its complement, characteristic 2; with card(A) = 2 the dichotomy would cover only the field with two elements.",
       "affects": "nothing",
@@ -6087,7 +5933,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XII, proof of 3.3, formula (a), p. 15",
-      "printed": "la quadrique d'équation Σ_0^m x_i x_{i+m+1} = 0 dans P^{m+1}(k)",
+      "printed": "The source places the quadric with equation Σ_0^m x_i x_{i+m+1} = 0 in P^{m+1}(k).",
       "correction": "dans P^{2m+1}(k)",
       "reason": "The quadric has dimension n = 2m and the equation uses the variables x₀, …, x_{2m+1}.",
       "affects": "nothing",
@@ -6107,7 +5953,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XII, 3.6, p. 18",
-      "printed": "Pour r = 2m + 1, r_{2m}(η^m) = η^m",
+      "printed": "The source gives r_{2m}(η^m) = η^m under the condition r = 2m + 1.",
       "correction": "Pour n = 2m + 1",
       "reason": "The paragraph treats n even and then n odd; r denotes the restriction maps r_i.",
       "affects": "nothing",
@@ -6127,7 +5973,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XII, 3.6, p. 18",
-      "printed": "Par dualité, ou à l'aide de 3.5.3, on montre de même …",
+      "printed": "The source says that a similar result follows from duality or from using 3.5.3 …",
       "correction": "à l'aide de (3.6.3)",
       "reason": "Exposé XII has no 3.5.3; the dual Gysin sequence (3.6.3) is the one that computes R^i f_*ℤ_ℓ.",
       "affects": "nothing",
@@ -6167,7 +6013,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XV, 1.2.1 and proof of 1.2.6, pp. 4 and 6",
-      "printed": "(4.2.1) f(X) = Q(X) = + termes d'ordre > 2; 'Soit Y₀ défini par Q comme en 4.3.'",
+      "printed": "Display (4.2.1) reads f(X) = Q(X) = + followed by terms of order > 2; the source then defines Y₀ using Q with a reference to 4.3.",
       "correction": "f(X) = Q(X) + termes d'ordre > 2, and 'comme en 1.2.3'",
       "reason": "The stray '=' breaks the formula, and the references numbered 4.x (also the label (4.14.2) in 1.3.2) point to a numbering of the exposé that no longer exists; 1.2.3 is the cone Q = 0 used in the proof.",
       "affects": "nothing",
@@ -6187,7 +6033,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XV, 2.1.3 and Lemme 2.7.8, pp. 14–17",
-      "printed": "'Lemme 2.1.3' and the paragraph '2.1.3. Prouvons 2.1.2' share a number, and the lemma after 2.1.7 is numbered 'Lemme 2.7.8'",
+      "printed": "The source labels both a lemma and the paragraph proving 2.1.2 with 2.1.3. It assigns the label 2.7.8 to the lemma following 2.1.7.",
       "correction": "number the paragraph 2.1.3 bis (or renumber), and read 'Lemme 2.1.8'",
       "reason": "The proof of 2.2.7 says 'Appliquons 2.1.8', and the lemma sits between 2.1.7 and 2.2.",
       "affects": "nothing",
@@ -6227,7 +6073,7 @@
       "source": "SGA7II-1973",
       "kind": "error",
       "locator": "Exposé XV, 2.2.6, p. 22",
-      "printed": "si 2∤k (Λ = ℤ/k), ±δ est caractérisé par (2.2.5.3) (2.2.5.4), ie. par (2.2.6.1) (δ,δ) = (−1)^m.2",
+      "printed": "For 2∤k (Λ = ℤ/k), the source claims that (2.2.5.3) and (2.2.5.4) characterize ±δ, equivalently through (2.2.6.1) (δ,δ) = (−1)^m.2.",
       "correction": "Norm characterizes the pair ±δ over a single odd prime-power coefficient ring. Over composite odd k, reduce the distinguished geometric classes of XII 3.7 with one common sign; independent prime-by-prime choices or a ℤ/2^a k norm lift do not suffice.",
       "reason": "(uδ, uδ) = u²(δ, δ), and ℤ/k has square roots of 1 other than ±1 when k has two distinct odd prime factors: for k = 15, u = 4 gives u² = 16 ≡ 1, so 4δ ≠ ±δ also satisfies (2.2.6.1).",
       "affects": "nothing",
@@ -6247,7 +6093,7 @@
       "source": "SGA7II-1973",
       "kind": "misprint",
       "locator": "Exposé XV, 2.2.2, p. 18",
-      "printed": "Sauf dans le cas exceptionnel où k(s) est de caractéristique 2 et où n+1 est pair",
+      "printed": "The source singles out as exceptional the case where k(s) has characteristic 2 and n+1 is even.",
       "correction": "où n+1 est impair (n pair)",
       "reason": "The degenerate case is characteristic 2 with n even (XV 1.2.2 and 1.2.8: an odd number n + 1 of variables), and 2.2.6 says 'Supposons n impair; x₀ est alors un point rationnel (2.2.2)'.",
       "affects": "nothing",
@@ -6381,7 +6227,7 @@
       "source": "illusie-1994",
       "kind": "misprint",
       "locator": "p. 41 line −2",
-      "printed": "poids i",
+      "printed": "The source specifies weight i.",
       "correction": "The weight is i+n, not i.",
       "reason": "The pure weight includes the dimension shift; this weight result is routed to DWP, not proved here.",
       "affects": "the proof",
@@ -6400,7 +6246,7 @@
       "source": "illusie-1994",
       "kind": "misprint",
       "locator": "p. 43 line −1 and p. 44 lines 1–2",
-      "printed": "parenthèses",
+      "printed": "The source refers to parentheses.",
       "correction": "Delete the parenthetical proposed correction to the quoted text.",
       "reason": "The author’s erratum explicitly retracts that proposed correction; LPV does not perpetuate it.",
       "affects": "the proof",
@@ -6438,7 +6284,7 @@
       "source": "illusie-1994",
       "kind": "misprint",
       "locator": "p. 48 line 3",
-      "printed": "pour X",
+      "printed": "The source specifies that this is for X.",
       "correction": "Read pour K.",
       "reason": "The perverse argument applies to the complex K, not to the scheme X.",
       "affects": "the proof",

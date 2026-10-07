@@ -433,19 +433,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, (1.36)–(1.37), p. 21",
-          "excerpt": "Choisissons un isomorphisme η : E ≅ C/(Z + τZ), avec τ ∈ C vérifiant ℑ(τ) > 0. Composons η avec l'application z ↦ exp(2πiz). Nous obtenons un isomorphisme de groupes E ≅ C∗/q^Z, où nous avons posé q = exp(2πiτ).",
           "match": "The source assumes the uniformisation (R12.1's) and works with the normalised η; this node records η and its dependence on choices."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, (1.40), p. 22",
-          "excerpt": "Nous posons alors τ = ∫_{γ2} ω / ∫_{γ1} ω ∈ H et η : P ↦ [∫_0^P ω / ∫_{γ1} ω], où ω désigne une forme différentielle holomorphe non nulle quelconque sur E(C).",
           "match": "The normalised τ and η, verbatim (the source writes the integrals as displayed fractions)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "proof of Proposition 26, p. 27",
-          "excerpt": "Notons c : E(C) → E(C) la conjugaison complexe. Elle correspond à la conjugaison complexe usuelle sur C/(Z + τZ) via l'isomorphisme η.",
           "match": "The real case of the conjugation compatibility."
         }
       ],
@@ -568,13 +565,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, (1.37), p. 21",
-          "excerpt": "Composons η avec l'application z ↦ exp(2πiz). Nous obtenons un isomorphisme de groupes E ≅ C∗/q^Z, où nous avons posé q = exp(2πiτ).",
           "match": "The multiplicative presentation, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, after (1.40), p. 22",
-          "excerpt": "Le nombre q = exp(2πiτ) est un nombre réel non nul. Il vérifie −1 < q < 1 et ne dépend que de E.",
           "match": "The real normalisation of q, verbatim."
         }
       ],
@@ -707,13 +702,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, (1.43)–(1.44), p. 22",
-          "excerpt": "Rappelons que l'application d'Abel-Jacobi H1(E, Z) → HomC(Ω1,0(E), C), λ ↦ (ω ↦ ∫_λ ω) induit un isomorphisme d'espaces vectoriels réels H1(E, R) ≅ HomC(Ω1,0(E), C).",
           "match": "The integration pairing and the Abel–Jacobi isomorphism, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, note 2, p. 22",
-          "excerpt": "L'orientation canonique de C induit via η une orientation canonique de E(C), qui détermine à son tour le signe du produit d'intersection sur H1(E(C), Z).",
           "match": "The sign convention of the intersection pairing."
         }
       ],
@@ -762,7 +755,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, p. 22",
-          "excerpt": "Lorsque la courbe elliptique E est définie sur R, il existe un dilogarithme elliptique DE bien défini au signe près. Pour voir cela, choisissons une orientation de E(R).",
           "match": "The real case, verbatim; the number-field bookkeeping is the stage text's, not the source's."
         }
       ],
@@ -806,19 +798,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5, Lemme 61, (2.94), p. 64",
-          "excerpt": "Les groupes de cohomologie de Deligne H2D(AC, R(2)) et H2D(AR, R(2)) sont décrits par le diagramme commutatif [...] où les lignes sont des isomorphismes. Dans ce diagramme, nous avons posé R(1) = 2πiR ⊂ C, et (·)− désigne le sous-espace des éléments anti-invariants par le morphisme c∗",
           "match": "The target as the anti-invariant part of H^1(A(C), R(1)); here A = E."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5, Lemme 62, (2.100), p. 65",
-          "excerpt": "Nous avons un isomorphisme H1(A(C), R(1)) → HomC(Ωd,d−1(A(C)), C), [ω] ↦ (α ↦ ∫_{A(C)} ω ∧ α).",
           "match": "The identification with the dual of the holomorphic differentials (d = 1)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 26, p. 26",
-          "excerpt": "et ω = η∗dz ∈ Ω1,0(E(C)) est l'unique forme différentielle vérifiant ∫_{E0(R)} ω = 1, où E0(R) est la composante neutre de E(R).",
           "match": "The normalised differential that identifies the target with R for E/Q."
         }
       ],
@@ -927,13 +916,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5, Définition 63, (2.107), p. 66",
-          "excerpt": "Pour toutes fonctions rationnelles F, G ∈ C(A)∗, notons η(F, G) la forme différentielle définie par η(F, G) = log|F| · (∂ − ∂̄) log|G| − log|G| · (∂ − ∂̄) log|F|.",
           "match": "Brunault's η, which is i times the stage text's η(f, g)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.6, proof of Théorème 68, p. 70",
-          "excerpt": "d'où nous déduisons ∫_{J(C)} η(F, G) ∧ α = −2 ∫_{J(C)} log|F| · ∂̄ log|G| ∧ α.",
           "match": "The integration by parts, for J = E and α = ω."
         }
       ],
@@ -986,13 +973,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Définition 16, (1.27), p. 19",
-          "excerpt": "L'application régulateur rX associée à X est définie par rX : K2(C(X)) → HomC(Ω1,0(X), C), {f, g} ↦ (ω ↦ ∫_X log|f| · ω ∧ ∂̄ log|g|). Cette application est bien définie d'après (1.25).",
           "match": "The definition with ∂̄ (the packet's d^c is a misreading), verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Lemme 15, (1.25)–(1.26), p. 19",
-          "excerpt": "Pour toute fonction méromorphe f ∈ C(X) − {0, 1} et toute forme différentielle holomorphe ω ∈ Ω1,0(X), nous avons ∫_X log|f| · ω ∧ ∂̄ log|1 − f| = 0.",
           "match": "The Steinberg relation; its proof is (1.26) and Stokes."
         }
       ],
@@ -1121,19 +1106,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Remarques, item 1, p. 20",
-          "excerpt": "La composition de ηX et rX ⊗ Q donne, à un facteur près, le régulateur de Beĭlinson.",
           "match": "The source's 'up to a factor', verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5, Proposition 67, (2.118), p. 67",
-          "excerpt": "Le régulateur de Beĭlinson rA de (2.91) s'obtient comme la composée K2(2)(A) → K2(Q(A)) ⊗ Q → H2D(AR, R(2)).",
           "match": "The factor fixed: Beilinson's regulator is r̂ ∘ η^*, with r̂ given by η(F, G) (Définition 65)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.6, proof of Théorème 68, p. 70",
-          "excerpt": "d'où nous déduisons ∫_{J(C)} η(F, G) ∧ α = −2 ∫_{J(C)} log|F| · ∂̄ log|G| ∧ α.",
           "match": "With J = E and α = ω this is 2 r_E."
         }
       ],
@@ -1170,7 +1152,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§2.5, (2.92), p. 64",
-          "excerpt": "Le groupe de K-théorie de Quillen K2(2)(A) est décrit par la suite exacte [52, (7.4), p. 23] 0 → K2(2)(A) −η∗→ K2(Q(A)) ⊗ Q −∂→ ⊕_{V⊂A} Q(V)∗ ⊗ Q,",
           "match": "After tensoring with Q the ambiguity disappears; this node records why the real regulator never sees it (stage text of ER.2, last sentence)."
         }
       ],
@@ -1217,31 +1198,26 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Définition 19, (1.38), p. 21",
-          "excerpt": "Le dilogarithme elliptique DE,η associé à E et η est la fonction définie par DE,η : E → R, [x] ↦ Σ_{n=−∞}^{∞} D(xq^n), où nous avons utilisé l'identification (1.37).",
           "match": "The definition, verbatim (the source's isomorphism is η, its period ratio τ)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, after (1.38), p. 21",
-          "excerpt": "La série (1.38) définissant DE,η, vue comme série de fonctions de la variable x ∈ C∗, converge uniformément sur tout compact. La fonction DE,η est de classe C∞ sur E − {0}, et continue en 0.",
           "match": "Convergence and regularity, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, (1.39), p. 22",
-          "excerpt": "DE,η(nP) = n Σ_{Q∈E[n]} DE,η(P + Q) (P ∈ E, n ∈ Z, n ≠ 0), où E[n] désigne le groupe des points de n-torsion de E. En particulier, la fonction DE,η est impaire.",
           "match": "The distribution relations and oddness, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, (1.41), p. 22",
-          "excerpt": "ne dépend que du choix de l'orientation de E(R) ; changer cette orientation revient à changer le signe de la fonction DE.",
           "match": "The sign ambiguity for a real curve, verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.1.1, printed p. 61",
-          "excerpt": "LEMMA 8.1.1. The expression D_q(x) = Σ_{n∈Z} D(xq^n) defines a continuous function D_q : E → R.",
           "match": "Bloch's definition and continuity."
         }
       ],
@@ -1379,31 +1355,26 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, (8.1.2), printed p. 61",
-          "excerpt": "We fix q = e^{2πiτ} ∈ C* with |q| < 1 such that E ≅ C*/q^Z. Then (8.1.2) R = R_q = J_q + iD_q, where J_q and D_q are real valued.",
           "match": "Bloch's convention, verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, (8.1.4)–(8.1.5), printed p. 62",
-          "excerpt": "Define (8.1.4) J_q(x) = Σ_{n=0}^{∞} J(xq^n) − Σ_{n=1}^{∞} J(x^{-1}q^n). J_q(x) is clearly continuous on C*, and we have (8.1.5) J_q(qx) − J_q(x) = −J(x^{-1}) − J(x) = −(log|x|)².",
           "match": "Bloch's companion and its failure of q-invariance, verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.1.4, printed p. 62",
-          "excerpt": "Let F = Σ d_j(α_j), G = Σ e_k(β_k) be divisors on C*, and assume Σ d_j = Σ e_k = 0, Π α_j^{d_j} = Π β_k^{e_k} = 1. Then F and G project to divisors of elliptic functions f, g on E = C*/q^Z, and the expression J_q(F^- ∗ G) = Σ d_j e_k J_q(α_j^{-1}β_k)",
           "match": "Well-definedness on divisors (the sentence ends: 'depends only on the divisors of f and g')."
         },
         {
           "sourceId": "Zagier.BWR.1990",
           "locator": "§2, p. 616",
-          "excerpt": "we find after a short calculation that the function J(q; x) = Σ_{l=0}^{∞} J(q^l x) − Σ_{l=1}^{∞} J(q^l x^{-1}) + log³|x|/(3 log|q|) − log²|x|/2 + log|x| log|q|/6 (q, x ∈ C, |q| < 1) is invariant under x ↦ qx",
           "match": "The Bernoulli regularisation: the three extra terms are (1/3) log²|q| B_3(log|x|/log|q|)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, after Théorème 21, pp. 23–24",
-          "excerpt": "Cette dernière fonction est liée à la fonction Jq de Bloch [12, (8.1.4), p. 62] ; elle coïncide avec l'opposée de la fonction J(q; x) définie par Zagier [79, p. 616].",
           "match": "Brunault's J_{E,η} (the Im-part of (1.50)) is −J(q; ·); confirmed numerically (source issue EllipticRegulators/E3 records the missing proof)."
         }
       ],
@@ -1549,13 +1520,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Theorem 8.1.2, printed p. 61",
-          "excerpt": "THEOREM 8.1.2. D_q is a Steinberg function (cf. Definition 5.3.1) and hence induces a map D_q: K_2(C(E)) → R.",
           "match": "The imaginary part, verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Theorem 8.1.5, printed p. 63",
-          "excerpt": "THEOREM 8.1.5. J_q(f ⊗ (1 − f)) = 0 for f ≢ 1, so J_q induces a map J_q: K_2(E) → K_2(C(E)) → R.",
           "match": "The real part, verbatim."
         }
       ],
@@ -1597,25 +1566,21 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Théorème 21, (1.50), p. 23",
-          "excerpt": "Théorème 21 (Bloch, [12]). Le développement de Fourier du dilogarithme elliptique DE,η est donné par [...] DE,η(P) = −(ℑ(τ)²/π) ℜ(Σ'_{λ∈H1(E,Z)} χλ(P)/(η(λ)² \\overline{η(λ)})) (P ∈ E),",
           "match": "The Kronecker–Eisenstein expansion of D; its imaginary-part companion is J_{E,η} = −J(q; ·)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Remarque 25, p. 26",
-          "excerpt": "La série intervenant dans (1.61) est normalement convergente en tant que série de fonctions sur E × E. En conséquence, la fonction RE est continue sur E × E.",
           "match": "Absolute (normal) convergence of the complex function's series."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Remarque 23, p. 25",
-          "excerpt": "Le recours aux distributions dans la proposition 22 s'explique par le fait que la série intervenant dans le membre de droite de (1.54) n'est pas absolument convergente.",
           "match": "The series that is not absolutely convergent is the Green function's."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, (10.3.1), printed p. 80",
-          "excerpt": "10.3. Using Lemmas 10.2.2 and 10.2.3, the main result, Theorem 10.2.1 can be rewritten (10.3.1) Σ_{k,ℓ=0}^{C−1} f̂(k, ℓ)R_q(e^{2πi(k+ℓτ)/C}) = (y²i/π) Σ_{m,n∈Z, m≠0} f(m, n)/((mτ + n)²(m τ̄ + n)).",
           "match": "The identity at torsion points, as a statement about values of R_q."
         }
       ],
@@ -1651,7 +1616,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, proof of Lemma 9.2.2, printed p. 73",
-          "excerpt": "This is an easy consequence (cf. the proof of Sublemma 9.1.4) of the obvious bound D(y) = O(|y| log|y|), y → 0.",
           "match": "The bound at zero; Bloch's Corollary 6.1.2 (Lecture 6, not read) is the version cited in Lemma 8.1.1."
         }
       ],
@@ -1688,7 +1652,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Remarque 27, p. 27",
-          "excerpt": "Remarque 27. Nous pouvons déduire de la formule (1.63) la dépendance de la fonction DE,η en l'isomorphisme η.",
           "match": "The source announces the dependence on η without stating it; this node states it (stage text: 'lattice-basis change')."
         }
       ],
@@ -1729,13 +1692,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Proposition 22, (1.54), p. 24",
-          "excerpt": "Proposition 22. La distribution sur E définie par la série de Fourier Σ'_{λ∈H1(E,Z)} χλ/‖λ‖² est de classe C∞ sur E − {0}. Pour tous points P, Q ∈ E avec P ≠ Q, nous avons GE(P, Q) = −(1/2) Σ'_{λ∈H1(E,Z)} χλ(P − Q)/‖λ‖².",
           "match": "The Fourier series of the Green function, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Proposition 9, p. 16",
-          "excerpt": "Proposition 9 (Arakelov [2]). Il existe une unique fonction GX : X × X − ∆X → R, appelée fonction de Green associée à X, de classe C∞ et vérifiant les trois conditions suivantes.",
           "match": "The general Green function, owned by GZ.2."
         }
       ],
@@ -1848,19 +1809,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Proposition 26, (1.63), p. 26",
-          "excerpt": "Le dilogarithme elliptique DE,η s'exprime en fonction de RE au moyen de la formule DE,η(P) = 2 · ℑ(Rω(P, 0)) (P ∈ E), où nous avons posé ω = η∗dz.",
           "match": "Proposition 26, verbatim (the packet's excerpt wrote ω = dz and renamed η, τ)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Proposition 26, (1.64), p. 26",
-          "excerpt": "Rω(P, Q) = (i/2) DE(P − Q) (P, Q ∈ E(R)),",
           "match": "The real case."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Proposition 17, (1.28), p. 19",
-          "excerpt": "Proposition 17. Pour toutes fonctions méromorphes f, g ∈ C(X)∗, nous avons l'égalité rX({f, g}) = Σ_{x∈(f)} Σ_{y∈(g)} ordx(f) ordy(g)RX(x, y),",
           "match": "The regulator as a double sum of R_X over the divisors."
         }
       ],
@@ -1897,13 +1855,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.1.3, printed p. 62",
-          "excerpt": "LEMMA 8.1.3. The diagram (notation as in Lecture 5) below commutes.",
           "match": "The J-part; the diagram is tame followed by log|·| · log|·| against (5.3.1) followed by J."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, proof of Theorem 9.1.1, printed p. 69",
-          "excerpt": "It is an easy exercise from the diagram in Lemma 8.1.3 to show J(f⊗(K−f)) = 0 for f ∈ (1+I)*, K ∈ C*.",
           "match": "The consequence used in (9.1.1)."
         }
       ],
@@ -1939,13 +1895,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.2.1, printed p. 64",
-          "excerpt": "LEMMA 8.2.1. There exists an R > 0 independent of N such that F_N(w) − K has no zeros off the annulus A_{N+R}.",
           "match": "Statement (i), verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.2.2, printed p. 65",
-          "excerpt": "LEMMA 8.2.2. Given 0 < ε < 1 irrational, R > 0, and N_0 > 0, there exists N ≥ N_0 such that Z(F_N(w) − K, N(1 − ε) + R) = Z(F(w) − K, N(1 − ε) + R).",
           "match": "Statement (ii), verbatim."
         }
       ],
@@ -1980,13 +1934,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.2.3, printed p. 66",
-          "excerpt": "Then for N ≫ 0, any zero or pole of F_N(w) − K on A_{N(1−ε)+R} lies inside exactly one translate γ_k · q^r. No two roots lie in the same translate.",
           "match": "Statement (iii), verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.2.4, printed p. 67",
-          "excerpt": "LEMMA 8.2.4. Σ e_{β'_N} = 0 and Σ e_{β'_N} log|β'_N| = O(Nε) + O(1) as N → ∞.",
           "match": "Statement (iv), verbatim."
         }
       ],
@@ -2022,13 +1974,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, Lemma 9.1.3, printed p. 70",
-          "excerpt": "LEMMA 9.1.3. |J_{F,q}(x) − J_{F_N}(x) + NC_F| = O(Nε|q|^{Nε}) as N → ∞, uniformly in x for x ∈ A_{N(1−ε)+R}.",
           "match": "Estimate (b), verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, Lemma 9.1.5, printed p. 71",
-          "excerpt": "LEMMA 9.1.5. For x, x' ∈ C*, |x − x'| ≤ ε|x'|, we have |J_{F,q}(x) − J_{F,q}(x')| = O(ε log ε), ε → 0 uniformly in x, x'.",
           "match": "Estimate (c), verbatim."
         }
       ],
@@ -2067,7 +2017,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, Theorem 9.1.1, printed p. 69",
-          "excerpt": "THEOREM 9.1.1. For any elliptic function f and any constant K, J_q(f ⊗ (K − f)) = 0 (notation as in (8.1.6)).",
           "match": "The statement, verbatim."
         }
       ],
@@ -2106,13 +2055,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, Theorem 9.2.1, printed p. 73",
-          "excerpt": "9.2. The proof of the corresponding result for D_q is similar but slightly less complicated. THEOREM 9.2.1. D_q is a Steinberg function (Definition 5.3.1) on E.",
           "match": "The statement, verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 9, Lemma 9.2.2, printed p. 73",
-          "excerpt": "LEMMA 9.2.2. |D_{F_N}(x) − D_{F,q}(x)| = O(Nε|q|^{Nε}) as N → ∞ uniformly in x for x ∈ A_{N(1−ε)+R}.",
           "match": "Estimate (d), verbatim."
         }
       ],
@@ -2156,13 +2103,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, §10.1, printed p. 75 (PDF p. 87 of the supplied scan)",
-          "excerpt": "Thus, if f, g are elliptic functions, Σd_j = Σe_k = 0, Πα_j^{d_j} = Πβ_k^{e_k} = 1, and (f̃) = Σd_j(α_j), (g̃) = Σe_k(β_k) are liftings of (f), (g) to C*, we have R_q{f, g} = Σ d_j e_k R_q(α_j^{-1}β_k).",
           "match": "The multiplicative argument α_j^{-1}β_k is the point Q_k − P_j of the curve: the convention of this node, verbatim from the scan."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, proof of Lemma 10.2.2, printed p. 77 (PDF p. 89)",
-          "excerpt": "D̄_q((ρ) * (f_{(k+ℓτ)/C})) = C Σ_{Ca=0, a≠0} (−D̄_q(−a + σ((k+ℓτ)/C)) + D̄_q(−a)) + C(C^2 − 1)(D̄_q(σ((k+ℓτ)/C)) − D̄_q(0)).",
           "match": "Bloch's convolution * on the divisors (ρ) = (C²−1)[0] − Σ_{a≠0}[a] and (f_x) = C[x] − C[0], written out: every term is [second point − first point], confirming the convention."
         }
       ],
@@ -2299,19 +2244,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Proposition 17, (1.28)–(1.29), p. 19 of the arXiv PDF",
-          "excerpt": "Proposition 17. Pour toutes fonctions méromorphes f, g ∈ C(X)∗, nous avons l'égalité r_X({f, g}) = Σ_{x∈(f)} Σ_{y∈(g)} ord_x(f) ord_y(g) R_X(x, y),",
           "match": "The divisor formula on any compact Riemann surface, for all f, g, with no tame-symbol hypothesis."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Proposition 26, (1.63), p. 26 of the arXiv PDF",
-          "excerpt": "Le dilogarithme elliptique D_{E,η} s'exprime en fonction de R_E au moyen de la formule D_{E,η}(P) = 2 · ℑ(R_ω(P, 0)) (P ∈ E), où nous avons posé ω = η∗dz.",
           "match": "The imaginary part of the elliptic evaluation; the real part and the conjugation come from Proposition 24 (p. 25) and the Kronecker–Eisenstein expansion."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, §10.1, printed p. 75 (PDF p. 87)",
-          "excerpt": "We now have a regulator map R_q: K_2(C(E)) → C which induces by restriction a regulator on the global K_2(E). Abusing notation, we will also write R_q = J_q + iD_q for the function on C*.",
           "match": "Bloch's regulator is defined on all of K_2(ℂ(E)) by the divisor formula; this node relates it to ER.2's integral."
         }
       ],
@@ -2356,13 +2298,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, Lemma 10.2.2, printed p. 77 (PDF p. 89)",
-          "excerpt": "LEMMA 10.2.2. We have R_q(S_{(k+ℓτ)/C}) = C³(R_q(e^{2πi(k+ℓτ)/C}) + 4π²y²(ℓ³/3C³ − ℓ²/2C² + ℓ/6C)), where R_q on the right denotes the function R_q and R_q on the left is the regulator.",
           "match": "The regulator of the classes, verbatim; the bracket is ER.3's Bernoulli correction."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, (10.1.2), printed p. 76 (PDF p. 88)",
-          "excerpt": "Let ρ denote a function on E with poles of order 1 at every nonzero point of E_C and a zero of order C² − 1 at the origin.",
           "match": "The divisor of ρ used here."
         }
       ],
@@ -2403,7 +2343,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, §11.2, printed p. 92 (PDF p. 104)",
-          "excerpt": "is invariant under both these actions, and hence lies in K_2(E_Q) ⊗ Q. (This follows from the existence of a norm map K_2(E_L) → K_2(E_Q) for L/Q finite.)",
           "match": "The source's only use of the transfer; the trace formula is what makes its regulator computable, and the source does not state it."
         }
       ],
@@ -2440,13 +2379,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, Lemma 8.1.4, printed p. 62 (PDF p. 74)",
-          "excerpt": "Let F = Σd_j(α_j), G = Σe_k(β_k) be divisors on C*, and assume Σd_j = Σe_k = 0, Πα_j^{d_j} = Πβ_k^{e_k} = 1. Then F and G project to divisors of elliptic functions f, g on E = C*/q^Z, and the expression J_q(F^- * G) = Σ_{j,k} d_j e_k J_q(α_j^{-1}β_k) depends only on the divisors of f and g.",
           "match": "Independence of permitted lifts for the unregularised J_q, verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, (8.1.4)–(8.1.5), printed p. 62 (PDF p. 74)",
-          "excerpt": "J_q(x) = Σ_{n=0}^∞ J(xq^n) − Σ_{n=1}^∞ J(x^{-1}q^n). J_q(x) is clearly continuous on C*, and we have (8.1.5) J_q(qx) − J_q(x) = −J(x^{-1}) − J(x) = −(log|x|)².",
           "match": "Bloch's J_q converges without any correction and is not q-invariant; the Bernoulli term is what makes it a function on E."
         }
       ],
@@ -2490,7 +2427,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, §10.2, (10.2.1), printed p. 76 (PDF p. 88)",
-          "excerpt": "be an odd function, f(−a, −b) = −f(a, b), and write (10.2.1) f̂(k, ℓ) = (1/C²) Σ_{a,b=0}^{C−1} f(a, b) e^{2πi(−ak+bℓ)/C}.",
           "match": "The definition and its normalisation 1/C², verbatim."
         }
       ],
@@ -2633,7 +2569,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, Theorem 10.2.1, printed p. 77 (PDF p. 89)",
-          "excerpt": "THEOREM 10.2.1. With notation as above, Σ_{k,ℓ=0}^{C−1} f̂(k, ℓ) R_q(S_{(k+ℓτ)/C}) = (iy²C³/π) Σ_{m,n∈Z, (m,n)≠(0,0)} f(m, n)/((mτ + n)²(mτ̄ + n)).",
           "match": "The statement, verbatim; verified numerically by the reviewer."
         }
       ],
@@ -2682,13 +2617,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, §11.2, printed pp. 91–92 (PDF pp. 103–104)",
-          "excerpt": "Since κ has class number 1, j(E) ∈ Q so we can choose a model E_Q defined over Q. Deuring's theory associates to E_Q a Grössencharakter χ^Gross of κ with values in κ*, χ^Gross(p) = x̄χ(x), where (x) = p ∤ C.",
           "match": "The setup and the form of the Grössencharakter, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§0.5, p. 11 of the arXiv PDF",
-          "excerpt": "Dans le cas où E est à multiplication complexe, Bloch a montré comment exprimer L(E, 2) comme combinaison linéaire de valeurs de D_E.",
           "match": "The scope of the layer, verbatim."
         }
       ],
@@ -2797,7 +2730,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, (11.2.3), printed p. 92 (PDF p. 104)",
-          "excerpt": "The ray class group (O/CO)*/μ_κ acts on points of order C by x · (y/C) = x^{-1}χ(x)y/C and conjugation acts on these points in the natural way. The element (11.2.3) U ≝ Σ_{(O/CO)*/μ_κ} S_{xχ̄(x)/C} is invariant under both these actions, and hence lies in K_2(E_Q) ⊗ Q.",
           "match": "The definition of U and its descent, verbatim from the scan (the stage text's 'S_{x̄χ(x)/C}' puts the bar on the wrong letter; the index set is conjugation-stable, so U is unchanged)."
         }
       ],
@@ -2918,13 +2850,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, Theorem 11.2.1 and (11.2.4), printed p. 92 (PDF p. 104)",
-          "excerpt": "THEOREM 11.2.1. With notations as above, let χ^Gross be the Grössencharakter associated to E_Q. Let f be a generator for the conductor ideal and let fg = C ∈ Z, g ∈ O. Then there exists U ∈ K_2(E_Q) ⊗ Q (defined as above) such that (11.2.4) L(2, χ^Gross) = (π|μ_κ|χ̂(ḡ)g/(iy²C⁴)) R_q(U).",
           "match": "The printed theorem, verbatim from the scan; its scalar is corrected here (source issues E7, E8) and its index set restricted (E9)."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, (11.2.1), printed p. 91 (PDF p. 103)",
-          "excerpt": "Let f generate the conductor ideal of χ and write C = fg. From (11.1.2), Corollary 11.1.5, Corollary 11.1.6, and Lemma 11.1.7 we get (11.2.1) L(2, χ^Gross) = (π/(iy²C⁴)) Σ_{w∈O/CO} χ̂(w)R_q(S_{w/C})",
           "match": "The first line of the derivation, where the factor 1/|μ_κ| is missing."
         }
       ],
@@ -2969,13 +2899,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, Corollary 11.2.3 and Conjecture 11.2.4, printed p. 93 (PDF p. 105)",
-          "excerpt": "Since L(s, χ^Gross) has a product expansion converging for Re s > 3/2, we see from (11.2.4) COROLLARY 11.2.3. The element U ∈ K_2(E_Q) ⊗ Q defined above is non-zero. In view of Borel's work, the following conjecture seems irresistible: CONJECTURE 11.2.4. U spans K_2(E_Q) ⊗ Q.",
           "match": "The non-vanishing and the conjecture, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§0.5, p. 11 of the arXiv PDF",
-          "excerpt": "La généralisation de cet énoncé à toute courbe elliptique est connu sous le nom de conjecture de Zagier pour L(E, 2) [32, 76, 81].",
           "match": "Beyond the CM case the statement is a conjecture (the source's own wording 'connu')."
         }
       ],
@@ -3012,13 +2940,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, (11.1.1), printed p. 87 (PDF p. 99)",
-          "excerpt": "It is convenient to alter slightly the definition of the Fourier transform employed in Lecture 10. We write f(a + bτ) in place of f(a, b), and define (11.1.1) f̂(k + ℓτ) = (1/C) Σ_{a,b=0}^{C−1} f(a + bτ)e^{2πi[(−aℓ+bk)/C]}. (Note the interchange of k and ℓ.)",
           "match": "The printed definition, whose kernel has the wrong sign relative to (11.1.2) and to the proof of Lemma 11.1.7."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, before Lemma 11.1.4, printed p. 89 (PDF p. 101)",
-          "excerpt": "It is convenient to denote by ⟨ , ⟩ the bilinear form ⟨ , ⟩: O/CO × O/CO → C*, ⟨a + bτ, k + ℓτ⟩ = e^{2πi(−aℓ+bk)/C}.",
           "match": "The pairing, verbatim."
         }
       ],
@@ -3131,13 +3057,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, (11.1.2), printed p. 88 (PDF p. 100)",
-          "excerpt": "(11.1.2) Σ_{k,ℓ=0}^{C−1} f̂(k + ℓτ)R_q(S_{(k+ℓτ)/C}) = (iy²C⁴/π) Σ_{(m,n)≠(0,0)} f(m + nτ)/((m + nτ)²(m + nτ̄)).",
           "match": "The identity, verbatim; it holds with the kernel ⟨x, y⟩, not with the printed (11.1.1)."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, Lemma 11.1.2, printed p. 88 (PDF p. 100)",
-          "excerpt": "LEMMA 11.1.2. R_q(S_{(a+bτ)/C}) = (y²C³/π) Σ_{(m,n)≠(0,0)} sin(2π[an − bm]/C)/((m + nτ)²(m + nτ̄))",
           "match": "The printed statement, whose sign is wrong (source issue E7)."
         }
       ],
@@ -3172,13 +3096,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, Corollary 11.1.5, printed p. 89 (PDF p. 101)",
-          "excerpt": "COROLLARY 11.1.5. If ζ ∈ O_κ is a unit (i.e., a root of 1) then R_q(S_{ζ(a+bτ)/C}) = ζ^{-1}R_q(S_{(a+bτ)/C}).",
           "match": "Part (a), verbatim."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, Corollary 11.1.6, printed p. 90 (PDF p. 102)",
-          "excerpt": "COROLLARY 11.1.6. Suppose C = fg, f, g ∈ O_κ. Then ḡ Σ_{μ∈O/gO} R_q(S_{(a+bτ)/C+fμ/C}) = R_q(S_{(a+bτ)/f}).",
           "match": "Part (b), verbatim."
         }
       ],
@@ -3214,7 +3136,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, Lemma 11.1.7, printed pp. 90–91 (PDF pp. 102–103)",
-          "excerpt": "LEMMA 11.1.7. Let χ have conductor f | C, C = fg. Then (i) χ̂(x) = 0 unless C | f̄x. (ii) ) For x ∈ (O/CO)*, χ̂(xy) = χ̄(x̄)χ̂(y). (iii) Let f₁ ∥ f and suppose C | f̄₁x. Then χ̂(x) = 0.",
           "match": "The statement, verbatim (including the stray parenthesis of the scan); the proof on p. 91 uses χ̂(x) = (1/C)Σ χ(y)⟨x, y⟩."
         }
       ],
@@ -3257,13 +3178,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§3.4, (3.89)–(3.90), p. 93 of the arXiv PDF",
-          "excerpt": "Définissons un sous-groupe K2 (X1 (N ))Z de K2 (X1 (N )) par K2 (X1 (N ))Z = Im(K2 (X1 (N )Z ) → K2 (X1 (N ))). (3.89) D'après [65, Remark p. 13], ce sous-groupe ne dépend pas du choix du modèle (propre et régulier)",
           "match": "The integral part and the regulator restricted to it, in the source's modular setting."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 8, §8.1, printed p. 61 (PDF p. 73)",
-          "excerpt": "Let E be an elliptic curve defined over C. Our objective in the next few lectures will be to write down a regulator map (8.1.1) R: K_2(E) → C.",
           "match": "At a complex place the regulator is complex-valued: two real dimensions."
         }
       ],
@@ -3368,19 +3287,16 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "§3, Conjecture 3.11 and Remark 3.12, p. 6 (arXiv v2)",
-          "excerpt": "Remark 3.12. The definition of L∗(C, 0) requires the analytic continuation of L(C, s), but since the analytic continuation and the expected functional equation of L(C, s) would imply that L∗(C, 0) is rationally proportional to π^{−2g} L(C, 2)",
           "match": "The two formulations and the role of the functional equation, verbatim."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "§3, p. 5 (arXiv v2)",
-          "excerpt": "Unfortunately, this conjecture was wrong, as K2T(C)/torsion can have rank bigger than g already for g = 1, as was discovered by Bloch and Grayson in [3]. They found that one should consider a certain subgroup of K2T(C)/torsion defined by an additional condition,",
           "match": "Why the integral part, not K_2(E), is the subject."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 11, end of §11.2, printed p. 93 (PDF p. 105)",
-          "excerpt": "More generally, for any elliptic curve over a number field one could conjecture that rk K_2(E) = order of zero of L(E, s) at s = 0, assuming of course the existence of a functional equation relating L(E, s) and L(E, 2 − s).",
           "match": "The source's own (too strong) form, which the integral part corrects."
         }
       ],
@@ -3480,13 +3396,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 5, p. 11 of the arXiv PDF",
-          "excerpt": "Théorème 5. Pour tout nombre premier p, l'espace vectoriel réel V_p est engendré par r_p(K_p).",
           "match": "A spanning statement: with K_p inside the integral part (next excerpt), it is the surjectivity half of the conjecture for X_1(p), with no L-value."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§3.4, Remarques 84.2, p. 93 of the arXiv PDF",
-          "excerpt": "2. Schappacher et Scholl ont démontré [62, 1.1.2 (iii)] que KN ⊂ K2 (X1 (N ))Z ⊗ Q.",
           "match": "The constructed subspace lies in the integral part."
         }
       ],
@@ -3528,13 +3442,11 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "§8, p. 22 (arXiv v2)",
-          "excerpt": "This means that apart from being trivial for “horizontal” curves (which come from points P ∈ C(Q)), the tame symbol of α must be trivial for all irreducible components of the fibers Cp of C → Spec Z.",
           "match": "The vertical conditions, verbatim."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.1, Remarques after Proposition 17, pp. 19–20 of the arXiv PDF",
-          "excerpt": "La localisation en K-théorie algébrique induit une inclusion K2^{(2)}(X_Q) ↪ K2(Q(X)) ⊗ Q",
           "match": "The inclusion whose image is the unramified part."
         }
       ],
@@ -3574,7 +3486,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "§8, p. 22 (arXiv v2)",
-          "excerpt": "(One can show though that, to a given α, one can always add an element in K2 (Q) such that the sum satisfies this condition for each prime p for which the fiber Cp is smooth over Fp .)",
           "match": "The good-reduction case of the vertical condition; the tree argument for potentially good fibres is the reviewer's and still needs a published source (gap)."
         }
       ],
@@ -3614,7 +3525,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "§3, Remark 3.12, p. 6 (arXiv v2)",
-          "excerpt": "since the analytic continuation and the expected functional equation of L(C, s) would imply that L∗(C, 0) is rationally proportional to π^{−2g} L(C, 2), Beilinson's conjecture could be formulated without any assumptions about the analytic continuation of L(C, s).",
           "match": "The equivalence through the functional equation, verbatim; the rational factor is computed here."
         }
       ],
@@ -3658,13 +3568,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 79, p. 85",
-          "excerpt": "Proposition 79. Soit f : Z/NZ → C une fonction de somme nulle. Il existe une unique unité modulaire u_f ∈ O*(Y1(N)(C)) ⊗ C vérifiant log|u_f| = (1/π) · E*_f et û_f(∞) = 1 ∈ C* ⊗ C.",
           "match": "The existence and uniqueness; (3.63) and the C-linearity follow on the same page."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§0.3, (13), p. 10",
-          "excerpt": "Pour tout caractère de Dirichlet χ modulo N, pair et non trivial, nous définissons une unité modulaire u_χ ∈ O*(Y1(N)) ⊗ C vérifiant log|u_χ| = (1/π) Σ_{a∈(Z/NZ)*} χ(a) E*_{0,a}.",
           "match": "The character units, defined only for even NON-TRIVIAL χ, as elements of O*(Y1(N)) ⊗ C."
         }
       ],
@@ -3793,19 +3701,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Corollaire (Théorème 4), p. 91; also Théorème 4, p. 11",
-          "excerpt": "Pour tout caractère de Dirichlet χ modulo N, pair, distinct de ψ̄ et primitif, nous avons L(f, 2)L(f, χ, 1) = (Nπi/φ(N)) τ(χ)⟨r_N({u_ψχ, u_χ̄}), f⟩.",
           "match": "The theorem, with the bars read from the page images (the text layer drops them)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 82, p. 91",
-          "excerpt": "Remarque 82. Sans l'hypothèse χ primitif, nous n'avons pas trouvé de formule satisfaisante pour ⟨r_N({u_ψχ, u_χ̄}), f⟩.",
           "match": "Why primitivity is not relaxed."
         },
         {
           "sourceId": "Brunault.BSMF.2007",
           "locator": "Théorème 1.1 and (3), pp. 216-217",
-          "excerpt": "Pour tout caractère de Dirichlet χ modulo N, pair, primitif et distinct de 1 et ψ̄, le symbole {u_χ̄, u_ψχ} appartient à K2(X1(N)) ⊗Z C, et nous avons L(f, 2)L(f, χ, 1) = (Nπτ(χ)/(2φ(N)))⟨r_N({u_χ̄, u_ψχ}), f⟩.",
           "match": "The version of record, with r̂_N({u, v})(ω) = ∫ η(u, v) ∧ ω."
         }
       ],
@@ -3848,19 +3753,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 1, p. 8 and pp. 115-117",
-          "excerpt": "Théorème 1. Supposons N = p premier. Pour tout caractère de Dirichlet χ modulo p, pair et non trivial, nous avons la formule L(E, 2)L(E, χ, 1) = (p w(E) τ(χ)/(8πi(p − 1))) Σ_{χ'} c_{χ,χ'} L(E, χ', 1)",
           "match": "The printed theorem (formula transcribed from the page image, with the factor 8πi); the sign is corrected in the statement."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Introduction, p. 7",
-          "excerpt": "Notons N le conducteur de E [71, §IV.10-11], et w(E) l'opposé du signe de l'équation fonctionnelle satisfaite par L(E, s).",
           "match": "The definition of w(E) = −ε(E)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "(3.145), p. 116",
-          "excerpt": "ξ_f(x) = (w(E)/(2π (p − 1))) Σ_{χ≠1_p} τ(χ̄)χ(x)L(f, χ, 1) (x ∈ (Z/pZ)*).",
           "match": "The printed input whose even part carries the wrong sign (source issue E16)."
         }
       ],
@@ -3911,19 +3813,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§0.3, p. 10",
-          "excerpt": "La méthode de Beĭlinson souffre de deux imprécisions : – le choix de du caractère χ, et donc de l'entier N', n'est pas précisé ; – la paramétrisation modulaire X1(N) → E n'est pas explicite.",
           "match": "The two imprecisions, literally (including the source's misprint 'de du', source issue E21)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§0.3, p. 10",
-          "excerpt": "Nous reprenons la méthode de Beĭlinson et montrons qu'il est possible de choisir N' = N et χ parmi les caractères de niveau divisant N.",
           "match": "The improvement concerns the first imprecision only."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarques 84, 2., p. 93",
-          "excerpt": "Schappacher et Scholl ont démontré [62, 1.1.2 (iii)] que K_N ⊂ K2(X1(N))_Z ⊗ Q.",
           "match": "The integrality input, quoted from Schappacher-Scholl (gap)."
         }
       ],
@@ -3966,13 +3865,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§3.1, (3.4) and the paragraph after (3.8), pp. 73-74",
-          "excerpt": "Nous déduisons des affirmations précédentes le prolongement méromorphe des fonctions s ↦ E_(u,v)(z, s) au plan complexe, avec un unique pôle en s = 1, simple et de résidu égal à π/N².",
           "match": "The continuation and the residue π/N² that fix the regularisation (3.9); formula transcribed from the page image."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 71, p. 76",
-          "excerpt": "Proposition 71. Soit f : Z/NZ → C une fonction de somme nulle. La série d'Eisenstein E*_f admet le développement de Fourier",
           "match": "The Fourier expansion (3.27), for f of sum zero; the formula itself is transcribed in the statement from the page image."
         }
       ],
@@ -4092,13 +3989,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§3.1, (3.10) and (3.12), p. 74",
-          "excerpt": "La première formule-limite de Kronecker [69, Thm 1, p. 17] s'écrit ζ*_{0,0}(z) = 2π(γ − log 2 − log √y − 2 log|η(z)|)",
           "match": "The first limit formula; the second, (3.12), is on the same page; formulas transcribed from the page image."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§3.1, p. 73",
-          "excerpt": "Dans cette section, nous suivons de près l'exposition remarquable de Siegel [69, pp. 1–73]. Le lecteur pourra y trouver les démonstrations que nous avons omises.",
           "match": "The source gives no proofs; they are Siegel's (Tata lectures), which were not read: gap."
         }
       ],
@@ -4133,7 +4028,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Lemme 77, p. 82",
-          "excerpt": "Lemme 77 (Une convolution de séries de Dirichlet). Soient ψ un caractère de Dirichlet modulo N et χ1, χ2 des caractères de Dirichlet arbitraires.",
           "match": "The lemma; the identity (3.47) is transcribed in the statement."
         }
       ],
@@ -4175,13 +4069,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 72, p. 78",
-          "excerpt": "Théorème 72. Sous les hypothèses précédentes, notons ψ le caractère de f et χ'_N le caractère modulo N induit par χ'.",
           "match": "The statement; the identity (3.31), with the condition ψ = χ χ̄'_N read from the page image, is transcribed in the node statement."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 73, p. 78",
-          "excerpt": "Théorème 73. Soient χ un caractère de Dirichlet pair modulo N et χ' un caractère de Dirichlet pair modulo un diviseur M de N. Posons ψ = χ χ̄'_N.",
           "match": "The Hecke-algebra version (3.37), proved on pp. 79-83."
         }
       ],
@@ -4224,7 +4116,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§3.3, (3.58)-(3.59), p. 85",
-          "excerpt": "Le théorème de Manin-Drinfel'd [28, 29] énonce que l'application naturelle div ⊗ Q : O*(Y1(N)(C)) ⊗ Q → Div0(P_N) ⊗ Q est surjective.",
           "match": "The statement used; the source cites Manin (1972) and Drinfeld (1973) and gives no proof: gap."
         }
       ],
@@ -4262,7 +4153,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Lemme 78, p. 84",
-          "excerpt": "Lemme 78. Pour toute application f : Z/NZ → C de somme nulle, la série d'Eisenstein E*_f induit une fonction Y1(N)(C) → C de classe C∞, qui vérifie ∂∂̄E*_f = 0.",
           "match": "The lemma, verbatim up to typography."
         }
       ],
@@ -4302,7 +4192,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 80, p. 88",
-          "excerpt": "Proposition 80. Soit χ un caractère de Dirichlet modulo N, pair et non trivial i. e. vérifiant χ(−1) = 1 et χ ≠ 1. Alors u_χ est définie et nous avons div u_χ = −(L(χ, 2)/π²) Σ_{v∈(Z/NZ)*/±1} χ(v) · P_v.",
           "match": "Formula (3.76) transcribed from the page image; (3.77) is on the same page."
         }
       ],
@@ -4340,7 +4229,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Lemme 85, p. 94",
-          "excerpt": "Lemme 85. Pour toute fonction f : Z/NZ → C de somme nulle, l'unité modulaire u_f est définie sur Q et à coefficients dans Q(f̂), le corps engendré par les valeurs de f̂.",
           "match": "The lemma; the Galois action (3.93) on cusps is quoted in the source from Schappacher-Scholl [62, 3.0.2]."
         }
       ],
@@ -4383,13 +4271,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 86, p. 95",
-          "excerpt": "Proposition 86. Soient f, g : Z/NZ → C deux fonctions de somme nulle et à support dans (Z/NZ)*. Notons L le sous-corps de C engendré par les valeurs de f̂ et ĝ. Alors l'élément {u_f, u_g} appartient à K2(X1(N)) ⊗ L.",
           "match": "The proposition, which the introduction states for characters (p. 11)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 87, p. 96",
-          "excerpt": "Remarque 87. Lorsque f ou g n'est pas à support dans (Z/NZ)*, tous les symboles modérés de {u_f, u_g} ne semblent pas nécessairement triviaux.",
           "match": "Why the support hypothesis is kept."
         }
       ],
@@ -4432,7 +4318,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 81, p. 91",
-          "excerpt": "Théorème 81. Soit f une forme parabolique primitive de poids 2 pour Γ1(N), de caractère ψ. Soient χ un caractère de Dirichlet pair modulo N et χ' un caractère de Dirichlet pair modulo un diviseur M de N. Supposons χ non trivial et M > 1.",
           "match": "The hypotheses; the formula (3.83) is transcribed in the statement from the page image."
         }
       ],
@@ -4467,7 +4352,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Lemme 83, p. 92",
-          "excerpt": "Lemme 83. La composition K2(Q(X1(N))) → K2(C(X1(N))) → T ⊗ C est à valeurs dans T ⊗ R(1) = T ⊗ 2πiR.",
           "match": "The lemma, verbatim up to typography."
         }
       ],
@@ -4506,13 +4390,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 5, p. 93 (proof pp. 96-98)",
-          "excerpt": "Théorème 5. Pour tout nombre premier p, l'espace vectoriel réel V_p est engendré par r_p(K_p).",
           "match": "The theorem; stated also on p. 11."
         },
         {
           "sourceId": "Brunault.BSMF.2007",
           "locator": "Théorème 1.4, p. 218",
-          "excerpt": "Théorème 1.4. — Lorsque N = p est premier, le groupe r_p(K_p) engendre V_p.",
           "match": "The version of record."
         }
       ],
@@ -4549,7 +4431,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Définition 88 and Lemme 89, p. 101",
-          "excerpt": "Définition 88. Soient l, m deux diviseurs sur Z/NZ, la forme différentielle η(l, m) sur H est définie par η(l, m) = E*_l · (∂ − ∂̄)E*_m − E*_m · (∂ − ∂̄)E*_l.",
           "match": "The definition; Lemme 89 (3.113)-(3.114) and (3.112) are on the same page, Lemme 90 on p. 102."
         }
       ],
@@ -4648,7 +4529,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Définition 91 and Proposition 92, p. 103",
-          "excerpt": "Proposition 92. Pour tous diviseurs l et m de degré 0 sur Z/NZ, le bord du cycle c(l, m) est donné par ∂c(l, m) = −2π³i Σ_{P∈P_N} log|∂_P{u_l, u_m}| · [P]",
           "match": "The boundary formula (3.118); Définition 91 (3.117) is on the same page."
         }
       ],
@@ -4724,7 +4604,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 93, p. 104",
-          "excerpt": "Théorème 93. Soient f une forme parabolique de poids 2 pour Γ1(N) et l, m deux diviseurs sur Z/NZ.",
           "match": "The hypotheses; (3.122)-(3.123) are transcribed in the statement from pp. 104-105. The source says the proof follows Merel's Théorème C of the appendix."
         }
       ],
@@ -4762,7 +4641,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Corollaire (Théorème 3), p. 106",
-          "excerpt": "Corollaire (Théorème 3). Soit f une forme parabolique primitive de poids 2 pour Γ1(N), de caractère ψ. Pour tout caractère de Dirichlet χ modulo N, pair et distinct de ψ̄, nous avons",
           "match": "The hypotheses as printed (the bar over ψ read from the page image); formula (3.124) is transcribed in the statement."
         }
       ],
@@ -4799,19 +4677,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Lemme 99 and its proof, pp. 110-114",
-          "excerpt": "Démonstration du lemme 99. Il suffit de montrer qu'il existe un caractère de Dirichlet χ_N modulo N, pair et non trivial, tel que L(f, χ_N, 1) ≠ 0.",
           "match": "The statement proved, by the three cases on v_2(N)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Appendice (L. Merel), Corollaire 2, p. 145",
-          "excerpt": "Corollaire 2. — Il existe un caractère de Dirichlet primitif χ, qu'on peut choisir pair ou impair, de conducteur divisant N et tel que L(f ⊗ χ, 1) ≠ 0.",
           "match": "The general non-vanishing input; its proof (from Théorème A) was not read: gap."
         },
         {
           "sourceId": "Brunault.BSMF.2007",
           "locator": "Remarque 1.2, p. 217",
-          "excerpt": "Il serait donc utile de lever l'hypothèse χ primitif dans le théorème 1.1, et de montrer que le caractère χ vérifiant L(f, χ, 1) ≠ 0 peut être supposé distinct de 1 et ψ̄.",
           "match": "The version of record says the non-vanishing does not yet make Théorème 1.1 (= Théorème 4) applicable."
         }
       ],
@@ -4851,7 +4726,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 97, p. 109",
-          "excerpt": "Théorème 97. Soit N ≥ 1 un entier. Pour toute courbe elliptique E définie sur Q, de conducteur N, la valeur spéciale L(E, 2) est combinaison linéaire à coefficients rationnels des quantités",
           "match": "The theorem; the quantities (3.127) are transcribed in the statement."
         }
       ],
@@ -4891,13 +4765,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 2, p. 9 and p. 118",
-          "excerpt": "Théorème 2. Supposons N = p premier. Nous avons la formule",
           "match": "The printed formula (6), transcribed from the page image, is the one numerically corrected here."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Appendice (L. Merel), Théorème D, p. 154",
-          "excerpt": "Théorème D. — On a Res_{s=2} L(f ⊗ f, s) = (2πi/((N + 1)(N − 1)²)) Σ_{χ,χ',χχ'(−1)=−1} Λ(f ⊗ χ', 1)Λ(f ⊗ χ, 1)/τ(χχ')",
           "match": "The input that is off by a factor 4 numerically (source issue E15)."
         }
       ],
@@ -4939,13 +4811,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Théorème 8, p. 119",
-          "excerpt": "Théorème 8. Soit E la courbe elliptique donnée par l'équation y² + y = x³ − x², et P = (0, 0), point d'ordre 5 de E(Q). Orientons E(R) dans le sens des y croissants.",
           "match": "The setting; (3.150) is transcribed in the statement."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Corollaire 101, p. 119",
-          "excerpt": "Corollaire 101. En conservant les hypothèses du théorème 8, nous avons L(E, 2) = (10/11) · π · D_E(P) et D_E(2P) = (3/2) D_E(P).",
           "match": "The two identities, verified numerically."
         }
       ],
@@ -4982,7 +4852,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Corollaire 37, p. 40",
-          "excerpt": "Corollaire 37. Soit l (resp. m) un diviseur de degré 0 sur X (resp. Y). Nous avons φ_* R_X(l, φ^* m) = R_Y(φ_* l, m).",
           "match": "The projection-formula analogue the source proves (Remarque 38 calls it an analogue of the projection formula in K-theory); the general statement is a gap."
         }
       ],
@@ -5027,7 +4896,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Définition 16, (1.27), p. 19",
-          "excerpt": "L'application régulateur r_X associée à X est définie par r_X : K2(C(X)) → Hom_C(Ω^{1,0}(X), C)",
           "match": "The complex regulator whose p-adic analogue D.5 constructs; no p-adic source was read (gap). The locator was 'p. 26', which is wrong."
         }
       ],
@@ -5069,19 +4937,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Lemme 15 and (1.26), p. 19",
-          "excerpt": "Lemme 15. Pour toute fonction méromorphe f ∈ C(X) − {0, 1} et toute forme différentielle holomorphe ω ∈ Ω^{1,0}(X), nous avons ∫_X log|f| · ω ∧ ∂̄ log|1 − f| = 0.",
           "match": "The vanishing on Steinberg symbols; (1.26) gives the form identity."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "(3.106), p. 100",
-          "excerpt": "De plus, elle est “exacte sur les relations de Steinberg” : nous avons η(f, 1 − f) = d(D ∘ f) (f ∈ C(X), f ≠ 0, 1), où D est la fonction de Bloch-Wigner.",
           "match": "The identity the example evaluates."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "(3.110), p. 101",
-          "excerpt": "⟨r_X({f, g}), ω⟩ = −(i/2) ∫_X ω ∧ η(f, g).",
           "match": "The factor between the two regulator formulas."
         }
       ],
@@ -5127,7 +4992,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§0.5, p. 11",
-          "excerpt": "Dans le cas où E est à multiplication complexe, Bloch a montré comment exprimer L(E, 2) comme combinaison linéaire de valeurs de D_E.",
           "match": "The statement the example instantiates. The locator was 'p. 12', which is wrong."
         }
       ],
@@ -5170,19 +5034,16 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 17, (1.29), p. 19",
-          "excerpt": "Proposition 17. Pour toutes fonctions méromorphes f, g ∈ C(X)*, nous avons l'égalité r_X({f, g}) = Σ_{x∈(f)} Σ_{y∈(g)} ord_x(f) ord_y(g) R_X(x, y)",
           "match": "The divisor formula in the source's normalisation."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 26, (1.64), p. 26",
-          "excerpt": "Alors nous avons R_ω(P, Q) = (i/2) D_E(P − Q) (P, Q ∈ E(R)), et ω = η*dz ∈ Ω^{1,0}(E(C)) est l'unique forme différentielle vérifiant ∫_{E^0(R)} ω = 1",
           "match": "The normalisation of ω and of D_E used in (a)."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarques after Proposition 17, p. 19",
-          "excerpt": "La localisation en K-théorie algébrique induit une inclusion K2^{(2)}(X_Q) ↪ K2(Q(X)) ⊗ Q",
           "match": "The unramified classes; the integral ones are cut out by the vertical conditions (EllipticKTheory). The locator was 'p. 27', which is wrong."
         }
       ],
@@ -5223,7 +5084,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Corollaire 37, p. 40",
-          "excerpt": "Corollaire 37. Soit l (resp. m) un diviseur de degré 0 sur X (resp. Y). Nous avons φ_* R_X(l, φ^* m) = R_Y(φ_* l, m).",
           "match": "The geometric compatibility the source proves; the trace formula for a constant-field extension is ER.4's."
         }
       ],
@@ -5260,13 +5120,11 @@
         {
           "sourceId": "Brunault.SiegelUnits.2016",
           "locator": "Theorem 24, §5.1, p. 13",
-          "excerpt": "Theorem 24. — We have the identities L(E−1, 2) = (9π/7) DE−1(A), L(E−2, 2) = (36π/35) DE−2(A), L(E−3, 2) = (2π/3) DE−3(A).",
           "match": "The identities, transcribed (fractions reconstructed from the text layer and confirmed numerically)."
         },
         {
           "sourceId": "Brunault.SiegelUnits.2016",
           "locator": "§5.1, p. 12",
-          "excerpt": "The tame symbols of {x, y} at 0, A, −A are respectively equal to 1, −1, −1, so that {x, y} defines an element of K2(Ek) ⊗ Q.",
           "match": "The class."
         }
       ],
@@ -5956,7 +5814,7 @@
       "source": "Brunault.These.2005",
       "kind": "misprint",
       "locator": "§1.1, Remarques, item 3, p. 20 (arXiv v1)",
-      "printed": "La proposition 1.23 jointe à la relation de Steinberg {f, 1 − f} = 0 entraîne la relation suivante pour la fonction RX",
+      "printed": "The source invokes proposition 1.23 together with the Steinberg identity {f, 1 − f} = 0 to obtain the subsequent relation for RX.",
       "correction": "La proposition 17 (formule (1.28)) jointe à la relation de Steinberg ...",
       "reason": "There is no Proposition 1.23; (1.23) is the display of the regulator map r_X. The relation (1.31) is (1.28) applied to g = 1 − f, together with Lemma 15.",
       "affects": "nothing",
@@ -5975,7 +5833,7 @@
       "source": "Brunault.These.2005",
       "kind": "gap",
       "locator": "§1.2, proof of Proposition 24, pp. 25–26 (arXiv v1)",
-      "printed": "Cela résulte d'un calcul sans difficulté combinant la définition de Rω et la proposition 22. [...] En intervertissant les signes Σ et ∫, il vient",
+      "printed": "The source attributes the result to a straightforward calculation using the definition of Rω and proposition 22. It then exchanges Σ with ∫ to obtain the next expression.",
       "correction": "The interchange needs a justification: pair G_E(P, ·) in the Sobolev space H^{1/2}(E) with ω ∧ ∂̄G_E(Q, ·) in H^{−1/2}(E), where Parseval holds, or insert the Gaussian factor e^{−δ‖λ‖²} and let δ → 0; the resulting series Σ' χ_λ η(λ)/‖λ‖⁴ is absolutely convergent.",
       "reason": "The Fourier series of G_E is not absolutely convergent (the source's own Remarque 23), G_E(Q, ·) is not C¹ and ∂̄G_E(Q, ·) ~ 1/(2|t − Q|) is not in L²(E), so neither termwise integration nor L²-Parseval applies as written. The stated result (1.61) is true: 2R_ω(P, 0) from (1.62) agrees with −J(q; x) + iD_q(x) to 7 digits at τ = 0.23 + 1.05i.",
       "affects": "the proof",
@@ -5994,7 +5852,7 @@
       "source": "Brunault.These.2005",
       "kind": "gap",
       "locator": "§1.2, after Théorème 21, pp. 23–24 (arXiv v1)",
-      "printed": "Cette dernière fonction est liée à la fonction Jq de Bloch [12, (8.1.4), p. 62] ; elle coïncide avec l'opposée de la fonction J(q; x) définie par Zagier [79, p. 616].",
+      "printed": "The source relates this last function to Bloch's Jq [12, (8.1.4), p. 62] and identifies it as the negative of Zagier's J(q; x) [79, p. 616].",
       "correction": "True as stated, but asserted without proof; a proof is the imaginary part of the Kronecker expansion, established as for Théorème 21 (Bloch (10.3.1) with Lemma 10.2.3 for the m = 0 terms) and extended by continuity.",
       "reason": "Numerically J_{E,η} = −(Im τ)²/π Im Σ' χ_λ/(η(λ)² conj η(λ)) equals −J(q; x) to 15 digits at three points (τ = 0.23 + 1.05i, 0.8i, 1/2 + 0.9i).",
       "affects": "nothing",
@@ -6032,7 +5890,7 @@
       "source": "Bloch.CRM11",
       "kind": "gap",
       "locator": "Lecture 9, proof of Theorem 9.1.1, printed p. 69; Lecture 8, Lemma 8.2.3, printed p. 66",
-      "printed": "Further, since the expression J_q(f⊗(K−f)) is continuous as a function of the divisors (f) and (K−f), we may assume K ≠ 0, 1, and f is general [...]; Assume also (for simplicity) that all e_k = ±1.",
+      "printed": "The source claims continuity of J_q(f⊗(K−f)) with respect to the divisors (f) and (K−f), using this to assume K ≠ 0, 1 and general f. It also assumes all e_k = ±1 for simplicity.",
       "correction": "Prove the continuity used: for fixed f, K ↦ J_q(f ⊗ (K − f)) is continuous on C^× (uniform continuity of J_{F,q}, Lemma 9.1.5, plus continuity of the roots of F − K), and F − K has multiple zeros for only finitely many K (critical values of f); the case of multiple zeros then follows by continuity.",
       "reason": "The reduction to simple zeros is asserted, and Lemma 8.2.3 is only proved under e_k = ±1; the general case of the theorem rests on the unproved continuity.",
       "affects": "the proof",
@@ -6051,7 +5909,7 @@
       "source": "Zagier.BWR.1990",
       "kind": "misprint",
       "locator": "§2, p. 616 (Math. Ann. 286; author's scanned copy)",
-      "printed": "D(q; x) − iJ(q; x) = (i/π) ℑ(τ)² Σ'_{m,n} sin(2π(nξ − mη))/((mτ + n)²(mτ̄ + n)), where q = e^{2πiτ}, x = e^{2πiu} with u = ξτ + η",
+      "printed": "The source gives D(q; x) − iJ(q; x) = (i/π) ℑ(τ)² Σ'_{m,n} sin(2π(nξ − mη))/((mτ + n)²(mτ̄ + n)), specifying q = e^{2πiτ} and x = e^{2πiu}, with u = ξτ + η.",
       "correction": "D(q; x) − iJ(q; x) = −(i/π) ℑ(τ)² Σ'_{m,n} sin(2π(nξ − mη))/((mτ + n)²(mτ̄ + n)), equivalently with sin(2π(mη − nξ)).",
       "reason": "At τ = 0.23 + 1.05i, ξ = 0.17, η = 0.31: D(q; x) − iJ(q; x) = 0.5029402595 − 0.4335230780i from the orbit sums (25 digits), while the printed right-hand side (lattice sum over |m|, |n| ≤ 120) is −0.5029403073 + 0.4335231634i. Brunault's (1.50), with J_{E,η} = −J(q; ·) and the complex orientation of the intersection pairing, gives the corrected sign.",
       "affects": "a stated result",
@@ -6070,7 +5928,7 @@
       "source": "Bloch.CRM11",
       "kind": "error",
       "locator": "Lecture 11, (11.1.1) p. 87, (11.1.2) and Lemma 11.1.2 p. 88 (printed pages; supplied scan of the 2000 CRM edition)",
-      "printed": "(11.1.1) f̂(k + ℓτ) = (1/C) Σ_{a,b=0}^{C−1} f(a + bτ)e^{2πi[(−aℓ+bk)/C]}. … (11.1.2) Σ f̂(k + ℓτ)R_q(S_{(k+ℓτ)/C}) = (iy²C⁴/π) Σ_{(m,n)≠(0,0)} f(m + nτ)/((m + nτ)²(m + nτ̄)). LEMMA 11.1.2. R_q(S_{(a+bτ)/C}) = (y²C³/π) Σ sin(2π[an − bm]/C)/((m + nτ)²(m + nτ̄))",
+      "printed": "(11.1.1) gives f̂(k + ℓτ) = (1/C) Σ_{a,b=0}^{C−1} f(a + bτ)e^{2πi[(−aℓ+bk)/C]}. Equation (11.1.2) asserts Σ f̂(k + ℓτ)R_q(S_{(k+ℓτ)/C}) = (iy²C⁴/π) Σ_{(m,n)≠(0,0)} f(m + nτ)/((m + nτ)²(m + nτ̄)). Lemma 11.1.2 gives R_q(S_{(a+bτ)/C}) = (y²C³/π) Σ sin(2π[an − bm]/C)/((m + nτ)²(m + nτ̄)).",
       "correction": "With the kernel as printed in (11.1.1), (11.1.2) holds with −iy²C⁴/π, and Lemma 11.1.2 holds with sin(2π[bm − an]/C). Equivalently, keep (11.1.2) and define f̂(k + ℓτ) = (1/C) Σ f(a + bτ)e^{2πi(aℓ − bk)/C} = (1/C)Σ_y f(y)⟨x, y⟩, which is the transform the proof of Lemma 11.1.7 (p. 91) actually uses.",
       "reason": "Substituting f(m, n) = F(n + mτ) into Theorem 10.2.1 gives f̂₁₀(k, ℓ) = C^{-2}Σ_y F(y)⟨k+ℓτ, y⟩ = C^{-1}·F̂(k+ℓτ), the kernel e^{2πi(aℓ−bk)/C}, not the printed one; the two differ by the sign for odd F. Numerically (reviewer): for the odd CM characters of ℚ(i) (C = 4), ℚ(√−3) (C = 6), ℚ(√−7) (C = 7, 14), Σ F̂R_q(S)/(iy²C⁴/π·Σ F(w)/(w²w̄)) = −1.000000000 with the printed kernel and +1 with the corrected one, while Theorem 10.2.1 itself checks to ratio 1; the lattice sum of Lemma 11.1.2 at τ = 0.1 + 1.1i, C = 4, (a,b) = (1,0), truncated at 400, is +0.51972 − 59.43843i against R_q(S) = −0.51972 + 59.43858i.",
       "affects": "a stated result",
@@ -6111,7 +5969,7 @@
       "source": "Bloch.CRM11",
       "kind": "gap",
       "locator": "Lecture 11, §11.2, pp. 91–92, the step from Σ_{x∈(O/f̄O)*} to Σ_{x∈(O/CO)*} via Corollary 11.1.6, and Theorem 11.2.1",
-      "printed": "= (πχ̂(ḡ)/(iy²C⁴)) Σ_{x∈(O/f̄O)*} χ̄(x̄)R_q(S_{xf̄^{-1}}) = (πχ̂(ḡ)g/(iy²C⁴)) Σ_{x∈(O/CO)*} χ̄(x̄)R_q(S_{x/C}) … Let f be a generator for the conductor ideal and let fg = C ∈ Z, g ∈ O.",
+      "printed": "The source passes through = (πχ̂(ḡ)/(iy²C⁴)) Σ_{x∈(O/f̄O)*} χ̄(x̄)R_q(S_{xf̄^{-1}}) = (πχ̂(ḡ)g/(iy²C⁴)) Σ_{x∈(O/CO)*} χ̄(x̄)R_q(S_{x/C}). It takes f to generate the conductor ideal, with fg = C ∈ Z, g ∈ O.",
       "correction": "Corollary 11.1.6 turns the sum over x ∈ (O/f̄O)* into a sum over all w ∈ O/CO invertible modulo f̄, which is (O/CO)* only when every prime dividing g divides f. Either add that hypothesis to Theorem 11.2.1, or define U as the sum over {x ∈ O/CO : x invertible modulo f}/μ_κ.",
       "reason": "κ = ℚ(√−7), f = √−7, C = 14, g = −2√−7 (2 splits and does not divide f): with U summed over (O/14O)*/±1 (21 orbits), the corrected formula of E8 gives 2·L(E,2) for 49a1; with the sum over x invertible modulo f (84 orbits) it gives L(E,2) exactly (reviewer's computation). Bloch's own remark 11.2.2(ii) takes g = 1 when possible, and all the classical examples (C = 4, 6, 7) satisfy the hypothesis.",
       "affects": "a stated result",
@@ -6131,7 +5989,7 @@
       "source": "Bloch.CRM11",
       "kind": "error",
       "locator": "Lecture 11, Lemma 11.1.3 and its proof, pp. 88–89",
-      "printed": "LEMMA 11.1.3. Let τ′ = (ατ+β)/(γτ+δ) … Then R_{q′}(S_{(a′+b′τ′)/C}) = (γτ + δ)²(γτ̄ + δ)R_q(S_{(a+bτ)/C}). PROOF. … R_{q′}(S_{(a′+b′τ′)/C}) = (yC³/π) Σ sin(2π[a′ℓ′ − b′k′]/C)/((k′ + ℓ′τ′)²(k′ + ℓ′τ̄′))",
+      "printed": "Lemma 11.1.3 takes τ′ = (ατ+β)/(γτ+δ) and asserts R_{q′}(S_{(a′+b′τ′)/C}) = (γτ + δ)²(γτ̄ + δ)R_q(S_{(a+bτ)/C}). Its proof writes R_{q′}(S_{(a′+b′τ′)/C}) = (yC³/π) Σ sin(2π[a′ℓ′ − b′k′]/C)/((k′ + ℓ′τ′)²(k′ + ℓ′τ̄′)).",
       "correction": "R_{q′}(S_{(a′+b′τ′)/C}) = (γτ̄ + δ)^{-1} R_q(S_{(a+bτ)/C}). The proof uses Lemma 11.1.2 with y in place of y′² = (y/|γτ+δ|²)²; with y′² the factor (γτ+δ)²(γτ̄+δ) from the lattice sum combines with |γτ+δ|^{-4} to (γτ̄+δ)^{-1}.",
       "reason": "Reviewer's computation with ER.3's R_q at τ = 0.3 + 1.2i and a generic point: for (α, β, γ, δ) = (0, −1, 1, 0) and (2, 1, 1, 1) the ratio R_{q′}(z/(γτ+δ))/R_q(z) equals 1/(γτ̄+δ) to 12 digits, while (γτ+δ)²(γτ̄+δ) = 0.459 + 1.836i and 4.069 + 3.756i respectively.",
       "affects": "a stated result",
@@ -6170,7 +6028,7 @@
       "source": "Bloch.CRM11",
       "kind": "misprint",
       "locator": "Lecture 11, §11.1, first sentence, p. 87",
-      "printed": "In this final lecture, we will show how Theorem 10.3.2 leads to a regulator formula for the value at s = 2 of the zeta function of an elliptic curve E with complex multiplication",
+      "printed": "The final lecture promises to derive, using Theorem 10.3.2, a regulator formula giving the zeta value at s = 2 for an elliptic curve E having complex multiplication.",
       "correction": "Theorem 10.2.1 (there is no Theorem 10.3.2; §10.3 contains Propositions 10.3.1, 10.3.3 and Lemmas 10.3.2, 10.3.4, 10.3.5).",
       "reason": "The regulator formula is derived from (11.1.2), which is Theorem 10.2.1 rewritten.",
       "affects": "nothing",
@@ -6189,7 +6047,7 @@
       "source": "Bloch.CRM11",
       "kind": "error",
       "locator": "Lecture 11, Remark 11.2.2(i), pp. 92–93",
-      "printed": "L(s, χ^Gross) is related to the zeta function of E_Q, ζ_{E_Q} (defined to be the product over all p ∈ Z such that E has non-degenerate reduction modp of the zeta function of the corresponding curve over F_p), by ζ_{E_Q}(s) = ζ_Q(s)ζ_Q(s − 1)L(s, χ^Gross)^{-1}.",
+      "printed": "The source defines ζ_{E_Q} by multiplying the zeta functions of the curves over F_p for all p ∈ Z where E has non-degenerate reduction modp. It relates this to L(s, χ^Gross) through ζ_{E_Q}(s) = ζ_Q(s)ζ_Q(s − 1)L(s, χ^Gross)^{-1}.",
       "correction": "ζ_{E_Q}(s) = ζ_Q(s)ζ_Q(s − 1)L(s, χ^Gross)^{-1} · Π_{p bad} (1 − p^{−s})(1 − p^{1−s}); equivalently the identity holds with ζ_Q(s)ζ_Q(s−1) replaced by its Euler product over the primes of good reduction.",
       "reason": "At a bad prime p (additive for a CM curve) the left side has no factor while the right side keeps the factor 1/((1 − p^{−s})(1 − p^{1−s})) of ζ_Q(s)ζ_Q(s − 1) and the Hecke factor 1.",
       "affects": "nothing",
@@ -6208,7 +6066,7 @@
       "source": "Brunault.These.2005",
       "kind": "misprint",
       "locator": "§0.5, p. 11 of the arXiv PDF (arXiv:math/0602186v1)",
-      "printed": "La généralisation de cet énoncé à toute courbe elliptique est connu sous le nom de conjecture de Zagier pour L(E, 2)",
+      "printed": "The source calls the extension of this statement to arbitrary elliptic curves the Zagier conjecture for L(E, 2), using the masculine form connu for La généralisation.",
       "correction": "est connue (agreement with 'la généralisation').",
       "reason": "Grammatical agreement; the packet silently corrected it inside a quoted excerpt.",
       "affects": "nothing",
@@ -6248,7 +6106,7 @@
       "source": "Brunault.These.2005",
       "kind": "error",
       "locator": "(3.145), p. 116, taken from the specialisation of Théorème A on p. 155 of the appendix; consequences Théorème 1, (4) p. 8 and (3.142) p. 115, Théorème 2, (6) p. 9 and (3.146) p. 118, and (8) p. 9 / (3.149) p. 118",
-      "printed": "ξ_f(x) = (w(E)/(2π (p − 1))) Σ_{χ≠1_p} τ(χ̄)χ(x)L(f, χ, 1) (x ∈ (Z/pZ)*); hence L(E, 2)L(E, χ, 1) = (p w(E) τ(χ)/(8πi(p − 1))) Σ_{χ'} c_{χ,χ'} L(E, χ', 1)",
+      "printed": "The source gives ξ_f(x) = (w(E)/(2π (p − 1))) Σ_{χ≠1_p} τ(χ̄)χ(x)L(f, χ, 1) (x ∈ (Z/pZ)*), and deduces L(E, 2)L(E, χ, 1) = (p w(E) τ(χ)/(8πi(p − 1))) Σ_{χ'} c_{χ,χ'} L(E, χ', 1).",
       "correction": "The even part has the opposite sign: ξ_f(x) = −(w(E)/(2π(p − 1))) Σ_{χ≠1_p} τ(χ̄)χ(−x)L(f, χ, 1). Consequently Théorème 1 holds with w(E) replaced by −w(E), i.e. by the root number ε(E) (Λ(E, s) = ε(E)Λ(E, 2 − s)); Théorème 2 and (8) change sign likewise.",
       "reason": "Manin symbols ξ_f(x, 1) = −i∫_0^{1/x} f(z)dz computed from the definition (10) by two independent methods (via W_p, and via a Γ0(p)-period with both endpoints at height 1/|c|) agree to 30 digits, satisfy the Manin relations and (3.138); compared with the printed (3.145) their odd parts agree and their even parts are opposite, for 11a (x = 2, ..., 10) and 19a (x = 2, 3, 4). Théorème 3 in the form (3.144), with ξ_f^+ from the definition, holds to 38 digits for the four even non-trivial χ mod 11, while the printed Théorème 1 (with w(E) = −1 for 11a) gives exactly −L(E, 2)L(E, χ, 1) (45 digits) (checker C, xi.gp, xi2.gp, xi3.gp, thm1.gp, thm3.gp).",
       "affects": "a stated result",
@@ -6290,7 +6148,7 @@
       "source": "Brunault.These.2005",
       "kind": "misprint",
       "locator": "Proof of Corollaire 101, (3.155) and (3.156), pp. 120-121",
-      "printed": "L(E, 2) = (2²·5·π/11²) · ((7 − η)/(ζ − ζ̄))((ζ − ζ̄)D_E(P) + (ζ² − ζ̄²)D_E(2P)) = (2²·5·π/11²) · (7 − η)(D_E(P) + ηD_E(2P)), and (3.156) with (8 + η)",
+      "printed": "The source writes L(E, 2) = (2²·5·π/11²) · ((7 − η)/(ζ − ζ̄))((ζ − ζ̄)D_E(P) + (ζ² − ζ̄²)D_E(2P)) = (2²·5·π/11²) · (7 − η)(D_E(P) + ηD_E(2P)); equation (3.156) uses (8 + η).",
       "correction": "(1 + 3η) in place of (7 − η) in (3.155) and (−2 − 3η) in place of (8 + η) in (3.156), as (3.150) requires; (3.157) and (3.151) are then correct as printed.",
       "reason": "(3.150) has the factor (1 + 3η)/(ζ − ζ̄) = (7 − η)/((ζ − ζ̄)(1 + 2η)); the factor 1/(1 + 2η) was dropped. With the printed factor the right side is ±1.2210005279570372 instead of L(E, 2) = 0.5460480362150135; with (1 + 3η) it is L(E, 2) to 38 digits, and eliminating η between the corrected (3.155), (3.156) gives the printed (3.157) (t11b.gp).",
       "affects": "nothing",
@@ -6311,7 +6169,7 @@
       "source": "Brunault.These.2005",
       "kind": "gap",
       "locator": "Proof of Théorème 8, p. 120",
-      "printed": "Le signe dans cette dernière égalité est déterminé en évaluant numériquement L(f, χ, 1), par exemple grâce au package ComputeL [26] écrit pour le logiciel Pari (nous ne connaissons pas d'autre méthode). Nous trouvons le signe moins.",
+      "printed": "The source fixes the sign of the last equality by numerically computing L(f, χ, 1), suggesting ComputeL [26] for Pari as an example. It reports knowing no alternative method and obtaining the minus sign.",
       "correction": "The sign must be fixed by a certified numerical bound (an interval evaluation of L(f, χ, 1) with rigorous error) or by an exact modular-symbol computation that tracks the orientation; the sign minus is correct.",
       "reason": "An uncertified numerical evaluation is not a proof. Checker C confirms L(f, χ, 1) = −αΩ^+/(5τ(χ̄)) for the four even non-trivial χ mod 11 to 40 digits (the twisted L-function passes PARI's functional-equation check to 191 bits).",
       "affects": "the proof",
@@ -6332,7 +6190,7 @@
       "source": "Brunault.These.2005",
       "kind": "gap",
       "locator": "Remarques after Théorème 4, 1., p. 11 (against Remarque 82, p. 91, and Remarque 87, p. 96)",
-      "printed": "L'hypothèse χ primitif n'est pas essentielle. On a une formule analogue sans cette hypothèse.",
+      "printed": "The source says that primitivity of χ is dispensable and that an analogous formula exists without that assumption.",
       "correction": "Without primitivity the source has a formula (Théorème 81) only for the function-field symbol {u_χ, α*u_χ̂'}, which is not shown to lie in K2(X1(N)) ⊗ C; for the symbol of Théorème 4 no formula was found (Remarque 82).",
       "reason": "Remarque 82: 'Sans l'hypothèse χ primitif, nous n'avons pas trouvé de formule satisfaisante pour ⟨r_N({u_ψχ, u_χ̄}), f⟩'; Remarque 87: the tame symbols of {u_f, u_g} need not be trivial when f or g is not supported on (Z/NZ)*.",
       "affects": "a stated result",
@@ -6353,7 +6211,7 @@
       "source": "Brunault.These.2005",
       "kind": "misprint",
       "locator": "§0.3, p. 10",
-      "printed": "le choix de du caractère χ, et donc de l'entier N', n'est pas précisé",
+      "printed": "The source says the character χ, and consequently the integer N', have not been specified; its wording for the choice includes de du.",
       "correction": "le choix du caractère χ",
       "reason": "Duplicated article.",
       "affects": "nothing",
@@ -6374,7 +6232,7 @@
       "source": "Brunault.These.2005",
       "kind": "misprint",
       "locator": "Proof of Proposition 86, p. 95",
-      "printed": "La proposition 3.76 montre que",
+      "printed": "The source attributes the ensuing conclusion to proposition 3.76.",
       "correction": "La proposition 80 (formule (3.76)) montre que",
       "reason": "(3.76) is an equation of Proposition 80; there is no proposition 3.76.",
       "affects": "nothing",
@@ -6395,7 +6253,7 @@
       "source": "Brunault.These.2005",
       "kind": "gap",
       "locator": "Proof of Lemme 77, p. 82",
-      "printed": "Nous avons les estimations T_n = O(n^{1/2+ε}) et σ_{χ1,χ2}(n) = O(n^{1+ε})",
+      "printed": "The source claims the bounds T_n = O(n^{1/2+ε}) and σ_{χ1,χ2}(n) = O(n^{1+ε}).",
       "correction": "The bound T_n = O(n^{1/2+ε}) is the Ramanujan–Petersson bound in weight two (Eichler–Shimura–Igusa), cited without reference; Hecke's bound T_n = O(n) suffices, giving (3.47) for Re(s) > 3, which is enough since both sides are then continued.",
       "reason": "The lemma is only used through analytic continuation to s = 1 in (3.45).",
       "affects": "nothing",

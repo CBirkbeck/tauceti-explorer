@@ -705,13 +705,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -796,13 +794,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -856,13 +852,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -921,13 +915,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1011,13 +1003,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1074,13 +1064,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1175,13 +1163,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1236,13 +1222,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1293,13 +1277,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1352,13 +1334,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1413,13 +1393,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1505,13 +1483,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1599,13 +1575,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1658,13 +1632,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1716,13 +1688,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1773,13 +1743,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1830,13 +1798,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1922,13 +1888,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -1978,13 +1942,11 @@
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, construction before Lemma 10.132.1",
-          "excerpt": "de Rham complex",
           "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
         },
         {
           "sourceId": "riou-pr18551",
           "locator": "Mathlib/RingTheory/DeRham/Basic.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
-          "excerpt": "presentationDifferentialsDown",
           "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
         }
       ],
@@ -2037,7 +1999,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Notation 3.1, final paragraph, printed p.6",
-          "excerpt": "complex of B (1) -",
           "match": "The source identifies the twisted module structure. The displayed scalar identity is its elementary polynomial-level proof, obtained from the pinned derivation power rule and graded Leibniz."
         }
       ],
@@ -2068,7 +2029,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 2.1, its explanatory paragraph and Remark 2.2, p.5; extracted lines 239–256",
-          "excerpt": "direct sums along antidiagonals",
           "match": "The source specifies the totalization and explains its coherent resolution interpretation."
         }
       ],
@@ -2162,7 +2122,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 2.3, proof and Remark 2.4, p.5; extracted lines 258–290",
-          "excerpt": "column by its canonical filtration",
           "match": "The proof constructs the filtration column by column and checks independence of the resolution."
         }
       ],
@@ -2252,7 +2211,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 2.7 and proof, p.6; extracted lines 313–323",
-          "excerpt": "all tensor products are derived",
           "match": "The statement and proof expressly use derived tensor and reduction to polynomial resolutions."
         }
       ],
@@ -2308,13 +2266,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Notation 3.1 and following paragraph, p.6; extracted lines 331–353",
-          "excerpt": "as a simplicial commutative ring",
           "match": "The source defines precisely this derived pushout and states when it is underived."
         },
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.5 statement, p.7; extracted lines 392–394",
-          "excerpt": "is B (1) -linear",
           "match": "The B^(1)-linearity of the conjugate filtration is asserted in Proposition 3.5, not in Notation 3.1; Notation 3.1 only gives the B^(1)-module structure on dR_(B/A) via polynomial algebras (lines 352–353)."
         }
       ],
@@ -2406,7 +2362,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Theorem 3.2, proof and Remark 3.3, p.7; extracted lines 355–385",
-          "excerpt": "using local co-ordinates",
           "match": "The proof gives the divided Frobenius construction and the distinction between choices at chain and cohomology levels."
         }
       ],
@@ -2465,7 +2420,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.5 and proof, p.7; extracted lines 392–408",
-          "excerpt": "The rest follows formally",
           "match": "The entire proof is the stated polynomial Cartier-to-cotangent realization chain."
         }
       ],
@@ -2526,13 +2480,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Corollary 2.5, proof and Remark 2.6, pp.5–6; extracted lines 290–310",
-          "excerpt": "A ≃ dR",
           "match": "The source proves collapse in characteristic zero and identifies Hodge completion as the relevant different variant, asserting (not proving) that the completed theory specialises to classical de Rham cohomology for smooth maps."
         },
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Remark 3.12 and Corollary 3.10, p.8; extracted lines 428–446 (read in review R2)",
-          "excerpt": "completely false in characteristic 0",
           "match": "Remark 3.12 gives the Laurent-polynomial example verbatim; Corollary 3.10 states the uncompleted smooth comparison for Z/p^n-algebras that fails in characteristic zero, fixing the exact boundary DD.2 must respect."
         }
       ],
@@ -2600,13 +2552,11 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "Definition 3.2, Lemmas 4.3–4.7, Remark 5.5; tags 08PN,08PU,08QF,08QH,08QI",
-          "excerpt": "cotangent complex",
           "match": "Polynomial resolution construction and the stated cotangent comparison."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1 and Remark B.2",
-          "excerpt": "cotangent complex",
           "match": "Animation of polynomial differentials supplies the coherent module, not only a triangulated object."
         }
       ],
@@ -2688,7 +2638,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Remark 6.6 and equivalence (6), printed p.25, specialized to identical trivial monoids; preceding paragraph for ordinary cotangent interpretation",
-          "excerpt": "space of sections",
           "match": "The independently defined square-zero section space represents cotangent maps, including higher homotopy. BL B.1 and KY Remark 2.8 construct/animate the cotangent object but do not by themselves state this section-space universal property."
         }
       ],
@@ -2778,7 +2727,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Remark 6.6 and equivalence (6), printed p.25, specialized to identical trivial monoids; preceding paragraph for ordinary cotangent interpretation",
-          "excerpt": "space of sections",
           "match": "The independently defined square-zero section space represents cotangent maps, including higher homotopy. BL B.1 and KY Remark 2.8 construct/animate the cotangent object but do not by themselves state this section-space universal property."
         }
       ],
@@ -2821,7 +2769,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "Lemmas 4.5, 11.2 and 11.3; tags 08QF,08RA,08RB",
-          "excerpt": "naive cotangent complex",
           "match": "The truncation comparison preserves the baseline boundary and its kernel."
         }
       ],
@@ -2861,7 +2808,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§7, Proposition 7.4; tag 08QX",
-          "excerpt": "distinguished triangle",
           "match": "The fundamental triangle uses derived scalar extension."
         }
       ],
@@ -2901,7 +2847,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§6, Lemmas 6.2–6.4; tag 08QQ",
-          "excerpt": "Tor",
           "match": "The ordinary square requires Tor independence; animated pushouts retain the derived terms."
         }
       ],
@@ -2942,7 +2887,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§8, Lemmas 8.1 and 8.6 (tags 08QZ,08SF); §3 standard-resolution functoriality and its filtered-colimit construction",
-          "excerpt": "localization",
           "match": "Étale/localization vanishing and the polynomial-colimit model."
         }
       ],
@@ -2982,7 +2926,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§9, Lemma 9.1 (tag 08R5), using §8, Lemma 8.4 (tag 08R2) for étale maps",
-          "excerpt": "smooth",
           "match": "The smooth/étale computation is a cotangent statement, independent of characteristic-zero de Rham completion."
         }
       ],
@@ -3023,7 +2966,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§14, Lemma 14.2 and Proposition 14.4; tags 08SJ,08SL",
-          "excerpt": "regular sequence",
           "match": "Regularity makes the full cotangent complex two-term."
         }
       ],
@@ -3068,7 +3010,6 @@
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1, Remark B.5",
-          "excerpt": "left Kan extension",
           "match": "Construction B.1 and Remark B.5 animate exterior powers of the cotangent complex. They motivate this construction but do not establish the general module-pair exterior, symmetric or divided-power functors; that source and proof obligation is recorded in the integral derived powers gap."
         }
       ],
@@ -3156,7 +3097,6 @@
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1, Remark B.5",
-          "excerpt": "left Kan extension",
           "match": "Construction B.1 and Remark B.5 animate exterior powers of the cotangent complex. They motivate this construction but do not establish the general module-pair exterior, symmetric or divided-power functors; that source and proof obligation is recorded in the integral derived powers gap."
         }
       ],
@@ -3242,7 +3182,6 @@
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.1, Remark B.5",
-          "excerpt": "left Kan extension",
           "match": "Construction B.1 and Remark B.5 animate exterior powers of the cotangent complex. They motivate this construction but do not establish the general module-pair exterior, symmetric or divided-power functors; that source and proof obligation is recorded in the integral derived powers gap."
         }
       ],
@@ -3328,13 +3267,11 @@
         {
           "sourceId": "dundas-morrow",
           "locator": "Lemma 3.3 and proof",
-          "excerpt": "Lemma 3.3 (Kassel–Sletsjøe).",
           "match": "The filtration argument is the integral input to the AQ finiteness proof."
         },
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.22 and Remark 3.43; cotangent-specialized power filtration and décalage (general module version remains in the integral powers gap)",
-          "excerpt": "divided powers",
           "match": "The triangle filtration and regular quotient décalage are used in de Rham comparisons."
         }
       ],
@@ -3374,7 +3311,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§14, Proposition 14.4 and local-complete-intersection criterion; tag 08SL",
-          "excerpt": "local complete intersection",
           "match": "The regular-sequence computation supplies the stated finite-presentation range."
         }
       ],
@@ -3414,7 +3350,6 @@
         {
           "sourceId": "iyengar07",
           "locator": "§§4–5 definitions and §8.10–8.14 applications",
-          "excerpt": "Andre-Quillen",
           "match": "The chapter uses the homological cotangent conventions and the local criteria."
         }
       ],
@@ -3498,13 +3433,11 @@
         {
           "sourceId": "bms2",
           "locator": "Theorem 4.13, p.222",
-          "excerpt": "Theorem 4.13",
           "match": "The absolute Noetherian statement is attributed to Avramov."
         },
         {
           "sourceId": "avramov99",
           "locator": "Definitions §1, Theorem 1.2 and local criterion 1.8",
-          "excerpt": "Theorem (1.2).",
           "match": "Cohen-factorization AQ criterion supplies the general ring-map input."
         }
       ],
@@ -3547,13 +3480,11 @@
         {
           "sourceId": "iyengar07",
           "locator": "Proposition 8.12 and proof, pp.228–229",
-          "excerpt": "regular",
           "match": "The residue-field AQ criterion is proved using completion and a minimal Cohen presentation."
         },
         {
           "sourceId": "bhatt-mathew",
           "locator": "Lemma 4.18 and proof, printed pp.18–19",
-          "excerpt": "Lemma 4.18.",
           "match": "Transitivity converts D₂ vanishing into the cotangent injection when A is lci."
         }
       ],
@@ -3594,19 +3525,16 @@
         {
           "sourceId": "dundas-morrow",
           "locator": "Theorem 3.6 with Lemma 3.3 and proof",
-          "excerpt": "Theorem 3.6.",
           "match": "The Frobenius finiteness argument establishes finite AQ homology in every degree."
         },
         {
           "sourceId": "cmm",
           "locator": "Definition 5.1 and paragraph following, p.38",
-          "excerpt": "Definition 5.1.",
           "match": "The paper uses finite generation of every cotangent homotopy group."
         },
         {
           "sourceId": "bhatt-mathew",
           "locator": "F-finiteness discussion before §4, citing DM17 and SAG Theorem 3.5.1",
-          "excerpt": "almost perfect",
           "match": "The reverse implication is a cited SAG theorem, retained as a precise proof gap."
         }
       ],
@@ -3645,7 +3573,6 @@
         {
           "sourceId": "cmm",
           "locator": "§5.1, Theorem 5.7, Footnote 10 and the paragraph before Lemma 5.8, PDF pp.39–40",
-          "excerpt": "p-basis",
           "match": "The differentials of a finite p-basis give the stated dimension."
         }
       ],
@@ -3688,7 +3615,6 @@
         {
           "sourceId": "cotangent-stacks",
           "locator": "§16, Lemma 16.1 (tag 08SP), and its ringed-space version §21, Lemma 21.1 (tag 08UZ)",
-          "excerpt": "Ext",
           "match": "These lemmas classify square-zero extensions with a specified target module and map from the base ideal. The flat-lift specialization also requires B flat over A and a nilpotent flatness criterion; neither lemma asserts a flat lift for arbitrary B."
         }
       ],
@@ -3729,7 +3655,6 @@
         {
           "sourceId": "bms2",
           "locator": "Definitions 4.1, 4.10 and Lemmas 4.11–4.12",
-          "excerpt": "quasisyntomic",
           "match": "The amplitude condition is mod p and the object has bounded torsion."
         }
       ],
@@ -3817,7 +3742,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Example 3.21, printed p.11",
-          "excerpt": "Example 3.21",
           "match": "The source supplies the explicit non-lci liftable quotient and the unboundedness counterexample."
         }
       ],
@@ -3858,7 +3782,6 @@
         {
           "sourceId": "derived-completion-stacks",
           "locator": "§29, Definitions 29.1–29.2, Lemmas 29.3–29.12; tags 0622–062C,0663,0664 (0621 is the section introduction)",
-          "excerpt": "Koszul complex",
           "match": "The exterior contraction construction, differential identity and tensor-factor model."
         }
       ],
@@ -3950,7 +3873,6 @@
         {
           "sourceId": "derived-completion-stacks",
           "locator": "§93, Lemmas 93.1–93.4 and Definition 93.4; tags 091P,091S",
-          "excerpt": "derived complete",
           "match": "Localization orthogonality and finite-generator/radical independence."
         }
       ],
@@ -4040,7 +3962,6 @@
         {
           "sourceId": "derived-completion-stacks",
           "locator": "§93, Lemmas 93.10, 93.18 and 93.20; tags 091V,0920,0G1U",
-          "excerpt": "derived completion",
           "match": "The Čech RHom reflector and derived Nakayama."
         }
       ],
@@ -4134,7 +4055,6 @@
         {
           "sourceId": "derived-completion-stacks",
           "locator": "Lemma 93.18; tag 0920",
-          "excerpt": "Koszul",
           "match": "Dual finite Koszul complexes present C_I as a filtered colimit."
         }
       ],
@@ -4174,13 +4094,11 @@
         {
           "sourceId": "derived-completion-stacks",
           "locator": "§95, Lemmas 95.1–95.2 and Examples 95.3–95.4; tags 091X,0923,09AT,0G3F",
-          "excerpt": "bounded",
           "match": "The principal bounded-torsion comparison identifies the pro-Koszul and quotient systems."
         },
         {
           "sourceId": "prisms",
           "locator": "§1.2 Footnote 5, pp.10–11",
-          "excerpt": "Artin-Rees",
           "match": "The regular-sequence and Noetherian ranges are explicit in the source."
         }
       ],
@@ -4221,7 +4139,6 @@
         {
           "sourceId": "prisms",
           "locator": "§1.2 and Footnote 6, pp.10–11",
-          "excerpt": "simplicial commutative",
           "match": "The Koszul tower has simplicial algebra structure and computes derived ring completion."
         }
       ],
@@ -4305,13 +4222,11 @@
         {
           "sourceId": "prisms",
           "locator": "§1.2, p.11",
-          "excerpt": "I-completely",
           "match": "The source separates complete flatness from actual completeness."
         },
         {
           "sourceId": "bms2",
           "locator": "Definition 4.1, Lemmas 4.3–4.8",
-          "excerpt": "Definition 4.1",
           "match": "BMS2 specializes the definition to p-complete Tor-amplitude."
         }
       ],
@@ -4400,7 +4315,6 @@
         {
           "sourceId": "bms2",
           "locator": "Lemmas 4.6–4.8, pp.219–221",
-          "excerpt": "Lemma 4.6",
           "match": "Lemma 4.6 transfers finite p-complete Tor amplitude to cohomological amplitude. Lemma 4.7 gives the bounded-torsion and ordinary completeness conclusions for p-completely flat modules; these assertions have distinct scopes."
         }
       ],
@@ -4443,7 +4357,6 @@
         {
           "sourceId": "bms2",
           "locator": "Remark 4.9 and §3 flat-descent argument",
-          "excerpt": "Remark 4.9",
           "match": "Completed faithfully flat Čech descent is reduced to the mod-p and torsion layers."
         }
       ],
@@ -4483,7 +4396,6 @@
         {
           "sourceId": "bhatt18",
           "locator": "Proposition 5.1 and proof",
-          "excerpt": "Proposition 5.1.",
           "match": "Noetherianity and torsion-free complete algebras are explicit assumptions."
         }
       ],
@@ -4521,7 +4433,6 @@
         {
           "sourceId": "bhatt-etal23",
           "locator": "Lemmas 2.7–2.8 and proof",
-          "excerpt": "Lemma 2.8.",
           "match": "The nonzerodivisor-on-the-quotient hypothesis upgrades derived to ordinary completeness."
         }
       ],
@@ -4565,13 +4476,11 @@
         {
           "sourceId": "prisms",
           "locator": "§1.2 Footnote 6 and Lemma 2.18 usage",
-          "excerpt": "Elkik",
           "match": "The footnote proves the exact algebraization statement by derived square-zero lifting."
         },
         {
           "sourceId": "stacks-smooth-lift",
           "locator": "Proposition 16.3.2, Tag 07M8",
-          "excerpt": "smooth",
           "match": "The proof supplies the needed smooth lift without a Noetherian-base assumption."
         }
       ],
@@ -4613,13 +4522,11 @@
         {
           "sourceId": "bms2",
           "locator": "§5.1, p.233, with the gr-index correction",
-          "excerpt": "Day convolution",
           "match": "BMS2 uses decreasing coherent filtrations."
         },
         {
           "sourceId": "gp18",
           "locator": "Definitions 2.1–2.3, pp.5–7, reindex by i↦−i",
-          "excerpt": "functor category",
           "match": "The enhancement and graded-equivalence localization retain homotopy coherence."
         }
       ],
@@ -4707,13 +4614,11 @@
         {
           "sourceId": "gp18",
           "locator": "Definition 2.8, Lemma 2.9, Proposition 2.14, Lemma 2.15, pp.6–7",
-          "excerpt": "left exact localization",
           "match": "The source proves the reflector and the exact relation to quotient-tower completion."
         },
         {
           "sourceId": "bms2",
           "locator": "Lemma 5.2, p.234",
-          "excerpt": "Lemma 5.2",
           "match": "Complete filtered colimits and graded conservativity."
         }
       ],
@@ -4798,7 +4703,6 @@
         {
           "sourceId": "bhatt-lectures",
           "locator": "§2.2.1, Proposition 2.2.6 and inverse, Remark 2.2.7, pp.13–17",
-          "excerpt": "Rees module construction",
           "match": "The lecture notes pin the weight sign, specializations and graded completeness."
         }
       ],
@@ -4838,13 +4742,11 @@
         {
           "sourceId": "gp18",
           "locator": "§2.23, Theorem 2.25, Proposition 2.26, pp.9–10",
-          "excerpt": "Day convolution",
           "match": "Completed Day convolution and its monoidal associated graded are proved."
         },
         {
           "sourceId": "bms2",
           "locator": "§5.1 and Lemma 5.2",
-          "excerpt": "Day convolution",
           "match": "BMS2 uses the decreasing convention and completed monoidal reflection."
         }
       ],
@@ -4929,13 +4831,11 @@
         {
           "sourceId": "bms2",
           "locator": "Theorem 5.4, pp.234–235",
-          "excerpt": "Beilinson",
           "match": "The source identifies both halves and the heart."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix D, Definition D.3, Proposition D.4 and Remark D.6",
-          "excerpt": "Beilinson",
           "match": "The proof uses finite truncations and the completed limit with these shifts."
         }
       ],
@@ -4975,13 +4875,11 @@
         {
           "sourceId": "bms2",
           "locator": "Theorem 5.4(3) and proof, pp.234–237 (Remark 5.5 concerns décalage)",
-          "excerpt": "heart",
           "match": "The equivalence retains actual complexes, not their derived isomorphism classes."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix D, Example D.8",
-          "excerpt": "cochain complexes",
           "match": "The differential is a connecting map between graded pieces."
         }
       ],
@@ -5021,7 +4919,6 @@
         {
           "sourceId": "bms2",
           "locator": "Proposition 5.6 and proof, pp.237–238, with the Ext-index correction E6",
-          "excerpt": "Proposition 5.6",
           "match": "The graded dual-number resolution gives the shift-dependent Ext formula."
         }
       ],
@@ -5060,7 +4957,6 @@
         {
           "sourceId": "bms2",
           "locator": "Lemma 3.3 and proof, pp.217–218",
-          "excerpt": "Lemma 3.3",
           "match": "Connectivity makes the inverse-limit discrepancy invisible in every fixed truncation."
         }
       ],
@@ -5104,19 +5000,16 @@
         {
           "sourceId": "derived-completion-stacks",
           "locator": "§93 and §95; completion and Milnor computations",
-          "excerpt": "derived completion",
           "match": "Completion uses derived inverse limits and finite perfect duality."
         },
         {
           "sourceId": "bms2",
           "locator": "Example 5.12 and Lemma 3.3",
-          "excerpt": "Example 5.12",
           "match": "Uniform connectivity is the stated reason for the colimit/totalization exchange."
         },
         {
           "sourceId": "gp18",
           "locator": "Lemma 2.9 and Proposition 2.14",
-          "excerpt": "limits",
           "match": "The filtered completion comparison uses limits of fibres."
         }
       ],
@@ -5159,7 +5052,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 2.7 proof, p.6",
-          "excerpt": "free algebras",
           "match": "The source reduces derived base change and Künneth to these polynomial calculations."
         }
       ],
@@ -5201,13 +5093,11 @@
         {
           "sourceId": "prisms",
           "locator": "§4, construction of the Hodge–Tate map after Lemma 4.10",
-          "excerpt": "universal property",
           "match": "The map uses the strict exterior/odd-square condition, including at 2."
         },
         {
           "sourceId": "stacks-0FKF",
           "locator": "Section 10.132, differential construction",
-          "excerpt": "de Rham complex",
           "match": "The polynomial-form presentation supplies the universal differential."
         }
       ],
@@ -5248,7 +5138,6 @@
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix E, Construction E.2",
-          "excerpt": "Hodge",
           "match": "The filtered polynomial left Kan extension has the derived exterior cotangent graded pieces."
         }
       ],
@@ -5292,7 +5181,6 @@
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix E, Construction E.14 and Remark E.15",
-          "excerpt": "Hodge-completed",
           "match": "The inverse limit of Hodge quotients is a separate object from the uncompleted realization."
         }
       ],
@@ -5381,13 +5269,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 8.1, Lemmas 8.2–8.3, pp.31–32",
-          "excerpt": "Definition 8.1",
           "match": "Derived p-completion is defined by the derived finite reductions."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix E, Construction E.3 and Remark E.4",
-          "excerpt": "p-completed",
           "match": "The construction is insensitive to completing the rings."
         }
       ],
@@ -5476,7 +5362,6 @@
         {
           "sourceId": "prisms",
           "locator": "§1.2; §4 Hodge–Tate universal map after Lemma 4.10",
-          "excerpt": "de Rham complex",
           "match": "The completely smooth formal de Rham algebra supplies the universal differential map used by Hodge–Tate comparison."
         }
       ],
@@ -5566,13 +5451,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Corollary 3.10, Remarks 2.6 and 3.12",
-          "excerpt": "Corollary 3.10",
           "match": "The smooth uncompleted comparison is restricted to the nilpotent-p range."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix E, Proposition E.12, Construction E.14",
-          "excerpt": "Cartier smooth",
           "match": "The completed comparison requires the specified completely flat and Cartier-smooth reductions."
         }
       ],
@@ -5617,13 +5500,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.22 and Remark 3.23",
-          "excerpt": "Gauss-Manin",
           "match": "The source constructs the relative conjugate filtration with Frobenius-descent coefficients; it is distinct from the base-forms Hodge filtration."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix E, Construction E.2",
-          "excerpt": "Hodge",
           "match": "The common polynomial filtered construction supplies the Hodge transitivity filtration."
         }
       ],
@@ -5670,7 +5551,6 @@
         {
           "sourceId": "bhatt-lurie",
           "locator": "Appendix B, Construction B.7 and Remark B.8; Appendix E, Proposition E.16",
-          "excerpt": "descent",
           "match": "The affine enhanced construction extends by descent and coherent graded modules."
         }
       ],
@@ -5758,7 +5638,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Theorem 3.2 and Remark 3.4 with proof, p.7",
-          "excerpt": "Corollary 3.4",
           "match": "Étale localization of the polynomial coordinate calculation supplies smooth Cartier."
         }
       ],
@@ -5805,13 +5684,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 2.3 and Remark 2.4; Proposition 3.5",
-          "excerpt": "spectral sequence",
           "match": "The source gives the exact-couple construction; completion alone does not imply global strong convergence."
         },
         {
           "sourceId": "gp18",
           "locator": "Proposition 2.18, pp.7–8",
-          "excerpt": "spectral sequences",
           "match": "The spectral sequence depends on the cofiber diagram and is invariant under filtered completion."
         }
       ],
@@ -5902,7 +5779,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Lemma 3.42 and Remark 3.43 and the regular quotient computation §§3.3",
-          "excerpt": "Remark 3.43",
           "match": "Shifted exterior powers become divided powers and determine the conjugate graded pieces."
         }
       ],
@@ -5943,7 +5819,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.15 and Example 3.16, pp.9–10",
-          "excerpt": "Proposition 3.15",
           "match": "The first extension is identified with the square-zero lifting obstruction."
         }
       ],
@@ -5984,7 +5859,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.17 and proof, pp.10–11",
-          "excerpt": "Proposition 3.17",
           "match": "The compatible Frobenius lift constructs the multiplicative splitting."
         }
       ],
@@ -6028,7 +5902,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "§3.3, regular quotient computations and Lemma 3.42",
-          "excerpt": "regular sequence",
           "match": "The regular quotient model and derived powers determine this explicit hypersurface test."
         }
       ],
@@ -6071,7 +5944,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.25 and Remark 3.26, p.12",
-          "excerpt": "Proposition 3.25",
           "match": "The polynomial PD models construct an actual natural filtered comparison map."
         }
       ],
@@ -6163,7 +6035,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Lemma 3.29, Claim 3.30, Lemmas 3.37–3.38, Corollary 3.40, pp.13–17",
-          "excerpt": "Corollary 3.40",
           "match": "The one-variable calculation and PD-side base change give the regular quotient comparison."
         }
       ],
@@ -6213,7 +6084,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Theorem 3.27, Lemmas 3.39 and 3.44–3.45, proof pp.18–19",
-          "excerpt": "Theorem 3.27",
           "match": "The theorem retains flatness and regular quotient hypotheses."
         }
       ],
@@ -6261,7 +6131,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 8.1, Lemma 8.3, Theorem 8.4, pp.31–32",
-          "excerpt": "Theorem 8.4",
           "match": "The finite-level theorem is passed to compatible derived p-adic limits."
         }
       ],
@@ -6303,7 +6172,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 3.47 and proof, p.19; Remark 9.8",
-          "excerpt": "Proposition 3.47",
           "match": "The canonical Frobenius is induced on polynomial de Rham models by the crystalline interpretation."
         }
       ],
@@ -6398,7 +6266,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 9.3(2)–(5), Definition 9.7, Proposition 9.9, Remark 9.10, pp.34–35",
-          "excerpt": "Proposition 9.9",
           "match": "The relatively perfect A_inf map and regular θ-kernel identify the actual PD-period maps."
         }
       ],
@@ -6445,7 +6312,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 8.5, Corollary 8.6, Remark 8.7, p.32",
-          "excerpt": "Remark 8.7",
           "match": "The completed torsion calculation is used with both previously registered source corrections."
         }
       ],
@@ -6489,7 +6355,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Remark 9.17, p.38",
-          "excerpt": "Remark 9.17",
           "match": "The θ-adic rational construction and natural PD map are distinct from integral p-completion."
         }
       ],
@@ -6530,7 +6395,6 @@
         {
           "sourceId": "bms2",
           "locator": "Definitions 8.10 and Proposition 8.11, pp.271–272",
-          "excerpt": "Definition 8.10",
           "match": "The filtration and its graded map use the actual p-divided exponent and unit factors."
         }
       ],
@@ -6625,7 +6489,6 @@
         {
           "sourceId": "bms2",
           "locator": "Proposition 8.12 and proof, pp.272–273",
-          "excerpt": "Proposition 8.12",
           "match": "The comparison extends to all quasiregular semiperfect rings through the compatible-root presentation and a PD universal inverse."
         }
       ],
@@ -6671,7 +6534,6 @@
         {
           "sourceId": "bms2",
           "locator": "§8.2 opening, p.270, equations (4)–(5); Lemmas 8.2–8.3",
-          "excerpt": "left Kan extension",
           "match": "The early classical WΩ identities animate to the derived Nygaard/Hodge fiber sequences."
         }
       ],
@@ -6759,7 +6621,6 @@
         {
           "sourceId": "bms2",
           "locator": "Proposition 8.13 and the end of Proposition 8.12 proof, pp.273–274",
-          "excerpt": "Proposition 8.13",
           "match": "The preceding fiber sequence identifies the injective graded map and the PD thickening."
         }
       ],
@@ -6804,7 +6665,6 @@
         {
           "sourceId": "bms2",
           "locator": "Theorem 8.14 and proof, pp.274–275",
-          "excerpt": "Theorem 8.14",
           "match": "All five structure assertions and the completion warning form the derived PD/Witt comparison."
         }
       ],
@@ -6855,7 +6715,6 @@
         {
           "sourceId": "bms2",
           "locator": "Remark 8.15, p.275",
-          "excerpt": "Remark 8.15",
           "match": "The canonical representative uses the DD.5 descent/unfolding package, Kunz and Popescu, then the smooth Witt comparison."
         }
       ],
@@ -6902,7 +6761,6 @@
         {
           "sourceId": "bms2",
           "locator": "Definition 4.10; Lemmas 4.15–4.17; Variants 4.33 and 4.35, pp.223–225,231–232",
-          "excerpt": "Definition 4.10",
           "match": "The site applies the owned cotangent/complete flatness condition and distinguishes big slices from relative maps."
         }
       ],
@@ -6995,7 +6853,6 @@
         {
           "sourceId": "bms2",
           "locator": "Definition 4.20, Remarks 4.21–4.24, Lemma 4.25 with proof; Definition 8.8, pp.227–229,270",
-          "excerpt": "Definition 4.20",
           "match": "The perfectoid existence condition is an explicit imported integral prerequisite."
         }
       ],
@@ -7092,7 +6949,6 @@
         {
           "sourceId": "bms2",
           "locator": "Lemma 4.28 and Remark 4.29 with proof, p.229",
-          "excerpt": "Lemma 4.28",
           "match": "The independent compatible-root cover has free mod-p module and shifted relative cotangent."
         }
       ],
@@ -7182,7 +7038,6 @@
         {
           "sourceId": "bms2",
           "locator": "Lemmas 4.27 and 4.30, pp.229–230; Variant 4.33",
-          "excerpt": "Lemma 4.30",
           "match": "The completed Čech terms retain the integral perfectoid map and semiperfect reduction."
         }
       ],
@@ -7226,7 +7081,6 @@
         {
           "sourceId": "bms2",
           "locator": "Proposition 4.31 and Remark 4.32, pp.230–231",
-          "excerpt": "Proposition 4.31",
           "match": "The actual sheaf equivalence and compatible filtered evaluation supply the unfolding used in BMS2."
         }
       ],
@@ -7271,7 +7125,6 @@
         {
           "sourceId": "bms2",
           "locator": "Theorem 3.1 and p-completed use in Example 5.11, pp.215–218,240",
-          "excerpt": "Theorem 3.1",
           "match": "The derived-power faithfully-flat descent theorem supplies the Hodge graded modules."
         }
       ],
@@ -7316,13 +7169,11 @@
         {
           "sourceId": "bms2",
           "locator": "Example 5.11, p.240",
-          "excerpt": "Example 5.11",
           "match": "Graded complete-filtered descent proves Hodge-completed p-adic descent."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Proposition E.16 with proof, pp.235–236 of the downloaded revision",
-          "excerpt": "Proposition E.16",
           "match": "Flat descent is first proved for the bounded Hodge quotients and then their limit."
         }
       ],
@@ -7370,13 +7221,11 @@
         {
           "sourceId": "bms2",
           "locator": "Example 5.12 and Lemma 4.34, pp.231,240",
-          "excerpt": "Example 5.12",
           "match": "The bounded-below conjugate argument distinguishes the relative and big sites."
         },
         {
           "sourceId": "bhatt-lurie",
           "locator": "Variant E.17 with proof, p.236 of the downloaded revision",
-          "excerpt": "Variant E.17",
           "match": "The completed conjugate stages lie uniformly in D≥−1, allowing the totalization exchange."
         }
       ],
@@ -7421,7 +7270,6 @@
         {
           "sourceId": "bms2",
           "locator": "Lemma 4.7, Lemma 4.34 and Lemma 5.14(1), pp.222,231,241",
-          "excerpt": "Lemma 5.14",
           "match": "The shifted powers over the relative QRSP basis are complete-flat; general QSyn uses the wider bounded amplitude."
         }
       ],
@@ -7469,13 +7317,11 @@
         {
           "sourceId": "stacks-proper-cohomology",
           "locator": "Tags 0A1G/0A1H, Lemma 36.30.1 and 36.30.4 with proof",
-          "excerpt": "proper",
           "match": "The general proper-flat coherent-cohomology supplier proves perfectness and arbitrary base change without requiring a noetherian base."
         },
         {
           "sourceId": "stacks-proper-cohomology",
           "locator": "Lemmas 36.30.1 and 36.30.4, Tag 0A1G",
-          "excerpt": "perfect",
           "match": "Proper flat finite-presentation coherent cohomology is perfect and commutes with arbitrary derived base change, including non-Noetherian bases."
         }
       ],
@@ -7524,7 +7370,6 @@
         {
           "sourceId": "stacks-proper-cohomology",
           "locator": "Tag 0A1G, Lemma 36.30.1 and Remark 36.30.2",
-          "excerpt": "base change",
           "match": "The underlying coherent differential pieces have derived base change; finite filtrations and completion transfer it to de Rham."
         }
       ],
@@ -7568,7 +7413,6 @@
         {
           "sourceId": "bms2",
           "locator": "Variant 4.36 and Footnotes 12–13, p.232",
-          "excerpt": "Variant 4.36",
           "match": "The projective replacement of complete flatness supplies the later cohomological variant."
         }
       ],
@@ -7660,7 +7504,6 @@
         {
           "sourceId": "bms2",
           "locator": "Remark 10.4 and its construction, p.288",
-          "excerpt": "Remark 10.4",
           "match": "The formal étale restriction uses limits over affine formal charts."
         }
       ],
@@ -7746,13 +7589,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "§§4–5, Propositions 5.3–5.5; Remark 6.10",
-          "excerpt": "Proposition 5.5",
           "match": "The forgetful functors preserve the common projective resolutions."
         },
         {
           "sourceId": "log-ky",
           "locator": "§2.1, Definition 2.4 and Remark 2.8, pp.12–14",
-          "excerpt": "projective",
           "match": "The free prelog generators give the compact-projective animation presentation."
         }
       ],
@@ -7841,7 +7682,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Remark 6.6 and displayed equivalence (6), pp.25–26",
-          "excerpt": "Remark 6.6",
           "match": "The split prelog square-zero extension gives an independent functor-of-points description."
         }
       ],
@@ -7930,13 +7770,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 6.3, Remark 6.4, Proposition 6.5 and Remark 6.6, pp.24–26",
-          "excerpt": "Definition 6.3",
           "match": "Gabber’s free-resolution and derivation characterizations keep the convention separate from Olsson’s."
         },
         {
           "sourceId": "log-ky",
           "locator": "Definition 2.5, Lemmas 2.9–2.10, Remark 2.13, pp.13–15",
-          "excerpt": "Definition 2.5",
           "match": "The source warns that Gabber cotangent can be unbounded even for a nonintegral log étale map."
         }
       ],
@@ -8027,7 +7865,6 @@
         {
           "sourceId": "log-ky",
           "locator": "Lemmas 2.10,2.14, Theorem 2.11 and Remark 2.12, pp.14–16",
-          "excerpt": "Theorem 2.11",
           "match": "The cotangent base-change and integral log-smooth statements retain the correct hypotheses."
         }
       ],
@@ -8068,13 +7905,11 @@
         {
           "sourceId": "log-ky",
           "locator": "Definition 2.44 and Remarks 2.45–2.46, pp.23–24",
-          "excerpt": "homologically log flat",
           "match": "The homotopy-pushout flatness condition is explicitly distinct from Kato log flatness."
         },
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 4.8 and Proposition 4.9, pp.20–21",
-          "excerpt": "Definition 4.8",
           "match": "The monoid flatness condition controls underived coproducts."
         }
       ],
@@ -8169,13 +8004,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 6.8, Proposition 6.9, Remarks 6.10–6.11, pp.25–26",
-          "excerpt": "Definition 6.8",
           "match": "The log differential and both filtration directions are constructed before realization."
         },
         {
           "sourceId": "log-ky",
           "locator": "Construction 2.6, p.13",
-          "excerpt": "Construction 2.6",
           "match": "The source’s unshifted definition of LΩ^i requires the explicit [−i] in its Hodge graded formula."
         }
       ],
@@ -8266,13 +8099,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 6.12 and proof, p.26",
-          "excerpt": "Proposition 6.12",
           "match": "The primary proof tensors de Rham over the base ring A."
         },
         {
           "sourceId": "log-ky",
           "locator": "Theorem 2.11, second displayed formula p.15",
-          "excerpt": "Theorem 2.11",
           "match": "Only the valid base-linear de Rham comparison is retained; the extra target-ring tensor is a source misprint."
         }
       ],
@@ -8318,13 +8149,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Notation 7.1, Lemma 7.2, Theorem 7.3 and Proposition 7.4, pp.27–28",
-          "excerpt": "Proposition 7.4",
           "match": "The log-coordinate Cartier calculation extends along the common resolution."
         },
         {
           "sourceId": "log-ky",
           "locator": "Notation 2.15 and Construction 2.6, pp.13,16",
-          "excerpt": "relative Frobenius",
           "match": "The same prelog twist is used with the corrected cohomological shifts."
         }
       ],
@@ -8370,7 +8199,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Corollary 7.5 and proof, pp.28–29; Example 6.15, p.27",
-          "excerpt": "Corollary 7.5",
           "match": "The source restricts de Rham logification invariance to integral monoids in the nilpotent-p range."
         }
       ],
@@ -8412,13 +8240,11 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Corollary 7.6 and Remark 7.7, p.29",
-          "excerpt": "Corollary 7.6",
           "match": "The integral log smooth Cartier-type comparison keeps the log cotangent convention."
         },
         {
           "sourceId": "log-ky",
           "locator": "Lemma 2.14, pp.15–16",
-          "excerpt": "Lemma 2.14",
           "match": "Integral log smoothness is the stated Gabber degree-zero comparison range."
         }
       ],
@@ -8461,7 +8287,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 7.18 and proof, p.30",
-          "excerpt": "exactifying",
           "match": "The source explicitly requires exactification before the strict logarithmic PD envelope."
         }
       ],
@@ -8550,7 +8375,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Definition 7.20, Example 7.21 and Theorem 7.22 proof sketch, p.31",
-          "excerpt": "strict effective epimorphism",
           "match": "The corrected condition inserts exactly the regular quotient hypothesis used by the proof and the accepted RT-AREA-padic-2/7 finding."
         }
       ],
@@ -8645,7 +8469,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Theorem 7.22 proof sketch and Corollary 7.8, pp.29,31",
-          "excerpt": "Theorem 7.22",
           "match": "The proof needs the strict regular quotient repaired in the definition."
         }
       ],
@@ -8694,7 +8517,6 @@
         {
           "sourceId": "log-ky",
           "locator": "Definitions 3.1–3.3, Lemmas 3.5–3.6, Corollary 3.7 and Remarks 3.8–3.9, pp.27–28",
-          "excerpt": "log quasisyntomic",
           "match": "The site keeps the exact completed hlf condition; integrality is separate."
         }
       ],
@@ -8788,7 +8610,6 @@
         {
           "sourceId": "log-ky",
           "locator": "Proposition 2.47, Remark 2.48 and Corollary 2.49, pp.24–26",
-          "excerpt": "Proposition 2.47",
           "match": "The length-i+1 power filtration proves hlf descent; the completed versions use the specified reductions."
         }
       ],
@@ -8832,7 +8653,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Example 6.2, Proposition 6.5 and the strict regular quotient calculation §§3.3,6",
-          "excerpt": "Example 6.2",
           "match": "The free log-coordinate module and strict quotient transitivity give the explicit two-term log-point computation."
         }
       ],
@@ -8878,7 +8698,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Example 7.21, third example, p.31",
-          "excerpt": "semistable",
           "match": "The source’s semistable example is retained with its actual diagonal base monoid map."
         }
       ],
@@ -8926,7 +8745,6 @@
         {
           "sourceId": "bhatt-ddr-2012",
           "locator": "Proposition 9.11, Proposition 9.13, Construction 9.15 and Proposition 9.16, pp.35–38",
-          "excerpt": "Construction 9.15",
           "match": "The derived d log map constructs the actual Tate-period map and identifies Fontaine’s logarithm."
         }
       ],
@@ -9017,7 +8835,6 @@
         {
           "sourceId": "log-ky",
           "locator": "Definition 3.11, Remarks 3.12–3.15 and Lemma 3.16, pp.29–31",
-          "excerpt": "Definition 3.11",
           "match": "The exact monoid tilt-surjectivity condition and the separate integrality hypotheses are retained."
         }
       ],
@@ -9109,7 +8926,6 @@
         {
           "sourceId": "log-ky",
           "locator": "Lemmas 3.17–3.19 and Corollary 3.20 with proof, pp.31–32",
-          "excerpt": "Lemma 3.18",
           "match": "The source’s two-sort compatible-root cover and Čech stability prove the general prelog basis theorem."
         }
       ],
@@ -9736,7 +9552,7 @@
       "source": "bhatt-ddr-2012",
       "kind": "misprint",
       "locator": "Notation 3.1, printed/PDF p.6 in arXiv:1204.6560v1; checked on the rendered page",
-      "printed": "Frobenius twist of A",
+      "printed": "It specifies the twist of A by Frobenius.",
       "correction": "Read Frobenius twist of B relative to A. The displayed derived tensor formula remains unchanged.",
       "reason": "The object displayed is B⊗^L_(A,Frob_A)A, and its relative Frobenius has target B.",
       "affects": "nothing",
@@ -9782,7 +9598,7 @@
       "source": "bhatt-ddr-2012",
       "kind": "error",
       "locator": "Definition 7.20 and Theorem 7.22, arXiv v1 printed p.31/PDF p.31; also author copy printed p.30",
-      "printed": "b a strict effective epimorphism",
+      "printed": "The source requires b to be an effective epimorphism that is strict.",
       "correction": "Require the strict quotient factor to be lci, locally generated by a finite regular sequence; a filtered version requires compatible regular-quotient presentations. Keep flat Z/p^n endpoints and log-smooth Cartier-type first factor.",
       "reason": "With trivial logs, F_p→F_p[x,y]→F_p[x,y]/(x²,xy,y²) meets the printed conditions. Example 3.21 makes its derived de Rham unbounded below, while ordinary crystalline sheaf cohomology is coconnective. The cited Theorem 3.27/Corollary 3.40 does not apply to the arbitrary strict quotient.",
       "affects": "a stated result",
@@ -9828,7 +9644,7 @@
       "source": "bms2",
       "kind": "misprint",
       "locator": "Proposition 5.6, published p.237 and proof p.238; arXiv v2 pp.31–32; companion display in Theorem 5.4 proof p.236",
-      "printed": "Ext^(i−c)_R(M,N) if c≤0",
+      "printed": "The source gives Ext^(i−c)_R(M,N) in the case c≤0.",
       "correction": "Replace i−c by i+c, with negative Ext groups zero. In the companion display replace a−i+j by a+i−j. Keep vanishing for c>0.",
       "reason": "The proof gives RHom_R(M,N)[c], whose i-th cohomology is Ext_R^(i+c). For R=k, i=1,c=−1, the nonsplit exact sequence 0→k[−1]→[k --id→ k]→k→0 gives Ext_Ch^1=k, while the printed Ext_k^2 is zero.",
       "affects": "a stated result",
@@ -9851,7 +9667,7 @@
       "source": "bms2",
       "kind": "misprint",
       "locator": "Proposition 8.13(3), published p.274; arXiv v2 p.60",
-      "printed": "φ_i mod p : N^≥i LWΩ_S ≃ Lτ≤iΩ_(S/F_p) → LWΩ_S/p is injective",
+      "printed": "The source asserts injectivity of φ_i mod p : N^≥i LWΩ_S ≃ Lτ≤iΩ_(S/F_p) → LWΩ_S/p.",
       "correction": "Replace the domain by gr_N^i LWΩ_S=N^≥i/N^≥(i+1); the graded divided-Frobenius map identifies it with Fil_i^conj dR_(S/F_p). The whole-level map has the fiber N^≥(i+1).",
       "reason": "For S=F_p,i=0 the whole-level map is Z_p→F_p and is not injective. Equation (4) gives its fiber, and Theorem 8.14(2) uses the correct graded domain.",
       "affects": "a stated result",
@@ -9897,7 +9713,7 @@
       "source": "log-ky",
       "kind": "misprint",
       "locator": "Construction 2.6 and formula (2.1), arXiv:2306.00364v1 printed p.13",
-      "printed": "The graded pieces are LΩ^i_(S/R)",
+      "printed": "The source identifies LΩ^i_(S/R) as the graded pieces.",
       "correction": "With the explicit definition LΩ^i=L∧^iL, put [−i] on the Hodge graded piece and the corresponding conjugate formula (2.1). If using shifted LΩ^i notation instead, change the defining convention consistently.",
       "reason": "A free log coordinate has log differential module in degree zero but its weight-one de Rham graded piece is in cohomological degree one. The displayed unshifted graded identification cannot hold under the stated convention.",
       "affects": "a stated result",
@@ -9943,7 +9759,7 @@
       "source": "log-ky",
       "kind": "misprint",
       "locator": "Lemma 2.14 proof, arXiv:2306.00364v1 printed p.16",
-      "printed": "Y = (Spec S,M_S)^a and X = (Spec R,M_R)^a",
+      "printed": "It sets Y = (Spec S,M_S)^a together with X = (Spec R,M_R)^a.",
       "correction": "Use X=(Spec S,M_S)^a and Y=(Spec R,M_R)^a for the subsequent morphism X→Y and complex L_(X/Y).",
       "reason": "A ring map R→S induces Spec S→Spec R; the next application of Olsson’s comparison uses that direction. The theorem statement is unchanged.",
       "affects": "nothing",

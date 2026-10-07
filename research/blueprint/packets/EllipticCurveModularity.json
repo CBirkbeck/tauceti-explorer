@@ -21,112 +21,112 @@
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
     "provides": "The j-invariant of a Weierstrass curve.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Set.Finite",
     "kind": "def",
     "module": "Mathlib/Basic/Finite/Defs.lean",
     "provides": "Finite sets.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:CuspForm",
     "kind": "structure",
     "module": "Mathlib/NumberTheory/ModularForms/Basic.lean",
     "provides": "Cusp forms of weight k for a subgroup Γ of GL₂(ℝ) (arithmetic groups enter through their image, e.g. (Gamma1 N).map (mapGL ℝ)).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:IsPrimitiveRoot",
     "kind": "structure",
     "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
     "provides": "Primitive roots of unity.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Nat.totient",
     "kind": "def",
     "module": "Mathlib/Data/Nat/Totient.lean",
     "provides": "Euler's φ.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Finite.exists_infinite_fiber",
     "kind": "theorem",
     "module": "Mathlib/Data/Fintype/Pigeonhole.lean",
     "provides": "A map from an infinite type to a finite one has an infinite fibre.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Set.Infinite",
     "kind": "def",
     "module": "Mathlib/Basic/Finite/Defs.lean",
     "provides": "Infinite sets.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:NumberField.RingOfIntegers",
     "kind": "def",
     "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
     "provides": "The ring of integers 𝒪_K.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Algebra.norm",
     "kind": "def",
     "module": "Mathlib/RingTheory/Norm/Defs.lean",
     "provides": "The norm of a finite extension.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Algebra.norm_eq_zero_iff",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Norm/Basic.lean",
     "provides": "For a finite free extension of domains (e.g. 𝒪_K over ℤ), the norm of x vanishes iff x = 0.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:Int.eq_zero_of_abs_lt_dvd",
     "kind": "lemma",
     "module": "Mathlib/Algebra/Order/Group/Unbundled/Int.lean",
     "provides": "An integer divisible by m with |n| < m is zero.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "tauceti:HeckeRing.GL2.Newform",
     "kind": "structure",
     "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
     "provides": "Tau Ceti's newforms: normalised (a₁ = 1) cusp forms of weight k on Γ₁(N) with a nebentypus χ, in the new subspace, eigen for the Hecke operators at indices coprime to N.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
     "provides": "Strong multiplicity one at a FIXED level N and nebentypus (Miyake 4.6.12): two newforms of level N with f.χ = g.χ whose eigenvalues agree at all indices coprime to N outside a finite set are equal. It does not compare different levels.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:WeierstrassCurve.localPolynomial",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The local polynomial of a Weierstrass curve over a local field (good, split/nonsplit multiplicative, additive).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:WeierstrassCurve.LFunction",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The formal L-function of a Weierstrass curve over a number field.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    },
    {
     "ref": "mathlib:WeierstrassCurve.LSeries",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The complex L-series of a Weierstrass curve.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "2026-10-07: independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2 read the declaration and its hypotheses in this module at the recorded pinned commit; its statement supplies the provides contract. The suggested file has not been fully elaborated: the shared build lacks the Tau Ceti Newform object file."
    }
   ]
  },
@@ -148,7 +148,8 @@
     "4.7 Varietes abeliennes a multiplications reelles: Theoreme 5 and (4.7.1), (4.7.2), pp. 208-209",
     "Reviewer (REVIEW-EXT-10-EXT-07): 1.3 (p. 181), 2.5 Proposition 2 (p. 187), 2.8 Proposition 4 with proof (pp. 189-190), 2.9 Proposition 5 with proof (p. 191), 3.1.3-3.1.7 (pp. 194-195), 3.2 (pp. 195-198), 3.3 (p. 198), the introduction to section 4 (p. 199), 4.6 and 4.7 to (4.7.5) (pp. 207-209), bibliography entries [8], [11], [13], [14], [29]. Serre marks conjectural statements with a subscript question mark, e.g. (3.3.1_?); the packet's \"(3.3.1?)\" is that label, not a doubtful locator",
     "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring.",
-    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Re-read: 4.6, Théorème 4 with its parenthesis on J0(N), Lemme 5 and the proof through (4.6.4), pp. 207-208."
+    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Re-read: 4.6, Théorème 4 with its parenthesis on J0(N), Lemme 5 and the proof through (4.6.4), pp. 207-208.",
+    "2026-10-07 (independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2): fresh public download has the recorded SHA-256. Read §2.8 Proposition 4, pp. 189–190; §2.9, pp. 191–192; §3.1 lifting, pp. 194–195; §3.3, p. 198; §4.6 Théorème 4, Lemme 5, conductor conditions, proof and remarks, pp. 207–208; §4.7 Théorème 5, pp. 208–209. Existing source excerpts checked for content against the PDF text; OCR spacing varies between text-extraction versions."
    ]
   },
   {
@@ -165,7 +166,8 @@
     "Satz 5 and Satz 6 (Shafarevich conjecture) - statements located, not read",
     "Reviewer (REVIEW-EXT-10-EXT-07): 5 Endomorphismen, Satz 3 and Satz 4 (p. 360), Korollar 1 and Korollar 2 with proofs (p. 361), Korollar 3 with proof (p. 362)",
     "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring.",
-    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Re-read: Satz 3, Satz 4, Korollar 1 and Korollar 2, pp. 360-361."
+    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Re-read: Satz 3, Satz 4, Korollar 1 and Korollar 2, pp. 360-361.",
+    "2026-10-07 (independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2): fresh public download has the recorded SHA-256. Read §5, Satz 3 and Satz 4, p. 360, and Korollar 1 and Korollar 2 with proofs, p. 361. Existing source excerpts checked for content against the PDF text; OCR spacing varies between text-extraction versions."
    ]
   },
   {
@@ -181,7 +183,8 @@
     "0.8 Corollaire on Weil curves (equality of L-functions and of conductors), p. 411",
     "Reviewer (REVIEW-EXT-10-EXT-07): 0.1-0.9 (pp. 409-411), including the proof sketch of the Corollaire in 0.8 (Cebotarev, Theoreme (A), Ogg)",
     "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring.",
-    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Re-read: 0.7 Remarque and 0.8 Corollaire with its proof, p. 411."
+    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Re-read: 0.7 Remarque and 0.8 Corollaire with its proof, p. 411.",
+    "2026-10-07 (independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2): fresh public download has the recorded SHA-256. Read §0.1–0.9, pp. 409–411, especially Théorème (A) and the conductor/L-function corollary. Existing source excerpts checked for content against the PDF text; OCR spacing varies between text-extraction versions."
    ]
   },
   {
@@ -194,7 +197,8 @@
    "readSections": [
     "Lemme 6.11 with proof, printed p. 522",
     "Reviewer (REVIEW-EXT-10-EXT-07): Lemme 6.11 with proof and the Variante, p. 522",
-    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring."
+    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring.",
+    "2026-10-07 (independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2): fresh public download has the recorded SHA-256. Read Lemme 6.11, its proof and Variante, p. 522. Existing source excerpts checked for content against the PDF text; OCR spacing varies between text-extraction versions."
    ]
   },
   {
@@ -206,7 +210,8 @@
    "sha256": "432fa5290b2b2ac0d623169e9198d928e5dd75acb490db2d58775630d0f6ea94",
    "readSections": [
     "2026-09-28 (cc-39fac3): §2.6 (modular elliptic curves E_f, conductor and L-series), pp. 24–25; §2.15.1 (modular parametrisations), p. 47.",
-    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Read: §2.6 (pp. 24-25) and §2.7 to Lemma 2.7.1 (oldclasses and their dimension d(N/M)), pp. 25-26."
+    "2026-10-06 (FIX-RT-BP-EllipticCurveModularity~2): SHA-256 re-verified against a fresh download; the excerpts added in this round are copied from the output of pdftotext -raw (poppler 26.09.0), with line breaks replaced by single spaces. Read: §2.6 (pp. 24-25) and §2.7 to Lemma 2.7.1 (oldclasses and their dimension d(N/M)), pp. 25-26.",
+    "2026-10-07 (independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2): fresh public download has the recorded SHA-256. Read §§2.6–2.7, pp. 25–26, including divisor-indexed oldclasses; §2.15.1, p. 47. Existing source excerpts checked for content against the PDF text; OCR spacing varies between text-extraction versions."
    ]
   }
  ],
@@ -250,13 +255,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "Il existe une constante CE telle que, pour tout p > CE , on ait :",
      "match": "Serre's constant C_E; Σ_E makes it explicit."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "(a) p ne divise pas N; (b) pour tout l tel que v 1 (N) =1, p ne divise pas v l(jE) .",
      "match": "The conductor conditions (a), (b) that enter Σ_E."
     }
    ],
@@ -370,7 +373,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "montre que le conducteur Np de pE divise N (ce qui d'ailleurs suffirait pour la suite) .",
      "match": "Divisibility, with Serre's remark that it suffices."
     }
    ],
@@ -411,7 +413,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "(a) p ne divise pas N; (b) pour tout l tel que v 1 (N) =1, p ne divise pas v l(jE) .",
      "match": "The criterion (stated there for p > 5)."
     }
    ],
@@ -452,13 +453,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "Il existe une constante CE telle que, pour tout p > CE , on ait :",
      "match": "Lemme 5."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§3.3, p. 198 (PDF page 20)",
-     "excerpt": "Si alors p se décomposait sur Fp en somme directe de deux représentations de dimension 1, cette décomposition ne pourrait être que celle donnée par les vecteurs propres de p (c ), donc serait rationnelle sur Fp, ce qui contredirait (b') .",
      "match": "The oddness argument, owned by R01.4."
     }
    ],
@@ -498,13 +497,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§3.3, p. 198 (PDF page 20)",
-     "excerpt": "Soient N, k et e les invariants de p . D'après le n° 1 .3, on a e =1, et d'après la prop. 4 du n° 2.8, on a k = 2.",
      "match": "Weight two and trivial character."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§2.8, Proposition 4, p. 189 (PDF page 11)",
-     "excerpt": "PROPOSITION 4 . On a k = 2 si et seulement si les deux conditions suivantes sont satisfaites :",
      "match": "The weight-two criterion."
     }
    ],
@@ -547,13 +544,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§3.3, (3.3.1?), p. 198 (PDF page 20)",
-     "excerpt": "Il existe une forme parabolique f de poids 2 et de niveau N, à coefficients dans Fp , qui est fonction propre des opérateurs de Hecke et dont la représentation pf associée est isomorphe à p .",
      "match": "The weight-two case of Serre's conjecture (now R27.6)."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "D'après (3.1.6), fp se relève en caractéristique 0",
      "match": "The eigensystem is then lifted (R29.3)."
     }
    ],
@@ -643,7 +638,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§3.3, p. 198 (PDF page 20)",
-     "excerpt": "Soient N, k et e les invariants de p . D'après le n° 1 .3, on a e =1, et d'après la prop. 4 du n° 2.8, on a k = 2.",
      "match": "Serre's direct route; the φ(N) route is the alternative RS-06 asks to distinguish."
     }
    ],
@@ -679,7 +673,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "On en conclut qu'il existe un choix de F tel que l'on ait F= fp pour tout p E P, où P est un ensemble infini de nombres premiers .",
      "match": "The pigeonhole step."
     }
    ],
@@ -718,7 +711,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "Il en résulte que l'entier algébrique A, - a 1 a une image dans Fp qui est égale à 0 pour tout p E P, p l.",
      "match": "The application to A_ℓ − a_ℓ."
     }
    ],
@@ -758,7 +750,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, (4.6.4), p. 208 (printed page; PDF page 30)",
-     "excerpt": "Comme P est infini, cela entraîne (4 .6 .4) A, = a, pour tout l + N.",
      "match": "Serre's (4.6.4), A_ℓ = a_ℓ for all ℓ ∤ N: the relation between the form and the curve that the definition isolates."
     }
    ],
@@ -854,19 +845,16 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "D'après (3.1.6), fp se relève en caractéristique 0",
      "match": "The lifting."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "On en conclut qu'il existe un choix de F tel que l'on ait F= fp pour tout p E P, où P est un ensemble infini de nombres premiers .",
      "match": "The choice of F."
     },
     {
      "sourceId": "deligne-serre74",
      "locator": "Lemme 6.11, p. 522",
-     "excerpt": "(Noter qu'on n'affirme pas que les vecteurs propres se relèvent, mais seulement les valeurs propres.",
      "match": "Deligne–Serre eigenvalue lifting (owned by R15.5)."
     }
    ],
@@ -909,7 +897,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "(2) La forme F construite dans la démonstration ci-dessus est primitive ; cela résulte d'un théorème de Carayol [8] .",
      "match": "Serre's Remarque (2): F is primitive (newform)."
     }
    ],
@@ -1009,7 +996,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "Il en résulte que l'entier algébrique A, - a 1 a une image dans Fp qui est égale à 0 pour tout p E P, p l.",
      "match": "The good coefficients; the rest follows by conjugation."
     }
    ],
@@ -1053,7 +1039,6 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "les représentations l-adiques attachées à E et EF sont isomorphes, et l'on sait (Faltings [13], [14]) que cela entraîne que E et EF sont isogènes sur Q.",
      "match": "The comparison and the isogeny (R29.5)."
     }
    ],
@@ -1092,7 +1077,6 @@
     {
      "sourceId": "carayol86-hilbert",
      "locator": "0.8 Corollaire, p. 411",
-     "excerpt": "Alors la fonction L de Ey est égale à L(/, s), et le conducteur géométrique de Ey est égal à N.",
      "match": "Carayol's corollary: for a rational newform the conductor equals the level."
     }
    ],
@@ -1138,7 +1122,6 @@
     {
      "sourceId": "carayol86-hilbert",
      "locator": "0.8 Corollaire, p. 411",
-     "excerpt": "Alors la fonction L de Ey est égale à L(/, s), et le conducteur géométrique de Ey est égal à N.",
      "match": "Equality of L-functions, hence of every local factor."
     }
    ],
@@ -1181,13 +1164,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 208 (printed page; PDF page 30)",
-     "excerpt": "les représentations l-adiques attachées à E et EF sont isomorphes, et l'on sait (Faltings [13], [14]) que cela entraîne que E et EF sont isogènes sur Q.",
      "match": "The isogeny step."
     },
     {
      "sourceId": "faltings83",
      "locator": "Korollar 2, p. 361 (OCR of the 1983 scan)",
-     "excerpt": "Korollar 2. Seien A1,A 2 wie im Korollar 1.",
      "match": "Faltings' isogeny criterion (owned by R28.4/R28.6)."
     }
    ],
@@ -1234,13 +1215,11 @@
     {
      "sourceId": "CREMONA-AMEC-1997",
      "locator": "Chapter II, §2.15.1, p. 47 (printed page; PDF page 41)",
-     "excerpt": "An elliptic curve E deﬁned over Q is called a modular elliptic curve if there is a non- constant map ϕ: XG →E for some modular curve XG.",
      "match": "The target notion."
     },
     {
      "sourceId": "CREMONA-AMEC-1997",
      "locator": "Chapter II, §2.15.1, p. 47",
-     "excerpt": "Hence If induces a map ϕ: X = G\\H∗→Ef = C/Λf",
      "match": "The complex-analytic description of the parametrisation."
     }
    ],
@@ -1344,7 +1323,6 @@
     {
      "sourceId": "faltings83",
      "locator": "§5 Endomorphismen, Satz 3 and Satz 4, p. 360 (text layer of the 1983 scan)",
-     "excerpt": "Satz3. Die Operation yon n auf Tz@z~ff~list halbeinfach. Satz4. Die Abbildung EndK(A)| -~End~(T3 ist ein Isomorphismus.",
      "match": "Semisimplicity of T_l ⊗ ℚ_l and End_K(A) ⊗ ℤ_l ≅ End_π(T_l); with End_ℚ(E) = ℤ the commutant of Galois in End(V_r(E)) is ℚ_r."
     }
    ],
@@ -1403,19 +1381,16 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, Théorème 4, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "(En particulier, E est isomorphe à un quotient de la jacobienne J0(N) de la courbe modulaire Xo(N).)",
      "match": "The modular-quotient formulation, which Serre derives from the newform formulation; this node is the converse."
     },
     {
      "sourceId": "CREMONA-AMEC-1997",
      "locator": "Chapter II, §2.7, p. 26 (printed page; PDF page 20)",
-     "excerpt": "A basis for this oldclass consists of the forms g(Dz) for all positive divisors D of N/M; hence its dimension is d(N/M), the number of positive divisors of N/M.",
      "match": "The multiplicity σ₀(N′/M) of a newform of level M in level N′."
     },
     {
      "sourceId": "carayol86-hilbert",
      "locator": "0.8 Corollaire, proof, p. 411",
-     "excerpt": "De la définition de Ey et du théorème de Cebotarev, il résulte que a1 est isomorphe à la représentation naturelle de Galois sur l'espace H1 (Ey (X) Q, Q^).",
      "match": "The Tate module of the quotient attached to a rational newform is its Galois representation; the comparison used here for every A_f."
     }
    ],
@@ -1467,13 +1442,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "THÉORÈME 4 . Admettons (3 .3 .1,). Alors E est une courbe de Weil de niveau N .",
      "match": "Serre's Theorem 4, conditional in 1987 on (3.3.1?), which R27.6 now supplies."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, proof of Théorème 4, p. 208 (printed page; PDF page 30)",
-     "excerpt": "Ils définissent une courbe de Weil EF de niveau un diviseur de N; d'après (4.6.4), les représentations l-adiques attachées à E et EF sont isomorphes",
      "match": "The passage between the newform and the quotient formulations in Serre's proof."
     }
    ],
@@ -1516,7 +1489,6 @@
     {
      "sourceId": "CREMONA-AMEC-1997",
      "locator": "Chapter II, §2.6, p. 25 (PDF page 19)",
-     "excerpt": "Moreover it is known that Ef is deﬁned over Q, has conductor N, and has L-series L(Ef, s) = P a(n, f)n−s",
      "match": "The L-series identity for modular curves E_f."
     }
    ],
@@ -1555,13 +1527,11 @@
     {
      "sourceId": "serre87-duke",
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
-     "excerpt": "THÉORÈME 4 . Admettons (3 .3 .1,). Alors E est une courbe de Weil de niveau N .",
      "match": "Théorème 4."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "§4.7, Théorème 5, p. 209 (PDF page 31)",
-     "excerpt": "Alors toute variété abélienne X sur Q, à multiplications réelles, de dimension n, est isomorphe à un quotient de J0(N), où N est la racine n-ème du conducteur de X .",
      "match": "Théorème 5."
     }
    ],
@@ -1631,7 +1601,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
-   "need": "Galois conjugates of newforms are newforms of the same level and character (the coefficient field).",
+   "need": "For a normalised weight-two newform f with trivial nebentypus and an embedding σ : K_f ↪ ℂ, construct the conjugate newform f^σ of the same level, with a_n(f^σ) = σ(a_n(f)) and trivial nebentypus. In general the character is conjugated as well; preservation of the character here uses that it is trivial.",
    "neededBy": [
     "EllipticCurveModularity:R29.3/rational-coefficient-field",
     "EllipticCurveModularity:R29.6/newform-from-a-modular-quotient"
@@ -1767,10 +1737,10 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-BP-EllipticCurveModularity",
-  "date": "2026-10-02",
-  "notes": "Follows independent-review-REV-EllipticCurveModularity and the verified RT findings. The FIX author’s scoped /1 repair is sound: Layer 5 owns cross-level strong multiplicity one and the M|N/exact-conductor distinction survives. This review adds seven missing upstream supplier/consumer pairs, corrects the whole-Jacobian formula and records the missing converse proof, adds three discriminating exceptional-prime tests and improves suggested-file coverage. Needs changes for the constituent/descent proof, actual typed signatures for unavailable supplier interfaces, and reader synchronization. Reviewer Codex codex-rtOQ9t did the earlier RT verification, but none of FIX issue #5045; that prior role is disclosed in the report. Historical review metadata is preserved verbatim."
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2",
+  "date": "2026-10-07",
+  "notes": "Follows independent-review-REV-FIX-RT-BP-EllipticCurveModularity (needs_changes, 2026-10-02). Independent Codex codex-Ds9t4O checked all five confirmed findings, the three new nodes and eight restated nodes, the reader, all 16 baseline statements at both pins, exact supplier contracts, fresh public source passages and hashes, the 23 typed API items and 19 named tests, request coverage and dependency acyclicity. The corrected constituent/descent proof and the exact-level Serre-witness route are sound; no local cross-level multiplicity-one proof is reintroduced. This review restricts the Galois-conjugation request to the trivial-character case actually used and replaces historical elaboration claims in baseline check records with fresh statement checks. Checker: 0 errors, 0 warnings. A Mathlib-only fragment elaborates with only proof-placeholder warnings; the submitted file stops at the missing Tau Ceti Newform object file in the shared pinned build, so full-file elaboration is not claimed. The packet remains partial with 11 open supplier requests and two disclosed gaps; acceptance is of the fixes, not implementation or closure."
  },
  "fixRevision": {
   "job": "FIX-RT-BP-EllipticCurveModularity~2",
@@ -1937,6 +1907,12 @@
      "note": "Serre Théorèmes 4 and 5 (pp. 207, 209) quoted correctly."
     }
    ]
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-BP-EllipticCurveModularity",
+   "date": "2026-10-02",
+   "notes": "Follows independent-review-REV-EllipticCurveModularity and the verified RT findings. The FIX author’s scoped /1 repair is sound: Layer 5 owns cross-level strong multiplicity one and the M|N/exact-conductor distinction survives. This review adds seven missing upstream supplier/consumer pairs, corrects the whole-Jacobian formula and records the missing converse proof, adds three discriminating exceptional-prime tests and improves suggested-file coverage. Needs changes for the constituent/descent proof, actual typed signatures for unavailable supplier interfaces, and reader synchronization. Reviewer Codex codex-rtOQ9t did the earlier RT verification, but none of FIX issue #5045; that prior role is disclosed in the report. Historical review metadata is preserved verbatim."
   }
  ]
 }

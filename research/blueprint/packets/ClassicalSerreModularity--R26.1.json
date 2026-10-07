@@ -223,25 +223,21 @@
         {
           "sourceId": "khare-level-one",
           "locator": "p. 2 of the preprint",
-          "excerpt": "Theorem 1.1. A ¯ρ of level one arises from Sk(¯ρ)(SL2(Z)) with respect to an embedding ι : Q֒ →Qp. The",
           "match": "Theorem 1.1."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§1.1, p. 2 of the preprint",
-          "excerpt": "it being already known for p = 2, 3 because of a method of Tate, see [51] for p = 2, which was later applied",
           "match": "p = 2, 3 are Tate's and Serre's."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§1, p. 2 of the preprint",
-          "excerpt": "By arises from f we mean that there is an integral model ρ : GQ →GL2(O) of the p-adic representation ρf",
           "match": "The meaning of 'arises from'."
         },
         {
           "sourceId": "bcdt-modularity",
           "locator": "Introduction, author-copy p.2 (published pp.844–845)",
-          "excerpt": "We call ρ strongly modular if moreover we may take f to have weight k(ρ) and level N(ρ).",
           "match": "Modularity versus exact Serre-weight/level modularity; canonical notions are owned by R15/R19 and optimisation by R20."
         }
       ],
@@ -289,19 +285,16 @@
         {
           "sourceId": "khare-level-one",
           "locator": "p. 3 of the preprint",
-          "excerpt": "Corollary 1.2. If ¯ρ is an irreducible, odd, 2-dimensional, mod p rep- resentation of GQ with k(¯ρ) = 2,",
           "match": "Corollary 1.2 (with p > 2)."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.3, proof of Corollary 8.1, p. 16 of the preprint",
-          "excerpt": "The ﬁrst statement is Corollary 1.2 of [24] (for p > 2). Let us take the opportunity to give a correct reference for the proof (the reference to 3 of Theorem 5.1 of [24] is not enough as p may not",
           "match": "KW I's corrected reference."
         },
         {
           "sourceId": "kw-annals",
           "locator": "Published Definition4.1, Theorem4.2(ii), pp.243–244; Theorem5.2(ii), p.247; §6.2, pp.250–251 (older cited Theorem4.1(ii)/§5.2)",
-          "excerpt": "Assume p > 2. There is no semistable ρ̄",
           "match": "The q=2 case first needs the conductor-one-at-2 ⇒ unipotent local inference. Annals Theorem5.2(ii) then excludes this semistable weight-two case; its abelian-variety proof imports Schoof through R25, not an arbitrary conductor-two theorem from R25."
         }
       ],
@@ -346,19 +339,16 @@
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "p. 1",
-          "excerpt": "Theorem 1 Suppose for some auxiliary set of primes Q one has the isomor- phism RQ →TQ of ﬁnite ﬂat",
           "match": "Theorem 1."
         },
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "p. 2",
-          "excerpt": "Proposition 1 Suppose one is given ρ and X as above. Let S be a ﬁnite set of places of Q such that",
           "match": "Proposition 1."
         },
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "proof of Proposition 1, p. 2",
-          "excerpt": "Because ρ is odd, the formula in [1], Lem. 5.5(ii), yields n + d = d + X l∈S′ (nl −h0(Gl, AdX(ρ))) = d −∆+ X",
           "match": "Oddness in the proof."
         }
       ],
@@ -401,13 +391,11 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§2.1, p. 8 of the preprint",
-          "excerpt": "2.1. The method of producing liftings of [31]. In this section we will produce liftings with certain",
           "match": "§2.1."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§2.1, p. 11 of the preprint",
-          "excerpt": "this will follow from some purely local information about the kind of lifts R parametrises. (The local",
           "match": "The local criterion."
         }
       ],
@@ -449,7 +437,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§2.2, p. 12 of the preprint",
-          "excerpt": "Proposition 2.1. Let p be a prime > 3. Let ρ : GQ →GL2(F) be an odd absolutely irreducible representation. We",
           "match": "Proposition 2.1."
         }
       ],
@@ -486,7 +473,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "proof of Proposition 2.2, p. 15 of the preprint",
-          "excerpt": "gives the quadratic equation β2 −βγ(χ′(τ) −1) − ψ = 0 for β. Since χ′(τ) −1 lies in the maximal ideal, it",
           "match": "The printed quadratic has a sign misprint (E13). Its preceding commutation and determinant relations yield the corrected plus sign; the Hensel derivative and smoothness conclusion are unchanged."
         }
       ],
@@ -525,7 +511,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§2.3, p. 13 of the preprint",
-          "excerpt": "Proposition 2.2. Let p be an odd prime, ﬁx a ¯ρ as above (in particular k(¯ρ)̸ = p and ¯ρ|Iq has the form",
           "match": "Proposition 2.2."
         }
       ],
@@ -573,13 +558,11 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§3, pp. 16–17 of the preprint",
-          "excerpt": "Proposition 3.1. (i) Assume ¯ρ is as in Proposition 2.1: so it is or- dinary of weight 2 ≤k(¯ρ) ≤p + 1 and",
           "match": "Proposition 3.1."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§3, p. 17 of the preprint",
-          "excerpt": "Assume that ρλ has non-solvable image. Then ρλ has weight j + 2, or its twist by χq −j has weight q + 1 −j.",
           "match": "The weight statement."
         }
       ],
@@ -621,13 +604,11 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§4, p. 19 of the preprint",
-          "excerpt": "4. Chebyshev’s estimates on primes In the proof of Theorem 1.1 below, we will need some estimates on prime",
           "match": "§4."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§4, p. 20 of the preprint",
-          "excerpt": "Thus we conclude that we always have a Pn+1 as desired once pn ≥31. (We thank Bo-Hae Im and Faheem Mitha for",
           "match": "The conclusion."
         }
       ],
@@ -660,7 +641,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§5, p. 21 of the preprint",
-          "excerpt": "Lemma 5.2. Assume τ : GQp →GL2(F) is such that its weight k̸ = 2 is < p. Then if τ is irreducible, and k−1 =",
           "match": "Lemma 5.2."
         }
       ],
@@ -697,7 +677,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.2, p. 27 of the preprint",
-          "excerpt": "But (1) gives that both these intervals are contained in the interval [2, pn+1] as noted in Section 4. Hence",
           "match": "The containment."
         }
       ],
@@ -739,7 +718,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.2, p. 26 of the preprint",
-          "excerpt": "6.2. The general argument. Now we give the general argument (which the reader must surely have guessed the",
           "match": "The inductive step."
         }
       ],
@@ -778,19 +756,16 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§5, p. 21 of the preprint",
-          "excerpt": "Lemma 5.3. If a representation ρ : GQp →GL2(O) becomes Barsotti- Tate over Qp(µp), then if residually the",
           "match": "Lemma 5.3."
         },
         {
           "sourceId": "savitt-cdt",
           "locator": "Theorem 6.11, pp.34–35; Corollary 6.15(1), p.38",
-          "excerpt": "Theorem 6.11. Let M = Mx1,x2 be one of the strongly divisible modules",
           "match": "Ordinary and nonordinary reductions of the tame niveau-one type."
         },
         {
           "sourceId": "breuil-mezard",
           "locator": "§6.1, author-copy pp.67–68, Proposition 6.1.1; standing odd-prime convention in Introduction p.2",
-          "excerpt": "1 ≤ i ≤ p − 2",
           "match": "Read the nonscalar principal-series setup, the arbitrary stable lattice T, and the three slope cases. The End condition first appears in Proposition 6.1.2, not Proposition 6.1.1."
         }
       ],
@@ -841,19 +816,16 @@
         {
           "sourceId": "khare-level-one",
           "locator": "p. 22 of the preprint",
-          "excerpt": "Lemma 5.4. Let p be an odd prime. If ρ : GQ →GL2(O) is an irre- ducible p-adic representation unramiﬁed",
           "match": "Lemma 5.4."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "p. 22 of the preprint",
-          "excerpt": "Corollary 5.5. (i) Given an odd prime p, if all 2-dimensional, mod p, odd, irreducible representations ¯ρ of",
           "match": "Corollary 5.5."
         },
         {
           "sourceId": "breuil-mezard",
           "locator": "§4.1, Proposition 4.1.1 and proof, author-copy pp.30–31",
-          "excerpt": "avec 1 < k < p",
           "match": "For crystalline HT {0,k−1} in this safe range, any stable-lattice reduction of a locally irreducible V is irreducible of niveau two. Thus reducible reduction forces the ordinary characteristic-zero branch. At the foil take k=2<p, including p=3. This scalar crystalline input is distinct from the nonscalar type of Proposition 6.1.1."
         }
       ],
@@ -905,19 +877,16 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.2, pp. 26–27 of the preprint",
-          "excerpt": "If ¯ρℓhad solvable image we would be done. This is because by Lemma 5.1 (i), in the case when the",
           "match": "Branch (a)(b)."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§6.2, p. 27 of the preprint",
-          "excerpt": "Now note that if the representation residually, say ¯ρ′′, were reducible locally at p, then ρ′′ at p itself",
           "match": "Branch (c)."
         },
         {
           "sourceId": "breuil-mezard",
           "locator": "§4.1, Proposition 4.1.1 and proof, author-copy pp.30–31",
-          "excerpt": "avec 1 < k < p",
           "match": "For crystalline HT {0,k−1} in this safe range, any stable-lattice reduction of a locally irreducible V is irreducible of niveau two. Thus reducible reduction forces the ordinary characteristic-zero branch. At the foil take k=2<p, including p=3. This scalar crystalline input is distinct from the nonscalar type of Proposition 6.1.1."
         }
       ],
@@ -960,13 +929,11 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, p. 23 of the preprint",
-          "excerpt": "6.1. Small weights. We now prove our main theorem up to weights 32. (We do not really have to do so many",
           "match": "§6.1."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, p. 25 of the preprint",
-          "excerpt": "Weights 22, 24, 26, 28, 30: It will be enough to show that a mod 29 representation ¯ρ (irreducible, odd,",
           "match": "The 22–30 row."
         }
       ],
@@ -1013,7 +980,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.2, p. 28 of the preprint",
-          "excerpt": "Thus the compatible system (ρ′ λ) is modular. Note that (ρλ) and (ρ′ λ) are linked at the prime above",
           "match": "The conclusion."
         }
       ],
@@ -1070,25 +1036,21 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§7.1, p. 28 of the preprint",
-          "excerpt": "7.1. Proof of corollaries. The case of q = 2 of Corollary 1.2 is dealt with in Theorem 4.1(ii) of [31]. (The",
           "match": "§7.1."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.3, p. 16 of the preprint",
-          "excerpt": "We already know by Serre’s conjecture for level 1 that ¯ρq is modular (maybe reducible). We then use (2) of Theorem 6.1 of [24] (the references there to [39]",
           "match": "KW I's corrected step."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.3, proof of Corollary 8.1, p. 16 of the preprint",
-          "excerpt": "the references there to [39] and [40] should also be augmented to [41] which is a correction to [40]",
           "match": "KW I's [41] = C. Skinner, Nearly ordinary deformations of residually dihedral representations ('to appear'), a correction to Skinner–Wiles 2001 ([40])."
         },
         {
           "sourceId": "kw-annals",
           "locator": "Published Definition4.1, Theorem4.2(ii), pp.243–244; Theorem5.2(ii), p.247; §6.2, pp.250–251 (older cited Theorem4.1(ii)/§5.2)",
-          "excerpt": "Assume p > 2. There is no semistable ρ̄",
           "match": "The q=2 case first needs the conductor-one-at-2 ⇒ unipotent local inference. Annals Theorem5.2(ii) then excludes this semistable weight-two case; its abelian-variety proof imports Schoof through R25, not an arbitrary conductor-two theorem from R25."
         }
       ],
@@ -1126,7 +1088,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§7.1, p. 28 of the preprint",
-          "excerpt": "Corollary 1.3 follows as we know that a mod p irreducible 2-dimensional representation of GQ that arises from",
           "match": "The proof."
         }
       ],
@@ -1174,7 +1135,6 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.3, p. 15 of the preprint",
-          "excerpt": "Theorem 3.3 follows from Corollary 8.1 (ii) below, which in turn follows from Corollary 8.1 (i). The latter (in the case p > 2) is stated as",
           "match": "§8.3."
         }
       ],
@@ -1219,19 +1179,16 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Definition 2.1, p. 5 of the preprint",
-          "excerpt": "where ψ is a non-trivial character of Iq of order a power of an odd prime t, such that t divides q + 1, and t > max(Q(N(¯ρ) q2 ), 5, p); (ii) q is 1 mod 8, and",
           "match": "Condition (i)."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Definition 2.1, p. 5 of the preprint",
-          "excerpt": "(ii) q is 1 mod 8, and 1 mod r for every prime r such that r ≤max(Q(N(¯ρ) q2 ), p). If there exists a good",
           "match": "Condition (ii)."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.2, Remark 2, p. 15 of the preprint",
-          "excerpt": "the proofs of Theorems 3.1 and 3.2 need to consider residual representations in characteristic at most",
           "match": "Remark 2: the motivation."
         }
       ],
@@ -1379,13 +1336,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Lemma 6.3, p. 11 of the preprint",
-          "excerpt": "Lemma 6.3. Let ¯ρ be a locally good-dihedral representation (for a prime q). (i) The image of ¯ρ is not solvable and not projectively isomorphic to",
           "match": "Lemma 6.3."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "proof of Lemma 6.3(i), p. 12 of the preprint",
-          "excerpt": "Note that the primes s diﬀerent from q at which ¯ρ is ramiﬁed are such that q is 1 mod s (and 1 mod 8 if s =",
           "match": "The step using (ii)."
         }
       ],
@@ -1428,19 +1383,16 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Lemma 6.1, p. 10 of the preprint",
-          "excerpt": "Although the lemma below, which reﬁnes the above statement for p = 2, is also a part of Dickson’s theorem it is often not stated as such,",
           "match": "Lemma 6.1."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Lemma 6.2, p. 11 of the preprint",
-          "excerpt": ". This follows from the method of proof of Proposition 10 of [38]: see [34], where this is alluded to as the",
           "match": "Lemma 6.2(i)."
         },
         {
           "sourceId": "ribet-semistable",
           "locator": "Published Proposition 2.2 proof, pp.279–280",
-          "excerpt": "let Z be the center of G",
           "match": "An analogy for the component-owned inertia argument, not a direct proof of general bad-dihedral weights. E14 corrects center to index-two rotation subgroup; retain semistability and cyclotomic determinant in the theorem itself."
         }
       ],
@@ -1480,13 +1432,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§3.1, p. 5 of the preprint",
-          "excerpt": "(Lr) All ¯ρ of S-type which satisfy the following three conditions are mod- ular: (a) ¯ρ is locally good-dihedral; (b) k(¯ρ) = 2 if p = 2; (c) N(¯ρ) is odd and divisible by at",
           "match": "(L_r)."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 3.4, p. 6 of the preprint",
-          "excerpt": "(Dr) All ¯ρ of S-type which satisfy the following three conditions are mod- ular: (a) ¯ρ is locally good-dihedral; (b) the residue characteristic of ¯ρ is an odd prime; (c) N(¯ρ)",
           "match": "(D_r)."
         }
       ],
@@ -1604,13 +1554,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§7, p. 12 of the preprint",
-          "excerpt": "We check this by hand for p ≤31. From [35] one deduces (see [24]) that for p > 31, P p ≤3 2 −( 1 30) = 1.46.",
           "match": "The estimates."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§7, Remark, p. 12 of the preprint",
-          "excerpt": "Remark : It is proven in [24] that in fact one can always ﬁnd P such that (i) holds (for example P the",
           "match": "Khare's stronger form."
         }
       ],
@@ -1666,19 +1614,16 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.2, p. 13 of the preprint",
-          "excerpt": "Otherwise, note that ¯ρ2|I3 is non-trivial and unipotent, as ω3 is of order 2. Thus by the group-theoretic",
           "match": "The mod 3 case."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.2, p. 14 of the preprint",
-          "excerpt": "Let P be the next prime after p. We will prove modularity of all ¯ρ of S-type which are good-dihedral (for a",
           "match": "The inductive step."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.2, p. 15 of the preprint",
-          "excerpt": "4) of Section 7, and Theorem 5.1 (3), we deduce that (after twisting by a suitable power of χP ) k(¯ρ′ P ) ≤p",
           "match": "The weight bound."
         }
       ],
@@ -1719,13 +1664,11 @@
         {
           "sourceId": "rosser-schoenfeld",
           "locator": "Theorem 2 and Corollary 1, p.69",
-          "excerpt": "(3.5) x/log x < π(x) for 17 ≤ x; (3.6) π(x) < 1.25506 x/log x for 1 < x.",
           "match": "The excerpt transcribes the displayed fractions into inline notation; Theorem 2 (3.5),(3.6) are on published p.69. Corollary 1 on the same page supplies the two sharper denominator bounds. All four exact domains were independently read."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§4, p.19",
-          "excerpt": "where A = 0.921... and B/A is 6/5 = 1.2",
           "match": "The advertised Chebyshev constants, corrected by E11."
         }
       ],
@@ -1765,7 +1708,6 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§7, p.12",
-          "excerpt": "Remark : It is proven in [24] that in fact one can always find P such that (i) holds",
           "match": "Consecutive-prime ratio for the shared recursion"
         }
       ],
@@ -1800,7 +1742,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§4, pp.19–20",
-          "excerpt": "An inspection shows that there is always a Pn+1 as required up to pn = 1000",
           "match": "Finite auxiliary-prime checks"
         }
       ],
@@ -1840,7 +1781,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.2, pp.26–27",
-          "excerpt": "By Lemma 5.2, and as we know the conjecture for weights ≤ pn + 1",
           "match": "Ordinary reduction and residual distinction"
         }
       ],
@@ -1886,7 +1826,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, pp.23–26",
-          "excerpt": "If ρ̄′ has solvable image we are done",
           "match": "Terminal-row lifting and degeneracy contract"
         }
       ],
@@ -1928,7 +1867,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, pp.23–26",
-          "excerpt": "We now prove our main theorem up to weights 32.",
           "match": "Weight eight"
         }
       ],
@@ -1971,7 +1909,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, pp.23–26",
-          "excerpt": "We now prove our main theorem up to weights 32.",
           "match": "Weights ten and twelve"
         }
       ],
@@ -2014,7 +1951,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, pp.23–26",
-          "excerpt": "We now prove our main theorem up to weights 32.",
           "match": "Weights fourteen through twenty"
         }
       ],
@@ -2057,7 +1993,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, pp.23–26",
-          "excerpt": "We now prove our main theorem up to weights 32.",
           "match": "Weights twenty-two through thirty"
         }
       ],
@@ -2100,7 +2035,6 @@
         {
           "sourceId": "khare-level-one",
           "locator": "§6.1, pp.23–26",
-          "excerpt": "Weight 32: It will be enough to show that a mod 31 representation",
           "match": "Weight thirty-two"
         }
       ],
@@ -2433,7 +2367,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§6.1, weights 22–30, p. 25 of the preprint (arXiv v1)",
-      "printed": "Apply Proposition 2.2 to get a lifting ρ′ of the mod 7 representation that is unramiﬁed outside 3, 19, Barsotti-Tate at 7, and",
+      "printed": "The source invokes Proposition 2.2 for a lift ρ′ of the representation mod 7, requiring no ramification outside 3, 19 and the Barsotti-Tate property at 7.",
       "correction": "unramified outside 7, 29 (the mod-7 representation is ramified only at 7 and 29).",
       "reason": "The row concerns ρ̄ mod 29 of level one and its mod-7 companion ρ̄_7, which is unramified outside 7 and 29; the list '3, 19' is copied from the previous row (weights 14–20: the mod-3 companion of a mod-19 representation).",
       "known": "new: present in arXiv v1; the published version (Duke Math. J. 134 (2006)) was not checked",
@@ -2453,7 +2387,7 @@
       "kind": "error",
       "affects": "nothing",
       "locator": "§6.1, weight 32, pp. 25–26 of the preprint (arXiv v1)",
-      "printed": "We use as a foil the prime 5, and in the end construct a weight 2 compatible system (ρ′ λ), whose modularity yields that of ¯ρ, of nebentype ω16 31 at 31 such that at a prime above 31 the",
+      "printed": "The source takes 5 as the foil prime and constructs a compatible system (ρ′ λ) of weight 2 with nebentype ω16 31 at 31; modularity of this system gives modularity of ¯ρ. It then considers a prime above 31.",
       "correction": "nebentypus ω_31^{18} (or ω_31^{12}), giving residual weights 20 or 14, both already known.",
       "reason": "A weight-32 = p + 1 representation mod 31 has a minimal weight-2 lift semistable at 31, so its mod-5 member is unipotent on I_31 (χ = 1 in Proposition 2.2) and the available nebentypes are η_31^i = ω_31^{6i} (5 ∥ 30). 16 is not a multiple of 6 (nor of 10, for the foil 3). The general interval (12, 18] of §6.2 (m = 2) gives j = 18.",
       "known": "new: present in arXiv v1; the published version was not checked",
@@ -2473,7 +2407,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§7 and §8.2, preprint pp.12–15",
-      "printed": "Choose a prime divisior ℓ^r ||(P − 1) that satisfies one of the estimates (1) or (2) of Section 7.",
+      "printed": "The source selects a prime divisor ℓ^r ||(P − 1), requiring it to meet estimate (1) or (2) from Section 7.",
       "correction": "Write ℓ^e∥P−1 and 2^e∥P−1, keeping r for the fixed number of conductor prime divisors.",
       "reason": "Theorem3.2 fixes r independently of the auxiliary prime P−1. Its prime-power exponent is not that conductor-count bound.",
       "known": "Known: PAPER-KHARE-WINTENBERGER-09-I/E4 and its independent review record the collision.",
@@ -2493,7 +2427,7 @@
       "kind": "error",
       "affects": "the proof",
       "locator": "§4, p.19 of arXiv:math/0504080v1",
-      "printed": "If π(x) is the prime counting function, then if x > 30 A(x/log(x)) ≤ π(x) ≤ B(x/log(x)) where A = 0.921... and B/A is 6/5 = 1.2",
+      "printed": "The source claims the prime-counting function π(x) satisfies A(x/log(x)) ≤ π(x) ≤ B(x/log(x)) for x > 30, taking A = 0.921... and the ratio B/A to be 6/5 = 1.2.",
       "correction": "Do not use this uniform prime-counting inequality. Use Rosser–Schoenfeld Theorem2/Corollary1 with exact thresholds, the finite auxiliary-prime checks, and the large-range 61/50 bound to derive the same required odd estimate.",
       "reason": "π(31)=11 whereas B·31/log31<10 for the given constants; π(100)=25 whereas the claimed upper bound is below24.1. The classical Chebyshev constants cannot give this stated uniform π bound. The replacement proof yields P/p<1499/1000 for p≥21591 (at most one Fermat skip) and finite certified checks below it.",
       "known": "New discrepancy in v1; the inaccessible Duke version was not checked for a correction. The main auxiliary-prime conclusion is retained with a different proved-source route.",
@@ -2515,7 +2449,7 @@
       "kind": "error",
       "affects": "nothing",
       "locator": "Author correction quoted from v3 Remark1.7, p.4, describing the published Theorem6.12(4), i=1; the old published text was not obtained",
-      "printed": "The mistake is in the statement and proof of Theorem 6.12(4) of the published version.",
+      "printed": "The source identifies both the formulation and the proof of the published Theorem 6.12(4) as containing the mistake.",
       "correction": "They coincide and are niveau one; the reduction is split. Use the corrected v3 lattice statement.",
       "reason": "Savitt’s author correction explicitly repairs the exceptional lattice classification without changing the principal results. Our tame ordinary/weight contract uses Theorem6.11 and Corollary6.15 with Remark6.17; it does not invoke the erroneous old corner.",
       "known": "Known author correction, arXiv v3 Remark1.7 (2010).",
@@ -2554,7 +2488,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Images of semistable Galois representations, published Pacific J. Math. special issue (1997), Proposition 2.2 proof, p.280, dihedral case",
-      "printed": "let Z be the center of G",
+      "printed": "The source defines Z to be G’s center.",
       "correction": "let Z be the cyclic rotation subgroup of index two in G",
       "reason": "A dihedral center has at most two elements and cannot contain the cyclic inertia subgroup of order p±1>2. Every cyclic subgroup of order>2 lies in the rotation subgroup. That subgroup has index two and gives the quadratic extension used in the proof; the theorem’s semistable cyclotomic-determinant hypotheses are unchanged.",
       "known": "new in the published text checked; no public correction found",

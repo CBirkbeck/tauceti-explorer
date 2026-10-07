@@ -351,7 +351,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.632; 1.1.6.",
-          "excerpt": "1.1.6. A ﬁnite local monodromy leads to an overconvergence. It turns out, and this is the key to our method and already answers André’s question in [And04, Appen- dix, A.5], that a diﬀerent choice of ϕ(z) allows one to arithm",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -429,7 +428,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.632; 1.1.6.",
-          "excerpt": "1.1.6. A ﬁnite local monodromy leads to an overconvergence. It turns out, and this is the key to our method and already answers André’s question in [And04, Appen- dix, A.5], that a diﬀerent choice of ϕ(z) allows one to arithm",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -465,7 +463,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.632; 1.1.6.",
-          "excerpt": "1.1.6. A ﬁnite local monodromy leads to an overconvergence. It turns out, and this is the key to our method and already answers André’s question in [And04, Appen- dix, A.5], that a diﬀerent choice of ϕ(z) allows one to arithm",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -501,7 +498,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.632; 1.1.6.",
-          "excerpt": "1.1.6. A ﬁnite local monodromy leads to an overconvergence. It turns out, and this is the key to our method and already answers André’s question in [And04, Appen- dix, A.5], that a diﬀerent choice of ϕ(z) allows one to arithm",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -535,7 +531,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.636; Here by trivial local monodromy",
-          "excerpt": "Here by trivial local monodromy around x = α we mean that there exist a complex neighborhood Uα  α and meromorphic functions g1 , . . . , gn ∈ M(Uα ) on Uα , where n is the order of L, such that g1 , . . . , gn form a C-basis",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -617,7 +612,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.636; Corollary 2.0.5.",
-          "excerpt": "Corollary 2.0.5. Let 0 ∈ U ⊂ C be an open subset containing the origin. If the uniformization radius of the pointed Riemann surface (U, 0) is strictly greater than 1, then the algebra V(U, Z) is ﬁnite-dimensional as a Q(x)-vec",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -649,7 +643,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.667; Remark 5.0.1",
-          "excerpt": "Remark 5.0.1 (A word on notation). We denote by H the upper half plane and by P1 = C∪{∞} the complex projective line or Riemann sphere. There is a conformal isomorphism from the disc D(0, 1) to H given by the Cayley transform",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -730,7 +723,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.667; 5.1. Schwarzians",
-          "excerpt": "5.1. Schwarzians and the conformal radius. Let N ≥ 2 be an integer. Then C  μN = P1  {∞, μN } is the complement of at least 3 points, and thus admits a complex uniformization map: F N : H → H/Γ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -807,7 +799,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.667; 5.1. Schwarzians",
-          "excerpt": "5.1. Schwarzians and the conformal radius. Let N ≥ 2 be an integer. Then C  μN = P1  {∞, μN } is the complement of at least 3 points, and thus admits a complex uniformization map: F N : H → H/Γ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -847,7 +838,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Note that FN",
-          "excerpt": "Note that FN is just the map F N composed with a conformal isomorphism D(0, 1) → H sending 0 to i, and hence FN : D(0, 1) → C  μN is the universal covering map with FN (0) = 0 and FN (1) = 1.",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -882,7 +872,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Our ﬁrst main goal",
-          "excerpt": "Our ﬁrst main goal of this section is an explicit computation of the uniformization radius of C  μN . This formula has been previously proved by Kraus and Roth in [KR16, Remark 5.1]. Theorem 5.1.4. The conformal size |FN (",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -972,7 +961,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.632; 1.1.6.",
-          "excerpt": "1.1.6. A ﬁnite local monodromy leads to an overconvergence. It turns out, and this is the key to our method and already answers André’s question in [And04, Appen- dix, A.5], that a diﬀerent choice of ϕ(z) allows one to arithm",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1006,7 +994,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.632; 1.1.6.",
-          "excerpt": "1.1.6. A ﬁnite local monodromy leads to an overconvergence. It turns out, and this is the key to our method and already answers André’s question in [And04, Appen- dix, A.5], that a diﬀerent choice of ϕ(z) allows one to arithm",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1044,7 +1031,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.667; Deﬁnition 5.1.1.",
-          "excerpt": "Deﬁnition 5.1.1. Deﬁne FN : D(0, 1) → C  μN by the formula   1+z FN (z) = FN i · .",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1132,7 +1118,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Lemma 5.1.2.",
-          "excerpt": "Lemma 5.1.2. Let ζN = exp(2πi/N ) and ζ be any N th root of unity. Then ζN F N (τ ) = F N ( rN · τ ) and FN (ζx) = ζFN (x), where  ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1170,7 +1155,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Lemma 5.1.2.",
-          "excerpt": "Lemma 5.1.2. Let ζN = exp(2πi/N ) and ζ be any N th root of unity. Then ζN F N (τ ) = F N ( rN · τ ) and FN (ζx) = ζFN (x), where  ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1207,7 +1191,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.671; Deﬁnition 5.1.15.",
-          "excerpt": "Deﬁnition 5.1.15. Let GN denote the map D(0, 1) → C{1} such that GN (z N ) = (FN (z))N , or equivalently GN (z) = (FN (z 1/N ))N . The fact that GN is well-deﬁned is a formal consequence of the relation FN (ζz) = ζFN (z)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1294,7 +1277,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.671; Deﬁnition 5.1.15.",
-          "excerpt": "Deﬁnition 5.1.15. Let GN denote the map D(0, 1) → C{1} such that GN (z N ) = (FN (z))N , or equivalently GN (z) = (FN (z 1/N ))N . The fact that GN is well-deﬁned is a formal consequence of the relation FN (ζz) = ζFN (z)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1326,7 +1308,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.669; Remark 5.1.10.",
-          "excerpt": "Remark 5.1.10. Equation (5.1.9) is more transparent in terms of the Schwarzian derivative: 1 y  + {τ, F N }y = 0. 2",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1413,7 +1394,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.669; Remark 5.1.10.",
-          "excerpt": "Remark 5.1.10. Equation (5.1.9) is more transparent in terms of the Schwarzian derivative: 1 y  + {τ, F N }y = 0. 2",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1450,7 +1430,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.669; Remark 5.1.10.",
-          "excerpt": "Remark 5.1.10. Equation (5.1.9) is more transparent in terms of the Schwarzian derivative: 1 y  + {τ, F N }y = 0. 2",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1487,7 +1466,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.669; (5.1.11)",
-          "excerpt": "(5.1.11) + {w, x}y = 0 dx2 2 that can be used to formally represent an unknown function w √ as the quotient w = v1 /v √2 of the two linearly independent",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1527,7 +1505,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.670; [Hem88",
-          "excerpt": "[Hem88] is for maps from H to P1  S where S is a ﬁnite set of points which does not contain ∞.) This is similar to Example 5.1.12, except now taking x = F N , rather than x = λ, as the coordinate of the projective line, once",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1565,7 +1542,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.670; [Hem88",
-          "excerpt": "[Hem88] is for maps from H to P1  S where S is a ﬁnite set of points which does not contain ∞.) This is similar to Example 5.1.12, except now taking x = F N , rather than x = λ, as the coordinate of the projective line, once",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1600,7 +1576,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.670; [Hem88",
-          "excerpt": "[Hem88] is for maps from H to P1  S where S is a ﬁnite set of points which does not contain ∞.) This is similar to Example 5.1.12, except now taking x = F N , rather than x = λ, as the coordinate of the projective line, once",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1635,7 +1610,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.669; Lemma 5.1.8.",
-          "excerpt": "Lemma 5.1.8. The local analytic inverse map ψN of FN has the form ψN = η1 /η2 , where η1 and η2 satisfy the second order linear diﬀerential equation (5.1.9) 4(xN − 1)2 y  + ((N 2 − 1)xN −2 + x2N −2 )y = 0. Remar",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1671,7 +1645,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.669; Lemma 5.1.8.",
-          "excerpt": "Lemma 5.1.8. The local analytic inverse map ψN of FN has the form ψN = η1 /η2 , where η1 and η2 satisfy the second order linear diﬀerential equation (5.1.9) 4(xN − 1)2 y  + ((N 2 − 1)xN −2 + x2N −2 )y = 0. Remar",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1709,7 +1682,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.640; Blaschke",
-          "excerpt": "Blaschke product k  ni z − ai B(z) := : D(0, 1) → D(0, 1) i=1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1789,7 +1761,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.640; Blaschke",
-          "excerpt": "Blaschke product k  ni z − ai B(z) := : D(0, 1) → D(0, 1) i=1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1875,7 +1846,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.640; Blaschke",
-          "excerpt": "Blaschke product k  ni z − ai B(z) := : D(0, 1) → D(0, 1) i=1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1910,7 +1880,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.640; Poisson kernel formula",
-          "excerpt": "Poisson kernel formula — see (6.1.10) for a review — together with the canonical decomposition log = log+ − log− into positive and negative parts gives the quotient representation ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1948,7 +1917,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.680; Lemma 6.1.7.",
-          "excerpt": "Lemma 6.1.7. Let g : D(0, R) → C× be a nowhere vanishing holomorphic function on some open neighborhood of the closed disc |z| ≤ R. Assume that g(0) = 1. Then, for all 0 < r < R, g m(R, g) R",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -1982,7 +1950,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.640; Poisson kernel formula",
-          "excerpt": "Poisson kernel formula — see (6.1.10) for a review — together with the canonical decomposition log = log+ − log− into positive and negative parts gives the quotient representation ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2020,7 +1987,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.641; Lemma 2.3.1.",
-          "excerpt": "Lemma 2.3.1. It also shows that Theorem 2.0.1—our ﬁnal goal of the current § 2, which at this point is fully proved—is in fact equivalent with the intermediate form Lemma 2.0.8. On the other hand, with a bit more work bas",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2056,7 +2022,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.641; Lemma 2.3.1.",
-          "excerpt": "Lemma 2.3.1. It also shows that Theorem 2.0.1—our ﬁnal goal of the current § 2, which at this point is fully proved—is in fact equivalent with the intermediate form Lemma 2.0.8. On the other hand, with a bit more work bas",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2095,7 +2060,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.641; Remark 2.3.3.",
-          "excerpt": "Remark 2.3.3. Conversely, for any holomorphic map h : D(0, 1) → C with h(0) = 1, we have the lower bound    max sup",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2132,7 +2096,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.672; In order to prove",
-          "excerpt": "In order to prove that φi are given by the explicit formula in (5.1.18), we ﬁrst de- duce from the second order diﬀerential 4 equations5satisﬁed by hypergeometric",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2169,7 +2132,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.672; Let φi",
-          "excerpt": "Let φi (x) = ηi (x1/N ). Then φi (x) = N −1 x N −1 ηi (x1/N ) 1 and 1 − N 1 −2 ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2206,7 +2168,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.672; In order to prove",
-          "excerpt": "In order to prove that φi are given by the explicit formula in (5.1.18), we ﬁrst de- duce from the second order diﬀerential 4 equations5satisﬁed by hypergeometric",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2243,7 +2204,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.671; Lemma 5.1.16.",
-          "excerpt": "Lemma 5.1.16. Let ϕN denote the local inverse map of GN around x = 0, nor- −1 malized so that ϕN (0) = 0. The function ϕN has the form δN (φ1 /φ2",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2334,7 +2294,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.672; Let η1",
-          "excerpt": "Let η1 , η2 denote the solutions of the diﬀerential equation in Lemma 5.1.8 such that η1 (0) = 0, η1 (0) = 1, η2 (0) = 1, η2 (0) = 0; then η1 , η2 are linearly indepen- dent and η1 (x)/η2 (x) = x + O(x2 ). Since ψN (x) = |FN",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2371,7 +2330,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.672; Lemma 5.1.20",
-          "excerpt": "Lemma 5.1.20 (See, for instance, [AS92, 15.3.10]). Given a ∈/ Z≤0 , for |x| < 1, we have (5.1.21) 2a a 3 Γ(2a) ∞ (a) (a) k k k F 2 1 ; 1 − x =",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2409,7 +2367,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.676; Lemma 5.2.9.",
-          "excerpt": "Lemma 5.2.9. Fix a real constant M0 > 0. For M ≥ M0 and |x| < e−M N , we have the uniform estimate: ' ' ' sN (1 − x)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2445,7 +2402,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.676; Lemma 5.2.9.",
-          "excerpt": "Lemma 5.2.9. Fix a real constant M0 > 0. For M ≥ M0 and |x| < e−M N , we have the uniform estimate: ' ' ' sN (1 − x)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2480,7 +2436,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Theorem 5.1.4.",
-          "excerpt": "Theorem 5.1.4. The conformal size |FN (0)| (Riemann uniformization radius of C  μN ) is equal to  2   1 1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2567,7 +2522,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Theorem 5.1.4.",
-          "excerpt": "Theorem 5.1.4. The conformal size |FN (0)| (Riemann uniformization radius of C  μN ) is equal to  2   1 1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2604,7 +2558,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.673; [AS92",
-          "excerpt": "[AS92, 6.1.18] transform the latter ex- pression into  2   1 1 Γ 1+ Γ 1−",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2641,7 +2594,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.672; Proof of Theorem 5.1.4.",
-          "excerpt": "Proof of Theorem 5.1.4. Since FN is a covering map of CμN , the local inverse ψN is naturally deﬁned on D(0, 1) ⊂ C  μN . Moreover, since FN (1) = 1, we have that limx→1 ψN (x) = 1, where x ∈ D(0, 1) approaches 1. (A priori,",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2681,7 +2633,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Theorem 5.1.4.",
-          "excerpt": "Theorem 5.1.4. The conformal size |FN (0)| (Riemann uniformization radius of C  μN ) is equal to  2   1 1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2724,7 +2675,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.673; proof of Theorem 5.1.4, reference [AS92, 6.1.33].",
-          "excerpt": "[AS92, 6.1.18] transform the latter ex- pression into  2   1 1 Γ 1+ Γ 1−",
           "match": "CDT invokes the referenced log-Gamma Taylor expansion to obtain the radius series; it does not prove this complex branch expansion. The locally uniform product and sum-interchange proof remains the explicit log-Gamma gap."
         }
       ],
@@ -2763,7 +2713,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.673; [AS92",
-          "excerpt": "[AS92, 6.1.18] transform the latter ex- pression into  2   1 1 Γ 1+ Γ 1−",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2798,7 +2747,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.668; Theorem 5.1.4.",
-          "excerpt": "Theorem 5.1.4. The conformal size |FN (0)| (Riemann uniformization radius of C  μN ) is equal to  2   1 1",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2841,7 +2789,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.674; Proposition 5.2.1.",
-          "excerpt": "Proposition 5.2.1. The stabilizer of i∞ in Γ   1 2 cot(π/2N ) tN := .",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2879,7 +2826,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.674; Proposition 5.2.1.",
-          "excerpt": "Proposition 5.2.1. The stabilizer of i∞ in Γ   1 2 cot(π/2N ) tN := .",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2919,7 +2865,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.674; Proposition 5.2.1.",
-          "excerpt": "Proposition 5.2.1. The stabilizer of i∞ in Γ   1 2 cot(π/2N ) tN := .",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -2955,7 +2900,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.674; Deﬁnition 5.2.3.",
-          "excerpt": "Deﬁnition 5.2.3. Let N , r N = ΦN denote the group Γ rN , t N and let ΦN denote the corresponding lattice in PSU(1, 1). This is a free offprint provided t",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3046,7 +2990,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.675; Corollary 5.2.4.",
-          "excerpt": "Corollary 5.2.4. The function F NN is invariant under Φ N and Φ N is the largest subgroup of PSL2 (R) with this property. A fundamental domain ΩN for ΦN in",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3084,7 +3027,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.675; Corollary 5.2.4.",
-          "excerpt": "Corollary 5.2.4. The function F NN is invariant under Φ N and Φ N is the largest subgroup of PSL2 (R) with this property. A fundamental domain ΩN for ΦN in",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3126,7 +3068,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.675; Lemma 5.2.6.",
-          "excerpt": "Lemma 5.2.6. Let s ∈ PSL2 (R) be a rotation of order 2N such that s 2 = r N . Then 1 (5.2.7) 1 − F NN ( s · τ) =",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3165,7 +3106,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.675; Remark 5.2.8.",
-          "excerpt": "Remark 5.2.8. The group Φ N = N is contained with index two in the larger group Ψ s, t N . The group ΨN has a fundam",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3252,7 +3192,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; 6.1.1.",
-          "excerpt": "6.1.1. The Nevanlinna characteristic. The left-hand side of (6.0.2) is known as the mean proximity function at ∞  m(r, f ) = m(r, f ; ∞) := log+ |f | μHaar ∈ [0, ∞)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3341,7 +3280,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; 6.1.1.",
-          "excerpt": "6.1.1. The Nevanlinna characteristic. The left-hand side of (6.0.2) is known as the mean proximity function at ∞  m(r, f ) = m(r, f ; ∞) := log+ |f | μHaar ∈ [0, ∞)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3423,7 +3361,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; Lemma 6.1.2.",
-          "excerpt": "Lemma 6.1.2. For every meromorphic function f : D(0, 1) → P1 regular at 0 (that is: with f (0) ≠ ∞), and for every r ∈ (0, 1), we have N (r, f ) ≥ 0, with equality if and only if f i",
           "match": "The sphere-valued source regularity condition corresponds to a nonnegative native meromorphic germ order, not a merely finite scalar point value."
         }
       ],
@@ -3463,7 +3400,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; Lemma 6.1.2.",
-          "excerpt": "Lemma 6.1.2. For every meromorphic function f : D(0, 1) → P1 regular at 0 (that is: with f (0) ≠ ∞), and for every r ∈ (0, 1), we have N (r, f ) ≥ 0, with equality if and only if f i",
           "match": "The source concerns an analytic sphere-valued map. The native punctured-germ adaptation gives an analytic extension; equality with the chosen scalar representative additionally uses continuity."
         }
       ],
@@ -3500,7 +3436,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published pp.679–680; §6.1.1 and the Poisson–Jensen discussion preceding (6.1.4).",
-          "excerpt": "Poisson–Jensen formula",
           "match": "Circle logarithms are implicit in these means and Jensen; the exact local a.e. integrability adapter is not proved by Lemma 6.1.2 and remains in the recorded local-divisor gap."
         }
       ],
@@ -3537,7 +3472,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.680; proof of the first main theorem, Poisson–Jensen discussion and (6.1.4).",
-          "excerpt": "Poisson–Jensen formula",
           "match": "The local Jensen identity is a native closed-disc adaptation of the invoked Poisson–Jensen formula. Its trailing-coefficient and centre-pole conventions are checked against the pinned native theorem, not inferred from Lemma 6.1.2."
         }
       ],
@@ -3576,7 +3510,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.680; equation (6.1.4).",
-          "excerpt": "Poisson–Jensen formula",
           "match": "The inversion identity is stated in (6.1.4); the planned disc-local adaptation retains the native nonzero trailing coefficient and allows a centre pole."
         }
       ],
@@ -3614,7 +3547,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.680; Proof.",
-          "excerpt": "Proof. This is Rolf Nevanlinna’s ﬁrst main theorem, and is proved formally and straightforwardly from the Poisson–Jensen formula (see, for instance, [BG06, Propo- sition 13.2.6]), which we may rewrite as (6.1.4)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3650,7 +3582,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; equation (6.1.3), with proof on p.680.",
-          "excerpt": "The Nevanlinna characteristic function",
           "match": "Equation (6.1.3), not Lemma 6.1.2, supplies translation plus inversion. The scalar formulation excludes a zero germ of f−a and uses the native trailing coefficient."
         }
       ],
@@ -3686,7 +3617,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.682; last equality of equation (6.2.3), together with §6.1.1 on p.679.",
-          "excerpt": "N T(r, F_N) − log 4.",
           "match": "The source uses the power law in (6.2.3). Section 6.1.6 is the logarithmic-derivative discussion, not a power-law equation. The general local-divisor version is the elementary native divisor-power and positive-log scaling adapter."
         }
       ],
@@ -3722,7 +3652,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.683; Corollary 6.2.9.",
-          "excerpt": "Corollary 6.2.9. For f = 1 − FNN , we have f N (6.2.10) m r,  sup log+ log |FN | + log .",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3760,7 +3689,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.676; Lemma 5.2.9.",
-          "excerpt": "Lemma 5.2.9. Fix a real constant M0 > 0. For M ≥ M0 and |x| < e−M N , we have the uniform estimate: ' ' ' sN (1 − x)",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3801,7 +3729,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.676; Lemma 5.2.12.",
-          "excerpt": "Lemma 5.2.12. Fix a pair of real positive numbers M0 > 0 and ε > 0. Consider  ⊂ H denote the fundamental domain for Φ any M ≥ M0 , and let Ω N correspond-",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3841,7 +3768,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.677; Lemma 5.2.16.",
-          "excerpt": "Lemma 5.2.16. Let HD denote the image in the Poincaré disc model D(0, 1) of the horoball {τ ∈ H : !(τ ) ≥ D}  ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed. The exact formula has reciprocal dependence on a²+c². The later diameter estimate in the proof of Lemma 5.2.18 drops that reciprocal; source issue E17 records the page-image-confirmed misprint. The planned inequality here is already correct."
         }
       ],
@@ -3881,7 +3807,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.678; Shimizu",
-          "excerpt": "Shimizu’s Lemma (see, for example, [EGM98, Theorem  3.1])  and Proposi- a b N",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -3920,7 +3845,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.678; Lemma 5.2.18.",
-          "excerpt": "Lemma 5.2.18. For N 1 and r ∈ (0, 1), we have N sup log |FN (z)|  , |z|=r",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4006,7 +3930,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.678; Lemma 5.2.18.",
-          "excerpt": "Lemma 5.2.18. For N 1 and r ∈ (0, 1), we have N sup log |FN (z)|  , |z|=r",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4040,7 +3963,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.678; Lemma 5.2.18.",
-          "excerpt": "Lemma 5.2.18. For N 1 and r ∈ (0, 1), we have N sup log |FN (z)|  , |z|=r",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4077,7 +3999,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.681; R2",
-          "excerpt": "R2 − r 2 R2 − r 2 on using on the ﬁnal line the harmonicity property again which implies  log |g| μHaar (w) = log |g(0)| = 0.",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4112,7 +4033,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.681; (6.1.11)",
-          "excerpt": "(6.1.11) with the triangle inequality and inter- changing the orders of the integrations and using | log |g|| = log+ |g| + log− |g| = log+ |g| + log+ |1/g| yields  ' g  (z) '   '",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4144,7 +4064,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.681; Jensen",
-          "excerpt": "Jensen’s inequality gives  ' g '  '  ' ' ' 1 ' g (z) ' log+ ' ' μHaar ≤ μHaar (",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4183,7 +4102,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.680; Lemma 6.1.7.",
-          "excerpt": "Lemma 6.1.7. Let g : D(0, R) → C× be a nowhere vanishing holomorphic function on some open neighborhood of the closed disc |z| ≤ R. Assume that g(0) = 1. Then, for all 0 < r < R, g m(R, g) R",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4220,7 +4138,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.683; proof of Corollary 6.2.9.",
-          "excerpt": "Corollary 6.2.9. For f = 1 − FNN , we have f N (6.2.10) m r,  sup log+ log |FN | + log .",
           "match": "CDT invokes radial monotonicity to remove the small-radius factor. The explicit choice ρ=max(r,1/4) and its two-case inequalities are a planning adapter checked independently, not a verbatim source theorem."
         }
       ],
@@ -4258,7 +4175,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.683; Corollary 6.2.9.",
-          "excerpt": "Corollary 6.2.9. For f = 1 − FNN , we have f N (6.2.10) m r,  sup log+ log |FN | + log .",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4301,7 +4217,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.683; Corollary 6.2.11.",
-          "excerpt": "Corollary 6.2.11. We have FN N (6.2.12) m r, ≤ T (r, FN ) + O log+ + sup log+ log |FN | . FN",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4336,7 +4251,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.682; (6.2.4)",
-          "excerpt": "(6.2.4) p(x) := = . x −1 N N x−ζ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4419,7 +4333,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.682; (6.2.4)",
-          "excerpt": "(6.2.4) p(x) := = . x −1 N N x−ζ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4455,7 +4368,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.682; equation (6.2.7).",
-          "excerpt": "(6.2.4) p(x) := = . x −1 N N x−ζ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4493,7 +4405,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.682; equation (6.2.3).",
-          "excerpt": "T(r, p_N∘F_N) ≥ T(r, F_N^N) − log 4.",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4531,7 +4442,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.684; equation (6.2.15).",
-          "excerpt": "Corollary 6.2.9.  6.2.14. Completing the proof from the crude supremum bound in Lemma 5.2.18. At this point the key identity (6.2.7) allows us to combine the estimates (6.2.10) and (6.2.12), arriving at the uniform bo",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4569,7 +4479,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.684; equations (6.2.16) and the following N/(N−1) absorption.",
-          "excerpt": "Lemma 5.2.18. At this point the key identity (6.2.7) allows us to combine the estimates (6.2.10) and (6.2.12), arriving at the uniform bound f FN",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4604,7 +4513,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.678; preceding Lemma 5.2.18, reference [Tsu52, Theorem 11].",
-          "excerpt": "[Tsu52, Theorem 11] gives the general asymptotic  1 1 log+ |F | μHaar = log + Oa1 ,...,aN (1), |z|=r",
           "match": "CDT cites a fixed-puncture asymptotic here, not this effective all-radius bound. The effective constants and small-radius bridge remain a recorded proof obligation in the fixed-level gap, with no claim that the original Tsuji/Kraus–Roth proofs were read."
         }
       ],
@@ -4639,7 +4547,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; Theorem 6.0.1.",
-          "excerpt": "Theorem 6.0.1. For each of the choices   p(x) ∈ xN , xN /(xN − 1), 1/(xN − 1) , we have uniformly in N ∈ N>0 and r ∈ (0, 1) the mean growth bound",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4676,7 +4583,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.682; Theorem 6.0.1.",
-          "excerpt": "Theorem 6.0.1. For f : D(0, 1) → C holomorphic, the polar divisor is empty, and so N (r, f ) = 0 and m(r, f ) = T (r, f ). Since by deﬁnition FNN − 1 is a unit in the ring of holomorphic functions on D(0, 1), our requisite bou",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4714,7 +4620,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.679; Theorem 6.0.1.",
-          "excerpt": "Theorem 6.0.1. For each of the choices   p(x) ∈ xN , xN /(xN − 1), 1/(xN − 1) , we have uniformly in N ∈ N>0 and r ∈ (0, 1) the mean growth bound",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4754,7 +4659,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.683; Corollary 6.2.11.",
-          "excerpt": "Corollary 6.2.11. We have FN N (6.2.12) m r, ≤ T (r, FN ) + O log+ + sup log+ log |FN | . FN",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4790,7 +4694,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.683; (6.2.13)",
-          "excerpt": "(6.2.13) = m r, + N r, 1/FN − N r, FN − N r, 1/FN + N r, FN FN FN FN = m r, + N r,",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -4830,7 +4733,6 @@
         {
           "sourceId": "CDT25",
           "locator": "Published p.667; 5.1. Schwarzians",
-          "excerpt": "5.1. Schwarzians and the conformal radius. Let N ≥ 2 be an integer. Then C  μN = P1  {∞, μN } is the complement of at least 3 points, and thus admits a complex uniformization map: F N : H → H/Γ",
           "match": "The source passage supplies the stated construction or proof; the exact unresolved interior is recorded in gaps rather than assumed."
         }
       ],
@@ -5134,7 +5036,7 @@
       "id": "ConformalMappingPartII/E2",
       "kind": "misprint",
       "locator": "(5.2.10) in Lemma 5.2.9, p.676, and the two displays for τ and Im(τ) in the proof of Lemma 5.2.12, p.677 (published version; the same since arXiv v1)",
-      "printed": "“−log x + 2γ − 2ψ(1/2 + 1/2N)” (and “− log x + 2γ − 2ψ(1/2 − 1/2N)”) in (5.2.10); “(2γ − log X − ψ(1/2 − 1/2N) − ψ(1/2 + 1/2N))” in the proof of Lemma 5.2.12.",
+      "printed": "The source gives −log x + 2γ − 2ψ(1/2 + 1/2N) and − log x + 2γ − 2ψ(1/2 − 1/2N) in (5.2.10). For the proof of Lemma 5.2.12 it gives (2γ − log X − ψ(1/2 − 1/2N) − ψ(1/2 + 1/2N)).",
       "correction": "−2γ in place of +2γ, i.e. 2ψ(1) = −2γ, as in the display at the end of the proof of Lemma 5.2.9.",
       "reason": "Lemma 5.1.20 gives the constant term −log x + 2(ψ(1) − ψ(a)), and the proof of Lemma 5.2.9 writes 2ψ(1). Since ψ(1) = −γ ([AS92, 6.3.2]; Mathlib Complex.digamma_one), the statement's +2γ has the wrong sign. The constant is absorbed into the O(1) of (5.2.13), so nothing downstream changes.",
       "affects": "nothing",
@@ -5158,7 +5060,7 @@
       "id": "ConformalMappingPartII/E3",
       "kind": "misprint",
       "locator": "Proof of Lemma 5.2.9, p.676 (published version; the same since arXiv v1)",
-      "printed": "“|ψ(k)−ψ(k+a)| > |ψ(k+1)−ψ(k+1+a)|. Hence, |ψ(k)−ψ(k+a)| is maximized when k = 1 and a = 1/2−1/4.”",
+      "printed": "The source asserts |ψ(k)−ψ(k+a)| > |ψ(k+1)−ψ(k+1+a)| and concludes that the maximum of |ψ(k)−ψ(k+a)| occurs at k = 1 together with a = 1/2−1/4.",
       "correction": "|ψ(k+1) − ψ(k+a)| > |ψ(k+2) − ψ(k+1+a)|; hence |ψ(k+1) − ψ(k+a)| is maximized at k = 1, a = 1/2 − 1/4.",
       "reason": "The coefficient in (5.2.11) is ψ(k+1) − ψ(k+a), which is positive and decreasing in k and in a, so over k ≥ 1 and a ∈ {1/2 ± 1/2N} ⊂ [1/4, 3/4] its maximum is at k = 1, a = 1/4, as stated. The printed ψ(k) − ψ(k+a) is increasing in a, so its maximum would be at a = 3/4. Only a uniform bound is needed.",
       "affects": "nothing",
@@ -5182,7 +5084,7 @@
       "id": "ConformalMappingPartII/E8",
       "kind": "misprint",
       "locator": "Proof of Corollary 6.2.11, last line, p.684 (published version; the same since arXiv v1)",
-      "printed": "“upon again using Lemma 6.1.7 with R := (1 − r)/2 but now for the functional unit g = 1 − FN”",
+      "printed": "The proof applies Lemma 6.1.7 once more to the functional unit g = 1 − FN, taking R := (1 − r)/2.",
       "correction": "R := (1 + r)/2.",
       "reason": "The proof of Corollary 6.2.9 uses R := 1 − (1 − r)/2 = (1 + r)/2, and (6.2.12) has sup over |z| = (1 + r)/2. Lemma 6.1.7 needs r < R, while (1 − r)/2 < r for r > 1/3.",
       "affects": "nothing",
@@ -5206,7 +5108,7 @@
       "id": "ConformalMappingPartII/E9",
       "kind": "misprint",
       "locator": "Proof of Lemma 5.2.18, p.678 (published version; the same in arXiv v4)",
-      "printed": "“By Lemma 5.2.6, the set {z ∈ D(0, 1) : |FN(z)| > e^M + 1} is contained in S(M, N)”",
+      "printed": "The source invokes Lemma 5.2.6 to assert the inclusion of {z ∈ D(0, 1) : |FN(z)| > e^M + 1} in S(M, N).",
       "correction": "… is contained in s·S(M, N), the image of S(M, N) under the order-2N rotation s of Lemma 5.2.6.",
       "reason": "On that set |1 − F_N^N| ≥ |F_N|^N − 1 > e^{MN}, so it is disjoint from S(M, N). By (5.2.7) it lies in s·S(M, N). Since s is a Euclidean rotation of D(0,1) about 0, s·S(M, N) also avoids the closed disc of radius r, and the conclusion stands. arXiv v1 (“contained in the rotation under s of the set S(M, N)”) and v3 (“contained in sS(M, N)”) had it right; the s was lost in v4. In the same proof the Shimizu bound is quoted for γ̃ ∈ Γ̃_N but used for γ ∈ Φ_N; Φ̃_N is discrete and contains t̃_N, so Shimizu's lemma gives the same bound.",
       "affects": "nothing",
@@ -5230,7 +5132,7 @@
       "id": "ConformalMappingPartII/E15",
       "kind": "misprint",
       "locator": "radius-r quotient reconstruction and (2.3.2), p.640 (published JAMS 38 (2025), version read)",
-      "printed": "G(z) = exp(−∫_T log⁺(1/|G(w)|)·(w+z)/(w−z) dμ_Haar(w)) / exp(−∫_T log⁺|G(w)|·(w+z)/(w−z) dμ_Haar(w)) (transcription of (2.3.2))",
+      "printed": "The source gives (2.3.2) as G(z) = exp(−∫_T log⁺(1/|G(w)|)·(w+z)/(w−z) dμ_Haar(w)) / exp(−∫_T log⁺|G(w)|·(w+z)/(w−z) dμ_Haar(w)).",
       "correction": "Multiply the exponential quotient by G(0)/|G(0)|, or state equality only of absolute values. Apply this to both the radius-r reconstruction and (2.3.2).",
       "reason": "The boundary log|G| determines the zero-free function only up to a constant phase. For G=g=i,B=1, both exponentials equal 1. The unimodular factor repairs the complex identity without changing subsequent norm bounds.",
       "affects": "nothing",

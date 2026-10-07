@@ -192,7 +192,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
-          "excerpt": "B₁(y) = y − 1/2.",
           "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
         }
       ],
@@ -289,7 +288,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
-          "excerpt": "B₁(y) = y − 1/2.",
           "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
         }
       ],
@@ -333,13 +331,11 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
-          "excerpt": "B₁(y) = y − 1/2.",
           "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
         },
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "Lemma 3.4, Corollary 3.5 and (195), pp.39-41; Theorem 10, p.42",
-          "excerpt": "f(x) ∈ 1 + xS[ζ_m] + O(x²)",
           "match": "The corrected shape is what Dwork requires. This node adds the coefficient calculation; it does not silently reprove all of Proposition 2.2."
         }
       ],
@@ -382,13 +378,11 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "Definition 1.4 (23)-(24), pp.10-11; §3.3, proof of Theorem 2, p.43",
-          "excerpt": "f(q^γ)^γ f(q^{−1}) ∈ H_{R[1/γ]}|γ",
           "match": "Motivates the global set. The additive/effective descent claims below are missing proof inputs, not consequences of the multiplicativity argument in the source."
         },
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§1.4, (15), p.7",
-          "excerpt": "the universal ring",
           "match": "The ring intersection motivates a patching approach but does not supply effective descent of indexed line modules."
         }
       ],
@@ -427,7 +421,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "Theorem 2 (25)-(26), pp.10-11; proof in §3.3, p.43",
-          "excerpt": "H_{R,ξ} ⊗_{H_R} H_{R,ξ′} ≅ H_{R,ξ+ξ′}",
           "match": "Printed target; the short proof proves only the multiplication map. This continuation preserves accepted source issue HabiroNumberFields/E23."
         }
       ],
@@ -467,7 +460,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "Theorem 2 (25)-(26), pp.10-11; proof in §3.3, p.43",
-          "excerpt": "H_{R,ξ} ⊗_{H_R} H_{R,ξ′} ≅ H_{R,ξ+ξ′}",
           "match": "Printed target; the short proof proves only the multiplication map. This continuation preserves accepted source issue HabiroNumberFields/E23."
         }
       ],
@@ -535,7 +527,10 @@
           "statement": "The value at ξ is the actual Mathlib Pic.mk class; when this class is nontrivial the character value is nonzero. The n=2 tensor square has the class of 2ξ, and n=0 gives the unit.",
           "kind": "compatibility"
         }
-      ]
+      ],
+      "planet": {
+        "name": "K₃-graded Picard character"
+      }
     },
     {
       "id": "HabiroNumberFields:HB.7/followup-field-pullback",
@@ -578,7 +573,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
-          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
           "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
         }
       ],
@@ -693,7 +687,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
-          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
           "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
         }
       ],
@@ -730,7 +723,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
-          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
           "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
         }
       ],
@@ -833,13 +825,11 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
-          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
           "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
         },
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "Definition 1.3, (21)-(22), p.9",
-          "excerpt": "log(φ_p f̂(q^p)/f̂(q)^p) ∈ ∏ (p/x) R_p̂[ζ_m][[x]]",
           "match": "Exact defect to be preserved. The norm/trace comparison is an additional proof target, not a theorem in GSWZ."
         }
       ],
@@ -889,7 +879,6 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
-          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
           "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
         }
       ],

@@ -344,13 +344,11 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.2, proof of Lemma 10.3, printed p. 48 (arXiv v2)",
-     "excerpt": "Since the minimal polynomial of ξ_{p^n} over K_{n−1} is X^p − ξ_{p^{n−1}}, for any b prime to p we see that N_{n,n−1}(ξ^b_{p^n} − 1) = ∏_{η∈µp}(ξ^b_{p^n}η − 1) = ξ^{bp}_{p^n} − 1 = ξ^b_{p^{n−1}} − 1",
      "match": "The local version of the step m = p^{n−1}, ℓ = p."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "The first case of (2) rests on this minimal polynomial."
     }
    ],
@@ -394,7 +392,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "The second case of (2) rests on this minimal polynomial."
     }
    ],
@@ -434,13 +431,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "First case of (2), in the 1 − ζ convention."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.2, proof of Lemma 10.3, printed p. 48 (arXiv v2)",
-     "excerpt": "Since the minimal polynomial of ξ_{p^n} over K_{n−1} is X^p − ξ_{p^{n−1}}, for any b prime to p we see that N_{n,n−1}(ξ^b_{p^n} − 1) = ∏_{η∈µp}(ξ^b_{p^n}η − 1) = ξ^{bp}_{p^n} − 1 = ξ^b_{p^{n−1}} − 1",
      "match": "The same computation for ℓ = p, m = p^{n−1}."
     }
    ],
@@ -481,7 +476,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "Second case of (2), in the 1 − ζ convention."
     }
    ],
@@ -524,7 +518,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "The exponent 1 − Fr_ℓ^{−1} of (2)."
     }
    ],
@@ -563,7 +556,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "The printed formula, corrected at ℓ = 2 (sourceIssues E1)."
     }
    ],
@@ -602,7 +594,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
      "match": "Third case of (2)."
     }
    ],
@@ -643,13 +634,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 we define c̃m∞ = N_{Q(µmp)/Q(µm)}(ζmp − 1) ∈ Q(µm)^× ⊂ H1(Q(µm), Zp(1)) and c̃m = N_{Q(µm)/Q(µm)+}(c̃m∞).",
      "match": "The definition of c̃_{m∞} and c̃_m."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Remark 2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "If p | m then (2) shows that c̃m∞ = ζm − 1. But if p ∤ m, our definition takes into account that our Euler system must satisfy N_{Q(µmp)/Q(µm)} c̃mp = c̃m.",
      "match": "The value for p ∣ m and the reason for the extra norm."
     }
    ],
@@ -751,7 +740,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Remark 2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "our Euler system must satisfy N_{Q(µmp)/Q(µm)} c̃mp = c̃m.",
      "match": "The statement."
     }
    ],
@@ -793,7 +781,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "The distribution relation (2) shows that the collection {c̃m∞, c̃m} is an Euler system for (Zp(1), Qab, p) (see Definition II.1.1 and Remark II.1.3), since for every prime ℓ ≠ p, det(1 − Fr_ℓ^{−1}x|Zp(1)∗) = det(1 − Fr_ℓ^{−1}x|Zp) = 1 − x.",
      "match": "The Euler-system relation with Euler polynomial 1 − x."
     }
    ],
@@ -833,7 +820,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, printed p. 52 (arXiv v2)",
-     "excerpt": "Let m = Dp^n, n ≥ 1, and define c_m := (ξ_m^{−1} − 1)/(ξ_m − 1) ∈ O^×_{Q(µm)}, a generalisation of the cyclotomic units c_n(−1) (where D = 1) from Example 10.2",
      "match": "The torsion choice this node rules out."
     }
    ],
@@ -870,7 +856,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "For every m ≥ 1 we define c̃m∞ = N_{Q(µmp)/Q(µm)}(ζmp − 1) ∈ Q(µm)^× ⊂ H1(Q(µm), Zp(1)) and c̃m = N_{Q(µm)/Q(µm)+}(c̃m∞).",
      "match": "The definition of c̃_m."
     }
    ],
@@ -953,7 +938,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "The distribution relation (2) shows that the collection {c̃m∞, c̃m} is an Euler system for (Zp(1), Qab, p) (see Definition II.1.1 and Remark II.1.3), since for every prime ℓ ≠ p, det(1 − Fr_ℓ^{−1}x|Zp(1)∗) = det(1 − Fr_ℓ^{−1}x|Zp) = 1 − x.",
      "match": "The Euler-system relations for the whole collection {c̃_{m∞}, c̃_m}."
     }
    ],
@@ -1000,7 +984,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.2, definition of c_n(a) and Lemma 10.3, printed p. 48 (arXiv v2)",
-     "excerpt": "Let a ∈ Z prime to p, and define c_n(a) := (ξ^a_{p^n} − 1)/(ξ_{p^n} − 1) ∈ U_n. This is indeed a unit, as both ξ^a_{p^n} − 1 and ξ_{p^n} − 1 are uniformisers in K_n.",
      "match": "The smoothed units compared here."
     }
    ],
@@ -1039,13 +1022,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter II, Definition 1.1, printed p. 21 (PDF p. 31)",
-     "excerpt": "Suppose K is an (infinite) abelian extension of K and N is an ideal of K divisible by p and by all primes where T is ramified, such that (i) K contains K(q) for every prime q of K not dividing N, (ii) K contains an extension K∞ of K such that Gal(K∞/K) ≅ Z^d_p for some d ≥ 1, no (finite) prime of K splits completely in K∞/K.",
      "match": "The hypotheses verified."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter II, Remark 1.2, printed p. 22 (PDF p. 32)",
-     "excerpt": "The condition that no finite prime splits completely in K∞/K is satisfied, for example, if K∞ contains the cyclotomic Zp-extension of K.",
      "match": "Condition (ii) for ℚ_∞."
     }
    ],
@@ -1089,13 +1070,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "For every extension F of Q, as in Example I.2.1 Kummer theory shows that H1(F, Zp(1)) = lim←n H1(F, µpn) = lim←n F×/(F×)^{pn} = (F×)ˆ (1) where (F×)ˆ is the p-adic completion of F×.",
      "match": "The identification used to view c̃ as cohomology classes."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, (10.5)–(10.7), printed p. 52 (arXiv v2)",
-     "excerpt": "Take a ∈ F× and take any b ∈ Q̄× such that b^{p^n} = a. Then c_a : σ ↦ σ(b)/b defines a 1-cocycle on GF and it is a coboundary if and only if a is a p^n-th power in F×",
      "match": "The finite-level Kummer map, as in TauCeti.kummerMap_eq_kummerCocycleClass."
     }
    ],
@@ -1193,13 +1172,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
-     "excerpt": "The distribution relation (2) shows that the collection {c̃m∞, c̃m} is an Euler system for (Zp(1), Qab, p) (see Definition II.1.1 and Remark II.1.3), since for every prime ℓ ≠ p, det(1 − Fr_ℓ^{−1}x|Zp(1)∗) = det(1 − Fr_ℓ^{−1}x|Zp) = 1 − x.",
      "match": "The theorem."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, Definition 10.16, printed p. 53 (arXiv v2)",
-     "excerpt": "cores_{Q(µmℓ)/Q(µm)}(z_{mℓ}) = z_m if ℓ = p, P_ℓ(V∗(1), σ_ℓ^{−1})z_m if ℓ ≠ p",
      "match": "The same Euler factor in RJW's convention."
     }
    ],
@@ -1242,13 +1219,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24)",
-     "excerpt": "Define the χ-component of B, B^χ = {b ∈ B̂ ⊗_{Zp} O : γb = χ(γ)b for every γ ∈ ∆}. We fix once and for all an O-generator of Oχ−1, and with this choice we get an isomorphism B^χ = (B̂ ⊗ Oχ−1)^∆.",
      "match": "The definition."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §6.2, printed p. 15 (PDF p. 25)",
-     "excerpt": "Since [L : K] is prime to p, taking χ-components is an exact functor and B̂ ⊗_{Zp} O = ⊕χB^χ.",
      "match": "The exactness and decomposition API."
     }
    ],
@@ -1349,13 +1324,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.2, display (4), printed p. 35 (PDF p. 45)",
-     "excerpt": "The Euler system c̃ for Zp(1) constructed in §2.1 gives rise (by Proposition II.4.2) to an Euler system c = c̃^{χ−1} for (T∗, Qab, pf). By Lemma II.4.3, the image of cQ in L× ⊗̂ O under (3) is ∏_{δ∈Gal(Q(µf)+/Q)} (δc̃f)^{χ−1(δ)} = ∏_{δ∈Gal(Q(µfp)/Q)} (ζ^δ_{fp} − 1)^{χ−1(δ)}. (4)",
      "match": "The twisted products are chiSum."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
-     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
      "match": "ξ_{n,χ} is a twisted product."
     }
    ],
@@ -1439,7 +1412,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
-     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
      "match": "The algebra behind (6), with φ the Frobenius of p."
     }
    ],
@@ -1475,7 +1447,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
-     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
      "match": "Since χ(p) ≠ 1 and χ has order prime to p, 1 − χ^{−1}(p) ∈ O×."
     }
    ],
@@ -1515,13 +1486,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
-     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
      "match": "The definition of ξ_{n,χ} and C_{n,χ}."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.2, printed pp. 34–35 (PDF pp. 44–45)",
-     "excerpt": "we fix a character χ : GQ → O× of finite, prime-to-p order, and we assume now that χ is even and nontrivial. Let f denote the conductor of χ, and recall that L is the field cut out by χ.",
      "match": "The standing hypotheses."
     }
    ],
@@ -1615,7 +1584,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
-     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
      "match": "Rubin places ξ_{n,χ} in E^χ_n."
     }
    ],
@@ -1653,7 +1621,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
-     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
      "match": "The definition."
     }
    ],
@@ -1745,13 +1712,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.2, display (4), printed p. 35 (PDF p. 45)",
-     "excerpt": "The Euler system c̃ for Zp(1) constructed in §2.1 gives rise (by Proposition II.4.2) to an Euler system c = c̃^{χ−1} for (T∗, Qab, pf). By Lemma II.4.3, the image of cQ in L× ⊗̂ O under (3) is ∏_{δ∈Gal(Q(µf)+/Q)} (δc̃f)^{χ−1(δ)} = ∏_{δ∈Gal(Q(µfp)/Q)} (ζ^δ_{fp} − 1)^{χ−1(δ)}. (4)",
      "match": "The theorem."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, §2.2, display (3), printed p. 35 (PDF p. 45)",
-     "excerpt": "The restriction map gives an isomorphism (using (1)) H1(Qn, T∗) ≅ H1(Ln, T∗)^∆ ≅ (L×n ⊗̂ Oχ−1)^∆ ≅ (L×n)^χ ⊂ L×n ⊗̂ O",
      "match": "The dictionary (3), requested from SelmerIwasawaCohomology:L0."
     }
    ],
@@ -1792,7 +1757,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
-     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
      "match": "Equation (6)."
     }
    ],
@@ -1833,7 +1797,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
-     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
      "match": "The last sentence."
     }
    ],
@@ -1873,19 +1836,16 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
-     "excerpt": "Since rankO T ∗ = 1, Hyp(Q, T ∗ ) is satisfied with",
      "match": "Hyp(ℚ, T*) with τ = 1."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
-     "excerpt": "Lemma 1.1 shows that the error terms",
      "match": "The vanishing of both error terms."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Lemma 1.1, printed p. 33",
-     "excerpt": "If χ is not congruent to the cyclotomic character modulo the maximal ideal",
      "match": "Lemma III.1.1(ii)."
     }
    ],
@@ -1927,13 +1887,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
-     "excerpt": "Dirichlet unit theorem",
      "match": "E_L^χ free of rank one."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter II, Definition 2.1, printed p. 24",
-     "excerpt": "i.e., pindO (c) is the largest power of the maximal ideal by which cK can be divided",
      "match": "The index of divisibility."
     }
    ],
@@ -1972,13 +1930,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
-     "excerpt": "Therefore Hf1 (Qp , W ) = 0 and",
      "match": "The local computation at p."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, Proposition 6.1 and its proof, printed p. 14",
-     "excerpt": "Hom(Gal(HL /L), Dχ )∆ = Hom(AL , Dχ )∆",
      "match": "The Selmer group is the dual of the χ-part of the class group."
     }
    ],
@@ -2020,13 +1976,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, the paragraph before Theorem 2.3, printed p. 35",
-     "excerpt": "The following theorem (actually, its Corollary 2.4) was first proved by Mazur",
      "match": "Attribution."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.3, printed p. 36",
-     "excerpt": "the second equality coming from (5). This completes the proof.",
      "match": "The end of the proof."
     }
    ],
@@ -2067,13 +2021,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Corollary 2.4 and its proof, printed p. 36",
-     "excerpt": "Proof. See for example [Ru3] Theorem 4.2.",
      "match": "The proof is cited, not given."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Corollary 2.4, printed p. 36",
-     "excerpt": "A well-known argument using the analytic class number formula takes Theorem",
      "match": "The argument, stated for all such characters."
     }
    ],
@@ -2113,19 +2065,16 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter II §3, Hypothesis Hyp(K∞/K), printed p. 27",
-     "excerpt": "In particular it is satisfied if K = Q.",
      "match": "Hyp(ℚ_∞/ℚ)."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter II §3, Theorem 3.3, printed p. 28",
-     "excerpt": "and T satisfies hypotheses Hyp(K∞ , T ) and Hyp(K∞ /K). Then char(X∞ ) divides indΛ (c).",
      "match": "The imported theorem."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
-     "excerpt": "Hypotheses Hyp(Q∞ , T ∗ ) are satisfied with τ = 1",
      "match": "Its application to T*."
     }
    ],
@@ -2168,13 +2117,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Proposition 2.6, printed p. 37",
-     "excerpt": "There is a Λ-module injection",
      "match": "Part (iii)."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Proposition 2.6, printed p. 38",
-     "excerpt": "Clearly Zp [∆/∆p ]χ 6= 0 if and only if χ is trivial on",
      "match": "Part (ii)."
     }
    ],
@@ -2213,13 +2160,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter II, Definition 3.1, printed p. 28",
-     "excerpt": "The ideal indΛ (c) is the analogue for Λ",
      "match": "The Λ-index."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
-     "excerpt": "Combined with the diagram of Proposition 2.6(i), it follows easily",
      "match": "The index computation."
     }
    ],
@@ -2263,13 +2208,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
-     "excerpt": "so to prove the theorem we need only show that char(Aχ∞ ) is not divisible by J",
      "match": "The reduction to J ∤ char(A_∞^χ)."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, proof of Theorem 2.7, printed p. 38",
-     "excerpt": "Therefore class field theory shows that L has no Z2p -extensions",
      "match": "The Leopoldt step."
     }
    ],
@@ -2313,19 +2256,16 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Proposition 13.13 and its proof, p. 68 (arXiv v2)",
-     "excerpt": "Global class field theory (see [Was97, Cor. 13.6]) gives a short exact sequence",
      "match": "The finite-level sequence."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Proof of Proposition 13.13, p. 68 (arXiv v2)",
-     "excerpt": "Taking the inverse limit over n gives the result.",
      "match": "The limit step, repaired by compactness (E6)."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Corollary 13.14 and its proof, p. 68 (arXiv v2)",
-     "excerpt": "The fundamental theorem of Galois theory yields a short exact sequence",
      "match": "The four-term sequence; the quotient orientation is corrected (E5)."
     }
    ],
@@ -2365,7 +2305,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Theorem 7.1(ii), p. 40 (arXiv v2)",
-     "excerpt": "The function ζp,p−1 has a simple pole at s = 1 with residue",
      "match": "The residue."
     }
    ],
@@ -2405,7 +2344,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Corollary 2.8 and its proof, printed p. 38",
-     "excerpt": "As with Corollary 2.4, this follows from Theorem 2.7 and the analytic",
      "match": "The argument, cited."
     }
    ],
@@ -2449,19 +2387,16 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Theorem 13.8, p. 67 (arXiv v2)",
-     "excerpt": "is a finitely generated torsion",
      "match": "The statement."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Theorem 13.11, p. 67 (arXiv v2)",
-     "excerpt": "If p is a Vandiver prime, we have an isomorphism",
      "match": "The Vandiver case, not asserted here."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter III, Theorem 2.10 and its proof, printed p. 39",
-     "excerpt": "Class field theory gives an exact sequence",
      "match": "The χ-component form."
     }
    ],
@@ -2540,13 +2475,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "Introduction, the Definition and properties (a)–(f), p. 451",
-     "excerpt": "The functor M }—> M^ is right exact; if | A | is prime to p, it is",
      "match": "(a)."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "Introduction, property (g), p. 451",
-     "excerpt": "We need one last observation:",
      "match": "The p = 2 phenomenon."
     }
    ],
@@ -2597,13 +2530,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, Theorem 2.13 and Corollary 2.14, p. 465",
-     "excerpt": "These t\\vo modules have the same characteristic",
      "match": "The corollary."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Corollary 2.14, p. 465",
-     "excerpt": "From Prop. 2.10, one gets an exact sequence",
      "match": "The sequence with the outer terms."
     }
    ],
@@ -2652,49 +2583,41 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Theorem 3.1, p. 468",
-     "excerpt": "For every even character p + 1 of Ko, the",
      "match": "The statement."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Remark b) after Theorem 3.1, p. 468",
-     "excerpt": "b) For p = 1, one can show that",
      "match": "The trivial character."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, before Theorem 3.7, p. 471",
-     "excerpt": "The next step (application of Cebotarev's Theorem) already necessitates",
      "match": "The p = 2 modification."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, proof of Theorem 3.7, p. 472",
-     "excerpt": "For odd p, this is just Thm. 3.1 in Rubin [19].",
      "match": "Odd p is Rubin's."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, the proof strategy, p. 470",
-     "excerpt": "As the proof wears on,",
      "match": "The accumulated factors and their removal."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, the induction, p. 480",
-     "excerpt": "We shall use Thm. 3.7 to construct inductively prime ideals",
      "match": "The induction."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, the end of the proof, p. 481",
-     "excerpt": "From this it follows as in Rubin [19] that g divides",
      "match": "g | ηH_χ."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, the end of the proof, p. 482",
-     "excerpt": "From this one easily finds that g divides",
      "match": "Removing p and γ − 1."
     }
    ],
@@ -2732,13 +2655,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Lemma 3.3, p. 469",
-     "excerpt": "X is quasi-isomorphic to Hom^(A^,Q/Z) over A^.",
      "match": "Lemma 3.3."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Proposition 3.4, p. 469",
-     "excerpt": "Next, one uses the Kummer pairing, as in Greenberg [9]",
      "match": "Proposition 3.4."
     }
    ],
@@ -2782,13 +2703,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§1, the Main Conjecture (= Theorem 3.2), p. 452",
-     "excerpt": "The correct formulation for the main",
      "match": "The statement including p = 2."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, proof of 3.1 ⇒ 3.2, p. 470",
-     "excerpt": "From the analytic class",
      "match": "The last step."
     }
    ],
@@ -2832,13 +2751,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Lemma 4.2, p. 484",
-     "excerpt": "Fix a norm-coherent sequence of divisors",
      "match": "The start of the proof."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Corollary 4.3, p. 485",
-     "excerpt": "lemma 4.2, Q must be zero",
      "match": "The end of the proof of 4.3."
     }
    ],
@@ -2881,13 +2798,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, Convention and Remark before Lemma 4.4, p. 486",
-     "excerpt": "Since Ao has odd order, the functor",
      "match": "ξ-parts are exact because |Δ_0| is odd."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Proposition 4.5, p. 487",
-     "excerpt": "so-called trivial zero",
      "match": "T divides ½G_2(T, χ̌)."
     }
    ],
@@ -2926,13 +2841,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, before Proposition 4.7, p. 488",
-     "excerpt": "Note that N(F) is an epimorphic image of",
      "match": "N(F) is a quotient of (ℤ_2^×)^Δ."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Proposition 4.7(a), p. 489",
-     "excerpt": "Now one has as usual (cf. Washington [23] Lemma 13.14):",
      "match": "The second exact sequence."
     }
    ],
@@ -3034,19 +2947,16 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, definitions before (G1), p. 490",
-     "excerpt": "In order to process the quantity",
      "match": "The definitions of W, M, μ, λ."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, the Gauss sum, p. 490",
-     "excerpt": "Then g e F",
      "match": "Greither's claim g ∈ F, corrected here (source issue E5)."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, (G2), p. 491",
-     "excerpt": "On the other hand, we have from the Gross-Koblitz relation and the",
      "match": "The derivation of (G2)."
     }
    ],
@@ -3084,13 +2994,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, reduction to Theorem 4.6, p. 488",
-     "excerpt": "it therefore suffices to show the following",
      "match": "Theorem 4.6 suffices for Theorem 4.1."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Theorem 4.6, p. 492",
-     "excerpt": "precisely the formula of 4.6",
      "match": "The end of the proof."
     }
    ],
@@ -3134,19 +3042,16 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, before the proof of Theorem 4.1, p. 482",
-     "excerpt": "For simplicity (although this is unnecessary)",
      "match": "The proof is written for p = 2."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Theorem 4.1, p. 483",
-     "excerpt": "The former is relatively easy, and the latter rather difficult.",
      "match": "The two cases χ(2) ≠ 1 and χ(2) = 1."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, the case χ(2) ≠ 1, p. 484",
-     "excerpt": "Hence we get from a well-known lemma",
      "match": "The coinvariant lemma."
     }
    ],
@@ -3188,19 +3093,16 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§1, Remark a) after Theorem A, p. 453",
-     "excerpt": "is then a corollary of Thm. A that the",
      "match": "The Stickelberger consequence."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§1, Remark b) after Theorem A, p. 453",
-     "excerpt": "We used that QL = 1.",
      "match": "The 2-power-order character; the printed formula lacks the exponent d(χ_2) (source issue E4)."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§1, Theorem B implies Theorem A, p. 454",
-     "excerpt": "From this one sees that Thm. B implies Thm. A.",
      "match": "The deduction."
     }
    ],
@@ -3248,13 +3150,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Theorem 4.11, p. 493",
-     "excerpt": "From Iwasawa theory we get",
      "match": "The coinvariant step."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Theorem 4.11, p. 494",
-     "excerpt": "By the p-adic class number formula for F, and L",
      "match": "The p-adic class number formula."
     }
    ],
@@ -3291,13 +3191,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Lemma 4.13, p. 495",
-     "excerpt": "One naturally takes a to be the map induced by",
      "match": "The maps α and β."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Lemma 4.13, p. 495",
-     "excerpt": "The proof of this uses the",
      "match": "The use of Leopoldt's conjecture."
     }
    ],
@@ -3335,19 +3233,16 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§1, Theorem C, p. 454",
-     "excerpt": "Theorem A has a counterpart for real fields.",
      "match": "Theorem C with χ|Δ_0 ≠ ε."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, Theorem 4.12, p. 494",
-     "excerpt": "This theorem has two consequences. First, we get a real analog for",
      "match": "Theorem 4.12; its printed hypothesis omits χ|Δ_0 ≠ ε (source issue E9)."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Theorem 4.12, p. 494",
-     "excerpt": "By Solomon [22] cor. 11.1, we may",
      "match": "The order of the χ-part."
     }
    ],
@@ -3392,19 +3287,16 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, Theorem 4.14, p. 495",
-     "excerpt": "where R = Z[A] and U are as in Sinnott [20].",
      "match": "Theorem 4.14; its printed factor 2^{d(χ′)|Δ_p|} is corrected for odd p (source issue E10)."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Corollary 4.15, p. 496",
-     "excerpt": "Assuming Thm. 4.14, we give the proof of the corollary",
      "match": "Corollary 4.15."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§4, proof of Theorem 4.14, p. 497",
-     "excerpt": "the L-functions used in loc. cit. are replaced by p-adic L-functions",
      "match": "Sinnott's §4 with p-adic L-functions."
     }
    ],
@@ -3447,13 +3339,11 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Remark 13.9, p. 67 (arXiv v2)",
-     "excerpt": "For a formulation of the Main Conjecture for odd Dirichlet characters, see [HK03].",
      "match": "RJW leave the odd form to the literature."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§1, the Main Conjecture (= Theorem 3.2), p. 452",
-     "excerpt": "The correct formulation for the main",
      "match": "The odd form; for odd p the factor ½ is a unit."
     }
    ],
@@ -3499,31 +3389,26 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.1, Definition 13.19, p. 70 (arXiv v2)",
-     "excerpt": "approach assumes that the representation V is p-ordinary",
      "match": "Greenberg's local condition."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.2, p. 70 (arXiv v2)",
-     "excerpt": "We follow [Gre89, §1].",
      "match": "X_∞ as a Greenberg Selmer group."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.2(3), p. 71 (arXiv v2)",
-     "excerpt": "Thus if n ≥ 1, the local condition at p is empty, while for n ≥ 0 the local condition",
      "match": "The local condition at p; 'n ≥ 0' should read n ≤ 0 (source issue E12)."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Conjecture 13.21 and Example 13.22, p. 71 (arXiv v2)",
-     "excerpt": "The following assertions hold.",
      "match": "Greenberg's conjecture and the case of even n."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "Remark 13.23, p. 72 (arXiv v2)",
-     "excerpt": "so the case n = 0 is not covered.",
      "match": "n = 0; its gamma-factor identity is misprinted (source issue E13)."
     }
    ],
@@ -3564,13 +3449,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, the setting, p. 455",
-     "excerpt": "Let p be a prime number, and F/Q abelian such that p does not",
      "match": "The definitions of 𝒰_n, U_n, 𝒞_n, C_n."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, Lemma 2.2, p. 456",
-     "excerpt": "Lemma 2.1 is an instance of the more general",
      "match": "Lemma 2.2."
     }
    ],
@@ -3612,13 +3495,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, Lemma 2.3, p. 456",
-     "excerpt": "We need a better understanding of the projective limit of the circular",
      "match": "Lemma 2.3."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Lemma 2.3, p. 457",
-     "excerpt": "After these remarks, we can now prove",
      "match": "The inclusion ⊆."
     }
    ],
@@ -3660,13 +3541,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, before Theorem 2.4, p. 458",
-     "excerpt": "It is now our objective to establish a sort of isomorphism of",
      "match": "The set-up with 𝒪 unramified."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Theorem 2.4, p. 459",
-     "excerpt": "One easily reduces to the case g = 1",
      "match": "The translation from Coleman's Theorem 2.2."
     }
    ],
@@ -3705,13 +3584,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Theorem 2.8, p. 462",
-     "excerpt": "This is Corollary 17 in Coleman",
      "match": "Lemma 2.9."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, Proposition 2.10, p. 462",
-     "excerpt": "From Thm. 2.8, Cor. 2.7, and Lemma 2.9 we now may deduce",
      "match": "Proposition 2.10."
     }
    ],
@@ -3751,7 +3628,6 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, before Lemma 2.11, p. 463",
-     "excerpt": "As usual, the next step is to determine the",
      "match": "Working over ℚ_p, one character at a time."
     }
    ],
@@ -3796,19 +3672,16 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Theorem 2.13, p. 466",
-     "excerpt": "Let m be the conductor of",
      "match": "The reduction to one generator."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Theorem 2.13, right-hand side, p. 467",
-     "excerpt": "We are ready to treat the right hand side, RHS for short.",
      "match": "The Stickelberger computation; Lemma 2.15(b) is misprinted (source issue E15)."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, Remark after Theorem 2.13, p. 468",
-     "excerpt": "It appears likely that there is a version of Thm. 2.13",
      "match": "Greither's remark that an integral version is expected."
     }
    ],
@@ -3851,25 +3724,21 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Rubin's maps and Euler systems, p. 471",
-     "excerpt": "We point out the probably well-known fact that every",
      "match": "Every circular number starts an Euler system."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, proof of Theorem 3.7, p. 472",
-     "excerpt": "Consider the following fields where H is the 2-class",
      "match": "The fields K′ = K(μ_M), K″ = K′(W^{1/M}), H."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, proof of Theorem 3.7, p. 473",
-     "excerpt": "Now the core of the argument runs as follows",
      "match": "The cartesian diagram and the choice of δ."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Corollary 3.8, p. 474",
-     "excerpt": "It is convenient to restate 3.7 in the",
      "match": "Corollary 3.8."
     }
    ],
@@ -3912,13 +3781,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Lemmas 3.9–3.10, p. 475",
-     "excerpt": "We need two lemmas providing the link with the finite levels.",
      "match": "Lemmas 3.9 and 3.10."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Lemma 3.11 and the proof of 3.10, p. 477",
-     "excerpt": "Back to the proof of 3.10",
      "match": "The proof of Lemma 3.10."
     }
    ],
@@ -3956,13 +3823,11 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, before Lemma 3.12, p. 477",
-     "excerpt": "It is modeled after",
      "match": "After Rubin's Lemma 7.1."
     },
     {
      "sourceId": "GREITHER-1992",
      "locator": "§3, Lemma 3.13, p. 479",
-     "excerpt": "This can always be achieved at the cost of a factor",
      "match": "The factor |Δ| from Maschke."
     }
    ],
@@ -4252,7 +4117,7 @@
    "source": "RUBIN-ES",
    "kind": "error",
    "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44); also Remark 2.1 for p = 2",
-   "printed": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+   "printed": "The source gives, for each m ≥ 1 and each prime ℓ, N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1. Here Frℓ denotes the Frobenius attached to ℓ in Gal(Q(µm)/Q).",
    "correction": "N(ζ_{mℓ} − 1) = (−1)^{ℓ+1}(ζ_m − 1) if ℓ ∣ m and (−1)^{ℓ−1}(ζ_m − 1)^{1 − Fr_ℓ^{−1}} if ℓ ∤ m, m > 1. Equivalently, in the 1 − ζ convention: N(1 − ζ_{mℓ}) = 1 − ζ_m, (1 − ζ_m)^{1 − Fr_ℓ^{−1}}, and ℓ for m = 1, with no sign. The printed formula holds for odd ℓ.",
    "reason": "N(ζ − 1) = (−1)^d N(1 − ζ) with d = [ℚ(μ_{mℓ}) : ℚ(μ_m)] = ℓ or ℓ − 1, and the 1 − ζ form has no sign. For ℓ = m = 2: N_{ℚ(i)/ℚ}(i − 1) = (i − 1)(−i − 1) = 2, while ζ_2 − 1 = −2. For ℓ = 2, m = 3: ℚ(μ_6) = ℚ(μ_3) and ζ_6 − 1 = ζ_3, while (ζ_3 − 1)^{1 − Fr_2^{−1}} = −ζ_3. A numerical check over m < 40 and ℓ ≤ 13 finds failures exactly at ℓ = 2. Remark 2.1's 'c̃_{m∞} = ζ_m − 1 for p ∣ m' inherits the sign at p = 2. The Euler-system conclusions are unaffected: for odd p, −1 is a p^N-th power, so the sign vanishes in H¹(F, ℤ_p(1)), and ℓ = 2 occurs only as an auxiliary prime.",
    "affects": "nothing",
@@ -4268,7 +4133,7 @@
    "source": "RJW-PADIC-L",
    "kind": "error",
    "locator": "§10.5, printed p. 52 (arXiv v2), the definition of c_m and its norm relations",
-   "printed": "Let m = Dp^n, n ≥ 1, and define c_m := (ξ_m^{−1} − 1)/(ξ_m − 1) ∈ O^×_{Q(µm)}, a generalisation of the cyclotomic units c_n(−1) (where D = 1) from Example 10.2. One can show that these elements satisfy N_{Q(µmℓ)/Q(µm)}(c_{mℓ}) = c_m if ℓ | m, (1 − ℓ^{−1})c_m if ℓ ∤ m.",
+   "printed": "With m = Dp^n, n ≥ 1, the source sets c_m := (ξ_m^{−1} − 1)/(ξ_m − 1) ∈ O^×_{Q(µm)}, extending the units c_n(−1) of Example 10.2 for D = 1. It claims N_{Q(µmℓ)/Q(µm)}(c_{mℓ}) = c_m if ℓ | m, (1 − ℓ^{−1})c_m if ℓ ∤ m.",
    "correction": "Use c_m(a) = (ξ_m^a − 1)/(ξ_m − 1) for a fixed integer a ∉ {0, ±1}, over the m prime to a (the primes dividing a join Σ), or Rubin's unsmoothed N_{ℚ(μ_{mp})/ℚ(μ_m)}(1 − ξ_{mp}). For ℓ ∤ m (and ℓ ∤ a) the relation is N(c_{mℓ}(a)) = c_m(a)^{1 − σ_ℓ^{−1}}, σ_ℓ the Frobenius of ℓ in Gal(ℚ(μ_m)/ℚ).",
    "reason": "ξ^{−1} − 1 = −ξ^{−1}(ξ − 1), so c_m = −ξ_m^{−1} is a root of unity and z_m = δ(c_m) is torsion; the family is zero after ⊗ ℚ_p and carries no arithmetic. Example 10.2 admits a = −1 among 'a prime to p', which is exactly this degenerate choice. The relation '(1 − ℓ^{−1})c_m' is not defined in ℚ(μ_m)^×; the operator meant is 1 − σ_ℓ^{−1}, as in the corestriction relation and Definition 10.16 that follow.",
    "affects": "a stated result",
@@ -4284,7 +4149,7 @@
    "source": "RUBIN-ES",
    "kind": "misprint",
    "locator": "Chapter III, proof of Theorem 2.10, printed p. 39 (author draft of the 1999 AWS notes)",
-   "printed": "Applying Corollary 2.8 and Theorem 2.9(ii) proves the corollary.",
+   "printed": "The source says the corollary follows from Corollary 2.8 together with Theorem 2.9(ii).",
    "correction": "Applying Corollary 2.8 and Theorem 2.9(ii) proves the theorem.",
    "reason": "The statement being proved is Theorem 2.10; no corollary follows it. The exact sequence 0 → E_∞^χ/C_{∞,χ} → U_∞^χ/C_{∞,χ} → Z_∞^χ → A_∞^χ → 0, with char(A_∞^χ) = char(E_∞^χ/C_{∞,χ}) (Corollary 2.8) and char(U_∞^χ/C_{∞,χ}) = L_χΛ (Theorem 2.9(ii)), gives char(Z_∞^χ) = L_χΛ, which is Theorem 2.10.",
    "affects": "nothing",
@@ -4314,7 +4179,7 @@
    "source": "GREITHER-1992",
    "kind": "error",
    "locator": "§4, proof of Theorem 4.6, definition of the Gauss sum g, p. 490",
-   "printed": "Then g ∈ F. (This is an instance of the fact that for p arbitrary, g^{p−1} is in the decomposition field of p in ℚ(m).)",
+   "printed": "The source concludes g ∈ F, citing the general assertion that, for arbitrary p, g^{p−1} belongs to the decomposition field associated with p in ℚ(m).",
    "correction": "g lies in the decomposition field D of 2 in ℚ(μ_m), which contains F but can be larger. Replace g by g_F = N_{D/F}(g) ∈ F. The subsequent formulas μ(g) = m·Σ_δ Σ_{b mod m, σ_b ↦ δ}⟨b/m⟩·𝔭_{δ^{−1}} (up to the factor m, see E6) and λ_χ(g_χ) = Σ_{(b,m)=1} χ^{−1}(b)·log₂Γ₂(⟨b/m⟩)·(𝔭)_χ are the ones for g_F, so (G1), (G2) and Theorem 4.6 hold with g_F.",
    "reason": "m = 217 = 7·31, χ = (quadratic character mod 7)·(cubic character mod 31): χ is odd, χ(2) = 1, and its fixed field F is cyclic of degree 6 and conductor 217 with 2 totally split, but D has degree 12. σ₁₂₀ fixes F (120 ≡ 1 mod 7, 120 ≡ 3³ mod 31). By Stickelberger, v_𝔓(g) = s(151) = 5 and v_{σ₁₂₀^{−1}𝔓}(g) = s(151·120 mod 32767) = 6 (binary digit sums, 2^{15} − 1 = 217·151), so σ₁₂₀(g) ≠ g. A numerical evaluation over 𝔽_{2^{15}} confirms |g(η^{−1}) − g(η^{−120})| ≈ 66, while g(η^{−1}) = g(η^{−2}).",
    "affects": "the proof",
@@ -4346,7 +4211,7 @@
    "source": "GREITHER-1992",
    "kind": "misprint",
    "locator": "§4, derivation of (G2), p. 491",
-   "printed": "This in turn equals log₂(u)G′₂(0, χ̌)(𝔭_χ) by the formula L′₂(s, χ̌) = G₂(u^s − 1, χ̌)",
+   "printed": "The source identifies this expression with log₂(u)G′₂(0, χ̌)(𝔭_χ), invoking L′₂(s, χ̌) = G₂(u^s − 1, χ̌).",
    "correction": "by the formula L₂(s, χ̌) = G₂(u^s − 1, χ̌)",
    "reason": "Differentiating L₂(s, χ̌) = G₂(u^s − 1, χ̌) at s = 0 gives L′₂(0, χ̌) = log₂(u)·G′₂(0, χ̌), the step made. With the printed L′₂ on the left, s = 0 would give L′₂(0, χ̌) = G₂(0, χ̌), which is 0 in this case (the trivial zero).",
    "affects": "nothing",
@@ -4378,7 +4243,7 @@
    "source": "GREITHER-1992",
    "kind": "misprint",
    "locator": "§4, Theorem 4.12 (= Theorem C), p. 494",
-   "printed": "Then for all characters χ of Δ such that χ|Δ_p is faithful: |A′(F)_χ| = |½L_p(1, χ)|_p^{d(χ)}.",
+   "printed": "For every character χ of Δ whose restriction χ|Δ_p is faithful, the source asserts |A′(F)_χ| = |½L_p(1, χ)|_p^{d(χ)}.",
    "correction": "Then for all characters χ of Δ such that χ|Δ_0 ≠ ε and χ|Δ_p is faithful, as in Theorem C (p. 454).",
    "reason": "The proof applies Theorem 4.11, which requires χ_0 = χ|Δ_0 ≠ 1. Without it the statement fails: for Δ_p = 1 and χ = 1 (faithful on the trivial group), A′(F)_χ has ℤ_p-rank one (the cyclotomic ℤ_p-extension), and L_p(s, 1) has a pole at s = 1.",
    "affects": "nothing",
@@ -4410,7 +4275,7 @@
    "source": "GREITHER-1992",
    "kind": "error",
    "locator": "§4, proof of Lemma 4.13, p. 495",
-   "printed": "Since there are no p-power roots of unity in F, (y_σ) is again a cocycle.",
+   "printed": "The source concludes that (y_σ) remains a cocycle because F contains no p-power roots of unity.",
    "correction": "Since E_{(p^ν)}(F) contains no nontrivial p-power root of unity (for p = 2 because ν ≥ N ≥ 2 and −1 ≢ 1 mod 4), (y_σ) is again a cocycle.",
    "reason": "The lemma allows p = 2, and every number field contains the 2-power root of unity −1, so the sentence is false for p = 2. The step only needs p^c-th roots to be unique inside E_{(p^ν)}(F), which holds because −1 ∉ E_{(2^ν)}(F) for ν ≥ 2; Greither's choice N ≥ 2 provides this.",
    "affects": "nothing",
@@ -4426,7 +4291,7 @@
    "source": "RJW-PADIC-L",
    "kind": "misprint",
    "locator": "§13.5.2, item (3), p. 71 (arXiv v2); p. 197 in Essential Number Theory 4 (2025)",
-   "printed": "Thus if n ≥ 1, the local condition at p is empty, while for n ≥ 0 the local condition at p means σ is also unramified at p",
+   "printed": "The source describes the condition at p as empty for n ≥ 1, and says that for n ≥ 0 it requires σ to be unramified at p as well.",
    "correction": "… while for n ≤ 0 the local condition at p means σ is also unramified at p",
    "reason": "The display just above gives L^Gr_{v_p} = H¹(K_∞^+, W_n) for n ≥ 1 and H¹_ur(K_∞^+, W_n) for n ≤ 0, as Definition 13.19 gives with Fil¹ℚ_p(n) = ℚ_p(n) for n ≥ 1 and 0 for n ≤ 0. The next display also uses n ≤ 0. As printed, n ≥ 1 would satisfy both clauses.",
    "affects": "nothing",
@@ -4442,7 +4307,7 @@
    "source": "RJW-PADIC-L",
    "kind": "misprint",
    "locator": "Remark 13.23, pp. 71–72 (arXiv v2); p. 198 in Essential Number Theory 4 (2025)",
-   "printed": "here ℚ_p^∨ = ℚ_p(1), so L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, 1 − s), hence r_{ℚ_p^∨} = 1",
+   "printed": "The source uses ℚ_p^∨ = ℚ_p(1) to obtain L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, 1 − s), and concludes r_{ℚ_p^∨} = 1.",
    "correction": "L_∞(ℚ_p^∨, s) = L_∞(ℚ_p, s − 1)",
    "reason": "With the notes' L_∞(ℚ_p(n), s) = π^{−(s−n)/2}Γ((s−n)/2) (p. 71), n = 1 gives π^{−(s−1)/2}Γ((s−1)/2) = L_∞(ℚ_p, s − 1). L_∞(ℚ_p, 1 − s) = π^{−(1−s)/2}Γ((1−s)/2) is a different function. Both have a pole at s = 1, so r_{ℚ_p^∨} = 1 stands.",
    "affects": "nothing",
@@ -4458,7 +4323,7 @@
    "source": "GREITHER-1992",
    "kind": "misprint",
    "locator": "§2, Lemma 2.11, p. 463 (Numdam scan of the published article)",
-   "printed": "Assume χ is a character of Δ with conductor m (a divisor of cond(F)), and write F′ = F ∩ ℚ(M).",
+   "printed": "The source takes a character χ of Δ having conductor m, with m dividing cond(F), and sets F′ = F ∩ ℚ(M).",
    "correction": "… and write F′ = F ∩ ℚ(m).",
    "reason": "M is not defined anywhere in §2. Part (a) uses y_χ = (Tr_{ℚ(m)/F′}(ζ_m))_χ, which needs F′ ⊆ ℚ(m), and the proof takes F′ to contain F^{ker χ} ⊆ ℚ(m). Checked on the page image.",
    "affects": "nothing",
@@ -4490,7 +4355,7 @@
    "source": "GREITHER-1992",
    "kind": "misprint",
    "locator": "§2, the definition of R (p. 460) against Lemma 2.11(b), Corollary 2.12 (pp. 463–464) and the notation before Theorem 2.13 (p. 465)",
-   "printed": "DEFINITION. — R = 𝒪[[Γ′]] (p. 460); … V_χ(C_∞) = V_χ(R[Δ])·(η_m)_χ (Lemma 2.11(b)); … Then Γ′ = Φ × Γ and R ≅ ℤ_p[[Γ]][Φ] ≅ ℤ_p[[T]][Φ] (p. 465)",
+   "printed": "The source defines R = 𝒪[[Γ′]] on p. 460. Lemma 2.11(b) gives V_χ(C_∞) = V_χ(R[Δ])·(η_m)_χ. On p. 465 it writes Γ′ = Φ × Γ and R ≅ ℤ_p[[Γ]][Φ] ≅ ℤ_p[[T]][Φ].",
    "correction": "From Lemma 2.11 on, R stands for ℤ_p[[Γ′]] ≅ ℤ_p[[Γ]][Φ]; the ring 𝒪[[Γ′]] of p. 460 is ℤ_p[[Γ′]] ⊗ 𝒪.",
    "reason": "In Lemma 2.11(b) V_χ(R[Δ]) must act on V_χ(C_∞), and 𝒪 does not act on the circular units. On p. 465 R ≅ ℤ_p[[Γ]][Φ] holds only for R = ℤ_p[[Γ′]]. Theorem 2.6 (𝒱 = R·(1 − X)) needs R = 𝒪[[Γ′]], or equivalently the ℤ_p[[Γ′]]-span of 𝒪·(1 − X), which is how the proof of Corollary 2.12 uses it.",
    "affects": "nothing",
@@ -4506,7 +4371,7 @@
    "source": "GREITHER-1992",
    "kind": "misprint",
    "locator": "§3, proof of Theorem 3.1, the module N, p. 480 (Numdam scan of the published article)",
-   "printed": "It follows that the Λ_{nχ}-module N = (γ − 1)^{2^t}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]})) is cyclic and annihilated by dH_χ.",
+   "printed": "The source concludes that N = (γ − 1)^{2^t}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]})) is a cyclic Λ_{nχ}-module killed by dH_χ.",
    "correction": "N = (γ − 1)^{2^{i−1}}(𝒥_{ℓ_{i−1}}/(M, (κ_{r_{i−1}})_{[ℓ_{i−1}]}))",
    "reason": "No t is defined in §3; §2's t ∈ {1, 2} does not fit. N is the module in hypothesis (iii) of Lemma 3.12, applied on p. 481 with η = (γ − 1)^{2^{i−1}}. The preceding line shows that v_{λ_{i−1}}(κ_{r_{i−1}}) divides (γ − 1)^{2^{i−1}}·d·H_χ with d free of γ − 1, which is why N is killed by dH_χ. Checked on the page image.",
    "affects": "nothing",

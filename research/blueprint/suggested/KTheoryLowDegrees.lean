@@ -1,0 +1,15702 @@
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document
+research/blueprint/readmes/KTheoryLowDegrees.md is definitive. These statements suggest
+Lean forms so that contributors and reviewers converge on names and signatures.
+Every implementationStatus remains unchecked; `sorry` supplies no implementation.
+Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
+Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+-/
+
+import Mathlib.GroupTheory.Index
+import Mathlib.Logic.Equiv.Fin.Rotate
+import TauCeti.CategoryTheory.Exact.Functor
+import Mathlib.Algebra.MvPolynomial.Equiv
+import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
+import Mathlib.RingTheory.Polynomial.UniqueFactorization
+import Mathlib.RingTheory.Polynomial.Basic
+import Mathlib.RingTheory.Ideal.Quotient.Noetherian
+import Mathlib.RingTheory.Localization.LocalizationLocalization
+import Mathlib.RingTheory.DedekindDomain.Dvr
+import Mathlib.RingTheory.LocalProperties.IntegrallyClosed
+import Mathlib.RingTheory.Ideal.Height
+import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Rotation
+import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Compact
+import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Covering
+import Mathlib.Topology.Homotopy.Lifting
+import Mathlib.Analysis.SpecialFunctions.Complex.Circle
+import Mathlib.Analysis.Complex.Circle
+import Mathlib.Topology.ContinuousMap.Algebra
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Topology.UnitInterval
+import Mathlib.RingTheory.LocalRing.Pullback
+import Mathlib.Order.CompactlyGenerated.Basic
+import Mathlib.RingTheory.Finiteness.Basic
+import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Zero
+import Mathlib.CategoryTheory.Adjunction.Limits
+import Mathlib.CategoryTheory.Subobject.Basic
+import Mathlib.Algebra.Category.ModuleCat.Subobject
+import Mathlib.Algebra.Category.ModuleCat.Biproducts
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.Algebra.Category.ModuleCat.Projective
+import Mathlib.Algebra.Colimit.DirectLimit
+import Mathlib.Algebra.EuclideanDomain.Basic
+import Mathlib.Algebra.Group.Pi.Units
+import Mathlib.Algebra.Module.Projective
+import Mathlib.Algebra.Module.StablyFree.Basic
+import Mathlib.Algebra.MvPolynomial.Basic
+import Mathlib.Algebra.Order.Ring.Units
+import Mathlib.Algebra.Quaternion
+import Mathlib.CategoryTheory.Adjunction.Basic
+import Mathlib.CategoryTheory.Idempotents.Karoubi
+import Mathlib.CategoryTheory.Preadditive.AdditiveFunctor
+import Mathlib.Data.Matrix.Basis
+import Mathlib.GroupTheory.Abelianization.Defs
+import Mathlib.GroupTheory.Commutator.Basic
+import Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup
+import Mathlib.GroupTheory.PresentedGroup
+import Mathlib.GroupTheory.QuotientGroup.Basic
+import Mathlib.GroupTheory.SpecificGroups.Cyclic
+import Mathlib.LinearAlgebra.Complex.FiniteDimensional
+import Mathlib.LinearAlgebra.Determinant
+import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
+import Mathlib.LinearAlgebra.InvariantBasisNumber
+import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
+import Mathlib.LinearAlgebra.Matrix.Block
+import Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.Ideal
+import Mathlib.LinearAlgebra.Matrix.Permutation
+import Mathlib.LinearAlgebra.Matrix.Rank
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.LinearAlgebra.Matrix.Transvection
+import Mathlib.LinearAlgebra.Pi
+import Mathlib.LinearAlgebra.Projection
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.LinearAlgebra.Transvection.Generation
+import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
+import Mathlib.NumberTheory.NumberField.AdeleRing
+import Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
+import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
+import Mathlib.NumberTheory.Zsqrtd.GaussianInt
+import Mathlib.RingTheory.DedekindDomain.SInteger
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.Finiteness.Projective
+import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+import Mathlib.RingTheory.Idempotents
+import Mathlib.RingTheory.Jacobson.Ideal
+import Mathlib.RingTheory.LaurentSeries
+import Mathlib.RingTheory.Length
+import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+import Mathlib.RingTheory.Localization.AtPrime.Basic
+import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.RingTheory.Morita.Matrix
+import Mathlib.RingTheory.Norm.Defs
+import Mathlib.RingTheory.PicardGroup
+import Mathlib.RingTheory.PowerSeries.Inverse
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
+import Mathlib.RingTheory.Spectrum.Maximal.Defs
+import Mathlib.RingTheory.Spectrum.Prime.FreeLocus
+import Mathlib.RingTheory.Spectrum.Prime.Topology
+import Mathlib.RingTheory.TensorProduct.Basic
+import Mathlib.RingTheory.TwoSidedIdeal.Operations
+import Mathlib.Topology.Algebra.Group.Quotient
+import Mathlib.Topology.Connected.Clopen
+import Mathlib.Topology.LocallyConstant.Algebra
+import TauCeti.Algebra.Category.ModuleCat.CartanMap
+import TauCeti.CategoryTheory.GrothendieckGroup.FiniteDimensionalVectorSpace
+import TauCeti.CategoryTheory.GrothendieckGroup.ObjectCodeMonoid
+import TauCeti.LinearAlgebra.GeneralLinearGroup.Prod
+import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.LeftMulMatrix
+import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Transvection
+import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Diagonal
+import TauCeti.NumberTheory.NumberField.Cyclotomic.Frobenius
+import TauCeti.NumberTheory.NumberField.Units.Dirichlet
+import TauCeti.RingTheory.DedekindDomain.SInteger.Spectrum
+import TauCeti.RingTheory.DedekindDomain.SInteger.Unit
+import TauCeti.RingTheory.Idempotents.Connected.Components
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.DiagonalTorus.Basic
+import TauCeti.Algebra.Bialgebra.TensorProduct
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Corestrict
+import TauCeti.Algebra.Coalgebra.Comodule.MonoidAlgebra.Basic
+import Mathlib.RingTheory.Coalgebra.Equiv
+import TauCeti.Algebra.Coalgebra.Comodule.BaseChange
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.Data.ZMod.Basic
+import TauCeti.Algebra.Coalgebra.Comodule.Cofree
+import TauCeti.Algebra.Coalgebra.Subcomodule.Finite
+import TauCeti.Algebra.Coalgebra.Subcomodule.Quotient
+import Mathlib.LinearAlgebra.FreeModule.PID
+import Mathlib.Algebra.Category.CommHopfAlgCat
+import Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
+import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
+import Mathlib.Algebra.Category.ModuleCat.Stalk
+import Mathlib.Algebra.DualNumber
+import Mathlib.Algebra.Polynomial.Laurent
+import Mathlib.Algebra.TrivSqZeroExt.Ideal
+import Mathlib.AlgebraicGeometry.Modules.Sheaf
+import Mathlib.AlgebraicGeometry.Modules.Tilde
+import Mathlib.CategoryTheory.Monoidal.Subcategory
+import Mathlib.CategoryTheory.Subobject.Limits
+import Mathlib.LinearAlgebra.ExteriorPower.Basis
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.Kronecker
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.NumberTheory.Zsqrtd.Basic
+import Mathlib.RingTheory.Binomial
+import Mathlib.RingTheory.ClassGroup.ExtendedHom
+import Mathlib.RingTheory.Finiteness.Prod
+import Mathlib.RingTheory.HopfAlgebra.TensorProduct
+import Mathlib.RingTheory.Ideal.Norm.RelNorm
+import Mathlib.RingTheory.Ideal.Quotient.Operations
+import Mathlib.RingTheory.LocalRing.Basic
+import Mathlib.RingTheory.MvPolynomial.Symmetric.FundamentalTheorem
+import Mathlib.RingTheory.MvPolynomial.Symmetric.NewtonIdentities
+import Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous
+import Mathlib.RingTheory.PowerSeries.Binomial
+import Mathlib.RingTheory.PowerSeries.Derivative
+import Mathlib.RingTheory.PowerSeries.Substitution
+import Mathlib.RingTheory.PowerSeries.WellKnown
+import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.RingTheory.TensorProduct.Finite
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.StandardComodule
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Monoidal
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Preadditive
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Product
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Symmetric
+import TauCeti.AlgebraicGeometry.FinitelyPresentedSheaf.Basic
+import TauCeti.AlgebraicGeometry.LineBundle.Class
+import TauCeti.AlgebraicGeometry.Modules.TensorProduct
+import TauCeti.AlgebraicGeometry.WeilDivisor.Scheme.TensorProduct
+import TauCeti.CategoryTheory.Exact.Abelian
+import TauCeti.CategoryTheory.Exact.ExtensionClosed
+import TauCeti.CategoryTheory.GrothendieckGroup.Exact
+import TauCeti.CategoryTheory.GrothendieckGroup.Monoidal
+import TauCeti.NumberTheory.Multiquadratic.MinusFive.ClassNumber
+import TauCeti.RepresentationTheory.RepresentationRing.Basic
+import TauCeti.RingTheory.ClassGroup.Basic
+import TauCeti.RingTheory.ClassGroup.RelNorm
+import TauCeti.RingTheory.DedekindDomain.SInteger.ClassGroup
+import TauCeti.RingTheory.MvPolynomial.Symmetric.Substitution
+
+/-!
+# Explicit ring and curve K₀ and stable-matrix K₁
+
+K₀ uses left modules: an idempotent acts on row vectors from the right. Its carrier is the
+existing `SplitK0` of `finiteProjectiveModules`, with the Z.1 spellings `RingK0`, `K0`, `FP`,
+`of` and `cls`. Z.3 adds the tensor ring structure to that carrier. Scalar extension is `map f`
+for an arbitrary ring homomorphism; `map_cls` compares it with commutative tensor extension.
+`transferAlgebra R S` abbreviates the same finite-projective restriction-of-scalars transfer.
+Virtual rank takes values in locally constant integers; the connected specialization is `rankℤ`.
+Determinant takes values in Pic, whereas exterior-power classes take values in K₀.
+
+K₁ automorphisms use right modules with column matrices, represented over the opposite ring.
+Stable GL is a direct limit; elementary subgroups are closures of generators; absolute and
+relative K₁ are their actual quotient groups. No relative group is replaced by a kernel.
+The zero ring and zero matrix rank retain the node-specific conventions. S is a finite set
+of finite places, and its integer ring is `Set.integer S F`. DVR boundaries have positive
+uniformizer sign. On P¹, rank/degree coordinates (r,d) give (r+d,-d) in (1,[O(-1)]).
+
+Proofs and some operation bodies remain `sorry`, over native carriers, with characterizing
+lemmas. Helpers outside the packet API are identified in their docstrings. Enhanced spectra,
+homotopy fibres, coherent determinant targets and scheme examples without native carriers
+are recorded at their own nodes as `not stated here; needs … (supplier: …)`; those comments
+are omissions, not declarations or replacement axioms. Node contracts, APIs, tests, exact
+hypotheses, source locators and all open interfaces remain in the definitive reader.
+
+The parts retain their reading order Z.1, Z.2, U.1–U.6, Z.3–Z.6. Their declaration dependencies
+are acyclic; the reading order does not impose a whole-stage build order.
+-/
+
+noncomputable section
+
+open CategoryTheory CategoryTheory.Limits
+open scoped TensorProduct Matrix commutatorElement Quaternion Pointwise
+
+universe u v w
+
+/-! ## Stage `KTheoryLowDegrees:Z.1` — idempotent matrices, free-summand data and ring `K₀`
+
+Left modules and row vectors throughout: an idempotent `e : Matrix ι ι R` acts on `ι → R` by
+`v ↦ v ᵥ* e` (`Matrix.vecMulLinear`), which is left `R`-linear for every ring `R`, and presents the
+row-vector module `Rⁿe`. Ring `K₀` is Tau Ceti's `SplitK0` of `finiteProjectiveModules R`, exactly
+as in the companion file `KTheoryLowDegrees--Z.3` (`FP`, and `K0`/`cls` as spellings of
+`RingK0`/`RingK0.of`), now for an arbitrary ring. -/
+
+namespace TauCeti
+
+namespace RingK0
+
+variable (R : Type u) [Ring R]
+
+/-- `FP R`: the full subcategory of finitely generated projective left `R`-modules, the spelling of
+the companion file `KTheoryLowDegrees--Z.3`, here for an arbitrary ring. -/
+abbrev FP := (TauCeti.finiteProjectiveModules R).FullSubcategory
+
+end RingK0
+
+/-! ### `KTheoryLowDegrees:Z.1/idempotent-module` -/
+
+section IdempotentModule
+
+variable {R : Type u} [Ring R] {ι κ : Type} [Fintype ι] [DecidableEq ι] [Fintype κ]
+  [DecidableEq κ]
+
+/-- **The module of an idempotent matrix** (`KTheoryLowDegrees:Z.1/idempotent-module`):
+`P(e) := range (v ↦ v ᵥ* e)`, a left `R`-submodule of the row vectors `ι → R`, `e` acting on the
+right. In the K-book's right-module notation this is `e(Rⁿ)`. -/
+def idempotentModule (e : Matrix ι ι R) : Submodule R (ι → R) :=
+  LinearMap.range (Matrix.vecMulLinear e)
+
+omit [DecidableEq ι] in
+/-- `v ∈ P(e) ↔ v ᵥ* e = v` for an idempotent `e`. -/
+theorem mem_idempotentModule_iff {e : Matrix ι ι R} (he : IsIdempotentElem e) (v : ι → R) :
+    v ∈ idempotentModule e ↔ v ᵥ* e = v := by
+  sorry
+
+/-- `P(1) = ⊤`. -/
+@[simp]
+theorem idempotentModule_one : idempotentModule (1 : Matrix ι ι R) = ⊤ := by
+  sorry
+
+omit [DecidableEq ι] in
+/-- `P(0) = ⊥`. -/
+@[simp]
+theorem idempotentModule_zero : idempotentModule (0 : Matrix ι ι R) = ⊥ := by
+  sorry
+
+/-- The retraction `(ι → R) → P(e)`, `v ↦ v ᵥ* e` (a real definition); for idempotent `e` it is
+the identity on `P(e)` (`idempotentModule.retraction_comp_subtype`). -/
+def idempotentModule.retraction (e : Matrix ι ι R) : (ι → R) →ₗ[R] idempotentModule e :=
+  (Matrix.vecMulLinear e).rangeRestrict
+
+omit [DecidableEq ι] in
+/-- The retraction restricts to the identity of `P(e)`. -/
+theorem idempotentModule.retraction_comp_subtype {e : Matrix ι ι R} (he : IsIdempotentElem e) :
+    idempotentModule.retraction e ∘ₗ (idempotentModule e).subtype = LinearMap.id := by
+  sorry
+
+omit [DecidableEq ι] [DecidableEq κ] in
+/-- Reindexing along `σ : ι ≃ κ`: the coordinate permutation `v ↦ v ∘ σ.symm` maps `P(e)` onto
+`P(reindex σ σ e)`. -/
+theorem idempotentModule_reindex (σ : ι ≃ κ) (e : Matrix ι ι R) :
+    (idempotentModule e).map (LinearEquiv.funCongrLeft R R σ.symm).toLinearMap =
+      idempotentModule (Matrix.reindex σ σ e) := by
+  sorry
+
+/-- For `ι = Unit` and an idempotent `e ∈ R`, `P(e)` is the left ideal `R·e`. -/
+theorem idempotentModule_unique {e : R} (he : IsIdempotentElem e) :
+    idempotentModule (Matrix.of fun _ _ => e : Matrix Unit Unit R) = R ∙ (fun _ => e) := by
+  sorry
+
+-- test TauCeti.idempotentModule_one_test (degenerate)
+example : idempotentModule (1 : Matrix (Fin 2) (Fin 2) R) = ⊤ ∧
+    idempotentModule (0 : Matrix (Fin 2) (Fin 2) R) = ⊥ :=
+  ⟨idempotentModule_one, idempotentModule_zero⟩
+
+-- test TauCeti.idempotentModule_diag_test (computation)
+/- `P(diag(1, 0)) = {(a, 0)}`, one-dimensional. -/
+example {k : Type*} [Field k] :
+    idempotentModule (Matrix.diagonal ![1, 0] : Matrix (Fin 2) (Fin 2) k) =
+        LinearMap.ker (LinearMap.proj 1 : (Fin 2 → k) →ₗ[k] k) ∧
+      Module.finrank k (idempotentModule (Matrix.diagonal ![1, 0] : Matrix (Fin 2) (Fin 2) k)) =
+        1 := by
+  sorry
+
+-- test TauCeti.idempotentModule_rows_test (non-example)
+/- Rows `(1, 1), (0, 0)`: `v ᵥ* e = (v₀, v₀)`, so `P(e) = {(a, a)}`; the column image
+`{(a, 0)}` is a different submodule. -/
+example : idempotentModule (!![1, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) =
+      LinearMap.ker ((LinearMap.proj 0 : (Fin 2 → ℚ) →ₗ[ℚ] ℚ) - LinearMap.proj 1) ∧
+    LinearMap.range (Matrix.mulVecLin (!![1, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ)) ≠
+      idempotentModule !![1, 1; 0, 0] := by
+  sorry
+
+-- test TauCeti.idempotentModule_prod_test (computation)
+/- Over `ℤ × ℤ`, the `1 × 1` idempotent `(1, 0)` gives `R·(1, 0) = ℤ × 0`. -/
+example : idempotentModule (!![((1 : ℤ), (0 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ)) =
+    (ℤ × ℤ) ∙ (fun _ => ((1 : ℤ), (0 : ℤ))) := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.1/idempotent-module-finite-projective` -/
+
+/-- `KTheoryLowDegrees:Z.1/idempotent-module-finite-projective`: for idempotent `e`, `P(e)` and
+`P(1 - e)` are complementary, `v ↦ (v ᵥ* e, v ᵥ* (1 - e))` is an isomorphism
+`(ι → R) ≃ P(e) × P(1 - e)`, and `P(e)` is finitely generated projective. -/
+theorem idempotentModule_finite_projective {e : Matrix ι ι R} (he : IsIdempotentElem e) :
+    IsCompl (idempotentModule e) (idempotentModule (1 - e)) ∧
+      Function.Bijective
+        ((idempotentModule.retraction e).prod (idempotentModule.retraction (1 - e))) ∧
+      Module.Finite R (idempotentModule e) ∧ Module.Projective R (idempotentModule e) ∧
+      finiteProjectiveModules R (ModuleCat.of R (idempotentModule e)) := by
+  sorry
+
+omit [DecidableEq ι] in
+/-- Helper: the object-property form of `idempotentModule_finite_projective`, used to form the class
+`[P(e)]`. -/
+theorem finiteProjectiveModules_idempotentModule {e : Matrix ι ι R} (he : IsIdempotentElem e) :
+    finiteProjectiveModules R (ModuleCat.of R (idempotentModule e)) := by
+  classical
+  exact (idempotentModule_finite_projective he).2.2.2.2
+
+/-! ### `KTheoryLowDegrees:Z.1/idempotent-module-conj` and `Z.1/idempotent-module-block` -/
+
+/-- `KTheoryLowDegrees:Z.1/idempotent-module-conj`: `g⁻¹ e g` is idempotent and `v ↦ v ᵥ* g` maps
+`P(e)` onto `P(g⁻¹ e g)` (an isomorphism, with inverse `w ↦ w ᵥ* g⁻¹`). -/
+theorem idempotentModule_conj {e : Matrix ι ι R} (he : IsIdempotentElem e) (g : GL ι R) :
+    IsIdempotentElem ((g⁻¹ : GL ι R) * e * g : Matrix ι ι R) ∧
+      (idempotentModule e).map (Matrix.vecMulLinear (g : Matrix ι ι R)) =
+        idempotentModule ((g⁻¹ : GL ι R) * e * g : Matrix ι ι R) := by
+  sorry
+
+omit [DecidableEq ι] [DecidableEq κ] in
+/-- `KTheoryLowDegrees:Z.1/idempotent-module-block`: `e ⊞ f = fromBlocks e 0 0 f` is idempotent
+and the coordinate splitting `(ι ⊕ κ → R) ≃ (ι → R) × (κ → R)` carries `P(e ⊞ f)` onto
+`P(e) × P(f)`; in particular `P(e ⊞ 0) ≅ P(e)`. -/
+theorem idempotentModule_block {e : Matrix ι ι R} {f : Matrix κ κ R} (he : IsIdempotentElem e)
+    (hf : IsIdempotentElem f) :
+    IsIdempotentElem (Matrix.fromBlocks e 0 0 f) ∧
+      (idempotentModule (Matrix.fromBlocks e 0 0 f)).map
+          (LinearEquiv.sumArrowLequivProdArrow ι κ R R).toLinearMap =
+        (idempotentModule e).prod (idempotentModule f) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/iso-stably-conjugate`: from `φ : P(e) ≃ P(e')` build `A` (the matrix of
+`v ↦ φ(v ᵥ* e)`) and `B` (that of `w ↦ φ⁻¹(w ᵥ* e')`); then `g = fromBlocks A (1 - e) (1 - e') B`
+and `h = fromBlocks B (1 - e') (1 - e) A` are mutually inverse and `h (e ⊞ 0) g = e' ⊞ 0`. -/
+theorem iso_stably_conjugate {e e' : Matrix ι ι R} (he : IsIdempotentElem e)
+    (he' : IsIdempotentElem e') (φ : idempotentModule e ≃ₗ[R] idempotentModule e') :
+    let A := LinearMap.toMatrixRight' ((idempotentModule e').subtype ∘ₗ φ.toLinearMap ∘ₗ
+      idempotentModule.retraction e)
+    let B := LinearMap.toMatrixRight' ((idempotentModule e).subtype ∘ₗ φ.symm.toLinearMap ∘ₗ
+      idempotentModule.retraction e')
+    Matrix.fromBlocks A (1 - e) (1 - e') B * Matrix.fromBlocks B (1 - e') (1 - e) A = 1 ∧
+      Matrix.fromBlocks B (1 - e') (1 - e) A * Matrix.fromBlocks A (1 - e) (1 - e') B = 1 ∧
+      Matrix.fromBlocks B (1 - e') (1 - e) A * Matrix.fromBlocks e 0 0 0 *
+          Matrix.fromBlocks A (1 - e) (1 - e') B = Matrix.fromBlocks e' 0 0 0 := by
+  sorry
+
+end IdempotentModule
+
+/-! ### `KTheoryLowDegrees:Z.1/free-summand-data` -/
+
+/-- **Free-summand data** (`KTheoryLowDegrees:Z.1/free-summand-data`): `n ∈ ℕ` and left
+`R`-linear maps `ι : P → Rⁿ`, `π : Rⁿ → P` with `π ∘ ι = id`. Data are not unique; only the
+stabilised class of the idempotent `ι ∘ π` is (`Z.1/idempotent-classification`). -/
+structure FreeSummandData (R : Type u) [Ring R] (P : Type v) [AddCommGroup P] [Module R P] where
+  /-- The rank of the ambient free module. -/
+  n : ℕ
+  /-- The split injection `P → Rⁿ`. -/
+  ι : P →ₗ[R] (Fin n → R)
+  /-- The retraction `Rⁿ → P`. -/
+  π : (Fin n → R) →ₗ[R] P
+  /-- `π ∘ ι = id`. -/
+  π_comp_ι : π ∘ₗ ι = LinearMap.id
+
+namespace FreeSummandData
+
+variable {R : Type u} [Ring R] {P : Type v} [AddCommGroup P] [Module R P]
+  {P' : Type w} [AddCommGroup P'] [Module R P']
+
+/-- Every finitely generated projective module admits free-summand data
+(`Module.Finite.exists_comp_eq_id_of_projective`). -/
+theorem «exists» [Module.Finite R P] [Module.Projective R P] :
+    Nonempty (FreeSummandData R P) := by
+  obtain ⟨n, f, g, -, -, h⟩ := Module.Finite.exists_comp_eq_id_of_projective R P
+  exact ⟨⟨n, g, f, h⟩⟩
+
+/-- A datum makes `P` finitely generated. -/
+theorem finite (d : FreeSummandData R P) : Module.Finite R P :=
+  Module.Finite.of_surjective d.π fun x => ⟨d.ι x, LinearMap.congr_fun d.π_comp_ι x⟩
+
+/-- A datum makes `P` projective. -/
+theorem projective (d : FreeSummandData R P) : Module.Projective R P :=
+  Module.Projective.of_split d.ι d.π d.π_comp_ι
+
+/-- The idempotent matrix `e := toMatrixRight' (ι ∘ π)` of a datum (row convention). -/
+def idempotent (d : FreeSummandData R P) : Matrix (Fin d.n) (Fin d.n) R :=
+  LinearMap.toMatrixRight' (d.ι ∘ₗ d.π)
+
+/-- The idempotent of a datum is idempotent. -/
+theorem isIdempotentElem_idempotent (d : FreeSummandData R P) : IsIdempotentElem d.idempotent := by
+  sorry
+
+/-- `P ≃ₗ P(e)`, `x ↦ ι x`. -/
+def equivIdempotentModule (d : FreeSummandData R P) : P ≃ₗ[R] idempotentModule d.idempotent :=
+  sorry
+
+/-- The value of `equivIdempotentModule`. -/
+theorem equivIdempotentModule_apply (d : FreeSummandData R P) (x : P) :
+    (d.equivIdempotentModule x : Fin d.n → R) = d.ι x := by
+  sorry
+
+/-- The complement `Q := ker π` (a real definition). -/
+def complement (d : FreeSummandData R P) : Submodule R (Fin d.n → R) :=
+  LinearMap.ker d.π
+
+/-- `range ι` and `ker π` are complementary. -/
+theorem isCompl_range_complement (d : FreeSummandData R P) :
+    IsCompl (LinearMap.range d.ι) d.complement := by
+  sorry
+
+/-- `P × ker π ≃ₗ Rⁿ`, `(x, q) ↦ ι x + q` (a real definition up to the bijectivity proof). -/
+def prodComplementEquiv (d : FreeSummandData R P) : (P × d.complement) ≃ₗ[R] (Fin d.n → R) :=
+  LinearEquiv.ofBijective (d.ι.coprod d.complement.subtype) (by sorry)
+
+/-- The value of `prodComplementEquiv`. -/
+theorem prodComplementEquiv_apply (d : FreeSummandData R P) (x : P) (q : d.complement) :
+    d.prodComplementEquiv (x, q) = d.ι x + q :=
+  rfl
+
+/-- The complement is finitely generated projective. -/
+theorem complement_finiteProjective (d : FreeSummandData R P) :
+    Module.Finite R d.complement ∧ Module.Projective R d.complement := by
+  sorry
+
+/-- The datum of `P(e)`: `ι` the inclusion and `π = ρ_e`. -/
+def ofIdempotent {m : ℕ} (e : Matrix (Fin m) (Fin m) R) (he : IsIdempotentElem e) :
+    FreeSummandData R (idempotentModule e) where
+  n := m
+  ι := (idempotentModule e).subtype
+  π := idempotentModule.retraction e
+  π_comp_ι := idempotentModule.retraction_comp_subtype he
+
+/-- The idempotent of `ofIdempotent e` is `e`. -/
+theorem ofIdempotent_idempotent {m : ℕ} (e : Matrix (Fin m) (Fin m) R)
+    (he : IsIdempotentElem e) : (ofIdempotent e he).idempotent = e := by
+  sorry
+
+/-- The block splitting `(Fin n → R) × (Fin n' → R) ≃ (Fin (n + n') → R)` (helper). -/
+abbrev blockEquiv (n n' : ℕ) : ((Fin n → R) × (Fin n' → R)) ≃ₗ[R] (Fin (n + n') → R) :=
+  (LinearEquiv.sumArrowLequivProdArrow (Fin n) (Fin n') R R).symm.trans
+    (LinearEquiv.funCongrLeft R R finSumFinEquiv.symm)
+
+/-- Data for `P` and `P'` give a datum for `P × P'` of rank `n + n'`. -/
+def prod (d : FreeSummandData R P) (d' : FreeSummandData R P') :
+    FreeSummandData R (P × P') where
+  n := d.n + d'.n
+  ι := (blockEquiv d.n d'.n).toLinearMap ∘ₗ d.ι.prodMap d'.ι
+  π := d.π.prodMap d'.π ∘ₗ (blockEquiv d.n d'.n).symm.toLinearMap
+  π_comp_ι := by sorry
+
+/-- The idempotent of `prod` is the block sum, reindexed along `finSumFinEquiv`. -/
+theorem prod_idempotent (d : FreeSummandData R P) (d' : FreeSummandData R P') :
+    (d.prod d').idempotent =
+      Matrix.reindex finSumFinEquiv finSumFinEquiv
+        (Matrix.fromBlocks d.idempotent 0 0 d'.idempotent) := by
+  sorry
+
+/-- Transport of a datum along `P ≃ₗ P'`, with the same idempotent (`congr_idempotent`). -/
+def congr (d : FreeSummandData R P) (e : P ≃ₗ[R] P') : FreeSummandData R P' where
+  n := d.n
+  ι := d.ι ∘ₗ e.symm.toLinearMap
+  π := e.toLinearMap ∘ₗ d.π
+  π_comp_ι := by sorry
+
+/-- `congr` does not change the idempotent. -/
+theorem congr_idempotent (d : FreeSummandData R P) (e : P ≃ₗ[R] P') :
+    (d.congr e).idempotent = d.idempotent := by
+  sorry
+
+-- test TauCeti.FreeSummandData.free_test (degenerate)
+example (n : ℕ) :
+    (⟨n, LinearMap.id, LinearMap.id, rfl⟩ : FreeSummandData R (Fin n → R)).idempotent = 1 ∧
+      (⟨n, LinearMap.id, LinearMap.id, rfl⟩ : FreeSummandData R (Fin n → R)).complement = ⊥ := by
+  sorry
+
+-- test TauCeti.FreeSummandData.zero_test (degenerate)
+example [Subsingleton P] (d : FreeSummandData R P) : d.idempotent = 0 ∧ d.complement = ⊤ := by
+  sorry
+
+-- test TauCeti.FreeSummandData.ofIdempotent_test (characterisation)
+example {m : ℕ} (e : Matrix (Fin m) (Fin m) R) (he : IsIdempotentElem e) :
+    (ofIdempotent e he).idempotent = e :=
+  ofIdempotent_idempotent e he
+
+-- test TauCeti.FreeSummandData.prod_field_test (computation)
+/- `R = ℚ × ℚ`, `P = ℚ × 0` (the ideal spanned by `(1, 0)`), `n = 1`, `ι x = x`,
+`π v = (1, 0)·v`: the idempotent is `(1, 0)` and the complement is `0 × ℚ`. -/
+example (ι₁ : (Ideal.span {((1 : ℚ), (0 : ℚ))} : Ideal (ℚ × ℚ)) →ₗ[ℚ × ℚ] (Fin 1 → ℚ × ℚ))
+    (π₁ : (Fin 1 → ℚ × ℚ) →ₗ[ℚ × ℚ] (Ideal.span {((1 : ℚ), (0 : ℚ))} : Ideal (ℚ × ℚ)))
+    (hι : ∀ x, ι₁ x = fun _ => (x : ℚ × ℚ)) (hπ : ∀ v, (π₁ v : ℚ × ℚ) = ((1 : ℚ), (0 : ℚ)) * v 0)
+    (h : π₁ ∘ₗ ι₁ = LinearMap.id) :
+    (⟨1, ι₁, π₁, h⟩ : FreeSummandData (ℚ × ℚ) _).idempotent = !![((1 : ℚ), (0 : ℚ))] ∧
+      ∀ v, v ∈ (⟨1, ι₁, π₁, h⟩ : FreeSummandData (ℚ × ℚ) _).complement ↔ (v 0).1 = 0 := by
+  sorry
+
+-- test TauCeti.FreeSummandData.not_unique_test (non-example)
+/- For `P = ℚ`, the data `(1, id)` and `(2, x ↦ (x, 0), v ↦ v₀)` have idempotents `1 ∈ M₁(ℚ)` and
+`diag(1, 0) ∈ M₂(ℚ)`. -/
+example :
+    (⟨1, LinearMap.pi fun _ => LinearMap.id, LinearMap.proj 0, rfl⟩ :
+        FreeSummandData ℚ ℚ).idempotent = 1 ∧
+      (⟨2, LinearMap.single ℚ (fun _ => ℚ) 0, LinearMap.proj 0,
+          LinearMap.ext fun x => Pi.single_eq_same (M := fun _ : Fin 2 => ℚ) 0 x⟩ :
+        FreeSummandData ℚ ℚ).idempotent = Matrix.diagonal ![1, 0] := by
+  sorry
+
+end FreeSummandData
+
+/-! ### `KTheoryLowDegrees:Z.1/stable-idempotent-monoid` -/
+
+section StableIdempotent
+
+variable {R : Type u} [Ring R] {S : Type v} [Ring S] {T : Type w} [Ring T]
+  {κ κ' : Type*} [Fintype κ] [DecidableEq κ] [Fintype κ'] [DecidableEq κ']
+
+/-- Padding `e ∈ M_n(R)` to `M_N(R)` by zeros, the stabilisation `e ↦ diag(e, 0)` (helper, a real
+definition; meaningful for `n ≤ N`). -/
+def padMatrix {n : ℕ} (N : ℕ) (e : Matrix (Fin n) (Fin n) R) : Matrix (Fin N) (Fin N) R :=
+  Matrix.of fun a b => if h : (a : ℕ) < n ∧ (b : ℕ) < n then e ⟨a, h.1⟩ ⟨b, h.2⟩ else 0
+
+namespace StableIdempotent
+
+variable (R) in
+/-- Pairs `(n, e)` with `e ∈ M_n(R)` idempotent. -/
+abbrev Pair : Type u := Σ n : ℕ, {e : Matrix (Fin n) (Fin n) R // IsIdempotentElem e}
+
+variable (R) in
+/-- Stabilised conjugacy: `(n, e) ∼ (m, f)` iff `g⁻¹ pad_N(e) g = pad_N(f)` for some `N ≥ n, m`
+and `g ∈ GL_N(R)`. -/
+def rel (x y : Pair R) : Prop :=
+  ∃ N : ℕ, x.1 ≤ N ∧ y.1 ≤ N ∧ ∃ g : GL (Fin N) R,
+    ((g⁻¹ : GL (Fin N) R) : Matrix (Fin N) (Fin N) R) * padMatrix N x.2.1 * g = padMatrix N y.2.1
+
+variable (R) in
+/-- The setoid of stabilised conjugacy. -/
+def setoid : Setoid (Pair R) := ⟨rel R, by sorry⟩
+
+/-- The block sum of two pairs, reindexed along `finSumFinEquiv`. -/
+def pairAdd (x y : Pair R) : Pair R :=
+  ⟨x.1 + y.1, Matrix.reindex finSumFinEquiv finSumFinEquiv (Matrix.fromBlocks x.2.1 0 0 y.2.1),
+    by sorry⟩
+
+end StableIdempotent
+
+variable (R) in
+/-- **The monoid of stabilised idempotent matrices** `Idem(R)`
+(`KTheoryLowDegrees:Z.1/stable-idempotent-monoid`): pairs `(n, e)` modulo stabilised
+conjugacy, with `[e] + [f] = [e ⊞ f]` and `0 = [the 0 × 0 matrix]`. -/
+def StableIdempotent : Type u := Quotient (StableIdempotent.setoid R)
+
+namespace StableIdempotent
+
+instance instAdd : Add (StableIdempotent R) :=
+  ⟨Quotient.map₂ (sa := setoid R) (sb := setoid R) (sc := setoid R) pairAdd (by sorry)⟩
+
+instance instZero : Zero (StableIdempotent R) :=
+  ⟨Quotient.mk (setoid R) ⟨0, 0, IsIdempotentElem.zero⟩⟩
+
+instance instAddCommMonoid : AddCommMonoid (StableIdempotent R) where
+  add_assoc := by sorry
+  zero_add := by sorry
+  add_zero := by sorry
+  add_comm := by sorry
+  nsmul := nsmulRec
+
+omit [DecidableEq κ] in
+/-- The class `mk e := [reindex (Fintype.equivFin κ) e]` of an idempotent over a finite type. -/
+def mk (e : Matrix κ κ R) (he : IsIdempotentElem e) : StableIdempotent R :=
+  Quotient.mk (setoid R)
+    ⟨Fintype.card κ, Matrix.reindex (Fintype.equivFin κ) (Fintype.equivFin κ) e, by sorry⟩
+
+omit [DecidableEq κ] [DecidableEq κ'] in
+/-- Reindexing does not change the class. -/
+@[simp]
+theorem mk_reindex (σ : κ ≃ κ') {e : Matrix κ κ R} (he : IsIdempotentElem e)
+    (he' : IsIdempotentElem (Matrix.reindex σ σ e)) : mk (Matrix.reindex σ σ e) he' = mk e he := by
+  sorry
+
+/-- Equality of classes is stabilised conjugacy. -/
+theorem mk_eq_mk_iff {n m : ℕ} {e : Matrix (Fin n) (Fin n) R} {f : Matrix (Fin m) (Fin m) R}
+    (he : IsIdempotentElem e) (hf : IsIdempotentElem f) :
+    mk e he = mk f hf ↔ ∃ N : ℕ, max n m ≤ N ∧ ∃ g : GL (Fin N) R,
+      ((g⁻¹ : GL (Fin N) R) : Matrix (Fin N) (Fin N) R) * padMatrix N e * g = padMatrix N f := by
+  sorry
+
+/-- Conjugation does not change the class. -/
+@[simp]
+theorem mk_conj (g : GL κ R) {e : Matrix κ κ R} (he : IsIdempotentElem e)
+    (he' : IsIdempotentElem ((g⁻¹ : GL κ R) * e * g : Matrix κ κ R)) :
+    mk ((g⁻¹ : GL κ R) * e * g : Matrix κ κ R) he' = mk e he := by
+  sorry
+
+omit [DecidableEq κ] [DecidableEq κ'] in
+/-- Stabilisation `e ↦ e ⊞ 0` does not change the class. -/
+@[simp]
+theorem mk_fromBlocks_zero {e : Matrix κ κ R} (he : IsIdempotentElem e)
+    (he' : IsIdempotentElem (Matrix.fromBlocks e 0 0 (0 : Matrix κ' κ' R))) :
+    mk (Matrix.fromBlocks e 0 0 (0 : Matrix κ' κ' R)) he' = mk e he := by
+  sorry
+
+omit [DecidableEq κ] [DecidableEq κ'] in
+/-- The class of a block sum is the sum of the classes. -/
+@[simp]
+theorem mk_fromBlocks {e : Matrix κ κ R} {f : Matrix κ' κ' R} (he : IsIdempotentElem e)
+    (hf : IsIdempotentElem f) (hef : IsIdempotentElem (Matrix.fromBlocks e 0 0 f)) :
+    mk (Matrix.fromBlocks e 0 0 f) hef = mk e he + mk f hf := by
+  sorry
+
+/-- The zero matrix has class `0`. -/
+@[simp]
+theorem mk_zero {ι : Type*} [Fintype ι] : mk (0 : Matrix ι ι R) IsIdempotentElem.zero = 0 := by
+  sorry
+
+/-- Every element is `mk e` for an idempotent `e ∈ M_n(R)`. -/
+theorem induction_on {motive : StableIdempotent R → Prop} (x : StableIdempotent R)
+    (h : ∀ (n : ℕ) (e : Matrix (Fin n) (Fin n) R) (he : IsIdempotentElem e), motive (mk e he)) :
+    motive x := by
+  sorry
+
+/-- Functoriality: `f : R →+* S` induces `[e] ↦ [e.map f]` (a real definition up to proofs). -/
+def map (f : R →+* S) : StableIdempotent R →+ StableIdempotent S where
+  toFun := Quotient.map (sa := setoid R) (sb := setoid S)
+    (fun x => ⟨x.1, x.2.1.map f, x.2.2.map f.mapMatrix⟩) (by sorry)
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- The value of `map` on classes. -/
+@[simp]
+theorem map_mk (f : R →+* S) {ι : Type*} [Fintype ι] {e : Matrix ι ι R} (he : IsIdempotentElem e) :
+    map f (mk e he) = mk (e.map f) (by rw [IsIdempotentElem, ← Matrix.map_mul, he.eq]) := by
+  sorry
+
+/-- `map` of the identity. -/
+@[simp]
+theorem map_id : map (RingHom.id R) = AddMonoidHom.id (StableIdempotent R) := by
+  sorry
+
+/-- `map` of a composite. -/
+theorem map_comp (f : R →+* S) (g : S →+* T) : map (g.comp f) = (map g).comp (map f) := by
+  sorry
+
+-- test TauCeti.StableIdempotent.swap_test (computation)
+example (h₁ : IsIdempotentElem (Matrix.diagonal ![(1 : R), 0]))
+    (h₂ : IsIdempotentElem (Matrix.diagonal ![(0 : R), 1])) :
+    mk (Matrix.diagonal ![(1 : R), 0]) h₁ = mk (Matrix.diagonal ![(0 : R), 1]) h₂ := by
+  sorry
+
+-- test TauCeti.StableIdempotent.zero_test (degenerate)
+example (n : ℕ) : mk (0 : Matrix (Fin n) (Fin n) R) IsIdempotentElem.zero = 0 :=
+  mk_zero
+
+example [Subsingleton R] (x : StableIdempotent R) : x = 0 := by
+  sorry
+
+-- test TauCeti.StableIdempotent.field_test (computation)
+example {k : Type u} [Field k] :
+    (∀ {n m : ℕ} (e : Matrix (Fin n) (Fin n) k) (f : Matrix (Fin m) (Fin m) k)
+        (he : IsIdempotentElem e) (hf : IsIdempotentElem f), mk e he = mk f hf ↔ e.rank = f.rank) ∧
+      ∃ φ : StableIdempotent k ≃+ ℕ, ∀ (n : ℕ) (e : Matrix (Fin n) (Fin n) k)
+        (he : IsIdempotentElem e), φ (mk e he) = e.rank := by
+  sorry
+
+-- test TauCeti.StableIdempotent.stabilise_test (non-example)
+/- `mk 1₁ = mk diag(1, 0)` although the matrices have different sizes. -/
+example {k : Type u} [Field k] (h : IsIdempotentElem (Matrix.diagonal ![(1 : k), 0])) :
+    mk (1 : Matrix (Fin 1) (Fin 1) k) IsIdempotentElem.one =
+      mk (Matrix.diagonal ![(1 : k), 0]) h := by
+  sorry
+
+-- test TauCeti.StableIdempotent.trace_test (characterisation)
+example {A : Type u} [CommRing A] :
+    ∃ tr : StableIdempotent A →+ A, ∀ (n : ℕ) (e : Matrix (Fin n) (Fin n) A)
+      (he : IsIdempotentElem e), tr (mk e he) = e.trace := by
+  sorry
+
+example (h₁ : IsIdempotentElem (!![((1 : ℤ), (0 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))
+    (h₂ : IsIdempotentElem (!![((0 : ℤ), (1 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) :
+    [mk _ h₁, mk _ h₂, mk (1 : Matrix (Fin 1) (Fin 1) (ℤ × ℤ)) IsIdempotentElem.one, 0].Nodup := by
+  sorry
+
+end StableIdempotent
+
+end StableIdempotent
+
+/-! ### `KTheoryLowDegrees:Z.1/ring-k0` -/
+
+/-- **K₀ of a ring** (`KTheoryLowDegrees:Z.1/ring-k0`): the reducible abbreviation
+`SplitK0 (FP R)`, the split Grothendieck group of the finitely generated projective left
+`R`-modules in `ModuleCat.{u} R`. No new presentation is introduced. -/
+abbrev RingK0 (R : Type u) [Ring R] : Type u := SplitK0.{u} (RingK0.FP R)
+
+namespace RingK0
+
+section Basic
+
+variable (R : Type u) [Ring R]
+
+/-- The companion file's spelling `K0 R` (`KTheoryLowDegrees--Z.3`) of `RingK0 R`. -/
+abbrev K0 : Type u := RingK0 R
+
+/-- The class `[M] ∈ RingK0 R` of a finitely generated projective `M : Type u`. -/
+abbrev of (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M] :
+    RingK0 R :=
+  SplitK0.of ⟨ModuleCat.of R M, finiteProjectiveModules_iff.mpr ⟨inferInstance, inferInstance⟩⟩
+
+/-- The companion file's spelling `cls R M` of `RingK0.of R M`. -/
+abbrev cls (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M] :
+    RingK0 R :=
+  of R M
+
+variable {R}
+
+/-- Isomorphic modules have the same class. -/
+@[simp]
+theorem of_congr {M N : Type u} [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+    [Module.Projective R N] (e : M ≃ₗ[R] N) : of R M = of R N := by
+  sorry
+
+/-- `[M × N] = [M] + [N]`. -/
+@[simp]
+theorem of_prod (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+    [Module.Projective R N] : of R (M × N) = of R M + of R N := by
+  sorry
+
+/-- `[Π i, M i] = Σ i, [M i]` for a finite family. (Mathlib has no instance for projectivity of a
+dependent finite product; it is a hypothesis here.) -/
+@[simp]
+theorem of_pi {ι : Type} [Fintype ι] (M : ι → Type u) [∀ i, AddCommGroup (M i)]
+    [∀ i, Module R (M i)] [∀ i, Module.Finite R (M i)] [∀ i, Module.Projective R (M i)]
+    [Module.Projective R (∀ i, M i)] : of R (∀ i, M i) = ∑ i, of R (M i) := by
+  sorry
+
+/-- The class of a subsingleton module vanishes. -/
+@[simp]
+theorem of_subsingleton (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] [Subsingleton M] : of R M = 0 := by
+  sorry
+
+/-- `[Rⁿ] = n • [R]`. -/
+@[simp]
+theorem of_free (n : ℕ) : of R (Fin n → R) = n • of R R := by
+  sorry
+
+/-- The class `[P(e)]` of the module of an idempotent matrix. -/
+def ofIdempotent {n : ℕ} (e : Matrix (Fin n) (Fin n) R) (he : IsIdempotentElem e) : RingK0 R :=
+  SplitK0.of ⟨ModuleCat.of R (idempotentModule e), finiteProjectiveModules_idempotentModule he⟩
+
+variable {G : Type*} [AddCommGroup G]
+
+/-- The universal property: a linear-equivalence-invariant, product-additive function on finitely
+generated projective modules induces `RingK0 R →+ G` (a real definition through `SplitK0.lift`). -/
+def lift
+    (c : ∀ (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M],
+      G)
+    (_hc : ∀ (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+      [Module.Projective R N], (M ≃ₗ[R] N) → c M = c N)
+    (_hprod : ∀ (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+      [Module.Projective R N], c (M × N) = c M + c N) :
+    RingK0 R →+ G :=
+  SplitK0.lift
+    { obj := fun X => @c X.obj.carrier _ _ (finiteProjectiveModules_iff.mp X.property).1
+        (finiteProjectiveModules_iff.mp X.property).2
+      map_iso := fun _ _ _ => by sorry
+      map_biprod := fun _ _ => by sorry }
+
+/-- `lift c [M] = c M`. -/
+@[simp]
+theorem lift_of
+    (c : ∀ (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M],
+      G)
+    (hc : ∀ (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+      [Module.Projective R N], (M ≃ₗ[R] N) → c M = c N)
+    (hprod : ∀ (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+      [Module.Projective R N], c (M × N) = c M + c N)
+    (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M] :
+    lift c hc hprod (of R M) = c M := by
+  sorry
+
+/-- Uniqueness in the universal property. -/
+theorem lift_unique
+    (c : ∀ (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M],
+      G)
+    (hc : ∀ (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+      [Module.Projective R N], (M ≃ₗ[R] N) → c M = c N)
+    (hprod : ∀ (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+      [Module.Projective R N], c (M × N) = c M + c N) (f : RingK0 R →+ G)
+    (hf : ∀ (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M], f (of R M) = c M) :
+    f = lift c hc hprod := by
+  sorry
+
+/-- Two additive maps out of `RingK0 R` agreeing on every `[M]` are equal. -/
+theorem hom_ext {f g : RingK0 R →+ G}
+    (h : ∀ (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M], f (of R M) = g (of R M)) : f = g := by
+  sorry
+
+variable (R) in
+/-- `RingK0 R ≃+` the group completion of the monoid of isomorphism classes, the existing
+`SplitK0.grothendieckAddGroupEquiv` (inverted). -/
+def grothendieckAddGroupEquiv :
+    RingK0 R ≃+ Algebra.GrothendieckAddGroup (ObjectCode.{u} (FP R)) :=
+  (SplitK0.grothendieckAddGroupEquiv.{u} (FP R)).symm
+
+-- test TauCeti.RingK0.zero_ring_test (degenerate)
+example [Subsingleton R] : Subsingleton (RingK0 R) := by
+  sorry
+
+-- test TauCeti.RingK0.of_prod_test (computation)
+/- Over `ℤ × ℤ`: `[ℤ × 0] + [0 × ℤ] = [R]`, with `ℤ × 0` and `0 × ℤ` the idempotent modules of
+`(1, 0)` and `(0, 1)`. -/
+example (h₁ : IsIdempotentElem (!![((1 : ℤ), (0 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))
+    (h₂ : IsIdempotentElem (!![((0 : ℤ), (1 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) :
+    ofIdempotent _ h₁ + ofIdempotent _ h₂ = of (ℤ × ℤ) (ℤ × ℤ) := by
+  sorry
+
+-- test TauCeti.RingK0.free_test (computation)
+example {k : Type u} [Field k] : of k (Fin 2 → k) = 2 • of k k :=
+  of_free 2
+
+-- test TauCeti.RingK0.grothendieck_test (compatibility)
+example (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M] :
+    grothendieckAddGroupEquiv R (of R M) =
+      Algebra.GrothendieckAddGroup.of
+        (objectCode.{u} (⟨ModuleCat.of R M, finiteProjectiveModules_iff.mpr
+          ⟨inferInstance, inferInstance⟩⟩ : FP R)) :=
+  SplitK0.grothendieckAddGroupEquiv_symm_of.{u} _
+
+-- test TauCeti.RingK0.swindle_test (non-example)
+example : of ℤ ℤ ≠ 0 := by
+  sorry
+
+end Basic
+
+/-! ### `KTheoryLowDegrees:Z.1/ring-k0-exact` and `Z.1/ring-k0-class-induction` -/
+
+section Exact
+
+variable (R : Type u) [Ring R]
+
+/-- `RingK0.toExactK0 : RingK0 R ≃+ ExactK0 (finiteProjectiveModulesExactStructure R)`: every
+conflation splits, so `ExactK0.fromSplitEquiv` applies. -/
+def toExactK0 : RingK0 R ≃+ ExactK0.{u} (finiteProjectiveModulesExactStructure R) :=
+  ExactK0.fromSplitEquiv (fun _ => by sorry)
+
+variable {R}
+
+/-- `toExactK0 [M] = ExactK0.of M`. -/
+@[simp]
+theorem toExactK0_of (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] :
+    toExactK0 R (of R M) = (ExactK0.of (⟨ModuleCat.of R M, finiteProjectiveModules_iff.mpr
+      ⟨inferInstance, inferInstance⟩⟩ : FP R) :
+        ExactK0.{u} (finiteProjectiveModulesExactStructure R)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-exact`: the direct-sum relations already impose the
+exact-sequence
+relations: for `0 → M₁ → M₂ → M₃ → 0` exact with finitely generated projective terms,
+`[M₂] = [M₁] + [M₃]` (so `toExactK0` is an isomorphism). -/
+theorem ringK0_exact {M₁ M₂ M₃ : Type u} [AddCommGroup M₁] [Module R M₁] [Module.Finite R M₁]
+    [Module.Projective R M₁] [AddCommGroup M₂] [Module R M₂] [Module.Finite R M₂]
+    [Module.Projective R M₂] [AddCommGroup M₃] [Module R M₃] [Module.Finite R M₃]
+    [Module.Projective R M₃] (f : M₁ →ₗ[R] M₂) (g : M₂ →ₗ[R] M₃) (hf : Function.Injective f)
+    (hfg : Function.Exact f g) (hg : Function.Surjective g) :
+    of R M₂ = of R M₁ + of R M₃ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-class-induction` (a): induction on classes of modules. -/
+theorem class_induction {motive : RingK0 R → Prop} (x : RingK0 R) (zero : motive 0)
+    (of : ∀ (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+      [Module.Projective R M], motive (of R M))
+    (add : ∀ a b, motive a → motive b → motive (a + b)) (neg : ∀ a, motive a → motive (-a)) :
+    motive x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-class-induction` (b), (c): every class is `[P] - [Q]`, and even
+`[P] - n • [R]` (cofinality of free modules). -/
+theorem class_induction_sub (x : RingK0 R) :
+    (∃ P Q : FP R, x = (SplitK0.of P : RingK0 R) - (SplitK0.of Q : RingK0 R)) ∧
+      ∃ (P : FP R) (n : ℕ), x = (SplitK0.of P : RingK0 R) - n • of R R := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-class-difference`. -/
+theorem class_difference (x : RingK0 R) :
+    ∃ P Q : FP R, x = (SplitK0.of P : RingK0 R) - (SplitK0.of Q : RingK0 R) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-free-cofinality`. -/
+theorem free_cofinality (x : RingK0 R) :
+    ∃ (P : FP R) (n : ℕ), x = (SplitK0.of P : RingK0 R) - n • of R R := by
+  sorry
+
+
+end Exact
+
+end RingK0
+
+/-! ### `KTheoryLowDegrees:Z.1/idempotent-classification`, `Z.1/projective-karoubi` and
+`Z.1/ring-k0-idempotent-completion` -/
+
+section Classification
+
+variable (R : Type u) [Ring R]
+
+/-- `KTheoryLowDegrees:Z.1/idempotent-classification`: `mk e ↦ objectCode P(e)` is an isomorphism
+of additive monoids `Idem(R) ≃+ ObjectCode (FP R)`; equivalently every finitely generated
+projective is some `P(e)`, and `P(e) ≅ P(f) ↔ mk e = mk f`. -/
+theorem idempotent_classification :
+    (∃ Φ : StableIdempotent R ≃+ ObjectCode.{u} (RingK0.FP R),
+      ∀ {n : ℕ} (e : Matrix (Fin n) (Fin n) R) (he : IsIdempotentElem e),
+        Φ (StableIdempotent.mk e he) = objectCode.{u} (⟨ModuleCat.of R (idempotentModule e),
+          finiteProjectiveModules_idempotentModule he⟩ : RingK0.FP R)) ∧
+      (∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P],
+        ∃ (n : ℕ) (e : Matrix (Fin n) (Fin n) R) (_ : IsIdempotentElem e),
+          Nonempty (P ≃ₗ[R] idempotentModule e)) ∧
+      ∀ {n m : ℕ} (e : Matrix (Fin n) (Fin n) R) (f : Matrix (Fin m) (Fin m) R)
+        (he : IsIdempotentElem e) (hf : IsIdempotentElem f),
+        StableIdempotent.mk e he = StableIdempotent.mk f hf ↔
+          Nonempty (idempotentModule e ≃ₗ[R] idempotentModule f) := by
+  sorry
+
+/-- The modules `Fin n → R` (up to isomorphism), whose full subcategory is `Free(R)` (helper for
+`Z.1/projective-karoubi`). -/
+def freeModules : ObjectProperty (ModuleCat.{u} R) :=
+  fun M => ∃ n : ℕ, Nonempty (M ≅ ModuleCat.of R (Fin n → R))
+
+/-- `KTheoryLowDegrees:Z.1/projective-karoubi`: the idempotent completion of `Free(R)` is
+equivalent to `FP R`, sending `(Rⁿ, p)` to the image of `p`. -/
+theorem projective_karoubi :
+    ∃ E : Idempotents.Karoubi (freeModules R).FullSubcategory ≌ RingK0.FP R,
+      ∀ X : Idempotents.Karoubi (freeModules R).FullSubcategory,
+        Nonempty ((E.functor.obj X).obj ≅ ModuleCat.of R (LinearMap.range X.p.hom.hom)) := by
+  sorry
+
+/-- The isomorphism `RingK0 R ≃+ GrothendieckAddGroup Idem(R)` of
+`Z.1/ring-k0-idempotent-completion` (data; its value on classes is `ringK0_idempotent_completion`).
+-/
+def RingK0.idempotentCompletionEquiv :
+    RingK0 R ≃+ Algebra.GrothendieckAddGroup (StableIdempotent R) :=
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-idempotent-completion`: `K₀` is the group completion of
+stabilised idempotents, `[P(e)] ↦ [mk e]`. -/
+theorem RingK0.idempotent_completion {n : ℕ} (e : Matrix (Fin n) (Fin n) R)
+    (he : IsIdempotentElem e) :
+    RingK0.idempotentCompletionEquiv R (RingK0.ofIdempotent e he) =
+      Algebra.GrothendieckAddGroup.of (StableIdempotent.mk e he) := by
+  sorry
+
+end Classification
+
+/-! ### `KTheoryLowDegrees:Z.1/stable-isomorphism-criterion`, `Z.1/stably-free-class`,
+`Z.1/free-class-ibn` -/
+
+namespace RingK0
+
+section Stable
+
+variable (R : Type u) [Ring R]
+
+/-- `KTheoryLowDegrees:Z.1/stable-isomorphism-criterion`: `[P] = [Q]` iff
+`P × Rⁿ ≃ₗ Q × Rⁿ` for some `n`. -/
+theorem stable_isomorphism_criterion (P Q : Type u) [AddCommGroup P] [Module R P]
+    [Module.Finite R P] [Module.Projective R P] [AddCommGroup Q] [Module R Q] [Module.Finite R Q]
+    [Module.Projective R Q] :
+    of R P = of R Q ↔ ∃ n : ℕ, Nonempty ((P × (Fin n → R)) ≃ₗ[R] (Q × (Fin n → R))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/stably-free-class`: `[P] = n • [R]` iff `P × Rᵏ ≃ R^{n+k}` for some `k`;
+and `[P] ∈ ℤ • [R]` iff `P` is stably free (Mathlib's `Module.IsStablyFree`). -/
+theorem stably_free_class (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] :
+    (∀ n : ℕ, of R P = n • of R R ↔
+      ∃ k : ℕ, Nonempty ((P × (Fin k → R)) ≃ₗ[R] (Fin (n + k) → R))) ∧
+      (of R P ∈ AddSubgroup.zmultiples (of R R) ↔ Module.IsStablyFree R P) := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/stably-free-class`. -/
+theorem stably_free_class_iff (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] :
+    ∀ n : ℕ, of R P = n • of R R ↔
+      ∃ k : ℕ, Nonempty ((P × (Fin k → R)) ≃ₗ[R] (Fin (n + k) → R)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/stably-free-free-class`. -/
+theorem stably_free_free_class (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] :
+    of R P ∈ AddSubgroup.zmultiples (of R R) ↔ Module.IsStablyFree R P := by
+  sorry
+
+
+/-- The free class `ℤ →+ RingK0 R`, `m ↦ m • [R]` (a real definition). -/
+def freeClass : ℤ →+ RingK0 R :=
+  zmultiplesHom _ (of R R)
+
+/-- `KTheoryLowDegrees:Z.1/free-class-ibn`: `freeClass` is injective iff `R` has the (left)
+invariant basis number; under IBN it is bijective iff every finitely generated projective is stably
+free. (Correcting K-book Lemma II.2.1(2): an abstract `K₀(R) ≅ ℤ` does not suffice.) -/
+theorem free_class_ibn :
+    (Function.Injective (freeClass R) ↔ InvariantBasisNumber R) ∧
+      (InvariantBasisNumber R → (Function.Bijective (freeClass R) ↔
+        ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+          [Module.Projective R P], Module.IsStablyFree R P)) := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/free-class-ibn`. -/
+theorem free_class_injective_iff :
+    Function.Injective (freeClass R) ↔ InvariantBasisNumber R := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/free-class-bijective`. -/
+theorem free_class_bijective_iff :
+    InvariantBasisNumber R → (Function.Bijective (freeClass R) ↔
+        ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+          [Module.Projective R P], Module.IsStablyFree R P) := by
+  sorry
+
+
+end Stable
+
+end RingK0
+
+/-! ### `KTheoryLowDegrees:Z.1/extend-scalars` -/
+
+section ExtendScalarsSection
+
+variable {R S : Type u} [Ring R] [Ring S] (f : R →+* S) (M : Type v) [AddCommGroup M] [Module R M]
+
+/-- The balancing relations `(s·f(r)) ⊗ m - s ⊗ (r • m)`, as a left `S`-submodule of `S ⊗[ℤ] M`. -/
+def ExtendScalars.rel : Submodule S (S ⊗[ℤ] M) :=
+  Submodule.span S {x | ∃ (s : S) (r : R) (m : M), x = (s * f r) ⊗ₜ m - s ⊗ₜ (r • m)}
+
+/-- **Extension of scalars along an arbitrary ring homomorphism**
+(`KTheoryLowDegrees:Z.1/extend-scalars`): `ExtendScalars f M := (S ⊗[ℤ] M) ⧸ N_f`, a left
+`S`-module through the left factor (a real definition). -/
+def ExtendScalars : Type (max u v) := (S ⊗[ℤ] M) ⧸ ExtendScalars.rel f M
+
+namespace ExtendScalars
+
+instance instAddCommGroup : AddCommGroup (ExtendScalars f M) :=
+  inferInstanceAs (AddCommGroup ((S ⊗[ℤ] M) ⧸ ExtendScalars.rel f M))
+
+instance instModule : Module S (ExtendScalars f M) :=
+  inferInstanceAs (Module S ((S ⊗[ℤ] M) ⧸ ExtendScalars.rel f M))
+
+variable {M}
+
+/-- `tmul s m`, written `s ⊗ m`: the class of `s ⊗ₜ m`. -/
+def tmul (s : S) (m : M) : ExtendScalars f M :=
+  Submodule.Quotient.mk (s ⊗ₜ[ℤ] m)
+
+/-- The balancing relation `(s·f(r)) ⊗ m = s ⊗ (r • m)`. -/
+theorem tmul_smul (s : S) (r : R) (m : M) : tmul f (s * f r) m = tmul f s (r • m) := by
+  sorry
+
+/-- `s' • (s ⊗ m) = (s' * s) ⊗ m`. -/
+@[simp]
+theorem smul_tmul (s' s : S) (m : M) : s' • tmul f s m = tmul f (s' * s) m := by
+  sorry
+
+/-- Every element is a finite sum of elements `s ⊗ m`. -/
+theorem induction_on {motive : ExtendScalars f M → Prop} (x : ExtendScalars f M) (zero : motive 0)
+    (tmul : ∀ s m, motive (tmul f s m)) (add : ∀ a b, motive a → motive b → motive (a + b)) :
+    motive x := by
+  sorry
+
+variable (M) in
+/-- The universal property: `φ : M →ₗ[R] f_*N` induces `ExtendScalars f M →ₗ[S] N`,
+`s ⊗ m ↦ s • φ m`. -/
+def lift (N : ModuleCat.{w} S) (φ : M →ₗ[R] (ModuleCat.restrictScalars f).obj N) :
+    ExtendScalars f M →ₗ[S] N :=
+  sorry
+
+/-- `lift φ (s ⊗ m) = s • φ m`. -/
+@[simp]
+theorem lift_tmul (N : ModuleCat.{w} S) (φ : M →ₗ[R] (ModuleCat.restrictScalars f).obj N)
+    (s : S) (m : M) : lift f M N φ (tmul f s m) = s • (φ m : N) := by
+  sorry
+
+variable (M) in
+/-- `lift` is a bijection. -/
+def liftEquiv (N : ModuleCat.{w} S) :
+    (M →ₗ[R] (ModuleCat.restrictScalars f).obj N) ≃ (ExtendScalars f M →ₗ[S] N) :=
+  sorry
+
+/-- `S`-linear maps agreeing on all `1 ⊗ m` are equal. -/
+theorem hom_ext {N : Type w} [AddCommGroup N] [Module S N] {g₁ g₂ : ExtendScalars f M →ₗ[S] N}
+    (h : ∀ m, g₁ (tmul f 1 m) = g₂ (tmul f 1 m)) : g₁ = g₂ := by
+  sorry
+
+/-- Extension of scalars as a functor `ModuleCat R ⥤ ModuleCat S`. -/
+def functor : ModuleCat.{u} R ⥤ ModuleCat.{u} S where
+  obj M := ModuleCat.of S (ExtendScalars f M)
+  map _ := sorry
+  map_id := by sorry
+  map_comp := by sorry
+
+/-- The functor is additive. -/
+instance functor_additive : (functor f).Additive := by
+  sorry
+
+/-- The adjunction `ExtendScalars.functor f ⊣ ModuleCat.restrictScalars f`. -/
+def adj : functor f ⊣ ModuleCat.restrictScalars.{u} f :=
+  sorry
+
+/-- Extension along the identity is the identity. -/
+def functorId : functor (RingHom.id R) ≅ 𝟭 (ModuleCat.{u} R) :=
+  sorry
+
+/-- Extension along a composite is the composite. -/
+def functorComp {T : Type u} [Ring T] (g : S →+* T) : functor (g.comp f) ≅ functor f ⋙ functor g :=
+  sorry
+
+/-- `ExtendScalars f R ≃ₗ[S] S`, `s ⊗ r ↦ s * f r`. -/
+def selfEquiv : ExtendScalars f R ≃ₗ[S] S :=
+  sorry
+
+/-- The value of `selfEquiv`. -/
+@[simp]
+theorem selfEquiv_tmul (s : S) (r : R) : selfEquiv f (tmul f s r) = s * f r := by
+  sorry
+
+/-- For commutative rings, `functor f ≅ ModuleCat.extendScalars f`, `s ⊗ m ↦ s ⊗ₜ m`. -/
+def isoExtendScalars {R S : Type u} [CommRing R] [CommRing S] (f : R →+* S) :
+    functor f ≅ (ModuleCat.extendScalars.{u, u, u} f : ModuleCat.{u} R ⥤ ModuleCat.{u} S) :=
+  sorry
+
+open ChangeOfRings in
+/-- The value of `isoExtendScalars`: `s ⊗ m ↦ s ⊗ₜ m`. -/
+theorem isoExtendScalars_hom_tmul {R S : Type u} [CommRing R] [CommRing S] (f : R →+* S)
+    (N : ModuleCat.{u} R) (s : S) (m : N) :
+    (isoExtendScalars f).hom.app N (tmul f s m) = s ⊗ₜ[R,f] m := by
+  sorry
+
+/-- For a two-sided ideal `I`: `ExtendScalars (R → R ⧸ I) M ≃ M ⧸ I • ⊤`. -/
+def quotientEquiv (I : Ideal R) [I.IsTwoSided] :
+    ExtendScalars (Ideal.Quotient.mk I) M ≃+ M ⧸ (I • (⊤ : Submodule R M)) :=
+  sorry
+
+-- test TauCeti.ExtendScalars.self_test (computation)
+example : Nonempty (ExtendScalars f R ≃ₗ[S] S) ∧
+    Nonempty (ExtendScalars (RingHom.id R) M ≃ₗ[R] M) := by
+  sorry
+
+-- test TauCeti.ExtendScalars.balanced_test (non-example)
+/- `ExtendScalars fst (ℤ × ℤ) ≃ ℤ`, whereas the unbalanced `ℤ ⊗[ℤ] (ℤ × ℤ)` is `ℤ²`. -/
+example : Nonempty (ExtendScalars (RingHom.fst ℤ ℤ) (ℤ × ℤ) ≃ₗ[ℤ] ℤ) ∧
+    ¬ Nonempty (ExtendScalars (RingHom.fst ℤ ℤ) (ℤ × ℤ) ≃ₗ[ℤ] (ℤ × ℤ)) ∧
+    Nonempty ((ℤ ⊗[ℤ] (ℤ × ℤ)) ≃ₗ[ℤ] (ℤ × ℤ)) := by
+  sorry
+
+open ChangeOfRings in
+-- test TauCeti.ExtendScalars.commRing_test (compatibility)
+example {R S : Type u} [CommRing R] [CommRing S] (f : R →+* S) (N : ModuleCat.{u} R) (s : S)
+    (m : N) : (isoExtendScalars f).hom.app N (tmul f s m) = s ⊗ₜ[R,f] m :=
+  isoExtendScalars_hom_tmul f N s m
+
+-- test TauCeti.ExtendScalars.quotient_test (computation)
+example : Nonempty (ExtendScalars (Int.castRingHom (ZMod 2)) (Fin 3 → ℤ) ≃ₗ[ZMod 2]
+      (Fin 3 → ZMod 2)) ∧
+    Nonempty (ExtendScalars (Int.castRingHom (ZMod 2)) (ZMod 4) ≃ₗ[ZMod 2] ZMod 2) := by
+  sorry
+
+-- test TauCeti.ExtendScalars.comp_test (characterisation)
+/- For `ℤ → ℚ → ℝ`, `functorComp` identifies `r ⊗ (q ⊗ m)` with `(r·q) ⊗ m`. -/
+example (N : ModuleCat.{0} ℤ) (r : ℝ) (q : ℚ) (m : N) :
+    (functorComp (Int.castRingHom ℚ) (Rat.castHom ℝ)).inv.app N
+        (tmul (Rat.castHom ℝ) r (tmul (Int.castRingHom ℚ) q m)) =
+      tmul ((Rat.castHom ℝ).comp (Int.castRingHom ℚ)) (r * q) m := by
+  sorry
+
+end ExtendScalars
+
+/-! ### `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective` -/
+
+namespace ExtendScalars
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`: (a) `ExtendScalars f Rⁿ ≅ Sⁿ`,
+`1 ⊗ eᵢ ↦ eᵢ`, carrying `v ↦ v ᵥ* A` to `w ↦ w ᵥ* A.map f`; (b) finitely generated projectives go
+to finitely generated projectives; (c) `ExtendScalars f P(e) ≅ P(e.map f)`. -/
+theorem extendScalars_finite_projective :
+    (∃ ε : ∀ n : ℕ, ExtendScalars f (Fin n → R) ≃ₗ[S] (Fin n → S),
+      (∀ (n : ℕ) (i : Fin n), ε n (tmul f 1 (Pi.single i 1)) = Pi.single i 1) ∧
+        ∀ (m n : ℕ) (A : Matrix (Fin m) (Fin n) R) (s : S) (v : Fin m → R),
+          ε n (tmul f s (v ᵥ* A)) = ε m (tmul f s v) ᵥ* A.map f) ∧
+      (∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P],
+        Module.Finite S (ExtendScalars f P) ∧ Module.Projective S (ExtendScalars f P)) ∧
+      ∀ {n : ℕ} (e : Matrix (Fin n) (Fin n) R), IsIdempotentElem e →
+        Nonempty (ExtendScalars f (idempotentModule e) ≃ₗ[S] idempotentModule (e.map f)) := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`. -/
+theorem extendScalars_free_matrix :
+    ∃ ε : ∀ n : ℕ, ExtendScalars f (Fin n → R) ≃ₗ[S] (Fin n → S),
+      (∀ (n : ℕ) (i : Fin n), ε n (tmul f 1 (Pi.single i 1)) = Pi.single i 1) ∧
+        ∀ (m n : ℕ) (A : Matrix (Fin m) (Fin n) R) (s : S) (v : Fin m → R),
+          ε n (tmul f s (v ᵥ* A)) = ε m (tmul f s v) ᵥ* A.map f := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-projective`. -/
+theorem extendScalars_projective :
+    ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P],
+        Module.Finite S (ExtendScalars f P) ∧ Module.Projective S (ExtendScalars f P) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-idempotent`. -/
+theorem extendScalars_idempotent :
+    ∀ {n : ℕ} (e : Matrix (Fin n) (Fin n) R), IsIdempotentElem e →
+        Nonempty (ExtendScalars f (idempotentModule e) ≃ₗ[S] idempotentModule (e.map f)) := by
+  sorry
+
+
+instance instFinite (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] : Module.Finite S (ExtendScalars f P) :=
+  ((extendScalars_finite_projective f).2.1 P).1
+
+instance instProjective (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] : Module.Projective S (ExtendScalars f P) :=
+  ((extendScalars_finite_projective f).2.1 P).2
+
+/-- `KTheoryLowDegrees:Z.1/extend-scalars-projective-functor`: the restriction `FP R ⥤ FP S` of extension of scalars (a real definition through
+`ObjectProperty.lift`). -/
+def finiteProjectiveFunctor : RingK0.FP R ⥤ RingK0.FP S :=
+  (finiteProjectiveModules S).lift ((finiteProjectiveModules R).ι ⋙ functor f) fun X =>
+    finiteProjectiveModules_iff.mpr
+      (@(extendScalars_finite_projective f).2.1 X.obj.carrier _ _
+        (finiteProjectiveModules_iff.mp X.property).1 (finiteProjectiveModules_iff.mp X.property).2)
+
+/-- (d) The restricted functor is additive. -/
+instance finiteProjectiveFunctor_additive : (finiteProjectiveFunctor f).Additive := by
+  sorry
+
+end ExtendScalars
+
+end ExtendScalarsSection
+
+/-! ### `KTheoryLowDegrees:Z.1/ring-k0-map` -/
+
+namespace RingK0
+
+section Map
+
+variable {R : Type u} [Ring R] {S : Type u} [Ring S] {T : Type u} [Ring T]
+
+/-- **Scalar extension on `K₀`** (`KTheoryLowDegrees:Z.1/ring-k0-map`): `SplitK0.map` of the
+additive functor `FP R ⥤ FP S`, `[P] ↦ [ExtendScalars f P]`. -/
+def map (f : R →+* S) : RingK0 R →+ RingK0 S :=
+  SplitK0.map (ExtendScalars.finiteProjectiveFunctor f)
+
+/-- `map f [P] = [ExtendScalars f P]`. -/
+@[simp]
+theorem map_of (f : R →+* S) (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] : map f (of R P) = of S (ExtendScalars f P) := by
+  sorry
+
+/-- `map` of the identity. -/
+@[simp]
+theorem map_id : map (RingHom.id R) = AddMonoidHom.id (RingK0 R) := by
+  sorry
+
+/-- `map` of a composite. -/
+theorem map_comp (f : R →+* S) (g : S →+* T) : map (g.comp f) = (map g).comp (map f) := by
+  sorry
+
+/-- `map f [R] = [S]`. -/
+@[simp]
+theorem map_one (f : R →+* S) : map f (of R R) = of S S := by
+  sorry
+
+/-- `map f [P(e)] = [P(e.map f)]`. -/
+@[simp]
+theorem map_ofIdempotent (f : R →+* S) {n : ℕ} (e : Matrix (Fin n) (Fin n) R)
+    (he : IsIdempotentElem e) :
+    map f (ofIdempotent e he) = ofIdempotent (f.mapMatrix e) (he.map f.mapMatrix) := by
+  sorry
+
+/-- For commutative rings, `map [P] = [S ⊗[R] P]` with Mathlib's tensor product. -/
+theorem map_of_commRing {A B : Type u} [CommRing A] [CommRing B] [Algebra A B] (P : Type u)
+    [AddCommGroup P] [Module A P] [Module.Finite A P] [Module.Projective A P] :
+    map (algebraMap A B) (of A P) = of B (B ⊗[A] P) := by
+  sorry
+
+/-- A ring isomorphism gives an additive equivalence (a real definition up to the two inverse
+laws). -/
+def mapEquiv (e : R ≃+* S) : RingK0 R ≃+ RingK0 S :=
+  { map e.toRingHom with
+    invFun := map e.symm.toRingHom
+    left_inv := by sorry
+    right_inv := by sorry }
+
+/-- Under `Z.1/ring-k0-idempotent-completion`, `map f` is the group completion of
+`StableIdempotent.map f`. -/
+theorem map_idempotentCompletion (f : R →+* S) (x : RingK0 R) :
+    idempotentCompletionEquiv S (map f x) =
+      Algebra.GrothendieckAddGroup.lift
+        (Algebra.GrothendieckAddGroup.of.comp (StableIdempotent.map f))
+        (idempotentCompletionEquiv R x) := by
+  sorry
+
+-- test TauCeti.RingK0.map_id_test (degenerate)
+example (x : RingK0 R) : map (RingHom.id R) x = x := by
+  rw [map_id, AddMonoidHom.id_apply]
+
+-- test TauCeti.RingK0.map_zero_ring_test (degenerate)
+example [Subsingleton S] (f : R →+* S) : map f = 0 := by
+  sorry
+
+-- test TauCeti.RingK0.map_rat_test (compatibility)
+example : map (Int.castRingHom ℚ) (of ℤ (Fin 2 → ℤ)) = of ℚ (Fin 2 → ℚ) ∧
+    ∀ (P : Type) [AddCommGroup P] [Module ℤ P] [Module.Finite ℤ P] [Module.Projective ℤ P],
+      map (algebraMap ℤ ℚ) (of ℤ P) = of ℚ (ℚ ⊗[ℤ] P) := by
+  sorry
+
+-- test TauCeti.RingK0.map_fst_test (computation)
+/- `map fst [ℤ × 0] = [ℤ]` and `map fst [0 × ℤ] = 0`, with `ℤ × 0`, `0 × ℤ` the idempotent
+modules of `(1, 0)`, `(0, 1)`. -/
+example (h₁ : IsIdempotentElem (!![((1 : ℤ), (0 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))
+    (h₂ : IsIdempotentElem (!![((0 : ℤ), (1 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) :
+    map (RingHom.fst ℤ ℤ) (ofIdempotent _ h₁) = of ℤ ℤ ∧
+      map (RingHom.fst ℤ ℤ) (ofIdempotent _ h₂) = 0 := by
+  sorry
+
+-- test TauCeti.RingK0.map_not_injective_test (non-example)
+example (h₂ : IsIdempotentElem (!![((0 : ℤ), (1 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) :
+    ofIdempotent _ h₂ ≠ 0 ∧ map (RingHom.snd ℤ ℤ) (ofIdempotent _ h₂) = of ℤ ℤ ∧
+      map (RingHom.fst ℤ ℤ) (ofIdempotent _ h₂) = 0 := by
+  sorry
+
+end Map
+
+end RingK0
+
+/-! ### `KTheoryLowDegrees:Z.1/restrict-scalars-finite-projective` and `Z.1/ring-k0-transfer` -/
+
+section Restrict
+
+variable {R S : Type u} [Ring R] [Ring S]
+
+/-- `KTheoryLowDegrees:Z.1/restrict-scalars-finite-projective`: if `S` is finitely generated
+projective as a left `R`-module through `f`, restriction of scalars preserves finitely generated
+projectives. -/
+theorem restrictScalars_finite_projective (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S)))
+    (Q : ModuleCat.{u} S) (hQ : finiteProjectiveModules S Q) :
+    finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj Q) := by
+  sorry
+
+/-- The restricted functor `FP S ⥤ FP R` (helper, a real definition through `ObjectProperty.lift`).
+-/
+def restrictScalarsFP (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S))) :
+    RingK0.FP S ⥤ RingK0.FP R :=
+  (finiteProjectiveModules R).lift
+    ((finiteProjectiveModules S).ι ⋙ ModuleCat.restrictScalars f) fun X =>
+      restrictScalars_finite_projective f hf X.obj X.property
+
+/-- The restricted functor is additive. -/
+instance restrictScalarsFP_additive (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S))) :
+    (restrictScalarsFP f hf).Additive := by
+  sorry
+
+end Restrict
+
+namespace RingK0
+
+section Transfer
+
+variable {R S T : Type u} [Ring R] [Ring S] [Ring T]
+
+/-- **The transfer on `K₀`** (`KTheoryLowDegrees:Z.1/ring-k0-transfer`): `SplitK0.map` of
+restriction of scalars along `f`, for `S` finitely generated projective over `R`. -/
+def transfer (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S))) :
+    RingK0 S →+ RingK0 R :=
+  SplitK0.map (restrictScalarsFP f hf)
+
+/-- `transfer f [Q] = [f_* Q]`. -/
+@[simp]
+theorem transfer_of (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S)))
+    (Q : Type u) [AddCommGroup Q] [Module S Q] [Module.Finite S Q] [Module.Projective S Q] :
+    transfer f hf (of S Q) = SplitK0.of ⟨(ModuleCat.restrictScalars f).obj (ModuleCat.of S Q),
+      restrictScalars_finite_projective f hf _
+        (finiteProjectiveModules_iff.mpr ⟨inferInstance, inferInstance⟩)⟩ := by
+  sorry
+
+/-- `transfer f [S] = [f_* S]`. -/
+@[simp]
+theorem transfer_one (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S))) :
+    transfer f hf (of S S) =
+      SplitK0.of ⟨(ModuleCat.restrictScalars f).obj (ModuleCat.of S S), hf⟩ := by
+  sorry
+
+/-- `transfer` of the identity. -/
+@[simp]
+theorem transfer_id (h : finiteProjectiveModules R
+    ((ModuleCat.restrictScalars (RingHom.id R)).obj (ModuleCat.of R R))) :
+    transfer (RingHom.id R) h = AddMonoidHom.id (RingK0 R) := by
+  sorry
+
+/-- `transfer` of a composite. -/
+theorem transfer_comp (f : R →+* S) (g : S →+* T)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S)))
+    (hg : finiteProjectiveModules S ((ModuleCat.restrictScalars g).obj (ModuleCat.of T T)))
+    (hgf : finiteProjectiveModules R
+      ((ModuleCat.restrictScalars (g.comp f)).obj (ModuleCat.of T T))) :
+    transfer (g.comp f) hgf = (transfer f hf).comp (transfer g hg) := by
+  sorry
+
+/-- If `S ≃ Rᵈ` as a left `R`-module, `transfer (map x) = d • x` on `ℤ • [R]`. -/
+theorem transfer_map_free (f : R →+* S)
+    (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S)))
+    (d : ℕ) (_hd : Nonempty ((ModuleCat.restrictScalars f).obj (ModuleCat.of S S) ≃ₗ[R]
+      (Fin d → R))) (x : RingK0 R) (_hx : x ∈ AddSubgroup.zmultiples (of R R)) :
+    transfer f hf (map f x) = d • x := by
+  sorry
+
+-- test TauCeti.RingK0.transfer_gaussian_test (computation)
+example (hf : finiteProjectiveModules ℤ
+    ((ModuleCat.restrictScalars (algebraMap ℤ GaussianInt)).obj (ModuleCat.of _ GaussianInt))) :
+    transfer (algebraMap ℤ GaussianInt) hf (of GaussianInt GaussianInt) = 2 • of ℤ ℤ := by
+  sorry
+
+-- test TauCeti.RingK0.transfer_id_test (degenerate)
+example (h : finiteProjectiveModules R
+    ((ModuleCat.restrictScalars (RingHom.id R)).obj (ModuleCat.of R R))) :
+    transfer (RingHom.id R) h = AddMonoidHom.id (RingK0 R) :=
+  transfer_id h
+
+-- test TauCeti.RingK0.transfer_projection_test (characterisation)
+/- `ℤ ≅ ℤ × 0` is a projective `ℤ × ℤ`-module: `transfer fst [ℤ] = [ℤ × 0]` and
+`map fst ∘ transfer fst = id`. -/
+example (hf : finiteProjectiveModules (ℤ × ℤ)
+      ((ModuleCat.restrictScalars (RingHom.fst ℤ ℤ)).obj (ModuleCat.of ℤ ℤ)))
+    (h₁ : IsIdempotentElem (!![((1 : ℤ), (0 : ℤ))] : Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) :
+    transfer (RingHom.fst ℤ ℤ) hf (of ℤ ℤ) = ofIdempotent _ h₁ ∧
+      ∀ x, map (RingHom.fst ℤ ℤ) (transfer (RingHom.fst ℤ ℤ) hf x) = x := by
+  sorry
+
+-- test TauCeti.RingK0.transfer_matrix_test (compatibility)
+example (n : ℕ) (hf : finiteProjectiveModules R ((ModuleCat.restrictScalars
+      (Matrix.scalar (Fin n) : R →+* Matrix (Fin n) (Fin n) R)).obj
+        (ModuleCat.of _ (Matrix (Fin n) (Fin n) R)))) :
+    transfer (Matrix.scalar (Fin n) : R →+* Matrix (Fin n) (Fin n) R) hf
+        (of _ (Matrix (Fin n) (Fin n) R)) = (n ^ 2) • of R R := by
+  sorry
+
+-- test TauCeti.RingK0.transfer_not_inverse_test (non-example)
+example (hf : finiteProjectiveModules ℤ
+    ((ModuleCat.restrictScalars (algebraMap ℤ GaussianInt)).obj (ModuleCat.of _ GaussianInt))) :
+    transfer (algebraMap ℤ GaussianInt) hf (map (algebraMap ℤ GaussianInt) (of ℤ ℤ)) ≠
+      of ℤ ℤ := by
+  sorry
+
+end Transfer
+
+end RingK0
+
+/-! ### Morita preservation through the actual submodule lattices -/
+
+/-- `Z.1/compact-element-order-iso`: compactness is invariant under an order isomorphism. -/
+theorem orderIso_isCompactElement_iff {L : Type v} {L' : Type w}
+    [PartialOrder L] [PartialOrder L'] (q : L ≃o L') (k : L) :
+    IsCompactElement (q k) ↔ IsCompactElement k := by
+  sorry
+
+section Morita
+
+variable {A B C : Type u} [Ring A] [Ring B] [Ring C]
+
+/-- `Z.1/module-equivalence-submodule-order-iso`: transport actual submodules through
+the pinned subobject/MonoOver equivalences. -/
+def moduleEquivalenceSubmoduleOrderIso (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : Submodule A M ≃o Submodule B (E.functor.obj M) :=
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_apply (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) (N : Submodule A M) :
+    moduleEquivalenceSubmoduleOrderIso E M N = ModuleCat.subobjectModule (E.functor.obj M)
+      ((Subobject.lowerEquivalence (MonoOver.congr M E)).functor.obj
+        ((ModuleCat.subobjectModule M).symm N)) := by
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_top (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : moduleEquivalenceSubmoduleOrderIso E M ⊤ = ⊤ := by
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_bot (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : moduleEquivalenceSubmoduleOrderIso E M ⊥ = ⊥ := by
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_refl (M : ModuleCat.{u} A) :
+    moduleEquivalenceSubmoduleOrderIso (CategoryTheory.Equivalence.refl) M =
+      OrderIso.refl (Submodule A M) := by
+  sorry
+
+-- test TauCeti.moduleEquivalenceSubmoduleOrderIso_identity_test (compatibility)
+example (M : ModuleCat.{u} A) (N : Submodule A M) :
+    moduleEquivalenceSubmoduleOrderIso (CategoryTheory.Equivalence.refl) M N = N := by
+  sorry
+
+-- test TauCeti.moduleEquivalenceSubmoduleOrderIso_zero_test (degenerate)
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (M : ModuleCat.{u} A) :
+    moduleEquivalenceSubmoduleOrderIso E M ⊥ = ⊥ := by
+  sorry
+
+-- test TauCeti.moduleEquivalenceSubmoduleOrderIso_proper_test (non-example)
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (M : ModuleCat.{u} A)
+    (N : Submodule A M) (hN : N < ⊤) : moduleEquivalenceSubmoduleOrderIso E M N < ⊤ := by
+  sorry
+
+/-- `Z.1/equivalence-preserves-finite`: no projectivity assumption is needed. -/
+theorem equivalence_finite_iff (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : Module.Finite B (E.functor.obj M) ↔ Module.Finite A M := by
+  sorry
+
+/-- The infinite-free non-example requires a nonzero coefficient ring. -/
+example [Nontrivial A] (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) :
+    ¬ Module.Finite B (E.functor.obj (ModuleCat.of A (ℕ →₀ A))) := by
+  sorry
+
+/-- Every unital module over the zero ring is zero, hence finitely generated. -/
+example [Subsingleton A] (M : ModuleCat.{u} A) : Module.Finite A M := by
+  sorry
+
+/-- `Z.1/equivalence-preserves-finite-projective`: retain the original identifier for
+preservation, while the restriction is its own construction node. -/
+theorem equivalence_preserves_finite_projective (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) (hM : finiteProjectiveModules A M) :
+    finiteProjectiveModules B (E.functor.obj M) := by
+  sorry
+
+/-- `Z.1/finite-projective-equivalence`: restrict both functors and their actual unit/counit. -/
+def finiteProjectiveEquivalence (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) :
+    RingK0.FP A ≌ RingK0.FP B :=
+  sorry
+
+theorem finiteProjectiveEquivalence_functor_obj (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (X : RingK0.FP A) : ((finiteProjectiveEquivalence E).functor.obj X).obj =
+        E.functor.obj X.obj := by
+  sorry
+
+theorem finiteProjectiveEquivalence_inverse_obj (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (Y : RingK0.FP B) : ((finiteProjectiveEquivalence E).inverse.obj Y).obj =
+        E.inverse.obj Y.obj := by
+  sorry
+
+theorem finiteProjectiveEquivalence_functor_map (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    {X Y : RingK0.FP A} (f : X ⟶ Y) :
+    eqToHom (finiteProjectiveEquivalence_functor_obj E X).symm ≫
+      ((finiteProjectiveEquivalence E).functor.map f).hom ≫
+      eqToHom (finiteProjectiveEquivalence_functor_obj E Y) = E.functor.map f.hom := by
+  sorry
+
+-- test TauCeti.finiteProjectiveEquivalence_refl_test (compatibility)
+example (X : RingK0.FP A) :
+    ((finiteProjectiveEquivalence (CategoryTheory.Equivalence.refl)).functor.obj X).obj =
+      X.obj := by
+  sorry
+
+-- test TauCeti.finiteProjectiveEquivalence_zero_test (degenerate)
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (X : RingK0.FP A) [Subsingleton X.obj] :
+    Subsingleton ((finiteProjectiveEquivalence E).functor.obj X).obj := by
+  sorry
+
+-- test TauCeti.finiteProjectiveEquivalence_matrix_nonfree_test (non-example)
+example {k : Type u} [Field k] :
+    ¬ Module.Free (Matrix (Fin 2) (Fin 2) k)
+      ((finiteProjectiveEquivalence (ModuleCat.matrixEquivalence k (0 : Fin 2))).functor.obj
+        ⟨ModuleCat.of k k, by exact ⟨inferInstance, inferInstance⟩⟩).obj := by
+  sorry
+
+/-- `Z.1/finite-projective-equivalence-additive`: the underlying equivalence preserves
+zero morphisms (it is full) and binary products, hence addition of morphisms. -/
+instance finiteProjectiveEquivalence_additive (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) :
+    (finiteProjectiveEquivalence E).functor.Additive := by
+  sorry
+
+
+namespace RingK0
+
+/-- **Morita invariance** (`KTheoryLowDegrees:Z.1/ring-k0-morita`): an equivalence of module
+categories induces `RingK0 A ≃+ RingK0 B`, `[M] ↦ [E.functor.obj M]`. -/
+def ofEquivalence (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) : RingK0 A ≃+ RingK0 B :=
+  SplitK0.mapEquiv (finiteProjectiveEquivalence E)
+
+/-- `ofEquivalence E [M] = [E.functor.obj M]`. -/
+@[simp]
+theorem ofEquivalence_of (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (M : Type u) [AddCommGroup M]
+    [Module A M] [Module.Finite A M] [Module.Projective A M] :
+    ofEquivalence E (of A M) = SplitK0.of ⟨E.functor.obj (ModuleCat.of A M),
+      equivalence_preserves_finite_projective E _
+        (finiteProjectiveModules_iff.mpr ⟨inferInstance, inferInstance⟩)⟩ := by
+  sorry
+
+/-- `moritaEquiv e := ofEquivalence e.eqv` for a Mathlib Morita equivalence over `ℤ`. -/
+def moritaEquiv (e : MoritaEquivalence ℤ A B) : RingK0 A ≃+ RingK0 B :=
+  ofEquivalence e.eqv
+
+/-- `moritaEquiv refl = refl`. -/
+@[simp]
+theorem moritaEquiv_refl : moritaEquiv (MoritaEquivalence.refl ℤ A) = AddEquiv.refl _ := by
+  sorry
+
+/-- `moritaEquiv` respects composition. -/
+theorem moritaEquiv_trans (e : MoritaEquivalence ℤ A B) (e' : MoritaEquivalence ℤ B C) :
+    moritaEquiv (e.trans ℤ e') = (moritaEquiv e).trans (moritaEquiv e') := by
+  sorry
+
+/-- `moritaEquiv` respects inverses. -/
+@[simp]
+theorem moritaEquiv_symm (e : MoritaEquivalence ℤ A B) :
+    moritaEquiv (e.symm ℤ) = (moritaEquiv e).symm := by
+  sorry
+
+/-- For an algebra isomorphism, `moritaEquiv` is `mapEquiv`. -/
+theorem moritaEquiv_ofAlgEquiv (φ : A ≃ₐ[ℤ] B) :
+    moritaEquiv (MoritaEquivalence.ofAlgEquiv φ) = mapEquiv φ.toRingEquiv := by
+  sorry
+
+-- test TauCeti.RingK0.moritaEquiv_matrix_test (computation)
+/- For a field `k` and `moritaEquivalenceMatrix` at `0 : Fin 2`: `[k] ↦ [k²]` (column vectors, the
+functor `ModuleCat.matrixEquivalence`), and the inverse sends `[M₂(k)]` to `2[k]`. -/
+example {k : Type u} [Field k] :
+    moritaEquiv (moritaEquivalenceMatrix k ℤ (0 : Fin 2)) (of k k) =
+        SplitK0.of ⟨(ModuleCat.matrixEquivalence k (0 : Fin 2)).functor.obj (ModuleCat.of k k),
+          equivalence_preserves_finite_projective _ _
+            (finiteProjectiveModules_iff.mpr ⟨inferInstance, inferInstance⟩)⟩ ∧
+      (moritaEquiv (moritaEquivalenceMatrix k ℤ (0 : Fin 2))).symm
+          (of (Matrix (Fin 2) (Fin 2) k) (Matrix (Fin 2) (Fin 2) k)) = 2 • of k k := by
+  sorry
+
+-- test TauCeti.RingK0.moritaEquiv_refl_test (degenerate)
+example (x : RingK0 A) : moritaEquiv (MoritaEquivalence.refl ℤ A) x = x := by
+  rw [moritaEquiv_refl, AddEquiv.refl_apply]
+
+-- test TauCeti.RingK0.moritaEquiv_not_free_test (non-example)
+/- `[k] ↦ [k²]`, which is not a multiple of `[M₂(k)]` in `K₀(M₂(k))`. -/
+example {k : Type u} [Field k] :
+    moritaEquiv (moritaEquivalenceMatrix k ℤ (0 : Fin 2)) (of k k) ∉
+      AddSubgroup.zmultiples (of (Matrix (Fin 2) (Fin 2) k) (Matrix (Fin 2) (Fin 2) k)) := by
+  sorry
+
+-- test TauCeti.RingK0.moritaEquiv_algEquiv_test (compatibility)
+example (φ : A ≃ₐ[ℤ] B) (x : RingK0 A) :
+    moritaEquiv (MoritaEquivalence.ofAlgEquiv φ) x = mapEquiv φ.toRingEquiv x := by
+  rw [moritaEquiv_ofAlgEquiv]
+
+/-- `KTheoryLowDegrees:Z.1/ring-k0-matrix`: `K₀(A) ≃ K₀(Mᵢ(A))` through `moritaEquivalenceMatrix`;
+its inverse sends `[Mᵢ(A)]` to `|ι| • [A]`. -/
+theorem ringK0_matrix {ι : Type u} [Fintype ι] [DecidableEq ι] (i₀ : ι) :
+    (moritaEquiv (moritaEquivalenceMatrix A ℤ i₀)).symm (of (Matrix ι ι A) (Matrix ι ι A)) =
+      Fintype.card ι • of A A := by
+  sorry
+
+end RingK0
+
+end Morita
+
+end TauCeti
+
+/-! ## Stage `KTheoryLowDegrees:Z.2` — rank, local rings and products
+
+The rank is a locally constant function on `Spec A` (`LocallyConstant (PrimeSpectrum A) ℤ`),
+never collapsed to one integer on a disconnected spectrum; `rankℤ` exists only under
+`ConnectedSpace (PrimeSpectrum A)`. -/
+
+namespace TauCeti
+
+/-- Helper instance (a true fact, proof omitted): the spectrum of a commutative local ring is
+connected (its only idempotents are `0` and `1`). Needed to state `rankℤ` for local rings. -/
+instance connectedSpace_primeSpectrum_of_isLocalRing (A : Type u) [CommRing A] [IsLocalRing A] :
+    ConnectedSpace (PrimeSpectrum A) := by
+  sorry
+
+namespace RingK0
+
+section Rank
+
+variable (A : Type u) [CommRing A]
+
+/-- `KTheoryLowDegrees:Z.2/local-freeness`: `P_p` is free of rank `rankAtStalk P p` over `A_p`, `P`
+is free of the same rank after inverting some `s ∉ p`, and `rankAtStalk P` is locally constant,
+constant on `D(s)`. -/
+theorem local_freeness (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] (p : PrimeSpectrum A) :
+    Module.Free (Localization.AtPrime p.asIdeal) (LocalizedModule p.asIdeal.primeCompl P) ∧
+      Nonempty (LocalizedModule p.asIdeal.primeCompl P ≃ₗ[Localization.AtPrime p.asIdeal]
+        (Fin (Module.rankAtStalk (R := A) P p) → Localization.AtPrime p.asIdeal)) ∧
+      (∃ s ∉ p.asIdeal, Module.Free (Localization.Away s) (LocalizedModule (Submonoid.powers s) P) ∧
+        Module.finrank (Localization.Away s) (LocalizedModule (Submonoid.powers s) P) =
+          Module.rankAtStalk (R := A) P p ∧
+        ∀ q ∈ PrimeSpectrum.basicOpen s, Module.rankAtStalk (R := A) P q =
+            Module.rankAtStalk (R := A) P p) ∧
+      IsLocallyConstant (Module.rankAtStalk (R := A) P) := by
+  sorry
+
+/-- **The rank of a virtual projective module** (`KTheoryLowDegrees:Z.2/rank-hom`):
+`rank : RingK0 A →+ LocallyConstant (PrimeSpectrum A) ℤ`, `[P] ↦ (p ↦ rankAtStalk P p)` (a real
+definition through `RingK0.lift`). -/
+def rank : RingK0 A →+ LocallyConstant (PrimeSpectrum A) ℤ :=
+  lift (fun (P : Type u)
+      [AddCommGroup P] [Module A P] [Module.Finite A P] [Module.Projective A P] =>
+    ⟨fun p => (Module.rankAtStalk (R := A) P p : ℤ), by sorry⟩) (by sorry) (by sorry)
+
+variable {A}
+
+/-- `rank [P] p = rankAtStalk P p`. -/
+@[simp]
+theorem rank_of (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] (p : PrimeSpectrum A) :
+    rank A (of A P) p = (Module.rankAtStalk (R := A) P p : ℤ) := by
+  sorry
+
+/-- `rank [A] = 1`. -/
+@[simp]
+theorem rank_one : rank A (of A A) = 1 := by
+  sorry
+
+/-- `rank (n • [A]) = n`. -/
+@[simp]
+theorem rank_free (n : ℕ) : rank A (n • of A A) = n := by
+  sorry
+
+/-- `rank [P] = 0 ↔ P = 0`. -/
+theorem rank_of_eq_zero_iff (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] : rank A (of A P) = 0 ↔ Subsingleton P := by
+  sorry
+
+/-- The rank of an actual module is nonnegative. -/
+theorem rank_of_nonneg (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] (p : PrimeSpectrum A) : 0 ≤ rank A (of A P) p := by
+  sorry
+
+/-- The rank has finite image. -/
+theorem rank_range_finite (x : RingK0 A) : (Set.range (rank A x)).Finite :=
+  (rank A x).range_finite
+
+/-- The K-book's definition: the fibre dimension `dim_{κ(p)} κ(p) ⊗ P`. -/
+theorem rank_of_eq_fiber (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] (p : PrimeSpectrum A) :
+    rank A (of A P) p = (Module.finrank p.asIdeal.ResidueField (p.asIdeal.Fiber P) : ℤ) := by
+  sorry
+
+/-- The object-level multiplicativity from which Z.3 proves that `rank` is a ring homomorphism. -/
+theorem rankAtStalk_tensor (P Q : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] [AddCommGroup Q] [Module A Q] [Module.Finite A Q]
+    [Module.Projective A Q] :
+    Module.rankAtStalk (R := A) (P ⊗[A] Q) =
+      Module.rankAtStalk (R := A) P * Module.rankAtStalk (R := A) Q := by
+  sorry
+
+/-- Invertible modules have rank one. -/
+@[simp]
+theorem rank_of_invertible (L : Type u) [AddCommGroup L] [Module A L] [Module.Invertible A L] :
+    rank A (of A L) = 1 := by
+  sorry
+
+/-- Constant rank `n` iff every localisation is `A_pⁿ`. -/
+theorem rank_eq_const_iff (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] (n : ℕ) :
+    rank A (of A P) = n ↔ ∀ p : PrimeSpectrum A,
+      Nonempty (LocalizedModule p.asIdeal.primeCompl P ≃ₗ[Localization.AtPrime p.asIdeal]
+        (Fin n → Localization.AtPrime p.asIdeal)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/rank-base-change`: `rank_B (map f x) = (rank_A x) ∘ Spec f`. -/
+theorem rank_base_change {B : Type u} [CommRing B] (f : A →+* B) (x : RingK0 A) :
+    rank B (map f x) =
+      (rank A x).comap ⟨PrimeSpectrum.comap f, PrimeSpectrum.continuous_comap f⟩ := by
+  sorry
+
+end Rank
+
+/-! ### `KTheoryLowDegrees:Z.2/componentwise-free` -/
+
+section Componentwise
+
+variable {A : Type u} [CommRing A]
+
+/-- The idempotent `e_U` with `D(e_U) = U` (`PrimeSpectrum.isIdempotentElemEquivClopens`). -/
+def clopenIdempotent (U : TopologicalSpace.Clopens (PrimeSpectrum A)) : A :=
+  (PrimeSpectrum.isIdempotentElemEquivClopens.symm U).1
+
+/-- The clopen module `A_U := A·e_U`. -/
+def clopenModule (U : TopologicalSpace.Clopens (PrimeSpectrum A)) : Submodule A A :=
+  Ideal.span {clopenIdempotent U}
+
+/-- The clopen module is finitely generated. -/
+instance clopenModule_finite (U : TopologicalSpace.Clopens (PrimeSpectrum A)) :
+    Module.Finite A (clopenModule U) := by
+  sorry
+
+/-- The clopen module is projective (a direct summand of `A`). -/
+instance clopenModule_finiteProjective (U : TopologicalSpace.Clopens (PrimeSpectrum A)) :
+    Module.Projective A (clopenModule U) := by
+  sorry
+
+/-- `rankAtStalk A_U` is the indicator of `U`. -/
+@[simp]
+theorem rankAtStalk_clopenModule (U : TopologicalSpace.Clopens (PrimeSpectrum A)) :
+    Module.rankAtStalk (R := A) (clopenModule U) = Set.indicator (U : Set (PrimeSpectrum A)) 1 := by
+  sorry
+
+/-- `A_{U ∪ V} ≅ A_U × A_V` for disjoint `U, V`. -/
+theorem clopenModule_union {U V : TopologicalSpace.Clopens (PrimeSpectrum A)} (h : Disjoint U V) :
+    Nonempty (clopenModule (U ⊔ V) ≃ₗ[A] clopenModule U × clopenModule V) := by
+  sorry
+
+/-- `A_{Spec A} ≅ A` and `A_∅ = 0`. -/
+theorem clopenModule_top :
+    Nonempty (clopenModule (⊤ : TopologicalSpace.Clopens (PrimeSpectrum A)) ≃ₗ[A] A) ∧
+      clopenModule (⊥ : TopologicalSpace.Clopens (PrimeSpectrum A)) = ⊥ := by
+  sorry
+
+/-- The clopen class `[A_U]`. -/
+def clopenClass (U : TopologicalSpace.Clopens (PrimeSpectrum A)) : RingK0 A :=
+  of A (clopenModule U)
+
+/-- Additivity of clopen classes on disjoint unions. -/
+theorem clopenClass_union {U V : TopologicalSpace.Clopens (PrimeSpectrum A)} (h : Disjoint U V) :
+    clopenClass (U ⊔ V) = clopenClass U + clopenClass V := by
+  sorry
+
+/-- `rank [A_U]` is the indicator of `U`. -/
+@[simp]
+theorem rank_clopenClass (U : TopologicalSpace.Clopens (PrimeSpectrum A)) :
+    rank A (clopenClass U) = LocallyConstant.charFn ℤ U.isClopen := by
+  sorry
+
+/-- The clopen fibre `f⁻¹(a)` of a locally constant function (helper). -/
+def fiberClopen {α : Type*} (f : LocallyConstant (PrimeSpectrum A) α) (a : α) :
+    TopologicalSpace.Clopens (PrimeSpectrum A) :=
+  ⟨f ⁻¹' {a}, f.isLocallyConstant.isClopen_fiber a⟩
+
+/-- **The componentwise free module** `A^f := ∏_{n ∈ range f} (A_{f⁻¹(n)})ⁿ` (a real definition). -/
+def componentwiseFree (f : LocallyConstant (PrimeSpectrum A) ℕ) : Type u :=
+  ∀ n : Set.range f, Fin n.1 → clopenModule (fiberClopen f n.1)
+
+instance componentwiseFree.instAddCommGroup (f : LocallyConstant (PrimeSpectrum A) ℕ) :
+    AddCommGroup (componentwiseFree f) :=
+  inferInstanceAs (AddCommGroup (∀ n : Set.range f, Fin n.1 → clopenModule (fiberClopen f n.1)))
+
+instance componentwiseFree.instModule (f : LocallyConstant (PrimeSpectrum A) ℕ) :
+    Module A (componentwiseFree f) :=
+  inferInstanceAs (Module A (∀ n : Set.range f, Fin n.1 → clopenModule (fiberClopen f n.1)))
+
+/-- `A^f` is finitely generated. -/
+instance componentwiseFree_finite (f : LocallyConstant (PrimeSpectrum A) ℕ) :
+    Module.Finite A (componentwiseFree f) := by
+  sorry
+
+/-- `A^f` is projective. -/
+instance componentwiseFree_projective (f : LocallyConstant (PrimeSpectrum A) ℕ) :
+    Module.Projective A (componentwiseFree f) := by
+  sorry
+
+/-- `rank [A^f] = f`. -/
+@[simp]
+theorem rank_componentwiseFree (f : LocallyConstant (PrimeSpectrum A) ℕ) :
+    rank A (of A (componentwiseFree f)) = f.map (fun n : ℕ => (n : ℤ)) := by
+  sorry
+
+/-- `A^{f+g} ≅ A^f × A^g`. -/
+theorem componentwiseFree_add (f g : LocallyConstant (PrimeSpectrum A) ℕ) :
+    Nonempty (componentwiseFree (f + g) ≃ₗ[A] componentwiseFree f × componentwiseFree g) := by
+  sorry
+
+/-- `A^{const n} ≅ Aⁿ`. -/
+theorem componentwiseFree_const (n : ℕ) :
+    Nonempty (componentwiseFree (LocallyConstant.const (PrimeSpectrum A) n) ≃ₗ[A] (Fin n → A)) := by
+  sorry
+
+end Componentwise
+
+/-! ### `KTheoryLowDegrees:Z.2/rank-section` -/
+
+section RankSection
+
+variable (A : Type u) [CommRing A]
+
+/-- **`H⁰` as a direct summand** (`KTheoryLowDegrees:Z.2/rank-section`):
+`rankSection f = Σ_{n ∈ range f} n • [A_{f⁻¹(n)}]` (a real definition up to additivity). -/
+def rankSection : LocallyConstant (PrimeSpectrum A) ℤ →+ RingK0 A where
+  toFun f := ∑ n ∈ f.range_finite.toFinset, n • clopenClass (fiberClopen f n)
+  map_zero' := by sorry
+  map_add' := by sorry
+
+variable {A}
+
+/-- `rank ∘ rankSection = id`. -/
+@[simp]
+theorem rank_rankSection (f : LocallyConstant (PrimeSpectrum A) ℤ) :
+    rank A (rankSection A f) = f := by
+  sorry
+
+/-- `rankSection (const n) = n • [A]`. -/
+@[simp]
+theorem rankSection_const (n : ℤ) :
+    rankSection A (LocallyConstant.const (PrimeSpectrum A) n) = n • of A A := by
+  sorry
+
+/-- `rankSection (indicator of U) = [A_U]`. -/
+@[simp]
+theorem rankSection_indicator (U : TopologicalSpace.Clopens (PrimeSpectrum A)) :
+    rankSection A (LocallyConstant.charFn ℤ U.isClopen) = clopenClass U := by
+  sorry
+
+/-- For `f ≥ 0`, `rankSection f = [A^f]`. -/
+theorem rankSection_of_nonneg (f : LocallyConstant (PrimeSpectrum A) ℕ) :
+    rankSection A (f.map (fun n : ℕ => (n : ℤ))) = of A (componentwiseFree f) := by
+  sorry
+
+/-- The rank is surjective. -/
+theorem rank_surjective : Function.Surjective (rank A) := by
+  sorry
+
+variable (A) in
+/-- `RingK0 A ≃+ H⁰ × ker rank`, `x ↦ (rank x, x - rankSection (rank x))` (a real definition up to
+proofs). -/
+def rankSplitting : RingK0 A ≃+ LocallyConstant (PrimeSpectrum A) ℤ × (rank A).ker where
+  toFun x := (rank A x, ⟨x - rankSection A (rank A x), by sorry⟩)
+  invFun y := rankSection A y.1 + y.2
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+end RankSection
+
+/-! ### `KTheoryLowDegrees:Z.2/rank-fibre-decomposition` -/
+
+section RankFibres
+
+variable (A : Type u) [CommRing A] (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+  [Module.Projective A P]
+
+/-- The finite set of values of `rankAtStalk P`. -/
+def rankFibres : Finset ℕ :=
+  haveI := Module.finitePresentation_of_projective A P
+  (Module.isLocallyConstant_rankAtStalk (R := A) (M := P)).range_finite.toFinset
+
+/-- The idempotent `e_n` of the rank fibre `rankAtStalk⁻¹(n)`. -/
+def rankFibreIdempotent (n : rankFibres A P) : A :=
+  haveI := Module.finitePresentation_of_projective A P
+  (PrimeSpectrum.isIdempotentElemEquivClopens.symm
+    ⟨Module.rankAtStalk (R := A) P ⁻¹' {n.1},
+      (Module.isLocallyConstant_rankAtStalk (R := A) (M := P)).isClopen_fiber n.1⟩).1
+
+/-- `D(e_n) = rankAtStalk⁻¹(n)`. -/
+theorem basicOpen_rankFibreIdempotent (n : rankFibres A P) :
+    (PrimeSpectrum.basicOpen (rankFibreIdempotent A P n) : Set (PrimeSpectrum A)) =
+      Module.rankAtStalk (R := A) P ⁻¹' {n.1} := by
+  sorry
+
+/-- The `e_n` form a complete orthogonal family. -/
+theorem completeOrthogonalIdempotents_rankFibre :
+    CompleteOrthogonalIdempotents (rankFibreIdempotent A P) := by
+  sorry
+
+/-- `A ≃+* ∏_n A ⧸ (1 - e_n)` (a real definition: `CompleteOrthogonalIdempotents.bijective_pi`). -/
+def rankFibreRingEquiv :
+    A ≃+* ((n : rankFibres A P) → A ⧸ Ideal.span {1 - rankFibreIdempotent A P n}) :=
+  RingEquiv.ofBijective _ (completeOrthogonalIdempotents_rankFibre A P).bijective_pi
+
+/-- `P ≃ ∏_n e_n P`. -/
+def rankFibreModuleEquiv :
+    P ≃ₗ[A] ((n : rankFibres A P) →
+      LinearMap.range (LinearMap.lsmul A P (rankFibreIdempotent A P n))) :=
+  sorry
+
+/-- The `n`-th component has constant rank `n` over `A ⧸ (1 - e_n)`. -/
+theorem rankAtStalk_rankFibre (n : rankFibres A P)
+    (q : PrimeSpectrum (A ⧸ Ideal.span {1 - rankFibreIdempotent A P n})) :
+    Module.rankAtStalk ((A ⧸ Ideal.span {1 - rankFibreIdempotent A P n}) ⊗[A] P) q = n.1 := by
+  sorry
+
+/-- Any finite clopen partition refining the rank fibres gives the analogous decomposition. -/
+theorem rankFibre_refine {ι : Type} [Fintype ι] (U : ι → TopologicalSpace.Clopens (PrimeSpectrum A))
+    (hdisj : Pairwise fun i j => Disjoint (U i) (U j))
+    (hcover : ⋃ i, (U i : Set (PrimeSpectrum A)) = Set.univ)
+    (hrefine : ∀ i, ∃ n, (U i : Set (PrimeSpectrum A)) ⊆ Module.rankAtStalk (R := A) P ⁻¹' {n}) :
+    ∃ e : ι → A, CompleteOrthogonalIdempotents e ∧ ∀ i,
+      (PrimeSpectrum.basicOpen (e i) : Set (PrimeSpectrum A)) = U i ∧ ∃ n : ℕ,
+        ∀ q : PrimeSpectrum (A ⧸ Ideal.span {1 - e i}),
+          Module.rankAtStalk ((A ⧸ Ideal.span {1 - e i}) ⊗[A] P) q = n := by
+  sorry
+
+end RankFibres
+
+/-! ### `KTheoryLowDegrees:Z.2/connected-iff-constant-rank` and `Z.2/rank-connected` -/
+
+section Connected
+
+variable (A : Type u) [CommRing A]
+
+/-- `KTheoryLowDegrees:Z.2/connected-iff-constant-rank`: for nontrivial `A`, connected spectrum ⟺
+constant rank of every finitely generated projective ⟺ only the idempotents `0, 1`. -/
+theorem connected_iff_constant_rank [Nontrivial A] :
+    List.TFAE [ConnectedSpace (PrimeSpectrum A),
+      ∀ (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P] [Module.Projective A P],
+        ∃ n : ℕ, ∀ p, Module.rankAtStalk (R := A) P p = n,
+      ∀ e : A, IsIdempotentElem e → e = 0 ∨ e = 1] := by
+  sorry
+
+variable [ConnectedSpace (PrimeSpectrum A)]
+
+/-- **The integer rank on a connected spectrum** (`KTheoryLowDegrees:Z.2/rank-connected`):
+`rankℤ x := (rank x)(p)` at any point (a real definition). -/
+def rankℤ : RingK0 A →+ ℤ where
+  toFun x := rank A x (Classical.arbitrary (PrimeSpectrum A))
+  map_zero' := by simp
+  map_add' x y := by simp
+
+variable {A}
+
+/-- `rankℤ [P] = rankAtStalk P p` for every `p`. -/
+@[simp]
+theorem rankℤ_of (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] (p : PrimeSpectrum A) :
+    rankℤ A (of A P) = (Module.rankAtStalk (R := A) P p : ℤ) := by
+  sorry
+
+/-- `rankℤ [A] = 1`. -/
+@[simp]
+theorem rankℤ_one : rankℤ A (of A A) = 1 := by
+  sorry
+
+/-- On a connected spectrum the rank is constant. -/
+theorem rank_eq_const (x : RingK0 A) :
+    rank A x = LocallyConstant.const (PrimeSpectrum A) (rankℤ A x) := by
+  sorry
+
+/-- `rankℤ` is surjective, split by `n ↦ n • [A]`. -/
+theorem rankℤ_surjective :
+    Function.Surjective (rankℤ A) ∧ ∀ n : ℤ, rankℤ A (n • of A A) = n := by
+  sorry
+
+/-- `rankℤ` is invariant under maps of rings with connected spectra. -/
+theorem rankℤ_map {B : Type u} [CommRing B] [ConnectedSpace (PrimeSpectrum B)] (f : A →+* B)
+    (x : RingK0 A) : rankℤ B (map f x) = rankℤ A x := by
+  sorry
+
+variable (A) in
+/-- `RingK0 A ≃+ ℤ × ker rankℤ` (a real definition up to proofs). -/
+def rankℤSplitting : RingK0 A ≃+ ℤ × (rankℤ A).ker where
+  toFun x := (rankℤ A x, ⟨x - rankℤ A x • of A A, by sorry⟩)
+  invFun y := y.1 • of A A + y.2
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+-- test TauCeti.RingK0.rankℤ_int_test (computation)
+example (n : ℕ) : rankℤ ℤ (of ℤ (Fin n → ℤ)) = n := by
+  sorry
+
+-- test TauCeti.RingK0.rankℤ_local_test (degenerate)
+example {B : Type u} [CommRing B] [IsLocalRing B] (P : Type u) [AddCommGroup P] [Module B P]
+    [Module.Finite B P] [Module.Projective B P] : rankℤ B (of B P) = Module.finrank B P := by
+  sorry
+
+end Connected
+
+/-- `KTheoryLowDegrees:Z.2/rank-domain`: over a domain with fraction field `K`, the rank at every
+prime is `finrank_K (K ⊗ P) = finrank_A P`; `Spec A` is connected, `rankℤ [P]` is that dimension,
+and a nonzero projective ideal has `rankℤ = 1`. -/
+theorem rank_domain {A : Type u} [CommRing A] [IsDomain A] (K : Type u) [Field K] [Algebra A K]
+    [IsFractionRing A K] (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P]
+    [Module.Projective A P] :
+    (∀ p : PrimeSpectrum A, Module.rankAtStalk (R := A) P p = Module.finrank K (K ⊗[A] P)) ∧
+      Module.finrank K (K ⊗[A] P) = Module.finrank A P ∧ ConnectedSpace (PrimeSpectrum A) ∧
+      rankℤ A (of A P) = Module.finrank K (K ⊗[A] P) ∧
+      rankℤ A (of A P) = rankℤ K (map (algebraMap A K) (of A P)) ∧
+      ∀ (I : Ideal A) [Module.Finite A I] [Module.Projective A I], I ≠ ⊥ → rankℤ A (of A I) =
+          1 := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.2/division-ring-k0` -/
+
+section DivisionRing
+
+variable (D : Type u) [DivisionRing D]
+
+/-- Helper: over a division ring the two object properties coincide (every module is projective). -/
+theorem finiteProjectiveModules_eq_isFG : finiteProjectiveModules D = ModuleCat.isFG D := by
+  sorry
+
+instance fullSubcategoryCongr_additive :
+    (ObjectProperty.fullSubcategoryCongr (finiteProjectiveModules_eq_isFG D)).functor.Additive := by
+  sorry
+
+/-- The transport `RingK0 D ≃+ SplitK0 (FGModuleCat D)` along `fullSubcategoryCongr` (a real
+definition). -/
+def fgModuleCatEquiv : RingK0 D ≃+ SplitK0.{u} (FGModuleCat.{u} D) :=
+  SplitK0.mapEquiv (ObjectProperty.fullSubcategoryCongr (finiteProjectiveModules_eq_isFG D))
+
+/-- **K₀ of a division ring** (`KTheoryLowDegrees:Z.2/division-ring-k0`): the existing
+`SplitK0.finrankEquiv` transported to ring `K₀` (a real definition). -/
+def divisionRingEquiv : RingK0 D ≃+ ℤ :=
+  (fgModuleCatEquiv D).trans (SplitK0.finrankEquiv D)
+
+variable {D}
+
+/-- `[P] ↦ finrank_D P`. -/
+@[simp]
+theorem divisionRingEquiv_of (P : Type u) [AddCommGroup P] [Module D P] [Module.Finite D P]
+    [Module.Projective D P] : divisionRingEquiv D (of D P) = Module.finrank D P := by
+  sorry
+
+/-- `[D] ↦ 1`. -/
+@[simp]
+theorem divisionRingEquiv_one : divisionRingEquiv D (of D D) = 1 := by
+  sorry
+
+/-- The inverse is `n ↦ n • [D]`. -/
+@[simp]
+theorem divisionRingEquiv_symm_apply (n : ℤ) : (divisionRingEquiv D).symm n = n • of D D := by
+  sorry
+
+/-- For a field, `divisionRingEquiv = rankℤ`. -/
+theorem divisionRingEquiv_eq_rankℤ (k : Type u) [Field k] :
+    ((divisionRingEquiv k : RingK0 k ≃+ ℤ) : RingK0 k →+ ℤ) = rankℤ k := by
+  sorry
+
+/-- Invariance under ring maps of division rings. -/
+theorem divisionRingEquiv_map {D' : Type u} [DivisionRing D'] (f : D →+* D') (x : RingK0 D) :
+    divisionRingEquiv D' (map f x) = divisionRingEquiv D x := by
+  sorry
+
+-- test TauCeti.RingK0.divisionRingEquiv_quaternion_test (computation)
+example : divisionRingEquiv ℍ[ℝ] (of ℍ[ℝ] (Fin 2 → ℍ[ℝ])) = 2 := by
+  sorry
+
+-- test TauCeti.RingK0.divisionRingEquiv_zero_test (degenerate)
+example : divisionRingEquiv D 0 = 0 ∧ divisionRingEquiv D (of D D) = 1 :=
+  ⟨map_zero _, divisionRingEquiv_one⟩
+
+-- test TauCeti.RingK0.divisionRingEquiv_finrankEquiv_test (compatibility)
+example (x : RingK0 D) : divisionRingEquiv D x = SplitK0.finrankEquiv D (fgModuleCatEquiv D x) :=
+  rfl
+
+-- test TauCeti.RingK0.divisionRingEquiv_subfield_test (non-example)
+/- The dimension is over `D` itself: `[ℂ] ↦ 1`, not `dim_ℝ ℂ = 2`. -/
+example : divisionRingEquiv ℂ (of ℂ ℂ) = 1 ∧ Module.finrank ℝ ℂ = 2 :=
+  ⟨divisionRingEquiv_one, Complex.finrank_real_complex⟩
+
+end DivisionRing
+
+/-! Tests of `Z.2/rank-hom` and `Z.2/rank-connected` that use `divisionRingEquiv`, and the tests
+of `Z.2/rank-hom`, `Z.2/componentwise-free`, `Z.2/rank-section`, `Z.2/rank-fibre-decomposition`,
+`Z.2/rank-connected` on `A = k × k` (with `(primeFst k) = ker fst`, `(primeSnd k) = ker snd`). -/
+
+section RankTests
+
+variable {k : Type u} [Field k]
+
+variable (k) in
+/-- Test notation: the prime `(primeFst k) = ker(fst)` of `k × k`. -/
+def primeFst : PrimeSpectrum (k × k) := ⟨RingHom.ker (RingHom.fst k k), RingHom.ker_isPrime _⟩
+
+variable (k) in
+/-- Test notation: the prime `(primeSnd k) = ker(snd)` of `k × k`. -/
+def primeSnd : PrimeSpectrum (k × k) := ⟨RingHom.ker (RingHom.snd k k), RingHom.ker_isPrime _⟩
+
+-- test TauCeti.RingK0.rank_prod_field_test (computation)
+/- `k × 0` is the idempotent module of the `1 × 1` idempotent `(1, 0)`. -/
+example (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    rank (k × k) (ofIdempotent _ h₁) (primeFst k) = 1 ∧
+        rank (k × k) (ofIdempotent _ h₁) (primeSnd k) = 0 ∧
+      rank (k × k) (of (k × k) (k × k)) = 1 := by
+  sorry
+
+-- test TauCeti.RingK0.rank_zero_ring_test (degenerate)
+example {B : Type u} [CommRing B] [Subsingleton B] :
+    IsEmpty (PrimeSpectrum B) ∧ rank B = 0 ∧ rank B (of B B) = 1 := by
+  sorry
+
+-- test TauCeti.RingK0.rank_field_test (compatibility)
+example (x : RingK0 k) (n : ℕ) :
+    rank k x = LocallyConstant.const (PrimeSpectrum k) (divisionRingEquiv k x) ∧
+      rank k (of k (Fin n → k)) = n := by
+  sorry
+
+-- test TauCeti.RingK0.rank_disconnected_test (non-example)
+/- `rank [k × 0]` is not constant, while `Module.finrank (k × k) (k × 0) = 0`. -/
+example (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    rank (k × k) (ofIdempotent _ h₁) (primeFst k) ≠ rank (k × k) (ofIdempotent _ h₁) (primeSnd k) ∧
+      Module.finrank (k × k) (idempotentModule (!![((1 : k), (0 : k))] :
+        Matrix (Fin 1) (Fin 1) (k × k))) = 0 := by
+  sorry
+
+-- test TauCeti.RingK0.rank_torsion_test (non-example)
+/- For the non-projective `ℤ`-module `ℤ/2` the fibre dimension is `1` at `(2)` and `0` at `(0)`,
+while `rankAtStalk (ℤ/2)` is identically `0`. -/
+example [(Ideal.span {(2 : ℤ)}).IsPrime] :
+    Module.finrank (Ideal.span {(2 : ℤ)}).ResidueField
+        ((Ideal.span {(2 : ℤ)}).Fiber (ZMod 2)) = 1 ∧
+      Module.finrank (⊥ : Ideal ℤ).ResidueField ((⊥ : Ideal ℤ).Fiber (ZMod 2)) = 0 ∧
+      ∀ p : PrimeSpectrum ℤ, Module.rankAtStalk (R := ℤ) (ZMod 2) p = 0 := by
+  sorry
+
+-- test TauCeti.RingK0.clopenClass_prod_test (computation)
+example (hU : IsClopen ({(primeFst k)} : Set (PrimeSpectrum (k × k)))) :
+    clopenModule (⟨{(primeFst k)}, hU⟩ : TopologicalSpace.Clopens (PrimeSpectrum (k × k))) =
+        Ideal.span {((1 : k), (0 : k))} ∧
+      rank (k × k) (clopenClass ⟨{(primeFst k)}, hU⟩) = LocallyConstant.charFn ℤ hU := by
+  sorry
+
+-- test TauCeti.RingK0.componentwiseFree_const_test (degenerate)
+example {B : Type u} [CommRing B] :
+    Subsingleton (componentwiseFree (0 : LocallyConstant (PrimeSpectrum B) ℕ)) ∧
+      ∀ n : ℕ, Nonempty (componentwiseFree (LocallyConstant.const (PrimeSpectrum B) n) ≃ₗ[B]
+        (Fin n → B)) := by
+  sorry
+
+example {B : Type u} [CommRing B] [Subsingleton B] (f : LocallyConstant (PrimeSpectrum B) ℕ) :
+    Subsingleton (componentwiseFree f) := by
+  sorry
+
+-- test TauCeti.RingK0.clopenClass_connected_test (characterisation)
+example {B : Type u} [CommRing B] [ConnectedSpace (PrimeSpectrum B)]
+    (U : TopologicalSpace.Clopens (PrimeSpectrum B)) :
+    clopenClass U = 0 ∨ clopenClass U = of B B := by
+  sorry
+
+-- test TauCeti.RingK0.componentwiseFree_not_free_test (non-example)
+example (f : LocallyConstant (PrimeSpectrum (k × k)) ℕ) (hf₁ : f (primeFst k) =
+    1) (hf₂ : f (primeSnd k) = 2) :
+    Module.Projective (k × k) (componentwiseFree f) ∧
+        ¬ Module.Free (k × k) (componentwiseFree f) := by
+  sorry
+
+-- test TauCeti.RingK0.rankSection_prod_test (computation)
+example (hU : IsClopen ({(primeFst k)} : Set (PrimeSpectrum (k × k))))
+    (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    rankSection (k × k) (LocallyConstant.charFn ℤ hU) = ofIdempotent _ h₁ ∧
+      rankSection (k × k) 1 = of (k × k) (k × k) := by
+  sorry
+
+-- test TauCeti.RingK0.rankSection_zero_test (degenerate)
+example {B : Type u} [CommRing B] : rankSection B 0 = 0 :=
+  map_zero _
+
+example {B : Type u} [CommRing B] [Subsingleton B] : rankSection B = 0 := by
+  sorry
+
+-- test TauCeti.RingK0.rankSection_connected_test (compatibility)
+example {B : Type u} [CommRing B] [ConnectedSpace (PrimeSpectrum B)] (n : ℤ) :
+    rankSection B (LocallyConstant.const (PrimeSpectrum B) n) = n • of B B :=
+  rankSection_const n
+
+-- test TauCeti.RingK0.rankSection_not_scalar_test (non-example)
+example (hU : IsClopen ({(primeFst k)} : Set (PrimeSpectrum (k × k)))) :
+    rankSection (k × k) (LocallyConstant.charFn ℤ hU) ∉
+      AddSubgroup.zmultiples (of (k × k) (k × k)) := by
+  sorry
+
+-- test TauCeti.RingK0.rankFibres_constant_test (degenerate)
+example {B : Type u} [CommRing B] [Nontrivial B] (n : ℕ) :
+    rankFibres B (Fin n → B) = {n} ∧
+      ∀ m : rankFibres B (Fin n → B), rankFibreIdempotent B (Fin n → B) m = 1 := by
+  sorry
+
+-- test TauCeti.RingK0.rankFibres_prod_test (computation)
+/- `P = k × k²` is the componentwise free module of `f` with `f (primeFst k) = 1`, `f (primeSnd k)
+= 2`. -/
+example (f : LocallyConstant (PrimeSpectrum (k × k)) ℕ) (hf₁ : f (primeFst k) =
+    1) (hf₂ : f (primeSnd k) = 2)
+    (h1 : 1 ∈ rankFibres (k × k) (componentwiseFree f)) (h2 : 2 ∈ rankFibres (k × k)
+        (componentwiseFree f)) :
+    rankFibres (k × k) (componentwiseFree f) = {1, 2} ∧
+      rankFibreIdempotent (k × k) (componentwiseFree f) ⟨1, h1⟩ = ((1 : k), (0 : k)) ∧
+      rankFibreIdempotent (k × k) (componentwiseFree f) ⟨2, h2⟩ = ((0 : k), (1 : k)) := by
+  sorry
+
+-- test TauCeti.RingK0.rankFibres_connected_test (characterisation)
+example {B : Type u} [CommRing B] [Nontrivial B] :
+    ConnectedSpace (PrimeSpectrum B) ↔
+      ∀ (P : Type u) [AddCommGroup P] [Module B P] [Module.Finite B P] [Module.Projective B P],
+        (rankFibres B P).card = 1 := by
+  sorry
+
+-- test TauCeti.RingK0.rankFibres_not_components_test (non-example)
+example : rankFibres (k × k × k) (k × k × k) = {1} ∧
+    Nat.card (ConnectedComponents (PrimeSpectrum (k × k × k))) = 3 := by
+  sorry
+
+-- test TauCeti.RingK0.rankℤ_field_test (compatibility)
+example : rankℤ k = ((divisionRingEquiv k : RingK0 k ≃+ ℤ) : RingK0 k →+ ℤ) :=
+  (divisionRingEquiv_eq_rankℤ k).symm
+
+-- test TauCeti.RingK0.rankℤ_disconnected_test (non-example)
+example (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    ¬ ConnectedSpace (PrimeSpectrum (k × k)) ∧
+      rank (k × k) (ofIdempotent _ h₁) (primeFst k) = 1 ∧
+          rank (k × k) (ofIdempotent _ h₁) (primeSnd k) = 0 := by
+  sorry
+
+end RankTests
+
+/-! ### `KTheoryLowDegrees:Z.2/integer-summand`, `Z.2/pid-k0` -/
+
+/-- `KTheoryLowDegrees:Z.2/integer-summand`: a ring map `φ : R → D` to a division ring gives
+`divisionRingEquiv ∘ map φ` sending `[R] ↦ 1`, so `freeClass` is split injective and
+`RingK0 R ≃+ ℤ × ker`. -/
+theorem integer_summand {R : Type u} [Ring R] {D : Type u} [DivisionRing D] (φ : R →+* D) :
+    ((divisionRingEquiv D : RingK0 D →+ ℤ).comp (map φ)) (of R R) = 1 ∧
+      Function.Injective (freeClass R) ∧
+      Nonempty (RingK0 R ≃+ ℤ × ((divisionRingEquiv D : RingK0 D →+ ℤ).comp (map φ)).ker) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/integer-summand` (existence): every nonzero commutative ring maps to a
+field (a residue field `A ⧸ 𝔪`). -/
+theorem integer_summand_exists (A : Type u) [CommRing A] [Nontrivial A] :
+    ∃ (K : Type u) (_ : Field K), Nonempty (A →+* K) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/pid-k0`: over a principal ideal domain every finitely generated
+projective is free and `rankℤ : RingK0 A ≃ ℤ`, `[P] ↦ finrank_A P`; in particular `RingK0 ℤ ≃+ ℤ`.
+-/
+theorem pid_k0 (A : Type u) [CommRing A] [IsDomain A] [IsPrincipalIdealRing A] :
+    (∀ (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P] [Module.Projective A P],
+      Module.Free A P ∧ rankℤ A (of A P) = Module.finrank A P) ∧
+      Function.Bijective (rankℤ A) := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.2/local-matrix-lift`, `Z.2/local-projective-free`, `Z.2/local-ring-k0`
+
+A (possibly noncommutative) local ring is given by a two-sided ideal `m` (an `Ideal R` with
+`m.IsTwoSided`, so that `R ⧸ m` is Mathlib's quotient ring) with `m ≠ ⊤` and every element outside
+`m` a unit. -/
+
+end RingK0
+
+section LocalRing
+
+variable {R : Type u} [Ring R] (m : Ideal R) [m.IsTwoSided]
+
+/-- `KTheoryLowDegrees:Z.2/local-matrix-lift`: for `m : Ideal R` two-sided (`R ⧸ m` is
+`Ideal.Quotient.ring`; the Jacobson-radical lemmas take `Ideal.toTwoSided m`), (i) `R ⧸ m` is a
+division ring; (ii) `m` lies in the Jacobson radical, so `1 + x` is a unit for `x ∈ m`; (iii) a
+matrix invertible modulo `m` is invertible. -/
+theorem local_matrix_lift (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    (Nontrivial (R ⧸ m) ∧ ∀ x : R ⧸ m, x ≠ 0 → IsUnit x) ∧
+      (m ≤ Ideal.jacobson ⊥ ∧ ∀ x ∈ m, IsUnit (1 + x)) ∧
+      ∀ (n : ℕ) (A : Matrix (Fin n) (Fin n) R),
+        IsUnit (A.map (Ideal.Quotient.mk m)) → IsUnit A := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.2/local-matrix-lift`. -/
+theorem local_residue_division (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    Nontrivial (R ⧸ m) ∧ ∀ x : R ⧸ m, x ≠ 0 → IsUnit x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/local-ideal-jacobson`. -/
+theorem local_ideal_jacobson (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    m ≤ Ideal.jacobson ⊥ ∧ ∀ x ∈ m, IsUnit (1 + x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/local-invertible-matrix-lift`. -/
+theorem local_invertible_matrix_lift (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    ∀ (n : ℕ) (A : Matrix (Fin n) (Fin n) R),
+        IsUnit (A.map (Ideal.Quotient.mk m)) → IsUnit A := by
+  sorry
+
+
+/-- `KTheoryLowDegrees:Z.2/local-projective-free`: over a local ring every finitely generated
+projective left module is free, of rank `finrank_{R ⧸ m} (ExtendScalars (R → R ⧸ m) P)`. -/
+theorem local_projective_free (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) (P : Type u)
+    [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    Nonempty (P ≃ₗ[R]
+      (Fin (Module.finrank (R ⧸ m) (ExtendScalars (Ideal.Quotient.mk m) P)) → R)) := by
+  sorry
+
+namespace RingK0
+
+/-- **K₀ of a local ring** (`KTheoryLowDegrees:Z.2/local-ring-k0`): `[P] ↦ finrank_{R ⧸ m}
+(ExtendScalars (R → R ⧸ m) P)` (a real definition through `RingK0.lift`, up to proofs). -/
+def localEquiv (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) : RingK0 R ≃+ ℤ :=
+  AddEquiv.ofBijective
+    (lift (fun (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+        [Module.Projective R P] => (Module.finrank (R ⧸ m) (ExtendScalars (Ideal.Quotient.mk m) P)
+            : ℤ))
+      (by sorry) (by sorry))
+    (by sorry)
+
+variable {m}
+
+/-- The value of `localEquiv` on classes. -/
+@[simp]
+theorem localEquiv_of (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) (P : Type u) [AddCommGroup P]
+    [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    localEquiv m hm hunit (of R P) =
+      Module.finrank (R ⧸ m) (ExtendScalars (Ideal.Quotient.mk m) P) := by
+  sorry
+
+/-- `[R] ↦ 1`. -/
+@[simp]
+theorem localEquiv_one (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) :
+    localEquiv m hm hunit (of R R) = 1 := by
+  sorry
+
+/-- The inverse is `n ↦ n • [R]`. -/
+@[simp]
+theorem localEquiv_symm_apply (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) (n : ℤ) :
+    (localEquiv m hm hunit).symm n = n • of R R := by
+  sorry
+
+/-- For a commutative local ring, `localEquiv (maximalIdeal A) = rankℤ`. -/
+theorem localEquiv_eq_rankℤ (A : Type u) [CommRing A] [IsLocalRing A] :
+    ((localEquiv (IsLocalRing.maximalIdeal A) (IsLocalRing.maximalIdeal.isMaximal A).ne_top
+      (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx) : RingK0 A ≃+ ℤ) : RingK0 A →+ ℤ) =
+        rankℤ A := by
+  sorry
+
+/-- `[P] = (localEquiv [P]) • [R]`. -/
+theorem of_eq_finrank_smul (hm : m ≠ ⊤) (hunit : ∀ x ∉ m, IsUnit x) (P : Type u) [AddCommGroup P]
+    [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    of R P = localEquiv m hm hunit (of R P) • of R R := by
+  sorry
+
+end RingK0
+
+end LocalRing
+
+namespace RingK0
+
+-- test TauCeti.RingK0.localEquiv_zp_test (computation)
+example (p : ℕ) [(Ideal.span {(p : ℤ)}).IsPrime] :
+    localEquiv (IsLocalRing.maximalIdeal (Localization.AtPrime (Ideal.span {(p : ℤ)})))
+      (IsLocalRing.maximalIdeal.isMaximal _).ne_top
+      (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx)
+      (of _ (Fin 3 → Localization.AtPrime (Ideal.span {(p : ℤ)}))) = 3 := by
+  sorry
+
+-- test TauCeti.RingK0.localEquiv_divisionRing_test (degenerate)
+example {D : Type u} [DivisionRing D] (hm : (⊥ : Ideal D) ≠ ⊤)
+    (hunit : ∀ x ∉ (⊥ : Ideal D), IsUnit x) : localEquiv ⊥ hm hunit = divisionRingEquiv D := by
+  sorry
+
+-- test TauCeti.RingK0.localEquiv_commRing_test (compatibility)
+example (A : Type u) [CommRing A] [IsLocalRing A] (P : Type u) [AddCommGroup P] [Module A P]
+    [Module.Finite A P] [Module.Projective A P] :
+    ((localEquiv (IsLocalRing.maximalIdeal A) (IsLocalRing.maximalIdeal.isMaximal A).ne_top
+      (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx) : RingK0 A ≃+ ℤ) : RingK0 A →+ ℤ) =
+        rankℤ A ∧
+      localEquiv (IsLocalRing.maximalIdeal A) (IsLocalRing.maximalIdeal.isMaximal A).ne_top
+        (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx) (of A P) = Module.finrank A P := by
+  sorry
+
+-- test TauCeti.RingK0.localEquiv_nonlocal_test (non-example)
+/- `k × k` has two maximal ideals: no ideal satisfies the hypothesis, and `K₀(k × k) ≅ ℤ²`. -/
+example {k : Type u} [Field k] :
+    ¬ (∃ m : Ideal (k × k), m ≠ ⊤ ∧ ∀ x ∉ m, IsUnit x) ∧ Nonempty (RingK0 (k × k) ≃+ ℤ × ℤ) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/rank-localization`: (a) localisation restricts the rank along
+`Spec(S⁻¹A) → Spec A`; (b) `(rank x)(p) = localEquiv (map (A → A_p) x)`; (c) `ker rank` is the
+kernel of `K₀(A) → ∏_p K₀(A_p)`. -/
+theorem rank_localization {A : Type u} [CommRing A] :
+    (∀ (S : Submonoid A) (x : RingK0 A),
+      rank (Localization S) (map (algebraMap A (Localization S)) x) =
+        (rank A x).comap ⟨PrimeSpectrum.comap (algebraMap A (Localization S)),
+          PrimeSpectrum.continuous_comap _⟩) ∧
+      (∀ (p : PrimeSpectrum A) (x : RingK0 A),
+        rank A x p = localEquiv (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal))
+          (IsLocalRing.maximalIdeal.isMaximal _).ne_top
+          (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx)
+          (map (algebraMap A (Localization.AtPrime p.asIdeal)) x)) ∧
+      (rank A).ker = ⨅ p : PrimeSpectrum A,
+        (map (algebraMap A (Localization.AtPrime p.asIdeal))).ker := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:Z.2/rank-localization`. -/
+theorem rank_localization_restrict {A : Type u} [CommRing A] :
+    ∀ (S : Submonoid A) (x : RingK0 A),
+      rank (Localization S) (map (algebraMap A (Localization S)) x) =
+        (rank A x).comap ⟨PrimeSpectrum.comap (algebraMap A (Localization S)),
+          PrimeSpectrum.continuous_comap _⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/rank-at-prime-local-equivalence`. -/
+theorem rank_at_prime_local_equivalence {A : Type u} [CommRing A] :
+    ∀ (p : PrimeSpectrum A) (x : RingK0 A),
+        rank A x p = localEquiv (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal))
+          (IsLocalRing.maximalIdeal.isMaximal _).ne_top
+          (fun _ hx => IsLocalRing.notMem_maximalIdeal.mp hx)
+          (map (algebraMap A (Localization.AtPrime p.asIdeal)) x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/rank-kernel-stalkwise`. -/
+theorem rank_kernel_stalkwise {A : Type u} [CommRing A] :
+    (rank A).ker = ⨅ p : PrimeSpectrum A,
+        (map (algebraMap A (Localization.AtPrime p.asIdeal))).ker := by
+  sorry
+
+
+/-! ### `KTheoryLowDegrees:Z.2/pi-ring-modules`, `Z.2/k0-pi`, `Z.2/k0-field-product` -/
+
+section Pi
+
+variable {ι : Type} [Fintype ι] [DecidableEq ι] (A : ι → Type u) [∀ i, Ring (A i)]
+
+/-- Helper instance: the product group structure on `∀ i, RingK0 (A i)` (instance search cannot
+find `Pi.addCommGroup` here, as it leaves the universe of the `EssentiallySmall` instance of each
+factor undetermined). -/
+instance (priority := high) instAddCommGroupPi : AddCommGroup (∀ i, RingK0 (A i)) :=
+  @Pi.addCommGroup ι (fun i => RingK0 (A i)) fun _ => inferInstance
+
+/-- Helper instance: the addition of `∀ i, RingK0 (A i)`, from `instAddCommGroupPi`. -/
+instance (priority := high) instAddPi : Add (∀ i, RingK0 (A i)) :=
+  (instAddCommGroupPi A).toAdd
+
+omit [Fintype ι] [DecidableEq ι] in
+/-- `KTheoryLowDegrees:Z.2/pi-ring-modules` (a): each `A_i`, as a left `∏ A_j`-module through `πᵢ`,
+is finitely generated projective. -/
+theorem pi_ring_modules_finite_projective (i : ι) :
+    finiteProjectiveModules (∀ i, A i)
+      ((ModuleCat.restrictScalars (Pi.evalRingHom A i)).obj (ModuleCat.of (A i) (A i))) := by
+  sorry
+
+omit [Fintype ι] [DecidableEq ι] in
+/-- `KTheoryLowDegrees:Z.2/pi-ring-modules` (b): `ExtendScalars πⱼ ((πᵢ)_* M)` is `M` for `j = i`
+and `0` for `j ≠ i`. -/
+-- `KTheoryLowDegrees:Z.2/pi-ring-cross-extension`
+theorem pi_ring_modules_extendScalars (i : ι) (M : Type u) [AddCommGroup M] [Module (A i) M] :
+    Nonempty (ExtendScalars (Pi.evalRingHom A i)
+        ((ModuleCat.restrictScalars (Pi.evalRingHom A i)).obj (ModuleCat.of (A i) M)) ≃ₗ[A i] M) ∧
+      ∀ j, j ≠ i → Subsingleton (ExtendScalars (Pi.evalRingHom A j)
+        ((ModuleCat.restrictScalars (Pi.evalRingHom A i)).obj (ModuleCat.of (A i) M))) := by
+  sorry
+
+omit [Fintype ι] [DecidableEq ι] in
+/-- `KTheoryLowDegrees:Z.2/pi-ring-modules` (c): `P ≅ ∏ᵢ (πᵢ)_* (ExtendScalars πᵢ P)` (`ι` finite).
+-/
+-- `KTheoryLowDegrees:Z.2/pi-ring-module-decomposition`
+theorem pi_ring_modules_decompose [Finite ι] (P : Type u) [AddCommGroup P] [Module (∀ i, A i) P] :
+    Nonempty (P ≃ₗ[∀ i, A i] ∀ i, (ModuleCat.restrictScalars (Pi.evalRingHom A i)).obj
+      (ModuleCat.of (A i) (ExtendScalars (Pi.evalRingHom A i) P))) := by
+  sorry
+
+/-- **The product formula** (`KTheoryLowDegrees:Z.2/k0-pi`): `x ↦ (map πᵢ x)ᵢ`, with inverse
+`(xᵢ) ↦ Σᵢ transfer πᵢ xᵢ` (a real definition up to the inverse laws). -/
+def piEquiv : RingK0 (∀ i, A i) ≃+ ∀ i, RingK0 (A i) where
+  toFun x i := map (Pi.evalRingHom A i) x
+  invFun y := ∑ i, transfer (Pi.evalRingHom A i) (pi_ring_modules_finite_projective A i) (y i)
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+omit [DecidableEq ι] in
+/-- `piEquiv x i = map πᵢ x`. -/
+@[simp]
+theorem piEquiv_apply (x : RingK0 (∀ i, A i)) (i : ι) :
+    piEquiv A x i = map (Pi.evalRingHom A i) x :=
+  rfl
+
+omit [DecidableEq ι] in
+/-- `piEquiv.symm y = Σᵢ transfer πᵢ (y i)`. -/
+@[simp]
+theorem piEquiv_symm_apply (y : ∀ i, RingK0 (A i)) :
+    (piEquiv A).symm y =
+      ∑ i, transfer (Pi.evalRingHom A i) (pi_ring_modules_finite_projective A i) (y i) :=
+  rfl
+
+end Pi
+
+section Prod
+
+variable (A B : Type u) [Ring A] [Ring B]
+
+/-- The binary product formula `RingK0 (A × B) ≃+ RingK0 A × RingK0 B`,
+`x ↦ (map fst x, map snd x)` (a real definition up to proofs). -/
+def prodEquiv : RingK0 (A × B) ≃+ RingK0 A × RingK0 B where
+  toFun x := (map (RingHom.fst A B) x, map (RingHom.snd A B) x)
+  invFun y := transfer (RingHom.fst A B) (by sorry) y.1 + transfer (RingHom.snd A B) (by sorry) y.2
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+variable {A B}
+
+/-- `prodEquiv [P] = ([ExtendScalars fst P], [ExtendScalars snd P])`. -/
+@[simp]
+theorem prodEquiv_of (P : Type u) [AddCommGroup P] [Module (A × B) P] [Module.Finite (A × B) P]
+    [Module.Projective (A × B) P] :
+    prodEquiv A B (of (A × B) P) =
+      (of A (ExtendScalars (RingHom.fst A B) P), of B (ExtendScalars (RingHom.snd A B) P)) := by
+  sorry
+
+/-- `prodEquiv.symm ([M], [N]) = [M × N]` with the componentwise action. -/
+@[simp]
+theorem prodEquiv_symm_of (M N : Type u) [AddCommGroup M] [Module A M] [Module.Finite A M]
+    [Module.Projective A M] [AddCommGroup N] [Module B N] [Module.Finite B N]
+    [Module.Projective B N]
+    (h : finiteProjectiveModules (A × B) (ModuleCat.of (A × B)
+      ((ModuleCat.restrictScalars (RingHom.fst A B)).obj (ModuleCat.of A M) ×
+        (ModuleCat.restrictScalars (RingHom.snd A B)).obj (ModuleCat.of B N)))) :
+    (prodEquiv A B).symm (of A M, of B N) = SplitK0.of ⟨_, h⟩ := by
+  sorry
+
+/-- For commutative `A, B`, under `PrimeSpectrum (A × B) ≃ PrimeSpectrum A ⊕ PrimeSpectrum B`,
+`rank` corresponds to `(rank_A, rank_B)`. -/
+theorem rank_prodEquiv {A B : Type u} [CommRing A] [CommRing B] (x : RingK0 (A × B)) :
+    (∀ p : PrimeSpectrum A, rank (A × B) x ((PrimeSpectrum.primeSpectrumProd A B).symm (.inl p)) =
+      rank A (prodEquiv A B x).1 p) ∧
+      ∀ q : PrimeSpectrum B, rank (A × B) x ((PrimeSpectrum.primeSpectrumProd A B).symm (.inr q)) =
+        rank B (prodEquiv A B x).2 q := by
+  sorry
+
+end Prod
+
+section PiTests
+
+variable {k : Type u} [Field k]
+
+-- test TauCeti.RingK0.prodEquiv_field_test (computation)
+example (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] : Matrix (Fin 1) (Fin 1) (k × k)))
+    (h₂ : IsIdempotentElem (!![((0 : k), (1 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    Prod.map (divisionRingEquiv k) (divisionRingEquiv k) (prodEquiv k k (of (k × k) (k × k))) =
+        (1, 1) ∧
+      Prod.map (divisionRingEquiv k) (divisionRingEquiv k) (prodEquiv k k (ofIdempotent _ h₁)) =
+        (1, 0) ∧
+      Prod.map (divisionRingEquiv k) (divisionRingEquiv k) (prodEquiv k k (ofIdempotent _ h₂)) =
+        (0, 1) := by
+  sorry
+
+-- test TauCeti.RingK0.piEquiv_empty_test (degenerate)
+example (A : Fin 0 → Type u) [∀ i, Ring (A i)] :
+    Subsingleton (RingK0 (∀ i, A i)) ∧ Subsingleton (∀ i, RingK0 (A i)) := by
+  sorry
+
+-- test TauCeti.RingK0.prodEquiv_rank_test (compatibility)
+example {A B : Type u} [CommRing A] [CommRing B] (P : Type u) [AddCommGroup P] [Module (A × B) P]
+    [Module.Finite (A × B) P] [Module.Projective (A × B) P] (p : PrimeSpectrum A) :
+    rank (A × B) (of (A × B) P) ((PrimeSpectrum.primeSpectrumProd A B).symm (.inl p)) =
+      rank A (map (RingHom.fst A B) (of (A × B) P)) p := by
+  sorry
+
+-- test TauCeti.RingK0.prodEquiv_not_diagonal_test (non-example)
+example (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    (∀ n : ℤ, Prod.map (divisionRingEquiv k) (divisionRingEquiv k)
+        (prodEquiv k k (n • of (k × k) (k × k))) = (n, n)) ∧
+      Prod.map (divisionRingEquiv k) (divisionRingEquiv k) (prodEquiv k k (ofIdempotent _ h₁)) =
+        (1, 0) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/k0-field-product`: `rank : K₀(k × k) ≃ LocallyConstant (Spec (k × k)) ℤ ≅
+ℤ²`, `[k × 0] ↦ (1, 0)`, `[0 × k] ↦ (0, 1)`. -/
+theorem k0_field_product (h₁ : IsIdempotentElem (!![((1 : k), (0 : k))] :
+      Matrix (Fin 1) (Fin 1) (k × k)))
+    (h₂ : IsIdempotentElem (!![((0 : k), (1 : k))] : Matrix (Fin 1) (Fin 1) (k × k))) :
+    Function.Bijective (rank (k × k)) ∧
+      ∃ φ : LocallyConstant (PrimeSpectrum (k × k)) ℤ ≃+ ℤ × ℤ,
+        φ (rank (k × k) (ofIdempotent _ h₁)) = (1, 0) ∧
+          φ (rank (k × k) (ofIdempotent _ h₂)) = (0, 1) ∧
+          φ (rank (k × k) (of (k × k) (k × k))) = (1, 1) := by
+  sorry
+
+end PiTests
+
+end RingK0
+
+/-! ### `KTheoryLowDegrees:Z.2/semilocal-components-finite`, `Z.2/semilocal-connected-k0`,
+`Z.2/semilocal-k0` -/
+
+/-- `KTheoryLowDegrees:Z.2/semilocal-components-finite`: a semilocal ring has at most as many
+connected components as maximal ideals. -/
+theorem semilocal_components_finite (A : Type u) [CommRing A] [Finite (MaximalSpectrum A)] :
+    Finite (ConnectedComponents (PrimeSpectrum A)) ∧
+      Nat.card (ConnectedComponents (PrimeSpectrum A)) ≤ Nat.card (MaximalSpectrum A) := by
+  sorry
+
+namespace RingK0
+
+/-- `KTheoryLowDegrees:Z.2/semilocal-connected-k0`: over a connected semilocal ring every finitely
+generated projective is free and `rankℤ : K₀(A) ≃ ℤ`. -/
+theorem semilocal_connected_k0 (A : Type u) [CommRing A] [Finite (MaximalSpectrum A)]
+    [ConnectedSpace (PrimeSpectrum A)] :
+    (∀ (P : Type u) [AddCommGroup P] [Module A P] [Module.Finite A P] [Module.Projective A P],
+      Nonempty (P ≃ₗ[A] (Fin (rankℤ A (of A P)).toNat → A))) ∧
+      Function.Bijective (rankℤ A) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/semilocal-k0`: for a semilocal ring, `rank : K₀(A) ≃
+LocallyConstant (Spec A) ℤ ≅ ℤ^{π₀(Spec A)}`; the exponent counts components, not maximal ideals.
+The isomorphism is `K₀(A) ≅ ∏_C K₀(A ⧸ I_C) ≅ ∏_C ℤ` through Tau Ceti's
+`PrimeSpectrum.ringEquivPiQuotientConnectedComponentsIdeal`, each `A ⧸ I_C` connected
+(`PrimeSpectrum.connectedSpace_quotient_connectedComponentsIdeal`). -/
+theorem semilocal_k0 (A : Type u) [CommRing A] [Finite (MaximalSpectrum A)] :
+    Function.Bijective (rank A) ∧
+      Nonempty (LocallyConstant (PrimeSpectrum A) ℤ ≃+ (ConnectedComponents (PrimeSpectrum A) →
+          ℤ)) ∧
+      haveI := (semilocal_components_finite A).1
+      Function.Bijective fun (x : RingK0 A) (C : ConnectedComponents (PrimeSpectrum A)) =>
+        rankℤ (A ⧸ PrimeSpectrum.connectedComponentsIdeal C)
+          (map ((Pi.evalRingHom _ C).comp
+            (PrimeSpectrum.ringEquivPiQuotientConnectedComponentsIdeal (R := A)).toRingHom) x) := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.2/nonfree-projective-ideal`, `Z.2/matrix-division-ring-k0` -/
+
+/-- `KTheoryLowDegrees:Z.2/nonfree-projective-ideal`: in `ℤ[√−5]` the ideal `(2, 1 + √−5)` is
+finitely generated projective of constant rank one, and not free. -/
+theorem nonfree_projective_ideal :
+    let I : Ideal (Zsqrtd (-5)) := Ideal.span {2, 1 + Zsqrtd.sqrtd}
+    Module.Finite (Zsqrtd (-5)) I ∧ Module.Projective (Zsqrtd (-5)) I ∧
+      ¬ Module.Free (Zsqrtd (-5)) I ∧ ∀ p, Module.rankAtStalk (R := Zsqrtd (-5)) I p = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.2/matrix-division-ring-k0`: `K₀(Mₙ(D)) ≃ ℤ` sends the column vectors
+`V = Dⁿ` to `1` and `[Mₙ(D)]` to `n`; for `n ≥ 2`, `freeClass` is injective, not surjective, and
+`V` is not stably free. -/
+theorem matrix_division_ring_k0 (D : Type u) [DivisionRing D] (n : ℕ) [NeZero n] :
+    ∃ φ : RingK0 (Matrix (Fin n) (Fin n) D) ≃+ ℤ,
+      φ (of _ (Matrix (Fin n) (Fin n) D)) = n ∧
+        φ (SplitK0.of ⟨(ModuleCat.matrixEquivalence D (0 : Fin n)).functor.obj (ModuleCat.of D D),
+          equivalence_preserves_finite_projective _ _
+            (finiteProjectiveModules_iff.mpr ⟨inferInstance, inferInstance⟩)⟩) = 1 ∧
+        (2 ≤ n → Function.Injective (freeClass (Matrix (Fin n) (Fin n) D)) ∧
+          ¬ Function.Surjective (freeClass (Matrix (Fin n) (Fin n) D)) ∧
+          ¬ Module.IsStablyFree (Matrix (Fin n) (Fin n) D)
+            ((ModuleCat.matrixEquivalence D (0 : Fin n)).functor.obj (ModuleCat.of D D))) := by
+  sorry
+
+end RingK0
+
+end TauCeti
+
+/-! ## Stage `KTheoryLowDegrees:U.1` — the stable group `GL(A)`, elementary matrices, Whitehead
+
+Over an arbitrary (noncommutative) ring. `GL n A = (Matrix n n A)ˣ` (Mathlib), `glMap` is its
+functoriality (Mathlib's `Matrix.GeneralLinearGroup.map` needs commutative rings), and the stable
+group `StableGL A` is Mathlib's `DirectLimit` along `g ↦ diag(g, 1)`. Commutators are Mathlib's
+`⁅x, y⁆ = x y x⁻¹ y⁻¹`. -/
+
+namespace TauCeti.KTheory
+
+section Helpers
+
+variable {A : Type u} [Ring A] {n m : Type*} [Fintype n] [DecidableEq n] [Fintype m]
+  [DecidableEq m]
+
+/-- Helper: reindexing `GL n A ≃* GL m A` along `n ≃ m` (through `Matrix.reindexAlgEquiv ℕ`). -/
+def glReindex (e : n ≃ m) : GL n A ≃* GL m A :=
+  Units.mapEquiv (Matrix.reindexAlgEquiv ℕ A e).toRingEquiv.toMulEquiv
+
+/-- Helper: the diagonal matrix of a family of units, as an element of `GL`. -/
+def diagUnit (d : n → Aˣ) : GL n A :=
+  ⟨Matrix.diagonal fun i => (d i : A), Matrix.diagonal fun i => ((d i)⁻¹ : Aˣ), by sorry, by sorry⟩
+
+/-- The matrix of `diagUnit d` (a real definition). -/
+@[simp]
+theorem coe_diagUnit (d : n → Aˣ) :
+    (diagUnit d : Matrix n n A) = Matrix.diagonal fun i => (d i : A) :=
+  rfl
+
+/-- Helper: the permutation matrix of `σ` as an element of `GL` (inverse the matrix of `σ⁻¹`). -/
+def permGL (σ : Equiv.Perm n) : GL n A :=
+  ⟨σ.permMatrix A, σ⁻¹.permMatrix A, by sorry, by sorry⟩
+
+end Helpers
+
+/-! ### `KTheoryLowDegrees:U.1/general-linear-map` -/
+
+section GeneralLinearMap
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {C : Type w} [Ring C]
+  {n m : Type*} [Fintype n] [DecidableEq n] [Fintype m] [DecidableEq m]
+
+/-- **`GL_n` along a homomorphism of arbitrary rings** (`KTheoryLowDegrees:U.1/general-linear-map`):
+`glMap f := Units.map (RingHom.mapMatrix f)`, entrywise application of `f` (a real definition). -/
+def glMap (f : A →+* B) : GL n A →* GL n B :=
+  Units.map (RingHom.mapMatrix f).toMonoidHom
+
+/-- Entries of `glMap f g` and of its inverse. -/
+@[simp]
+theorem glMap_apply (f : A →+* B) (g : GL n A) (i j : n) :
+    (glMap f g : Matrix n n B) i j = f ((g : Matrix n n A) i j) ∧
+      (((glMap f g)⁻¹ : GL n B) : Matrix n n B) i j = f (((g⁻¹ : GL n A) : Matrix n n A) i j) :=
+  ⟨rfl, rfl⟩
+
+/-- `glMap id = id`. -/
+@[simp]
+theorem glMap_id : glMap (RingHom.id A) = MonoidHom.id (GL n A) :=
+  rfl
+
+/-- `glMap (g ∘ f) = glMap g ∘ glMap f`. -/
+theorem glMap_comp (f : A →+* B) (g : B →+* C) :
+    glMap (n := n) (g.comp f) = (glMap g).comp (glMap f) :=
+  rfl
+
+/-- `glMap f` is injective if `f` is. -/
+theorem glMap_injective {f : A →+* B} (hf : Function.Injective f) :
+    Function.Injective (glMap (n := n) f) := by
+  sorry
+
+/-- `glMap f` commutes with reindexing. -/
+theorem glMap_reindex (f : A →+* B) (e : n ≃ m) (g : GL n A) :
+    glMap f (glReindex e g) = glReindex e (glMap f g) := by
+  sorry
+
+/-- For commutative rings, `glMap f` is Mathlib's `Matrix.GeneralLinearGroup.map f`. -/
+theorem glMap_eq_map {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S) :
+    glMap (n := n) f = Matrix.GeneralLinearGroup.map f :=
+  rfl
+
+-- test TauCeti.KTheory.glMap_int_zmod_two (computation)
+example : glMap (Int.castRingHom (ZMod 2)) (diagUnit ![-1, 1] : GL (Fin 2) ℤ) = 1 := by
+  apply Units.ext
+  decide
+
+-- test TauCeti.KTheory.glMap_id_eq (degenerate)
+example (k : ℕ) : glMap (RingHom.id A) = MonoidHom.id (GL (Fin k) A) :=
+  glMap_id
+
+-- test TauCeti.KTheory.glMap_eq_map_int (compatibility)
+example : glMap (n := Fin 2) (Int.castRingHom (ZMod 5)) =
+    Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod 5)) :=
+  glMap_eq_map _
+
+-- test TauCeti.KTheory.glMap_not_surjective (non-example)
+/- `diag(2, 1) ∈ GL₂(ℤ/5)` has determinant `2 ≠ ±1`. -/
+example : (diagUnit ![ZMod.unitOfCoprime 2 (by decide), 1] : GL (Fin 2) (ZMod 5)) ∉
+    Set.range (glMap (n := Fin 2) (Int.castRingHom (ZMod 5))) := by
+  sorry
+
+end GeneralLinearMap
+
+/-! ### `KTheoryLowDegrees:U.1/elementary-matrix` -/
+
+section Elementary
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {n m : Type*} [Fintype n] [DecidableEq n]
+  [Fintype m] [DecidableEq m]
+
+/-- **Elementary matrices over an arbitrary ring** (`KTheoryLowDegrees:U.1/elementary-matrix`):
+`e_ij(a) := 1 + E_ij(a) ∈ GL n A` with inverse `1 + E_ij(-a)`, for `h : i ≠ j` (a real
+definition; the unit laws are proofs). Left multiplication adds `a` times row `j` to row `i`. -/
+def elementary {i j : n} (h : i ≠ j) (a : A) : GL n A :=
+  ⟨1 + Matrix.single i j a, 1 + Matrix.single i j (-a), by sorry, by sorry⟩
+
+/-- The matrices of `e_ij(a)` and of its inverse. -/
+@[simp]
+theorem coe_elementary {i j : n} (h : i ≠ j) (a : A) :
+    (elementary h a : Matrix n n A) = 1 + Matrix.single i j a ∧
+      (((elementary h a)⁻¹ : GL n A) : Matrix n n A) = 1 + Matrix.single i j (-a) :=
+  ⟨rfl, rfl⟩
+
+/-- `e_ij(0) = 1`. -/
+@[simp]
+theorem elementary_zero {i j : n} (h : i ≠ j) : elementary h (0 : A) = 1 := by
+  sorry
+
+/-- `e_ij(a + b) = e_ij(a) e_ij(b)`. -/
+@[simp]
+theorem elementary_add {i j : n} (h : i ≠ j) (a b : A) :
+    elementary h (a + b) = elementary h a * elementary h b := by
+  sorry
+
+/-- `e_ij(a)⁻¹ = e_ij(-a)`. -/
+@[simp]
+theorem elementary_inv {i j : n} (h : i ≠ j) (a : A) : (elementary h a)⁻¹ = elementary h (-a) :=
+  Units.ext rfl
+
+/-- `a ↦ e_ij(a)` as a homomorphism `Multiplicative A →* GL n A` (a real definition). -/
+def elementaryHom {i j : n} (h : i ≠ j) : Multiplicative A →* GL n A where
+  toFun a := elementary h a.toAdd
+  map_one' := elementary_zero h
+  map_mul' a b := elementary_add h a.toAdd b.toAdd
+
+/-- `a ↦ e_ij(a)` is injective: the `(i, j)` entry of `e_ij(a)` is `a`. -/
+theorem elementary_injective {i j : n} (h : i ≠ j) :
+    Function.Injective (elementary (A := A) h) ∧
+      ∀ a : A, (elementary h a : Matrix n n A) i j = a := by
+  sorry
+
+/-- Row and column operations: left multiplication adds `a · (row j)` to row `i`, right
+multiplication adds `(column i) · a` to column `j`. -/
+theorem elementary_mul_apply {i j : n} (h : i ≠ j) (a : A) (M : Matrix n n A) (k l : n) :
+    ((elementary h a : Matrix n n A) * M) k l = M k l + (if k = i then a * M j l else 0) ∧
+      (M * (elementary h a : Matrix n n A)) k l = M k l + (if l = j then M k i * a else 0) := by
+  sorry
+
+/-- Naturality: `glMap f (e_ij(a)) = e_ij(f a)`. -/
+@[simp]
+theorem glMap_elementary (f : A →+* B) {i j : n} (h : i ≠ j) (a : A) :
+    glMap f (elementary h a) = elementary h (f a) := by
+  sorry
+
+/-- Reindexing along `e : n ≃ m` sends `e_ij(a)` to `e_{e i, e j}(a)`. -/
+theorem elementary_reindex (e : n ≃ m) {i j : n} (h : i ≠ j) (a : A) :
+    glReindex e (elementary h a) = elementary (e.injective.ne h) a := by
+  sorry
+
+/-- For commutative `A`, `e_ij(a)` is Mathlib's `GeneralLinearGroup.transvection` and Tau Ceti's
+`transvectionUnit`. -/
+theorem elementary_eq_transvection {R : Type*} [CommRing R] {i j : n} (h : i ≠ j) (a : R) :
+    elementary h a = Matrix.GeneralLinearGroup.transvection i j h a ∧
+      elementary h a = TauCeti.transvectionUnit h a := by
+  sorry
+
+/-- For commutative `A`, `det e_ij(a) = 1`. -/
+@[simp]
+theorem det_elementary {R : Type*} [CommRing R] {i j : n} (h : i ≠ j) (a : R) :
+    Matrix.GeneralLinearGroup.det (elementary h a) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.elementary_weyl_two (computation)
+/- `e₁₂(1) e₂₁(-1) e₁₂(1)` has rows `(0, 1), (-1, 0)` over any ring (0-indexed). -/
+example : ((elementary (by decide : (0 : Fin 2) ≠ 1) (1 : A) *
+    elementary (by decide : (1 : Fin 2) ≠ 0) (-1) * elementary (by decide : (0 : Fin 2) ≠ 1) 1 :
+      GL (Fin 2) A) : Matrix (Fin 2) (Fin 2) A) = !![0, 1; -1, 0] := by
+  rw [Units.val_mul, Units.val_mul, (coe_elementary _ _).1, (coe_elementary _ _).1]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_two, Matrix.one_apply, Matrix.single_apply]
+
+-- test TauCeti.KTheory.elementary_zero_eq_one (degenerate)
+example {i j : n} (h : i ≠ j) : elementary h (0 : A) = 1 :=
+  elementary_zero h
+
+example [Subsingleton A] (g : GL n A) : g = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.elementary_eq_transvectionUnit_int (compatibility)
+example {i j : Fin 3} (h : i ≠ j) (a : ℤ) : elementary h a = TauCeti.transvectionUnit h a :=
+  (elementary_eq_transvection h a).2
+
+-- test TauCeti.KTheory.elementary_mul_quaternion (non-example)
+/- Row `0` of `e₀₁(i) · M`, `M` with rows `(0, 0), (j, 0)`, is `(i·j, 0) = (k, 0)`, not
+`(j·i, 0) = (-k, 0)`. -/
+example : ((elementary (by decide : (0 : Fin 2) ≠ 1) (⟨0, 1, 0, 0⟩ : ℍ[ℝ]) :
+        Matrix (Fin 2) (Fin 2) ℍ[ℝ]) * !![0, 0; (⟨0, 0, 1, 0⟩ : ℍ[ℝ]), 0]) 0 0 =
+      (⟨0, 0, 0, 1⟩ : ℍ[ℝ]) ∧
+    ((elementary (by decide : (0 : Fin 2) ≠ 1) (⟨0, 1, 0, 0⟩ : ℍ[ℝ]) :
+        Matrix (Fin 2) (Fin 2) ℍ[ℝ]) * !![0, 0; (⟨0, 0, 1, 0⟩ : ℍ[ℝ]), 0]) 0 0 ≠
+      (⟨0, 0, 0, -1⟩ : ℍ[ℝ]) := by
+  sorry
+
+end Elementary
+
+/-! ### `KTheoryLowDegrees:U.1/stabilisation-map` -/
+
+section Stabilise
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {k m n p : ℕ}
+
+/-- The matrix `diag(M, 1)` of size `n` from `M` of size `m` (entries of `M` on the first `m`
+indices, identity elsewhere; helper, a real definition). -/
+def stabiliseMatrix (M : Matrix (Fin m) (Fin m) A) : Matrix (Fin n) (Fin n) A :=
+  Matrix.of fun a b => if h : (a : ℕ) < m ∧ (b : ℕ) < m then M ⟨a, h.1⟩ ⟨b, h.2⟩
+    else (1 : Matrix (Fin n) (Fin n) A) a b
+
+/-- `M ↦ diag(M, 1)` is multiplicative for `m ≤ n` (helper). -/
+def stabiliseMonoidHom (h : m ≤ n) : Matrix (Fin m) (Fin m) A →* Matrix (Fin n) (Fin n) A where
+  toFun := stabiliseMatrix
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- **The stabilisation embedding** `g ↦ diag(g, 1)` (`KTheoryLowDegrees:U.1/stabilisation-map`),
+`GL_m(A) →* GL_n(A)` for `m ≤ n` (a real definition). -/
+def stabilise (h : m ≤ n) : GL (Fin m) A →* GL (Fin n) A :=
+  Units.map (stabiliseMonoidHom h)
+
+/-- Entries of `stabilise h g`. -/
+@[simp]
+theorem stabilise_apply (h : m ≤ n) (g : GL (Fin m) A) (a b : Fin n) :
+    (stabilise h g : Matrix (Fin n) (Fin n) A) a b =
+      if hab : (a : ℕ) < m ∧ (b : ℕ) < m then (g : Matrix (Fin m) (Fin m) A) ⟨a, hab.1⟩ ⟨b, hab.2⟩
+        else if a = b then 1 else 0 := by
+  sorry
+
+/-- `stabilise` along `m ≤ m` is the identity. -/
+@[simp]
+theorem stabilise_self : stabilise (le_refl m) = MonoidHom.id (GL (Fin m) A) := by
+  sorry
+
+/-- The directed-system law `stabilise_{n,k} ∘ stabilise_{m,n} = stabilise_{m,k}`. -/
+theorem stabilise_stabilise (hmn : m ≤ n) (hnk : n ≤ k) (g : GL (Fin m) A) :
+    stabilise hnk (stabilise hmn g) = stabilise (hmn.trans hnk) g := by
+  sorry
+
+/-- `(GL_n(A), stabilise)` is a directed system over `(ℕ, ≤)`. -/
+instance instDirectedSystem :
+    DirectedSystem (fun n : ℕ => GL (Fin n) A) (fun _ _ h => ⇑(stabilise (A := A) h)) where
+  map_self i x := by rw [stabilise_self]; rfl
+  map_map _ _ _ hij hjk x := stabilise_stabilise hij hjk x
+
+/-- `stabilise h` is injective. -/
+theorem stabilise_injective (h : m ≤ n) : Function.Injective (stabilise (A := A) h) := by
+  sorry
+
+/-- `stabilise` sends `e_ij(a)` to `e_{ij}(a)` with the indices cast along `Fin m → Fin n`. -/
+@[simp]
+theorem stabilise_elementary (h : m ≤ n) {i j : Fin m} (hij : i ≠ j) (a : A) :
+    stabilise h (elementary hij a) = elementary ((Fin.castLE_injective h).ne hij) a := by
+  sorry
+
+/-- `stabilise` commutes with `glMap f`. -/
+theorem glMap_stabilise (f : A →+* B) (h : m ≤ n) (g : GL (Fin m) A) :
+    glMap f (stabilise h g) = stabilise h (glMap f g) := by
+  sorry
+
+/-- The matrix of `stabilise h g` is `fromBlocks g 0 0 1` reindexed along `finSumFinEquiv` and the
+cast `m + (n - m) = n`. -/
+theorem stabilise_eq_fromBlocks (h : m ≤ n) (g : GL (Fin m) A) :
+    (stabilise h g : Matrix (Fin n) (Fin n) A) =
+      Matrix.reindex (finSumFinEquiv.trans (finCongr (Nat.add_sub_cancel' h)))
+        (finSumFinEquiv.trans (finCongr (Nat.add_sub_cancel' h)))
+        (Matrix.fromBlocks (g : Matrix (Fin m) (Fin m) A) 0 0 1) := by
+  sorry
+
+/-- For commutative `A`, `stabilise` preserves determinants. -/
+@[simp]
+theorem det_stabilise {R : Type*} [CommRing R] (h : m ≤ n) (g : GL (Fin m) R) :
+    Matrix.GeneralLinearGroup.det (stabilise h g) = Matrix.GeneralLinearGroup.det g := by
+  sorry
+
+-- test TauCeti.KTheory.stabilise_one_two_unit (computation)
+example (u : Aˣ) : stabilise (by norm_num : 1 ≤ 2) (diagUnit ![u]) = diagUnit ![u, 1] := by
+  apply Units.ext
+  ext a b
+  rw [stabilise_apply]
+  fin_cases a <;> fin_cases b <;> simp [coe_diagUnit]
+
+-- test TauCeti.KTheory.stabilise_zero (degenerate)
+example (g : GL (Fin 0) A) : stabilise (Nat.zero_le n) g = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.stabilise_transvectionStruct (compatibility)
+example {R : Type*} [CommRing R] (t : Matrix.TransvectionStruct (Fin m) R) :
+    (stabilise (Nat.le_add_right m p) (Matrix.SpecialLinearGroup.toGL t.toSpecialLinearGroup) :
+        Matrix (Fin (m + p)) (Fin (m + p)) R) =
+      Matrix.reindex finSumFinEquiv finSumFinEquiv (t.sumInl (Fin p)).toMatrix := by
+  sorry
+
+-- test TauCeti.KTheory.stabilise_ne_right_corner (non-example)
+example (u : Aˣ) (hu : u ≠ 1) :
+    stabilise (by norm_num : 1 ≤ 2) (diagUnit ![u]) ≠ diagUnit ![1, u] := by
+  sorry
+
+end Stabilise
+
+/-! ### `KTheoryLowDegrees:U.1/stable-general-linear-group` -/
+
+section StableGL
+
+variable (A : Type u) [Ring A] {B : Type v} [Ring B] {C : Type w} [Ring C]
+
+/-- **The infinite general linear group** (`KTheoryLowDegrees:U.1/stable-general-linear-group`):
+Mathlib's `DirectLimit` of `(GL_n(A), stabilise)` over `ℕ`, a group through
+`Mathlib/Algebra/Colimit/DirectLimit.lean` (a real definition). -/
+def StableGL : Type u :=
+  DirectLimit (fun n : ℕ => GL (Fin n) A) (fun _ _ h => stabilise (A := A) h)
+
+/-- The group structure from Mathlib's `DirectLimit`. -/
+instance StableGL.instGroup : Group (StableGL A) :=
+  inferInstanceAs (Group (DirectLimit (fun n : ℕ => GL (Fin n) A) (fun _ _ h => stabilise h)))
+
+variable {A}
+
+namespace StableGL
+
+/-- `StableGL.of n : GL_n(A) →* GL(A)`, `g ↦ ⟦(n, g)⟧` (a real definition). -/
+def of (n : ℕ) : GL (Fin n) A →* StableGL A where
+  toFun g := (⟦⟨n, g⟩⟧ : DirectLimit (fun n : ℕ => GL (Fin n) A) (fun _ _ h => stabilise h))
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- `of_n ∘ stabilise_{m,n} = of_m`. -/
+@[simp]
+theorem of_stabilise {m n : ℕ} (h : m ≤ n) (g : GL (Fin m) A) : of n (stabilise h g) = of m g := by
+  sorry
+
+/-- `of n` is injective. -/
+theorem of_injective (n : ℕ) : Function.Injective (of (A := A) n) := by
+  sorry
+
+/-- Every element is `of n g` (promoted to `U.1/finite-representatives`). -/
+theorem exists_of (x : StableGL A) : ∃ (n : ℕ) (g : GL (Fin n) A), x = of n g := by
+  sorry
+
+/-- Equality after the common stabilisation to `max m n` (promoted to
+`U.1/stable-equality-criterion`). -/
+theorem of_eq_of_iff {m n : ℕ} (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    of m g = of n h ↔ stabilise (le_max_left m n) g = stabilise (le_max_right m n) h := by
+  sorry
+
+/-- The universal property: a compatible family `φ n : GL_n(A) →* H` induces `GL(A) →* H` (a real
+definition through `DirectLimit.lift`). -/
+def lift {H : Type*} [Group H] (φ : ∀ n : ℕ, GL (Fin n) A →* H)
+    (hφ : ∀ (m n : ℕ) (h : m ≤ n) (g : GL (Fin m) A), φ n (stabilise h g) = φ m g) :
+    StableGL A →* H where
+  toFun := DirectLimit.lift _ (fun n g => φ n g) fun m n h g => (hφ m n h g).symm
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- `lift φ (of n g) = φ n g`. -/
+@[simp]
+theorem lift_of {H : Type*} [Group H] (φ : ∀ n : ℕ, GL (Fin n) A →* H)
+    (hφ : ∀ (m n : ℕ) (h : m ≤ n) (g : GL (Fin m) A), φ n (stabilise h g) = φ m g) (n : ℕ)
+    (g : GL (Fin n) A) : lift φ hφ (of n g) = φ n g :=
+  rfl
+
+/-- Homomorphisms out of `GL(A)` agreeing on every `of n` are equal. -/
+theorem hom_ext {H : Type*} [Group H] {f g : StableGL A →* H}
+    (h : ∀ n : ℕ, f.comp (of n) = g.comp (of n)) : f = g := by
+  sorry
+
+/-- Functoriality: `StableGL.map f` (a real definition through `DirectLimit.map`). -/
+def map (f : A →+* B) : StableGL A →* StableGL B where
+  toFun := DirectLimit.map _ _ (fun n => glMap (n := Fin n) f) fun m n h g =>
+    (glMap_stabilise f h g).symm
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- `map f (of n g) = of n (glMap f g)`. -/
+@[simp]
+theorem map_of (f : A →+* B) (n : ℕ) (g : GL (Fin n) A) : map f (of n g) = of n (glMap f g) :=
+  rfl
+
+/-- `map id = id`. -/
+@[simp]
+theorem map_id : map (RingHom.id A) = MonoidHom.id (StableGL A) := by
+  sorry
+
+/-- `map (g ∘ f) = map g ∘ map f`. -/
+theorem map_comp (f : A →+* B) (g : B →+* C) : map (g.comp f) = (map g).comp (map f) := by
+  sorry
+
+/-- Induction on representatives. -/
+theorem induction_on {motive : StableGL A → Prop} (x : StableGL A)
+    (h : ∀ (n : ℕ) (g : GL (Fin n) A), motive (of n g)) : motive x := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.of_one_eq_of_two (computation)
+example (u : Aˣ) : of 1 (diagUnit ![u]) = of 2 (diagUnit ![u, 1]) := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.subsingleton_zero_ring (degenerate)
+example [Subsingleton A] : Subsingleton (StableGL A) := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.map_int_zmod (compatibility)
+example (n : ℕ) (g : GL (Fin n) ℤ) :
+    map (Int.castRingHom (ZMod 2)) (of n g) =
+      of n (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod 2)) g) :=
+  rfl
+
+-- test TauCeti.KTheory.StableGL.of_two_right_corner_ne (non-example)
+example (u : Aˣ) (hu : u ≠ 1) : of 2 (diagUnit ![1, u]) ≠ of 1 (diagUnit ![u]) := by
+  sorry
+
+end StableGL
+
+/-- `KTheoryLowDegrees:U.1/finite-representatives`: finitely many elements of `GL(A)` have
+representatives in one `GL_n(A)`, and then in every larger one. -/
+theorem finite_representatives {k : ℕ} (x : Fin k → StableGL A) :
+    ∃ n₀ : ℕ, ∀ n, n₀ ≤ n → ∃ g : Fin k → GL (Fin n) A, ∀ i, x i = StableGL.of n (g i) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/stable-equality-criterion`: `of_m g = of_n h` iff the stabilisations
+agree in some, equivalently every, common rank, equivalently in rank `max m n`; `of_n` is
+injective. -/
+theorem stable_equality_criterion {m n : ℕ} (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    List.TFAE [StableGL.of m g = StableGL.of n h,
+      ∃ (k : ℕ) (hm : m ≤ k) (hn : n ≤ k), stabilise hm g = stabilise hn h,
+      ∀ (k : ℕ) (hm : m ≤ k) (hn : n ≤ k), stabilise hm g = stabilise hn h,
+      stabilise (le_max_left m n) g = stabilise (le_max_right m n) h] ∧
+      (StableGL.of m g = 1 ↔ g = 1) := by
+  sorry
+
+end StableGL
+
+/-! ### `KTheoryLowDegrees:U.1/block-sum` -/
+
+section BlockSum
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {l m n : ℕ}
+
+/-- **Block sums** (`KTheoryLowDegrees:U.1/block-sum`): `(g, h) ↦ g ⊕ h`, the matrix
+`fromBlocks g 0 0 h` reindexed along `finSumFinEquiv` (a real definition up to the unit and
+homomorphism laws). -/
+def blockSum : GL (Fin m) A × GL (Fin n) A →* GL (Fin (m + n)) A where
+  toFun p := ⟨Matrix.reindex finSumFinEquiv finSumFinEquiv
+      (Matrix.fromBlocks (p.1 : Matrix (Fin m) (Fin m) A) 0 0 (p.2 : Matrix (Fin n) (Fin n) A)),
+    Matrix.reindex finSumFinEquiv finSumFinEquiv
+      (Matrix.fromBlocks ((p.1⁻¹ : GL (Fin m) A) : Matrix (Fin m) (Fin m) A) 0 0
+        ((p.2⁻¹ : GL (Fin n) A) : Matrix (Fin n) (Fin n) A)), by sorry, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- The entries of `g ⊕ h`: `g` on the first block, `h` on the last, `0` elsewhere. -/
+@[simp]
+theorem blockSum_apply (g : GL (Fin m) A) (h : GL (Fin n) A) (a b : Fin m) (c d : Fin n) :
+    (blockSum (g, h) : Matrix (Fin (m + n)) (Fin (m + n)) A) (Fin.castAdd n a) (Fin.castAdd n b) =
+        (g : Matrix (Fin m) (Fin m) A) a b ∧
+      (blockSum (g, h) : Matrix (Fin (m + n)) (Fin (m + n)) A) (Fin.natAdd m c) (Fin.natAdd m d) =
+        (h : Matrix (Fin n) (Fin n) A) c d ∧
+      (blockSum (g, h) : Matrix (Fin (m + n)) (Fin (m + n)) A) (Fin.castAdd n a) (Fin.natAdd m d) =
+        0 ∧
+      (blockSum (g, h) : Matrix (Fin (m + n)) (Fin (m + n)) A) (Fin.natAdd m c) (Fin.castAdd n b) =
+        0 := by
+  sorry
+
+/-- `g ⊕ 1 = stabilise g`. -/
+theorem blockSum_one_right (g : GL (Fin m) A) :
+    blockSum (g, (1 : GL (Fin n) A)) = stabilise (Nat.le_add_right m n) g := by
+  sorry
+
+/-- Associativity up to the identification `Fin (l + (m + n)) = Fin (l + m + n)`. -/
+theorem blockSum_assoc (f : GL (Fin l) A) (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    blockSum (blockSum (f, g), h) =
+      glReindex (finCongr (Nat.add_assoc l m n).symm) (blockSum (f, blockSum (g, h))) := by
+  sorry
+
+/-- The summand `GL_0` is neutral up to the cast `Fin (0 + n) = Fin n`. -/
+theorem blockSum_zero_left (h : GL (Fin n) A) :
+    blockSum ((1 : GL (Fin 0) A), h) = glReindex (finCongr (Nat.zero_add n).symm) h := by
+  sorry
+
+/-- Swapping the summands is conjugation by a permutation matrix `w` (which need not lie in
+`E_{m+n}(A)`). -/
+theorem blockSum_swap (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    ∃ (σ : Equiv.Perm (Fin (n + m))) (w : GL (Fin (n + m)) A),
+      (w : Matrix (Fin (n + m)) (Fin (n + m)) A) = σ.permMatrix A ∧
+        blockSum (h, g) = w * glReindex (finCongr (Nat.add_comm m n)) (blockSum (g, h)) * w⁻¹ := by
+  sorry
+
+/-- `glMap f (g ⊕ h) = glMap f g ⊕ glMap f h`. -/
+theorem glMap_blockSum (f : A →+* B) (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    glMap f (blockSum (g, h)) = blockSum (glMap f g, glMap f h) := by
+  sorry
+
+/-- `e_ij(a) ⊕ 1 = e_ij(a)` and `1 ⊕ e_ij(a) = e_{m+i, m+j}(a)`. -/
+@[simp]
+theorem blockSum_elementary {i j : Fin m} (hij : i ≠ j) {c d : Fin n} (hcd : c ≠ d) (a : A) :
+    blockSum (elementary hij a, (1 : GL (Fin n) A)) =
+        elementary ((Fin.castAdd_injective m n).ne hij) a ∧
+      blockSum ((1 : GL (Fin m) A), elementary hcd a) =
+        elementary ((Fin.natAdd_injective n m).ne hcd) a := by
+  sorry
+
+/-- For commutative `A`, `det (g ⊕ h) = det g · det h`. -/
+@[simp]
+theorem det_blockSum {R : Type*} [CommRing R] (g : GL (Fin m) R) (h : GL (Fin n) R) :
+    Matrix.GeneralLinearGroup.det (blockSum (g, h)) =
+      Matrix.GeneralLinearGroup.det g * Matrix.GeneralLinearGroup.det h := by
+  sorry
+
+/-- For commutative `A`, `toLin (g ⊕ h)` is Tau Ceti's `prodMap (toLin g) (toLin h)` under
+`(Fin (m + n) → A) ≃ (Fin m → A) × (Fin n → A)`. -/
+theorem toLin_blockSum {R : Type u} [CommRing R] (g : GL (Fin m) R) (h : GL (Fin n) R) :
+    LinearMap.GeneralLinearGroup.congrLinearEquiv (FreeSummandData.blockEquiv m n).symm
+        (Matrix.GeneralLinearGroup.toLin (blockSum (g, h))) =
+      LinearMap.GeneralLinearGroup.prodMap (Matrix.GeneralLinearGroup.toLin g)
+        (Matrix.GeneralLinearGroup.toLin h) := by
+  sorry
+
+-- test TauCeti.KTheory.blockSum_units (computation)
+example (u v : Aˣ) : blockSum (diagUnit ![u], diagUnit ![v]) = diagUnit ![u, v] := by
+  apply Units.ext
+  ext a b
+  have h := blockSum_apply (diagUnit ![u]) (diagUnit ![v]) 0 0 0 0
+  fin_cases a <;> fin_cases b
+  · simpa [coe_diagUnit] using h.1
+  · simpa [coe_diagUnit] using h.2.2.1
+  · simpa [coe_diagUnit] using h.2.2.2
+  · simpa [coe_diagUnit] using h.2.1
+
+-- test TauCeti.KTheory.blockSum_one_eq_stabilise (degenerate)
+example (g : GL (Fin m) A) :
+    blockSum (g, (1 : GL (Fin 0) A)) = glReindex (finCongr (Nat.add_zero m).symm) g ∧
+      blockSum (g, (1 : GL (Fin n) A)) = stabilise (Nat.le_add_right m n) g := by
+  sorry
+
+-- test TauCeti.KTheory.det_blockSum_int (compatibility)
+example (g : GL (Fin 2) ℤ) (h : GL (Fin 3) ℤ) :
+    Matrix.GeneralLinearGroup.det (blockSum (g, h)) =
+      Matrix.GeneralLinearGroup.det g * Matrix.GeneralLinearGroup.det h :=
+  det_blockSum g h
+
+-- test TauCeti.KTheory.blockSum_not_comm (non-example)
+example (u : Aˣ) (hu : u ≠ 1) :
+    blockSum (diagUnit ![u], (1 : GL (Fin 1) A)) ≠ blockSum ((1 : GL (Fin 1) A), diagUnit ![u])
+        := by
+  sorry
+
+end BlockSum
+
+/-! ### The real circle ring (test notation for `U.1`, `U.3` and `U.4`) -/
+
+/-- Test notation: the real circle ring `ℝ[x, y]/(x² + y² - 1)`. -/
+abbrev CircleRing : Type :=
+  MvPolynomial (Fin 2) ℝ ⧸ Ideal.span {(MvPolynomial.X 0 : MvPolynomial (Fin 2) ℝ) ^ 2 +
+    MvPolynomial.X 1 ^ 2 - 1}
+
+/-- Test notation: `x ∈ ℝ[x, y]/(x² + y² - 1)`. -/
+abbrev circleX : CircleRing := Ideal.Quotient.mk _ (MvPolynomial.X 0)
+
+/-- Test notation: `y ∈ ℝ[x, y]/(x² + y² - 1)`. -/
+abbrev circleY : CircleRing := Ideal.Quotient.mk _ (MvPolynomial.X 1)
+
+/-- Test notation: the rotation matrix with rows `(x, -y), (y, x)`, of determinant `x² + y² = 1`,
+in `SL₂` of the circle ring (a real matrix; the determinant equation is a proof). -/
+def circleRotation : Matrix.SpecialLinearGroup (Fin 2) CircleRing :=
+  ⟨!![circleX, -circleY; circleY, circleX], by sorry⟩
+
+/-! ### `KTheoryLowDegrees:U.1/elementary-subgroup` -/
+
+section ElementarySubgroup
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {n m : Type*} [Fintype n] [DecidableEq n]
+  [Fintype m] [DecidableEq m]
+
+/-- **The elementary subgroup** `E_n(A)` (`KTheoryLowDegrees:U.1/elementary-subgroup`): the closure
+of the elementary matrices (a real definition). -/
+def elementarySubgroup (n : Type*) [Fintype n] [DecidableEq n] (A : Type u) [Ring A] :
+    Subgroup (GL n A) :=
+  Subgroup.closure {g | ∃ (i j : n) (h : i ≠ j) (a : A), g = elementary h a}
+
+/-- `e_ij(a) ∈ E_n(A)`. -/
+@[simp]
+theorem elementary_mem {i j : n} (h : i ≠ j) (a : A) : elementary h a ∈ elementarySubgroup n A :=
+  Subgroup.subset_closure ⟨i, j, h, a, rfl⟩
+
+/-- Induction on `E_n(A)`. -/
+theorem elementarySubgroup.induction {motive : GL n A → Prop} {g : GL n A}
+    (hg : g ∈ elementarySubgroup n A) (one : motive 1)
+    (elem : ∀ {i j : n} (h : i ≠ j) (a : A), motive (elementary h a))
+    (mul : ∀ x y, motive x → motive y → motive (x * y)) (inv : ∀ x, motive x → motive x⁻¹) :
+    motive g := by
+  sorry
+
+/-- `E_1(A) = ⊥`. -/
+@[simp]
+theorem elementarySubgroup_fin_one : elementarySubgroup (Fin 1) A = ⊥ := by
+  sorry
+
+/-- For commutative `A`, `E_n(A) ≤ SL_n(A)`. -/
+theorem elementarySubgroup_le_specialLinear {R : Type*} [CommRing R] :
+    elementarySubgroup n R ≤ (Matrix.SpecialLinearGroup.toGL (n := n) (R := R)).range := by
+  sorry
+
+/-- For commutative `A`, `E_n(A)` is generated by Tau Ceti's `transvectionUnit`s. -/
+theorem elementarySubgroup_eq_closure_transvectionUnit {R : Type*} [CommRing R] :
+    elementarySubgroup n R =
+      Subgroup.closure {g | ∃ (i j : n) (h : i ≠ j) (a : R), g = TauCeti.transvectionUnit h a} := by
+  sorry
+
+/-- Stabilisation maps `E_m(A)` into `E_n(A)`. -/
+theorem map_stabilise_elementarySubgroup_le {k l : ℕ} (h : k ≤ l) :
+    (elementarySubgroup (Fin k) A).map (stabilise h) ≤ elementarySubgroup (Fin l) A := by
+  sorry
+
+/-- `glMap f` maps `E_n(A)` into `E_n(B)`. -/
+theorem map_glMap_elementarySubgroup_le (f : A →+* B) :
+    (elementarySubgroup n A).map (glMap f) ≤ elementarySubgroup n B := by
+  sorry
+
+/-- Reindexing maps `E_n(A)` onto `E_m(A)`. -/
+theorem elementarySubgroup_reindex (e : n ≃ m) :
+    (elementarySubgroup n A).map (glReindex e).toMonoidHom = elementarySubgroup m A := by
+  sorry
+
+/-- For commutative `A`, a subgroup containing all adjacent elementary matrices contains
+`E_{k+1}(A)` (from Tau Ceti's `transvectionUnit_mem_of_adjacent`). -/
+theorem mem_of_adjacent {R : Type*} [CommRing R] {k : ℕ} (H : Subgroup (GL (Fin (k + 1)) R))
+    (hadj : ∀ {i j : Fin (k + 1)} (hij : i ≠ j) (c : R),
+      i.val + 1 = j.val ∨ j.val + 1 = i.val → elementary hij c ∈ H) :
+    elementarySubgroup (Fin (k + 1)) R ≤ H := by
+  sorry
+
+-- test TauCeti.KTheory.card_elementarySubgroup_zmod_two (computation)
+example : Nat.card (elementarySubgroup (Fin 2) (ZMod 2)) = 6 ∧
+    elementarySubgroup (Fin 2) (ZMod 2) = ⊤ := by
+  sorry
+
+-- test TauCeti.KTheory.elementarySubgroup_fin_one_eq_bot (degenerate)
+example : elementarySubgroup (Fin 1) A = ⊥ :=
+  elementarySubgroup_fin_one
+
+example [Subsingleton A] : elementarySubgroup n A = ⊤ := by
+  sorry
+
+-- test TauCeti.KTheory.elementarySubgroup_field_eq (compatibility)
+example (F : Type*) [Field F] (k : ℕ) :
+    elementarySubgroup (Fin k) F =
+        (Matrix.SpecialLinearGroup.toGL (n := Fin k) (R := F)).range := by
+  sorry
+
+-- test TauCeti.KTheory.elementarySubgroup_ne_specialLinear (non-example)
+/- The rotation matrix over `ℝ[x, y]/(x² + y² - 1)` is in `SL₂` but no stabilisation of it is
+elementary (`U.3/SK1-real-circle-nonzero`). -/
+example (k : ℕ) (h : 2 ≤ k) :
+    stabilise h (Matrix.SpecialLinearGroup.toGL circleRotation) ∉
+      elementarySubgroup (Fin k) CircleRing := by
+  sorry
+
+end ElementarySubgroup
+
+/-! ### Commutator identities: `U.1/elementary-commutator-chain`, `U.1/elementary-commute`,
+`U.1/elementary-commutator-reverse`, `U.1/signed-transposition`,
+`U.1/elementary-surjective-map`, `U.1/elementary-perfect` -/
+
+section Commutators
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- `KTheoryLowDegrees:U.1/elementary-commutator-chain`: `⁅e_ij(a), e_jl(b)⁆ = e_il(ab)` for
+pairwise distinct `i, j, l`, over any ring (the order `ab` is forced). -/
+theorem elementary_commutator_chain {i j l : n} (hij : i ≠ j) (hjl : j ≠ l) (hil : i ≠ l)
+    (a b : A) : ⁅elementary hij a, elementary hjl b⁆ = elementary hil (a * b) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/elementary-commute`: `e_ij(a)` and `e_kl(b)` commute when `j ≠ k` and
+`i ≠ l`. -/
+theorem elementary_commute {i j k l : n} (hij : i ≠ j) (hkl : k ≠ l) (hjk : j ≠ k) (hil : i ≠ l)
+    (a b : A) : Commute (elementary hij a) (elementary hkl b) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/elementary-commutator-reverse`: `⁅e_ij(a), e_ki(b)⁆ = e_kj(-ba)`. -/
+theorem elementary_commutator_reverse {i j k : n} (hij : i ≠ j) (hki : k ≠ i) (hkj : k ≠ j)
+    (a b : A) : ⁅elementary hij a, elementary hki b⁆ = elementary hkj (-(b * a)) :=
+  calc ⁅elementary hij a, elementary hki b⁆ = ⁅elementary hki b, elementary hij a⁆⁻¹ :=
+        (commutatorElement_inv _ _).symm
+    _ = (elementary hkj (b * a))⁻¹ := by rw [elementary_commutator_chain hki hij hkj]
+    _ = elementary hkj (-(b * a)) := elementary_inv _ _
+
+/-- The signed transposition `w̄_ij := e_ij(1) e_ji(-1) e_ij(1)` (a real definition, helper for
+`U.1/signed-transposition`). -/
+def signedTransposition {i j : n} (h : i ≠ j) : GL n A :=
+  elementary h 1 * elementary h.symm (-1) * elementary h 1
+
+/-- `KTheoryLowDegrees:U.1/signed-transposition`: `w̄_ij ∈ E_n(A)` sends `e_j ↦ e_i`,
+`e_i ↦ -e_j` and fixes the other basis vectors (column vectors); `w̄_ij⁻¹ = w̄_ji`; `w̄_jk w̄_ij` is
+the permutation matrix of the 3-cycle `e_i ↦ e_k ↦ e_j ↦ e_i`; permutation matrices of even
+permutations are elementary; for commutative `A`, `w̄_ij` is Tau Ceti's `transvectionWeylElement`.
+-/
+theorem signed_transposition {i j : n} (hij : i ≠ j) :
+    signedTransposition (A := A) hij ∈ elementarySubgroup n A ∧
+      (signedTransposition (A := A) hij : Matrix n n A) *ᵥ Pi.single j 1 = Pi.single i 1 ∧
+      (signedTransposition (A := A) hij : Matrix n n A) *ᵥ Pi.single i 1 = -Pi.single j 1 ∧
+      (∀ k, k ≠ i → k ≠ j →
+        (signedTransposition (A := A) hij : Matrix n n A) *ᵥ Pi.single k 1 = Pi.single k 1) ∧
+      (signedTransposition (A := A) hij)⁻¹ = signedTransposition hij.symm ∧
+      (∀ {k : n} (hik : i ≠ k) (hjk : j ≠ k),
+        ((signedTransposition (A := A) hjk * signedTransposition hij : GL n A) : Matrix n n A) *ᵥ
+            Pi.single i 1 = Pi.single k 1 ∧
+          ((signedTransposition (A := A) hjk * signedTransposition hij : GL n A) : Matrix n n A) *ᵥ
+            Pi.single k 1 = Pi.single j 1 ∧
+          ((signedTransposition (A := A) hjk * signedTransposition hij : GL n A) : Matrix n n A) *ᵥ
+            Pi.single j 1 = Pi.single i 1) ∧
+      ∀ σ : Equiv.Perm n, Equiv.Perm.sign σ = 1 →
+        ∃ g ∈ elementarySubgroup n A, (g : Matrix n n A) = σ.permMatrix A := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/signed-transposition` (commutative case): `w̄_ij` is Tau Ceti's
+`transvectionWeylElement`. -/
+theorem signed_transposition_eq_transvectionWeylElement {R : Type*} [CommRing R] {i j : n}
+    (hij : i ≠ j) : signedTransposition (A := R) hij = TauCeti.transvectionWeylElement hij := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/elementary-surjective-map`: a surjective ring map maps `E_n(A)` onto
+`E_n(B)`. -/
+theorem elementary_surjective_map {f : A →+* B} (hf : Function.Surjective f) :
+    (elementarySubgroup n A).map (glMap f) = elementarySubgroup n B := by
+  sorry
+
+/-- **`E_n(A)` is perfect for `n ≥ 3`** (`KTheoryLowDegrees:U.1/elementary-perfect`), with
+`e_ij(a) = ⁅e_ik(a), e_kj(1)⁆` for `k ∉ {i, j}`. -/
+theorem elementary_perfect (hn : 3 ≤ Fintype.card n) :
+    ⁅elementarySubgroup n A, elementarySubgroup n A⁆ = elementarySubgroup n A ∧
+      ∀ {i j k : n} (hij : i ≠ j) (hik : i ≠ k) (hkj : k ≠ j) (a : A),
+        elementary hij a = ⁅elementary hik a, elementary hkj 1⁆ := by
+  sorry
+
+end Commutators
+
+/-! ### Whitehead: `U.1/block-unitriangular-elementary`, `U.1/whitehead-diagonal`,
+`U.1/whitehead-block-product`, `U.1/commutator-in-elementary` -/
+
+section Whitehead
+
+variable {A : Type u} [Ring A]
+
+/-- `KTheoryLowDegrees:U.1/block-unitriangular-elementary`: `[[1, X], [0, 1]]` and
+`[[1, 0], [Y, 1]]` (reindexed along `finSumFinEquiv`) lie in `E_{p+q}(A)`, as products of `pq`
+commuting elementary matrices. -/
+theorem block_unitriangular_elementary {p q : ℕ} (X : Matrix (Fin p) (Fin q) A)
+    (Y : Matrix (Fin q) (Fin p) A) :
+    (∃ g ∈ elementarySubgroup (Fin (p + q)) A, (g : Matrix (Fin (p + q)) (Fin (p + q)) A) =
+      Matrix.reindex finSumFinEquiv finSumFinEquiv (Matrix.fromBlocks 1 X 0 1)) ∧
+      ∃ g ∈ elementarySubgroup (Fin (p + q)) A, (g : Matrix (Fin (p + q)) (Fin (p + q)) A) =
+        Matrix.reindex finSumFinEquiv finSumFinEquiv (Matrix.fromBlocks 1 0 Y 1) := by
+  sorry
+
+/-- **Whitehead's identity** (`KTheoryLowDegrees:U.1/whitehead-diagonal`): `g ⊕ g⁻¹ ∈ E_{2n}(A)`,
+through `g ⊕ g⁻¹ = [[1, g], [0, 1]] [[1, 0], [-g⁻¹, 1]] [[1, g], [0, 1]] [[0, -1], [1, 0]]`. -/
+theorem whitehead_diagonal {n : ℕ} (g : GL (Fin n) A) :
+    blockSum (g, g⁻¹) ∈ elementarySubgroup (Fin (n + n)) A ∧
+      Matrix.fromBlocks (g : Matrix (Fin n) (Fin n) A) 0 0 ((g⁻¹ : GL (Fin n) A) : Matrix _ _ A) =
+        Matrix.fromBlocks 1 (g : Matrix (Fin n) (Fin n) A) 0 1 *
+          Matrix.fromBlocks 1 0 (-((g⁻¹ : GL (Fin n) A) : Matrix (Fin n) (Fin n) A)) 1 *
+          Matrix.fromBlocks 1 (g : Matrix (Fin n) (Fin n) A) 0 1 * Matrix.fromBlocks 0 (-1)
+              1 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/whitehead-block-product`: `a ⊕ b` lies in the left and right cosets of
+`E_{2n}(A)` of `ab ⊕ 1` and of `ba ⊕ 1`. -/
+theorem whitehead_block_product {n : ℕ} (a b : GL (Fin n) A) :
+    (blockSum (a * b, 1))⁻¹ * blockSum (a, b) ∈ elementarySubgroup (Fin (n + n)) A ∧
+      blockSum (a, b) * (blockSum (a * b, 1))⁻¹ ∈ elementarySubgroup (Fin (n + n)) A ∧
+      (blockSum (b * a, 1))⁻¹ * blockSum (a, b) ∈ elementarySubgroup (Fin (n + n)) A ∧
+      blockSum (a, b) * (blockSum (b * a, 1))⁻¹ ∈ elementarySubgroup (Fin (n + n)) A := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/commutator-in-elementary`: `⁅g, h⁆ ⊕ 1 = (g ⊕ g⁻¹)(h ⊕ h⁻¹)((hg)⁻¹ ⊕ hg)`
+lies in `E_{2n}(A)`, and so does `(g e g⁻¹) ⊕ 1` for `e ∈ E_n(A)`. -/
+theorem commutator_in_elementary {n : ℕ} (g h : GL (Fin n) A) :
+    blockSum (⁅g, h⁆, 1) = blockSum (g, g⁻¹) * blockSum (h, h⁻¹) * blockSum ((h * g)⁻¹, h * g) ∧
+      blockSum (⁅g, h⁆, 1) ∈ elementarySubgroup (Fin (n + n)) A ∧
+      ∀ e ∈ elementarySubgroup (Fin n) A,
+        blockSum (g * e * g⁻¹, 1) = blockSum (g, g⁻¹) * blockSum (e, 1) * blockSum (g⁻¹, g) ∧
+          blockSum (g * e * g⁻¹, 1) ∈ elementarySubgroup (Fin (n + n)) A := by
+  sorry
+
+end Whitehead
+
+/-! ### `KTheoryLowDegrees:U.1/stable-elementary-subgroup` -/
+
+section StableElementary
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B]
+
+variable (A) in
+/-- **The stable elementary group** `E(A)` (`KTheoryLowDegrees:U.1/stable-elementary-subgroup`): the
+closure of the `of_n(e_ij(a))` in `GL(A)` (a real definition). -/
+def StableGL.elementary : Subgroup (StableGL A) :=
+  Subgroup.closure {x | ∃ (n : ℕ) (i j : Fin n) (h : i ≠ j) (a : A),
+    x = StableGL.of n (KTheory.elementary h a)}
+
+namespace StableGL
+
+/-- `of_n(e_ij(a)) ∈ E(A)`. -/
+@[simp]
+theorem of_elementary_mem {n : ℕ} {i j : Fin n} (h : i ≠ j) (a : A) :
+    of n (KTheory.elementary h a) ∈ StableGL.elementary A :=
+  Subgroup.subset_closure ⟨n, i, j, h, a, rfl⟩
+
+/-- `x ∈ E(A)` iff `x = of_n e` with `e ∈ E_n(A)`. -/
+theorem mem_elementary_iff (x : StableGL A) :
+    x ∈ StableGL.elementary A ↔
+      ∃ (n : ℕ) (e : GL (Fin n) A), e ∈ elementarySubgroup (Fin n) A ∧ x = of n e := by
+  sorry
+
+/-- `of_n g ∈ E(A)` iff some stabilisation of `g` is elementary. -/
+theorem of_mem_elementary_iff {n : ℕ} (g : GL (Fin n) A) :
+    of n g ∈ StableGL.elementary A ↔
+      ∃ (k : ℕ) (h : n ≤ k), stabilise h g ∈ elementarySubgroup (Fin k) A := by
+  sorry
+
+/-- `E(A) = ⨆ n, (E_n(A)).map of_n`. -/
+theorem elementary_eq_iSup :
+    StableGL.elementary A = ⨆ n : ℕ, (elementarySubgroup (Fin n) A).map (of n) := by
+  sorry
+
+/-- `GL(f)` maps `E(A)` into `E(B)`. -/
+theorem map_elementary_le (f : A →+* B) :
+    (StableGL.elementary A).map (map f) ≤ StableGL.elementary B := by
+  sorry
+
+/-- For surjective `f`, `GL(f)` maps `E(A)` onto `E(B)`. -/
+theorem map_elementary_eq {f : A →+* B} (hf : Function.Surjective f) :
+    (StableGL.elementary A).map (map f) = StableGL.elementary B := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.of_neg_one_two_mem (computation)
+example : of 2 (diagUnit ![-1, -1]) ∈ StableGL.elementary A := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.elementary_zero_ring (degenerate)
+example [Subsingleton A] : StableGL.elementary A = ⊤ := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.elementary_transvectionUnit (compatibility)
+example {R : Type u} [CommRing R] {n : ℕ} {i j : Fin n} (h : i ≠ j) (a : R) :
+    of n (TauCeti.transvectionUnit h a) ∈ StableGL.elementary R := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.of_neg_one_not_mem (non-example)
+example : of 1 (diagUnit ![-1] : GL (Fin 1) ℤ) ∉ StableGL.elementary ℤ := by
+  sorry
+
+end StableGL
+
+end StableElementary
+
+/-! ### `KTheoryLowDegrees:U.1/whitehead-lemma`, `U.1/stable-elementary-perfect`,
+`U.1/stable-elementary-normal`, `U.1/elementary-centraliser`, `U.1/stable-elementary-centre`,
+`U.1/rank-two-failure` -/
+
+section WhiteheadLemma
+
+variable {A : Type u} [Ring A]
+
+/-- **Whitehead's Lemma** (`KTheoryLowDegrees:U.1/whitehead-lemma`): `⁅GL(A), GL(A)⁆ = E(A)` for
+every ring. -/
+theorem whitehead_lemma : commutator (StableGL A) = StableGL.elementary A := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/stable-elementary-perfect`: `⁅E(A), E(A)⁆ = E(A)`. -/
+theorem stable_elementary_perfect :
+    ⁅StableGL.elementary A, StableGL.elementary A⁆ = StableGL.elementary A := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/stable-elementary-normal`: `E(A)` is normal in `GL(A)` (an instance). -/
+instance stable_elementary_normal : (StableGL.elementary A).Normal := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/stable-elementary-normal`, with the explicit rank:
+`(g e g⁻¹) ⊕ 1 ∈ E_{2n}(A)` for `g ∈ GL_n(A)` and `e ∈ E_n(A)`; no finite-rank normality. -/
+theorem stable_elementary_normal_rank {n : ℕ} (g : GL (Fin n) A)
+    (e : GL (Fin n) A) (he : e ∈ elementarySubgroup (Fin n) A) :
+    blockSum (g * e * g⁻¹, 1) ∈ elementarySubgroup (Fin (n + n)) A := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/elementary-centraliser`: for `n ≥ 2`, the centraliser of `E_n(A)`
+consists of the scalar matrices `u · 1` with `u` a central unit. -/
+theorem elementary_centraliser {n : Type*} [Fintype n] [DecidableEq n] (hn : 2 ≤ Fintype.card n)
+    (g : GL n A) :
+    (∀ e ∈ elementarySubgroup n A, Commute g e) ↔
+      ∃ u : Aˣ, (u : A) ∈ Set.center A ∧ (g : Matrix n n A) = Matrix.scalar n (u : A) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/stable-elementary-centre`: an element of `GL(A)` commuting with `E(A)` is
+`1`; in particular the centre of `E(A)` is trivial. -/
+theorem stable_elementary_centre :
+    (∀ z : StableGL A, (∀ e ∈ StableGL.elementary A, Commute z e) → z = 1) ∧
+      Subgroup.center (StableGL.elementary A) = ⊥ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/rank-two-failure`: `E₂(𝔽₂) = GL₂(𝔽₂)` has order `6` with commutator
+subgroup of order `3`, and `E₂(𝔽₃) = SL₂(𝔽₃)` has order `24` with commutator subgroup of order `8`;
+so no rank-two form of `U.1/elementary-perfect` or `U.1/whitehead-lemma` holds. -/
+theorem rank_two_failure :
+    (Nat.card (elementarySubgroup (Fin 2) (ZMod 2)) = 6 ∧
+        Nat.card (commutator (elementarySubgroup (Fin 2) (ZMod 2))) = 3 ∧
+        ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 2))), ⊤⁆ ≠ elementarySubgroup (Fin 2) (ZMod 2)) ∧
+      Nat.card (elementarySubgroup (Fin 2) (ZMod 3)) = 24 ∧
+        Nat.card (commutator (elementarySubgroup (Fin 2) (ZMod 3))) = 8 ∧
+        ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 3))), ⊤⁆ =
+          (Matrix.SpecialLinearGroup.toGL (n := Fin 2) (R := ZMod 3)).range := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.1/rank-two-failure`. -/
+theorem rank_two_failure_two :
+    Nat.card (elementarySubgroup (Fin 2) (ZMod 2)) = 6 ∧
+        Nat.card (commutator (elementarySubgroup (Fin 2) (ZMod 2))) = 3 ∧
+        ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 2))), ⊤⁆ ≠ elementarySubgroup (Fin 2) (ZMod 2) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.1/rank-two-failure-three`. -/
+theorem rank_two_failure_three :
+    Nat.card (elementarySubgroup (Fin 2) (ZMod 3)) = 24 ∧
+      Nat.card (commutator (elementarySubgroup (Fin 2) (ZMod 3))) = 8 ∧
+      ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 3))), ⊤⁆ =
+          (Matrix.SpecialLinearGroup.toGL (n := Fin 2) (R := ZMod 3)).range := by
+  sorry
+
+
+end WhiteheadLemma
+
+end TauCeti.KTheory
+
+/-! ## Stage `KTheoryLowDegrees:U.2` — `K₁` and the class of an automorphism
+
+`K₁(A) = GL(A)/E(A)`, written multiplicatively. The class of an automorphism is taken for
+finitely generated projective RIGHT `A`-modules and column vectors, i.e. modules over `Aᵐᵒᵖ` in
+Mathlib (`autClass`); for commutative `A` this agrees with Mathlib's column convention
+(`Matrix.GeneralLinearGroup.toLin`, `autClassComm`). The row-vector convention would transpose
+matrices, which inverts `SK₁` classes. -/
+
+namespace TauCeti.KTheory
+
+/-! ### `KTheoryLowDegrees:U.2/K1` -/
+
+section K1Def
+
+variable (A : Type u) [Ring A] {B : Type v} [Ring B] {C : Type w} [Ring C]
+
+/-- **K₁ of a ring** (`KTheoryLowDegrees:U.2/K1`): `K1 A := GL(A) ⧸ E(A)` (a real definition; the
+normality instance is `stable_elementary_normal`). -/
+def K1 : Type u := StableGL A ⧸ StableGL.elementary A
+
+/-- `K1 A` is a commutative group (Whitehead's Lemma). -/
+instance K1.instCommGroup : CommGroup (K1 A) :=
+  { QuotientGroup.Quotient.group (StableGL.elementary A) with
+    mul_comm := by sorry }
+
+variable {A}
+
+namespace K1
+
+/-- The quotient map `GL(A) →* K₁(A)`. -/
+def mk : StableGL A →* K1 A :=
+  QuotientGroup.mk' (StableGL.elementary A)
+
+/-- `K1.of n := K1.mk ∘ StableGL.of n`, the class `[g]` of `g ∈ GL_n(A)`. -/
+def of (n : ℕ) : GL (Fin n) A →* K1 A :=
+  mk.comp (StableGL.of n)
+
+/-- `K1.mk` is surjective; every class is some `[g]`. -/
+theorem mk_surjective :
+    Function.Surjective (mk (A := A)) ∧ ∀ x : K1 A, ∃ (n : ℕ) (g : GL (Fin n) A), x = of n g := by
+  sorry
+
+/-- `mk x = 1 ↔ x ∈ E(A)`. -/
+theorem mk_eq_one_iff (x : StableGL A) : mk x = 1 ↔ x ∈ StableGL.elementary A :=
+  QuotientGroup.eq_one_iff x
+
+/-- `[g] = 1` iff some stabilisation of `g` is elementary. -/
+theorem of_eq_one_iff {n : ℕ} (g : GL (Fin n) A) :
+    of n g = 1 ↔ ∃ (k : ℕ) (h : n ≤ k), stabilise h g ∈ elementarySubgroup (Fin k) A := by
+  sorry
+
+/-- `[g] = [h]` iff `of_n (g h⁻¹) ∈ E(A)`. -/
+theorem of_eq_of_iff {n : ℕ} (g h : GL (Fin n) A) :
+    of n g = of n h ↔ StableGL.of n (g * h⁻¹) ∈ StableGL.elementary A := by
+  sorry
+
+/-- Conjugate matrices have the same class. -/
+@[simp]
+theorem of_conj {n : ℕ} (x g : GL (Fin n) A) : of n (x * g * x⁻¹) = of n g := by
+  sorry
+
+/-- The universal property: homomorphisms from `GL(A)` to a commutative group factor uniquely
+through `K1.mk` (a real definition through `QuotientGroup.lift`). -/
+def lift {H : Type*} [CommGroup H] : (StableGL A →* H) ≃ (K1 A →* H) where
+  toFun φ := QuotientGroup.lift (StableGL.elementary A) φ (by sorry)
+  invFun ψ := ψ.comp mk
+  left_inv := by sorry
+  right_inv := by sorry
+
+/-- `lift φ (mk x) = φ x`. -/
+@[simp]
+theorem lift_mk {H : Type*} [CommGroup H] (φ : StableGL A →* H) (x : StableGL A) :
+    lift φ (mk x) = φ x :=
+  rfl
+
+/-- Homomorphisms out of `K1 A` agreeing on every `[g]` are equal. -/
+theorem hom_ext {H : Type*} [Monoid H] {f g : K1 A →* H}
+    (h : ∀ (n : ℕ) (x : GL (Fin n) A), f (of n x) = g (of n x)) : f = g := by
+  sorry
+
+end K1
+
+end K1Def
+
+/-! ### `KTheoryLowDegrees:U.2/K1-abelianization` and `U.2/K1-map` -/
+
+section K1Map
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {C : Type w} [Ring C]
+
+variable (A) in
+/-- The isomorphism `K₁(A) ≃* Abelianization GL(A)` of `U.2/K1-abelianization` (a real definition:
+`QuotientGroup.quotientMulEquivOfEq` along Whitehead's Lemma). -/
+def K1.equivAbelianization : K1 A ≃* Abelianization (StableGL A) :=
+  QuotientGroup.quotientMulEquivOfEq whitehead_lemma.symm
+
+/-- `KTheoryLowDegrees:U.2/K1-abelianization`: `K₁(A) ≃* Abelianization GL(A)` sends `K1.mk x` to
+`Abelianization.of x`, and turns `K1.lift` into `Abelianization.lift`. -/
+theorem k1_abelianization (x : StableGL A) :
+    K1.equivAbelianization A (K1.mk x) = Abelianization.of x := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/K1-abelianization`: under `K1.equivAbelianization`, `K1.lift` is
+`Abelianization.lift`. -/
+theorem k1_abelianization_lift {H : Type*} [CommGroup H] (φ : StableGL A →* H) :
+    K1.lift φ = (Abelianization.lift φ).comp (K1.equivAbelianization A).toMonoidHom := by
+  sorry
+
+namespace K1
+
+/-- **Functoriality of `K₁`** (`KTheoryLowDegrees:U.2/K1-map`): induced by `StableGL.map f` (a real
+definition through `QuotientGroup.map`). -/
+def map (f : A →+* B) : K1 A →* K1 B :=
+  QuotientGroup.map _ _ (StableGL.map f)
+    (Subgroup.map_le_iff_le_comap.mp (StableGL.map_elementary_le f))
+
+/-- `map f [g] = [glMap f g]`. -/
+@[simp]
+theorem map_of (f : A →+* B) {n : ℕ} (g : GL (Fin n) A) : map f (of n g) = of n (glMap f g) :=
+  rfl
+
+/-- `map f (mk x) = mk (StableGL.map f x)`. -/
+@[simp]
+theorem map_mk (f : A →+* B) (x : StableGL A) : map f (mk x) = mk (StableGL.map f x) :=
+  rfl
+
+/-- `map id = id`. -/
+@[simp]
+theorem map_id : map (RingHom.id A) = MonoidHom.id (K1 A) := by
+  sorry
+
+/-- `map (g ∘ f) = map g ∘ map f`. -/
+theorem map_comp (f : A →+* B) (g : B →+* C) : map (g.comp f) = (map g).comp (map f) := by
+  sorry
+
+/-- Under `K1.equivAbelianization`, `map f` is `Abelianization.map (StableGL.map f)`. -/
+theorem map_abelianization (f : A →+* B) (x : K1 A) :
+    K1.equivAbelianization B (map f x) =
+      Abelianization.map (StableGL.map f) (K1.equivAbelianization A x) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.subsingleton_zero_ring (degenerate)
+example [Subsingleton A] : Subsingleton (K1 A) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.of_neg_one_two (computation)
+example : of 2 (diagUnit ![-1, -1] : GL (Fin 2) A) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.of_diag_right_eq_left (characterisation)
+example (u : Aˣ) : of 2 (diagUnit ![1, u]) = of 2 (diagUnit ![u, 1]) ∧
+    of 2 (diagUnit ![u, 1]) = of 1 (diagUnit ![u]) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.equivAbelianization_mk (compatibility)
+example (x : StableGL A) : K1.equivAbelianization A (mk x) = Abelianization.of x :=
+  k1_abelianization x
+
+-- test TauCeti.KTheory.K1.of_neg_one_int_ne_one (non-example)
+example : of 1 (diagUnit ![-1] : GL (Fin 1) ℤ) ≠ 1 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.map_zmod_two (computation)
+example : map (Int.castRingHom (ZMod 2)) (of 2 (diagUnit ![-1, 1] : GL (Fin 2) ℤ)) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.map_id_eq (degenerate)
+example : map (RingHom.id A) = MonoidHom.id (K1 A) :=
+  map_id
+
+-- test TauCeti.KTheory.K1.map_eq_abelianization_map (compatibility)
+example (f : A →+* B) :
+    (K1.equivAbelianization B).toMonoidHom.comp (map f) =
+      (Abelianization.map (StableGL.map f)).comp (K1.equivAbelianization A).toMonoidHom :=
+  MonoidHom.ext fun x => map_abelianization f x
+
+-- test TauCeti.KTheory.K1.map_not_surjective (non-example)
+example : of 1 (diagUnit ![ZMod.unitOfCoprime 2 (by decide)] : GL (Fin 1) (ZMod 5)) ∉
+    Set.range (map (Int.castRingHom (ZMod 5))) := by
+  sorry
+
+end K1
+
+end K1Map
+
+/-! ### `U.2/K1-stabilisation-invariance`, `U.2/K1-elementary-trivial`, `U.2/K1-block-sum`,
+`U.2/K1-prod`, `U.2/K1-pi`, `U.2/block-triangular-class` -/
+
+section K1Lemmas
+
+variable {A : Type u} [Ring A]
+
+/-- `KTheoryLowDegrees:U.2/K1-stabilisation-invariance`: `[stabilise g] = [g]`,
+`[g ⊕ 1_k] = [g]` and `[1_k ⊕ g] = [g]`. -/
+theorem k1_stabilisation_invariance {m n k : ℕ} (h : m ≤ n) (g : GL (Fin m) A) :
+    K1.of n (stabilise h g) = K1.of m g ∧
+      K1.of (m + k) (blockSum (g, (1 : GL (Fin k) A))) = K1.of m g ∧
+      K1.of (k + m) (blockSum ((1 : GL (Fin k) A), g)) = K1.of m g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/K1-elementary-trivial`: `[e] = 1` for `e ∈ E_n(A)`, and
+`[g ⊕ g⁻¹] = 1`. -/
+theorem k1_elementary_trivial {n : ℕ} :
+    (∀ e ∈ elementarySubgroup (Fin n) A, K1.of n e = 1) ∧
+      ∀ g : GL (Fin n) A, K1.of (n + n) (blockSum (g, g⁻¹)) = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/K1-block-sum`: `[g ⊕ h] = [g][h]`, and `[g ⊕ h] = [gh] = [hg]` in equal
+sizes. -/
+theorem k1_block_sum {m n : ℕ} (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    K1.of (m + n) (blockSum (g, h)) = K1.of m g * K1.of n h ∧
+      ∀ g' h' : GL (Fin n) A, K1.of (n + n) (blockSum (g', h')) = K1.of n (g' * h') ∧
+        K1.of (n + n) (blockSum (g', h')) = K1.of n (h' * g') := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/K1-prod`: the projections induce `K₁(A × B) ≃* K₁(A) × K₁(B)`. -/
+theorem k1_prod (A B : Type u) [Ring A] [Ring B] :
+    Function.Bijective ((K1.map (RingHom.fst A B)).prod (K1.map (RingHom.snd A B))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/K1-pi`: for a finite family, `K₁(∏ Aᵢ) ≃* ∏ K₁(Aᵢ)` (finiteness is used
+twice; it fails for infinite families). -/
+theorem k1_pi {ι : Type} [Finite ι] (A : ι → Type u) [∀ i, Ring (A i)] :
+    Function.Bijective (MonoidHom.pi fun i => K1.map (Pi.evalRingHom A i)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/block-triangular-class`: a block triangular matrix has the class of its
+diagonal blocks, `[[[g₁, X], [0, g₂]]] = [g₁][g₂]` (and the lower form); a triangular matrix with
+unit diagonal `u` has class `[diag u] = ∏ [uᵢ]`. -/
+theorem block_triangular_class {m n : ℕ} (g₁ : GL (Fin m) A) (g₂ : GL (Fin n) A) :
+    (∀ (X : Matrix (Fin m) (Fin n) A) (g : GL (Fin (m + n)) A),
+      (g : Matrix (Fin (m + n)) (Fin (m + n)) A) = Matrix.reindex finSumFinEquiv finSumFinEquiv
+        (Matrix.fromBlocks (g₁ : Matrix (Fin m) (Fin m) A) X 0 (g₂ : Matrix (Fin n) (Fin n) A)) →
+        K1.of (m + n) g = K1.of m g₁ * K1.of n g₂) ∧
+      (∀ (Y : Matrix (Fin n) (Fin m) A) (g : GL (Fin (m + n)) A),
+        (g : Matrix (Fin (m + n)) (Fin (m + n)) A) = Matrix.reindex finSumFinEquiv finSumFinEquiv
+          (Matrix.fromBlocks (g₁ : Matrix (Fin m) (Fin m) A) 0 Y (g₂ : Matrix (Fin n) (Fin n) A)) →
+          K1.of (m + n) g = K1.of m g₁ * K1.of n g₂) ∧
+      ∀ (k : ℕ) (g : GL (Fin k) A) (u : Fin k → Aˣ),
+        (g : Matrix (Fin k) (Fin k) A).BlockTriangular id →
+          (∀ i, (g : Matrix (Fin k) (Fin k) A) i i = u i) →
+          K1.of k g = K1.of k (diagUnit u) ∧
+              K1.of k (diagUnit u) = ∏ i, K1.of 1 (diagUnit ![u i]) := by
+  sorry
+
+end K1Lemmas
+
+/-! ### `KTheoryLowDegrees:U.2/right-module-matrix-equiv` -/
+
+section RightModule
+
+variable {A : Type u} [Ring A]
+
+/-- Helper: `(Fin n → A) ≃ₗ[Aᵐᵒᵖ] (Fin n → Aᵐᵒᵖ)`, `v ↦ (op (v i))ᵢ`. -/
+def opFun (n : ℕ) : (Fin n → A) ≃ₗ[Aᵐᵒᵖ] (Fin n → Aᵐᵒᵖ) where
+  toFun v i := MulOpposite.op (v i)
+  invFun w i := (w i).unop
+  map_add' := by sorry
+  map_smul' := by sorry
+  left_inv _ := rfl
+  right_inv _ := rfl
+
+variable (A) in
+/-- **Matrices as endomorphisms of the free right module**
+(`KTheoryLowDegrees:U.2/right-module-matrix-equiv`):
+`Module.End Aᵐᵒᵖ (Fin n → A) ≃+* Matrix (Fin n) (Fin n) A`, `φ ↦ (φ (eⱼ) i)ᵢⱼ`, inverse
+`M ↦ (v ↦ M *ᵥ v)`; multiplicative, no reversal (a real definition up to proofs). -/
+def rightModuleEnd (n : ℕ) : Module.End Aᵐᵒᵖ (Fin n → A) ≃+* Matrix (Fin n) (Fin n) A where
+  toFun φ := Matrix.of fun i j => φ (Pi.single j 1) i
+  invFun M :=
+    { toFun := fun v => M *ᵥ v
+      map_add' := by sorry
+      map_smul' := by sorry }
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+  map_add' := by sorry
+
+/-- `rightModuleEnd.symm M v = M *ᵥ v`. -/
+@[simp]
+theorem rightModuleEnd_symm_apply {n : ℕ} (M : Matrix (Fin n) (Fin n) A) (v : Fin n → A) :
+    (rightModuleEnd A n).symm M v = M *ᵥ v :=
+  rfl
+
+/-- `rightModuleEnd φ i j = φ (eⱼ) i`. -/
+@[simp]
+theorem rightModuleEnd_apply {n : ℕ} (φ : Module.End Aᵐᵒᵖ (Fin n → A)) (i j : Fin n) :
+    rightModuleEnd A n φ i j = φ (Pi.single j 1) i :=
+  rfl
+
+variable (A) in
+/-- The restriction `GL_n(A) ≃* Aut_{Aᵐᵒᵖ}(Aⁿ)` (a real definition). -/
+def rightModuleAut (n : ℕ) : GL (Fin n) A ≃* ((Fin n → A) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) :=
+  (Units.mapEquiv (rightModuleEnd A n).symm.toMulEquiv).trans
+    (LinearMap.GeneralLinearGroup.generalLinearEquiv Aᵐᵒᵖ (Fin n → A))
+
+/-- For commutative `A`, `rightModuleEnd.symm` is Mathlib's `Matrix.toLin'` (column convention). -/
+theorem rightModuleEnd_comm {R : Type u} [CommRing R] {n : ℕ} (M : Matrix (Fin n) (Fin n) R)
+    (v : Fin n → R) : (rightModuleEnd R n).symm M v = Matrix.toLin' M v := by
+  sorry
+
+/-- `rightModuleEnd` is `LinearMap.toMatrixRight'` over `Aᵐᵒᵖ` (transported along `opFun`) followed
+by `RingEquiv.mopMatrix`. -/
+theorem rightModuleEnd_eq_mopMatrix {n : ℕ} (φ : Module.End Aᵐᵒᵖ (Fin n → A)) :
+    rightModuleEnd A n φ =
+      (RingEquiv.mopMatrix (LinearMap.toMatrixRight' ((opFun n).toLinearMap ∘ₗ φ ∘ₗ
+        (opFun n).symm.toLinearMap))).unop := by
+  sorry
+
+-- test TauCeti.KTheory.rightModuleEnd_symm_elementary (computation)
+example (a : A) : (rightModuleEnd A 2).symm (elementary (by decide : (0 : Fin 2) ≠ 1)
+    a : Matrix _ _ A)
+    (Pi.single 1 1) = Pi.single 1 1 + Pi.single 0 a := by
+  rw [rightModuleEnd_symm_apply, (coe_elementary _ _).1]
+  ext i
+  fin_cases i <;>
+    simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two, Matrix.one_apply, Matrix.single_apply]
+
+-- test TauCeti.KTheory.rightModuleEnd_zero_dim (degenerate)
+example : Subsingleton (Module.End Aᵐᵒᵖ (Fin 0 → A)) ∧ Subsingleton (Matrix (Fin 0) (Fin 0) A) := by
+  sorry
+
+-- test TauCeti.KTheory.rightModuleEnd_comm_eq_toLin (compatibility)
+example (M : Matrix (Fin 2) (Fin 2) ℤ) (v : Fin 2 → ℤ) :
+    (rightModuleEnd ℤ 2).symm M v = Matrix.toLin' M v :=
+  rightModuleEnd_comm M v
+
+-- test TauCeti.KTheory.toMatrixRight_transpose (non-example)
+/- `toMatrixRight'` of `toLin' e₀₁(1)` is the transpose `e₁₀(1)`: the row convention is not the one
+used here. -/
+example : LinearMap.toMatrixRight' (Matrix.toLin'
+      (elementary (by decide : (0 : Fin 2) ≠ 1) (1 : ℤ) : Matrix (Fin 2) (Fin 2) ℤ)) =
+      (elementary (by decide : (1 : Fin 2) ≠ 0) (1 : ℤ) : Matrix (Fin 2) (Fin 2) ℤ) ∧
+    LinearMap.toMatrixRight' (Matrix.toLin'
+      (elementary (by decide : (0 : Fin 2) ≠ 1) (1 : ℤ) : Matrix (Fin 2) (Fin 2) ℤ)) ≠
+      (elementary (by decide : (0 : Fin 2) ≠ 1) (1 : ℤ) : Matrix (Fin 2) (Fin 2) ℤ) := by
+  sorry
+
+end RightModule
+
+/-! ### `KTheoryLowDegrees:U.2/automorphism-class-independence`, `U.2/automorphism-class` -/
+
+/-- Helper instance (a true fact, proof omitted): `A_A` is finitely generated over `Aᵐᵒᵖ`. -/
+instance rightRegular_finite (A : Type u) [Ring A] : Module.Finite Aᵐᵒᵖ A := by
+  sorry
+
+/-- Helper instance (a true fact, proof omitted): `A_A` is projective (free of rank one) over
+`Aᵐᵒᵖ`. -/
+instance rightRegular_projective (A : Type u) [Ring A] : Module.Projective Aᵐᵒᵖ A := by
+  sorry
+
+/-- Helper instance (a true fact, proof omitted): `Aⁿ_A` is projective (free) over `Aᵐᵒᵖ`. -/
+instance rightFree_projective (A : Type u) [Ring A] (n : ℕ) : Module.Projective Aᵐᵒᵖ (Fin n →
+    A) := by
+  sorry
+
+section AutClass
+
+variable {A : Type u} [Ring A] (P : Type u) [AddCommGroup P] [Module Aᵐᵒᵖ P]
+  [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P]
+
+/-- The class `c(Q, θ; α) := [θ ∘ (α ⊕ 1_Q) ∘ θ⁻¹] ∈ K₁(A)` of an automorphism through a
+presentation `θ : P × Q ≃ Aⁿ_A` (helper, a real definition). -/
+def presentationClass {P : Type u} [AddCommGroup P] [Module Aᵐᵒᵖ P] {Q : Type u} [AddCommGroup Q]
+    [Module Aᵐᵒᵖ Q] {n : ℕ} (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α : P ≃ₗ[Aᵐᵒᵖ] P) : K1 A :=
+  K1.of n ((rightModuleAut A n).symm
+    (θ.symm.trans ((α.prodCongr (LinearEquiv.refl Aᵐᵒᵖ Q)).trans θ)))
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-independence`: presentations exist, and
+`c(Q, θ; α)` depends neither on `θ` nor on the complement `Q`; it is multiplicative in `α`. -/
+theorem automorphism_class_independence :
+    (∃ (Q : Type u) (_ : AddCommGroup Q) (_ : Module Aᵐᵒᵖ Q) (n : ℕ),
+      Nonempty ((P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A))) ∧
+      (∀ (Q Q' : Type u) [AddCommGroup Q] [Module Aᵐᵒᵖ Q] [AddCommGroup Q'] [Module Aᵐᵒᵖ Q']
+        (n n' : ℕ) (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (θ' : (P × Q') ≃ₗ[Aᵐᵒᵖ] (Fin n' → A))
+        (α : P ≃ₗ[Aᵐᵒᵖ] P), presentationClass θ α = presentationClass θ' α) ∧
+      ∀ (Q : Type u) [AddCommGroup Q] [Module Aᵐᵒᵖ Q] (n : ℕ)
+        (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α β : P ≃ₗ[Aᵐᵒᵖ] P),
+        presentationClass θ (α * β) = presentationClass θ α * presentationClass θ β ∧
+          presentationClass θ 1 = 1 := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-independence`. -/
+theorem automorphism_presentation_exists :
+    ∃ (Q : Type u) (_ : AddCommGroup Q) (_ : Module Aᵐᵒᵖ Q) (n : ℕ),
+      Nonempty ((P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-complement-independent`. -/
+theorem automorphism_complement_independent :
+    ∀ (Q Q' : Type u) [AddCommGroup Q] [Module Aᵐᵒᵖ Q] [AddCommGroup Q'] [Module Aᵐᵒᵖ Q']
+        (n n' : ℕ) (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (θ' : (P × Q') ≃ₗ[Aᵐᵒᵖ] (Fin n' → A))
+        (α : P ≃ₗ[Aᵐᵒᵖ] P), presentationClass θ α = presentationClass θ' α := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-presentation-multiplicative`. -/
+theorem automorphism_presentation_multiplicative :
+    ∀ (Q : Type u) [AddCommGroup Q] [Module Aᵐᵒᵖ Q] (n : ℕ)
+        (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α β : P ≃ₗ[Aᵐᵒᵖ] P),
+        presentationClass θ (α * β) = presentationClass θ α * presentationClass θ β ∧
+          presentationClass θ 1 = 1 := by
+  sorry
+
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-basis-independent`. -/
+theorem automorphism_basis_independent {Q : Type u} [AddCommGroup Q] [Module Aᵐᵒᵖ Q]
+    {n : ℕ} (θ θ' : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α : P ≃ₗ[Aᵐᵒᵖ] P) :
+    presentationClass θ α = presentationClass θ' α := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-free-stabilization`.
+The two presentations account for rebracketing and adjoining A^m. -/
+theorem automorphism_free_stabilization {Q : Type u} [AddCommGroup Q] [Module Aᵐᵒᵖ Q]
+    {n m : ℕ} (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A))
+    (θ' : (P × (Q × (Fin m → A))) ≃ₗ[Aᵐᵒᵖ] (Fin (n+m) → A))
+    (α : P ≃ₗ[Aᵐᵒᵖ] P) : presentationClass θ α = presentationClass θ' α := by
+  sorry
+
+/-- **The K₁ class of an automorphism** (`KTheoryLowDegrees:U.2/automorphism-class`), for `P`
+finitely generated projective over `Aᵐᵒᵖ` (a right `A`-module); pinned by
+`autClass_eq_of_presentation`. -/
+def autClass (P : Type u) [AddCommGroup P] [Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P]
+    [Module.Projective Aᵐᵒᵖ P] : (P ≃ₗ[Aᵐᵒᵖ] P) →* K1 A :=
+  sorry
+
+/-- `[1] = 1`. -/
+@[simp]
+theorem autClass_one : autClass P (1 : P ≃ₗ[Aᵐᵒᵖ] P) = 1 :=
+  map_one _
+
+/-- `[αβ] = [α][β]`. -/
+@[simp]
+theorem autClass_mul (α β : P ≃ₗ[Aᵐᵒᵖ] P) : autClass P (α * β) = autClass P α * autClass P β :=
+  map_mul _ _ _
+
+/-- Transport invariance: `[φ α φ⁻¹] = [α]`. -/
+theorem autClass_conj {P' : Type u} [AddCommGroup P'] [Module Aᵐᵒᵖ P'] [Module.Finite Aᵐᵒᵖ P']
+    [Module.Projective Aᵐᵒᵖ P'] (φ : P ≃ₗ[Aᵐᵒᵖ] P') (α : P ≃ₗ[Aᵐᵒᵖ] P) :
+    autClass P' (φ.symm.trans (α.trans φ)) = autClass P α := by
+  sorry
+
+/-- The value through any presentation. -/
+theorem autClass_eq_of_presentation {Q : Type u} [AddCommGroup Q] [Module Aᵐᵒᵖ Q] {n : ℕ}
+    (θ : (P × Q) ≃ₗ[Aᵐᵒᵖ] (Fin n → A)) (α : P ≃ₗ[Aᵐᵒᵖ] P) :
+    autClass P α = presentationClass θ α := by
+  sorry
+
+/-- On `Aⁿ_A`, `[v ↦ g v] = [g]`. -/
+theorem autClass_free {n : ℕ} (g : GL (Fin n) A) :
+    autClass (Fin n → A) (rightModuleAut A n g) = K1.of n g := by
+  sorry
+
+/-- For a basis `b` of `P`, `[α]` is the class of the matrix of `α` in `b` (column convention). -/
+theorem autClass_basis {n : ℕ} (b : Module.Basis (Fin n) Aᵐᵒᵖ P) (α : P ≃ₗ[Aᵐᵒᵖ] P) :
+    autClass P α = K1.of n ((rightModuleAut A n).symm
+      ((b.equivFun.trans (opFun n).symm).symm.trans (α.trans (b.equivFun.trans (opFun n).symm))))
+          := by
+  sorry
+
+/-- For commutative `R` and a finitely generated projective `R`-module, the class built with
+`Matrix.GeneralLinearGroup.toLin`; pinned by `autClassComm_eq_of_presentation`. -/
+def autClassComm {R : Type u} [CommRing R] (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] : (M ≃ₗ[R] M) →* K1 R :=
+  sorry
+
+/-- `autClassComm` through a presentation `θ : M × Q ≃ Rⁿ` and `Matrix.GeneralLinearGroup.toLin`. -/
+theorem autClassComm_eq_of_presentation {R : Type u} [CommRing R] (M : Type u) [AddCommGroup M]
+    [Module R M] [Module.Finite R M] [Module.Projective R M] {Q : Type u} [AddCommGroup Q]
+    [Module R Q] {n : ℕ} (θ : (M × Q) ≃ₗ[R] (Fin n → R)) (α : M ≃ₗ[R] M) :
+    autClassComm M α = K1.of n (Matrix.GeneralLinearGroup.toLin.symm
+      ((LinearMap.GeneralLinearGroup.generalLinearEquiv R (Fin n → R)).symm
+        (θ.symm.trans ((α.prodCongr (LinearEquiv.refl R Q)).trans θ)))) := by
+  sorry
+
+/-- `autClassComm` is `autClass` of `M` viewed as a right module (through a central `Rᵐᵒᵖ`-action).
+-/
+theorem autClassComm_eq {R : Type u} [CommRing R] (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] [Module Rᵐᵒᵖ M] [IsCentralScalar R M]
+    [Module.Finite Rᵐᵒᵖ M] [Module.Projective Rᵐᵒᵖ M] (α : M ≃ₗ[R] M) (α' : M ≃ₗ[Rᵐᵒᵖ] M)
+    (hα : ∀ x, α' x = α x) : autClassComm M α = autClass M α' := by
+  sorry
+
+-- test TauCeti.KTheory.autClass_zero_module (degenerate)
+example [Subsingleton P] (α : P ≃ₗ[Aᵐᵒᵖ] P) : autClass P α = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.autClass_left_mul_unit (computation)
+example (u : Aˣ) (α : A ≃ₗ[Aᵐᵒᵖ] A)
+    (hα : ∀ x, α x = u * x) : autClass A α = K1.of 1 (diagUnit ![u]) := by
+  sorry
+
+-- test TauCeti.KTheory.autClass_swap_int (computation)
+/- The swap `(x, y) ↦ (y, x)` of `ℤ²` is `w̄₁₂ · diag(-1, 1)`: its class is `[-1]`. -/
+example : autClassComm (ℤ × ℤ) (LinearEquiv.prodComm ℤ ℤ ℤ) = K1.of 1 (diagUnit ![-1]) := by
+  sorry
+
+-- test TauCeti.KTheory.autClass_nonfree_det (non-example)
+/- `P = ℤ × 0` (the idempotent module of `(1, 0)`) over `ℤ × ℤ`: `[-1]` goes to `([-1], 1)` under
+`U.2/K1-prod`, while `LinearMap.det (-1) = 1` because `P` has no finite basis. -/
+example [Module.Finite (ℤ × ℤ) (idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+      Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))]
+    [Module.Projective (ℤ × ℤ) (idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+      Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))] :
+    (K1.map (RingHom.fst ℤ ℤ)).prod (K1.map (RingHom.snd ℤ ℤ))
+        (autClassComm (idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+          Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) (LinearEquiv.neg (ℤ × ℤ))) =
+          (K1.of 1 (diagUnit ![-1]), 1) ∧
+      LinearMap.det (-LinearMap.id : idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+        Matrix (Fin 1) (Fin 1) (ℤ × ℤ)) →ₗ[ℤ × ℤ] _) = 1 := by
+  sorry
+
+end AutClass
+
+/-! ### `U.2/automorphism-class-direct-sum`, `U.2/automorphism-class-unipotent`,
+`U.2/automorphism-class-exact-sequence`, `U.2/automorphism-class-filtration`,
+`U.2/automorphism-class-base-change`, `U.2/automorphism-class-universal` -/
+
+section AutClassProperties
+
+variable {A : Type u} [Ring A] {P P' P'' : Type u} [AddCommGroup P] [Module Aᵐᵒᵖ P]
+  [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P] [AddCommGroup P'] [Module Aᵐᵒᵖ P']
+  [Module.Finite Aᵐᵒᵖ P'] [Module.Projective Aᵐᵒᵖ P'] [AddCommGroup P''] [Module Aᵐᵒᵖ P'']
+  [Module.Finite Aᵐᵒᵖ P''] [Module.Projective Aᵐᵒᵖ P'']
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-direct-sum`: `[α ⊕ β] = [α][β]`. -/
+theorem automorphism_class_direct_sum (α : P ≃ₗ[Aᵐᵒᵖ] P) (β : P' ≃ₗ[Aᵐᵒᵖ] P') :
+    autClass (P × P') (α.prodCongr β) = autClass P α * autClass P' β := by
+  sorry
+
+/-- The unipotent automorphism `(x', x'') ↦ (x' + γ x'', x'')` of `P' × P''` (helper). -/
+def unipotentEquiv (γ : P'' →ₗ[Aᵐᵒᵖ] P') : (P' × P'') ≃ₗ[Aᵐᵒᵖ] (P' × P'') where
+  toFun x := (x.1 + γ x.2, x.2)
+  invFun x := (x.1 - γ x.2, x.2)
+  map_add' := by sorry
+  map_smul' := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
+
+/-- The lower unipotent automorphism `(x', x'') ↦ (x', x'' + δ x')` of `P' × P''` (helper). -/
+def lowerUnipotentEquiv (δ : P' →ₗ[Aᵐᵒᵖ] P'') : (P' × P'') ≃ₗ[Aᵐᵒᵖ] (P' × P'') where
+  toFun x := (x.1, x.2 + δ x.1)
+  invFun x := (x.1, x.2 - δ x.1)
+  map_add' := by sorry
+  map_smul' := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-unipotent`: unipotent automorphisms of a direct sum
+have trivial class. -/
+theorem automorphism_class_unipotent (γ : P'' →ₗ[Aᵐᵒᵖ] P') (δ : P' →ₗ[Aᵐᵒᵖ] P'') :
+    autClass (P' × P'') (unipotentEquiv γ) = 1 ∧
+        autClass (P' × P'') (lowerUnipotentEquiv δ) = 1 := by
+  sorry
+
+/-- **Additivity along short exact sequences**
+(`KTheoryLowDegrees:U.2/automorphism-class-exact-sequence`):
+for `0 → P' → P → P'' → 0` exact and `α` with `α(ι P') = ι P'`, `[α] = [α'][α'']`. -/
+theorem automorphism_class_exact_sequence (ι : P' →ₗ[Aᵐᵒᵖ] P) (π : P →ₗ[Aᵐᵒᵖ] P'')
+    (hι : Function.Injective ι) (hexact : Function.Exact ι π) (hπ : Function.Surjective π)
+    (α : P ≃ₗ[Aᵐᵒᵖ] P) (hα : (LinearMap.range ι).map α.toLinearMap = LinearMap.range ι)
+    (α' : P' ≃ₗ[Aᵐᵒᵖ] P') (α'' : P'' ≃ₗ[Aᵐᵒᵖ] P'') (h' : ∀ x, ι (α' x) = α (ι x))
+    (h'' : ∀ x, α'' (π x) = π (α x)) :
+    autClass P α = autClass P' α' * autClass P'' α'' := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-filtration`: for a filtration `0 = F₀ ⊆ ⋯ ⊆ F_r = P`
+with projective quotients `Qᵢ = Fᵢ₊₁/Fᵢ` (given with their quotient maps) and `α(Fᵢ) = Fᵢ`,
+`[α] = ∏ [grᵢ α]`. -/
+theorem automorphism_class_filtration {r : ℕ} (F : ℕ → Submodule Aᵐᵒᵖ P) (hF0 : F 0 = ⊥)
+    (hFr : F r = ⊤) (hmono : Monotone F) (Q : Fin r → Type u) [∀ i, AddCommGroup (Q i)]
+    [∀ i, Module Aᵐᵒᵖ (Q i)] [∀ i, Module.Finite Aᵐᵒᵖ (Q i)] [∀ i, Module.Projective Aᵐᵒᵖ (Q i)]
+    (q : ∀ i : Fin r, F (i + 1) →ₗ[Aᵐᵒᵖ] Q i) (hq : ∀ i, Function.Surjective (q i))
+    (hker : ∀ i, LinearMap.ker (q i) = (F i).comap (F (i + 1)).subtype)
+    (α : P ≃ₗ[Aᵐᵒᵖ] P) (hα : ∀ i, (F i).map α.toLinearMap = F i)
+    (gr : ∀ i, Q i ≃ₗ[Aᵐᵒᵖ] Q i)
+    (hgr : ∀ (i : Fin r) (x : P) (hx : x ∈ F (i + 1)) (hαx : α x ∈ F (i + 1)),
+      gr i (q i ⟨x, hx⟩) = q i ⟨α x, hαx⟩) :
+    autClass P α = ∏ i, autClass (Q i) (gr i) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-base-change` (general rings): with Z.1's scalar
+extension along `fᵐᵒᵖ`, `[α ⊗ 1] = K1.map f [α]`. -/
+theorem automorphism_class_base_change {B : Type u} [Ring B] (f : A →+* B) (α : P ≃ₗ[Aᵐᵒᵖ] P) :
+    autClass (A := B) (ExtendScalars (RingHom.op f) P)
+        ((ExtendScalars.functor (RingHom.op f)).mapIso α.toModuleIso).toLinearEquiv =
+      K1.map f (autClass P α) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.2/automorphism-class-base-change` (commutative rings), with Mathlib's
+`TensorProduct` and `LinearEquiv.baseChange`. -/
+theorem automorphism_class_base_change_comm {R S : Type u} [CommRing R] [CommRing S] [Algebra R S]
+    (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M]
+    (α : M ≃ₗ[R] M) :
+    autClassComm (S ⊗[R] M) (α.baseChange R S M M) =
+        K1.map (algebraMap R S) (autClassComm M α) := by
+  sorry
+
+/-- **Bass's universal property** (`KTheoryLowDegrees:U.2/automorphism-class-universal`): a function
+`W` on pairs `(P, α)` that is multiplicative (M) and additive along exact sequences (A) factors
+uniquely through `[·] : Aut(P) → K₁(A)`. -/
+theorem automorphism_class_universal {G : Type*} [CommGroup G]
+    (W : ∀ (P : Type u) [AddCommGroup P] [Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P]
+      [Module.Projective Aᵐᵒᵖ P], (P ≃ₗ[Aᵐᵒᵖ] P) → G)
+    (hM : ∀ (P : Type u) [AddCommGroup P] [Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P]
+      [Module.Projective Aᵐᵒᵖ P] (α β : P ≃ₗ[Aᵐᵒᵖ] P), W P (α * β) = W P α * W P β)
+    (hA : ∀ (P P' P'' : Type u) [AddCommGroup P] [Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P]
+      [Module.Projective Aᵐᵒᵖ P] [AddCommGroup P'] [Module Aᵐᵒᵖ P'] [Module.Finite Aᵐᵒᵖ P']
+      [Module.Projective Aᵐᵒᵖ P'] [AddCommGroup P''] [Module Aᵐᵒᵖ P''] [Module.Finite Aᵐᵒᵖ P'']
+      [Module.Projective Aᵐᵒᵖ P''] (ι : P' →ₗ[Aᵐᵒᵖ] P) (π : P →ₗ[Aᵐᵒᵖ] P''),
+      Function.Injective ι → Function.Exact ι π → Function.Surjective π →
+      ∀ (α : P ≃ₗ[Aᵐᵒᵖ] P) (α' : P' ≃ₗ[Aᵐᵒᵖ] P') (α'' : P'' ≃ₗ[Aᵐᵒᵖ] P''),
+        (∀ x, ι (α' x) = α (ι x)) → (∀ x, α'' (π x) = π (α x)) → W P α = W P' α' * W P'' α'') :
+    ∃! h : K1 A →* G, ∀ (P : Type u) [AddCommGroup P] [Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P]
+      [Module.Projective Aᵐᵒᵖ P] (α : P ≃ₗ[Aᵐᵒᵖ] P), W P α = h (autClass P α) := by
+  sorry
+
+end AutClassProperties
+
+end TauCeti.KTheory
+
+/-! ## Stage `KTheoryLowDegrees:U.3` — determinant, `SK₁`, stable range, Dieudonné
+
+For commutative `A`: the stable determinant `K1.det : K₁(A) →* Aˣ` from Mathlib's
+`Matrix.GeneralLinearGroup.det`, `SK₁ = ker det` and `K₁(A) ≅ Aˣ × SK₁(A)`. Stable range is
+Bass's condition, stated as a `Prop` with its content. For division rings, the Dieudonné
+determinant takes values in `Abelianization Dˣ`. -/
+
+namespace TauCeti.KTheory
+
+/-! ### `KTheoryLowDegrees:U.3/stable-determinant` -/
+
+section Determinant
+
+variable {A : Type u} [CommRing A] {B : Type v} [CommRing B]
+
+variable (A) in
+/-- The stable determinant `GL(A) →* Aˣ` (a real definition through `StableGL.lift`). -/
+def StableGL.det : StableGL A →* Aˣ :=
+  StableGL.lift (fun _ => Matrix.GeneralLinearGroup.det) fun _ _ h g => det_stabilise h g
+
+variable (A) in
+/-- **The determinant on `K₁`** (`KTheoryLowDegrees:U.3/stable-determinant`), for commutative `A`
+(a real definition through `K1.lift`). -/
+def K1.det : K1 A →* Aˣ :=
+  K1.lift (StableGL.det A)
+
+namespace K1
+
+/-- `det [g] = det g`. -/
+@[simp]
+theorem det_of {n : ℕ} (g : GL (Fin n) A) :
+    K1.det A (K1.of n g) = Matrix.GeneralLinearGroup.det g :=
+  rfl
+
+/-- `det (mk x) = StableGL.det x`. -/
+@[simp]
+theorem det_mk (x : StableGL A) : K1.det A (K1.mk x) = StableGL.det A x :=
+  rfl
+
+/-- The determinant is surjective. -/
+theorem det_surjective : Function.Surjective (K1.det A) := by
+  sorry
+
+/-- Naturality: `det (K1.map f x) = Units.map f (det x)`. -/
+theorem det_map (f : A →+* B) (x : K1 A) :
+    K1.det B (K1.map f x) = Units.map f.toMonoidHom (K1.det A x) := by
+  sorry
+
+/-- For a finitely generated free module, `det [α] = LinearEquiv.det α`. -/
+theorem det_autClassComm_free (M : Type u) [AddCommGroup M] [Module A M] [Module.Finite A M]
+    [Module.Free A M] (α : M ≃ₗ[A] M) : K1.det A (autClassComm M α) = LinearEquiv.det α := by
+  sorry
+
+/-- `det [g ⊕ h] = det g · det h`. -/
+@[simp]
+theorem det_blockSum {m n : ℕ} (g : GL (Fin m) A) (h : GL (Fin n) A) :
+    K1.det A (K1.of (m + n) (blockSum (g, h))) =
+      Matrix.GeneralLinearGroup.det g * Matrix.GeneralLinearGroup.det h := by
+  rw [det_of, KTheory.det_blockSum]
+
+-- test TauCeti.KTheory.K1.det_diag_rat (computation)
+example : K1.det ℚ (K1.of 2 (diagUnit ![Units.mk0 2 two_ne_zero, Units.mk0 3 three_ne_zero])) =
+    Units.mk0 6 (by norm_num) := by
+  rw [det_of]
+  apply Units.ext
+  simp only [Matrix.GeneralLinearGroup.val_det_apply, coe_diagUnit, Matrix.det_diagonal,
+    Fin.prod_univ_two, Units.val_mk0]
+  norm_num
+
+-- test TauCeti.KTheory.K1.det_zero_ring (degenerate)
+example [Subsingleton A] (φ : K1 A →* Aˣ) : φ = K1.det A := by
+  sorry
+
+-- test TauCeti.KTheory.K1.det_comp_of (compatibility)
+example (n : ℕ) : (K1.det A).comp (K1.of n) = Matrix.GeneralLinearGroup.det :=
+  rfl
+
+-- test TauCeti.KTheory.K1.det_not_injective_circle (non-example)
+/- The rotation class over `ℝ[x, y]/(x² + y² - 1)` has determinant `1` but is nontrivial. -/
+example : K1.det CircleRing (K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation)) = 1 ∧
+    K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ≠ 1 ∧
+    ¬ Function.Injective (K1.det CircleRing) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.det_ne_linearMap_det (non-example)
+/- `P = ℤ × 0` over `ℤ × ℤ`: `det [-1] = (-1, 1) ≠ 1`, while `LinearMap.det (-1) = 1`. -/
+example [Module.Finite (ℤ × ℤ) (idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+      Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))]
+    [Module.Projective (ℤ × ℤ) (idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+      Matrix (Fin 1) (Fin 1) (ℤ × ℤ)))] :
+    ((K1.det (ℤ × ℤ) (autClassComm (idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+        Matrix (Fin 1) (Fin 1) (ℤ × ℤ))) (LinearEquiv.neg (ℤ × ℤ))) : ℤ × ℤ) = (-1, 1)) ∧
+      LinearMap.det (-LinearMap.id : idempotentModule (!![((1 : ℤ), (0 : ℤ))] :
+        Matrix (Fin 1) (Fin 1) (ℤ × ℤ)) →ₗ[ℤ × ℤ] _) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.autClassComm_det_free (compatibility)
+/- (A test of `U.2/automorphism-class`, placed after `K1.det`.) -/
+example (M : Type u) [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Free A M]
+    (α : M ≃ₗ[A] M) : K1.det A (autClassComm M α) = LinearEquiv.det α :=
+  det_autClassComm_free M α
+
+end K1
+
+end Determinant
+
+/-! ### `KTheoryLowDegrees:U.3/units-to-K1` -/
+
+section OfUnits
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B]
+
+variable (A) in
+/-- **Units in `K₁`** (`KTheoryLowDegrees:U.3/units-to-K1`): `u ↦ [u]`, the class of the `1 × 1`
+matrix `u` (a real definition). -/
+def K1.ofUnits : Aˣ →* K1 A :=
+  (K1.of 1).comp (Matrix.GeneralLinearGroup.scalar (Fin 1))
+
+namespace K1
+
+/-- `[diag(u₁, …, uₙ)] = [u₁ ⋯ uₙ]` (in any order). -/
+@[simp]
+theorem ofUnits_diag {n : ℕ} (u : Fin n → Aˣ) :
+    K1.of n (diagUnit u) = K1.ofUnits A (List.ofFn u).prod := by
+  sorry
+
+/-- For commutative `A`, `det [u] = u`. -/
+@[simp]
+theorem det_ofUnits {R : Type u} [CommRing R] (u : Rˣ) : K1.det R (K1.ofUnits R u) = u := by
+  sorry
+
+/-- For commutative `A`, `ofUnits` is injective. -/
+theorem ofUnits_injective {R : Type u} [CommRing R] : Function.Injective (K1.ofUnits R) := by
+  sorry
+
+/-- Naturality of `ofUnits`. -/
+theorem ofUnits_map (f : A →+* B) (u : Aˣ) :
+    K1.ofUnits B (Units.map f.toMonoidHom u) = K1.map f (K1.ofUnits A u) := by
+  sorry
+
+/-- `ofUnits` kills commutators, so factors through `Abelianization Aˣ`. -/
+theorem ofUnits_commutator (u v : Aˣ) :
+    K1.ofUnits A (u * v * u⁻¹ * v⁻¹) = 1 ∧
+      ∃ ψ : Abelianization Aˣ →* K1 A, ψ.comp Abelianization.of = K1.ofUnits A := by
+  sorry
+
+-- test TauCeti.KTheory.K1.ofUnits_neg_one_int (computation)
+example : K1.ofUnits ℤ (-1) ≠ 1 := by
+  intro h
+  have h2 := congrArg (K1.det ℤ) h
+  rw [map_one] at h2
+  change Matrix.GeneralLinearGroup.det (Matrix.GeneralLinearGroup.scalar (Fin 1) (-1 : ℤˣ)) = 1
+    at h2
+  have h3 := congrArg (fun x : ℤˣ => (x : ℤ)) h2
+  simp at h3
+
+-- test TauCeti.KTheory.K1.ofUnits_one (degenerate)
+example : K1.ofUnits A 1 = 1 :=
+  map_one _
+
+-- test TauCeti.KTheory.K1.ofUnits_eq_of_one (compatibility)
+example (u : Aˣ) :
+    K1.ofUnits A u = K1.of 1 (Units.map (Matrix.scalar (Fin 1) : A →+* _).toMonoidHom u) :=
+  rfl
+
+/-- Test notation: the upper triangular `2 × 2` matrices over `ZMod 2`, as a subring (the carrier is
+real; the closure proofs are omitted). -/
+def upperTriangularF2 : Subring (Matrix (Fin 2) (Fin 2) (ZMod 2)) where
+  carrier := {M | M 1 0 = 0}
+  mul_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  zero_mem' := by sorry
+  neg_mem' := by sorry
+
+-- test TauCeti.KTheory.K1.ofUnits_upperTriangular_trivial (non-example)
+/- For `T` the upper triangular matrices over `𝔽₂` and `u = (1 1; 0 1)`: `u ≠ 1` but `[u] = 1`,
+since `diag(u, 1) ∈ E₂(T)`. -/
+example (u : (upperTriangularF2)ˣ)
+    (hu : (((u : upperTriangularF2) : Matrix (Fin 2) (Fin 2) (ZMod 2))) = !![1, 1; 0, 1]) :
+    u ≠ 1 ∧ K1.ofUnits upperTriangularF2 u = 1 := by
+  sorry
+
+end K1
+
+end OfUnits
+
+/-! ### `KTheoryLowDegrees:U.3/special-K1`, `U.3/K1-units-split` -/
+
+section SK1
+
+variable (A : Type u) [CommRing A] {B : Type v} [CommRing B]
+
+/-- **`SK₁`** (`KTheoryLowDegrees:U.3/special-K1`): `SK1 A := ker K1.det` (a real definition). -/
+def SK1 : Subgroup (K1 A) :=
+  (K1.det A).ker
+
+variable {A}
+
+/-- `x ∈ SK₁(A) ↔ det x = 1`. -/
+theorem mem_SK1_iff (x : K1 A) : x ∈ SK1 A ↔ K1.det A x = 1 :=
+  MonoidHom.mem_ker
+
+/-- `[g] ∈ SK₁(A) ↔ det g = 1`. -/
+theorem of_mem_SK1_iff {n : ℕ} (g : GL (Fin n) A) :
+    K1.of n g ∈ SK1 A ↔ Matrix.GeneralLinearGroup.det g = 1 :=
+  MonoidHom.mem_ker
+
+/-- `K1.map f` maps `SK₁(A)` into `SK₁(B)`: the restriction `SK1.map f` (a real definition up to the
+membership proof). -/
+def SK1.map (f : A →+* B) : SK1 A →* SK1 B :=
+  ((K1.map f).comp (SK1 A).subtype).codRestrict (SK1 B) fun _ => by sorry
+
+/-- `SK₁(A) = ⊥ ↔ det injective ↔ ofUnits surjective`. -/
+theorem SK1_eq_bot_iff :
+    (SK1 A = ⊥ ↔ Function.Injective (K1.det A)) ∧
+      (Function.Injective (K1.det A) ↔ Function.Surjective (K1.ofUnits A)) := by
+  sorry
+
+-- test TauCeti.KTheory.SK1_zero_ring (degenerate)
+example [Subsingleton A] : SK1 A = ⊥ := by
+  sorry
+
+-- test TauCeti.KTheory.SK1_field_eq_bot (computation)
+example [Fact (Nat.Prime 7)] : SK1 (ZMod 7) = ⊥ := by
+  sorry
+
+-- test TauCeti.KTheory.SK1_int_eq_bot (compatibility)
+example : SK1 ℤ = ⊥ := by
+  sorry
+
+-- test TauCeti.KTheory.SK1_circle_ne_bot (non-example)
+example : SK1 CircleRing ≠ ⊥ := by
+  sorry
+
+variable (A) in
+/-- The splitting `K₁(A) ≃* Aˣ × SK₁(A)`, `x ↦ (det x, x · [det x]⁻¹)`, inverse `(u, y) ↦ [u] · y`
+(a real definition up to proofs; helper for `U.3/K1-units-split`). -/
+def K1.unitsProdEquiv : K1 A ≃* Aˣ × SK1 A where
+  toFun x := (K1.det A x, ⟨x * K1.ofUnits A (K1.det A x)⁻¹, by sorry⟩)
+  invFun y := K1.ofUnits A y.1 * y.2
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+
+/-- **`K₁(A) = Aˣ × SK₁(A)`** (`KTheoryLowDegrees:U.3/K1-units-split`): `K1.unitsProdEquiv` is
+natural in `A`. -/
+theorem k1_units_split (f : A →+* B) (x : K1 A) :
+    K1.unitsProdEquiv B (K1.map f x) =
+      (Units.map f.toMonoidHom (K1.unitsProdEquiv A x).1,
+        SK1.map f (K1.unitsProdEquiv A x).2) := by
+  sorry
+
+end SK1
+
+/-! ### `KTheoryLowDegrees:U.3/stable-special-linear-group`, `U.3/special-linear-mod-elementary`,
+`U.3/field-special-linear-eq-elementary`, `U.3/SK1-field` -/
+
+section SpecialLinear
+
+variable (A : Type u) [CommRing A] {B : Type v} [CommRing B]
+
+/-- **The stable special linear group** (`KTheoryLowDegrees:U.3/stable-special-linear-group`):
+`SL(A) := ker StableGL.det` (a real definition). -/
+def StableGL.specialLinear : Subgroup (StableGL A) :=
+  (StableGL.det A).ker
+
+variable {A}
+
+namespace StableGL
+
+/-- `of_n g ∈ SL(A) ↔ det g = 1`. -/
+theorem of_mem_specialLinear_iff {n : ℕ} (g : GL (Fin n) A) :
+    of n g ∈ StableGL.specialLinear A ↔ Matrix.GeneralLinearGroup.det g = 1 :=
+  MonoidHom.mem_ker
+
+/-- `E(A) ≤ SL(A)`. -/
+theorem elementary_le_specialLinear : StableGL.elementary A ≤ StableGL.specialLinear A := by
+  sorry
+
+/-- `SL(A)` is normal. -/
+instance specialLinear_normal : (StableGL.specialLinear A).Normal :=
+  MonoidHom.normal_ker _
+
+/-- `GL(f)` maps `SL(A)` into `SL(B)`. -/
+theorem map_specialLinear_le (f : A →+* B) :
+    (StableGL.specialLinear A).map (map f) ≤ StableGL.specialLinear B := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.diag_inv_mem_specialLinear (computation)
+example (u : Aˣ) : of 2 (diagUnit ![u, u⁻¹]) ∈ StableGL.specialLinear A := by
+  change Matrix.GeneralLinearGroup.det (diagUnit ![u, u⁻¹]) = 1
+  ext
+  simp [Matrix.GeneralLinearGroup.val_det_apply, coe_diagUnit, Matrix.det_diagonal,
+    Fin.prod_univ_two]
+
+-- test TauCeti.KTheory.StableGL.specialLinear_zero_ring (degenerate)
+example [Subsingleton A] : StableGL.specialLinear A = ⊤ := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.specialLinear_of_range_toGL (compatibility)
+example (n : ℕ) : (of n) ⁻¹' (StableGL.specialLinear A : Set (StableGL A)) =
+    Set.range (Matrix.SpecialLinearGroup.toGL : Matrix.SpecialLinearGroup (Fin n) A →
+        GL (Fin n) A) := by
+  sorry
+
+-- test TauCeti.KTheory.StableGL.elementary_ne_specialLinear_circle (non-example)
+example : StableGL.elementary CircleRing ≠ StableGL.specialLinear CircleRing := by
+  sorry
+
+end StableGL
+
+/-- `KTheoryLowDegrees:U.3/special-linear-mod-elementary`: `SL(A) ⧸ E(A) ≃* SK₁(A)`, induced by the
+inclusion `SL(A) ≤ GL(A)`. -/
+theorem special_linear_mod_elementary :
+    ∃ e : StableGL.specialLinear A ⧸ (StableGL.elementary A).subgroupOf (StableGL.specialLinear A)
+        ≃*
+        SK1 A, ∀ x : StableGL.specialLinear A,
+      (e (QuotientGroup.mk x) : K1 A) = K1.mk (x : StableGL A) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/field-special-linear-eq-elementary`: for a field, `E_n(F)` is the image
+of `SL_n(F)` (Tau Ceti's `closure_range_toSpecialLinearGroup_eq_top_of_field`), i.e. `ker det`. -/
+theorem field_special_linear_eq_elementary (F : Type u) [Field F] (n : Type*) [Fintype n]
+    [DecidableEq n] :
+    elementarySubgroup n F = (Matrix.SpecialLinearGroup.toGL (n := n) (R := F)).range ∧
+      elementarySubgroup n F = (Matrix.GeneralLinearGroup.det (n := n) (R := F)).ker := by
+  sorry
+
+/-- **`SK₁` of a field vanishes** (`KTheoryLowDegrees:U.3/SK1-field`): `SL(F) = E(F)`, `SK₁(F) = ⊥`
+and `det : K₁(F) ≃* Fˣ` with inverse `ofUnits`. -/
+theorem sk1_field (F : Type u) [Field F] :
+    StableGL.specialLinear F = StableGL.elementary F ∧ SK1 F = ⊥ ∧
+      Function.Bijective (K1.det F) ∧ ∀ u : Fˣ, K1.det F (K1.ofUnits F u) = u := by
+  sorry
+
+end SpecialLinear
+
+/-! ### Stable range: `U.3/stable-range`, `U.3/stable-range-transitive`,
+`U.3/stable-range-reduction`,
+`U.3/stable-range-one-special-linear`, `U.3/semilocal-unit-lemma`,
+`U.3/semilocal-stable-range-one`, `U.3/SK1-semilocal`, `U.3/SK1-local` -/
+
+section StableRange
+
+/-- **Bass's stable range condition** (`KTheoryLowDegrees:U.3/stable-range`): `HasStableRange A n`
+means that for every `m ≥ n` (so length `r = m + 1 > n`) and every left unimodular column
+`(a₀, …, a_m)` (`Σ A aᵢ = A`), some `bᵢ` make `(a₀ + b₀ a_m, …, a_{m-1} + b_{m-1} a_m)` left
+unimodular (a real definition: `sr(A) ≤ n`, BMS's `(7.2)_{n+1}` for `𝔮 = A`). -/
+def HasStableRange (A : Type u) [Ring A] (n : ℕ) : Prop :=
+  ∀ m : ℕ, n ≤ m → ∀ a : Fin (m + 1) → A, Ideal.span (Set.range a) = ⊤ →
+    ∃ b : Fin m → A, Ideal.span (Set.range fun i : Fin m => a i.castSucc + b i * a (Fin.last m)) = ⊤
+
+namespace HasStableRange
+
+variable {A : Type u} [Ring A]
+
+/-- Monotonicity (a real proof). -/
+theorem mono {n m : ℕ} (h : HasStableRange A n) (hnm : n ≤ m) : HasStableRange A m :=
+  fun k hk a ha => h k (hnm.trans hk) a ha
+
+/-- Stable range passes to quotients by two-sided ideals (Bass, Lemma 4.1). -/
+theorem quotient {n : ℕ} (I : Ideal A) [I.IsTwoSided] (h : HasStableRange A n) :
+    HasStableRange (A ⧸ I) n := by
+  sorry
+
+/-- Every division ring has stable range `1`. -/
+theorem of_field (D : Type u) [DivisionRing D] : HasStableRange D 1 := by
+  sorry
+
+end HasStableRange
+
+/-- The case `r = 2` of stable range one for commutative `A`: `aA + bA = A ⇒ a + tb ∈ Aˣ`. -/
+theorem hasStableRange_one_two {A : Type u} [CommRing A] (h : HasStableRange A 1) {a b : A}
+    (hab : Ideal.span {a, b} = ⊤) : ∃ t : A, IsUnit (a + t * b) := by
+  sorry
+
+-- test TauCeti.KTheory.not_hasStableRange_one_int (non-example)
+/- `(2, 5)` is unimodular, but no `2 + 5b` is a unit of `ℤ`. -/
+example : ¬ HasStableRange ℤ 1 := by
+  sorry
+
+-- test TauCeti.KTheory.hasStableRange_one_zmod (computation)
+example : HasStableRange (ZMod 6) 1 := by
+  sorry
+
+-- test TauCeti.KTheory.hasStableRange_zero_ring (degenerate)
+example {A : Type u} [Ring A] [Subsingleton A] : HasStableRange A 1 := by
+  sorry
+
+-- test TauCeti.KTheory.hasStableRange_bms_index (compatibility)
+/- `HasStableRange A n` is BMS's `(7.2)_{n+1}` for `𝔮 = A`: shortening for every length
+`r ≥ n + 1`. -/
+example {A : Type u} [Ring A] (n : ℕ) :
+    HasStableRange A n ↔ ∀ (r : ℕ) (hr : n + 1 ≤ r) (a : Fin r → A), Ideal.span (Set.range a) = ⊤ →
+      ∃ b : Fin (r - 1) → A, Ideal.span (Set.range fun i : Fin (r - 1) =>
+        a ⟨i, by have := i.isLt; omega⟩ + b i * a ⟨r - 1, by omega⟩) = ⊤ := by
+  sorry
+
+variable {A : Type u} [Ring A]
+
+/-- `KTheoryLowDegrees:U.3/stable-range-transitive`: in the stable range `E_r(A)` moves every left
+unimodular column to `e₀` (and to `e_{r-1}`). -/
+theorem stable_range_transitive {n : ℕ} (h : HasStableRange A n) (r : ℕ) (hr : n < r)
+    (v : Fin r → A) (hv : Ideal.span (Set.range v) = ⊤) :
+    (∃ τ ∈ elementarySubgroup (Fin r) A,
+      (τ : Matrix (Fin r) (Fin r) A) *ᵥ v = Pi.single ⟨0, by omega⟩ 1) ∧
+      ∃ τ ∈ elementarySubgroup (Fin r) A,
+        (τ : Matrix (Fin r) (Fin r) A) *ᵥ v = Pi.single ⟨r - 1, by omega⟩ 1 := by
+  sorry
+
+/-- **Surjective stability** (`KTheoryLowDegrees:U.3/stable-range-reduction`): in the stable range
+`GL_r(A) = E_r(A) · stabilise(GL_n(A))`, so `K1.of n` is onto; for `n = 1` every class is `[u]`. -/
+theorem stable_range_reduction {n : ℕ} (h : HasStableRange A n) :
+    (∀ (r : ℕ) (hr : n < r) (g : GL (Fin r) A), ∃ e ∈ elementarySubgroup (Fin r) A,
+      ∃ g' : GL (Fin n) A, g = e * stabilise hr.le g') ∧
+      Function.Surjective (K1.of (A := A) n) ∧
+      (n = 1 → ∀ x : K1 A, ∃ u : Aˣ, x = K1.ofUnits A u) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/stable-range-one-special-linear`: for commutative `A` of stable range
+one, `E_r(A) = SL_r(A)`, `SL(A) = E(A)`, `SK₁(A) = ⊥`, `det : K₁(A) ≃ Aˣ`, and every `g ∈ GL_r(A)`
+is `e · diag(det g, 1, …, 1)`. -/
+theorem stable_range_one_special_linear {R : Type u} [CommRing R] (h : HasStableRange R 1) :
+    (∀ r : ℕ, elementarySubgroup (Fin r) R =
+      (Matrix.SpecialLinearGroup.toGL (n := Fin r) (R := R)).range) ∧
+      StableGL.specialLinear R = StableGL.elementary R ∧ SK1 R = ⊥ ∧
+      Function.Bijective (K1.det R) ∧
+      ∀ (r : ℕ) (g : GL (Fin (r + 1)) R), ∃ e ∈ elementarySubgroup (Fin (r + 1)) R,
+        g = e * diagUnit (Function.update 1 0 (Matrix.GeneralLinearGroup.det g)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/semilocal-unit-lemma`: in a commutative semilocal ring, `Ab + 𝔞 = A`
+gives a unit `b + a` with `a ∈ 𝔞` (prime avoidance). -/
+theorem semilocal_unit_lemma {R : Type u} [CommRing R] [Finite (MaximalSpectrum R)] (b : R)
+    (𝔞 : Ideal R) (h : Ideal.span {b} ⊔ 𝔞 = ⊤) : ∃ a ∈ 𝔞, IsUnit (b + a) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/semilocal-stable-range-one`: commutative semilocal rings have stable
+range one. -/
+theorem semilocal_stable_range_one (R : Type u) [CommRing R] [Finite (MaximalSpectrum R)] :
+    HasStableRange R 1 := by
+  sorry
+
+/-- **`SK₁` of a semilocal ring vanishes** (`KTheoryLowDegrees:U.3/SK1-semilocal`), through stable
+range one. -/
+theorem sk1_semilocal (R : Type u) [CommRing R] [Finite (MaximalSpectrum R)] :
+    (∀ r : ℕ, elementarySubgroup (Fin r) R =
+      (Matrix.SpecialLinearGroup.toGL (n := Fin r) (R := R)).range) ∧
+      StableGL.specialLinear R = StableGL.elementary R ∧ SK1 R = ⊥ ∧
+      Function.Bijective (K1.det R) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/SK1-local`: `K₁` of a commutative local ring is its unit group. -/
+theorem sk1_local (R : Type u) [CommRing R] [IsLocalRing R] :
+    SK1 R = ⊥ ∧ Function.Bijective (K1.det R) := by
+  sorry
+
+end StableRange
+
+/-! ### Dieudonné: `U.3/division-ring-reduction`, `U.3/division-ring-elementary-normal`,
+`U.3/dieudonne-determinant`, `U.3/dieudonne-expansion-properties`, `U.3/dieudonne-multiplicative`,
+`U.3/dieudonne-kernel`, `U.3/dieudonne-block-triangular`, `U.3/dieudonne-commutator-subgroup`,
+`U.3/K1-division-ring`, `U.3/no-units-valued-determinant` -/
+
+section Dieudonne
+
+variable {D : Type u} [DivisionRing D]
+
+/-- `D(μ) = diag(1, …, 1, μ) ∈ GL_{n+1}(D)` (helper). -/
+def lastDiag (n : ℕ) (μ : Dˣ) : GL (Fin (n + 1)) D :=
+  diagUnit (Function.update 1 (Fin.last n) μ)
+
+/-- `KTheoryLowDegrees:U.3/division-ring-reduction`: every `g ∈ GL_{n+1}(D)` is `e · D(μ)` with
+`e ∈ E_{n+1}(D)` (row operations only). -/
+theorem division_ring_reduction (n : ℕ) (g : GL (Fin (n + 1)) D) :
+    ∃ e ∈ elementarySubgroup (Fin (n + 1)) D, ∃ μ : Dˣ, g = e * lastDiag n μ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/division-ring-elementary-normal`: `E_{n+1}(D)` is normal in
+`GL_{n+1}(D)`,
+with Dieudonné's conjugation formulas. Transvection conjugacy and membership are separate
+lemma nodes below. -/
+theorem division_ring_elementary_normal (n : ℕ) :
+    (elementarySubgroup (Fin (n + 1)) D).Normal ∧
+      (∀ (μ : Dˣ) {i j : Fin (n + 1)} (hij : i ≠ j) (c : D), i ≠ Fin.last n → j ≠ Fin.last n →
+        lastDiag n μ * elementary hij c * (lastDiag n μ)⁻¹ = elementary hij c) ∧
+      (∀ (μ : Dˣ) {j : Fin (n + 1)} (hj : Fin.last n ≠ j) (c : D),
+        lastDiag n μ * elementary hj c * (lastDiag n μ)⁻¹ = elementary hj ((μ : D) * c)) ∧
+      (∀ (μ : Dˣ) {i : Fin (n + 1)} (hi : i ≠ Fin.last n) (c : D),
+        lastDiag n μ * elementary hi c * (lastDiag n μ)⁻¹ = elementary hi (c * ((μ⁻¹ : Dˣ) : D))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/division-ring-transvection-conjugacy`.
+Mathlib includes the identity in its transvection set; conjugacy requires `τ ≠ 1`. -/
+theorem division_ring_transvection_conjugacy (n : ℕ)
+    (τ : (Fin (n + 2) → D) ≃ₗ[D] (Fin (n + 2) → D))
+    (hτ : τ ∈ LinearEquiv.transvections D (Fin (n + 2) → D)) (hne : τ ≠ 1) :
+    ∃ g : GL (Fin (n + 2)) D,
+      (g * elementary (show (1 : Fin (n + 2)) ≠ 0 by omega) (1 : D) * g⁻¹ :
+        Matrix (Fin (n + 2)) (Fin (n + 2)) D) = LinearMap.toMatrixRight' τ.toLinearMap := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/division-ring-transvections-elementary`.
+The identity case is handled separately; rank one has no nonidentity transvections. -/
+theorem division_ring_transvections_elementary (n : ℕ) :
+    ∀ τ ∈ LinearEquiv.transvections D (Fin (n + 1) → D), ∃ g ∈ elementarySubgroup (Fin (n + 1)) D,
+      (g : Matrix (Fin (n + 1)) (Fin (n + 1)) D) = LinearMap.toMatrixRight' τ.toLinearMap := by
+  sorry
+
+/-- The minor after clearing the first column with pivot row `i`: rows `k ≠ i` of
+`row_k - ξ_k0 ξ_i0⁻¹ row_i`, first column deleted (a real definition, helper). -/
+def pivotMinor {n : ℕ} (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) (i : Fin (n + 1)) :
+    Matrix (Fin n) (Fin n) D :=
+  fun k l => X (i.succAbove k) l.succ - X (i.succAbove k) 0 * (X i 0)⁻¹ * X i l.succ
+
+open Classical in
+variable (D) in
+/-- The recursion of the Dieudonné determinant on matrices (Dieudonné n° 6): take the least `i` with
+`ξᵢ₀ ≠ 0`, clear the first column by row operations, delete row `i` and column `0`, and multiply by
+`φ((-1)ⁱ ξᵢ₀)` (0-indexed); the value on a matrix with zero first column is `1` (helper, a real
+definition). -/
+def dieudonneDetAux : (n : ℕ) → Matrix (Fin n) (Fin n) D → Abelianization Dˣ
+  | 0, _ => 1
+  | n + 1, X =>
+    if h : ∃ i, X i 0 ≠ 0 then
+      let i : Fin (n + 1) := (Finset.univ.filter fun i => X i 0 ≠ 0).min'
+        (by obtain ⟨i, hi⟩ := h; exact ⟨i, by simp [hi]⟩)
+      Abelianization.of ((-1) ^ (i : ℕ) * Units.mk0 (X i 0)
+          (Finset.mem_filter.mp (Finset.min'_mem (Finset.univ.filter fun i => X i 0 ≠ 0) _)).2) *
+        dieudonneDetAux n (pivotMinor X i)
+    else 1
+
+variable (D) in
+/-- **The Dieudonné determinant** (`KTheoryLowDegrees:U.3/dieudonne-determinant`):
+`Δₙ : GL_n(D) → Abelianization Dˣ`, the recursion `dieudonneDetAux` (a real definition; it is a
+homomorphism by `U.3/dieudonne-multiplicative`). -/
+def dieudonneDet (n : ℕ) (X : GL (Fin n) D) : Abelianization Dˣ :=
+  dieudonneDetAux D n X
+
+/-- `Δ₁(u) = φ(u)`. -/
+@[simp]
+theorem dieudonneDet_one_dim (u : Dˣ) :
+    dieudonneDet D 1 (Matrix.GeneralLinearGroup.scalar (Fin 1) u) = Abelianization.of u := by
+  sorry
+
+/-- The expansion along any pivot `i` with `ξᵢ₀ ≠ 0` (`U.3/dieudonne-expansion-properties`). -/
+theorem dieudonneDet_expansion {n : ℕ} (X : GL (Fin (n + 1)) D) (i : Fin (n + 1))
+    (hi : (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) i 0 ≠ 0) :
+    dieudonneDet D (n + 1) X = Abelianization.of ((-1) ^ (i : ℕ) * Units.mk0 _ hi) *
+      dieudonneDetAux D n (pivotMinor (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) i) := by
+  sorry
+
+/-- `Δ(e X) = Δ(X)` for an elementary `e`. -/
+@[simp]
+theorem dieudonneDet_elementary_mul {n : ℕ} {i j : Fin n} (h : i ≠ j) (c : D) (X : GL (Fin n) D) :
+    dieudonneDet D n (elementary h c * X) = dieudonneDet D n X := by
+  sorry
+
+/-- `Δ(D(μ)) = φ(μ)`. -/
+@[simp]
+theorem dieudonneDet_diag (n : ℕ) (μ : Dˣ) :
+    dieudonneDet D (n + 1) (lastDiag n μ) = Abelianization.of μ := by
+  sorry
+
+/-- Multiplying a row on the left by `μ ≠ 0` multiplies `Δ` by `φ(μ)`. -/
+theorem dieudonneDet_updateRow_smul {n : ℕ} (X Y : GL (Fin n) D) (i : Fin n) (μ : Dˣ)
+    (hY : (Y : Matrix (Fin n) (Fin n) D) =
+      (X : Matrix (Fin n) (Fin n) D).updateRow i fun l => (μ : D) * (X : Matrix _ _ D) i l) :
+    dieudonneDet D n Y = Abelianization.of μ * dieudonneDet D n X := by
+  sorry
+
+/-- Exchanging two rows multiplies `Δ` by `φ(-1)`. -/
+theorem dieudonneDet_swap_rows {n : ℕ} (X Y : GL (Fin n) D) {i j : Fin n} (hij : i ≠ j)
+    (hY : (Y : Matrix (Fin n) (Fin n) D) =
+        (X : Matrix (Fin n) (Fin n) D).submatrix (Equiv.swap i j) id) :
+    dieudonneDet D n Y = Abelianization.of (-1) * dieudonneDet D n X := by
+  sorry
+
+/-- `Δ(X ⊕ 1) = Δ(X)` (`U.3/dieudonne-block-triangular`). -/
+theorem dieudonneDet_stabilise {m n : ℕ} (h : m ≤ n) (X : GL (Fin m) D) :
+    dieudonneDet D n (stabilise h X) = dieudonneDet D m X := by
+  sorry
+
+/-- For a field, `Δ` is the determinant under `Fˣab ≅ Fˣ`. -/
+theorem dieudonneDet_field {F : Type u} [Field F] {n : ℕ} (X : GL (Fin n) F) :
+    Abelianization.equivOfComm.symm (dieudonneDet F n X) = Matrix.GeneralLinearGroup.det X := by
+  sorry
+
+/-- For `ℍ[ℝ]`, the reduced norm `Quaternion.normSq` induces `ℍˣab ≅ ℝ_{>0}`. -/
+theorem dieudonneDet_quaternion_norm :
+    ∃ ν : Abelianization ℍ[ℝ]ˣ ≃* Units.posSubgroup ℝ, ∀ q : ℍ[ℝ]ˣ,
+      (((ν (Abelianization.of q) : ℝˣ)) : ℝ) = Quaternion.normSq (q : ℍ[ℝ]) := by
+  sorry
+
+-- test TauCeti.KTheory.dieudonneDet_rat_two (computation)
+example : dieudonneDet ℚ 2 (Matrix.GeneralLinearGroup.mkOfDetNeZero !![1, 2; 3, 4] (by norm_num)) =
+    Abelianization.of (Units.mk0 (-2) (by norm_num)) := by
+  sorry
+
+-- test TauCeti.KTheory.dieudonneDet_swap (computation)
+example : dieudonneDet D 2 (permGL (Equiv.swap 0 1)) = Abelianization.of (-1) ∧
+    dieudonneDet ℚ 2 (permGL (Equiv.swap 0 1)) ≠ 1 := by
+  sorry
+
+-- test TauCeti.KTheory.dieudonneDet_quaternion_swap (non-example)
+/- `-1 = i j i⁻¹ j⁻¹` in `ℍˣ`, so the swap has trivial Dieudonné determinant over `ℍ`, while its
+determinant over a field is `-1`. -/
+example : Abelianization.of (-1 : ℍ[ℝ]ˣ) = 1 ∧
+    dieudonneDet ℍ[ℝ] 2 (permGL (Equiv.swap 0 1)) = 1 ∧
+    Matrix.GeneralLinearGroup.det (permGL (Equiv.swap (0 : Fin 2) 1) : GL (Fin 2) ℚ) = -1 := by
+  sorry
+
+-- test TauCeti.KTheory.dieudonneDet_one_by_one (degenerate)
+example (u : Dˣ) : dieudonneDet D 1 (Matrix.GeneralLinearGroup.scalar (Fin 1) u) =
+    Abelianization.of u :=
+  dieudonneDet_one_dim u
+
+-- test TauCeti.KTheory.dieudonneDet_eq_det_field (compatibility)
+/- Over the field with five elements (any field `F` with `5` elements). -/
+example {F : Type u} [Field F] [Fintype F] (_hF : Fintype.card F = 5) (X : GL (Fin 3) F) :
+    Abelianization.equivOfComm.symm (dieudonneDet F 3 X) = Matrix.GeneralLinearGroup.det X :=
+  dieudonneDet_field X
+
+/-- `KTheoryLowDegrees:U.3/dieudonne-expansion-properties`: (1°) independence of the pivot,
+(2°) invariance under elementary row operations, (3°) scaling a row by `μ` multiplies `Δ` by
+`φ(μ)`. -/
+theorem dieudonne_expansion_properties (n : ℕ) :
+    (∀ (X : GL (Fin (n + 1)) D) (i j : Fin (n + 1))
+      (hi : (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) i 0 ≠ 0)
+      (hj : (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) j 0 ≠ 0),
+      Abelianization.of ((-1) ^ (i : ℕ) * Units.mk0 _ hi) *
+          dieudonneDetAux D n (pivotMinor (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) i) =
+        Abelianization.of ((-1) ^ (j : ℕ) * Units.mk0 _ hj) *
+          dieudonneDetAux D n (pivotMinor (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) j)) ∧
+      (∀ {i j : Fin (n + 1)} (h : i ≠ j) (c : D) (X : GL (Fin (n + 1)) D),
+        dieudonneDet D (n + 1) (elementary h c * X) = dieudonneDet D (n + 1) X) ∧
+      ∀ (X Y : GL (Fin (n + 1)) D) (i : Fin (n + 1)) (μ : Dˣ),
+        (Y : Matrix (Fin (n + 1)) (Fin (n + 1)) D) =
+            (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D).updateRow i
+              (fun l => (μ : D) * (X : Matrix (Fin (n + 1)) (Fin (n + 1)) D) i l) →
+          dieudonneDet D (n + 1) Y = Abelianization.of μ * dieudonneDet D (n + 1) X := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/dieudonne-multiplicative`: `Δₙ` is a homomorphism, trivial on `Eₙ(D)`,
+with `Δ(D(μ)) = φ(μ)`; for `n ≥ 1` it is surjective. -/
+theorem dieudonne_multiplicative (n : ℕ) :
+    (∀ X Y : GL (Fin n) D, dieudonneDet D n (X * Y) = dieudonneDet D n X * dieudonneDet D n Y) ∧
+      (∀ e ∈ elementarySubgroup (Fin n) D, dieudonneDet D n e = 1) ∧
+      (∀ (m : ℕ) (μ : Dˣ), dieudonneDet D (m + 1) (lastDiag m μ) = Abelianization.of μ) ∧
+      Function.Surjective (dieudonneDet D (n + 1)) := by
+  sorry
+
+variable (D) in
+/-- The Dieudonné determinant as a homomorphism (helper; multiplicativity from
+`dieudonne_multiplicative`). -/
+def dieudonneDetHom (n : ℕ) : GL (Fin n) D →* Abelianization Dˣ where
+  toFun := dieudonneDet D n
+  map_one' := by simpa using (dieudonne_multiplicative (D := D) n).2.1 1 (Subgroup.one_mem _)
+  map_mul' := (dieudonne_multiplicative (D := D) n).1
+
+/-- **Dieudonné's theorem** (`KTheoryLowDegrees:U.3/dieudonne-kernel`): for `n ≥ 2`,
+`ker Δₙ = Eₙ(D)` and `GL_n(D) ⧸ ker Δₙ ≃* Dˣab`, without exception; for `n = 1`,
+`ker Δ₁ = [Dˣ, Dˣ]`. -/
+theorem dieudonne_kernel (n : ℕ) (hn : 2 ≤ n) :
+    (dieudonneDetHom D n).ker = elementarySubgroup (Fin n) D ∧
+      Nonempty (GL (Fin n) D ⧸ (dieudonneDetHom D n).ker ≃* Abelianization Dˣ) ∧
+      (dieudonneDetHom D 1).ker =
+          (commutator Dˣ).map (Matrix.GeneralLinearGroup.scalar (Fin 1)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/dieudonne-block-triangular`: `Δ([[X, Y], [0, Z]]) = Δ(X) Δ(Z)`, so the
+`Δₙ` are compatible with stabilisation; and the Schur complement formula. -/
+theorem dieudonne_block_triangular {p q : ℕ} (X : GL (Fin p) D) (Z : GL (Fin q) D)
+    (Y : Matrix (Fin p) (Fin q) D) :
+    (∀ g : GL (Fin (p + q)) D, (g : Matrix (Fin (p + q)) (Fin (p + q)) D) =
+        Matrix.reindex finSumFinEquiv finSumFinEquiv
+          (Matrix.fromBlocks (X : Matrix (Fin p) (Fin p) D) Y 0 (Z : Matrix (Fin q) (Fin q) D)) →
+        dieudonneDet D (p + q) g = dieudonneDet D p X * dieudonneDet D q Z) ∧
+      (∀ (W : Matrix (Fin q) (Fin p) D) (T : Matrix (Fin q) (Fin q) D) (g : GL (Fin (p + q)) D)
+        (S : GL (Fin q) D),
+        (g : Matrix (Fin (p + q)) (Fin (p + q)) D) = Matrix.reindex finSumFinEquiv finSumFinEquiv
+          (Matrix.fromBlocks (X : Matrix (Fin p) (Fin p) D) Y W T) →
+        (S : Matrix (Fin q) (Fin q) D) =
+            T - W * ((X⁻¹ : GL (Fin p) D) : Matrix (Fin p) (Fin p) D) * Y →
+        dieudonneDet D (p + q) g = dieudonneDet D p X * dieudonneDet D q S) := by
+  sorry
+
+variable (D) in
+/-- The stable Dieudonné determinant `GL(D) →* Dˣab` (helper; compatibility from
+`dieudonneDet_stabilise`). -/
+def stableDieudonneDet : StableGL D →* Abelianization Dˣ :=
+  StableGL.lift (dieudonneDetHom D) fun _ _ h X => dieudonneDet_stabilise h X
+
+/-- `KTheoryLowDegrees:U.3/dieudonne-commutator-subgroup`: for `n ≥ 2`,
+`⁅GL_n(D), GL_n(D)⁆ = E_n(D)` except for `n = 2`, `D = 𝔽₂`, where the commutator subgroup has index
+`2` in `E₂(𝔽₂) = GL₂(𝔽₂)`. -/
+theorem dieudonne_commutator_subgroup (n : ℕ) (hn : 2 ≤ n) (hD : ¬ (n = 2 ∧ Nat.card D = 2)) :
+    ⁅(⊤ : Subgroup (GL (Fin n) D)), ⊤⁆ = elementarySubgroup (Fin n) D ∧
+      Subgroup.index ⁅(⊤ : Subgroup (GL (Fin 2) (ZMod 2))), (⊤ : Subgroup (GL (Fin 2) (ZMod 2)))⁆ =
+        2 ∧
+      elementarySubgroup (Fin 2) (ZMod 2) = ⊤ := by
+  sorry
+
+/-- **K₁ of a division ring** (`KTheoryLowDegrees:U.3/K1-division-ring`): the stable Dieudonné
+determinant induces `K₁(D) ≃* Dˣab` with inverse induced by `ofUnits`; for every `n ≥ 2`,
+`GL_n(D) → K₁(D)` is onto with kernel `E_n(D)`. -/
+theorem k1_division_ring :
+    ∃ e : K1 D ≃* Abelianization Dˣ,
+      (∀ (n : ℕ) (X : GL (Fin n) D), e (K1.of n X) = dieudonneDet D n X) ∧
+        (∀ u : Dˣ, e.symm (Abelianization.of u) = K1.ofUnits D u) ∧
+        ∀ n : ℕ, 2 ≤ n → Function.Surjective (K1.of (A := D) n) ∧
+          (K1.of (A := D) n).ker = elementarySubgroup (Fin n) D := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/no-units-valued-determinant`: if `2 ≠ 0` in `D` and `Dˣ` is not
+commutative, no homomorphism `GL₂(D) → Dˣ` sends `diag(x, 1)` to `x`. -/
+theorem no_units_valued_determinant (h2 : (2 : D) ≠ 0) (hnc : ∃ x y : Dˣ, x * y ≠ y * x) :
+    ¬ ∃ f : GL (Fin 2) D →* Dˣ, ∀ x : Dˣ, f (diagUnit ![x, 1]) = x := by
+  sorry
+
+end Dieudonne
+
+/-! ### Continuous matrices and the real circle non-example -/
+
+/-- `KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy`:
+coefficient scaling contracts an elementary matrix over continuous real functions.
+The conclusion is a jointly continuous determinant-one matrix homotopy. -/
+theorem elementary_function_matrix_homotopy {X : Type*} [TopologicalSpace X]
+    {n : Type*} [Fintype n] [DecidableEq n]
+    (g : GL n C(X, ℝ)) (hg : g ∈ elementarySubgroup n C(X, ℝ)) :
+    ∃ H : C(unitInterval × X, Matrix n n ℝ),
+      (∀ t : unitInterval, ∀ x : X, (H (t, x)).det = 1) ∧
+      (∀ x : X, H (0, x) = 1) ∧
+      (∀ x : X, H (1, x) = (g : Matrix n n C(X, ℝ)).map (fun f => f x)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/circle-evaluation`: substitute the real and imaginary
+coordinate functions on Mathlib's unit circle and descend through the relation. -/
+noncomputable def circleEval : CircleRing →+* C(Circle, ℝ) := by
+  sorry
+
+@[simp] theorem circleEval_x (z : Circle) : circleEval circleX z = (z : ℂ).re := by
+  sorry
+
+@[simp] theorem circleEval_y (z : Circle) : circleEval circleY z = (z : ℂ).im := by
+  sorry
+
+@[simp] theorem circleEval_C (a : ℝ) (z : Circle) :
+    circleEval (Ideal.Quotient.mk _ (MvPolynomial.C a)) z = a := by
+  sorry
+
+/-- The quotient-evaluation formula fixes the map on every polynomial class. -/
+theorem circleEval_mk (p : MvPolynomial (Fin 2) ℝ) (z : Circle) :
+    circleEval (Ideal.Quotient.mk _ p) z =
+      MvPolynomial.eval₂Hom (RingHom.id ℝ) ![(z : ℂ).re, (z : ℂ).im] p := by
+  sorry
+
+-- test TauCeti.KTheory.circleEval_basepoint_test (degenerate)
+example : circleEval circleX 1 = 1 ∧ circleEval circleY 1 = 0 := by
+  sorry
+
+-- test TauCeti.KTheory.circleEval_quarter_turn_test (computation)
+example : circleEval circleX (Circle.exp (Real.pi / 2)) = 0 ∧
+    circleEval circleY (Circle.exp (Real.pi / 2)) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.circleEval_polynomial_test (compatibility)
+example (a : ℝ) (z : Circle) :
+    circleEval (circleX * circleY + Ideal.Quotient.mk _ (MvPolynomial.C a)) z =
+      (z : ℂ).re * (z : ℂ).im + a := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/circle-evaluation-rotation`: the entrywise image has
+the positive-angle column-vector convention; this is the inverse of the matrix
+printed in K-book III.1.5.4. -/
+theorem circleEval_rotation (z : Circle) :
+    (circleRotation : Matrix (Fin 2) (Fin 2) CircleRing).map (fun a => circleEval a z) =
+      !![(z : ℂ).re, -(z : ℂ).im; (z : ℂ).im, (z : ℂ).re] := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction`:
+a trivial stable K1 class forces a based contraction at some finite rank.
+Normalize an elementary homotopy by its adjugate at the basepoint. -/
+theorem circle_trivial_class_based_contraction
+    (h : K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) = 1) :
+    ∃ (n : ℕ) (hn : 2 ≤ n), ∃ H : C(unitInterval × Circle, Matrix (Fin n) (Fin n) ℝ),
+      (∀ t : unitInterval, ∀ z : Circle, (H (t, z)).det = 1) ∧
+      (∀ z : Circle, H (0, z) = 1) ∧
+      (∀ z : Circle, H (1, z) =
+        (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+          Matrix (Fin n) (Fin n) CircleRing).map (fun a => circleEval a z)) ∧
+      (∀ t : unitInterval, H (t, 1) = 1) := by
+  sorry
+
+
+/-! ### The real-circle rotation and the pinned Spin double cover
+
+All matrices use column vectors. Weibel III.1.5.4 prints the inverse rotation;
+inversion preserves nontriviality. These are application lemmas, not a new Spin
+group, covering construction, or general Lie-group retraction. -/
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-coordinate-frame`: the two coordinate vectors
+needed by the positive rotation are an orthonormal pair, in the order (e₁,e₀). -/
+theorem circle_coordinate_frame (n : ℕ) (hn : 2 ≤ n) :
+    let x : Fin n → ℝ := Pi.single ⟨1, by omega⟩ 1
+    let y : Fin n → ℝ := Pi.single ⟨0, by omega⟩ 1
+    TauCeti.realCliffordForm n 0 x = 1 ∧
+      TauCeti.realCliffordForm n 0 y = 1 ∧
+      (TauCeti.realCliffordForm n 0).IsOrtho x y := by
+  sorry
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-spin-coordinates`: the Spin parameter is half
+the positive column-vector rotation angle, including every stabilized coordinate. -/
+theorem circle_spin_coordinates (n : ℕ) (hn : 2 ≤ n) (θ : ℝ) :
+    let Q := TauCeti.realCliffordForm n 0
+    let x : Fin n → ℝ := Pi.single ⟨1, by omega⟩ 1
+    let y : Fin n → ℝ := Pi.single ⟨0, by omega⟩ 1
+    let q := spinRotation Q x y (circle_coordinate_frame n hn).1
+      (circle_coordinate_frame n hn).2.1 (circle_coordinate_frame n hn).2.2 θ
+    (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+      (spinToSpecialOrthogonal Q q) : Matrix (Fin n) (Fin n) ℝ) =
+      (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+        Matrix (Fin n) (Fin n) CircleRing).map
+          (fun a => circleEval a (Circle.exp (2 * θ))) := by
+  sorry
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-spin-lift`: a once-around stabilized positive
+rotation has a lift from 1 to the nonidentity kernel element in every dimension n≥2. -/
+theorem circle_spin_lift (n : ℕ) [NeZero n] (hn : 2 ≤ n) :
+    ∃ γ : Path (1 : realCliffordSpinGroupZero n)
+      (spinGroup.negOne (TauCeti.realCliffordForm n 0)
+        (TauCeti.nondegenerate_realCliffordForm n 0).ne_zero),
+      ∀ t : unitInterval,
+        (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear
+          (TauCeti.realCliffordForm n 0)
+          ((realCliffordSpinDoubleCoverZero n).rightHom (γ t)) :
+          Matrix (Fin n) (Fin n) ℝ) =
+        (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+          Matrix (Fin n) (Fin n) CircleRing).map
+            (fun a => circleEval a (Circle.exp (2 * Real.pi * (t : ℝ)))) := by
+  sorry
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-no-so-contraction`: no based contraction of
+the stabilized circle rotation exists in the actual pinned special orthogonal group.
+This does not assert the still-requested SL-to-SO retraction. -/
+theorem circle_no_so_contraction (n : ℕ) [NeZero n] (hn : 2 ≤ n) :
+    ¬ ∃ H : C(unitInterval × Circle,
+        TauCeti.QuadraticMap.specialOrthogonalGroup (TauCeti.realCliffordForm n 0)),
+      (∀ z : Circle, H (0, z) = 1) ∧
+      (∀ z : Circle,
+        (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear
+          (TauCeti.realCliffordForm n 0) (H (1, z)) :
+          Matrix (Fin n) (Fin n) ℝ) =
+        (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+          Matrix (Fin n) (Fin n) CircleRing).map (fun a => circleEval a z)) ∧
+      (∀ t : unitInterval, H (t, 1) = 1) := by
+  sorry
+
+open CliffordAlgebra in
+-- test circle_spin_quarter_turn_test: detects both orientation and doubled angle.
+example :
+    let Q := TauCeti.realCliffordForm 2 0
+    let q := spinRotation Q (Pi.single (1 : Fin 2) 1) (Pi.single (0 : Fin 2) 1)
+      (circle_coordinate_frame 2 (by decide)).1
+      (circle_coordinate_frame 2 (by decide)).2.1
+      (circle_coordinate_frame 2 (by decide)).2.2 (Real.pi / 4)
+    (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+      (spinToSpecialOrthogonal Q q) : Matrix (Fin 2) (Fin 2) ℝ) =
+        !![0, -1; 1, 0] := by
+  sorry
+
+open CliffordAlgebra in
+-- test circle_spin_full_turn_test: the lift is nonidentity although its image is identity.
+example :
+    let Q := TauCeti.realCliffordForm 2 0
+    let q := spinRotation Q (Pi.single (1 : Fin 2) 1) (Pi.single (0 : Fin 2) 1)
+      (circle_coordinate_frame 2 (by decide)).1
+      (circle_coordinate_frame 2 (by decide)).2.1
+      (circle_coordinate_frame 2 (by decide)).2.2 (Real.pi)
+    q ≠ 1 ∧
+      (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+        (spinToSpecialOrthogonal Q q) : Matrix (Fin 2) (Fin 2) ℝ) = 1 := by
+  sorry
+
+open CliffordAlgebra in
+-- test circle_spin_complement_test: stabilization fixes the complementary column.
+example (θ : ℝ) (i : Fin 3) :
+    let Q := TauCeti.realCliffordForm 3 0
+    let q := spinRotation Q (Pi.single (1 : Fin 3) 1) (Pi.single (0 : Fin 3) 1)
+      (circle_coordinate_frame 3 (by decide)).1
+      (circle_coordinate_frame 3 (by decide)).2.1
+      (circle_coordinate_frame 3 (by decide)).2.2 (θ)
+    TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+      (spinToSpecialOrthogonal Q q) i 2 = if i = 2 then 1 else 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`: over `ℝ[x, y]/(x² + y² - 1)` the rotation
+matrix with rows `(x, -y), (y, x)` has nontrivial class in `SK₁`, so the canonical
+determinant is not injective. The SL-to-SO retraction and the separate Dedekind assertion remain explicit gaps;
+the SO rotation obstruction is decomposed by the preceding application lemmas. -/
+theorem sk1_real_circle_nonzero :
+    K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ∈ SK1 CircleRing ∧
+      K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ≠ 1 ∧ SK1 CircleRing ≠ ⊥ := by
+  sorry
+
+end TauCeti.KTheory
+
+/-! ## Stage `KTheoryLowDegrees:U.4` — `SK₁(O_{F,S}) = 0` (Bass–Milnor–Serre)
+
+`S` is a finite set of finite places, `S : Set (HeightOneSpectrum (𝓞 F))`, and `O_{F,S}` is
+Mathlib's `Set.integer S F`; BMS's `S_∞` is `S` together with the archimedean places. Mennicke
+symbols put the second coordinate on top, `[b/a]`, as in BMS. The class-field-theoretic inputs
+(Chebotarev, the ray-class Artin map, local Hilbert symbols and the power reciprocity law) are
+requested from Tau Ceti roadmaps and gaps of the packet; only the proofs need them — the
+statements below use Mathlib's idèles, completions and valuations. -/
+
+open NumberField IsDedekindDomain
+
+/-! ### `KTheoryLowDegrees:U.4/dedekind-stable-range-two` -/
+
+namespace TauCeti.KTheory.HasStableRange
+
+/-- `KTheoryLowDegrees:U.4/dedekind-stable-range-two`: a Dedekind domain has stable range at most
+two (every unimodular column of length `≥ 3` can be shortened by multiples of its last entry). -/
+theorem dedekind_stable_range_two (A : Type u) [CommRing A] [IsDedekindDomain A] :
+    HasStableRange A 2 := by
+  sorry
+
+end TauCeti.KTheory.HasStableRange
+
+/-! ### `KTheoryLowDegrees:U.4/mennicke-symbol` -/
+
+namespace TauCeti
+
+namespace MennickeSymbol
+
+variable {A : Type u} [CommRing A]
+
+/-- `W_𝔮 ⊆ A × A`: the pairs `(a, b)` with `a ≡ 1`, `b ≡ 0 (mod 𝔮)` and `aA + bA = A` (a real
+definition). -/
+def W (𝔮 : Ideal A) : Set (A × A) :=
+  {x | x.1 - 1 ∈ 𝔮 ∧ x.2 ∈ 𝔮 ∧ IsCoprime x.1 x.2}
+
+/-- The two elementary moves of `𝔮`-equivalence: `(a, b) ↦ (a, b + ta)` for `t ∈ 𝔮` and
+`(a, b) ↦ (a + tb, b)` for `t ∈ A`. -/
+inductive Move (𝔮 : Ideal A) : A × A → A × A → Prop
+  | first (a b t : A) (ht : t ∈ 𝔮) : Move 𝔮 (a, b) (a, b + t * a)
+  | second (a b t : A) : Move 𝔮 (a, b) (a + t * b, b)
+
+/-- `𝔮`-equivalence `∼_𝔮`: the equivalence closure (Mathlib's `Relation.EqvGen`) of the two moves
+(a real definition). -/
+def QEquiv (𝔮 : Ideal A) : A × A → A × A → Prop :=
+  Relation.EqvGen (Move 𝔮)
+
+/-- The moves, hence `∼_𝔮`, preserve `W_𝔮`. -/
+theorem QEquiv.mem_W {𝔮 : Ideal A} {x y : A × A} (h : QEquiv 𝔮 x y) (hx : x ∈ W 𝔮) : y ∈ W 𝔮 := by
+  sorry
+
+/-- `W_{𝔮'} ⊆ W_𝔮` for `𝔮' ≤ 𝔮` (helper). -/
+theorem W_mono {𝔮 𝔮' : Ideal A} (h : 𝔮' ≤ 𝔮) : W 𝔮' ⊆ W 𝔮 :=
+  fun _ hx => ⟨h hx.1, h hx.2.1, hx.2.2⟩
+
+end MennickeSymbol
+
+/-- **Mennicke symbols on `W_𝔮`** (`KTheoryLowDegrees:U.4/mennicke-symbol`): a function
+`W_𝔮 → C`, `(a, b) ↦ [b/a]`, with MS1 (`[0/1] = 1`, invariance under `∼_𝔮`) and MS2
+(`[b₁b₂/a] = [b₁/a][b₂/a]`). -/
+structure MennickeSymbol (A : Type u) [CommRing A] (𝔮 : Ideal A) (C : Type v) [Group C] where
+  /-- The symbol `(a, b) ↦ [b/a]`. -/
+  toFun : MennickeSymbol.W 𝔮 → C
+  /-- MS1: `[0/1] = 1`. -/
+  map_zero_one : ∀ h : ((1 : A), (0 : A)) ∈ MennickeSymbol.W 𝔮, toFun ⟨(1, 0), h⟩ = 1
+  /-- MS1: invariance under `𝔮`-equivalence. -/
+  map_qEquiv : ∀ x y : MennickeSymbol.W 𝔮, MennickeSymbol.QEquiv 𝔮 x.1 y.1 → toFun x = toFun y
+  /-- MS2: multiplicativity in the top entry. -/
+  map_mul : ∀ (a b₁ b₂ : A) (h₁ : (a, b₁) ∈ MennickeSymbol.W 𝔮) (h₂ : (a, b₂) ∈ MennickeSymbol.W 𝔮)
+    (h : (a, b₁ * b₂) ∈ MennickeSymbol.W 𝔮), toFun ⟨_, h⟩ = toFun ⟨_, h₁⟩ * toFun ⟨_, h₂⟩
+
+namespace MennickeSymbol
+
+variable {A : Type u} [CommRing A] {𝔮 𝔮' : Ideal A} {C : Type v} [Group C] {C' : Type w} [Group C']
+
+/-- `∼_𝔮` is the orbit relation on columns of the subgroup of `GL₂(A)` generated by
+`(1 0; t 1)`, `t ∈ 𝔮`, and `(1 t; 0 1)`, `t ∈ A`. -/
+theorem qEquiv_iff_orbit (x y : A × A) :
+    QEquiv 𝔮 x y ↔ ∃ g ∈ Subgroup.closure
+        {g : GL (Fin 2) A | (∃ t ∈ 𝔮, g = KTheory.elementary (by decide : (1 : Fin 2) ≠ 0) t) ∨
+          ∃ t : A, g = KTheory.elementary (by decide : (0 : Fin 2) ≠ 1) t},
+      (g : Matrix (Fin 2) (Fin 2) A) *ᵥ ![x.1, x.2] = ![y.1, y.2] := by
+  sorry
+
+/-- Composing with a group homomorphism (a real definition up to proofs). -/
+def comp (s : MennickeSymbol A 𝔮 C) (φ : C →* C') : MennickeSymbol A 𝔮 C' where
+  toFun x := φ (s.toFun x)
+  map_zero_one h := by rw [s.map_zero_one h, map_one]
+  map_qEquiv x y h := by rw [s.map_qEquiv x y h]
+  map_mul a b₁ b₂ h₁ h₂ h := by rw [s.map_mul a b₁ b₂ h₁ h₂ h, _root_.map_mul]
+
+/-- Restriction to `W_{𝔮'}` for `𝔮' ≤ 𝔮` (a real definition up to proofs). -/
+def restrict (h : 𝔮' ≤ 𝔮) (s : MennickeSymbol A 𝔮 C) : MennickeSymbol A 𝔮' C where
+  toFun x := s.toFun ⟨x.1, W_mono h x.2⟩
+  map_zero_one _ := s.map_zero_one _
+  map_qEquiv x y hxy := by sorry
+  map_mul a b₁ b₂ h₁ h₂ h' := s.map_mul a b₁ b₂ _ _ _
+
+-- test TauCeti.MennickeSymbol.W_bot (degenerate)
+example : W (⊥ : Ideal A) = {((1 : A), (0 : A))} ∧
+    ∀ (s : MennickeSymbol A ⊥ C) (x : W (⊥ : Ideal A)), s.toFun x = 1 := by
+  sorry
+
+-- test TauCeti.MennickeSymbol.int_qEquiv_example (computation)
+/- Over `ℤ` with `𝔮 = ℤ`: `(5, 2) ∼ (1, 2)` (`t = -2`, second move) `∼ (1, 0)` (`t = -2`, first). -/
+example : QEquiv (⊤ : Ideal ℤ) (5, 2) (1, 2) ∧ QEquiv (⊤ : Ideal ℤ) (1, 2) (1, 0) := by
+  constructor
+  · have h := Move.second (𝔮 := (⊤ : Ideal ℤ)) 5 2 (-2)
+    norm_num at h
+    exact Relation.EqvGen.rel _ _ h
+  · have h := Move.first (𝔮 := (⊤ : Ideal ℤ)) 1 2 (-2) Submodule.mem_top
+    norm_num at h
+    exact Relation.EqvGen.rel _ _ h
+
+-- test TauCeti.MennickeSymbol.W_two_not_closed (non-example)
+/- `(1, 2) ∈ W_{2ℤ}`, but the move `(1, 2) ↦ (1, 3)` with `t = 1 ∉ 2ℤ` leaves `W_{2ℤ}`. -/
+example : ((1 : ℤ), (2 : ℤ)) ∈ W (Ideal.span {(2 : ℤ)}) ∧
+    ((1 : ℤ), (3 : ℤ)) ∉ W (Ideal.span {(2 : ℤ)}) := by
+  sorry
+
+-- test TauCeti.MennickeSymbol.symm_top (characterisation)
+example (s : MennickeSymbol A ⊤ C) (a b : A) (h₁ : (a, b) ∈ W (⊤ : Ideal A))
+    (h₂ : (b, a) ∈ W (⊤ : Ideal A)) : s.toFun ⟨_, h₁⟩ = s.toFun ⟨_, h₂⟩ := by
+  sorry
+
+end MennickeSymbol
+
+/-! ### `KTheoryLowDegrees:U.4/universal-mennicke-group` -/
+
+namespace MennickeGroup
+
+variable {A : Type u} [CommRing A]
+
+/-- The relations of the universal Mennicke group: `⟨1, 0⟩ = 1`, `⟨x⟩ = ⟨y⟩` for `x ∼_𝔮 y`, and
+`⟨a, b₁b₂⟩ = ⟨a, b₁⟩⟨a, b₂⟩`. -/
+def rels (𝔮 : Ideal A) : Set (FreeGroup (MennickeSymbol.W 𝔮)) :=
+  {r | ∃ h : ((1 : A), (0 : A)) ∈ MennickeSymbol.W 𝔮, r = FreeGroup.of ⟨_, h⟩} ∪
+  {r | ∃ x y : MennickeSymbol.W 𝔮, MennickeSymbol.QEquiv 𝔮 x.1 y.1 ∧
+    r = FreeGroup.of x * (FreeGroup.of y)⁻¹} ∪
+  {r | ∃ (a b₁ b₂ : A) (h₁ : (a, b₁) ∈ MennickeSymbol.W 𝔮) (h₂ : (a, b₂) ∈ MennickeSymbol.W 𝔮)
+    (h : (a, b₁ * b₂) ∈ MennickeSymbol.W 𝔮),
+    r = FreeGroup.of ⟨_, h⟩ * (FreeGroup.of ⟨_, h₂⟩)⁻¹ * (FreeGroup.of ⟨_, h₁⟩)⁻¹}
+
+end MennickeGroup
+
+/-- **The universal Mennicke group** `C_𝔮` (`KTheoryLowDegrees:U.4/universal-mennicke-group`):
+Mathlib's `PresentedGroup` on `W_𝔮` with the relations MS1, MS2 (a real definition). -/
+def MennickeGroup {A : Type u} [CommRing A] (𝔮 : Ideal A) : Type u :=
+  PresentedGroup (MennickeGroup.rels 𝔮)
+
+namespace MennickeGroup
+
+variable {A : Type u} [CommRing A] {𝔮 𝔮' : Ideal A} {C : Type v} [Group C]
+
+instance instGroup (𝔮 : Ideal A) : Group (MennickeGroup 𝔮) :=
+  inferInstanceAs (Group (PresentedGroup (rels 𝔮)))
+
+variable (𝔮) in
+/-- The universal symbol `(a, b) ↦ ⟨a, b⟩`. -/
+def symbol (x : MennickeSymbol.W 𝔮) : MennickeGroup 𝔮 :=
+  PresentedGroup.of x
+
+variable (𝔮) in
+/-- The universal symbol is a Mennicke symbol (MS1, MS2). -/
+def symbol_isMennicke : MennickeSymbol A 𝔮 (MennickeGroup 𝔮) where
+  toFun := symbol 𝔮
+  map_zero_one := by sorry
+  map_qEquiv := by sorry
+  map_mul := by sorry
+
+/-- The universal property: a Mennicke symbol `s` induces `C_𝔮 →* C` (a real definition through
+`PresentedGroup.toGroup`). -/
+def lift (s : MennickeSymbol A 𝔮 C) : MennickeGroup 𝔮 →* C :=
+  PresentedGroup.toGroup (f := s.toFun) (by sorry)
+
+/-- `lift s ∘ symbol = s`. -/
+@[simp]
+theorem lift_symbol (s : MennickeSymbol A 𝔮 C) (x : MennickeSymbol.W 𝔮) :
+    lift s (symbol 𝔮 x) = s.toFun x := by
+  sorry
+
+/-- Homomorphisms out of `C_𝔮` agreeing on the symbols are equal. -/
+theorem hom_ext {f g : MennickeGroup 𝔮 →* C} (h : ∀ x, f (symbol 𝔮 x) = g (symbol 𝔮 x)) :
+    f = g := by
+  sorry
+
+/-- The homomorphism `C_{𝔮'} →* C_𝔮` of BMS (2.6), for `𝔮' ≤ 𝔮` (a real definition). -/
+def restrictHom (h : 𝔮' ≤ 𝔮) : MennickeGroup 𝔮' →* MennickeGroup 𝔮 :=
+  lift ((symbol_isMennicke 𝔮).restrict h)
+
+/-- `restrictHom` is surjective for `A` Dedekind and `𝔮' ≠ ⊥`. -/
+theorem restrictHom_surjective [IsDedekindDomain A] (h : 𝔮' ≤ 𝔮) (h' : 𝔮' ≠ ⊥) :
+    Function.Surjective (restrictHom h) := by
+  sorry
+
+-- test TauCeti.MennickeGroup.bot_trivial (degenerate)
+example : Subsingleton (MennickeGroup (⊥ : Ideal A)) := by
+  sorry
+
+-- test TauCeti.MennickeGroup.int_top_trivial (computation)
+example : Subsingleton (MennickeGroup (⊤ : Ideal ℤ)) := by
+  sorry
+
+-- test TauCeti.MennickeGroup.trivial_iff (characterisation)
+example : Subsingleton (MennickeGroup 𝔮) ↔
+    ∀ (C : Type u) [Group C] (s : MennickeSymbol A 𝔮 C) (x : MennickeSymbol.W 𝔮), s.toFun x =
+        1 := by
+  sorry
+
+-- test TauCeti.MennickeGroup.real_circle_nontrivial (non-example)
+example : Nontrivial (MennickeGroup (⊤ : Ideal KTheory.CircleRing)) := by
+  sorry
+
+end MennickeGroup
+
+/-! ### Lemmas of BMS § 2: `U.4/q-equivalence-to-base-point`, `U.4/q-equivalence-smaller-ideal`,
+`U.4/q-equivalence-ring-of-fractions`, `U.4/mennicke-newman-common-entry`,
+`U.4/mennicke-symbol-residue-map`, `U.4/mennicke-symbol-residue-homomorphism` -/
+
+namespace MennickeSymbol
+
+variable {A : Type u} [CommRing A] {𝔮 : Ideal A} {C : Type v} [Group C]
+
+/-- `KTheoryLowDegrees:U.4/q-equivalence-to-base-point` (BMS Lemma 2.2): `(a, b) ∼ (a, b(1 - a))`,
+and `(a, b) ∼ (1, 0)` if `a` is congruent to a unit mod `b` or `b` to a unit mod `a`. -/
+theorem q_equivalence_to_base_point {a b : A} (h : (a, b) ∈ W 𝔮) :
+    QEquiv 𝔮 (a, b) (a, b * (1 - a)) ∧
+      ((∃ u : Aˣ, a - u ∈ Ideal.span {b}) ∨ (∃ u : Aˣ, b - u ∈ Ideal.span {a}) →
+        QEquiv 𝔮 (a, b) (1, 0)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/q-equivalence-to-base-point`, the first atomic part. -/
+theorem q_equivalence_one_sub {a b : A} (h : (a, b) ∈ W 𝔮) :
+    QEquiv 𝔮 (a, b) (a, b * (1 - a)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/q-equivalence-near-unit`, the second atomic part. -/
+theorem q_equivalence_near_unit {a b : A} (h : (a, b) ∈ W 𝔮)
+    (hu : (∃ u : Aˣ, a - u ∈ Ideal.span {b}) ∨
+      (∃ u : Aˣ, b - u ∈ Ideal.span {a})) :
+    QEquiv 𝔮 (a, b) (1, 0) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/q-equivalence-smaller-ideal` (BMS Lemma 2.3): for `A` Dedekind and
+nonzero `𝔮' ≤ 𝔮`, every element of `W_𝔮` is `𝔮`-equivalent to one of `W_{𝔮'}`. -/
+theorem q_equivalence_smaller_ideal [IsDedekindDomain A] {𝔮' : Ideal A} (h : 𝔮' ≤ 𝔮)
+    (h' : 𝔮' ≠ ⊥) {x : A × A} (hx : x ∈ W 𝔮) : ∃ y ∈ W 𝔮', QEquiv 𝔮 x y := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/q-equivalence-ring-of-fractions` (BMS Lemma 2.1): for a ring of fractions
+`A' = M⁻¹A` of a Dedekind domain and `𝔮' ≠ 0`, every element of `W_{𝔮'}` is `𝔮'`-equivalent to the
+image of an element of `W_{𝔮' ∩ A}`. -/
+theorem q_equivalence_ring_of_fractions [IsDedekindDomain A] (M : Submonoid A)
+    (hM : M ≤ nonZeroDivisors A) (A' : Type u) [CommRing A'] [Algebra A A'] [IsLocalization M A']
+    (𝔮' : Ideal A') (h' : 𝔮' ≠ ⊥) {x : A' × A'} (hx : x ∈ W 𝔮') :
+    ∃ a b : A, (a, b) ∈ W (𝔮'.comap (algebraMap A A')) ∧
+      QEquiv 𝔮' x (algebraMap A A' a, algebraMap A A' b) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-newman-common-entry` (BMS Lemma 2.4): finitely many elements of
+`W_𝔮` are `𝔮`-equivalent to elements with a common first entry. -/
+theorem mennicke_newman_common_entry [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) {k : ℕ}
+    (x : Fin k → A × A) (hx : ∀ i, x i ∈ W 𝔮) :
+    ∃ (a : A) (c : Fin k → A), ∀ i, (a, c i) ∈ W 𝔮 ∧ QEquiv 𝔮 (a, c i) (x i) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-map` (BMS Lemma 2.7), for a function `s`
+satisfying MS1: (a) triviality near units; (b) moving into a smaller `W_{𝔮'}`; (c) the map
+`U(A/aA) → C`, `b ↦ [bq/a]`, trivial on `U(A)`; (d) finitely many symbols lie in one image of (c),
+with `a` free in a progression `a + tcq`. -/
+theorem mennicke_symbol_residue_map [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    (∀ x : W 𝔮, ((∃ u : Aˣ, x.1.1 - u ∈ Ideal.span {x.1.2}) ∨
+      (∃ u : Aˣ, x.1.2 - u ∈ Ideal.span {x.1.1})) → s x = 1) ∧
+    (∀ 𝔮' : Ideal A, 𝔮' ≤ 𝔮 → 𝔮' ≠ ⊥ → ∀ x : W 𝔮, ∃ y ∈ W 𝔮', ∃ hy : y ∈ W 𝔮, s x = s ⟨y, hy⟩) ∧
+    (∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
+      ∃ ψ : (A ⧸ Ideal.span {a})ˣ → C,
+        (∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s ⟨_, h⟩) ∧
+        ∀ u : Aˣ, ψ (Units.map (Ideal.Quotient.mk (Ideal.span {a})).toMonoidHom u) = 1) ∧
+    ∀ {k : ℕ} (x : Fin k → W 𝔮), ∃ a q c : A, q ∈ 𝔮 ∧ a - 1 ∈ Ideal.span {q} ∧ IsCoprime c a ∧
+      ∀ (t : A) (i : Fin k), ∃ (b : A) (h : (a + t * c * q, b * q) ∈ W 𝔮), s (x i) = s ⟨_, h⟩ := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-map`. -/
+theorem mennicke_symbol_near_unit [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ x : W 𝔮, ((∃ u : Aˣ, x.1.1 - u ∈ Ideal.span {x.1.2}) ∨
+      (∃ u : Aˣ, x.1.2 - u ∈ Ideal.span {x.1.1})) → s x = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-smaller-ideal`. -/
+theorem mennicke_symbol_smaller_ideal [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ 𝔮' : Ideal A, 𝔮' ≤ 𝔮 → 𝔮' ≠ ⊥ → ∀ x : W 𝔮, ∃ y ∈ W 𝔮', ∃ hy : y ∈ W 𝔮, s x = s ⟨y, hy⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-function`. -/
+theorem mennicke_symbol_residue_function [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
+      ∃ ψ : (A ⧸ Ideal.span {a})ˣ → C,
+        (∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s ⟨_, h⟩) ∧
+        ∀ u : Aˣ, ψ (Units.map (Ideal.Quotient.mk (Ideal.span {a})).toMonoidHom u) = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-common-residue-image`. -/
+theorem mennicke_symbol_common_residue_image [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥) (s : W 𝔮 → C)
+    (h0 : ∀ h : ((1 : A), (0 : A)) ∈ W 𝔮, s ⟨_, h⟩ = 1)
+    (hq : ∀ x y : W 𝔮, QEquiv 𝔮 x.1 y.1 → s x = s y) :
+    ∀ {k : ℕ} (x : Fin k → W 𝔮), ∃ a q c : A,
+      q ∈ 𝔮 ∧ a - 1 ∈ Ideal.span {q} ∧ IsCoprime c a ∧
+        ∀ (t : A) (i : Fin k), ∃ (b : A) (h : (a + t * c * q, b * q) ∈ W 𝔮),
+          s (x i) = s ⟨_, h⟩ := by
+  sorry
+
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism` (BMS Lemma 2.9): for a Mennicke
+symbol the maps (2.8) are homomorphisms, and the image of `W_𝔮` is abelian. -/
+theorem mennicke_symbol_residue_homomorphism [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥)
+    (s : MennickeSymbol A 𝔮 C) :
+    (∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
+      ∃ ψ : (A ⧸ Ideal.span {a})ˣ →* C,
+        ∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s.toFun ⟨_, h⟩) ∧
+      ∀ x y : W 𝔮, Commute (s.toFun x) (s.toFun y) := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-residue-homomorphism`. -/
+theorem mennicke_residue_hom [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥)
+    (s : MennickeSymbol A 𝔮 C) :
+    ∀ a q : A, q ∈ 𝔮 → a - 1 ∈ Ideal.span {q} →
+      ∃ ψ : (A ⧸ Ideal.span {a})ˣ →* C,
+        ∀ (b : A) (u : (A ⧸ Ideal.span {a})ˣ), (u : A ⧸ Ideal.span {a}) = Ideal.Quotient.mk _ b →
+          ∃ h : (a, b * q) ∈ W 𝔮, ψ u = s.toFun ⟨_, h⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-symbol-image-abelian`. -/
+theorem mennicke_image_abelian [IsDedekindDomain A] (h𝔮 : 𝔮 ≠ ⊥)
+    (s : MennickeSymbol A 𝔮 C) :
+    ∀ x y : W 𝔮, Commute (s.toFun x) (s.toFun y) := by
+  sorry
+
+
+-- Review regression: the ambient-ideal hypothesis does not ensure a residue pair exists.
+example : (3 : ℤ) - 1 ∈ Ideal.span {(2 : ℤ)} ∧
+    (6 : ℤ) ∈ Ideal.span {(2 : ℤ)} ∧
+    ¬ ((3 : ℤ), (1 : ℤ) * 6) ∈ W (Ideal.span {(2 : ℤ)}) := by
+  sorry
+
+end MennickeSymbol
+
+/-! ### `KTheoryLowDegrees:U.4/sk1-mennicke-symbol`, `U.4/sk1-generated-by-mennicke-symbols` -/
+
+namespace MennickeSymbol
+
+open KTheory
+
+variable {A : Type u} [CommRing A] {B : Type u} [CommRing B] {C : Type v} [Group C]
+
+/-- The Mennicke symbol attached to an `E_n(A)`-conjugation-invariant `κ : SL_n(A) →* C`, `n ≥ 3`:
+`[b/a] = κ(diag(σ, 1))` for any `σ ∈ SL₂(A)` with first row `(a, b)` (BMS Theorem 5.4; data, pinned
+by `ofSLHom_apply`). -/
+def ofSLHom {n : ℕ} (hn : 3 ≤ n) (κ : Matrix.SpecialLinearGroup (Fin n) A →* C)
+    (hκ : ∀ τ σ : Matrix.SpecialLinearGroup (Fin n) A,
+      Matrix.SpecialLinearGroup.toGL τ ∈ elementarySubgroup (Fin n) A → κ (τ * σ * τ⁻¹) = κ σ) :
+    MennickeSymbol A ⊤ C :=
+  sorry
+
+/-- The value of `ofSLHom`. -/
+theorem ofSLHom_apply {n : ℕ} (hn : 3 ≤ n) (κ : Matrix.SpecialLinearGroup (Fin n) A →* C)
+    (hκ : ∀ τ σ : Matrix.SpecialLinearGroup (Fin n) A,
+      Matrix.SpecialLinearGroup.toGL τ ∈ elementarySubgroup (Fin n) A → κ (τ * σ * τ⁻¹) = κ σ)
+    {a b : A} (hx : (a, b) ∈ W (⊤ : Ideal A)) (σ : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hσ : σ 0 0 = a ∧ σ 0 1 = b) (τ : Matrix.SpecialLinearGroup (Fin n) A)
+    (hτ : Matrix.SpecialLinearGroup.toGL τ =
+      stabilise (by omega : 2 ≤ n) (Matrix.SpecialLinearGroup.toGL σ)) :
+    (ofSLHom hn κ hκ).toFun ⟨(a, b), hx⟩ = κ τ := by
+  sorry
+
+variable (A) in
+/-- **Mennicke's theorem** (`KTheoryLowDegrees:U.4/sk1-mennicke-symbol`): the `SK₁`-valued Mennicke
+symbol `[b/a]` = the class of any `σ ∈ SL₂(A)` with first row `(a, b)` (data, pinned by
+`sk1_apply`). -/
+def sk1 : MennickeSymbol A ⊤ (SK1 A) :=
+  sorry
+
+/-- `sk1 (a, b)` is the class of any `σ ∈ SL₂(A)` with first row `(a, b)`. -/
+theorem sk1_apply {a b : A} (hx : (a, b) ∈ W (⊤ : Ideal A)) (σ : Matrix.SpecialLinearGroup (Fin 2)
+    A)
+    (hσ : σ 0 0 = a ∧ σ 0 1 = b) :
+    ((sk1 A).toFun ⟨(a, b), hx⟩ : K1 A) = K1.of 2 (Matrix.SpecialLinearGroup.toGL σ) := by
+  sorry
+
+/-- Symmetry `[b/a] = [a/b]`. -/
+theorem sk1_symm {a b : A} (hx : (a, b) ∈ W (⊤ : Ideal A)) (hy : (b, a) ∈ W (⊤ : Ideal A)) :
+    (sk1 A).toFun ⟨_, hx⟩ = (sk1 A).toFun ⟨_, hy⟩ := by
+  sorry
+
+/-- Naturality: `SK₁(f)[b/a] = [f b/f a]`. -/
+theorem sk1_map (f : A →+* B) {a b : A} (hx : (a, b) ∈ W (⊤ : Ideal A))
+    (hy : (f a, f b) ∈ W (⊤ : Ideal B)) :
+    SK1.map f ((sk1 A).toFun ⟨_, hx⟩) = (sk1 B).toFun ⟨_, hy⟩ := by
+  sorry
+
+/-- `[b/a] = 1` when `a` or `b` is a unit. -/
+@[simp]
+theorem sk1_of_isUnit {a b : A} (hx : (a, b) ∈ W (⊤ : Ideal A)) (h : IsUnit a ∨ IsUnit b) :
+    (sk1 A).toFun ⟨_, hx⟩ = 1 := by
+  sorry
+
+-- test TauCeti.MennickeSymbol.sk1_one (degenerate)
+example (b : A) (hx : ((1 : A), b) ∈ W (⊤ : Ideal A)) : (sk1 A).toFun ⟨_, hx⟩ = 1 :=
+  sk1_of_isUnit hx (Or.inl isUnit_one)
+
+-- test TauCeti.MennickeSymbol.sk1_int (computation)
+example (x : W (⊤ : Ideal ℤ)) : (sk1 ℤ).toFun x = 1 := by
+  sorry
+
+-- test TauCeti.MennickeSymbol.sk1_unit (characterisation)
+example (a : Aˣ) (b : A) (hx : ((a : A), b) ∈ W (⊤ : Ideal A)) : (sk1 A).toFun ⟨_, hx⟩ = 1 :=
+  sk1_of_isUnit hx (Or.inl a.isUnit)
+
+-- test TauCeti.MennickeSymbol.sk1_eq_kbook (compatibility)
+/- For `ru - st = 1`, `sk1 (r, s)` is the class of `(r s; t u)`, the K-book's `[s/r]`. -/
+example (r s t u : A) (h : r * u - s * t = 1) (hx : (r, s) ∈ W (⊤ : Ideal A)) :
+    ((sk1 A).toFun ⟨_, hx⟩ : K1 A) =
+      K1.of 2 (Matrix.SpecialLinearGroup.toGL ⟨!![r, s; t,
+          u], by rw [Matrix.det_fin_two_of]; exact h⟩) :=
+  sk1_apply hx _ ⟨rfl, rfl⟩
+
+-- test TauCeti.MennickeSymbol.sk1_real_circle (non-example)
+example (hx : (circleX, circleY) ∈ W (⊤ : Ideal CircleRing)) :
+    (sk1 CircleRing).toFun ⟨_, hx⟩ ≠ 1 := by
+  sorry
+
+-- test TauCeti.MennickeGroup.lift_sk1 (compatibility)
+/- (A test of `U.4/universal-mennicke-group`, placed after `sk1`.) -/
+example [IsDedekindDomain A] : Function.Surjective (MennickeGroup.lift (sk1 A)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/sk1-generated-by-mennicke-symbols`: for stable range `≤ 2` the lift
+`C_A → SK₁(A)` of the `SK₁`-valued symbol is surjective; so `SK₁(A) = 0` if `C_A = 1`. -/
+theorem sk1_generated_by_mennicke_symbols (h : HasStableRange A 2) :
+    Function.Surjective (MennickeGroup.lift (sk1 A)) ∧
+      (Subsingleton (MennickeGroup (⊤ : Ideal A)) → SK1 A = ⊥) := by
+  sorry
+
+end MennickeSymbol
+
+/-! ### Rings of `S`-integers: `U.4/s-integers-ring-of-fractions` and the arithmetic inputs
+`U.4/idelic-density-theorem`, `U.4/primes-with-norm-not-one`,
+`U.4/dirichlet-theorem-arithmetic-type`,
+`U.4/dirichlet-theorem-number-field` -/
+
+namespace NumberField
+
+variable (F : Type) [Field F] [NumberField F] (S : Set (HeightOneSpectrum (𝓞 F)))
+
+/-- `KTheoryLowDegrees:U.4/s-integers-ring-of-fractions`: `O_{F,S} = 𝓞_F[1/s]` for a nonzero `s`
+whose prime divisors are exactly the primes of `S`; more generally `O_{F,S'} = O_{F,S}[1/s']` for
+`S ⊆ S'`. -/
+theorem s_integers_ring_of_fractions (hS : S.Finite) :
+    (∃ s : 𝓞 F, s ≠ 0 ∧ (∀ v : HeightOneSpectrum (𝓞 F), s ∈ v.asIdeal ↔ v ∈ S) ∧
+      IsLocalization.Away s (S.integer F)) ∧
+      ∀ (S' : Set (HeightOneSpectrum (𝓞 F))), S'.Finite → S ⊆ S' →
+        ∀ hle : S.integer F ≤ S'.integer F, ∃ s' : S.integer F,
+          @IsLocalization.Away _ _ s' (S'.integer F) _
+            (Subalgebra.inclusion hle).toRingHom.toAlgebra := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/idelic-density-theorem` (BMS (A.7)): if `V` is an open subgroup of finite
+index in the idèle class group (Mathlib's `IdeleClassGroup`), every coset of `C/V` contains the
+classes of prime idèles `ofAdicCompletion 𝔭 π` (`π` a uniformiser) at infinitely many finite primes.
+(Proof inputs: the ray-class Artin map and Chebotarev, requested from Tau Ceti.) -/
+theorem idelic_density_theorem (V : Subgroup (IdeleClassGroup (𝓞 F) F))
+    (hV : IsOpen (V : Set (IdeleClassGroup (𝓞 F) F))) [V.FiniteIndex]
+    (c : IdeleClassGroup (𝓞 F) F) :
+    Set.Infinite {𝔭 : HeightOneSpectrum (𝓞 F) | ∃ π : (𝔭.adicCompletion F)ˣ,
+      Valued.v (π : 𝔭.adicCompletion F) = WithZero.exp (-1 : ℤ) ∧
+        c⁻¹ * IdeleClassGroup.ofAdicCompletion (𝓞 F) F 𝔭 π ∈ V} := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/primes-with-norm-not-one` (BMS (A.8)): if `F` has no primitive `m`-th
+root of unity, infinitely many primes `𝔭 ∤ m` have `N𝔭 ≢ 1 (mod m)`. (Proof inputs: Chebotarev and
+the cyclotomic Frobenius, requested from Tau Ceti.) -/
+theorem primes_with_norm_not_one (m : ℕ) (hm : 2 ≤ m) (h : ¬ ∃ ζ : F, IsPrimitiveRoot ζ m) :
+    Set.Infinite {𝔭 : Ideal (𝓞 F) | 𝔭.IsMaximal ∧ (m : 𝓞 F) ∉ 𝔭 ∧
+      ¬ Ideal.absNorm 𝔭 ≡ 1 [MOD m]} := by
+  sorry
+
+/-- **Dirichlet's theorem for arithmetic Dedekind rings**
+(`KTheoryLowDegrees:U.4/dirichlet-theorem-arithmetic-type`,
+BMS (A.10)): for `a, b ∈ O_{F,S}` nonzero coprime, a finite set `S₀` of primes outside `S` prime to
+`b`, open subgroups `V_𝔭` and elements `x_𝔭` of `F_𝔭ˣ` at `𝔭 ∈ S₀ ∪ S_∞` (with `ord_𝔭 x_𝔭 = e_𝔭 ≥ 0`
+on `S₀`, and some `V_𝔭`, `𝔭 ∈ S_∞`, of finite index), infinitely many primes `𝔭₀ ∉ S₀ ∪ S` admit
+`c ≡ a (mod b)` with `c ∈ x_𝔭 V_𝔭` on `S₀ ∪ S_∞` and `cA = 𝔭₀ ∏ 𝔭^{e_𝔭}` (read on valuations). -/
+theorem dirichlet_theorem_arithmetic_type (hS : S.Finite) (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
+    (hab : IsCoprime a b) (S₀ : Finset (HeightOneSpectrum (𝓞 F)))
+    (hS₀ : ∀ 𝔭 ∈ S₀, 𝔭 ∉ S ∧ 𝔭.valuation F (b : F) = 1)
+    (Vf : ∀ 𝔭 : HeightOneSpectrum (𝓞 F), Subgroup (𝔭.adicCompletion F)ˣ)
+    (hVf : ∀ 𝔭, IsOpen (Vf 𝔭 : Set (𝔭.adicCompletion F)ˣ))
+    (xf : ∀ 𝔭 : HeightOneSpectrum (𝓞 F), (𝔭.adicCompletion F)ˣ) (e : HeightOneSpectrum (𝓞 F) → ℕ)
+    (he : ∀ 𝔭 ∈ S₀, Valued.v (xf 𝔭 : 𝔭.adicCompletion F) = WithZero.exp (-(e 𝔭 : ℤ)))
+    (Vi : ∀ w : InfinitePlace F, Subgroup w.Completionˣ)
+    (hVi : ∀ w, IsOpen (Vi w : Set w.Completionˣ)) (xi : ∀ w : InfinitePlace F, w.Completionˣ)
+    (hfin : (∃ w, (Vi w).FiniteIndex) ∨ ∃ 𝔭 ∈ S, (Vf 𝔭).FiniteIndex) :
+    Set.Infinite {𝔭₀ : HeightOneSpectrum (𝓞 F) | 𝔭₀ ∉ S ∧ 𝔭₀ ∉ S₀ ∧
+      ∃ (c : S.integer F) (hc : (c : F) ≠ 0), c - a ∈ Ideal.span {b} ∧
+        (∀ 𝔭, 𝔭 ∈ S₀ ∨ 𝔭 ∈ S →
+          (xf 𝔭)⁻¹ * Units.mk0 (algebraMap F (𝔭.adicCompletion F) c) ((map_ne_zero _).mpr hc) ∈
+            Vf 𝔭) ∧
+        (∀ w : InfinitePlace F,
+          (xi w)⁻¹ * Units.mk0 (algebraMap F w.Completion c) ((map_ne_zero _).mpr hc) ∈ Vi w) ∧
+        𝔭₀.valuation F c = WithZero.exp (-1 : ℤ) ∧
+        (∀ 𝔭 ∈ S₀, 𝔭.valuation F c = WithZero.exp (-(e 𝔭 : ℤ))) ∧
+        ∀ 𝔭, 𝔭 ∉ S → 𝔭 ≠ 𝔭₀ → 𝔭 ∉ S₀ → 𝔭.valuation F c = 1} := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/dirichlet-theorem-number-field` (BMS (A.11)): for `a, b ∈ O_{F,S}`
+nonzero and `𝔞 ≠ 0` with `aA + bA = A = 𝔞 + bA`, infinitely many primes `𝔭₀` of `A` have `𝔭₀𝔞 = cA`
+for some `c ≡ a (mod b)` with prescribed signs at the real places. -/
+theorem dirichlet_theorem_number_field (hS : S.Finite) (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
+    (𝔞 : Ideal (S.integer F)) (h𝔞 : 𝔞 ≠ ⊥) (hab : IsCoprime a b)
+    (h𝔞b : 𝔞 ⊔ Ideal.span {b} = ⊤) (pos : {w : InfinitePlace F // w.IsReal} → Bool) :
+    Set.Infinite {𝔭₀ : Ideal (S.integer F) | 𝔭₀.IsMaximal ∧ ∃ c : S.integer F,
+      c - a ∈ Ideal.span {b} ∧ 𝔭₀ * 𝔞 = Ideal.span {c} ∧
+        ∀ w : {w : InfinitePlace F // w.IsReal},
+          (0 < InfinitePlace.embedding_of_isReal w.2 (c : F) ↔ pos w = true)} := by
+  sorry
+
+end NumberField
+
+/-! ### BMS § 3: `U.4/prime-choice`, `U.4/power-reduction-non-totally-imaginary`,
+`U.4/power-reduction-totally-imaginary`, `U.4/power-reduction`, `U.4/mennicke-group-locally-cyclic`,
+`U.4/mennicke-group-exponent`, `U.4/arithmetic-mennicke-symbols-trivial` -/
+
+namespace MennickeSymbol
+
+variable (F : Type) [Field F] [NumberField F] (S : Set (HeightOneSpectrum (𝓞 F)))
+
+open Classical in
+/-- `ord_𝔭(I)`, the exponent of `𝔭` in the ideal `I` of `𝓞_F` (helper, a real definition). -/
+def ordAt (𝔭 : HeightOneSpectrum (𝓞 F)) (I : Ideal (𝓞 F)) : ℕ :=
+  (UniqueFactorizationMonoid.normalizedFactors I).count 𝔭.asIdeal
+
+/-- BMS's `j_p(𝔮) = min_{𝔭 | p} [ord_𝔭(𝔮)/ord_𝔭(p) - 1/(p - 1)]_{[0,n]}` (helper, a real
+definition; `[x]_{[0,n]} = min(n, max(0, ⌊x⌋))`). -/
+def jIndex (p n : ℕ) (𝔮 : Ideal (𝓞 F)) : ℕ :=
+  ⨅ (𝔭 : HeightOneSpectrum (𝓞 F)) (_ : (p : 𝓞 F) ∈ 𝔭.asIdeal),
+    min n (⌊(ordAt F 𝔭 𝔮 : ℚ) / ordAt F 𝔭 (Ideal.span {(p : 𝓞 F)}) - 1 / ((p : ℚ) - 1)⌋).toNat
+
+/-- `n` is maximal with `μ_{pⁿ} ⊂ F` (helper). -/
+def IsMaxRootsExponent (p n : ℕ) : Prop :=
+  (∃ ζ : F, IsPrimitiveRoot ζ (p ^ n)) ∧ ¬ ∃ ζ : F, IsPrimitiveRoot ζ (p ^ (n + 1))
+
+/-- `KTheoryLowDegrees:U.4/prime-choice` (BMS Theorem 3.2): every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent
+to some `(a₁, b₁)` with `a₁A = 𝔭₁𝔭₂`, distinct primes prime to `p`, with `N𝔭ᵢ ≢ 1 (mod p^{n+1})`. -/
+theorem prime_choice (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
+    (hn : IsMaxRootsExponent F p n) {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
+    ∃ y ∈ W 𝔮, QEquiv 𝔮 x y ∧ ∃ 𝔭₁ 𝔭₂ : Ideal (S.integer F), 𝔭₁.IsMaximal ∧ 𝔭₂.IsMaximal ∧
+      𝔭₁ ≠ 𝔭₂ ∧ Ideal.span {y.1} = 𝔭₁ * 𝔭₂ ∧ (p : S.integer F) ∉ 𝔭₁ ∧ (p : S.integer F) ∉ 𝔭₂ ∧
+      ¬ Nat.card (S.integer F ⧸ 𝔭₁) ≡ 1 [MOD p ^ (n + 1)] ∧
+      ¬ Nat.card (S.integer F ⧸ 𝔭₂) ≡ 1 [MOD p ^ (n + 1)] := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/power-reduction-non-totally-imaginary` (BMS Theorem 3.5, Case 1): if
+`O_{F,S}` is not totally imaginary, every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent to `(a₁, c^{pⁿ} q)`
+with `q ∈ 𝔮`, `a₁ ≡ 1 (mod qA)`. (Proof inputs: local Hilbert symbols, requested; the tame formula
+and reciprocity (A.16), (A.21), gaps.) -/
+theorem power_reduction_non_totally_imaginary (hS : S.Finite) (hnti : S.Nonempty ∨ ∃ w : InfinitePlace F, w.IsReal)
+    (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
+    (hn : IsMaxRootsExponent F p n) {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
+    ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/power-reduction-totally-imaginary` (BMS Theorem 3.5, Cases 2–3): for `F`
+totally complex, `A = 𝓞_F` and `j_p(𝔮) = 0` (e.g. `𝔮 = A`), the same reduction. (Proof inputs: the
+wild local computation (A.17), a gap.) -/
+theorem power_reduction_totally_imaginary [IsTotallyComplex F] (𝔮 : Ideal (𝓞 F)) (h𝔮 : 𝔮 ≠ ⊥)
+    (p : ℕ) [Fact p.Prime] (n : ℕ) (hn : IsMaxRootsExponent F p n) (hj : jIndex F p n 𝔮 = 0)
+    {x : 𝓞 F × 𝓞 F} (hx : x ∈ W 𝔮) :
+    ∃ q a₁ c : 𝓞 F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/power-reduction` (BMS Theorem 3.5): if `A = O_{F,S}` is not totally
+imaginary, or `j_p(𝔮) = 0`, every `(a, b) ∈ W_𝔮` is `𝔮`-equivalent to `(a₁, c^{pⁿ} q)`. -/
+theorem power_reduction (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) (p : ℕ) [Fact p.Prime] (n : ℕ)
+    (hn : IsMaxRootsExponent F p n)
+    (hcase : S.Nonempty ∨ (∃ w : InfinitePlace F, w.IsReal) ∨
+      jIndex F p n (𝔮.comap (algebraMap (𝓞 F) (S.integer F))) = 0)
+    {x : S.integer F × S.integer F} (hx : x ∈ W 𝔮) :
+    ∃ q a₁ c : S.integer F, q ∈ 𝔮 ∧ a₁ - 1 ∈ Ideal.span {q} ∧ QEquiv 𝔮 x (a₁, c ^ (p ^ n) * q) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-group-locally-cyclic`: every finite subset of `C_𝔮` lies in a
+finite cyclic subgroup. -/
+theorem mennicke_group_locally_cyclic (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥)
+    (s : Finset (MennickeGroup 𝔮)) :
+    ∃ H : Subgroup (MennickeGroup 𝔮), IsCyclic H ∧ Finite H ∧ (s : Set (MennickeGroup 𝔮)) ⊆ H := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-group-exponent`: `C_𝔮` is cyclic of order dividing `#μ(F)`. -/
+theorem mennicke_group_exponent (hS : S.Finite) (𝔮 : Ideal (S.integer F)) (h𝔮 : 𝔮 ≠ ⊥) :
+    Finite (MennickeGroup 𝔮) ∧ IsCyclic (MennickeGroup 𝔮) ∧
+      Nat.card (MennickeGroup 𝔮) ∣ NumberField.Units.torsionOrder F := by
+  sorry
+
+/-- **Arithmetic Mennicke symbols are trivial**
+(`KTheoryLowDegrees:U.4/arithmetic-mennicke-symbols-trivial`,
+BMS Theorem 3.6): `C_𝔮 = 1` for every `𝔮 ≠ 0` if `O_{F,S}` is not totally imaginary, and for every
+`𝔮 ≠ 0` with all `j_p(𝔮) = 0` if it is; in particular `C_A = 1`. -/
+theorem arithmetic_mennicke_symbols_trivial (hS : S.Finite) :
+    ((S.Nonempty ∨ ∃ w : InfinitePlace F, w.IsReal) →
+      ∀ 𝔮 : Ideal (S.integer F), 𝔮 ≠ ⊥ → Subsingleton (MennickeGroup 𝔮)) ∧
+      (∀ 𝔮 : Ideal (S.integer F), 𝔮 ≠ ⊥ →
+        (∀ p n : ℕ, p.Prime → IsMaxRootsExponent F p n →
+          jIndex F p n (𝔮.comap (algebraMap (𝓞 F) (S.integer F))) = 0) →
+        Subsingleton (MennickeGroup 𝔮)) ∧
+      Subsingleton (MennickeGroup (⊤ : Ideal (S.integer F))) := by
+  sorry
+
+end MennickeSymbol
+
+/-! ### `KTheoryLowDegrees:U.4/bass-milnor-serre`, `U.4/K1-S-integers-determinant`,
+`U.4/s-unit-theorem`, `U.4/fundamental-s-units`, `U.4/K1-S-integers-structure`,
+`U.4/K1-S-integers-into-field`, `U.4/K1-S-integers-residue-and-local` -/
+
+namespace NumberField
+
+open KTheory
+
+variable (F : Type) [Field F] [NumberField F] (S : Set (HeightOneSpectrum (𝓞 F)))
+
+/-- **Bass–Milnor–Serre** (`KTheoryLowDegrees:U.4/bass-milnor-serre`): `SK₁(O_{F,S}) = 0`, i.e.
+`SL(O_{F,S}) = E(O_{F,S})`. -/
+theorem bass_milnor_serre (hS : S.Finite) :
+    SK1 (S.integer F) = ⊥ ∧
+        StableGL.specialLinear (S.integer F) = StableGL.elementary (S.integer F) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-determinant`: `det : K₁(O_{F,S}) ≃ O_{F,S}ˣ ≅ Set.unit S F`
+(inverse `u ↦ [u]`), naturally in `S`: for `S ⊆ S'` the induced map is the inclusion of `S`-units.
+-/
+theorem k1_S_integers_determinant (hS : S.Finite) :
+    Function.Bijective (K1.det (S.integer F)) ∧
+      (∀ u, K1.det (S.integer F) (K1.ofUnits (S.integer F) u) = u) ∧
+      ∀ (S' : Set (HeightOneSpectrum (𝓞 F))) (hle : S.integer F ≤ S'.integer F)
+        (x : K1 (S.integer F)),
+        (((Set.unitEquivUnitsInteger S' F).symm
+            (K1.det (S'.integer F) (K1.map (Subalgebra.inclusion hle).toRingHom x)) : Fˣ)) =
+          ((Set.unitEquivUnitsInteger S F).symm (K1.det (S.integer F) x) : Fˣ) := by
+  sorry
+
+/-- The `S`-unit rank `r₁ + r₂ + |S| - 1` (helper). -/
+noncomputable def sUnitRank : ℕ :=
+  InfinitePlace.nrRealPlaces F + InfinitePlace.nrComplexPlaces F + S.ncard - 1
+
+/-- The inclusion `(𝓞 F)ˣ →* O_{F,S}ˣ` of units into `S`-units (helper, a real definition through
+Tau Ceti's `Set.unitEmptyEquivUnits` and `Set.unit_mono`). -/
+noncomputable def unitsToSUnits : (𝓞 F)ˣ →* S.unit F :=
+  (Subgroup.inclusion (Set.unit_mono F (Set.empty_subset S))).comp
+    (Set.unitEmptyEquivUnits (R := 𝓞 F) F).symm.toMonoidHom
+
+/-- **Dirichlet's `S`-unit theorem** (`KTheoryLowDegrees:U.4/s-unit-theorem`): `O_{F,S}ˣ` is
+finitely generated, its torsion is the image of `μ(F)`, and its rank is `r₁ + r₂ + |S| - 1`. -/
+theorem s_unit_theorem (hS : S.Finite) :
+    Group.FG (S.unit F) ∧
+      CommGroup.torsion (S.unit F) = (NumberField.Units.torsion F).map (unitsToSUnits F S) ∧
+      Module.finrank ℤ (Additive (S.unit F)) = sUnitRank F S := by
+  sorry
+
+namespace SUnits
+
+variable {F S}
+
+/-- A **system of fundamental `S`-units** (`KTheoryLowDegrees:U.4/fundamental-s-units`): every
+`S`-unit is uniquely `ζ · ∏ εᵢ^{eᵢ}` with `ζ ∈ μ(F)` (a real definition). -/
+def IsFundamentalSystem {r : ℕ} (ε : Fin r → S.unit F) : Prop :=
+  ∀ u : S.unit F, ∃! p : NumberField.Units.torsion F × (Fin r → ℤ),
+    u = unitsToSUnits F S p.1 * ∏ i, ε i ^ p.2 i
+
+variable (F S) in
+/-- A fundamental system of rank `r₁ + r₂ + |S| - 1` exists. -/
+theorem exists_isFundamentalSystem (hS : S.Finite) :
+    ∃ ε : Fin (sUnitRank F S) → S.unit F, IsFundamentalSystem ε := by
+  sorry
+
+/-- The homomorphism `(ζ, e) ↦ ζ · ∏ εᵢ^{eᵢ}` (helper, a real definition up to the homomorphism
+laws). -/
+def torsionProdHom {r : ℕ} (ε : Fin r → S.unit F) :
+    NumberField.Units.torsion F × Multiplicative (Fin r → ℤ) →* S.unit F :=
+  MonoidHom.coprod ((unitsToSUnits F S).comp (NumberField.Units.torsion F).subtype)
+    { toFun := fun e => ∏ i, ε i ^ Multiplicative.toAdd e i
+      map_one' := by sorry
+      map_mul' := by sorry }
+
+/-- For a fundamental system, `μ(F) × ℤʳ ≃* O_{F,S}ˣ` (a real definition up to bijectivity). -/
+noncomputable def mulEquivTorsionProd {r : ℕ} (ε : Fin r → S.unit F) (hε : IsFundamentalSystem ε) :
+    NumberField.Units.torsion F × Multiplicative (Fin r → ℤ) ≃* S.unit F :=
+  MulEquiv.ofBijective (torsionProdHom ε) (by sorry)
+
+/-- `(ζ, e) ↦ ζ · ∏ εᵢ^{eᵢ}`. -/
+@[simp]
+theorem mulEquivTorsionProd_apply {r : ℕ} (ε : Fin r → S.unit F) (hε : IsFundamentalSystem ε)
+    (p : NumberField.Units.torsion F × Multiplicative (Fin r → ℤ)) :
+    mulEquivTorsionProd ε hε p = unitsToSUnits F S p.1 * ∏ i, ε i ^ Multiplicative.toAdd p.2 i := by
+  sorry
+
+/-- Every `S`-unit is uniquely `ζ · ∏ εᵢ^{eᵢ}` (a real proof). -/
+theorem exist_unique_eq_mul_prod {r : ℕ} (ε : Fin r → S.unit F) (hε : IsFundamentalSystem ε)
+    (u : S.unit F) : ∃! p : NumberField.Units.torsion F × (Fin r → ℤ),
+      u = unitsToSUnits F S p.1 * ∏ i, ε i ^ p.2 i :=
+  hε u
+
+/-- For `S = ∅` and Mathlib's `fundSystem`, the decomposition is Tau Ceti's
+`unitsMulEquivTorsionProdMultiplicative`. -/
+theorem mulEquivTorsionProd_empty
+    (h : IsFundamentalSystem (S := (∅ : Set (HeightOneSpectrum (𝓞 F))))
+      fun i => unitsToSUnits F ∅ (NumberField.Units.fundSystem F i))
+    (p : NumberField.Units.torsion F × Multiplicative (Fin (NumberField.Units.rank F) → ℤ)) :
+    mulEquivTorsionProd _ h p =
+      unitsToSUnits F ∅ ((NumberField.unitsMulEquivTorsionProdMultiplicative F).symm p) := by
+  sorry
+
+end SUnits
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-structure`: `K₁(O_{F,S})` is finitely generated with
+torsion of order `#μ(F)` and rank `r₁ + r₂ + |S| - 1`; a fundamental system gives
+`K₁(O_{F,S}) ≅ μ(F) × ℤ^{r₁+r₂+|S|-1}` (not canonically). -/
+theorem k1_S_integers_structure (hS : S.Finite) :
+    Group.FG (K1 (S.integer F)) ∧
+      Nat.card (CommGroup.torsion (K1 (S.integer F))) = NumberField.Units.torsionOrder F ∧
+      Module.finrank ℤ (Additive (K1 (S.integer F))) = sUnitRank F S ∧
+      Nonempty (K1 (S.integer F) ≃*
+        NumberField.Units.torsion F × Multiplicative (Fin (sUnitRank F S) → ℤ)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-into-field`: under the determinant identifications,
+`K₁(O_{F,S}) → K₁(F)` is the inclusion `Set.unit S F ≤ Fˣ`; in particular it is injective. -/
+theorem k1_S_integers_into_field (hS : S.Finite) :
+    (∀ x : K1 (S.integer F),
+      K1.det F (K1.map (algebraMap (S.integer F) F) x) =
+        ((Set.unitEquivUnitsInteger S F).symm (K1.det (S.integer F) x) : Fˣ)) ∧
+      Function.Injective (K1.map (algebraMap (S.integer F) F)) := by
+  sorry
+
+/-- The `S`-integers map into the completed valuation ring `𝒪_v` at a place `v ∉ S`, through
+`F → F_v` (helper; `v(x) ≤ 1` for `x ∈ O_{F,S}` and `v ∉ S` is `Set.mem_integer_iff`). -/
+def sIntegerToAdicCompletionIntegers (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S) :
+    S.integer F →+* v.adicCompletionIntegers F where
+  toFun x := ⟨algebraMap F (v.adicCompletion F) x, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-residue-and-local`: let `v ∉ S` and `𝔭` the prime of
+`A = O_{F,S}` above it (Tau Ceti's `IsDedekindDomain.integerHeightOneSpectrumEquiv`). Under the
+determinant identifications, (i) `K₁(A) → K₁(A/𝔭)` is reduction of units, with `(A/𝔭)ˣ` cyclic of
+order `N𝔭 - 1`; (ii) `K₁(A) → K₁(A_𝔭)` is the inclusion of units, injective; (iii) the same for the
+completed valuation ring `𝒪_v` (Mathlib's `adicCompletionIntegers`). -/
+theorem k1_S_integers_residue_and_local (hS : S.Finite) (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S)
+    (𝔭 : Ideal (S.integer F)) [𝔭.IsMaximal]
+    (h𝔭 : 𝔭 = (IsDedekindDomain.integerHeightOneSpectrumEquiv F S ⟨v, hv⟩).asIdeal) :
+    (∀ x : K1 (S.integer F),
+      ((K1.det (S.integer F ⧸ 𝔭) (K1.map (Ideal.Quotient.mk 𝔭) x) : S.integer F ⧸ 𝔭)) =
+        Ideal.Quotient.mk 𝔭 (K1.det (S.integer F) x : S.integer F)) ∧
+      IsCyclic (S.integer F ⧸ 𝔭)ˣ ∧ Nat.card (S.integer F ⧸ 𝔭)ˣ = Nat.card (S.integer F ⧸ 𝔭) - 1 ∧
+      (∀ x : K1 (S.integer F),
+        ((K1.det (Localization.AtPrime 𝔭) (K1.map (algebraMap (S.integer F) _) x) :
+          Localization.AtPrime 𝔭)) =
+            algebraMap (S.integer F) _ (K1.det (S.integer F) x : S.integer F)) ∧
+      Function.Injective (K1.map (algebraMap (S.integer F) (Localization.AtPrime 𝔭))) ∧
+      (∀ x : K1 (S.integer F),
+        ((K1.det (v.adicCompletionIntegers F)
+            (K1.map (sIntegerToAdicCompletionIntegers F S v hv) x) : v.adicCompletionIntegers F)) =
+          sIntegerToAdicCompletionIntegers F S v hv (K1.det (S.integer F) x : S.integer F)) ∧
+      Function.Injective (K1.map (sIntegerToAdicCompletionIntegers F S v hv)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-residue-and-local`, the residue-field
+specialisation. The preceding conjunction is retained as an aggregate helper. -/
+theorem k1_S_integers_residue (hS : S.Finite) (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S)
+    (𝔭 : Ideal (S.integer F)) [𝔭.IsMaximal]
+    (h𝔭 : 𝔭 = (IsDedekindDomain.integerHeightOneSpectrumEquiv F S ⟨v, hv⟩).asIdeal) :
+    (∀ x : K1 (S.integer F),
+      (K1.det (S.integer F ⧸ 𝔭) (K1.map (Ideal.Quotient.mk 𝔭) x) : S.integer F ⧸ 𝔭) =
+        Ideal.Quotient.mk 𝔭 (K1.det (S.integer F) x : S.integer F)) ∧
+      IsCyclic (S.integer F ⧸ 𝔭)ˣ ∧
+      Nat.card (S.integer F ⧸ 𝔭)ˣ = Nat.card (S.integer F ⧸ 𝔭) - 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-local`. -/
+theorem k1_S_integers_local (hS : S.Finite) (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S)
+    (𝔭 : Ideal (S.integer F)) [𝔭.IsMaximal]
+    (h𝔭 : 𝔭 = (IsDedekindDomain.integerHeightOneSpectrumEquiv F S ⟨v, hv⟩).asIdeal) :
+    (∀ x : K1 (S.integer F),
+      (K1.det (Localization.AtPrime 𝔭) (K1.map (algebraMap (S.integer F) _) x) :
+          Localization.AtPrime 𝔭) =
+        algebraMap (S.integer F) _ (K1.det (S.integer F) x : S.integer F)) ∧
+      Function.Injective (K1.map (algebraMap (S.integer F) (Localization.AtPrime 𝔭))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/K1-S-integers-completion`. -/
+theorem k1_S_integers_completion (hS : S.Finite)
+    (v : HeightOneSpectrum (𝓞 F)) (hv : v ∉ S) :
+    (∀ x : K1 (S.integer F),
+      (K1.det (v.adicCompletionIntegers F)
+          (K1.map (sIntegerToAdicCompletionIntegers F S v hv) x) : v.adicCompletionIntegers F) =
+        sIntegerToAdicCompletionIntegers F S v hv (K1.det (S.integer F) x : S.integer F)) ∧
+      Function.Injective (K1.map (sIntegerToAdicCompletionIntegers F S v hv)) := by
+  sorry
+
+section Tests
+
+-- test TauCeti.NumberField.SUnits.rat_p (computation)
+/- `F = ℚ`, `S = {(p)}`: `r = 1`, `ε₁ = p`, `ℤ[1/p]ˣ ≃ {±1} × ℤ`. -/
+example (p : ℕ) [Fact p.Prime] (v : HeightOneSpectrum (𝓞 ℚ))
+    (hv : v.asIdeal = Ideal.span {(p : 𝓞 ℚ)}) (ε : ({v} : Set (HeightOneSpectrum (𝓞 ℚ))).unit ℚ)
+    (hε : ((ε : ℚˣ) : ℚ) = p) :
+    sUnitRank ℚ {v} = 1 ∧ SUnits.IsFundamentalSystem ![ε] ∧
+      Nonempty (({v} : Set (HeightOneSpectrum (𝓞 ℚ))).unit ℚ ≃* ℤˣ × Multiplicative ℤ) := by
+  sorry
+
+-- test TauCeti.NumberField.SUnits.gauss (computation)
+/- `F = ℚ(i)`, `S = {(1 + i)}`: `r = 1`, `ε₁ = 1 + i`, torsion `⟨i⟩` of order `4`. -/
+example (K : Type) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) (ι : 𝓞 K)
+    (hι : ι ^ 2 = -1) (v : HeightOneSpectrum (𝓞 K)) (hv : v.asIdeal = Ideal.span {1 + ι})
+    (ε : ({v} : Set (HeightOneSpectrum (𝓞 K))).unit K) (hε : ((ε : Kˣ) : K) = 1 + ι) :
+    sUnitRank K {v} = 1 ∧ NumberField.Units.torsionOrder K = 4 ∧
+        SUnits.IsFundamentalSystem ![ε] := by
+  sorry
+
+-- test TauCeti.NumberField.SUnits.rat_empty (degenerate)
+example : sUnitRank ℚ ∅ = 0 ∧ NumberField.Units.torsionOrder ℚ = 2 := by
+  sorry
+
+-- test TauCeti.NumberField.SUnits.not_canonical (non-example)
+/- `F = ℚ(√2)`, `S = ∅`: both `1 + √2` and `1 - √2` are fundamental and the two decompositions
+differ. -/
+example (K : Type) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) (s : 𝓞 K) (hs : s ^ 2 =
+    2)
+    (ε₁ ε₂ : (∅ : Set (HeightOneSpectrum (𝓞 K))).unit K) (h₁ : ((ε₁ : Kˣ) : K) = 1 + s)
+    (h₂ : ((ε₂ : Kˣ) : K) = 1 - s) (hf₁ : SUnits.IsFundamentalSystem ![ε₁])
+    (hf₂ : SUnits.IsFundamentalSystem ![ε₂]) :
+    SUnits.mulEquivTorsionProd _ hf₁ ≠ SUnits.mulEquivTorsionProd _ hf₂ := by
+  sorry
+
+-- test TauCeti.NumberField.SUnits.empty_compat (compatibility)
+example (h : SUnits.IsFundamentalSystem (S := (∅ : Set (HeightOneSpectrum (𝓞 F))))
+      fun i => unitsToSUnits F ∅ (NumberField.Units.fundSystem F i))
+    (p : NumberField.Units.torsion F × Multiplicative (Fin (NumberField.Units.rank F) → ℤ)) :
+    SUnits.mulEquivTorsionProd _ h p =
+      unitsToSUnits F ∅ ((NumberField.unitsMulEquivTorsionProdMultiplicative F).symm p) :=
+  SUnits.mulEquivTorsionProd_empty h p
+
+end Tests
+
+end NumberField
+
+end TauCeti
+
+/-! ## Stage `KTheoryLowDegrees:U.5` — relative `K₁`, transfer, the DVR boundary
+
+A two-sided ideal is `I : Ideal A` with `[I.IsTwoSided]`, so that `A ⧸ I` is Mathlib's
+`Ideal.Quotient.ring`; `Ideal.toTwoSided I` is its `TwoSidedIdeal` where one is needed. `K₁(A, I)`
+is `GL(I) ⧸ E(A, I)`, not a kernel. The boundary is normalised by `∂(π) = [k]`. -/
+
+namespace TauCeti.RelativeK1
+
+open KTheory
+
+/-! ### `KTheoryLowDegrees:U.5/congruence-subgroup` -/
+
+section Congruence
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {n : Type*} [Fintype n] [DecidableEq n]
+
+variable (n) in
+/-- **The congruence subgroup** `GL_n(A, I) := ker (GL_n(A) → GL_n(A/I))`
+(`KTheoryLowDegrees:U.5/congruence-subgroup`, a real definition). -/
+def congruenceSubgroup (I : Ideal A) [I.IsTwoSided] : Subgroup (GL n A) :=
+  (glMap (n := n) (Ideal.Quotient.mk I)).ker
+
+/-- `g ∈ GL_n(A, I)` iff every entry of `g - 1` lies in `I`. -/
+theorem mem_congruenceSubgroup (I : Ideal A) [I.IsTwoSided] (g : GL n A) :
+    g ∈ congruenceSubgroup n I ↔
+      ∀ i j, (g : Matrix n n A) i j - (1 : Matrix n n A) i j ∈ I := by
+  sorry
+
+/-- `GL_n(A, I)` is normal. -/
+instance congruenceSubgroup.normal (I : Ideal A) [I.IsTwoSided] :
+    (congruenceSubgroup n I).Normal :=
+  MonoidHom.normal_ker _
+
+/-- `GL(I)`, the kernel of the stable reduction map `GL(A) → GL(A/I)` (a real definition). -/
+def stableCongruenceSubgroup (I : Ideal A) [I.IsTwoSided] : Subgroup (StableGL A) :=
+  (StableGL.map (Ideal.Quotient.mk I)).ker
+
+/-- `GL(I)` is normal in `GL(A)`. -/
+instance stableCongruenceSubgroup.normal (I : Ideal A) [I.IsTwoSided] :
+    (stableCongruenceSubgroup I).Normal :=
+  MonoidHom.normal_ker _
+
+/-- `diag(g, 1) ∈ GL_n(A, I) ↔ g ∈ GL_m(A, I)`. -/
+theorem stabilise_mem_congruenceSubgroup (I : Ideal A) [I.IsTwoSided] {k m : ℕ} (h : k ≤ m)
+    (g : GL (Fin k) A) :
+    stabilise h g ∈ congruenceSubgroup (Fin m) I ↔ g ∈ congruenceSubgroup (Fin k) I := by
+  sorry
+
+/-- A ring map with `f(I) ⊆ J` maps `GL_n(A, I)` into `GL_n(B, J)`. -/
+theorem congruenceSubgroup.map (f : A →+* B) (I : Ideal A) [I.IsTwoSided] (J : Ideal B)
+    [J.IsTwoSided] (hf : ∀ a ∈ I, f a ∈ J) :
+    (congruenceSubgroup n I).map (glMap f) ≤ congruenceSubgroup n J := by
+  sorry
+
+/-- `GL_n(A, 0) = 1`. -/
+@[simp]
+theorem congruenceSubgroup_bot : congruenceSubgroup n (⊥ : Ideal A) = ⊥ := by
+  sorry
+
+/-- `GL_n(A, A) = GL_n(A)`. -/
+@[simp]
+theorem congruenceSubgroup_top : congruenceSubgroup n (⊤ : Ideal A) = ⊤ := by
+  sorry
+
+/-- The determinant-one part of `GL₂(ℤ, Nℤ)` is Mathlib's `CongruenceSubgroup.Gamma N`. -/
+theorem congruenceSubgroup_gamma (N : ℕ) :
+    (congruenceSubgroup (Fin 2) (Ideal.span {(N : ℤ)})).comap Matrix.SpecialLinearGroup.toGL =
+      CongruenceSubgroup.Gamma N := by
+  sorry
+
+-- test TauCeti.RelativeK1.congruenceSubgroup_bot_top (degenerate)
+example : congruenceSubgroup n (⊥ : Ideal A) = ⊥ ∧ congruenceSubgroup n (⊤ : Ideal A) = ⊤ :=
+  ⟨congruenceSubgroup_bot, congruenceSubgroup_top⟩
+
+-- test TauCeti.RelativeK1.congruenceSubgroup_zmod_four (computation)
+example : (congruenceSubgroup (Fin 1) (Ideal.span {(2 : ZMod 4)}) : Set (GL (Fin 1) (ZMod 4))) =
+      {1, diagUnit ![ZMod.unitOfCoprime 3 (by decide)]} ∧
+    Nat.card (congruenceSubgroup (Fin 1) (Ideal.span {(2 : ZMod 4)})) = 2 := by
+  sorry
+
+-- test TauCeti.RelativeK1.congruenceSubgroup_gamma_test (compatibility)
+example (N : ℕ) :
+    (congruenceSubgroup (Fin 2) (Ideal.span {(N : ℤ)})).comap Matrix.SpecialLinearGroup.toGL =
+      CongruenceSubgroup.Gamma N :=
+  congruenceSubgroup_gamma N
+
+-- test TauCeti.RelativeK1.congruenceSubgroup_two_det (non-example)
+/- `diag(-1, 1) ∈ GL₂(ℤ, 2ℤ)` has determinant `-1`, so `GL₂(ℤ, 2ℤ) ⊋ Γ(2)`. -/
+example : (diagUnit ![-1, 1] : GL (Fin 2) ℤ) ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}) ∧
+    Matrix.GeneralLinearGroup.det (diagUnit ![-1, 1] : GL (Fin 2) ℤ) = -1 := by
+  sorry
+
+end Congruence
+
+/-! ### `KTheoryLowDegrees:U.5/relative-elementary-subgroup` -/
+
+section RelElementary
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {n : Type*} [Fintype n] [DecidableEq n]
+
+variable (n) in
+/-- **The relative elementary group** `E_n(A, I)`
+(`KTheoryLowDegrees:U.5/relative-elementary-subgroup`):
+generated by the `E_n(A)`-conjugates of the `e_ij(x)`, `x ∈ I` (a real definition). -/
+def relElementary (I : Ideal A) : Subgroup (GL n A) :=
+  Subgroup.closure {g | ∃ τ ∈ elementarySubgroup n A, ∃ (i j : n) (h : i ≠ j) (x : A),
+    x ∈ I ∧ g = τ * elementary h x * τ⁻¹}
+
+/-- `e_ij(x) ∈ E_n(A, I)` for `x ∈ I`. -/
+theorem elementary_mem_relElementary (I : Ideal A) {i j : n} (h : i ≠ j) {x : A} (hx : x ∈ I) :
+    elementary h x ∈ relElementary n I := by
+  sorry
+
+/-- `E_n(A, I)` is normalised by `E_n(A)`. -/
+theorem relElementary.conj_mem (I : Ideal A) {τ g : GL n A} (hτ : τ ∈ elementarySubgroup n A)
+    (hg : g ∈ relElementary n I) : τ * g * τ⁻¹ ∈ relElementary n I := by
+  sorry
+
+/-- `E_n(A, I) ≤ GL_n(A, I)`. -/
+theorem relElementary_le_congruenceSubgroup (I : Ideal A) [I.IsTwoSided] :
+    relElementary n I ≤ congruenceSubgroup n I := by
+  sorry
+
+/-- `E(A, I) ≤ GL(A)`, the union of the `E_n(A, I)` (a real definition). -/
+def stableRelElementary (I : Ideal A) : Subgroup (StableGL A) :=
+  ⨆ k : ℕ, (relElementary (Fin k) I).map (StableGL.of k)
+
+/-- `f(I) ⊆ J` maps `E_n(A, I)` into `E_n(B, J)`. -/
+theorem relElementary.map (f : A →+* B) (I : Ideal A) (J : Ideal B) (hf : ∀ a ∈ I, f a ∈ J) :
+    (relElementary n I).map (glMap f) ≤ relElementary n J := by
+  sorry
+
+/-- `E_n(A, A) = E_n(A)`. -/
+@[simp]
+theorem relElementary_top : relElementary n (⊤ : Ideal A) = elementarySubgroup n A := by
+  sorry
+
+/-- `E_n(A, 0) = 1`. -/
+@[simp]
+theorem relElementary_bot : relElementary n (⊥ : Ideal A) = ⊥ := by
+  sorry
+
+/-- For commutative `A` and `n ≥ 3`, `E_n(A, I) = ⁅E_n(A), E_n(A, I)⁆` (BMS (5.1)). -/
+theorem relElementary_eq_commutator {R : Type u} [CommRing R] (I : Ideal R)
+    (hn : 3 ≤ Fintype.card n) :
+    relElementary n I = ⁅elementarySubgroup n R, relElementary n I⁆ := by
+  sorry
+
+-- test TauCeti.RelativeK1.relElementary_top_bot (degenerate)
+example : relElementary n (⊤ : Ideal A) = elementarySubgroup n A ∧
+    relElementary n (⊥ : Ideal A) = ⊥ ∧ ∀ I : Ideal A, relElementary (Fin 1) I = ⊥ := by
+  sorry
+
+-- test TauCeti.RelativeK1.relElementary_int_two_conj (computation)
+/- `e₀₁(1) e₁₀(2) e₀₁(-1) = (3 -2; 2 -1)` (a matrix computation) lies in `E₂(ℤ, 2ℤ)`. -/
+example : ((elementary (by decide : (0 : Fin 2) ≠ 1) (1 : ℤ) *
+      elementary (by decide : (1 : Fin 2) ≠ 0) 2 * elementary (by decide : (0 : Fin 2) ≠ 1) (-1) :
+        GL (Fin 2) ℤ) : Matrix (Fin 2) (Fin 2) ℤ) = !![3, -2; 2, -1] := by
+  decide
+
+example : (elementary (by decide : (0 : Fin 2) ≠ 1) (1 : ℤ) *
+      elementary (by decide : (1 : Fin 2) ≠ 0) 2 * elementary (by decide : (0 : Fin 2) ≠ 1) (-1) :
+        GL (Fin 2) ℤ) ∈ relElementary (Fin 2) (Ideal.span {(2 : ℤ)}) := by
+  sorry
+
+-- test TauCeti.RelativeK1.relElementary_not_generated (non-example)
+/- The `e_ij(x)`, `x ∈ 2ℤ`, alone generate a subgroup of matrices with diagonal `≡ 1 (mod 4)`, which
+misses `(3 -2; 2 -1)`. -/
+example : (elementary (by decide : (0 : Fin 2) ≠ 1) (1 : ℤ) *
+      elementary (by decide : (1 : Fin 2) ≠ 0) 2 * elementary (by decide : (0 : Fin 2) ≠ 1) (-1) :
+        GL (Fin 2) ℤ) ∉
+    Subgroup.closure {g : GL (Fin 2) ℤ | ∃ (i j : Fin 2) (h : i ≠ j) (x : ℤ),
+      x ∈ Ideal.span {(2 : ℤ)} ∧ g = elementary h x} := by
+  sorry
+
+-- test TauCeti.RelativeK1.relElementary_commutator (characterisation)
+example {R : Type u} [CommRing R] (I : Ideal R) {i j k : n} (hij : i ≠ j) (hik : i ≠ k)
+    (hkj : k ≠ j) {x : R} (hx : x ∈ I) (hn : 3 ≤ Fintype.card n) :
+    elementary hij x = ⁅elementary hik x, elementary hkj 1⁆ ∧
+      relElementary n I ≤ ⁅elementarySubgroup n R, relElementary n I⁆ := by
+  sorry
+
+end RelElementary
+
+/-! ### `KTheoryLowDegrees:U.5/augmented-double-ring` -/
+
+section DoubleRingSection
+
+variable (A : Type u) [Ring A] (I : Ideal A) [I.IsTwoSided]
+
+/-- **The double ring** `A ⊕ I` (`KTheoryLowDegrees:U.5/augmented-double-ring`): the group `A × I`
+with `(r, x)(s, y) = (rs, ry + xs + xy)` and unit `(1, 0)` (a real definition; the ring axioms are
+proofs). -/
+def DoubleRing : Type u := A × I
+
+namespace DoubleRing
+
+instance instAddCommGroup : AddCommGroup (DoubleRing A I) :=
+  inferInstanceAs (AddCommGroup (A × I))
+
+instance instRing : Ring (DoubleRing A I) :=
+  { instAddCommGroup A I with
+    mul := fun p q => (p.1 * q.1,
+      ⟨p.1 * (q.2 : A) + (p.2 : A) * q.1 + (p.2 : A) * (q.2 : A), by sorry⟩)
+    one := ((1 : A), 0)
+    mul_assoc := by sorry
+    one_mul := by sorry
+    mul_one := by sorry
+    left_distrib := by sorry
+    right_distrib := by sorry
+    zero_mul := by sorry
+    mul_zero := by sorry }
+
+/-- The pull-back subring `A ×_{A/I} A = {(a, b) | a - b ∈ I}` (helper; carrier real). -/
+def pullbackSubring : Subring (A × A) where
+  carrier := {x | x.1 - x.2 ∈ I}
+  mul_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  zero_mem' := by sorry
+  neg_mem' := by sorry
+
+variable {A I}
+
+/-- `pr : (r, x) ↦ r` (a real definition up to the homomorphism laws). -/
+def pr : DoubleRing A I →+* A where
+  toFun p := p.1
+  map_one' := by sorry
+  map_mul' := by sorry
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- `add : (r, x) ↦ r + x` (a real definition up to the homomorphism laws). -/
+def add : DoubleRing A I →+* A where
+  toFun p := p.1 + p.2
+  map_one' := by sorry
+  map_mul' := by sorry
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- The common section `r ↦ (r, 0)`. -/
+def diag : A →+* DoubleRing A I where
+  toFun r := (r, 0)
+  map_one' := by sorry
+  map_mul' := by sorry
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- `pr ∘ diag = id = add ∘ diag`. -/
+@[simp]
+theorem pr_diag : (pr (I := I)).comp diag = RingHom.id A ∧
+    (add (I := I)).comp diag = RingHom.id A := by
+  sorry
+
+/-- `(pr, add) : D ≃+* A ×_{A/I} A`, `(r, x) ↦ (r, r + x)` (a real definition up to proofs). -/
+def equivPullback : DoubleRing A I ≃+* pullbackSubring A I where
+  toFun p := ⟨(p.1, p.1 + p.2), by sorry⟩
+  invFun y := (y.1.1, ⟨y.1.2 - y.1.1, by sorry⟩)
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+  map_add' := by sorry
+
+/-- `ker pr = 0 ⊕ I`, and `add` maps it bijectively onto `I`. -/
+theorem ker_pr :
+    (RingHom.ker (pr (I := I)) : Set (DoubleRing A I)) = {p | p.1 = 0} ∧
+      Set.InjOn (add (I := I)) {p | p.1 = 0} ∧ add '' {p : DoubleRing A I | p.1 = 0} = I := by
+  sorry
+
+/-- Functoriality in `(A, I)`, compatible with `pr`, `add` and `diag` (a real definition). -/
+def map {B : Type v} [Ring B] (f : A →+* B) (J : Ideal B) [J.IsTwoSided] (hf : ∀ a ∈ I, f a ∈ J) :
+    DoubleRing A I →+* DoubleRing B J where
+  toFun p := (f p.1, ⟨f p.2, hf _ p.2.2⟩)
+  map_one' := by sorry
+  map_mul' := by sorry
+  map_zero' := by sorry
+  map_add' := by sorry
+
+-- test TauCeti.RelativeK1.DoubleRing.bot (degenerate)
+example : Function.Bijective (pr (A := A) (I := ⊥)) ∧ (pr (A := A) (I := ⊥)) = add := by
+  sorry
+
+/-- Test notation: the element `(1, 2)` of `ℤ ⊕ 2ℤ`. -/
+def oneTwo : DoubleRing ℤ (Ideal.span {(2 : ℤ)}) := ((1 : ℤ), ⟨2, Ideal.mem_span_singleton_self 2⟩)
+
+-- test TauCeti.RelativeK1.DoubleRing.int_two (computation)
+/- In `ℤ ⊕ 2ℤ`: `equivPullback (1, 2) = (1, 3)` and `(1, 2)² = (1, 8) ↦ (1, 9) = (1, 3)²`. -/
+example : (equivPullback oneTwo : ℤ × ℤ) = (1, 3) ∧
+    oneTwo * oneTwo = (((1 : ℤ), ⟨8, Ideal.mem_span_singleton.mpr ⟨4, by norm_num⟩⟩) :
+      DoubleRing ℤ (Ideal.span {(2 : ℤ)})) ∧
+    (equivPullback (oneTwo * oneTwo) : ℤ × ℤ) = (1, 9) ∧ ((1, 3) : ℤ × ℤ) ^ 2 = (1, 9) := by
+  refine ⟨rfl, Prod.ext ?_ (Subtype.ext ?_), ?_, ?_⟩
+  · change (1 : ℤ) * 1 = 1
+    norm_num
+  · change (1 : ℤ) * 2 + 2 * 1 + 2 * 2 = 8
+    norm_num
+  · change ((1 : ℤ) * 1, (1 : ℤ) * 1 + ((1 : ℤ) * 2 + 2 * 1 + 2 * 2)) = (1, 9)
+    norm_num
+  · decide
+
+-- test TauCeti.RelativeK1.DoubleRing.top (characterisation)
+example : Nonempty (DoubleRing A ⊤ ≃+* A × A) := by
+  sorry
+
+-- test TauCeti.RelativeK1.DoubleRing.not_componentwise (non-example)
+/- The product is not componentwise: `(1, 2)(1, 2) = (1, 8)` in `ℤ ⊕ 2ℤ`, not `(1, 4)`. -/
+example : oneTwo * oneTwo ≠ (((1 : ℤ), ⟨4, Ideal.mem_span_singleton.mpr ⟨2, by norm_num⟩⟩) :
+      DoubleRing ℤ (Ideal.span {(2 : ℤ)})) := by
+  intro h
+  have h2 := congrArg (fun p : DoubleRing ℤ (Ideal.span {(2 : ℤ)}) => ((p.2 : ℤ))) h
+  change (1 : ℤ) * 2 + 2 * 1 + 2 * 2 = 4 at h2
+  norm_num at h2
+
+end DoubleRing
+
+end DoubleRingSection
+
+/-! ### `U.5/relative-whitehead-lemma`, `U.5/relative-commutator-formula`, `U.5/relative-K1` -/
+
+section RelK1Section
+
+variable {A : Type u} [Ring A] {B : Type v} [Ring B] {C : Type w} [Ring C]
+
+/-- **The relative Whitehead lemma** (`KTheoryLowDegrees:U.5/relative-whitehead-lemma`): (a)
+`diag(g, g⁻¹) ∈ E_{2n}(A, I)` for `g ∈ GL_n(A, I)`; (b) `E(A, I) ≤ GL(I)` and `E(A, I)` is normal in
+`GL(A)`; (c) `⁅GL(I), GL(I)⁆ ≤ E(A, I)`. -/
+theorem relative_whitehead_lemma (I : Ideal A) [I.IsTwoSided] :
+    (∀ (n : ℕ) (g : GL (Fin n) A), g ∈ congruenceSubgroup (Fin n) I →
+      blockSum (g, g⁻¹) ∈ relElementary (Fin (n + n)) I) ∧
+      stableRelElementary I ≤ stableCongruenceSubgroup I ∧ (stableRelElementary I).Normal ∧
+      ⁅stableCongruenceSubgroup I, stableCongruenceSubgroup I⁆ ≤ stableRelElementary I := by
+  sorry
+
+/- Atomic signatures added by REV-KTheoryLowDegrees--U.1.
+The preceding bundled theorem remains an aggregate helper for existing projections. -/
+
+/-- `KTheoryLowDegrees:U.5/relative-whitehead-lemma`. -/
+theorem relative_whitehead_diagonal (I : Ideal A) [I.IsTwoSided] :
+    ∀ (n : ℕ) (g : GL (Fin n) A), g ∈ congruenceSubgroup (Fin n) I →
+      blockSum (g, g⁻¹) ∈ relElementary (Fin (n + n)) I := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-elementary-stable-normal`. -/
+theorem relative_elementary_stable_normal (I : Ideal A) [I.IsTwoSided] :
+    stableRelElementary I ≤ stableCongruenceSubgroup I ∧
+      (stableRelElementary I).Normal := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-commutator-containment`. -/
+theorem relative_commutator_containment (I : Ideal A) [I.IsTwoSided] :
+    ⁅stableCongruenceSubgroup I, stableCongruenceSubgroup I⁆ ≤ stableRelElementary I := by
+  sorry
+
+
+/-- `E(A, I)` is normal in `GL(A)` (instance form of `relative_whitehead_lemma` (b)). -/
+instance stableRelElementary_normal (I : Ideal A) [I.IsTwoSided] :
+    (stableRelElementary I).Normal :=
+  (relative_whitehead_lemma I).2.2.1
+
+/-- `KTheoryLowDegrees:U.5/relative-commutator-formula`: `E(A, I) = ⁅GL(A), GL(I)⁆ = ⁅E(A), E(A,
+I)⁆`. -/
+theorem relative_commutator_formula (I : Ideal A) [I.IsTwoSided] :
+    stableRelElementary I = ⁅(⊤ : Subgroup (StableGL A)), stableCongruenceSubgroup I⁆ ∧
+      stableRelElementary I = ⁅StableGL.elementary A, stableRelElementary I⁆ := by
+  sorry
+
+/-- **Relative K₁** (`KTheoryLowDegrees:U.5/relative-K1`): `K₁(A, I) := GL(I) ⧸ E(A, I)` (a real
+definition). -/
+def RelK1 (I : Ideal A) [I.IsTwoSided] : Type u :=
+  stableCongruenceSubgroup I ⧸ (stableRelElementary I).subgroupOf (stableCongruenceSubgroup I)
+
+namespace RelK1
+
+/-- `K₁(A, I)` is a commutative group (relative Whitehead lemma (c)). -/
+instance instCommGroup (I : Ideal A) [I.IsTwoSided] : CommGroup (RelK1 I) :=
+  { QuotientGroup.Quotient.group ((stableRelElementary I).subgroupOf (stableCongruenceSubgroup I))
+      with
+    mul_comm := by sorry }
+
+variable {I : Ideal A} [I.IsTwoSided]
+
+variable (I) in
+/-- The quotient map `GL(I) →* K₁(A, I)`. -/
+def mk : stableCongruenceSubgroup I →* RelK1 I :=
+  QuotientGroup.mk' _
+
+/-- `mk` is surjective. -/
+theorem mk_surjective : Function.Surjective (mk I) :=
+  QuotientGroup.mk'_surjective _
+
+/-- `mk x = 1 ↔ x ∈ E(A, I)`. -/
+theorem mk_eq_one_iff (x : stableCongruenceSubgroup I) :
+    mk I x = 1 ↔ (x : StableGL A) ∈ stableRelElementary I := by
+  sorry
+
+variable (I) in
+/-- `ι : K₁(A, I) →* K₁(A)`, induced by `GL(I) ≤ GL(A)` (a real definition). -/
+def toK1 : RelK1 I →* K1 A :=
+  QuotientGroup.lift _ (K1.mk.comp (stableCongruenceSubgroup I).subtype) (by sorry)
+
+/-- The restriction `GL(I) →* GL(J)` of `GL(f)` for `f(I) ⊆ J` (helper). -/
+def congruenceMap (f : A →+* B) (J : Ideal B) [J.IsTwoSided] (hf : ∀ a ∈ I, f a ∈ J) :
+    stableCongruenceSubgroup I →* stableCongruenceSubgroup J :=
+  ((StableGL.map f).comp (stableCongruenceSubgroup I).subtype).codRestrict _ fun _ => by sorry
+
+/-- Functoriality: `f(I) ⊆ J` induces `K₁(A, I) →* K₁(B, J)` (a real definition). -/
+def map (f : A →+* B) (J : Ideal B) [J.IsTwoSided] (hf : ∀ a ∈ I, f a ∈ J) : RelK1 I →* RelK1 J :=
+  QuotientGroup.map _ _ (congruenceMap f J hf) (by sorry)
+
+/-- `map id = id`. -/
+theorem map_id : map (RingHom.id A) I (fun _ h => h) = MonoidHom.id (RelK1 I) := by
+  sorry
+
+/-- `map (g ∘ f) = map g ∘ map f`. -/
+theorem map_comp (f : A →+* B) (g : B →+* C) (J : Ideal B) [J.IsTwoSided] (K : Ideal C)
+    [K.IsTwoSided] (hf : ∀ a ∈ I, f a ∈ J) (hg : ∀ b ∈ J, g b ∈ K) :
+    map (g.comp f) K (fun a ha => hg _ (hf a ha)) = (map g K hg).comp (map f J hf) := by
+  sorry
+
+/-- `mk (e_ij(x)) = 1` for `x ∈ I`. -/
+@[simp]
+theorem mk_elementary {n : ℕ} {i j : Fin n} (h : i ≠ j) {x : A} (hx : x ∈ I)
+    (hmem : StableGL.of n (elementary h x) ∈ stableCongruenceSubgroup I) :
+    mk I ⟨_, hmem⟩ = 1 := by
+  sorry
+
+variable (A) in
+/-- `K₁(A, A) ≃* K₁(A)`, compatibly with `ι` (a real definition: `toK1` is bijective). -/
+def equivK1_top : RelK1 (⊤ : Ideal A) ≃* K1 A :=
+  MulEquiv.ofBijective (toK1 ⊤) (by sorry)
+
+/-- `K₁(A, 0)` is trivial. -/
+theorem subsingleton_bot : Subsingleton (RelK1 (⊥ : Ideal A)) := by
+  sorry
+
+end RelK1
+
+-- test TauCeti.RelativeK1.RelK1.bot_top (degenerate)
+example : Subsingleton (RelK1 (⊥ : Ideal A)) ∧ Function.Bijective (RelK1.toK1 (⊤ : Ideal A)) :=
+  ⟨RelK1.subsingleton_bot, (RelK1.equivK1_top A).bijective⟩
+
+-- test TauCeti.RelativeK1.RelK1.zmod_sq (computation)
+/- For `A = ℤ/p²`, `I = (p)`: `K₁(A, I) ≅ ℤ/p`, and `ι` is injective (orders `p`, `p(p - 1)`,
+`p - 1` in `1 → ℤ/p → (ℤ/p²)ˣ → 𝔽_pˣ → 1`). -/
+example (p : ℕ) [Fact p.Prime] :
+    Nonempty (RelK1 (Ideal.span {(p : ZMod (p ^ 2))}) ≃* Multiplicative (ZMod p)) ∧
+      Function.Injective (RelK1.toK1 (Ideal.span {(p : ZMod (p ^ 2))})) := by
+  sorry
+
+/-- Test notation: the upper triangular `2 × 2` matrices over a field (carrier real). -/
+def upperTriangularRing (F : Type u) [Field F] : Subring (Matrix (Fin 2) (Fin 2) F) where
+  carrier := {M | M 1 0 = 0}
+  mul_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  zero_mem' := by sorry
+  neg_mem' := by sorry
+
+/-- Test notation: Swan's subring `R₀ = F · 1 ⊕ I` of the upper triangular matrices (carrier real).
+-/
+def swanSubring (F : Type u) [Field F] : Subring (Matrix (Fin 2) (Fin 2) F) where
+  carrier := {M | M 1 0 = 0 ∧ M 0 0 = M 1 1}
+  mul_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  zero_mem' := by sorry
+  neg_mem' := by sorry
+
+-- test TauCeti.RelativeK1.RelK1.swan (non-example)
+/- Swan's example: `I` the matrices with only the `(0, 1)` entry, an ideal of both the upper
+triangular ring `R` and `R₀ = F ⊕ I`; `K₁(R₀, I) ≅ F` while `K₁(R, I) = 0`. The two ideals are
+hypotheses with their carriers pinned. -/
+example (F : Type u) [Field F] (I : Ideal (upperTriangularRing F)) [I.IsTwoSided]
+    (hI : ∀ M, M ∈ I ↔ (M : Matrix (Fin 2) (Fin 2) F) 0 0 = 0 ∧
+        (M : Matrix (Fin 2) (Fin 2) F) 1 1 = 0)
+    (I₀ : Ideal (swanSubring F)) [I₀.IsTwoSided]
+    (hI₀ : ∀ M, M ∈ I₀ ↔ (M : Matrix (Fin 2) (Fin 2) F) 0 0 = 0 ∧
+        (M : Matrix (Fin 2) (Fin 2) F) 1 1 = 0) :
+    Nonempty (RelK1 I₀ ≃* Multiplicative F) ∧ Subsingleton (RelK1 I) := by
+  sorry
+
+-- test TauCeti.RelativeK1.RelK1.top_compat (compatibility)
+example (f : A →+* B) (x : RelK1 (⊤ : Ideal A)) :
+    RelK1.toK1 ⊤ (RelK1.map f ⊤ (fun _ _ => Submodule.mem_top) x) = K1.map f (RelK1.toK1 ⊤ x) := by
+  sorry
+
+end RelK1Section
+
+/-! ### `KTheoryLowDegrees:U.5/relative-determinant`, `U.5/relative-K1-radical-ideal`,
+`U.5/relative-K1-split`, `U.5/relative-sequence-degree-one` -/
+
+section RelDet
+
+variable {A : Type u} [Ring A]
+
+/-- `GL₁(I)`: the units congruent to `1` modulo `I` (helper, a real definition). -/
+def unitsOneMod (I : Ideal A) [I.IsTwoSided] : Subgroup Aˣ :=
+  (Units.map (Ideal.Quotient.mk I).toMonoidHom).ker
+
+variable {R : Type u} [CommRing R] {I : Ideal R}
+
+/-- **The relative determinant** (`KTheoryLowDegrees:U.5/relative-determinant`):
+`det : K₁(A, I) →* GL₁(I)` (a real definition through `QuotientGroup.lift`). -/
+def RelK1.det (I : Ideal R) : RelK1 I →* unitsOneMod I :=
+  QuotientGroup.lift _
+    (((StableGL.det R).comp (stableCongruenceSubgroup I).subtype).codRestrict (unitsOneMod I)
+      fun _ => by sorry)
+    (by sorry)
+
+/-- `det (mk x) = det x`. -/
+@[simp]
+theorem RelK1.det_mk (x : stableCongruenceSubgroup I) :
+    (RelK1.det I (RelK1.mk I x) : Rˣ) = StableGL.det R x :=
+  rfl
+
+/-- The section `GL₁(I) →* K₁(A, I)`, `u ↦ [u]` (a real definition up to proofs). -/
+def RelK1.ofUnit (I : Ideal R) : unitsOneMod I →* RelK1 I where
+  toFun u := RelK1.mk I ⟨StableGL.of 1 (Matrix.GeneralLinearGroup.scalar (Fin 1) u), by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- `det ∘ ofUnit = id`. -/
+@[simp]
+theorem RelK1.det_ofUnit : (RelK1.det I).comp (RelK1.ofUnit I) = MonoidHom.id _ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-SK1`: `SK₁(A, I) := ker det` (a real definition). -/
+def RelSK1 (I : Ideal R) : Subgroup (RelK1 I) :=
+  (RelK1.det I).ker
+
+@[simp] theorem RelSK1.mem_iff (x : RelK1 I) :
+    x ∈ RelSK1 I ↔ RelK1.det I x = 1 := Iff.rfl
+
+/-- The relative-to-absolute map restricts to the determinant kernels. -/
+def RelSK1.toK1 (I : Ideal R) : RelSK1 I →* SK1 R where
+  toFun x := ⟨RelK1.toK1 I x, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-SK1-quotient`:
+`SK₁(A, I) ≃* (SL(A) ⊓ GL(I)) ⧸ E(A, I)`. -/
+theorem RelSK1.equiv :
+    Nonempty (RelSK1 I ≃* ↥(StableGL.specialLinear R ⊓ stableCongruenceSubgroup I) ⧸
+      (stableRelElementary I).subgroupOf (StableGL.specialLinear R ⊓ stableCongruenceSubgroup I))
+          := by
+  sorry
+
+variable (I) in
+/-- `KTheoryLowDegrees:U.5/relative-K1-units-split`:
+`K₁(A, I) ≃* GL₁(I) × SK₁(A, I)`, `x ↦ (det x, x · [det x]⁻¹)` (a real definition up to
+proofs). -/
+def RelK1.equivProd : RelK1 I ≃* unitsOneMod I × RelSK1 I where
+  toFun x := (RelK1.det I x, ⟨x * RelK1.ofUnit I (RelK1.det I x)⁻¹, by sorry⟩)
+  invFun y := RelK1.ofUnit I y.1 * y.2
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+
+/-- Compatibility with U.3: `det ∘ ι = (GL₁(I) ≤ Aˣ) ∘ det`. -/
+theorem RelK1.det_toK1 (x : RelK1 I) : (RelK1.det I x : Rˣ) = K1.det R (RelK1.toK1 I x) := by
+  sorry
+
+/-- The relative splitting agrees with the absolute splitting on both factors. -/
+theorem RelK1.equivProd_toK1 (x : RelK1 I) :
+    K1.unitsProdEquiv R (RelK1.toK1 I x) =
+      (((RelK1.equivProd I x).1 : Rˣ), RelSK1.toK1 I (RelK1.equivProd I x).2) := by
+  sorry
+
+-- Tests for the separately recorded relative-SK1 definition.
+-- test RelSK1.bot_test (degenerate)
+example : RelSK1 (⊥ : Ideal R) = ⊥ := by sorry
+
+-- test RelSK1.radical_zmod_test (computation)
+example (p : ℕ) [Fact p.Prime] :
+    RelSK1 (Ideal.span {(p : ZMod (p ^ 2))}) = ⊥ := by sorry
+
+-- test RelSK1.kernel_test (characterisation)
+example (x : RelK1 I) : x ∈ RelSK1 I ↔ RelK1.det I x = 1 := RelSK1.mem_iff x
+
+-- test RelSK1.circle_top_test (non-example)
+-- This conditional application uses the still-partial real-circle obstruction.
+example : ∃ x : RelK1 (⊤ : Ideal CircleRing),
+    x ∈ RelSK1 (⊤ : Ideal CircleRing) ∧ x ≠ 1 := by sorry
+
+-- test TauCeti.RelativeK1.RelK1.det_top (degenerate)
+example (x : RelK1 (⊤ : Ideal R)) : (RelK1.det ⊤ x : Rˣ) = K1.det R (RelK1.toK1 ⊤ x) :=
+  RelK1.det_toK1 x
+
+-- test TauCeti.RelativeK1.RelK1.det_zmod_sq (computation)
+example (p : ℕ) [Fact p.Prime] :
+    Function.Bijective (RelK1.det (Ideal.span {(p : ZMod (p ^ 2))})) ∧
+      IsCyclic (unitsOneMod (Ideal.span {(p : ZMod (p ^ 2))})) ∧
+      Nat.card (unitsOneMod (Ideal.span {(p : ZMod (p ^ 2))})) = p ∧
+      RelSK1 (Ideal.span {(p : ZMod (p ^ 2))}) = ⊥ := by
+  sorry
+
+-- test TauCeti.RelativeK1.RelK1.det_int_three (non-example)
+/- `det` takes values in units `≡ 1 (mod I)`: `det(K₁(ℤ, 3ℤ)) = 1` although `det(K₁(ℤ)) = {±1}`. -/
+example : (∀ x : RelK1 (Ideal.span {(3 : ℤ)}), RelK1.det _ x = 1) ∧
+    ∃ y : K1 ℤ, K1.det ℤ y = -1 := by
+  sorry
+
+-- test TauCeti.RelativeK1.RelK1.det_compat (compatibility)
+example {n : ℕ} (g : GL (Fin n) R) (hg : StableGL.of n g ∈ stableCongruenceSubgroup I) :
+    (RelK1.det I (RelK1.mk I ⟨_, hg⟩) : Rˣ) = Matrix.GeneralLinearGroup.det g :=
+  rfl
+
+/-- `KTheoryLowDegrees:U.5/relative-K1-radical-ideal`: for a radical ideal (`I ≤ jacobson ⊥`),
+`GL_{n+2}(A, I) = E_{n+2}(A, I) · GL_{n+1}(A, I)`, so `K₁(A, I)` is generated by `GL₁(I)`. -/
+theorem relative_K1_radical_ideal {A : Type u} [Ring A] (J : Ideal A) [J.IsTwoSided]
+    (hJ : J ≤ Ideal.jacobson ⊥) :
+    (∀ (n : ℕ) (g : GL (Fin (n + 2)) A), g ∈ congruenceSubgroup (Fin (n + 2)) J →
+      ∃ e ∈ relElementary (Fin (n + 2)) J, ∃ g' ∈ congruenceSubgroup (Fin (n + 1)) J,
+        g = e * stabilise (Nat.le_succ (n + 1)) g') ∧
+      ∀ x : RelK1 J, ∃ (u : unitsOneMod J)
+        (hu : StableGL.of 1 (Matrix.GeneralLinearGroup.scalar (Fin 1) (u : Aˣ)) ∈
+          stableCongruenceSubgroup J),
+        x = RelK1.mk J ⟨_, hu⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-K1-radical-ideal` (commutative case): `SK₁(A, I) = 0`,
+`det : K₁(A, I) ≅ 1 + I`, and `ι` is injective. -/
+theorem relative_K1_radical_ideal_comm (hI : I ≤ Ideal.jacobson ⊥) :
+    RelSK1 I = ⊥ ∧ Function.Bijective (RelK1.det I) ∧ Function.Injective (RelK1.toK1 I) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/relative-K1-split`: if `A → A/I` has a ring section, then
+`E(A) ∩ GL(I) = E(A, I)`, `ι` is injective, and `K₁(A) ≅ K₁(A/I) × K₁(A, I)`. -/
+theorem relative_K1_split {A : Type u} [Ring A] (J : Ideal A) [J.IsTwoSided] (s : A ⧸ J →+* A)
+    (hs : (Ideal.Quotient.mk J).comp s = RingHom.id _) :
+    StableGL.elementary A ⊓ stableCongruenceSubgroup J = stableRelElementary J ∧
+      Function.Injective (RelK1.toK1 J) ∧ Nonempty (K1 A ≃* K1 (A ⧸ J) × RelK1 J) := by
+  sorry
+
+/-- **The relative exact sequence** (`KTheoryLowDegrees:U.5/relative-sequence-degree-one`):
+`E(A) → E(A/I)` is onto, `K₁(A, I) → K₁(A) → K₁(A/I)` is exact, and `ker ι` is the image of
+`E(A) ∩ GL(I)`, i.e. `(E(A) ∩ GL(I))/E(A, I)` (the target of the `K₂` boundary). -/
+theorem relative_sequence_degree_one {A : Type u} [Ring A] (J : Ideal A) [J.IsTwoSided] :
+    (StableGL.elementary A).map (StableGL.map (Ideal.Quotient.mk J)) = StableGL.elementary (A ⧸ J) ∧
+      (RelK1.toK1 J).range = (K1.map (Ideal.Quotient.mk J)).ker ∧
+      (RelK1.toK1 J).ker = ((StableGL.elementary A).subgroupOf (stableCongruenceSubgroup J)).map
+        (RelK1.mk J) := by
+  sorry
+
+end RelDet
+
+end TauCeti.RelativeK1
+
+/-! ### Milnor patching: `Z.1/milnor-*`
+The pullback ring is Mathlib's existing carrier. All modules are left modules;
+free gluing acts on row vectors from the right. -/
+namespace TauCeti.MilnorPatch
+open CategoryTheory KTheory
+variable {S T C : Type u} [Ring S] [Ring T] [Ring C]
+variable (f : S →+* C) (g : T →+* C)
+variable {P P' P'' : ModuleCat.{u} S} {Q Q' Q'' : ModuleCat.{u} T}
+
+/-- The actual submodule of compatible pairs. -/
+def patch (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) :
+    Submodule (f.pullback g)
+      ((ModuleCat.restrictScalars (f.pullbackFst g)).obj P ×
+       (ModuleCat.restrictScalars (f.pullbackSnd g)).obj Q) where
+  carrier := {z | ExtendScalars.tmul f 1 z.1 = γ (ExtendScalars.tmul g 1 z.2)}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+variable {f g}
+@[simp] theorem mem_patch (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (x : P) (y : Q) : (x,y) ∈ patch f g γ ↔
+    ExtendScalars.tmul f 1 x = γ (ExtendScalars.tmul g 1 y) := Iff.rfl
+
+@[ext] theorem ext {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {x y : patch f g γ} (h₁ : x.val.1 = y.val.1) (h₂ : x.val.2 = y.val.2) : x = y := by
+  sorry
+
+/-- Compatible maps act coordinatewise. -/
+def map {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'}
+    (a : P ⟶ P') (b : Q ⟶ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z)) :
+    patch f g γ →ₗ[f.pullback g] patch f g γ' where
+  toFun z := ⟨(a z.val.1, b z.val.2), by sorry⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+theorem map_id (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (h : ∀ z, (ExtendScalars.functor f).map (𝟙 P) (γ z) =
+      γ ((ExtendScalars.functor g).map (𝟙 Q) z)) :
+    map (γ := γ) (γ' := γ) (𝟙 P) (𝟙 Q) h = LinearMap.id := by sorry
+
+theorem map_comp {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'}
+    {γ'' : ExtendScalars g Q'' ≃ₗ[C] ExtendScalars f P''}
+    (a : P ⟶ P') (b : Q ⟶ Q') (a' : P' ⟶ P'') (b' : Q' ⟶ Q'')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z))
+    (h' : ∀ z, (ExtendScalars.functor f).map a' (γ' z) = γ'' ((ExtendScalars.functor g).map b' z))
+    (hc : ∀ z, (ExtendScalars.functor f).map (a ≫ a') (γ z) =
+      γ'' ((ExtendScalars.functor g).map (b ≫ b') z)) :
+    map (a ≫ a') (b ≫ b') hc = (map a' b' h').comp (map a b h) := by sorry
+
+variable (f g)
+def compareLeft (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) :
+    ExtendScalars (f.pullbackFst g) (patch f g γ) →ₗ[S] P := by sorry
+
+def compareRight (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) :
+    ExtendScalars (f.pullbackSnd g) (patch f g γ) →ₗ[T] Q := by sorry
+
+@[simp] theorem compareLeft_tmul (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (s : S) (z : patch f g γ) :
+    compareLeft f g γ (ExtendScalars.tmul (f.pullbackFst g) s z) = s • z.val.1 := by sorry
+@[simp] theorem compareRight_tmul (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (t : T) (z : patch f g γ) :
+    compareRight f g γ (ExtendScalars.tmul (f.pullbackSnd g) t z) = t • z.val.2 := by sorry
+
+-- The naturality API is stated on generators, which determine the scalar-extended maps.
+theorem compareLeft_natural {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'} (a : P ⟶ P') (b : Q ⟶ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z))
+    (s : S) (z : patch f g γ) :
+    compareLeft f g γ' (ExtendScalars.tmul (f.pullbackFst g) s (map a b h z)) =
+      a (compareLeft f g γ (ExtendScalars.tmul (f.pullbackFst g) s z)) := by sorry
+
+theorem compareRight_natural {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'} (a : P ⟶ P') (b : Q ⟶ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z))
+    (t : T) (z : patch f g γ) :
+    compareRight f g γ' (ExtendScalars.tmul (f.pullbackSnd g) t (map a b h z)) =
+      b (compareRight f g γ (ExtendScalars.tmul (f.pullbackSnd g) t z)) := by sorry
+
+/-- `Z.1/milnor-change-charts`. -/
+theorem change_charts {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'}
+    (a : P ≅ P') (b : Q ≅ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a.hom (γ z) =
+      γ' ((ExtendScalars.functor g).map b.hom z)) :
+    Function.Bijective (map a.hom b.hom h) := by sorry
+
+/-- The block gluing through the finite-direct-sum scalar-extension isomorphisms.
+This is an API operation of the patch construction. -/
+def prodGluing (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (η : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P') :
+    ExtendScalars g (Q × Q') ≃ₗ[C] ExtendScalars f (P × P') := by sorry
+
+/-- `Z.1/milnor-patching-direct-sum`. -/
+theorem direct_sum (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (η : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P') :
+    Nonempty ((patch f g γ × patch f g η) ≃ₗ[f.pullback g]
+      patch f g (P := ModuleCat.of S (P × P')) (Q := ModuleCat.of T (Q × Q'))
+        (prodGluing f g γ η)) := by sorry
+
+/-- `Z.1/milnor-free-patch`: an actual submodule of row-vector pairs. -/
+def freePatch {n : ℕ} (a : GL (Fin n) C) :
+    Submodule (f.pullback g)
+      ((ModuleCat.restrictScalars (f.pullbackFst g)).obj (ModuleCat.of S (Fin n → S)) ×
+       (ModuleCat.restrictScalars (f.pullbackSnd g)).obj (ModuleCat.of T (Fin n → T))) where
+  carrier := {z | (fun i => f (z.1 i)) = (fun i => g (z.2 i)) ᵥ* (a : Matrix _ _ C)}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+@[simp] theorem freePatch_mem {n : ℕ} (a : GL (Fin n) C) (x : Fin n → S) (y : Fin n → T) :
+    (x,y) ∈ freePatch f g a ↔ (fun i => f (x i)) = (fun i => g (y i)) ᵥ* (a : Matrix _ _ C) := Iff.rfl
+
+/-- Free gluing is scalar extension to `Cⁿ`, followed by right multiplication by `a`. -/
+def freeGluing {n : ℕ} (a : GL (Fin n) C) :
+    ExtendScalars g (Fin n → T) ≃ₗ[C] ExtendScalars f (Fin n → S) := by sorry
+
+theorem freePatch_as_patch {n : ℕ} (a : GL (Fin n) C) :
+    Nonempty (freePatch f g a ≃ₗ[f.pullback g]
+      patch f g (P := ModuleCat.of S (Fin n → S)) (Q := ModuleCat.of T (Fin n → T))
+        (freeGluing f g a)) := by sorry
+
+def freePatch_one (n : ℕ) : freePatch f g (1 : GL (Fin n) C) ≃ₗ[f.pullback g]
+    (Fin n → f.pullback g) := by sorry
+
+theorem freePatch_stabilise {n : ℕ} (a : GL (Fin n) C) (m : ℕ) :
+    Nonempty (freePatch f g (blockSum (a, (1 : GL (Fin m) C))) ≃ₗ[f.pullback g]
+      (freePatch f g a × (Fin m → f.pullback g))) := by sorry
+
+/-- `Z.1/milnor-free-lift`; the two assertions have the same coordinate proof. -/
+theorem free_lift {n : ℕ} (a : GL (Fin n) C)
+    (h : (∃ H : GL (Fin n) S, glMap f H = a) ∨ (∃ J : GL (Fin n) T, glMap g J = a)) :
+    Nonempty (freePatch f g a ≃ₗ[f.pullback g] (Fin n → f.pullback g)) := by sorry
+
+/-- `Z.1/milnor-inverse-complement`. -/
+theorem inverse_complement (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    Nonempty ((freePatch f g a × freePatch f g a⁻¹) ≃ₗ[f.pullback g]
+      (Fin (n+n) → f.pullback g)) := by sorry
+
+/-- `Z.1/milnor-compatible-complements`. The complements are genuine modules,
+with actual free-splitting and common-base-change equivalences. -/
+theorem compatible_complements (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    ∃ (P' : ModuleCat.{u} S) (Q' : ModuleCat.{u} T) (m n : ℕ),
+      Nonempty ((P × P') ≃ₗ[S] (Fin m → S)) ∧
+      Nonempty ((Q × Q') ≃ₗ[T] (Fin n → T)) ∧
+      Nonempty (ExtendScalars g (Q' × (Fin m → T)) ≃ₗ[C]
+        ExtendScalars f (P' × (Fin n → S))) := by sorry
+
+/-- `Z.1/milnor-finite-projective`. -/
+theorem finite_projective (hf : Function.Surjective f)
+    (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    Module.Finite (f.pullback g) (patch f g γ) ∧
+      Module.Projective (f.pullback g) (patch f g γ) := by sorry
+
+/-- `Z.1/milnor-base-change-left`. -/
+theorem base_change_left (hf : Function.Surjective f)
+    (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    Function.Bijective (compareLeft f g γ) := by sorry
+
+/-- `Z.1/milnor-base-change-right`, with the same surjective leg `f`. -/
+theorem base_change_right (hf : Function.Surjective f)
+    (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    Function.Bijective (compareRight f g γ) := by sorry
+
+/-- The canonical gluing of scalar extensions of one `B`-module. -/
+def recoveryGluing (M : ModuleCat.{u} (f.pullback g)) :
+    ExtendScalars g (ExtendScalars (f.pullbackSnd g) M) ≃ₗ[C]
+      ExtendScalars f (ExtendScalars (f.pullbackFst g) M) := by sorry
+
+def recovery (M : ModuleCat.{u} (f.pullback g)) : M →ₗ[f.pullback g]
+    patch f g (P := ModuleCat.of S (ExtendScalars (f.pullbackFst g) M))
+      (Q := ModuleCat.of T (ExtendScalars (f.pullbackSnd g) M)) (recoveryGluing f g M) where
+  toFun m := ⟨(ExtendScalars.tmul (f.pullbackFst g) 1 m,
+    ExtendScalars.tmul (f.pullbackSnd g) 1 m), by sorry⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- `Z.1/milnor-projective-recovery`. -/
+theorem projective_recovery (M : ModuleCat.{u} (f.pullback g))
+    [Module.Finite (f.pullback g) M] [Module.Projective (f.pullback g) M] :
+    Function.Bijective (recovery f g M) := by sorry
+
+/-- `Z.1/milnor-free-product`. -/
+theorem free_product (hf : Function.Surjective f) {n : ℕ} (a b : GL (Fin n) C) :
+    Nonempty ((freePatch f g a × freePatch f g b) ≃ₗ[f.pullback g]
+      (freePatch f g (a*b) × (Fin n → f.pullback g))) := by sorry
+
+theorem freePatch_finite (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    Module.Finite (f.pullback g) (freePatch f g a) := by sorry
+theorem freePatch_projective (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    Module.Projective (f.pullback g) (freePatch f g a) := by sorry
+
+/-- `Z.1/milnor-boundary`: the homomorphism characterized by patched free classes. -/
+def boundary (hf : Function.Surjective f) : Additive (K1 C) →+ RingK0 (f.pullback g) := by sorry
+
+theorem boundary_of (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    letI := freePatch_finite f g hf a
+    letI := freePatch_projective f g hf a
+    boundary f g hf (Additive.ofMul (K1.of n a)) =
+      RingK0.of (f.pullback g) (freePatch f g a) - n • RingK0.of (f.pullback g) (f.pullback g) := by sorry
+
+theorem boundary_stabilise (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) (m : ℕ) :
+    boundary f g hf (Additive.ofMul (K1.of (n+m) (blockSum (a, (1 : GL (Fin m) C))))) =
+      boundary f g hf (Additive.ofMul (K1.of n a)) := by sorry
+
+theorem boundary_lift_left (hf : Function.Surjective f) (x : K1 S) :
+    boundary f g hf (Additive.ofMul (K1.map f x)) = 0 := by sorry
+
+theorem boundary_lift_right (hf : Function.Surjective f) (x : K1 T) :
+    boundary f g hf (Additive.ofMul (K1.map g x)) = 0 := by sorry
+
+theorem boundary_map_left (hf : Function.Surjective f) (x : Additive (K1 C)) :
+    RingK0.map (f.pullbackFst g) (boundary f g hf x) = 0 := by sorry
+
+theorem boundary_map_right (hf : Function.Surjective f) (x : Additive (K1 C)) :
+    RingK0.map (f.pullbackSnd g) (boundary f g hf x) = 0 := by sorry
+
+/-- `Z.1/milnor-boundary-kernel`. -/
+theorem boundary_kernel (hf : Function.Surjective f) :
+    (boundary f g hf).ker = (MonoidHom.toAdditive (K1.map f)).range ⊔
+      (MonoidHom.toAdditive (K1.map g)).range := by sorry
+
+/-- `Z.1/milnor-exact-at-k0`. -/
+theorem exact_at_k0 (hf : Function.Surjective f) :
+    (boundary f g hf).range =
+      ((RingK0.map (f.pullbackFst g)).prod (RingK0.map (f.pullbackSnd g))).ker := by sorry
+
+/-- `Z.1/milnor-exact-at-pair`. -/
+theorem exact_at_pair (hf : Function.Surjective f) :
+    ((RingK0.map (f.pullbackFst g)).prod (RingK0.map (f.pullbackSnd g))).range =
+      ((RingK0.map f).comp (AddMonoidHom.fst _ _) -
+        (RingK0.map g).comp (AddMonoidHom.snd _ _)).ker := by sorry
+
+-- TauCeti.MilnorPatch.zero_test
+example (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) [Subsingleton P] [Subsingleton Q] :
+    Subsingleton (patch f g γ) := by sorry
+-- TauCeti.MilnorPatch.identity_chart_test
+example (P : ModuleCat.{u} S) (x y : P) :
+    (x,y) ∈ patch (RingHom.id S) (RingHom.id S) (LinearEquiv.refl S _) ↔ x=y := by sorry
+-- TauCeti.MilnorPatch.integer_pullback_test
+example :
+    ((fun _ : Fin 1 => (1 : ℤ)), (fun _ : Fin 1 => (1 : ℤ))) ∈
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) (1 : GL (Fin 1) (ZMod 5)) ∧
+    ((fun _ : Fin 1 => (1 : ℤ)), (fun _ : Fin 1 => (0 : ℤ))) ∉
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) (1 : GL (Fin 1) (ZMod 5)) := by sorry
+-- TauCeti.MilnorPatch.freePatch_zero_test
+example : Subsingleton (freePatch f g (1 : GL (Fin 0) C)) := by sorry
+-- TauCeti.MilnorPatch.freePatch_one_test
+example (n : ℕ) (z : freePatch f g (1 : GL (Fin n) C)) (i : Fin n) :
+    (freePatch_one f g n z i).val = (z.val.1 i,z.val.2 i) := by sorry
+-- TauCeti.MilnorPatch.freePatch_twist_test
+example (a : GL (Fin 1) (ZMod 5)) (ha : (a : Matrix (Fin 1) (Fin 1) (ZMod 5)) 0 0 = 2) :
+    ((fun _ : Fin 1 => (2 : ℤ)), (fun _ : Fin 1 => (1 : ℤ))) ∈
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) a ∧
+    ((fun _ : Fin 1 => (1 : ℤ)), (fun _ : Fin 1 => (1 : ℤ))) ∉
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) a := by sorry
+-- TauCeti.MilnorPatch.boundary_identity_test
+example (hf : Function.Surjective f) (n : ℕ) :
+    boundary f g hf (Additive.ofMul (K1.of n 1)) = 0 := by sorry
+-- TauCeti.MilnorPatch.boundary_lift_test
+example (h : Function.Surjective (Int.castRingHom (ZMod 5))) :
+    boundary (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) h
+      (Additive.ofMul (K1.ofUnits (ZMod 5) (-1 : (ZMod 5)ˣ))) = 0 := by sorry
+-- TauCeti.MilnorPatch.boundary_class_test
+example (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    letI := freePatch_finite f g hf a
+    letI := freePatch_projective f g hf a
+    boundary f g hf (Additive.ofMul (K1.of n a)) + n • RingK0.of (f.pullback g) (f.pullback g) =
+      RingK0.of (f.pullback g) (freePatch f g a) := by sorry
+-- TauCeti.MilnorPatch.boundary_nonzero_test
+example (h : Function.Surjective (Int.castRingHom (ZMod 5)))
+    (a : (ZMod 5)ˣ) (ha : (a : ZMod 5) = 2) :
+    let x := boundary (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) h
+      (Additive.ofMul (K1.ofUnits (ZMod 5) a))
+    x ≠ 0 ∧ (2 : ℕ) • x = 0 := by sorry
+end TauCeti.MilnorPatch
+
+/-! ### `KTheoryLowDegrees:U.5/relative-K0-of-ideal`, `U.5/ideal-sequence-degree-zero` -/
+
+namespace TauCeti.RelativeK0
+
+open KTheory RelativeK1
+
+variable {A : Type u} [Ring A] {B : Type u} [Ring B]
+
+/-- **`K₀` of an ideal** (`KTheoryLowDegrees:U.5/relative-K0-of-ideal`):
+`K₀(I) := ker (K₀(pr) : K₀(A ⊕ I) → K₀(A))` (a real definition). -/
+def RelK0 (I : Ideal A) [I.IsTwoSided] : AddSubgroup (RingK0 (DoubleRing A I)) :=
+  (RingK0.map DoubleRing.pr).ker
+
+namespace RelK0
+
+variable (I : Ideal A) [I.IsTwoSided]
+
+/-- `K₀(I) →+ K₀(A)`, the restriction of `K₀(add)` (a real definition). -/
+def toK0 : RelK0 I →+ RingK0 A :=
+  (RingK0.map DoubleRing.add).comp (RelK0 I).subtype
+
+/-- `K₀(A ⊕ I) ≃+ K₀(A) × K₀(I)` via `K₀(pr)` and the projection along `K₀(diag)` (a real definition
+up to proofs). -/
+def splitting : RingK0 (DoubleRing A I) ≃+ RingK0 A × RelK0 I where
+  toFun x := (RingK0.map DoubleRing.pr x,
+    ⟨x - RingK0.map DoubleRing.diag (RingK0.map DoubleRing.pr x), by sorry⟩)
+  invFun y := RingK0.map DoubleRing.diag y.1 + (y.2 : RingK0 (DoubleRing A I))
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+variable {I} in
+/-- Functoriality: `f(I) ⊆ J` induces `K₀(I) →+ K₀(J)` (a real definition). -/
+def map (f : A →+* B) (J : Ideal B) [J.IsTwoSided] (hf : ∀ a ∈ I, f a ∈ J) : RelK0 I →+ RelK0 J :=
+  ((RingK0.map (DoubleRing.map f J hf)).comp (RelK0 I).subtype).codRestrict _ fun _ => by sorry
+
+/-- `K₀(0) = 0`. -/
+theorem subsingleton_bot : Subsingleton (RelK0 (⊥ : Ideal A)) := by
+  sorry
+
+/-- For `I = eA`, `e` a central idempotent, `K₀(I) ≃+ K₀(eA)` of the unital ring `eA` (Mathlib's
+corner ring `IsIdempotentElem.Corner`, with unit `e`; K-book Ex. II.2.4(a)). -/
+theorem equiv_of_unital (e : A) (he : IsIdempotentElem e) (hc : IsMulCentral e) (J : Ideal A)
+    [J.IsTwoSided] (hJ : (J : Set A) = Set.range (e * ·)) :
+    Nonempty (RelK0 J ≃+ RingK0 he.Corner) := by
+  sorry
+
+-- test TauCeti.RelativeK0.RelK0.bot (degenerate)
+example : Subsingleton (RelK0 (⊥ : Ideal A)) :=
+  subsingleton_bot
+
+-- test TauCeti.RelativeK0.RelK0.top (computation)
+example : Nonempty (RelK0 (⊤ : Ideal A) ≃+ RingK0 A) := by
+  sorry
+
+-- test TauCeti.RelativeK0.RelK0.product_factor (compatibility)
+example (A₁ A₂ : Type u) [Ring A₁] [Ring A₂] :
+    Nonempty (RelK0 (RingHom.ker (RingHom.fst A₁ A₂)) ≃+ RingK0 A₂) := by
+  sorry
+
+-- test TauCeti.RelativeK0.RelK0.two_int (non-example)
+/- `K₀(2ℤ) = 0`, although `2ℤ ≅ ℤ` as a `ℤ`-module. -/
+example : Subsingleton (RelK0 (Ideal.span {(2 : ℤ)})) ∧
+    Nonempty ((Ideal.span {(2 : ℤ)} : Ideal ℤ) ≃ₗ[ℤ] ℤ) := by
+  sorry
+
+end RelK0
+
+/-- Reuse the existing double ring and identify it with Mathlib's pullback carrier.
+The first projection is `pr`, the second is `add`. -/
+def doublePullbackEquiv (I : Ideal A) [I.IsTwoSided] :
+    DoubleRing A I ≃+* RingHom.pullback (Ideal.Quotient.mk I) (Ideal.Quotient.mk I) where
+  toFun z := ⟨(DoubleRing.pr z, DoubleRing.add z), by sorry⟩
+  invFun z := (z.val.1, ⟨z.val.2-z.val.1, by sorry⟩)
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+  map_add' := by sorry
+
+/-- `U.5/ideal-boundary`: the Milnor boundary, transported and corestricted
+along the actual first projection. -/
+def RelK0.boundary (I : Ideal A) [I.IsTwoSided] : Additive (K1 (A ⧸ I)) →+ RelK0 I :=
+  ((RingK0.map (doublePullbackEquiv I).symm.toRingHom).comp
+    (MilnorPatch.boundary (Ideal.Quotient.mk I) (Ideal.Quotient.mk I)
+      (Ideal.Quotient.mk_surjective))).codRestrict _ (by sorry)
+
+theorem RelK0.boundary_val (I : Ideal A) [I.IsTwoSided] (x : Additive (K1 (A ⧸ I))) :
+    (RelK0.boundary I x : RingK0 (DoubleRing A I)) =
+      RingK0.map (doublePullbackEquiv I).symm.toRingHom
+        (MilnorPatch.boundary (Ideal.Quotient.mk I) (Ideal.Quotient.mk I)
+          (Ideal.Quotient.mk_surjective) x) := rfl
+
+theorem RelK0.boundary_lift (I : Ideal A) [I.IsTwoSided] (x : K1 A) :
+    RelK0.boundary I (Additive.ofMul (K1.map (Ideal.Quotient.mk I) x)) = 0 := by sorry
+
+theorem RelK0.boundary_toK0 (I : Ideal A) [I.IsTwoSided] (x : Additive (K1 (A ⧸ I))) :
+    RelK0.toK0 I (RelK0.boundary I x) = 0 := by sorry
+
+-- TauCeti.RelativeK0.RelK0.boundary_bot_test
+example (x : Additive (K1 (A ⧸ (⊥ : Ideal A)))) :
+    RelK0.boundary (⊥ : Ideal A) x = 0 := by sorry
+-- TauCeti.RelativeK0.RelK0.boundary_lift_test
+example (I : Ideal A) [I.IsTwoSided] (x : K1 A) :
+    RelK0.boundary I (Additive.ofMul (K1.map (Ideal.Quotient.mk I) x)) = 0 := by sorry
+-- TauCeti.RelativeK0.RelK0.boundary_comparison_test
+example (I : Ideal A) [I.IsTwoSided] (x : Additive (K1 (A ⧸ I))) :
+    RingK0.map (doublePullbackEquiv I).toRingHom (RelK0.boundary I x) =
+      MilnorPatch.boundary (Ideal.Quotient.mk I) (Ideal.Quotient.mk I)
+        (Ideal.Quotient.mk_surjective) x := by sorry
+
+/-- `U.5/ideal-sequence-degree-zero`, with the canonical named boundary. -/
+theorem ideal_sequence_degree_zero (I : Ideal A) [I.IsTwoSided] :
+    (MonoidHom.toAdditive (K1.map (Ideal.Quotient.mk I))).range = (RelK0.boundary I).ker ∧
+      (RelK0.boundary I).range = (RelK0.toK0 I).ker ∧
+      (RelK0.toK0 I).range = (RingK0.map (Ideal.Quotient.mk I)).ker := by sorry
+
+end TauCeti.RelativeK0
+
+/-! ### Transfer and the `K₀`-action: `U.5/transfer`, `U.5/transfer-determinant-norm`,
+`U.5/transfer-field-norm`, `U.5/transfer-base-change`, `U.5/K0-action-on-K1`,
+`U.5/projection-formula`
+
+The packet's `K1.transfer`, `K1.smulK0`, `K1.dvrBoundary`, … live in namespace `TauCeti.KTheory`,
+beside `K₁` itself (`TauCeti.KTheory.K1`), so they are `TauCeti.KTheory.K1.transfer`, …; the
+theorem nodes are `TauCeti.KTheory.transfer_determinant_norm`, …. -/
+
+namespace TauCeti.KTheory
+
+section Transfer
+
+variable {A B C : Type u} [Ring A] [Ring B] [Ring C]
+
+/-- `B` as a right `A`-module through `f` (`b · a = b f(a)`), i.e. a left `Aᵐᵒᵖ`-module (helper). -/
+abbrev rightRes (f : A →+* B) (M : ModuleCat.{u} Bᵐᵒᵖ) : ModuleCat.{u} Aᵐᵒᵖ :=
+  (ModuleCat.restrictScalars (RingHom.op f)).obj M
+
+/-- **The transfer** `f_* : K₁(B) →* K₁(A)` (`KTheoryLowDegrees:U.5/transfer`), for `B` finitely
+generated projective as a right `A`-module: `[g] ↦ [res g]` on `Bⁿ` (data, pinned by
+`K1.transfer_mk`). -/
+def K1.transfer (f : A →+* B)
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes f (ModuleCat.of Bᵐᵒᵖ B))) :
+    K1 B →* K1 A :=
+  sorry
+
+/-- Helper: `Bⁿ`, restricted to `Aᵐᵒᵖ`, is finitely generated projective. -/
+theorem rightRes_free_finiteProjective (f : A →+* B)
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes f (ModuleCat.of Bᵐᵒᵖ B))) (n : ℕ) :
+    finiteProjectiveModules Aᵐᵒᵖ (rightRes f (ModuleCat.of Bᵐᵒᵖ (Fin n → B))) := by
+  sorry
+
+/-- `f_*[g] = [res g]`: the class of `g`, restricted to `A`, on the right `A`-module `Bⁿ`. -/
+theorem K1.transfer_mk (f : A →+* B)
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes f (ModuleCat.of Bᵐᵒᵖ B))) {n : ℕ}
+    (g : GL (Fin n) B) :
+    K1.transfer f hf (K1.of n g) =
+      haveI := (finiteProjectiveModules_iff.mp (rightRes_free_finiteProjective f hf n)).1
+      haveI := (finiteProjectiveModules_iff.mp (rightRes_free_finiteProjective f hf n)).2
+      autClass (rightRes f (ModuleCat.of Bᵐᵒᵖ (Fin n → B)))
+        ((ModuleCat.restrictScalars (RingHom.op f)).mapIso
+          (rightModuleAut B n g).toModuleIso).toLinearEquiv := by
+  sorry
+
+/-- For `A` commutative, `B` an `A`-algebra (`f = algebraMap A B`) and a basis `b` of `B` over `A`,
+`f_*[g]` is the class of the block matrix of the `Algebra.leftMulMatrix b` of the entries of `g`
+(given as `G` with its entries pinned). -/
+theorem K1.transfer_basis {R S : Type u} [CommRing R] [CommRing S] [Algebra R S] {d : ℕ}
+    (b : Module.Basis (Fin d) R S)
+    (hf : finiteProjectiveModules Rᵐᵒᵖ (rightRes (algebraMap R S) (ModuleCat.of Sᵐᵒᵖ S))) {n : ℕ}
+    (g : GL (Fin n) S) (G : GL (Fin n × Fin d) R)
+    (hG : ∀ i j k l, (G : Matrix _ _ R) (i, k) (j, l) =
+      Algebra.leftMulMatrix b ((g : Matrix (Fin n) (Fin n) S) i j) k l) :
+    K1.transfer (algebraMap R S) hf (K1.of n g) = K1.of (n * d) (glReindex finProdFinEquiv G) := by
+  sorry
+
+/-- On units, for `A` commutative and `B` an `A`-algebra (`f = algebraMap A B`),
+`f_*[u] = [unitsLeftMulMatrix b u]` (Tau Ceti's `unitsLeftMulMatrix`). -/
+@[simp]
+theorem K1.transfer_units {R S : Type u} [CommRing R] [CommRing S] [Algebra R S] {d : ℕ}
+    (b : Module.Basis (Fin d) R S)
+    (hf : finiteProjectiveModules Rᵐᵒᵖ (rightRes (algebraMap R S) (ModuleCat.of Sᵐᵒᵖ S))) (u : Sˣ) :
+    K1.transfer (algebraMap R S) hf (K1.ofUnits S u) =
+      K1.of d (TauCeti.unitsLeftMulMatrix b u) := by
+  sorry
+
+/-- `(id_A)_* = id`. -/
+@[simp]
+theorem K1.transfer_id (h : finiteProjectiveModules Aᵐᵒᵖ (rightRes (RingHom.id A)
+    (ModuleCat.of Aᵐᵒᵖ A))) :
+    K1.transfer (RingHom.id A) h = MonoidHom.id (K1 A) := by
+  sorry
+
+/-- `(g ∘ f)_* = f_* ∘ g_*`. -/
+theorem K1.transfer_comp (f : A →+* B) (g : B →+* C)
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes f (ModuleCat.of Bᵐᵒᵖ B)))
+    (hg : finiteProjectiveModules Bᵐᵒᵖ (rightRes g (ModuleCat.of Cᵐᵒᵖ C)))
+    (hgf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (g.comp f) (ModuleCat.of Cᵐᵒᵖ C))) :
+    K1.transfer (g.comp f) hgf = (K1.transfer f hf).comp (K1.transfer g hg) := by
+  sorry
+
+/-- For `B = B₁ × B₂`, `f_* x = (f₁)_*(pr₁ x) · (f₂)_*(pr₂ x)` under `U.2/K1-prod` (`K₁` is written
+multiplicatively). -/
+theorem K1.transfer_prod {B₁ B₂ : Type u} [Ring B₁] [Ring B₂] (f : A →+* B₁ × B₂)
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes f (ModuleCat.of (B₁ × B₂)ᵐᵒᵖ (B₁ × B₂))))
+    (h₁ : finiteProjectiveModules Aᵐᵒᵖ
+      (rightRes ((RingHom.fst B₁ B₂).comp f) (ModuleCat.of B₁ᵐᵒᵖ B₁)))
+    (h₂ : finiteProjectiveModules Aᵐᵒᵖ
+      (rightRes ((RingHom.snd B₁ B₂).comp f) (ModuleCat.of B₂ᵐᵒᵖ B₂))) (x : K1 (B₁ × B₂)) :
+    K1.transfer f hf x = K1.transfer _ h₁ (K1.map (RingHom.fst B₁ B₂) x) *
+      K1.transfer _ h₂ (K1.map (RingHom.snd B₁ B₂) x) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.transfer_id_test (degenerate)
+example (h : finiteProjectiveModules Aᵐᵒᵖ (rightRes (RingHom.id A) (ModuleCat.of Aᵐᵒᵖ A))) :
+    K1.transfer (RingHom.id A) h = MonoidHom.id (K1 A) :=
+  K1.transfer_id h
+
+-- test TauCeti.KTheory.K1.transfer_complex (computation)
+/- For `ℝ → ℂ`, under `det`: `f_*(z) = |z|²`; so `f_*(i) = 1` and `f_*(1 + i) = 2`. -/
+example (hf : finiteProjectiveModules ℝᵐᵒᵖ (rightRes (algebraMap ℝ ℂ) (ModuleCat.of ℂᵐᵒᵖ ℂ)))
+    (z : ℂˣ) :
+    (K1.det ℝ (K1.transfer (algebraMap ℝ ℂ) hf (K1.ofUnits ℂ z)) : ℝ) = Complex.normSq (z : ℂ) ∧
+      (K1.det ℝ (K1.transfer (algebraMap ℝ ℂ)
+          hf (K1.ofUnits ℂ (Units.mk0 Complex.I Complex.I_ne_zero))) :
+        ℝ) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.transfer_diagonal (computation)
+/- For the diagonal `A → A × A`, `f_*(x, y) = x·y` under `K₁(A × A) ≅ K₁(A) × K₁(A)`. -/
+example {R : Type u} [CommRing R]
+    (hf : finiteProjectiveModules Rᵐᵒᵖ (rightRes (RingHom.prod (RingHom.id R) (RingHom.id R))
+      (ModuleCat.of (R × R)ᵐᵒᵖ (R × R)))) (u v : Rˣ) :
+    K1.transfer (RingHom.prod (RingHom.id R) (RingHom.id R)) hf (K1.ofUnits (R × R)
+        (MulEquiv.prodUnits.symm (u, v))) =
+      K1.ofUnits R (u * v) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.transfer_not_norm (non-example)
+/- For the projection `k × k → k` (projective, not free): `f_*[x] = ([x], 1)`, whereas
+`Algebra.norm (k × k) x = 1` (`Algebra.norm_eq_one_of_not_exists_basis`). -/
+example {k : Type u} [Field k]
+    (hf : finiteProjectiveModules (k × k)ᵐᵒᵖ (rightRes (RingHom.fst k k) (ModuleCat.of kᵐᵒᵖ k)))
+    (x : kˣ) :
+    K1.map (RingHom.fst k k) (K1.transfer (RingHom.fst k k) hf (K1.ofUnits k x)) = K1.ofUnits k x ∧
+      K1.map (RingHom.snd k k) (K1.transfer (RingHom.fst k k) hf (K1.ofUnits k x)) = 1 ∧
+      @Algebra.norm (k × k) k _ _ (RingHom.fst k k).toAlgebra (x : k) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.transfer_field_norm_test (compatibility)
+example {K L : Type u} [Field K] [Field L] [Algebra K L] [FiniteDimensional K L]
+    (hf : finiteProjectiveModules Kᵐᵒᵖ (rightRes (algebraMap K L) (ModuleCat.of Lᵐᵒᵖ L))) (u : Lˣ) :
+    (K1.det K (K1.transfer (algebraMap K L) hf (K1.ofUnits L u)) : K) = Algebra.norm K (u : L) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/transfer-determinant-norm`: for `B` free of finite rank over commutative
+`A`, `det_A (f_* x) = N_{B/A}(det_B x)` (Mathlib's `Algebra.norm`). -/
+theorem transfer_determinant_norm {R S : Type u} [CommRing R] [CommRing S] [Algebra R S]
+    [Module.Free R S] [Module.Finite R S]
+    (hf : finiteProjectiveModules Rᵐᵒᵖ (rightRes (algebraMap R S) (ModuleCat.of Sᵐᵒᵖ S)))
+        (x : K1 S) :
+    (K1.det R (K1.transfer (algebraMap R S) hf x) : R) = Algebra.norm R (K1.det S x : S) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/transfer-field-norm`: under `K₁(L) ≅ Lˣ` and `K₁(F) ≅ Fˣ`, the transfer
+is the field norm. -/
+theorem transfer_field_norm {K L : Type u} [Field K] [Field L] [Algebra K L] [FiniteDimensional K L]
+    (hf : finiteProjectiveModules Kᵐᵒᵖ (rightRes (algebraMap K L) (ModuleCat.of Lᵐᵒᵖ L))) (u : Lˣ) :
+    (K1.det K (K1.transfer (algebraMap K L) hf (K1.ofUnits L u)) : K) = Algebra.norm K (u : L) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/transfer-base-change`: `f'_* ∘ K₁(B → A' ⊗_A B) = K₁(A → A') ∘ f_*`. -/
+theorem transfer_base_change {R R' S : Type u} [CommRing R] [CommRing R'] [CommRing S]
+    [Algebra R R'] [Algebra R S]
+    (hf : finiteProjectiveModules Rᵐᵒᵖ (rightRes (algebraMap R S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules R'ᵐᵒᵖ (rightRes (algebraMap R' (R' ⊗[R] S))
+      (ModuleCat.of (R' ⊗[R] S)ᵐᵒᵖ (R' ⊗[R] S)))) :
+    (K1.transfer (algebraMap R' (R' ⊗[R] S)) hf').comp
+        (K1.map (Algebra.TensorProduct.includeRight (R := R) (A := R') (B := S)).toRingHom) =
+      (K1.map (algebraMap R R')).comp (K1.transfer (algebraMap R S) hf) := by
+  sorry
+
+end Transfer
+
+section K0Action
+
+variable (A : Type u) [CommRing A] (B : Type u) [Ring B] [Algebra A B]
+
+/-- **`K₁(B)` over `K₀(A)`** (`KTheoryLowDegrees:U.5/K0-action-on-K1`): the biadditive pairing
+`K₀(A) × K₁(B) → K₁(B)`, `[P]·[β] = [1_P ⊗ β]` (data, pinned for commutative `B` by
+`K1.smulK0_class`). -/
+def K1.smulK0 : RingK0 A →+ Additive (K1 B) →+ Additive (K1 B) :=
+  sorry
+
+/-- The automorphism `(qⱼ) ↦ (Σⱼ βᵢⱼ qⱼ)` of `Qᵐ` for `β ∈ GL_m(B)`, `B` commutative (helper; the
+matrix of `1_Q ⊗ β` on `Q ⊗_B Bᵐ = Qᵐ`). -/
+def matrixAct {R : Type u} [CommRing R] (Q : Type u) [AddCommGroup Q] [Module R Q] {m : ℕ}
+    (β : GL (Fin m) R) : (Fin m → Q) ≃ₗ[R] (Fin m → Q) where
+  toFun v i := ∑ j, (β : Matrix (Fin m) (Fin m) R) i j • v j
+  invFun v i := ∑ j, ((β⁻¹ : GL (Fin m) R) : Matrix (Fin m) (Fin m) R) i j • v j
+  map_add' := by sorry
+  map_smul' := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
+
+/-- For commutative `B`: `[P]·[β]` is the class of `1 ⊗ β` on `(B ⊗_A P)ᵐ`. -/
+@[simp]
+theorem K1.smulK0_class {S : Type u} [CommRing S] [Algebra A S] (P : Type u) [AddCommGroup P]
+    [Module A P] [Module.Finite A P] [Module.Projective A P] {m : ℕ} (β : GL (Fin m) S)
+    [Module.Projective S (Fin m → S ⊗[A] P)] :
+    K1.smulK0 A S (RingK0.of A P) (Additive.ofMul (K1.of m β)) =
+      Additive.ofMul (autClassComm (Fin m → S ⊗[A] P) (matrixAct (S ⊗[A] P) β)) := by
+  sorry
+
+-- `TauCeti.KTheory.K1.module`: not stated here; needs the ring structure on `RingK0 A` (the
+-- monoidal structure of `finiteProjectiveModules A`) (supplier:
+-- `KTheoryLowDegrees:Z.3/finite-projective-monoidal`).
+
+/-- `[A]·x = x`. -/
+@[simp]
+theorem K1.one_smulK0 (x : Additive (K1 B)) : K1.smulK0 A B (RingK0.of A A) x = x := by
+  sorry
+
+/-- `K₁(B) → K₁(B')` is `K₀(A)`-linear for an `A`-algebra map `B → B'`. -/
+theorem K1.smulK0_map {B' : Type u} [Ring B'] [Algebra A B'] (g : B →ₐ[A] B') (y : RingK0 A)
+    (x : Additive (K1 B)) :
+    Additive.ofMul (K1.map g.toRingHom (Additive.toMul (K1.smulK0 A B y x))) =
+      K1.smulK0 A B' y (Additive.ofMul (K1.map g.toRingHom (Additive.toMul x))) := by
+  sorry
+
+/-- For `B` commutative and `P` of constant rank `r`, `det([P]·x) = det(x)^r`. -/
+theorem K1.det_smulK0 {S : Type u} [CommRing S] [Algebra A S] (P : Type u)
+    [AddCommGroup P] [Module A P]
+    [Module.Finite A P] [Module.Projective A P] (r : ℕ) (hP : ∀ p, Module.rankAtStalk (R := A)
+        P p = r)
+    (x : Additive (K1 S)) :
+    K1.det S (Additive.toMul (K1.smulK0 A S (RingK0.of A P) x)) =
+      K1.det S (Additive.toMul x) ^ r := by
+  sorry
+
+-- test TauCeti.KTheory.K1.smulK0_free (computation)
+example (n : ℕ) (x : Additive (K1 B)) : K1.smulK0 A B (RingK0.of A (Fin n → A)) x = n • x := by
+  sorry
+
+-- test TauCeti.KTheory.K1.smulK0_zero (degenerate)
+example (x : Additive (K1 B)) : K1.smulK0 A B 0 x = 0 ∧ K1.smulK0 A B (RingK0.of A A) x = x :=
+  ⟨by rw [map_zero, AddMonoidHom.zero_apply], K1.one_smulK0 A B x⟩
+
+-- test TauCeti.KTheory.K1.smulK0_ideal_units (computation)
+/- For `R = ℤ[√−5]` and `𝔞 = (2, 1 + √−5)`: `[𝔞]·[-1] = [-1]`. -/
+example [Module.Finite (Zsqrtd (-5)) (Ideal.span {2, 1 + Zsqrtd.sqrtd} : Ideal (Zsqrtd (-5)))]
+    [Module.Projective (Zsqrtd (-5)) (Ideal.span {2, 1 + Zsqrtd.sqrtd} : Ideal (Zsqrtd (-5)))] :
+    K1.smulK0 (Zsqrtd (-5)) (Zsqrtd (-5))
+        (RingK0.of _ (Ideal.span {2, 1 + Zsqrtd.sqrtd} : Ideal (Zsqrtd (-5))))
+        (Additive.ofMul (K1.ofUnits _ (-1))) =
+      Additive.ofMul (K1.ofUnits _ (-1)) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.smulK0_kbook (compatibility)
+/- The K-book's product `[P]·β` of Corollary III.1.6.1 (commutative case). -/
+example {S : Type u} [CommRing S] [Algebra A S] (P : Type u) [AddCommGroup P] [Module A P]
+    [Module.Finite A P] [Module.Projective A P] {m : ℕ} (β : GL (Fin m) S)
+    [Module.Projective S (Fin m → S ⊗[A] P)] :
+    K1.smulK0 A S (RingK0.of A P) (Additive.ofMul (K1.of m β)) =
+      Additive.ofMul (autClassComm (Fin m → S ⊗[A] P) (matrixAct (S ⊗[A] P) β)) :=
+  K1.smulK0_class A P β
+
+/-- **The projection formula** (`KTheoryLowDegrees:U.5/projection-formula`), for `B` a commutative
+`A`-algebra, finitely generated projective over `A`: (a) `f_*(f^*x · y) = x · f_*y`;
+(b) `f_*(y · f^*z) = f_*y · z`; (c) `f_* f^* z = [B] · z`. -/
+theorem projection_formula {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S))) :
+    (∀ (x : RingK0 A) (y : K1 S),
+      K1.transfer (algebraMap A S) hf (Additive.toMul (K1.smulK0 S S (RingK0.map (algebraMap A S) x)
+        (Additive.ofMul y))) =
+        Additive.toMul (K1.smulK0 A A x (Additive.ofMul (K1.transfer (algebraMap A S) hf y)))) ∧
+      (∀ (y : RingK0 S) (z : K1 A),
+        K1.transfer (algebraMap A S) hf (Additive.toMul (K1.smulK0 S S y
+          (Additive.ofMul (K1.map (algebraMap A S) z)))) =
+          Additive.toMul (K1.smulK0 A A (RingK0.transfer (algebraMap A S) hf' y)
+            (Additive.ofMul z))) ∧
+      ∀ z : K1 A, K1.transfer (algebraMap A S) hf (K1.map (algebraMap A S) z) =
+        Additive.toMul (K1.smulK0 A A
+          (SplitK0.of ⟨(ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S), hf'⟩)
+          (Additive.ofMul z)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/projection-formula`: the first projection formula.
+The preceding conjunction is retained as an aggregate helper. -/
+theorem projection_formula_base_k0 {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S)))
+    (x : RingK0 A) (y : K1 S) :
+    K1.transfer (algebraMap A S) hf (Additive.toMul (K1.smulK0 S S
+      (RingK0.map (algebraMap A S) x) (Additive.ofMul y))) =
+      Additive.toMul (K1.smulK0 A A x
+        (Additive.ofMul (K1.transfer (algebraMap A S) hf y))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/projection-formula-transfer-k0`. -/
+theorem projection_formula_transfer_k0 {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S)))
+    (y : RingK0 S) (z : K1 A) :
+    K1.transfer (algebraMap A S) hf (Additive.toMul (K1.smulK0 S S y
+      (Additive.ofMul (K1.map (algebraMap A S) z)))) =
+      Additive.toMul (K1.smulK0 A A (RingK0.transfer (algebraMap A S) hf' y)
+        (Additive.ofMul z)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/transfer-base-change-composite`: transfer after base change is
+multiplication by the class of the extension ring, on the base K₁. -/
+theorem transfer_base_change_composite {S : Type u} [CommRing S] [Algebra A S]
+    (hf : finiteProjectiveModules Aᵐᵒᵖ (rightRes (algebraMap A S) (ModuleCat.of Sᵐᵒᵖ S)))
+    (hf' : finiteProjectiveModules A
+      ((ModuleCat.restrictScalars (algebraMap A S)).obj (ModuleCat.of S S)))
+    (z : K1 A) :
+    K1.transfer (algebraMap A S) hf (K1.map (algebraMap A S) z) =
+      Additive.toMul (K1.smulK0 A A
+        (SplitK0.of ⟨(ModuleCat.restrictScalars (algebraMap A S)).obj
+          (ModuleCat.of S S), hf'⟩) (Additive.ofMul z)) := by
+  sorry
+
+end K0Action
+
+/-! ### `KTheoryLowDegrees:U.5/dvr-boundary`, `U.5/dvr-boundary-valuation`,
+`U.5/dvr-units-sequence`, `U.5/dvr-boundary-localisation-comparison`
+
+The localisation boundary of a DVR and its unit-valuation normalisation are
+`SchemeKTheoryOperations:S.3`'s (RS-18); `K1.dvrBoundary` below is the explicit cokernel-length
+boundary on the classical `K₁`, which `U.5/dvr-boundary-localisation-comparison` identifies with
+it. -/
+
+section DVR
+
+variable (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] (L : Type u) [Field L]
+  [Algebra O L] [IsFractionRing O L]
+
+/-- **The boundary** `∂ : K₁(L) → K₀(k)` of a DVR (`KTheoryLowDegrees:U.5/dvr-boundary`):
+`∂[g] = (ℓ(Oⁿ/αOⁿ) - n ℓ(O/sO))·[k]` for `α = s g ∈ Mₙ(O)` (data, pinned by `K1.dvrBoundary_mk`);
+normalised by `∂(π) = [k]`. -/
+def K1.dvrBoundary : Additive (K1 L) →+ RingK0 (IsLocalRing.ResidueField O) :=
+  sorry
+
+variable {O L}
+
+/-- `∂[g] = (ℓ(coker (s g)) - n ℓ(O/sO))·[k]`. -/
+@[simp]
+theorem K1.dvrBoundary_mk {n : ℕ} (g : GL (Fin n) L) (s : O) (hs : s ≠ 0)
+    (α : Matrix (Fin n) (Fin n) O)
+    (hα : α.map (algebraMap O L) = algebraMap O L s • (g : Matrix (Fin n) (Fin n) L)) :
+    K1.dvrBoundary O L (Additive.ofMul (K1.of n g)) =
+      (((Module.length O ((Fin n → O) ⧸ LinearMap.range (Matrix.mulVecLin α))).toNat : ℤ) -
+        n * (Module.length O (O ⧸ Ideal.span {s})).toNat) •
+        RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) := by
+  sorry
+
+/-- For `α ∈ Mₙ(O)` invertible over `L`, `∂[α] = ℓ(coker α)·[k]`. -/
+@[simp]
+theorem K1.dvrBoundary_integral {n : ℕ} (α : Matrix (Fin n) (Fin n) O) (g : GL (Fin n) L)
+    (hg : (g : Matrix (Fin n) (Fin n) L) = α.map (algebraMap O L)) :
+    K1.dvrBoundary O L (Additive.ofMul (K1.of n g)) =
+      ((Module.length O ((Fin n → O) ⧸ LinearMap.range (Matrix.mulVecLin α))).toNat : ℤ) •
+        RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) := by
+  sorry
+
+/-- `∂ ∘ K₁(O → L) = 0`. -/
+@[simp]
+theorem K1.dvrBoundary_map_O :
+    (K1.dvrBoundary O L).comp (MonoidHom.toAdditive (K1.map (algebraMap O L))) = 0 := by
+  sorry
+
+/-- `∂[π] = [k]` for any uniformiser `π`. -/
+@[simp]
+theorem K1.dvrBoundary_uniformizer (π : O) (hπ : Irreducible π) :
+    K1.dvrBoundary O L (Additive.ofMul (K1.ofUnits L (Units.mk0 (algebraMap O L π)
+      ((map_ne_zero_iff _ (IsFractionRing.injective O L)).mpr hπ.ne_zero)))) =
+      RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) := by
+  sorry
+
+/-- `∂(x) = v(det x)·[k]`, the valuation read through `det x = u πⁿ`
+(`U.5/dvr-boundary-valuation`). -/
+theorem K1.dvrBoundary_eq_valuation (x : K1 L) (u : Oˣ) (π : O) (hπ : Irreducible π) (n : ℤ)
+    (hx : (K1.det L x : L) = algebraMap O L u * algebraMap O L π ^ n) :
+    K1.dvrBoundary O L (Additive.ofMul x) =
+      n • RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.5/dvr-boundary-valuation`: `∂(x) = v(det x)·[k]`; so `∂(uπⁿ) = n[k]`, and
+`∂` does not depend on the uniformiser. -/
+theorem dvr_boundary_valuation (x : K1 L) (u : Oˣ) (π : O) (hπ : Irreducible π) (n : ℤ)
+    (hx : (K1.det L x : L) = algebraMap O L u * algebraMap O L π ^ n) :
+    K1.dvrBoundary O L (Additive.ofMul x) =
+      n • RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) :=
+  K1.dvrBoundary_eq_valuation x u π hπ n hx
+
+/-- `KTheoryLowDegrees:U.5/dvr-units-sequence`: `1 → K₁(O) → K₁(L) →∂ K₀(k) → 0` is exact, and the
+next map `K₀(k) → K₀(O)`, `[k] ↦ [O] - [πO]`, vanishes. -/
+theorem dvr_units_sequence (π : O) (hπ : Irreducible π) [Module.Finite O (Ideal.span {π})]
+    [Module.Projective O (Ideal.span {π})] :
+    Function.Injective (K1.map (algebraMap O L)) ∧
+      (MonoidHom.toAdditive (K1.map (algebraMap O L))).range = (K1.dvrBoundary O L).ker ∧
+      Function.Surjective (K1.dvrBoundary O L) ∧
+      RingK0.of O O - RingK0.of O (Ideal.span {π}) = 0 := by
+  sorry
+
+-- `TauCeti.KTheory.dvr_boundary_localisation_comparison`
+-- (`KTheoryLowDegrees:U.5/dvr-boundary-localisation-comparison`): not stated here; needs the
+-- K-theory spaces `K(L)`, `π₁ K(L)` with the loop map `λ : K₁(L) → π₁ K(L)` and the localisation
+-- boundary `∂_S : π₁ K(L) → K₀(k)` of `K(k) → K(O) → K(L)` (supplier:
+-- `SchemeKTheoryOperations:S.3`, with `StableHomotopyKTheory:H.1`, `H.3` and
+-- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`). Suggested form:
+-- `∂_S (λ x) = K1.dvrBoundary O L (Additive.ofMul x)` for every `x : K1 L`.
+
+-- test TauCeti.KTheory.K1.dvrBoundary_padic (computation)
+/- `O = ℤ_(p)` modelled as a DVR with fraction field `ℚ` in which `p` is a uniformiser:
+`∂(p) = [𝔽_p]`, `∂(1/p) = -[𝔽_p]`, and for `p = 2`, `∂(12) = 2[𝔽_p]`. -/
+example (O : Type) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [Algebra O ℚ]
+    [IsFractionRing O ℚ] (p : ℕ) (hp : Irreducible (p : O)) (hp0 : (p : ℚ) ≠ 0) :
+    K1.dvrBoundary O ℚ (Additive.ofMul (K1.ofUnits ℚ (Units.mk0 (p : ℚ) hp0))) =
+        RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) ∧
+      K1.dvrBoundary O ℚ (Additive.ofMul (K1.ofUnits ℚ (Units.mk0 (p : ℚ) hp0)⁻¹)) =
+        -RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) ∧
+      (p = 2 → K1.dvrBoundary O ℚ (Additive.ofMul (K1.ofUnits ℚ (Units.mk0 12 (by norm_num)))) =
+        2 • RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O)) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.dvrBoundary_units (degenerate)
+example (x : K1 O) : K1.dvrBoundary O L (Additive.ofMul (K1.map (algebraMap O L) x)) = 0 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.dvrBoundary_matrix (computation)
+/- `g = (π 1; 0 1)`: `coker g = O/π`, so `∂[g] = [k]`; `∂[diag(π, π⁻¹)] = 0`. -/
+example (π : O) (hπ : Irreducible π) (g : GL (Fin 2) L)
+    (hg : (g : Matrix (Fin 2) (Fin 2) L) = !![algebraMap O L π, 1; 0, 1]) (πL : Lˣ)
+    (hπL : (πL : L) = algebraMap O L π) :
+    K1.dvrBoundary O L (Additive.ofMul (K1.of 2 g)) =
+        RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) ∧
+      K1.dvrBoundary O L (Additive.ofMul (K1.of 2 (diagUnit ![πL, πL⁻¹]))) = 0 := by
+  sorry
+
+-- test TauCeti.KTheory.K1.dvrBoundary_not_entry (non-example)
+/- `g = (π 1; 0 1)` has an off-diagonal entry of valuation `0`, yet `∂[g] = v(det g) = 1`: an
+entrywise definition fails. -/
+example (π : O) (hπ : Irreducible π) (g : GL (Fin 2) L)
+    (hg : (g : Matrix (Fin 2) (Fin 2) L) = !![algebraMap O L π, 1; 0, 1]) :
+    K1.dvrBoundary O L (Additive.ofMul (K1.of 2 g)) =
+      RingK0.of (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O) := by
+  sorry
+
+-- test TauCeti.KTheory.K1.dvrBoundary_power_series (compatibility)
+/- `O = k[[t]]`: `∂(t) = [k]`, agreeing with `IsDiscreteValuationRing.addVal_uniformizer`. -/
+example (k : Type u) [Field k]
+    (ht : (algebraMap (PowerSeries k) (LaurentSeries k) PowerSeries.X) ≠ 0) :
+    K1.dvrBoundary (PowerSeries k) (LaurentSeries k)
+        (Additive.ofMul (K1.ofUnits _ (Units.mk0 _ ht))) =
+      RingK0.of (IsLocalRing.ResidueField (PowerSeries k))
+          (IsLocalRing.ResidueField (PowerSeries k)) ∧
+      IsDiscreteValuationRing.addVal (PowerSeries k) PowerSeries.X = 1 := by
+  sorry
+
+end DVR
+
+end TauCeti.KTheory
+
+/-! ## Stage `KTheoryLowDegrees:U.6` — `π₁BGL(A)⁺` and computations
+
+The four comparison nodes with the plus construction need spaces that neither Mathlib nor Tau Ceti
+provides at the pinned commits; they are recorded as comments naming their suppliers. The
+computations are stated through U.2's `K₁`, U.3's `det` and `SK₁`, and U.5's boundary, in namespace
+`TauCeti.KTheory` beside `K₁`. -/
+
+namespace TauCeti.KTheory
+
+/-! ### `U.6/pi1-plus-construction`, `U.6/pi1-plus-determinant`, `U.6/pi1-plus-transfer` -/
+
+-- `TauCeti.KTheory.pi1_plus_construction` (`KTheoryLowDegrees:U.6/pi1-plus-construction`): not
+-- stated here; needs the classifying space `BGL(A)`, a plus construction `BGL(A)⁺` relative to
+-- `E(A)` and `π₁` of the result as a group with the map `K₁(A) ≃* π₁BGL(A)⁺` (supplier:
+-- `StableHomotopyKTheory:H.1/nerve-and-classifying-space`,
+-- `StableHomotopyKTheory:H.3/plus-construction-by-cell-attachment`,
+-- `StableHomotopyKTheory:H.3/plus-construction-universal-property`,
+-- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`). Suggested form, once they exist:
+-- `K1.equivPiOnePlus A : K1 A ≃* π₁ (BGL⁺ A)`, natural in `A` via `K1.map`.
+
+-- `TauCeti.KTheory.pi1_plus_determinant` (`KTheoryLowDegrees:U.6/pi1-plus-determinant`): not
+-- stated here; needs `BGL(A)⁺`, `B(Aˣ)` and the factorisation `BGL(A)⁺ → B(Aˣ)` of `B det`
+-- (supplier: `StableHomotopyKTheory:H.1/nerve-and-classifying-space`,
+-- `StableHomotopyKTheory:H.3/plus-construction-universal-property`). Suggested form: the induced
+-- map on `π₁` composed with `K1.equivPiOnePlus A` is `K1.det A`.
+
+-- `TauCeti.KTheory.pi1_plus_transfer` (`KTheoryLowDegrees:U.6/pi1-plus-transfer`): not stated
+-- here; needs `BGL(A)⁺`, the map `Bρ⁺ : BGL(B)⁺ → BGL(A)⁺` of the restriction `ρ : GL(B) → GL(A)`
+-- and `π₁` (supplier: `StableHomotopyKTheory:H.3/plus-construction-universal-property`).
+-- Suggested form: the induced map on `π₁`, read through `K1.equivPiOnePlus`, is `K1.transfer f hf`
+-- of U.5.
+
+end TauCeti.KTheory
+
+namespace TauCeti.RelativeK1
+
+-- `TauCeti.RelativeK1.relative_K1_homotopy_comparison`
+-- (`KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`): explicit proof gap; needs the K-theory
+-- spaces `K(A)`, the homotopy fibre `K(A, I)` of `K(A) → K(A/I)` and its homotopy groups `π₀`, `π₁`
+-- (supplier: `GeneralAlgebraicKTheory:K.5/relative-K-theory` for the fibre,
+-- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`,
+-- `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`; the proof also needs
+-- `K2SymbolsBrauer:T.1` and `T.6`, an actual relative-plus/excision-defect argument,
+-- and the degree-two boundary comparison). Suggested form: `RelK1 I ≃* π₁ (K(A, I))` and
+-- `RelativeK0.RelK0 I ≃+ π₀ (K(A, I))`, compatible with `RelK1.toK1` and `RelativeK0.RelK0.toK0`.
+
+end TauCeti.RelativeK1
+
+namespace TauCeti.KTheory
+
+/-! ### `U.6/euclidean-elementary-generation`, `U.6/localised-integers-euclidean` -/
+
+/-- `KTheoryLowDegrees:U.6/euclidean-elementary-generation`: let `R` be a commutative ring with a
+Euclidean division, i.e. a well-founded relation `rel` such that for all `x` and all `y ≠ 0` there
+are `q, ρ` with `x = q * y + ρ` and `ρ = 0 ∨ rel ρ y` (a `Prop`, so no new `EuclideanDomain`
+instance is needed; every Mathlib `EuclideanDomain` has one,
+`euclideanDivision_of_euclideanDomain`). Then `SL_n(R) = E_n(R)` for every `n`; hence
+`SL(R) = E(R)`, `SK₁(R) = 0` and `det : K₁(R) ≅ Rˣ`. For `R = ℤ` this is Tau Ceti's
+`Matrix.SpecialLinearGroup.closure_range_toSpecialLinearGroup_eq_top`. -/
+theorem euclidean_elementary_generation (R : Type u) [CommRing R] (rel : R → R → Prop)
+    (hrel : WellFounded rel)
+    (hdiv : ∀ x y : R, y ≠ 0 → ∃ q ρ, x = q * y + ρ ∧ (ρ = 0 ∨ rel ρ y)) :
+    (∀ n : ℕ, (Matrix.SpecialLinearGroup.toGL : Matrix.SpecialLinearGroup (Fin n) R →* GL (Fin n)
+        R).range =
+      elementarySubgroup (Fin n) R) ∧
+      StableGL.specialLinear R = StableGL.elementary R ∧ SK1 R = ⊥ ∧
+      Function.Bijective (K1.det R) := by
+  sorry
+
+/-- Every Mathlib `EuclideanDomain` has a Euclidean division in the sense of
+`euclidean_elementary_generation`, for its relation `EuclideanDomain.r` (helper, a real proof:
+`EuclideanDomain.r_wellFounded`, `div_add_mod'` and `mod_lt`). -/
+theorem euclideanDivision_of_euclideanDomain (R : Type u) [EuclideanDomain R] :
+    WellFounded (EuclideanDomain.r : R → R → Prop) ∧
+      ∀ x y : R, y ≠ 0 → ∃ q ρ, x = q * y + ρ ∧ (ρ = 0 ∨ EuclideanDomain.r ρ y) :=
+  ⟨EuclideanDomain.r_wellFounded, fun x y hy =>
+    ⟨x / y, x % y, (EuclideanDomain.div_add_mod' x y).symm, Or.inr (EuclideanDomain.mod_lt x hy)⟩⟩
+
+-- Not a packet test: `euclidean_elementary_generation` applies to any Mathlib `EuclideanDomain`.
+example (R : Type u) [EuclideanDomain R] : SK1 R = ⊥ :=
+  (euclidean_elementary_generation R _ (euclideanDivision_of_euclideanDomain R).1
+    (euclideanDivision_of_euclideanDomain R).2).2.2.1
+
+/-- `KTheoryLowDegrees:U.6/localised-integers-euclidean`: for `m ≥ 1`, `ℤ[1/m]` (Mathlib's
+`Localization.Away (m : ℤ)`) has a Euclidean division in the sense of
+`euclidean_elementary_generation` for the relation `φ x < φ y`, where `φ 0 = 0` and `φ (u·a) = |a|`
+for `u` a unit and `a` coprime to `m`. -/
+theorem localised_integers_euclidean (m : ℕ) (hm : 1 ≤ m) :
+    ∃ φ : Localization.Away (m : ℤ) → ℕ, φ 0 = 0 ∧
+      (∀ (u : (Localization.Away (m : ℤ))ˣ) (a : ℤ), a ≠ 0 → IsCoprime a (m : ℤ) →
+        φ (u * algebraMap ℤ _ a) = a.natAbs) ∧
+      WellFounded (fun x y : Localization.Away (m : ℤ) => φ x < φ y) ∧
+      ∀ x y : Localization.Away (m : ℤ), y ≠ 0 →
+        ∃ q r, x = q * y + r ∧ (r = 0 ∨ φ r < φ y) := by
+  sorry
+
+/-! ### `U.6/K1-integers`, `U.6/K1-finite-field` -/
+
+/-- `KTheoryLowDegrees:U.6/K1-integers`: `det : K₁(ℤ) ≅ {±1}`, `SK₁(ℤ) = 0`; the class of
+`(-1) ∈ GL₁(ℤ)` generates, and `diag(-1, -1)` has trivial class. -/
+theorem k1_integers :
+    Function.Bijective (K1.det ℤ) ∧ SK1 ℤ = ⊥ ∧ Nat.card (K1 ℤ) = 2 ∧
+      K1.ofUnits ℤ (-1) ≠ 1 ∧ (∀ x : K1 ℤ, x = 1 ∨ x = K1.ofUnits ℤ (-1)) ∧
+      K1.of 2 (diagUnit ![-1, -1] : GL (Fin 2) ℤ) = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.6/K1-finite-field`: `det : K₁(𝔽_q) ≅ 𝔽_qˣ`, cyclic of order `q - 1`; and in
+each rank `n ≥ 1`, `SL_n(𝔽_q) = E_n(𝔽_q)` and `GL_n(𝔽_q) → K₁(𝔽_q)` is onto with kernel
+`SL_n(𝔽_q)`. -/
+theorem k1_finite_field (F : Type u) [Field F] [Fintype F] :
+    Function.Bijective (K1.det F) ∧ IsCyclic (K1 F) ∧ Nat.card (K1 F) = Fintype.card F - 1 ∧
+      ∀ n : ℕ, 1 ≤ n →
+        (Matrix.SpecialLinearGroup.toGL : Matrix.SpecialLinearGroup (Fin n) F →* GL (Fin n)
+            F).range =
+          elementarySubgroup (Fin n) F ∧
+        Function.Surjective (K1.of n : GL (Fin n) F →* K1 F) ∧
+        (K1.of n : GL (Fin n) F →* K1 F).ker = (Matrix.GeneralLinearGroup.det).ker := by
+  sorry
+
+/-! ### `U.6/units-of-integers-away-from-p`, `U.6/K1-integers-away-from-p` -/
+
+/-- `p` as a unit of `ℤ[1/p]` (helper, a real definition). -/
+def unitAway (p : ℕ) : (Localization.Away (p : ℤ))ˣ :=
+  (IsLocalization.Away.algebraMap_isUnit (p : ℤ)).unit
+
+/-- `KTheoryLowDegrees:U.6/units-of-integers-away-from-p`: `ℤ[1/p]ˣ = {±pᵏ}`, and
+`(sign, v_p) : ℤ[1/p]ˣ ≃* {±1} × ℤ`. -/
+theorem units_of_integers_away_from_p (p : ℕ) [Fact p.Prime] :
+    (∀ u : (Localization.Away (p : ℤ))ˣ, ∃ (ε : ℤˣ) (k : ℤ),
+      u = Units.map (algebraMap ℤ (Localization.Away (p : ℤ))).toMonoidHom ε * unitAway p ^ k) ∧
+      ∃ e : (Localization.Away (p : ℤ))ˣ ≃* ℤˣ × Multiplicative ℤ,
+        e (-1) = (-1, 1) ∧ e (unitAway p) = (1, Multiplicative.ofAdd 1) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.6/K1-integers-away-from-p`: `det : K₁(ℤ[1/p]) ≅ {±1} × p^ℤ ≅ ℤ/2 ⊕ ℤ`,
+`SK₁(ℤ[1/p]) = 0`; `[-1]` generates the torsion and `[p]` the free part. The first two parts are
+`euclidean_elementary_generation` applied to `localised_integers_euclidean` (proved so below). -/
+theorem k1_integers_away_from_p (p : ℕ) [Fact p.Prime] :
+    Function.Bijective (K1.det (Localization.Away (p : ℤ))) ∧ SK1 (Localization.Away (p : ℤ)) = ⊥ ∧
+      ∃ e : K1 (Localization.Away (p : ℤ)) ≃* ℤˣ × Multiplicative ℤ,
+        e (K1.ofUnits _ (-1)) = (-1, 1) ∧
+            e (K1.ofUnits _ (unitAway p)) = (1, Multiplicative.ofAdd 1) := by
+  obtain ⟨φ, -, -, hwf, hdiv⟩ := localised_integers_euclidean p (Fact.out : p.Prime).one_lt.le
+  obtain ⟨-, -, hSK1, hdet⟩ := euclidean_elementary_generation _ _ hwf hdiv
+  refine ⟨hdet, hSK1, ?_⟩
+  sorry
+
+/-! ### `U.6/K1-product-of-fields` -/
+
+/-- `KTheoryLowDegrees:U.6/K1-product-of-fields`: `K₁(F₁ × ⋯ × F_r) ≅ F₁ˣ × ⋯ × F_rˣ`, by the two
+routes `U.2/K1-pi` + `det` factorwise and `det` of the semilocal product with `MulEquiv.piUnits`,
+which agree. -/
+theorem k1_product_of_fields {ι : Type} [Finite ι] (F : ι → Type u) [∀ i, Field (F i)] :
+    ∃ e : K1 (∀ i, F i) ≃* ∀ i, (F i)ˣ,
+      (∀ x, e x = fun i => K1.det (F i) (K1.map (Pi.evalRingHom F i) x)) ∧
+        ∀ x, e x = MulEquiv.piUnits (K1.det (∀ i, F i) x) := by
+  sorry
+
+/-! ### `U.6/triangular-determinant-class`, `U.6/diagonal-inverse-pair-test` -/
+
+/-- `KTheoryLowDegrees:U.6/triangular-determinant-class`: for commutative `A` and `g ∈ GL_n(A)`
+upper or lower triangular, the diagonal entries are units, `det g = ∏ gᵢᵢ`, and `[g] = [det g]` is
+the class of a unit (Tau Ceti's `Matrix.BlockTriangular.det_eq_prod_diag`). -/
+theorem triangular_determinant_class {A : Type u} [CommRing A] {n : ℕ} (g : GL (Fin n) A)
+    (hg : (g : Matrix (Fin n) (Fin n) A).BlockTriangular id ∨
+      (g : Matrix (Fin n) (Fin n) A).BlockTriangular OrderDual.toDual) :
+    (∀ i, IsUnit ((g : Matrix (Fin n) (Fin n) A) i i)) ∧
+      ((Matrix.GeneralLinearGroup.det g : Aˣ) : A) = ∏ i, (g : Matrix (Fin n) (Fin n) A) i i ∧
+      K1.of n g = K1.ofUnits A (Matrix.GeneralLinearGroup.det g) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.6/diagonal-inverse-pair-test`: `diag(g, g⁻¹) ∈ E_{2n}(A)` with trivial
+class, while `[diag(g, 1)] = [g]`; over `ℤ`, `[diag(-1, -1)] = 1 ≠ [diag(-1, 1)]`; and for
+commutative `R`, `diag(a, a⁻¹)` (Tau Ceti's `diag2nUnit`) lies in `E₂(R)`. -/
+theorem diagonal_inverse_pair_test {A : Type u} [Ring A] {n : ℕ} (g : GL (Fin n) A) :
+    blockSum (g, g⁻¹) ∈ elementarySubgroup (Fin (n + n)) A ∧
+      K1.of (n + n) (blockSum (g, g⁻¹)) = 1 ∧ K1.of (n + n) (blockSum (g, 1)) = K1.of n g ∧
+      K1.of 2 (diagUnit ![-1, -1] : GL (Fin 2) ℤ) = 1 ∧
+      K1.of 2 (diagUnit ![-1, 1] : GL (Fin 2) ℤ) ≠ 1 ∧
+      ∀ (R : Type u) [CommRing R] (a : Rˣ),
+        Matrix.SpecialLinearGroup.toGL
+            (Matrix.SpecialLinearGroup.diag2nUnit (by decide : (0 : Fin 2) ≠ 1) a) ∈
+          elementarySubgroup (Fin 2) R := by
+  sorry
+
+/-! ### `U.6/uniformiser-boundary-one` -/
+
+/-- `KTheoryLowDegrees:U.6/uniformiser-boundary-one`: `∂(π) = [k] ↦ 1` under `K₀(k) ≅ ℤ`, and
+`∂(uπ) = 1` for every unit `u`, so the value does not depend on the uniformiser. -/
+theorem uniformiser_boundary_one (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    (L : Type u) [Field L] [Algebra O L] [IsFractionRing O L] (π : O) (hπ : Irreducible π)
+    (u : Oˣ) :
+    RingK0.divisionRingEquiv (IsLocalRing.ResidueField O)
+        (K1.dvrBoundary O L (Additive.ofMul (K1.ofUnits L (Units.mk0 (algebraMap O L π)
+          ((map_ne_zero_iff _ (IsFractionRing.injective O L)).mpr hπ.ne_zero))))) = 1 ∧
+      RingK0.divisionRingEquiv (IsLocalRing.ResidueField O)
+        (K1.dvrBoundary O L (Additive.ofMul (K1.ofUnits L (Units.mk0 (algebraMap O L (u * π))
+          ((map_ne_zero_iff _ (IsFractionRing.injective O L)).mpr
+            (mul_ne_zero u.ne_zero hπ.ne_zero)))))) = 1 := by
+  sorry
+
+end TauCeti.KTheory
+
+/-! ### Real-circle Dedekind property: the actual quotient and two affine charts
+
+These abbreviations are notation for existing localization carriers.
+All proof bodies in this continuation are planning placeholders.
+-/
+noncomputable section
+namespace TauCeti.KTheory
+open Polynomial
+
+theorem circleRelation_irreducible :
+    Irreducible ((MvPolynomial.X 0 : MvPolynomial (Fin 2) ℝ) ^ 2 +
+      MvPolynomial.X 1 ^ 2 - 1) := by sorry
+
+theorem circleRing_isDomain : IsDomain CircleRing := by sorry
+attribute [instance] circleRing_isDomain
+
+abbrev CircleChartSource (σ : ℝ) :=
+  Localization.Away (1 + algebraMap ℝ CircleRing σ * circleX)
+
+abbrev CircleChartTarget := Localization.Away (1 + (Polynomial.X : Polynomial ℝ) ^ 2)
+
+def circleChart (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    CircleChartSource σ ≃ₐ[ℝ] CircleChartTarget := by sorry
+
+theorem circleChart_x (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    circleChart σ hσ (algebraMap CircleRing (CircleChartSource σ) circleX) =
+      algebraMap ℝ CircleChartTarget σ *
+        (1 - (algebraMap (Polynomial ℝ) CircleChartTarget Polynomial.X) ^ 2) *
+          IsLocalization.Away.invSelf (S := CircleChartTarget)
+            (1 + (Polynomial.X : Polynomial ℝ) ^ 2) := by sorry
+
+theorem circleChart_y (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    circleChart σ hσ (algebraMap CircleRing (CircleChartSource σ) circleY) =
+      2 * algebraMap (Polynomial ℝ) CircleChartTarget Polynomial.X *
+        IsLocalization.Away.invSelf (S := CircleChartTarget)
+          (1 + (Polynomial.X : Polynomial ℝ) ^ 2) := by sorry
+
+theorem circleChart_inv (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    circleChart σ hσ (IsLocalization.Away.invSelf (S := CircleChartSource σ)
+      (1 + algebraMap ℝ CircleRing σ * circleX)) =
+        algebraMap ℝ CircleChartTarget (1 / 2) *
+          algebraMap (Polynomial ℝ) CircleChartTarget (1 + Polynomial.X ^ 2) := by sorry
+
+theorem circleChart_symm_t (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    (circleChart σ hσ).symm (algebraMap (Polynomial ℝ) CircleChartTarget Polynomial.X) =
+      algebraMap CircleRing (CircleChartSource σ) circleY *
+        IsLocalization.Away.invSelf (S := CircleChartSource σ)
+          (1 + algebraMap ℝ CircleRing σ * circleX) := by sorry
+
+theorem circleChart_symm_inv (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    (circleChart σ hσ).symm (IsLocalization.Away.invSelf (S := CircleChartTarget)
+      (1 + (Polynomial.X : Polynomial ℝ) ^ 2)) =
+        algebraMap ℝ (CircleChartSource σ) (1 / 2) *
+          algebraMap CircleRing (CircleChartSource σ) (1 + algebraMap ℝ CircleRing σ * circleX) := by sorry
+
+theorem circleChart_C (σ : ℝ) (hσ : σ ^ 2 = 1) (a : ℝ) :
+    circleChart σ hσ (algebraMap ℝ (CircleChartSource σ) a) =
+      algebraMap ℝ CircleChartTarget a := by sorry
+
+theorem circleChart_ext (σ : ℝ)
+    (f g : CircleChartSource σ →ₐ[ℝ] CircleChartTarget)
+    (hx : f (algebraMap CircleRing (CircleChartSource σ) circleX) =
+      g (algebraMap CircleRing (CircleChartSource σ) circleX))
+    (hy : f (algebraMap CircleRing (CircleChartSource σ) circleY) =
+      g (algebraMap CircleRing (CircleChartSource σ) circleY)) : f = g := by sorry
+
+-- circleChart_zero_test
+example :
+    let e := IsLocalization.Away.lift (S := CircleChartTarget)
+      (1 + (Polynomial.X : Polynomial ℝ) ^ 2)
+      (g := Polynomial.evalRingHom (0 : ℝ)) (by sorry)
+    (e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleX)) = 1 ∧
+      e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleY)) = 0) ∧
+    (e (circleChart (-1) (by sorry) (algebraMap CircleRing (CircleChartSource (-1)) circleX)) = -1 ∧
+      e (circleChart (-1) (by sorry) (algebraMap CircleRing (CircleChartSource (-1)) circleY)) = 0) := by sorry
+
+-- circleChart_one_test
+example :
+    let e := IsLocalization.Away.lift (S := CircleChartTarget)
+      (1 + (Polynomial.X : Polynomial ℝ) ^ 2)
+      (g := Polynomial.evalRingHom (1 : ℝ)) (by sorry)
+    e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleX)) = 0 ∧
+      e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleY)) = 1 := by sorry
+
+-- circleChart_inverse_test
+example (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    (circleChart σ hσ).symm
+      (circleChart σ hσ (algebraMap CircleRing (CircleChartSource σ) (circleX + circleY))) =
+        algebraMap CircleRing (CircleChartSource σ) (circleX + circleY) := by sorry
+
+-- circleChart_bad_scale_test
+example : (0 : ℝ) ^ 2 + (1 / 2 : ℝ) ^ 2 ≠ 1 := by sorry
+
+theorem circleChart_cover (𝔭 : Ideal CircleRing) [𝔭.IsPrime] :
+    1 + circleX ∉ 𝔭 ∨ 1 - circleX ∉ 𝔭 := by sorry
+
+theorem circleRing_local_dedekind (𝔭 : Ideal CircleRing) [𝔭.IsPrime] :
+    IsDedekindDomain (Localization.AtPrime 𝔭) := by sorry
+
+theorem circleRing_integrallyClosed : IsIntegrallyClosed CircleRing := by sorry
+
+theorem circleRing_dimensionLEOne : Ring.KrullDimLE 1 CircleRing := by sorry
+
+theorem circleRing_dedekind : IsDedekindDomain CircleRing := by sorry
+
+-- circleRing_dedekind_test
+example : IsNoetherianRing CircleRing ∧ IsDomain CircleRing ∧ IsIntegrallyClosed CircleRing := by sorry
+
+end TauCeti.KTheory
+
+/-! ## October 2026 continuation: the native Morita square and elementary cofinality
+
+The exactness hypotheses below are supplied by the pinned
+`finiteProjectiveModulesExactStructure_eq_split` and `isConflationExact_split`.
+The congruence lemmas use Mathlib's existing determinant-one transvections;
+they introduce neither a second elementary group nor a congruence completion.
+-/
+
+namespace TauCeti.RingK0
+
+variable {A B : Type u} [Ring A] [Ring B]
+
+/-- `Z.1/morita-split-exact-square`: the ring Morita map agrees with the canonical
+exact Grothendieck-group map, under the native split-to-exact comparison. -/
+theorem morita_split_exact_square (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (hF : (finiteProjectiveModulesExactStructure A).IsConflationExact
+      (finiteProjectiveModulesExactStructure B) (finiteProjectiveEquivalence E).functor)
+    (hG : (finiteProjectiveModulesExactStructure B).IsConflationExact
+      (finiteProjectiveModulesExactStructure A) (finiteProjectiveEquivalence E).inverse) :
+    (ofEquivalence E).trans (toExactK0 B) =
+      (toExactK0 A).trans (ExactK0.mapEquiv (finiteProjectiveEquivalence E) hF hG) := by
+  sorry
+
+-- The finite-dimensional special case uses exactly the same two native carriers.
+-- morita_split_exact_matrix_test
+example (k : Type u) [Field k] :
+    let E := ModuleCat.matrixEquivalence k (0 : Fin 2)
+    let hF : (finiteProjectiveModulesExactStructure k).IsConflationExact
+      (finiteProjectiveModulesExactStructure (Matrix (Fin 2) (Fin 2) k))
+      (finiteProjectiveEquivalence E).functor := by
+      simpa only [finiteProjectiveModulesExactStructure_eq_split] using
+        ExactStructure.isConflationExact_split (finiteProjectiveEquivalence E).functor
+    let hG : (finiteProjectiveModulesExactStructure (Matrix (Fin 2) (Fin 2) k)).IsConflationExact
+      (finiteProjectiveModulesExactStructure k) (finiteProjectiveEquivalence E).inverse := by
+      simpa only [finiteProjectiveModulesExactStructure_eq_split] using
+        ExactStructure.isConflationExact_split (finiteProjectiveEquivalence E).inverse
+    (ofEquivalence E).trans (toExactK0 (Matrix (Fin 2) (Fin 2) k)) =
+      (toExactK0 k).trans (ExactK0.mapEquiv (finiteProjectiveEquivalence E) hF hG) := by
+  sorry
+
+-- morita_split_exact_class_test: normalization on actual object classes, not on [A].
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (hF : (finiteProjectiveModulesExactStructure A).IsConflationExact
+      (finiteProjectiveModulesExactStructure B) (finiteProjectiveEquivalence E).functor)
+    (hG : (finiteProjectiveModulesExactStructure B).IsConflationExact
+      (finiteProjectiveModulesExactStructure A) (finiteProjectiveEquivalence E).inverse)
+    (P : (finiteProjectiveModules A).FullSubcategory) :
+    ExactK0.mapEquiv (finiteProjectiveEquivalence E) hF hG
+      (toExactK0 A (SplitK0.of P)) =
+        ExactK0.of ((finiteProjectiveEquivalence E).functor.obj P) := by
+  sorry
+
+end TauCeti.RingK0
+
+namespace TauCeti.KTheory
+
+variable {R : Type u} [CommRing R] {n : ℕ}
+
+/-- `U.4/normal-sl-root-membership`: signed elementary permutations transport
+the membership test between ordered roots in a normal SL subgroup. -/
+theorem normal_sl_root_membership (hn : 3 ≤ n)
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal]
+    (i j k l : Fin n) (hij : i ≠ j) (hkl : k ≠ l) (a : R) :
+    Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔
+      Matrix.SpecialLinearGroup.transvection hkl a ∈ N := by
+  sorry
+
+/-- `U.4/normal-sl-root-level`: all root subgroups cut out the same ideal in a
+normal subgroup of `SL_n(R)`, for `n ≥ 3`. -/
+theorem normal_sl_root_level (hn : 3 ≤ n)
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal] :
+    ∃ I : Ideal R, ∀ (i j : Fin n) (hij : i ≠ j) (a : R),
+      Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔ a ∈ I := by
+  sorry
+
+/-- `U.4/finite-index-root-level-nonzero`: an infinite coefficient ring prevents
+the common root ideal of a finite-index normal subgroup from being zero. -/
+theorem finite_index_root_level_ne_bot [Infinite R] (hn : 3 ≤ n)
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal] [N.FiniteIndex]
+    (I : Ideal R)
+    (hI : ∀ (i j : Fin n) (hij : i ≠ j) (a : R),
+      Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔ a ∈ I) : I ≠ ⊥ := by
+  sorry
+
+/-- `U.4/root-level-contains-relative-elementary`: the relative group here is
+the existing `U.5` closure of conjugates by `E_n(R)`. -/
+theorem root_level_contains_relative_elementary
+    (N : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [N.Normal] (I : Ideal R)
+    (hI : ∀ (i j : Fin n) (hij : i ≠ j) (a : R),
+      Matrix.SpecialLinearGroup.transvection hij a ∈ N ↔ a ∈ I) :
+    (RelativeK1.relElementary (Fin n) I).comap Matrix.SpecialLinearGroup.toGL ≤ N := by
+  sorry
+
+/-- `U.4/finite-index-elementary-cofinality`: the algebraic first step of BMS
+Theorem 14.1. This does not assert containment of a principal congruence subgroup. -/
+theorem finite_index_contains_relative_elementary [Infinite R] (hn : 3 ≤ n)
+    (H : Subgroup (Matrix.SpecialLinearGroup (Fin n) R)) [H.FiniteIndex] :
+    ∃ I : Ideal R, I ≠ ⊥ ∧
+      (RelativeK1.relElementary (Fin n) I).comap Matrix.SpecialLinearGroup.toGL ≤ H := by
+  sorry
+
+-- root_level_principal_congruence_test
+example (I : Ideal ℤ) (i j : Fin 3) (hij : i ≠ j) (a : ℤ) :
+    Matrix.SpecialLinearGroup.transvection hij a ∈
+      (RelativeK1.congruenceSubgroup (Fin 3) I).comap Matrix.SpecialLinearGroup.toGL ↔
+        a ∈ I := by
+  sorry
+
+-- finite_index_elementary_finite_ring_control: the Infinite hypothesis is needed.
+example : ¬ ∃ I : Ideal (ZMod 2), I ≠ ⊥ ∧
+    (RelativeK1.relElementary (Fin 3) I).comap Matrix.SpecialLinearGroup.toGL ≤
+      (⊥ : Subgroup (Matrix.SpecialLinearGroup (Fin 3) (ZMod 2))) := by
+  sorry
+
+end TauCeti.KTheory
+
+
+/-! ## Kubota continuation (Codex codex-Px3FlU)
+Uses the actual inherited carriers and definitions. Proofs remain placeholders;
+this section does not assume multiplicativity of its initially defined value. -/
+
+namespace TauCeti.MennickeSymbol
+
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I J : Ideal A}
+variable {C : Type v} [Group C] {D : Type w} [Group D]
+
+
+/-- Restriction of the inherited congruence kernel along ideal inclusion. -/
+def levelInclusion (h : J ≤ I) : congruenceSubgroup (Fin 2) J →* congruenceSubgroup (Fin 2) I where
+  toFun g := ⟨g.val, by sorry⟩
+  map_one' := by rfl
+  map_mul' _ _ := by rfl
+
+/-- Packaging the native normal-kernel conjugation, with no new matrix formula. -/
+def levelConjugate (τ : GL (Fin 2) A) (g : congruenceSubgroup (Fin 2) I) : congruenceSubgroup (Fin 2) I :=
+  ⟨τ * g.val * τ⁻¹, by sorry⟩
+
+/-- `KTheoryLowDegrees:U.4/relative-first-row-completion`. -/
+theorem relative_first_row_completion {a b : A} (h : (a,b) ∈ W I) :
+    ∃ g : Matrix.SpecialLinearGroup (Fin 2) A,
+      Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I ∧ g 0 0 = a ∧ g 0 1 = b := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-first-row-fibre`. -/
+theorem relative_first_row_fibre (g h : congruenceSubgroup (Fin 2) I)
+    (hrow : (g.val 0 0, g.val 0 1) = (h.val 0 0, h.val 0 1)) :
+    ∃ t : A, ∃ u : Aˣ, t ∈ I ∧ (u : A) - 1 ∈ I ∧
+      ((h.val * g.val⁻¹ : GL (Fin 2) A) : Matrix (Fin 2) (Fin 2) A) =
+        !![1, 0; t, (u : A)] ∧
+      (Matrix.GeneralLinearGroup.det g.val = 1 →
+        Matrix.GeneralLinearGroup.det h.val = 1 → u = 1) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-first-row-map`: actual first-row data. -/
+def firstRow (g : congruenceSubgroup (Fin 2) I) : W I :=
+  ⟨(g.val 0 0, g.val 0 1), by sorry⟩
+
+@[simp] theorem firstRow_apply (g : congruenceSubgroup (Fin 2) I) :
+    (firstRow g).val = (g.val 0 0, g.val 0 1) := rfl
+
+theorem firstRow_surjective : Function.Surjective (firstRow (I := I)) := by
+  sorry
+
+theorem firstRow_restrict (h : J ≤ I) (g : congruenceSubgroup (Fin 2) J) :
+    (firstRow (levelInclusion h g)).val = (firstRow g).val := rfl
+
+-- test firstRow_bot_test
+example (g : congruenceSubgroup (Fin 2) (⊥ : Ideal A)) : (firstRow g).val = (1,0) := by
+  sorry
+
+-- test firstRow_integer_level_test
+example : ∃ g : Matrix.SpecialLinearGroup (Fin 2) ℤ,
+    (g : Matrix (Fin 2) (Fin 2) ℤ) = !![5,2;12,5] ∧
+      ∃ h : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}),
+        (firstRow ⟨Matrix.SpecialLinearGroup.toGL g, h⟩).val = (5,2) := by
+  sorry
+
+-- test firstRow_level_control_test
+example : IsCoprime (3 : ℤ) 2 ∧
+    ¬ ((3 : ℤ), (2 : ℤ)) ∈ W (Ideal.span {(4 : ℤ)}) := by
+  sorry
+
+-- test firstRow_native_row_test
+example (g : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I) :
+    (firstRow ⟨Matrix.SpecialLinearGroup.toGL g,hg⟩).property.2.2 =
+      Matrix.SpecialLinearGroup.isCoprime_row g 0 := by
+  rfl
+
+/-- `KTheoryLowDegrees:U.4/kubota-value`: a function, not yet a homomorphism. -/
+def kubotaValue (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) I) : C := s.toFun (firstRow g)
+
+theorem kubotaValue_one (s : MennickeSymbol A I C) : kubotaValue s 1 = 1 := by
+  sorry
+
+theorem kubotaValue_comp (s : MennickeSymbol A I C) (φ : C →* D) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue (s.comp φ) g = φ (kubotaValue s g) := rfl
+
+theorem kubotaValue_restrict (h : J ≤ I) (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) J) :
+    kubotaValue (s.restrict h) g = kubotaValue s (levelInclusion h g) := rfl
+
+theorem kubotaValue_diagonal (s : MennickeSymbol A I C) (u v : Aˣ)
+    (hd : diagUnit ![u,v] ∈ congruenceSubgroup (Fin 2) I) : kubotaValue s ⟨diagUnit ![u,v],hd⟩ = 1 := by
+  sorry
+
+-- test kubotaValue_one_test
+example (s : MennickeSymbol A I C) : kubotaValue s 1 = 1 := kubotaValue_one s
+
+-- test kubotaValue_integer_diagonal_test
+example (s : MennickeSymbol ℤ (Ideal.span {(2 : ℤ)}) C) :
+    ∃ h : (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}),
+      kubotaValue s ⟨diagUnit ![-1,1],h⟩ = 1 ∧
+        Matrix.GeneralLinearGroup.det (diagUnit ![-1,1] : GL (Fin 2) ℤ) = -1 := by
+  sorry
+
+-- test kubotaValue_first_row_test
+example (s : MennickeSymbol A I C) (g h : congruenceSubgroup (Fin 2) I)
+    (hr : (firstRow g).val = (firstRow h).val) : kubotaValue s g = kubotaValue s h := by
+  exact congrArg s.toFun (Subtype.ext hr)
+
+-- test kubotaValue_comp_test
+example (s : MennickeSymbol A I C) (φ : C →* D) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue (s.comp φ) g = φ (kubotaValue s g) := kubotaValue_comp s φ g
+
+variable [IsDedekindDomain A]
+
+/-- `KTheoryLowDegrees:U.4/mennicke-kervaire-reciprocity`. -/
+theorem mennicke_kervaire_reciprocity (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    {a d q : A} (hq : q ∈ I) (ha : a-1 ∈ Ideal.span {q})
+    (hd : d-1 ∈ Ideal.span {q}) (had : IsCoprime a d)
+    (h₁ : (d,a*q) ∈ W I) (h₂ : (a,d*q) ∈ W I) :
+    s.toFun ⟨(d,a*q),h₁⟩ = s.toFun ⟨(a,d*q),h₂⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-denominator-common-level`. -/
+theorem mennicke_denominator_common_level (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    {a₁ a₂ b q : A} (hq : q ∈ I) (ha₁ : a₁-1 ∈ Ideal.span {q})
+    (ha₂ : a₂-1 ∈ Ideal.span {q})
+    (h₁ : (a₁,b) ∈ W I) (h₂ : (a₂,b) ∈ W I) (h : (a₁*a₂,b) ∈ W I) :
+    s.toFun ⟨(a₁*a₂,b),h⟩ = s.toFun ⟨(a₁,b),h₁⟩ * s.toFun ⟨(a₂,b),h₂⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/mennicke-denominator-multiplication`. -/
+theorem mennicke_denominator_multiplication (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    {a₁ a₂ b : A} (h₁ : (a₁,b) ∈ W I) (h₂ : (a₂,b) ∈ W I)
+    (h : (a₁*a₂,b) ∈ W I) :
+    s.toFun ⟨(a₁*a₂,b),h⟩ = s.toFun ⟨(a₁,b),h₁⟩ * s.toFun ⟨(a₂,b),h₂⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-opposite-row`. -/
+theorem kubota_opposite_row (hI : I ≠ ⊥) (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) I) :
+    ∃ hr : (g.val 1 1,g.val 1 0) ∈ W I,
+      kubotaValue s g = s.toFun ⟨(g.val 1 1,g.val 1 0),hr⟩ ∧
+      ∀ h : congruenceSubgroup (Fin 2) I, (h.val : Matrix (Fin 2) (Fin 2) A) =
+          (g.val : Matrix (Fin 2) (Fin 2) A).transpose →
+        kubotaValue s h = (kubotaValue s g)⁻¹ := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-elementary-conjugation`. -/
+theorem kubota_elementary_conjugation (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (τ : GL (Fin 2) A) (hτ : τ ∈ elementarySubgroup (Fin 2) A) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (levelConjugate τ g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-diagonal-conjugation`. -/
+theorem kubota_diagonal_conjugation (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (u v : Aˣ) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (levelConjugate (diagUnit ![u,v]) g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-relative-elementary-invariance`. -/
+theorem kubota_relative_elementary_invariance (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (ε : GL (Fin 2) A) (hε : ε ∈ relElementary (Fin 2) I) :
+    ∃ hi : ε ∈ congruenceSubgroup (Fin 2) I, ∀ g : congruenceSubgroup (Fin 2) I,
+      kubotaValue s (g * ⟨ε,hi⟩) = kubotaValue s g ∧
+        kubotaValue s (⟨ε,hi⟩ * g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-relative-diagonal-invariance`. -/
+theorem kubota_relative_diagonal_invariance (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (u v : Aˣ) (hd : diagUnit ![u,v] ∈ congruenceSubgroup (Fin 2) I) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (g * ⟨diagUnit ![u,v],hd⟩) = kubotaValue s g ∧
+      kubotaValue s (⟨diagUnit ![u,v],hd⟩ * g) = kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-conditional-multiplication`: order is g′g. -/
+theorem kubota_conditional_multiplication (hI : I ≠ ⊥) (s : MennickeSymbol A I C)
+    (g g' : congruenceSubgroup (Fin 2) I) {q : A} (hq : q ∈ I)
+    (hd : g.val 1 1-1 ∈ Ideal.span {q}) (ha' : g'.val 0 0-1 ∈ Ideal.span {q})
+    (hcop : IsCoprime (g.val 1 1) (g'.val 0 0)) :
+    kubotaValue s (g' * g) = kubotaValue s g' * kubotaValue s g := by
+  sorry
+
+end TauCeti.MennickeSymbol
+
+namespace TauCeti.MennickeSymbol
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I J : Ideal A}
+
+/-- `KTheoryLowDegrees:U.4/relative-unit-diagonal-elementary` (no Dedekind assumption). -/
+theorem relative_unit_diagonal_elementary (u : Aˣ) (hu : (u : A)-1 ∈ I) :
+    diagUnit ![u,u⁻¹] ∈ relElementary (Fin 2) I := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-stable-range-one-sl2`. -/
+theorem relative_stable_range_one_sl2 (hsr : HasStableRange A 1)
+    (g : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I) :
+    Matrix.SpecialLinearGroup.toGL g ∈ relElementary (Fin 2) I := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/relative-elementary-quotient-lifting`. -/
+theorem relative_elementary_quotient_lifting (hJI : J ≤ I)
+    (hsr : HasStableRange (A ⧸ J) 1)
+    (g : Matrix.SpecialLinearGroup (Fin 2) (A ⧸ J))
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈
+      congruenceSubgroup (Fin 2) (I.map (Ideal.Quotient.mk J))) :
+    ∃ ε ∈ relElementary (Fin 2) I, glMap (Ideal.Quotient.mk J) ε =
+      Matrix.SpecialLinearGroup.toGL g := by
+  sorry
+
+variable [IsDedekindDomain A]
+
+/-- `KTheoryLowDegrees:U.4/dedekind-principal-quotient-semilocal`. -/
+theorem dedekind_principal_quotient_semilocal {q : A} (hq : q ≠ 0) :
+    Finite (MaximalSpectrum (A ⧸ Ideal.span {q})) ∧
+      HasStableRange (A ⧸ Ideal.span {q}) 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/sl2-principal-reduction`. -/
+theorem sl2_principal_reduction {q : A} (hq : q ∈ I) (hq0 : q ≠ 0)
+    (g : Matrix.SpecialLinearGroup (Fin 2) A)
+    (hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I) :
+    ∃ ε ∈ relElementary (Fin 2) I,
+      Matrix.SpecialLinearGroup.toGL g * ε ∈ congruenceSubgroup (Fin 2) (Ideal.span {q}) ∧
+        Matrix.GeneralLinearGroup.det ε = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/dedekind-coprime-square-adjustment`. -/
+theorem dedekind_coprime_square_adjustment {a c d : A} (ha : a ≠ 0)
+    (hcd : IsCoprime d c) : ∃ t : A, IsCoprime (d+t*c^2) a := by
+  sorry
+
+variable {C : Type v} [Group C] {D : Type w} [Group D]
+
+/-- `KTheoryLowDegrees:U.4/kubota-multiplicativity` includes I=0 and a′=0. -/
+theorem kubota_multiplicativity (s : MennickeSymbol A I C) (g g' : congruenceSubgroup (Fin 2) I) :
+    kubotaValue s (g' * g) = kubotaValue s g' * kubotaValue s g := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-hom`: a real definition from the value and theorem. -/
+def kubotaHom (s : MennickeSymbol A I C) : congruenceSubgroup (Fin 2) I →* C where
+  toFun := kubotaValue s
+  map_one' := kubotaValue_one s
+  map_mul' g h := kubota_multiplicativity s h g
+
+@[simp] theorem kubotaHom_apply (s : MennickeSymbol A I C) (g : congruenceSubgroup (Fin 2) I) :
+    kubotaHom s g = s.toFun (firstRow g) := rfl
+
+theorem kubotaHom_unique (s : MennickeSymbol A I C) (f : congruenceSubgroup (Fin 2) I →* C)
+    (hf : ∀ g, f g = s.toFun (firstRow g)) : f = kubotaHom s := by
+  ext g
+  exact hf g
+
+theorem kubotaHom_comp (s : MennickeSymbol A I C) (φ : C →* D) :
+    kubotaHom (s.comp φ) = φ.comp (kubotaHom s) := by
+  rfl
+
+theorem kubotaHom_restrict (h : J ≤ I) (s : MennickeSymbol A I C) :
+    kubotaHom (s.restrict h) = (kubotaHom s).comp (levelInclusion h) := by
+  rfl
+
+theorem kubotaHom_relative_kernel (s : MennickeSymbol A I C) :
+    (∀ (ε : GL (Fin 2) A) (hε : ε ∈ relElementary (Fin 2) I)
+      (hi : ε ∈ congruenceSubgroup (Fin 2) I), kubotaHom s ⟨ε,hi⟩ = 1) ∧
+      ∀ (u v : Aˣ) (hd : diagUnit ![u,v] ∈ congruenceSubgroup (Fin 2) I),
+        kubotaHom s ⟨diagUnit ![u,v],hd⟩ = 1 := by
+  sorry
+
+theorem kubotaHom_commutator_kernel (s : MennickeSymbol A I C) :
+    (∀ (τ : GL (Fin 2) A), τ ∈ elementarySubgroup (Fin 2) A → ∀ g : congruenceSubgroup (Fin 2) I,
+      kubotaHom s (levelConjugate τ g * g⁻¹) = 1) ∧
+      ∀ (u v : Aˣ) (g : congruenceSubgroup (Fin 2) I),
+        kubotaHom s (levelConjugate (diagUnit ![u,v]) g * g⁻¹) = 1 := by
+  sorry
+
+-- test kubotaHom_mul_test
+example (s : MennickeSymbol A I C) (g h : congruenceSubgroup (Fin 2) I) :
+    kubotaHom s (g*h) = s.toFun (firstRow g) * s.toFun (firstRow h) := by
+  exact (kubotaHom s).map_mul g h
+
+-- test kubotaHom_integer_diagonal_test
+example (s : MennickeSymbol ℤ (Ideal.span {(2 : ℤ)}) C) :
+    ∃ h : (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}),
+      kubotaHom s ⟨diagUnit ![-1,1],h⟩ = 1 ∧
+        Matrix.GeneralLinearGroup.det (diagUnit ![-1,1] : GL (Fin 2) ℤ) = -1 := by
+  sorry
+
+-- test kubotaHom_bot_test
+example (s : MennickeSymbol A (⊥ : Ideal A) C) : kubotaHom s = 1 := by
+  sorry
+
+-- test kubotaHom_restriction_test
+example (h : J ≤ I) (s : MennickeSymbol A I C) :
+    kubotaHom (s.restrict h) = (kubotaHom s).comp (levelInclusion h) :=
+  kubotaHom_restrict h s
+
+-- test kubotaHom_relative_word_test
+example (s : MennickeSymbol ℤ (Ideal.span {(2 : ℤ)}) C) :
+    let ε : GL (Fin 2) ℤ :=
+      elementary (by decide : (1 : Fin 2) ≠ 0) 1 *
+        elementary (by decide : (0 : Fin 2) ≠ 1) 2 *
+          elementary (by decide : (1 : Fin 2) ≠ 0) (-1)
+    (ε : Matrix (Fin 2) (Fin 2) ℤ) = !![-1,2;-2,3] ∧
+      ∃ hi : ε ∈ congruenceSubgroup (Fin 2) (Ideal.span {(2 : ℤ)}), kubotaHom s ⟨ε,hi⟩ = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-ideal-image`: determinant-one deeper levels. -/
+theorem kubota_ideal_image (h : J ≤ I) (hJ : J ≠ ⊥) (s : MennickeSymbol A I C) :
+    {z : C | ∃ g : Matrix.SpecialLinearGroup (Fin 2) A,
+      ∃ hg : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) J,
+        z = kubotaHom s (levelInclusion h ⟨Matrix.SpecialLinearGroup.toGL g,hg⟩)} =
+      Set.range (kubotaHom s) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.4/kubota-noncongruence-kernel`: arbitrary J, intersected with I. -/
+theorem kubota_noncongruence_kernel (s : MennickeSymbol A I C)
+    (hs : ∃ x : W I, s.toFun x ≠ 1) (J : Ideal A) (hJ : J ≠ ⊥) :
+    ∃ g : Matrix.SpecialLinearGroup (Fin 2) A,
+      Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) J ∧
+        ∃ hi : Matrix.SpecialLinearGroup.toGL g ∈ congruenceSubgroup (Fin 2) I,
+          kubotaHom s ⟨Matrix.SpecialLinearGroup.toGL g,hi⟩ ≠ 1 := by
+  sorry
+
+end TauCeti.MennickeSymbol
+
+/-! ## Relative standard forms and the next-rank value
+
+This section specifies BMS §§7–8 on the inherited GL, congruence and elementary
+carriers. `extendedValue` is initially a function. Its multiplication theorem
+requires the normalizer argument of §§9–10, which remains an explicit gap. -/
+
+namespace TauCeti.MennickeExtension
+
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I : Ideal A} {C : Type v} [Group C]
+variable {n : ℕ}
+
+abbrev Level (r : ℕ) (I : Ideal A) := congruenceSubgroup (Fin r) I
+
+/-- First-coordinate relative unimodularity, with an actual spanning condition. -/
+def RelativeColumn (I : Ideal A) (n : ℕ) (a : Fin (n+1) → A) : Prop :=
+  Ideal.span (Set.range a) = ⊤ ∧ ∀ i, a i - (if i = 0 then 1 else 0) ∈ I
+
+theorem RelativeColumn_iff (a : Fin (n+1) → A) :
+    RelativeColumn I n a ↔ Ideal.span (Set.range a) = ⊤ ∧
+      a 0 - 1 ∈ I ∧ ∀ i : Fin n, a i.succ ∈ I := by sorry
+
+theorem RelativeColumn_map {B : Type w} [CommRing B] (f : A →+* B)
+    (J : Ideal B) (hf : ∀ x ∈ I, f x ∈ J) (a : Fin (n+1) → A)
+    (ha : RelativeColumn I n a) : RelativeColumn J n (f ∘ a) := by sorry
+
+theorem RelativeColumn_one : RelativeColumn I n (Pi.single 0 1) := by sorry
+
+-- test RelativeColumn_integer_test
+example : RelativeColumn (Ideal.span {(2 : ℤ)}) 2 ![3,2,0] := by sorry
+-- test RelativeColumn_bot_test
+example (a : Fin (n+1) → A) : RelativeColumn (⊥ : Ideal A) n a ↔ a = Pi.single 0 1 := by sorry
+-- test RelativeColumn_level_test
+example : ¬ RelativeColumn (Ideal.span {(2 : ℤ)}) 2 ![2,1,0] := by sorry
+-- test RelativeColumn_nonunimodular_test
+example : ¬ RelativeColumn (Ideal.span {(2 : ℤ)}) 2 ![3,6,0] := by sorry
+
+/-- BMS Lemma 7.3: use the square of the last coordinate to keep coefficients in I. -/
+theorem relative_shortening {k n : ℕ} (hk : 1 ≤ k) (hn : k ≤ n)
+    (hsr : HasStableRange A k) (a : Fin (n+1) → A) (ha : RelativeColumn I n a) :
+    ∃ b : Fin n → I, RelativeColumn I (n-1)
+      (fun i : Fin (n-1+1) => a ⟨i, by omega⟩ +
+        (b ⟨i, by omega⟩ : A) * a (Fin.last n)) := by sorry
+
+/-- The relative, rather than absolute, orbit theorem. -/
+theorem relative_elementary_transitive {k n : ℕ} (hk : 1 ≤ k) (hn : k ≤ n)
+    (hsr : HasStableRange A k) (a : Fin (n+1) → A) (ha : RelativeColumn I n a) :
+    ∃ e ∈ relElementary (Fin (n+1)) I,
+      (e : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1 := by sorry
+
+/-- Same-level reduction, needed to determine an extension uniquely. -/
+theorem relative_gl_reduction {k r : ℕ} (hk : 1 ≤ k) (hr : k < r)
+    (hsr : HasStableRange A k) (g : Level r I) :
+    ∃ a : Level k I, ∃ e ∈ relElementary (Fin r) I,
+      g.val = stabilise hr.le a.val * e := by sorry
+
+/-- The rank-one conjugation calculation in Bass's finite-rank normality proof. -/
+theorem relative_rank_one_conjugate {r : ℕ} (hr : 1 ≤ r)
+    (a b : Fin r → A) (hba : b ⬝ᵥ a = 0) (q : I) :
+    ∃ e ∈ relElementary (Fin (r+1)) I,
+      (e : Matrix (Fin (r+1)) (Fin (r+1)) A) =
+        stabiliseMatrix (1 + (q : A) • Matrix.vecMulVec a b) := by sorry
+
+/-- Normality holds under the stable-range bound, not at arbitrary finite rank. -/
+theorem relative_elementary_normal {k r : ℕ} (hk : 1 ≤ k) (hr : k < r)
+    (hsr : HasStableRange A k) : (relElementary (Fin r) I).Normal := by sorry
+
+/-- The GE commutator bound, expressed on the existing E and diagonal generators. -/
+theorem relative_ge_commutator {k r : ℕ} (hk : 1 ≤ k) (hr : k < r)
+    (hr3 : 3 ≤ r) (hsr : HasStableRange A k) :
+    (∀ τ ∈ elementarySubgroup (Fin r) A, ∀ g : Level r I,
+      τ * g.val * τ⁻¹ * g.val⁻¹ ∈ relElementary (Fin r) I) ∧
+    ∀ d : Fin r → Aˣ, ∀ g : Level r I,
+      diagUnit d * g.val * (diagUnit d)⁻¹ * g.val⁻¹ ∈ relElementary (Fin r) I := by sorry
+
+/-- Rank two uses relative Bézout completion; higher ranks use relative transitivity. -/
+theorem dedekind_relative_gl_transitive [IsDedekindDomain A] {n : ℕ} (hn : 1 ≤ n)
+    (a : Fin (n+1) → A) (ha : RelativeColumn I n a) :
+    ∃ g : Level (n+1) I, (g.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1 := by sorry
+
+/-- Normal-kernel conjugation and transposition, with their concrete matrices. -/
+def conjugate {r : ℕ} (τ : GL (Fin r) A) (g : Level r I) : Level r I :=
+  ⟨τ * g.val * τ⁻¹, by sorry⟩
+def transposeLevel {r : ℕ} (g : Level r I) : Level r I :=
+  ⟨⟨(g.val : Matrix (Fin r) (Fin r) A)ᵀ,
+    (g.val⁻¹ : Matrix (Fin r) (Fin r) A)ᵀ, by sorry, by sorry⟩, by sorry⟩
+def embedLevel {m r : ℕ} (h : m ≤ r) : Level m I →* Level r I where
+  toFun g := ⟨stabilise h g.val, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- The asymmetric relation of BMS (8.4), including the I-level top-left witness. -/
+def Related {n : ℕ} (I : Ideal A) (t : A) (a b : Level (n+1) I) : Prop :=
+  ∃ x : Matrix (Fin (n+1)) (Fin (n+1)) A, x 0 0 ∈ I ∧
+    (∀ i j, a.val i j = if j = 0 then (if i = 0 then 1 else 0) + t*x i 0 else x i j) ∧
+    (∀ i j, b.val i j = if i = 0 then (if j = 0 then 1 else 0) + t*x 0 j else x i j)
+
+theorem Related_iff {n : ℕ} (t : A) (a b : Level (n+1) I) :
+    Related I t a b ↔ ∃ x : Matrix (Fin (n+1)) (Fin (n+1)) A, x 0 0 ∈ I ∧
+      (∀ i j, a.val i j = if j = 0 then (if i = 0 then 1 else 0)+t*x i 0 else x i j) ∧
+      (∀ i j, b.val i j = if i = 0 then (if j = 0 then 1 else 0)+t*x 0 j else x i j) := Iff.rfl
+
+theorem Related_map {B : Type w} [CommRing B] (f : A →+* B) (J : Ideal B)
+    (hf : ∀ x ∈ I, f x ∈ J) {n : ℕ} {t : A} {a b : Level (n+1) I}
+    (h : Related I t a b) (ha : glMap f a.val ∈ congruenceSubgroup (Fin (n+1)) J)
+    (hb : glMap f b.val ∈ congruenceSubgroup (Fin (n+1)) J) :
+    Related J (f t) ⟨glMap f a.val,ha⟩ ⟨glMap f b.val,hb⟩ := by sorry
+
+theorem Related_one {n : ℕ} (a b : Level (n+1) (⊤ : Ideal A)) :
+    Related ⊤ 1 a b ↔ a = b := by sorry
+
+-- test Related_one_test
+example {n : ℕ} (a b : Level (n+1) (⊤ : Ideal A)) : Related ⊤ 1 a b ↔ a = b := by sorry
+-- test Related_bot_test
+example {n : ℕ} : Related (⊥ : Ideal A) 0 (1 : Level (n+1) (⊥ : Ideal A)) 1 := by sorry
+-- test Related_asymmetric_test
+example : ∃ h : elementary (by decide : (0 : Fin 2) ≠ 1) (2 : ℤ) ∈ congruenceSubgroup (Fin 2) ⊤,
+    Related ⊤ 0 ⟨elementary (by decide : (0 : Fin 2) ≠ 1) 2,h⟩ 1 ∧
+      ¬ Related ⊤ 0 (1 : Level 2 (⊤ : Ideal ℤ)) ⟨elementary (by decide : (0 : Fin 2) ≠ 1) 2,h⟩ := by sorry
+
+/-- Lemma 8.8(a) keeps the same parameter and witness level. -/
+theorem related_product {n : ℕ} {t : A} (ht : t ∈ I) {a a' b b' : Level (n+1) I}
+    (ha : Related I t a a') (hb : Related I t b b') : Related I t (a*b) (a'*b') := by sorry
+
+/-- Lemma 8.8(b) is stabilized by one coordinate. -/
+theorem related_stabilized_commutator {n : ℕ} (hn : 1 ≤ n) {t : A} (ht : t ∈ I)
+    {a b : Level (n+1) I} (h : Related I t a b) :
+    (embedLevel (Nat.le_succ (n+1)) (a⁻¹*b)).val ∈
+      ⁅elementarySubgroup (Fin (n+2)) A, congruenceSubgroup (Fin (n+2)) I⁆ := by sorry
+
+/-- Type L: an invertible upper block matrix at the same ideal level. -/
+def leftMatrix {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    Matrix (Fin (n+2)) (Fin (n+2)) A := fun i j =>
+  if hi : i.val < n+1 then
+    if hj : j.val < n+1 then a.val ⟨i.val,hi⟩ ⟨j.val,hj⟩ else (y ⟨i.val,hi⟩ : A)
+  else if j = Fin.last (n+1) then 1 else 0
+noncomputable def leftBlock {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) : Level (n+2) I :=
+  ⟨Matrix.GeneralLinearGroup.mk'' (leftMatrix a y) (by sorry), by sorry⟩
+
+theorem leftBlock_apply {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    (leftBlock a y).val.val = leftMatrix a y := by sorry
+
+theorem leftBlock_mul {n : ℕ} (a b : Level (n+1) I) (y z : Fin (n+1) → I) :
+    ∃ w : Fin (n+1) → I, (∀ i, (w i : A) =
+      ((a.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ (fun j => (z j : A))) i + (y i : A)) ∧
+      leftBlock a y * leftBlock b z = leftBlock (a*b) w := by sorry
+
+theorem leftBlock_ext {n : ℕ} (a b : Level (n+1) I) (y z : Fin (n+1) → I) :
+    leftBlock a y = leftBlock b z ↔ a = b ∧ y = z := by sorry
+
+-- test leftBlock_zero_test
+example {n : ℕ} (a : Level (n+1) I) : leftBlock a 0 = embedLevel (Nat.le_succ (n+1)) a := by sorry
+-- test leftBlock_row_test
+example {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) (j : Fin (n+2)) :
+    (leftBlock a y).val (Fin.last (n+1)) j = if j = Fin.last (n+1) then 1 else 0 := by sorry
+-- test leftBlock_integer_test
+example : ∃ y : Fin 2 → Ideal.span {(2 : ℤ)}, (∀ i, (y i : ℤ) = (![2,4] : Fin 2 → ℤ) i) ∧
+    (leftBlock (1 : Level 2 (Ideal.span {(2 : ℤ)})) y).val.val = !![1,0,2;0,1,4;0,0,1] := by sorry
+
+/-- Type R, with the opposite placement: first column e₀, lower-right corner b. -/
+def rightMatrix {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    Matrix (Fin (n+2)) (Fin (n+2)) A := fun i j =>
+  if hi : i = 0 then
+    if hj : j = 0 then 1 else (p (j.pred hj) : A)
+  else if hj : j = 0 then 0 else b.val (i.pred hi) (j.pred hj)
+noncomputable def rightBlock {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) : Level (n+2) I :=
+  ⟨Matrix.GeneralLinearGroup.mk'' (rightMatrix b p) (by sorry), by sorry⟩
+
+theorem rightBlock_apply {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    (rightBlock b p).val.val = rightMatrix b p := by sorry
+
+theorem rightBlock_mul {n : ℕ} (a b : Level (n+1) I) (p q : Fin (n+1) → I) :
+    ∃ w : Fin (n+1) → I, (∀ i, (w i : A) = (q i : A) +
+      (((fun j => (p j : A)) ᵥ* (b.val : Matrix (Fin (n+1)) (Fin (n+1)) A)) i)) ∧
+      rightBlock a p * rightBlock b q = rightBlock (a*b) w := by sorry
+
+theorem rightBlock_ext {n : ℕ} (a b : Level (n+1) I) (p q : Fin (n+1) → I) :
+    rightBlock a p = rightBlock b q ↔ a = b ∧ p = q := by sorry
+
+-- test rightBlock_zero_test
+example {n : ℕ} (b : Level (n+1) I) (i j : Fin (n+1)) :
+    (rightBlock b 0).val i.succ j.succ = b.val i j := by sorry
+-- test rightBlock_column_test
+example {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) (i : Fin (n+2)) :
+    (rightBlock b p).val i 0 = if i = 0 then 1 else 0 := by sorry
+-- test rightBlock_integer_test
+example : ∃ p : Fin 2 → Ideal.span {(2 : ℤ)}, (∀ i, (p i : ℤ) = (![2,4] : Fin 2 → ℤ) i) ∧
+    (rightBlock (1 : Level 2 (Ideal.span {(2 : ℤ)})) p).val.val = !![1,2,4;0,1,0;0,0,1] := by sorry
+
+/-- The distinguished root e_{last,first}(t), including its level witness. -/
+def middle {n : ℕ} (t : I) : Level (n+2) I :=
+  ⟨elementary (by intro h; have hh := congrArg Fin.val h; simp at hh : Fin.last (n+1) ≠ (0 : Fin (n+2))) (t : A), by sorry⟩
+
+/-- Standard forms are factorization data, not unique choices. -/
+structure StandardForm {n : ℕ} (g : Level (n+2) I) where
+  left : Level (n+1) I
+  right : Level (n+1) I
+  column : Fin (n+1) → I
+  row : Fin (n+1) → I
+  parameter : I
+  factorization : g = leftBlock left column * middle parameter * rightBlock right row
+
+theorem StandardForm.parameter_eq {n : ℕ} {g : Level (n+2) I} (f : StandardForm g) :
+    (f.parameter : A) = g.val (Fin.last (n+1)) 0 := by sorry
+
+theorem StandardForm.ext {n : ℕ} {g : Level (n+2) I} (f h : StandardForm g)
+    (hl : f.left = h.left) (hr : f.right = h.right) (hc : f.column = h.column)
+    (hp : f.row = h.row) : f = h := by sorry
+
+noncomputable def StandardForm.identity {n : ℕ} : StandardForm (1 : Level (n+2) I) where
+  left := 1
+  right := 1
+  column := 0
+  row := 0
+  parameter := 0
+  factorization := by sorry
+
+-- test StandardForm_identity_test
+example {n : ℕ} : (StandardForm.identity (I := I) (n := n)).parameter = 0 := rfl
+-- test StandardForm_middle_test
+example {n : ℕ} (t : I) : ∃ f : StandardForm (middle (n := n) t),
+    f.left = 1 ∧ f.right = 1 ∧ f.column = 0 ∧ f.row = 0 ∧ f.parameter = t := by sorry
+-- test StandardForm_nonunique_test
+example : ∃ g : Level 3 (⊤ : Ideal ℤ), ∃ f h : StandardForm g,
+    f.parameter = 0 ∧ h.parameter = 0 ∧ f.left ≠ h.left := by sorry
+
+theorem standardForm_exists {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : Nonempty (StandardForm g) := by sorry
+
+theorem related_relative_elementary {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    {t : A} (hI : t ∈ I) {a b : Level (n+2) I} (h : Related I t a b) :
+    (a⁻¹*b).val ∈ relElementary (Fin (n+2)) I := by sorry
+
+/-- Every condition is an equation about an actual homomorphism or matrix. -/
+structure ExtensionConditions {n : ℕ} (k : Level (n+1) I →* C) : Prop where
+  elementary_kernel : ∀ e : Level (n+1) I, e.val ∈ relElementary (Fin (n+1)) I → k e = 1
+  elementary_conjugation : ∀ τ ∈ elementarySubgroup (Fin (n+1)) A,
+    ∀ g : Level (n+1) I, k (conjugate τ g) = k g
+  diagonal_conjugation : ∀ d : Fin (n+1) → Aˣ,
+    ∀ g : Level (n+1) I, k (conjugate (diagUnit d) g) = k g
+  transpose_kernel : ∀ g : Level (n+1) I, k g = 1 → k (transposeLevel g) = 1
+  related : ∀ t ∈ I, ∀ a b : Level (n+1) I, Related I t a b → k b = k a
+
+theorem ExtensionConditions_iff {n : ℕ} (k : Level (n+1) I →* C) :
+    ExtensionConditions k ↔
+      (∀ e : Level (n+1) I, e.val ∈ relElementary (Fin (n+1)) I → k e = 1) ∧
+      (∀ τ ∈ elementarySubgroup (Fin (n+1)) A, ∀ g : Level (n+1) I, k (conjugate τ g) = k g) ∧
+      (∀ d : Fin (n+1) → Aˣ, ∀ g : Level (n+1) I, k (conjugate (diagUnit d) g) = k g) ∧
+      (∀ g : Level (n+1) I, k g = 1 → k (transposeLevel g) = 1) ∧
+      (∀ t ∈ I, ∀ a b : Level (n+1) I, Related I t a b → k b = k a) := by sorry
+
+theorem ExtensionConditions_comp {n : ℕ} {D : Type w} [Group D]
+    (k : Level (n+1) I →* C) (h : ExtensionConditions k) (φ : C →* D)
+    (hφ : Function.Injective φ) : ExtensionConditions (φ.comp k) := by sorry
+
+-- test ExtensionConditions_trivial_test
+example {n : ℕ} : ExtensionConditions (1 : Level (n+1) I →* C) := by sorry
+-- test ExtensionConditions_identity_fails_test
+example : ¬ ExtensionConditions (MonoidHom.id (Level 2 (⊤ : Ideal ℤ))) := by sorry
+-- test ExtensionConditions_comp_test
+example {n : ℕ} {D : Type w} [Group D] (k : Level (n+1) I →* C)
+    (h : ExtensionConditions k) (φ : C ≃* D) : ExtensionConditions (φ.toMonoidHom.comp k) := by sorry
+
+/-- BMS Lemma 8.7(b), on the exact inherited Kubota homomorphism. -/
+theorem kubota_extension_conditions [IsDedekindDomain A] (s : TauCeti.MennickeSymbol A I C) :
+    ExtensionConditions (TauCeti.MennickeSymbol.kubotaHom s) := by sorry
+
+/-- Uniqueness needs same-level surjective reduction, not existence of a new homomorphism. -/
+theorem extension_unique {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (k : Level (n+1) I →* C) (f h : Level (n+2) I →* C)
+    (hf : f.comp (embedLevel (Nat.le_succ (n+1))) = k)
+    (hh : h.comp (embedLevel (Nat.le_succ (n+1))) = k)
+    (hfe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → f e = 1)
+    (hhe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → h e = 1) : f = h := by sorry
+
+/-- Only the kernel is asserted transpose-stable; the values need not be equal. -/
+theorem extension_transpose_kernel {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (k : Level (n+1) I →* C) (hk : ExtensionConditions k) (f : Level (n+2) I →* C)
+    (hf : f.comp (embedLevel (Nat.le_succ (n+1))) = k)
+    (hfe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → f e = 1) :
+    ∀ g : Level (n+2) I, f g = 1 → f (transposeLevel g) = 1 := by sorry
+
+theorem extension_related_invariance {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (f : Level (n+2) I →* C)
+    (hfe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → f e = 1)
+    {t : A} (hI : t ∈ I) {a b : Level (n+2) I} (h : Related I t a b) : f b = f a := by sorry
+
+/-- Evaluation retains the source order, left corner before right corner. -/
+def standardFormValue {n : ℕ} (k : Level (n+1) I →* C) {g : Level (n+2) I}
+    (f : StandardForm g) : C := k f.left * k f.right
+
+theorem standardFormValue_apply {n : ℕ} (k : Level (n+1) I →* C) {g : Level (n+2) I}
+    (f : StandardForm g) : standardFormValue k f = k f.left * k f.right := rfl
+
+theorem standardFormValue_comp {n : ℕ} {D : Type w} [Group D] (k : Level (n+1) I →* C)
+    (φ : C →* D) {g : Level (n+2) I} (f : StandardForm g) :
+    standardFormValue (φ.comp k) f = φ (standardFormValue k f) := by sorry
+
+theorem standardFormValue_congr {n : ℕ} (k : Level (n+1) I →* C) {g : Level (n+2) I}
+    (f h : StandardForm g) (hl : k f.left = k h.left) (hr : k f.right = k h.right) :
+    standardFormValue k f = standardFormValue k h := by sorry
+
+-- test standardFormValue_identity_test
+example {n : ℕ} (k : Level (n+1) I →* C) :
+    standardFormValue k StandardForm.identity = 1 := by sorry
+-- test standardFormValue_trivial_test
+example {n : ℕ} {g : Level (n+2) I} (f : StandardForm g) :
+    standardFormValue (1 : Level (n+1) I →* C) f = 1 := by sorry
+-- test standardFormValue_middle_test
+example {n : ℕ} (k : Level (n+1) I →* C) (t : I) (f : StandardForm (middle (n := n) t))
+    (hl : f.left = 1) (hr : f.right = 1) : standardFormValue k f = 1 := by sorry
+
+-- test standardFormValue_determinant_two_test: excludes the constant-1 value.
+example (k : Level 2 (⊤ : Ideal ℚ) →* ℚˣ)
+    (hk : ∀ g, k g = Matrix.GeneralLinearGroup.det g.val)
+    {g : Level 3 (⊤ : Ideal ℚ)} (f : StandardForm g)
+    (hl : (f.left.val : Matrix (Fin 2) (Fin 2) ℚ) = !![2,0;0,1])
+    (hr : f.right = 1) : (standardFormValue k f : ℚ) = 2 := by
+  sorry
+
+theorem standardFormValue_independent {n : ℕ} (hn : 1 ≤ n) (k : Level (n+1) I →* C)
+    (hk : ExtensionConditions k) {g : Level (n+2) I} (f h : StandardForm g) :
+    standardFormValue k f = standardFormValue k h := by sorry
+
+noncomputable def extendedValue {n : ℕ} (k : Level (n+1) I →* C)
+    (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : C :=
+  standardFormValue k (Classical.choice (standardForm_exists hn hsr ht g))
+
+theorem extendedValue_standardForm {n : ℕ} (k : Level (n+1) I →* C)
+    (hk : ExtensionConditions k) (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) (f : StandardForm g) :
+    extendedValue k hsr hn ht g = standardFormValue k f := by sorry
+
+theorem extendedValue_one {n : ℕ} (k : Level (n+1) I →* C)
+    (hk : ExtensionConditions k) (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) :
+    extendedValue k hsr hn ht 1 = 1 := by sorry
+
+theorem extendedValue_comp {n : ℕ} {D : Type w} [Group D] (k : Level (n+1) I →* C)
+    (φ : C →* D) (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : extendedValue (φ.comp k) hsr hn ht g = φ (extendedValue k hsr hn ht g) := by sorry
+
+-- test extendedValue_one_test
+example {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+    (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) :
+    extendedValue k hsr hn ht 1 = 1 := by sorry
+-- test extendedValue_middle_test
+example {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+    (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) (t : I) :
+    extendedValue k hsr hn ht (middle t) = 1 := by sorry
+-- test extendedValue_determinant_two_test: a supplied standard form evaluates to 2.
+example (k : Level 2 (⊤ : Ideal ℚ) →* ℚˣ)
+    (hk : ∀ g, k g = Matrix.GeneralLinearGroup.det g.val)
+    (hconditions : ExtensionConditions k) (hstable : HasStableRange ℚ 2)
+    (htrans : ∀ J : Ideal ℚ, ∀ a : Fin 2 → ℚ, RelativeColumn J 1 a →
+      ∃ u : Level 2 J, (u.val : Matrix (Fin 2) (Fin 2) ℚ) *ᵥ a = Pi.single 0 1)
+    (g : Level 3 (⊤ : Ideal ℚ)) (f : StandardForm g)
+    (hl : (f.left.val : Matrix (Fin 2) (Fin 2) ℚ) = !![2,0;0,1])
+    (hr : f.right = 1) : (extendedValue k hstable (by decide) htrans g : ℚ) = 2 := by
+  sorry
+
+-- test extendedValue_trivial_test
+example {n : ℕ} (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : extendedValue (1 : Level (n+1) I →* C) hsr hn ht g = 1 := by sorry
+
+section Evaluation
+variable {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+  (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+  (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+    ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+
+include hk
+
+theorem extendedValue_left (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    extendedValue k hsr hn ht (leftBlock a y) = k a := by sorry
+
+theorem extendedValue_right (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    extendedValue k hsr hn ht (rightBlock b p) = k b := by sorry
+
+theorem extendedValue_two_sided (a b : Level (n+1) I)
+    (y p : Fin (n+1) → I) (g : Level (n+2) I) :
+    extendedValue k hsr hn ht (leftBlock a y * g * rightBlock b p) =
+      k a * extendedValue k hsr hn ht g * k b := by sorry
+
+end Evaluation
+end TauCeti.MennickeExtension
+
+/-! ## The multiplier subgroup and the conjugation stabilizer (BMS §9)
+
+The last-coordinate swap is still a hypothesis. This section does not assert
+multiplicativity of the next-rank value without that remaining §10 proof. -/
+namespace TauCeti.MennickeExtension
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I : Ideal A} {C : Type v} [Group C]
+
+section Multiplier
+variable {G : Type*} [Group G]
+/-- All left multipliers of a normalized function, on the native group. -/
+def multiplierSubgroup (f : G → C) (h1 : f 1 = 1) : Subgroup G where
+  carrier := {g | ∀ x, f (g * x) = f g * f x}
+  one_mem' := by simp [h1]
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+theorem mem_multiplierSubgroup (f : G → C) (h1 : f 1 = 1) (g : G) :
+    g ∈ multiplierSubgroup f h1 ↔ ∀ x, f (g * x) = f g * f x := Iff.rfl
+
+def multiplierSubgroup_restrict (f : G → C) (h1 : f 1 = 1) :
+    multiplierSubgroup f h1 →* C where
+  toFun g := f g.val
+  map_one' := h1
+  map_mul' := by sorry
+
+theorem multiplierSubgroup_eq_top (f : G → C) (h1 : f 1 = 1) :
+    multiplierSubgroup f h1 = ⊤ ↔ ∀ g x, f (g * x) = f g * f x := by sorry
+
+-- test multiplierSubgroup_hom_test
+example (f : G →* C) : multiplierSubgroup f f.map_one = ⊤ := by sorry
+-- test multiplierSubgroup_trivial_test
+example : multiplierSubgroup (fun _ : G => (1 : C)) rfl = ⊤ := by sorry
+-- test multiplierSubgroup_square_test
+example : multiplierSubgroup (fun g : Equiv.Perm (Fin 3) => g ^ 2) (by simp) ≠ ⊤ := by sorry
+end Multiplier
+
+/-- Pointwise invariance under conjugation; this is not the normalizer of ker f. -/
+def conjugationStabilizer {r : ℕ} (f : Level r I → C) : Subgroup (GL (Fin r) A) where
+  carrier := {τ | ∀ g, f (conjugate τ g) = f g}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+omit [Group C] in
+theorem mem_conjugationStabilizer {r : ℕ} (f : Level r I → C) (τ : GL (Fin r) A) :
+    τ ∈ conjugationStabilizer f ↔ ∀ g, f (conjugate τ g) = f g := Iff.rfl
+
+theorem conjugationStabilizer_comp {r : ℕ} {D : Type w} [Group D]
+    (f : Level r I → C) (φ : C →* D) :
+    conjugationStabilizer f ≤ conjugationStabilizer (φ ∘ f) := by sorry
+
+theorem conjugationStabilizer_comp_eq {r : ℕ} {D : Type w} [Group D]
+    (f : Level r I → C) (φ : C →* D) (hφ : Function.Injective φ) :
+    conjugationStabilizer (φ ∘ f) = conjugationStabilizer f := by sorry
+
+-- test conjugationStabilizer_trivial_test
+example {r : ℕ} : conjugationStabilizer (fun _ : Level r I => (1 : C)) = ⊤ := by sorry
+-- test conjugationStabilizer_bot_test
+example {r : ℕ} (f : Level r (⊥ : Ideal A) → C) : conjugationStabilizer f = ⊤ := by sorry
+-- test conjugationStabilizer_faithful_test
+example {r : ℕ} : conjugationStabilizer (fun g : Level r (⊤ : Ideal A) => g.val) =
+    Subgroup.center (GL (Fin r) A) := by sorry
+
+/-- Native subgroup join: elementary matrices and all diagonal units. -/
+def GE (r : ℕ) (A : Type u) [CommRing A] : Subgroup (GL (Fin r) A) :=
+  elementarySubgroup (Fin r) A ⊔ Subgroup.closure (Set.range (@diagUnit A _ (Fin r) _ _))
+
+theorem elementarySubgroup_le_GE {r : ℕ} : elementarySubgroup (Fin r) A ≤ GE r A := by sorry
+
+theorem diagUnit_mem_GE {r : ℕ} (d : Fin r → Aˣ) : diagUnit d ∈ GE r A := by sorry
+
+theorem GE_le_iff {r : ℕ} (K : Subgroup (GL (Fin r) A)) :
+    GE r A ≤ K ↔ elementarySubgroup (Fin r) A ≤ K ∧ ∀ d : Fin r → Aˣ, diagUnit d ∈ K := by sorry
+
+-- test GE_rank_one_test
+example : GE 1 A = ⊤ := by sorry
+-- test GE_diagonal_test
+example : (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∈ GE 2 ℤ ∧
+    (diagUnit ![-1,1] : GL (Fin 2) ℤ) ∉ elementarySubgroup (Fin 2) ℤ := by sorry
+-- test GE_permutation_test
+example : (permGL (Equiv.swap 0 2) : GL (Fin 3) A) ∈ GE 3 A := by sorry
+
+/-- Lemma 9.1(b) uses native normalizers, without assuming f multiplicative. -/
+theorem stabilizer_normalizes_multiplier {r : ℕ} (f : Level r I → C) (h1 : f 1 = 1) :
+    conjugationStabilizer f ≤ Subgroup.normalizer
+      ((multiplierSubgroup f h1).map (Level r I).subtype : Set (GL (Fin r) A)) := by sorry
+
+/-- Lemma 9.2: the stable-range bound is indispensable. -/
+theorem typeL_normalized_eq_top {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (K : Subgroup (Level (n+2) I))
+    (hL : ∀ a : Level (n+1) I, ∀ y : Fin (n+1) → I, leftBlock a y ∈ K)
+    (hE : ∀ τ ∈ elementarySubgroup (Fin (n+2)) A, ∀ g ∈ K, conjugate τ g ∈ K) :
+    K = ⊤ := by sorry
+
+section EvaluationNormalizer
+variable {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+  (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+  (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+    ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+include hk
+
+theorem typeL_mem_multiplier (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    leftBlock a y ∈ multiplierSubgroup (extendedValue k hsr hn ht)
+      (extendedValue_one k hk hsr hn ht) := by sorry
+
+/-- Conditional Corollary 9.3; no assertion that GE invariance is proved. -/
+theorem multiplicative_of_GE_invariant
+    (hGE : GE (n+2) A ≤ conjugationStabilizer (extendedValue k hsr hn ht)) :
+    (∀ g h, extendedValue k hsr hn ht (g * h) =
+      extendedValue k hsr hn ht g * extendedValue k hsr hn ht h) ∧
+    (∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I →
+      extendedValue k hsr hn ht e = 1) ∧
+    (∀ τ ∈ GE (n+2) A, ∀ g : Level (n+2) I,
+      extendedValue k hsr hn ht (conjugate τ g * g⁻¹) = 1) := by sorry
+
+theorem diagonal_mem_stabilizer (d : Fin (n+2) → Aˣ) :
+    diagUnit d ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+/-- Coordinate helper for the native block diagonal diag(1,v,1). -/
+def interiorGL (v : GL (Fin n) A) : GL (Fin (n+2)) A :=
+  ⟨(fun i j => if h : 0 < i.val ∧ i.val < n+1 ∧ 0 < j.val ∧ j.val < n+1
+      then (v : Matrix (Fin n) (Fin n) A) ⟨i.val-1, by omega⟩ ⟨j.val-1, by omega⟩
+      else if i = j then 1 else 0),
+    (fun i j => if h : 0 < i.val ∧ i.val < n+1 ∧ 0 < j.val ∧ j.val < n+1
+      then (v⁻¹ : Matrix (Fin n) (Fin n) A) ⟨i.val-1, by omega⟩ ⟨j.val-1, by omega⟩
+      else if i = j then 1 else 0), by sorry, by sorry⟩
+
+theorem interior_mem_stabilizer (v : GL (Fin n) A) (hv : v ∈ GE n A) :
+    interiorGL v ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+theorem firstRoot_mem_stabilizer (t : A) :
+    elementary (i := (0 : Fin (n+2))) (j := 1) (by intro h; have h' := congrArg Fin.val h; simp at h') t ∈
+      conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+theorem lastRoot_mem_stabilizer (t : A) :
+    elementary (i := ((Fin.last n).castSucc : Fin (n+2))) (j := Fin.last (n+1))
+      (by intro h; have := congrArg Fin.val h; simp at this) t ∈
+      conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+theorem upperBlock_mem_stabilizer (τ : GL (Fin (n+2)) A)
+    (u w : Aˣ) (v : GL (Fin n) A) (hv : v ∈ GE n A)
+    (h00 : (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) 0 0 = u)
+    (hll : (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) (Fin.last (n+1)) (Fin.last (n+1)) = w)
+    (hl : ∀ i : Fin (n+1), (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) i.succ 0 = 0)
+    (hb : ∀ j : Fin (n+1), (τ : Matrix (Fin (n+2)) (Fin (n+2)) A) (Fin.last (n+1)) j.castSucc = 0)
+    (hv' : ∀ i j : Fin n, (τ : Matrix (Fin (n+2)) (Fin (n+2)) A)
+      i.succ.castSucc j.succ.castSucc = (v : Matrix (Fin n) (Fin n) A) i j) :
+    τ ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+end EvaluationNormalizer
+
+/-- Kernel-stable transpose descends only to the image, in the opposite group. -/
+noncomputable def transposeImage {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) : k.range ≃* k.rangeᵐᵒᵖ where
+  toFun x := MulOpposite.op ⟨k (transposeLevel (Classical.choose x.property)),
+    ⟨transposeLevel (Classical.choose x.property), rfl⟩⟩
+  invFun x := ⟨k (transposeLevel (Classical.choose (MulOpposite.unop x).property)),
+    ⟨transposeLevel (Classical.choose (MulOpposite.unop x).property), rfl⟩⟩
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+
+theorem transposeImage_apply {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (g : Level r I) :
+    transposeImage k hker ⟨k g,⟨g,rfl⟩⟩ =
+      MulOpposite.op ⟨k (transposeLevel g),⟨transposeLevel g,rfl⟩⟩ := by sorry
+
+theorem transposeImage_involutive {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (x : k.range) :
+    MulOpposite.unop (transposeImage k hker
+      (MulOpposite.unop (transposeImage k hker x))) = x := by sorry
+
+theorem transposeImage_natural {r : ℕ} {D : Type w} [Group D]
+    (k : Level r I →* C) (φ : C →* D) (hφ : Function.Injective φ)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1)
+    (hker' : ∀ g, (φ.comp k) g = 1 → (φ.comp k) (transposeLevel g) = 1)
+    (g : Level r I) :
+    φ (MulOpposite.unop (transposeImage k hker ⟨k g,⟨g,rfl⟩⟩)).val =
+      (MulOpposite.unop (transposeImage (φ.comp k) hker' ⟨φ (k g),⟨g,rfl⟩⟩)).val := by sorry
+
+-- test transposeImage_one_test
+example {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) : transposeImage k hker 1 = 1 := by sorry
+-- test transposeImage_reversal_test
+example {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (x y : k.range) :
+    MulOpposite.unop (transposeImage k hker (x*y)) =
+      MulOpposite.unop (transposeImage k hker y) * MulOpposite.unop (transposeImage k hker x) := by sorry
+-- test transposeImage_kernel_test
+example {r : ℕ} (k : Level r I →* C)
+    (hker : ∀ g, k g = 1 → k (transposeLevel g) = 1) (g h : Level r I) (hgh : k g = k h) :
+    k (transposeLevel g) = k (transposeLevel h) := by sorry
+
+/-- Endpoint reflection, not reversal of every coordinate. -/
+def reflectedTranspose {n : ℕ} (g : GL (Fin (n+2)) A) : GL (Fin (n+2)) A :=
+  let φ := (permGL (Equiv.swap 0 (Fin.last (n+1))) : GL (Fin (n+2)) A)
+  φ * ⟨(g : Matrix (Fin (n+2)) (Fin (n+2)) A)ᵀ,
+    (g⁻¹ : Matrix (Fin (n+2)) (Fin (n+2)) A)ᵀ, by sorry, by sorry⟩ * φ⁻¹
+
+theorem reflectedTranspose_mul {n : ℕ} (g h : GL (Fin (n+2)) A) :
+    reflectedTranspose (g*h) = reflectedTranspose h * reflectedTranspose g := by sorry
+
+theorem reflectedTranspose_involutive {n : ℕ} (g : GL (Fin (n+2)) A) :
+    reflectedTranspose (reflectedTranspose g) = g := by sorry
+
+theorem reflectedTranspose_level_iff {n : ℕ} (g : GL (Fin (n+2)) A) :
+    reflectedTranspose g ∈ Level (n+2) I ↔ g ∈ Level (n+2) I := by sorry
+
+/-- Subtype bookkeeping for the already specified reflected transpose. -/
+def reflectedLevel {n : ℕ} (g : Level (n+2) I) : Level (n+2) I :=
+  ⟨reflectedTranspose g.val, (reflectedTranspose_level_iff g.val).mpr g.property⟩
+
+-- test reflectedTranspose_middle_test
+example {n : ℕ} (t : I) : reflectedLevel (middle (n := n) t) = middle t := by sorry
+-- test reflectedTranspose_entry_test
+example (g : GL (Fin 4) A) :
+    (reflectedTranspose g : Matrix (Fin 4) (Fin 4) A) 1 2 =
+      (g : Matrix (Fin 4) (Fin 4) A) 2 1 := by sorry
+-- test reflectedTranspose_root_test
+example (t : A) : reflectedTranspose (elementary (i := (0 : Fin 4)) (j := 1) (by decide) t) =
+    elementary (i := (1 : Fin 4)) (j := 3) (by decide) t := by sorry
+
+theorem reflectedLevel_left {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    reflectedLevel (leftBlock a y) =
+      rightBlock (conjugate (permGL (finRotate (n+1))) (transposeLevel a))
+        (y ∘ finRotate (n+1)) := by sorry
+
+theorem reflectedLevel_right {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    reflectedLevel (rightBlock b p) =
+      leftBlock (conjugate (permGL (finRotate (n+1))⁻¹) (transposeLevel b))
+        (p ∘ (finRotate (n+1)).symm) := by sorry
+
+section ReflectionNormalizer
+variable {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+  (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+  (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+    ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+include hk
+
+theorem extendedValue_reflected (g : Level (n+2) I) :
+    ∃ h : extendedValue k hsr hn ht g ∈ k.range,
+      extendedValue k hsr hn ht (reflectedLevel g) =
+        (MulOpposite.unop (transposeImage k hk.transpose_kernel
+          ⟨extendedValue k hsr hn ht g,h⟩)).val := by sorry
+
+theorem stabilizer_reflected (τ : GL (Fin (n+2)) A)
+    (hτ : τ ∈ conjugationStabilizer (extendedValue k hsr hn ht)) :
+    reflectedTranspose τ ∈ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+
+/-- Lemma 9.6: remaining §10 target is exactly the last-coordinate swap. -/
+theorem GE_le_stabilizer_of_swap
+    (hP : (permGL (Equiv.swap ((Fin.last n).castSucc) (Fin.last (n+1))) : GL (Fin (n+2)) A) ∈
+      conjugationStabilizer (extendedValue k hsr hn ht)) :
+    GE (n+2) A ≤ conjugationStabilizer (extendedValue k hsr hn ht) := by sorry
+end ReflectionNormalizer
+end TauCeti.MennickeExtension
+
+end
+
+end
+
+noncomputable section
+
+open CategoryTheory CategoryTheory.Limits CategoryTheory.MonoidalCategory ZeroObject
+open scoped TensorProduct nonZeroDivisors
+
+universe u
+
+/-! ## Stage `KTheoryLowDegrees:Z.3` — the `K₀` ring, λ-operations, determinant and γ-filtration -/
+/-! ### The abstract λ-ring algebra (moved here from `SchemeKTheoryOperations:S.6`)
+
+The spellings are those of the companion file `SchemeKTheoryOperations.lean` (`PreLambdaRing` with
+the field `lambda`, `LambdaRing` extending it, `productPoly`, `compPoly`, `newtonPoly`, `adams`),
+declared here under the packet's Z.3 names. -/
+
+/-! #### `KTheoryLowDegrees:Z.3/lambda-universal-polynomials` -/
+
+namespace TauCeti.LambdaRing
+
+open MvPolynomial
+
+/-- Helper (not a packet name): the two-set identity defining `P_k` in `k + k` variables. -/
+theorem exists_productPoly (k : ℕ) :
+    ∃ P : MvPolynomial (Fin k ⊕ Fin k) ℤ,
+      aeval (Sum.elim (fun i : Fin k => rename Sum.inl (esymm (Fin k) ℤ (i + 1)))
+          (fun j : Fin k => rename Sum.inr (esymm (Fin k) ℤ (j + 1)))) P =
+        aeval (fun p : Fin k × Fin k => (X (Sum.inl p.1) * X (Sum.inr p.2) :
+          MvPolynomial (Fin k ⊕ Fin k) ℤ)) (esymm (Fin k × Fin k) ℤ k) := by
+  sorry
+
+/-- **Grothendieck's product polynomial** `P_k ∈ ℤ[a₁, …, a_k; b₁, …, b_k]`
+(`KTheoryLowDegrees:Z.3/lambda-universal-polynomials`), with `a_i = X (inl (i - 1))` and
+`b_j = X (inr (j - 1))`: the polynomial with `e_k((ξ_i η_j)) = P_k(e(ξ); e(η))`, chosen from
+`exists_productPoly` (a real definition; only the existence proof is omitted). -/
+noncomputable def productPoly (k : ℕ) : MvPolynomial (Fin k ⊕ Fin k) ℤ :=
+  Classical.choose (exists_productPoly k)
+
+/-- Helper (not a packet name): `e_k` of the `l`-fold products `ξ_{i₁} ⋯ ξ_{i_l}`,
+`i₁ < ⋯ < i_l`, in `n` variables. -/
+noncomputable def esymmOfProducts (n k l : ℕ) : MvPolynomial (Fin n) ℤ :=
+  aeval (fun s : {s : Finset (Fin n) // s.card = l} => ∏ i ∈ s.1, (X i : MvPolynomial (Fin n) ℤ))
+    (esymm {s : Finset (Fin n) // s.card = l} ℤ k)
+
+/-- **Grothendieck's composition polynomial** `P_{k,l} ∈ ℤ[a₁, …, a_{kl}]`: the polynomial with
+`P_{k,l}(e(ξ)) = e_k(ξ_{i₁} ⋯ ξ_{i_l})` in `kl` variables, from Tau Ceti's fundamental theorem
+`MvPolynomial.IsSymmetric.exists_aeval_esymm` (the symmetry proof is omitted). -/
+/-- `KTheoryLowDegrees:Z.3/lambda-composition-polynomial`, separated by the independent review. -/
+noncomputable def compPoly (k l : ℕ) : MvPolynomial (Fin (k * l)) ℤ :=
+  Classical.choose (MvPolynomial.IsSymmetric.exists_aeval_esymm
+    (p := esymmOfProducts (k * l) k l) (by sorry))
+
+/-- **The Newton polynomial** `N_k` with `p_k = N_k(e₁, …, e_k)` (`MvPolynomial.psum`), from
+`MvPolynomial.IsSymmetric.exists_aeval_esymm` and `MvPolynomial.psum_isSymmetric` (a real
+definition using the pinned existence and symmetry lemmas; elaboration is unverified). -/
+/-- `KTheoryLowDegrees:Z.3/lambda-newton-polynomial`, separated by the independent review. -/
+noncomputable def newtonPoly (k : ℕ) : MvPolynomial (Fin k) ℤ :=
+  Classical.choose (MvPolynomial.IsSymmetric.exists_aeval_esymm (psum_isSymmetric (Fin k) ℤ k))
+
+/-- `e_k((ξ_i η_j)) = P_k(e(ξ); e(η))` in `ℤ[ξ₁, …, ξ_n, η₁, …, η_m]` for `n, m ≥ k`. -/
+theorem productPoly_esymm (k n m : ℕ) (hn : k ≤ n) (hm : k ≤ m) :
+    aeval (Sum.elim (fun i : Fin k => rename Sum.inl (esymm (Fin n) ℤ (i + 1)))
+        (fun j : Fin k => rename Sum.inr (esymm (Fin m) ℤ (j + 1)))) (productPoly k) =
+      aeval (fun p : Fin n × Fin m => (X (Sum.inl p.1) * X (Sum.inr p.2) :
+        MvPolynomial (Fin n ⊕ Fin m) ℤ)) (esymm (Fin n × Fin m) ℤ k) := by
+  sorry
+
+/-- `e_k` of the products of `l` distinct `ξ`'s equals `P_{k,l}(e(ξ))` for `n ≥ kl`. -/
+theorem compPoly_esymm (k l n : ℕ) (hn : k * l ≤ n) :
+    aeval (fun i : Fin (k * l) => esymm (Fin n) ℤ (i + 1)) (compPoly k l) =
+      esymmOfProducts n k l := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.compPoly_unique`: the defining identity determines `P_{k,l}`. -/
+theorem compPoly_unique (k l n : ℕ) (hk : 0 < k) (hl : 0 < l) (hn : k * l ≤ n)
+    (Q : MvPolynomial (Fin (k * l)) ℤ)
+    (hQ : aeval (fun i : Fin (k * l) => esymm (Fin n) ℤ (i + 1)) Q =
+      esymmOfProducts n k l) : Q = compPoly k l := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.newtonPoly_esymm`: the power-sum identity, stable in `n ≥ k`. -/
+theorem newtonPoly_esymm (k n : ℕ) (hk : 0 < k) (hn : k ≤ n) :
+    aeval (fun i : Fin k => esymm (Fin n) ℤ (i + 1)) (newtonPoly k) =
+      psum (Fin n) ℤ k := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.newtonPoly_unique`: algebraic independence gives uniqueness. -/
+theorem newtonPoly_unique (k n : ℕ) (hk : 0 < k) (hn : k ≤ n)
+    (Q : MvPolynomial (Fin k) ℤ)
+    (hQ : aeval (fun i : Fin k => esymm (Fin n) ℤ (i + 1)) Q = psum (Fin n) ℤ k) :
+    Q = newtonPoly k := by
+  sorry
+
+/-- Uniqueness of `P_k` (algebraic independence of `e₁, …, e_k`,
+`MvPolynomial.esymmAlgHom_fin_injective`): a polynomial with the defining identity for some
+`n, m ≥ k` is `P_k`. -/
+theorem productPoly_unique (k n m : ℕ) (hn : k ≤ n) (hm : k ≤ m)
+    (Q : MvPolynomial (Fin k ⊕ Fin k) ℤ)
+    (hQ : aeval (Sum.elim (fun i : Fin k => rename Sum.inl (esymm (Fin n) ℤ (i + 1)))
+        (fun j : Fin k => rename Sum.inr (esymm (Fin m) ℤ (j + 1)))) Q =
+      aeval (fun p : Fin n × Fin m => (X (Sum.inl p.1) * X (Sum.inr p.2) :
+        MvPolynomial (Fin n ⊕ Fin m) ℤ)) (esymm (Fin n × Fin m) ℤ k)) :
+    Q = productPoly k := by
+  sorry
+
+/-- `P_k` is isobaric of weight `k` in each set of variables (`a_i`, `b_i` of weight `i`), and
+`P_{k,l}` is isobaric of weight `kl`. -/
+theorem productPoly_isobaric (k : ℕ) :
+    (productPoly k).IsWeightedHomogeneous
+        (Sum.elim (fun i : Fin k => (i : ℕ) + 1) (fun _ : Fin k => 0)) k ∧
+      (productPoly k).IsWeightedHomogeneous
+        (Sum.elim (fun _ : Fin k => 0) (fun j : Fin k => (j : ℕ) + 1)) k := by
+  sorry
+
+/-- API of `KTheoryLowDegrees:Z.3/lambda-composition-polynomial`. -/
+theorem compPoly_isobaric (k l : ℕ) :
+    (compPoly k l).IsWeightedHomogeneous (fun i : Fin (k * l) => (i : ℕ) + 1) (k * l) := by
+  sorry
+
+-- test TauCeti.LambdaRing.productPoly_one_test (computation)
+/- `P₁ = a₁ b₁`: by uniqueness, from `e₁(ξ₀η₀) = ξ₀η₀` in one plus one variables. -/
+example : productPoly 1 = X (Sum.inl 0) * X (Sum.inr 0) := by
+  refine (productPoly_unique 1 1 1 le_rfl le_rfl _ ?_).symm
+  simp [esymm_one, Fintype.sum_prod_type]
+
+-- test TauCeti.LambdaRing.productPoly_two_test (computation)
+/- `P₂ = a₁² b₂ + a₂ b₁² − 2 a₂ b₂`. -/
+example : productPoly 2 = X (Sum.inl 0) ^ 2 * X (Sum.inr 1) + X (Sum.inl 1) * X (Sum.inr 0) ^ 2 -
+    2 * X (Sum.inl 1) * X (Sum.inr 1) := by
+  sorry
+
+-- test TauCeti.LambdaRing.compPoly_two_two_test (computation)
+/- `P_{2,2} = a₁ a₃ − a₄`. -/
+example : compPoly 2 2 = X 0 * X 2 - X 3 := by
+  sorry
+
+-- test TauCeti.LambdaRing.compPoly_one_test (degenerate)
+/- `P_{k,1} = a_k` and `P_{1,l} = a_l` (the index sets `k * 1`, `1 * l` read through `Fin`). -/
+example (k l : ℕ) (hk : 0 < k) (hl : 0 < l) :
+    compPoly k 1 = X ⟨k - 1, by omega⟩ ∧ compPoly 1 l = X ⟨l - 1, by omega⟩ := by
+  sorry
+
+-- test TauCeti.LambdaRing.productPoly_ne_naive_test (non-example)
+/- `P₂ ≠ a₂ b₂ + a₁ b₁`: in `ℤ`, `λ²(2 · 2) = 6` while `λ²(2) λ²(2) + 2 · 2 = 5`. -/
+example : productPoly 2 ≠ X (Sum.inl 1) * X (Sum.inr 1) + X (Sum.inl 0) * X (Sum.inr 0) := by
+  sorry
+
+-- test TauCeti.LambdaRing.newtonPoly_two_test (computation): `N₂ = a₁² − 2a₂`.
+example : newtonPoly 2 = X 0 ^ 2 - 2 * X 1 := by
+  sorry
+
+end TauCeti.LambdaRing
+
+/-! #### `KTheoryLowDegrees:Z.3/pre-lambda-ring` -/
+
+namespace TauCeti
+
+/-- **Pre-λ-rings** (`KTheoryLowDegrees:Z.3/pre-lambda-ring`; Weibel's and Atiyah's "λ-ring",
+Grothendieck's "pré-λ-anneau"): a commutative ring with operations `λⁿ` such that `λ⁰ = 1`,
+`λ¹ = id` and `λⁿ(x + y) = Σ_{i=0}^{n} λⁱ(x) λ^{n-i}(y)`. -/
+class PreLambdaRing (K : Type*) [CommRing K] where
+  /-- The operations `λⁿ`. -/
+  lambda : ℕ → K → K
+  /-- `λ⁰(x) = 1`. -/
+  lambda_zero' : ∀ x, lambda 0 x = 1
+  /-- `λ¹(x) = x`. -/
+  lambda_one' : ∀ x, lambda 1 x = x
+  /-- The sum formula. -/
+  lambda_add' : ∀ n x y,
+    lambda n (x + y) = ∑ i ∈ Finset.range (n + 1), lambda i x * lambda (n - i) y
+
+namespace LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- Helper (not a packet name): a power series with constant coefficient `1` as a unit. -/
+noncomputable def unitOfConstOne (f : PowerSeries K) (hf : PowerSeries.constantCoeff f = 1) :
+    (PowerSeries K)ˣ where
+  val := f
+  inv := PowerSeries.invOfUnit f 1
+  val_inv := PowerSeries.mul_invOfUnit f 1 (by simpa using hf)
+  inv_val := by rw [mul_comm]; exact PowerSeries.mul_invOfUnit f 1 (by simpa using hf)
+
+/-- **`λ_t`** (`TauCeti.LambdaRing.lambdaTotal`): `x ↦ Σ λⁿ(x) tⁿ`, an additive-to-multiplicative
+homomorphism `K → 1 + tK[[t]]` (a real definition; additivity is the sum formula). -/
+noncomputable def lambdaTotal [PreLambdaRing K] : K →+ Additive (PowerSeries K)ˣ where
+  toFun x := Additive.ofMul (unitOfConstOne (PowerSeries.mk fun n => lambda n x)
+    (by simp [PreLambdaRing.lambda_zero']))
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- `λⁿ(x + y) = Σ_{i+j=n} λⁱ(x) λʲ(y)`. -/
+@[simp]
+theorem lambda_add [PreLambdaRing K] (n : ℕ) (x y : K) :
+    lambda n (x + y) = ∑ p ∈ Finset.antidiagonal n, lambda p.1 x * lambda p.2 y := by
+  sorry
+
+/-- `λ⁰(x) = 1`. -/
+@[simp]
+theorem lambda_zero_eq_one [PreLambdaRing K] (x : K) : lambda 0 x = 1 :=
+  PreLambdaRing.lambda_zero' x
+
+/-- `λ¹(x) = x`. -/
+@[simp]
+theorem lambda_one_eq_id [PreLambdaRing K] (x : K) : lambda 1 x = x :=
+  PreLambdaRing.lambda_one' x
+
+/-- `KTheoryLowDegrees:Z.3/lambda-zero-class`: `λⁿ(0) = 0` for `n > 0`, i.e. `λ_t(0) = 1`, in every
+pre-λ-ring (in particular in `K₀(R)`). -/
+@[simp]
+theorem lambda_of_zero [PreLambdaRing K] (n : ℕ) (hn : 0 < n) : lambda n (0 : K) = 0 := by
+  sorry
+
+/-- `λ_t(-x) = λ_t(x)⁻¹` (the series form of `KTheoryLowDegrees:Z.3/lambda-neg-recursion`). -/
+@[simp]
+theorem lambdaTotal_neg [PreLambdaRing K] (x : K) :
+    Additive.toMul (lambdaTotal (-x)) = (Additive.toMul (lambdaTotal x))⁻¹ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-neg-recursion`: for `n > 0`,
+`λⁿ(-x) = -Σ_{i=0}^{n-1} λ^{n-i}(x) λⁱ(-x)`; the recursion is integral. -/
+theorem lambda_neg_recursion [PreLambdaRing K] (n : ℕ) (hn : 0 < n) (x : K) :
+    lambda n (-x) = -∑ i ∈ Finset.range n, lambda (n - i) x * lambda i (-x) := by
+  sorry
+
+/-- **λ-ideals** (`TauCeti.LambdaRing.IsLambdaIdeal`): ideals with `λⁿ(I) ⊆ I` for `n ≥ 1`. The
+kernel of a pre-λ-ring homomorphism is one (`PreLambdaRing.Hom.isLambdaIdeal_ker`). -/
+/-- `KTheoryLowDegrees:Z.3/lambda-ideal`, separated by the independent review. -/
+class IsLambdaIdeal [PreLambdaRing K] (I : Ideal K) : Prop where
+  /-- `λⁿ(I) ⊆ I` for `n ≥ 1`. -/
+  lambda_mem : ∀ n, 1 ≤ n → ∀ x ∈ I, lambda n x ∈ I
+
+/-- **Line elements** (`TauCeti.LambdaRing.IsLineElement`): `λⁿ(ℓ) = 0` for `n ≥ 2`, so that
+`λ_t(ℓ) = 1 + ℓt`. -/
+/-- `KTheoryLowDegrees:Z.3/lambda-line-element`, separated by the independent review. -/
+def IsLineElement [PreLambdaRing K] (ℓ : K) : Prop :=
+  ∀ n, 2 ≤ n → lambda n ℓ = 0
+
+/-- A line element has `λ_t(ℓ) = 1 + ℓt`. -/
+theorem IsLineElement.lambdaTotal [PreLambdaRing K] {ℓ : K} (h : IsLineElement ℓ) :
+    ((Additive.toMul (lambdaTotal ℓ) : (PowerSeries K)ˣ) : PowerSeries K) =
+      1 + PowerSeries.C ℓ * PowerSeries.X := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.lambdaTotal_of_isLineElement`: the weak line predicate determines
+the total series; it does not assert that the element is a unit. -/
+theorem lambdaTotal_of_isLineElement [PreLambdaRing K] {ℓ : K} (h : IsLineElement ℓ) :
+    ((Additive.toMul (lambdaTotal ℓ) : (PowerSeries K)ˣ) : PowerSeries K) =
+      1 + PowerSeries.C ℓ * PowerSeries.X :=
+  h.lambdaTotal
+
+/-- API `TauCeti.LambdaRing.isLineElement_zero`: zero satisfies the weak line predicate. -/
+@[simp] theorem isLineElement_zero [PreLambdaRing K] : IsLineElement (0 : K) := by
+  intro n hn
+  exact lambda_of_zero n (by omega)
+
+end LambdaRing
+
+namespace PreLambdaRing
+
+open LambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- **Pre-λ-rings from `λ_t`** (`TauCeti.PreLambdaRing.ofLambdaTotal`): an
+additive-to-multiplicative `λ_t : K → (K[[t]])ˣ` with constant coefficient `1` and `t`-coefficient
+the identity is a pre-λ-ring structure, `λⁿ = coeffₙ ∘ λ_t` (a real definition). -/
+@[instance_reducible]
+def ofLambdaTotal (L : K →+ Additive (PowerSeries K)ˣ)
+    (h0 : ∀ x, PowerSeries.coeff 0 ((Additive.toMul (L x) : (PowerSeries K)ˣ) : PowerSeries K) = 1)
+    (h1 : ∀ x,
+      PowerSeries.coeff 1 ((Additive.toMul (L x) : (PowerSeries K)ˣ) : PowerSeries K) = x) :
+    PreLambdaRing K where
+  lambda n x := PowerSeries.coeff n ((Additive.toMul (L x) : (PowerSeries K)ˣ) : PowerSeries K)
+  lambda_zero' := h0
+  lambda_one' := h1
+  lambda_add' := by sorry
+
+/-- **Pre-λ-ring homomorphisms** (`TauCeti.PreLambdaRing.Hom`): ring homomorphisms commuting with
+every `λⁿ`. -/
+/-- `KTheoryLowDegrees:Z.3/pre-lambda-hom`, separated by the independent review. -/
+structure Hom (K L : Type*) [CommRing K] [PreLambdaRing K] [CommRing L] [PreLambdaRing L]
+    extends K →+* L where
+  /-- `f ∘ λⁿ = λⁿ ∘ f`. -/
+  map_lambda' : ∀ n x, toRingHom (lambda n x) = lambda n (toRingHom x)
+
+namespace Hom
+
+/-- API `TauCeti.PreLambdaRing.Hom.ext`: equality of the underlying ring maps determines a
+pre-λ-homomorphism, since its additional field is a proposition. -/
+@[ext] theorem ext {K L : Type*} [CommRing K] [PreLambdaRing K] [CommRing L]
+    [PreLambdaRing L] {f g : Hom K L} (h : f.toRingHom = g.toRingHom) : f = g := by
+  sorry
+
+/-- The identity pre-λ-homomorphism. -/
+def id (K : Type*) [CommRing K] [PreLambdaRing K] : Hom K K :=
+  { RingHom.id K with map_lambda' := fun _ _ => rfl }
+
+/-- Composition of pre-λ-homomorphisms. -/
+def comp {K L M : Type*} [CommRing K] [PreLambdaRing K] [CommRing L] [PreLambdaRing L]
+    [CommRing M] [PreLambdaRing M] (g : Hom L M) (f : Hom K L) : Hom K M :=
+  { g.toRingHom.comp f.toRingHom with
+    map_lambda' := fun n x => by
+      simp only [RingHom.comp_apply]
+      rw [f.map_lambda', g.map_lambda'] }
+
+/-- The kernel of a pre-λ-homomorphism is a λ-ideal. -/
+theorem isLambdaIdeal_ker {K L : Type*} [CommRing K] [PreLambdaRing K] [CommRing L]
+    [PreLambdaRing L] (f : Hom K L) : IsLambdaIdeal (RingHom.ker f.toRingHom) := by
+  sorry
+
+end Hom
+
+end PreLambdaRing
+
+namespace LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- **The quotient by a λ-ideal** (`TauCeti.LambdaRing.quotient`, pre-λ form): `K ⧸ I` with
+`λⁿ[x] = [λⁿ x]` (well defined because `I` is a λ-ideal and by the sum formula). -/
+/-- `KTheoryLowDegrees:Z.3/pre-lambda-quotient`, separated by the independent review. -/
+noncomputable instance quotient [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I] :
+    PreLambdaRing (K ⧸ I) where
+  lambda n := Quotient.lift (fun x : K => Ideal.Quotient.mk I (lambda n x)) (by sorry)
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+
+/-- The projection `K → K ⧸ I` is a pre-λ-homomorphism. -/
+theorem quotient_mk_lambda [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I] (n : ℕ) (x : K) :
+    Ideal.Quotient.mk I (lambda n x) = lambda n (Ideal.Quotient.mk I x) := by
+  sorry
+
+/-- API `TauCeti.LambdaRing.quotient_unique`: surjectivity of the projection determines the
+induced pre-λ-structure, with the commutative-ring structure fixed. -/
+theorem quotient_unique [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I]
+    (s : PreLambdaRing (K ⧸ I))
+    (hs : ∀ (n : ℕ) (x : K),
+      @PreLambdaRing.lambda (K ⧸ I) _ s n (Ideal.Quotient.mk I x) =
+        Ideal.Quotient.mk I (lambda n x)) : s = quotient I := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-nat-cast`: if `1` is a line element (`λ_t(1) = 1 + t`), then
+`λ^k(m · 1) = Ring.choose m k · 1` for every `m ∈ ℤ` (`C(m, k)` for `m ≥ 0` and
+`(-1)^k C(|m| + k - 1, k)` for `m < 0`). -/
+theorem lambda_intCast [PreLambdaRing K] (h1 : IsLineElement (1 : K)) (k : ℕ) (m : ℤ) :
+    lambda k (m : K) = ((Ring.choose m k : ℤ) : K) := by
+  sorry
+
+/-- The same for `m ∈ ℕ`: `λ^k(m) = C(m, k)`, in particular `λ^k(m) = 0` for `k > m`. -/
+theorem lambda_natCast_of_isLineElement [PreLambdaRing K] (h1 : IsLineElement (1 : K))
+    (k m : ℕ) : lambda k (m : K) = (m.choose k : K) := by
+  sorry
+
+end LambdaRing
+
+end TauCeti
+
+namespace TauCeti.LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-! #### Tests of `KTheoryLowDegrees:Z.3/pre-lambda-ring` that need no `K₀` -/
+
+-- test TauCeti.PreLambdaRing.zero_ring_test (degenerate)
+example (K : Type*) [CommRing K] [Subsingleton K] :
+    Nonempty (PreLambdaRing K) ∧ ∀ s t : PreLambdaRing K, s = t := by
+  sorry
+
+/-- Test helper (not a packet name): the pre-λ-ring `ℤ` with `λ_t(m) = (1 + t + t²)^m`. -/
+@[instance_reducible]
+noncomputable def cubicPreLambda : PreLambdaRing ℤ where
+  lambda k n := PowerSeries.coeff k
+    ((unitOfConstOne (1 + PowerSeries.X + PowerSeries.X ^ 2 : PowerSeries ℤ) (by simp)) ^ n :
+      (PowerSeries ℤ)ˣ).val
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+
+-- test TauCeti.PreLambdaRing.nonspecial_test (characterisation)
+/- `λ_t(m) = (1 + t + t²)^m` satisfies the pre-λ axioms (it is a structure), with `λ²(1) = 1`. -/
+example : cubicPreLambda.lambda 2 1 = 1 ∧ cubicPreLambda.lambda 1 5 = 5 := by
+  sorry
+
+-- test TauCeti.PreLambdaRing.powers_not_test (non-example)
+/- `λⁿ(x) := xⁿ` is not a pre-λ-ring on `ℤ`: `λ²(1 + 1) = 4` but the sum formula gives `3`. -/
+example : ¬ ∃ s : PreLambdaRing ℤ, ∀ (n : ℕ) (x : ℤ), s.lambda n x = x ^ n := by
+  rintro ⟨s, hs⟩
+  have h := s.lambda_add' 2 1 1
+  simp only [hs, Finset.sum_range_succ, Finset.sum_range_zero] at h
+  norm_num at h
+
+/-! #### `KTheoryLowDegrees:Z.3/binomial-lambda-ring` -/
+
+section Binomial
+
+/-- **Binomial rings as pre-λ-rings** (`TauCeti.LambdaRing.ofBinomialRing`): `λ^k b = C(b, k)`
+(`Ring.choose`), so `λ_t(b) = (1 + t)^b` (`PowerSeries.binomialSeries`); the sum formula is
+Chu–Vandermonde (`Ring.add_choose_eq`). -/
+instance ofBinomialRing (B : Type*) [CommRing B] [BinomialRing B] : PreLambdaRing B where
+  lambda k b := Ring.choose b k
+  lambda_zero' := Ring.choose_zero_right
+  lambda_one' := Ring.choose_one_right
+  lambda_add' := by sorry
+
+variable {B : Type*} [CommRing B] [BinomialRing B]
+
+/-- In a binomial ring, `λ^k b = Ring.choose b k`. -/
+@[simp]
+theorem lambda_eq_choose (k : ℕ) (b : B) : lambda k b = Ring.choose b k :=
+  rfl
+
+/-- `λ_t(b) = binomialSeries b`. -/
+theorem lambdaTotal_eq_binomialSeries (b : B) :
+    ((Additive.toMul (lambdaTotal b) : (PowerSeries B)ˣ) : PowerSeries B) =
+      PowerSeries.binomialSeries B b := by
+  sorry
+
+/-- Helper instance (a true fact, proof omitted): `LocallyConstant X ℤ` is torsion-free. -/
+instance locallyConstant_isAddTorsionFree (X : Type*) [TopologicalSpace X] :
+    IsAddTorsionFree (LocallyConstant X ℤ) := by
+  sorry
+
+/-- Helper instance (not a packet name): `LocallyConstant X ℤ` is a binomial ring with the pointwise
+`multichoose` (a real definition; the Pochhammer identity is pointwise). This is what makes
+`H⁰(X, ℤ)` the binomial ring `H` of an augmentation. -/
+noncomputable instance binomialRingLocallyConstant (X : Type*) [TopologicalSpace X] :
+    BinomialRing (LocallyConstant X ℤ) where
+  multichoose f n := f.map fun a => Ring.multichoose a n
+  factorial_nsmul_multichoose := by sorry
+
+/-- **The pointwise binomial pre-λ-ring** `H⁰(X, ℤ) = LocallyConstant X ℤ`
+(`TauCeti.LambdaRing.locallyConstantInt`), `(λ^k f)(x) = C(f x, k)`; it is the structure
+`ofBinomialRing` of the pointwise binomial ring. -/
+noncomputable instance locallyConstantInt (X : Type*) [TopologicalSpace X] :
+    PreLambdaRing (LocallyConstant X ℤ) :=
+  ofBinomialRing (LocallyConstant X ℤ)
+
+/-- `(λ^k f)(x) = Ring.choose (f x) k`. -/
+@[simp]
+theorem locallyConstant_lambda_apply {X : Type*} [TopologicalSpace X] (k : ℕ)
+    (f : LocallyConstant X ℤ) (x : X) : (lambda k f) x = Ring.choose (f x) k := by
+  sorry
+
+/-- Comap along a continuous map is a pre-λ-ring homomorphism
+(`TauCeti.LambdaRing.locallyConstant_comap`; a real definition over
+`LocallyConstant.comapRingHom`). -/
+noncomputable def locallyConstant_comap {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
+    (g : C(X, Y)) : PreLambdaRing.Hom (LocallyConstant Y ℤ) (LocallyConstant X ℤ) where
+  toRingHom := LocallyConstant.comapRingHom g
+  map_lambda' := by sorry
+
+/-- The canonical ring homomorphism `ℤ → K` is a pre-λ-homomorphism when `1` is a line element
+(`KTheoryLowDegrees:Z.3/lambda-nat-cast`). -/
+theorem intCast_isLambdaHom {K : Type*} [CommRing K] [PreLambdaRing K]
+    (h1 : IsLineElement (1 : K)) (k : ℕ) (m : ℤ) :
+    Int.castRingHom K (lambda k m) = lambda k (Int.castRingHom K m) := by
+  sorry
+
+end Binomial
+
+-- test TauCeti.LambdaRing.int_choose_test (computation)
+example : lambda 2 (5 : ℤ) = 10 ∧ lambda 3 (2 : ℤ) = 0 ∧ lambda 2 (-1 : ℤ) = 1 := by
+  refine ⟨?_, ?_, ?_⟩
+  · rw [lambda_eq_choose, show (5 : ℤ) = ((5 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+  · rw [lambda_eq_choose, show (2 : ℤ) = ((2 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+  · rw [lambda_eq_choose, show (-1 : ℤ) = -(1 : ℤ) from rfl, Ring.choose_neg,
+      show ((1 : ℤ) + (2 : ℕ) - 1) = ((2 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+
+-- test TauCeti.PreLambdaRing.int_binomial_test (computation)
+example : lambda 2 (3 : ℤ) = 3 ∧ lambda 2 (-1 : ℤ) = 1 := by
+  refine ⟨?_, ?_⟩
+  · rw [lambda_eq_choose, show (3 : ℤ) = ((3 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+  · rw [lambda_eq_choose, show (-1 : ℤ) = -(1 : ℤ) from rfl, Ring.choose_neg,
+      show ((1 : ℤ) + (2 : ℕ) - 1) = ((2 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+
+-- test TauCeti.LambdaRing.locallyConstant_empty_test (degenerate)
+example : Subsingleton (LocallyConstant Empty ℤ) :=
+  ⟨fun _ _ => LocallyConstant.ext fun x => x.elim⟩
+
+-- test TauCeti.LambdaRing.polynomial_not_binomial_test (non-example)
+/- `ℤ[x]` is not binomial (`x(x-1)/2 ∉ ℤ[x]`), and in the monoid λ-ring `ℤ[x]` (`x` a line
+element, `monoidAlgebra` below) `λ²(x) = 0 ≠ x(x-1)/2`. -/
+example : IsEmpty (BinomialRing (Polynomial ℤ)) := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/special-lambda-ring` -/
+
+end TauCeti.LambdaRing
+
+namespace TauCeti
+
+open MvPolynomial
+
+/-- **Special λ-rings** (`TauCeti.LambdaRing`, `KTheoryLowDegrees:Z.3/special-lambda-ring`;
+Grothendieck's λ-anneau): a pre-λ-ring with `λ^k(1) = 0` for `k ≥ 2`,
+`λ^k(xy) = P_k(λ^• x; λ^• y)` and `λ^k(λ^l x) = P_{k,l}(λ^• x)`. -/
+class LambdaRing (K : Type*) [CommRing K] extends PreLambdaRing K where
+  /-- `λ^k(1) = 0` for `k ≥ 2`. -/
+  lambda_one_eq_zero' : ∀ k, 2 ≤ k → lambda k 1 = 0
+  /-- The product axiom. -/
+  lambda_mul' : ∀ k x y, lambda k (x * y) =
+    aeval (Sum.elim (fun i : Fin k => lambda (i + 1) x) (fun j : Fin k => lambda (j + 1) y))
+      (LambdaRing.productPoly k)
+  /-- The composition axiom. -/
+  lambda_lambda' : ∀ k l x, lambda k (lambda l x) =
+    aeval (fun i : Fin (k * l) => lambda (i + 1) x) (LambdaRing.compPoly k l)
+
+namespace LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- `λ^k(xy) = P_k(λ^• x; λ^• y)`. -/
+theorem lambda_mul [LambdaRing K] (k : ℕ) (x y : K) :
+    lambda k (x * y) =
+      aeval (Sum.elim (fun i : Fin k => lambda (i + 1) x) (fun j : Fin k => lambda (j + 1) y))
+        (productPoly k) :=
+  LambdaRing.lambda_mul' k x y
+
+/-- `λ^k(λ^l x) = P_{k,l}(λ^• x)`. -/
+theorem lambda_lambda [LambdaRing K] (k l : ℕ) (x : K) :
+    lambda k (lambda l x) = aeval (fun i : Fin (k * l) => lambda (i + 1) x) (compPoly k l) :=
+  LambdaRing.lambda_lambda' k l x
+
+/-- `λ^k(n) = C(n, k)` in a special λ-ring (`KTheoryLowDegrees:Z.3/lambda-nat-cast`). -/
+@[simp]
+theorem lambda_natCast [LambdaRing K] (k n : ℕ) : lambda k (n : K) = (n.choose k : K) :=
+  lambda_natCast_of_isLineElement (fun k hk => LambdaRing.lambda_one_eq_zero' k hk) k n
+
+/-- **Special λ-subrings** (`TauCeti.LambdaRing.ofSubring`): a subring closed under the `λ^k` of a
+special λ-ring is a special λ-ring (a real definition; the axioms are inherited). -/
+@[instance_reducible]
+def ofSubring {L : Type*} [CommRing L] [LambdaRing L] (S : Subring L)
+    (hS : ∀ k x, x ∈ S → lambda k x ∈ S) : LambdaRing S where
+  lambda k x := ⟨lambda k (x : L), hS k x x.2⟩
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+  lambda_one_eq_zero' := by sorry
+  lambda_mul' := by sorry
+  lambda_lambda' := by sorry
+
+/-- `TauCeti.LambdaRing.quotient` (special form): the quotient of a special λ-ring by a λ-ideal is
+special. The packet gives this item the same name as the pre-λ instance `quotient` above; it is
+stated here as `quotientSpecial`, extending that instance. -/
+noncomputable instance quotientSpecial [LambdaRing K] (I : Ideal K) [IsLambdaIdeal I] :
+    LambdaRing (K ⧸ I) :=
+  { quotient I with
+    lambda_one_eq_zero' := by sorry
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+/-- **`ℤ` with the binomial operations** (`TauCeti.LambdaRing.int`,
+`KTheoryLowDegrees:Z.3/binomial-special`): a special λ-ring extending `ofBinomialRing ℤ`. -/
+instance int : LambdaRing ℤ :=
+  { ofBinomialRing ℤ with
+    lambda_one_eq_zero' := by sorry
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+/-- `KTheoryLowDegrees:Z.3/binomial-special`: `LocallyConstant X ℤ` with the pointwise binomial
+operations is a special λ-ring (extending `locallyConstantInt`). -/
+noncomputable instance binomialSpecial (X : Type*) [TopologicalSpace X] :
+    LambdaRing (LocallyConstant X ℤ) :=
+  { locallyConstantInt X with
+    lambda_one_eq_zero' := by sorry
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+-- test TauCeti.LambdaRing.int_special_test (computation)
+/- `λ²(6) = 15 = P₂(λ¹3, λ²3; λ¹2, λ²2) = 9 · 1 + 3 · 4 − 2 · 3 · 1`. -/
+example : lambda 2 (6 : ℤ) = 15 ∧
+    aeval (Sum.elim (fun i : Fin 2 => lambda (i + 1) (3 : ℤ))
+      (fun j : Fin 2 => lambda (j + 1) (2 : ℤ))) (productPoly 2) = 15 := by
+  refine ⟨?_, ?_⟩
+  · rw [lambda_eq_choose, show (6 : ℤ) = ((6 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+  · sorry
+
+-- test TauCeti.LambdaRing.zero_ring_special_test (degenerate)
+example (K : Type*) [CommRing K] [Subsingleton K] : Nonempty (LambdaRing K) := by
+  sorry
+
+-- test TauCeti.LambdaRing.not_special_test (non-example)
+/- `λ_t(m) = (1 + t + t²)^m` has `λ²(1) = 1 ≠ 0`, so no special λ-ring structure extends it. -/
+example : ¬ ∃ inst : LambdaRing ℤ, inst.toPreLambdaRing = cubicPreLambda := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/gamma` -/
+
+section Gamma
+
+variable [PreLambdaRing K]
+
+/-- **The total γ-operation** (`TauCeti.LambdaRing.gammaTotal`): `γ_t(x) = λ_s(x)` with
+`s = t/(1 - t)` (Mathlib's `PowerSeries.subst`), an additive-to-multiplicative homomorphism
+`K → 1 + tK[[t]]` (a real definition). -/
+noncomputable def gammaTotal : K →+ Additive (PowerSeries K)ˣ where
+  toFun x := Additive.ofMul (unitOfConstOne
+    (PowerSeries.subst (PowerSeries.X * PowerSeries.invUnitsSub (1 : Kˣ))
+      ((Additive.toMul (lambdaTotal x) : (PowerSeries K)ˣ) : PowerSeries K)) (by sorry))
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- **The γ-operations** (`TauCeti.LambdaRing.gamma`): `γⁿ(x) = coeffₙ(γ_t(x))`. -/
+noncomputable def gamma (n : ℕ) (x : K) : K :=
+  PowerSeries.coeff n ((Additive.toMul (gammaTotal x) : (PowerSeries K)ˣ) : PowerSeries K)
+
+/-- `γ⁰(x) = 1`. -/
+@[simp]
+theorem gamma_zero (x : K) : gamma 0 x = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-one`: `γ¹(x) = x`. -/
+@[simp]
+theorem gamma_one (x : K) : gamma 1 x = x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-add`: `γⁿ(x + y) = Σ_{i=0}^{n} γⁱ(x) γ^{n-i}(y)`. -/
+@[simp]
+theorem gamma_add (n : ℕ) (x y : K) :
+    gamma n (x + y) = ∑ i ∈ Finset.range (n + 1), gamma i x * gamma (n - i) y := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-series` (shifted form): if `λ^k(1) = 0` for `k ≥ 2`, then
+`γⁿ(x) = λⁿ(x + n - 1)` for `n ≥ 1`. -/
+theorem gamma_eq_lambda_add (h1 : IsLineElement (1 : K)) (n : ℕ) (hn : 1 ≤ n) (x : K) :
+    gamma n x = lambda n (x + ((n - 1 : ℕ) : K)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-series` (expanded form):
+`γⁿ(x) = Σ_{j=1}^{n} C(n - 1, j - 1) λʲ(x)` for `n ≥ 1`. -/
+theorem gamma_series (h1 : IsLineElement (1 : K)) (n : ℕ) (hn : 1 ≤ n) (x : K) :
+    gamma n x = ∑ j ∈ Finset.Icc 1 n, ((n - 1).choose (j - 1) : K) * lambda j x := by
+  sorry
+
+/-- `γ²(x) = λ²(x) + x` when `λ²(1) = 0`. -/
+theorem gamma_two (h2 : lambda 2 (1 : K) = 0) (x : K) : gamma 2 x = lambda 2 x + x := by
+  sorry
+
+/-- Pre-λ-ring homomorphisms commute with the γ-operations. -/
+theorem gamma_map {L : Type*} [CommRing L] [PreLambdaRing L] (f : PreLambdaRing.Hom K L)
+    (n : ℕ) (x : K) : f.toRingHom (gamma n x) = gamma n (f.toRingHom x) := by
+  sorry
+
+end Gamma
+
+-- test TauCeti.LambdaRing.gamma_int_test (computation)
+/- In `ℤ`: `γ^k(m) = C(m + k - 1, k)`; `γ²(3) = 6`. -/
+example : gamma 2 (3 : ℤ) = 6 ∧
+    ∀ (k : ℕ) (m : ℤ), 1 ≤ k → gamma k m = Ring.choose (m + k - 1) k := by
+  have h1 : IsLineElement (1 : ℤ) := fun n hn => by
+    rw [lambda_eq_choose, show (1 : ℤ) = ((1 : ℕ) : ℤ) by norm_num, Ring.choose_natCast,
+      Nat.choose_eq_zero_of_lt (by omega), Nat.cast_zero]
+  refine ⟨?_, fun k m hk => ?_⟩
+  · rw [gamma_eq_lambda_add h1 2 (by norm_num), lambda_eq_choose,
+      show (3 : ℤ) + ((2 - 1 : ℕ) : ℤ) = ((4 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+    decide
+  · rw [gamma_eq_lambda_add h1 k hk, lambda_eq_choose]
+    congr 1
+    push_cast [Nat.cast_sub hk]
+    ring
+
+-- test TauCeti.LambdaRing.gamma_zero_class_test (degenerate)
+example [PreLambdaRing K] (n : ℕ) (hn : 0 < n) : gamma n (0 : K) = 0 := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/augmented-lambda-ring` -/
+
+/-- **Augmented pre-λ-rings** (`TauCeti.LambdaRing.Augmentation`): a binomial ring `H` (with its
+pre-λ-structure `ofBinomialRing`) and pre-λ-homomorphisms `ι : H → K`, `ε : K → H` with
+`ε ∘ ι = id` (parts 1) and 2) of Weibel's positive structure). -/
+structure Augmentation (K : Type*) [CommRing K] [PreLambdaRing K] (H : Type*) [CommRing H]
+    [BinomialRing H] where
+  /-- The unit map `H → K` (`TauCeti.LambdaRing.Augmentation.ι`). -/
+  ι : PreLambdaRing.Hom H K
+  /-- The augmentation `K → H` (`TauCeti.LambdaRing.Augmentation.ε`). -/
+  ε : PreLambdaRing.Hom K H
+  /-- `ε ∘ ι = id`. -/
+  ε_ι : ∀ h, ε.toRingHom (ι.toRingHom h) = h
+
+section Augmented
+
+variable [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+
+/-- **The augmentation ideal** `ker ε` (`TauCeti.LambdaRing.augmentationIdeal`). -/
+def augmentationIdeal (A : Augmentation K H) : Ideal K :=
+  RingHom.ker A.ε.toRingHom
+
+/-- `ker ε` is a λ-ideal. -/
+instance augmentationIdeal_isLambdaIdeal (A : Augmentation K H) :
+    IsLambdaIdeal (augmentationIdeal A) :=
+  PreLambdaRing.Hom.isLambdaIdeal_ker A.ε
+
+/-- `ε(λ^k x) = C(ε x, k)`. -/
+@[simp]
+theorem ε_lambda (A : Augmentation K H) (k : ℕ) (x : K) :
+    A.ε.toRingHom (lambda k x) = Ring.choose (A.ε.toRingHom x) k :=
+  A.ε.map_lambda' k x
+
+/-- `x - ι(ε x) ∈ ker ε`. -/
+theorem sub_ι_ε_mem (A : Augmentation K H) (x : K) :
+    x - A.ι.toRingHom (A.ε.toRingHom x) ∈ augmentationIdeal A := by
+  sorry
+
+/-- **Morphisms of augmented pre-λ-rings** (`TauCeti.LambdaRing.Augmentation.Hom`). -/
+structure Augmentation.Hom {L : Type*} [CommRing L] [PreLambdaRing L] (A : Augmentation K H)
+    (B : Augmentation L H) where
+  /-- The underlying pre-λ-homomorphism. -/
+  toHom : PreLambdaRing.Hom K L
+  /-- Compatibility with the augmentations. -/
+  ε_comp : ∀ x, B.ε.toRingHom (toHom.toRingHom x) = A.ε.toRingHom x
+  /-- Compatibility with the unit maps. -/
+  ι_comp : ∀ h, toHom.toRingHom (A.ι.toRingHom h) = B.ι.toRingHom h
+
+/-- `ι(1)` is a line element, so `λ^k(1) = 0` in `K` for `k ≥ 2`. -/
+theorem Augmentation.isLineElement_one (A : Augmentation K H) : IsLineElement (1 : K) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-rank-zero`: `γⁿ(ker ε) ⊆ ker ε` for `n ≥ 1`. -/
+theorem gamma_mem_augmentationIdeal (A : Augmentation K H) {x : K}
+    (hx : x ∈ augmentationIdeal A) (n : ℕ) (hn : 1 ≤ n) : gamma n x ∈ augmentationIdeal A := by
+  sorry
+
+end Augmented
+
+-- test TauCeti.LambdaRing.augmentation_self_test (degenerate)
+example {H : Type*} [CommRing H] [BinomialRing H] :
+    augmentationIdeal
+      (⟨PreLambdaRing.Hom.id H, PreLambdaRing.Hom.id H, fun _ => rfl⟩ : Augmentation H H) = ⊥ := by
+  sorry
+
+-- test TauCeti.LambdaRing.augmentation_nonexistence_test (non-example)
+/- The pre-λ-ring `ℤ` with `λ_t(m) = (1 + t + t²)^m` has no augmentation (`λ²(1) = 1`). -/
+example : IsEmpty (@Augmentation ℤ _ cubicPreLambda ℤ _ _) := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/gamma-filtration` -/
+
+section GammaFiltration
+
+variable [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+
+/-- **The γ-filtration** (`TauCeti.LambdaRing.gammaFiltration`): `F^n_γ K` is the ideal generated
+by the products `γ^{k₁}(x₁) ⋯ γ^{k_m}(x_m)` with `x_j ∈ ker ε`, `k_j ≥ 1` and `Σ k_j ≥ n` (the
+weight is the sum of the degrees; the empty product `1` has weight `0`). This is Weibel's
+ideal-generated form. -/
+def gammaFiltration (A : Augmentation K H) (n : ℕ) : Ideal K :=
+  Ideal.span {y | ∃ (m : ℕ) (k : Fin m → ℕ) (x : Fin m → K), (∀ i, 1 ≤ k i) ∧
+    (∀ i, x i ∈ augmentationIdeal A) ∧ n ≤ ∑ i, k i ∧ y = ∏ i, gamma (k i) (x i)}
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-generators`: a weighted product of weight `≥ n` lies in
+`F^n_γ`. -/
+theorem gamma_prod_mem_gammaFiltration (A : Augmentation K H) (n m : ℕ) (k : Fin m → ℕ)
+    (x : Fin m → K) (hk : ∀ i, 1 ≤ k i) (hx : ∀ i, x i ∈ augmentationIdeal A)
+    (hn : n ≤ ∑ i, k i) : (∏ i, gamma (k i) (x i)) ∈ gammaFiltration A n :=
+  Ideal.subset_span ⟨m, k, x, hk, hx, hn, rfl⟩
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-zero`: `F⁰_γ = K`. -/
+@[simp]
+theorem gammaFiltration_zero (A : Augmentation K H) : gammaFiltration A 0 = ⊤ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-one`: `F¹_γ = ker ε` (and `F⁰/F¹ ≅ H` via `ε`). -/
+theorem gammaFiltration_one (A : Augmentation K H) :
+    gammaFiltration A 1 = augmentationIdeal A := by
+  sorry
+
+/-- `F^{n+1}_γ ≤ F^n_γ`. -/
+theorem gammaFiltration_antitone (A : Augmentation K H) : Antitone (gammaFiltration A) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-mul`: `F^i_γ · F^j_γ ≤ F^{i+j}_γ`. -/
+theorem gammaFiltration_mul (A : Augmentation K H) (i j : ℕ) :
+    gammaFiltration A i * gammaFiltration A j ≤ gammaFiltration A (i + j) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-eq-span`: if `H` is additively generated by idempotents
+`e` with `λ^k(ι(e) x) = ι(e) λ^k(x)` (for `H = ℤ` and for `K₀(R)`), then for `n ≥ 1` the ideal
+`F^n_γ` is the additive subgroup generated by the weighted products (Soulé's form). -/
+theorem gammaFiltration_eq_span (A : Augmentation K H)
+    (hH : AddSubgroup.closure {e : H | IsIdempotentElem e ∧
+      ∀ k, 1 ≤ k → ∀ x : K, lambda k (A.ι.toRingHom e * x) = A.ι.toRingHom e * lambda k x} = ⊤)
+    (n : ℕ) (hn : 1 ≤ n) :
+    ((gammaFiltration A n : Set K)) = AddSubgroup.closure
+      {y | ∃ (m : ℕ) (k : Fin m → ℕ) (x : Fin m → K), 1 ≤ m ∧ (∀ i, 1 ≤ k i) ∧
+        (∀ i, x i ∈ augmentationIdeal A) ∧ n ≤ ∑ i, k i ∧ y = ∏ i, gamma (k i) (x i)} := by
+  sorry
+
+/-- A morphism of augmented pre-λ-rings maps `F^n_γ` into `F^n_γ`. -/
+theorem gammaFiltration_map {L : Type*} [CommRing L] [PreLambdaRing L] {A : Augmentation K H}
+    {B : Augmentation L H} (f : Augmentation.Hom A B) (n : ℕ) :
+    (gammaFiltration A n).map f.toHom.toRingHom ≤ gammaFiltration B n := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank`: if `λʲ(p) = 0` for `j > n`, then
+`γ^k(p - n) = 0` for `k > n` (`γ_t(p - n) = Σ_{j ≤ n} λʲ(p) tʲ (1 - t)^{n-j}`). -/
+theorem gamma_sub_natCast_eq_zero (h1 : IsLineElement (1 : K)) (n : ℕ) (p : K)
+    (hp : ∀ j, n < j → lambda j p = 0) (k : ℕ) (hk : n < k) :
+    gamma k (p - (n : K)) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-top-sum`: if `λʲ(p) = 0` for `j > n`, then
+`Σ_{i=0}^{n} γⁱ(p - n) = λⁿ(p)`. -/
+theorem sum_gamma_sub_natCast_eq_lambda (h1 : IsLineElement (1 : K)) (n : ℕ) (p : K)
+    (hp : ∀ j, n < j → lambda j p = 0) :
+    ∑ i ∈ Finset.range (n + 1), gamma i (p - (n : K)) = lambda n p := by
+  sorry
+
+end GammaFiltration
+
+-- test TauCeti.LambdaRing.gammaFiltration_zero_test (degenerate)
+example [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H] (A : Augmentation K H) :
+    gammaFiltration A 0 = ⊤ ∧
+      gammaFiltration
+        (⟨PreLambdaRing.Hom.id ℤ, PreLambdaRing.Hom.id ℤ, fun _ => rfl⟩ : Augmentation ℤ ℤ) 1 =
+        ⊥ := by
+  sorry
+
+-- test TauCeti.LambdaRing.gammaFiltration_weight_two_test (characterisation)
+example [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H] (A : Augmentation K H)
+    (x : K) (hx : x ∈ augmentationIdeal A) : gamma 2 x ∈ gammaFiltration A 2 := by
+  sorry
+
+-- test TauCeti.LambdaRing.gammaFiltration_product_test (compatibility)
+/- `(ker ε)ⁿ ⊆ F^n_γ`; for `ℤ[u, u⁻¹]` with `ε(u) = 1`, `F^n_γ = ((u - 1))ⁿ`. -/
+example [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H] (A : Augmentation K H)
+    (n : ℕ) : augmentationIdeal A ^ n ≤ gammaFiltration A n := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/adams-operations` -/
+
+section Adams
+
+/-- **Adams operations** (`TauCeti.LambdaRing.adams`) of a pre-λ-ring, by the **Newton recursion**
+`ψ^{k+1}(x) = Σ_{i=0}^{k-1} (-1)^i λ^{i+1}(x) ψ^{k-i}(x) + (-1)^k (k+1) λ^{k+1}(x)`, i.e.
+`ψ^k = N_k(λ¹, …, λ^k)` (the companion's definition). `ψ⁰` is set to `0`; for an augmented ring
+the packet's `ψ⁰ = ι ∘ ε` is `adams_zero_aug`. -/
+def adams [PreLambdaRing K] : ℕ → K → K
+  | 0 => fun _ => 0
+  | k + 1 => fun x => ∑ i : Fin k, (-1) ^ (i : ℕ) * lambda (i + 1) x * adams (k - i) x +
+      (-1) ^ k * ((k + 1 : ℕ) : K) * lambda (k + 1) x
+decreasing_by omega
+
+/-- `ψ¹ = id`. -/
+@[simp]
+theorem adams_one [PreLambdaRing K] (x : K) : adams 1 x = x := by
+  simp [adams]
+
+/-- `ψ²(x) = x² - 2λ²(x)`. -/
+@[simp]
+theorem adams_two [PreLambdaRing K] (x : K) : adams 2 x = x ^ 2 - 2 * lambda 2 x := by
+  sorry
+
+/-- The Newton recursion
+`ψ^k - λ¹ψ^{k-1} + ⋯ + (-1)^{k-1}λ^{k-1}ψ¹ + (-1)^k k λ^k = 0` for `k ≥ 1`. -/
+theorem adams_newton [PreLambdaRing K] (k : ℕ) (hk : 1 ≤ k) (x : K) :
+    adams k x + ∑ i ∈ Finset.Ico 1 k, (-1) ^ i * lambda i x * adams (k - i) x +
+      (-1) ^ k * (k : K) * lambda k x = 0 := by
+  sorry
+
+/-- `Σ_{k≥1} ψ^k(x) t^k = -t λ'_{-t}(x) / λ_{-t}(x)`, in the division-free form
+`ψ_t(x) · λ_{-t}(x) = -t · (d/dt) λ_{-t}(x)`. -/
+theorem adamsSeries [PreLambdaRing K] (x : K) :
+    PowerSeries.mk (fun k => adams k x) * PowerSeries.mk (fun k => (-1) ^ k * lambda k x) =
+      -(PowerSeries.X *
+        PowerSeries.derivative K (PowerSeries.mk fun k => (-1) ^ k * lambda k x)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-add`: `ψ^k(x + y) = ψ^k(x) + ψ^k(y)` in every pre-λ-ring. -/
+@[simp]
+theorem adams_add [PreLambdaRing K] (k : ℕ) (x y : K) :
+    adams k (x + y) = adams k x + adams k y := by
+  sorry
+
+/-- Pre-λ-homomorphisms commute with the Adams operations. -/
+theorem adams_map [PreLambdaRing K] {L : Type*} [CommRing L] [PreLambdaRing L]
+    (f : PreLambdaRing.Hom K L) (k : ℕ) (x : K) :
+    f.toRingHom (adams k x) = adams k (f.toRingHom x) := by
+  sorry
+
+/-- `ψ⁰ := ι ∘ ε` for an augmented pre-λ-ring (`TauCeti.LambdaRing.adams_zero_aug`). -/
+def adams_zero_aug [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+    (A : Augmentation K H) : K → K :=
+  fun x => A.ι.toRingHom (A.ε.toRingHom x)
+
+/-- `KTheoryLowDegrees:Z.3/adams-line-element`: `ψ^k(ℓ) = ℓ^k` on line elements, and
+`ψ^k(ℓ⁻¹) = ℓ^{-k}` when `ℓ` is a unit whose inverse is a line element. -/
+theorem adams_of_isLineElement [PreLambdaRing K] {ℓ : K} (h : IsLineElement ℓ) (k : ℕ)
+    (hk : 1 ≤ k) : adams k ℓ = ℓ ^ k := by
+  sorry
+
+theorem adams_inv_of_isLineElement [PreLambdaRing K] (ℓ : Kˣ) (h : IsLineElement (ℓ : K))
+    (h' : IsLineElement ((ℓ⁻¹ : Kˣ) : K)) (k : ℕ) (hk : 1 ≤ k) :
+    adams k ((ℓ⁻¹ : Kˣ) : K) = ((ℓ ^ k)⁻¹ : Kˣ) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-square-zero`: if `λⁱ(x) λʲ(x) = 0` for all `i, j ≥ 1`, then
+`ψ^k(x) = (-1)^{k-1} k λ^k(x)`; on a λ-ideal of square zero every `λ^k` (`k ≥ 1`) is additive. -/
+theorem adams_eq_of_lambda_mul_lambda_eq_zero [PreLambdaRing K] (x : K)
+    (hx : ∀ i j, 1 ≤ i → 1 ≤ j → lambda i x * lambda j x = 0) (k : ℕ) (hk : 1 ≤ k) :
+    adams k x = (-1) ^ (k - 1) * (k : K) * lambda k x := by
+  sorry
+
+theorem lambda_add_of_sq_eq_bot [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I]
+    (hI : I * I = ⊥) (k : ℕ) (hk : 1 ≤ k) (x y : K) (hx : x ∈ I) (hy : y ∈ I) :
+    lambda k (x + y) = lambda k x + lambda k y := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-binomial`: in a binomial ring every `ψ^k` (`k ≥ 1`) is the
+identity; hence `ψ^k ∘ ι = ι` and `ε ∘ ψ^k = ε` in an augmented pre-λ-ring. -/
+theorem adams_binomial {B : Type*} [CommRing B] [BinomialRing B] (k : ℕ) (hk : 1 ≤ k) (b : B) :
+    adams k b = b := by
+  sorry
+
+theorem adams_ι [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+    (A : Augmentation K H) (k : ℕ) (hk : 1 ≤ k) (h : H) :
+    adams k (A.ι.toRingHom h) = A.ι.toRingHom h ∧
+      ∀ x, A.ε.toRingHom (adams k x) = A.ε.toRingHom x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-first-graded` (Weibel Proposition 4.9 for `n = 1`, sign of E3
+corrected): for `x ∈ F¹_γ = ker ε` and `k ≥ 1`, modulo `F²_γ`:
+`λ^k(x) ≡ (-1)^{k-1} x` and `ψ^k(x) ≡ k x`. -/
+theorem lambda_adams_sub_mem_gammaFiltration_two [PreLambdaRing K] {H : Type*} [CommRing H]
+    [BinomialRing H] (A : Augmentation K H) {x : K} (hx : x ∈ augmentationIdeal A) (k : ℕ)
+    (hk : 1 ≤ k) :
+    lambda k x - (-1) ^ (k - 1) * x ∈ gammaFiltration A 2 ∧
+      adams k x - (k : K) * x ∈ gammaFiltration A 2 := by
+  sorry
+
+end Adams
+
+-- test TauCeti.LambdaRing.adams_int_test (computation)
+/- In `ℤ`: `ψ^k(n) = n` for `k ≥ 1`; `ψ²(2) = 4 - 2 = 2`. -/
+example : (∀ (k : ℕ) (n : ℤ), 1 ≤ k → adams k n = n) ∧ adams 2 (2 : ℤ) = 2 := by
+  refine ⟨fun k n hk => adams_binomial k hk n, ?_⟩
+  rw [adams_two, lambda_eq_choose, show (2 : ℤ) = ((2 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+  decide
+
+-- test TauCeti.LambdaRing.adams_zero_test (degenerate)
+example [PreLambdaRing K] (k : ℕ) : adams k (0 : K) = 0 := by
+  sorry
+
+-- test TauCeti.LambdaRing.adams_ne_pow_test (non-example)
+example : adams 2 (2 : ℤ) ≠ 2 ^ 2 := by
+  rw [adams_two, lambda_eq_choose, show (2 : ℤ) = ((2 : ℕ) : ℤ) by norm_num, Ring.choose_natCast]
+  decide
+
+-- test TauCeti.LambdaRing.adams_line_test (characterisation)
+example [PreLambdaRing K] (ℓ : K) (hℓ : IsLineElement ℓ) (k : ℕ) (hk : 1 ≤ k) :
+    adams k ℓ = ℓ ^ k :=
+  adams_of_isLineElement hℓ k hk
+
+/-! #### `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `adams-composition`, `adams-frobenius` -/
+
+/-- `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`: in a special λ-ring every `ψ^k` (`k ≥ 1`) is a
+ring endomorphism commuting with every `λ^l`. -/
+theorem adams_isLambdaEndomorphism [LambdaRing K] (k : ℕ) (hk : 1 ≤ k) :
+    adams k (1 : K) = 1 ∧ (∀ x y : K, adams k (x * y) = adams k x * adams k y) ∧
+      ∀ (l : ℕ) (x : K), adams k (lambda l x) = lambda l (adams k x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-composition`: `ψ^k ∘ ψ^l = ψ^{kl}` in a special λ-ring. -/
+theorem adams_comp [LambdaRing K] (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) (x : K) :
+    adams k (adams l x) = adams (k * l) x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-frobenius`: `ψ^p(x) ≡ x^p` modulo `pK` in a special λ-ring. -/
+theorem adams_frobenius [LambdaRing K] (p : ℕ) (hp : p.Prime) (x : K) :
+    adams p x - x ^ p ∈ Ideal.span {(p : K)} := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/monoid-lambda-ring` -/
+
+section MonoidAlgebra
+
+variable {R : Type*} [CommRing R]
+
+/-- Helper (not a packet name): the unit `1 + a t` of `R[[t]]`. -/
+noncomputable def lineUnit (a : R) : (PowerSeries R)ˣ :=
+  unitOfConstOne (1 + PowerSeries.C a * PowerSeries.X) (by simp)
+
+variable (M : Type*) [AddCommMonoid M]
+
+/-- Helper (not a packet name): `λ_t` on `ℤ[M]`, the additive extension of `[m] ↦ 1 + [m] t` (a
+real definition through `Finsupp.liftAddHom` on the coefficients). -/
+noncomputable def monoidAlgebraLambdaTotal :
+    AddMonoidAlgebra ℤ M →+ Additive (PowerSeries (AddMonoidAlgebra ℤ M))ˣ :=
+  (Finsupp.liftAddHom fun m => zmultiplesHom _
+      (Additive.ofMul (lineUnit (AddMonoidAlgebra.single m (1 : ℤ))))).comp
+    AddMonoidAlgebra.coeffAddEquiv.toAddMonoidHom
+
+/-- **The special λ-ring of a monoid of line elements** (`TauCeti.LambdaRing.monoidAlgebra`):
+`ℤ[M]` with `λ_t(m) = 1 + m t`; the operations are the coefficients of `monoidAlgebraLambdaTotal`.
+Instances: `ℤ[u^{±1}]` (Mathlib's `LaurentPolynomial ℤ`), `ℤ[ℕⁿ] = ℤ[ξ₁, …, ξ_n]`, the character
+ring `ℤ[X(T)]` of a split torus. -/
+noncomputable instance monoidAlgebra : LambdaRing (AddMonoidAlgebra ℤ M) where
+  lambda k x := PowerSeries.coeff k (Additive.toMul (monoidAlgebraLambdaTotal M x)).val
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+  lambda_one_eq_zero' := by sorry
+  lambda_mul' := by sorry
+  lambda_lambda' := by sorry
+
+variable {M}
+
+/-- Every `m ∈ M` is a line element: `λ^k(m) = 0` for `k ≥ 2`. -/
+@[simp]
+theorem monoidAlgebra_lambda_of (m : M) (k : ℕ) (hk : 2 ≤ k) :
+    lambda k (AddMonoidAlgebra.single m (1 : ℤ)) = 0 := by
+  sorry
+
+/-- `λ^k(m₁ + ⋯ + m_n) = e_k(m₁, …, m_n)`. -/
+@[simp]
+theorem monoidAlgebra_lambda_sum (n k : ℕ) (m : Fin n → M) :
+    lambda k (∑ i, AddMonoidAlgebra.single (m i) (1 : ℤ)) =
+      MvPolynomial.aeval (fun i => AddMonoidAlgebra.single (m i) (1 : ℤ))
+        (MvPolynomial.esymm (Fin n) ℤ k) := by
+  sorry
+
+/-- `ψ^k` is the ring endomorphism of `ℤ[M]` induced by `m ↦ k • m` (`m^k` multiplicatively), for
+`k ≥ 1`. -/
+@[simp]
+theorem monoidAlgebra_adams (k : ℕ) (hk : 1 ≤ k) (x : AddMonoidAlgebra ℤ M) :
+    adams k x = AddMonoidAlgebra.mapDomainRingHom ℤ (nsmulAddMonoidHom (α := M) k) x := by
+  sorry
+
+/-- A monoid homomorphism `M → M'` induces a λ-homomorphism `ℤ[M] → ℤ[M']` (a real definition over
+`AddMonoidAlgebra.mapDomainRingHom`). -/
+noncomputable def monoidAlgebra_map {M' : Type*} [AddCommMonoid M'] (f : M →+ M') :
+    PreLambdaRing.Hom (AddMonoidAlgebra ℤ M) (AddMonoidAlgebra ℤ M') :=
+  { AddMonoidAlgebra.mapDomainRingHom ℤ f with map_lambda' := by sorry }
+
+/-- For a special λ-ring `K`, a monoid map from `M` to the line elements of `K` extends uniquely to
+a λ-homomorphism `ℤ[M] → K` (Weibel Ex. II.4.4(c)). -/
+theorem monoidAlgebra_lift (K : Type*) [CommRing K] [LambdaRing K] (φ : Multiplicative M →* K)
+    (hφ : ∀ m, IsLineElement (φ m)) :
+    ∃! f : PreLambdaRing.Hom (AddMonoidAlgebra ℤ M) K,
+      ∀ m : M, f.toRingHom (AddMonoidAlgebra.single m 1) = φ (Multiplicative.ofAdd m) := by
+  sorry
+
+/-- Helper instance (not a packet name): `ℤ[ξ_i]` is the monoid λ-ring of `σ →₀ ℕ`. -/
+noncomputable instance mvPolynomialLambdaRing (σ : Type*) : LambdaRing (MvPolynomial σ ℤ) :=
+  inferInstanceAs (LambdaRing (AddMonoidAlgebra ℤ (σ →₀ ℕ)))
+
+end MonoidAlgebra
+
+-- test TauCeti.LambdaRing.monoidAlgebra_lambda_two_test (computation)
+example :
+    lambda 2 (LaurentPolynomial.T 1 + LaurentPolynomial.T (-1) : LaurentPolynomial ℤ) = 1 := by
+  sorry
+
+-- test TauCeti.LambdaRing.monoidAlgebra_trivial_test (degenerate)
+/- For the trivial monoid, `ℤ[M] = ℤ` with the binomial structure. -/
+example (k : ℕ) (n : ℤ) :
+    lambda k (algebraMap ℤ (AddMonoidAlgebra ℤ (Fin 1)) n) =
+      algebraMap ℤ (AddMonoidAlgebra ℤ (Fin 1)) (Ring.choose n k) := by
+  sorry
+
+-- test TauCeti.LambdaRing.monoidAlgebra_adams_ne_frobenius_test (non-example)
+/- In `ℤ[u]` (`MvPolynomial (Fin 1) ℤ`): `ψ²(u + 1) = u² + 1 ≠ (u + 1)²`. -/
+example : adams 2 (MvPolynomial.X 0 + 1 : MvPolynomial (Fin 1) ℤ) = MvPolynomial.X 0 ^ 2 + 1 ∧
+    adams 2 (MvPolynomial.X 0 + 1 : MvPolynomial (Fin 1) ℤ) ≠ (MvPolynomial.X 0 + 1) ^ 2 := by
+  sorry
+
+-- test TauCeti.LambdaRing.monoidAlgebra_special_test (characterisation)
+/- `λ³(λ²(ξ₁ + ξ₂ + ξ₃)) = ξ₁²ξ₂²ξ₃²`, the value of `P_{3,2}`. -/
+example :
+    lambda 3 (lambda 2 (MvPolynomial.X 0 + MvPolynomial.X 1 + MvPolynomial.X 2 :
+        MvPolynomial (Fin 3) ℤ)) =
+      MvPolynomial.X 0 ^ 2 * MvPolynomial.X 1 ^ 2 * MvPolynomial.X 2 ^ 2 := by
+  sorry
+
+-- test TauCeti.LambdaRing.monoid_special_test (compatibility)
+/- `ℤ[M]` with `λ_t(m) = 1 + mt` is special (the instance `monoidAlgebra`); for `M = ℤ`,
+`λ²(u + u⁻¹) = 1`. -/
+example : ∃ inst : LambdaRing (LaurentPolynomial ℤ),
+    inst.lambda 2 (LaurentPolynomial.T 1 + LaurentPolynomial.T (-1)) = 1 :=
+  ⟨inferInstance, by sorry⟩
+
+-- test TauCeti.LambdaRing.augmentation_laurent_test (computation)
+/- For `K = ℤ[u, u⁻¹]` (the monoid λ-ring below) with `ε(u) = 1`:
+`ε(λ²(u + u⁻¹)) = ε(1) = 1 = C(2, 2)`. -/
+example (A : Augmentation (LaurentPolynomial ℤ) ℤ)
+    (hA : A.ε.toRingHom (LaurentPolynomial.T 1) = 1) :
+    A.ε.toRingHom (lambda 2 (LaurentPolynomial.T 1 + LaurentPolynomial.T (-1))) = 1 := by
+  sorry
+
+-- (continued) test TauCeti.LambdaRing.gammaFiltration_product_test (compatibility): the Laurent
+-- case
+example (A : Augmentation (LaurentPolynomial ℤ) ℤ)
+    (hA : A.ε.toRingHom (LaurentPolynomial.T 1) = 1) (n : ℕ) :
+    gammaFiltration A n = Ideal.span {LaurentPolynomial.T 1 - 1} ^ n := by
+  sorry
+
+-- test TauCeti.LambdaRing.gammaFiltration_not_finite_test (non-example)
+/- `ℤ[C₂] = ℤ[σ]/(σ² - 1)` (`AddMonoidAlgebra ℤ (ZMod 2)`, `σ` a line element) with `ε(σ) = 1`:
+`F^n_γ = 2^{n-1}(σ - 1)ℤ ≠ 0` for all `n ≥ 1`. -/
+example (A : Augmentation (AddMonoidAlgebra ℤ (ZMod 2)) ℤ)
+    (hA : A.ε.toRingHom (AddMonoidAlgebra.single 1 1) = 1) (n : ℕ) (hn : 1 ≤ n) :
+    gammaFiltration A n =
+        Ideal.span {2 ^ (n - 1) * (AddMonoidAlgebra.single (1 : ZMod 2) (1 : ℤ) - 1)} ∧
+      gammaFiltration A n ≠ ⊥ := by
+  sorry
+
+
+/-! #### `KTheoryLowDegrees:Z.3/lambda-identity-principle` -/
+
+/-- Helper (not a packet name): expressions in `r` variables built from integer constants, `+`,
+`-`, `·` and the `λ^k`. -/
+inductive LambdaExpr (r : ℕ) : Type
+  | var : Fin r → LambdaExpr r
+  | const : ℤ → LambdaExpr r
+  | add : LambdaExpr r → LambdaExpr r → LambdaExpr r
+  | neg : LambdaExpr r → LambdaExpr r
+  | mul : LambdaExpr r → LambdaExpr r → LambdaExpr r
+  | lam : ℕ → LambdaExpr r → LambdaExpr r
+
+/-- Helper (not a packet name): evaluation of a λ-expression in a pre-λ-ring. -/
+def LambdaExpr.eval {r : ℕ} {K : Type*} [CommRing K] [PreLambdaRing K] (x : Fin r → K) :
+    LambdaExpr r → K
+  | .var i => x i
+  | .const n => n
+  | .add e f => e.eval x + f.eval x
+  | .neg e => -e.eval x
+  | .mul e f => e.eval x * f.eval x
+  | .lam k e => lambda k (e.eval x)
+
+/-- **The identity principle** (`KTheoryLowDegrees:Z.3/lambda-identity-principle`): an identity
+`F = G` of λ-expressions holding in `ℤ[ξ^{(1)}, …, ξ^{(r)}]` for
+`x_j = ξ^{(j)}₁ + ⋯ + ξ^{(j)}_n`, for all sufficiently large `n`, holds for all elements of every
+special λ-ring. (The augmented and fixed-rank variants of the node are not restated.) -/
+theorem lambda_identity_principle {r : ℕ} (F G : LambdaExpr r)
+    (h : ∃ N : ℕ, ∀ n ≥ N,
+      F.eval (fun j => ∑ i : Fin n, (MvPolynomial.X (j, i) : MvPolynomial (Fin r × Fin n) ℤ)) =
+        G.eval (fun j => ∑ i : Fin n, (MvPolynomial.X (j, i) : MvPolynomial (Fin r × Fin n) ℤ)))
+    (K : Type*) [CommRing K] [LambdaRing K] (x : Fin r → K) : F.eval x = G.eval x := by
+  sorry
+
+end LambdaRing
+
+end TauCeti
+
+/-! ### The ring `K₀(R)` and its exterior-power operations
+
+`K0 R` is Tau Ceti's `SplitK0` of `finiteProjectiveModules R` (the carrier of the checkpoint and of
+the companion file `KTheoryLowDegrees--U.1`, where it is `RingK0 R`); `cls R M` is the class of a
+finitely generated projective `M`. The ring structure is Tau Ceti's `SplitK0.instCommRing`,
+available once the full subcategory is monoidal (`finiteProjective_isMonoidal`). -/
+
+namespace TauCeti.RingK0
+
+section Carrier
+
+variable (R : Type u) [CommRing R]
+
+-- FP, K0 and cls are the actual Z.1 spellings, also for commutative rings.
+
+/-- `KTheoryLowDegrees:Z.3/projective-exterior-power`: exterior powers of projective modules are
+projective (no finiteness needed); with `exteriorPower.instFinite` they preserve finitely generated
+projectives. -/
+instance exteriorPower_projective (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Projective R M] (n : ℕ) : Module.Projective R (⋀[R]^n M) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/finite-projective-monoidal`: `finiteProjectiveModules R` contains `R`
+and is closed under `⊗[R]`, so its full subcategory is a full (symmetric, monoidal-preadditive)
+monoidal subcategory of `ModuleCat R`, and Tau Ceti's `SplitK0.instCommRing` makes `K₀(R)` a
+commutative ring with `1 = [R]` and `[P][Q] = [P ⊗ Q]`. -/
+instance finiteProjective_isMonoidal :
+    (TauCeti.finiteProjectiveModules R).IsMonoidal := by
+  sorry
+
+-- The ring structure is the pinned categorical one, not a new definition.
+example : CommRing (K0 R) := inferInstance
+
+variable {R}
+
+/-- `[P] · [Q] = [P ⊗[R] Q]` (Tau Ceti's `SplitK0.of_mul_of`). -/
+theorem cls_mul_cls (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+    [Module.Projective R N] : cls R M * cls R N = cls R (M ⊗[R] N) := by
+  sorry
+
+/-- `1 = [R]`. -/
+theorem one_eq_cls : (1 : K0 R) = cls R R := by
+  sorry
+
+/-- Isomorphic modules have equal classes (Tau Ceti's `SplitK0.of_congr`). -/
+theorem cls_congr {M N : Type u} [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+    [Module.Projective R N] (e : M ≃ₗ[R] N) : cls R M = cls R N := by
+  sorry
+
+/-- `[M × N] = [M] + [N]` (Tau Ceti's `SplitK0.of_biprod`). -/
+theorem cls_prod (M N : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] [AddCommGroup N] [Module R N] [Module.Finite R N]
+    [Module.Projective R N] : cls R (M × N) = cls R M + cls R N := by
+  sorry
+
+/-- `[Rⁿ] = n` in the ring `K₀(R)`. -/
+theorem cls_free (n : ℕ) : cls R (Fin n → R) = (n : K0 R) := by
+  sorry
+
+/-- Test helper (not a packet name): the idempotent ideal `k × 0 ⊆ k × k`. -/
+abbrev fstLine (k : Type u) [Field k] : Ideal (k × k) := RingHom.ker (RingHom.snd k k)
+
+/-- Test helper (not a packet name): the idempotent ideal `0 × k ⊆ k × k`. -/
+abbrev sndLine (k : Type u) [Field k] : Ideal (k × k) := RingHom.ker (RingHom.fst k k)
+
+/-- Helper instance (a true fact, proof omitted): `k × 0` is a direct summand of `k × k`. -/
+instance fstLine_projective (k : Type u) [Field k] : Module.Projective (k × k) (fstLine k) := by
+  sorry
+
+/-- Helper instance (a true fact, proof omitted): `0 × k` is a direct summand of `k × k`. -/
+instance sndLine_projective (k : Type u) [Field k] : Module.Projective (k × k) (sndLine k) := by
+  sorry
+
+-- Acceptance of `KTheoryLowDegrees:Z.3/finite-projective-monoidal`: for `R = k × k`,
+-- `[k × 0] · [0 × k] = 0` (the ring `K₀(k × k) ≅ ℤ²` has zero divisors).
+example (k : Type u) [Field k] : cls (k × k) (fstLine k) * cls (k × k) (sndLine k) = 0 := by
+  sorry
+
+end Carrier
+
+/-! #### Common Z.1/Z.2 interfaces
+
+The universal property, virtual rank, rank section, connected rank and dimension equivalence
+are the declarations from Z.1/Z.2 above. Scalar extension is the arbitrary-ring `map f`.
+`map_cls` compares it with the native commutative tensor product. `transferAlgebra` specializes
+the same restriction-of-scalars map to a commutative algebra; it introduces no new K-group. -/
+
+section CommonInterfaces
+
+variable (R : Type u) [CommRing R]
+
+/-- The commutative tensor-product value of the existing scalar-extension homomorphism. -/
+@[simp]
+theorem map_cls {S : Type u} [CommRing S] [Algebra R S] (P : Type u) [AddCommGroup P]
+    [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    map (algebraMap R S) (cls R P) = cls S (S ⊗[R] P) := by
+  sorry
+
+/-- Restriction along `algebraMap R S`, using the existing finite-projective transfer. -/
+abbrev transferAlgebra (S : Type u) [CommRing S] [Algebra R S] [Module.Finite R S]
+    [Module.Projective R S] : K0 S →+ K0 R :=
+  transfer (algebraMap R S) (by
+    -- The restriction of `S` along its algebra map is finite projective over `R`.
+    sorry)
+
+end CommonInterfaces
+
+/-! #### Exterior powers (`KTheoryLowDegrees:Z.3/exterior-direct-sum` … `KTheoryLowDegrees:Z.3/projective-dual-base-change`) -/
+
+section Exterior
+
+variable (R : Type u) [CommRing R]
+
+/-- `KTheoryLowDegrees:Z.3/exterior-direct-sum` (the Sum Formula): for arbitrary `M, N`,
+`⋀ⁿ(M × N) ≅ ⊕_{i=0}^{n} ⋀ⁱM ⊗ ⋀^{n-i}N`, the `M`-factors placed before the `N`-factors. -/
+theorem exteriorPower_prod (M N : Type u)
+    [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N] (n : ℕ) :
+    Nonempty ((⋀[R]^n (M × N)) ≃ₗ[R]
+      ((i : Fin (n + 1)) → (⋀[R]^(i : ℕ) M) ⊗[R] (⋀[R]^(n - i) N))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/exterior-class-sum`:
+`[⋀ⁿ(P × Q)] = Σ_{i=0}^{n} [⋀ⁱP] · [⋀^{n-i}Q]` in the ring `K₀(R)`. -/
+theorem exteriorClass_prod (M N : Type u)
+    [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M]
+    [AddCommGroup N] [Module R N] [Module.Finite R N] [Module.Projective R N] (n : ℕ) :
+    cls R (⋀[R]^n (M × N)) =
+      ∑ i ∈ Finset.range (n + 1), cls R (⋀[R]^i M) * cls R (⋀[R]^(n - i) N) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/exterior-base-change`: `S ⊗[R] ⋀ⁿ_R M ≅ ⋀ⁿ_S (S ⊗[R] M)`, sending
+`1 ⊗ (m₁ ∧ ⋯ ∧ m_n)` to `(1 ⊗ m₁) ∧ ⋯ ∧ (1 ⊗ m_n)`. -/
+theorem exteriorPower_baseChange (S : Type u) [CommRing S] [Algebra R S]
+    (M : Type u) [AddCommGroup M] [Module R M] (n : ℕ) :
+    Nonempty ((S ⊗[R] (⋀[R]^n M)) ≃ₗ[S] (⋀[S]^n (S ⊗[R] M))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/exterior-rank` (added by the independent review):
+`rankAtStalk (⋀ⁿP) = C(rankAtStalk P, n)`. -/
+theorem rankAtStalk_exteriorPower (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] (n : ℕ) (p : PrimeSpectrum R) :
+    Module.rankAtStalk (R := R) (⋀[R]^n P) p = (Module.rankAtStalk (R := R) P p).choose n := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/exterior-above-rank`: if `rankAtStalk M p < n` at every prime then
+`⋀ⁿM = 0`. -/
+theorem exteriorPower_subsingleton (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] (n : ℕ)
+    (hn : ∀ p : PrimeSpectrum R, Module.rankAtStalk (R := R) M p < n) :
+    Subsingleton (⋀[R]^n M) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/projective-dual-base-change`: `S ⊗[R] Hom_R(M, R) ≅ Hom_S(S ⊗ M, S)`,
+`s ⊗ f ↦ (t ⊗ m ↦ st f(m))`, for finitely generated projective `M` (no flatness). -/
+theorem dual_baseChange (S : Type u) [CommRing S] [Algebra R S]
+    (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] :
+    ∃ e : (S ⊗[R] Module.Dual R M) ≃ₗ[S] Module.Dual S (S ⊗[R] M),
+      ∀ (s t : S) (f : Module.Dual R M) (m : M),
+        e (s ⊗ₜ[R] f) (t ⊗ₜ[R] m) = s * t * algebraMap R S (f m) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/constant-rank-top-invertible`: if `P` has constant rank `n`, then
+`⋀ⁿP` is invertible (`Module.Invertible`); for `n = 0` it is `R`. -/
+theorem topExterior_invertible (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] (n : ℕ)
+    (hn : ∀ p : PrimeSpectrum R, Module.rankAtStalk (R := R) M p = n) :
+    Module.Invertible R (⋀[R]^n M) := by
+  sorry
+
+end Exterior
+
+/-! #### `KTheoryLowDegrees:Z.3/total-lambda` and `KTheoryLowDegrees:Z.3/lambda` -/
+
+section Lambda
+
+variable (R : Type u) [CommRing R]
+
+/-- **The total exterior operation** (`KTheoryLowDegrees:Z.3/total-lambda`):
+`λ_t : K₀(R) → (1 + tK₀(R)[[t]])ˣ`, the homomorphism from `(K₀(R), +)` to the units of the
+power-series ring with `λ_t([P]) = Σ [⋀ⁿP] tⁿ` (a real definition through `lift`). -/
+def lambdaTotal : K0 R →+ Additive (PowerSeries (K0 R))ˣ :=
+  lift R (fun (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+      [Module.Projective R P] =>
+    Additive.ofMul (LambdaRing.unitOfConstOne (PowerSeries.mk fun n => cls R (⋀[R]^n P))
+      (by sorry))) (by sorry) (by sorry)
+
+/-- The underlying power series `λ_t(x)`. -/
+abbrev lambdaSeries (x : K0 R) : PowerSeries (K0 R) :=
+  ((Additive.toMul (lambdaTotal R x) : (PowerSeries (K0 R))ˣ) : PowerSeries (K0 R))
+
+/-- `KTheoryLowDegrees:Z.3/total-lambda-constant`: every `λ_t(x)` has constant coefficient `1`. -/
+@[simp]
+theorem lambdaTotal_constant (x : K0 R) :
+    PowerSeries.coeff 0 (lambdaSeries R x) = 1 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/total-lambda-of`: the coefficient of `tⁿ` in `λ_t([P])` is `[⋀ⁿP]`. -/
+@[simp]
+theorem lambdaTotal_of (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] (n : ℕ) :
+    PowerSeries.coeff n (lambdaSeries R (cls R M)) = cls R (⋀[R]^n M) := by sorry
+
+/-- An additive-to-multiplicative map with the values `[⋀ⁿP]` on classes is `λ_t`. -/
+theorem lambdaTotal_unique (f : K0 R →+ Additive (PowerSeries (K0 R))ˣ)
+    (hf : ∀ (M : Type u) [AddCommGroup M] [Module R M]
+      [Module.Finite R M] [Module.Projective R M],
+      ∀ n, PowerSeries.coeff n (Additive.toMul (f (cls R M))).val = cls R (⋀[R]^n M)) :
+    f = lambdaTotal R := by sorry
+
+/-- `λ_t(x + y) = λ_t(x) λ_t(y)` and `λ_t(-x) = λ_t(x)⁻¹`. -/
+theorem lambdaTotal_add (x y : K0 R) :
+    lambdaSeries R (x + y) = lambdaSeries R x * lambdaSeries R y ∧
+      Additive.toMul (lambdaTotal R (-x)) = (Additive.toMul (lambdaTotal R x))⁻¹ := by
+  sorry
+
+-- test TauCeti.RingK0.lambdaTotal_zero_test (degenerate)
+example : lambdaSeries R 0 = 1 := by sorry
+
+-- test TauCeti.RingK0.lambdaTotal_unit_test (computation)
+example : lambdaSeries R 1 = 1 + PowerSeries.X := by sorry
+
+-- test TauCeti.RingK0.lambdaTotal_neg_unit_test (computation)
+example (n : ℕ) : PowerSeries.coeff n (lambdaSeries R (-1)) = (-1 : K0 R) ^ n := by sorry
+
+-- test TauCeti.RingK0.lambdaTotal_two_test (non-example)
+/- `λ_t(2[R]) = 1 + 2t + t²`, not `1 + 2t`: the `t²` coefficient is `[⋀²R²] = [R] ≠ 0`. -/
+example [Nontrivial R] :
+    lambdaSeries R 2 = 1 + 2 * PowerSeries.X + PowerSeries.X ^ 2 ∧
+      lambdaSeries R 2 ≠ 1 + 2 * PowerSeries.X := by
+  sorry
+
+/-- **The λ-operations on `K₀(R)`** (`KTheoryLowDegrees:Z.3/lambda`):
+`λⁿ(x) := coeffₙ(λ_t(x))`. -/
+def lambda (n : ℕ) (x : K0 R) : K0 R := PowerSeries.coeff n (lambdaSeries R x)
+
+/-- `KTheoryLowDegrees:Z.3/lambda-zero`: `λ⁰(x) = 1`. -/
+@[simp]
+theorem lambda_zero (x : K0 R) : lambda R 0 x = 1 := lambdaTotal_constant R x
+
+/-- `KTheoryLowDegrees:Z.3/lambda-one`: `λ¹(x) = x`. -/
+@[simp]
+theorem lambda_one (x : K0 R) : lambda R 1 x = x := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-of`: `λⁿ([P]) = [⋀ⁿP]`. -/
+theorem lambda_of (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] (n : ℕ) :
+    lambda R n (cls R M) = cls R (⋀[R]^n M) := lambdaTotal_of R M n
+
+-- test TauCeti.RingK0.lambda_line_test (compatibility)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    lambda R 1 (cls R L) = cls R L ∧ ∀ n, 2 ≤ n → lambda R n (cls R L) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-add`: `λⁿ(x + y) = Σ_{i=0}^{n} λⁱ(x) λ^{n-i}(y)`. -/
+theorem lambda_add (n : ℕ) (x y : K0 R) :
+    lambda R n (x + y) = ∑ i ∈ Finset.range (n + 1), lambda R i x * lambda R (n - i) y := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-free`: `λⁿ(m[R]) = C(m, n)[R]`. -/
+theorem lambda_natCast (m n : ℕ) : lambda R n (m : K0 R) = (m.choose n : K0 R) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-negative-free` (added by the independent review): `λⁿ(-m[R]) = (-1)ⁿ C(m + n - 1, n)[R]`. -/
+theorem lambda_neg_natCast (m n : ℕ) :
+    lambda R n (-(m : K0 R)) = (-1) ^ n * ((m + n - 1).choose n : K0 R) := by
+  sorry
+
+-- Acceptance of `KTheoryLowDegrees:Z.3/lambda-negative-free`: `λ²(-2[R]) = 3[R]` (`C(-2, 2) = 3`).
+example : lambda R 2 (-(2 : K0 R)) = 3 := by
+  rw [show (2 : K0 R) = ((2 : ℕ) : K0 R) by norm_num, lambda_neg_natCast]
+  norm_num [Nat.choose]
+
+-- test TauCeti.RingK0.lambda_rank_two_test (computation)
+example : lambda R 2 (2 : K0 R) = 1 ∧ lambda R 3 (2 : K0 R) = 0 := by
+  rw [show (2 : K0 R) = ((2 : ℕ) : K0 R) by norm_num, lambda_natCast, lambda_natCast]
+  norm_num [Nat.choose]
+
+-- test TauCeti.RingK0.lambda_neg_unit_test (non-example)
+/- `λ²(-[R]) = [R]` although `-[R]` has negative rank. -/
+example : lambda R 2 (-1 : K0 R) = 1 := by
+  rw [show (-1 : K0 R) = -((1 : ℕ) : K0 R) by norm_num, lambda_neg_natCast]
+  norm_num [Nat.choose]
+
+-- test TauCeti.RingK0.lambda_zero_class_test (degenerate)
+example (n : ℕ) : lambda R (n + 1) 0 = 0 := by
+  rw [show (0 : K0 R) = ((0 : ℕ) : K0 R) by norm_num, lambda_natCast]
+  simp
+
+end Lambda
+
+/-! #### `KTheoryLowDegrees:Z.3/rank-ring-hom`, `KTheoryLowDegrees:Z.3/map-ring-hom`, `KTheoryLowDegrees:Z.3/rank-lambda`,
+`KTheoryLowDegrees:Z.3/lambda-base-change` -/
+
+section RankMap
+
+variable (R : Type u) [CommRing R]
+
+/-- `KTheoryLowDegrees:Z.3/rank-ring-hom`: the rank is a ring homomorphism
+`K₀(R) →+* H⁰(Spec R, ℤ)` (the ring refinement of the additive `rank` from Z.2). -/
+def rankRingHom : K0 R →+* LocallyConstant (PrimeSpectrum R) ℤ :=
+  { rank R with
+    map_one' := by sorry
+    map_mul' := by sorry }
+
+/-- `rank(xy) = rank(x) · rank(y)` (`KTheoryLowDegrees:Z.3/rank-ring-hom`). -/
+theorem rank_mul (x y : K0 R) : rank R (x * y) = rank R x * rank R y := by
+  sorry
+
+/-- `rank(1) = 1`. -/
+theorem rank_one_ring : rank R 1 = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/map-ring-hom`: scalar extension is a ring homomorphism on `K₀`. -/
+def mapRingHom {S : Type u} [CommRing S] (f : R →+* S) : K0 R →+* K0 S :=
+  { map f with
+    map_one' := by sorry
+    map_mul' := by sorry }
+
+/-- `map f (xy) = map f x · map f y` and `rank_S(map f x) = rank_R(x) ∘ Spec f`. -/
+theorem map_mul {S : Type u} [CommRing S] (f : R →+* S) (x y : K0 R) :
+    map f (x * y) = map f x * map f y ∧
+      rank S (map f x) =
+        (rank R x).comap ⟨PrimeSpectrum.comap f, PrimeSpectrum.continuous_comap f⟩ := by
+  sorry
+
+-- Acceptance of `KTheoryLowDegrees:Z.3/rank-ring-hom` on free modules: `rank [R³] = 3` at every prime.
+example [Nontrivial R] (p : PrimeSpectrum R) : rank R (cls R (Fin 3 → R)) p = 3 := by
+  rw [rank_of, Module.rankAtStalk_eq_finrank_of_free, Module.finrank_fin_fun]
+  norm_num
+
+/-- `KTheoryLowDegrees:Z.3/rank-lambda`: `rank(λⁿx)(p) = C(rank(x)(p), n)` (`Ring.choose`), i.e.
+`rank` is a pre-λ-homomorphism to the binomial pre-λ-ring `H⁰(Spec R, ℤ)`. -/
+theorem rank_lambda (x : K0 R) (n : ℕ) (p : PrimeSpectrum R) :
+    rank R (lambda R n x) p = Ring.choose (rank R x p) n := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-base-change`: `map f (λⁿ x) = λⁿ (map f x)`. -/
+theorem map_lambda {S : Type u} [CommRing S] (f : R →+* S) (n : ℕ) (x : K0 R) :
+    map f (lambda R n x) = lambda S n (map f x) := by
+  sorry
+
+end RankMap
+
+/-! #### `KTheoryLowDegrees:Z.3/ring-k0-pre-lambda` -/
+
+section PreLambda
+
+variable (R : Type u) [CommRing R]
+
+open LambdaRing in
+/-- **`K₀(R)` as a pre-λ-ring** (`TauCeti.RingK0.instPreLambdaRing`), with `λ_t = lambdaTotal`. -/
+instance instPreLambdaRing : PreLambdaRing (K0 R) where
+  lambda := lambda R
+  lambda_zero' := lambda_zero R
+  lambda_one' := lambda_one R
+  lambda_add' := lambda_add R
+
+/-- The total operation of the instance is `RingK0.lambdaTotal`. -/
+theorem lambdaTotal_eq (x : K0 R) : LambdaRing.lambdaTotal x = lambdaTotal R x := by
+  sorry
+
+/-- The class operations are the pre-λ-ring operations. -/
+@[simp]
+theorem preLambda_lambda (n : ℕ) (x : K0 R) : PreLambdaRing.lambda n x = lambda R n x :=
+  rfl
+
+/-- `λ^k(1) = 0` for `k ≥ 2`: `1 = [R]` is a line element. -/
+@[simp]
+theorem lambda_one_class (k : ℕ) (hk : 2 ≤ k) : lambda R k 1 = 0 := by
+  sorry
+
+/-- `[L]` is a line element for every invertible `L`. -/
+theorem isLineElement_of_invertible (L : Type u) [AddCommGroup L] [Module R L]
+    [Module.Invertible R L] : LambdaRing.IsLineElement (cls R L) := by
+  sorry
+
+/-- `rank` is a pre-λ-homomorphism to `LocallyConstant (PrimeSpectrum R) ℤ`. -/
+theorem rank_isLambdaHom (n : ℕ) (x : K0 R) :
+    rankRingHom R (lambda R n x) = PreLambdaRing.lambda n (rankRingHom R x) := by
+  sorry
+
+/-- `RingK0.map f` is a pre-λ-homomorphism. -/
+theorem map_isLambdaHom {S : Type u} [CommRing S] (f : R →+* S) (n : ℕ) (x : K0 R) :
+    mapRingHom R f (PreLambdaRing.lambda n x) = PreLambdaRing.lambda n (mapRingHom R f x) := by
+  sorry
+
+/-- `λ^k([P] - n[R]) = Σ_i (-1)^i C(n + i - 1, i) [⋀^{k-i}P]` (Weibel Ex. II.4.1). -/
+theorem lambda_sub_nsmul (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] (n k : ℕ) :
+    lambda R k (cls R P - (n : K0 R)) =
+      ∑ i ∈ Finset.range (k + 1), (-1) ^ i * ((n + i - 1).choose i : K0 R) *
+        cls R (⋀[R]^(k - i) P) := by
+  sorry
+
+-- test TauCeti.RingK0.preLambda_rank_two_test (computation)
+example : lambda R 2 (2 : K0 R) = 1 ∧ lambda R 2 (-(2 : K0 R)) = 3 := by
+  rw [show (2 : K0 R) = ((2 : ℕ) : K0 R) by norm_num, lambda_natCast, lambda_neg_natCast]
+  norm_num [Nat.choose]
+
+-- test TauCeti.RingK0.preLambda_zero_ring_test (degenerate)
+example [Subsingleton R] : Subsingleton (K0 R) := by
+  sorry
+
+-- test TauCeti.RingK0.preLambda_field_test (compatibility)
+/- For a field `k`, `divisionRingEquiv : K₀(k) ≃+ ℤ` is a pre-λ-isomorphism onto the binomial
+ring `ℤ`. -/
+example (k : Type u) [Field k] (n : ℕ) (x : K0 k) :
+    divisionRingEquiv k (lambda k n x) = PreLambdaRing.lambda n (divisionRingEquiv k x) := by
+  sorry
+
+-- test TauCeti.RingK0.preLambda_not_truncated_test (non-example)
+/- Setting `λ^k := 0` for `k ≥ 2` is not the λ-structure: `λ²[R²] = [R] ≠ 0` for `R ≠ 0`. -/
+example [Nontrivial R] : lambda R 2 (cls R (Fin 2 → R)) = 1 ∧ (1 : K0 R) ≠ 0 := by
+  sorry
+
+-- test TauCeti.PreLambdaRing.ringK0_test (compatibility)
+/- `K₀(R)` with `KTheoryLowDegrees:Z.3/lambda` is a pre-λ-ring and `rank` is a homomorphism to the binomial
+pre-λ-ring `H⁰(Spec R, ℤ)`. -/
+example : (∀ (n : ℕ) (x y : K0 R), PreLambdaRing.lambda n (x + y) =
+      ∑ i ∈ Finset.range (n + 1), PreLambdaRing.lambda i x * PreLambdaRing.lambda (n - i) y) ∧
+    ∀ (n : ℕ) (x : K0 R),
+      rankRingHom R (PreLambdaRing.lambda n x) = PreLambdaRing.lambda n (rankRingHom R x) :=
+  ⟨PreLambdaRing.lambda_add', rank_isLambdaHom R⟩
+
+-- test TauCeti.LambdaRing.locallyConstant_two_points_test (compatibility)
+/- For `R = k × k`, `rank : K₀(k × k) → H⁰ = ℤ²` is a pre-λ-isomorphism (Z.2/k0-field-product
+with KTheoryLowDegrees:Z.3/rank-lambda). -/
+example (k : Type u) [Field k] :
+    Function.Bijective (rankRingHom (k × k)) ∧
+      ∀ (n : ℕ) (x : K0 (k × k)), rankRingHom (k × k) (lambda (k × k) n x) =
+        PreLambdaRing.lambda n (rankRingHom (k × k) x) := by
+  sorry
+
+end PreLambda
+
+/-! #### `KTheoryLowDegrees:Z.3/gamma` on `K₀(R)` -/
+
+section GammaK0
+
+variable (R : Type u) [CommRing R]
+
+/-- `TauCeti.RingK0.gamma_ringK0`: on `K₀(R)`, `γⁿ(x) = λⁿ(x + (n - 1)[R])` for `n ≥ 1`. -/
+theorem gamma_ringK0 (n : ℕ) (hn : 1 ≤ n) (x : K0 R) :
+    LambdaRing.gamma n x = lambda R n (x + ((n - 1 : ℕ) : K0 R)) := by
+  sorry
+
+-- test TauCeti.RingK0.gamma_unit_test (computation)
+example (n : ℕ) (hn : 1 ≤ n) : LambdaRing.gamma n (1 : K0 R) = 1 := by
+  rw [gamma_ringK0 R n hn, show (1 : K0 R) + ((n - 1 : ℕ) : K0 R) = ((n : ℕ) : K0 R) by
+    rw [← Nat.cast_one, ← Nat.cast_add]; congr 1; omega, lambda_natCast, Nat.choose_self,
+    Nat.cast_one]
+
+-- test TauCeti.RingK0.gamma_neg_unit_test (non-example)
+/- `γ_t(-[R]) = 1 - [R]t`, so `γ²(-[R]) = 0` whereas `λ²(-[R]) = [R]`: `γⁿ ≠ λⁿ`. -/
+example [Nontrivial R] :
+    LambdaRing.gamma 2 (-1 : K0 R) = 0 ∧ lambda R 2 (-1 : K0 R) = 1 ∧
+      ((Additive.toMul (LambdaRing.gammaTotal (-1 : K0 R)) : (PowerSeries (K0 R))ˣ) :
+        PowerSeries (K0 R)) = 1 - PowerSeries.X := by
+  sorry
+
+-- test TauCeti.RingK0.gamma_line_test (characterisation)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    (∀ k, 1 ≤ k → LambdaRing.gamma k (cls R L) = cls R L) ∧
+      ∀ k, 2 ≤ k → LambdaRing.gamma k (cls R L - 1) = 0 := by
+  sorry
+
+end GammaK0
+
+/-! #### `KTheoryLowDegrees:Z.3/augmentation` and `KTheoryLowDegrees:Z.3/rank-section-lambda` -/
+
+section Augmentation
+
+variable (R : Type u) [CommRing R]
+
+/-- **The augmentation ideal** `I_R = ker(rank) = K̃₀(R)` (`TauCeti.RingK0.augmentationIdeal`). -/
+def augmentationIdeal : Ideal (K0 R) := RingHom.ker (rankRingHom R)
+
+variable {R}
+
+/-- `KTheoryLowDegrees:Z.3/augmentation-membership`: `x ∈ I_R ↔ rank x = 0`. -/
+theorem mem_augmentationIdeal (x : K0 R) : x ∈ augmentationIdeal R ↔ rank R x = 0 :=
+  Iff.rfl
+
+/-- `x - rankSection(rank x) ∈ I_R`. -/
+theorem sub_rankSection_mem (x : K0 R) : x - rankSection R (rank R x) ∈ augmentationIdeal R := by
+  sorry
+
+/-- For `P` of constant rank `n`, `[P] - n[R] ∈ I_R`. -/
+theorem of_sub_mem_augmentationIdeal (P : Type u) [AddCommGroup P] [Module R P]
+    [Module.Finite R P] [Module.Projective R P] (n : ℕ)
+    (hP : ∀ p : PrimeSpectrum R, Module.rankAtStalk (R := R) P p = n) :
+    cls R P - (n : K0 R) ∈ augmentationIdeal R := by
+  sorry
+
+/-- `λⁿ(I_R) ⊆ I_R` for `n ≥ 1` (`KTheoryLowDegrees:Z.3/rank-lambda`). -/
+instance augmentationIdeal_isLambdaIdeal : LambdaRing.IsLambdaIdeal (augmentationIdeal R) := by
+  sorry
+
+variable (R)
+
+/-- `KTheoryLowDegrees:Z.3/rank-section-lambda`: `rankSection` is a ring homomorphism and a
+pre-λ-homomorphism from the binomial pre-λ-ring: `λ^k(rankSection f) = rankSection(C(f, k))`. -/
+theorem rankSection_lambda (f g : LocallyConstant (PrimeSpectrum R) ℤ) (k : ℕ) :
+    rankSection R (f * g) = rankSection R f * rankSection R g ∧ rankSection R 1 = 1 ∧
+      lambda R k (rankSection R f) = rankSection R (PreLambdaRing.lambda k f) := by
+  sorry
+
+-- test TauCeti.RingK0.augmentation_zero_test (degenerate)
+example : (0 : K0 R) ∈ augmentationIdeal R ∧
+    (Subsingleton R → augmentationIdeal R = ⊤) := by
+  sorry
+
+-- test TauCeti.RingK0.augmentation_unit_test (non-example)
+/- `[R] ∉ I_R` for `R ≠ 0`; and for `R = k × k`, `[k × 0] - [0 × k] ∉ I_R` although its "total
+rank" `1 - 1` is `0`. -/
+example [Nontrivial R] : (1 : K0 R) ∉ augmentationIdeal R := by sorry
+
+example (k : Type u) [Field k] :
+    cls (k × k) (fstLine k) - cls (k × k) (sndLine k) ∉
+      augmentationIdeal (k × k) := by
+  sorry
+
+-- test TauCeti.RingK0.augmentation_line_test (compatibility)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    cls R L - 1 ∈ augmentationIdeal R := by sorry
+
+-- test TauCeti.RingK0.augmentation_field_test (computation)
+example (k : Type u) [Field k] : augmentationIdeal k = ⊥ := by sorry
+
+/-- The ring homomorphism underlying `rankSection` (helper for the augmentation). -/
+def rankSectionRingHom : LocallyConstant (PrimeSpectrum R) ℤ →+* K0 R :=
+  { rankSection R with
+    map_one' := by sorry
+    map_mul' := by sorry }
+
+/-- **`K₀(R)` as an augmented pre-λ-ring** (`TauCeti.RingK0.augmentation`,
+`KTheoryLowDegrees:Z.3/ring-k0-augmented`): `(K₀(R), H⁰(Spec R, ℤ), rankSection, rank)`. -/
+def augmentation : LambdaRing.Augmentation (K0 R) (LocallyConstant (PrimeSpectrum R) ℤ) where
+  ι := ⟨rankSectionRingHom R, by sorry⟩
+  ε := ⟨rankRingHom R, by sorry⟩
+  ε_ι := by sorry
+
+/-- `ε = rank`. -/
+@[simp]
+theorem augmentation_ε : (augmentation R).ε.toRingHom = rankRingHom R :=
+  rfl
+
+/-- `ι = rankSection`. -/
+@[simp]
+theorem augmentation_ι : (augmentation R).ι.toRingHom = rankSectionRingHom R :=
+  rfl
+
+/-- The augmentation ideal of `augmentation R` is `I_R`. -/
+theorem augmentationIdeal_eq :
+    LambdaRing.augmentationIdeal (augmentation R) = augmentationIdeal R :=
+  rfl
+
+-- test TauCeti.LambdaRing.augmentation_ringK0_test (compatibility)
+example : LambdaRing.augmentationIdeal (augmentation R) = augmentationIdeal R :=
+  augmentationIdeal_eq R
+
+-- test TauCeti.RingK0.augmented_field_test (degenerate)
+example (k : Type u) [Field k] :
+    Function.Bijective (augmentation k).ε.toRingHom ∧
+      LambdaRing.augmentationIdeal (augmentation k) = ⊥ := by
+  sorry
+
+-- test TauCeti.RingK0.augmented_two_points_test (computation)
+example (k : Type u) [Field k] :
+    Function.Bijective (augmentation (k × k)).ε.toRingHom ∧
+      LambdaRing.augmentationIdeal (augmentation (k × k)) = ⊥ := by
+  sorry
+
+-- test TauCeti.RingK0.augmented_total_rank_test (non-example)
+/- The integer "total rank" `x ↦ Σ_p rank x p` is not multiplicative on `K₀(k × k)`:
+`[k × 0] · [0 × k] = 0` has total rank `0`, the product of the total ranks is `1`. -/
+example (k : Type u) [Field k] (p q : PrimeSpectrum (k × k)) (hpq : p ≠ q)
+    (hall : ∀ r : PrimeSpectrum (k × k), r = p ∨ r = q) :
+    let e₁ := cls (k × k) (fstLine k)
+    let e₂ := cls (k × k) (sndLine k)
+    rank (k × k) (e₁ * e₂) p + rank (k × k) (e₁ * e₂) q = 0 ∧
+      (rank (k × k) e₁ p + rank (k × k) e₁ q) * (rank (k × k) e₂ p + rank (k × k) e₂ q) = 1 := by
+  sorry
+
+end Augmentation
+
+end TauCeti.RingK0
+
+/-! ### Local Picard-group facts
+(`KTheoryLowDegrees:Z.3/projective-sheaf-condition` … `KTheoryLowDegrees:Z.3/pic-locally-constant-power`) -/
+
+namespace TauCeti.PicardGroup
+
+variable {R : Type u} [CommRing R]
+
+/-- `KTheoryLowDegrees:Z.3/projective-sheaf-condition`, elementwise: for `s₁, …, s_c` generating
+the unit ideal, `M → ∏ M[1/s_a]` is injective, and a family `m_a / s_a^k` compatible on the
+overlaps `D(s_a s_b)` glues to a unique `x ∈ M`. -/
+theorem projective_sheaf_condition (M : Type u) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    [Module.Projective R M] {c : ℕ} (s : Fin c → R) (hs : Ideal.span (Set.range s) = ⊤) :
+    (∀ m : M, (∀ a, ∃ n : ℕ, s a ^ n • m = 0) → m = 0) ∧
+      ∀ (m : Fin c → M) (k : ℕ),
+        (∀ a b, ∃ N : ℕ, (s a * s b) ^ N • (s b ^ k • m a - s a ^ k • m b) = 0) →
+          ∃! x : M, ∀ a, ∃ N : ℕ, s a ^ N • (s a ^ k • x - m a) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/invertible-local-iso`, frame form: if `D[1/s_a]` and `E[1/s_a]` are
+generated by `d_a` and `e_a` with the same transition elements
+`d_a = (u_ab / (s_a s_b)^k) d_b`, `e_a = (u_ab / (s_a s_b)^k) e_b` on `D(s_a s_b)`, then
+`D ≅ E` by `d_a ↦ e_a`; in particular `Pic.mk D = Pic.mk E`. -/
+theorem invertible_local_iso (D E : Type u) [AddCommGroup D] [Module R D] [Module.Invertible R D]
+    [AddCommGroup E] [Module R E] [Module.Invertible R E] {c : ℕ} (s : Fin c → R)
+    (hs : Ideal.span (Set.range s) = ⊤) (d : Fin c → D) (e : Fin c → E)
+    (hd : ∀ a (x : D), ∃ (n : ℕ) (r : R), s a ^ n • x = r • d a)
+    (he : ∀ a (y : E), ∃ (n : ℕ) (r : R), s a ^ n • y = r • e a)
+    (w : Fin c → Fin c → R) (k : ℕ)
+    (hw : ∀ a b, ∃ N : ℕ, (s a * s b) ^ N • ((s a * s b) ^ k • d a - w a b • d b) = 0 ∧
+      (s a * s b) ^ N • ((s a * s b) ^ k • e a - w a b • e b) = 0) :
+    ∃ φ : D ≃ₗ[R] E, ∀ a, ∃ N : ℕ, s a ^ N • (φ (d a) - e a) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/pic-product-decomposition`: for complete orthogonal idempotents `e_i`,
+`Pic(R) → ∏ Pic(R ⧸ (1 - e_i))`, `L ↦ (R_i ⊗ L)_i`, is bijective (a group isomorphism). -/
+theorem bijective_mapRingHom_pi {c : ℕ} (e : Fin c → R) (he : CompleteOrthogonalIdempotents e) :
+    Function.Bijective (fun (L : CommRing.Pic R) (i : Fin c) =>
+      CommRing.Pic.mapRingHom (Ideal.Quotient.mk (Ideal.span {1 - e i})) L) := by
+  sorry
+
+-- Acceptance of `KTheoryLowDegrees:Z.3/pic-product-decomposition`: `Pic(k × k) = 1`.
+example (k : Type u) [Field k] : Subsingleton (CommRing.Pic (k × k)) := by
+  sorry
+
+/-- Helper (not a packet name): the idempotent of a clopen subset of `Spec R`
+(`PrimeSpectrum.isIdempotentElemEquivClopens`). -/
+def clopenIdempotent (U : TopologicalSpace.Clopens (PrimeSpectrum R)) : R :=
+  (PrimeSpectrum.isIdempotentElemEquivClopens.symm U).1
+
+/-- Helper (not a packet name): the class `L_e` equal to `L` on `D(e)` and trivial on `D(1 - e)`,
+represented by `eL × (1 - e)R`. -/
+def restrictIdempotent (e : R) (L : CommRing.Pic R) : Type u :=
+  ↥((Ideal.span {e}) • (⊤ : Submodule R L)) × ↥(Ideal.span {1 - e})
+
+instance (e : R) (L : CommRing.Pic R) : AddCommGroup (restrictIdempotent e L) :=
+  inferInstanceAs (AddCommGroup (↥((Ideal.span {e}) • (⊤ : Submodule R L)) ×
+    ↥(Ideal.span {1 - e})))
+
+instance (e : R) (L : CommRing.Pic R) : Module R (restrictIdempotent e L) :=
+  inferInstanceAs (Module R (↥((Ideal.span {e}) • (⊤ : Submodule R L)) ×
+    ↥(Ideal.span {1 - e})))
+
+/-- Helper: the restricted module is invertible when `e` is idempotent.
+For arbitrary `e` this is false: over `ℤ`, `e = 2`, `L = ℤ` gives rank two. -/
+theorem restrictIdempotent_invertible (e : R) (he : IsIdempotentElem e) (L : CommRing.Pic R) :
+    Module.Invertible R (restrictIdempotent e L) := by
+  sorry
+
+/-- **`L^f` for a locally constant exponent** (`TauCeti.PicardGroup.zpowLocallyConstant`,
+`KTheoryLowDegrees:Z.3/pic-locally-constant-power`): `L^f = ∏_{n ∈ f(Spec R)} (L^n)_{e_n}`, with
+`e_n` the idempotent of the clopen `f⁻¹(n)` (a real definition). -/
+def zpowLocallyConstant (L : CommRing.Pic R) (f : LocallyConstant (PrimeSpectrum R) ℤ) :
+    CommRing.Pic R :=
+  ∏ n ∈ f.range_finite.toFinset,
+    let U : TopologicalSpace.Clopens (PrimeSpectrum R) :=
+      ⟨f ⁻¹' {n}, f.isLocallyConstant.isClopen_fiber n⟩
+    let e := PrimeSpectrum.isIdempotentElemEquivClopens.symm U
+    letI := restrictIdempotent_invertible e.1 e.2 (L ^ n)
+    CommRing.Pic.mk R (restrictIdempotent e.1 (L ^ n))
+
+/-- `L^{const n} = L^n`. -/
+@[simp]
+theorem zpowLocallyConstant_const (L : CommRing.Pic R) (n : ℤ) :
+    zpowLocallyConstant L (LocallyConstant.const (PrimeSpectrum R) n) = L ^ n := by
+  sorry
+
+/-- `L^{f+g} = L^f L^g`. -/
+@[simp]
+theorem zpowLocallyConstant_add (L : CommRing.Pic R) (f g : LocallyConstant (PrimeSpectrum R) ℤ) :
+    zpowLocallyConstant L (f + g) = zpowLocallyConstant L f * zpowLocallyConstant L g := by
+  sorry
+
+/-- `L^{fg} = (L^f)^g`. -/
+@[simp]
+theorem zpowLocallyConstant_mul (L : CommRing.Pic R) (f g : LocallyConstant (PrimeSpectrum R) ℤ) :
+    zpowLocallyConstant L (f * g) = zpowLocallyConstant (zpowLocallyConstant L f) g := by
+  sorry
+
+/-- `(LM)^f = L^f M^f`. -/
+@[simp]
+theorem mul_zpowLocallyConstant (L M : CommRing.Pic R) (f : LocallyConstant (PrimeSpectrum R) ℤ) :
+    zpowLocallyConstant (L * M) f = zpowLocallyConstant L f * zpowLocallyConstant M f := by
+  sorry
+
+/-- **`Pic(R)` as an `H⁰(Spec R, ℤ)`-module** (`TauCeti.PicardGroup.module`):
+`f • ofMul L = ofMul (L^f)` (a real definition; the axioms are the four identities above). -/
+instance module : Module (LocallyConstant (PrimeSpectrum R) ℤ) (Additive (CommRing.Pic R)) where
+  smul f a := Additive.ofMul (zpowLocallyConstant (Additive.toMul a) f)
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+  add_smul := by sorry
+  zero_smul := by sorry
+
+/-- `mapRingHom f (L^g) = (mapRingHom f L)^{g ∘ Spec f}`. -/
+theorem zpowLocallyConstant_map {S : Type u} [CommRing S] (f : R →+* S) (L : CommRing.Pic R)
+    (g : LocallyConstant (PrimeSpectrum R) ℤ) :
+    CommRing.Pic.mapRingHom f (zpowLocallyConstant L g) =
+      zpowLocallyConstant (CommRing.Pic.mapRingHom f L)
+        (g.comap ⟨PrimeSpectrum.comap f, PrimeSpectrum.continuous_comap f⟩) := by
+  sorry
+
+-- test TauCeti.PicardGroup.zpow_const_test (computation)
+/- For `I = (2, 1 + √-5) ⊂ ℤ[√-5]`: `[I]^{const 2} = [I²] = 1`. -/
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I] :
+    zpowLocallyConstant (CommRing.Pic.mk (ℤ√(-5)) I)
+      (LocallyConstant.const (PrimeSpectrum (ℤ√(-5))) 2) = 1 := by
+  sorry
+
+-- test TauCeti.PicardGroup.zpow_zero_test (degenerate)
+example (L : CommRing.Pic R) (f : LocallyConstant (PrimeSpectrum R) ℤ) :
+    zpowLocallyConstant L 0 = 1 ∧ zpowLocallyConstant 1 f = 1 := by
+  sorry
+
+-- test TauCeti.PicardGroup.zpow_indicator_test (characterisation)
+/- For `R = R₁ × R₂` and `f = (1, 0)`: `(L₁, L₂)^f = (L₁, 1)`. -/
+example (R₁ R₂ : Type u) [CommRing R₁] [CommRing R₂] (L : CommRing.Pic (R₁ × R₂))
+    (U : TopologicalSpace.Clopens (PrimeSpectrum (R₁ × R₂)))
+    (hU : clopenIdempotent U = ((1 : R₁), (0 : R₂))) :
+    CommRing.Pic.mapRingHom (RingHom.fst R₁ R₂) (zpowLocallyConstant L
+        (LocallyConstant.charFn ℤ U.isClopen)) = CommRing.Pic.mapRingHom (RingHom.fst R₁ R₂) L ∧
+      CommRing.Pic.mapRingHom (RingHom.snd R₁ R₂) (zpowLocallyConstant L
+        (LocallyConstant.charFn ℤ U.isClopen)) = 1 := by
+  sorry
+
+-- test TauCeti.PicardGroup.zpow_not_integer_test (non-example)
+/- On `R = A × A` with `Pic(A) ≠ 1` and `f = (1, 2)`, `L^f` need not be `L^n` for any `n ∈ ℤ`. -/
+example (A : Type u) [CommRing A] (hA : ∃ M : CommRing.Pic A, M ^ 2 ≠ M) :
+    ∃ (L : CommRing.Pic (A × A)) (f : LocallyConstant (PrimeSpectrum (A × A)) ℤ),
+      ∀ n : ℤ, zpowLocallyConstant L f ≠ L ^ n := by
+  sorry
+
+end TauCeti.PicardGroup
+
+/-! ### The determinant (`KTheoryLowDegrees:Z.3/determinant-projective` … `KTheoryLowDegrees:Z.3/gamma-first-graded`) -/
+
+namespace TauCeti.RingK0
+
+open TauCeti.PicardGroup
+
+section Determinant
+
+variable (R : Type u) [CommRing R]
+
+/-- Helper (not a packet name): the clopen rank fibre `{p : rankAtStalk P p = n}`. -/
+def rankFibre (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] (n : ℕ) : TopologicalSpace.Clopens (PrimeSpectrum R) :=
+  ⟨Module.rankAtStalk (R := R) P ⁻¹' {n}, by sorry⟩
+
+/-- Helper (not a packet name): **the componentwise top exterior power**
+`∏_{n ∈ rank(P)} e_n · ⋀ⁿP`, `e_n` the idempotent of the rank fibre `{rank P = n}`. -/
+def detModule (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] : Type u :=
+  ∀ n : Set.range (Module.rankAtStalk (R := R) P),
+    ↥((Ideal.span {clopenIdempotent (rankFibre R P n.1)}) • (⊤ : Submodule R (⋀[R]^n.1 P)))
+
+section
+variable (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P]
+
+instance : AddCommGroup (detModule R P) :=
+  inferInstanceAs (AddCommGroup (∀ n : Set.range (Module.rankAtStalk (R := R) P),
+    ↥((Ideal.span {clopenIdempotent (rankFibre R P n.1)}) • (⊤ : Submodule R (⋀[R]^n.1 P)))))
+
+instance : Module R (detModule R P) :=
+  inferInstanceAs (Module R (∀ n : Set.range (Module.rankAtStalk (R := R) P),
+    ↥((Ideal.span {clopenIdempotent (rankFibre R P n.1)}) • (⊤ : Submodule R (⋀[R]^n.1 P)))))
+
+/-- Helper instance (a true fact, proof omitted): the componentwise top exterior power is
+invertible (`KTheoryLowDegrees:Z.3/constant-rank-top-invertible` on each rank fibre). -/
+instance detModule_invertible : Module.Invertible R (detModule R P) := by
+  sorry
+end
+
+/-- **The componentwise determinant** (`TauCeti.RingK0.detProjective`,
+`KTheoryLowDegrees:Z.3/determinant-projective`):
+`det(P) = Pic.mk(∏_i ⋀^{n_i} P_i)` along the rank fibres (a real definition). -/
+def detProjective (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] : CommRing.Pic R :=
+  CommRing.Pic.mk R (detModule R P)
+
+/-- `KTheoryLowDegrees:Z.3/determinant-congr`: `P ≃ₗ Q → det P = det Q`. -/
+theorem detProjective_congr (M N : Type u)
+    [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M]
+    [AddCommGroup N] [Module R N] [Module.Finite R N] [Module.Projective R N]
+    (e : M ≃ₗ[R] N) : detProjective R M = detProjective R N := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-free`: `det P = 1` for finite free `P`. -/
+@[simp]
+theorem detProjective_free (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Free R M] : detProjective R M = 1 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-line`: `det L = Pic.mk L` for invertible `L`. -/
+theorem detProjective_line (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Invertible R M] : detProjective R M = CommRing.Pic.mk R M := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-sum`: `det(P × Q) = det P · det Q`. -/
+theorem detProjective_prod (M N : Type u)
+    [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M]
+    [AddCommGroup N] [Module R N] [Module.Finite R N] [Module.Projective R N] :
+    detProjective R (M × N) = detProjective R M * detProjective R N := by sorry
+
+/-- For `P` of constant rank `n`, `det P = Pic.mk(⋀ⁿP)`. -/
+theorem detProjective_of_constant_rank (P : Type u) [AddCommGroup P] [Module R P]
+    [Module.Finite R P] [Module.Projective R P] (n : ℕ)
+    (hn : ∀ p : PrimeSpectrum R, Module.rankAtStalk (R := R) P p = n) :
+    haveI := topExterior_invertible R P n hn
+    detProjective R P = CommRing.Pic.mk R (⋀[R]^n P) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-base-change` on modules:
+`det(S ⊗ P) = mapAlgebra (det P)`. -/
+theorem detProjective_baseChange (S : Type u) [CommRing S] [Algebra R S] (P : Type u)
+    [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    detProjective S (S ⊗[R] P) = CommRing.Pic.mapAlgebra R S (detProjective R P) := by
+  sorry
+
+-- test TauCeti.RingK0.detProjective_zero_test (degenerate)
+example : detProjective R (Fin 0 → R) = 1 := by sorry
+
+-- test TauCeti.RingK0.detProjective_free_test (computation)
+example (n : ℕ) : detProjective R (Fin n → R) = 1 := detProjective_free R _
+
+-- test TauCeti.RingK0.detProjective_ideal_test (computation)
+/- For `R = ℤ[√-5]` and `I = (2, 1 + √-5)`: `det(I ⊕ R) = Pic.mk I ≠ 1`. -/
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I] :
+    detProjective (ℤ√(-5)) (I × ℤ√(-5)) = CommRing.Pic.mk (ℤ√(-5)) I ∧
+      CommRing.Pic.mk (ℤ√(-5)) I ≠ 1 := by
+  sorry
+
+-- test TauCeti.RingK0.detProjective_disconnected_test (non-example)
+/- For `R = k × k` and `P = k × k²` (ranks `1` and `2`): `det P = 1`, while
+`⋀^{max rank} P = ⋀²P = 0 × k` is not invertible. -/
+example (k : Type u) [Field k] :
+    detProjective (k × k) (fstLine k × (sndLine k × sndLine k)) = 1 ∧
+      ¬ Module.Invertible (k × k) (⋀[k × k]^2 (fstLine k × (sndLine k × sndLine k))) := by
+  sorry
+
+-- test TauCeti.RingK0.detProjective_line_test (compatibility)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    detProjective R L = CommRing.Pic.mk R L := detProjective_line R L
+
+/-- **The determinant homomorphism** (`TauCeti.RingK0.detHom`,
+`KTheoryLowDegrees:Z.3/determinant-hom`): `det : K₀(R) →+ Additive (Pic R)`, additive-to-
+multiplicative, never a ring map (a real definition through `lift`). -/
+def detHom : K0 R →+ Additive (CommRing.Pic R) :=
+  lift R (fun (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+      [Module.Projective R P] => Additive.ofMul (detProjective R P)) (by sorry) (by sorry)
+
+/-- The universal property of `KTheoryLowDegrees:Z.3/determinant-hom`:
+agreement on finite-projective classes determines the additive homomorphism. -/
+theorem detHom_unique (f : K0 R →+ Additive (CommRing.Pic R))
+    (hf : ∀ (M : Type u) [AddCommGroup M] [Module R M]
+      [Module.Finite R M] [Module.Projective R M],
+      Additive.toMul (f (cls R M)) = detProjective R M) : f = detHom R := by
+  sorry
+
+/-- `det x ∈ Pic(R)`, multiplicatively. -/
+abbrev det (x : K0 R) : CommRing.Pic R := Additive.toMul (detHom R x)
+
+/-- `KTheoryLowDegrees:Z.3/determinant-hom-of`: `det([P]) = det(P)`. -/
+@[simp]
+theorem detHom_of (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] :
+    det R (cls R M) = detProjective R M := by sorry
+
+/-- `det(x + y) = det(x) det(y)`. -/
+theorem det_add (x y : K0 R) : det R (x + y) = det R x * det R y := by sorry
+
+/-- `det(-x) = det(x)⁻¹`. -/
+theorem det_neg (x : K0 R) : det R (-x) = (det R x)⁻¹ := by sorry
+
+/-- `det(rankSection f) = 1`. -/
+@[simp]
+theorem det_rankSection (f : LocallyConstant (PrimeSpectrum R) ℤ) :
+    det R (rankSection R f) = 1 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-mul`: `det(xy) = det(x)^{rank y} · det(y)^{rank x}`, with
+the `H⁰(Spec R, ℤ)`-exponents of `zpowLocallyConstant`. -/
+theorem det_mul (x y : K0 R) :
+    det R (x * y) =
+      zpowLocallyConstant (det R x) (rank R y) * zpowLocallyConstant (det R y) (rank R x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-base-change`: `det(map f x) = Pic.mapRingHom f (det x)`. -/
+theorem det_map {S : Type u} [CommRing S] (f : R →+* S) (x : K0 R) :
+    det S (map f x) = CommRing.Pic.mapRingHom f (det R x) := by
+  sorry
+
+-- test TauCeti.RingK0.det_zero_test (degenerate)
+example : det R 0 = 1 := by sorry
+
+-- test TauCeti.RingK0.det_free_test (computation)
+example (n : ℤ) : det R (n : K0 R) = 1 := by sorry
+
+-- test TauCeti.RingK0.det_line_test (compatibility)
+example (L : CommRing.Pic R) : det R (cls R L) = L := by sorry
+
+-- test TauCeti.RingK0.det_not_multiplicative_test (non-example)
+/- For invertible `L`: `det([L] · 2[R]) = Pic.mk(L ⊗ L)`, while `det[L] · det(2[R]) = Pic.mk L`. -/
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    det R (cls R L * 2) = CommRing.Pic.mk R (L ⊗[R] L) ∧
+      det R (cls R L) * det R 2 = CommRing.Pic.mk R L := by
+  sorry
+
+-- test TauCeti.RingK0.det_virtual_rank_zero_test (non-example)
+-- The top-exterior formula concerns actual projectives. A virtual rank-zero class
+-- can retain a nontrivial determinant even though its zeroth lambda coefficient is one.
+example (L : CommRing.Pic R) (hL : L ≠ 1) :
+    rank R (cls R L - 1) = 0 ∧ det R (cls R L - 1) = L ∧
+      det R (cls R L - 1) ≠ 1 ∧ lambda R 0 (cls R L - 1) = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-surjective`: `det : K₀(R) → Pic(R)` is surjective,
+`det [L] = L`. -/
+theorem detHom_surjective : Function.Surjective (detHom R) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/compound-matrix-determinant` (Sylvester–Franke): for an endomorphism `g`
+of `Aⁿ` and `1 ≤ j ≤ n`, `det(⋀ʲg) = det(g)^{C(n-1, j-1)}`. -/
+theorem det_exteriorPower_map (A : Type u) [CommRing A] (n j : ℕ) (hj : 1 ≤ j) (hjn : j ≤ n)
+    (g : Module.End A (Fin n → A)) :
+    LinearMap.det (exteriorPower.map j g) = LinearMap.det g ^ (n - 1).choose (j - 1) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-tensor`: for `P, Q` of constant ranks `p, q`,
+`det(P ⊗ Q) = det(P)^q · det(Q)^p`; in general `det(P)^{rank Q} · det(Q)^{rank P}`. -/
+theorem detProjective_tensor (P Q : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] [AddCommGroup Q] [Module R Q] [Module.Finite R Q]
+    [Module.Projective R Q] :
+    detProjective R (P ⊗[R] Q) =
+      zpowLocallyConstant (detProjective R P) (rank R (cls R Q)) *
+        zpowLocallyConstant (detProjective R Q) (rank R (cls R P)) := by
+  sorry
+
+theorem detProjective_tensor_of_constant_rank (P Q : Type u) [AddCommGroup P] [Module R P]
+    [Module.Finite R P] [Module.Projective R P] [AddCommGroup Q] [Module R Q] [Module.Finite R Q]
+    [Module.Projective R Q] (p q : ℕ) (hp : ∀ x, Module.rankAtStalk (R := R) P x = p)
+    (hq : ∀ x, Module.rankAtStalk (R := R) Q x = q) :
+    detProjective R (P ⊗[R] Q) = detProjective R P ^ q * detProjective R Q ^ p := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-exterior-power`: for `P` of constant rank `n` and
+`1 ≤ j ≤ n`, `det(⋀ʲP) = det(P)^{C(n-1, j-1)}`. -/
+theorem detProjective_exteriorPower (P : Type u) [AddCommGroup P] [Module R P]
+    [Module.Finite R P] [Module.Projective R P] (n : ℕ)
+    (hn : ∀ x, Module.rankAtStalk (R := R) P x = n) (j : ℕ) (hj : 1 ≤ j) (hjn : j ≤ n) :
+    detProjective R (⋀[R]^j P) = detProjective R P ^ (n - 1).choose (j - 1) := by
+  sorry
+
+end Determinant
+
+/-! #### `KTheoryLowDegrees:Z.3/rank-det-ring`, `KTheoryLowDegrees:Z.3/rank-det-ring-hom`, `KTheoryLowDegrees:Z.3/sk-zero` -/
+
+section RankPic
+
+variable (R : Type u) [CommRing R]
+
+/-- Helper instance (not a packet name): the right action of `H⁰ᵐᵒᵖ` on `Pic`, through the
+commutativity of `H⁰`. -/
+instance : Module (LocallyConstant (PrimeSpectrum R) ℤ)ᵐᵒᵖ (Additive (CommRing.Pic R)) :=
+  Module.compHom _ (RingEquiv.toOpposite (LocallyConstant (PrimeSpectrum R) ℤ)).symm.toRingHom
+
+/-- Helper instance (not a packet name). -/
+instance : IsCentralScalar (LocallyConstant (PrimeSpectrum R) ℤ) (Additive (CommRing.Pic R)) :=
+  ⟨fun _ _ => rfl⟩
+
+/-- **The ring `H⁰(R) ⊕ Pic(R)`** (`TauCeti.RingK0.RankPic`, `KTheoryLowDegrees:Z.3/rank-det-ring`):
+the trivial square-zero extension of `H⁰(Spec R, ℤ)` by the `H⁰`-module `Pic(R)`, i.e.
+`(a, L)(b, M) = (ab, L^b M^a)`. -/
+abbrev RankPic : Type u :=
+  TrivSqZeroExt (LocallyConstant (PrimeSpectrum R) ℤ) (Additive (CommRing.Pic R))
+
+example : CommRing (RankPic R) := inferInstance
+
+/-- `(a, L)(b, M) = (ab, L^b M^a)`. -/
+@[simp]
+theorem RankPic.mul_def (a b : LocallyConstant (PrimeSpectrum R) ℤ) (L M : CommRing.Pic R) :
+    (TrivSqZeroExt.inl a + TrivSqZeroExt.inr (Additive.ofMul L) : RankPic R) *
+        (TrivSqZeroExt.inl b + TrivSqZeroExt.inr (Additive.ofMul M)) =
+      TrivSqZeroExt.inl (a * b) + TrivSqZeroExt.inr
+        (Additive.ofMul (zpowLocallyConstant L b * zpowLocallyConstant M a)) := by
+  sorry
+
+/-- The first projection, a ring homomorphism onto `H⁰`. -/
+def RankPic.fst : RankPic R →+* LocallyConstant (PrimeSpectrum R) ℤ :=
+  (TrivSqZeroExt.fstHom ℤ _ _).toRingHom
+
+/-- `(0, L)(0, M) = 0`: `Pic(R)` is an ideal of square zero. -/
+@[simp]
+theorem RankPic.inr_mul_inr (L M : CommRing.Pic R) :
+    (TrivSqZeroExt.inr (Additive.ofMul L) : RankPic R) * TrivSqZeroExt.inr (Additive.ofMul M) =
+      0 := by
+  sorry
+
+/-- A ring homomorphism `R → S` induces `RankPic R →+* RankPic S`,
+`(a, L) ↦ (a ∘ Spec f, mapRingHom f L)`. -/
+def RankPic.map {S : Type u} [CommRing S] (f : R →+* S) : RankPic R →+* RankPic S :=
+  sorry
+
+-- test TauCeti.RingK0.RankPic_mul_test (computation)
+example (L M : CommRing.Pic R) :
+    (TrivSqZeroExt.inl 2 + TrivSqZeroExt.inr (Additive.ofMul L) : RankPic R) *
+        (TrivSqZeroExt.inl 3 + TrivSqZeroExt.inr (Additive.ofMul M)) =
+      TrivSqZeroExt.inl 6 + TrivSqZeroExt.inr (Additive.ofMul (L ^ 3 * M ^ 2)) := by
+  sorry
+
+-- test TauCeti.RingK0.RankPic_trivial_test (degenerate)
+example [IsLocalRing R] : Function.Bijective (RankPic.fst R) := by
+  sorry
+
+-- test TauCeti.RingK0.RankPic_square_zero_test (characterisation)
+example : (TrivSqZeroExt.kerIdeal (LocallyConstant (PrimeSpectrum R) ℤ)
+    (Additive (CommRing.Pic R))) ^ 2 = ⊥ := by
+  sorry
+
+-- test TauCeti.RingK0.RankPic_not_product_test (non-example)
+/- `(2, 1)(1, L) = (2, L²) ≠ (2, L)` when `L² ≠ L`: not the product ring `ℤ × Pic`. -/
+example (L : CommRing.Pic R) (hL : L ≠ 1) :
+    (TrivSqZeroExt.inl 2 : RankPic R) * (TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr
+        (Additive.ofMul L)) =
+      TrivSqZeroExt.inl 2 + TrivSqZeroExt.inr (Additive.ofMul (L ^ 2)) ∧
+      (TrivSqZeroExt.inl 2 + TrivSqZeroExt.inr (Additive.ofMul (L ^ 2)) : RankPic R) ≠
+        TrivSqZeroExt.inl 2 + TrivSqZeroExt.inr (Additive.ofMul L) := by
+  sorry
+
+/-- Helper (not a packet name): `rank ⊕ det : K₀(R) →+* H⁰(R) ⊕ Pic(R)` (a real definition;
+multiplicativity is `KTheoryLowDegrees:Z.3/determinant-mul` with `KTheoryLowDegrees:Z.3/rank-ring-hom`). -/
+def rankDet : K0 R →+* RankPic R where
+  toFun x := TrivSqZeroExt.inl (rank R x) + TrivSqZeroExt.inr (detHom R x)
+  map_one' := by sorry
+  map_mul' := by sorry
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/rank-det-ring-hom`: `rank ⊕ det` is a surjective ring homomorphism with
+kernel `SK₀(R) = ker rank ∩ ker det`. -/
+theorem rankDet_surjective :
+    Function.Surjective (rankDet R) ∧
+      ∀ x, rankDet R x = 0 ↔ rank R x = 0 ∧ det R x = 1 := by
+  sorry
+
+/-- **`SK₀(R)`** (`TauCeti.RingK0.SK0`, `KTheoryLowDegrees:Z.3/sk-zero`): the ideal
+`ker(rank ⊕ det)`. -/
+def SK0 : Ideal (K0 R) := RingHom.ker (rankDet R)
+
+/-- `x ∈ SK₀(R) ↔ rank x = 0 ∧ det x = 1`. -/
+theorem mem_SK0_iff (x : K0 R) : x ∈ SK0 R ↔ rank R x = 0 ∧ det R x = 1 := by
+  sorry
+
+/-- `SK₀(R) ≤ I_R`. -/
+theorem SK0_le_augmentationIdeal : SK0 R ≤ augmentationIdeal R := by
+  sorry
+
+/-- `I_R ⧸ SK₀(R) ≃+ Additive (Pic R)` via `det`. -/
+def augmentationIdeal_quot_SK0 :
+    (↥(augmentationIdeal R) ⧸ Submodule.comap (augmentationIdeal R).subtype (SK0 R)) ≃+
+      Additive (CommRing.Pic R) :=
+  sorry
+
+/-- `map f (SK₀ R) ≤ SK₀ S`. -/
+theorem SK0_map {S : Type u} [CommRing S] (f : R →+* S) :
+    (SK0 R).map (mapRingHom R f) ≤ SK0 S := by
+  sorry
+
+-- test TauCeti.RingK0.SK0_field_test (degenerate)
+example (k : Type u) [Field k] : SK0 k = ⊥ := by sorry
+
+-- test TauCeti.RingK0.SK0_line_test (characterisation)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    cls R L - 1 ∈ SK0 R ↔ Nonempty (L ≃ₗ[R] R) := by
+  sorry
+
+-- test TauCeti.RingK0.SK0_not_ker_det_test (non-example)
+/- `[R] ∈ ker det` but `rank [R] = 1 ≠ 0`, so `SK₀(R) ≠ ker det`. -/
+example [Nontrivial R] : det R 1 = 1 ∧ (1 : K0 R) ∉ SK0 R := by
+  sorry
+
+end RankPic
+
+/-! #### `KTheoryLowDegrees:Z.3/determinant-gamma-congruence`, `KTheoryLowDegrees:Z.3/determinant-kills-gamma-two`,
+`KTheoryLowDegrees:Z.3/gamma-filtration-two`, `KTheoryLowDegrees:Z.3/gamma-first-graded` -/
+
+section GammaTwo
+
+variable (R : Type u) [CommRing R]
+
+/-- `KTheoryLowDegrees:Z.3/determinant-gamma-congruence`: for `x ∈ I_R`,
+`x ≡ [det x] - [R]` modulo `F²_γ K₀(R)`. -/
+theorem sub_det_mem_gammaFiltration_two (x : K0 R) (hx : x ∈ augmentationIdeal R) :
+    x - (cls R (det R x) - 1) ∈ LambdaRing.gammaFiltration (augmentation R) 2 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/determinant-kills-gamma-two`: `det(F²_γ K₀(R)) = 1`. -/
+theorem det_eq_one_of_mem_gammaFiltration_two (x : K0 R)
+    (hx : x ∈ LambdaRing.gammaFiltration (augmentation R) 2) : det R x = 1 := by
+  sorry
+
+/-- `TauCeti.RingK0.gammaFiltration_two` (`KTheoryLowDegrees:Z.3/gamma-filtration-two`):
+`F²_γ K₀(R) = SK₀(R)`, without the splitting principle, for disconnected `Spec R` too. -/
+theorem gammaFiltration_two : LambdaRing.gammaFiltration (augmentation R) 2 = SK0 R := by
+  sorry
+
+/-- `TauCeti.RingK0.SK0_eq_gammaFiltration_two`: the same identity, read from `SK₀`. -/
+theorem SK0_eq_gammaFiltration_two : SK0 R = LambdaRing.gammaFiltration (augmentation R) 2 :=
+  (gammaFiltration_two R).symm
+
+/-- `KTheoryLowDegrees:Z.3/gamma-first-graded`: `L ↦ [L] - [R]` and `det` induce
+`F¹_γ/F²_γ ≅ Pic(R)`, and `rank` induces `F⁰_γ/F¹_γ ≅ H⁰(Spec R, ℤ)`. -/
+theorem gamma_first_graded :
+    (∀ L : CommRing.Pic R, cls R L - 1 ∈ LambdaRing.gammaFiltration (augmentation R) 1 ∧
+        det R (cls R L - 1) = L) ∧
+      (∀ x ∈ LambdaRing.gammaFiltration (augmentation R) 1,
+        det R x = 1 ↔ x ∈ LambdaRing.gammaFiltration (augmentation R) 2) ∧
+      (∀ x, x ∈ LambdaRing.gammaFiltration (augmentation R) 1 ↔ rank R x = 0) ∧
+      Function.Surjective (rank R) := by
+  sorry
+
+-- test TauCeti.RingK0.gammaFiltration_ringK0_test (computation)
+/- For `R = ℤ[√-5]`: `F¹_γ/F²_γ ≅ Pic(R) ≅ ℤ/2`, so `F²_γ ≠ F¹_γ`. -/
+example : LambdaRing.gammaFiltration (augmentation (ℤ√(-5))) 2 ≠
+    LambdaRing.gammaFiltration (augmentation (ℤ√(-5))) 1 := by
+  sorry
+
+-- test TauCeti.RingK0.augmented_dedekind_test (compatibility)
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I] :
+    cls (ℤ√(-5)) I - 1 ∈ LambdaRing.augmentationIdeal (augmentation (ℤ√(-5))) ∧
+      det (ℤ√(-5)) (cls (ℤ√(-5)) I - 1) ≠ 1 := by
+  sorry
+
+-- test TauCeti.RingK0.SK0_dedekind_test (computation)
+/- `SK₀(ℤ[√-5]) = 0` while `I_R ≅ ℤ/2`. -/
+example : SK0 (ℤ√(-5)) = ⊥ ∧ augmentationIdeal (ℤ√(-5)) ≠ ⊥ := by
+  sorry
+
+end GammaTwo
+
+/-! #### `KTheoryLowDegrees:Z.3/ring-k0-adams-line`, `KTheoryLowDegrees:Z.3/ring-k0-adams-rank-det`, `KTheoryLowDegrees:Z.3/ring-k0-special` -/
+
+section AdamsK0
+
+variable (R : Type u) [CommRing R]
+
+/-- `KTheoryLowDegrees:Z.3/ring-k0-adams-line`: for invertible `L` and `k ≥ 1`,
+`ψ^k[L] = [L]^k = [L^{⊗k}]` and `ψ^k[L^∨] = [L^∨]^k`. -/
+theorem adams_cls_invertible (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L]
+    (k : ℕ) (hk : 1 ≤ k) :
+    LambdaRing.adams k (cls R L) = cls R L ^ k ∧
+      LambdaRing.adams k (cls R (Module.Dual R L)) = cls R (Module.Dual R L) ^ k := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/ring-k0-adams-rank-det`: `rank(ψ^k x) = rank x` and
+`det(ψ^k x) = det(x)^k` for `k ≥ 1` (the degree-zero normalisation of the Adams operations). -/
+theorem rank_adams_det_adams (k : ℕ) (hk : 1 ≤ k) (x : K0 R) :
+    rank R (LambdaRing.adams k x) = rank R x ∧ det R (LambdaRing.adams k x) = det R x ^ k := by
+  sorry
+
+-- test TauCeti.RingK0.adams_line_test (compatibility)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] (k : ℕ)
+    (hk : 1 ≤ k) : LambdaRing.adams k (cls R L) = cls R L ^ k :=
+  (adams_cls_invertible R L k hk).1
+
+-- Acceptance of `KTheoryLowDegrees:Z.3/adams-operations`: `ψ²(2[R]) = 2[R]`.
+example : LambdaRing.adams 2 (2 : K0 R) = 2 := by
+  rw [LambdaRing.adams_two, preLambda_lambda, show (2 : K0 R) = ((2 : ℕ) : K0 R) by norm_num,
+    lambda_natCast]
+  norm_num [Nat.choose]
+
+end AdamsK0
+
+end TauCeti.RingK0
+
+/-! ### `KTheoryLowDegrees:Z.3/exterior-extension-filtration` and `KTheoryLowDegrees:Z.3/exterior-extension-graded` -/
+
+namespace TauCeti
+
+section ExteriorFiltration
+
+variable {R : Type u} [CommRing R] {M' M M'' : Type u} [AddCommGroup M'] [Module R M']
+  [AddCommGroup M] [Module R M] [AddCommGroup M''] [Module R M'']
+
+/-- **The exterior filtration of an extension** (`TauCeti.exteriorExtensionFiltration`): for
+`ι : M' → M` (the first map of `0 → M' → M → M'' → 0`), `Fⁱ ⊆ ⋀ⁿM` is the image of
+`⋀ⁱM' ⊗ ⋀^{n-i}M → ⋀ⁿM`, `a ⊗ b ↦ (⋀ⁱι)(a) ∧ b`, i.e. the part of degree `n` of
+`ι(⋀ⁱM') · ⋀^{n-i}M` in the graded exterior algebra (a real definition; no splitting is chosen, and
+the construction needs only `ι`). -/
+def exteriorExtensionFiltration (ι : M' →ₗ[R] M) (n i : ℕ) : Submodule R (⋀[R]^n M) :=
+  Submodule.comap (⋀[R]^n M).subtype
+    (Submodule.map (ExteriorAlgebra.map ι).toLinearMap (⋀[R]^i M') * ⋀[R]^(n - i) M)
+
+/-- `Fⁱ⁺¹ ≤ Fⁱ`. -/
+theorem exteriorExtensionFiltration_antitone (ι : M' →ₗ[R] M) (n : ℕ) :
+    Antitone (exteriorExtensionFiltration ι n) := by
+  sorry
+
+/-- `F⁰ = ⊤`. -/
+@[simp]
+theorem exteriorExtensionFiltration_zero (ι : M' →ₗ[R] M) (n : ℕ) :
+    exteriorExtensionFiltration ι n 0 = ⊤ := by
+  sorry
+
+/-- `F^{n+1} = ⊥`. -/
+@[simp]
+theorem exteriorExtensionFiltration_succ_n (ι : M' →ₗ[R] M) (n : ℕ) :
+    exteriorExtensionFiltration ι n (n + 1) = ⊥ := by
+  sorry
+
+/-- A morphism of extensions `(f', f)` with `f ∘ ι₁ = ι₂ ∘ f'` maps `Fⁱ` into `Fⁱ`. -/
+theorem exteriorExtensionFiltration_map {N' N : Type u} [AddCommGroup N'] [Module R N']
+    [AddCommGroup N] [Module R N] (ι : M' →ₗ[R] M) (κ : N' →ₗ[R] N) (f' : M' →ₗ[R] N')
+    (f : M →ₗ[R] N) (hf : f ∘ₗ ι = κ ∘ₗ f') (n i : ℕ) :
+    Submodule.map (exteriorPower.map n f) (exteriorExtensionFiltration ι n i) ≤
+      exteriorExtensionFiltration κ n i := by
+  sorry
+
+/-- Base change: `S ⊗ Fⁱ` maps onto the filtration of the base-changed extension under the
+comparison `S ⊗ ⋀ⁿM ≅ ⋀ⁿ_S(S ⊗ M)` of `KTheoryLowDegrees:Z.3/exterior-base-change`. -/
+theorem exteriorExtensionFiltration_baseChange (S : Type u) [CommRing S] [Algebra R S]
+    (ι : M' →ₗ[R] M) (n i : ℕ) :
+    ∃ e : (S ⊗[R] ⋀[R]^n M) ≃ₗ[S] ⋀[S]^n (S ⊗[R] M),
+      Submodule.map e.toLinearMap
+          (LinearMap.range ((exteriorExtensionFiltration ι n i).subtype.baseChange S)) =
+        exteriorExtensionFiltration (ι.baseChange S) n i := by
+  sorry
+
+/-- For the split extension `M' → M' × M''`, `Fⁱ` is the sum over `j ≥ i` of the images of
+`⋀ʲM' ⊗ ⋀^{n-j}M''` (the Sum Formula of `KTheoryLowDegrees:Z.3/exterior-direct-sum`). -/
+theorem exteriorExtensionFiltration_split (n i : ℕ) :
+    exteriorExtensionFiltration (LinearMap.inl R M' M'') n i =
+      ⨆ j ∈ Finset.Icc i n, Submodule.comap (⋀[R]^n (M' × M'')).subtype
+        (Submodule.map (ExteriorAlgebra.map (LinearMap.inl R M' M'')).toLinearMap (⋀[R]^j M') *
+          Submodule.map (ExteriorAlgebra.map (LinearMap.inr R M' M'')).toLinearMap
+            (⋀[R]^(n - j) M'')) := by
+  sorry
+
+end ExteriorFiltration
+
+-- test TauCeti.exteriorExtensionFiltration_zero_sub_test (degenerate)
+example {R : Type u} [CommRing R] {M' M : Type u} [AddCommGroup M'] [Module R M']
+    [AddCommGroup M] [Module R M] [Subsingleton M'] (ι : M' →ₗ[R] M) (n i : ℕ) (hi : 1 ≤ i) :
+    exteriorExtensionFiltration ι n 0 = ⊤ ∧ exteriorExtensionFiltration ι n i = ⊥ := by
+  sorry
+
+-- test TauCeti.exteriorExtensionFiltration_rank_two_test (computation)
+/- `0 → Re₁ → R² → R → 0`, `n = 2`: `F⁰ = F¹ = R(e₁ ∧ e₂) = ⋀²R²` and `F² = 0`. -/
+example (R : Type u) [CommRing R] :
+    exteriorExtensionFiltration (LinearMap.single R (fun _ : Fin 2 => R) 0) 2 1 = ⊤ ∧
+      exteriorExtensionFiltration (LinearMap.single R (fun _ : Fin 2 => R) 0) 2 2 = ⊥ := by
+  sorry
+
+-- test TauCeti.exteriorExtensionFiltration_split_test (compatibility)
+example {R : Type u} [CommRing R] {M' M'' : Type u} [AddCommGroup M'] [Module R M']
+    [AddCommGroup M''] [Module R M''] (n i : ℕ) :
+    exteriorExtensionFiltration (LinearMap.inl R M' M'') n i =
+      ⨆ j ∈ Finset.Icc i n, Submodule.comap (⋀[R]^n (M' × M'')).subtype
+        (Submodule.map (ExteriorAlgebra.map (LinearMap.inl R M' M'')).toLinearMap (⋀[R]^j M') *
+          Submodule.map (ExteriorAlgebra.map (LinearMap.inr R M' M'')).toLinearMap
+            (⋀[R]^(n - j) M'')) :=
+  exteriorExtensionFiltration_split n i
+
+-- test TauCeti.exteriorExtensionFiltration_not_splitting_test (non-example)
+/- For `0 → Re₁ → R² → R → 0` and `n = 1`: `F¹ = Re₁`, and every `R(e₂ + r e₁)` is a complement
+of `F¹`; the complement depends on the section, only the filtration is canonical. -/
+example (R : Type u) [CommRing R] :
+    Submodule.map (exteriorPower.oneEquiv R (Fin 2 → R)).toLinearMap
+        (exteriorExtensionFiltration (LinearMap.single R (fun _ : Fin 2 => R) 0) 1 1) =
+      R ∙ Pi.single 0 1 ∧
+    ∀ r : R, IsCompl (R ∙ (Pi.single 0 1 : Fin 2 → R))
+      (R ∙ (Pi.single 1 1 + r • Pi.single 0 1 : Fin 2 → R)) := by
+  sorry
+
+end TauCeti
+
+namespace TauCeti.RingK0
+
+/-- `KTheoryLowDegrees:Z.3/exterior-extension-graded`: for an exact `0 → M' → M → M'' → 0` with
+`M''` projective, `Fⁱ → ⋀ⁱM' ⊗ ⋀^{n-i}M''` is surjective with kernel `Fⁱ⁺¹`, i.e.
+`⋀ⁱM' ⊗ ⋀^{n-i}M'' ≅ Fⁱ/Fⁱ⁺¹` canonically; hence
+`[⋀ⁿM] = Σ [⋀ⁱM'][⋀^{n-i}M'']`, `λ_t[M] = λ_t[M'] λ_t[M'']` and `det M = det M' · det M''` for
+finitely generated projective `M', M''`. -/
+theorem exteriorExtensionFiltration_graded {R : Type u} [CommRing R] {M' M M'' : Type u}
+    [AddCommGroup M'] [Module R M'] [AddCommGroup M] [Module R M] [AddCommGroup M'']
+    [Module R M''] [Module.Projective R M''] (ι : M' →ₗ[R] M) (π : M →ₗ[R] M'')
+    (hι : Function.Injective ι) (hπ : Function.Surjective π) (hex : Function.Exact ι π)
+    (n i : ℕ) (hi : i ≤ n) :
+    ∃ q : ↥(exteriorExtensionFiltration ι n i) →ₗ[R] (⋀[R]^i M' ⊗[R] ⋀[R]^(n - i) M''),
+      Function.Surjective q ∧
+        LinearMap.ker q = Submodule.comap (exteriorExtensionFiltration ι n i).subtype
+          (exteriorExtensionFiltration ι n (i + 1)) := by
+  sorry
+
+theorem cls_exteriorPower_of_exact {R : Type u} [CommRing R] {M' M M'' : Type u}
+    [AddCommGroup M'] [Module R M'] [Module.Finite R M'] [Module.Projective R M']
+    [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M]
+    [AddCommGroup M''] [Module R M''] [Module.Finite R M''] [Module.Projective R M'']
+    (ι : M' →ₗ[R] M) (π : M →ₗ[R] M'') (hι : Function.Injective ι) (hπ : Function.Surjective π)
+    (hex : Function.Exact ι π) (n : ℕ) :
+    cls R (⋀[R]^n M) = ∑ i ∈ Finset.range (n + 1), cls R (⋀[R]^i M') * cls R (⋀[R]^(n - i) M'') ∧
+      detProjective R M = detProjective R M' * detProjective R M'' := by
+  sorry
+
+end TauCeti.RingK0
+
+/-! ### `KTheoryLowDegrees:Z.3/representation-ring-of-gl` and
+`KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`
+
+`G = GL_{N₁} × ⋯ × GL_{N_r}` is indexed by the list `Ns = [N₁, …, N_r]`; its coordinate Hopf algebra
+is the iterated tensor product of Tau Ceti's `GeneralLinear.coordinateHopfAlgebra`. The base ring
+`k` is general (the packet's case is `k = ℤ`); stating it generically avoids the two `ℤ`-module
+structures on a bundled Hopf `ℤ`-algebra. Representations are Tau Ceti's finitely generated
+comodules (`FGComoduleCat`) that are free over `k`, and `R_k(G)` is Tau Ceti's `ExactK0` for the
+short sequences that are exact on underlying modules. -/
+
+namespace TauCeti.RepresentationRing
+
+open TauCeti.GeneralLinear
+
+variable (k : Type) [CommRing k]
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-coordinate-algebra`: the coordinate Hopf algebra `k[G] = ⊗_i k[GL_{N_i}]` of
+`G = ∏ GL_{N_i}` (a real definition, by recursion on the list of sizes). -/
+def glCoordinate : List ℕ → CommHopfAlgCat.{0} k
+  | [] => CommHopfAlgCat.of k k
+  | N :: Ns => CommHopfAlgCat.of k (coordinateHopfAlgebra k N ⊗[k] glCoordinate Ns)
+
+/-- Helper (not a packet name): the object property of being free over `k`. -/
+def isFree (Ns : List ℕ) : ObjectProperty (FGComoduleCat.{0, 0, 0} k (glCoordinate k Ns)) :=
+  fun V => Module.Free k V
+
+/-- **Representations of `∏ GL_{N_i}`** (`TauCeti.RepresentationRing.GLRep`): finitely generated
+comodules over `k[G]` that are free over `k` (lattices for `k = ℤ`). -/
+abbrev GLRep (Ns : List ℕ) : Type 1 := (isFree k Ns).FullSubcategory
+
+/-- Helper instance (a true fact, proof omitted). -/
+instance (Ns : List ℕ) : (isFree k Ns).ContainsZero := by sorry
+/-- Helper instance (a true fact, proof omitted). -/
+instance (Ns : List ℕ) : (isFree k Ns).IsClosedUnderBinaryProducts := by sorry
+/-- Helper instance (a true fact, proof omitted): tensor products of free comodules are free. -/
+instance (Ns : List ℕ) : (isFree k Ns).IsMonoidal := by sorry
+/-- Helper instance (a true fact, proof omitted). -/
+instance (Ns : List ℕ) : ObjectProperty.EssentiallySmall.{0} (isFree k Ns) := by sorry
+
+/-- Helper (not a packet name): the short sequences of representations that are exact on the
+underlying modules. -/
+def IsConflation (Ns : List ℕ) (S : ShortComplex (GLRep k Ns)) : Prop :=
+  Function.Injective S.f.hom.hom ∧ Function.Surjective S.g.hom.hom ∧
+    Function.Exact S.f.hom.hom S.g.hom.hom
+
+/-- Helper (not a packet name): the exact structure of `GLRep`, with conflations `IsConflation`
+(a real definition of the conflations; the Quillen axioms are omitted). -/
+def exactStructure (Ns : List ℕ) : ExactStructure (GLRep k Ns) where
+  Conflation := IsConflation k Ns
+  isKernelCokernelPair := by sorry
+  isClosedUnderIsomorphisms := by sorry
+  isInflation_id := by sorry
+  isDeflation_id := by sorry
+  isInflation_comp := by sorry
+  isDeflation_comp := by sorry
+  hasPushouts_inflations := by sorry
+  isStableUnderCobaseChange_inflations := by sorry
+  hasPullbacks_deflations := by sorry
+  isStableUnderBaseChange_deflations := by sorry
+
+/-- **The representation ring** `R_k(∏ GL_{N_i})` (`TauCeti.RepresentationRing.ofGL`): Tau Ceti's
+exact `K₀` of `GLRep`, a real definition. -/
+def ofGL (Ns : List ℕ) : Type := ExactK0.{0} (exactStructure k Ns)
+
+instance (Ns : List ℕ) : AddCommGroup (ofGL k Ns) :=
+  inferInstanceAs (AddCommGroup (ExactK0.{0} (exactStructure k Ns)))
+
+namespace ofGL
+
+variable {k}
+
+/-- Helper (not a packet name): the class of a representation. -/
+def of {Ns : List ℕ} (V : GLRep k Ns) : ofGL k Ns := ExactK0.of V
+
+variable (k)
+
+/-- Helper (not a packet name): the tensor product as a biadditive invariant, descended by
+`ExactK0.BiadditiveInvariant.bilift` (a real definition; exactness of `⊗` over `k`-free comodules is
+omitted). -/
+def mulHom (Ns : List ℕ) : ofGL k Ns →+ ofGL k Ns →+ ofGL k Ns :=
+  ExactK0.BiadditiveInvariant.bilift
+    { obj := fun V W => (of (V ⊗ W) : ofGL k Ns)
+      map_iso₁ := by sorry
+      map_iso₂ := by sorry
+      map_conflation₂ := by sorry
+      map_conflation₁ := by sorry }
+
+/-- `R_k(G)` is a commutative ring under `⊗`, with unit the trivial representation (a real
+multiplication; the ring axioms are omitted). -/
+instance instCommRing (Ns : List ℕ) : CommRing (ofGL k Ns) :=
+  letI : Mul (ofGL k Ns) := ⟨fun a b => mulHom k Ns a b⟩
+  letI : One (ofGL k Ns) := ⟨(of (𝟙_ (GLRep k Ns)) : ofGL k Ns)⟩
+  { (inferInstance : AddCommGroup (ofGL k Ns)) with
+    mul := fun a b => mulHom k Ns a b
+    one := (of (𝟙_ (GLRep k Ns)) : ofGL k Ns)
+    mul_assoc := by sorry
+    one_mul := by sorry
+    mul_one := by sorry
+    left_distrib := by sorry
+    right_distrib := by sorry
+    zero_mul := by sorry
+    mul_zero := by sorry
+    mul_comm := by sorry
+    natCast := fun n => n • (of (𝟙_ (GLRep k Ns)) : ofGL k Ns)
+    natCast_zero := by sorry
+    natCast_succ := by sorry
+    intCast := fun n => n • (of (𝟙_ (GLRep k Ns)) : ofGL k Ns)
+    intCast_ofNat := by sorry
+    intCast_negSucc := by sorry
+    npow := npowRec
+    npow_zero := by sorry
+    npow_succ := by sorry }
+
+/-- `TauCeti.RepresentationRing.ofGL.preLambda`: the pre-λ-ring structure by exterior powers of
+representations (the exterior power comodule is not in Tau Ceti; the operations are omitted,
+their values pinned by `character_lambda`). -/
+instance preLambda (Ns : List ℕ) : PreLambdaRing (ofGL k Ns) where
+  lambda := sorry
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+
+/-- Helper (not a packet name): the standard representation `k^{N_i}` of the `i`-th factor, Tau
+Ceti's `GeneralLinear.standardComodule` corestricted along the inclusion of the `i`-th tensor
+factor (the construction through `FGComoduleCat.corestrict` is omitted). -/
+def stdRep (Ns : List ℕ) (i : Fin Ns.length) : GLRep k Ns := sorry
+
+/-- **The standard classes** (`TauCeti.RepresentationRing.ofGL.std`): `std_i = [k^{N_i}]`; the
+determinant of the `i`-th factor is `det_i = λ^{N_i}(std_i)`. -/
+def std (Ns : List ℕ) (i : Fin Ns.length) : ofGL k Ns := of (stdRep k Ns i)
+
+/-- Helper (not a packet name): the character lattice `X(T) = ⊕_i ℤ^{N_i}` of the diagonal torus. -/
+abbrev CharLattice (Ns : List ℕ) : Type := (Σ i : Fin Ns.length, Fin (Ns.get i)) →₀ ℤ
+
+/-- Helper (not a packet name): the variable `X_{i,a} ∈ ℤ[X(T)]`. -/
+def charVar {Ns : List ℕ} (i : Fin Ns.length) (a : Fin (Ns.get i)) :
+    AddMonoidAlgebra ℤ (CharLattice Ns) :=
+  AddMonoidAlgebra.single (Finsupp.single ⟨i, a⟩ 1) 1
+
+/-- **The character map** (`TauCeti.RepresentationRing.ofGL.character`):
+`ch : R_k(G) → ℤ[X(T)]`, by restriction to the diagonal torus (Tau Ceti's
+`GeneralLinear.diagonalTorus`) and the weight decomposition; a pre-λ-homomorphism into the special
+λ-ring of `KTheoryLowDegrees:Z.3/monoid-lambda-ring` (construction omitted). -/
+def character (Ns : List ℕ) :
+    PreLambdaRing.Hom (ofGL k Ns) (AddMonoidAlgebra ℤ (CharLattice Ns)) :=
+  sorry
+
+/-- `ch(std_i) = X_{i,1} + ⋯ + X_{i,N_i}`. -/
+@[simp]
+theorem character_std (Ns : List ℕ) (i : Fin Ns.length) :
+    (character k Ns).toRingHom (std k Ns i) = ∑ a, charVar i a := by
+  sorry
+
+/-- Restriction along `g ↦ diag(g, 1) : GL_N → GL_{N+1}`, a pre-λ-homomorphism
+(`TauCeti.RepresentationRing.ofGL.restrict`; construction omitted), with `std ↦ std + 1`. -/
+def restrict (N : ℕ) : PreLambdaRing.Hom (ofGL k [N + 1]) (ofGL k [N]) :=
+  sorry
+
+theorem restrict_std (N : ℕ) :
+    (restrict k N).toRingHom (std k [N + 1] ⟨0, by simp⟩) = std k [N] ⟨0, by simp⟩ + 1 := by
+  sorry
+
+/-- The duality involution `V ↦ V^∨` (`TauCeti.RepresentationRing.ofGL.dual`; construction
+omitted), with `det^∨ = det⁻¹`. -/
+def dual (Ns : List ℕ) : ofGL k Ns →+* ofGL k Ns :=
+  sorry
+
+theorem dual_det (N : ℕ) :
+    PreLambdaRing.lambda N (std k [N] ⟨0, by simp⟩) *
+      dual k [N] (PreLambdaRing.lambda N (std k [N] ⟨0, by simp⟩)) = 1 := by
+  sorry
+
+end ofGL
+
+-- test TauCeti.RepresentationRing.ofGL_one_test (computation)
+/- `R_ℤ(GL₁) = ℤ[t, t⁻¹]` with `t = std₁` a line element. -/
+example : (∃ e : ofGL ℤ [1] ≃+* LaurentPolynomial ℤ,
+      e (ofGL.std ℤ [1] ⟨0, by simp⟩) = LaurentPolynomial.T 1) ∧
+    ∀ n, 2 ≤ n → PreLambdaRing.lambda n (ofGL.std ℤ [1] ⟨0, by simp⟩) = 0 := by
+  sorry
+
+-- test TauCeti.RepresentationRing.ofGL_zero_test (degenerate)
+/- `GL₀` is trivial and `R_ℤ(GL₀) = ℤ` with the binomial structure. -/
+example : ∃ e : ofGL ℤ [0] ≃+* ℤ, ∀ (n : ℕ) (x : ofGL ℤ [0]),
+    e (PreLambdaRing.lambda n x) = PreLambdaRing.lambda n (e x) := by
+  sorry
+
+-- test TauCeti.RepresentationRing.ofGL_lambda_top_test (computation)
+/- `λ^N(std_N) = det` is invertible, with inverse `det^∨`. -/
+example (N : ℕ) : IsUnit (PreLambdaRing.lambda N (ofGL.std ℤ [N] ⟨0, by simp⟩)) :=
+  ⟨⟨_, _, ofGL.dual_det ℤ N, by rw [mul_comm]; exact ofGL.dual_det ℤ N⟩, rfl⟩
+
+-- test TauCeti.RepresentationRing.ofGL_not_abstract_group_test (non-example)
+/- `R_ℤ(GL₁)` is not the representation ring of the abstract group `GL₁(ℤ) = {±1}` (Tau Ceti's
+`repRing`, over `ℚ`): there the sign character `σ` has `σ² = 1`, while `t² ≠ 1` in `ℤ[t^{±1}]`. -/
+example : (ofGL.std ℤ [1] ⟨0, by simp⟩) ^ 2 ≠ 1 ∧
+    ∃ σ : TauCeti.repRing ℚ ℤˣ, σ ^ 2 = 1 ∧ σ ≠ 1 := by
+  sorry
+
+-- test TauCeti.RepresentationRing.ofGL_character_test (compatibility)
+/- `ch(λ²(std₂ ⊗ std₂)) = P₂(e(X); e(X))` at `X₁, X₂`. -/
+example : (ofGL.character ℤ [2]).toRingHom (PreLambdaRing.lambda 2
+      (ofGL.std ℤ [2] ⟨0, by simp⟩ * ofGL.std ℤ [2] ⟨0, by simp⟩)) =
+    MvPolynomial.aeval (Sum.elim
+      (fun i : Fin 2 => MvPolynomial.aeval (fun a : Fin 2 => ofGL.charVar (Ns := [2]) ⟨0, by simp⟩
+        (Fin.cast (by simp) a)) (MvPolynomial.esymm (Fin 2) ℤ (i + 1)))
+      (fun j : Fin 2 => MvPolynomial.aeval (fun a : Fin 2 => ofGL.charVar (Ns := [2]) ⟨0, by simp⟩
+        (Fin.cast (by simp) a)) (MvPolynomial.esymm (Fin 2) ℤ (j + 1))))
+      (LambdaRing.productPoly 2) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem` (Serre 1968, Théorèmes 4–5): the
+character map `R_ℤ(G) → ℤ[X(T)]` is injective with image the Weyl invariants `ℤ[X(T)]^W`
+(`W = ∏ Σ_{N_i}` permuting the variables within each block); hence `R_ℤ(G)` is a special λ-ring,
+a pre-λ-subring of `ℤ[X(T)]` (KTheoryLowDegrees:Z.3/monoid-lambda-ring). Rests on the recorded gap (Serre's
+classification input). -/
+theorem serre_representation_ring (Ns : List ℕ) :
+    Function.Injective (ofGL.character ℤ Ns).toRingHom ∧
+      Set.range (ofGL.character ℤ Ns).toRingHom =
+        {f | ∀ w : ∀ i : Fin Ns.length, Equiv.Perm (Fin (Ns.get i)),
+          AddMonoidAlgebra.mapDomain (Finsupp.mapDomain
+            (fun p : Σ i : Fin Ns.length, Fin (Ns.get i) => (⟨p.1, w p.1 p.2⟩ :
+              Σ i : Fin Ns.length, Fin (Ns.get i)))) f = f} ∧
+      ∃ inst : LambdaRing (ofGL ℤ Ns), inst.toPreLambdaRing = ofGL.preLambda ℤ Ns := by
+  sorry
+
+end TauCeti.RepresentationRing
+
+/-! ### `KTheoryLowDegrees:Z.3/associated-projective-module` and `KTheoryLowDegrees:Z.3/ring-k0-special` -/
+
+namespace TauCeti.RingK0
+
+open TauCeti.RepresentationRing
+
+section Associated
+
+variable (R : Type u) [CommRing R]
+
+/-- **The associated projective module** `V(P)` (`TauCeti.RingK0.associatedModule`): for a
+representation `V` of `G = ∏ GL_{N_i}` over `ℤ` and projectives `P_i` of constant ranks `N_i`,
+the finitely generated projective module patched from `R[1/s_a] ⊗ V` along the images of the
+transition matrices of the `P_i` under the representation. The open-patching construction
+(cover, bases, cocycle) is omitted; the value is pinned by the lemmas below. -/
+def associatedModule {Ns : List ℕ} (V : GLRep ℤ Ns) (P : Fin Ns.length → Type u)
+    [∀ i, AddCommGroup (P i)] [∀ i, Module R (P i)] [∀ i, Module.Finite R (P i)]
+    [∀ i, Module.Projective R (P i)]
+    (hP : ∀ i p, Module.rankAtStalk (R := R) (P i) p = Ns.get i) : FP R :=
+  sorry
+
+variable {R}
+
+section
+variable {Ns : List ℕ} (P : Fin Ns.length → Type u) [∀ i, AddCommGroup (P i)]
+  [∀ i, Module R (P i)] [∀ i, Module.Finite R (P i)] [∀ i, Module.Projective R (P i)]
+  (hP : ∀ i p, Module.rankAtStalk (R := R) (P i) p = Ns.get i)
+
+/-- `std_i(P) ≃ₗ P_i`. -/
+@[simp]
+theorem associatedModule_std (i : Fin Ns.length) :
+    Nonempty ((associatedModule R (ofGL.stdRep ℤ Ns i) P hP).obj ≃ₗ[R] P i) := by
+  sorry
+
+/-- `(V ⊗ W)(P) ≃ₗ V(P) ⊗ W(P)`. -/
+theorem associatedModule_tensor (V W : GLRep ℤ Ns) :
+    Nonempty ((associatedModule R (V ⊗ W) P hP).obj ≃ₗ[R]
+      ((associatedModule R V P hP).obj ⊗[R] (associatedModule R W P hP).obj)) := by
+  sorry
+
+-- `TauCeti.RingK0.associatedModule_exteriorPower`: not stated here at module level; needs the
+-- exterior-power comodule `⋀ᵏV` of a representation, which Tau Ceti does not provide (supplier:
+-- KTheoryLowDegrees:Z.3/representation-ring-of-gl, whose pre-λ-structure uses it). Its class-level
+-- form is the λ-compatibility of `associatedLambdaHom` below.
+
+/-- `V ↦ V(P)` is exact: a conflation `V₁ ↪ V₂ ↠ V₃` of representations gives a short exact
+sequence `0 → V₁(P) → V₂(P) → V₃(P) → 0`. -/
+theorem associatedModule_exact (S : ShortComplex (GLRep ℤ Ns))
+    (hS : (exactStructure ℤ Ns).Conflation S) :
+    ∃ (f : (associatedModule R S.X₁ P hP).obj →ₗ[R] (associatedModule R S.X₂ P hP).obj)
+      (g : (associatedModule R S.X₂ P hP).obj →ₗ[R] (associatedModule R S.X₃ P hP).obj),
+      Function.Injective f ∧ Function.Surjective g ∧ Function.Exact f g := by
+  sorry
+
+/-- `S ⊗[R] V(P) ≃ₗ V(S ⊗ P)` for `R → S`. -/
+theorem associatedModule_baseChange (S : Type u) [CommRing S] [Algebra R S] (V : GLRep ℤ Ns)
+    (hPS : ∀ i p, Module.rankAtStalk (R := S) (S ⊗[R] P i) p = Ns.get i) :
+    Nonempty ((S ⊗[R] (associatedModule R V P hP).obj) ≃ₗ[S]
+      (associatedModule S V (fun i => S ⊗[R] P i) hPS).obj) := by
+  sorry
+
+end
+
+/-- `τ_P : R_ℤ(G) → K₀(R)`, `[V] ↦ [V(P)]`, a pre-λ-ring homomorphism with `τ_P(std_i) = [P_i]`
+(`TauCeti.RingK0.associatedLambdaHom`; construction through `ExactK0.lift` omitted). -/
+def associatedLambdaHom (R : Type u) [CommRing R] {Ns : List ℕ} (P : Fin Ns.length → Type u)
+    [∀ i, AddCommGroup (P i)] [∀ i, Module R (P i)] [∀ i, Module.Finite R (P i)]
+    [∀ i, Module.Projective R (P i)]
+    (_hP : ∀ i p, Module.rankAtStalk (R := R) (P i) p = Ns.get i) :
+    PreLambdaRing.Hom (ofGL ℤ Ns) (K0 R) :=
+  sorry
+
+section
+variable {Ns : List ℕ} (P : Fin Ns.length → Type u) [∀ i, AddCommGroup (P i)]
+  [∀ i, Module R (P i)] [∀ i, Module.Finite R (P i)] [∀ i, Module.Projective R (P i)]
+  (hP : ∀ i p, Module.rankAtStalk (R := R) (P i) p = Ns.get i)
+
+theorem associatedLambdaHom_std (i : Fin Ns.length) :
+    (associatedLambdaHom R P hP).toRingHom (ofGL.std ℤ Ns i) = cls R (P i) := by
+  sorry
+
+end
+
+-- test TauCeti.RingK0.associatedModule_free_test (degenerate)
+/- For free `P_i = R^{N_i}`: `V(P) ≅ R ⊗ V`, so `τ_P([V]) = (rank V)[R]`. -/
+example {Ns : List ℕ} (V : GLRep ℤ Ns)
+    (h : ∀ i p, Module.rankAtStalk (R := R) (Fin (Ns.get i) → R) p = Ns.get i) :
+    (associatedLambdaHom R (fun i => Fin (Ns.get i) → R) h).toRingHom (ofGL.of V) =
+      (Module.finrank ℤ V.obj : K0 R) := by
+  sorry
+
+-- test TauCeti.RingK0.associatedModule_det_test (computation)
+/- For the determinant representation `det = λ^N(std)` of `GL_N`: `τ_P(det) = [⋀ᴺP]`; for
+`P = I ⊕ R` over `ℤ[√-5]` it is `[I]`. -/
+example (N : ℕ) (P : Fin [N].length → Type u) [∀ i, AddCommGroup (P i)] [∀ i, Module R (P i)]
+    [∀ i, Module.Finite R (P i)] [∀ i, Module.Projective R (P i)]
+    (hP : ∀ i p, Module.rankAtStalk (R := R) (P i) p = [N].get i) :
+    (associatedLambdaHom R P hP).toRingHom
+        (PreLambdaRing.lambda N (ofGL.std ℤ [N] ⟨0, by simp⟩)) =
+      cls R (⋀[R]^N (P ⟨0, by simp⟩)) := by
+  sorry
+
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I]
+    (hP : ∀ (i : Fin [2].length) p,
+      Module.rankAtStalk (R := ℤ√(-5)) (I × ℤ√(-5)) p = [2].get i) :
+    (associatedLambdaHom (ℤ√(-5)) (fun _ => I × ℤ√(-5)) hP).toRingHom
+        (PreLambdaRing.lambda 2 (ofGL.std ℤ [2] ⟨0, by simp⟩)) = cls (ℤ√(-5)) I := by
+  sorry
+
+-- test TauCeti.RingK0.associatedModule_lambda_test (compatibility)
+example {Ns : List ℕ} (P : Fin Ns.length → Type u) [∀ i, AddCommGroup (P i)]
+    [∀ i, Module R (P i)] [∀ i, Module.Finite R (P i)] [∀ i, Module.Projective R (P i)]
+    (hP : ∀ i p, Module.rankAtStalk (R := R) (P i) p = Ns.get i) (i : Fin Ns.length) (n : ℕ) :
+    (associatedLambdaHom R P hP).toRingHom (PreLambdaRing.lambda n (ofGL.std ℤ Ns i)) =
+      cls R (⋀[R]^n (P i)) ∧ cls R (⋀[R]^n (P i)) = lambda R n (cls R (P i)) := by
+  sorry
+
+-- test TauCeti.RingK0.associatedModule_not_abstract_test (non-example): not stated here; needs
+-- the evaluation of a `GL₁`-comodule at the point `-1 ∈ GL₁(ℤ)` as a `ℤ`-linear automorphism
+-- of the lattice (Tau Ceti's `HopfAlgebra.pointRepresentationEquivComodule` supplies point
+-- actions for comodules over a Hopf algebra, but no bridge from `GLRep` built on `FGComoduleCat`)
+-- (supplier: KTheoryLowDegrees:Z.3/representation-ring-of-gl).
+
+end Associated
+
+/-- `KTheoryLowDegrees:Z.3/ring-k0-special`: `K₀(R)` is a special λ-ring
+(`λ^k(1) = 0` for `k ≥ 2`, the product and composition axioms), by Serre's representation-ring
+route; it rests on `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem` (the recorded gap). -/
+instance instLambdaRing (R : Type u) [CommRing R] : LambdaRing (K0 R) :=
+  { instPreLambdaRing R with
+    lambda_one_eq_zero' := fun k hk => lambda_one_class R k hk
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+-- test TauCeti.RingK0.special_test (compatibility)
+/- `K₀(R)` with `KTheoryLowDegrees:Z.3/lambda` is special: e.g. `λ²([P][Q]) = P₂(λ^•[P]; λ^•[Q])`. -/
+example (R : Type u) [CommRing R] (x y : K0 R) :
+    lambda R 2 (x * y) =
+      MvPolynomial.aeval (Sum.elim (fun i : Fin 2 => lambda R (i + 1) x)
+        (fun j : Fin 2 => lambda R (j + 1) y)) (LambdaRing.productPoly 2) :=
+  LambdaRing.lambda_mul 2 x y
+
+-- Acceptance of `KTheoryLowDegrees:Z.3/ring-k0-special`: `λ²[R⁴] = 6[R]`.
+example (R : Type u) [CommRing R] : lambda R 2 (4 : K0 R) = 6 := by
+  rw [show (4 : K0 R) = ((4 : ℕ) : K0 R) by norm_num, lambda_natCast]
+  norm_num [Nat.choose]
+
+end TauCeti.RingK0
+
+/-! ## Stage `KTheoryLowDegrees:Z.4` — Dedekind domains and `S`-integers
+
+Throughout, `R` is a Dedekind domain (Mathlib's `IsDedekindDomain`; a field is allowed), `Spec R` is
+connected, the rank is the integer rank `rankℤ` (the companion's Z.2/rank-connected), and `det` is
+`detHom : K₀(R) →+ Additive (Pic R)` of Z.3. `S` in `Set.integer` is a set of height-one primes. -/
+
+namespace TauCeti.RingK0
+
+open scoped Pointwise nonZeroDivisors
+
+section Dedekind
+
+variable (R : Type u) [CommRing R] [IsDedekindDomain R]
+
+/-- Helper instance (a composition of pinned baseline results, not a new node): finitely generated
+torsion-free modules over a Dedekind domain are projective
+(`IsDedekindDomain.flat_iff_torsion_eq_bot`, `Module.finitePresentation_of_finite`,
+`Module.Flat.projective_of_finitePresentation`). -/
+instance finiteTorsionFree_projective (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.IsTorsionFree R M] : Module.Projective R M := by
+  sorry
+
+/-- Helper instance (a true fact, proof omitted): nonzero ideals of a Dedekind domain are
+invertible modules. -/
+instance ideal_invertible (I : (Ideal R)⁰) : Module.Invertible R (I : Ideal R) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/coprime-ideal-representative`: for nonzero `I, J` there are
+`α ∈ Kˣ` and a nonzero `J' = αJ` with `I + J' = R`; multiplication by `α` gives `J ≃ₗ J'`. -/
+theorem exists_coprimeIdeal_equiv (I J : Ideal R) (hI : I ≠ ⊥) (hJ : J ≠ ⊥) :
+    ∃ (α : (FractionRing R)ˣ) (J' : Ideal R), J' ≠ ⊥ ∧ IsCoprime I J' ∧
+      Submodule.map (Algebra.linearMap R (FractionRing R)) J' =
+        (α : FractionRing R) • Submodule.map (Algebra.linearMap R (FractionRing R)) J ∧
+      Nonempty (J ≃ₗ[R] J') := by
+  sorry
+
+omit [IsDedekindDomain R] in
+/-- `KTheoryLowDegrees:Z.4/coprime-ideal-sum`: for any commutative ring and `I + J = R`,
+`I × J ≃ₗ R × IJ` (`v ↦ (f v, v - (f(v) i, f(v) j))` for `i + j = 1`). -/
+theorem coprimeIdeal_prod (I J : Ideal R) (h : IsCoprime I J) :
+    Nonempty ((I × J) ≃ₗ[R] (R × (I * J : Ideal R))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/ideal-sum`: `I × J ≃ₗ R × IJ` for nonzero ideals of a Dedekind domain. -/
+theorem ideal_prod (I J : Ideal R) (hI : I ≠ ⊥) (hJ : J ≠ ⊥) :
+    Nonempty ((I × J) ≃ₗ[R] (R × (I * J : Ideal R))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/projective-ideal-summands`: `P ≃ₗ I₁ × ⋯ × I_m` with nonzero ideals and
+`m = rankℤ [P]` (the empty product exactly for `P = 0`). -/
+theorem exists_ideal_summands (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] :
+    ∃ (n : ℕ) (I : Fin n → Ideal R), (n : ℤ) = rankℤ R (cls R M) ∧ (∀ i, I i ≠ ⊥) ∧
+      Nonempty (M ≃ₗ[R] ((i : Fin n) → I i)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/steinitz`: either `P = 0` (exactly when `rankℤ [P] = 0`), or
+`P ≃ₗ Rⁿ × I` with `I` a nonzero ideal, `rankℤ [P] = n + 1` and `Pic.mk I = det P`. -/
+theorem steinitz (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] :
+    (Subsingleton M ↔ rankℤ R (cls R M) = 0) ∧
+      (Subsingleton M ∨ ∃ (n : ℕ) (I : (Ideal R)⁰),
+        Nonempty (M ≃ₗ[R] ((Fin n → R) × (I : Ideal R))) ∧
+          rankℤ R (cls R M) = n + 1 ∧ CommRing.Pic.mk R (I : Ideal R) = detProjective R M) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/projective-classification`: `P ≃ₗ Q ↔ rankℤ [P] = rankℤ [Q] ∧
+det P = det Q`; hence `[P] = [Q] → P ≃ Q`, and projectives cancel. -/
+theorem projective_classification (P Q : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] [AddCommGroup Q] [Module R Q] [Module.Finite R Q]
+    [Module.Projective R Q] :
+    Nonempty (P ≃ₗ[R] Q) ↔
+      rankℤ R (cls R P) = rankℤ R (cls R Q) ∧ detProjective R P = detProjective R Q := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/projective-class-injective`, added by independent review. -/
+theorem projective_class_injective (P Q : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] [AddCommGroup Q] [Module R Q] [Module.Finite R Q]
+    [Module.Projective R Q] (h : cls R P = cls R Q) : Nonempty (P ≃ₗ[R] Q) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/projective-cancellation`, added by independent review. -/
+theorem projective_cancellation (P M N : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] [AddCommGroup M] [Module R M] [Module.Finite R M] [Module.Projective R M]
+    [AddCommGroup N] [Module R N] [Module.Finite R N] [Module.Projective R N]
+    (h : Nonempty ((P × M) ≃ₗ[R] (P × N))) : Nonempty (M ≃ₗ[R] N) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/line-class-product`: `[L ⊗ M] = [L] + [M] - [R]` for invertible
+`L, M`; equivalently `([L] - [R])([M] - [R]) = 0`. -/
+theorem lineClass_mul (L M : CommRing.Pic R) :
+    cls R (L * M) = cls R L + cls R M - 1 ∧ (cls R L - 1) * (cls R M - 1) = 0 := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.4/reduced-line-class` -/
+
+/-- **The reduced class of a line bundle** (`TauCeti.RingK0.picToK0`): `Additive.ofMul L ↦ [L] - [R]`
+(a real definition; additivity is `lineClass_mul`). -/
+def picToK0 : Additive (CommRing.Pic R) →+ K0 R where
+  toFun a := cls R (CommRing.Pic.AsModule (Additive.toMul a)) - 1
+  map_zero' := by sorry
+  map_add' := by sorry
+
+variable {R}
+
+omit [IsDedekindDomain R] in
+/-- `picToK0 (Additive.ofMul L) = [L] - [R]`. -/
+@[simp]
+theorem picToK0_apply (L : CommRing.Pic R) : picToK0 R (Additive.ofMul L) = cls R L - 1 :=
+  rfl
+
+/-- `picToK0 (Additive.ofMul (Pic.mk R N)) = [N] - [R]` for an invertible module `N`. -/
+@[simp]
+theorem picToK0_ofAdd_mk (N : Type u) [AddCommGroup N] [Module R N] [Module.Invertible R N] :
+    picToK0 R (Additive.ofMul (CommRing.Pic.mk R N)) = cls R N - 1 := by
+  sorry
+
+/-- `rankℤ (picToK0 a) = 0`. -/
+@[simp]
+theorem rankℤ_picToK0 (a : Additive (CommRing.Pic R)) : rankℤ R (picToK0 R a) = 0 := by
+  sorry
+
+/-- `det (picToK0 (Additive.ofMul L)) = L`. -/
+@[simp]
+theorem det_picToK0 (L : CommRing.Pic R) : det R (picToK0 R (Additive.ofMul L)) = L := by
+  sorry
+
+/-- `picToK0 a * picToK0 b = 0`. -/
+theorem picToK0_mul_picToK0 (a b : Additive (CommRing.Pic R)) :
+    picToK0 R a * picToK0 R b = 0 := by
+  sorry
+
+/-- `picToK0` is injective, with left inverse `Additive.ofMul ∘ det`. -/
+theorem picToK0_injective : Function.Injective (picToK0 R) := by
+  sorry
+
+/-- The range of `picToK0` is `ker rankℤ`. -/
+theorem range_picToK0 : (picToK0 R).range = (rankℤ R).ker := by
+  sorry
+
+-- test TauCeti.RingK0.picToK0_zero_test (degenerate)
+example : picToK0 R 0 = 0 := map_zero _
+
+-- test TauCeti.RingK0.picToK0_dual_test (computation)
+example (L : Type u) [AddCommGroup L] [Module R L] [Module.Invertible R L] :
+    cls R L + cls R (Module.Dual R L) = 2 • (1 : K0 R) ∧
+      picToK0 R (Additive.ofMul (CommRing.Pic.mk R L)⁻¹) =
+        -picToK0 R (Additive.ofMul (CommRing.Pic.mk R L)) := by
+  sorry
+
+-- test TauCeti.RingK0.picToK0_det_test (compatibility)
+example (L : CommRing.Pic R) :
+    detHom R (picToK0 R (Additive.ofMul L)) = Additive.ofMul L ∧
+      rankℤ R (picToK0 R (Additive.ofMul L)) = 0 := by
+  sorry
+
+-- test TauCeti.RingK0.picToK0_not_class_test (non-example)
+/- `L ↦ [L]` without subtracting `[R]` is not additive: `1 · 1 = 1 ↦ [R]`, but `[R] + [R]` has
+rank `2`. -/
+example : rankℤ R (cls R (1 * 1 : CommRing.Pic R)) ≠
+    rankℤ R (cls R (1 : CommRing.Pic R) + cls R (1 : CommRing.Pic R)) := by
+  sorry
+
+variable (R)
+
+/-- `KTheoryLowDegrees:Z.4/projective-class-normal-form`: `[P] = (rankℤ [P] - 1)[R] + [det P]`,
+including `P = 0`. -/
+theorem class_normal_form (M : Type u) [AddCommGroup M] [Module R M]
+    [Module.Finite R M] [Module.Projective R M] :
+    cls R M = ((rankℤ R (cls R M) - 1 : ℤ) : K0 R) + cls R (detProjective R M) := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.4/rank-pic-equivalence` (with `rank-pic-apply`, `rank-pic-inverse`) -/
+
+/-- **Rank and Picard group** (`TauCeti.RingK0.rankPicEquiv`):
+`K₀(R) ≃+ ℤ × Additive (Pic R)`, `x ↦ (rankℤ x, det x)`, with inverse
+`(n, L) ↦ n[R] + picToK0 L = (n - 1)[R] + [L]` (a real definition; the inverse laws are omitted). -/
+def rankPicEquiv : K0 R ≃+ ℤ × Additive (CommRing.Pic R) where
+  toFun x := (rankℤ R x, detHom R x)
+  invFun y := (y.1 : K0 R) + picToK0 R y.2
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+variable {R}
+
+/-- `KTheoryLowDegrees:Z.4/rank-pic-apply`: `rankPicEquiv x = (rankℤ x, Additive.ofMul (det x))`. -/
+@[simp]
+theorem rankPicEquiv_apply (x : K0 R) :
+    rankPicEquiv R x = (rankℤ R x, Additive.ofMul (det R x)) :=
+  rfl
+
+/-- `KTheoryLowDegrees:Z.4/rank-pic-inverse`: `rankPicEquiv.symm (n, Additive.ofMul L) = (n - 1)[R] + [L]`
+for every `n ∈ ℤ`. -/
+theorem rankPicEquiv_symm (n : ℤ) (L : CommRing.Pic R) :
+    (rankPicEquiv R).symm (n, Additive.ofMul L) = ((n - 1 : ℤ) : K0 R) + cls R L := by
+  sorry
+
+/-- `x = y ↔ rankℤ x = rankℤ y ∧ det x = det y`. -/
+theorem rankPicEquiv_ext (x y : K0 R) :
+    x = y ↔ rankℤ R x = rankℤ R y ∧ det R x = det R y := by
+  sorry
+
+/-- `rankPicEquiv [P] = (finrank R P, Additive.ofMul (det P))`. -/
+@[simp]
+theorem rankPicEquiv_of (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] :
+    rankPicEquiv R (cls R P) = ((Module.finrank R P : ℤ), Additive.ofMul (detProjective R P)) := by
+  sorry
+
+/-- `rankPicEquiv [R] = (1, 0)`. -/
+@[simp]
+theorem rankPicEquiv_one : rankPicEquiv R (cls R R) = (1, 0) := by
+  sorry
+
+/-- `rankPicEquiv.symm (0, Additive.ofMul L) = picToK0 (Additive.ofMul L) = [L] - [R]`. -/
+@[simp]
+theorem rankPicEquiv_symm_zero_ofAdd (L : CommRing.Pic R) :
+    (rankPicEquiv R).symm (0, Additive.ofMul L) = picToK0 R (Additive.ofMul L) := by
+  sorry
+
+variable (R) in
+/-- `ker rankℤ ≃+ Additive (Pic R)` by `det`, with inverse `picToK0`
+(Weibel's `K̃₀(R) ≅ Pic(R)`). -/
+def ker_rankℤ_equiv_pic : (rankℤ R).ker ≃+ Additive (CommRing.Pic R) where
+  toFun x := detHom R x
+  invFun a := ⟨picToK0 R a, rankℤ_picToK0 a⟩
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+
+/-- For a principal ideal domain, `Pic R` is trivial and the first coordinate is an isomorphism
+`K₀(R) ≃+ ℤ` (the companion's Z.2/pid-k0). -/
+theorem rankPicEquiv_isPrincipalIdealRing [IsPrincipalIdealRing R] :
+    Subsingleton (CommRing.Pic R) ∧ Function.Bijective (rankℤ R) := by
+  sorry
+
+-- test TauCeti.RingK0.rankPic_zero_test (degenerate)
+example : rankPicEquiv R 0 = (0, 0) := map_zero _
+
+-- test TauCeti.RingK0.rankPic_negative_test (computation)
+example : (rankPicEquiv R).symm (-1, 0) = (-1 : K0 R) := by sorry
+
+-- test TauCeti.RingK0.rankPic_nontrivial_test (non-example)
+example (L : CommRing.Pic R) (hL : L ≠ 1) : cls R L - 1 ≠ 0 := by sorry
+
+-- test TauCeti.RingK0.rankPic_pid_test (compatibility)
+example : rankPicEquiv ℤ (cls ℤ (Fin 3 → ℤ)) = (3, 0) := by sorry
+
+-- test TauCeti.RingK0.rankPic_ideal_test (characterisation)
+example (I : (Ideal R)⁰) :
+    rankPicEquiv R (1 - cls R (I : Ideal R)) =
+      (0, Additive.ofMul (CommRing.Pic.mk R (I : Ideal R))⁻¹) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/rank-pic-mul`: `(m, L)(n, M) = (mn, Lⁿ Mᵐ)`, i.e.
+`rankℤ(xy) = rankℤ x · rankℤ y` and `det(xy) = det(x)^{rankℤ y} det(y)^{rankℤ x}`. -/
+theorem rankPicEquiv_mul (x y : K0 R) :
+    rankℤ R (x * y) = rankℤ R x * rankℤ R y ∧
+      det R (x * y) = det R x ^ rankℤ R y * det R y ^ rankℤ R x := by
+  sorry
+
+/-! ### `KTheoryLowDegrees:Z.4/rank-pic-ring-equiv` -/
+
+/-- Helper instance (not a packet name): `ℤᵐᵒᵖ` acts on `Pic` through `ℤ`. -/
+instance : Module ℤᵐᵒᵖ (Additive (CommRing.Pic R)) :=
+  Module.compHom _ (RingEquiv.toOpposite ℤ).symm.toRingHom
+
+/-- Helper instance (not a packet name). -/
+instance : IsCentralScalar ℤ (Additive (CommRing.Pic R)) :=
+  ⟨fun _ _ => rfl⟩
+
+variable (R) in
+/-- **The ring `ℤ ⊕ Pic(R)` of a Dedekind domain** (`TauCeti.RingK0.rankPicRingEquiv`):
+`K₀(R) ≃+* TrivSqZeroExt ℤ (Additive (Pic R))`, `(m, L)(n, M) = (mn, Lⁿ Mᵐ)`, with underlying
+additive equivalence `rankPicEquiv` (`SK₀(R) = 0`; the multiplicativity is omitted). -/
+def rankPicRingEquiv : K0 R ≃+* TrivSqZeroExt ℤ (Additive (CommRing.Pic R)) where
+  toFun x := TrivSqZeroExt.inl (rankℤ R x) + TrivSqZeroExt.inr (detHom R x)
+  invFun y := (rankPicEquiv R).symm (y.fst, y.snd)
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+  map_add' := by sorry
+
+/-- The underlying additive equivalence is `rankPicEquiv`. -/
+theorem rankPicRingEquiv_toAddEquiv (x : K0 R) :
+    ((rankPicRingEquiv R x).fst, (rankPicRingEquiv R x).snd) = rankPicEquiv R x := by
+  sorry
+
+/-- The first coordinate is `rankℤ`. -/
+@[simp]
+theorem rankPicRingEquiv_fst (x : K0 R) : (rankPicRingEquiv R x).fst = rankℤ R x := by
+  sorry
+
+/-- The second coordinate is `det`. -/
+@[simp]
+theorem rankPicRingEquiv_snd (x : K0 R) : (rankPicRingEquiv R x).snd = detHom R x := by
+  sorry
+
+/-- `rankPicRingEquiv.symm (1, 1) = [R] = 1`. -/
+@[simp]
+theorem rankPicRingEquiv_symm_one : (rankPicRingEquiv R).symm 1 = 1 := by
+  sorry
+
+variable (R) in
+/-- `SK₀(R) = 0` for a Dedekind domain (`KTheoryLowDegrees:Z.3/sk-zero`). -/
+theorem sk0_eq_bot : SK0 R = ⊥ := by
+  sorry
+
+variable (R) in
+/-- `(ker rankℤ)² = 0`. -/
+theorem ker_rankℤ_sq_eq_bot :
+    ∀ x y : K0 R, x ∈ (rankℤ R).ker → y ∈ (rankℤ R).ker → x * y = 0 := by
+  sorry
+
+variable (R) in
+/-- `rankℤ : K₀(R) →+* ℤ` is a ring homomorphism, split by `n ↦ n[R]` (a real definition over the
+additive `rankℤ`). -/
+def rankℤ_ringHom : K0 R →+* ℤ :=
+  { rankℤ R with
+    map_one' := by sorry
+    map_mul' := by sorry }
+
+-- test TauCeti.RingK0.rankPicRing_line_sq_test (computation)
+example (L : CommRing.Pic R) : cls R L * cls R L = 2 • cls R L - 1 := by sorry
+
+-- test TauCeti.RingK0.rankPicRing_pid_test (degenerate)
+example : Function.Bijective (rankℤ_ringHom ℤ) := by sorry
+
+-- test TauCeti.RingK0.rankPicRing_det_not_mul_test (non-example)
+example (L : CommRing.Pic R) (hL : L ≠ 1) :
+    det R (2 • (1 : K0 R) * cls R L) = L ^ 2 ∧
+      det R (2 • (1 : K0 R)) * det R (cls R L) = L ∧ L ^ 2 ≠ L := by
+  sorry
+
+-- test TauCeti.RingK0.rankPicRing_rank_test (compatibility)
+example (x : K0 R) :
+    (rankPicRingEquiv R x).fst = rankℤ R x ∧ (rankPicRingEquiv R x).snd = detHom R x :=
+  ⟨rankPicRingEquiv_fst x, rankPicRingEquiv_snd x⟩
+
+end Dedekind
+
+end TauCeti.RingK0
+
+/-! ### `KTheoryLowDegrees:Z.4/class-group-pic-mk0`, `ideal-class-representative-independence`,
+`pic-map-extended-hom` -/
+
+namespace ClassGroup
+
+open scoped nonZeroDivisors
+
+variable {R : Type u} [CommRing R] [IsDedekindDomain R]
+
+/-- `KTheoryLowDegrees:Z.4/class-group-pic-mk0`: `equivPic R (mk0 I) = Pic.mk R I`. -/
+theorem equivPic_mk0 (I : (Ideal R)⁰) :
+    ClassGroup.equivPic R (ClassGroup.mk0 I) = CommRing.Pic.mk R (I : Ideal R) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/ideal-class-representative-independence`: `mk0 I = mk0 J ↔ I ≃ₗ J`, and
+then `[I] = [J]` in `K₀(R)`. -/
+theorem mk0_eq_mk0_iff_nonempty_linearEquiv (I J : (Ideal R)⁰) :
+    (ClassGroup.mk0 I = ClassGroup.mk0 J ↔ Nonempty ((I : Ideal R) ≃ₗ[R] (J : Ideal R))) ∧
+      (ClassGroup.mk0 I = ClassGroup.mk0 J →
+        TauCeti.RingK0.cls R (I : Ideal R) = TauCeti.RingK0.cls R (J : Ideal R)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/pic-map-extended-hom`: for an injective extension of Dedekind domains,
+`Pic.mapAlgebra R S (equivPic R c) = equivPic S (extendedHom R S c)`. -/
+theorem mapAlgebra_equivPic (S : Type u) [CommRing S] [IsDedekindDomain S] [Algebra R S]
+    [Module.IsTorsionFree R S] (c : ClassGroup R) :
+    CommRing.Pic.mapAlgebra R S (ClassGroup.equivPic R c) =
+      ClassGroup.equivPic S (ClassGroup.extendedHom R S c) := by
+  sorry
+
+end ClassGroup
+
+namespace TauCeti.RingK0
+
+open scoped nonZeroDivisors
+
+section DedekindClassGroup
+
+variable (R : Type u) [CommRing R] [IsDedekindDomain R]
+
+/-! ### `KTheoryLowDegrees:Z.4/rank-class-group-equivalence` -/
+
+/-- **Rank and Steinitz class** (`TauCeti.RingK0.rankClassGroupEquiv`):
+`K₀(R) ≃+ ℤ × Additive (ClassGroup R)`, the composite of `rankPicEquiv` with
+`id × (equivPic R).symm` (a real definition). -/
+def rankClassGroupEquiv : K0 R ≃+ ℤ × Additive (ClassGroup R) :=
+  (rankPicEquiv R).trans
+    (AddEquiv.prodCongr (AddEquiv.refl ℤ) (ClassGroup.equivPic R).symm.toAdditive)
+
+/-- **The Steinitz class** (`TauCeti.RingK0.steinitzClass`): the second coordinate,
+`Additive.ofMul ∘ equivPic.symm ∘ det`. -/
+def steinitzClass : K0 R →+ Additive (ClassGroup R) :=
+  (ClassGroup.equivPic R).symm.toAdditive.toAddMonoidHom.comp (detHom R)
+
+variable {R}
+
+/-- `steinitzClass [Rⁿ × I] = Additive.ofMul (mk0 I)`. -/
+@[simp]
+theorem steinitzClass_of_prod_ideal (n : ℕ) (I : (Ideal R)⁰) :
+    steinitzClass R (cls R ((Fin n → R) × (I : Ideal R))) =
+      Additive.ofMul (ClassGroup.mk0 I) := by
+  sorry
+
+/-- `rankClassGroupEquiv.symm (n, Additive.ofMul (mk0 I)) = (n - 1)[R] + [I]`. -/
+@[simp]
+theorem rankClassGroupEquiv_symm_mk0 (n : ℤ) (I : (Ideal R)⁰) :
+    (rankClassGroupEquiv R).symm (n, Additive.ofMul (ClassGroup.mk0 I)) =
+      ((n - 1 : ℤ) : K0 R) + cls R (I : Ideal R) := by
+  sorry
+
+/-- `rankClassGroupEquiv [I] = (1, Additive.ofMul (mk0 I))`. -/
+@[simp]
+theorem rankClassGroupEquiv_ideal (I : (Ideal R)⁰) :
+    rankClassGroupEquiv R (cls R (I : Ideal R)) = (1, Additive.ofMul (ClassGroup.mk0 I)) := by
+  sorry
+
+/-- `rankClassGroupEquiv ([R] - [I]) = (0, Additive.ofMul (mk0 I)⁻¹)`. -/
+@[simp]
+theorem rankClassGroupEquiv_one_sub_ideal (I : (Ideal R)⁰) :
+    rankClassGroupEquiv R (1 - cls R (I : Ideal R)) =
+      (0, Additive.ofMul (ClassGroup.mk0 I)⁻¹) := by
+  sorry
+
+/-- `rankClassGroupEquiv = (refl × (equivPic R).symm) ∘ rankPicEquiv`. -/
+theorem rankClassGroupEquiv_eq :
+    rankClassGroupEquiv R = (rankPicEquiv R).trans
+      (AddEquiv.prodCongr (AddEquiv.refl ℤ) (ClassGroup.equivPic R).symm.toAdditive) :=
+  rfl
+
+-- test TauCeti.RingK0.rankClassGroup_int_test (computation)
+example : rankClassGroupEquiv ℤ (cls ℤ (Fin 3 → ℤ)) = (3, 0) := by sorry
+
+-- test TauCeti.RingK0.rankClassGroup_zero_test (degenerate)
+example : rankClassGroupEquiv R 0 = (0, 0) ∧ rankClassGroupEquiv R 1 = (1, 0) := by sorry
+
+-- test TauCeti.RingK0.rankClassGroup_representative_test (characterisation)
+example (I J : (Ideal R)⁰) (x y : R) (hx : x ≠ 0) (hy : y ≠ 0)
+    (h : Ideal.span {x} * (I : Ideal R) = Ideal.span {y} * (J : Ideal R)) :
+    (rankClassGroupEquiv R).symm (1, Additive.ofMul (ClassGroup.mk0 I)) = cls R (I : Ideal R) ∧
+      cls R (I : Ideal R) = cls R (J : Ideal R) := by
+  sorry
+
+-- test TauCeti.RingK0.rankClassGroup_nonprincipal_test (non-example)
+example (I : (Ideal R)⁰) (hI : ¬ (I : Ideal R).IsPrincipal) :
+    rankℤ R (cls R (I : Ideal R)) = rankℤ R 1 ∧
+      rankClassGroupEquiv R (cls R (I : Ideal R)) ≠ (1, 0) := by
+  sorry
+
+-- test TauCeti.RingK0.rankClassGroup_equivPic_test (compatibility)
+example (x : K0 R) :
+    ClassGroup.equivPic R (Additive.toMul (rankClassGroupEquiv R x).2) = det R x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/k0-base-change-coordinates`: for `f : R → S` between Dedekind domains,
+`rankPicEquiv (map f x) = (rankℤ x, Additive.ofMul (Pic.mapRingHom f (det x)))`; for injective `f`, in
+class-group coordinates `(n, c) ↦ (n, extendedHom c)`. -/
+theorem rankPicEquiv_map (S : Type u) [CommRing S] [IsDedekindDomain S] (f : R →+* S)
+    (x : K0 R) :
+    rankPicEquiv S (map f x) =
+      (rankℤ R x, Additive.ofMul (CommRing.Pic.mapRingHom f (det R x))) := by
+  sorry
+
+theorem rankClassGroupEquiv_map (S : Type u) [CommRing S] [IsDedekindDomain S] [Algebra R S]
+    [Module.IsTorsionFree R S] (x : K0 R) :
+    rankClassGroupEquiv S (map (algebraMap R S) x) =
+      ((rankClassGroupEquiv R x).1, Additive.ofMul (ClassGroup.extendedHom R S
+        (Additive.toMul (rankClassGroupEquiv R x).2))) := by
+  sorry
+
+end DedekindClassGroup
+
+end TauCeti.RingK0
+
+/-! ### `KTheoryLowDegrees:Z.4/localization-eq-integer`, `localization-class-group` -/
+
+namespace IsDedekindDomain
+
+open scoped nonZeroDivisors
+
+variable {R : Type u} [CommRing R] [IsDedekindDomain R] (K : Type u) [Field K] [Algebra R K]
+  [IsFractionRing R K]
+
+/-- Helper (not a packet name): the height-one primes meeting a submonoid `M`. -/
+def primesMeeting (M : Submonoid R) : Set (HeightOneSpectrum R) :=
+  {v | ∃ m ∈ M, m ∈ v.asIdeal}
+
+/-- `KTheoryLowDegrees:Z.4/localization-eq-integer`: for `M ≤ R⁰`, `S_M.integer K` is a localisation
+of `R` at `M`, `S_M` the height-one primes meeting `M`. -/
+theorem isLocalization_integer (M : Submonoid R) (hM : M ≤ R⁰) :
+    IsLocalization M ((primesMeeting M).integer K) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/localization-class-group`: for a localisation `R_M` (`M ≤ R⁰`),
+`extendedHom R R_M` is surjective with kernel generated by the classes of the primes meeting `M`;
+so `Cl(R_M) ≃* Cl(R) ⧸ ⟨[v] : v ∩ M ≠ ∅⟩`. -/
+theorem localization_classGroup (M : Submonoid R) (hM : M ≤ R⁰) (RM : Type u) [CommRing RM]
+    [Algebra R RM] [IsLocalization M RM] [IsDedekindDomain RM] [Module.IsTorsionFree R RM] :
+    Function.Surjective (ClassGroup.extendedHom R RM) ∧
+      (ClassGroup.extendedHom R RM).ker =
+        Subgroup.closure (HeightOneSpectrum.classGroupMk '' primesMeeting M) := by
+  sorry
+
+end IsDedekindDomain
+
+namespace TauCeti.RingK0
+
+open scoped nonZeroDivisors
+
+/-- `KTheoryLowDegrees:Z.4/k0-localization`: `K₀(R) → K₀(R_M)` is `(n, c) ↦ (n, extendedHom c)` in
+class-group coordinates, surjective, with kernel generated by the `[v] - [R]` for the primes `v`
+meeting `M`. -/
+theorem k0_localization {R : Type u} [CommRing R] [IsDedekindDomain R] (M : Submonoid R)
+    (hM : M ≤ R⁰) (RM : Type u) [CommRing RM] [Algebra R RM] [IsLocalization M RM]
+    [IsDedekindDomain RM] [Module.IsTorsionFree R RM] :
+    Function.Surjective (map (algebraMap R RM)) ∧
+      (map (algebraMap R RM)).ker = AddSubgroup.closure
+        {x | ∃ v ∈ IsDedekindDomain.primesMeeting M,
+          x = cls R (v.asIdeal : Ideal R) - 1} := by
+  sorry
+
+/-! ### Number fields: `KTheoryLowDegrees:Z.4/k0-ring-of-integers`, `k0-s-integers` -/
+
+/-- `KTheoryLowDegrees:Z.4/k0-ring-of-integers`: `K₀(𝓞_F) ≃+ ℤ × Cl(𝓞_F)`; its torsion subgroup
+`ker rankℤ ≅ Cl(𝓞_F)` has order `h_F`, and `K₀(𝓞_F) ≅ ℤ` exactly when `h_F = 1`. -/
+theorem k0_ringOfIntegers (F : Type u) [Field F] [NumberField F] :
+    Nat.card (rankℤ (NumberField.RingOfIntegers F)).ker = NumberField.classNumber F ∧
+      (Function.Bijective (rankℤ (NumberField.RingOfIntegers F)) ↔
+        NumberField.classNumber F = 1) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/k0-s-integers`: for `S` a finite set of height-one primes of `𝓞_F` (the
+pinned convention; the statement holds for any `S`) and `O_{F,S} = S.integer F`,
+`K₀(O_{F,S}) ≃+ ℤ × Additive (Cl(𝓞_F) ⧸ ⟨[𝔭] : 𝔭 ∈ S⟩)` (through Tau Ceti's
+`integerClassGroupEquiv`), the class factor is finite, and base change from `𝓞_F` is surjective
+with kernel generated by the `[𝔭] - [𝓞_F]`, `𝔭 ∈ S`. -/
+theorem k0_sIntegers (F : Type u) [Field F] [NumberField F]
+    (S : Set (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)))
+    (hS : S.Finite) :
+    (∃ e : K0 (S.integer F) ≃+ ℤ × Additive (ClassGroup (NumberField.RingOfIntegers F) ⧸
+        Subgroup.closure (IsDedekindDomain.HeightOneSpectrum.classGroupMk '' S)),
+      ∀ x, (e x).1 = rankℤ (S.integer F) x ∧
+        Additive.toMul (e x).2 = IsDedekindDomain.integerClassGroupEquiv F S
+          ((ClassGroup.equivPic (S.integer F)).symm (det (S.integer F) x))) ∧
+    Finite (ClassGroup (S.integer F)) ∧
+    Function.Surjective (map
+      (algebraMap (NumberField.RingOfIntegers F) (S.integer F))) ∧
+    (map
+      (algebraMap (NumberField.RingOfIntegers F) (S.integer F))).ker = AddSubgroup.closure
+        {x | ∃ v ∈ S, x = cls (NumberField.RingOfIntegers F) v.asIdeal - 1} := by
+  sorry
+
+/-! ### `ℤ[√-5]`: `KTheoryLowDegrees:Z.4/zsqrtd-neg-five-integers`, `nonprincipal-ideal-class` -/
+
+open Polynomial in
+/-- `KTheoryLowDegrees:Z.4/zsqrtd-neg-five-integers`: for `K = AdjoinRoot (X² + 5)` (Tau Ceti's
+model of `ℚ(√-5)`) there is `θ ∈ 𝓞 K` with `θ² = -5` and `Zsqrtd.lift ⟨θ, _⟩ : ℤ[√-5] →+* 𝓞 K`
+bijective. -/
+theorem zsqrtd_neg_five_integers :
+    ∃ (θ : NumberField.RingOfIntegers (AdjoinRoot (X ^ 2 - C (-5 : ℚ))))
+      (h : θ * θ = ((-5 : ℤ) : NumberField.RingOfIntegers (AdjoinRoot (X ^ 2 - C (-5 : ℚ))))),
+      Function.Bijective (Zsqrtd.lift ⟨θ, h⟩) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/nonprincipal-ideal-class`: for `A = ℤ[√-5]`, `I = (2, 1 + √-5)` and
+`x = [I] - [A]`: `rankℤ x = 0`, `det x = Pic.mk I ≠ 1` (so `x ≠ 0`), `I × I ≃ₗ A × A` (so
+`2x = 0`), `[I][I] = [A]`, and `K₀(A) ≃+ ℤ × ℤ/2`. -/
+theorem nonprincipal_ideal_class [IsDedekindDomain (ℤ√(-5))] (I : Ideal (ℤ√(-5)))
+    (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd}) [Module.Invertible (ℤ√(-5)) I] :
+    rankℤ (ℤ√(-5)) (cls (ℤ√(-5)) I - 1) = 0 ∧
+      det (ℤ√(-5)) (cls (ℤ√(-5)) I - 1) = CommRing.Pic.mk (ℤ√(-5)) I ∧
+      CommRing.Pic.mk (ℤ√(-5)) I ≠ 1 ∧ cls (ℤ√(-5)) I - 1 ≠ 0 ∧
+      Nonempty ((I × I) ≃ₗ[ℤ√(-5)] (ℤ√(-5) × ℤ√(-5))) ∧
+      2 • (cls (ℤ√(-5)) I - 1) = 0 ∧ cls (ℤ√(-5)) I * cls (ℤ√(-5)) I = 1 ∧
+      Nonempty (K0 (ℤ√(-5)) ≃+ ℤ × ZMod 2) := by
+  sorry
+
+open Zsqrtd Pointwise in
+-- Acceptance of `KTheoryLowDegrees:Z.4/nonprincipal-ideal-class` (a complete computation): `I² = (2)` for
+-- `I = (2, 1 + √-5)`, from `2 = 2(1 + √-5) - (1 + √-5)² - 2 · 2`.
+example : (Ideal.span {(2 : ℤ√(-5)), 1 + sqrtd}) ^ 2 = Ideal.span {2} := by
+  apply le_antisymm
+  · rw [sq, Ideal.span_mul_span, Ideal.span_le]
+    rintro x ⟨a, ha, b, hb, rfl⟩
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at ha hb
+    rw [SetLike.mem_coe, Ideal.mem_span_singleton]
+    rcases ha with rfl | rfl <;> rcases hb with rfl | rfl
+    · exact ⟨2, by ring⟩
+    · exact ⟨1 + sqrtd, by ring⟩
+    · exact ⟨1 + sqrtd, by ring⟩
+    · exact ⟨⟨-2, 1⟩, by decide⟩
+  · rw [Ideal.span_le, Set.singleton_subset_iff, SetLike.mem_coe, sq]
+    have hI2 : (2 : ℤ√(-5)) ∈ Ideal.span {(2 : ℤ√(-5)), 1 + sqrtd} := Ideal.subset_span (by simp)
+    have hI1 : 1 + sqrtd ∈ Ideal.span {(2 : ℤ√(-5)), 1 + sqrtd} := Ideal.subset_span (by simp)
+    have key : (2 : ℤ√(-5)) = 2 * (1 + sqrtd) - (1 + sqrtd) * (1 + sqrtd) - 2 * 2 := by decide
+    rw [key]
+    exact Ideal.sub_mem _ (Ideal.sub_mem _ (Ideal.mul_mem_mul hI2 hI1) (Ideal.mul_mem_mul hI1 hI1))
+      (Ideal.mul_mem_mul hI2 hI2)
+
+-- Acceptance of `KTheoryLowDegrees:Z.4/nonprincipal-ideal-class`: the norm of `1 + √-5` is `6`.
+example : Zsqrtd.norm (1 + Zsqrtd.sqrtd : ℤ√(-5)) = 6 := by decide
+
+end TauCeti.RingK0
+
+/-! ### `KTheoryLowDegrees:Z.4/pic-norm` and the transfer (`KTheoryLowDegrees:Z.4/invertible-injection-class` …
+`KTheoryLowDegrees:Z.4/number-field-extension-k0`) -/
+
+namespace CommRing.Pic
+
+open scoped nonZeroDivisors
+
+variable (R S : Type u) [CommRing R] [CommRing S] [IsDedekindDomain R] [IsDedekindDomain S]
+  [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S]
+
+/-- **The norm on Picard groups** (`CommRing.Pic.relNorm`): the transport of Tau Ceti's
+`ClassGroup.relNorm` along `ClassGroup.equivPic` on both sides (a real definition). -/
+noncomputable def relNorm : CommRing.Pic S →* CommRing.Pic R :=
+  (ClassGroup.equivPic R).toMonoidHom.comp
+    ((ClassGroup.relNorm (R := R)).comp (ClassGroup.equivPic S).symm.toMonoidHom)
+
+variable {R S}
+
+/-- `relNorm (equivPic S c) = equivPic R (ClassGroup.relNorm c)`. -/
+theorem relNorm_equivPic (c : ClassGroup S) :
+    relNorm R S (ClassGroup.equivPic S c) = ClassGroup.equivPic R (ClassGroup.relNorm c) := by
+  sorry
+
+/-- `relNorm (Pic.mk S J) = Pic.mk R (Ideal.relNorm R J)` for a nonzero ideal `J`. -/
+@[simp]
+theorem relNorm_mk_ideal (J : (Ideal S)⁰) :
+    relNorm R S (CommRing.Pic.mk S (J : Ideal S)) =
+      CommRing.Pic.mk R (Ideal.relNorm0 R J : Ideal R) := by
+  sorry
+
+/-- `relNorm (mapAlgebra R S c) = c ^ finrank R S`. -/
+theorem relNorm_mapAlgebra (c : CommRing.Pic R) :
+    relNorm R S (CommRing.Pic.mapAlgebra R S c) = c ^ Module.finrank R S := by
+  sorry
+
+variable (R) in
+/-- `relNorm R R = id`. -/
+@[simp]
+theorem relNorm_self : relNorm R R = MonoidHom.id (CommRing.Pic R) := by
+  sorry
+
+/-- `relNorm R T ∘ relNorm T S = relNorm R S` for a tower (Mathlib's `Ideal.relNorm_relNorm`). -/
+theorem relNorm_relNorm (T : Type u) [CommRing T] [IsDedekindDomain T] [Algebra R T]
+    [Module.Finite R T] [Module.IsTorsionFree R T] [Algebra T S] [Module.Finite T S]
+    [Module.IsTorsionFree T S] [IsScalarTower R T S] :
+    (relNorm R T).comp (relNorm T S) = relNorm R S := by
+  sorry
+
+/-- For an invertible `S`-module `L`: `det_R(L|_R) = relNorm (Pic.mk S L) · det_R(S)`
+(`KTheoryLowDegrees:Z.4/restriction-determinant` in rank one). -/
+theorem relNorm_det_restrict (L : Type u) [AddCommGroup L] [Module S L] [Module.Invertible S L]
+    [Module R L] [IsScalarTower R S L] [Module.Finite R L] [Module.Projective R L]
+    [Module.Projective R S] :
+    TauCeti.RingK0.detProjective R L =
+      relNorm R S (CommRing.Pic.mk S L) * TauCeti.RingK0.detProjective R S := by
+  sorry
+
+end CommRing.Pic
+
+-- test CommRing.Pic.relNorm_self_test (degenerate)
+example (R : Type u) [CommRing R] [IsDedekindDomain R] :
+    CommRing.Pic.relNorm R R = MonoidHom.id (CommRing.Pic R) :=
+  CommRing.Pic.relNorm_self R
+
+-- test CommRing.Pic.relNorm_integers_test (computation)
+/- For `ℤ → 𝓞 K`, `K = ℚ(√-5)`: `Pic ℤ` is trivial, so `relNorm` kills the nontrivial class of
+`Pic 𝓞 K ≅ ℤ/2`; the norm is not injective. -/
+example : ¬ Function.Injective (CommRing.Pic.relNorm ℤ
+    (NumberField.RingOfIntegers (AdjoinRoot (Polynomial.X ^ 2 - Polynomial.C (-5 : ℚ))))) := by
+  sorry
+
+-- test CommRing.Pic.relNorm_equivPic_test (compatibility)
+example (R S : Type u) [CommRing R] [CommRing S] [IsDedekindDomain R] [IsDedekindDomain S]
+    [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S] (c : ClassGroup S)
+    (J : (Ideal S)⁰) (x : S) (hJ : (J : Ideal S) = Ideal.span {x}) :
+    CommRing.Pic.relNorm R S (ClassGroup.equivPic S c) =
+        ClassGroup.equivPic R (ClassGroup.relNorm c) ∧
+      CommRing.Pic.relNorm R S (CommRing.Pic.mk S (J : Ideal S)) = 1 := by
+  sorry
+
+-- test CommRing.Pic.relNorm_unnormalised_test (non-example)
+/- The unnormalised `L ↦ det_R(L|_R)` sends `1 = Pic.mk S S` to `det_R S`, which is `≠ 1` when `S`
+is not free over `R`; `relNorm 1 = 1`. -/
+example (R S : Type u) [CommRing R] [CommRing S] [IsDedekindDomain R] [IsDedekindDomain S]
+    [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S] [Module.Projective R S]
+    (hS : ¬ Module.Free R S) :
+    CommRing.Pic.relNorm R S 1 = 1 ∧ TauCeti.RingK0.detProjective R S ≠ 1 := by
+  sorry
+
+-- test CommRing.Pic.relNorm_ext_test (characterisation)
+example (R S : Type u) [CommRing R] [CommRing S] [IsDedekindDomain R] [IsDedekindDomain S]
+    [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S] (c : CommRing.Pic R)
+    (hd : Module.finrank R S = 2) (hc : c ^ 2 = 1) :
+    CommRing.Pic.relNorm R S (CommRing.Pic.mapAlgebra R S c) = 1 := by
+  sorry
+
+namespace Module.Invertible
+
+variable {R : Type u} [CommRing R] {L N : Type u} [AddCommGroup L] [Module R L]
+  [AddCommGroup N] [Module R N]
+
+/-- `KTheoryLowDegrees:Z.4/index-ideal`: **the index ideal** `𝔠(f)` of `f : L → N`, the range of
+`c_f : Nᵛ ⊗ L → R`, `φ ⊗ l ↦ φ(f l)` (a real definition). -/
+def indexIdeal (f : L →ₗ[R] N) : Ideal R :=
+  LinearMap.range (TensorProduct.lift ((LinearMap.lcomp R R f).flip.flip))
+
+/-- API `Module.Invertible.mem_indexIdeal`: membership in the evaluation-image ideal. -/
+theorem mem_indexIdeal (f : L →ₗ[R] N) (r : R) :
+    r ∈ indexIdeal f ↔ ∃ t : Module.Dual R N ⊗[R] L,
+      TensorProduct.lift ((LinearMap.lcomp R R f).flip.flip) t = r := by
+  sorry
+
+/-- API `Module.Invertible.indexIdeal_tmul`: every elementary evaluation belongs to the image. -/
+theorem indexIdeal_tmul (f : L →ₗ[R] N) (φ : Module.Dual R N) (l : L) :
+    φ (f l) ∈ indexIdeal f := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/invertible-injection-class`: the Picard class formula for an
+injective map between invertible modules over a domain. Its image ideal carries the invertibility
+structure supplied by index-ideal-evaluation; the other index-ideal facts are separate nodes. -/
+theorem pic_mk_eq_indexIdeal_mul [IsDomain R] [Module.Invertible R L] [Module.Invertible R N]
+    (f : L →ₗ[R] N) (hf : Function.Injective f) :
+    ∃ h : Module.Invertible R (indexIdeal f),
+      (haveI := h; CommRing.Pic.mk R L = CommRing.Pic.mk R (indexIdeal f) * CommRing.Pic.mk R N) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/index-ideal-evaluation`, added by independent review. -/
+theorem indexIdeal_evaluation [IsDomain R] [Module.Invertible R L] [Module.Invertible R N]
+    (f : L →ₗ[R] N) (hf : Function.Injective f) :
+    Function.Injective (TensorProduct.lift ((LinearMap.lcomp R R f).flip.flip)) ∧
+      indexIdeal f ≠ ⊥ ∧ Module.Invertible R (indexIdeal f) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/index-ideal-congr`, added by independent review. -/
+theorem indexIdeal_congr [Module.Invertible R L] [Module.Invertible R N]
+    (f : L →ₗ[R] N) (g : N ≃ₗ[R] N) (h : L ≃ₗ[R] L) :
+    indexIdeal (g.toLinearMap ∘ₗ f ∘ₗ h.toLinearMap) = indexIdeal f := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/index-ideal-free`, added by independent review. -/
+theorem indexIdeal_free (f : L →ₗ[R] N) (l : L) (n : N) (a : R)
+    (hl : ∀ x : L, ∃ r : R, x = r • l) (hn : ∀ y : N, ∃ r : R, y = r • n)
+    [Module.Invertible R L] [Module.Invertible R N] (ha : f l = a • n) :
+    indexIdeal f = Ideal.span {a} := by
+  sorry
+
+/-- API of `KTheoryLowDegrees:Z.4/index-ideal`. -/
+@[simp] theorem indexIdeal_zero : indexIdeal (0 : L →ₗ[R] N) = ⊥ := by sorry
+
+-- test Module.Invertible.indexIdeal_id_test (example)
+example : indexIdeal (LinearMap.id : ℤ →ₗ[ℤ] ℤ) = ⊤ := by sorry
+-- test Module.Invertible.indexIdeal_six_test (computation)
+example : indexIdeal ((6 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ)) = Ideal.span {6} := by sorry
+-- test Module.Invertible.indexIdeal_zero_test (degenerate)
+example : indexIdeal (0 : ℤ →ₗ[ℤ] ℤ) = ⊥ := by sorry
+
+end Module.Invertible
+
+namespace TauCeti.RingK0
+
+open scoped nonZeroDivisors
+
+section Transfer
+
+variable (R S : Type u) [CommRing R] [CommRing S] [IsDedekindDomain R] [IsDedekindDomain S]
+  [Algebra R S] [Module.Finite R S] [Module.IsTorsionFree R S]
+
+/-- `KTheoryLowDegrees:Z.4/top-exterior-inclusion-injective`: for a nonzero ideal `J` of `S`, `J`
+and `S` are finitely generated projective `R`-modules of constant rank `d = finrank R S`, and
+`⋀^d_R(J ↪ S)` is injective. -/
+theorem topExterior_inclusion_injective (J : (Ideal S)⁰) [Module.Finite R (J : Ideal S)]
+    [Module.Projective R (J : Ideal S)] :
+    (∀ p : PrimeSpectrum R, Module.rankAtStalk (R := R) (J : Ideal S) p = Module.finrank R S ∧
+      Module.rankAtStalk (R := R) S p = Module.finrank R S) ∧
+    Function.Injective (exteriorPower.map (Module.finrank R S)
+      ((J : Ideal S).subtype.restrictScalars R)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/index-ideal-eq-rel-norm`: the index ideal of `⋀^d_R(J ↪ S)` is
+`Ideal.relNorm R J`. -/
+theorem indexIdeal_exteriorPower_eq_relNorm (J : (Ideal S)⁰) :
+    Module.Invertible.indexIdeal (exteriorPower.map (Module.finrank R S)
+      ((J : Ideal S).subtype.restrictScalars R)) = Ideal.relNorm R (J : Ideal S) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/ideal-restriction-determinant`:
+`det_R(J) = Pic.mk (Ideal.relNorm R J) · det_R(S)`. -/
+theorem ideal_restriction_determinant [Module.Projective R S] (J : (Ideal S)⁰)
+    [Module.Finite R (J : Ideal S)] [Module.Projective R (J : Ideal S)] :
+    detProjective R (J : Ideal S) =
+      CommRing.Pic.mk R (Ideal.relNorm0 R J : Ideal R) * detProjective R S := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/restriction-rank`: `rankℤ_R [Q|_R] = d · rankℤ_S [Q]`. -/
+theorem restriction_rank (Q : Type u) [AddCommGroup Q] [Module S Q] [Module.Finite S Q]
+    [Module.Projective S Q] [Module R Q] [IsScalarTower R S Q] [Module.Finite R Q]
+    [Module.Projective R Q] :
+    rankℤ R (cls R Q) = Module.finrank R S * rankℤ S (cls S Q) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/restriction-determinant`:
+`det_R(Q|_R) = relNorm (det_S Q) · 𝔰^{rankℤ Q}` with `𝔰 = det_R(S)`. -/
+theorem restriction_determinant [Module.Projective R S] (Q : Type u) [AddCommGroup Q]
+    [Module S Q] [Module.Finite S Q] [Module.Projective S Q] [Module R Q] [IsScalarTower R S Q]
+    [Module.Finite R Q] [Module.Projective R Q] :
+    detProjective R Q =
+      CommRing.Pic.relNorm R S (detProjective S Q) * detProjective R S ^ rankℤ S (cls S Q) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/k0-transfer-coordinates`: `rankPicEquiv (transfer x) =
+(d r, Additive.ofMul (relNorm (det x) · 𝔰^r))`, `r = rankℤ x`; hence `transfer (map y) = [S] · y`. -/
+theorem rankPicEquiv_transfer [Module.Projective R S] (x : K0 S) :
+    rankPicEquiv R (transferAlgebra R S x) =
+      (Module.finrank R S * rankℤ S x, Additive.ofMul (CommRing.Pic.relNorm R S (det S x) *
+        detProjective R S ^ rankℤ S x)) ∧
+    ∀ y : K0 R, transferAlgebra R S (map (algebraMap R S) y) = cls R S * y := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.4/restriction-determinant-product`: for `S = Π S_i` a finite product of
+finite injective Dedekind extensions of `R`, `rankℤ(transfer x) = Σ d_i r_i` and
+`det(transfer x) = ∏ relNorm(det x_i) · 𝔰_i^{r_i}`, with `x_i` the components of `x`. -/
+theorem restriction_determinant_product {ι : Type u} [Fintype ι] (T : ι → Type u)
+    [∀ i, CommRing (T i)] [∀ i, IsDedekindDomain (T i)] [∀ i, Algebra R (T i)]
+    [∀ i, Module.Finite R (T i)] [∀ i, Module.IsTorsionFree R (T i)]
+    [Module.Projective R (∀ i, T i)] (x : K0 (∀ i, T i)) :
+    rankℤ R (transferAlgebra R (∀ i, T i) x) =
+        ∑ i, Module.finrank R (T i) * rankℤ (T i) (map (Pi.evalRingHom T i) x) ∧
+      det R (transferAlgebra R (∀ i, T i) x) = ∏ i, CommRing.Pic.relNorm R (T i)
+        (det (T i) (map (Pi.evalRingHom T i) x)) *
+          detProjective R (T i) ^ rankℤ (T i) (map (Pi.evalRingHom T i) x) := by
+  sorry
+
+end Transfer
+
+/-- `KTheoryLowDegrees:Z.4/number-field-extension-k0`: for number fields `F ⊆ F'`, in the
+coordinates `K₀ ≅ ℤ × Cl`, base change is `(n, c) ↦ (n, extendedHom c)` and the transfer is
+`(n, c') ↦ (d n, relNorm c' · Stⁿ)`, `St` the Steinitz class of `𝓞_{F'}` over `𝓞_F`. -/
+theorem numberField_extension_k0 (F F' : Type u) [Field F] [NumberField F] [Field F']
+    [NumberField F'] [Algebra F F'] [Module.Finite (NumberField.RingOfIntegers F)
+      (NumberField.RingOfIntegers F')]
+    [Module.IsTorsionFree (NumberField.RingOfIntegers F) (NumberField.RingOfIntegers F')] :
+    (∀ x : K0 (NumberField.RingOfIntegers F),
+      rankClassGroupEquiv _ (map (algebraMap (NumberField.RingOfIntegers F)
+          (NumberField.RingOfIntegers F')) x) =
+        ((rankClassGroupEquiv _ x).1, Additive.ofMul (ClassGroup.extendedHom _ _
+          (Additive.toMul (rankClassGroupEquiv _ x).2)))) ∧
+    ∀ x : K0 (NumberField.RingOfIntegers F'),
+      rankClassGroupEquiv _ (transferAlgebra (NumberField.RingOfIntegers F)
+          (NumberField.RingOfIntegers F') x) =
+        (Module.finrank F F' * (rankClassGroupEquiv _ x).1,
+          Additive.ofMul (ClassGroup.relNorm (Additive.toMul (rankClassGroupEquiv _ x).2) *
+            (ClassGroup.equivPic _).symm (detProjective (NumberField.RingOfIntegers F)
+              (NumberField.RingOfIntegers F')) ^ (rankClassGroupEquiv _ x).1)) := by
+  sorry
+
+end TauCeti.RingK0
+
+/-! ## Stage `KTheoryLowDegrees:Z.5` — vector bundles and curves
+
+Vector bundles are objects of Mathlib's `X.Modules` with finite local bases (Mathlib's
+`LocalGeneratorsData` with `IsLocallyFreeData` and `IsFiniteType`); `K₀(Vect X)` is Tau Ceti's
+`ExactK0` for the exact structure induced from the abelian category `X.Modules` (not the split
+one). `Pic X` is the group of units of Tau Ceti's commutative monoid `LineBundleClass X` (every
+class is a unit, Stacks 01CT; the group structure is JacobianChallenge layer A's, requested).
+`P¹` and `O(n)` are not in the pinned libraries, so their statements are comments. -/
+
+namespace TauCeti.AlgebraicGeometry
+
+open _root_.AlgebraicGeometry Order
+
+section VectorBundle
+
+variable (X : Scheme.{u})
+
+/-- **Vector bundles** (`TauCeti.AlgebraicGeometry.isVectorBundle`,
+`KTheoryLowDegrees:Z.5/vector-bundle`): the object property of admitting local generator data that
+is locally free with finite local bases (a real definition). -/
+def isVectorBundle : ObjectProperty X.Modules :=
+  fun E => ∃ q : SheafOfModules.LocalGeneratorsData.{u} (R := X.ringCatSheaf) E,
+    q.IsLocallyFreeData ∧ q.IsFiniteType
+
+/-- **The category `Vect(X)`** (`TauCeti.AlgebraicGeometry.VectorBundle`): the full subcategory of
+vector bundles, with all `𝒪_X`-module maps. -/
+abbrev VectorBundle : Type (u + 1) := (isVectorBundle X).FullSubcategory
+
+/-- `isVectorBundle X` is closed under isomorphisms. -/
+instance isVectorBundle.isClosedUnderIsomorphisms :
+    (isVectorBundle X).IsClosedUnderIsomorphisms := by
+  sorry
+
+variable {X}
+
+/-- `E` is a vector bundle iff every point has an open neighbourhood `U` with `E|U ≅ 𝒪_U^{⊕n}`. -/
+theorem isVectorBundle_iff_locallyIso_free (E : X.Modules) :
+    isVectorBundle X E ↔ ∀ x : X, ∃ (U : X.Opens) (_ : x ∈ U) (n : ℕ),
+      Nonempty ((Scheme.Modules.restrictFunctor U.ι).obj E ≅
+        SheafOfModules.free (R := (U : Scheme).ringCatSheaf) (ULift.{u} (Fin n))) := by
+  sorry
+
+variable (X) in
+/-- `SheafOfModules.free I` is a vector bundle for finite `I`; in particular `𝒪_X` is. -/
+theorem isVectorBundle_free (I : Type u) [Finite I] :
+    isVectorBundle X (SheafOfModules.free (R := X.ringCatSheaf) I) := by
+  sorry
+
+variable (X) in
+/-- `𝒪_X` is a vector bundle. -/
+theorem isVectorBundle_unit : isVectorBundle X (SheafOfModules.unit X.ringCatSheaf) := by
+  sorry
+
+/-- A vector bundle is `IsLocallyFree` and `IsFiniteType`, hence quasi-coherent. -/
+theorem isVectorBundle.isLocallyFree {E : X.Modules} (h : isVectorBundle X E) :
+    SheafOfModules.IsLocallyFree (R := X.ringCatSheaf) E ∧
+      SheafOfModules.IsFiniteType (R := X.ringCatSheaf) E := by
+  sorry
+
+variable (X) in
+/-- A vector bundle is finitely presented (Tau Ceti's
+`LocalGeneratorsData.IsLocallyFreeData.isFinitePresentation`), so it is an object of
+`FinitelyPresentedSheaf X`. -/
+theorem isVectorBundle.isFinitePresentation :
+    isVectorBundle X ≤ SheafOfModules.isFinitePresentation X.ringCatSheaf := by
+  sorry
+
+/-- **The rank at a point** (`TauCeti.AlgebraicGeometry.VectorBundle.rankAt`): the rank of the
+free `𝒪_{X,x}`-module `E_x` (a real definition, `Module.finrank` over the stalk). -/
+def VectorBundle.rankAt (E : VectorBundle X) (x : X) : ℕ :=
+  Module.finrank (TopCat.Presheaf.stalk (C := RingCat.{u}) (X := X.toTopCat) X.ringCatSheaf.obj x)
+    (TopCat.Presheaf.stalk (C := AddCommGrpCat.{u}) (X := X.toTopCat)
+      (SheafOfModules.val E.obj).presheaf x)
+
+/-- Helper (not a packet name): an invertible sheaf is a vector bundle. -/
+theorem isVectorBundle_of_isInvertible (E : X.Modules)
+    [TauCeti.SheafOfModules.IsInvertible (R := X.ringCatSheaf) E] : isVectorBundle X E := by
+  sorry
+
+/-- An invertible sheaf (Tau Ceti's `IsInvertible`) is exactly a vector bundle of constant rank
+one. -/
+theorem isInvertible_iff_isVectorBundle_rankOne (E : X.Modules) :
+    TauCeti.SheafOfModules.IsInvertible (R := X.ringCatSheaf) E ↔
+      ∃ h : isVectorBundle X E, ∀ x, VectorBundle.rankAt ⟨E, h⟩ x = 1 := by
+  sorry
+
+/-- `x ↦ rankAt E x` is locally constant (constant on a connected `X`). -/
+theorem VectorBundle.isLocallyConstant_rankAt (E : VectorBundle X) :
+    IsLocallyConstant (VectorBundle.rankAt E) := by
+  sorry
+
+/-- Isomorphic vector bundles have the same rank function. -/
+@[simp]
+theorem VectorBundle.rankAt_eq_of_iso {E F : VectorBundle X} (e : E ≅ F) :
+    VectorBundle.rankAt E = VectorBundle.rankAt F := by
+  sorry
+
+/-- For an open immersion `j : U → X`, `E|U` is a vector bundle with
+`rankAt (E|U) u = rankAt E (j u)`. -/
+theorem isVectorBundle_restrict {U : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
+    (E : VectorBundle X) :
+    ∃ h : isVectorBundle U ((Scheme.Modules.restrictFunctor j).obj E.obj),
+      ∀ u, VectorBundle.rankAt ⟨_, h⟩ u = VectorBundle.rankAt E (j u) := by
+  sorry
+
+end VectorBundle
+
+-- test TauCeti.AlgebraicGeometry.isVectorBundle_zero_test (degenerate)
+example (X : Scheme.{u}) :
+    ∃ h : isVectorBundle X (0 : X.Modules), ∀ x, VectorBundle.rankAt ⟨0, h⟩ x = 0 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.rankAt_free_three_test (computation)
+example (X : Scheme.{u}) (x : X) :
+    VectorBundle.rankAt ⟨_, isVectorBundle_free X (ULift.{u} (Fin 3))⟩ x = 3 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.isVectorBundle_weilDivisorSheaf_test (compatibility)
+example (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) (D : SchemeWeilDivisor X) :
+    ∃ h : isVectorBundle X (SchemeWeilDivisor.toInvertibleSheaf hX D).obj,
+      ∀ x, VectorBundle.rankAt ⟨_, h⟩ x = 1 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.not_isVectorBundle_free_nat_test (non-example)
+example (X : Scheme.{u}) [Nonempty X] :
+    SheafOfModules.IsLocallyFree (R := X.ringCatSheaf)
+        (SheafOfModules.free (R := X.ringCatSheaf) (ULift.{u} ℕ)) ∧
+      ¬ isVectorBundle X (SheafOfModules.free (R := X.ringCatSheaf) (ULift.{u} ℕ)) := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.not_isVectorBundle_skyscraper_test (non-example)
+/- On `Spec ℤ` the coherent sheaf `(ℤ/2)~` is not a vector bundle. -/
+example : ¬ isVectorBundle (Spec (CommRingCat.of ℤ))
+    ((tilde.functor (CommRingCat.of ℤ)).obj (ModuleCat.of ℤ (ZMod 2))) := by
+  sorry
+
+section ExactStructure
+
+variable (X : Scheme.{u})
+
+/-- `KTheoryLowDegrees:Z.5/vector-bundle-extension-closed` (1): `isVectorBundle X` contains a zero
+object. -/
+instance isVectorBundle_containsZero : (isVectorBundle X).ContainsZero := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/vector-bundle-extension-closed` (1): closure under binary biproducts. -/
+instance isVectorBundle_isClosedUnderBinaryProducts :
+    (isVectorBundle X).IsClosedUnderBinaryProducts := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/vector-bundle-extension-closed` (2)–(3): vector bundles are extension
+closed in the abelian exact structure of `X.Modules` (extensions are locally split), and the kernel
+of an epimorphism of vector bundles is a vector bundle. -/
+theorem isExtensionClosed_isVectorBundle :
+    (ExactStructure.abelian X.Modules).IsExtensionClosed (isVectorBundle X) ∧
+      ∀ {E F : X.Modules} (p : E ⟶ F) [Epi p], isVectorBundle X E → isVectorBundle X F →
+        isVectorBundle X (Limits.kernel p) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/vector-bundle-essentially-small`: `Vect(X)` is essentially small in
+universe `u`. -/
+instance isVectorBundle_essentiallySmall : ObjectProperty.EssentiallySmall.{u} (isVectorBundle X) :=
+  by sorry
+
+/-- Helper (not a packet name): **the exact structure of `Vect(X)`**, induced from the abelian exact
+structure of `X.Modules` (Tau Ceti's `ExactStructure.fullSubcategory`); its conflations are the
+short exact sequences of `𝒪_X`-modules with vector-bundle terms, not the split ones. -/
+def vectorBundleExactStructure : ExactStructure (VectorBundle X) :=
+  (ExactStructure.abelian X.Modules).fullSubcategory _ (isExtensionClosed_isVectorBundle X).1
+
+end ExactStructure
+
+namespace KTheory
+
+section K0
+
+variable (X : Scheme.{u})
+
+/-- **`K₀` of vector bundles** (`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0`,
+`KTheoryLowDegrees:Z.5/vector-bundle-k-zero`): Tau Ceti's `ExactK0 (vectorBundleExactStructure X)`
+(a real definition; no new presentation). -/
+def VectorBundleK0 : Type u := ExactK0.{u} (vectorBundleExactStructure X)
+
+instance : AddCommGroup (VectorBundleK0 X) :=
+  inferInstanceAs (AddCommGroup (ExactK0.{u} (vectorBundleExactStructure X)))
+
+namespace VectorBundleK0
+
+variable {X}
+
+/-- `[E]` (`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.of`). -/
+def of (E : VectorBundle X) : VectorBundleK0 X := ExactK0.of E
+
+/-- `E ≅ F → [E] = [F]`. -/
+@[simp]
+theorem of_congr {E F : VectorBundle X} (e : E ≅ F) : of E = of F :=
+  ExactK0.of_congr e
+
+/-- `[E] = [E'] + [E'']` for a short exact sequence of `𝒪_X`-modules with vector-bundle terms. -/
+theorem of_shortExact (S : ShortComplex X.Modules) (hS : S.ShortExact)
+    (h₁ : isVectorBundle X S.X₁) (h₂ : isVectorBundle X S.X₂) (h₃ : isVectorBundle X S.X₃) :
+    of ⟨S.X₂, h₂⟩ = of ⟨S.X₁, h₁⟩ + of ⟨S.X₃, h₃⟩ := by
+  sorry
+
+/-- `[E ⊞ F] = [E] + [F]` and `[0] = 0`. -/
+@[simp]
+theorem of_biprod (E F : VectorBundle X) : of (E ⊞ F) = of E + of F ∧ of (0 : VectorBundle X) = 0 :=
+  ⟨ExactK0.of_biprod E F, ExactK0.of_zero⟩
+
+/-- `[𝒪_X^{⊕n}] = n • [𝒪_X]`. -/
+@[simp]
+theorem of_free (n : ℕ) :
+    of ⟨_, isVectorBundle_free X (ULift.{u} (Fin n))⟩ = n • of ⟨_, isVectorBundle_unit X⟩ := by
+  sorry
+
+variable {G : Type*} [AddCommGroup G]
+
+/-- The universal property (`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.lift`): an
+isomorphism-invariant function additive on short exact sequences of vector bundles descends (a
+real definition through `ExactK0.lift`). -/
+def lift (c : VectorBundle X → G) (hiso : ∀ ⦃E F : VectorBundle X⦄, (E ≅ F) → c E = c F)
+    (hconf : ∀ ⦃S : ShortComplex (VectorBundle X)⦄, (vectorBundleExactStructure X).Conflation S →
+      c S.X₂ = c S.X₁ + c S.X₃) : VectorBundleK0 X →+ G :=
+  ExactK0.lift ⟨c, hiso, hconf⟩
+
+theorem lift_of (c : VectorBundle X → G) (hiso : ∀ ⦃E F : VectorBundle X⦄, (E ≅ F) → c E = c F)
+    (hconf : ∀ ⦃S : ShortComplex (VectorBundle X)⦄, (vectorBundleExactStructure X).Conflation S →
+      c S.X₂ = c S.X₁ + c S.X₃) (E : VectorBundle X) : lift c hiso hconf (of E) = c E :=
+  ExactK0.lift_of _ E
+
+/-- Two additive maps agreeing on every `[E]` are equal. -/
+@[ext]
+theorem hom_ext {f g : VectorBundleK0 X →+ G} (h : ∀ E, f (of E) = g (of E)) : f = g :=
+  ExactK0.hom_ext h
+
+/-- Induction on classes of vector bundles. -/
+theorem induction_on {motive : VectorBundleK0 X → Prop} (x : VectorBundleK0 X) (zero : motive 0)
+    (of_mem : ∀ E, motive (of E)) (sub : ∀ x y, motive x → motive y → motive (x - y)) :
+    motive x := by
+  sorry
+
+/-- Every class is `[E] - [F]`. -/
+theorem exists_eq_sub (x : VectorBundleK0 X) : ∃ E F : VectorBundle X, x = of E - of F := by
+  sorry
+
+variable (X) in
+/-- The canonical surjection `SplitK0 Vect(X) → K₀(Vect X)` (`ExactK0.fromSplit`), not injective in
+general. -/
+def fromSplit : SplitK0.{u} (VectorBundle X) →+ VectorBundleK0 X :=
+  ExactK0.fromSplit _
+
+end VectorBundleK0
+
+end K0
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.empty_test (degenerate)
+example (X : Scheme.{u}) [IsEmpty X] : Subsingleton (VectorBundleK0 X) := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.free_test (computation)
+example (X : Scheme.{u}) :
+    VectorBundleK0.of (⟨_, isVectorBundle_free X (ULift.{u} (Fin 2))⟩ ⊞ ⟨_, isVectorBundle_unit X⟩ :
+      VectorBundle X) = 3 • VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.spec_field_test (compatibility)
+example (F : Type u) [Field F] : Nonempty (VectorBundleK0 (Spec (CommRingCat.of F)) ≃+ ℤ) := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.euler_sequence_test (characterisation):
+-- not stated here; needs `P¹_F` and its twisting sheaves `O(m)` as schemes and sheaves (supplier:
+-- AlgebraicModuliForArithmeticGeometry:R09.1).
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.not_split_test (non-example): not stated
+-- here; needs the Euler sequence on `P¹_F` (supplier: AlgebraicModuliForArithmeticGeometry:R09.1).
+
+/-- Helper (not a packet name): `P~` is a vector bundle on `Spec R` for finitely generated
+projective `P`. -/
+theorem isVectorBundle_tilde (R : Type u) [CommRing R] (P : Type u) [AddCommGroup P] [Module R P]
+    [Module.Finite R P] [Module.Projective R P] :
+    isVectorBundle (Spec (CommRingCat.of R))
+      ((tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R P)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison`: `P ↦ P~` gives an exact equivalence
+between finitely generated projective `R`-modules and `Vect(Spec R)`, every conflation of
+`Vect(Spec R)` splits, and `K₀(R) ≃+ K₀(Vect Spec R)`, `[P] ↦ [P~]`, with
+`rank_x(P~) = rankAtStalk P x`. -/
+theorem vectorBundle_affine_comparison (R : Type u) [CommRing R] :
+    ∃ e : RingK0.K0 R ≃+ VectorBundleK0 (Spec (CommRingCat.of R)),
+      (∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P],
+        e (RingK0.cls R P) = VectorBundleK0.of ⟨_, isVectorBundle_tilde R P⟩) ∧
+      ∀ S : ShortComplex (VectorBundle (Spec (CommRingCat.of R))),
+        (vectorBundleExactStructure _).Conflation S → Nonempty S.Splitting := by
+  sorry
+
+section Pullback
+
+variable {X Y : Scheme.{u}}
+
+/-- Helper (not a packet name): pullback of vector bundles, the restriction of Mathlib's
+`Scheme.Modules.pullback f` (a real definition; preservation of vector bundles omitted). -/
+def pullbackFunctor (f : X ⟶ Y) : VectorBundle Y ⥤ VectorBundle X :=
+  ObjectProperty.lift _ ((isVectorBundle Y).ι ⋙ Scheme.Modules.pullback f) (fun _ => by sorry)
+
+/-- Helper instance (a true fact, proof omitted). -/
+instance (f : X ⟶ Y) : (pullbackFunctor f).Additive := by sorry
+
+/-- **Pullback on `K₀(Vect)`** (`KTheoryLowDegrees:Z.5/vector-bundle-k-zero-pullback`,
+`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.pullback`):
+`f^*[E] = [f^*E]` through `ExactK0.map` (conflations of vector bundles are locally split, so no
+flatness is needed; the exactness proof is omitted). -/
+def VectorBundleK0.pullback (f : X ⟶ Y) : VectorBundleK0 Y →+ VectorBundleK0 X :=
+  ExactK0.map (pullbackFunctor f) (by sorry)
+
+/-- `pullback f [E] = [f^*E]`. -/
+@[simp]
+theorem VectorBundleK0.pullback_of (f : X ⟶ Y) (E : VectorBundle Y) :
+    VectorBundleK0.pullback f (VectorBundleK0.of E) =
+      VectorBundleK0.of ((pullbackFunctor f).obj E) :=
+  ExactK0.map_of _ _ E
+
+/-- `pullback (𝟙 X) = id`. -/
+theorem VectorBundleK0.pullback_id :
+    VectorBundleK0.pullback (𝟙 X) = AddMonoidHom.id (VectorBundleK0 X) := by
+  sorry
+
+/-- `pullback (f ≫ g) = pullback f ∘ pullback g`. -/
+theorem VectorBundleK0.pullback_comp {Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z) :
+    VectorBundleK0.pullback (f ≫ g) =
+      (VectorBundleK0.pullback f).comp (VectorBundleK0.pullback g) := by
+  sorry
+
+/-- For an open immersion `j`, `pullback j [E] = [E|U]`. -/
+@[simp]
+theorem VectorBundleK0.pullback_restrict (j : X ⟶ Y) [IsOpenImmersion j] (E : VectorBundle Y) :
+    VectorBundleK0.pullback j (VectorBundleK0.of E) =
+      VectorBundleK0.of ⟨_, (isVectorBundle_restrict j E).1⟩ := by
+  sorry
+
+/-- Under the affine comparison, `pullback (Spec.map φ) = RingK0.map φ`. -/
+theorem VectorBundleK0.pullback_spec {R S : Type u} [CommRing R] [CommRing S] (φ : R →+* S)
+    (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    letI := φ.toAlgebra
+    VectorBundleK0.pullback (Spec.map (CommRingCat.ofHom φ))
+        (VectorBundleK0.of ⟨_, isVectorBundle_tilde R P⟩) =
+      VectorBundleK0.of ⟨_, isVectorBundle_tilde S (S ⊗[R] P)⟩ := by
+  sorry
+
+end Pullback
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.pullback_id_test (degenerate)
+example (X : Scheme.{u}) (x : VectorBundleK0 X) : VectorBundleK0.pullback (𝟙 X) x = x := by
+  rw [VectorBundleK0.pullback_id]; rfl
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.pullback_unit_test (computation)
+example {X Y : Scheme.{u}} (f : X ⟶ Y) :
+    VectorBundleK0.pullback f (VectorBundleK0.of ⟨_, isVectorBundle_unit Y⟩) =
+        VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩ ∧
+      VectorBundleK0.pullback f (3 • VectorBundleK0.of ⟨_, isVectorBundle_unit Y⟩) =
+        3 • VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.pullback_spec_test (compatibility)
+example : VectorBundleK0.pullback (Spec.map (CommRingCat.ofHom (algebraMap ℤ ℚ)))
+      (VectorBundleK0.of ⟨_, isVectorBundle_tilde ℤ ℤ⟩) =
+    VectorBundleK0.of ⟨_, isVectorBundle_tilde ℚ ℚ⟩ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.pullback_not_injective_test (non-example)
+/- For `A = ℤ[√-5]` and `Spec K → Spec A` (`K` its fraction field), pullback kills `[I~] - [O]`,
+a nonzero class. -/
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I] :
+    ¬ Function.Injective (VectorBundleK0.pullback
+      (Spec.map (CommRingCat.ofHom (algebraMap (ℤ√(-5)) (FractionRing (ℤ√(-5))))))) := by
+  sorry
+
+section Ring
+
+variable (X : Scheme.{u})
+
+/-- Helper (not a packet name): the tensor product of vector bundles is a vector bundle. -/
+theorem isVectorBundle_tensorProduct (E F : VectorBundle X) :
+    isVectorBundle X (Scheme.Modules.tensorProduct X E.obj F.obj) := by
+  sorry
+
+/-- Helper (not a packet name): `⊗` of vector bundles as a biadditive invariant, descended by
+`ExactK0.BiadditiveInvariant.bilift` (a real definition; exactness in each variable omitted). -/
+def VectorBundleK0.mulHom : VectorBundleK0 X →+ VectorBundleK0 X →+ VectorBundleK0 X :=
+  ExactK0.BiadditiveInvariant.bilift
+    { obj := fun E F => VectorBundleK0.of ⟨_, isVectorBundle_tensorProduct X E F⟩
+      map_iso₁ := by sorry
+      map_iso₂ := by sorry
+      map_conflation₂ := by sorry
+      map_conflation₁ := by sorry }
+
+/-- **The ring `K₀(Vect X)`** (`KTheoryLowDegrees:Z.5/vector-bundle-k-zero-ring`,
+`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.instCommRing`):
+`[E][F] = [E ⊗ F]` (Tau Ceti's `SheafOfModules.tensorProduct`), unit `[𝒪_X]` (a real
+multiplication; the ring axioms, from the associator, unitors and braiding, are omitted). -/
+instance VectorBundleK0.instCommRing : CommRing (VectorBundleK0 X) :=
+  letI : Mul (VectorBundleK0 X) := ⟨fun a b => VectorBundleK0.mulHom X a b⟩
+  letI : One (VectorBundleK0 X) := ⟨VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩⟩
+  { (inferInstance : AddCommGroup (VectorBundleK0 X)) with
+    mul := fun a b => VectorBundleK0.mulHom X a b
+    one := VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩
+    mul_assoc := by sorry
+    one_mul := by sorry
+    mul_one := by sorry
+    left_distrib := by sorry
+    right_distrib := by sorry
+    zero_mul := by sorry
+    mul_zero := by sorry
+    mul_comm := by sorry
+    natCast := fun n => n • VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩
+    natCast_zero := by sorry
+    natCast_succ := by sorry
+    intCast := fun n => n • VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩
+    intCast_ofNat := by sorry
+    intCast_negSucc := by sorry
+    npow := npowRec
+    npow_zero := by sorry
+    npow_succ := by sorry }
+
+variable {X}
+
+/-- `[E] * [F] = [E ⊗ F]`. -/
+@[simp]
+theorem VectorBundleK0.of_mul_of (E F : VectorBundle X) :
+    VectorBundleK0.of E * VectorBundleK0.of F =
+      VectorBundleK0.of ⟨_, isVectorBundle_tensorProduct X E F⟩ := by
+  sorry
+
+/-- `1 = [𝒪_X]`. -/
+@[simp]
+theorem VectorBundleK0.one_def :
+    (1 : VectorBundleK0 X) = VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩ :=
+  rfl
+
+/-- `pullback f` is a ring homomorphism. -/
+def VectorBundleK0.pullbackRingHom {Y : Scheme.{u}} (f : X ⟶ Y) :
+    VectorBundleK0 Y →+* VectorBundleK0 X :=
+  { VectorBundleK0.pullback f with
+    map_one' := by sorry
+    map_mul' := by sorry }
+
+/-- `RingK0 R ≃+* VectorBundleK0 (Spec R)`, the affine comparison with Z.3's product
+(`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.affineRingEquiv`; construction omitted). -/
+def VectorBundleK0.affineRingEquiv (R : Type u) [CommRing R] :
+    RingK0.K0 R ≃+* VectorBundleK0 (Spec (CommRingCat.of R)) :=
+  sorry
+
+end Ring
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.one_mul_test (degenerate)
+example (X : Scheme.{u}) (x : VectorBundleK0 X) :
+    1 * x = x ∧ VectorBundleK0.of (0 : VectorBundle X) * x = 0 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.free_mul_test (computation)
+example (X : Scheme.{u}) :
+    VectorBundleK0.of ⟨_, isVectorBundle_free X (ULift.{u} (Fin 2))⟩ *
+        VectorBundleK0.of ⟨_, isVectorBundle_free X (ULift.{u} (Fin 3))⟩ =
+      6 • (1 : VectorBundleK0 X) := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.affine_mul_test (compatibility)
+example (R : Type u) [CommRing R] (x y : RingK0.K0 R) :
+    VectorBundleK0.affineRingEquiv R (x * y) =
+      VectorBundleK0.affineRingEquiv R x *
+        VectorBundleK0.affineRingEquiv R y :=
+  map_mul _ x y
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.not_product_ring_test (non-example): not
+-- stated here; needs `P¹_F` and `O(-1)` (supplier: AlgebraicModuliForArithmeticGeometry:R09.1).
+
+section Rank
+
+variable (X : Scheme.{u})
+
+/-- **The rank on `K₀(Vect X)`** (`KTheoryLowDegrees:Z.5/vector-bundle-rank`,
+`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.rank`):
+`[E] ↦ (x ↦ rank_x E)`, a ring homomorphism to `H⁰(X; ℤ) = LocallyConstant X ℤ` (a real
+definition through `lift`; additivity and multiplicativity omitted). -/
+def VectorBundleK0.rank : VectorBundleK0 X →+* LocallyConstant X ℤ :=
+  { VectorBundleK0.lift (G := LocallyConstant X ℤ)
+      (fun E => ⟨fun x => (VectorBundle.rankAt E x : ℤ), by sorry⟩) (by sorry) (by sorry) with
+    map_one' := by sorry
+    map_mul' := by sorry }
+
+variable {X}
+
+/-- `rank [E] x = rankAt E x`. -/
+@[simp]
+theorem VectorBundleK0.rank_of (E : VectorBundle X) (x : X) :
+    VectorBundleK0.rank X (VectorBundleK0.of E) x = VectorBundle.rankAt E x := by
+  sorry
+
+/-- `rank 1 = 1`. -/
+@[simp]
+theorem VectorBundleK0.rank_one : VectorBundleK0.rank X 1 = 1 :=
+  map_one _
+
+variable (X) in
+/-- The componentwise free classes: `rankSection : H⁰(X; ℤ) →+* K₀(Vect X)` with
+`rank ∘ rankSection = id` (construction by `𝒪^f` omitted). -/
+def VectorBundleK0.rankSection : LocallyConstant X ℤ →+* VectorBundleK0 X :=
+  sorry
+
+theorem VectorBundleK0.rank_rankSection (f : LocallyConstant X ℤ) :
+    VectorBundleK0.rank X (VectorBundleK0.rankSection X f) = f := by
+  sorry
+
+variable (X) in
+/-- `K̃₀(X) = ker rank`, an ideal (`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.reduced`). -/
+def VectorBundleK0.reduced : Ideal (VectorBundleK0 X) := RingHom.ker (VectorBundleK0.rank X)
+
+variable (X) in
+/-- On a connected `X`, `rankℤ : K₀(Vect X) →+* ℤ` with `rank = const ∘ rankℤ` (a real definition,
+evaluation at any point). -/
+def VectorBundleK0.rankℤ [ConnectedSpace X] : VectorBundleK0 X →+* ℤ :=
+  (LocallyConstant.evalRingHom (Classical.arbitrary X)).comp (VectorBundleK0.rank X)
+
+/-- `rank (pullback f x) = rank x ∘ f`. -/
+theorem VectorBundleK0.rank_pullback {Y : Scheme.{u}} (f : X ⟶ Y) (x : VectorBundleK0 Y) :
+    VectorBundleK0.rank X (VectorBundleK0.pullback f x) =
+      (VectorBundleK0.rank Y x).comap f.base.hom := by
+  sorry
+
+/-- On `Spec R`, `rank` corresponds to `RingK0.rank` under the affine comparison. -/
+theorem VectorBundleK0.rank_affine (R : Type u) [CommRing R] (P : Type u) [AddCommGroup P]
+    [Module R P] [Module.Finite R P] [Module.Projective R P] (p : PrimeSpectrum R) :
+    VectorBundleK0.rank _ (VectorBundleK0.of ⟨_, isVectorBundle_tilde R P⟩) p =
+      RingK0.rank R (RingK0.cls R P) p := by
+  sorry
+
+end Rank
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.rank_empty_test (degenerate)
+example (X : Scheme.{u}) [IsEmpty X] : Subsingleton (LocallyConstant X ℤ) := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.rank_free_test (computation)
+example (X : Scheme.{u}) :
+    VectorBundleK0.rank X (3 • VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩ -
+      VectorBundleK0.of ⟨_, isVectorBundle_free X (ULift.{u} (Fin 2))⟩) = 1 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.rank_affine_test (compatibility)
+example (R : Type u) [CommRing R] (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] (p : PrimeSpectrum R) :
+    VectorBundleK0.rank _ (VectorBundleK0.of ⟨_, isVectorBundle_tilde R P⟩) p =
+      RingK0.rank R (RingK0.cls R P) p :=
+  VectorBundleK0.rank_affine R P p
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.rank_disconnected_test (non-example)
+example (F : Type u) [Field F] :
+    ∃ p q : PrimeSpectrum (F × F), VectorBundleK0.rank _
+        (VectorBundleK0.of ⟨_, isVectorBundle_tilde (F × F) (RingK0.fstLine F)⟩) p ≠
+      VectorBundleK0.rank _
+        (VectorBundleK0.of ⟨_, isVectorBundle_tilde (F × F) (RingK0.fstLine F)⟩) q := by
+  sorry
+
+end KTheory
+
+end TauCeti.AlgebraicGeometry
+
+/-! ### Exterior powers and determinants of vector bundles -/
+
+namespace TauCeti.SheafOfModules
+
+open _root_.AlgebraicGeometry TauCeti.AlgebraicGeometry
+
+variable {X : Scheme.{u}}
+
+/-- **Exterior powers of a sheaf of modules** (`TauCeti.SheafOfModules.exteriorPower`,
+`KTheoryLowDegrees:Z.5/sheaf-exterior-power`): the sheafification (Mathlib's
+`PresheafOfModules.sheafification`) of `U ↦ ⋀ⁿ_{𝒪_X(U)} F(U)`. The presheaf of modules (whose
+restriction maps are the exterior powers of the restrictions, read through
+`KTheoryLowDegrees:Z.3/exterior-base-change`) is not built here; the value is pinned by the lemmas below. -/
+def exteriorPower (n : ℕ) (F : X.Modules) : X.Modules :=
+  sorry
+
+/-- Helper (not a packet name): the local sections of `ΛⁿF` over `U`. -/
+abbrev exteriorPower.sections (n : ℕ) (F : X.Modules) (U : X.Opens) : Type u :=
+  Γ(exteriorPower n F, U)
+
+/-- The alternating map `F(U)^{×n} → (ΛⁿF)(U)`, `s₁, …, s_n ↦ s₁ ∧ ⋯ ∧ s_n`
+(`TauCeti.SheafOfModules.exteriorPower.ιMulti`; construction omitted). -/
+def exteriorPower.ιMulti (n : ℕ) (F : X.Modules) (U : X.Opens) :
+    (Fin n → Γ(F, U)) → Γ(exteriorPower n F, U) :=
+  sorry
+
+/-- `Λⁿ(φ) : ΛⁿF ⟶ ΛⁿG`, with `map_id` and `map_comp`
+(`TauCeti.SheafOfModules.exteriorPower.map`; construction omitted). -/
+def exteriorPower.map (n : ℕ) {F G : X.Modules} (φ : F ⟶ G) :
+    exteriorPower n F ⟶ exteriorPower n G :=
+  sorry
+
+theorem exteriorPower.map_id (n : ℕ) (F : X.Modules) :
+    exteriorPower.map n (𝟙 F) = 𝟙 (exteriorPower n F) := by
+  sorry
+
+theorem exteriorPower.map_comp (n : ℕ) {F G H : X.Modules} (φ : F ⟶ G) (ψ : G ⟶ H) :
+    exteriorPower.map n (φ ≫ ψ) = exteriorPower.map n φ ≫ exteriorPower.map n ψ := by
+  sorry
+
+/-- `Λ⁰F ≅ 𝒪_X`. -/
+def exteriorPower.zeroIso (F : X.Modules) :
+    exteriorPower 0 F ≅ SheafOfModules.unit X.ringCatSheaf :=
+  sorry
+
+/-- `Λ¹F ≅ F`. -/
+def exteriorPower.oneIso (F : X.Modules) : exteriorPower 1 F ≅ F :=
+  sorry
+
+-- `TauCeti.SheafOfModules.exteriorPower.stalkIso`: not stated here; needs the module structure of
+-- the stalk `F_x` over the commutative stalk ring `𝒪_{X,x}` (Mathlib's `Stalk.lean` provides it
+-- only over the `RingCat`-valued stalk of `X.ringCatSheaf`, on which `⋀ⁿ` cannot be formed)
+-- (supplier: KTheoryLowDegrees:Z.5/sheaf-exterior-power). Its rank consequence is
+-- `isVectorBundle_exteriorPower` below.
+
+/-- `Λⁿ(F|U) ≅ (ΛⁿF)|U` for an open immersion. -/
+theorem exteriorPower.restrictIso (n : ℕ) {U : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
+    (F : X.Modules) :
+    Nonempty (exteriorPower n ((Scheme.Modules.restrictFunctor j).obj F) ≅
+      (Scheme.Modules.restrictFunctor j).obj (exteriorPower n F)) := by
+  sorry
+
+/-- `f^*(ΛⁿF) ≅ Λⁿ(f^*F)`. -/
+theorem exteriorPower.pullbackIso (n : ℕ) {Y : Scheme.{u}} (f : Y ⟶ X) (F : X.Modules) :
+    Nonempty ((Scheme.Modules.pullback f).obj (exteriorPower n F) ≅
+      exteriorPower n ((Scheme.Modules.pullback f).obj F)) := by
+  sorry
+
+/-- On `Spec R`, `Λⁿ(M~) ≅ (⋀ⁿ_R M)~`. -/
+theorem exteriorPower.tildeIso (n : ℕ) (R : Type u) [CommRing R] (M : Type u) [AddCommGroup M]
+    [Module R M] :
+    Nonempty (exteriorPower n ((tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R M)) ≅
+      (tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R (⋀[R]^n M))) := by
+  sorry
+
+-- test TauCeti.SheafOfModules.exteriorPower_zero_test (degenerate)
+example (F : X.Modules) : Nonempty (exteriorPower 0 F ≅ SheafOfModules.unit X.ringCatSheaf) :=
+  ⟨exteriorPower.zeroIso F⟩
+
+-- test TauCeti.SheafOfModules.exteriorPower_free_test (computation)
+example :
+    Nonempty (exteriorPower 2 (SheafOfModules.free (R := X.ringCatSheaf) (ULift.{u} (Fin 3))) ≅
+      SheafOfModules.free (R := X.ringCatSheaf) (ULift.{u} (Fin 3))) := by
+  sorry
+
+-- test TauCeti.SheafOfModules.exteriorPower_tilde_test (compatibility)
+example (R : Type u) [CommRing R] (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P]
+    [Module.Projective R P] (n : ℕ) :
+    Nonempty (exteriorPower n ((tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R P)) ≅
+      (tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R (⋀[R]^n P))) :=
+  exteriorPower.tildeIso n R P
+
+-- test TauCeti.SheafOfModules.exteriorPower_not_presheaf_test (non-example)
+/- The presheaf `U ↦ ⋀ⁿ_{𝒪(U)} F(U)` need not be a sheaf, so the sections of `ΛⁿF` are not the
+exterior powers of the sections in general. On `P¹`, for `F = O(1) ⊕ O(-1)`, the exterior square
+of `Γ(F) = k²` is nonzero, but its generator restricts to zero on every trivialising affine open:
+both global sections lie in the rank-one `O(1)` summand. The presheaf is not even separated.
+For a quasi-coherent sheaf on an affine open, the natural exterior-power comparison is an
+isomorphism; the affine comparison is not exclusive to vector bundles. -/
+example : ¬ ∀ (X : Scheme.{u}) (F : X.Modules) (U : X.Opens),
+    Nonempty (Γ(exteriorPower 2 F, U) ≃+ ⋀[Γ(X, U)]^2 Γ(F, U)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/exterior-power-vector-bundle`: `ΛⁿE` is a vector bundle with
+`rank_x(ΛⁿE) = C(rank_x E, n)`; it vanishes where `rank E < n`. -/
+theorem isVectorBundle_exteriorPower (n : ℕ) (E : VectorBundle X) :
+    ∃ h : isVectorBundle X (exteriorPower n E.obj),
+      ∀ x, VectorBundle.rankAt ⟨_, h⟩ x = (VectorBundle.rankAt E x).choose n := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/exterior-power-extension-filtration`: for a short exact sequence
+`0 → E' → E → E'' → 0` of vector bundles, `ΛⁿE` has a filtration `F⁰ = ⊤ ⊇ ⋯ ⊇ Fⁿ⁺¹ = ⊥` by
+subsheaves with `Fⁱ/Fⁱ⁺¹ ≅ ΛⁱE' ⊗ Λⁿ⁻ⁱE''`; hence `[ΛⁿE] = Σ [ΛⁱE' ⊗ Λⁿ⁻ⁱE'']` in `K₀(Vect X)`. -/
+theorem exteriorPower_extension_filtration (S : ShortComplex X.Modules) (hS : S.ShortExact)
+    (h₁ : isVectorBundle X S.X₁) (h₂ : isVectorBundle X S.X₂)
+    (h₃ : isVectorBundle X S.X₃)
+    (n : ℕ) :
+    ∃ (Fil : ℕ → Subobject (exteriorPower n S.X₂)) (hFil : Antitone Fil),
+      Fil 0 = ⊤ ∧ Fil (n + 1) = ⊥ ∧
+      (∀ i, isVectorBundle X (Fil i : X.Modules)) ∧
+      ∀ i, i ≤ n → Nonempty (Limits.cokernel (Subobject.ofLE (Fil (i + 1)) (Fil i)
+          (hFil (Nat.le_succ i))) ≅
+        Scheme.Modules.tensorProduct X (exteriorPower i S.X₁) (exteriorPower (n - i) S.X₃)) := by
+  sorry
+
+-- The locally free hypotheses are essential: on Spec ℤ, the exact sequence
+-- ℤ --×2--> ℤ --> ℤ/2 has Λ²ℤ = 0 but predicted degree-one piece ℤ/2 ≠ 0.
+example : Subsingleton (⋀[ℤ]^2 ℤ) ∧ Nontrivial (ℤ ⊗[ℤ] ZMod 2) := by
+  sorry
+
+end TauCeti.SheafOfModules
+
+/-! ### `KTheoryLowDegrees:Z.5/determinant-bundle` and its properties -/
+
+namespace TauCeti.AlgebraicGeometry
+
+open _root_.AlgebraicGeometry Order TauCeti.SheafOfModules
+
+section Determinant
+
+variable {X : Scheme.{u}}
+
+/-- Helper (not a packet name): the clopen subset `X_r = {x : rank_x E = r}` as an open. -/
+def VectorBundle.rankOpen (E : VectorBundle X) (r : ℕ) : X.Opens :=
+  ⟨{x | VectorBundle.rankAt E x = r}, (VectorBundle.isLocallyConstant_rankAt E).isOpen_fiber r⟩
+
+/-- **The determinant line bundle** (`TauCeti.AlgebraicGeometry.VectorBundle.det`): the invertible
+sheaf equal to `Λʳ(E|X_r)` on each clopen `X_r = {rank E = r}` (no gluing condition arises). The
+construction (by the disjoint open cover `X = ⊔ X_r`) is omitted; the value is pinned by the
+lemmas below. -/
+def VectorBundle.det (E : VectorBundle X) : InvertibleSheaf X :=
+  sorry
+
+/-- `(det E)|X_r ≅ Λʳ(E|X_r)`. -/
+theorem VectorBundle.det_restrict (E : VectorBundle X) (r : ℕ) :
+    Nonempty ((Scheme.Modules.restrictFunctor (E.rankOpen r).ι).obj (VectorBundle.det E).obj ≅
+      exteriorPower r ((Scheme.Modules.restrictFunctor (E.rankOpen r).ι).obj E.obj)) := by
+  sorry
+
+/-- `det φ : det E ≅ det F` for `φ : E ≅ F` (`TauCeti.AlgebraicGeometry.VectorBundle.detIso`;
+construction omitted), with `detIso_refl` and `detIso_trans`. -/
+def VectorBundle.detIso {E F : VectorBundle X} (φ : E ≅ F) :
+    VectorBundle.det E ≅ VectorBundle.det F :=
+  sorry
+
+theorem VectorBundle.detIso_refl (E : VectorBundle X) :
+    VectorBundle.detIso (Iso.refl E) = Iso.refl _ := by
+  sorry
+
+theorem VectorBundle.detIso_trans {E F G : VectorBundle X} (φ : E ≅ F) (ψ : F ≅ G) :
+    VectorBundle.detIso (φ ≪≫ ψ) = VectorBundle.detIso φ ≪≫ VectorBundle.detIso ψ := by
+  sorry
+
+variable (X) in
+/-- `det 𝒪_X^{⊕r} ≅ 𝒪_X`. -/
+@[simp]
+theorem VectorBundle.det_free (r : ℕ) :
+    Nonempty ((VectorBundle.det ⟨_, isVectorBundle_free X (ULift.{u} (Fin r))⟩).obj ≅
+      SheafOfModules.unit X.ringCatSheaf) := by
+  sorry
+
+/-- Helper (not a packet name): an invertible sheaf as a vector bundle. -/
+def lineBundle (L : InvertibleSheaf X) : VectorBundle X :=
+  ⟨L.obj, isVectorBundle_of_isInvertible L.obj⟩
+
+/-- `det L ≅ L` for an invertible sheaf `L`. -/
+@[simp]
+theorem VectorBundle.det_invertible (L : InvertibleSheaf X) :
+    Nonempty ((VectorBundle.det (lineBundle L)).obj ≅ L.obj) := by
+  sorry
+
+variable (X) in
+/-- `det 0 ≅ 𝒪_X`. -/
+@[simp]
+theorem VectorBundle.det_zero :
+    Nonempty ((VectorBundle.det (0 : VectorBundle X)).obj ≅ SheafOfModules.unit X.ringCatSheaf) :=
+  by sorry
+
+/-- `det(f^*E) ≅ f^*(det E)`. -/
+theorem VectorBundle.det_pullback {Y : Scheme.{u}} (f : Y ⟶ X) (E : VectorBundle X) :
+    Nonempty ((VectorBundle.det ((KTheory.pullbackFunctor f).obj E)).obj ≅
+      (Scheme.Modules.pullback f).obj (VectorBundle.det E).obj) := by
+  sorry
+
+/-- On `Spec R`: `det(P~) ≅ (detProjective P)~`, Z.3's componentwise determinant. -/
+theorem VectorBundle.det_tilde (R : Type u) [CommRing R] (P : Type u) [AddCommGroup P]
+    [Module R P] [Module.Finite R P] [Module.Projective R P] :
+    Nonempty ((VectorBundle.det ⟨_, KTheory.isVectorBundle_tilde R P⟩).obj ≅
+      (tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R (RingK0.detModule R P))) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/determinant-bundle-extension`: for a short exact sequence of vector
+bundles, `det E' ⊗ det E'' ≅ det E` canonically; in particular
+`mk (det E) = mk (det E') * mk (det E'')`. -/
+theorem VectorBundle.det_extension (S : ShortComplex X.Modules) (hS : S.ShortExact)
+    (h₁ : isVectorBundle X S.X₁) (h₂ : isVectorBundle X S.X₂) (h₃ : isVectorBundle X S.X₃) :
+    Nonempty (Scheme.Modules.tensorProduct X (VectorBundle.det ⟨_, h₁⟩).obj
+        (VectorBundle.det ⟨_, h₃⟩).obj ≅ (VectorBundle.det ⟨_, h₂⟩).obj) ∧
+      LineBundleClass.mk (VectorBundle.det ⟨_, h₂⟩) =
+        LineBundleClass.mk (VectorBundle.det ⟨_, h₁⟩) *
+          LineBundleClass.mk (VectorBundle.det ⟨_, h₃⟩) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/determinant-bundle-tensor`: for `E, F` of constant ranks `m, n`,
+`det(E ⊗ F) ≅ (det E)^{⊗n} ⊗ (det F)^{⊗m}`; on classes `mk (det E)^n * mk (det F)^m`. -/
+theorem VectorBundle.det_tensor (E F : VectorBundle X) (m n : ℕ)
+    (hE : ∀ x, VectorBundle.rankAt E x = m) (hF : ∀ x, VectorBundle.rankAt F x = n) :
+    LineBundleClass.mk (VectorBundle.det ⟨_, KTheory.isVectorBundle_tensorProduct X E F⟩) =
+      LineBundleClass.mk (VectorBundle.det E) ^ n *
+        LineBundleClass.mk (VectorBundle.det F) ^ m := by
+  sorry
+
+-- Regression for lexicographic basis change: a transposition in rank two,
+-- tensored with a rank-three identity, changes the determinant by (-1)^3.
+example : Matrix.det (Matrix.kronecker
+    (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+    (1 : Matrix (Fin 3) (Fin 3) ℤ)) = -1 := by
+  sorry
+
+-- The determinant formula works over a nonreduced ring without diagonalisation.
+example : Matrix.det (Matrix.kronecker
+    (!![3] : Matrix (Fin 1) (Fin 1) (ZMod 4))
+    (!![1, 1; 0, 3] : Matrix (Fin 2) (Fin 2) (ZMod 4))) = 3 := by
+  sorry
+
+end Determinant
+
+-- test TauCeti.AlgebraicGeometry.VectorBundle.det_zero_test (degenerate)
+example (X : Scheme.{u}) :
+    Nonempty ((VectorBundle.det (0 : VectorBundle X)).obj ≅ SheafOfModules.unit X.ringCatSheaf) :=
+  VectorBundle.det_zero X
+
+-- test TauCeti.AlgebraicGeometry.VectorBundle.det_free_test (computation)
+example (X : Scheme.{u}) :
+    LineBundleClass.mk (VectorBundle.det ⟨_, isVectorBundle_free X (ULift.{u} (Fin 5))⟩) = 1 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.VectorBundle.det_tilde_test (compatibility)
+/- For `A = ℤ[√-5]`, `I = (2, 1 + √-5)`: `det (A ⊕ I)~ ≅ I~`. -/
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I] :
+    Nonempty ((VectorBundle.det ⟨_, KTheory.isVectorBundle_tilde (ℤ√(-5)) (ℤ√(-5) × I)⟩).obj ≅
+      (tilde.functor (CommRingCat.of (ℤ√(-5)))).obj (ModuleCat.of (ℤ√(-5)) I)) := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.VectorBundle.det_not_top_power_test (non-example)
+/- On `Spec(F × F)` with `E = (F × F²)~`: `det E` is invertible while neither `Λ¹E` nor `Λ²E` is. -/
+example (F : Type u) [Field F] :
+    let E : VectorBundle (Spec (CommRingCat.of (F × F))) :=
+      ⟨_, KTheory.isVectorBundle_tilde (F × F)
+        (RingK0.fstLine F × (RingK0.sndLine F × RingK0.sndLine F))⟩
+    ¬ TauCeti.SheafOfModules.IsInvertible (R := (Spec (CommRingCat.of (F × F))).ringCatSheaf)
+        (exteriorPower 1 E.obj) ∧
+      ¬ TauCeti.SheafOfModules.IsInvertible (R := (Spec (CommRingCat.of (F × F))).ringCatSheaf)
+        (exteriorPower 2 E.obj) := by
+  sorry
+
+namespace KTheory
+
+section VectorBundleDeterminant
+
+variable {X : Scheme.{u}}
+
+variable (X) in
+/-- Helper (not a packet name): `Pic X`, the group of units of Tau Ceti's commutative monoid
+`LineBundleClass X` (which is all of it by Stacks 01CT; JacobianChallenge layer A, requested). -/
+abbrev Pic : Type (u + 1) := (LineBundleClass X)ˣ
+
+/-! `KTheoryLowDegrees:Z.5/pic-locally-constant-module`.
+The following Pic pullback is an interface imported from JacobianChallenge layer A,
+not a second Picard group: it is induced by Scheme.Modules.pullback on line bundles.
+All exponents below may have infinite image. -/
+
+def Pic.pullback {Y : Scheme.{u}} (f : Y ⟶ X) : Pic X →* Pic Y := by
+  sorry
+
+namespace Pic
+
+/-- `KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext`: Picard classes can be compared on a disjoint
+open cover. This does not assert descent of classes on arbitrary overlapping covers. -/
+theorem disjointCover_ext {ι : Type*} (U : ι → X.Opens)
+    (hdisjoint : Pairwise (fun i j => Disjoint (U i) (U j))) (hcover : iSup U = ⊤)
+    (L M : Pic X) (h : ∀ i, pullback (U i).ι L = pullback (U i).ι M) : L = M := by
+  sorry
+
+/-- Glue integer tensor powers on the disjoint clopen fibres of a; negative powers
+use the dual supplied by JacobianChallenge A. The output is a class in the existing
+unit group, not a new quotient and not an infinite tensor product. -/
+def zpowLocallyConstant (L : Pic X) (a : LocallyConstant X ℤ) : Pic X := by
+  sorry
+
+theorem zpowLocallyConstant_const (L : Pic X) (n : ℤ) :
+    zpowLocallyConstant L (LocallyConstant.const X n) = L ^ n := by
+  sorry
+
+theorem zpowLocallyConstant_restrict (L : Pic X) (a : LocallyConstant X ℤ)
+    (U : X.Opens) (n : ℤ) (h : ∀ x : U, a x = n) :
+    pullback U.ι (zpowLocallyConstant L a) = pullback U.ι L ^ n := by
+  sorry
+
+theorem zpowLocallyConstant_add (L : Pic X) (a b : LocallyConstant X ℤ) :
+    zpowLocallyConstant L (a + b) =
+      zpowLocallyConstant L a * zpowLocallyConstant L b := by
+  sorry
+
+theorem zpowLocallyConstant_mul (L : Pic X) (a b : LocallyConstant X ℤ) :
+    zpowLocallyConstant L (a * b) =
+      zpowLocallyConstant (zpowLocallyConstant L a) b := by
+  sorry
+
+theorem mul_zpowLocallyConstant (L M : Pic X) (a : LocallyConstant X ℤ) :
+    zpowLocallyConstant (L * M) a =
+      zpowLocallyConstant L a * zpowLocallyConstant M a := by
+  sorry
+
+/-- The module structure has precisely the clopen-power operation as scalar action. -/
+instance module : Module (LocallyConstant X ℤ) (Additive (Pic X)) where
+  smul a L := Additive.ofMul (zpowLocallyConstant (Additive.toMul L) a)
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+  add_smul := by sorry
+  zero_smul := by sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.zero_test (degenerate)
+example (L : Pic X) : zpowLocallyConstant L 0 = 1 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.signed_test (computation)
+example (L : Pic X) :
+    zpowLocallyConstant L (LocallyConstant.const X 2 + LocallyConstant.const X (-3)) = L⁻¹ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.disconnected_test (compatibility)
+example (L : Pic X) (a : LocallyConstant X ℤ) (U V : X.Opens)
+    (hdisjoint : Disjoint U V) (hcover : U ⊔ V = ⊤)
+    (hU : ∀ x : U, a x = 2) (hV : ∀ x : V, a x = -1) :
+    pullback U.ι (zpowLocallyConstant L a) = pullback U.ι L ^ (2 : ℤ) ∧
+    pullback V.ι (zpowLocallyConstant L a) = (pullback V.ι L)⁻¹ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.unbounded_test (non-example)
+example (L : Pic X) (a : LocallyConstant X ℤ) (U : ℕ → X.Opens)
+    (hdisjoint : Pairwise (fun i j => Disjoint (U i) (U j))) (hcover : iSup U = ⊤)
+    (hnonempty : ∀ n, Nonempty (U n))
+    (ha : ∀ n (x : U n), a x = (n : ℤ)) :
+    ∀ n, pullback (U n).ι (zpowLocallyConstant L a) = pullback (U n).ι L ^ (n : ℤ) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/pic-locally-constant-pullback`: prove locally on inverse images of the
+clopen fibres; do not commute pullback with infinite products of sections. -/
+theorem zpowLocallyConstant_pullback {Y : Scheme.{u}} (f : Y ⟶ X)
+    (L : Pic X) (a : LocallyConstant X ℤ) :
+    pullback f (zpowLocallyConstant L a) =
+      zpowLocallyConstant (pullback f L) (a.comap f.base.hom) := by
+  sorry
+
+end Pic
+
+instance : Module (LocallyConstant X ℤ)ᵐᵒᵖ (Additive (Pic X)) :=
+  Module.compHom _ (RingEquiv.toOpposite (LocallyConstant X ℤ)).symm.toRingHom
+
+instance : IsCentralScalar (LocallyConstant X ℤ) (Additive (Pic X)) :=
+  ⟨fun _ _ => rfl⟩
+
+-- Alias only: reuse the existing square-zero extension and its commutative-ring instance.
+abbrev RankPic (X : Scheme.{u}) :=
+  TrivSqZeroExt (LocallyConstant X ℤ) (Additive (Pic X))
+
+example (X : Scheme.{u}) : CommRing (RankPic X) := inferInstance
+
+example (L M : Pic X) :
+    (TrivSqZeroExt.inr (Additive.ofMul L) : RankPic X) *
+      TrivSqZeroExt.inr (Additive.ofMul M) = 0 := by
+  sorry
+
+example (L M : Pic X) :
+    (TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr (Additive.ofMul L) : RankPic X) *
+      (TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr (Additive.ofMul M)) =
+    TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr (Additive.ofMul (L * M)) := by
+  sorry
+
+/-- Helper (not a packet name): the class of a determinant line bundle is a unit. -/
+theorem isUnit_mk_det (E : VectorBundle X) : IsUnit (LineBundleClass.mk (VectorBundle.det E)) := by
+  sorry
+
+/-- **The determinant on `K₀(Vect X)`** (`KTheoryLowDegrees:Z.5/vector-bundle-determinant`,
+`TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.det`):
+`det : K₀(Vect X) →+ Additive (Pic X)`, `[E] ↦ [det E]`, additive-to-multiplicative (a real
+definition through `lift`; multiplicativity on extensions is `VectorBundle.det_extension`). -/
+def VectorBundleK0.det : VectorBundleK0 X →+ Additive (Pic X) :=
+  VectorBundleK0.lift (fun E => Additive.ofMul (isUnit_mk_det E).unit) (by sorry) (by sorry)
+
+/-- `det [E] = ofMul (mk (det E))`. -/
+@[simp]
+theorem VectorBundleK0.det_of (E : VectorBundle X) :
+    ((Additive.toMul (VectorBundleK0.det (VectorBundleK0.of E)) : Pic X) : LineBundleClass X) =
+      LineBundleClass.mk (VectorBundle.det E) := by
+  sorry
+
+/-- `toMul (det ([E] - [F])) = mk (det E) * (mk (det F))⁻¹`. -/
+@[simp]
+theorem VectorBundleK0.det_sub (E F : VectorBundle X) :
+    Additive.toMul (VectorBundleK0.det (VectorBundleK0.of E - VectorBundleK0.of F)) =
+      (isUnit_mk_det E).unit * (isUnit_mk_det F).unit⁻¹ := by
+  sorry
+
+/-- `det [L] = ofMul (mk L)` for an invertible sheaf. -/
+@[simp]
+theorem VectorBundleK0.det_invertible (L : InvertibleSheaf X) :
+    ((Additive.toMul (VectorBundleK0.det (VectorBundleK0.of (lineBundle L))) : Pic X) :
+      LineBundleClass X) = LineBundleClass.mk L := by
+  sorry
+
+/-- Helper (not a packet name): pullback of an invertible sheaf. -/
+theorem isInvertible_pullback {Y : Scheme.{u}} (f : Y ⟶ X) (L : InvertibleSheaf X) :
+    TauCeti.AlgebraicGeometry.SheafOfModules.isInvertible Y
+      ((Scheme.Modules.pullback f).obj L.obj) :=
+  by sorry
+
+/-- `det(pullback f x)` is the pullback of the class `det x`: `det (f^*E) ≅ f^*(det E)`. -/
+theorem VectorBundleK0.det_pullback {Y : Scheme.{u}} (f : Y ⟶ X) (E : VectorBundle X) :
+    ((Additive.toMul (VectorBundleK0.det (VectorBundleK0.pullback f (VectorBundleK0.of E))) :
+        Pic Y) : LineBundleClass Y) =
+      LineBundleClass.mk ⟨_, isInvertible_pullback f (VectorBundle.det E)⟩ := by
+  sorry
+
+/-- On `Spec R`, `det` corresponds to `RingK0.detHom` under the affine and Picard comparisons. -/
+theorem VectorBundleK0.det_affine (R : Type u) [CommRing R] :
+    ∃ e : CommRing.Pic R ≃* Pic (Spec (CommRingCat.of R)),
+      ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Finite R P] [Module.Projective R P],
+        Additive.toMul (VectorBundleK0.det (VectorBundleK0.of ⟨_, isVectorBundle_tilde R P⟩)) =
+          e (RingK0.detProjective R P) := by
+  sorry
+
+end VectorBundleDeterminant
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.det_zero_test (degenerate)
+example (X : Scheme.{u}) : VectorBundleK0.det (0 : VectorBundleK0 X) = 0 := map_zero _
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.det_free_test (computation)
+example (X : Scheme.{u}) (n : ℤ) :
+    VectorBundleK0.det (n • VectorBundleK0.of ⟨_, isVectorBundle_unit X⟩) = 0 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.det_affine_test (compatibility)
+example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
+    [Module.Invertible (ℤ√(-5)) I] :
+    VectorBundleK0.det (VectorBundleK0.of ⟨_, isVectorBundle_tilde (ℤ√(-5)) I⟩ -
+      VectorBundleK0.of ⟨_, isVectorBundle_tilde (ℤ√(-5)) (ℤ√(-5))⟩) ≠ 0 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.VectorBundleK0.det_not_ringHom_test (non-example): not
+-- stated here; needs `P¹_F` with `O(1)`, `O(2)` (supplier:
+-- AlgebraicModuliForArithmeticGeometry:R09.1).
+
+/-- `KTheoryLowDegrees:Z.5/rank-determinant-surjective`: the actual square-zero
+target and ring-homomorphism statement, for every scheme, including disconnected X. -/
+theorem rank_det_surjective (X : Scheme.{u}) :
+    ∃ φ : VectorBundleK0 X →+* RankPic X,
+      (∀ x, (φ x).fst = VectorBundleK0.rank X x ∧ (φ x).snd = VectorBundleK0.det x) ∧
+      Function.Surjective φ := by
+  sorry
+
+/-! ### Regular curves (`KTheoryLowDegrees:Z.5/regular-curve-integral` … `KTheoryLowDegrees:Z.5/doubled-line-example`)
+
+The **regular-curve package**: `X` noetherian and integral, `coheight y ≤ 1` for all `y`
+(`hX`), and the stalks at codimension-one points are DVRs — Tau Ceti's hypotheses for
+`SchemeWeilDivisor.toLineBundleClass`. No separatedness. -/
+
+/-- `KTheoryLowDegrees:Z.5/regular-curve-integral`: a connected noetherian scheme with regular
+local rings of dimension `≤ 1` is integral with DVR stalks at codimension-one points; conversely
+the package gives regular local rings. -/
+theorem regular_curve_integral (X : Scheme.{u}) [IsNoetherian X] [ConnectedSpace X]
+    (hreg : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x)) (hdim : ∀ x : X, coheight x ≤ 1) :
+    IsIntegral X := by
+  sorry
+
+theorem regular_curve_dvr (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    (hreg : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x)) (hdim : ∀ x : X, coheight x ≤ 1) :
+    ∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X)) := by
+  sorry
+
+theorem regular_curve_integral_converse (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x) := by
+  sorry
+
+/-- Helper (not a packet name): the coherent (finitely presented) sheaves as an object property of
+`X.Modules` (Tau Ceti's `FinitelyPresentedSheaf`). -/
+abbrev isCoherent (X : Scheme.{u}) : ObjectProperty X.Modules :=
+  SheafOfModules.isFinitePresentation X.ringCatSheaf
+
+/-- `KTheoryLowDegrees:Z.5/regular-curve-resolution-property`: a noetherian scheme of dimension
+`≤ 1` has affine diagonal ((a)); if moreover regular, every coherent sheaf is a quotient of a vector
+bundle ((b)). (Part (c), an ample invertible sheaf for separated `X`, is not stated: "ample" is not
+in the pinned libraries.) -/
+theorem regular_curve_resolution_property (X : Scheme.{u}) [IsNoetherian X]
+    (hdim : ∀ x : X, coheight x ≤ 1) (hreg : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x)) :
+    ∀ F : X.Modules, isCoherent X F → ∃ (E : VectorBundle X) (p : E.obj ⟶ F), Epi p := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/curve-affine-diagonal`, added by independent review. -/
+theorem curve_affine_diagonal (X : Scheme.{u}) [IsNoetherian X] (hdim : ∀ x : X, coheight x ≤ 1) :
+    ∀ U V : X.Opens, IsAffineOpen U → IsAffineOpen V → IsAffineOpen (U ⊓ V) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/regular-curve-finite-resolution`: on a regular noetherian scheme of
+dimension `≤ 1` the kernel of every surjection from a vector bundle onto a coherent sheaf is a
+vector bundle. -/
+theorem regular_curve_finite_resolution (X : Scheme.{u}) [IsNoetherian X]
+    (hreg : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x)) (hdim : ∀ x : X, coheight x ≤ 1)
+    (E : VectorBundle X) (F : X.Modules) (hF : isCoherent X F) (p : E.obj ⟶ F) [Epi p] :
+    isVectorBundle X (Limits.kernel p) := by
+  sorry
+
+section G0
+
+variable (X : Scheme.{u}) [IsLocallyNoetherian X]
+
+/-- Helper instances (true facts, proofs omitted) for the coherent sheaves. -/
+instance : (isCoherent X).ContainsZero := by sorry
+instance : (isCoherent X).IsClosedUnderBinaryProducts := by sorry
+instance : ObjectProperty.EssentiallySmall.{u} (isCoherent X) := by sorry
+
+/-- Helper (a true fact on a locally noetherian scheme, proof omitted). -/
+theorem isExtensionClosed_isCoherent :
+    (ExactStructure.abelian X.Modules).IsExtensionClosed (isCoherent X) := by
+  sorry
+
+/-- Stand-in for `G₀(X)` (`SchemeKTheoryOperations:S.2/g-theory-of-a-scheme` in degree zero):
+Tau Ceti's `ExactK0` of the coherent sheaves with the exact structure induced from `X.Modules`
+(on a locally noetherian `X` they form an abelian subcategory, and this is `AbelianK0 (Coh X)`;
+Tau Ceti has no abelian instance on `FinitelyPresentedSheaf`). -/
+def G0 : Type u :=
+  ExactK0.{u}
+    ((ExactStructure.abelian X.Modules).fullSubcategory _ (isExtensionClosed_isCoherent X))
+
+instance : AddCommGroup (G0 X) :=
+  inferInstanceAs (AddCommGroup (ExactK0.{u}
+    ((ExactStructure.abelian X.Modules).fullSubcategory _ (isExtensionClosed_isCoherent X))))
+
+variable {X}
+
+/-- Helper (not a packet name): the class of a coherent sheaf in `G₀(X)`. -/
+def G0.of (F : (isCoherent X).FullSubcategory) : G0 X := ExactK0.of F
+
+variable (X)
+
+/-- **The vector-bundle Cartan map** `c_X : K₀(Vect X) → G₀(X)`, `[E] ↦ [E]`, `ExactK0.map` of
+`Vect(X) ⊂ Coh(X)` (a real definition; conflation-exactness omitted). -/
+def cartan : VectorBundleK0 X →+ G0 X :=
+  ExactK0.map (ObjectProperty.ιOfLE (isVectorBundle.isFinitePresentation X)) (by sorry)
+
+end G0
+
+/-- `KTheoryLowDegrees:Z.5/regular-curve-cartan-iso`: for a regular noetherian scheme of dimension
+`≤ 1`, `c_X : K₀(Vect X) → G₀(X)` is bijective, with inverse `[F] ↦ [E₀] - [E₁]` for a resolution
+`0 → E₁ → E₀ → F → 0`. (Its identification with `π₀` of the Poincaré-duality equivalence is not
+stated: it needs `K(X)`, `G(X)` as spectra, SchemeKTheoryOperations:S.2.) -/
+theorem regular_curve_cartan_iso (X : Scheme.{u}) [IsNoetherian X]
+    (hreg : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x)) (hdim : ∀ x : X, coheight x ≤ 1) :
+    Function.Bijective (cartan X) ∧
+      ∀ (S : ShortComplex X.Modules) (hS : S.ShortExact) (h₁ : isVectorBundle X S.X₁)
+        (h₂ : isVectorBundle X S.X₂) (hF : isCoherent X S.X₃),
+        cartan X (VectorBundleK0.of ⟨_, h₂⟩ - VectorBundleK0.of ⟨_, h₁⟩) = G0.of ⟨_, hF⟩ := by
+  sorry
+
+section Curve
+
+variable {X : Scheme.{u}} [IsIntegral X] [IsNoetherian X]
+  [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+  (hX : ∀ y : X, coheight y ≤ 1)
+
+/-- Helper (not a packet name): `𝒪(-D) ↪ 𝒪_X` for an effective `D`, through
+`SchemeWeilDivisor.sheafHomOfLE` and `unitIsoSheafZero`. -/
+def idealSheafInclusion (D : SchemeWeilDivisor X) (hD : WeilDivisor.IsEffective D) :
+    SchemeWeilDivisor.sheaf (-D) ⟶ SheafOfModules.unit X.ringCatSheaf :=
+  SchemeWeilDivisor.sheafHomOfLE (D := -D) (E := 0) (by sorry) ≫
+    (SchemeWeilDivisor.unitIsoSheafZero hX).inv
+
+/-- Helper (not a packet name): the structure sheaf `𝒪_D = coker(𝒪(-D) → 𝒪_X)` of an effective
+divisor (for `D = y` the skyscraper `i_{y,*} k(y)`), a real definition in the abelian category
+`X.Modules`. -/
+def divisorStructureSheaf (D : SchemeWeilDivisor X) (hD : WeilDivisor.IsEffective D) : X.Modules :=
+  Limits.cokernel (idealSheafInclusion hX D hD)
+
+/-- Helper (not a packet name): `𝒪(D)` as a vector bundle. -/
+def divisorBundle (D : SchemeWeilDivisor X) : VectorBundle X :=
+  lineBundle (SchemeWeilDivisor.toInvertibleSheaf hX D)
+
+/-- Helper (not a packet name): `𝒪_D` is coherent. -/
+theorem isCoherent_divisorStructureSheaf (D : SchemeWeilDivisor X)
+    (hD : WeilDivisor.IsEffective D) : isCoherent X (divisorStructureSheaf hX D hD) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/skyscraper-class`: for a codimension-one point `y`, `𝒪(-y) ↪ 𝒪_X` with
+cokernel the skyscraper `𝒪_y`; `𝒪(-y)` and `𝒪(y)` are inverse in `LineBundleClass X`;
+`c_X⁻¹[𝒪_y] = [𝒪_X] - [𝒪(-y)]`, of rank `0` and determinant `[𝒪(y)]`. -/
+theorem skyscraper_class (y : CodimensionOnePoint X) :
+    cartan X (1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y))) =
+      G0.of ⟨_, isCoherent_divisorStructureSheaf hX (WeilDivisor.ofPoint y)
+        (WeilDivisor.isEffective_ofPoint y)⟩ ∧
+    VectorBundleK0.rank X (1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y))) = 0 ∧
+    ((Additive.toMul (VectorBundleK0.det
+        (1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y)))) : Pic X) :
+        LineBundleClass X) = SchemeWeilDivisor.toLineBundleClass hX (WeilDivisor.ofPoint y) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/point-divisor-line-inverse`, added by independent review. -/
+theorem point_divisor_line_inverse (y : CodimensionOnePoint X) :
+    SchemeWeilDivisor.toLineBundleClass hX (-WeilDivisor.ofPoint y) *
+      SchemeWeilDivisor.toLineBundleClass hX (WeilDivisor.ofPoint y) = 1 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/point-skyscraper-exact-sequence`, native monomorphism component.
+The quotient is the previously defined divisorStructureSheaf; the full stalk identification is omitted below. -/
+theorem point_ideal_inclusion_mono (y : CodimensionOnePoint X) :
+    Mono (idealSheafInclusion hX (WeilDivisor.ofPoint y) (WeilDivisor.isEffective_ofPoint y)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/effective-divisor-class`: for `D = Σ n_y y ≥ 0`,
+`c_X⁻¹[𝒪_D] = [𝒪_X] - [𝒪(-D)] = Σ n_y ([𝒪_X] - [𝒪(-y)])`, of rank `0` and determinant `[𝒪(D)]`. -/
+theorem effective_divisor_class (D : SchemeWeilDivisor X) (hD : WeilDivisor.IsEffective D) :
+    cartan X (1 - VectorBundleK0.of (divisorBundle hX (-D))) =
+        G0.of ⟨_, isCoherent_divisorStructureSheaf hX D hD⟩ ∧
+      1 - VectorBundleK0.of (divisorBundle hX (-D)) =
+        D.sum (fun y n => n • (1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y)))) ∧
+      ((Additive.toMul (VectorBundleK0.det (1 - VectorBundleK0.of (divisorBundle hX (-D)))) :
+          Pic X) : LineBundleClass X) = SchemeWeilDivisor.toLineBundleClass hX D := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/principal-divisor-class-vanishes`: for `g ≠ 0` in the function field,
+`Σ_y ord_y(g) ([𝒪_X] - [𝒪(-y)]) = 0` in `K₀(Vect X)`. -/
+theorem principal_divisor_class_vanishes (g : Additive X.functionFieldˣ) :
+    ((WeilDivisor.OrderSystem.ofScheme X).principalDivisor g).sum
+        (fun y n => n • (1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y)))) =
+      0 := by
+  sorry
+
+/-- Helper (not a packet name): the generic rank `[F] ↦ dim_K F_η` on `G₀(X)` (a real definition,
+`Module.finrank` of the stalk at the generic point, through `ExactK0.lift`; additivity omitted). -/
+def genericRank : G0 X →+ ℤ :=
+  ExactK0.lift
+    { obj := fun F => (Module.finrank (TopCat.Presheaf.stalk (C := RingCat.{u}) (X := X.toTopCat)
+          X.ringCatSheaf.obj (genericPoint X))
+        (TopCat.Presheaf.stalk (C := AddCommGrpCat.{u}) (X := X.toTopCat)
+          (SheafOfModules.val F.obj).presheaf (genericPoint X)) : ℤ)
+      map_iso := by sorry
+      map_conflation := by sorry }
+
+/-- `KTheoryLowDegrees:Z.5/generic-rank-kernel`: the generic rank `G₀(X) → ℤ` is surjective with
+kernel generated by the skyscraper classes `[𝒪_y]`, and `genericRank ∘ c_X` is the rank. -/
+theorem generic_rank_kernel :
+    Function.Surjective (genericRank (X := X)) ∧
+      (genericRank (X := X)).ker = AddSubgroup.closure
+        {z | ∃ y : CodimensionOnePoint X,
+          z = G0.of ⟨_, isCoherent_divisorStructureSheaf hX (WeilDivisor.ofPoint y)
+            (WeilDivisor.isEffective_ofPoint y)⟩} ∧
+      ∀ x : VectorBundleK0 X, genericRank (cartan X x) =
+        VectorBundleK0.rank X x (genericPoint X) := by
+  sorry
+
+/-- **The divisor-class map** (`TauCeti.AlgebraicGeometry.KTheory.pointClass`,
+`KTheoryLowDegrees:Z.5/point-class-map`): `Cl(X) →+ K₀(Vect X)`,
+`D = Σ n_y y ↦ Σ n_y ([𝒪_X] - [𝒪(-y)])` (a real definition; vanishing on principal divisors is
+`principal_divisor_class_vanishes`). -/
+def pointClass : (WeilDivisor.OrderSystem.ofScheme X).ClassGroup →+ VectorBundleK0 X :=
+  QuotientAddGroup.lift _
+    (Finsupp.liftAddHom fun y =>
+      zmultiplesHom _ (1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y))))
+    (by sorry)
+
+/-- `pointClass [y] = [𝒪_X] - [𝒪(-y)]`. -/
+@[simp]
+theorem pointClass_ofPoint (y : CodimensionOnePoint X) :
+    pointClass hX ((WeilDivisor.OrderSystem.ofScheme X).divisorClass (WeilDivisor.ofPoint y)) =
+      1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y)) := by
+  sorry
+
+/-- For `D ≥ 0`, `pointClass [D] = [𝒪_X] - [𝒪(-D)]`. -/
+@[simp]
+theorem pointClass_effective (D : SchemeWeilDivisor X) (hD : WeilDivisor.IsEffective D) :
+    pointClass hX ((WeilDivisor.OrderSystem.ofScheme X).divisorClass D) =
+      1 - VectorBundleK0.of (divisorBundle hX (-D)) := by
+  sorry
+
+/-- `c_X (pointClass [D]) = Σ n_y [𝒪_y]` in `G₀(X)`. -/
+theorem cartan_pointClass (D : SchemeWeilDivisor X) :
+    cartan X (pointClass hX ((WeilDivisor.OrderSystem.ofScheme X).divisorClass D)) =
+      D.sum (fun y n => n • G0.of
+        ⟨_, isCoherent_divisorStructureSheaf hX (WeilDivisor.ofPoint y)
+          (WeilDivisor.isEffective_ofPoint y)⟩) := by
+  sorry
+
+/-- `rank (pointClass c) = 0`. -/
+@[simp]
+theorem rank_pointClass (c : (WeilDivisor.OrderSystem.ofScheme X).ClassGroup) :
+    VectorBundleK0.rank X (pointClass hX c) = 0 := by
+  sorry
+
+/-- `det (pointClass c) = classGroupToLineBundleClassHom c` (Tau Ceti's divisor-to-line-bundle
+map). -/
+theorem det_pointClass (c : (WeilDivisor.OrderSystem.ofScheme X).ClassGroup) :
+    ((Additive.toMul (VectorBundleK0.det (pointClass hX c)) : Pic X) : LineBundleClass X) =
+      Additive.toMul (SchemeWeilDivisor.classGroupToLineBundleClassHom hX c) := by
+  sorry
+
+/-- `pointClass` is injective (`det` is a left inverse, after
+`classGroupToLineBundleClass_injective`). -/
+theorem pointClass_injective : Function.Injective (pointClass hX) := by
+  sorry
+
+-- `TauCeti.AlgebraicGeometry.KTheory.pointClass_functionFieldDivisor`: not stated here; needs the
+-- identification of `Cl(X)` of a regular projective curve over a field with the function-field
+-- class group `Cl(F)` (supplier: tauceti:TauCetiRoadmap/AlgebraicCurves layer 12D, requested).
+
+end Curve
+
+-- test TauCeti.AlgebraicGeometry.KTheory.pointClass_zero_test (degenerate)
+example (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) : pointClass hX 0 = 0 := map_zero _
+
+-- test TauCeti.AlgebraicGeometry.KTheory.pointClass_int_test (computation)
+/- On `Spec ℤ`, `pointClass [(p)] = [ℤ] - [pℤ] = 0`. -/
+example [IsIntegral (Spec (CommRingCat.of ℤ))] [IsNoetherian (Spec (CommRingCat.of ℤ))]
+    [∀ y : CodimensionOnePoint (Spec (CommRingCat.of ℤ)),
+      IsDiscreteValuationRing
+        ((Spec (CommRingCat.of ℤ)).presheaf.stalk (y : Spec (CommRingCat.of ℤ)))]
+    (hX : ∀ y : Spec (CommRingCat.of ℤ), coheight y ≤ 1)
+    (y : CodimensionOnePoint (Spec (CommRingCat.of ℤ))) :
+    pointClass hX ((WeilDivisor.OrderSystem.ofScheme _).divisorClass (WeilDivisor.ofPoint y)) =
+      0 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.det_pointClass_test (compatibility)
+example (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) (c : (WeilDivisor.OrderSystem.ofScheme X).ClassGroup) :
+    ((Additive.toMul (VectorBundleK0.det (pointClass hX c)) : Pic X) : LineBundleClass X) =
+      Additive.toMul (SchemeWeilDivisor.classGroupToLineBundleClassHom hX c) :=
+  det_pointClass hX c
+
+-- test TauCeti.AlgebraicGeometry.KTheory.pointClass_not_sheafClass_test (non-example)
+/- `D ↦ [𝒪_X(D)]` is not additive: `[𝒪(y + z)]` has rank `1`, `[𝒪(y)] + [𝒪(z)]` rank `2`. -/
+example (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) [Nonempty X] (D E : SchemeWeilDivisor X) :
+    VectorBundleK0.of (divisorBundle hX (D + E)) ≠
+      VectorBundleK0.of (divisorBundle hX D) + VectorBundleK0.of (divisorBundle hX E) := by
+  sorry
+
+end KTheory
+
+namespace SchemeWeilDivisor
+
+open Order
+
+/-- `KTheoryLowDegrees:Z.5/line-bundle-divisorial`: on a scheme satisfying the regular-curve package
+every invertible sheaf is `𝒪_X(D)`, so Tau Ceti's `classGroupToLineBundleClass` is bijective and
+every element of `LineBundleClass X` is a unit (`Cl(X) ≃+ Additive (Pic X)`), for every regular
+noetherian curve, possibly nonproper or arithmetic. -/
+theorem classGroupToLineBundleClass_bijective {X : Scheme.{u}} [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) :
+    Function.Bijective (classGroupToLineBundleClass hX) ∧ ∀ c : LineBundleClass X, IsUnit c := by
+  sorry
+
+end SchemeWeilDivisor
+
+namespace KTheory
+
+/-- `KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence`: for a connected regular noetherian
+curve, `(rankℤ, det) : K₀(Vect X) → ℤ × Additive (Pic X)` is bijective, with inverse
+`(n, L) ↦ (n - 1)[𝒪_X] + [L]`; the skyscraper `[𝒪_X] - [𝒪(-y)]` goes to `(0, 𝒪(y))`. -/
+theorem curve_rank_determinant_equivalence (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) :
+    Function.Bijective (fun x : VectorBundleK0 X =>
+        ((VectorBundleK0.rankℤ X x : ℤ), VectorBundleK0.det x)) ∧
+      ∀ (n : ℤ) (L : InvertibleSheaf X),
+        VectorBundleK0.rankℤ X (((n - 1 : ℤ) : VectorBundleK0 X) +
+          VectorBundleK0.of (lineBundle L)) = n ∧
+        ((Additive.toMul (VectorBundleK0.det (((n - 1 : ℤ) : VectorBundleK0 X) +
+          VectorBundleK0.of (lineBundle L))) : Pic X) : LineBundleClass X) =
+            LineBundleClass.mk L := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/curve-k-zero-ring`: under the equivalence the product is
+`(a, L)(b, M) = (ab, L^b M^a)`; `K̃₀(X)² = 0`, i.e. `[L ⊗ M] = [L] + [M] - 1`. -/
+theorem curve_k_zero_ring (X : Scheme.{u}) [IsIntegral X] [IsNoetherian X]
+    [∀ y : CodimensionOnePoint X, IsDiscreteValuationRing (X.presheaf.stalk (y : X))]
+    (hX : ∀ y : X, coheight y ≤ 1) :
+    (∀ x y : VectorBundleK0 X, x ∈ VectorBundleK0.reduced X → y ∈ VectorBundleK0.reduced X →
+      x * y = 0) ∧
+    ∀ x y : VectorBundleK0 X, VectorBundleK0.rankℤ X (x * y) =
+        VectorBundleK0.rankℤ X x * VectorBundleK0.rankℤ X y ∧
+      Additive.toMul (VectorBundleK0.det (x * y)) =
+        Additive.toMul (VectorBundleK0.det x) ^ VectorBundleK0.rankℤ X y *
+          Additive.toMul (VectorBundleK0.det y) ^ VectorBundleK0.rankℤ X x := by
+  sorry
+
+/-- Helper (not a packet name): `P~` is invertible on `Spec R` for an invertible `R`-module `P`. -/
+theorem isInvertible_tilde (R : Type u) [CommRing R] (P : Type u) [AddCommGroup P] [Module R P]
+    [Module.Invertible R P] :
+    TauCeti.AlgebraicGeometry.SheafOfModules.isInvertible (Spec (CommRingCat.of R))
+      ((tilde.functor (CommRingCat.of R)).obj (ModuleCat.of R P)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/picard-affine-comparison`: `P ↦ [P~]` is a monoid isomorphism
+`CommRing.Pic R ≃* LineBundleClass (Spec R)` (so the latter is a group), compatible with `⊗`. -/
+theorem picard_affine_comparison (R : Type u) [CommRing R] :
+    ∃ e : CommRing.Pic R ≃* LineBundleClass (Spec (CommRingCat.of R)),
+      ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Invertible R P],
+        e (CommRing.Pic.mk R P) = LineBundleClass.mk ⟨_, isInvertible_tilde R P⟩ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/pic-locally-constant-affine`: compatibility with the existing ring
+construction through the actual tilde equivalence, including the zero ring. -/
+theorem Pic.zpowLocallyConstant_affine (R : Type u) [CommRing R] :
+    ∃ e : CommRing.Pic R ≃* Pic (Spec (CommRingCat.of R)),
+      (∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Invertible R P],
+        (e (CommRing.Pic.mk R P) : LineBundleClass (Spec (CommRingCat.of R))) =
+          LineBundleClass.mk ⟨_, isInvertible_tilde R P⟩) ∧
+      ∀ (L : CommRing.Pic R) (a : LocallyConstant (PrimeSpectrum R) ℤ),
+        e (TauCeti.PicardGroup.zpowLocallyConstant L a) =
+          Pic.zpowLocallyConstant (e L) a := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.5/dedekind-curve-comparison`: for a Dedekind domain `A` (not a field) and
+`X = Spec A`, under the affine comparisons the curve equivalence is `rankPicEquiv`: both send `x` to
+`(rank x, det x)`. -/
+theorem dedekind_curve_comparison (A : Type u) [CommRing A] [IsDedekindDomain A]
+    (hA : ¬ IsField A) :
+    ∃ (e : RingK0.K0 A ≃+ VectorBundleK0 (Spec (CommRingCat.of A)))
+      (π : CommRing.Pic A ≃* Pic (Spec (CommRingCat.of A))),
+      ∀ x : RingK0.K0 A,
+        VectorBundleK0.rank _ (e x) =
+          LocallyConstant.const _ ((RingK0.rankPicEquiv A x).1) ∧
+        Additive.toMul (VectorBundleK0.det (e x)) =
+          π (Additive.toMul (RingK0.rankPicEquiv A x).2) := by
+  sorry
+
+-- `KTheoryLowDegrees:Z.5/doubled-line-example`: not stated here; needs the affine line with doubled
+-- origin as a scheme (two copies of `Spec k[t]` glued along `Spec k[t, t⁻¹]`), which the pinned
+-- libraries do not construct (supplier: SchemeKTheoryOperations:S.1/doubled-plane-counterexample,
+-- whose gluing construction it shares).
+
+end KTheory
+
+end TauCeti.AlgebraicGeometry
+
+/-! ## Stage `KTheoryLowDegrees:Z.6` — degree-zero comparison and tests
+
+The K-theory spectra, `π₀K(A)`, `π₀K(X)`, `D_perf` and its `K₀`, the support sequences, `P¹_F`,
+elliptic curves as schemes and the real conic are in neither pinned library; statements that need
+them are comments naming the supplier. What the carriers allow is stated. -/
+
+namespace TauCeti.AlgebraicGeometry.KTheory
+
+open _root_.AlgebraicGeometry Order
+
+-- `KTheoryLowDegrees:Z.6/ring-k-zero-pi-zero`: not stated here; needs Quillen's `K(P(A))` and
+-- `π₁(BQP(A), 0)` with its product and naturality (supplier: GeneralAlgebraicKTheory:K.1/pi1-BQ-
+-- equals-K0, K.2:plus/plus-equals-Q, K.7/biexact-pairings-and-products).
+
+-- `KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero`: not stated here; needs `K(X) = K(Perf X)`,
+-- `π₀K(X)` and `TriangulatedK0 (D_perf(𝒪_X))` (supplier: SchemeKTheoryOperations:S.2/vector-bundle-
+-- k-theory-comparison and S.2/k-zero-of-a-scheme).
+
+-- `KTheoryLowDegrees:Z.6/perfect-complex-euler-class`: not stated here; needs `K₀(D_perf(A))` (an
+-- essentially small pretriangulated category of perfect complexes, for Tau Ceti's `TriangulatedK0`)
+-- and its identification with `π₀K(A)` (supplier: GeneralAlgebraicKTheory:K.4:construction;
+-- for commutative A, SchemeKTheoryOperations:S.2/k-zero-of-a-scheme with S.2/affine-k-theory-
+-- comparison; for (4) GeneralAlgebraicKTheory:K.5). The Euler class
+-- side is Tau Ceti's `moduleEulerClassOf` with `ExactStructure.eulerClassOf_eq` (independence of
+-- the resolution), already at the pin.
+
+/-- `KTheoryLowDegrees:Z.6/localisation-projective-class`, the part stated on `K₀`: the degree-zero
+map of localisation `K₀(A) → K₀(S⁻¹A)` is `RingK0.map (algebraMap A (S⁻¹A))`,
+`[P] ↦ [S⁻¹A ⊗ P] = [S⁻¹P]` (Mathlib's `IsLocalizedModule`). (Its identification with `π₀` of the
+support sequence, and exactness of `K₀(A on S) → K₀(A) → K₀(S⁻¹A)`, need `K(A on S)`
+(supplier: GeneralAlgebraicKTheory:K.5); the Dedekind case is `RingK0.k0_localization`.) -/
+theorem localisation_projective_class (A : Type u) [CommRing A] (S : Submonoid A) (P : Type u)
+    [AddCommGroup P] [Module A P] [Module.Finite A P] [Module.Projective A P]
+    [Module.Finite (Localization S) (LocalizedModule S P)]
+    [Module.Projective (Localization S) (LocalizedModule S P)] :
+    RingK0.map (algebraMap A (Localization S)) (RingK0.cls A P) =
+      RingK0.cls (Localization S) (LocalizedModule S P) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.6/cartan-map-comparison` (2)–(3): for `X = Spec R`, `R` noetherian, the
+vector-bundle Cartan map is Tau Ceti's `cartanMap R` under the affine identifications (so there is
+one Cartan map); for `R = k[ε]/(ε²)` it is multiplication by `2` on `ℤ`. (Part (1), agreement with
+`π₀` of SchemeKTheoryOperations:S.2/cartan-map, needs `K(X)` and `G(X)` as spectra.) -/
+theorem cartan_map_comparison (R : Type u) [CommRing R] [IsNoetherianRing R] :
+    ∃ (e₁ : RingK0.K0 R ≃+ ExactK0.{u} (finiteProjectiveModulesExactStructure R))
+      (a : RingK0.K0 R ≃+ VectorBundleK0 (Spec (CommRingCat.of R)))
+      (e₂ : G0 (Spec (CommRingCat.of R)) ≃+ ExactK0.{u} (finiteModulesExactStructure R)),
+      ∀ x, e₂ (cartan _ (a x)) = cartanMap R (e₁ x) := by
+  sorry
+
+theorem cartanMap_dualNumber (k : Type u) [Field k] :
+    ∃ (e₁ : ExactK0.{u} (finiteProjectiveModulesExactStructure (DualNumber k)) ≃+ ℤ)
+      (e₂ : ExactK0.{u} (finiteModulesExactStructure (DualNumber k)) ≃+ ℤ),
+      ∀ x, e₂ (cartanMap (DualNumber k) x) = 2 * e₁ x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.6/field-test`, the parts stated here: for a field `F`, `K₀(F) ≅ ℤ` by
+dimension, `K₀(Vect Spec F) ≅ ℤ`, `Pic F` is trivial, and the Cartan map is Tau Ceti's
+`cartanEquivOfIsSemisimpleRing`; scalar extension `K₀(F) → K₀(E)` is the identity of `ℤ`. (The
+`π₀K(F)` and `K₀(D_perf(F))` comparisons need GeneralAlgebraicKTheory:K.1 and
+SchemeKTheoryOperations:S.2.) -/
+theorem field_test (F E : Type u) [Field F] [Field E] [Algebra F E] :
+    RingK0.divisionRingEquiv F (RingK0.cls F (Fin 3 → F)) = 3 ∧
+      Nonempty (VectorBundleK0 (Spec (CommRingCat.of F)) ≃+ ℤ) ∧
+      Subsingleton (CommRing.Pic F) ∧
+      Function.Bijective (cartanMap F) ∧
+      ∀ x, RingK0.divisionRingEquiv E (RingK0.map (algebraMap F E) x) =
+        RingK0.divisionRingEquiv F x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.6/integers-test`, the parts stated here: `K₀(ℤ) ≅ ℤ` by `rankℤ`, `Pic ℤ`
+trivial, every skyscraper class on `Spec ℤ` vanishes, the Cartan map is an isomorphism, and
+`K₀(ℤ) → K₀(ℚ)` is the identity of `ℤ`. -/
+theorem integers_test :
+    Function.Bijective (RingK0.rankℤ ℤ) ∧ Subsingleton (CommRing.Pic ℤ) ∧
+      Function.Bijective (cartanMap ℤ) ∧
+      ∀ x, RingK0.divisionRingEquiv ℚ (RingK0.map (algebraMap ℤ ℚ) x) = RingK0.rankℤ ℤ x := by
+  sorry
+
+theorem integers_test_skyscraper [IsIntegral (Spec (CommRingCat.of ℤ))]
+    [IsNoetherian (Spec (CommRingCat.of ℤ))]
+    [∀ y : CodimensionOnePoint (Spec (CommRingCat.of ℤ)),
+      IsDiscreteValuationRing
+        ((Spec (CommRingCat.of ℤ)).presheaf.stalk (y : Spec (CommRingCat.of ℤ)))]
+    (hX : ∀ y : Spec (CommRingCat.of ℤ), coheight y ≤ 1)
+    (y : CodimensionOnePoint (Spec (CommRingCat.of ℤ))) :
+    1 - VectorBundleK0.of (divisorBundle hX (-WeilDivisor.ofPoint y)) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.6/field-product-test`, the parts stated here: for `A = F × F`,
+`rank : K₀(A) → H⁰(Spec A, ℤ) ≅ ℤ²` is bijective (non-constant rank: `[F × 0] ↦ (1, 0)`),
+`Pic A` is trivial, and localisation at `e = (1, 0)` kills `[0 × F]`. -/
+theorem field_product_test (F : Type u) [Field F] :
+    Function.Bijective (RingK0.rank (F × F)) ∧ Subsingleton (CommRing.Pic (F × F)) ∧
+      RingK0.cls (F × F) (RingK0.fstLine F) + RingK0.cls (F × F) (RingK0.sndLine F) = 1 ∧
+      RingK0.map (algebraMap (F × F) (Localization.Away ((1, 0) : F × F)))
+        (RingK0.cls (F × F) (RingK0.sndLine F)) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.6/nonprincipal-ideal-test`, the parts stated here: for `A = ℤ[√-5]`,
+`I = (2, 1 + √-5)` and `x = [I] - [A]`: `rank x = 0`, `det x ≠ 1`, `x ≠ 0`, `2x = 0`; `x ↦ 0` in
+`K₀(A_𝔮)` for every prime `𝔮`; and the Cartan image of `-x` is the class of `A/I` in `G₀(A)` (Tau
+Ceti's `cartanMap`). (The Euler class of `I → A` in `K₀(D_perf(A))` needs SchemeKTheoryOperations:
+S.2.) -/
+theorem nonprincipal_ideal_test [IsDedekindDomain (ℤ√(-5))] (I : Ideal (ℤ√(-5)))
+    (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd}) [Module.Invertible (ℤ√(-5)) I] :
+    RingK0.rankℤ (ℤ√(-5)) (RingK0.cls (ℤ√(-5)) I - 1) = 0 ∧
+      RingK0.det (ℤ√(-5)) (RingK0.cls (ℤ√(-5)) I - 1) ≠ 1 ∧
+      2 • (RingK0.cls (ℤ√(-5)) I - 1) = 0 ∧
+      (∀ q : PrimeSpectrum (ℤ√(-5)),
+        RingK0.map (algebraMap (ℤ√(-5)) (Localization.AtPrime q.asIdeal))
+          (RingK0.cls (ℤ√(-5)) I - 1) = 0) ∧
+      cartanMap (ℤ√(-5))
+          ((ExactK0.of (⟨ModuleCat.of (ℤ√(-5)) (ℤ√(-5)), ⟨inferInstance, inferInstance⟩⟩ :
+              (finiteProjectiveModules (ℤ√(-5))).FullSubcategory) :
+              ExactK0.{0} (finiteProjectiveModulesExactStructure (ℤ√(-5)))) -
+            (ExactK0.of (⟨ModuleCat.of (ℤ√(-5)) I, ⟨inferInstance, inferInstance⟩⟩ :
+              (finiteProjectiveModules (ℤ√(-5))).FullSubcategory) :
+              ExactK0.{0} (finiteProjectiveModulesExactStructure (ℤ√(-5))))) =
+        (ExactK0.of
+            (⟨ModuleCat.of (ℤ√(-5)) (ℤ√(-5) ⧸ I), (ModuleCat.isFG_iff _).mpr inferInstance⟩ :
+              FGModuleCat (ℤ√(-5))) : ExactK0.{0} (finiteModulesExactStructure (ℤ√(-5)))) := by
+  sorry
+
+-- `KTheoryLowDegrees:Z.6/projective-line-regular-curve`: not stated here; needs
+-- `P¹_F = Proj F[T₀, T₁]` with its twisting sheaves `O(m)` (supplier:
+-- AlgebraicModuliForArithmeticGeometry:R09.1, requested).
+
+-- `KTheoryLowDegrees:Z.6/projective-line-rank-pic`: not stated here; needs `P¹_F` and `O(m)`
+-- (supplier: AlgebraicModuliForArithmeticGeometry:R09.1, with KTheoryLowDegrees:Z.6/projective-
+-- line-regular-curve).
+
+/-- Helper (not a packet name): the change of coordinates `(r, d) ↦ (r + d, -d)` from rank–degree
+coordinates to projective-bundle coordinates `(a, b)` on `K₀(P¹_F) ≅ ℤ²` (a real definition; it is
+its own inverse). -/
+def projectiveLineChangeOfBasis : ℤ × ℤ ≃+ ℤ × ℤ where
+  toFun p := (p.1 + p.2, -p.2)
+  invFun p := (p.1 + p.2, -p.2)
+  left_inv p := by simp
+  right_inv p := by simp
+  map_add' p q := by ext <;> simp <;> ring
+
+-- `KTheoryLowDegrees:Z.6/projective-line-change-of-basis`: the statement on `K₀(P¹_F)` is not
+-- stated here; it needs `P¹_F`, `O(-1)` and the projective-bundle basis of
+-- SchemeKTheoryOperations:S.5/projective-line-k-theory (supplier:
+-- AlgebraicModuliForArithmeticGeometry:R09.1 and SchemeKTheoryOperations:S.5). The coordinate
+-- change itself is `projectiveLineChangeOfBasis`; its acceptance values are computed below.
+
+-- Acceptance of `KTheoryLowDegrees:Z.6/projective-line-change-of-basis`: `(r, d) = (2, 3) ↦ (a, b) = (5, -3)`.
+example : projectiveLineChangeOfBasis (2, 3) = (5, -3) := by decide
+
+-- Acceptance: `(0, 1) ↦ (1, -1)` (the rational point) and `(1, -1) ↦ (0, 1)` (`[O(-1)]`).
+example : projectiveLineChangeOfBasis (0, 1) = (1, -1) ∧
+    projectiveLineChangeOfBasis (1, -1) = (0, 1) := by decide
+
+-- The matrix `[[1, 1], [0, -1]]` is its own inverse and has determinant `-1`.
+example : projectiveLineChangeOfBasis.trans projectiveLineChangeOfBasis = AddEquiv.refl _ := by
+  ext p <;> simp [projectiveLineChangeOfBasis]
+
+example : Matrix.det !![(1 : ℤ), 1; 0, -1] = -1 := by
+  simp [Matrix.det_fin_two]
+
+-- `[O(m)]` has projective-bundle coordinates `(m + 1, -m)` since it has rank `1` and degree `m`.
+example (m : ℤ) : projectiveLineChangeOfBasis (1, m) = (m + 1, -m) := by
+  simp [projectiveLineChangeOfBasis, add_comm]
+
+-- `KTheoryLowDegrees:Z.6/elliptic-test`: not stated here; needs an elliptic curve over `F` as a
+-- scheme with the regular-curve package and a rational origin, and EllipticKTheory:E.2's
+-- decomposition `Pic(E) ≅ ℤ ⊕ E(F)` (supplier: EllipticKTheory:E.2/K0-of-an-elliptic-curve
+-- and E.2/picard-decomposition-and-the-point-group; the Weierstrass scheme is ModularCurves
+-- layer 1A's).
+
+-- `KTheoryLowDegrees:Z.6/pointless-conic-test`: not stated here; needs the conic
+-- `X² + Y² + Z² = 0` in `P²_ℝ` as a scheme (supplier: AlgebraicModuliForArithmeticGeometry:R09.1
+-- for `P²` and its closed subschemes); its divisor side would use Tau Ceti's `relativeDegree`.
+
+end TauCeti.AlgebraicGeometry.KTheory
+
+/-! ### Serre's finite-free resolution comparison
+
+The exact structures below use underlying-module exactness, never equivariant splitting.
+The comparison is stated for a PID and a coefficient coalgebra free over that PID. This is
+the hypothesis of the pinned finite-subcomodule theorem; it is not silently weakened to
+flatness. The general flat-coalgebra extension, the GL coordinate freeness bridge, and
+Serre's generic/residue fibre comparison remain recorded source boundaries.
+-/
+
+namespace TauCeti.IntegralComodule
+
+open CategoryTheory CategoryTheory.Limits
+
+variable (R C : Type) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+  [AddCommGroup C] [Module R C] [Coalgebra R C] [Module.Flat R C]
+
+-- Smallness is part of the finite-comodule exact-category construction: use finite
+-- presentations of underlying modules and the set of coaction maps on each representative.
+instance : EssentiallySmall.{0} (FGComoduleCat.{0, 0, 0} R C) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-exact-category`: the underlying-module exact structure. -/
+def finiteExactStructure (R C : Type) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+    [AddCommGroup C] [Module R C] [Coalgebra R C] [Module.Flat R C] :
+    ExactStructure (FGComoduleCat.{0, 0, 0} R C) where
+  Conflation S := Function.Injective S.f.hom ∧ Function.Surjective S.g.hom ∧
+    Function.Exact S.f.hom S.g.hom
+  isKernelCokernelPair := by sorry
+  isClosedUnderIsomorphisms := by sorry
+  isInflation_id := by sorry
+  isDeflation_id := by sorry
+  isInflation_comp := by sorry
+  isDeflation_comp := by sorry
+  hasPushouts_inflations := by sorry
+  isStableUnderCobaseChange_inflations := by sorry
+  hasPullbacks_deflations := by sorry
+  isStableUnderBaseChange_deflations := by sorry
+
+theorem finiteExactStructure_conflation_iff (S : ShortComplex (FGComoduleCat R C)) :
+    (finiteExactStructure R C).Conflation S ↔
+      Function.Injective S.f.hom ∧ Function.Surjective S.g.hom ∧
+        Function.Exact S.f.hom S.g.hom := Iff.rfl
+
+abbrev G0 := ExactK0.{0} (finiteExactStructure R C)
+
+def gcls (E : FGComoduleCat R C) : G0 R C := ExactK0.of E
+
+theorem gcls_iso {E F : FGComoduleCat R C} (e : E ≅ F) : gcls R C E = gcls R C F := by
+  sorry
+
+theorem gcls_exact (S : ShortComplex (FGComoduleCat R C))
+    (hS : (finiteExactStructure R C).Conflation S) :
+    gcls R C S.X₂ = gcls R C S.X₁ + gcls R C S.X₃ := by sorry
+
+-- test TauCeti.IntegralComodule.gcls_zero_test
+example : gcls R C (0 : FGComoduleCat R C) = 0 := by sorry
+-- test TauCeti.IntegralComodule.gcls_biprod_test
+example (E F : FGComoduleCat R C) : gcls R C (E ⊞ F) = gcls R C E + gcls R C F := by sorry
+-- test TauCeti.IntegralComodule.gcls_scalar_quotient_test
+example (E Q : FGComoduleCat R C) (a : R) (ha : a ≠ 0) [Module.Free R E]
+    (q : E ⟶ Q) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact (fun x : E => a • x) q.hom) : gcls R C Q = 0 := by sorry
+
+/-- The existing comodule category restricted to objects free over the base ring. -/
+def isFree : ObjectProperty (FGComoduleCat.{0, 0, 0} R C) := fun E => Module.Free R E
+abbrev FreeCategory := (isFree R C).FullSubcategory
+
+instance : (isFree R C).ContainsZero := by sorry
+instance : (isFree R C).IsClosedUnderBinaryProducts := by sorry
+instance : ObjectProperty.EssentiallySmall.{0} (isFree R C) := by sorry
+
+theorem isFree_extensionClosed : (finiteExactStructure R C).IsExtensionClosed (isFree R C) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-free-comodule-exact-category`: induced by the existing exact-subcategory API. -/
+def freeExactStructure : ExactStructure (FreeCategory R C) :=
+  (finiteExactStructure R C).fullSubcategory (isFree R C) (isFree_extensionClosed R C)
+
+theorem freeExactStructure_conflation_iff (S : ShortComplex (FreeCategory R C)) :
+    (freeExactStructure R C).Conflation S ↔
+      Function.Injective S.f.hom.hom ∧ Function.Surjective S.g.hom.hom ∧
+        Function.Exact S.f.hom.hom S.g.hom.hom := Iff.rfl
+
+abbrev R0 := ExactK0.{0} (freeExactStructure R C)
+def rcls (P : FreeCategory R C) : R0 R C := ExactK0.of P
+
+def inclusion : R0 R C →+ G0 R C :=
+  ExactK0.map (isFree R C).ι
+    ((finiteExactStructure R C).isConflationExact_ι (isFree_extensionClosed R C))
+
+theorem inclusion_rcls (P : FreeCategory R C) : inclusion R C (rcls R C P) = gcls R C P.obj := by
+  sorry
+
+-- test TauCeti.IntegralComodule.rcls_zero_test
+example : rcls R C (0 : FreeCategory R C) = 0 := by sorry
+-- test TauCeti.IntegralComodule.rcls_biprod_test
+example (P Q : FreeCategory R C) : rcls R C (P ⊞ Q) = rcls R C P + rcls R C Q := by sorry
+-- test TauCeti.IntegralComodule.rcls_exact_test
+example (S : ShortComplex (FreeCategory R C))
+    (hS : (freeExactStructure R C).Conflation S) :
+    rcls R C S.X₂ = rcls R C S.X₁ + rcls R C S.X₃ := by sorry
+
+variable [Module.Free R C]
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-free-cover`: cofree pullback, then a finite subcomodule.
+No equivariant lifting property of the covering object is asserted. -/
+theorem exists_free_cover (E : FGComoduleCat R C) :
+    ∃ (P : FreeCategory R C) (p : P.obj ⟶ E), Function.Surjective p.hom := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-free-resolution`: the kernel is finite torsion-free over the PID. -/
+theorem exists_free_resolution (E : FGComoduleCat R C) :
+    ∃ (P₁ P₀ : FreeCategory R C) (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E),
+      Function.Injective i.hom ∧ Function.Surjective p.hom ∧ Function.Exact i.hom p.hom := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-euler-independence`: compare two resolutions by the fibre product
+of their surjections. Its projections have the other resolution's kernel. -/
+theorem resolution_value_independent (E : FGComoduleCat R C)
+    (P₁ P₀ Q₁ Q₀ : FreeCategory R C)
+    (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E)
+    (j : Q₁.obj ⟶ Q₀.obj) (q : Q₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hp : Function.Surjective p.hom)
+    (hex : Function.Exact i.hom p.hom)
+    (hj : Function.Injective j.hom) (hq : Function.Surjective q.hom)
+    (hex' : Function.Exact j.hom q.hom) :
+    rcls R C P₀ - rcls R C P₁ = rcls R C Q₀ - rcls R C Q₁ := by sorry
+
+-- A selected resolution is data. Its exactness is asserted by the separate specification
+-- below; it is not encoded by an unconstrained proposition-valued field.
+private def chosenResolution (E : FGComoduleCat R C) : FreeCategory R C × FreeCategory R C :=
+  ((exists_free_resolution R C E).choose,
+    (exists_free_resolution R C E).choose_spec.choose)
+
+private def eulerValue (E : FGComoduleCat R C) : R0 R C :=
+  rcls R C (chosenResolution R C E).2 - rcls R C (chosenResolution R C E).1
+
+private theorem eulerValue_resolution (E : FGComoduleCat R C)
+    (P₁ P₀ : FreeCategory R C) (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hp : Function.Surjective p.hom)
+    (hex : Function.Exact i.hom p.hom) :
+    eulerValue R C E = rcls R C P₀ - rcls R C P₁ := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-euler-additivity`: cover the middle object, then take the
+kernels of the maps to the middle and right objects. This does not use a horseshoe lemma. -/
+theorem resolution_value_additive (S : ShortComplex (FGComoduleCat R C))
+    (hS : (finiteExactStructure R C).Conflation S) :
+    eulerValue R C S.X₂ = eulerValue R C S.X₁ + eulerValue R C S.X₃ := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-euler-map`: descend the alternating resolution class through
+Tau Ceti's existing exact Grothendieck-group universal property. -/
+def euler : G0 R C →+ R0 R C := ExactK0.lift
+  { obj := eulerValue R C
+    map_iso := by sorry
+    map_conflation := by intro S hS; exact resolution_value_additive R C S hS }
+
+theorem euler_resolution (E : FGComoduleCat R C)
+    (P₁ P₀ : FreeCategory R C) (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hp : Function.Surjective p.hom)
+    (hex : Function.Exact i.hom p.hom) :
+    euler R C (gcls R C E) = rcls R C P₀ - rcls R C P₁ := by sorry
+
+theorem euler_free (P : FreeCategory R C) : euler R C (gcls R C P.obj) = rcls R C P := by
+  sorry
+
+theorem euler_unique (f : G0 R C →+ R0 R C)
+    (hf : ∀ P : FreeCategory R C, f (gcls R C P.obj) = rcls R C P) : f = euler R C := by
+  sorry
+
+-- test TauCeti.IntegralComodule.euler_zero_test
+example : euler R C 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.euler_free_test
+example (P : FreeCategory R C) : euler R C (gcls R C P.obj) = rcls R C P := by sorry
+-- test TauCeti.IntegralComodule.euler_scalar_quotient_test
+example (P : FreeCategory R C) (Q : FGComoduleCat R C) (a : R) (ha : a ≠ 0)
+    (q : P.obj ⟶ Q) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact (fun x : P.obj => a • x) q.hom) :
+    euler R C (gcls R C Q) = 0 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-k0-comparison`: Serre Proposition 4 in the free-coalgebra case. -/
+def k0Equiv : R0 R C ≃+ G0 R C :=
+  { inclusion R C with
+    invFun := euler R C
+    left_inv := by sorry
+    right_inv := by sorry }
+
+theorem k0Equiv_rcls (P : FreeCategory R C) : k0Equiv R C (rcls R C P) = gcls R C P.obj := by
+  sorry
+theorem k0Equiv_symm_eq_euler : (k0Equiv R C).symm.toAddMonoidHom = euler R C := by sorry
+theorem k0Equiv_unique (f : R0 R C →+ G0 R C)
+    (hf : ∀ P : FreeCategory R C, f (rcls R C P) = gcls R C P.obj) :
+    f = (k0Equiv R C).toAddMonoidHom := by sorry
+
+-- test TauCeti.IntegralComodule.k0Equiv_zero_test
+example : k0Equiv R C 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.k0Equiv_roundtrip_test
+example (x : R0 R C) : euler R C (k0Equiv R C x) = x := by sorry
+-- test TauCeti.IntegralComodule.k0Equiv_biprod_test
+example (P Q : FreeCategory R C) :
+    k0Equiv R C (rcls R C (P ⊞ Q)) = gcls R C P.obj + gcls R C Q.obj := by sorry
+
+end TauCeti.IntegralComodule
+
+namespace TauCeti.RepresentationRing
+
+variable (k : Type) [CommRing k] [IsDomain k] [IsPrincipalIdealRing k]
+
+/-- `KTheoryLowDegrees:Z.3/integral-gl-exact-comparison`: the representation group already in this file is
+the same exact Grothendieck group as the finite-free side of Serre's comparison. -/
+theorem gl_exactK0_identification (Ns : List ℕ) [Module.Flat k (glCoordinate k Ns)] :
+    ∃ e : IntegralComodule.R0 k (glCoordinate k Ns) ≃+ ofGL k Ns,
+      ∀ V : GLRep k Ns,
+        e (IntegralComodule.rcls k (glCoordinate k Ns) ⟨V.obj, V.property⟩) = ofGL.of V := by
+  sorry
+
+end TauCeti.RepresentationRing
+
+/-! ### Generic and residue fibres of integral comodules
+
+These declarations expand Serre §§2.4–2.7 for a free coefficient coalgebra over ℤ.
+All categories and coactions use the existing Tau Ceti carriers. Reduction on G₀ is
+an Euler operation: ordinary tensor reduction is exact only on the finite-free
+subcategory. The final comparison explicitly assumes surjectivity of every
+decomposition map; it does not assert that hypothesis for an arbitrary coalgebra.
+-/
+namespace TauCeti.IntegralComodule
+open CategoryTheory CategoryTheory.Limits
+open scoped TensorProduct
+
+variable (C : Type) [AddCommGroup C] [Module ℤ C] [Coalgebra ℤ C] [Module.Free ℤ C]
+
+/-- Coefficient-coalgebra base change, packaged on the existing finite category. -/
+def fieldBaseChange (k : Type) [Field k] :
+    FGComoduleCat ℤ C ⥤ FGComoduleCat k (k ⊗[ℤ] C) where
+  obj E := by
+    letI := Comodule.baseChange (R := ℤ) (H := C) (M := E) k
+    exact FGComoduleCat.of (R := k) (C := k ⊗[ℤ] C) (k ⊗[ℤ] E)
+  map {E F} f := by
+    letI := Comodule.baseChange (R := ℤ) (H := C) (M := E) k
+    letI := Comodule.baseChange (R := ℤ) (H := C) (M := F) k
+    exact FGComoduleCat.ofHom (Comodule.Hom.baseChange k f.hom)
+  map_id := by sorry
+  map_comp := by sorry
+
+instance (k : Type) [Field k] : (fieldBaseChange C k).Additive := by sorry
+
+theorem fieldBaseChange_map_tmul (k : Type) [Field k]
+    {E F : FGComoduleCat ℤ C} (f : E ⟶ F) (a : k) (e : E) :
+    ((fieldBaseChange C k).map f).hom (a ⊗ₜ[ℤ] e) = a ⊗ₜ[ℤ] f.hom e := by sorry
+
+theorem genericFibre_exact :
+    (finiteExactStructure ℤ C).IsConflationExact
+      (finiteExactStructure ℚ (ℚ ⊗[ℤ] C)) (fieldBaseChange C ℚ) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-generic-map`. -/
+def genericFibre : G0 ℤ C →+ G0 ℚ (ℚ ⊗[ℤ] C) :=
+  ExactK0.map (fieldBaseChange C ℚ) (genericFibre_exact C)
+
+theorem genericFibre_gcls (E : FGComoduleCat ℤ C) :
+    genericFibre C (gcls ℤ C E) = gcls ℚ (ℚ ⊗[ℤ] C) ((fieldBaseChange C ℚ).obj E) := by
+  sorry
+
+theorem genericFibre_unique (f : G0 ℤ C →+ G0 ℚ (ℚ ⊗[ℤ] C))
+    (hf : ∀ E, f (gcls ℤ C E) = gcls ℚ (ℚ ⊗[ℤ] C) ((fieldBaseChange C ℚ).obj E)) :
+    f = genericFibre C := by sorry
+
+-- test TauCeti.IntegralComodule.genericFibre_zero_test
+example : genericFibre C (gcls ℤ C (0 : FGComoduleCat ℤ C)) = 0 := by sorry
+-- test TauCeti.IntegralComodule.genericFibre_unit_test: dimension of the image is one.
+example :
+    genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) =
+      gcls ℚ (ℚ ⊗[ℤ] ℤ)
+        ((fieldBaseChange ℤ ℚ).obj (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ∧
+    genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.genericFibre_torsion_test
+example (E : FGComoduleCat ℤ C) (a : ℤ) (ha : a ≠ 0) (hE : ∀ e : E, a • e = 0) :
+    genericFibre C (gcls ℤ C E) = 0 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-residue-inclusion`: its underlying group is E itself.
+The coaction is transported by E ⊗[𝔽p] (𝔽p ⊗[ℤ] C) ≃ E ⊗[ℤ] C. -/
+def residueRestriction (p : ℕ) [Fact p.Prime] :
+    FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C) ⥤ FGComoduleCat ℤ C := by sorry
+
+instance (p : ℕ) [Fact p.Prime] : (residueRestriction C p).Additive := by sorry
+
+/-- This characterizes the carrier and is part of the constructor's API. -/
+def residueRestrictionUnderlying (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) :
+    (residueRestriction C p).obj E ≃ₗ[ℤ] E := by sorry
+
+/-- The canonical balancing isomorphism, fixed by its pure-tensor formula below. -/
+def residueTensorEquiv (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) :
+    E ⊗[ZMod p] (ZMod p ⊗[ℤ] C) ≃ₗ[ℤ] E ⊗[ℤ] C := by sorry
+
+theorem residueTensorEquiv_tmul (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) (x : E) (a : ZMod p) (c : C) :
+    residueTensorEquiv C p E (x ⊗ₜ[ZMod p] (a ⊗ₜ[ℤ] c)) = (a • x) ⊗ₜ[ℤ] c := by sorry
+
+theorem residueRestriction_coact (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C))
+    (x : (residueRestriction C p).obj E) :
+    TensorProduct.map (residueRestrictionUnderlying C p E).toLinearMap
+        (LinearMap.id : C →ₗ[ℤ] C)
+        (Comodule.coact (R := ℤ) (C := C) x) =
+      residueTensorEquiv C p E
+        (Comodule.coact (R := ZMod p) (C := ZMod p ⊗[ℤ] C)
+          (residueRestrictionUnderlying C p E x)) := by sorry
+
+instance (p : ℕ) [Fact p.Prime] : (residueRestriction C p).Full := by sorry
+instance (p : ℕ) [Fact p.Prime] : (residueRestriction C p).Faithful := by sorry
+
+theorem residueRestriction_exact (p : ℕ) [Fact p.Prime] :
+    (finiteExactStructure (ZMod p) (ZMod p ⊗[ℤ] C)).IsConflationExact
+      (finiteExactStructure ℤ C) (residueRestriction C p) := by sorry
+
+theorem residueRestriction_killed (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C))
+    (x : (residueRestriction C p).obj E) : (p : ℤ) • x = 0 := by sorry
+
+theorem residueRestriction_essentialImage (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat ℤ C) (hE : ∀ x : E, (p : ℤ) • x = 0) :
+    ∃ V : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C),
+      Nonempty ((residueRestriction C p).obj V ≅ E) := by sorry
+
+def residueInclusion (p : ℕ) [Fact p.Prime] :
+    G0 (ZMod p) (ZMod p ⊗[ℤ] C) →+ G0 ℤ C :=
+  ExactK0.map (residueRestriction C p) (residueRestriction_exact C p)
+
+theorem residueInclusion_gcls (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) :
+    residueInclusion C p (gcls (ZMod p) (ZMod p ⊗[ℤ] C) E) =
+      gcls ℤ C ((residueRestriction C p).obj E) := by sorry
+
+theorem genericFibre_residueInclusion (p : ℕ) [Fact p.Prime] :
+    (genericFibre C).comp (residueInclusion C p) = 0 := by sorry
+
+-- test TauCeti.IntegralComodule.residueRestriction_zero_test
+example (p : ℕ) [Fact p.Prime] :
+    IsZero ((residueRestriction C p).obj (0 : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C))) := by
+  sorry
+-- test TauCeti.IntegralComodule.residueRestriction_unit_test: no collapse to the zero object.
+example (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) [Nontrivial E] :
+    Nontrivial ((residueRestriction C p).obj E) := by sorry
+-- test TauCeti.IntegralComodule.residueRestriction_not_free_test
+example (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) [Nontrivial E] :
+    ¬ Module.Free ℤ ((residueRestriction C p).obj E) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-stable-lattice`. -/
+theorem exists_stable_lattice (V : FGComoduleCat ℚ (ℚ ⊗[ℤ] C)) :
+    ∃ L : FreeCategory ℤ C, Nonempty ((fieldBaseChange C ℚ).obj L.obj ≅ V) := by sorry
+
+/-- The image sum uses only finite additive combinations, even though all primes occur. -/
+def torsionClasses : AddSubgroup (G0 ℤ C) :=
+  ⨆ (p : ℕ) (_hp : Fact p.Prime), (residueInclusion C p).range
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-torsion-devissage`. -/
+theorem torsion_gcls_mem (E : FGComoduleCat ℤ C) (a : ℤ) (ha : a ≠ 0)
+    (hE : ∀ x : E, a • x = 0) : gcls ℤ C E ∈ torsionClasses C := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-lattice-class-independence`. -/
+theorem lattice_class_independent (L L' : FreeCategory ℤ C)
+    (e : (fieldBaseChange C ℚ).obj L.obj ≅ (fieldBaseChange C ℚ).obj L'.obj) :
+    QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L.obj) =
+      QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L'.obj) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-generic-quotient`: the original generic-fibre map descends. -/
+def genericQuotientEquiv : G0 ℤ C ⧸ torsionClasses C ≃+ G0 ℚ (ℚ ⊗[ℤ] C) := by sorry
+
+theorem genericQuotientEquiv_mk (E : FGComoduleCat ℤ C) :
+    genericQuotientEquiv C (QuotientAddGroup.mk (gcls ℤ C E)) = genericFibre C (gcls ℤ C E) := by
+  sorry
+
+theorem genericQuotientEquiv_symm_lattice (L : FreeCategory ℤ C)
+    (V : FGComoduleCat ℚ (ℚ ⊗[ℤ] C)) (e : (fieldBaseChange C ℚ).obj L.obj ≅ V) :
+    (genericQuotientEquiv C).symm (gcls ℚ (ℚ ⊗[ℤ] C) V) =
+      QuotientAddGroup.mk (gcls ℤ C L.obj) := by sorry
+
+theorem genericFibre_surjective : Function.Surjective (genericFibre C) := by sorry
+
+theorem genericFibre_ker : (genericFibre C).ker = torsionClasses C := by sorry
+
+-- test TauCeti.IntegralComodule.genericQuotient_zero_test
+example : genericQuotientEquiv C 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.genericQuotient_unit_test
+example : genericQuotientEquiv ℤ
+    (QuotientAddGroup.mk (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ))) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.genericQuotient_commensurable_test
+example (L L' : FreeCategory ℤ C)
+    (f : L'.obj ⟶ L.obj) (hf : Function.Injective f.hom)
+    (a : ℤ) (ha : a ≠ 0) (h : ∀ x : L.obj, ∃ y : L'.obj, f.hom y = a • x) :
+    QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L.obj) =
+      QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L'.obj) := by sorry
+
+/-- Reduction is exact on finite-free objects, not on every finite comodule. -/
+def freeReduction (p : ℕ) [Fact p.Prime] :
+    FreeCategory ℤ C ⥤ FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C) :=
+  (isFree ℤ C).ι ⋙ fieldBaseChange C (ZMod p)
+
+instance (p : ℕ) [Fact p.Prime] : (freeReduction C p).Additive := by sorry
+
+theorem freeReduction_exact (p : ℕ) [Fact p.Prime] :
+    (freeExactStructure ℤ C).IsConflationExact
+      (finiteExactStructure (ZMod p) (ZMod p ⊗[ℤ] C)) (freeReduction C p) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-euler-reduction`: a genuine composition using the prior Euler map. -/
+def eulerReduction (p : ℕ) [Fact p.Prime] : G0 ℤ C →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C) :=
+  (ExactK0.map (freeReduction C p) (freeReduction_exact C p) :
+    R0 ℤ C →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C)).comp (euler ℤ C)
+
+theorem eulerReduction_resolution (p : ℕ) [Fact p.Prime] (E : FGComoduleCat ℤ C)
+    (P₁ P₀ : FreeCategory ℤ C) (i : P₁.obj ⟶ P₀.obj) (q : P₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact i.hom q.hom) :
+    eulerReduction C p (gcls ℤ C E) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj P₀) -
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj P₁) := by sorry
+
+theorem eulerReduction_free (p : ℕ) [Fact p.Prime] (L : FreeCategory ℤ C) :
+    eulerReduction C p (gcls ℤ C L.obj) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) := by sorry
+
+theorem eulerReduction_unique (p : ℕ) [Fact p.Prime]
+    (f : G0 ℤ C →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C))
+    (hf : ∀ L : FreeCategory ℤ C, f (gcls ℤ C L.obj) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L)) :
+    f = eulerReduction C p := by sorry
+
+-- test TauCeti.IntegralComodule.eulerReduction_zero_test
+example (p : ℕ) [Fact p.Prime] : eulerReduction C p 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.eulerReduction_free_test
+example (p : ℕ) [Fact p.Prime] :
+    eulerReduction ℤ p (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] ℤ)
+        ((fieldBaseChange ℤ (ZMod p)).obj (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ∧
+    eulerReduction ℤ p (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.eulerReduction_torsion_test
+example (p : ℕ) [Fact p.Prime] (L : FreeCategory ℤ C) (E : FGComoduleCat ℤ C)
+    (q : L.obj ⟶ E) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact (fun x : L.obj => (p : ℤ) • x) q.hom) :
+    eulerReduction C p (gcls ℤ C E) = 0 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-reduction-kills-residues`. The equal-prime case uses a
+four-term exact sequence, not an isomorphism Q/pQ → P/pP. -/
+theorem eulerReduction_residueInclusion (p l : ℕ) [Fact p.Prime] [Fact l.Prime] :
+    (eulerReduction C p).comp (residueInclusion C l) = 0 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-decomposition-map`: quotient descent followed by the inverse
+of genericQuotientEquiv. The following equations characterize this map uniquely. -/
+def decomposition (p : ℕ) [Fact p.Prime] :
+    G0 ℚ (ℚ ⊗[ℤ] C) →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C) := by sorry
+
+theorem decomposition_genericFibre (p : ℕ) [Fact p.Prime] :
+    (decomposition C p).comp (genericFibre C) = eulerReduction C p := by sorry
+
+theorem decomposition_lattice (p : ℕ) [Fact p.Prime] (L : FreeCategory ℤ C)
+    (V : FGComoduleCat ℚ (ℚ ⊗[ℤ] C)) (e : (fieldBaseChange C ℚ).obj L.obj ≅ V) :
+    decomposition C p (gcls ℚ (ℚ ⊗[ℤ] C) V) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) := by sorry
+
+theorem decomposition_unique (p : ℕ) [Fact p.Prime]
+    (f : G0 ℚ (ℚ ⊗[ℤ] C) →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C))
+    (hf : f.comp (genericFibre C) = eulerReduction C p) : f = decomposition C p := by sorry
+
+theorem decomposition_lattice_independent (p : ℕ) [Fact p.Prime]
+    (L L' : FreeCategory ℤ C)
+    (e : (fieldBaseChange C ℚ).obj L.obj ≅ (fieldBaseChange C ℚ).obj L'.obj) :
+    gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L') := by sorry
+
+-- test TauCeti.IntegralComodule.decomposition_zero_test
+example (p : ℕ) [Fact p.Prime] : decomposition C p 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.decomposition_unit_test
+example (p : ℕ) [Fact p.Prime] :
+    decomposition ℤ p (genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ))) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] ℤ)
+        ((fieldBaseChange ℤ (ZMod p)).obj (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ∧
+    decomposition ℤ p (genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ))) ≠ 0 := by
+  sorry
+-- test TauCeti.IntegralComodule.decomposition_scaled_lattice_test
+example (p : ℕ) [Fact p.Prime] (L L' : FreeCategory ℤ C)
+    (e : L.obj ≅ L'.obj) :
+    gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L') := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-residue-after-decomposition`. -/
+theorem residueInclusion_decomposition (p : ℕ) [Fact p.Prime] :
+    (residueInclusion C p).comp (decomposition C p) = 0 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/integral-comodule-generic-isomorphism`. Surjectivity is an explicit hypothesis. -/
+theorem genericFibre_bijective_of_decomposition_surjective
+    (h : ∀ (p : ℕ) [Fact p.Prime], Function.Surjective (decomposition C p)) :
+    Function.Bijective (genericFibre C) := by sorry
+
+theorem finiteFree_genericFibre_bijective
+    (h : ∀ (p : ℕ) [Fact p.Prime], Function.Surjective (decomposition C p)) :
+    Function.Bijective ((genericFibre C).comp (k0Equiv ℤ C).toAddMonoidHom) := by sorry
+
+end TauCeti.IntegralComodule
+
+
+/-!
+## Integral formal characters and decomposition
+
+These K₀ comparison interfaces reuse the pinned weight spaces and corestriction.
+X is a multiplicatively written character lattice. Characters have INTEGER coefficients,
+including over a residue field; no evaluation on rational torus points is used.
+The final isomorphism criterion has explicit field-character hypotheses. Neither GL
+coefficient freeness nor arbitrary-field highest-weight theory is supplied here.
+-/
+namespace TauCeti.IntegralComodule
+open CategoryTheory CategoryTheory.Limits
+open scoped TensorProduct
+variable (X : Type) [CommGroup X]
+
+section WeightExactness
+variable (R : Type) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+
+/-- `KTheoryLowDegrees:Z.3/torus-weight-exactness`: restriction of the existing morphism to a native weight. -/
+def weightMap {E F : FGComoduleCat R (MonoidAlgebra R X)} (f : E ⟶ F) (x : X) :
+    Comodule.weightSpace R X E x →ₗ[R] Comodule.weightSpace R X F x := by sorry
+
+theorem weightMap_apply {E F : FGComoduleCat R (MonoidAlgebra R X)}
+    (f : E ⟶ F) (x : X) (v : Comodule.weightSpace R X E x) :
+    ((weightMap X R f x v) : F) = f.hom v := by sorry
+
+theorem weight_exact (S : ShortComplex (FGComoduleCat R (MonoidAlgebra R X)))
+    (hS : (finiteExactStructure R (MonoidAlgebra R X)).Conflation S) (x : X) :
+    Function.Injective (weightMap X R S.f x) ∧
+      Function.Surjective (weightMap X R S.g x) ∧
+      Function.Exact (weightMap X R S.f x) (weightMap X R S.g x) := by sorry
+
+theorem weight_finite (E : FGComoduleCat R (MonoidAlgebra R X)) (x : X) :
+    Module.Finite R (Comodule.weightSpace R X E x) := by sorry
+
+theorem weight_free (E : FGComoduleCat R (MonoidAlgebra R X)) [Module.Free R E] (x : X) :
+    Module.Free R (Comodule.weightSpace R X E x) := by sorry
+-- test TauCeti.IntegralComodule.weightMap_zero_test
+example (E F : FGComoduleCat R (MonoidAlgebra R X)) (x : X)
+    (v : Comodule.weightSpace R X E x) : weightMap X R (0 : E ⟶ F) x v = 0 := by sorry
+-- test TauCeti.IntegralComodule.weightMap_identity_test
+example (E : FGComoduleCat R (MonoidAlgebra R X)) (x : X)
+    (v : Comodule.weightSpace R X E x) : weightMap X R (𝟙 E) x v = v := by sorry
+-- test TauCeti.IntegralComodule.weightMap_comp_test
+example (E F H : FGComoduleCat R (MonoidAlgebra R X)) (f : E ⟶ F) (g : F ⟶ H) (x : X) :
+    weightMap X R (f ≫ g) x = (weightMap X R g x).comp (weightMap X R f x) := by sorry
+end WeightExactness
+
+/-- `KTheoryLowDegrees:Z.3/torus-coefficient-basechange`: basis-preserving coefficient identification. -/
+def torusCoefficientBaseChange (k : Type) [Field k] :
+    (k ⊗[ℤ] MonoidAlgebra ℤ X) ≃ₗc[k] MonoidAlgebra k X :=
+  (TauCeti.MonoidAlgebra.scalarTensorBialgEquiv ℤ k (G := X)).toCoalgEquiv
+
+theorem torusCoefficientBaseChange_single (k : Type) [Field k] (a : k) (x : X) (n : ℤ) :
+    torusCoefficientBaseChange X k (a ⊗ₜ[ℤ] MonoidAlgebra.single x n) =
+      MonoidAlgebra.single x (a * (n : k)) := by sorry
+
+def torusBaseChange (k : Type) [Field k] :
+    FGComoduleCat ℤ (MonoidAlgebra ℤ X) ⥤ FGComoduleCat k (MonoidAlgebra k X) :=
+  fieldBaseChange (MonoidAlgebra ℤ X) k ⋙
+    FGComoduleCat.corestrict (torusCoefficientBaseChange X k).toCoalgHom
+
+theorem torusBaseChange_map_tmul (k : Type) [Field k]
+    {E F : FGComoduleCat ℤ (MonoidAlgebra ℤ X)} (f : E ⟶ F) (a : k) (v : E) :
+    ((torusBaseChange X k).map f).hom (a ⊗ₜ[ℤ] v) = a ⊗ₜ[ℤ] f.hom v := by sorry
+
+-- test TauCeti.IntegralComodule.torusCoefficientBaseChange_zero_test
+example (k : Type) [Field k] : torusCoefficientBaseChange X k 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.torusCoefficientBaseChange_value_test
+example (x : X) : torusCoefficientBaseChange X ℚ (2 ⊗ₜ[ℤ] MonoidAlgebra.single x 3) =
+    MonoidAlgebra.single x 6 := by sorry
+-- test TauCeti.IntegralComodule.torusCoefficientBaseChange_distinct_test
+example (p : ℕ) [Fact p.Prime] (x y : X) (hxy : x ≠ y) :
+    torusCoefficientBaseChange X (ZMod p) (1 ⊗ₜ[ℤ] MonoidAlgebra.single x 1) ≠
+      torusCoefficientBaseChange X (ZMod p) (1 ⊗ₜ[ℤ] MonoidAlgebra.single y 1) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/torus-weight-basechange`: tensoring a split weight projection needs no flatness of k. -/
+def weightBaseChange (k : Type) [Field k]
+    (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X) :
+    (k ⊗[ℤ] Comodule.weightSpace ℤ X E x) ≃ₗ[k]
+      Comodule.weightSpace k X ((torusBaseChange X k).obj E) x := by sorry
+
+theorem weightBaseChange_tmul (k : Type) [Field k]
+    (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X) (a : k)
+    (v : Comodule.weightSpace ℤ X E x) :
+    ((weightBaseChange X k E x (a ⊗ₜ[ℤ] v)) : (torusBaseChange X k).obj E) =
+      a ⊗ₜ[ℤ] (v : E) := by sorry
+
+theorem weightBaseChange_natural (k : Type) [Field k]
+    {E F : FGComoduleCat ℤ (MonoidAlgebra ℤ X)} (f : E ⟶ F) (x : X) :
+    (weightBaseChange X k F x).toLinearMap.comp ((weightMap X ℤ f x).baseChange k) =
+      (weightMap X k ((torusBaseChange X k).map f) x).comp
+        (weightBaseChange X k E x).toLinearMap := by sorry
+
+theorem weightBaseChange_finrank (k : Type) [Field k]
+    (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) [Module.Free ℤ E] (x : X) :
+    Module.finrank k (Comodule.weightSpace k X ((torusBaseChange X k).obj E) x) =
+      Module.finrank ℤ (Comodule.weightSpace ℤ X E x) := by sorry
+
+-- test TauCeti.IntegralComodule.weightBaseChange_zero_test
+example (k : Type) [Field k] (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X) :
+    weightBaseChange X k E x 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.weightBaseChange_inclusion_test
+example (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X)
+    (v : Comodule.weightSpace ℤ X E x) :
+    ((weightBaseChange X ℚ E x (1 ⊗ₜ[ℤ] v)) : (torusBaseChange X ℚ).obj E) =
+      1 ⊗ₜ[ℤ] (v : E) := by sorry
+-- test TauCeti.IntegralComodule.weightBaseChange_rank_one_test
+example (p : ℕ) [Fact p.Prime] (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X))
+    [Module.Free ℤ E] (x : X) (h : Module.finrank ℤ (Comodule.weightSpace ℤ X E x) = 1) :
+    Module.finrank (ZMod p)
+      (Comodule.weightSpace (ZMod p) X ((torusBaseChange X (ZMod p)).obj E) x) = 1 := by sorry
+
+section Characters
+variable (k : Type) [Field k]
+
+/-- `KTheoryLowDegrees:Z.3/torus-formal-character`: native weight dimensions, with finite support. -/
+def torusObjectCharacter (E : FGComoduleCat k (MonoidAlgebra k X)) : MonoidAlgebra ℤ X := by
+  sorry
+
+theorem torusObjectCharacter_coeff (E : FGComoduleCat k (MonoidAlgebra k X)) (x : X) :
+    (torusObjectCharacter X k E).coeff x =
+      (Module.finrank k (Comodule.weightSpace k X E x) : ℤ) := by sorry
+
+theorem torusObjectCharacter_exact (S : ShortComplex (FGComoduleCat k (MonoidAlgebra k X)))
+    (hS : (finiteExactStructure k (MonoidAlgebra k X)).Conflation S) :
+    torusObjectCharacter X k S.X₂ =
+      torusObjectCharacter X k S.X₁ + torusObjectCharacter X k S.X₃ := by sorry
+
+def torusCharacter : G0 k (MonoidAlgebra k X) →+ MonoidAlgebra ℤ X := by sorry
+
+theorem torusCharacter_gcls (E : FGComoduleCat k (MonoidAlgebra k X)) :
+    torusCharacter X k (gcls k (MonoidAlgebra k X) E) = torusObjectCharacter X k E := by sorry
+
+theorem torusCharacter_unique (f : G0 k (MonoidAlgebra k X) →+ MonoidAlgebra ℤ X)
+    (hf : ∀ E, f (gcls k (MonoidAlgebra k X) E) = torusObjectCharacter X k E) :
+    f = torusCharacter X k := by sorry
+
+/-- One-dimensional weight x, constructed by the coaction a ↦ a ⊗ [x]. -/
+def weightLine (x : X) : FGComoduleCat k (MonoidAlgebra k X) := by sorry
+
+def weightLineUnderlying (x : X) : weightLine X k x ≃ₗ[k] k := by sorry
+
+theorem weightLine_coact (x : X) (v : weightLine X k x) :
+    Comodule.coact (R := k) (C := MonoidAlgebra k X) v =
+      v ⊗ₜ[k] MonoidAlgebra.single x 1 := by sorry
+
+theorem torusCharacter_weightLine (x : X) :
+    torusCharacter X k (gcls k (MonoidAlgebra k X) (weightLine X k x)) =
+      MonoidAlgebra.single x 1 := by sorry
+
+theorem torusCharacter_bijective : Function.Bijective (torusCharacter X k) := by sorry
+end Characters
+
+def latticeObjectCharacter (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) : MonoidAlgebra ℤ X := by
+  sorry
+
+theorem latticeObjectCharacter_coeff (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) (x : X) :
+    (latticeObjectCharacter X E).coeff x =
+      (Module.finrank ℤ (Comodule.weightSpace ℤ X E.obj x) : ℤ) := by sorry
+
+def latticeCharacter : R0 ℤ (MonoidAlgebra ℤ X) →+ MonoidAlgebra ℤ X := by sorry
+
+theorem latticeCharacter_rcls (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) :
+    latticeCharacter X (rcls ℤ (MonoidAlgebra ℤ X) E) = latticeObjectCharacter X E := by sorry
+
+theorem latticeCharacter_unique (f : R0 ℤ (MonoidAlgebra ℤ X) →+ MonoidAlgebra ℤ X)
+    (hf : ∀ E, f (rcls ℤ (MonoidAlgebra ℤ X) E) = latticeObjectCharacter X E) :
+    f = latticeCharacter X := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/torus-character-basechange`. -/
+theorem torusCharacter_baseChange (k : Type) [Field k]
+    (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) :
+    torusCharacter X k (gcls k (MonoidAlgebra k X) ((torusBaseChange X k).obj E.obj)) =
+      latticeObjectCharacter X E := by sorry
+
+-- test TauCeti.IntegralComodule.torusCharacter_zero_test
+example (k : Type) [Field k] : torusCharacter X k 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_weight_test
+example (k : Type) [Field k] (x : X) :
+    torusObjectCharacter X k (weightLine X k x) = MonoidAlgebra.single x 1 := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_integer_test
+example (p : ℕ) [Fact p.Prime] (x : X) :
+    torusCharacter X (ZMod p) (p • gcls (ZMod p) (MonoidAlgebra (ZMod p) X)
+      (weightLine X (ZMod p) x)) = MonoidAlgebra.single x (p : ℤ) ∧
+    MonoidAlgebra.single x (p : ℤ) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_formal_test
+example (p : ℕ) [Fact p.Prime] (x y : X) (hxy : x ≠ y) :
+    torusObjectCharacter X (ZMod p) (weightLine X (ZMod p) x) ≠
+      torusObjectCharacter X (ZMod p) (weightLine X (ZMod p) y) := by sorry
+-- test TauCeti.IntegralComodule.latticeCharacter_zero_test
+example : latticeCharacter X 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.latticeCharacter_reduction_test
+example (p : ℕ) [Fact p.Prime] (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) :
+    torusObjectCharacter X ℚ ((torusBaseChange X ℚ).obj E.obj) =
+      torusObjectCharacter X (ZMod p) ((torusBaseChange X (ZMod p)).obj E.obj) := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_point_collision_test
+example : MonoidAlgebra.single (Multiplicative.ofAdd (0 : ℤ)) (1 : ℤ) ≠
+    MonoidAlgebra.single (Multiplicative.ofAdd (1 : ℤ)) (1 : ℤ) ∧
+    ∀ u : (ZMod 2)ˣ, (u : ZMod 2) ^ (0 : ℕ) = (u : ZMod 2) ^ (1 : ℕ) := by sorry
+
+section Restriction
+variable (C : Type) [AddCommGroup C] [Module ℤ C] [Coalgebra ℤ C] [Module.Free ℤ C]
+variable (r : C →ₗc[ℤ] MonoidAlgebra ℤ X)
+
+/-- `KTheoryLowDegrees:Z.3/restriction-formal-character`: base change of r followed by the coefficient comparison. -/
+def torusRestrictionCoefficient (r : C →ₗc[ℤ] MonoidAlgebra ℤ X) (k : Type) [Field k] :
+    (k ⊗[ℤ] C) →ₗc[k] MonoidAlgebra k X := by sorry
+
+theorem torusRestrictionCoefficient_tmul (k : Type) [Field k] (a : k) (c : C) :
+    torusRestrictionCoefficient X C r k (a ⊗ₜ[ℤ] c) =
+      torusCoefficientBaseChange X k (a ⊗ₜ[ℤ] r c) := by sorry
+
+def torusRestriction (k : Type) [Field k] :
+    FGComoduleCat k (k ⊗[ℤ] C) ⥤ FGComoduleCat k (MonoidAlgebra k X) :=
+  FGComoduleCat.corestrict (torusRestrictionCoefficient X C r k)
+
+instance (k : Type) [Field k] : (torusRestriction X C r k).Additive := by sorry
+
+theorem torusRestriction_exact (k : Type) [Field k] :
+    (finiteExactStructure k (k ⊗[ℤ] C)).IsConflationExact
+      (finiteExactStructure k (MonoidAlgebra k X)) (torusRestriction X C r k) := by sorry
+
+def restrictedCharacter (k : Type) [Field k] :
+    G0 k (k ⊗[ℤ] C) →+ MonoidAlgebra ℤ X :=
+  (torusCharacter X k).comp
+    (ExactK0.map (torusRestriction X C r k) (torusRestriction_exact X C r k))
+
+theorem restrictedCharacter_gcls (k : Type) [Field k] (E : FGComoduleCat k (k ⊗[ℤ] C)) :
+    restrictedCharacter X C r k (gcls k (k ⊗[ℤ] C) E) =
+      torusObjectCharacter X k ((torusRestriction X C r k).obj E) := by sorry
+
+theorem restrictedCharacter_unique (k : Type) [Field k]
+    (f : G0 k (k ⊗[ℤ] C) →+ MonoidAlgebra ℤ X)
+    (hf : ∀ E, f (gcls k (k ⊗[ℤ] C) E) =
+      torusObjectCharacter X k ((torusRestriction X C r k).obj E)) :
+    f = restrictedCharacter X C r k := by sorry
+
+def restrictionBaseChange (k : Type) [Field k] (E : FGComoduleCat ℤ C) :
+    (torusRestriction X C r k).obj ((fieldBaseChange C k).obj E) ≅
+      (torusBaseChange X k).obj ((FGComoduleCat.corestrict r).obj E) := by sorry
+
+theorem restrictionBaseChange_hom_tmul (k : Type) [Field k]
+    (E : FGComoduleCat ℤ C) (a : k) (v : E) :
+    (restrictionBaseChange X C r k E).hom.hom (a ⊗ₜ[ℤ] v) = a ⊗ₜ[ℤ] v := by sorry
+
+-- test TauCeti.IntegralComodule.restrictedCharacter_zero_test
+example (k : Type) [Field k] : restrictedCharacter X C r k 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.restrictedCharacter_add_test
+example (k : Type) [Field k] (a b : G0 k (k ⊗[ℤ] C)) :
+    restrictedCharacter X C r k (a + b) =
+      restrictedCharacter X C r k a + restrictedCharacter X C r k b := by sorry
+-- test TauCeti.IntegralComodule.restrictedCharacter_weight_test
+example (k : Type) [Field k] (x : X) (E : FGComoduleCat k (k ⊗[ℤ] C))
+    (e : (torusRestriction X C r k).obj E ≅ weightLine X k x) :
+    restrictedCharacter X C r k (gcls k (k ⊗[ℤ] C) E) = MonoidAlgebra.single x 1 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/decomposition-character-compatibility`: Serre's identity in the INTEGRAL group algebra. -/
+theorem character_decomposition (p : ℕ) [Fact p.Prime] :
+    (restrictedCharacter X C r (ZMod p)).comp (decomposition C p) =
+      restrictedCharacter X C r ℚ := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/decomposition-isomorphism-from-characters`: both field maps have the same image. -/
+theorem decomposition_bijective_of_characters (p : ℕ) [Fact p.Prime]
+    (hQ : Function.Injective (restrictedCharacter X C r ℚ))
+    (hp : Function.Injective (restrictedCharacter X C r (ZMod p)))
+    (himage : Set.range (restrictedCharacter X C r ℚ) =
+      Set.range (restrictedCharacter X C r (ZMod p))) :
+    Function.Bijective (decomposition C p) := by sorry
+
+theorem genericFibre_bijective_of_characters
+    (hQ : Function.Injective (restrictedCharacter X C r ℚ))
+    (hp : ∀ (p : ℕ) [Fact p.Prime], Function.Injective (restrictedCharacter X C r (ZMod p)))
+    (himage : ∀ (p : ℕ) [Fact p.Prime], Set.range (restrictedCharacter X C r ℚ) =
+      Set.range (restrictedCharacter X C r (ZMod p))) :
+    Function.Bijective (genericFibre C) := by sorry
+end Restriction
+end TauCeti.IntegralComodule
+
+
+/-! ### Products of GL factors: coefficient models and diagonal restriction
+
+All indexing uses the existing `ofGL.CharLattice Ns`; there is no replacement lattice.
+Single-factor coordinate base change and diagonal restriction are pinned library inputs.
+These comparisons hold for arbitrary commutative base rings, including nonflat extensions.
+They do not prove freeness of the integral coordinate module or classify simple comodules.
+-/
+namespace TauCeti.RepresentationRing
+open TauCeti.GeneralLinear
+open scoped TensorProduct
+
+variable (R : Type) [CommRing R]
+
+-- API for the promoted existing definition `KTheoryLowDegrees:Z.3/gl-product-coordinate-algebra`.
+theorem glCoordinate_nil : glCoordinate R [] = CommHopfAlgCat.of R R := by sorry
+theorem glCoordinate_cons (n : ℕ) (Ns : List ℕ) :
+    glCoordinate R (n :: Ns) =
+      CommHopfAlgCat.of R (coordinateHopfAlgebra R n ⊗[R] glCoordinate R Ns) := by sorry
+def glCoordinate_singleton (n : ℕ) :
+    glCoordinate R [n] ≃ₐc[R] coordinateHopfAlgebra R n :=
+  _root_.Bialgebra.TensorProduct.rid R R (coordinateHopfAlgebra R n)
+
+-- test TauCeti.RepresentationRing.glCoordinate_empty_test
+example : (2 : glCoordinate ℤ []) * 3 = 6 := by sorry
+-- test TauCeti.RepresentationRing.glCoordinate_zero_rank_test
+example : Nonempty (glCoordinate R [0] ≃ₐc[R] R) := by sorry
+-- test TauCeti.RepresentationRing.glCoordinate_singleton_test
+example (n : ℕ) (x : coordinateHopfAlgebra R n) :
+    glCoordinate_singleton R n (x ⊗ₜ[R] (1 : R)) = x := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-factor-inclusion`: the specified tensor factor, with units in every
+other slot; recursion uses the native bialgebra tensor inclusions. -/
+def glFactor (Ns : List ℕ) (i : Fin Ns.length) :
+    coordinateHopfAlgebra R (Ns.get i) →ₐc[R] glCoordinate R Ns := by sorry
+
+theorem glFactor_head (n : ℕ) (Ns : List ℕ) (x : coordinateHopfAlgebra R n) :
+    glFactor R (n :: Ns) ⟨0, by simp⟩ x = x ⊗ₜ[R] (1 : glCoordinate R Ns) := by sorry
+theorem glFactor_tail (n : ℕ) (Ns : List ℕ) (i : Fin Ns.length)
+    (x : coordinateHopfAlgebra R (Ns.get i)) :
+    glFactor R (n :: Ns) i.succ x =
+      (1 : coordinateHopfAlgebra R n) ⊗ₜ[R] glFactor R Ns i x := by sorry
+theorem glFactor_injective (Ns : List ℕ) (i : Fin Ns.length) :
+    Function.Injective (glFactor R Ns i) := by sorry
+
+-- test TauCeti.RepresentationRing.glFactor_singleton_test
+example (n : ℕ) (x : coordinateHopfAlgebra R n) :
+    glCoordinate_singleton R n (glFactor R [n] ⟨0, by simp⟩ x) = x := by sorry
+-- test TauCeti.RepresentationRing.glFactor_scalar_test
+example : glFactor ℤ [1, 1] ⟨1, by decide⟩ (3 : coordinateHopfAlgebra ℤ 1) = 3 := by sorry
+-- test TauCeti.RepresentationRing.glFactor_distinct_test
+example : glFactor ℤ [1, 1] ⟨0, by decide⟩ (genericMatrix ℤ 1 0 0) ≠
+    glFactor ℤ [1, 1] ⟨1, by decide⟩ (genericMatrix ℤ 1 0 0) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-coordinate-ext`: generic entries in all factors determine an algebra map.
+The inverse determinant images are forced by invertibility; zero-rank factors add no entries. -/
+theorem glCoordinate_algHom_ext (Ns : List ℕ) (A : Type) [CommRing A] [Algebra R A]
+    (f g : glCoordinate R Ns →ₐ[R] A)
+    (h : ∀ (i : Fin Ns.length) (a b : Fin (Ns.get i)),
+      f (glFactor R Ns i (genericMatrix R (Ns.get i) a b)) =
+      g (glFactor R Ns i (genericMatrix R (Ns.get i) a b))) : f = g := by sorry
+
+variable (K : Type) [CommRing K] [Algebra R K]
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-coefficient-basechange`: distribute base change over the recursive tensor
+product, then use the native single-factor equivalence. -/
+def glCoefficientBaseChange (Ns : List ℕ) :
+    (K ⊗[R] glCoordinate R Ns) ≃ₐc[K] glCoordinate K Ns := by sorry
+
+theorem glCoefficientBaseChange_nil (a : K) (r : R) :
+    glCoefficientBaseChange R K [] (a ⊗ₜ[R] r) = a * algebraMap R K r := by sorry
+theorem glCoefficientBaseChange_cons (n : ℕ) (Ns : List ℕ) (a : K)
+    (x : coordinateHopfAlgebra R n) (y : glCoordinate R Ns) :
+    glCoefficientBaseChange R K (n :: Ns) (a ⊗ₜ[R] (x ⊗ₜ[R] y)) =
+      coordinateHopfAlgebraBaseChangeBialgEquiv R K n (a ⊗ₜ[R] x) ⊗ₜ[K]
+        glCoefficientBaseChange R K Ns (1 ⊗ₜ[R] y) := by sorry
+theorem glCoefficientBaseChange_symm_cons (n : ℕ) (Ns : List ℕ) (a b : K)
+    (x : coordinateHopfAlgebra R n) (y : glCoordinate R Ns) :
+    (glCoefficientBaseChange R K (n :: Ns)).symm
+      (coordinateHopfAlgebraBaseChangeBialgEquiv R K n (a ⊗ₜ[R] x) ⊗ₜ[K]
+        glCoefficientBaseChange R K Ns (b ⊗ₜ[R] y)) =
+      (a * b) ⊗ₜ[R] (x ⊗ₜ[R] y) := by sorry
+
+-- test TauCeti.RepresentationRing.glCoefficientBaseChange_empty_test
+example : glCoefficientBaseChange ℤ ℚ [] (2 ⊗ₜ[ℤ] (3 : ℤ)) = 6 := by sorry
+-- test TauCeti.RepresentationRing.glCoefficientBaseChange_nonflat_test
+example (Ns : List ℕ) (x : glCoordinate ℤ Ns) :
+    letI : Module ℤ (glCoordinate ℤ Ns) := Algebra.toModule
+    glCoefficientBaseChange ℤ (ZMod 2) Ns ((1 : ZMod 2) ⊗ₜ[ℤ] (2 * x)) = 0 := by sorry
+-- test TauCeti.RepresentationRing.glCoefficientBaseChange_two_factors_test
+example (x : coordinateHopfAlgebra ℤ 1) (y : glCoordinate ℤ [1]) :
+    letI : Module ℤ ℚ := Algebra.toModule
+    letI : Module ℤ (coordinateHopfAlgebra ℤ 1) := Algebra.toModule
+    letI : Module ℤ (glCoordinate ℤ [1]) := Algebra.toModule
+    letI : Module ℤ (glCoordinate ℤ [1, 1]) := Algebra.toModule
+    (glCoefficientBaseChange ℤ ℚ [1, 1]).symm
+      (coordinateHopfAlgebraBaseChangeBialgEquiv ℤ ℚ 1 ((2 : ℚ) ⊗ₜ[ℤ] x) ⊗ₜ[ℚ]
+        glCoefficientBaseChange ℤ ℚ [1] ((3 : ℚ) ⊗ₜ[ℤ] y)) =
+      (6 : ℚ) ⊗ₜ[ℤ] (show glCoordinate ℤ [1, 1] from x ⊗ₜ[ℤ] y) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-basechange-factor`: the factor compatibility consumed by the restriction
+square is a separate node, not an unrecorded API premise. -/
+theorem glCoefficientBaseChange_factor (Ns : List ℕ) (i : Fin Ns.length)
+    (a : K) (x : coordinateHopfAlgebra R (Ns.get i)) :
+    glCoefficientBaseChange R K Ns (a ⊗ₜ[R] glFactor R Ns i x) =
+      glFactor K Ns i
+        (coordinateHopfAlgebraBaseChangeBialgEquiv R K (Ns.get i) (a ⊗ₜ[R] x)) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-diagonal-restriction`: the tensor-product diagonal map, with the character
+of factor i embedded into the existing sigma-indexed character lattice. -/
+def glDiagonal (Ns : List ℕ) :
+    glCoordinate R Ns →ₐc[R] MonoidAlgebra R (Multiplicative (ofGL.CharLattice Ns)) := by sorry
+
+theorem glDiagonal_nil (r : R) :
+    glDiagonal R [] r = MonoidAlgebra.single 1 r := by sorry
+theorem glDiagonal_counit (Ns : List ℕ) (x : glCoordinate R Ns) :
+    Coalgebra.counit (R := R) (glDiagonal R Ns x) =
+      Coalgebra.counit (R := R) x := by sorry
+theorem glDiagonal_det_inv (Ns : List ℕ) (i : Fin Ns.length) :
+    glDiagonal R Ns
+      (glFactor R Ns i ((genericMatrix R (Ns.get i))⁻¹).det) =
+      MonoidAlgebra.single
+        (Multiplicative.ofAdd (-∑ a : Fin (Ns.get i), Finsupp.single ⟨i, a⟩ 1)) 1 := by sorry
+
+-- test TauCeti.RepresentationRing.glDiagonal_empty_test
+example : glDiagonal ℤ [] 3 = MonoidAlgebra.single 1 3 := by sorry
+-- test TauCeti.RepresentationRing.glDiagonal_off_diagonal_test
+example : glDiagonal ℤ [2]
+    (glFactor ℤ [2] ⟨0, by decide⟩ (genericMatrix ℤ 2 0 1)) = 0 := by sorry
+-- test TauCeti.RepresentationRing.glDiagonal_factor_distinction_test
+example : glDiagonal ℤ [1, 1]
+    (glFactor ℤ [1, 1] ⟨0, by decide⟩ (genericMatrix ℤ 1 0 0)) ≠
+      glDiagonal ℤ [1, 1]
+        (glFactor ℤ [1, 1] ⟨1, by decide⟩ (genericMatrix ℤ 1 0 0)) := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-diagonal-entry`: this generator formula is consumed by the base-change
+square, so it has its own declaration node. -/
+theorem glDiagonal_factor_entry (Ns : List ℕ) (i : Fin Ns.length) (a b : Fin (Ns.get i)) :
+    glDiagonal R Ns (glFactor R Ns i (genericMatrix R (Ns.get i) a b)) =
+      if a = b then
+        MonoidAlgebra.single (Multiplicative.ofAdd (Finsupp.single ⟨i, a⟩ 1)) 1
+      else 0 := by sorry
+
+/-- `KTheoryLowDegrees:Z.3/gl-product-restriction-basechange`: the coefficient square in Serre §3.7, now for the
+actual GL-product and torus models. The equality is of bialgebra morphisms. -/
+theorem glDiagonal_baseChange (Ns : List ℕ) :
+    (glDiagonal K Ns).comp (glCoefficientBaseChange R K Ns).toBialgHom =
+      (TauCeti.MonoidAlgebra.scalarTensorBialgEquiv R K
+        (G := Multiplicative (ofGL.CharLattice Ns))).toBialgHom.comp
+          (_root_.Bialgebra.TensorProduct.map (_root_.BialgHom.id K K)
+            (glDiagonal R Ns)) := by sorry
+
+end TauCeti.RepresentationRing
+
+/- Current BS17 determinant addition. Full current file not compiled; the native scalar excerpt
+was checked separately. Missing geometry/spectra are omitted, never opaque Prop substitutes. -/
+
+/- This excerpt contains only native scalar/component signatures. It is not a
+Picard groupoid or a spectrum implementation. Bodies are canonical admissions. -/
+namespace TauCeti.GradedDeterminant
+universe u v
+variable (R : Type u) [CommRing R]
+/-- Native signature for KTheoryLowDegrees:Z.3/koszul-sign. -/
+def koszulSign (a b : ℤ) : Rˣ := by sorry
+
+-- API TauCeti.GradedDeterminant.koszul_sign_zero_left
+theorem koszul_sign_zero_left (b : ℤ) : koszulSign R 0 b = 1 := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_zero_right
+theorem koszul_sign_zero_right (a : ℤ) : koszulSign R a 0 = 1 := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_comm
+theorem koszul_sign_comm (a b : ℤ) : koszulSign R a b = koszulSign R b a := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_add_left
+theorem koszul_sign_add_left (a b c : ℤ) :
+    koszulSign R (a+b) c = koszulSign R a c * koszulSign R b c := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_add_right
+theorem koszul_sign_add_right (a b c : ℤ) :
+    koszulSign R a (b+c) = koszulSign R a b * koszulSign R a c := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_base_change
+theorem koszul_sign_base_change {S : Type v} [CommRing S] (f : R →+* S) (a b : ℤ) :
+    Units.map f.toMonoidHom (koszulSign R a b) = koszulSign S a b := by sorry
+
+-- test TauCeti.GradedDeterminant.koszul_sign_odd
+example : koszulSign ℤ 1 1 = (-1 : ℤˣ) := by sorry
+-- test TauCeti.GradedDeterminant.koszul_sign_zero
+example : koszulSign ℤ 0 (-3) = 1 := by sorry
+-- test TauCeti.GradedDeterminant.koszul_sign_negative
+example : koszulSign ℤ (-1) 1 = (-1 : ℤˣ) := by sorry
+-- test TauCeti.GradedDeterminant.koszul_sign_char_two
+example : koszulSign (ZMod 2) 1 1 = 1 := by sorry
+
+/-- Partial finite-free check for projective-block-swap; not its full projective signature. -/
+theorem exchange_two_lines_det :
+    Matrix.det (fun (i j : Fin 2) => if i = j then (0 : R) else 1) = (-1 : R) := by sorry
+
+/-- Native component-data carrier only, NOT a groupoid: it deliberately retains no automorphisms. -/
+abbrev AffineComponentData := CommRing.Pic R × LocallyConstant (PrimeSpectrum R) ℤ
+end TauCeti.GradedDeterminant
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-groupoid [omitted]
+Target: Pic^Z(X) has objects (L,f), L an invertible O_X-module and f:X→ℤ locally constant. A morphism (L,f)→(M,g) consists of equality f=g and an O_X-linear isomorphism L≅M. Composition is composition of sheaf isomorphisms with transported grade equality. It is a groupoid, not the set Pic(X)×H⁰(X,ℤ).
+Required prerequisites: tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree, mathlib:CategoryTheory.Core, mathlib:LocallyConstant
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_groupoid_mk [constructor]: Construct (L,f) from an invertible sheaf and a locally constant grade.
+API TauCeti.GradedDeterminant.graded_line_groupoid_line [projection]: The underlying line of (L,f) is L.
+API TauCeti.GradedDeterminant.graded_line_groupoid_grade [projection]: The grade of (L,f) is f.
+API TauCeti.GradedDeterminant.graded_line_groupoid_hom [characterisation]: Hom((L,f),(M,g)) is empty unless f=g, and then is Isom(L,M).
+API TauCeti.GradedDeterminant.graded_line_groupoid_iso_ext [extensionality]: Two morphisms agree exactly when their sheaf isomorphisms agree after the unique grade transport.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_point [example]: Over Spec ℚ, (O,1) is a graded line.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_empty [degenerate]: Over the empty scheme the groupoid is contractible.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_unequal [non-example]: Over Spec ℚ there is no isomorphism (O,0)≅(O,1).
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_automorphism [compatibility]: Aut((O,0)) over Spec ℚ is ℚˣ, not the trivial group.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-tensor [omitted]
+Target: Define (L,f)⊗(M,g)=(L⊗M,f+g), with unit (O_X,0), ordinary line-bundle associator and unit constraints. The braiding is ε(f,g) times the ordinary swap.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-groupoid, KTheoryLowDegrees:Z.3/koszul-sign, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree, mathlib:CategoryTheory.SymmetricCategory
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_tensor_object [characterisation]: The tensor object is (L⊗M,f+g).
+API TauCeti.GradedDeterminant.graded_line_tensor_unit [constructor]: The unit is (O_X,0).
+API TauCeti.GradedDeterminant.graded_line_tensor_hom [functoriality]: Tensor isomorphisms tensor their underlying sheaf maps.
+API TauCeti.GradedDeterminant.graded_line_tensor_braiding [data]: On local pure tensors, β(l⊗m)=ε(f,g)m⊗l.
+API TauCeti.GradedDeterminant.graded_line_tensor_symmetry [compatibility]: β_{B,A}β_{A,B}=id.
+API TauCeti.GradedDeterminant.graded_line_tensor_pullback [compatibility]: Pullback commutes with the tensor object and signed braiding.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_odd_swap [non-example]: On (O,1)⊗(O,1) over Spec ℚ, self-braiding is −id.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_zero_grade [compatibility]: In grade zero the ordinary line-bundle tensor and braiding are recovered.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_unit_test [degenerate]: Tensoring with (O,0) preserves the object and unit constraint.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_mixed [example]: Grades 1 and 2 exchange with sign +1.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-inverse [omitted]
+Target: The inverse of (L,f) is (L^∨,−f). Evaluation and coevaluation identify its tensor product with (O_X,0), with order-specific signed symmetry retained. Thus Pic^Z(X) is a Picard groupoid.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_inverse_object [characterisation]: inv(L,f)=(L^∨,−f).
+API TauCeti.GradedDeterminant.graded_line_inverse_eval [equivalence]: (L,f)⊗inv(L,f)≅(O,0).
+API TauCeti.GradedDeterminant.graded_line_inverse_double_dual [compatibility]: inv(inv(L,f))≅(L,f).
+API TauCeti.GradedDeterminant.graded_line_inverse_grade [projection]: grade(inv A)=−grade A.
+API TauCeti.GradedDeterminant.graded_line_inverse_pullback [functoriality]: Pullback of the inverse is canonically the inverse of the pullback.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_odd [example]: The inverse of (O,1) has grade −1.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_zero [degenerate]: The unit is its own inverse.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_wrong_grade [non-example]: (O,1)⊗(O,1) cannot be isomorphic to the unit over Spec ℚ.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_affine [compatibility]: In grade zero affine duality agrees with Module.Invertible and CommRing.Pic inverse.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-pullback [omitted]
+Target: For a scheme morphism h:Y→X, pullback sends (L,f) to (h*L,f∘h), defines a symmetric monoidal functor Pic^Z(X)→Pic^Z(Y), and has coherent identity and composition isomorphisms.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/graded-line-inverse, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_pullback_object [characterisation]: h*(L,f)=(h*L,f∘h).
+API TauCeti.GradedDeterminant.graded_line_pullback_id [simp]: Identity pullback is naturally isomorphic to identity.
+API TauCeti.GradedDeterminant.graded_line_pullback_comp [functoriality]: (h∘g)*≅g*∘h* coherently.
+API TauCeti.GradedDeterminant.graded_line_pullback_tensor [compatibility]: h*(A⊗B)≅h*A⊗h*B.
+API TauCeti.GradedDeterminant.graded_line_pullback_braiding [compatibility]: The pullback constraint intertwines both signed braidings.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_point [example]: Pullback to a point evaluates the grade at that point.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_empty [degenerate]: Pullback to the empty scheme yields its unique object.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_product [non-example]: On Spec(ℚ×ℚ), grades (0,1) remain distinct; there is no single global integer rank.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_affine [compatibility]: On affine grade-zero classes, pullback agrees with CommRing.Pic.mapRingHom.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-components [omitted]
+Target: There is a natural abelian-group isomorphism π₀Pic^Z(X)≅Pic(X)×H⁰(X_et,ℤ), sending [(L,f)] to ([L],f); here H⁰ denotes locally constant functions, with its additive operation. This is not an equivalence of groupoids.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-inverse, KTheoryLowDegrees:Z.3/graded-line-pullback, StableHomotopyKTheory:H.4
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-automorphisms [omitted]
+Target: For any (L,f), scalar multiplication identifies Aut((L,f))≅Γ(X,O_X)ˣ, naturally under pullback. In the connective spectrum of Pic^Z, π₁ is this unit group and π_i=0 for i>1.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-groupoid, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree, StableHomotopyKTheory:H.5:spectra, StableHomotopyKTheory:H.4
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-fibre [omitted]
+Target: The inclusion L↦(L,0) and grade projection give a fibre sequence of connective spectra Pic(X)→Pic^Z(X)→H⁰(X_et,ℤ), and as X varies a fibre sequence of étale sheaves. The last term is the discrete connective spectrum.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/graded-line-components, KTheoryLowDegrees:Z.3/graded-line-automorphisms, StableHomotopyKTheory:H.5:spectra, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/forget-grade [omitted]
+Target: The functor η:Pic^Z(X)→Pic(X), (L,f)↦L, preserves tensor with ordinary monoidal constraints and retracts the grade-zero inclusion. It is generally not symmetric monoidal. It splits the fibre sequence as spaces and E₁-spaces; no splitting of spectra is claimed.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/graded-line-fibre
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.forget_grade_object [projection]: η(L,f)=L.
+API TauCeti.GradedDeterminant.forget_grade_tensor [compatibility]: η(A⊗B)≅ηA⊗ηB.
+API TauCeti.GradedDeterminant.forget_grade_unit [simp]: η(O,0)=O.
+API TauCeti.GradedDeterminant.forget_grade_retract [compatibility]: η composed with grade-zero inclusion is identity.
+API TauCeti.GradedDeterminant.forget_grade_space_split [equivalence]: The underlying E₁-space decomposes as Pic(X)×H⁰(X,ℤ).
+TEST TauCeti.GradedDeterminant.forget_grade_even [example]: On grade-zero objects η preserves the braiding.
+TEST TauCeti.GradedDeterminant.forget_grade_odd [non-example]: On (O,1) over Spec ℚ it sends self-braiding to −id, not ordinary +id.
+TEST TauCeti.GradedDeterminant.forget_grade_char_two [compatibility]: The odd sign obstruction vanishes over Spec 𝔽₂; this does not imply a general symmetric retraction.
+TEST TauCeti.GradedDeterminant.forget_grade_empty [degenerate]: Over the empty scheme forgetting grade is the unique functor.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-self-braiding [omitted]
+Target: For A=(L,f), β_{A,A} is scalar multiplication by (−1)^f on L⊗L. In BS17 Definition 12.1, “strict” means β_{A,A}=id for every A, not that the associator and unitors are identity. Pic^Z(Spec ℚ) fails this property.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/koszul-sign
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/projective-block-swap [partial]
+Target: For finite projectives P,Q over R, with locally constant ranks r,s, the determinant of the swap P⊕Q≅Q⊕P, transported through the ordered determinant sum isomorphisms, is (−1)^{rs} times ordinary line swap.
+Required prerequisites: KTheoryLowDegrees:Z.3/determinant-sum, KTheoryLowDegrees:Z.3/determinant-base-change, KTheoryLowDegrees:Z.3/koszul-sign, mathlib:Matrix.det
+Reason: Only the rank-one free block-swap matrix is native; the arbitrary projective graded comparison is absent.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/projective-graded-det [omitted]
+Target: On the maximal subgroupoid of finite projective R-modules with direct sum, Det^Z(P)=(det_R P,rk P), and isomorphisms act by their top exterior powers componentwise. This is a natural symmetric monoidal functor to Pic^Z(Spec R).
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/projective-block-swap, KTheoryLowDegrees:Z.3/determinant-projective, KTheoryLowDegrees:Z.3/determinant-sum, KTheoryLowDegrees:Z.2/rank-hom, mathlib:CategoryTheory.Core
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.projective_graded_det_object [characterisation]: Det^Z(P)=(det P,rk P).
+API TauCeti.GradedDeterminant.projective_graded_det_map [functoriality]: Det^Z(u) is the induced top-exterior isomorphism.
+API TauCeti.GradedDeterminant.projective_graded_det_zero [simp]: Det^Z(0)≅(R,0).
+API TauCeti.GradedDeterminant.projective_graded_det_sum [compatibility]: Det^Z(P⊕Q)≅Det^Z(P)⊗Det^Z(Q).
+API TauCeti.GradedDeterminant.projective_graded_det_symmetry [compatibility]: The direct-sum swap maps to signed Picard braiding.
+API TauCeti.GradedDeterminant.projective_graded_det_base_change [functoriality]: The functor commutes coherently with scalar extension.
+TEST TauCeti.GradedDeterminant.projective_graded_det_line [example]: Det^Z(R)=(R,1).
+TEST TauCeti.GradedDeterminant.projective_graded_det_zero_test [degenerate]: Det^Z(0)=(R,0).
+TEST TauCeti.GradedDeterminant.projective_graded_det_swap [non-example]: Over ℤ, swapping two free rank-one summands maps to −1.
+TEST TauCeti.GradedDeterminant.projective_graded_det_product [compatibility]: For R=F×F and P=e₁R, the grade is (1,0), agreeing with companion rank.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/ring-spectrum-det [omitted]
+Target: The graded determinant induces a natural connective-spectrum map Det_R:K(R)→Pic^Z(Spec R). Here K(R) is group completion of the nerve of the finite-projective isomorphism groupoid under direct sum, identified with the agreed algebraic K model.
+Required prerequisites: KTheoryLowDegrees:Z.3/projective-graded-det, KTheoryLowDegrees:Z.3/graded-line-inverse, StableHomotopyKTheory:H.4, StableHomotopyKTheory:H.5:spectra, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.ring_spectrum_det_object [compatibility]: [P] maps to (det P,rk P).
+API TauCeti.GradedDeterminant.ring_spectrum_det_natural [functoriality]: Scalar-extension K maps commute with graded determinant.
+API TauCeti.GradedDeterminant.ring_spectrum_det_sum [compatibility]: The map preserves coherently the direct-sum group law.
+API TauCeti.GradedDeterminant.ring_spectrum_det_pi_zero [compatibility]: On π₀ it is the existing rank and determinant pair.
+API TauCeti.GradedDeterminant.ring_spectrum_det_pi_one [compatibility]: On automorphism loops it is the determinant in Rˣ; arbitrary SK₁ may remain.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_field [compatibility]: Over a field, π₀ is rank and π₁ is the usual determinant.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_negative [example]: −[R] has grade −1 and the dual determinant line.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_zero [degenerate]: The zero-ring K-spectrum and Pic^Z are contractible.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_not_ordinary_pic [non-example]: [R] over ℚ cannot map into the grade-zero Pic inclusion because its grade is one.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/determinant-truncation [omitted]
+Target: Since Pic^Z is 1-truncated, Det_R factors canonically through τ≤1K(R). The factor is unique in the homotopy-coherent mapping space; this does not make K(R) itself 1-truncated.
+Required prerequisites: KTheoryLowDegrees:Z.3/ring-spectrum-det, KTheoryLowDegrees:Z.3/graded-line-automorphisms, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/local-det-equivalence [omitted]
+Target: For a nonzero commutative local ring R, Det_R induces isomorphisms on π₀ and π₁: K₀(R)≅ℤ and K₁(R)≅Rˣ. Consequently τ≤1K(R)→Pic^Z(Spec R) is an equivalence.
+Required prerequisites: KTheoryLowDegrees:Z.3/determinant-truncation, KTheoryLowDegrees:Z.3/graded-line-components, KTheoryLowDegrees:Z.3/graded-line-automorphisms, KTheoryLowDegrees:Z.2, KTheoryLowDegrees:U.3, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/zariski-sheafified-det [omitted]
+Target: On affine schemes, Det:τ≤1K→Pic^Z is an equivalence after Zariski sheafification as presheaves of groupoids. It need not be an objectwise equivalence before sheafification.
+Required prerequisites: KTheoryLowDegrees:Z.3/local-det-equivalence, KTheoryLowDegrees:Z.3/graded-line-pullback, SchemeAndStackFoundations:SF.1, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/scheme-spectrum-det [omitted]
+Target: For each qcqs scheme X there is a natural connective-spectrum map Det_X:K(Perf X)→Pic^Z(X), whose affine restriction is ring-spectrum-det under the perfect/projective K comparison.
+Required prerequisites: KTheoryLowDegrees:Z.3/ring-spectrum-det, KTheoryLowDegrees:Z.3/zariski-sheafified-det, SchemeKTheoryOperations:S.1, SchemeKTheoryOperations:S.2, GeneralAlgebraicKTheory:K.4:construction, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_affine [compatibility]: On Spec R the map agrees with Det_R under the specified affine comparison.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_object [compatibility]: A vector bundle maps to (det E,rk E).
+API TauCeti.GradedDeterminant.scheme_spectrum_det_pullback [functoriality]: Derived pullback commutes coherently with Det_X.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_shift [compatibility]: Det(C[1])≅Det(C) inverse.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_triangle [compatibility]: Every distinguished triangle induces Det(C)≅Det(C′)⊗Det(C″) coherently.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_line [example]: An invertible sheaf in degree zero maps to itself with grade one.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_zero [degenerate]: The zero complex maps to (O,0).
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_shift_test [compatibility]: O[1] has grade −1 and determinant O.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_nonseparated [non-example]: On the doubled plane do not replace Perf K by vector-bundle K; the Cartan groups differ.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/determinant-triangle [omitted]
+Target: A distinguished triangle C′→C→C″→C′[1] in Perf(X) supplies a natural isomorphism Det(C)≅Det(C′)⊗Det(C″), compatible with maps of triangles and the octahedral refinement.
+Required prerequisites: KTheoryLowDegrees:Z.6/scheme-spectrum-det, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/bounded-complex-det [omitted]
+Target: For a bounded complex P• of finite projectives or vector bundles, Det(P•) identifies with the ordered tensor of det(P^i)^{(−1)^i} and grade Σ_i(−1)^i rk(P^i). This identifies the π₀ map with the existing Euler-class map.
+Required prerequisites: KTheoryLowDegrees:Z.6/determinant-triangle, KTheoryLowDegrees:Z.3/graded-line-inverse, KTheoryLowDegrees:Z.6/perfect-complex-euler-class
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/graded-det-pi-zero [omitted]
+Target: On π₀, scheme-spectrum-det recovers rank and the existing vector-bundle determinant. Forgetting the integer grade at the level of component groups recovers det:K₀→Pic; this group homomorphism does not imply a symmetric-monoidal factorization through ordinary Pic.
+Required prerequisites: KTheoryLowDegrees:Z.6/scheme-spectrum-det, KTheoryLowDegrees:Z.6/bounded-complex-det, KTheoryLowDegrees:Z.5/vector-bundle-determinant, KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-pic-v-descent [omitted]
+Target: On qcqs perfect F_p-schemes, X↦Pic^Z(X) is a v-stack. The grades form a v-sheaf; ordinary line bundles and their isomorphisms satisfy effective v-descent.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-fibre, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-supported-input [omitted]
+Target: For a qcqs perfect F_p-scheme X use the support category Perf(W(X) on X) of W(O_X)-perfect complexes acyclic after p is inverted. Its K-theory is K(W(X) on X). Import this category and its K-theory from S.1/S.3; the determinant-specific datum is the natural map α_X:K(X)→K(W(X) on X) induced by restriction of scalars along W(O_X)→O_X.
+Required prerequisites: SchemeKTheoryOperations:S.1, SchemeKTheoryOperations:S.3, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.witt_supported_input_support [characterisation]: Every input C has C[1/p]≃0.
+API TauCeti.GradedDeterminant.witt_supported_input_alpha [constructor]: α_X is induced by O_X-perfect restriction to W(O_X).
+API TauCeti.GradedDeterminant.witt_supported_input_object [compatibility]: α sends C to the same supported restriction-of-scalars complex.
+API TauCeti.GradedDeterminant.witt_supported_input_natural [functoriality]: α is natural in perfect-scheme pullback through the specified derived comparison.
+API TauCeti.GradedDeterminant.witt_supported_input_zero [simp]: α sends the zero object and K basepoint to zero.
+TEST TauCeti.GradedDeterminant.witt_supported_input_field [example]: Over a perfect field k, k is represented by W(k) --p→ W(k).
+TEST TauCeti.GradedDeterminant.witt_supported_input_zero_test [degenerate]: The zero complex satisfies the support condition.
+TEST TauCeti.GradedDeterminant.witt_supported_input_unsupported [non-example]: W(k) in degree zero is excluded, since it remains nonzero after p inversion.
+TEST TauCeti.GradedDeterminant.witt_supported_input_filtration [compatibility]: W(k)/p² has two k graded pieces in its p-adic filtration.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison [omitted]
+Target: For R the perfection of a regular noetherian F_p-algebra R₀, α_Spec R is an equivalence K(R)≃K(W(R) on R). The smooth affine case suffices for the alteration descent proving Theorem 5.7.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-input, SchemeKTheoryOperations:S.3, GeneralAlgebraicKTheory:K.3
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/v-sheafified-first-k [omitted]
+Target: On the perfect F_p v-site, both τ≤1K(X)→Pic^Z(X) and τ≤1K(X)→τ≤1K(W(X) on X) become equivalences after v-sheafification.
+Required prerequisites: KTheoryLowDegrees:Z.3/zariski-sheafified-det, KTheoryLowDegrees:Z.3/graded-pic-v-descent, KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison, SchemeAndStackFoundations:SF.1, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-supported-det [omitted]
+Target: For X a qcqs perfect F_p-scheme, construct a natural connective-spectrum map Det~_X:K(W(X) on X)→Pic^Z(X) extending Det_X along α_X.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-input, KTheoryLowDegrees:Z.6/v-sheafified-first-k, KTheoryLowDegrees:Z.6/scheme-spectrum-det, StableHomotopyKTheory:H.5:spectra, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.witt_supported_det_extension [compatibility]: Det~_X∘α_X≃Det_X coherently.
+API TauCeti.GradedDeterminant.witt_supported_det_pullback [functoriality]: Perfect-scheme pullback commutes with Det~.
+API TauCeti.GradedDeterminant.witt_supported_det_additivity [compatibility]: Supported distinguished triangles give tensor determinant isomorphisms.
+API TauCeti.GradedDeterminant.witt_supported_det_zero [simp]: The zero supported complex has determinant (O,0).
+API TauCeti.GradedDeterminant.witt_supported_det_unique [universal-property]: The space of natural extending maps with extension compatibility is contractible.
+TEST TauCeti.GradedDeterminant.witt_supported_det_residue [compatibility]: The supported residue module k maps to (k,1).
+TEST TauCeti.GradedDeterminant.witt_supported_det_length_two [example]: Over a perfect field, W(k)/p² maps to (k,2) up to the canonical filtration identification.
+TEST TauCeti.GradedDeterminant.witt_supported_det_zero_test [degenerate]: The zero supported object maps to the tensor unit.
+TEST TauCeti.GradedDeterminant.witt_supported_det_unsupported [non-example]: No value on W(k)[1/p] is supplied by this supported determinant construction.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-det-uniqueness [omitted]
+Target: The space of natural Det~ extending the ordinary determinant along α, including the specified extension homotopy, is contractible. This is stronger than equality of induced π₀ maps.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-det, KTheoryLowDegrees:Z.6/v-sheafified-first-k, StableHomotopyKTheory:H.5:spectra, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-filtration-det [omitted]
+Target: If a supported perfect complex has a finite filtration with graded pieces from Perf(X) and specified cofiber triangles, Det~ identifies coherently with the ordered product of their ordinary graded determinants. It is independent of the chosen filtration through the supported K additivity comparison.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-det, KTheoryLowDegrees:Z.6/witt-det-uniqueness, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/finite-length-det-trivial [omitted]
+Target: Let k be a perfect field, Q a finite-length W(k)-module, and X a qcqs perfect k-scheme. For a finite exhaustive filtration of Q_X=Q⊗_{W(k)}W(O_X) whose graded pieces are finite projective O_X-modules, the ordinary line ⊗_i det(gr_i Q_X) is trivial. Its graded determinant has grade length_{W(k)}Q, which need not be zero.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-filtration-det, KTheoryLowDegrees:Z.3/forget-grade, KTheoryLowDegrees:Z.6/witt-supported-det
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.4/index-ideal-localisation [omitted]
+Target: For a prime 𝔭 of a commutative ring R, finite projective N, and a linear f:L→N, the ideal generated by 𝔠(f) in R_𝔭 equals the evaluation image ideal 𝔠(f_𝔭).
+Required prerequisites: KTheoryLowDegrees:Z.4/index-ideal, KTheoryLowDegrees:Z.3/projective-dual-base-change, mathlib:Ideal.map_span
+Reason: The localised evaluation-image comparison requires the specified tensor/dual/range transports; no surrogate equality of unrelated carriers is supplied.
+API Module.Invertible.indexIdeal_localisation [compatibility]: Transport the ideal generated by 𝔠(f) along R→R_𝔭 to the evaluation image 𝔠(f_𝔭), using finite projective N and its dual-base-change isomorphism.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.5/curve-ample-line-bundle [omitted]
+Target: A noetherian separated scheme X of dimension ≤1 admits an ample invertible sheaf.
+Required prerequisites: mathlib:AlgebraicGeometry.IsNoetherian, mathlib:AlgebraicGeometry.IsSeparated
+Reason: The invertible-sheaf ampleness carrier is not imported in this suggested file.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.5/point-ideal-sheaf [omitted]
+Target: Under the regular-curve package, O(−y)→O_X is the ideal sheaf of the reduced closed codimension-one point y. Its stalk at y is m_y and at every z≠y is O_{X,z}.
+Required prerequisites: tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.sheaf, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.sheafHomOfLE, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.unitIsoSheafZero, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.isLocallyPrincipal_of_forall_coheight_le_one, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toInvertibleSheaf, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toLineBundleClass, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toLineBundleClass_add, tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toLineBundleClass_zero, tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.ofPoint
+Reason: The complete ideal-sheaf stalk identification requires the missing sheaf stalk comparison interface.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.5/point-skyscraper-exact-sequence [omitted]
+Target: Under the regular-curve package, 0→O(−y)→O_X→O_y→0 is short exact, where O_y is the cokernel sheaf and identifies with i_{y,*}k(y).
+Required prerequisites: KTheoryLowDegrees:Z.5/point-ideal-sheaf, tauceti:TauCeti.AbelianK0.of_shortExact
+Reason: Only the ideal inclusion monomorphism and cokernel carrier are native; the short-exact and skyscraper stalk comparison are omitted.
+-/
+
+
+/-! Independent-review tests of the separated abstract λ contracts. -/
+namespace TauCeti.LambdaRing
+open TauCeti.PreLambdaRing
+-- Additional generic identity check; the packet's concrete id_test follows.
+example (K : Type*) [CommRing K] [PreLambdaRing K] (n : ℕ) (x : K) :
+    (Hom.id K).toRingHom (lambda n x) = lambda n ((Hom.id K).toRingHom x) := rfl
+-- test TauCeti.PreLambdaRing.Hom.id_test (compatibility)
+example : (Hom.id ℤ).toRingHom (lambda 2 (3 : ℤ)) = 3 := by sorry
+-- test TauCeti.PreLambdaRing.Hom.comp_test (degenerate, zero rings included)
+example (K : Type*) [CommRing K] [PreLambdaRing K] : Hom.comp (Hom.id K) (Hom.id K) = Hom.id K := by sorry
+-- test TauCeti.PreLambdaRing.Hom.different_structures_test (non-example)
+example : ¬ ∃ f : @Hom ℤ ℤ _ (ofBinomialRing ℤ) _ cubicPreLambda,
+    f.toRingHom = RingHom.id ℤ := by sorry
+-- test TauCeti.LambdaRing.lambdaIdeal_bot_test (degenerate)
+example (K : Type*) [CommRing K] [PreLambdaRing K] : IsLambdaIdeal (⊥ : Ideal K) := by sorry
+-- test TauCeti.LambdaRing.lambdaIdeal_top_test (degenerate)
+example (K : Type*) [CommRing K] [PreLambdaRing K] : IsLambdaIdeal (⊤ : Ideal K) := by sorry
+-- test TauCeti.LambdaRing.lambdaIdeal_two_test (non-example)
+example : ¬ IsLambdaIdeal (Ideal.span {(2 : ℤ)}) := by sorry
+-- test TauCeti.LambdaRing.quotient_bot_test (compatibility)
+example (K : Type*) [CommRing K] [PreLambdaRing K] (n : ℕ) (x : K) :
+    letI : IsLambdaIdeal (⊥ : Ideal K) := by sorry
+    lambda n (Ideal.Quotient.mk (⊥ : Ideal K) x) = Ideal.Quotient.mk (⊥ : Ideal K) (lambda n x) := by sorry
+-- test TauCeti.LambdaRing.quotient_top_test (degenerate)
+example (K : Type*) [CommRing K] [PreLambdaRing K] : Subsingleton (K ⧸ (⊤ : Ideal K)) := by sorry
+-- test TauCeti.LambdaRing.quotient_two_not_test (non-example)
+example : Ideal.Quotient.mk (Ideal.span {(2 : ℤ)}) (lambda 2 (2 : ℤ)) ≠
+    Ideal.Quotient.mk (Ideal.span {(2 : ℤ)}) (lambda 2 (0 : ℤ)) := by sorry
+-- test TauCeti.LambdaRing.lineElement_zero_test (degenerate)
+example (K : Type*) [CommRing K] [PreLambdaRing K] : IsLineElement (0 : K) := by sorry
+-- test TauCeti.LambdaRing.lineElement_one_test (example)
+example : IsLineElement (1 : ℤ) := by sorry
+-- test TauCeti.LambdaRing.lineElement_two_test (non-example)
+example : ¬ IsLineElement (2 : ℤ) := by sorry
+-- test TauCeti.LambdaRing.compPoly_rank_four_test (compatibility)
+example : MvPolynomial.aeval (fun i : Fin 4 => (![4,6,4,1] : Fin 4 → ℤ) i) (compPoly 2 2) = 15 := by sorry
+-- test TauCeti.LambdaRing.newtonPoly_one_test (degenerate)
+example : newtonPoly 1 = MvPolynomial.X 0 := by sorry
+-- test TauCeti.LambdaRing.newtonPoly_three_test (computation)
+example : newtonPoly 3 = MvPolynomial.X 0 ^ 3 - 3 * MvPolynomial.X 0 * MvPolynomial.X 1 + 3 * MvPolynomial.X 2 := by sorry
+end TauCeti.LambdaRing
+
+end

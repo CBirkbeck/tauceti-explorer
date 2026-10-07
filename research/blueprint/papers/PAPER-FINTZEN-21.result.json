@@ -1547,7 +1547,7 @@
       "id": "PAPER-FINTZEN-21/E4",
       "kind": "misprint",
       "locator": "arXiv:1810.04198v2, Corollary 5.2 proof, p.20, first sentence and final quotient calculation; no claim about the journal version",
-      "printed": "depth r_j; (H_j)_{x,r_i−ε,d+}; (h_j)_{x,r_ji+}",
+      "printed": "The source specifies depth r_j and writes (H_j)_{x,r_i−ε,d+} and (h_j)_{x,r_ji+}.",
       "correction": "The generic element has depth −r_j; the numerator index is r_j−ε, and the final Lie denominator is (h_j)_{x,r_j+}.",
       "reason": "Definition 4.1 and the invocation of Lemma 5.1 use depth −r_j. Corollary 5.2’s hypothesis on p.19 has numerator r_j−ε and denominator r_j+. The index i is not bound in the last sentence and r_ji is undefined; the correction agrees with the adjacent group quotient and the stated conclusion.",
       "affects": "nothing",

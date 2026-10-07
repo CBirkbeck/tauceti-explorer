@@ -241,7 +241,6 @@
         {
           "sourceId": "BO",
           "locator": "§1 dimension convention; COU §3 p491",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -280,7 +279,6 @@
         {
           "sourceId": "COU",
           "locator": "§3, printed p491, bounded polynomial dimension",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -319,7 +317,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 pp491,493",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -405,7 +402,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -490,7 +486,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -527,7 +522,6 @@
         {
           "sourceId": "COU",
           "locator": "§3, printed p493, monomial coefficient metric",
-          "excerpt": "orthonormal basis",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -614,7 +608,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491; BO §2",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -700,7 +693,6 @@
         {
           "sourceId": "BO",
           "locator": "COU §3 p491; BO §2 Prop2.1",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -738,7 +730,6 @@
         {
           "sourceId": "COU",
           "locator": "§3, printed p491, distinct-point squared ideal decomposition",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -776,7 +767,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -863,7 +853,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -948,7 +937,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -987,7 +975,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1071,7 +1058,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1153,7 +1139,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1236,7 +1221,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1276,7 +1260,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1362,7 +1345,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1402,7 +1384,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1487,7 +1468,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1525,7 +1505,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.1 pp12–13",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1610,7 +1589,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.1 p13",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1649,7 +1627,6 @@
         {
           "sourceId": "BO",
           "locator": "§4 pp7–8",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1688,7 +1665,6 @@
         {
           "sourceId": "BO",
           "locator": "§4 Theorem4.1; §6 Theorem6.4",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1727,7 +1703,6 @@
         {
           "sourceId": "BO",
           "locator": "§4 Theorem4.1",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1768,7 +1743,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.1; §1 critical counts",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1808,7 +1782,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.1 pp12–13",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1847,7 +1820,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.1",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1888,7 +1860,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 pp14–18",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1927,7 +1898,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4, cases after Step3, printed pp17–19",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1965,7 +1935,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 computer bases; §6 final quartic base",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2003,7 +1972,6 @@
         {
           "sourceId": "BO",
           "locator": "§3 p6",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2042,7 +2010,6 @@
         {
           "sourceId": "BO",
           "locator": "§2 Proposition2.1",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2080,7 +2047,6 @@
         {
           "sourceId": "BO",
           "locator": "§2 Lemma2.2, printed pp3–4",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2119,7 +2085,6 @@
         {
           "sourceId": "BO",
           "locator": "§2 Lemma2.3 p5 and Theorem2.4 p6",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2157,7 +2122,6 @@
         {
           "sourceId": "BO",
           "locator": "§2 Theorem2.4 proof, printed p6",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2195,7 +2159,6 @@
         {
           "sourceId": "BO",
           "locator": "§2 Theorem2.4 proof, printed p6; authored sextic certificate replacement",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2236,7 +2199,6 @@
         {
           "sourceId": "BO",
           "locator": "§2 Theorem2.4",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2277,7 +2239,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Proposition5.2 pp9–10",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2316,7 +2277,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Proposition5.2",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2354,7 +2314,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Proposition5.3 p10, corrected P⁷ base",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2393,7 +2352,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Proposition5.3",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2431,7 +2389,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Proposition5.4 pp10–11",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2470,7 +2427,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Proposition5.4",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2508,7 +2464,6 @@
         {
           "sourceId": "BO",
           "locator": "§§2–5; §6 final induction",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2547,7 +2502,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Theorem5.1 pp8–12",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2586,7 +2540,6 @@
         {
           "sourceId": "BO",
           "locator": "§5 Theorem5.1; §3 exceptional cubic",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2627,7 +2580,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 p19 final quartic base",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2666,7 +2618,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 p19",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2708,7 +2659,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 p19 final induction",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2748,7 +2698,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.3(i), printed pp15–16",
-          "excerpt": "Then we have",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2785,7 +2734,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.3(ii), printed pp15–16",
-          "excerpt": "Then we have",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2822,7 +2770,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Lemma6.3(iii), printed pp15–16",
-          "excerpt": "Then we have",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2859,7 +2806,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 hypotheses",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2899,7 +2845,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 Step1 pp16–17",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2938,7 +2883,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 Step2",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2977,7 +2921,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 Step2",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3016,7 +2959,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 Step3",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3055,7 +2997,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4, moving families in the first and second cases, printed pp17–18",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3140,7 +3081,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 first case p18",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3180,7 +3120,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 first case p18",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3222,7 +3161,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 first case",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3266,7 +3204,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 second case p18",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3307,7 +3244,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4 second case pp18–19",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3347,7 +3283,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 Theorem6.4",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3388,7 +3323,6 @@
         {
           "sourceId": "BO",
           "locator": "§1 univariate remark p1; §7.1 opening paragraph p19",
-          "excerpt": "double points",
           "match": "The source gives the arbitrary-distinct univariate dimension assertion; the packet supplies its explicit field-valued CRT/Hermite proof. Only the opening paragraph of §7.1 is used, not the subsequent Waring classification."
         }
       ],
@@ -3431,7 +3365,6 @@
         {
           "sourceId": "BO",
           "locator": "§6 p19 final induction",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3473,7 +3406,6 @@
         {
           "sourceId": "BO",
           "locator": "§1 Theorem1.1 and §6 conclusion",
-          "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3515,7 +3447,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491; BO1.1",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3554,7 +3485,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 pp491–492",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3640,7 +3570,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3678,7 +3607,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 pp491–492",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3719,7 +3647,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3757,7 +3684,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491; BO1.1",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3800,7 +3726,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 pp491–492",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3842,7 +3767,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p492",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3880,7 +3804,6 @@
         {
           "sourceId": "COU",
           "locator": "COU §3 p491 genericity condition; authored counterexample",
-          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -4104,7 +4027,7 @@
       "source": "BO",
       "kind": "misprint",
       "locator": "arXiv v2 Proposition5.3 proof p10; also official-author journal-layout PDF, printed p1237, r=7 base case",
-      "printed": "three general points on P5",
+      "printed": "The source chooses three points in general position on P5.",
       "correction": "Use three general ambient points on P⁷ in the r=7 base. The two codimension3 spaces and five points on each are already in P⁷.",
       "reason": "The proposition and surrounding r=7 containing-form system are in P⁷; P⁵ belongs to the preceding r=5 case. The independent r=7 matrix here uses eight homogeneous coordinates and has full rank120.",
       "affects": "nothing",
@@ -4126,7 +4049,7 @@
       "source": "BO",
       "kind": "error",
       "locator": "Proposition5.3 statement, arXiv v2 p10 and official-author journal-layout PDF p1236: literal quantification over L,M",
-      "printed": "subspaces of codimension three",
+      "printed": "The source specifies subspaces having codimension three.",
       "correction": "State that the pair L,M is general (or satisfies the general-position hypotheses actually used in the proof). This is a clarification of the intended generic theorem, not a counterexample to Alexander–Hirschowitz.",
       "reason": "The literal arbitrary-pair reading permits L=M=P² in P⁵, with six distinct general supports on this plane and three general ambient supports. Homogeneous cubics in I_L² form a28-dimensional space: normal-degree2 contributes6·3=18 monomials, normal-degree3 contributes10. They are singular along L. The three ambient singularities impose at most18 linear derivative conditions, leaving dimension at least10, so the printed no-cubic conclusion fails for that pair. The proof dimension36 for I_(L∪M)(3) also assumes the generic pair.",
       "affects": "a stated result",

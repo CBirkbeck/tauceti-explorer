@@ -857,7 +857,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Construction 1.3.1.6, p. 81; Example 1.3.1.8, p. 82",
-          "excerpt": "Construction 1.3.1.6",
           "match": "Explicit formula, all three simplicial-operator cases and low simplices read directly."
         }
       ],
@@ -957,7 +956,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Remarks 1.3.1.5 and 1.3.1.11, pp. 81, 83",
-          "excerpt": "Remarks 1.3.1.5 and 1.3.1.11",
           "match": "The inherited ID is retained for this single theorem; its former mapping-space and nerve-comparison clauses are separate nodes."
         }
       ],
@@ -1005,7 +1003,6 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Higher Topos Theory, Chapter 1.2.9 and Chapter 4.1-4.2, printed pp. 43 and 223 onwards",
-          "excerpt": "an infinity-category is a simplicial set satisfying the weak Kan condition",
           "match": "The ambient development. The specific constructions of joins, slices and (co)limits were NOT read in this session; Chapter 4 of Higher Topos Theory is recorded as unread in the gaps, and this node states what the layer owns rather than quoting a theorem."
         }
       ],
@@ -1115,7 +1112,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Definition 1.1.1.9 and Theorem 1.1.2.14, printed pp. 19 and 27",
-          "excerpt": "An infinity-category C is stable if it satisfies the following conditions: (1) There exists a zero object. (2) Every morphism admits a fiber and a cofiber. (3) A triangle is a fiber sequence if and only if it is a cofiber sequence. ... the translation functor and the class of distinguished triangles endow hC with the structure of a triangulated category.",
           "match": "Inherited HA 1.1 source lead. Its elementary stable theory must be decomposed in E0; the pinned sign comparison is a separate obligation."
         }
       ],
@@ -1161,7 +1157,6 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Higher Topos Theory, Chapter 3, printed pp. 111 onwards",
-          "excerpt": "the straightening and unstraightening functors",
           "match": "The general theorem, whose restricted instances this layer owns. Chapter 3 of Higher Topos Theory was NOT read in this session; the node states the obligation as the stage text does and quotes no theorem."
         }
       ],
@@ -1205,7 +1200,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Definition 1.3.2.1 and Remark 1.3.2.2, p. 88",
-          "excerpt": "Definition 1.3.2.1 and Remark 1.3.2.2",
           "match": "Read for the Hom differential and DG composition; the pinned-composition comparison is this node’s new obligation."
         }
       ],
@@ -1270,7 +1264,6 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Higher Topos Theory, Section 5.5.1, printed p. 453",
-          "excerpt": "an infinity-category C is presentable if and only if it arises as an (accessible) localization of an infinity-category of presheaves",
           "match": "The ambient presentability the transfinite construction produces. The K-injective and K-flat existence statements themselves are NOT in Higher Topos Theory or Higher Algebra as read; the pinned `CochainComplex.IsKInjective` and the bounded-below replacements are what exists, and the unbounded statement is this layer's obligation, as AUDIT-22 records."
         }
       ],
@@ -1322,7 +1315,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Remark 1.3.1.12 and Construction 1.3.1.6, printed pp. 81-83",
-          "excerpt": "Remark 1.3.1.12 yields an isomorphism of simplicial sets Hom^R_{N_dg(C)}(X,Y) = DK(tau_{>=0} Map_C(X,Y)).",
           "match": "How the mapping spaces of the enhancement are computed, from Higher Algebra read in this session. The identification of the homotopy category with the ORDINARY derived category is the comparison the stage text demands, and the pinned `DerivedCategory.isIso_iff` and `isIso_Q_map_iff_quasiIso` are what it is made against."
         }
       ],
@@ -1440,13 +1432,11 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Definition 5.5.0.1 and Theorem 5.5.1.1, printed p. 453",
-          "excerpt": "An infinity-category C is presentable if C is accessible and admits small colimits. ... an infinity-category C is presentable if and only if it arises as an (accessible) localization of an infinity-category of presheaves.",
           "match": "The presentability notion and Simpson's characterisation, from Higher Topos Theory read in this session; the accessible localisation at quasi-isomorphisms is the instance this node needs."
         },
         {
           "sourceId": "Lurie-HTT",
           "locator": "Proposition 5.3.5.10, printed p. 406",
-          "excerpt": "composition with the Yoneda embedding induces an equivalence of infinity-categories Map^kappa(Ind_kappa(C),D) -> Fun(C,D)",
           "match": "The extension property that transfers the tensor product from the K-flat model to the enhancement."
         }
       ],
@@ -1557,7 +1547,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.1.1, p. 16",
-          "excerpt": "Definition 3.1.1",
           "match": "Sequential, not arbitrary cofiltered, closure of epimorphisms."
         }
       ],
@@ -1649,7 +1638,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.1.9, p. 17",
-          "excerpt": "Proposition 3.1.9",
           "match": "The inherited ID is retained only for product exactness; the derived inverse-limit claim is separate."
         }
       ],
@@ -1685,7 +1673,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.3, p. 19",
-          "excerpt": "Proposition 3.3.3",
           "match": "Both unit and counit are handled by separate lemmas."
         }
       ],
@@ -1723,7 +1710,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.2.3(1), p. 18",
-          "excerpt": "Proposition 3.2.3(1)",
           "match": "The inherited aggregate ID is retained for the repleteness implication alone."
         }
       ],
@@ -1759,7 +1745,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.6, p. 20, notation before proof",
-          "excerpt": "Proposition 3.3.6",
           "match": "Cartesian condition and restrictions. Building the coherent diagram carrier remains an E0/E1 input, not an assumption of the descent theorem."
         }
       ],
@@ -1858,19 +1843,16 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Definition 4.3.2.2, printed p. 271",
-          "excerpt": "Suppose we are given a commutative diagram of infinity-categories where p is an inner fibration and the left vertical map is the inclusion of a full subcategory C_0 inside C. We will say that F is a p-left Kan extension of F_0 at C in C if the induced diagram (C_0)_{/C} extended by C exhibits F(C) as a p-colimit of F_C. We will say that F is a p-left Kan extension of F_0 if it ...",
           "match": "The definition, quoted verbatim from Higher Topos Theory read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
         },
         {
           "sourceId": "Lurie-HTT",
           "locator": "Proposition 4.3.2.15, printed p. 274",
-          "excerpt": "Let K inside Map_{D'}(C,D) be the full subcategory spanned by those functors F : C -> D which are p-left Kan extensions of F restricted to C_0. Let K_0 inside Map_{D'}(C_0,D) be the full subcategory spanned by those functors F_0 with the property that, for each object C in C, the induced diagram (C_0)_{/C} -> D has a p-colimit. Then the restriction functor K -> K_0 is a ...",
           "match": "The existence and uniqueness statement, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
         },
         {
           "sourceId": "Lurie-HTT",
           "locator": "Corollary 4.3.2.16 and the remark after it, printed p. 274",
-          "excerpt": "Then the restriction map i : Map_{D'}(C,D) -> Map_{D'}(C_0,D) admits a section i_! whose essential image consists of precisely those functors F which are p-left Kan extensions of F restricted to C_0. ... We note that Proposition 4.3.2.15 proves not only the existence of i_! but also its uniqueness up to homotopy (the collection of all such functors is parametrized by a contractible Kan complex).",
           "match": "The left Kan extension functor and the form of its uniqueness, quoted verbatim."
         }
       ],
@@ -1922,7 +1904,6 @@
         {
           "sourceId": "LiuZheng-SixOperations",
           "locator": "Section 3.2, Definition 3.2.1, printed p. 85 of the arXiv version",
-          "excerpt": "Let us start by recalling the category of ringed topoi. Definition 3.2.1. Let RingedPTopos be the (2,1)-category of ringed U-topoi in V with enough points. An object of RingedPTopos is a ringed topos (X,O_X) such that X has enough points.",
           "match": "The setup this layer follows, quoted from Liu-Zheng's Enhanced six operations and base change theorem for higher Artin stacks, downloaded from arXiv and read in this session for this statement only. The roadmap cites 'section 2'; in the arXiv version the corresponding material is numbered as above, and the packet records the discrepancy."
         }
       ],
@@ -2037,7 +2018,6 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Definition 5.5.0.1 and the discussion after it, printed p. 453",
-          "excerpt": "An infinity-category C is presentable if C is accessible and admits small colimits. ... This representability criterion has a number of consequences: it implies that C admits (small) limits (Corollary 5.5.2.4) and leads to an infinity-categorical analogue of the adjoint functor theorem (Corollary 5.5.2.9).",
           "match": "The route by which the right adjoint is PRODUCED - through the representability criterion - from Higher Topos Theory read in this session. Corollaries 5.5.2.4 and 5.5.2.9 themselves were located but NOT read."
         }
       ],
@@ -2088,7 +2068,6 @@
         {
           "sourceId": "Lurie-HTT",
           "locator": "Corollary 4.3.2.16 and the remark after it, printed p. 274",
-          "excerpt": "We note that Proposition 4.3.2.15 proves not only the existence of i_! but also its uniqueness up to homotopy (the collection of all such functors is parametrized by a contractible Kan complex).",
           "match": "The uniqueness that makes the coherence statements tractable, from Higher Topos Theory read in this session. The cofinality results of HTT 4.1 and the coCartesian-edge criteria were NOT read; this node states them as the layer's obligations."
         }
       ],
@@ -2185,7 +2164,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Remark 1.3.1.12, p. 83",
-          "excerpt": "Remark 1.3.1.12",
           "match": "Definition used in the explicit dg mapping-space calculation; the general Kan theorem is not proved by this remark."
         }
       ],
@@ -2264,7 +2242,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Proposition 1.3.1.10, p. 82",
-          "excerpt": "Proposition 1.3.1.10",
           "match": "Explicit inner-horn extension read in full."
         }
       ],
@@ -2301,7 +2278,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Remark 1.3.1.12, p. 83",
-          "excerpt": "Remark 1.3.1.12",
           "match": "Source computes the specified right mapping space by normalized chains."
         }
       ],
@@ -2336,7 +2312,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Construction 1.3.1.13 and Remark 1.3.1.14, pp. 83–84",
-          "excerpt": "Construction 1.3.1.13 and Remark 1.3.1.14",
           "match": "Underlying simplicial enrichment; the lax-monoidal coherence proofs are dependencies, not supplied by the plain Dold–Kan equivalence."
         }
       ],
@@ -2417,7 +2392,6 @@
         {
           "sourceId": "Lurie-HA",
           "locator": "Construction 1.3.1.16 and Proposition 1.3.1.17, pp. 84–85",
-          "excerpt": "Construction 1.3.1.16 and Proposition 1.3.1.17",
           "match": "Corrects the inherited identification of N(C_Δ) as an ordinary nerve; the source itself is correct."
         }
       ],
@@ -2450,7 +2424,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.1.2, p. 16",
-          "excerpt": "Lemma 3.1.2",
           "match": "Forgetful functor preserves epimorphisms and creates connected limits."
         }
       ],
@@ -2483,7 +2456,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.1.3, p. 16",
-          "excerpt": "Lemma 3.1.3",
           "match": "Use base change to a covering object."
         }
       ],
@@ -2518,7 +2490,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.1.8, p. 17",
-          "excerpt": "Lemma 3.1.8",
           "match": "Compatible lifts are constructed after an epimorphic sequential base change."
         }
       ],
@@ -2554,7 +2525,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.1.10, p. 17",
-          "excerpt": "Proposition 3.1.10",
           "match": "Exact products and the difference map compute the derived limit."
         }
       ],
@@ -2588,7 +2558,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.1.11, p. 17",
-          "excerpt": "Proposition 3.1.11",
           "match": "Amplitude bound, with no surjective-transition hypothesis."
         }
       ],
@@ -2623,7 +2592,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.3.1, p. 18",
-          "excerpt": "Definition 3.3.1",
           "match": "Use coherent derived systems; do not replace them silently by diagrams in the ordinary homotopy category."
         }
       ],
@@ -2715,7 +2683,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.3.2, p. 18",
-          "excerpt": "Lemma 3.3.2",
           "match": "Mapping-complex calculation read, including the diagram-category fibre sequence."
         }
       ],
@@ -2752,7 +2719,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.3, p. 19, full-faithfulness argument",
-          "excerpt": "Proposition 3.3.3",
           "match": "Use the actual complex and its good truncations."
         }
       ],
@@ -2790,7 +2756,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.3, p. 19, essential-surjectivity argument",
-          "excerpt": "Proposition 3.3.3",
           "match": "Corrected integer indexing; source issue E1 records the printed problem."
         }
       ],
@@ -2822,7 +2787,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.2.1, p. 17",
-          "excerpt": "Definition 3.2.1",
           "match": "Section-lifting condition on an object."
         }
       ],
@@ -2898,7 +2862,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.2.1 and Example 3.2.2, pp. 17–18",
-          "excerpt": "Definition 3.2.1 and Example 3.2.2",
           "match": "Coherence is retained for compact generation; it is stronger than the weakly-contractible covering condition alone."
         }
       ],
@@ -2978,7 +2941,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.2.3(2), p. 18",
-          "excerpt": "Proposition 3.2.3(2)",
           "match": "Exact evaluation on U and coherence give compactness; small family chosen using the topos generator."
         }
       ],
@@ -3013,7 +2975,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.2.3(3), p. 18",
-          "excerpt": "Proposition 3.2.3(3)",
           "match": "Separate space-valued statement, not deduced merely from derived left completeness."
         }
       ],
@@ -3047,7 +3008,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.6 and following notation, p. 20",
-          "excerpt": "Proposition 3.3.6 and following notation",
           "match": "This is the usual hypercover notion used by the proposition; its foundational coskeleton development is not proved there and remains a gap."
         }
       ],
@@ -3121,7 +3081,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.6 proof of (1) and (3), p. 20",
-          "excerpt": "Proposition 3.3.6 proof of (1) and (3)",
           "match": "The source invokes the bounded-below result as known; its proof is not supplied. This is an unresolved theorem obligation, not a closed leaf."
         }
       ],
@@ -3157,7 +3116,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.6(1), p. 20",
-          "excerpt": "Proposition 3.3.6(1)",
           "match": "Bounded-below descent extended along the truncation tower."
         }
       ],
@@ -3191,7 +3149,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.6(2), p. 20",
-          "excerpt": "Proposition 3.3.6(2)",
           "match": "Formal consequence of full faithfulness of f*, once its left adjoint exists."
         }
       ],
@@ -3229,7 +3186,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.6(3), p. 20",
-          "excerpt": "Proposition 3.3.6(3)",
           "match": "Both full faithfulness and essential surjectivity are needed."
         }
       ],
@@ -3267,7 +3223,6 @@
         {
           "sourceId": "Stacks-0D6L",
           "locator": "Tag 0D6L (read 2026-09-26)",
-          "excerpt": "Tag 0D6L (read 2026-09-26)",
           "match": "The cofinal-cover condition allows a second refinement after choosing a local hypercohomology representative."
         }
       ],
@@ -3304,7 +3259,6 @@
         {
           "sourceId": "Stacks-0D6M",
           "locator": "Tag 0D6M (read 2026-09-26)",
-          "excerpt": "Tag 0D6M (read 2026-09-26)",
           "match": "Extracted the explicit stabilization calculation from the proof; max with zero only ensures a natural-number tower index."
         }
       ],
@@ -3341,7 +3295,6 @@
         {
           "sourceId": "Stacks-0D6M",
           "locator": "Tag 0D6M (read 2026-09-26)",
-          "excerpt": "Tag 0D6M (read 2026-09-26)",
           "match": "The local bound may depend on V and total degree; uniformity is across the members of the chosen cofinal covers."
         }
       ],
@@ -3375,7 +3328,6 @@
         {
           "sourceId": "Stacks-0D6N",
           "locator": "Tag 0D6N (read 2026-09-26)",
-          "excerpt": "Tag 0D6N (read 2026-09-26)",
           "match": "The bound concerns negative cohomology sheaves; it need not bound all sheaves of the topos."
         }
       ],
@@ -3409,7 +3361,6 @@
         {
           "sourceId": "Stacks-0D6P",
           "locator": "Tag 0D6P (read 2026-09-26)",
-          "excerpt": "Tag 0D6P (read 2026-09-26)",
           "match": "Site-level criterion. It replaces an unjustified application of the ringed-space tag 0719 to a general site."
         }
       ],
@@ -3446,7 +3397,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.3.7(1), p. 20",
-          "excerpt": "Proposition 3.3.7(1)",
           "match": "Objectwise statement uses exactness and left completeness of D(Ab); no repleteness of X."
         }
       ],
@@ -3485,7 +3435,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.4.1 and the paragraph following it, p. 21",
-          "excerpt": "derived I-complete",
           "match": "The definition quantifies over all slices and all local sections of the ideal."
         }
       ],
@@ -3581,7 +3530,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemmas 3.4.6–8, pp. 21–22; Lemma 3.4.12, pp. 22–23",
-          "excerpt": "derived I-complete",
           "match": "Reads the proof of the finite-generator test, including its localization inputs."
         }
       ],
@@ -3619,7 +3567,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Paragraph after Definition 3.4.1, p. 21; proof of Lemma 3.4.13, p. 23",
-          "excerpt": "homotopy-limits",
           "match": "The source states locality, triangulated closure and homotopy-limit closure; enhanced exactness uses E1."
         }
       ],
@@ -3662,7 +3609,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.4.9, pp. 21–22",
-          "excerpt": "admits a left adjoint",
           "match": "Explicit successive-cofibre construction and its local-to-global proof are read in full."
         }
       ],
@@ -3768,7 +3714,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.4.14 and its proof, p. 23",
-          "excerpt": "abelian Serre subcategory",
           "match": "The proof establishes the explicit closure properties stated here; the printed term “Serre” is not interpreted as Mathlib’s stronger class."
         }
       ],
@@ -3809,7 +3754,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.4.4, p. 21; full proof on p. 23",
-          "excerpt": "derived I-complete",
           "match": "Uses unbounded truncations and repleteness, not a bounded-complex restriction."
         }
       ],
@@ -3851,7 +3795,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.4.2 and Remark 3.4.3, p. 21; Lemma 3.4.13, p. 23; proof of 3.4.2, p. 24",
-          "excerpt": "I-adically separated",
           "match": "The separatedness hypothesis is essential and is not silently removed."
         }
       ],
@@ -3889,7 +3832,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.4.11, p. 22",
-          "excerpt": "there is an adjunction",
           "match": "Only the target L is assumed complete; internal Hom is not replaced by global Hom."
         }
       ],
@@ -3927,7 +3869,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.4.10, p. 22",
-          "excerpt": "completed tensor product",
           "match": "The definition completes the derived tensor; ordinary tensor would give the wrong torsion test."
         }
       ],
@@ -4019,7 +3960,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.4.11, p. 22",
-          "excerpt": "there is an adjunction",
           "match": "The source’s Hom adjunction lifts via the E1 enhanced adjunction; the lift is a prerequisite, not an automatic consequence of homotopy categories."
         }
       ],
@@ -4055,13 +3995,11 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.5.3, p. 24; Lemma 3.5.7, pp. 25–26",
-          "excerpt": "compatible systems",
           "match": "Source ringed-diagram model; enhancement is furnished by E3."
         },
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Proposition 26.2 and proof, p. 162",
-          "excerpt": "equivalence of ∞-categories",
           "match": "Explicit enhanced limit of coefficient categories. The étale condition belongs to L0."
         }
       ],
@@ -4151,13 +4089,11 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.5.7, p. 25",
-          "excerpt": "Pullback under",
           "match": "Reduction is the pullback in the ringed-diagram model."
         },
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Proposition 26.2, p. 162",
-          "excerpt": "equivalence of ∞-categories",
           "match": "Uses the unbounded regular-ideal formulation without Noetherianity."
         }
       ],
@@ -4241,7 +4177,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proof of Lemma 3.5.7, p. 25",
-          "excerpt": "preserves completeness",
           "match": "Pushforward is Rlim, and its completeness follows from homotopy-limit closure."
         }
       ],
@@ -4330,13 +4265,11 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.5.4 and regular-ideal paragraph, p. 25",
-          "excerpt": "unbounded complexes",
           "match": "Reads the bounded-above/noetherian argument and its uniform-amplitude regular-ideal extension."
         },
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Proof of Proposition 26.2, p. 162",
-          "excerpt": "the hypothesis that Λ is noetherian is not necessary",
           "match": "Confirms removal of Noetherianity under the regular-sequence assumption."
         }
       ],
@@ -4379,7 +4312,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.5.5 and proof, p. 25",
-          "excerpt": "unbounded complexes",
           "match": "The regular case uses the perfect quotient directly; devissage supplies all powers."
         }
       ],
@@ -4421,13 +4353,11 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Proposition 3.5.1, p. 24; Lemma 3.5.7(2), p. 25",
-          "excerpt": "derived m-complete",
           "match": "The source’s noetherian formula is used only with the separate regular-sequence comparison."
         },
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Proof of Proposition 26.2, p. 162",
-          "excerpt": "the hypothesis that Λ is noetherian is not necessary",
           "match": "Supports the nonnoetherian regular-sequence extension."
         }
       ],
@@ -4468,7 +4398,6 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Definition 3.5.2, p. 24; Lemma 3.5.6, p. 25",
-          "excerpt": "two notions of completeness coincide",
           "match": "Keeps the completion of the constant sheaf distinct from the constant sheaf of the completed ring."
         }
       ],
@@ -4510,13 +4439,11 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.5.7, pp. 25–26",
-          "excerpt": "unbounded case",
           "match": "Ringed-diagram adjunction and unit/counit proof."
         },
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Proposition 26.2 and proof, p. 162",
-          "excerpt": "equivalence of ∞-categories",
           "match": "Explicit enhancement and the regular nonnoetherian extension."
         }
       ],
@@ -4557,13 +4484,11 @@
         {
           "sourceId": "BhattScholze-Author-20260926",
           "locator": "Lemma 3.4.9, pp. 21–22",
-          "excerpt": "admits a left adjoint",
           "match": "The formula is a formal consequence of the reflector adjunction."
         },
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Proposition 26.2, p. 162",
-          "excerpt": "colimits have to be completed",
           "match": "States the need to complete colimits in the adic sheaf application."
         }
       ],
@@ -4604,7 +4529,6 @@
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Remark 26.3, p. 162",
-          "excerpt": "by induction on n",
           "match": "Explains reduction compatibility via regular sequences and exactness, followed by induction on n; the node makes the necessary linear/coherent structure explicit."
         }
       ],
@@ -4645,7 +4569,6 @@
         {
           "sourceId": "Scholze-Diamonds-v4-E4",
           "locator": "Remark 26.3, p. 162",
-          "excerpt": "by induction on n",
           "match": "Reduction to the mod-I case for natural transformations follows from this complete-object conservativity."
         }
       ],
@@ -5198,7 +5121,7 @@
       "source": "BhattScholze-Author-20260926",
       "kind": "misprint",
       "locator": "Author copy SHA-256 99b418…14c7, Proposition 3.3.3, p. 19, essential-surjectivity paragraph and product display.",
-      "printed": "H^i(K) ≃ H^i(K_i) for each i ∈ N",
+      "printed": "The source asserts H^i(K) ≃ H^i(K_i) for every i ∈ N.",
       "correction": "Treat each cohomological degree m∈ℤ. The tower H^m(K_n) stabilizes for n≥max(0,−m); apply the product-difference/Milnor calculation to its eventual constant tail. Do not identify the full product with the tail by dropping a finite prefix.",
       "reason": "Checking only nonnegative i misses every negative cohomology group. The completion tower of A[1] has nonzero H^(−1). Moreover the displayed equality dropping factors with n<i is not justified: for the constant tower A[−1] and i=1 the omitted first H¹ factor is A, and the projection dropping it is not injective. The corrected argument uses eventual constancy separately in m and m−1 and proves the intended theorem.",
       "affects": "the proof",
@@ -5214,7 +5137,7 @@
       "source": "BhattScholze-Author-20260926",
       "kind": "error",
       "locator": "Author copy SHA-256 99b418…14c7, Proposition 3.3.7(2), p. 20. Published target pages unavailable.",
-      "printed": "D(X) is left-complete.",
+      "printed": "The source asserts left-completeness of D(X).",
       "correction": "For the fixed complex K in the statement, conclude K≃Rlim τ≥−nK under a precise local bound uniform over its negative cohomology sheaves. To conclude that the category is left-complete, require the convergence condition for every complex, and verify reconstruction of compatible towers.",
       "reason": "The printed premise quantifies only the cohomology sheaves of one fixed K. Taking K=0 satisfies it in every topos, whereas Example 3.3.4 in the same author copy gives a topos with a non-left-complete derived category. Stacks 0D6P supplies the correctly quantified site-level object statement. The packet uses that statement and does not infer a category-wide theorem from one K.",
       "affects": "a stated result",

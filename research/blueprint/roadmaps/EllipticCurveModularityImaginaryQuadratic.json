@@ -1,0 +1,370 @@
+{
+  "id": "EllipticCurveModularityImaginaryQuadratic",
+  "title": "Modularity of elliptic curves, Part II: imaginary quadratic fields",
+  "area": "automorphic",
+  "parent": "EllipticCurveModularity",
+  "status": "draft",
+  "summary": "Starting from modularity over ℚ, this roadmap proves the source-scoped Caraiani–Newton results over imaginary CM and imaginary quadratic fields. It develops prescribed-type mod-3 and mod-5 switching, a density theorem for integral equations, explicit Cartan modular curves and their quadratic points, and unrestricted modularity when X₀(15)(F) is finite. Separate owners supply CM lifting, residual-image theory, Q-curve modularity and general Diophantine machinery; exact computation certificates remain explicit inputs.",
+  "readme": "The definitive reader is research/blueprint/readmes/EllipticCurveModularityImaginaryQuadratic.md. The eight layers cover Caraiani–Newton §§6–7 in arXiv:2301.10509v3. The theorem does not assert unconditional modularity over every imaginary quadratic field. Covariant Tate modules have cyclotomic determinant; the automorphic representation is attached to their dual. All implementations are unchecked and every arithmetic computation requires a proof-producing certificate.",
+  "prerequisites": [
+    "ArithmeticGaloisRepresentations",
+    "ArithmeticStatistics",
+    "AutomorphicGaloisRepresentationsPartII",
+    "ComputationalNumberTheory",
+    "CrystallineLocalGlobalCompatibilityCM",
+    "EffectiveDiophantineMethods",
+    "EllipticCurveModularity",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "ModularCurvesPartII",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PadicHodgeTheory",
+    "PotentialAutomorphyInfrastructure",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/ModularCurves"
+  ],
+  "stages": [
+    {
+      "key": "IQ.1",
+      "title": "Modular elliptic curves over number fields",
+      "description": "Define source-normalized modularity using geometric CM or a weight-zero cuspidal GL₂ representation with the dual Tate module. Establish uniqueness, all-prime comparison, full monodromy compatibility, potentially multiplicative ordinarity and transport. Targets: Modular, automorphic_unique, automorphic_all_primes, automorphic_wd, automorphic_potentially_multiplicative_ordinary, modularity_transport.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness",
+        "ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison",
+        "ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+        "PotentialAutomorphyInfrastructure:PA.5/soluble-base-change-and-descent",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    },
+    {
+      "key": "IQ.2",
+      "title": "Prescribed-type mod-3 and mod-5 switching",
+      "description": "Construct the number-field fixed-pairing twist adapter. Specify CM avoidance and local preparation, the independent AKT modularity seed and Hilbert selection. Prove non-CM auxiliary curves with retained Tate places and prescribed ordinary, supersingular or split-multiplicative switching at 5 and 3 and identify local automorphic factors. Targets: symplecticTwist, solvable_preparation, seed_modular, hilbert_local_selection, switch_five, switch_three, auxiliary_local_types.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison",
+        "ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+        "ModularCurvesPartII:R12.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+        "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ"
+      ]
+    },
+    {
+      "key": "IQ.3",
+      "title": "CM modularity and equation density",
+      "description": "Compare elliptic representations with the separate CM potentially Barsotti–Tate lifting contract. Prove CN 6.1 and its quadratic irreducibility corollary. Define the unweighted short-equation norm-height family and prove density-one modularity with the quantitative mod-5 exceptional-image estimate. Targets: elliptic_lifting_data, cm_modularity, quadratic_modularity, shortEquationFamily, density_one.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
+        "ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness",
+        "ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison",
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes",
+        "CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2",
+        "PadicHodgeTheory:R06.5",
+        "PadicHodgeTheory:R06.6",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "mathlib:WeierstrassCurve.Δ",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    },
+    {
+      "key": "IQ.4",
+      "title": "Cartan modular curves and explicit j-maps",
+      "description": "Specify the compactified Cartan/mixed-level adapter, with shared general theory assigned to ModularCurvesPartII. Fix five rational j-functions, cusp and degree conventions, the mixed elliptic quotient B=225A1, its birational maps and saturated rank-one group. Targets: cartanCurve, b3J, b5J, ns3J, ns5J, s3J, B, small_curve_models, mixed_elliptic_model, B_mordell_weil, nonsplit_cartan_conic.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+        "EffectiveDiophantineMethods:ED.3",
+        "EffectiveDiophantineMethods:ED.6",
+        "ModularCurvesPartII:R13.4a",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+        "mathlib:RatFunc.eval",
+        "mathlib:RatFunc.intDegree",
+        "mathlib:RatFunc.mk",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.Affine.Equation",
+        "mathlib:WeierstrassCurve.Affine.Point.mk",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "mathlib:WeierstrassCurve.baseChange",
+        "mathlib:WeierstrassCurve.j",
+        "mathlib:WeierstrassCurve.Δ",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli"
+      ]
+    },
+    {
+      "key": "IQ.5",
+      "title": "Genus-one curves and rational divisor classes",
+      "description": "Identify X₀(15) and X(s3,b5), their quadratic torsion growth and the Gaussian exceptional comparison. Build the weighted genus-one model of X(ns3°,b5), its Jacobian and local obstruction. Prove the rational-divisor-class obstruction, classify quadratic points and deduce modularity. Targets: E15, Es35, level_fifteen_models, quadratic_level_fifteen_torsion, gaussianExceptional, gaussian_exceptional_modular, ns3b5Quartic, genus_one_model, genusOneSpecialPoints, genus_one_jacobian, genus_one_rational_picard, genus_one_quadratic_points, genus_one_points_modular.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:R01.5",
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "ComputationalNumberTheory:CN.5",
+        "EffectiveDiophantineMethods:ED.3",
+        "EffectiveDiophantineMethods:ED.6",
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.4",
+        "ModularCurvesPartII:R13.4a",
+        "mathlib:Polynomial.X",
+        "mathlib:Polynomial.eval",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.Affine.Equation",
+        "mathlib:WeierstrassCurve.Affine.Point.mk",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "mathlib:WeierstrassCurve.baseChange",
+        "mathlib:WeierstrassCurve.j",
+        "mathlib:WeierstrassCurve.Δ",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "key": "IQ.6",
+      "title": "Genus-two curves and exceptional points",
+      "description": "Identify the genus-two sextic for X(b3,ns5), its Fricke action and finite twenty-element Jacobian. Use the canonical/noncanonical degree-two divisor dichotomy to classify imaginary quadratic points. Verify the ℚ(√−11) exceptional equation, full mod-5 image and modularity. Targets: b3ns5Sextic, genus_two_model, genus_two_jacobian, genus_two_divisor_dichotomy, genus_two_quadratic_points, elevenExceptional, eleven_exceptional_modular, genus_two_points_modular.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+        "EffectiveDiophantineMethods:ED.3",
+        "EffectiveDiophantineMethods:ED.6",
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.3",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.4",
+        "ModularCurvesPartII:R13.4a",
+        "mathlib:Polynomial.X",
+        "mathlib:Polynomial.eval",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "mathlib:WeierstrassCurve.baseChange",
+        "mathlib:WeierstrassCurve.j",
+        "mathlib:WeierstrassCurve.Δ",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "key": "IQ.7",
+      "title": "Bielliptic quartics and quadratic divisors",
+      "description": "Fix both homogeneous plane quartics, their projective involutions and degree-two quotient maps to B. Certify rank-one Jacobians, torsion classes and index bounds. Apply the existing symmetric/relative Chabauty and sieve criteria to classify degree-two divisors, identify the two imaginary ℚ(√−55) pairs and deduce modularity. Targets: quartic1, quartic1Coordinates, quartic2, quartic2Coordinates, quartic_models, quarticImaginaryPoints, quartic_jacobian_ranks, quarticTorsionClasses, quartic_jacobian_torsion, quartic_pullback_indices, first_quartic_quadratic_divisors, second_quartic_quadratic_divisors, first_quartic_points_modular, second_quartic_points_modular.",
+      "requires": [
+        "EffectiveDiophantineMethods:ED.3",
+        "EffectiveDiophantineMethods:ED.4/relative-symmetric-chabauty",
+        "EffectiveDiophantineMethods:ED.4/symmetric-chabauty",
+        "EffectiveDiophantineMethods:ED.5/relative-symmetric-sieve",
+        "EffectiveDiophantineMethods:ED.6",
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.4",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.5",
+        "ModularCurvesPartII:R13.4a",
+        "ModularCurvesPartII:R14.2",
+        "mathlib:MvPolynomial.X",
+        "mathlib:MvPolynomial.eval₂",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "key": "IQ.8",
+      "title": "Imaginary-quadratic modularity applications",
+      "description": "Combine the imported residual-image classification and the four modular-curve branches to prove CN 7.1. Prove unrestricted curve modularity under finite X₀(15)(F), certify the four small imaginary fields and verify the concrete infinite-point example over ℚ(√−10). Targets: imaginary_quadratic_residual_modularity, finite_level_fifteen_modularity, small_imaginary_quadratic_modularity, sqrt_minus_ten_infinite_level_fifteen.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
+        "EffectiveDiophantineMethods:ED.3",
+        "EffectiveDiophantineMethods:ED.6",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.3",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.4",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.5",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.6",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.7",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CN",
+      "title": "On the modularity of elliptic curves over imaginary quadratic fields",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "arXiv:2301.10509v3, 27 March 2025",
+      "url": "https://arxiv.org/pdf/2301.10509v3",
+      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§1",
+        "Theorem 5.2 (supplier contract)",
+        "§§6–7, including proofs"
+      ]
+    },
+    {
+      "id": "AKT",
+      "title": "Modularity of GL₂(Fp)-representations over CM fields",
+      "authors": "Patrick B. Allen, Chandrashekhar Khare and Jack A. Thorne",
+      "edition": "arXiv:1910.12986v2, 2 September 2022; Cambridge Journal of Mathematics 11 (2023), 1–158; preprint read",
+      "url": "https://arxiv.org/pdf/1910.12986v2",
+      "sha256": "230de16e9688931b1d4a8ea4ba765f1f5f262d32e94ccf92083062fd1d9b4d44",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Theorems 7.1, 8.1 and A.14 (statements)",
+        "§9, Lemmas 9.1 and 9.3–9.7, Propositions 9.11–9.15"
+      ]
+    },
+    {
+      "id": "FLHS",
+      "title": "Elliptic Curves over Real Quadratic Fields are Modular",
+      "authors": "Nuno Freitas, Bao V. Le Hung and Samir Siksek",
+      "edition": "arXiv:1310.7088v4, 18 July 2014",
+      "url": "https://arxiv.org/pdf/1310.7088v4",
+      "sha256": "aea71f7698edac25fedaf03627b7703c0ed6138e4e9c012b06b41822819d0403",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Theorem 1 statement",
+        "§15, Lemmas 15.3–15.4 and low-level curve models (published §§5 locators cited in CN)"
+      ]
+    },
+    {
+      "id": "BOX",
+      "title": "Quadratic points on modular curves with infinite Mordell–Weil group",
+      "authors": "Josha Box",
+      "edition": "Author PDF, 17 July 2019",
+      "url": "https://warwick.ac.uk/fac/sci/maths/people/staff/box/quadratic_points_4.pdf",
+      "sha256": "63dccc6175f6da57135eefd602d54699fafca760b6bf38797d45af101a8cb645",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§1–2",
+        "Proposition 3.1 and proof; only the weaker 2J inclusion used here"
+      ]
+    },
+    {
+      "id": "BF",
+      "title": "Rational Divisors in Rational Divisor Classes",
+      "authors": "Nils Bruin and E. Victor Flynn",
+      "edition": "Author PDF; Algorithmic Number Theory, ANTS VI (2004), pp.132–139",
+      "url": "https://people.maths.ox.ac.uk/flynn/arts/art24.pdf",
+      "sha256": "efd0361bc5a8b7e2675fbcd854a26a353c9ce6ebca917177849daa245554557a",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§§1–2, complete linear systems and the Brauer–Severi obstruction"
+      ]
+    },
+    {
+      "id": "ZYW",
+      "title": "Elliptic curves with maximal Galois action on their torsion points",
+      "authors": "David Zywina",
+      "edition": "Bulletin of the London Mathematical Society 42 (2010), 811–826, author PDF",
+      "url": "https://pi.math.cornell.edu/~zywina/papers/MaximalGalois.pdf",
+      "sha256": "00ec51280a131feb82dba5a3328c1be48c310081d5cb46284e679191ff80250c",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§1.1, coefficient height convention",
+        "Proposition 5.2 and proof inputs"
+      ]
+    },
+    {
+      "id": "MAGMA-b3ns5",
+      "title": "Caraiani–Newton accompanying Magma calculations: b3ns5.m",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "modularity-iqf commit e6e2e9014f55f91e1d27a23e225a5f474d2e1d81",
+      "url": "https://raw.githubusercontent.com/jjmnewton/modularity-iqf/e6e2e9014f55f91e1d27a23e225a5f474d2e1d81/b3ns5.m",
+      "sha256": "8f2f8ccf22cbcfc72a5e50be81baad80e81774ec8228e5d3283604d18a3ab240",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete file; read, not executed. Generated maps and finite outputs are not proof certificates."
+      ]
+    },
+    {
+      "id": "MAGMA-ns3ob5",
+      "title": "Caraiani–Newton accompanying Magma calculations: ns3ob5.m",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "modularity-iqf commit e6e2e9014f55f91e1d27a23e225a5f474d2e1d81",
+      "url": "https://raw.githubusercontent.com/jjmnewton/modularity-iqf/e6e2e9014f55f91e1d27a23e225a5f474d2e1d81/ns3ob5.m",
+      "sha256": "04da9d9260d653ac87b0683003e9fb906fb6cc301d23074d99adccbcddd8303f",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete file; read, not executed. Generated maps and finite outputs are not proof certificates."
+      ]
+    },
+    {
+      "id": "MAGMA-ns3ons5",
+      "title": "Caraiani–Newton accompanying Magma calculations: ns3ons5.m",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "modularity-iqf commit e6e2e9014f55f91e1d27a23e225a5f474d2e1d81",
+      "url": "https://raw.githubusercontent.com/jjmnewton/modularity-iqf/e6e2e9014f55f91e1d27a23e225a5f474d2e1d81/ns3ons5.m",
+      "sha256": "8a75af855a4a58f143f32be283232bed9005b0c467223b0313f635f482018323",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete file; read, not executed. Generated maps and finite outputs are not proof certificates."
+      ]
+    },
+    {
+      "id": "MAGMA-s3ns5",
+      "title": "Caraiani–Newton accompanying Magma calculations: s3ns5.m",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "modularity-iqf commit e6e2e9014f55f91e1d27a23e225a5f474d2e1d81",
+      "url": "https://raw.githubusercontent.com/jjmnewton/modularity-iqf/e6e2e9014f55f91e1d27a23e225a5f474d2e1d81/s3ns5.m",
+      "sha256": "5be5870fb6761340bff1ee41b13d8c5e945a50c60470ee551ec9fd9f5600fc91",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete file; read, not executed. Generated maps and finite outputs are not proof certificates."
+      ]
+    },
+    {
+      "id": "MAGMA-ns3ns5",
+      "title": "Caraiani–Newton accompanying Magma calculations: ns3ns5-elliptic.m",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "modularity-iqf commit e6e2e9014f55f91e1d27a23e225a5f474d2e1d81",
+      "url": "https://raw.githubusercontent.com/jjmnewton/modularity-iqf/e6e2e9014f55f91e1d27a23e225a5f474d2e1d81/ns3ns5-elliptic.m",
+      "sha256": "6761d6db51c97f3811351298b9d46f70f230d6877a77d60c691cea26d537f4a3",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete file; read, not executed. Generated maps and finite outputs are not proof certificates."
+      ]
+    },
+    {
+      "id": "LMF-GAUSS",
+      "title": "Elliptic curve 4050.1-c3 over ℚ(i)",
+      "authors": "The LMFDB collaboration",
+      "edition": "Public database record accessed 7 October 2026",
+      "url": "https://www.lmfdb.org/EllipticCurve/2.0.4.1/4050.1/c/3",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Weierstrass coefficients, j, discriminant and modularity record; no independent Faltings–Serre certificate downloaded."
+      ]
+    }
+  ]
+}

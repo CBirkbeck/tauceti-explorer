@@ -6,7 +6,7 @@
       "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
       "kind": "gap",
       "locator": "Remarque4.5, author manuscript and arXiv1802.09605v2, PDF17; compare standing assumptions at the start of §4, PDF15, and Theorem4.2, PDF16–17. Journal wording unverified.",
-      "printed": "le théorème 4.2 (i)",
+      "printed": "The source invokes part (i) of théorème 4.2.",
       "correction": "Make explicit the generalization of Theorem4.2(i) used here: the printed theorem carries a rationally connected generic-fibre hypothesis which the remark has not established. Adding rational connectedness of X is a sufficient restricted repair, not a demonstrated necessary hypothesis for the original implication. To retain the full implication, justify the section-based fibration variant; Proposition3.3(i) already provides a geometric section without rational connectedness.",
       "reason": "Theorem4.2 inherits the rational-connectedness assumption fixed for §4 on PDF15. In Remark4.5 the new fibration π′ compactifies universal torsors of V; after geometric base change such a torus torsor is birational to V times a split torus. The remark does not establish rational connectedness for these fibres. This verifies a literal theorem-application scope mismatch. It does not disprove the implication. Proposition3.3(i), PDF14, obtains a section by splitting a free character-module sequence and has no rational-connectedness hypothesis. Moreover Sko90 Theorem1 uses a geometric section condition along general lines, rather than rational connectedness itself. Thus the earlier assertion that the missing rational-connectedness condition changes a stated result was too strong; a fully stated extension of the cited fibration argument is the remaining proof obligation.",
       "affects": "the proof",
@@ -39,14 +39,14 @@
       "review": {
         "verdict": "confirmed",
         "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
-        "reason": "Confirmed with narrowed reach and correction. Read the author/arXiv statements and the complete proofs of Propositions3.1/3.3 and Theorem4.2. The citation to Theorem4.2(i) omits checking one of its standing hypotheses. Changed affects from a stated result to the proof: no counterexample to the implication was found, and the geometric section already supplied in Proposition3.3(i) is relevant to the weaker classical criterion. Adding rational connectedness is only a sufficient restricted repair. Read Sko90 Theorem1/proof in a public transcription, but did not certify the full split-fibre generalization from Sko96; this verdict does not assert that the broad remark is false. Limited to the public manuscript versions, not the unread journal full text."
+        "reason": "Confirmed with narrowed reach and correction. Read the author/arXiv statements and the complete proofs of Propositions3.1/3.3 and Theorem4.2. The citation to Theorem4.2(i) omits checking one of its standing hypotheses. Changed affects from a stated result to the proof: no counterexample to the implication was found, and the geometric section already supplied in Proposition3.3(i) is relevant to the weaker classical criterion. Adding rational connectedness is only a sufficient restricted repair. Read Sko90 Theorem1 and its proof, but did not certify the full split-fibre generalization from Sko96; this verdict does not assert that the broad remark is false. Limited to the public manuscript versions, not the unread journal full text."
       }
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
       "kind": "misprint",
       "locator": "Introduction, author manuscript and arXiv1802.09605v2, PDF4, quaternion-group paragraph. Journal wording unverified. Compare Demarche author manuscript BMgroupes.pdf, §8, PDF26.",
-      "printed": "pour un entier m ≥ 1",
+      "printed": "The source specifies an integer m ≥ 1.",
       "correction": "Use m ≥ 2 if following the convention in the cited Demarche author manuscript, which includes Q_4≅C_4. Use m ≥ 3 only if explicitly restricting the terminology to nonabelian generalized quaternion groups. The m=1 case needs a separate convention not supplied by that presentation.",
       "reason": "Demarche BMgroupes.pdf §8, PDF26, explicitly defines Q_(2^n) for n≥2 and discusses n=2 as a valid rational case. At m=2 the presentation gives x²=1 and y²=x, hence x=y², y⁴=1 and the group C4; it is deliberately included, not a reason to exclude m=2. At m=1 the exponent 2^(m−2) is not an integer, so that presentation does not define Q2. The earlier correction m≥3 and its appeal to the known cases m≤4 unnecessarily discarded Demarche’s cyclic endpoint. No weak-approximation conclusion for the actual quaternion groups is changed.",
       "affects": "nothing",
@@ -115,7 +115,7 @@
         "read": "Transcription of Skorobogatov1990 pp205–209: Theorem1 and proof. No scan-image comparison; no claim to have read Sko96.",
         "access": "restricted",
         "citation": "Skorobogatov, On the fibration method for proving the Hasse principle and weak approximation, Séminaire de théorie des nombres, Paris 1988-89, Progress in Mathematics 91, Birkhäuser, pp. 205-219",
-        "note": "Read as an unauthorised transcription, which this project does not cite. The passage needs re-reading in a legitimate copy before the finding is relied on."
+        "note": "The passage needs checking against the published volume before it is relied on."
       }
     ],
     "limits": "Both recorded findings reviewed and corrected. No fresh full-paper census; no additional source finding established. Published-version comparison remains unavailable and is not treated as agreement. The broader section-based repair of E1 was not certified in this errata review."

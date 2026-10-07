@@ -1599,7 +1599,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "The positive coefficients are finite sums of unit Dirac measures. We instantiate the native continuous integral measure carrier. Its comparison with the completed group algebra and the constant coefficient are separate open comparisons."
         }
       ],
@@ -1739,7 +1738,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "The positive coefficients are finite sums of unit Dirac measures. We instantiate the native continuous integral measure carrier. Its comparison with the completed group algebra and the constant coefficient are separate open comparisons."
         }
       ],
@@ -1779,7 +1777,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "The positive coefficients are finite sums of unit Dirac measures. We instantiate the native continuous integral measure carrier. Its comparison with the completed group algebra and the constant coefficient are separate open comparisons."
         }
       ],
@@ -1824,7 +1821,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "The positive coefficients are finite sums of unit Dirac measures. We instantiate the native continuous integral measure carrier. Its comparison with the completed group algebra and the constant coefficient are separate open comparisons."
         }
       ],
@@ -1865,7 +1861,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "The elementary coefficient calculation following Definition 8.1 is separated into its precise finite-divisor identity. The source uses e=k−1 for even k≥4; the finite identity itself holds for all e≥0."
         }
       ],
@@ -1905,7 +1900,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "The positive coefficients are finite sums of unit Dirac measures. We instantiate the native continuous integral measure carrier. Its comparison with the completed group algebra and the constant coefficient are separate open comparisons."
         }
       ],
@@ -1950,7 +1944,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1 and proof of Theorem 8.2, printed pp.159–160 / PDF60–61; collated with arXiv v2 p.44.",
-          "excerpt": "We then define",
           "match": "A quantitative finite-coefficient consequence of Theorem 8.2 and the weight-variation discussion in Remark 8.3. The precision statement is derived using the pinned Fermat–Euler remainder API; it is not quoted as a separately numbered source theorem. It covers only positive coefficients."
         }
       ],
@@ -1993,7 +1986,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, normalized E_k formula, printed159 / PDF60; arXiv v2 p.43.",
-          "excerpt": "normalised Fourier expansion",
           "match": "Arithmetic scalar conversion of the source’s normalization using the existing constant-one Eisenstein form, not a reconstruction of that form."
         }
       ],
@@ -2087,7 +2079,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, normalized E_k formula, printed159 / PDF60; arXiv v2 p.43.",
-          "excerpt": "normalised Fourier expansion",
           "match": "Rescales the already proved classical coefficient formula. The nonvanishing step is explicitly discharged through baseline zeta declarations."
         }
       ],
@@ -2128,7 +2119,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, normalized E_k formula, printed159 / PDF60; arXiv v2 p.43.",
-          "excerpt": "normalised Fourier expansion",
           "match": "Identifies the source constant through the corrected pinned zeta formula, with the common rational value specified."
         }
       ],
@@ -2174,7 +2164,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44.",
-          "excerpt": "An easy check shows that",
           "match": "Instantiates the pinned degeneracy operator and restriction maps to establish the source’s actual modularity and normalization."
         }
       ],
@@ -2281,7 +2270,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44.",
-          "excerpt": "An easy check shows that",
           "match": "Makes the source’s easy Fourier check a comparison using the existing modular-form and formal-series APIs."
         }
       ],
@@ -2325,7 +2313,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44.",
-          "excerpt": "An easy check shows that",
           "match": "Combines the actual modular-form q-expansion with the already planned integer divisor deletion; no duplicate finite-divisor lemma is introduced."
         }
       ],
@@ -2371,7 +2358,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44.",
-          "excerpt": "An easy check shows that",
           "match": "Identifies the exact constant needed by Theorem8.2 while retaining the missing arithmetic pseudomeasure as an explicit gap."
         }
       ],
@@ -2414,7 +2400,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2(b), positive-index calculation in its proof, printed160 / PDF61; arXiv v2 p.44.",
-          "excerpt": "the required interpolation property",
           "match": "Completes only the positive-index comparison with the native classical modular form. The completed-algebra image and the twisted localized constant coefficient remain distinct missing inputs."
         }
       ],
@@ -2461,7 +2446,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
-          "excerpt": "explicitly describe",
           "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
         }
       ],
@@ -2600,7 +2584,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
-          "excerpt": "explicitly describe",
           "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
         }
       ],
@@ -2645,7 +2628,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
-          "excerpt": "explicitly describe",
           "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
         }
       ],
@@ -2685,7 +2667,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
-          "excerpt": "explicitly describe",
           "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
         }
       ],
@@ -2726,7 +2707,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
-          "excerpt": "explicitly describe",
           "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
         }
       ],
@@ -2768,7 +2748,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
-          "excerpt": "explicitly describe",
           "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
         }
       ],
@@ -2808,7 +2787,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -2852,7 +2830,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -2984,7 +2961,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -3022,7 +2998,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -3066,7 +3041,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -3109,7 +3083,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -3147,7 +3120,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -3196,7 +3168,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "§8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026.",
-          "excerpt": "power series",
           "match": "The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual twisted localized constant coefficient and the geometric weight family remain outside this positive-part adapter."
         }
       ],
@@ -3234,7 +3205,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3322,7 +3292,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3377,7 +3346,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3433,7 +3401,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3528,7 +3495,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3590,7 +3556,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3675,7 +3640,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3735,7 +3699,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34 and formula(3-11), published129–130 / PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160 / PDF60–61. Complete pages freshly read 29 September2026. Theorem8.2(a) is used with the independently confirmed correction PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E54.",
-          "excerpt": "shifting by 1 again",
           "match": "Worker construction on the actual integral unit-measure algebra and its native total quotient. Weighting the arithmetic numerator by the coordinate shifts the clearing denominator to uδ_u−1. The factor2 stays in the regular denominator, including for p=2. Comparison with the source character twist is conditional on its owning roadmap supplying the actual ring equivalence; no ordinary pseudomeasure membership or arbitrary fraction evaluation is asserted."
         }
       ],
@@ -3784,7 +3747,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -3874,7 +3836,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -3926,7 +3887,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -3983,7 +3943,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -4072,7 +4031,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -4164,7 +4122,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -4216,7 +4173,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -4313,7 +4269,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -4373,7 +4328,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2(b) with its proof, published159–160/PDF60–61. Complete pages read29September2026 in the immediately preceding checkpoint. The confirmed E54 correction to part(a) is retained.",
-          "excerpt": "For all even",
           "match": "Worker admissible-localization construction for the corrected Eisenstein constant. The native localization inverts only its explicit doubled shifted denominator. The existing coordinate character and supplied character-integral algebra homomorphism define the moment map, whose denominator is proved nonzero. The same rational Bernoulli constant is embedded separately into Q_p and C. Generic localizations, measures, convolution and modular forms are reused; no total-quotient field evaluator or ordinary pseudomeasure membership is asserted."
         }
       ],
@@ -4425,7 +4379,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4475,7 +4428,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4563,7 +4515,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4613,7 +4564,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4708,7 +4658,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4761,7 +4710,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4826,7 +4774,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4878,7 +4825,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1 and its q-expansion, Theorem8.2 and its proof, published159–160/PDF60–61, read completely during this continuation on29September2026. Part(a) is used with the independently confirmed correction E54; the source constant is a character-twisted localized element.",
-          "excerpt": "power series",
           "match": "Worker assembly in the native PowerSeries over the actual denominator localization and total quotient. The existing positive integral coefficient measures and positive-series modular comparison are imported. The actual localized constant and its admissible evaluator supply degree0. Separate coefficient maps of one rational series compare the arithmetic and classical q-expansions; no geometric family, complex-to-p-adic embedding or evaluation on arbitrary total fractions is asserted."
         }
       ],
@@ -4930,7 +4876,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -4983,7 +4928,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5072,7 +5016,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5125,7 +5068,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5178,7 +5120,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5227,7 +5168,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5283,7 +5223,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5385,7 +5324,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5442,7 +5380,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely on29September2026. The independently confirmed correction E54 to part(a) is retained.",
-          "excerpt": "power series",
           "match": "Worker integral denominator-clearing construction for the full arithmetic series. The source motivates coefficientwise variation in weight; this checkpoint first constructs its integral numerator series and compares its actual integral moments with the full admissible specialization. It imports the existing numerator, doubled shifted denominator, convolution algebra and character integral. It does not infer an integral constant or unchanged precision after division, and does not call the twisted constant an ordinary pseudomeasure."
         }
       ],
@@ -5511,7 +5448,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5568,7 +5504,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5677,7 +5612,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5725,7 +5659,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5777,7 +5710,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5840,7 +5772,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5904,7 +5835,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its proof, Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; independently confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative consequence for the full family after the actual denominator is cleared. Integral coefficient measures and their existing bounded field extension give uniform test congruences. Finite unit reduction supplies the sufficient weight modulus, including at2. The field comparison retains the explicit doubled shifted factor. The source does not state these quantitative full-series divisibilities, and its qualitative weight-variation remark is not interpreted as unconditional preservation of precision after dividing by nonunits."
         }
       ],
@@ -5960,7 +5890,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6016,7 +5945,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6066,7 +5994,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6126,7 +6053,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6179,7 +6105,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6232,7 +6157,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6284,7 +6208,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its proof and Remark8.3, published159–160/PDF60–61, read completely in this continuation on29September2026; confirmed E54 correction retained.",
-          "excerpt": "vary p-adically continuously",
           "match": "Worker quantitative refinement of the source weight-variation remark, derived from the existing integral full-series congruences and explicit admissible denominator. The estimates include the constant and record the loss on dividing by nonunits. The classical comparison uses separate images of rational q-expansions. No unqualified integral constant, whole-total-quotient evaluation or geometric modular-family theorem is inferred."
         }
       ],
@@ -6340,7 +6263,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6395,7 +6317,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6449,7 +6370,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6502,7 +6422,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6557,7 +6476,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6656,7 +6574,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6710,7 +6627,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem8.2 and its proof, published159–160/PDF60–61; Lemma3.36(iii) on published131/PDF32 and the interpolation/uniqueness conclusion on published139/PDF40. These pages were read completely in this continuation;131 and139 reread for this checkpoint. Confirmed E54 correction retained.",
-          "excerpt": "power series",
           "match": "Worker all-parameter comparison of the actual corrected Eisenstein constant. The previous integral cross-numerator relation is weighted by the fixed coordinate, using the supplied convolution evaluation, then the canonical regular denominator is cancelled in the total quotient. This avoids reconstructing the generic character-twist equivalence and does not assert every smoothing denominator regular. The source constant remains a twisted localized element, not an ordinary pseudomeasure."
         }
       ],
@@ -6759,7 +6675,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -6828,7 +6743,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -6930,7 +6844,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -6986,7 +6899,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -7050,7 +6962,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -7098,7 +7009,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -7148,7 +7058,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, formula(3-11) and Remark3.35, published129–130/PDF30–31; Definition8.1 and Theorem8.2 with its proof, published159–160/PDF60–61. All four pages reread completely for this checkpoint. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "does not depend",
           "match": "Worker comparison of the actual shifted-denominator localizations at an arithmetic character. Only the displayed denominator image is inverted. The existing corrected constant and integral positive coefficients yield the same full specialization for every admissible parameter. This does not use the erroneous unrestricted total-quotient evaluator in Remark3.35 or the ordinary-pseudomeasure assertion in Theorem8.2(a)."
         }
       ],
@@ -7197,7 +7106,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7259,7 +7167,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7314,7 +7221,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7371,7 +7277,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7425,7 +7330,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7478,7 +7382,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7534,7 +7437,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21, reread completely for this checkpoint. Definition3.34 and Theorem8.2 with its proof, published129/PDF30 and159–160/PDF60–61, read completely in preceding4693 during this continuation. Confirmed E54 correction retained.",
-          "excerpt": "A0 is a pseudomeasure",
           "match": "Worker proof that the actual corrected Eisenstein constant is not an ordinary pseudomeasure. Its negative-identity ordinary clearing factor would have a nonintegral arithmetic moment. The source’s shifted numerator relation remains valid; the false ordinary-membership clause is not assumed. A separate native continuous-dual bound excludes a field-valued measure with all the same arithmetic values. No analytic pole order or residue is concluded from unboundedness alone."
         }
       ],
@@ -7590,7 +7492,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -7682,7 +7583,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -7733,7 +7633,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -7818,7 +7717,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -7870,7 +7768,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -7926,7 +7823,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -7978,7 +7874,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
-          "excerpt": "opposite direction",
           "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
         }
       ],
@@ -8041,7 +7936,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
-          "excerpt": "interpolations of the other coefficients",
           "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
         }
       ],
@@ -8172,7 +8066,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
-          "excerpt": "interpolations of the other coefficients",
           "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
         }
       ],
@@ -8221,7 +8114,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
-          "excerpt": "interpolations of the other coefficients",
           "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
         }
       ],
@@ -8280,7 +8172,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
-          "excerpt": "interpolations of the other coefficients",
           "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
         }
       ],
@@ -8340,7 +8231,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, freshly read completely. The atlas L4 tame-nebentypus extension is read with the existing ModularForms Layer0 character-Eisenstein target and the whole pinned TauCeti ArithmeticFunction/TwistedDivisorSum module.",
-          "excerpt": "interpolations of the other coefficients",
           "match": "Worker extension of the positive divisor-Dirac construction to two existing native Dirichlet characters. The order of the characters is the pinned twistedDivisorSum conventionψ(n/d)φ(d), not an assertion that RJW states this two-character theorem. Generic twisted divisor sums and classical primitive-character Eisenstein forms retain their existing owners. This checkpoint constructs only actual positive coefficient measures and finite-sum moments, without a constant term or a geometric family."
         }
       ],
@@ -8403,7 +8293,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161/PDF60–62, freshly read in full. Read with the exact atlas L4 integral tame-nebentypus target and ModularForms Layer0 character-Eisenstein ownership.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker integral realization and quantitative weight-congruence extension of the actual two-character positive coefficient measures. RJW supplies the divisor-Dirac construction and weight-variation motivation; the two-character convention comes from the existing pinned twistedDivisorSum. This is not a claim that the paper states the generalized theorem. Generic divisor sums, classical character modular forms, exceptional weights and geometric family constructions retain their owners."
         }
       ],
@@ -8529,7 +8418,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161/PDF60–62, freshly read in full. Read with the exact atlas L4 integral tame-nebentypus target and ModularForms Layer0 character-Eisenstein ownership.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker integral realization and quantitative weight-congruence extension of the actual two-character positive coefficient measures. RJW supplies the divisor-Dirac construction and weight-variation motivation; the two-character convention comes from the existing pinned twistedDivisorSum. This is not a claim that the paper states the generalized theorem. Generic divisor sums, classical character modular forms, exceptional weights and geometric family constructions retain their owners."
         }
       ],
@@ -8575,7 +8463,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161/PDF60–62, freshly read in full. Read with the exact atlas L4 integral tame-nebentypus target and ModularForms Layer0 character-Eisenstein ownership.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker integral realization and quantitative weight-congruence extension of the actual two-character positive coefficient measures. RJW supplies the divisor-Dirac construction and weight-variation motivation; the two-character convention comes from the existing pinned twistedDivisorSum. This is not a claim that the paper states the generalized theorem. Generic divisor sums, classical character modular forms, exceptional weights and geometric family constructions retain their owners."
         }
       ],
@@ -8620,7 +8507,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161/PDF60–62, freshly read in full. Read with the exact atlas L4 integral tame-nebentypus target and ModularForms Layer0 character-Eisenstein ownership.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker integral realization and quantitative weight-congruence extension of the actual two-character positive coefficient measures. RJW supplies the divisor-Dirac construction and weight-variation motivation; the two-character convention comes from the existing pinned twistedDivisorSum. This is not a claim that the paper states the generalized theorem. Generic divisor sums, classical character modular forms, exceptional weights and geometric family constructions retain their owners."
         }
       ],
@@ -8680,7 +8566,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161/PDF60–62, freshly read in full. Read with the exact atlas L4 integral tame-nebentypus target and ModularForms Layer0 character-Eisenstein ownership.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker integral realization and quantitative weight-congruence extension of the actual two-character positive coefficient measures. RJW supplies the divisor-Dirac construction and weight-variation motivation; the two-character convention comes from the existing pinned twistedDivisorSum. This is not a claim that the paper states the generalized theorem. Generic divisor sums, classical character modular forms, exceptional weights and geometric family constructions retain their owners."
         }
       ],
@@ -8753,7 +8638,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161/PDF60–62, freshly read in full. Read with the exact atlas L4 integral tame-nebentypus target and ModularForms Layer0 character-Eisenstein ownership.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker integral realization and quantitative weight-congruence extension of the actual two-character positive coefficient measures. RJW supplies the divisor-Dirac construction and weight-variation motivation; the two-character convention comes from the existing pinned twistedDivisorSum. This is not a claim that the paper states the generalized theorem. Generic divisor sums, classical character modular forms, exceptional weights and geometric family constructions retain their owners."
         }
       ],
@@ -8818,7 +8702,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
-          "excerpt": "We explicitly describe both maps",
           "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
         }
       ],
@@ -8952,7 +8835,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
-          "excerpt": "We explicitly describe both maps",
           "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
         }
       ],
@@ -9005,7 +8887,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
-          "excerpt": "We explicitly describe both maps",
           "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
         }
       ],
@@ -9066,7 +8947,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
-          "excerpt": "We explicitly describe both maps",
           "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
         }
       ],
@@ -9121,7 +9001,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
-          "excerpt": "We explicitly describe both maps",
           "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
         }
       ],
@@ -9187,7 +9066,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
-          "excerpt": "We explicitly describe both maps",
           "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
         }
       ],
@@ -9254,7 +9132,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9412,7 +9289,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9471,7 +9347,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9521,7 +9396,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9576,7 +9450,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9634,7 +9507,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9692,7 +9564,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9746,7 +9617,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
-          "excerpt": "these are much easier to deal with",
           "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
         }
       ],
@@ -9798,7 +9668,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -9854,7 +9723,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -9922,7 +9790,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -9977,7 +9844,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -10038,7 +9904,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -10090,7 +9955,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -10144,7 +10008,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
-          "excerpt": "where µχ,a is the twist",
           "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
         }
       ],
@@ -10212,7 +10075,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10271,7 +10133,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10331,7 +10192,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10394,7 +10254,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10454,7 +10313,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10518,7 +10376,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10571,7 +10428,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764.",
-          "excerpt": "a (fixed) finite extension",
           "match": "Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family."
         }
       ],
@@ -10619,7 +10475,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full.",
-          "excerpt": "we only need interpolations of the functions",
           "match": "The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications."
         }
       ],
@@ -10676,7 +10531,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full.",
-          "excerpt": "we only need interpolations of the functions",
           "match": "The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications."
         }
       ],
@@ -10750,7 +10604,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full.",
-          "excerpt": "we only need interpolations of the functions",
           "match": "The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications."
         }
       ],
@@ -10808,7 +10661,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full.",
-          "excerpt": "we only need interpolations of the functions",
           "match": "The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications."
         }
       ],
@@ -10864,7 +10716,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full.",
-          "excerpt": "we only need interpolations of the functions",
           "match": "The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications."
         }
       ],
@@ -10917,7 +10768,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its full proof, Remark8.3, published159–161/PDF60–62, freshly read in4777; existing ModularForms roadmap Layer0, whole259–337, read this checkpoint.",
-          "excerpt": "it is a power series with rational coefficients",
           "match": "Worker-derived comparison through a common algebraic coefficient field, extending the source’s rational comparison. The classical form and its coefficient formula are explicit hypotheses. The primitive pair-character construction, Gauss-sum translation, generalized Bernoulli constants and exceptional weights remain with their existing ModularForms owner; these nodes prove no existence theorem for that input."
         }
       ],
@@ -10993,7 +10843,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its full proof, Remark8.3, published159–161/PDF60–62, freshly read in4777; existing ModularForms roadmap Layer0, whole259–337, read this checkpoint.",
-          "excerpt": "it is a power series with rational coefficients",
           "match": "Worker-derived comparison through a common algebraic coefficient field, extending the source’s rational comparison. The classical form and its coefficient formula are explicit hypotheses. The primitive pair-character construction, Gauss-sum translation, generalized Bernoulli constants and exceptional weights remain with their existing ModularForms owner; these nodes prove no existence theorem for that input."
         }
       ],
@@ -11059,7 +10908,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and its full proof, Remark8.3, published159–161/PDF60–62, freshly read in4777; existing ModularForms roadmap Layer0, whole259–337, read this checkpoint.",
-          "excerpt": "it is a power series with rational coefficients",
           "match": "Worker-derived comparison through a common algebraic coefficient field, extending the source’s rational comparison. The classical form and its coefficient formula are explicit hypotheses. The primitive pair-character construction, Gauss-sum translation, generalized Bernoulli constants and exceptional weights remain with their existing ModularForms owner; these nodes prove no existence theorem for that input."
         }
       ],
@@ -11128,7 +10976,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit."
         }
       ],
@@ -11263,7 +11110,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit."
         }
       ],
@@ -11328,7 +11174,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit."
         }
       ],
@@ -11384,7 +11229,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit."
         }
       ],
@@ -11445,7 +11289,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit."
         }
       ],
@@ -11520,7 +11363,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
         }
       ],
@@ -11587,7 +11429,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
         }
       ],
@@ -11655,7 +11496,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
         }
       ],
@@ -11718,7 +11558,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
         }
       ],
@@ -11779,7 +11618,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
         }
       ],
@@ -11840,7 +11678,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
         }
       ],
@@ -11910,7 +11747,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
-          "excerpt": "truly a measure",
           "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
         }
       ],
@@ -11988,7 +11824,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints.",
-          "excerpt": "truly a measure",
           "match": "Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain."
         }
       ],
@@ -12129,7 +11964,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints.",
-          "excerpt": "truly a measure",
           "match": "Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain."
         }
       ],
@@ -12192,7 +12026,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints.",
-          "excerpt": "truly a measure",
           "match": "Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain."
         }
       ],
@@ -12250,7 +12083,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints.",
-          "excerpt": "truly a measure",
           "match": "Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain."
         }
       ],
@@ -12306,7 +12138,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints.",
-          "excerpt": "truly a measure",
           "match": "Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain."
         }
       ],
@@ -12369,7 +12200,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
         }
       ],
@@ -12434,7 +12264,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
         }
       ],
@@ -12497,7 +12326,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
-          "excerpt": "extension by 0",
           "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
         }
       ],
@@ -12563,7 +12391,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension, §3.5.3, published127–129/PDF28–30; tame kernel and integral coefficients, §5.2, published143–146/PDF44–47; Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the retained tame-series and constant-residue checkpoints.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker quantitative variation of the existing tame character and full doubled integral formal series. The fixed-level Lipschitz estimates and stability of scalar integrality are derived consequences, not statements quoted from RJW. The source motivates integral coefficient variation; classical modularity and analytic weight-space existence remain with their owners. Retained source corrections apply, including the invalid geometric expansion avoided by the finite-kernel proof."
         }
       ],
@@ -12636,7 +12463,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Restriction and zero extension, §3.5.3, published127–129/PDF28–30; tame kernel and integral coefficients, §5.2, published143–146/PDF44–47; Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the retained tame-series and constant-residue checkpoints.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker quantitative variation of the existing tame character and full doubled integral formal series. The fixed-level Lipschitz estimates and stability of scalar integrality are derived consequences, not statements quoted from RJW. The source motivates integral coefficient variation; classical modularity and analytic weight-space existence remain with their owners. Retained source corrections apply, including the invalid geometric expansion avoided by the finite-kernel proof."
         }
       ],
@@ -12703,7 +12529,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted."
         }
       ],
@@ -12772,7 +12597,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted."
         }
       ],
@@ -12833,7 +12657,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein measures and coefficient variation, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained tame-series checkpoints. The native quadratic character, its nonprincipality and level-change interfaces were freshly read at the pinned Mathlib commit.",
-          "excerpt": "Eisenstein series vary p-adically continuously",
           "match": "Worker classification of scalar integrality for the existing doubled tame formal-series measure. Native quadratic characters supply the nearby nonprincipal reference required by the previous stability theorem. The exact modulus-one criterion and dyadic half-lift classification are derived here, not quoted from RJW. No source convention for the principal zeta pseudomeasure is identified with the zero tame kernel, and no classical modularity or analytic-family theorem is asserted."
         }
       ],
@@ -12896,7 +12719,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein coefficient measures, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained checkpoints. Native valuation-integer unit norms and the existing normalization proof were freshly checked.",
-          "excerpt": "truly a measure",
           "match": "Worker completion of the scalar-integrality and half-normalization criteria for the actual tame formal-series family. First positive coefficients handle odd primes, while the preceding actual unit-test argument handles the dyadic obstruction. These criteria are derived consequences, not quoted source statements. The zero tame modulus-one constructor remains distinct from the principal zeta pseudomeasure; no classical modularity or analytic-family theorem is inferred."
         }
       ],
@@ -12974,7 +12796,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein coefficient measures, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained checkpoints. Native valuation-integer unit norms and the existing normalization proof were freshly checked.",
-          "excerpt": "truly a measure",
           "match": "Worker completion of the scalar-integrality and half-normalization criteria for the actual tame formal-series family. First positive coefficients handle odd primes, while the preceding actual unit-test argument handles the dyadic obstruction. These criteria are derived consequences, not quoted source statements. The zero tame modulus-one constructor remains distinct from the principal zeta pseudomeasure; no classical modularity or analytic-family theorem is inferred."
         }
       ],
@@ -13036,7 +12857,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein coefficient measures, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained checkpoints. Native valuation-integer unit norms and the existing normalization proof were freshly checked.",
-          "excerpt": "truly a measure",
           "match": "Worker completion of the scalar-integrality and half-normalization criteria for the actual tame formal-series family. First positive coefficients handle odd primes, while the preceding actual unit-test argument handles the dyadic obstruction. These criteria are derived consequences, not quoted source statements. The zero tame modulus-one constructor remains distinct from the principal zeta pseudomeasure; no classical modularity or analytic-family theorem is inferred."
         }
       ],
@@ -13109,7 +12929,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161; Definitions5.9/5.13 and Theorem5.14, published143–146, whole pages read in4793 and retained.",
-          "excerpt": "it is a power series with rational coefficients",
           "match": "Worker-derived tame-character extension. The existing common Bernoulli constant and positive moments are assembled with separate coefficient embeddings. The source does not itself construct the general primitive character modular form required by the application."
         }
       ],
@@ -13175,13 +12994,11 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161; Definitions5.9/5.13 and Theorem5.14, published143–146, whole pages read in4793 and retained.",
-          "excerpt": "it is a power series with rational coefficients",
           "match": "Worker-derived tame-character extension. The existing common Bernoulli constant and positive moments are assembled with separate coefficient embeddings. The source does not itself construct the general primitive character modular form required by the application."
         },
         {
           "sourceId": "Stein-Eisenstein-online",
           "locator": "Explicit Basis for the Eisenstein Subspace, equation(4), its following constant formula, and Theorem5.8 restricted to weight≥3; Definition5.1 for the Bernoulli convention. Read30September2026.",
-          "excerpt": "primitive Dirichlet characters",
           "match": "The left character is the primitive level-one character and the right character is θ, so the constant is −B_(w,θ)/(2w). Only weight≥3 is used in the existence application. The existing ModularForms Layer0 owns construction and its Gauss/Fourier translation; weight1, the weight2 trivial-pair correction and arbitrary imprimitive modular existence are not imported by this request."
         }
       ],
@@ -13240,7 +13057,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Published §8, printed159 / physicalPDF60, non-interpolation argument; complete pp.158–161 freshly read 4October2026.",
-          "excerpt": "there was indeed a measure",
           "match": "Decomposition of the corrected argument recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E53. Use the explicit sequence k+(p−1)pⁿ and uniform convergence in the continuous-test norm; include p=2 without a cyclic-unit assumption."
         }
       ],
@@ -13295,7 +13111,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Published §8, printed159 / physicalPDF60, non-interpolation argument; complete pp.158–161 freshly read 4October2026.",
-          "excerpt": "there was indeed a measure",
           "match": "Decomposition of the corrected argument recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E53. Use the explicit sequence k+(p−1)pⁿ and uniform convergence in the continuous-test norm; include p=2 without a cyclic-unit assumption."
         }
       ],
@@ -13336,7 +13151,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Published §8, printed159 / physicalPDF60, non-interpolation argument; complete pp.158–161 freshly read 4October2026.",
-          "excerpt": "there was indeed a measure",
           "match": "Decomposition of the corrected argument recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E53. Use the explicit sequence k+(p−1)pⁿ and uniform convergence in the continuous-test norm; include p=2 without a cyclic-unit assumption."
         }
       ],
@@ -13383,7 +13197,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
-          "excerpt": "taking p-stabilisations",
           "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
         }
       ],
@@ -13481,7 +13294,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
-          "excerpt": "taking p-stabilisations",
           "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
         }
       ],
@@ -13524,7 +13336,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
-          "excerpt": "taking p-stabilisations",
           "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
         }
       ],
@@ -13568,7 +13379,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
-          "excerpt": "taking p-stabilisations",
           "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
         }
       ],
@@ -13625,7 +13435,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
-          "excerpt": "taking p-stabilisations",
           "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
         }
       ],
@@ -13672,7 +13481,6 @@
         {
           "sourceId": "RJW-published",
           "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
-          "excerpt": "taking p-stabilisations",
           "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
         }
       ],
@@ -13715,7 +13523,6 @@
         {
           "sourceId": "Stein-Eisenstein-online",
           "locator": "Definition5.1; Explicit Basis equation(4), following constant formula, Theorem5.8, restricted to weight≥3. Freshly read4October2026.",
-          "excerpt": "primitive Dirichlet characters",
           "match": "Import the primitive-pair classical form from its existing ModularForms owner. The arithmetic measure, Euler deletion and comparison on a common coefficient field are L4 work. No claim to have read the cited Miyake proof or to construct an exceptional-weight form."
         }
       ],
@@ -13812,7 +13619,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Opening definition of G_k in §8, published printed158 / PDF59; arXiv v2 p.43.",
-      "printed": "Eisenstein series of level k",
+      "printed": "The source describes the Eisenstein series as having level k.",
       "correction": "Eisenstein series of weight k and level one.",
       "reason": "The full lattice sum is invariant with weight k under SL₂(ℤ). The next sentence calls it weight k, and the level changes to Γ₀(p) only at Definition8.1.",
       "affects": "nothing",
@@ -13836,7 +13643,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Remark8.3(2), published printed160–161 / PDF61–62; arXiv v2 pp.44–45.",
-      "printed": "κ_k : x ↦ x^k; for all k ≥ 4, E(q)(κ_k)=E_k^(p)(z).",
+      "printed": "The source specifies κ_k : x ↦ x^k and asserts E(q)(κ_k)=E_k^(p)(z) whenever k ≥ 4.",
       "correction": "With unshifted Mellin coefficients B_n=F(A_n), specialize at κ_(k−1) for even k≥4; the constant has its possible pole at the inverse-coordinate character κ_(−1). Alternatively define every B_n using the inverse-coordinate twist x^(−1)A_n, specialize at κ_k for even k≥4, and then the constant is F(ζ_p/2), with its possible pole at the trivial character.",
       "reason": "Theorem8.2 evaluates A_n at x^(k−1). For p=3,n=2,k=4, the displayed κ_4 evaluates A_2=δ_1+δ_2 to 17, whereas the weight-four coefficient is 1+2³=9. The even-weight restriction of the construction is also missing in this remark. The corrected convention agrees with Definition8.1 and Theorem8.2; no change to those statements is needed. The pole convention must shift together with the exponent convention: multiplying measures by x moves the zeta pole from the trivial character to κ_(−1). This is the already recorded E55 correction, consistent with E54 and the inverse-character obstruction in this packet.",
       "affects": "a stated result",

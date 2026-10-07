@@ -215,7 +215,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, (1.40), p.22",
-          "excerpt": "choisissons une orientation",
           "match": "The periods and normalized coordinates are read from integrals on an oriented singular-homology basis, not chosen as a matrix."
         }
       ],
@@ -379,7 +378,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "(1.36) and Remarque 20, (1.40), pp.21–22",
-          "excerpt": "forme une base directe",
           "match": "Derived by changing the displayed oriented integral basis; the explicit algebra is given in the proof steps."
         }
       ],
@@ -492,13 +490,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20 and (1.40), p.22",
-          "excerpt": "choisissons une orientation",
           "match": "Real normalization and orientation; the paired nonreal case follows by conjugating the integration formula."
         },
         {
           "sourceId": "DJZ.2005v2",
           "locator": "Remark 3.14, Section 3, p.7",
-          "excerpt": "using all embeddings",
           "match": "Conjugation swaps nonreal embedding components rather than acting separately on infinite places."
         }
       ],
@@ -613,7 +609,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, (1.40)–(1.41), p.22",
-          "excerpt": "est un nombre réel non nul",
           "match": "The source asserts real nonzero q and its dependence on E; the parity/sign formulas follow explicitly from the real-adapted integral basis."
         }
       ],
@@ -668,13 +663,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Remarque 20, p.22 and (1.48), p.23",
-          "excerpt": "forme une base directe",
           "match": "The oriented integral homology basis identifies periods with the lattice; the matrix, primitive kernels and index follow by the displayed integral calculation."
         },
         {
           "sourceId": "DJZ.2005v2",
           "locator": "Section 3, paragraph before (3.4), p.5",
-          "excerpt": "the anti-invariants",
           "match": "The regulator is evaluated on integral anti-invariants; rational eigenspaces do not choose its integral normalization."
         }
       ],
@@ -729,7 +722,6 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "(1.36)–(1.37), p.21; Remarque 20, p.22",
-          "excerpt": "Composons η",
           "match": "Derived conjugation and inversion laws for the displayed exponential presentation."
         }
       ],
@@ -787,13 +779,11 @@
         {
           "sourceId": "Brunault.These.2005",
           "locator": "Proposition 26, (1.64), p.26; Remarque 20, (1.40), p.22",
-          "excerpt": "l’unique forme différentielle",
           "match": "The real normalized differential integrates to 1 on the neutral real component; its geometric identity is inherited."
         },
         {
           "sourceId": "DJZ.2005v2",
           "locator": "Remark 3.14, Section 3, p.7",
-          "excerpt": "using all embeddings",
           "match": "The combined action and the integral anti-invariant rank are taken over the entire disjoint union."
         }
       ],

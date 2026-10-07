@@ -4,7 +4,7 @@
 
 This document specifies a plan. Its [packet](../packets/KTheoryLowDegrees--U.1.json) contains the same declaration contracts. The [suggested Lean file](../suggested/KTheoryLowDegrees--U.1.lean) proposes names and signatures. Every node has implementation status `unchecked`.
 
-The bounded planning pass is complete with 332 nodes. Z.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Nine proof or target gaps and eight supplier requests are explicit below. No stage is closed. Completion of this pass submits these contracts for independent review; it does not establish the statements recorded as proof gaps.
+The bounded planning pass is complete with 334 nodes. Z.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Nine proof or target gaps and eight supplier requests are explicit below. No stage is closed. Completion of this pass submits these contracts for independent review; it does not establish the statements recorded as proof gaps.
 
 ## Purpose and ownership
 
@@ -38,12 +38,12 @@ ArithmeticKTheory imports K₁(ℤ) from U.6 and K₀(ℤ) from companion Z.6. K
 | Z.2 | 30 | source_decomposed | Rank of a projective module; H⁰ as a direct summand of K₀; K₀ of a division ring; Projectives over a local ring are free; Product formula for K₀; K₀ of a semilocal ring |
 | U.1 | 27 | source_decomposed | Elementary matrices; Infinite general linear group; E_n(R) is perfect for n ≥ 3; Stable elementary group E(A); Whitehead's Lemma |
 | U.2 | 22 | source_decomposed | Whitehead group K₁; K₁ class of an automorphism; Additivity of the K₁ class; Bass's universal property of K₁ |
-| U.3 | 42 | partial | Determinant on K₁; SK₁; K₁(A) = Aˣ ⊕ SK₁(A); SK₁ of semilocal rings vanishes; Dieudonné determinant; K₁ of a division ring |
+| U.3 | 44 | partial | Determinant on K₁; SK₁; K₁(A) = Aˣ ⊕ SK₁(A); SK₁ of semilocal rings vanishes; Dieudonné determinant; K₁ of a division ring |
 | U.4 | 113 | partial | Mennicke symbol; Mennicke's theorem; Dirichlet theorem for arithmetic Dedekind rings; Arithmetic Mennicke symbols; Bass–Milnor–Serre theorem; Dirichlet's S-unit theorem |
 | U.5 | 31 | partial | Relative elementary group; Relative Whitehead lemma; Relative K₁; Relative exact sequence; Transfer; Explicit valuation boundary |
 | U.6 | 14 | partial | π₁ of BGL(A)⁺; K₁ of the integers; K₁ of a finite field; K₁ of ℤ[1/p]; K₁ of a product of fields |
 
-The packet has 23 definitions, 48 constructions, 170 lemmas, 69 theorems, 12 comparisons and 10 applications. Its definition/construction contracts contain 498 API items and 285 unit tests; 44 nodes are planets. It cites 481 pinned baseline declarations. Each declaration below has its own source locator, proof route and prerequisite list.
+The packet has 23 definitions, 48 constructions, 172 lemmas, 69 theorems, 12 comparisons and 10 applications. Its definition/construction contracts contain 498 API items and 285 unit tests; 44 nodes are planets. It cites 484 pinned baseline declarations. Each declaration below has its own source locator, proof route and prerequisite list.
 
 ## Sources and pinned baseline
 
@@ -121,7 +121,7 @@ Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf
 - `mathlib:LocallyConstant.comap` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/LocallyConstant/Basic.lean)): Pull-back of a locally constant function along a continuous map.
 - `mathlib:LocallyConstant.const` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/LocallyConstant/Basic.lean)): The constant locally constant function.
 - `mathlib:Matrix.GeneralLinearGroup` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean)): GL n R := (Matrix n n R)ˣ for a semiring R (no commutativity needed).
-- `mathlib:Matrix.GeneralLinearGroup.map` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean)): A ring homomorphism induces GL n R →* GL n S entrywise.
+- `mathlib:Matrix.GeneralLinearGroup.map` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean)): For commutative rings R and S, a ring homomorphism induces GL n R →* GL n S entrywise. Arbitrary-ring maps use the separately planned general-linear-map (Units.map of RingHom.mapMatrix).
 - `mathlib:Matrix.fromBlocks` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Matrix/Block.lean)): The 2 × 2 block matrix built from four blocks, indexed by sum types.
 - `mathlib:Matrix.fromBlocks_multiply` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Matrix/Block.lean)): Block multiplication of fromBlocks matrices.
 - `mathlib:Matrix.map` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Defs.lean)): Entrywise application of a function to a matrix.
@@ -145,8 +145,8 @@ Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf
 - `mathlib:Module.IsStablyFree.of_free_prod` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/StablyFree/Basic.lean)): Constructor: N finite free and M × N free give IsStablyFree R M.
 - `mathlib:Module.Projective.directSum` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/Projective.lean)): A direct sum of projective modules is projective.
 - `mathlib:Module.Projective.of_split` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/Projective.lean)): A retract of a projective module is projective.
-- `mathlib:Module.finBasis` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dimension/Free.lean)): A finite free module has a basis indexed by Fin (finrank R M).
-- `mathlib:Module.finBasisOfFinrankEq` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dimension/Free.lean)): A basis indexed by Fin n when finrank R M = n (finite free M).
+- `mathlib:Module.finBasis` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dimension/Free.lean)): Under [StrongRankCondition R], a finite free R-module M has a basis indexed by Fin (finrank R M). This hypothesis is inherited from the enclosing section.
+- `mathlib:Module.finBasisOfFinrankEq` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dimension/Free.lean)): Under [StrongRankCondition R], a finite free R-module M with finrank R M=n has a basis indexed by Fin n. This hypothesis is inherited from the enclosing section.
 - `mathlib:Module.finitePresentation_of_projective` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/FinitePresentation.lean)): Finite projective modules are finitely presented.
 - `mathlib:Module.finite_def` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Defs.lean)): Module.Finite R M iff ⊤ : Submodule R M is finitely generated.
 - `mathlib:Module.finrank_pi` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dimension/Constructions.lean)): finrank of Fin n → R-type finite products (free case).
@@ -556,6 +556,9 @@ Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf
 - `mathlib:MulAction.stabilizer` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean)): The native stabilizer for an actual group action; the relative pointwise stabilizer is its conjugation-function adapter.
 - `tauceti:AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one` ([source](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean)): For a number field K, an extension field F, ζ^m=1, a height-one prime 𝔭 of 𝓞_K with m∉𝔭, an ideal Q of 𝓞_F lying over 𝔭 and an arithmetic Frobenius σ at Q: σ(ζ)=ζ^{absNorm(𝔭)}. No chosen Frobenius or number-field hypothesis on F is required.
 - `tauceti:AlgHom.IsArithFrobAt.autToPow_eq_absNorm` ([source](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean)): Under the same number-field, lying-over and arithmetic-Frobenius hypotheses, for a primitive m-th root ζ and m≠0, its cyclotomic character at σ is absNorm(𝔭) in ℤ/mℤ, with the arithmetic orientation.
+- `mathlib:Module.Free.chooseBasis` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FreeModule/Basic.lean)): For a free module over a semiring, a chosen basis indexed by Module.Free.ChooseBasisIndex R M; no StrongRankCondition is required.
+- `mathlib:Module.Free.ChooseBasisIndex.fintype` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean)): For a finite free module over any semiring R, the chosen-basis index is a Fintype, including when R is subsingleton; reindexing gives a finite standard free module without finrank or StrongRankCondition.
+- `mathlib:Fintype.equivFin` ([source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Fintype/EquivFin.lean)): For any Fintype α, a noncomputable equivalence α ≃ Fin (Fintype.card α), used to reindex a finite chosen basis.
 
 ## Z.1 — Finitely generated projectives and their presentations
 
@@ -880,7 +883,7 @@ Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempot
 2. Addition is well defined: pad(e ⊞ f) and pad(e) ⊞ pad(f) are conjugate by the permutation matrix (Equiv.Perm.permMatrix) of the shuffle of index blocks, and (g ⊞ h)⁻¹(pad e ⊞ pad f)(g ⊞ h) = (g⁻¹ pad(e) g) ⊞ (h⁻¹ pad(f) h).
 3. Monoid laws: e ⊞ f and f ⊞ e are conjugate by the permutation matrix of the block swap; associativity and the unit laws hold up to reindexing equivalences, which are permutation conjugations.
 4. mk is independent of the equivalence ι ≃ Fin |ι|: two choices differ by a permutation σ, and reindexing along σ is conjugation by σ.permMatrix.
-5. map f is well defined and additive because entrywise application commutes with products, block sums and padding (Matrix.map_mul, RingHom.mapMatrix) and sends GL_N(R) to GL_N(S) (Matrix.GeneralLinearGroup.map); map_id and map_comp hold on representatives.
+5. map f is well defined and additive because entrywise application commutes with products, block sums and padding (Matrix.map_mul, RingHom.mapMatrix) and sends GL_N(R) to GL_N(S) (U.1/general-linear-map: Units.map of RingHom.mapMatrix; the native Matrix.GeneralLinearGroup.map is only the commutative compatibility case); map_id and map_comp hold on representatives.
 
 **Uses.**
 
@@ -926,7 +929,7 @@ Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempot
 - `mathlib:finSumFinEquiv`
 - `mathlib:Matrix.map_mul`
 - `mathlib:RingHom.mapMatrix`
-- `mathlib:Matrix.GeneralLinearGroup.map`
+- `KTheoryLowDegrees:U.1/general-linear-map`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/RingK0/Idempotent`; namespace `TauCeti.StableIdempotent`.
 
@@ -1257,7 +1260,6 @@ Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempot
 - `mathlib:Module.IsStablyFree`
 - `mathlib:Module.IsStablyFree.exist_free_prod`
 - `mathlib:Module.IsStablyFree.of_free_prod`
-- `mathlib:Module.finBasis`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/RingK0/Basic`; namespace `TauCeti.RingK0`.
 
@@ -1947,7 +1949,7 @@ Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempot
 
 **Construction or proof.**
 
-1. If Module.IsStablyFree R P: Module.IsStablyFree.exist_free_prod gives N finite free with P × N free. P × N is finite and free, so it has a finite basis (Module.finBasis) and P × N ≃ R^m; also N ≃ R^k. Hence [P] = (m − k)•[R].
+1. If Module.IsStablyFree R P, Module.IsStablyFree.exist_free_prod gives a finite free N with P × N free. P × N is also finite. For each of N and P × N use Module.Free.chooseBasis and Module.Free.ChooseBasisIndex.fintype, then reindex along Fintype.equivFin to obtain N ≃ R^k and P × N ≃ R^m. Hence [P] = (m − k)•[R]. No StrongRankCondition or finrank is needed; the chosen-index instance also treats the zero ring.
 2. Conversely, if [P] = a•[R] with a ∈ ℤ, choose k ≥ 0 with a + k ≥ 0; then [P × R^k] = (a + k)[R] and Z.1/stably-free-class gives P × R^{k+j} ≃ R^{a+k+j}; Module.IsStablyFree.of_free_prod applies with N = R^{k+j}.
 
 **Acceptance cases.**
@@ -1961,8 +1963,10 @@ Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempot
 - `mathlib:Module.IsStablyFree`
 - `mathlib:Module.IsStablyFree.exist_free_prod`
 - `mathlib:Module.IsStablyFree.of_free_prod`
-- `mathlib:Module.finBasis`
 - `KTheoryLowDegrees:Z.1/stably-free-class`
+- `mathlib:Module.Free.chooseBasis`
+- `mathlib:Module.Free.ChooseBasisIndex.fintype`
+- `mathlib:Fintype.equivFin`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/RingK0/Basic`; namespace `TauCeti.RingK0`.
 
@@ -5531,8 +5535,9 @@ GL(A) is Mathlib's DirectLimit of the GL_n(A) along g ↦ diag(g, 1) (the choice
 
 **Construction or proof.**
 
-1. Let z = of_n g commute with E(A). Then of_{n+1}(stabilise g) = z commutes with of_{n+1}(E_{n+1}(A)); by injectivity of of_{n+1} (U.1/stable-equality-criterion), stabilise g ∈ GL_{n+1}(A) commutes with E_{n+1}(A).
-2. By U.1/elementary-centraliser (n + 1 ≥ 2), stabilise g = u·1_{n+1}; its (n+1, n+1) entry is 1, so u = 1 and g = 1.
+1. Represent z in some finite rank n by U.1/finite-representatives. Pad first to m=max(n,1)≥1; replacing the representative does not change z. Pad once more to m+1≥2, with a final diagonal entry 1.
+2. Commutation with E(A), injectivity of each finite-rank inclusion (stable-equality-criterion), and the elementary-subgroup inclusions imply that the padded representative centralizes E_{m+1}(A). Apply elementary-centraliser, now at rank at least two.
+3. The padded representative is u·1_{m+1}. Its last diagonal entry is 1, so u=1 and z=1. The initial n=0 case is included by the first padding.
 
 **Acceptance cases.**
 
@@ -5545,6 +5550,7 @@ GL(A) is Mathlib's DirectLimit of the GL_n(A) along g ↦ diag(g, 1) (the choice
 - `KTheoryLowDegrees:U.1/stable-elementary-subgroup`
 - `KTheoryLowDegrees:U.1/stable-equality-criterion`
 - `mathlib:Subgroup.center`
+- `KTheoryLowDegrees:U.1/finite-representatives`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/Whitehead`; namespace `TauCeti.KTheory`.
 
@@ -6581,7 +6587,7 @@ K₁(A) = GL(A)/E(A) with its universal property and the isomorphism with Mathli
 
 For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre). The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.
 
-**Remaining targets or proof inputs.**
+**Remaining obligations.**
 
 - Receive the precise continuous SL_N(ℝ)-to-SO(realCliffordForm N 0) retraction for every N≥2 from LieGroups layer 9; the stabilized Spin coordinate comparison and endpoint-lifting obstruction are now source-decomposed.
 
@@ -7341,7 +7347,7 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 **Kind:** lemma. **Realises:** `KTheoryLowDegrees:U.3`.
 
-**Statement.** For a division ring D and n ≥ 1, E_n(D) is a normal subgroup of GL_n(D): with D(μ) = diag(1, …, 1, μ), D(μ)e_ij(λ)D(μ)⁻¹ equals e_ij(λ) if i, j ≠ n, e_nj(μλ) if i = n, and e_in(λμ⁻¹) if j = n; since GL_n(D) = E_n(D)·{D(μ)}, conjugation preserves E_n(D). Every transvection of Dⁿ in Mathlib's sense (LinearEquiv.transvections) is a GL_n(D)-conjugate of e_21(1), so lies in E_n(D).
+**Statement.** For a division ring D and n ≥ 1, E_n(D) is a normal subgroup of GL_n(D): with D(μ) = diag(1, …, 1, μ), D(μ)e_ij(λ)D(μ)⁻¹ equals e_ij(λ) if i, j ≠ n, e_nj(μλ) if i = n, and e_in(λμ⁻¹) if j = n; since GL_n(D) = E_n(D)·{D(μ)}, conjugation preserves E_n(D).
 
 **Hypotheses and conventions.**
 
@@ -7351,7 +7357,6 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 1. Left multiplication by D(μ) multiplies row n by μ and right multiplication by D(μ)⁻¹ multiplies column n by μ⁻¹; applied to λE_ij this gives the three formulas (Dieudonné n° 3, formulas (1), in his indexing).
 2. For g = e·D(μ) (U.3/division-ring-reduction), g E_n(D) g⁻¹ = e (D(μ)E_n(D)D(μ)⁻¹) e⁻¹ ⊆ E_n(D).
-3. Transvections: a transvection x ↦ x + f(x)v with f(v) = 0 has, in a basis beginning with v and continuing with a basis of ker f, the matrix of an elementary matrix (Dieudonné n° 4); so it is a conjugate of an elementary matrix.
 
 **Acceptance cases.**
 
@@ -7363,7 +7368,6 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 - `KTheoryLowDegrees:U.3/division-ring-reduction`
 - `KTheoryLowDegrees:U.1/elementary-subgroup`
 - `KTheoryLowDegrees:U.1/elementary-matrix`
-- `mathlib:LinearEquiv.transvections`
 - `mathlib:Subgroup.Normal`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/Dieudonne`; namespace `TauCeti.KTheory`.
@@ -7372,6 +7376,76 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 - [Dieudonne.1943](https://www.numdam.org/item/10.24033/bsmf.1345.pdf), n° 3 (p. 30 of the article; PDF p. 5 of the numdam file). The lemma and the reduction to A = D(μ); the formulas (1) follow in the source.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.1.2.4, Division rings 1.2.4 (PDF p. 189; draft p. 181). The K-book's statement.
+
+### `KTheoryLowDegrees:U.3/division-ring-transvection-conjugacy` — Nonidentity transvections are elementary conjugates
+
+**Kind:** lemma. **Realises:** `KTheoryLowDegrees:U.3`.
+
+**Statement.** For a division ring D, n≥2, and τ∈LinearEquiv.transvections D (Fin n→D) with τ≠1, its right-coordinate matrix is a GL_n(D)-conjugate of e_21(1). Identity transvections are excluded from this conjugacy assertion.
+
+**Hypotheses and conventions.**
+
+- D is a division ring, n≥2, and τ is a nonidentity transvection on the left D-module Dⁿ; coordinate matrices use LinearMap.toMatrixRight'.
+
+**Construction or proof.**
+
+1. Unpack τ(x)=x+f(x)v with f(v)=0. Nonidentity implies v≠0 and f≠0. Choose w with f(w)=1, extend v to a basis of ker f, and adjoin w to obtain a basis of Dⁿ.
+2. In this basis τ fixes ker f and sends w to w+v, so its coordinate matrix is a single elementary matrix with coefficient one. A permutation exchanges the two relevant basis coordinates if needed; change-of-basis gives conjugacy to e_21(1) in the fixed right-coordinate convention.
+
+**Acceptance cases.**
+
+- The identity is a Mathlib transvection (take f=v=0), but is not conjugate to e_21(1) over a division ring.
+- In rank one every transvection is identity; a nonidentity transvection requires rank at least two.
+
+**Prerequisites.**
+
+- `mathlib:LinearEquiv.transvections`
+- `mathlib:LinearMap.toMatrixRight'`
+- `KTheoryLowDegrees:U.1/elementary-matrix`
+
+**Proposed library home:** `TauCeti/Algebra/KTheory/K1/Dieudonne`; namespace `TauCeti.KTheory`.
+
+**Proposed declaration:** `division_ring_transvection_conjugacy`.
+
+**Sources.**
+
+- [Dieudonne.1943](https://www.numdam.org/item/10.24033/bsmf.1345.pdf), n°4, printed p.31 (PDF p.6). The source excludes the identity when describing conjugacy of transvections. The extension of the kernel basis and coordinate permutation give the stated right-coordinate version.
+
+### `KTheoryLowDegrees:U.3/division-ring-transvections-elementary` — All transvections lie in the elementary subgroup
+
+**Kind:** lemma. **Realises:** `KTheoryLowDegrees:U.3`.
+
+**Statement.** For a division ring D and n≥1, every τ∈LinearEquiv.transvections D (Fin n→D) has a right-coordinate matrix in E_n(D), including the identity transvection.
+
+**Hypotheses and conventions.**
+
+- D is a division ring and n≥1; matrices of left-module linear maps use LinearMap.toMatrixRight'.
+
+**Construction or proof.**
+
+1. If τ=1, its coordinate matrix is the identity, which belongs to every subgroup.
+2. If τ≠1, its defining v and f are nonzero and f(v)=0 forces n≥2. Apply division-ring-transvection-conjugacy; e_21(1) is elementary and division-ring-elementary-normal preserves membership under the change of basis.
+
+**Acceptance cases.**
+
+- At n=1 only the identity occurs, and E₁(D)=1.
+- At n=2,D=𝔽₂ both identity and nonidentity transvections are elementary; the finite-rank commutator exception does not affect membership.
+
+**Prerequisites.**
+
+- `KTheoryLowDegrees:U.3/division-ring-transvection-conjugacy`
+- `KTheoryLowDegrees:U.3/division-ring-elementary-normal`
+- `KTheoryLowDegrees:U.1/elementary-subgroup`
+- `mathlib:LinearEquiv.transvections`
+- `mathlib:LinearMap.toMatrixRight'`
+
+**Proposed library home:** `TauCeti/Algebra/KTheory/K1/Dieudonne`; namespace `TauCeti.KTheory`.
+
+**Proposed declaration:** `division_ring_transvections_elementary`.
+
+**Sources.**
+
+- [Dieudonne.1943](https://www.numdam.org/item/10.24033/bsmf.1345.pdf), n°4, printed pp.31–32 (PDF pp.6–7). Normality of the generated elementary subgroup and nonidentity conjugacy give membership; the extra identity case is required by Mathlib’s convention.
 
 ### `KTheoryLowDegrees:U.3/dieudonne-determinant` — The Dieudonné determinant
 
@@ -7407,7 +7481,7 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 - `dieudonneDet_updateRow_smul` (relation): Multiplying a row of X on the left by μ ≠ 0 multiplies dieudonneDet X by of μ.
 - `dieudonneDet_swap_rows` (relation): Exchanging two rows multiplies dieudonneDet X by of (−1).
 - `dieudonneDet_stabilise` (compatibility): dieudonneDet (stabilise h X) = dieudonneDet X (U.3/dieudonne-block-triangular).
-- `dieudonneDet_field` (compatibility): For a field F, Abelianization.equivOfComm (dieudonneDet X) = Matrix.GeneralLinearGroup.det X.
+- `dieudonneDet_field` (compatibility): For a field F, Abelianization.equivOfComm.symm (dieudonneDet X) = Matrix.GeneralLinearGroup.det X.
 - `dieudonneDet_quaternion_norm` (example): For D = ℍ[ℝ], the norm Quaternion.normSq induces ℍˣab ≅ ℝ_{>0} (every quaternion of norm 1 is a commutator), and dieudonneDet composed with it is a positive real 'determinant'.
 
 **Unit tests.**
@@ -7416,7 +7490,7 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 - `dieudonneDet_swap` (computation): For any D, dieudonneDet of the matrix with rows (0, 1), (1, 0) is of (−1); for D = ℚ this is nontrivial.
 - `dieudonneDet_quaternion_swap` (non-example): For D = ℍ[ℝ], of (−1) = 1 since −1 = i j i⁻¹ j⁻¹, so the swap matrix has trivial Dieudonné determinant, while the ordinary determinant of the swap over any field is −1: signs are not detected over ℍ.
 - `dieudonneDet_one_by_one` (degenerate): For n = 1, dieudonneDet is Abelianization.of : Dˣ → Dˣab.
-- `dieudonneDet_eq_det_field` (compatibility): For D = ZMod 5 and X : GL (Fin 3) (ZMod 5), Abelianization.equivOfComm (dieudonneDet X) = Matrix.GeneralLinearGroup.det X.
+- `dieudonneDet_eq_det_field` (compatibility): For D = ZMod 5 and X : GL (Fin 3) (ZMod 5), Abelianization.equivOfComm.symm (dieudonneDet X) = Matrix.GeneralLinearGroup.det X.
 
 **Acceptance cases.**
 
@@ -8108,6 +8182,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
 
+**Proposed declaration:** `circleRelation_irreducible`.
+
 **Sources.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
@@ -8139,6 +8215,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 - `mathlib:Ideal.Quotient.isDomain`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
+
+**Proposed declaration:** `circleRing_isDomain`.
 
 **Sources.**
 
@@ -8199,6 +8277,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
 
+**Proposed declaration:** `circleChart`.
+
 **Sources.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
@@ -8227,6 +8307,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 - `mathlib:Ideal.IsPrime`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
+
+**Proposed declaration:** `circleChart_cover`.
 
 **Sources.**
 
@@ -8267,6 +8349,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
 
+**Proposed declaration:** `circleRing_local_dedekind`.
+
 **Sources.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
@@ -8298,6 +8382,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
 
+**Proposed declaration:** `circleRing_integrallyClosed`.
+
 **Sources.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
@@ -8328,6 +8414,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 - `mathlib:IsDedekindDomain`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
+
+**Proposed declaration:** `circleRing_dimensionLEOne`.
 
 **Sources.**
 
@@ -8370,6 +8458,8 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/K1/CircleRing`; namespace `TauCeti.KTheory`.
 
+**Proposed declaration:** `circleRing_dedekind`.
+
 **Sources.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
@@ -8378,7 +8468,7 @@ For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det 
 
 For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two, the universal Mennicke group, arithmetic prime choice and principal-level power reduction. The determinant identification of K₁ with units is canonical. The S-unit theorem gives rank r₁+r₂+|S|−1 and a decomposition after choosing fundamental S-units. The residue-field, prime-local and completion maps are distinct comparison nodes. The real-circle coordinate ring is shown Dedekind in U.3, with its special K₁ obstruction conditional on the LieGroups retraction; the arithmetic theorem is not generalized to arbitrary Dedekind domains. The CG route adds the finite-rank congruence targets: elementary cofinality and finite-index containment, Kubota’s relative rank-two character, §8 standard forms and §9 multiplier/conjugation subgroups through Lemma 9.6. The next-rank value is a function until the two distinct §10 last-swap proofs establish multiplicativity. The remaining finite-level universality, arithmetic defect and transition maps, completion kernel, Serre SL₂ and localized-H¹ interfaces are target gaps. The local symbol request is cohomological; the degree-m Artin dictionary, power-subgroup topology, reciprocity cycle and higher-unit formulas are explicit proof gaps.
 
-**Remaining targets or proof inputs.**
+**Remaining obligations.**
 
 - Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).
 - Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).
@@ -9072,9 +9162,11 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `relative_first_row_completion`.
+
 **Sources.**
 
-- [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §5 Lemma 5.3, printed p.102; §6 first-row map. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
+- [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §5 Lemma 5.3, printed p.101 (PDF p.44); §6 first-row map. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
 
 ### `KTheoryLowDegrees:U.4/relative-first-row-fibre` — Matrices with the same first row
 
@@ -9102,6 +9194,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Matrix.GeneralLinearGroup.det`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `relative_first_row_fibre`.
 
 **Sources.**
 
@@ -9154,6 +9248,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `firstRow`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §5 Lemma 5.3; §6 Theorem 6.1. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -9205,6 +9301,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubotaValue`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1, printed p.103. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -9236,6 +9334,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.5/relative-elementary-subgroup`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `relative_unit_diagonal_elementary`.
 
 **Sources.**
 
@@ -9272,6 +9372,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `relative_stable_range_one_sl2`.
+
 **Sources.**
 
 - [Bass.1964](http://www.numdam.org/item/10.1007/BF02684689.pdf), Proposition 5.1(a), printed p.18. Freshly read relative assertion, decomposed in rank two with explicit I-level factors.
@@ -9307,6 +9409,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `relative_elementary_quotient_lifting`.
+
 **Sources.**
 
 - [Bass.1964](http://www.numdam.org/item/10.1007/BF02684689.pdf), Corollary 5.2 and its proof, printed p.18. Freshly read lifting argument specialized to determinant-one rank two.
@@ -9341,6 +9445,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `dedekind_principal_quotient_semilocal`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §2 remark preceding Lemma 2.2, printed p.66; §6 step 5, printed p.105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -9374,6 +9480,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `sl2_principal_reduction`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -9406,6 +9514,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Ideal.Quotient.mk_surjective`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `dedekind_coprime_square_adjustment`.
 
 **Sources.**
 
@@ -9455,6 +9565,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `RelativeColumn`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §7 opening definition, printed p.105. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9485,6 +9597,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.3/stable-range`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `relative_shortening`.
 
 **Sources.**
 
@@ -9521,6 +9635,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `relative_elementary_transitive`.
+
 **Sources.**
 
 - [Bass.1964](http://www.numdam.org/item/10.1007/BF02684689.pdf), Theorem 4.2(a) and its proof, printed pp.14–15. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9556,6 +9672,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `relative_gl_reduction`.
+
 **Sources.**
 
 - [Bass.1964](http://www.numdam.org/item/10.1007/BF02684689.pdf), Theorem 4.2(b), printed pp.14–15. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9587,6 +9705,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Matrix.vecMulVec`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `relative_rank_one_conjugate`.
 
 **Sources.**
 
@@ -9622,6 +9742,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/elementary-subgroup`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `relative_elementary_normal`.
 
 **Sources.**
 
@@ -9659,6 +9781,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `relative_ge_commutator`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Theorem 7.5(d), printed p.106; Bass Theorem 4.2(d), pp.16–17. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9691,6 +9815,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Matrix.transpose_mul`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `dedekind_relative_gl_transitive`.
 
 **Sources.**
 
@@ -9738,6 +9864,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `Related`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §8 definition before (8.4), printed p.107. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9767,6 +9895,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/asymmetric-related-matrices`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `related_product`.
 
 **Sources.**
 
@@ -9803,6 +9933,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Matrix.det_transpose`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `related_stabilized_commutator`.
 
 **Sources.**
 
@@ -9851,6 +9983,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `leftBlock`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Definition of type L before Lemma 8.9, printed p.109. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9897,6 +10031,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Matrix.GeneralLinearGroup.mk''`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `rightBlock`.
 
 **Sources.**
 
@@ -9952,6 +10088,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `StandardForm`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 8.9(a) and following Remark, printed p.109. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -9985,6 +10123,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/relative-unimodular-column`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `standardForm_exists`.
 
 **Sources.**
 
@@ -10022,6 +10162,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/elementary-matrix`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `related_relative_elementary`.
 
 **Sources.**
 
@@ -10078,6 +10220,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `ExtensionConditions`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), (8.2)–(8.4), printed p.107. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -10107,6 +10251,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/stabilisation-map`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `extension_unique`.
 
 **Sources.**
 
@@ -10142,6 +10288,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `extension_transpose_kernel`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Corollary 8.10, printed p.110. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -10170,6 +10318,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/related-relative-elementary`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `extension_related_invariance`.
 
 **Sources.**
 
@@ -10218,6 +10368,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `standardFormValue`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 8.11, printed pp.110–111. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -10253,6 +10405,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/elementary-matrix`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `standardFormValue_independent`.
 
 **Sources.**
 
@@ -10304,6 +10458,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `extendedValue`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 8.11, printed pp.110–111. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -10334,6 +10490,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `extendedValue_left`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 8.11, printed p.111; Lemma 8.12, p.112. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -10363,6 +10521,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/relative-standard-form`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `extendedValue_right`.
 
 **Sources.**
 
@@ -10395,6 +10555,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/relative-right-block`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `extendedValue_two_sided`.
 
 **Sources.**
 
@@ -10440,6 +10602,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Subgroup.map`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `multiplierSubgroup`.
 
 **Sources.**
 
@@ -10487,6 +10651,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:MulAction.stabilizer`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `conjugationStabilizer`.
 
 **Sources.**
 
@@ -10536,6 +10702,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `GE`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Corollary 9.3 and generator description in Lemma 9.6, printed pp.113–114. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -10567,6 +10735,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Subgroup.normalizer`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `stabilizer_normalizes_multiplier`.
 
 **Sources.**
 
@@ -10601,6 +10771,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `typeL_normalized_eq_top`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 9.2, printed p.113. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -10631,6 +10803,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/extended-value-type-l`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `typeL_mem_multiplier`.
 
 **Sources.**
 
@@ -10668,6 +10842,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `multiplicative_of_GE_invariant`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Corollary 9.3, printed p.113. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -10700,6 +10876,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/extension-conditions`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `diagonal_mem_stabilizer`.
 
 **Sources.**
 
@@ -10736,6 +10914,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `interior_mem_stabilizer`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 9.4, interior-generator case, printed p.113. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -10769,6 +10949,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/elementary-commutator-chain`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `firstRoot_mem_stabilizer`.
 
 **Sources.**
 
@@ -10804,6 +10986,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `lastRoot_mem_stabilizer`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Lemma 9.4, e_m,m+1(t) case, printed p.113. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -10838,6 +11022,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/elementary-commutator-chain`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `upperBlock_mem_stabilizer`.
 
 **Sources.**
 
@@ -10887,6 +11073,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:MulOpposite`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `transposeImage`.
 
 **Sources.**
 
@@ -10938,6 +11126,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `reflectedTranspose`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Reflected transpose paragraph, printed p.114. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -10972,6 +11162,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `reflectedLevel_left`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Type-L calculation, printed p.114. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -11005,6 +11197,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Equiv.Perm.permMatrix`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `reflectedLevel_right`.
 
 **Sources.**
 
@@ -11042,6 +11236,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
 
+**Proposed declaration:** `extendedValue_reflected`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Value calculation preceding Lemma 9.5, printed p.114. Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1.
@@ -11074,6 +11270,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/transpose-image`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `stabilizer_reflected`.
 
 **Sources.**
 
@@ -11110,6 +11308,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.1/elementary-subgroup`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `GE_le_stabilizer_of_swap`.
 
 **Sources.**
 
@@ -11475,15 +11675,17 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).
 - Hilbert symbols (a, b / 𝔭)_m are those of BMS's Appendix (A.13)–(A.19): for a local field containing μ_m, (a, b / k)_m = σ(a^{1/m})/a^{1/m} with σ = (b, k_ab/k) the local reciprocity image of b — the transpose of the orientation (a, b)_v = Art_v(a)(ⁿ√b)/ⁿ√b used by ClassicalArithmeticCompletion CA.1. The named cohomological local symbol and nondegeneracy are requested from ClassFieldTheory layer 5; the comparison to BMS reciprocity orientation and the openness/finite index of k_𝔭^{×m} are separate gaps; the tame formula (A.16), the product formula (A.19)/(A.21) and the wild computation (A.17) are gaps (see gaps and restructure).
 - 'Close at 𝔭' means multiplicatively congruent modulo p^n-th powers in F_𝔭^×, a congruence modulo an open subgroup of finite index.
+- For n>0 the proof remains conditional on the named BMS-oriented symbol, its open finite-index power subgroups, the tame formula and product reciprocity; these are not conclusions of the layer-5 cohomological pairing alone. The totally imaginary case additionally requires the higher-unit image formula. No such input is claimed for the n=0 branch.
 
 **Construction or proof.**
 
-1. Take a non-complex place 𝔭_∞ ∈ S_∞ (a real place or a prime of S). By nondegeneracy of the Hilbert symbol at 𝔭_∞ (requested) choose u, v ∈ F_{𝔭_∞}^× with (u, v / 𝔭_∞)_{p^n} a generator of μ_{p^n}.
-2. Choose 0 ≠ q ∈ 𝔮 with qA ⊆ 𝔮 and, by U.4/q-equivalence-smaller-ideal, (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b), with b′ ≠ 0 and a′ prime to p.
-3. U.4/dirichlet-theorem-arithmetic-type gives a prime b₁A with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭_∞, and close to 1 at all other places of S_∞ and at the primes of F over p; so b₁A is prime to p.
-4. Choose i > 0 with (a′, b₁ / b₁A)_{p^n}·(u, v / 𝔭_∞)_{p^n}^i = 1, and by the same theorem a prime a₁A, prime to p, with a₁ ≡ a′ mod b₁q and a₁ close to u^i at 𝔭_∞.
-5. Reciprocity (A.21) (gap): (b₁/a₁)_{p^n} = ∏_{𝔭 ∤ a₁} (a₁, b₁ / 𝔭)_{p^n}. The conditions on b₁ remove every place of S_∞ except 𝔭_∞ and the primes over p; the tame formula (A.16) (gap) removes the other finite primes except b₁A. So (b₁/a₁)_{p^n} = (a₁, b₁ / b₁A)_{p^n}(a₁, b₁ / 𝔭_∞)_{p^n} = (a′, b₁ / b₁A)_{p^n}(u^i, v / 𝔭_∞)_{p^n} = 1.
-6. Hence b₁ ≡ c^{p^n} mod a₁ for some c ∈ A, and (a, b) ∼_𝔮 (a′, b′q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); a₁ ≡ a′ ≡ 1 mod qA, since a₁ − a′ ∈ b₁qA and (a′, b′q) ∈ W_{qA}. (BMS print the last pair as (a₂, c^{p^n}q); see sourceIssues.)
+1. If n = 0, choose 0≠q∈𝔮, so qA is nonzero and contained in 𝔮. Apply q-equivalence-smaller-ideal to obtain (a′,b′q) ∈ W_{qA} equivalent to (a,b), and set a₁=a′, c=b′. Then c^{p^n}q=b′q and a₁≡1 mod qA; no Hilbert-symbol or reciprocity input is needed. For the remaining steps assume n>0.
+2. Take a non-complex place 𝔭_∞ ∈ S_∞ (a real place or a prime of S). By nondegeneracy of the Hilbert symbol at 𝔭_∞ (requested) choose u, v ∈ F_{𝔭_∞}^× with (u, v / 𝔭_∞)_{p^n} a generator of μ_{p^n}.
+3. Choose 0 ≠ q ∈ 𝔮 with qA ⊆ 𝔮 and, by U.4/q-equivalence-smaller-ideal, (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b), with b′ ≠ 0 and a′ prime to p.
+4. U.4/dirichlet-theorem-arithmetic-type gives a prime b₁A with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭_∞, and close to 1 at all other places of S_∞ and at the primes of F over p; so b₁A is prime to p.
+5. Choose i > 0 with (a′, b₁ / b₁A)_{p^n}·(u, v / 𝔭_∞)_{p^n}^i = 1, and by the same theorem a prime a₁A, prime to p, with a₁ ≡ a′ mod b₁q and a₁ close to u^i at 𝔭_∞.
+6. Reciprocity (A.21) (gap): (b₁/a₁)_{p^n} = ∏_{𝔭 ∤ a₁} (a₁, b₁ / 𝔭)_{p^n}. The conditions on b₁ remove every place of S_∞ except 𝔭_∞ and the primes over p; the tame formula (A.16) (gap) removes the other finite primes except b₁A. So (b₁/a₁)_{p^n} = (a₁, b₁ / b₁A)_{p^n}(a₁, b₁ / 𝔭_∞)_{p^n} = (a′, b₁ / b₁A)_{p^n}(u^i, v / 𝔭_∞)_{p^n} = 1.
+7. Hence b₁ ≡ c^{p^n} mod a₁ for some c ∈ A, and (a, b) ∼_𝔮 (a′, b′q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); a₁ ≡ a′ ≡ 1 mod qA, since a₁ − a′ ∈ b₁qA and (a′, b′q) ∈ W_{qA}. (BMS print the last pair as (a₂, c^{p^n}q); see sourceIssues.)
 
 **Acceptance cases.**
 
@@ -11515,15 +11717,17 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).
 - Hilbert symbols (a, b / 𝔭)_m are those of BMS's Appendix (A.13)–(A.19): for a local field containing μ_m, (a, b / k)_m = σ(a^{1/m})/a^{1/m} with σ = (b, k_ab/k) the local reciprocity image of b — the transpose of the orientation (a, b)_v = Art_v(a)(ⁿ√b)/ⁿ√b used by ClassicalArithmeticCompletion CA.1. The named cohomological local symbol and nondegeneracy are requested from ClassFieldTheory layer 5; the comparison to BMS reciprocity orientation and the openness/finite index of k_𝔭^{×m} are separate gaps; the tame formula (A.16), the product formula (A.19)/(A.21) and the wild computation (A.17) are gaps (see gaps and restructure).
 - This node retains the j_p(𝔮)=0 cases used for stable SK₁. The j_p(𝔮)>0 power-residue Mennicke calculation belongs to the newly required finite-level arithmetic congruence-defect gap; it is not proved by this restricted node.
+- For n>0 the proof remains conditional on the named BMS-oriented symbol, its open finite-index power subgroups, the tame formula and product reciprocity; these are not conclusions of the layer-5 cohomological pairing alone. The totally imaginary case additionally requires the higher-unit image formula. No such input is claimed for the n=0 branch.
 
 **Construction or proof.**
 
-1. Reduction (Case 2): if 𝔮 is not divisible by every prime over p, let 𝔮′ ⊆ 𝔮 be the largest ideal in 𝔮 divisible by all of them; ord_𝔭(𝔮′) = 1 for some 𝔭 | p, so j_p(𝔮′) = 0, and U.4/q-equivalence-smaller-ideal moves (a, b) into W_{𝔮′}. So assume 𝔮 divisible by every 𝔭 | p and j_p(𝔮) = 0 (Case 3); the power residue symbol (·)_{p^j} is then trivial.
-2. Lemma 3.4(a) for j = 0: there are 𝔭₀ | p, u ≡ 1 mod 𝔮 and v ∈ U_{𝔭₀} with (u, v / 𝔭₀)_{p^n} generating μ_{p^n}, by the local computation (A.17) (gap): (U_{𝔭₀}(h), U_{𝔭₀} / 𝔭₀)_{p^n} = μ_{p^{n−j}}, h = ord_{𝔭₀}(q).
-3. Choose q ∈ 𝔮 with ord_𝔭(q) = ord_𝔭(𝔮) for all 𝔭 | p and (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b). By U.4/dirichlet-theorem-arithmetic-type take a prime b₁A, prime to 𝔮, with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭₀ and close to 1 at the other 𝔭 | p.
-4. Choose i ≥ 0 with (u, v / 𝔭₀)_{p^n}^i (a′, b₁ / b₁)_{p^n} = 1, and a prime a₁ ≡ a′ mod b₁q close to u^i at 𝔭₀ (compatible because u ≡ 1 mod 𝔭₀^h and b₁ is prime to 𝔮).
-5. Reciprocity (A.21) and the tame formula (A.16) (gaps), with F totally imaginary: (b₁/a₁)_{p^n} = (a₁, b₁ / b₁)_{p^n}(a₁, b₁ / 𝔭₀)_{p^n} = (a′, b₁ / b₁)_{p^n}(u^i, v / 𝔭₀)_{p^n} = 1, using (A.16) to see that (a₁, b₁ / b₁)_{p^n} depends on a₁ only modulo b₁.
-6. So b₁ is a p^n-th power modulo a₁ and (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); also (a₁, b₁q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a′, b′q) ∼_𝔮 (a, b). The congruence a₁ ≡ a′ mod b₁q also gives a₁ ≡ 1 mod qA.
+1. If n = 0, choose 0≠q∈𝔮, so qA is nonzero and contained in 𝔮. Apply q-equivalence-smaller-ideal to obtain (a′,b′q) ∈ W_{qA} equivalent to (a,b), and set a₁=a′, c=b′. Then c^{p^n}q=b′q and a₁≡1 mod qA; no Hilbert-symbol or reciprocity input is needed. For the remaining steps assume n>0.
+2. Reduction (Case 2): if 𝔮 is not divisible by every prime over p, let 𝔮′ ⊆ 𝔮 be the largest ideal in 𝔮 divisible by all of them; ord_𝔭(𝔮′) = 1 for some 𝔭 | p, so j_p(𝔮′) = 0, and U.4/q-equivalence-smaller-ideal moves (a, b) into W_{𝔮′}. So assume 𝔮 divisible by every 𝔭 | p and j_p(𝔮) = 0 (Case 3); the power residue symbol (·)_{p^j} is then trivial.
+3. Lemma 3.4(a) for j = 0: there are 𝔭₀ | p, u ≡ 1 mod 𝔮 and v ∈ U_{𝔭₀} with (u, v / 𝔭₀)_{p^n} generating μ_{p^n}, by the local computation (A.17) (gap): (U_{𝔭₀}(h), U_{𝔭₀} / 𝔭₀)_{p^n} = μ_{p^{n−j}}, h = ord_{𝔭₀}(q).
+4. Choose q ∈ 𝔮 with ord_𝔭(q) = ord_𝔭(𝔮) for all 𝔭 | p and (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b). By U.4/dirichlet-theorem-arithmetic-type take a prime b₁A, prime to 𝔮, with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭₀ and close to 1 at the other 𝔭 | p.
+5. Choose i ≥ 0 with (u, v / 𝔭₀)_{p^n}^i (a′, b₁ / b₁)_{p^n} = 1, and a prime a₁ ≡ a′ mod b₁q close to u^i at 𝔭₀ (compatible because u ≡ 1 mod 𝔭₀^h and b₁ is prime to 𝔮).
+6. Reciprocity (A.21) and the tame formula (A.16) (gaps), with F totally imaginary: (b₁/a₁)_{p^n} = (a₁, b₁ / b₁)_{p^n}(a₁, b₁ / 𝔭₀)_{p^n} = (a′, b₁ / b₁)_{p^n}(u^i, v / 𝔭₀)_{p^n} = 1, using (A.16) to see that (a₁, b₁ / b₁)_{p^n} depends on a₁ only modulo b₁.
+7. So b₁ is a p^n-th power modulo a₁ and (a₁, b₁q) ∼_𝔮 (a₁, c^{p^n}q); also (a₁, b₁q) ∼_𝔮 (a′, b₁q) ∼_𝔮 (a′, b′q) ∼_𝔮 (a, b). The congruence a₁ ≡ a′ mod b₁q also gives a₁ ≡ 1 mod qA.
 
 **Acceptance cases.**
 
@@ -12087,6 +12291,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `mennicke_kervaire_reciprocity`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §2 Lemma 2.10 and proof, printed p.68. Fresh proof read in the public scan; split off to make the Kubota prerequisites explicit.
@@ -12126,6 +12332,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `mennicke_denominator_common_level`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §2 Lemma 2.11, Case 1, printed pp.68–69. Fresh proof read in the public scan; split off to make the Kubota prerequisites explicit.
@@ -12162,6 +12370,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Ideal.finite_factors`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `mennicke_denominator_multiplication`.
 
 **Sources.**
 
@@ -12202,6 +12412,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubota_opposite_row`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -12235,6 +12447,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Subgroup.closure_induction`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `kubota_elementary_conjugation`.
 
 **Sources.**
 
@@ -12275,6 +12489,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubota_diagonal_conjugation`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -12308,6 +12524,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `mathlib:Subgroup.closure_induction`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `kubota_relative_elementary_invariance`.
 
 **Sources.**
 
@@ -12346,6 +12564,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/mennicke-denominator-multiplication`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `kubota_relative_diagonal_invariance`.
 
 **Sources.**
 
@@ -12389,6 +12609,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubota_conditional_multiplication`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -12427,6 +12649,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.5/congruence-subgroup`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `kubota_multiplicativity`.
 
 **Sources.**
 
@@ -12485,6 +12709,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubotaHom`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -12518,6 +12744,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubota_ideal_image`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -12550,6 +12778,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubota_noncongruence_kernel`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §6 Theorem 6.1 and proof, printed pp.103–105. Freshly read proof decomposed on the existing packet carriers; explicit boundary cases and coordinate computations are worker deductions.
@@ -12581,6 +12811,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
 
+**Proposed declaration:** `kubotaHom_relative_kernel`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), Theorem 6.1 and step (6) of its proof, printed pp.103–105; Lemma 8.7(b), p.108. Promotes the already specified kernel API to a lemma node so the extension-conditions node cites a declaration rather than a construction API item.
@@ -12611,6 +12843,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/kubota-diagonal-conjugation`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/Kubota`; namespace `TauCeti.MennickeSymbol`.
+
+**Proposed declaration:** `kubotaHom_commutator_kernel`.
 
 **Sources.**
 
@@ -12647,6 +12881,8 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 - `KTheoryLowDegrees:U.4/kubota-commutator-kernel`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.MennickeExtension`.
+
+**Proposed declaration:** `kubota_extension_conditions`.
 
 **Sources.**
 
@@ -12730,7 +12966,7 @@ For finite S of finite places, U.4 targets SK₁(O_{F,S})=0 via stable range two
 
 Targets: congruence subgroups and relative elementary groups (U.5/congruence-subgroup, relative-elementary-subgroup), the Relative Whitehead Lemma and [GL(A), GL(I)] = E(A, I) through the double ring, K₁(A, I) := GL(I)/E(A, I) (not a kernel), the relative determinant, the radical and split cases, the beginning of the relative sequence with its K₂ boundary target identified explicitly as ker(K₁(A, I) → K₁(A)) = (E(A) ∩ GL(I))/E(A, I) (the boundary map itself is K2SymbolsBrauer T.6's, which imports U.5), K₀(I) and the degree-zero ideal sequence; transfer by restriction of scalars for finite projective extensions, its determinant–norm formula, the field norm, base change and the projection formula against K₀ (with the K₀(A)-module structure on K₁); the explicit cokernel-length boundary K₁(L) → K₀(k) of a DVR with ∂ = v ∘ det, the exact sequence 1 → K₁(O) → K₁(L) → K₀(k) → 0, and its comparison with the localisation boundary, which RS-18 gives to SchemeKTheoryOperations S.3 together with the normalisation ∂(π) = [k] (U.5/dvr-boundary-localisation-comparison, citing S.3/dvr-boundary-unit-valuation). The comparison with the homotopy-fibre relative K₁ (GeneralAlgebraicKTheory K.5) needs U.6's π₁BGL⁺ = K₁ and is realised by U.6/relative-K1-homotopy-comparison. The named ideal-boundary and the decomposed Z.1 Milnor theorems close the degree-zero ideal-sequence source gap.
 
-**Remaining targets or proof inputs.**
+**Remaining obligations.**
 
 - The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) requires the actual relative-plus/excision-defect proof and degree-two boundary comparison; the T.1:plus/T.6 supplier route also encounters the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure).
 
@@ -12746,7 +12982,7 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 
 **Construction or proof.**
 
-1. Define GL_n(A, I) as a MonoidHom.ker; normality is automatic.
+1. Define GL_n(A, I) as the kernel of glMap(q), using U.1/general-linear-map for arbitrary rings and q:A→A/I. Normality is automatic for a group-homomorphism kernel.
 2. Stabilisation: diag(g, 1) ≡ 1 mod I iff g ≡ 1 mod I, so the kernels form a directed subsystem of U.1's tower and their union is the kernel of the stable map GL(A) → GL(A/I) (U.1/stable-equality-criterion).
 3. If g ≡ 1 then g⁻¹ ≡ 1 mod I, since reduction is a ring homomorphism on matrices.
 
@@ -12789,7 +13025,6 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 - `KTheoryLowDegrees:U.1/stable-equality-criterion`
 - `mathlib:MonoidHom.ker`
 - `mathlib:TwoSidedIdeal`
-- `mathlib:Matrix.GeneralLinearGroup.map`
 - `mathlib:Ideal.IsTwoSided`
 - `mathlib:Ideal.Quotient.ring`
 
@@ -13038,7 +13273,7 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 **Hypotheses and conventions.**
 
 - A is an associative unital ring and I a two-sided ideal (Mathlib's I : Ideal A with [I.IsTwoSided], whose quotient ring A ⧸ I is Ideal.Quotient.ring, and Ideal.toTwoSided I its TwoSidedIdeal; for commutative A every ideal is two-sided). GL_n, E_n, GL, E, the stabilisation maps and K₁ are those of U.1 and U.2.
-- The proof rests on Milnor's patching theorem and its Mayer–Vietoris sequence (K-book I.2.7, II.2.9), which no layer of the atlas plans; recorded as a gap.
+- Milnor patching and its degree-zero Mayer–Vietoris statements are the sixteen milnor-* nodes of Z.1, with the explicit boundary and gluing orientation used below. They are planned inputs of this packet, rather than an unresolved external patching gap.
 
 **Construction or proof.**
 
@@ -13573,6 +13808,8 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/Congruence/MennickeExtension`; namespace `TauCeti.RelativeK1`.
 
+**Proposed declaration:** `relElementary_eq_commutator`.
+
 **Sources.**
 
 - [BMS.1967](http://www.numdam.org/item/10.1007/BF02684586.pdf), §5 (5.1), printed p.101. Freshly read in the published scan; the declaration makes the ideal level, stable-range index and matrix placement explicit.
@@ -13914,7 +14151,7 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 **Hypotheses and conventions.**
 
 - A is an associative unital ring and I a two-sided ideal (Mathlib's I : Ideal A with [I.IsTwoSided], whose quotient ring A ⧸ I is Ideal.Quotient.ring, and Ideal.toTwoSided I its TwoSidedIdeal; for commutative A every ideal is two-sided). GL_n, E_n, GL, E, the stabilisation maps and K₁ are those of U.1 and U.2.
-- The proof rests on Milnor's patching theorem and its Mayer–Vietoris sequence (K-book I.2.7, II.2.9), which no layer of the atlas plans; recorded as a gap.
+- Milnor patching and its degree-zero Mayer–Vietoris statements are the sixteen milnor-* nodes of Z.1, with the explicit boundary and gluing orientation used below. They are planned inputs of this packet, rather than an unresolved external patching gap.
 
 **Construction or proof.**
 
@@ -14201,7 +14438,7 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 
 π₁BGL(A)⁺ ≅ GL(A)/E(A) with loop classes, naturality, determinant and transfer (U.6/pi1-plus-construction, pi1-plus-determinant, pi1-plus-transfer), from StableHomotopyKTheory H.1/H.3 and GeneralAlgebraicKTheory K.2:plus node ids; computations K₁(ℤ) = {±1} (Tau Ceti's SL_n(ℤ) generation), K₁(𝔽_q) = 𝔽_q^×, K₁(ℤ[1/p]) = ℤ/2 ⊕ ℤ (by the Euclidean route, cross-checked with U.4), K₁ of a finite product of fields; tests: triangular determinant class, diag(g, g⁻¹) versus diag(g, 1), ∂(π) = 1. These are the computations that KTheoryFiniteLocalFields L.1, ArithmeticKTheory N.8 and GeneralAlgebraicKTheory K.2:low-degree-comparisons consume. The U.1–U.2 lemmas behind the tests (U.2/block-triangular-class, U.1/whitehead-diagonal) are cited, not restated.
 
-**Remaining targets or proof inputs.**
+**Remaining obligations.**
 
 - Complete U.6/relative-K1-homotopy-comparison (gap: K-book Ex. IV.1.15 is a hint; needs an actual relative-plus/excision-defect argument and degree-two boundary comparison; the T.1:plus/T.6 route has a stage cycle).
 - StableHomotopyKTheory H.3/plus-construction-universal-property records an unread proof boundary (obstruction theory); the naturality statements of U.6 rest on it.
@@ -14337,15 +14574,18 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 **Construction or proof.**
 
 1. The fibration gives ⋯ → π₂K(A/I) → π₁K(A, I) → π₁K(A) → π₁K(A/I) → π₀K(A, I) → K₀(A) → K₀(A/I) (H.2/homotopy-fibre-and-long-exact-sequence; K.5).
-2. Split case (the hint 'Use Ex. III.2.7'): for the double ring D = A ⊕ I with pr split by Δ (U.5/augmented-double-ring), the fibre sequence of K(D) → K(A) splits, so π₁K(D, 0 ⊕ I) = ker(K₁(D) → K₁(A)) = K₁(D, 0 ⊕ I) (U.5/relative-K1-split, U.6/pi1-plus-construction for D and A), and π₀K(D, 0 ⊕ I) = K₀(I) (the hint 'π₀K(R ⊕ I, 0 ⊕ I) must be K₀(I)').
-3. The map add induces a comparison from the split double-ring fibre to the quotient fibre. A five-lemma argument is not established: its adjacent maps are K_i(D)→K_i(A) and K_i(A)→K_i(A/I), which are not isomorphisms in general. Merely adding π₂=K₂ and a relative K₂ sequence does not prove excision for this square. The missing input is the low-degree relative-plus/excision-defect comparison of Exercise IV.1.15; it must account for the kernel/cokernel of the K₂ maps and establish the degree-one fibre map explicitly (recorded gap).
-4. Naturality in (A, I) follows from that of K.5's fibre and of U.5's groups.
+2. Split case (the hint 'Use Ex. III.2.7'): for D = A ⊕ I, J = ker pr = 0 ⊕ I and the common section Δ, K(D) → K(A) has a section. Its long exact sequence therefore identifies π₁K(D, J) with ker(K₁(D) → K₁(A)), hence with the classical K₁(D, J) by U.5/relative-K1-split and U.6/pi1-plus-construction. Similarly π₀K(D, J) = ker(K₀(D) → K₀(A)) = K₀(I).
+3. Algebraic double-ring comparison: add restricts to an isomorphism GL(J) → GL(I), entrywise (r,x) ↦ r+x. It also carries E(D,J) onto E(A,I): every conjugate of an elementary J-matrix maps into E(A,I), and conversely an E(A)-conjugate of e_ij(x), x∈I, lifts using Δ on the conjugating matrix and (0,x) on its coefficient. This gives K₁(D,J) ≅ K₁(A,I). It uses the common section and is not a claim that relative K₁ is independent of the ambient ring.
+4. The commuting square (pr, add, A → A/I) induces a map from the split double-ring homotopy fibre to K(A,I). The remaining topological obligation is to prove that its π₀ and π₁ maps are isomorphisms and to identify the induced degree-two boundary. Neither the algebraic isomorphism in the preceding step nor π₂=K₂ proves this: K-theory need not carry a Milnor square to a homotopy pullback, and the adjacent absolute K-groups are not isomorphic. A sourced low-degree relative-plus argument for this particular square is still missing.
+5. Boundary compatibility must identify a class in K₂(A/I), represented in the classical Steinberg presentation, with its fibre-boundary loop and show that its image is the class in GL(I)/E(A,I) given by the U.5/T.6 boundary, with the same orientation. Degree zero must similarly recover the Milnor-patching boundary K₁(A/I) → K₀(I). The existing T.1:plus/T.6 supplier cycle and this relative-plus proof are separate remaining obligations.
+6. Once that topological comparison and the boundary identifications are established, compose with the split-case and algebraic comparisons. Naturality in (A,I) follows from the maps of double rings, classical quotients and K.5 fibres.
 
 **Acceptance cases.**
 
 - I = A: K(A, A) is the fibre of K(A) → K(0) ≃ ∗, and the comparison is U.6/pi1-plus-construction.
-- A = ℤ/p², I = (p): π₁K(A, I) ≅ ℤ/p and π₀K(A, I) = K₀(I) = 0 (I radical).
+- For a rational prime p, A = ℤ/p² and I = (p): π₁K(A,I) ≅ ℤ/p and π₀K(A,I) = K₀(I) = 0 (I radical).
 - K-book IV.1.11: 'K₀(R, I) and K₁(R, I) agree with the relative groups defined in Ex. II.2.3 and III.2.2'.
+- For I = 0 both classical relative groups and the homotopy fibre groups vanish. The proof must not infer general K-theory excision from the Milnor square.
 
 **Prerequisites.**
 
@@ -14359,6 +14599,8 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 - `KTheoryLowDegrees:U.5/augmented-double-ring`
 - `KTheoryLowDegrees:U.5/relative-sequence-degree-one`
 - `KTheoryLowDegrees:U.5/ideal-sequence-degree-zero`
+- `KTheoryLowDegrees:U.5/congruence-subgroup`
+- `KTheoryLowDegrees:U.5/relative-elementary-subgroup`
 
 **Proposed library home:** `TauCeti/Algebra/KTheory/PlusConstruction`; namespace `TauCeti.RelativeK1`.
 
@@ -14366,6 +14608,7 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), IV.1.11, Relative K-groups (PDF pp. 275–276; book pp. 267–268). The statement.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. IV.1.15 (PDF p. 283; book p. 275). The hint; no proof is given in the source.
+- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. III.2.7 (PDF p.205; printed p.197), together with Definition III.2.2 (PDF p.201; printed p.193). The split relative K₁ decomposition invoked by Exercise IV.1.15. The generator-lifting calculation above uses the explicitly defined E(R,I); the unsplit homotopy comparison is not supplied by this exercise.
 
 ### `KTheoryLowDegrees:U.6/euclidean-elementary-generation` — Elementary generation over a Euclidean domain
 
@@ -14721,7 +14964,7 @@ Targets: congruence subgroups and relative elementary groups (U.5/congruence-sub
 
 ## Open proof boundaries and target gaps
 
-These nine entries delimit what the plan has not established. The relative comparison requires a sourced relative-plus argument with its degree-two boundary; the double-ring square has nonisomorphic adjacent absolute groups, so a five-lemma argument alone does not prove the comparison. The arithmetic local-symbol request supplies the named cohomological pairing, and the general Artin normalization and power-subgroup topology remain distinct inputs.
+These nine entries delimit what the plan has not established. The relative comparison requires a sourced relative-plus argument with its degree-two boundary. Its algebraic double-ring identification does not establish the homotopy-fibre comparison. The arithmetic local-symbol request supplies the named cohomological pairing; the general Artin normalization and power-subgroup topology remain distinct inputs.
 
 ### The SL-to-SO retraction for the real-circle obstruction
 
@@ -14743,7 +14986,7 @@ The totally imaginary case of BMS Theorem 3.5 (Case 3, through Lemma 3.4(a)) nee
 
 ### Comparison of classical relative K₁ with π₁ of the homotopy fibre (K-book IV.1.11, Ex. IV.1.15)
 
-K-book IV.1.11 and Exercise IV.1.15 state the low-degree comparison with only a double-ring hint. The split case identifies π₁ of the double-ring fibre with a kernel. The induced add-map to the quotient fibre is not proved an isomorphism. The proposed five-lemma proof has nonisomorphic adjacent absolute K-groups, and π₂=K₂ alone does not repair it. Supply the relative-plus/excision-defect argument, including its degree-two boundary comparison, before using this node as an established theorem. The degree-two imports also encounter the recorded T.1:plus/T.6 stage cycle. Use the current finer GeneralAlgebraicKTheory K.5/relative-K-theory definition, which expressly delegates this comparison to U.6, rather than the old combined integrated assertion.
+K-book IV.1.11 and Exercise IV.1.15 state the low-degree comparison with a double-ring hint. For D=A⊕I and J=ker pr, the common section splits K(D)→K(A), identifying its fibre π₁ with classical K₁(D,J). The add map identifies GL(J) with GL(I) and E(D,J) with E(A,I): lift each elementary conjugating matrix through Δ and each I-coefficient through (0,x). This establishes the algebraic double-ring comparison, using the section, without asserting absolute excision for arbitrary ambient rings. What remains is a sourced proof that the induced map of homotopy fibres gives isomorphisms on π₀ and π₁ for this square, together with the Steinberg-to-fibre boundary K₂(A/I)→GL(I)/E(A,I) and the patching boundary K₁(A/I)→K₀(I), with the existing orientations. A general Milnor square need not be K-theory excisive; neither a five-lemma shortcut nor π₂=K₂ supplies these claims. T.1:plus/T.6 also have the separately recorded stage cycle. The generic relative fibre remains K.5’s; this concrete comparison remains U.6’s and realizes U.5.
 
 **Needed by:** `KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`.
 
@@ -14849,7 +15092,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** With “≅” read as an abstract isomorphism the forward implication fails. R = M₂(F), F a field, has the IBP (Example I.1.1.1: a finite-dimensional algebra) and K₀(R) ≅ ℤ (Example II.2.1.2), but the simple module V of row vectors is not stably free: dim_F(V ⊕ R^m) = 2 + 4m is never 4n. The source’s own Example II.2.1.2 notes that the free modules generate a subgroup of index n. The argument that precedes the lemma (every class is [P] − [R^n]) proves the corrected statement.
 
-**Affected contracts:** `a`, ` `, `s`, `t`, `a`, `t`, `e`, `d`, ` `, `r`, `e`, `s`, `u`, `l`, `t`.
+**Affects:** a stated result.
 
 ### `KTheoryLowDegrees/E102` — misprint
 
@@ -14859,7 +15102,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** An intersection of ideals contains 0 and is never empty. The Chinese Remainder Theorem needs pairwise comaximality and trivial intersection: V(Ii + Ij) = Vi ∩ Vj = ∅ gives Ii + Ij = R, and ∩ Ii is the nilradical, which is 0 for reduced R. The printed condition I1 + · · · + Ic = R is weaker than pairwise comaximality once c ≥ 3.
 
-**Affected contracts:** `t`, `h`, `e`, ` `, `p`, `r`, `o`, `o`, `f`.
+**Affects:** the proof.
 
 ### `KTheoryLowDegrees/E103` — misprint
 
@@ -14869,7 +15112,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** The parenthesis opened before “by Ex. I.2.7” is never closed; the mathematics is unaffected.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E104` — misprint
 
@@ -14879,7 +15122,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** The margin label of the statement is III.1.3.3; the number 1.3.5 is also printed for Example 1.3.5 on the next page (III.1.3.5), and no item 1.3.3 is printed otherwise, so Whitehead's Lemma carries a duplicated number.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E105` — misprint
 
@@ -14889,7 +15132,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** Dieudonné's Théorème 1 (1943, n° 6) reads 'Le groupe quotient Mn(K)/Cn est isomorphe au groupe K*/C quel que soit n > 1', with no exception; the exception appears in his n° 5 for 'Cn est le groupe des commutateurs de Mn(K)'. For D = 𝔽_2 and n = 2 both sides of the printed isomorphism are trivial, since GL_2(𝔽_2) = SL_2(𝔽_2) = E_2(𝔽_2) (order 6, recomputed) and 𝔽_2^× = 1. The printed statement is true but its exception, and the bound n ≥ 3 in the consequence, are displaced.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E106` — misprint
 
@@ -14899,7 +15142,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** The cross-reference 1.3.4 (label III.1.3.4) is the commutator identity (1.3.4) in the proof of Whitehead's Lemma, which says nothing about units; the decomposition K₁(R) = R× ⊕ SK₁(R) for commutative R used here is Example 1.1.1.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E107` — misprint
 
@@ -14909,7 +15152,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** Spelling of 'Dedekind'; the claim itself is Theorem 11.1 for one-dimensional noetherian maximal spectra.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E108` — error
 
@@ -14919,7 +15162,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** F = ℚ(i), R = ℤ[i], I = 3R (3 is inert): the primes of R containing I are {(3)}, and ord_{(3)}(2) = 0, so the printed formula divides by zero, or read as +∞ gives ord₂ n = ord₂ w₁ = 2, SK₁(ℤ[i], 3ℤ[i]) ≅ ℤ/4. BMS (3.3) takes the prime (1 + i) over 2, where ord(I) = 0, so j₂ = [0/2 − 1]_{[0,2]} = 0 and r = 1: SK₁(ℤ[i], 3ℤ[i]) = 0. For R = ℤ[i][1/2] BMS Corollary 4.3(b) gives SK₁(R, I) = 0 while the printed (2) gives a nontrivial group for I = 9R.
 
-**Affected contracts:** `a`, ` `, `s`, `t`, `a`, `t`, `e`, `d`, ` `, `r`, `e`, `s`, `u`, `l`, `t`.
+**Affects:** a stated result.
 
 ### `KTheoryLowDegrees/E109` — misprint
 
@@ -14929,7 +15172,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** III.1.1 is the definition of K₁; the formula ∂(s) = [R/sR] is Corollary III.3.1.1.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E110` — misprint
 
@@ -14939,7 +15182,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** b₁ ≡ c^{p^n} mod a₁ gives (a₁, b₁q) ∼q (a₁, c^{p^n}q) by a first-type move with parameter in q; the first entry does not change.
 
-**Affected contracts:** `n`, `o`, `t`, `h`, `i`, `n`, `g`.
+**Affects:** nothing.
 
 ### `KTheoryLowDegrees/E111` — misprint
 
@@ -14949,7 +15192,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** The stated upper-block subgroup has arbitrary ring entries in its off-diagonal stars. At I=0 all the printed level-I roots are identities, so together with diagonals and diag(1,v,1) they cannot generate e₀₁(1) over ℤ. The very next calculation in the published proof explicitly takes t∈A; its correction has coefficient −st∈I because s∈I. The last-root calculation has the same unrestricted parameter. Correcting the generator sentence makes the proof and the statement agree.
 
-**Affected contracts:** `t`, `h`, `e`, ` `, `p`, `r`, `o`, `o`, `f`.
+**Affects:** the proof.
 
 ### `KTheoryLowDegrees/E112` — error
 
@@ -14959,7 +15202,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** Serre’s Theorem 1 gives k₁=ℚ(ζ₈) and k=ℚ(√2) or ℚ(√−2). In both cases d=2,m=2,m₁=8, so dm/m₁=1/2 has denominator divisible by m. The actual exponent is 0 in the first case and 1 in the second. The claimed prime-by-prime root-of-unity dévissage on p.91 is invalid. No current node cites (A.23)(b), so this known correction changes no planned declaration.
 
-**Affected contracts:** `a`, ` `, `s`, `t`, `a`, `t`, `e`, `d`, ` `, `r`, `e`, `s`, `u`, `l`, `t`.
+**Affects:** a stated result.
 
 ### `KTheoryLowDegrees/E113` — error
 
@@ -14969,7 +15212,7 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** For R=k and S=k×k, identify K₀(S)=ℤ². Restriction sends (a,b) to a+b and extension sends n to (n,n), so f^*f_*(1,0)=(1,1). Multiplication by f^*[S]=(2,2) instead gives (2,0). The true projection formulas do not yield the reverse assertion.
 
-**Affected contracts:** `a`, ` `, `s`, `t`, `a`, `t`, `e`, `d`, ` `, `r`, `e`, `s`, `u`, `l`, `t`.
+**Affects:** a stated result.
 
 ### `KTheoryLowDegrees/E114` — error
 
@@ -14979,52 +15222,32 @@ The 14 source issues below concern the precise versions in the packet. They do n
 
 **Reason.** In the same rank-n=2 extension R=k→A=k×k, f^*f_*(a,b)=(a+b,a+b). Its kernel contains (1,−1), and 2^r(1,−1) is nonzero in ℤ² for every r≥0. Thus the reverse kernel is not annihilated by any power of the rank.
 
-**Affected contracts:** `a`, ` `, `s`, `t`, `a`, `t`, `e`, `d`, ` `, `r`, `e`, `s`, `u`, `l`, `t`.
+**Affects:** a stated result.
 
 ## Routed Bhatt–Scholze determinant inputs
 
 All 21 routed entries retain their existing owners. Classical local K₀, special K₁ and the π₁ loop comparison are supplied here. Their graded/coherent determinant consequences are companion contracts, with the supplier review status stated above.
 
 - **`PAPER-BHATT-SCHOLZE-17/D502`** — `KTheoryLowDegrees:Z.3/graded-line-groupoid`, `KTheoryLowDegrees:Z.3/koszul-sign`, `KTheoryLowDegrees:Z.3/graded-line-tensor`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D503`** — `KTheoryLowDegrees:Z.3/graded-line-components`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D504`** — `KTheoryLowDegrees:Z.3/graded-line-automorphisms`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D505`** — `KTheoryLowDegrees:Z.3/graded-line-fibre`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D506`** — `KTheoryLowDegrees:Z.3/forget-grade`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D510`** — `KTheoryLowDegrees:Z.6/scheme-spectrum-det`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D511`** — `KTheoryLowDegrees:Z.6/determinant-triangle`, `KTheoryLowDegrees:Z.6/bounded-complex-det`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D520`** — `KTheoryLowDegrees:Z.6/witt-supported-det`, `KTheoryLowDegrees:Z.6/witt-det-uniqueness`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/D521`** — `KTheoryLowDegrees:Z.6/witt-filtration-det`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/F616`** — `KTheoryLowDegrees:Z.6/finite-length-det-trivial`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/A1201`** — `KTheoryLowDegrees:Z.3/graded-self-braiding`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/A1203`** — `KTheoryLowDegrees:Z.3/projective-graded-det`, `KTheoryLowDegrees:Z.3/projective-block-swap`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/A1217`** — `KTheoryLowDegrees:Z.3/ring-spectrum-det`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/A1218`** — `KTheoryLowDegrees:Z.3/local-det-equivalence`, `KTheoryLowDegrees:Z.3/zariski-sheafified-det`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/k-theory-functoriality`** — `KTheoryLowDegrees:Z.3/projective-graded-det`, `KTheoryLowDegrees:Z.3/ring-spectrum-det`. Generic K-theory functoriality and the agreement of projective group completion with the agreed K model are imported from H.4 and K.4:construction; these nodes own only the determinant consequences.
-
 - **`PAPER-BHATT-SCHOLZE-17/k0-of-symmetric-monoidal-category`** — `KTheoryLowDegrees:Z.3/ring-spectrum-det`. The categorical Grothendieck group stays upstream GrothendieckEulerForms layer 2 and the group-completion π₀ comparison stays with H.4/K.4:construction; ring-spectrum-det is the determinant consumer, not a new generic K₀ owner.
-
 - **`PAPER-BHATT-SCHOLZE-17/low-k-groups-of-local-rings`** — `KTheoryLowDegrees:Z.2/local-ring-k0`, `KTheoryLowDegrees:U.3/SK1-semilocal`, `KTheoryLowDegrees:U.6/pi1-plus-construction`, `KTheoryLowDegrees:Z.3/local-det-equivalence`. This part supplies the classical local K₀ and K₁ computations and its existing π₁ loop comparison. The companion combines them with graded determinant. Do not make U.3 depend on local-det-equivalence, which already depends on U.3.
-
 - **`PAPER-BHATT-SCHOLZE-17/pic-z-etale-sheaf`** — `KTheoryLowDegrees:Z.3/graded-line-fibre`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/locally-constant-functions-v-sheaf`** — `KTheoryLowDegrees:Z.3/graded-pic-v-descent`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/remark-5-4-det-not-in-pic`** — `KTheoryLowDegrees:Z.3/graded-self-braiding`, `KTheoryLowDegrees:Z.3/forget-grade`, `KTheoryLowDegrees:Z.3/ring-spectrum-det`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
-
 - **`PAPER-BHATT-SCHOLZE-17/pic-z-is-sheafified-tau1-k`** — `KTheoryLowDegrees:Z.6/v-sheafified-first-k`, `KTheoryLowDegrees:Z.6/witt-supported-det`, `KTheoryLowDegrees:Z.6/witt-det-uniqueness`. Use the exact existing owner nodes; no determinant groupoid or spectrum construction is duplicated in part U.1.
 
 ## Proposed structure

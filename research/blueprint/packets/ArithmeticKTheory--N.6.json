@@ -145,7 +145,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.9.6–9.6.2, book pp. 520–521, PDF pp. 528–529",
-          "excerpt": "r₁+r₂+s+t",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -184,7 +183,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Lemma VI.9.6.3, book p. 521, PDF p. 529",
-          "excerpt": "r₂+s+u",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -224,7 +222,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Theorem VI.9.7, book pp. 521–522, PDF pp. 529–530",
-          "excerpt": "up to extensions",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -261,7 +258,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Corollary VI.9.9, book p. 522, PDF p. 530",
-          "excerpt": "r₁+s+t−1",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -363,7 +359,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Corollary VI.9.9 and its proof, book pp. 522–523, PDF pp. 530–531",
-          "excerpt": "r₁+s+t−1",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -411,7 +406,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.8.2, book pp. 412–413, PDF pp. 420–421",
-          "excerpt": "ℓ·T=0",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -452,7 +446,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Corollary 4.6 and proof, preprint p. 13",
-          "excerpt": "Nₘ",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -490,7 +483,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Notation after Definition 0.2, preprint p. 2",
-          "excerpt": "K⁺₂ᵢ(F)",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -582,13 +574,11 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Dwyer–Friedlander maps preceding Definition 0.2, preprint p. 2",
-          "excerpt": "λᵥ",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.2.3(c), Example VI.2.3.1 and Proposition VI.7.3, book pp. 471, 509, PDF pp. 479, 517",
-          "excerpt": "times a power of p",
           "match": "The full local quotient has order w_i(E), including its residue-field prime-to-p factor. For Q₂ and i=2 this is 3·8=24."
         }
       ],
@@ -699,7 +689,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Definition 0.2, preprint p. 2",
-          "excerpt": "λ_F",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -817,7 +806,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Lemma 0.3 and proof, preprint pp. 2–3",
-          "excerpt": "μ^{⊗i}(F)",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -859,7 +847,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Corollary 0.4 and proof, preprint pp. 2–3",
-          "excerpt": "K⁺₂ᵢ(O_F){ℓ}",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -899,7 +886,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Corollary 0.4; index formula in its proof, preprint p. 3",
-          "excerpt": "∏ᵥwᵢ(Fᵥ)/wᵢ(F)",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -942,7 +928,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Equation (0.5), notation (0.6) and discussion, preprint p. 3",
-          "excerpt": "III²(O_S,Z₂(i+1))",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1040,7 +1025,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Proposition 8.1, equation (8.2), and final diagram, preprint pp. 20–21",
-          "excerpt": "(Z/2)^ρ",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1078,7 +1062,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Definition 5.2 and Remark 5.2.1, preprint p. 14",
-          "excerpt": "ζ+ζ⁻¹",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1179,7 +1162,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Remark 5.2.1, Lemma 5.4, and Corollary 3.7, preprint pp. 10, 14",
-          "excerpt": "ρ₁=0",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1221,7 +1203,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Lemma 3.2, Lemma 3.4, and Remark 3.4.1, preprint p. 9",
-          "excerpt": "qⁱ≠−1",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1268,7 +1249,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Example III.6.2.3 and Theorem III.6.2.4, book pp. 232–233, PDF pp. 240–241",
-          "excerpt": "Hilbert symbol",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1315,7 +1295,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Proposition 4.1, Application 4.2, Proposition 6.8, equation (6.9), preprint pp. 11, 16",
-          "excerpt": "M⁰",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1357,7 +1336,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Theorem 4.5, Corollary 4.6, Theorem 6.11 and Corollary 7.5, preprint pp. 12–13, 17–18",
-          "excerpt": "divK₂ᵢ(F)",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1400,7 +1378,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Proposition 4.7, Theorem 5.5(1), Remarks 4.3.1 and 4.6.1, preprint pp. 11, 13–14",
-          "excerpt": "divK₂ᵢ(F)=K₂ᵢʷ(F)",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1441,7 +1418,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Lemma 5.4 and Theorem 5.5(2), preprint p. 14",
-          "excerpt": "index",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1485,7 +1461,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Theorem B and Propositions 7.6, 7.8, preprint pp. 3, 19",
-          "excerpt": "index",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1528,7 +1503,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Proposition 8.4, Lemmas 8.5–8.6, Theorem 8.7, preprint pp. 20–21",
-          "excerpt": "divK₂ᵢ(F)",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1572,7 +1546,6 @@
         {
           "sourceId": "Weibel.Wild.2004",
           "locator": "Theorem A, preprint p. 1; proof §§4–8, pp. 11–21",
-          "excerpt": "index",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1619,13 +1592,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.8.2, book p. 413, PDF p. 421; VI.7.3 and Warning VI.7.5, book pp. 509–510, PDF pp. 517–518",
-          "excerpt": "I do not know any example",
           "match": "The higher local divisible part may have p-primary torsion (Warning VI.7.5); torsion of a global class does not by itself imply vanishing in that part."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Moore’s Theorem III.6.2.4, book p. 233, PDF p. 241",
-          "excerpt": "uniquely divisible",
           "match": "The separate degree-two torsion-free local kernel input."
         }
       ],
@@ -1669,7 +1640,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.9.9–9.11, book pp. 522–525, PDF pp. 530–533",
-          "excerpt": "j≤ρ<r₁",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
       ],
@@ -1799,7 +1769,7 @@
       "source": "Weibel.Wild.2004",
       "kind": "error",
       "locator": "Lemma 4.4, preprint p.12, author PDF dated 23 July 2004; publication inaccessible and not collated.",
-      "printed": "for every m",
+      "printed": "The source quantifies over every m.",
       "correction": "Prime ideal class and norm congruence cannot be prescribed independently. A simultaneous Chebotarev condition must agree on the intersection of the relevant class field and cyclotomic extension; only compatible pairs can be realised.",
       "reason": "Take F=Q(i), m=4, a=3. Every prime of odd residue characteristic has norm congruent to 1 modulo 4: a split rational prime is 1 modulo 4, and an inert prime has squared norm. The dyadic prime has norm 2. Therefore no prime ideal has norm 3 modulo 4, in any ideal class. This disproves the unrestricted quantifier, without claiming that Theorem 4.5 or Theorem A is false.",
       "affects": "a stated result",
@@ -1821,7 +1791,7 @@
       "source": "Weibel.Wild.2004",
       "kind": "misprint",
       "locator": "Paragraph following (8.2), preprint p.20, author PDF dated 23 July 2004; publication inaccessible and not collated.",
-      "printed": "the kernel",
+      "printed": "The source specifies the kernel.",
       "correction": "The signature defect j is the dimension of the cokernel of real restriction H¹(O_S,Z/2)→(Z/2)^{r₁}, as defined in K-book VI.9.6.1 and imported from the parent signature-defect node.",
       "reason": "For F=Q and O_S=Z[1/2], H¹ has dimension two and the real restriction is onto. Its kernel has dimension one and its cokernel has dimension zero. The printed definition together with j≤ρ<r₁ would force 1≤ρ<1. The corrected cokernel gives j=ρ=0.",
       "affects": "a stated result",

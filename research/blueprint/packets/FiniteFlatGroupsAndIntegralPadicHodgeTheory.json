@@ -607,13 +607,11 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§9.1, p. 54",
-          "excerpt": "A p-divisible group over the base S = Spec(R) is an inductive system G = lim Gv indexed by the natural numbers v ∈ N of finite flat commutative groups Gv over S such that there is a natural number h, called the height and such that (i) Gv has order p^{hv}, and (ii) for each v we have an exact sequence 0 → Gv → Gv+1 → Gv+1.",
           "match": "The definition."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§2.3, p. 261",
-          "excerpt": "Dans [13] (p. 180), TATE a montré que si 𝒢 = (𝒢_n) et ℋ = (ℋ_n) sont des groupes p-divisibles définis sur R, tout morphisme entre les fibres génériques de 𝒢 et ℋ se prolonge de manière unique en un morphisme entre 𝒢 et ℋ.",
           "match": "Tate's definition and the generic-fibre theorem built on it."
         }
       ],
@@ -753,7 +751,6 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§9.1.1–9.1.3, Lemma 61, Proposition 62 and Corollary 64, pp. 54–55",
-          "excerpt": "Proposition 62. The sequence 0 → Gv → Gv+t → Gt → 0 is exact. … Corollary 64. Let G = (Gv) be a p-divisible group. The map multiplication by p … is finite faithfully flat (fpqc) of degree p^h = # ker[p].",
           "match": "The statement and proof."
         }
       ],
@@ -793,7 +790,6 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§9.3 and Example 65, p. 56",
-          "excerpt": "There is a notion of the Cartier dual p-divisible group to a p-divisible group G = (Gv) as follows. We set (G^D)v = (Gv)^D … The Cartier dual group G^D has the same height as G. Example 65. (1) The p-divisible groups Qp/Zp and µp∞ are Cartier duals of each other.",
           "match": "The construction."
         }
       ],
@@ -895,13 +891,11 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§9.2(2)–(4) and (6), pp. 55–56",
-          "excerpt": "If a projective system (Gv) of discrete groups satisfies the axioms for p-divisible groups, then we find by induction on v that Gv is a free Z/p^vZ-module of rank h.",
           "match": "Freeness of the levels of points."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§11.2.2 and Corollary 85, p. 70",
-          "excerpt": "The Cartier duality pairings Gv × G^D_v → µ_{p^v} for varying v are compatible … Cartier duality thus induces a perfect pairing Tp(G) × Tp(G^D) → Tp(Gm) = Zp(1)",
           "match": "The duality pairing, T_p(G^D) = Hom(T_p G, ℤ_p(1))."
         }
       ],
@@ -1007,19 +1001,16 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§8.1.1, Proposition 37, p. 38",
-          "excerpt": "Let R be a henselian local ring, e.g. m-adically complete, and let G be a finite flat group scheme over R. (1) Then there is an exact sequence of finite flat group schemes over R 1 → G0 → G → Gét → 1 with G0 the connected component of G and Gét finite étale over R.",
           "match": "The finite-level sequence."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§9.2(5), p. 56",
-          "excerpt": "In general, over a local henselian base S = Spec(R) the natural filtration on the finite levels Gv of a p-divisible group G induces the structure of p-divisible groups … on the connected multiplicative, the connected, the bi-infinitesimal and the étale part of G. … If R is a perfect field, then the filtration splits canonically.",
           "match": "The tower-level statement."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§8.1.1, Proposition 40(4), p. 39",
-          "excerpt": "An extension of a connected finite R-group by a finite étale R-group is split as a product of the two.",
           "match": "The splitting in the opposite order."
         }
       ],
@@ -1060,7 +1051,6 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§2.1, pp. 259–260",
-          "excerpt": "On appelle adhérence schématique de Y dans 𝒳, le plus petit sous-schéma fermé 𝒴 de 𝒳 qui contient Y. … l'application 𝒜/𝒥 → A/I est injective, donc 𝒜/𝒥 est sans torsion, et 𝒴 est plat sur R … Si de plus 𝒳 est fini sur R, il en est de même de 𝒴, et le quotient 𝒳/𝒴 (pour la topologie fppf) est représentable par un schéma fini sur R.",
           "match": "The statement and proof."
         }
       ],
@@ -1101,13 +1091,11 @@
         {
           "sourceId": "OortTate70",
           "locator": "§1, Theorem (Deligne), p. 4",
-          "excerpt": "THEOREM (Deligne). — A commutative S-group of order m is killed by m",
           "match": "Part (i)."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§2.1, pp. 259–260",
-          "excerpt": "l'application 𝒜/𝒥 → A/I est injective, donc 𝒜/𝒥 est sans torsion, et 𝒴 est plat sur R",
           "match": "The flatness of closures on which the correspondence rests."
         }
       ],
@@ -1157,7 +1145,6 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§2.2, Definition 2.2.1, Proposition 2.2.2 and Corollary 2.2.3, pp. 260–261",
-          "excerpt": "On dit que 𝒢 domine 𝒢′, et on écrit 𝒢 ≥ 𝒢′ s'il existe un R-morphisme u : 𝒢 → 𝒢′ qui prolonge l'identité de G. Si un tel u existe, il est unique … 2° Si K est de caractéristique zéro, les prolongements finis et plats de G possèdent un maximum et un minimum.",
           "match": "The definition and the lattice statements."
         }
       ],
@@ -1267,13 +1254,11 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§3.3, Théorème 3.3.3, p. 268",
-          "excerpt": "Supposons R d'inégales caractéristiques et e < p − 1. Alors tout K-schéma en groupes fini, commutatif G, annulé par une puissance de p, admet au plus un prolongement fini et plat sur R.",
           "match": "Part (i)."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§3.3, Corollaire 3.3.6, p. 268",
-          "excerpt": "Supposons e < p − 1, et soient 𝒢 et ℋ des R-schémas en groupes commutatifs, finis et plats, annulés par une puissance de p. … 1° Tout morphisme de G dans H se prolonge de manière unique en un R-morphisme u : 𝒢 → ℋ. De plus, Ker(u) et Coker(u) sont plats sur R. 2° L'application naturelle Ext¹_{R-gr}(𝒢, ℋ) → Ext¹_{K-gr}(G, H) est injective.",
           "match": "Parts (ii) and (iii)."
         }
       ],
@@ -1317,13 +1302,11 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§3.3, Proposition 3.3.2 3°, p. 267",
-          "excerpt": "Si e = p − 1, si G est simple et R hensélien, alors, ou bien 𝒢 est l'unique prolongement de G, ou bien il existe deux prolongements de G, l'un étale, l'autre de type multiplicatif.",
           "match": "The statement."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§3.3, Remarque 3.3.5, p. 268",
-          "excerpt": "Plus généralement la composante biconnexe 𝒢^{bi} ne dépend pas du prolongement 𝒢 de G.",
           "match": "The biconnected part."
         }
       ],
@@ -1361,7 +1344,6 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§1.2, condition (**) and Proposition 1.2.2, pp. 246–247",
-          "excerpt": "(**) Chacun des faisceaux 𝓛_χ est un O_S-module inversible. … Supposons S connexe et qu'il existe s ∈ S tel que la fibre de G au-dessus de s soit étale ou de type multiplicatif … Alors chacun des faisceaux 𝓛_χ est un O_S-module inversible.",
           "match": "The condition and when it holds."
         }
       ],
@@ -1462,13 +1444,11 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§1.4, Théorème 1.4.1, p. 255",
-          "excerpt": "Soit S un D-schéma. L'application G ↦ (𝓛_i, c_i : 𝓛_{i+1} → 𝓛_i^{⊗p}, d_i : 𝓛_i^{⊗p} → 𝓛_{i+1}) définit une bijection entre les classes d'isomorphismes de S-schémas en F-vectoriels G vérifiant (**) et les classes d'isomorphismes des systèmes formés de r O_S-modules inversibles 𝓛_i et de r-couples d'applications O_S-linéaires",
           "match": "The classification."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§1.5, Corollaires 1.5.1–1.5.2, pp. 257–258",
-          "excerpt": "Il existe une bijection canonique entre les R-schémas en F-vectoriels de rang q et les familles de r entiers n_i telles que 0 ≤ n_i ≤ e pour tout i.",
           "match": "The local and strictly henselian forms."
         }
       ],
@@ -1508,13 +1488,11 @@
         {
           "sourceId": "OortTate70",
           "locator": "§3, Theorem 2, p. 12",
-          "excerpt": "For any prescheme S over Spec(Λ), the map G ↦ (L, a, a′) discussed above gives a bijection between the isomorphism classes of S-groups of order p and the isomorphism classes of triples (L, a, b) consisting of an invertible 𝒪_S-module L, a section a ∈ Γ(S, L^{⊗(p−1)}), and a section b ∈ Γ(S, L^{⊗(1−p)}), such that a ⊗ b = w_p.",
           "match": "The theorem."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§8.4, Theorem 60, p. 53",
-          "excerpt": "Let R be a Λ-algebra with Pic(R) = 0. (1) Any finite flat R-group G of order p is isomorphic to a group Ga,b for some ab = wp in R. (2) Two such groups Ga,b and Gc,d are isomorphic if and only if there is a unit u ∈ R× such that c = u^{p−1} a and d = u^{1−p} b.",
           "match": "The local form, with duality in part (4)."
         }
       ],
@@ -1556,13 +1534,11 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§3.2, Proposition 3.2.1, p. 265",
-          "excerpt": "Supposons R strictement hensélien. Soit G un K-schéma en groupes commutatif, fini, annulé par une puissance de p. On suppose G étale ou de type multiplicatif. Soit G_i, i ∈ I, la famille des quotients successifs d'une suite de Jordan-Hölder de G. Alors, pour chaque i, il existe un corps fini F_i de caractéristique p, tel que G_i soit un K-schéma en F_i-vectoriels vérifiant (**).",
           "match": "The generic statement."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§3.3, Corollaire 3.3.7, p. 268",
-          "excerpt": "Supposons R strictement hensélien, et e ≤ p − 1. Soit 𝒢 un R-schéma en groupes commutatif, fini et plat, annulé par une puissance de p. Alors 𝒢 possède une suite de composition 𝒢_i dont les quotients successifs 𝒢_i/𝒢_{i+1} admettent des structures vectorielles sur des corps F_i convenables.",
           "match": "The integral statement."
         }
       ],
@@ -1604,13 +1580,11 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§3.4, Théorème 3.4.1, pp. 269–270",
-          "excerpt": "Supposons R strictement hensélien, d'inégales caractéristiques. Soit G un K-schéma en F-vectoriels, d'équations (1). Alors le groupe de Galois Gal(K̄/K) opère par homothéties sur le F-vectoriel G(K̄) à travers le caractère … avec ψ = ψ_i^{v(δ_i)} ⋯ ψ_{i+r−1}^{v(δ_{i+r−1})}.",
           "match": "Part (i)."
         },
         {
           "sourceId": "Raynaud74",
           "locator": "§3.4, Théorème 3.4.3 and Corollaire 3.4.4, p. 270",
-          "excerpt": "Pour que G se prolonge en un R-schéma en groupes fini et plat, il faut et il suffit que ψ puisse s'écrire sous la forme ψ = ψ_i^{n_i} ⋯ ψ_{i+r−1}^{n_{i+r−1}} avec 0 ≤ n_j ≤ e pour tout j.",
           "match": "Parts (ii) and (iii)."
         }
       ],
@@ -1653,19 +1627,16 @@
         {
           "sourceId": "OortTate70",
           "locator": "§3, Theorem 3, p. 20",
-          "excerpt": "The map G ↦ (χ^G, (n_𝔭^G)_{𝔭∈M_p}) gives a bijection between the isomorphism classes of R-groups of order p and the systems (χ, (n_𝔭)_{𝔭∈M_p}) consisting of a continuous homomorphism χ : C_K → F_p^* and for each 𝔭 ∈ M_p, an integer n_𝔭 such that 0 ≤ n_𝔭 ≤ v_𝔭(p), which satisfy the following two conditions",
           "match": "Part (ii)."
         },
         {
           "sourceId": "OortTate70",
           "locator": "§3, Lemma 4, p. 17",
-          "excerpt": "Let p be a prime number, and let E be the functor which associates with each commutative ring with unity X the set E(X) of isomorphism classes of X-groups of order p. Then the square … is cartesian.",
           "match": "Part (i)."
         },
         {
           "sourceId": "OortTate70",
           "locator": "Introduction, pp. 1–2",
-          "excerpt": "As a special case we recover an unpublished result of M. Artin and B. Mazur, to the effect that the only group schemes of order p over Z are the constant group (Z/pZ)_Z and its Cartier dual μ_p",
           "match": "Part (iii)."
         }
       ],
@@ -1716,13 +1687,11 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§10.2.2, p. 59",
-          "excerpt": "A formal Lie group over Λ is a connected smooth, more precisely formally smooth, Λ-formal group. Being connected and formally smooth for G = Spf(A) with a unit Spec(Λ) ↪ G is equivalent to an isomorphism A = Λ[[X1, . . . , Xn]] of pro-finite Λ-algebras. … and is called the dimension of G.",
           "match": "The definition and the dimension."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§10.3, p. 60",
-          "excerpt": "A p-divisible formal Lie group is a commutative formal Lie group G = Spf(Λ[[X1, . . . , Xn]]) such that multiplication by p is a finite flat map on representing power series rings",
           "match": "p-divisibility and height."
         }
       ],
@@ -1830,13 +1799,11 @@
         {
           "sourceId": "Tate67",
           "locator": "(2.2), Proposition 1, p. 162",
-          "excerpt": "Let R be a complete noetherian local ring whose residue field k is of characteristic p > 0. Then Γ ↦ Γ(p) is an equivalence between the category of divisible commutative formal Lie groups over R and the category of connected p-divisible groups over R.",
           "match": "The statement."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§10.3.1, Theorem 70, pp. 60–62",
-          "excerpt": "Let Λ be a local complete Noetherian ring with residue characteristic p > 0. The functor G ↦ G_{p∞} is an equivalence of categories between p-divisible formal Lie groups over Λ and connected p-divisible groups over Λ.",
           "match": "The statement with a full proof."
         }
       ],
@@ -1876,7 +1843,6 @@
         {
           "sourceId": "Tate67",
           "locator": "(2.2), before Proposition 2, p. 164",
-          "excerpt": "The dimension, n, of the formal Lie group corresponding to G° is, by definition, the dimension of G.",
           "match": "The definition."
         }
       ],
@@ -1977,7 +1943,6 @@
         {
           "sourceId": "Tate67",
           "locator": "(2.3), Proposition 3, pp. 166–167",
-          "excerpt": "Proposition 3. Let n and n′ be the dimension of G and its dual G′. Then n + n′ = h, the height of G and G′.",
           "match": "The statement and proof."
         }
       ],
@@ -2018,7 +1983,6 @@
         {
           "sourceId": "Tate67",
           "locator": "(2.2), Proposition 2 and Lemma 1, pp. 164–165",
-          "excerpt": "Proposition 2. The discriminant ideal of A_v over R is generated by p^{nvp^{hv}}, where h = ht(G) and n = dim(G).",
           "match": "The statement."
         }
       ],
@@ -2063,13 +2027,11 @@
         {
           "sourceId": "Tate67",
           "locator": "(4.1), Theorem 3 and its Corollary 1, pp. 179–180",
-          "excerpt": "Theorem 3. The maps G(R) → Hom_𝒢(T(G′), U) and t_G(K) → Hom_𝒢(T(G′), C) induced by α and dα are bijective. … Corollary 1. The 𝒢-module T(G) determines the dimension n of G.",
           "match": "Parts (i) and (iii)."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§11.7, Theorem 91 and Corollaries 92–93, pp. 73–75",
-          "excerpt": "Corollary 93. The semilinear GalK-representation Vp(G) ⊗Qp C has a unique natural decomposition Vp(G) ⊗Qp C = t∗GD(K) ⊗K C ⊕ tG(K) ⊗K C(1)",
           "match": "Part (ii), with a full proof of (i)."
         }
       ],
@@ -2114,13 +2076,11 @@
         {
           "sourceId": "Tate67",
           "locator": "(4.2), Proposition 12, p. 181",
-          "excerpt": "Proposition 12. Suppose F is a p-divisible group over R, and M a 𝒢-submodule of T(F) such that M is a Zp-direct summand. Then there exists a p-divisible group Γ over R and a homomorphism φ : Γ → F such that φ induces an isomorphism T(Γ) ≅ M.",
           "match": "The statement."
         },
         {
           "sourceId": "Tate67",
           "locator": "(4.2), proof of Proposition 12, p. 182",
-          "excerpt": "Although E itself may not be p-divisible (see example below), nevertheless E × R K = E* is p-divisible … Hence there is an i0 such that Di = Di+1 for i ≥ i0.",
           "match": "The closure and the shift."
         }
       ],
@@ -2175,13 +2135,11 @@
         {
           "sourceId": "Tate67",
           "locator": "(4.2), Theorem 4, p. 180",
-          "excerpt": "Theorem 4. Let R be an integrally closed, noetherian, integral domain, whose field of fractions K is of characteristic 0. Let G and H be p-divisible groups over R. A homomorphism f : G ⊗R K → H ⊗R K of the general fibers extends uniquely to a homomorphism G → H.",
           "match": "Part (i)."
         },
         {
           "sourceId": "Tate67",
           "locator": "(4.2), Corollaries 1 and 2 of Theorem 4, p. 181",
-          "excerpt": "Corollary 1. The map Hom(G, H) → Hom𝒢(T(G), T(H)) is bijective, where 𝒢 = Gal(K̄/K). Corollary 2. If g : G → H is a homomorphism such that its restriction G ⊗R K → H ⊗R K is an isomorphism, then g is an isomorphism.",
           "match": "Parts (ii) and (iii)."
         }
       ],
@@ -2241,7 +2199,6 @@
         {
           "sourceId": "Raynaud74",
           "locator": "§2.3, Proposition 2.3.1, p. 261",
-          "excerpt": "Soit G = (G_n) un groupe p-divisible défini sur K. Supposons que, pour tout n ≥ 0, G_n se prolonge en un R-schéma en groupes fini et plat. Alors G se prolonge en un R-groupe p-divisible 𝒢, unique à isomorphisme près.",
           "match": "The statement; the proof is on pp. 261–263."
         }
       ],
@@ -2281,13 +2238,11 @@
         {
           "sourceId": "Stacks",
           "locator": "Tag 02LO, Lemma 37.41.5",
-          "excerpt": "Assume that f is locally of finite type, f is separated, and x_1, …, x_n are pairwise distinct isolated points of X_s. Then there exists an étale neighbourhood (U, u) → (S, s) and a decomposition U ×_S X = W ⊔ ∐_{i = 1, …, n} ∐_{j = 1, …, m_i} V_{i, j} into open and closed subschemes such that the morphisms V_{i, j} → U are finite",
           "match": "The decomposition."
         },
         {
           "sourceId": "Stacks",
           "locator": "Tag 04GG, Lemma 10.153.3 (13)",
-          "excerpt": "any quasi-finite R-algebra S can be written as S = A × B with R → A finite such that B ⊗_R κ = 0.",
           "match": "The henselian case."
         }
       ],
@@ -2337,19 +2292,16 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§7.3, Theorem 33, p. 35",
-          "excerpt": "Theorem 33. Let S = Spec(R) be a connected base with a geometric point s ∈ S. There is a faithful and exact embedding … The essential image exactly consists of the finite étale group schemes over S.",
           "match": "The equivalence."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§7.3.1, pp. 35–36",
-          "excerpt": "We define the associated finite étale group scheme Gρ as the group of invariants with respect to the diagonal Γ action",
           "match": "The inverse construction."
         },
         {
           "sourceId": "Stix12-notes",
           "locator": "§7.4, Theorem 34, p. 37",
-          "excerpt": "Theorem 34. Let G be a finite flat group scheme over R with order invertible in R. Then G is",
           "match": "Order invertible implies étale."
         }
       ],
@@ -2401,13 +2353,11 @@
         {
           "sourceId": "Schoof03",
           "locator": "§2, Proposition 2.3, p. 419",
-          "excerpt": "Let R be a Noetherian ring and let p ∈ R. The functor Gr_R → C that sends an R-group scheme G to the triple (G ⊗R R̂, G ⊗R R[1/p], id ⊗R R̂[1/p]) is an equivalence of categories.",
           "match": "The statement."
         },
         {
           "sourceId": "Stacks",
           "locator": "Tag 0BNI, Theorem 15.92.16 and Lemma 15.92.19",
-          "excerpt": "Let (R → R′, f) be a glueing pair. The functor Can : Mod_R → Glue(R → R′, f) determines an equivalence of the category of R-modules glueable for (R → R′, f) and the category Glue(R → R′, f) of glueing data.",
           "match": "The module-level gluing on which the proof rests."
         }
       ],
@@ -2457,7 +2407,6 @@
         {
           "sourceId": "Schoof03",
           "locator": "§2, Corollary 2.4 and its proof, pp. 419–420",
-          "excerpt": "Let R be a Noetherian ring, let p ∈ R and let G and H be two finite flat group schemes over R. There is a natural exact “Mayer-Vietoris” sequence",
           "match": "The statement; the sequence and δ are displayed after it."
         }
       ],
@@ -2508,13 +2457,11 @@
         {
           "sourceId": "Schoof03",
           "locator": "§2, p. 418",
-          "excerpt": "Let R be a ring and let ε ∈ R∗. Consider the R-algebra A = ⊕_{i=0}^{p−1} R[Xi]/(Xi^p − ε^i). … There is an exact sequence 0 → µp → Tε → Z/pZ → 0. Two extensions Tε and Tε′ are isomorphic whenever ε/ε′ is a p-th power.",
           "match": "The construction."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§2.4, p. 850",
-          "excerpt": "Two group schemes Gε and Gε′ are isomorphic if and only if ε/ε′ = u^p for some u ∈ Z[1/l]∗. The points of Gε generate the number field Q(ζp, ε^{1/p}).",
           "match": "The classification over ℤ[1/l]."
         }
       ],
@@ -2604,13 +2551,11 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§14, Theorem 14.4, p. 31",
-          "excerpt": "Theorem 14.4. For any affine commutative group scheme G, (a) VG ◦ FG = p · idG , (b) FG ◦ VG = p · idG(p) .",
           "match": "The relations."
         },
         {
           "sourceId": "Pink05-notes",
           "locator": "§14, Proposition 14.3, p. 30",
-          "excerpt": "Proposition 14.3. (a) VG is functorial in G … (b) VG is compatible with products … (c) VG is compatible with base extensions",
           "match": "Functoriality of V."
         }
       ],
@@ -2718,13 +2663,11 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§15, Theorem 15.5, p. 33",
-          "excerpt": "Theorem 15.5. There is a unique and functorial decomposition of G as G = Grr ⊕ Grℓ ⊕ Gℓr ⊕ Gℓℓ where the direct summands are of reduced-reduced, reduced-local, local-reduced, and local-local type, respectively.",
           "match": "The decomposition."
         },
         {
           "sourceId": "Pink05-notes",
           "locator": "§28, p. 72",
-          "excerpt": "Recall from Theorems 15.5 and 17.1 that any finite commutative group scheme of p-power order has a unique decomposition G = Grℓ ⊕ Gℓr ⊕ Gℓℓ .",
           "match": "The p-power case."
         }
       ],
@@ -2766,13 +2709,11 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§22, p. 48",
-          "excerpt": "For any integers n, m ≥ 1 we let Wnm denote the kernel of F m on Wn . As above, truncation induces natural epimorphisms r : Wn+1 ↠ Wnm , and Verschiebung induces natural monomorphisms v : Wnm ↪ Wn+1 m , such that rv = vr = V .",
           "match": "The construction."
         },
         {
           "sourceId": "Pink05-notes",
           "locator": "§23, Proposition 23.1, p. 54",
-          "excerpt": "Proposition 23.1. There exist unique ring homomorphisms E → Aut(Wnm ) for all m, n such that F and V act as such and ξ ∈ W (k) acts through multiplication by σ −n (ξ).",
           "match": "The E-action."
         }
       ],
@@ -2870,13 +2811,11 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§23, Definition, p. 54",
-          "excerpt": "Definition. Let E be the ring of “noncommutative polynomials” over W (k) in two variables F and V , subject to the following relations: • F · ξ = σ(ξ) · F ∀ξ ∈ W (k) • V · σ(ξ) = ξ · V ∀ξ ∈ W (k) • FV = V F = p",
           "match": "The definition."
         },
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.1, Definition 1, p. 2",
-          "excerpt": "A Dieudonné module over k is a finite W -module M together with a σ-linear map F (Frobenius) and a σ −1 -linear map V (Verschiebung) on M such that F V = V F = p.",
           "match": "Dieudonné modules."
         }
       ],
@@ -2988,13 +2927,11 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§28, (28.1), p. 72",
-          "excerpt": "In §23 and §27 we have already defined M(Gℓℓ ) and M(Grℓ ). Since G∗ℓr is of reduced-local type, we can define: (28.1) M(G) := M(Grℓ ) ⊕ M(G∗ℓr )∗ ⊕ M(Gℓℓ ) .",
           "match": "The definition."
         },
         {
           "sourceId": "Pink05-notes",
           "locator": "§26, Proposition 26.1, p. 64",
-          "excerpt": "The functor N 7→ N ∗ := HomW (k) (N, T ) defines an anti-equivalence from the category of finite length W (k)-modules to itself, and there is a functorial isomorphism N ∼= (N ∗ )∗ .",
           "match": "The dual module."
         }
       ],
@@ -3100,13 +3037,11 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§28, Theorem 28.3, p. 73",
-          "excerpt": "Theorem 28.3. The functor M defined by (28.1) induces an anti-equivalence of categories … Moreover lengthW (k) M(G) = logp |G|, and there is a functorial isomorphism M(G∗ ) ∼= M(G)∗ .",
           "match": "The theorem."
         },
         {
           "sourceId": "Pink05-notes",
           "locator": "§23, Theorem 23.2, p. 55",
-          "excerpt": "Theorem 23.2. The functor M induces an anti-equivalence of categories",
           "match": "The local–local case."
         }
       ],
@@ -3148,7 +3083,6 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§28, Proposition 28.4, p. 73",
-          "excerpt": "Proposition 28.4. There is a natural isomorphism TG,0 ∼= M(G)/F M(G) ∗ .",
           "match": "The statement and proof."
         }
       ],
@@ -3188,19 +3122,16 @@
         {
           "sourceId": "Pink05-notes",
           "locator": "§27, proof of Theorem 27.1, p. 71",
-          "excerpt": "Since M(Gk̄ )Gal(k̄/k) = lim Hom(Gk̄ , Wn,k̄ )Gal(k̄/k) = lim Hom(G, Wn ) = M(G), the whole diagram commutes, and therefore the upper horizontal arrow is an anti-equivalence, too.",
           "match": "Descent from k̄."
         },
         {
           "sourceId": "Pink05-notes",
           "locator": "§27, Proposition 27.3, p. 70",
-          "excerpt": "Let N be a W (k)-module of finite length together with a σ-linear automorphism F : N → N. Then N F := { n ∈ N | F n = n } is a finite commutative p-group, and the natural homomorphism W (k) ⊗Zp N F −→ N , x ⊗ n 7−→ xn is an isomorphism.",
           "match": "Part (iii)."
         },
         {
           "sourceId": "Demazure72-nLab",
           "locator": "III.8, Remark (Demazure pp. 71–72)",
-          "excerpt": "For any perfect extension K/k , there is a functorial isomorphism M(G⊗k K)≃W(K)⊗W(k) M(G) .",
           "match": "Part (i)."
         }
       ],
@@ -3245,19 +3176,16 @@
         {
           "sourceId": "Demazure72-nLab",
           "locator": "III.8, Theorem and Remark (Demazure pp. 71–72)",
-          "excerpt": "G is p -divisible iff M(G) is torsion-less (= free) and height(G)=dim M(G) . … If G is p -divisible with Serre dual ? G′ then M(G′)=Mod_{W(k)}(M(G),W(k)",
           "match": "Freeness, height and duality."
         },
         {
           "sourceId": "Demazure72-nLab",
           "locator": "III.8, Lemma",
-          "excerpt": "M_n is of finite length. then M:=lim M_n is a finitely generated W(k) -module and the canonical map M→M_n identifies M_n≃M/p^n M",
           "match": "The limit lemma."
         },
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.1, Theorem 3 and the paragraph after it, p. 2",
-          "excerpt": "Theorem 3 (cf. [3, p. 69–70]). There is an anti-equivalence of categories between the category of p-divisible groups over k and the category of W -free Dieudonné modules over k.",
           "match": "The theorem, with exactness, base change and the dual M^t."
         }
       ],
@@ -3315,7 +3243,6 @@
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.1, p. 3",
-          "excerpt": "Moreover, we have h(G) = rankW M and there is a natural isomorphism Lie(G) ≃ Homk (M/F M, k).",
           "match": "Height and Lie algebra."
         }
       ],
@@ -3357,7 +3284,6 @@
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.1, Example 2, p. 2",
-          "excerpt": "M1 = ⟨e1 , e2 ⟩ is a free W -module of rank two with relations F (e1 ) = e1 , V (e1 ) = pe1 , F (e2 ) = pe2 , V (e2 ) = e2 . (2) M2 = ⟨e1 , e2 ⟩ is a free W -module of rank two with relations F (e1 ) = V (e1 ) = e2 , F (e2 ) = V (e2 ) = pe1 .",
           "match": "The rank-two models."
         }
       ],
@@ -3397,7 +3323,6 @@
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.1, Lemma 4, p. 3",
-          "excerpt": "Lemma 4. Assume that k is algebraically closed. Then M = M (E) is either isomorphic to M1 or isomorphic to M2 in Example 2. Moreover, E is ordinary (resp. supersingular) if M ≃ M1 (resp. M ≃ M2 ).",
           "match": "The statement and proof."
         }
       ],
@@ -3438,13 +3363,11 @@
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.2, p. 3",
-          "excerpt": "To any relatively prime nonnegative integers a and b with (a, b) ̸= (0, 0), one associates a Dieudonné module over Fp Ma,b := W (Fp )[F, V ]/(F a − V b ). The rational number λ = b/(a + b) is called the slope of Ma,b .",
           "match": "The standard modules and slopes."
         },
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.2, Theorem 5, p. 3",
-          "excerpt": "Theorem 5 (Manin-Dieudonné [15, Chap. II, “Classification Theorem”, p. 35]). Assume that k is algebraically closed. For every Dieudonné module M over k, there exist relatively prime pairs (ai , bi ) ̸= (0, 0) of nonnegative integers and integers mi ≥ 1",
           "match": "The classification imported from VB0."
         }
       ],
@@ -3558,7 +3481,6 @@
         {
           "sourceId": "Yu26-arXiv",
           "locator": "§2.2, Theorem 5 and the definition of the slope sequence, pp. 3–4",
-          "excerpt": "The slope sequence of M is defined to be the tuple … ordered so that λi < λi+1 for all i, where λi := bi /(ai + bi ), and the rational numbers λ1 , . . . , λr are called the slopes of M .",
           "match": "Slope sequences; the isogeny statement is derived here from Theorem 3 and Theorem 5."
         }
       ],
@@ -3600,13 +3522,11 @@
         {
           "sourceId": "FL82",
           "locator": "§0.4, p. 550",
-          "excerpt": "la donnée d'un A-module M, muni d'une filtration (M^i) par des sous-A-modules, décroissante, exhaustive et séparée, et, pour chaque entier i, d'une application φ^i : M^i → M, τ-semi-linéaire, telles que, pour tout i, φ^i(x) = πφ^{i+1}(x) si x ∈ M^{i+1}",
           "match": "The definition."
         },
         {
           "sourceId": "FL82",
           "locator": "§1.5, p. 555",
-          "excerpt": "Nous notons MFtor … la sous-catégorie pleine de MF formée des objets M qui vérifient les deux conditions suivantes : (i) le A-module sous-jacent est de longueur finie; (ii) on a Σ Im φ^i_M = M.",
           "match": "The torsion category."
         }
       ],
@@ -3716,13 +3636,11 @@
         {
           "sourceId": "FL82",
           "locator": "§1.8, Proposition 1.8, p. 556",
-          "excerpt": "La catégorie MFtor est abélienne et même artinienne. En outre le noyau (resp. le conoyau) d'une flèche de MFtor est encore un noyau (resp. un conoyau) dans MF.",
           "match": "The statement; proof in 1.9–1.10."
         },
         {
           "sourceId": "FL82",
           "locator": "§3.2, p. 562",
-          "excerpt": "Si : 0 → M′ → M → M″ → 0 est une suite exacte de MFtor, M est un objet de MF_tor^{f,q} si et seulement si M′ et M″ le sont. En particulier, MF_tor^{f,q} est encore une catégorie abélienne O-linéaire.",
           "match": "Closure in the range."
         }
       ],
@@ -3765,13 +3683,11 @@
         {
           "sourceId": "FL82",
           "locator": "§2.1, p. 559",
-          "excerpt": "Si f désigne l'endomorphisme de l'anneau A/pA défini par f(x) = x^p, on note R la limite projective du diagramme : A/pA ← A/pA ← … ← A/pA ← …",
           "match": "The ring R."
         },
         {
           "sourceId": "FL82",
           "locator": "§0.5, p. 550",
-          "excerpt": "Au paragraphe 2, on construit un anneau S qui va nous servir de pont entre les modules filtrés et les modules galoisiens : on le munit à la fois d'une structure de A-module de Dieudonné filtré et d'une action de Galois, ces deux structures étant compatibles entre elles.",
           "match": "The role of S; the construction is 2.7."
         }
       ],
@@ -3867,7 +3783,6 @@
         {
           "sourceId": "FL82",
           "locator": "§0.6, p. 550",
-          "excerpt": "Si M est un objet de MF, U_S(M) = Ext^1(M, S) est alors un O-module muni d'une action O-linéaire de G.",
           "match": "The definition."
         }
       ],
@@ -3957,13 +3872,11 @@
         {
           "sourceId": "FL82",
           "locator": "§3.3, Theorem 3.3, p. 562",
-          "excerpt": "THÉORÈME. — (i) Pour tout objet M de MF_tor^{f,q} le O-module sous-jacent à U_S(M) = Ext^1(M, S) est de longueur finie, égale à la longueur du A-module sous-jacent à M; (ii) le foncteur (contravariant) U_S : MF_tor^{f,q} → Rep_O(G) est exact et fidèle.",
           "match": "The theorem."
         },
         {
           "sourceId": "FL82",
           "locator": "§3.4, Remark, p. 562",
-          "excerpt": "il résulte de la démonstration du théorème que, pour tout objet M de MFtor, M et U_S(M) ont les mêmes facteurs invariants",
           "match": "Invariant factors."
         }
       ],
@@ -4004,7 +3917,6 @@
         {
           "sourceId": "FL82",
           "locator": "§4.4, Proposition 4.4, p. 566",
-          "excerpt": "4.4. PROPOSITION. — (i) Pour que M(h; i) soit un objet simple de M, il faut et il suffit que la période de l'application i soit égale à h. S'il en est ainsi, l'application v définie ci-dessus est un isomorphisme de F_{q^h} sur End(M).",
           "match": "The classification."
         }
       ],
@@ -4045,13 +3957,11 @@
         {
           "sourceId": "FL82",
           "locator": "§5.3, Theorem 5.3, p. 570",
-          "excerpt": "5.3. THÉORÈME. — Soit i : Z/hZ → Z une application de période h telle que 0 ≤ i_n ≤ q − 1 pour tout n et soit M = M(h; i). Alors : (i) Ext^1(M, S̄) = 0; (ii) le F_{q^h}-espace vectoriel U_S(M) = Hom(M, S̄) est de dimension 1; (iii) on a gu = χ(g)^{i_0+qi_1+…+q^{h−1}i_{h−1}}·u",
           "match": "The theorem."
         },
         {
           "sourceId": "FL82",
           "locator": "§0.8, p. 551",
-          "excerpt": "Si ϖ est un élément de K̄ qui vérifie ϖ^{q^h−1} = π, l'application, qui à g ∈ G associe l'image de gϖ/ϖ dans k, est un caractère χ de G à valeurs dans F_{q^h}",
           "match": "The fundamental character."
         }
       ],
@@ -4108,19 +4018,16 @@
         {
           "sourceId": "FL82",
           "locator": "§6.1, Theorem 6.1, p. 581",
-          "excerpt": "THÉORÈME. — Soit MF_tor^{f,q′} (resp. MF_tor^{f,q″}) la sous-catégorie pleine de MF_tor^{f,q} formée des objets qui n'admettent pas de quotient non trivial N tel que N = N^{q−1} (resp. de sous-objet non trivial N tel que N^1 = 0). … (ii) La restriction du foncteur U_S à chacune de ces deux catégories est pleinement fidèle.",
           "match": "The theorem."
         },
         {
           "sourceId": "FL82",
           "locator": "§0.9, p. 551",
-          "excerpt": "Il n'est pas vrai que le foncteur U_S : MF_tor^{f,q} → Rep(G) est pleinement fidèle : on a U_S(M(1; 0)) ≅ U_S(M(1; q−1)) ≅ F_q, avec action triviale de G … Mais c'est le seul ennui.",
           "match": "The endpoint collision."
         },
         {
           "sourceId": "FL82",
           "locator": "§6.6, p. 584",
-          "excerpt": "Nous ne démontrerons cette proposition que dans le cas de MF_tor^{f,q′} (on se contentera d'indications sur la façon de procéder pour MF_tor^{f,q″}).",
           "match": "The MF″ case is only indicated."
         }
       ],
@@ -4174,7 +4081,6 @@
         {
           "sourceId": "FL82",
           "locator": "§6, remark before 7, p. 589",
-          "excerpt": "Il ne semble pas aisé de donner une caractérisation raisonnable de l'image essentielle de U_S (resp. U_S′).",
           "match": "FL leave the essential image open; closure under subquotients is derived here."
         }
       ],
@@ -4215,19 +4121,16 @@
         {
           "sourceId": "FL82",
           "locator": "§7.7, Definition, p. 591",
-          "excerpt": "Soit A un objet de MF_{K/E} et soit M un réseau de A … Pour tout i ∈ Z, on pose M^i = M ∩ A^i. On dit que M est un réseau fortement divisible si Σ π^{−i}Φ(M^i) = M",
           "match": "The definition."
         },
         {
           "sourceId": "FL82",
           "locator": "§7.8, Proposition 7.8, p. 592",
-          "excerpt": "Pour qu'il existe un réseau de A qui soit fortement divisible, il faut et il suffit que A soit dans MF^f_{K/E}.",
           "match": "Existence."
         },
         {
           "sourceId": "FL82",
           "locator": "§7.4, p. 591",
-          "excerpt": "Nous notons MF^f_{K/E} la sous-catégorie pleine de MF_{K/E} formée des objets A, de dimension finie comme K-espaces vectoriels, qui vérifient t_H(A) = t_N(A) et, pour tout sous-objet A′ de A, t_H(A′) ≤ t_N(A′)",
           "match": "Weak admissibility."
         }
       ],
@@ -4329,13 +4232,11 @@
         {
           "sourceId": "FL82",
           "locator": "§7.15, Proposition 7.15, pp. 593–594",
-          "excerpt": "7.15. PROPOSITION. — (i) Le foncteur U_S est exact (en un sens évident) et fidèle et, pour tout objet M de MF^{fd,q}, rg_O U_S(M) = rg_A M. (ii) La restriction de U_S à la sous-catégorie pleine de MF^{fd,q} formée des M tels que M_1 = Coker π_M est un objet de MF_tor^{f,q′} (resp. de MF_tor^{f,q″}) est pleinement fidèle.",
           "match": "The proposition."
         },
         {
           "sourceId": "FL82",
           "locator": "§7.14, p. 593",
-          "excerpt": "Si M^0 = M et M^q = 0, les M_n sont des objets de MF_tor^{f,q} et chaque U_S(M_n) est un (O/π^n O)-module, libre de rang égal au rang h du A-module sous-jacent à M",
           "match": "The levels."
         }
       ],
@@ -4377,13 +4278,11 @@
         {
           "sourceId": "FL82",
           "locator": "§8.4, Theorem 8.4, p. 595",
-          "excerpt": "8.4. THÉORÈME. — Supposons E = Q_p. (i) Si D est un objet de MF^f tel qu'il existe un entier j vérifiant D^j = D et D^{j+p} = 0, alors D est B-admissible. … (ii) Soit V′_B : MF_B → Rep(G) le foncteur contravariant qui à D associe le dual de V_B(D). Le foncteur U_{S_K} et la restriction de V′_B à MF^{f,p} sont naturellement équivalents.",
           "match": "The theorem."
         },
         {
           "sourceId": "FL82",
           "locator": "§7.17, Proposition 7.17, p. 594",
-          "excerpt": "7.17. PROPOSITION. — Pour tout objet A de MF^{f,q}_{K/E} : (i) on a dim_E(U_{S_K}(A)) = dim_K A; (ii) l'application canonique de A dans Hom_{E[G]}(U_{S_K}(A), S_K) est injective.",
           "match": "Dimension and injectivity."
         }
       ],
@@ -4435,7 +4334,6 @@
         {
           "sourceId": "FL82",
           "locator": "§8.4, proof of Theorem 8.4, p. 595",
-          "excerpt": "On voit que la K-algèbre S_K s'identifie, en tant qu' « anneau galoisien filtré » à l'anneau noté B_a dans [F2], §4.",
           "match": "The identification (the subscript is OCR-uncertain in the Numdam text)."
         }
       ],
@@ -4479,7 +4377,6 @@
         {
           "sourceId": "FL82",
           "locator": "§7.15, Proposition 7.15(ii), p. 594",
-          "excerpt": "La restriction de U_S à la sous-catégorie pleine de MF^{fd,q} formée des M tels que M_1 = Coker π_M est un objet de MF_tor^{f,q′} (resp. de MF_tor^{f,q″}) est pleinement fidèle.",
           "match": "Full faithfulness on lattices; the bijection is derived here."
         }
       ],
@@ -4538,25 +4435,21 @@
         {
           "sourceId": "Kisin06",
           "locator": "§1.1.1, p. 4 (author DVI)",
-          "excerpt": "Let 𝔖 = W[[u]]. We denote by 𝔖n the completion of Kn+1 ⊗W 𝔖 at the maximal ideal (u − πn).",
           "match": "𝔖 and the points π_n."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.1, p. 20 (author DVI)",
-          "excerpt": "Let 𝒪𝒠 be the p-adic completion of 𝔖[1/u]. Then 𝒪𝒠 is a discrete valuation ring with residue field the field of Laurent series k((u)).",
           "match": "𝒪_ℰ."
         },
         {
           "sourceId": "Kisin08",
           "locator": "Errata for [Ki 2], (E.3), p. 34 (author DVI)",
-          "excerpt": "(E.3) In (2.1.1) 𝒠 embeds is W(Fr R)[1/p] (not W(Fr R))",
           "match": "The corrected placement of ℰ; the erratum goes on to place ℰ̂^ur in W(Fr R)[1/p] and to define 𝔖^ur as 𝒪̂_{ℰ^ur} ∩ W(R) (hat accents are lost in the text extraction)."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§A.5, p. 31 (author DVI)",
-          "excerpt": "Denote by S the p-adic completion of the divided power envelope of W[u] with respect to the ideal E(u).",
           "match": "Breuil's ring S."
         }
       ],
@@ -4670,25 +4563,21 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.3, p. 21 (author DVI)",
-          "excerpt": "We denote by Mod ϕ /𝔖 the category of finite free 𝔖-modules equipped with a 𝔖-linear map 1 ⊗ ϕ : ϕ∗𝔐 → 𝔐 whose cokernel is killed by some power of E(u).",
           "match": "Mod^φ_{/𝔖}."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.1, p. 25 (author DVI)",
-          "excerpt": "We will denote by BT ϕ /𝔖 the full subcategory of Mod ϕ /𝔖 consisting of objects 𝔐 such that 𝔐/ϕ∗(𝔐) is killed by E(u) (not just some power).",
           "match": "BT^φ_{/𝔖}."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§2.3.1, p. 27 (author DVI)",
-          "excerpt": "We denote by (Mod /𝔖) the full subcategory of ′(Mod /𝔖) consisting of modules 𝔐 such that 𝔐 has projective dimension 1 as an 𝔖-module and is killed by some power of p.",
           "match": "The torsion category."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.1.16, p. 10 (author DVI)",
-          "excerpt": "We call an object 𝔐 of (Mod /𝔖) ´etale if the image of 1⊗φ is equal to E(u)𝔐, and multiplicative if 1⊗φ is an isomorphism.",
           "match": "Étale and multiplicative objects."
         }
       ],
@@ -4809,19 +4698,16 @@
         {
           "sourceId": "Kisin09",
           "locator": "§1.1.12, p. 9 (author DVI)",
-          "excerpt": "The argument of [Br 1, 2.1.1] shows that K∞ /K is a strictly APF extension in the sense of [Win]. Then [Fo, A. 1.2.6], and the constructions of [Fo, A. 3] imply that the functor T : ΦM 𝒪𝒠 → Rep ℤp (GK∞ ); M ↦→ (𝒪𝒠ur ⊗𝒪𝒠 M) φ=1 is an equivalence of abelian categories",
           "match": "The equivalence."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.4, Corollary (2.1.4), p. 21 (author DVI)",
-          "excerpt": "Let 𝔐 be in Mod ϕ /𝔖 . Then V𝔖 (𝔐) := Hom 𝔖,ϕ (𝔐,𝔖ur ) is a free ℤp -module of rank r = rk 𝔖 𝔐, and the functor 𝔐 ↦→ V𝔖 (𝔐) is exact in 𝔐.",
           "match": "V_𝔖."
         },
         {
           "sourceId": "Kisin08",
           "locator": "§1.2, p. 5 (author DVI)",
-          "excerpt": "This is a free 𝒪𝒠,A = 𝒪𝒠 ⊗ℤp A-module of rank d [Ki 1, 1.2.7(4)], equipped with an isomorphism ϕ∗MA ∼− → MA .",
           "match": "Coefficients."
         }
       ],
@@ -4877,19 +4763,16 @@
         {
           "sourceId": "Kisin06",
           "locator": "§1.2.2, Lemma (1.2.2), p. 6 (author DVI)",
-          "excerpt": "Suppose that D is effective. Then the operators ϕ and N? on (𝒪[`u ,1/λ]⊗K0 D) N=0 induce on 𝒨(D) the structure of a (ϕ,N? )-module over 𝒪.",
           "match": "The construction and the cokernel formula."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§1.2.8, Proposition (1.2.8), p. 10 (author DVI)",
-          "excerpt": "Let D be an effective filtered (ϕ,N)-module. There is a natural isomorphism of filtered (ϕ,N)-modules D(𝒨(D)) ∼− → D.",
           "match": "D(𝓜(D)) ≅ D."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§1.2.15, Theorem (1.2.15), p. 12 (author DVI)",
-          "excerpt": "The functors D and 𝒨 induce exact, quasi-inverse equivalences of ⊗-categories between effective filtered (ϕ,N)-modules and the category Mod ϕ,N? /𝒪 .",
           "match": "The equivalence."
         }
       ],
@@ -4942,13 +4825,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§1.3.8, Theorem (1.3.8), p. 17 (author DVI)",
-          "excerpt": "Let D be an effective filtered (ϕ,N)-module. Then D is weakly admissible if and only if 𝒨(D) is pure of slope 0.",
           "match": "The theorem."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§1.3.2, Theorem (1.3.2), p. 14 (author DVI)",
-          "excerpt": "For any 𝒨 in Mod ϕ /𝒭 , there exists a canonical filtration - called the slope filtration - 0 = 𝒨0 ⊂ 𝒨1 ⊂ ··· ⊂ 𝒨r = 𝒨 by ϕ-stable submodules",
           "match": "Kedlaya's slope filtration, as quoted by Kisin."
         }
       ],
@@ -4999,13 +4880,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§1.3.15, Corollary (1.3.15), p. 19 (author DVI)",
-          "excerpt": "There exists a fully faithful ⊗-functor from the category of effective weakly admissible filtered (ϕ,N)-modules to Mod ϕ,N /𝔖 ⊗ℚp .",
           "match": "The functor."
         },
         {
           "sourceId": "Kisin06",
           "locator": "Introduction, Theorem (0.1), p. 2 (author DVI)",
-          "excerpt": "The category of crystalline representations with all Hodge-Tate weights ? 0, admits a fully faithful embedding into the isogeny category Mod ϕ /𝔖 ⊗ℚp of Mod ϕ /𝔖 .",
           "match": "Crystalline case; the glyph printed as ? is ⩽ (msam10), see source issue E3."
         }
       ],
@@ -5065,13 +4944,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.12, Proposition (2.1.12), p. 23 (author DVI)",
-          "excerpt": "The functor Mod ϕ /𝔖 → Mod ϕ /𝒪𝒠 ; 𝔐 ↦→ 𝔐⊗𝔖 𝒪𝒠 is fully faithful.",
           "match": "The proposition."
         },
         {
           "sourceId": "Kisin08",
           "locator": "Errata for [Ki 2], (E.4), p. 34 (author DVI)",
-          "excerpt": "There is a gap in the proof of (2.1.12). (We are grateful to Brian Conrad for pointing this out.) It is not clear that the natural map 𝒪𝒠 ⊗𝔖 𝔐3 → 𝒨3 is an isomorphism, so one cannot apply the case where h is an isomorphism to conclude that F(𝔐3 ) = F(𝔐′3 ).",
           "match": "The gap and its repair."
         }
       ],
@@ -5125,13 +5002,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.15, Lemma (2.1.15), p. 24 (author DVI)",
-          "excerpt": "Then the map 𝔑 ↦→ Hom 𝔖,ϕ (𝔑,𝔖ur ) is a bijection between finite free, ϕ-stable 𝔖-submodules 𝔑 ⊂ 𝒨 such that 𝒠 ⊗𝔖 𝔑 ∼− → 𝒨 and 𝔑/ϕ∗(𝔑) is killed by a power of E(u), and GK∞ -stable ℤp -lattices L ⊂ V.",
           "match": "Part (2)."
         },
         {
           "sourceId": "Kisin08",
           "locator": "§1.2, p. 4 (author DVI)",
-          "excerpt": "We call such a 𝔖-submodule a 𝔖-lattice of E-height ? h. By [Ki 2, 2.1.12] if a 𝔖-lattice of E-height ? h exists, then it is unique.",
           "match": "Part (1); ? is the extraction of ⩽."
         }
       ],
@@ -5185,19 +5060,16 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.5, Proposition (2.1.5), p. 21 (author DVI)",
-          "excerpt": "Let D be an effective, weakly admissible filtered (ϕ,N)-module, and 𝔐 in Mod ϕ,N /𝔖 a module whose image in Mod ϕ,N /𝔖 ⊗ ℚp is equal to the image of D under the functor of (1.3.15).",
           "match": "Hypotheses of the proposition."
         },
         {
           "sourceId": "Kisin06",
           "locator": "Introduction, p. 2 (author DVI)",
-          "excerpt": "We also obtain a proof of Fontaine's conjecture that weakly admissible modules are admissible (see (2.1.5)).",
           "match": "Consequence (a)."
         },
         {
           "sourceId": "Kisin08",
           "locator": "§2.5, proof of Theorem (2.5.5), p. 19 (author DVI)",
-          "excerpt": "If VB is semi-stable with Hodge-Tate weights in [0,h], then VB is of E-height ? h, by [Ki 2, 1.2.2, 2.1.5].",
           "match": "Consequence (b)."
         }
       ],
@@ -5253,13 +5125,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.1.14, Corollary (2.1.14), p. 24 (author DVI)",
-          "excerpt": "The functor Rep cris GK → Rep GK∞ obtained by restricting the action of a GK -representation to GK∞ is fully faithful.",
           "match": "The corollary."
         },
         {
           "sourceId": "Kisin06",
           "locator": "Introduction, Theorem (0.2), p. 2 (author DVI)",
-          "excerpt": "The functor from crystalline representations of GK to p-adic GK∞ -representations, obtained by restricting the action of GK to GK∞ , is fully faithful.",
           "match": "Theorem (0.2)."
         }
       ],
@@ -5313,13 +5183,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.2, Proposition (2.2.2), p. 25 (author DVI)",
-          "excerpt": "The functor of (1.3.15) induces an exact equivalence between the category of weakly admissible modules of Barsotti-Tate type and BT ϕ /𝔖 ⊗ ℚp .",
           "match": "The proposition."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.1, p. 25 (author DVI)",
-          "excerpt": "We say a weakly admissible module D is of Barsotti-Tate type if gr i DK = 0 for i /= 0,1.",
           "match": "Barsotti–Tate type."
         }
       ],
@@ -5368,19 +5236,16 @@
         {
           "sourceId": "Kisin06",
           "locator": "§A.5, p. 31 (author DVI)",
-          "excerpt": "We will denote by BT ϕ /S the category of finite free S-modules 𝒨 equipped with an S-submodule Fil 1 𝒨 and a ϕ-semilinear map ϕ1 : Fil 1 𝒨 → 𝒨",
           "match": "BT^φ_{/S}."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§A.6, Proposition (A.6), p. 31 (author DVI)",
-          "excerpt": "There is an exact contravariant functor G ↦→ 𝔻(G)(S) from the category of p-divisible groups over 𝒪K to BT ϕ /S . If p > 2 this functor is an anti-equivalence, and if p = 2 it induces an anti-equivalence of the corresponding isogeny categories.",
           "match": "(ii)."
         },
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.3, p. 25 (author DVI)",
-          "excerpt": "Given a module 𝔐 in BT ϕ /𝔖 , 𝒨 = S ⊗ϕ,𝔖 𝔐 has a natural structure of an object of BT ϕ /S , where this is the category introduced in (A.5).",
           "match": "(i)."
         }
       ],
@@ -5480,7 +5345,6 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.4, Lemma (2.2.4), p. 26 (author DVI)",
-          "excerpt": "Let G be a p-divisible group over 𝒪K . If we regard the ring Acris of (2.1.1) as an S-algebra via u ↦→ [π ], then there is a canonical injection of GK∞ -modules Tp (G) ,→ Hom S,Fil ,ϕ (𝒨(G),Acris ). This map is an isomorphism if p > 2, and has cokernel killed by p when p = 2.",
           "match": "The lemma."
         }
       ],
@@ -5538,13 +5402,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.6, Corollary (2.2.6), p. 26 (author DVI)",
-          "excerpt": "Let V be a crystalline representation of GK with all Hodge-Tate weights equal to 0 or 1. Then there exists a p-divisible group G such that V ∼− → Tp (G)⊗ℤp ℚp .",
           "match": "The corollary, all p."
         },
         {
           "sourceId": "Kisin06",
           "locator": "Introduction, Theorem (0.3), p. 3 (author DVI)",
-          "excerpt": "Any crystalline representation with all Hodge-Tate weights equal to 0 or 1 arises from a p-divisible group.",
           "match": "Theorem (0.3)."
         }
       ],
@@ -5608,13 +5470,11 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.2.7, Theorem (2.2.7), p. 26 (author DVI)",
-          "excerpt": "There exists an exact functor between BT ϕ /𝔖 and the category of p-divisible groups over 𝒪K . When p > 2, this functor is an equivalence, and when p = 2 it induces an equivalence between the corresponding isogeny categories.",
           "match": "The theorem."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§2.2.22, Corollary (2.2.22), p. 29 (author DVI)",
-          "excerpt": "There is an equivalence of categories between (Mod FI /𝔖)ℤp , and the category of p-divisible groups over 𝒪K .",
           "match": "The p > 2 form of Kisin 2009."
         }
       ],
@@ -5677,19 +5537,16 @@
         {
           "sourceId": "Kisin06",
           "locator": "§2.3.5, Theorem (2.3.5), p. 28 (author DVI)",
-          "excerpt": "There is an exact anti-equivalence between (Mod /𝔖) and the category (p-Gr /𝒪K ) of finite flat group schemes over 𝒪K .",
           "match": "The theorem as printed (no p > 2; issue E6)."
         },
         {
           "sourceId": "Kisin06",
           "locator": "Introduction, Theorem (0.5), p. 3 (author DVI)",
-          "excerpt": "For p > 2, the category (Mod /𝔖) is equivalent to the category of finite flat group schemes over 𝒪K .",
           "match": "The hypothesis p > 2."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.1.13, Proposition (1.1.13), p. 9 (author DVI)",
-          "excerpt": "Let 𝔐 be in (Mod /𝔖), and 𝒨 in (Mod /S) the image of 𝔐 under the functor of (1.1.11). There is a canonical isomorphism of GK∞ -representations T(𝒪𝒠 ⊗𝔖 𝔐)(1) ∼− → Gr D (𝒨)(𝒪¯K )|GK∞",
           "match": "Galois compatibility."
         }
       ],
@@ -5750,13 +5607,11 @@
         {
           "sourceId": "Kisin09",
           "locator": "§1.1.15, Lemma (1.1.15), p. 10 (author DVI)",
-          "excerpt": "Let 𝔐 and 𝒨 be as in (1.1.13). Then Gr D (𝒨) is ´etale (resp. multiplicative), if and only if the map 1⊗φ : φ∗𝔐 → 𝔐 has image equal to E(u)·𝔐 (resp. is an isomorphism).",
           "match": "The dictionary."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.11, Proposition (1.2.11) and its proof, pp. 13–14 (author DVI)",
-          "excerpt": "Suppose that |A| < ∞, and let 𝔐A be in (Mod FI /𝔖)A . There exists a maximal multiplicative subobject 𝔐mA ⊂ 𝔐A , and a maximal ´etale quotient 𝔐´etA of 𝔐A .",
           "match": "Maximal multiplicative subobject and étale quotient."
         }
       ],
@@ -5807,7 +5662,6 @@
         {
           "sourceId": "Kim12",
           "locator": "§4, Corollary 4.4, p. 11 (arXiv v3)",
-          "excerpt": "The functor T T |GK∞ from the category of p∞ -torsion G K -representations coming from some finite flat group scheme over OK to the category of p∞ -torsion G K∞ -representations is fully faithful.",
           "match": "The corollary; Kim attributes the deduction to Breuil [Bre02, Theorem 3.4.3]."
         }
       ],
@@ -5862,19 +5716,16 @@
         {
           "sourceId": "Kim12",
           "locator": "§4, Theorem 4.1, p. 10 (arXiv v3)",
-          "excerpt": "Assume that OK is a 2-adic discrete valuation ring with perfect residue field. Then the functor M∗ ◦ Tp is an anti-equivalence of categories.",
           "match": "(1)."
         },
         {
           "sourceId": "Kim12",
           "locator": "§4, Corollary 4.3, p. 10 (arXiv v3)",
-          "excerpt": "There exists an exact anti-equivalence of categories H MH from the category of p-power order finite flat group schemes over OK to (Mod /S)⩽1 which satisfies the following properties:",
           "match": "(3)."
         },
         {
           "sourceId": "Kisin09b",
           "locator": "Introduction, Theorem (0.8), p. 4 (author DVI)",
-          "excerpt": "The category BT ϕ,f /𝔖 is equivalent to the category of connected p-divisible groups over 𝒪K . The category (Mod /𝔖) c is equivalent to the category of connected finite flat 𝒪K -group schemes of p-power order.",
           "match": "The connected case."
         }
       ],
@@ -5927,19 +5778,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Definition 2.7, p. 6",
-          "excerpt": "A filtered (ϕ, N, F/F ′ , E)-module of rank n is a free (F0 ⊗Qp E)- module D of rank n equipped with",
           "match": "The definition."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Definition 2.8, p. 6",
-          "excerpt": "A filtered (ϕ, N, F/F ′ , E)-module is said to be weakly admissible if the underlying (ϕ, N, F, E)-module is weakly admissible",
           "match": "Weak admissibility."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Definition 2.15, p. 8",
-          "excerpt": "The Galois type (or type) τ (V ) of V is defined to be WD(V ) |Ip .",
           "match": "The Galois type."
         }
       ],
@@ -6044,13 +5892,11 @@
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Proposition 2.9, p. 6",
-          "excerpt": "Proposition 2.9. Dst and VstF are quasi-inverses.",
           "match": "The equivalence (OCR drops the super- and subscripts F, F′)."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Corollary 2.12, p. 7",
-          "excerpt": "is an equivalence of categories between the cat- egory of weakly admissible filtered (ϕ, N, F/F ′ , E)-modules D such that Fil0 (F ⊗F0 D) = F ⊗F0 D and Filk (F ⊗F0 D) = 0",
           "match": "The weight range."
         }
       ],
@@ -6091,19 +5937,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Proposition 2.17, pp. 8–9",
-          "excerpt": "Suppose that V is an indecomposable 2-dimensional potentially semistable E-representation of GQp with",
           "match": "Principal series."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Proposition 2.18, p. 9",
-          "excerpt": "type τ (V ) = ω̃2m ⊕ ω̃2pm with p + 1 ∤ m.",
           "match": "Supercuspidal."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§2.2, Proposition 2.21, p. 10",
-          "excerpt": "The filtered modules listed in Propositions 2.17, 2.18, 2.20 are weakly admissible.",
           "match": "Weak admissibility."
         }
       ],
@@ -6152,19 +5995,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§3.1, Definition 3.1, p. 12",
-          "excerpt": "If G is a p-divisible group over OF , then descent data relative to F ′ is a collection of maps [g] : G → g G for each g ∈ Gal(F ′ /F ) satisfying [gh] = (g [h]) ◦ [g].",
           "match": "The definition, with the misprinted index (E13)."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§3.1, Proposition 3.2, p. 12",
-          "excerpt": "The above constructions describe an equivalence between the category of Galois lattices inside potentially crystalline GF ′ -representations that become crystalline over F and have Hodge-Tate weights inside {0, 1}, and the cat- egory of p-divisible groups over OF with descent data relative to F ′ .",
           "match": "The equivalence."
         },
         {
           "sourceId": "Breuil00",
           "locator": "Théorème 5.3.2, p. 51 (author copy)",
-          "excerpt": "Supposons p 6= 2, k ⊆ Fp et soit V une représentation p-adique cristalline de Gal(K/K) à poids de Hodge-Tate entre 0 et 1.",
           "match": "Breuil's theorem as Savitt uses it (OCR: 6= is ≠)."
         }
       ],
@@ -6208,19 +6048,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§3.2, p. 14",
-          "excerpt": "The category Mod0k−1 is called the category of strongly divisible modules (of weight k).",
           "match": "Strongly divisible modules."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§3.3, Definition 3.8, p. 17",
-          "excerpt": "Under Hypotheses 3.5, we refer to Mod10,dd as the category of strongly divisible modules with tame descent data (of weight 2).",
           "match": "The category with descent data."
         },
         {
           "sourceId": "Breuil00",
           "locator": "Théorème 4.2.2.9, p. 46 (author copy)",
-          "excerpt": "établit une anti-équivalence de catégories entre la catégorie des groupes p-divisibles de hauteur d sur Spec(OK ) et la catégorie des modules fortement divisibles de rang d.",
           "match": "Breuil's classification (p ≠ 2)."
         }
       ],
@@ -6327,19 +6164,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§3.4, Theorem 3.10, p. 18",
-          "excerpt": "Suppose that G is a p-divisible group over OF with descent data relative to F ′ , and let M be the corresponding strongly divisible module with descent data.",
           "match": "Theorem 3.10."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§3.5, Theorem 3.14, p. 21",
-          "excerpt": "Suppose that ρ : GF ′ → GL(V ) becomes crystalline over F and has Hodge-Tate weights in {0, 1}.",
           "match": "Theorem 3.14."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§3.5, Lemma 3.13 and the paragraph before it, p. 20",
-          "excerpt": "If D is a filtered (ϕ, N, F/F ′ , Zp )-module, we say M is contained in S[1/p] ⊗F0 D",
           "match": "The ℤ_p for ℚ_p slip (E14)."
         }
       ],
@@ -6387,19 +6221,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§4, Definition 4.1, p. 22",
-          "excerpt": "A strongly divisible R-module with tame descent data is a finitely generated free SR -module M",
           "match": "The definition."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§4, Corollary 4.12, p. 24",
-          "excerpt": "Tst,k (M) is a free R-module of rank d with a continuous action of GF ′",
           "match": "Freeness of T_st (OCR drops the superscript F′)."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§4, Proposition 4.13, p. 24",
-          "excerpt": "Each GF ′ -stable OE -lattice T in ρ is isomorphic to Tst,2 (M) for some strongly divisible OE -module with descent data M.",
           "match": "Every lattice arises."
         }
       ],
@@ -6499,19 +6330,16 @@
         {
           "sourceId": "Savitt05",
           "locator": "§4, Objects killed by p, p. 25",
-          "excerpt": "Let BrMod be the category of Breuil modules, that is, the category of triples (M′ , Fil1 M′ , φ1 ) such that:",
           "match": "Breuil modules."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§4, Lemma 4.14, p. 25",
-          "excerpt": "Suppose that M′ is a Breuil module with descent data satisfying Fil1 M′ = ue M′ .",
           "match": "Maximal Breuil modules."
         },
         {
           "sourceId": "Breuil00",
           "locator": "Proposition 2.1.2.2, p. 9 (author copy)",
-          "excerpt": "Le foncteur T induit une équivalence de catégories entre (M od/S1 ) et (M od/S̃1 ).",
           "match": "The equivalence T."
         }
       ],
@@ -6612,13 +6440,11 @@
         {
           "sourceId": "Savitt05",
           "locator": "§5, Proposition 5.1, p. 26",
-          "excerpt": "Then a strongly divisible OE -module in SOE ⊗ Dst,2 (ǫω̃ j λa ) is given by",
           "match": "Rank-one strongly divisible modules."
         },
         {
           "sourceId": "Savitt05",
           "locator": "§5, Proposition 5.3, p. 26",
-          "excerpt": "Let M′ be the Breuil module with descent data and action of kE given by",
           "match": "Rank-one Breuil modules."
         }
       ],
@@ -6664,19 +6490,16 @@
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.1, p. 10 (author DVI)",
-          "excerpt": "We denote by (Mod FI /𝔖)A the full subcategory of ′ (Mod /𝔖)A consist- ing of those objects 𝔐 such that 𝔐 is a finite projective 𝔖A -module.",
           "match": "The category."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.2, Lemma (1.2.2), p. 10 (author DVI)",
-          "excerpt": "Suppose that 𝔐 is in (Mod FI /𝔖)A . Then (1) The natural map 1⊗φ : φ ∗ (𝔐) → 𝔐 is injective.",
           "match": "Its basic properties."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.10, p. 13 (author DVI)",
-          "excerpt": "One sees easily that 𝔐A is ´etale if and only if 𝔐 ∗ A is multiplicative",
           "match": "Duality."
         }
       ],
@@ -6778,13 +6601,11 @@
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.4, Lemma (1.2.4), p. 11 (author DVI)",
-          "excerpt": "Suppose that |A| < ∞. Then the functor of (1.1.10) induces an exact and fully faithful functor (Mod FI /𝔖)A → (Mod FI /S)A .",
           "match": "Lemma 1.2.4."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.5, Lemma (1.2.5), p. 12 (author DVI)",
-          "excerpt": "If |A| < ∞ and p · A = 0, then the functor of (1.2.4) is an equivalence.",
           "match": "Lemma 1.2.5."
         }
       ],
@@ -6830,13 +6651,11 @@
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.7, Lemma (1.2.7), p. 12 (author DVI)",
-          "excerpt": "If M is in ΦM 𝒪𝒠 ,A , then TA (M) is free over A of rank r ∈ ℕ + if and only if M is a free 𝒪𝒠 ⊗ℤp A-module of rank r.",
           "match": "Lemma 1.2.7(4)."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.2.9, Lemma (1.2.9), p. 13 (author DVI)",
-          "excerpt": "Suppose that A is a local ℤp -algebra with |A| < ∞.",
           "match": "Lemma 1.2.9."
         }
       ],
@@ -6883,13 +6702,11 @@
         {
           "sourceId": "Kisin09",
           "locator": "§1.3.4, Proposition (1.3.4), p. 15 (author DVI)",
-          "excerpt": "The functors Dcris and Vcris induce exact equivalences of categories",
           "match": "Proposition 1.3.4."
         },
         {
           "sourceId": "Kisin09",
           "locator": "§1.3.1, p. 14 (author DVI)",
-          "excerpt": "Let A be a finite, local ℚp -algebra. We denote by (Mod /K0 )A the category of weakly admissible ϕ-modules equipped with an action of A",
           "match": "The category."
         }
       ],
@@ -6937,25 +6754,21 @@
         {
           "sourceId": "Serre72",
           "locator": "§1.3, Proposition 1, p. 263 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Proposition 1. Les isomorphismes θ_d définissent un isomorphisme θ: I_t → lim μ_d.",
           "match": "The structure of tame inertia."
         },
         {
           "sourceId": "Serre72",
           "locator": "§1.7, p. 267 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "On appelle caractère fondamental de niveau n tout caractère obtenu en composant le caractère θ_{q−1}: I_t → μ_{q−1} = F_q^*, avec un automorphisme du corps F_q",
           "match": "Fundamental characters."
         },
         {
           "sourceId": "Serre72",
           "locator": "§1.8, Proposition 8, p. 269 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Le caractère χ donnant l'action de I_t sur μ_p est la puissance e-ième du caractère fondamental θ_{p−1} de niveau 1.",
           "match": "The cyclotomic character on tame inertia."
         },
         {
           "sourceId": "Serre87",
           "locator": "§2.1, Proposition 1, p. 183",
-          "excerpt": "Les caractères p et p' donnant l'action de I t sur VS' sont de niveau 1 ou 2 . S'ils sont de niveau 2, ils sont conjugués",
           "match": "Levels of the characters of a two-dimensional representation (OCR: p, p′ are φ, φ′)."
         }
       ],
@@ -7062,13 +6875,11 @@
         {
           "sourceId": "Serre72",
           "locator": "§1.9, Proposition 9, p. 269 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Il existe sur V une structure de F_q-espace vectoriel de dimension 1 jouissant des propriétés suivantes",
           "match": "The proposition."
         },
         {
           "sourceId": "Serre72",
           "locator": "§1.9, Corollaire 3, p. 270 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Les h caractères donnant l'action de I_t sur V_1 sont les h caractères fondamentaux I_t → k_1^* de niveau h.",
           "match": "Corollary 3."
         }
       ],
@@ -7114,13 +6925,11 @@
         {
           "sourceId": "Serre72",
           "locator": "§1.11, Proposition 11, p. 273 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Proposition 11 (bonne réduction de hauteur 1). On a χ_X = θ^e_{p−1} et χ_Y = 1.",
           "match": "Proposition 11."
         },
         {
           "sourceId": "Serre72",
           "locator": "§1.11, Corollaire, p. 274 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Si I_p n'opère pas trivialement sur E_p, l'image de I dans GL(E_p) est d'ordre p(p−1).",
           "match": "The corollary, case c)."
         }
       ],
@@ -7166,13 +6975,11 @@
         {
           "sourceId": "Serre72",
           "locator": "§1.11, Proposition 12, p. 275 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Proposition 12 (bonne réduction de hauteur 2). Supposons que e = 1. Alors: a) L'action de I_p sur E_p est triviale.",
           "match": "Proposition 12."
         },
         {
           "sourceId": "Serre72",
           "locator": "§1.11, Corollaire, p. 275 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "L'action de I_t sur k_1 ⊗ E_p est donnée par les deux caractères fondamentaux I_t → k_1^* de niveau 2.",
           "match": "The corollary."
         }
       ],
@@ -7221,13 +7028,11 @@
         {
           "sourceId": "Serre72",
           "locator": "§1.12, Proposition 13, pp. 276–277 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "Proposition 13 (mauvaise réduction de type multiplicatif). L'image de I dans GL(E_p) est contenue dans un sous-groupe de type (* *; 0 1).",
           "match": "Proposition 13."
         },
         {
           "sourceId": "Serre72",
           "locator": "§1.12, p. 277 (transcribed from the page image; the GDZ scan has no text layer)",
-          "excerpt": "il faut et il suffit que q ait une racine p-ième dans K_nr. Noter que cette condition entraîne v(j) = −v(q) ≡ 0 (mod p).",
           "match": "The criterion for case (b)."
         }
       ],
@@ -7271,13 +7076,11 @@
         {
           "sourceId": "Serre87",
           "locator": "§2.4, (2.4.6)–(2.4.7), p. 186",
-          "excerpt": "nous dirons que l'extension K (ou la représentation pp ) est peu ramifiée si",
           "match": "The definition (OCR: pp is ρ_p)."
         },
         {
           "sourceId": "Serre87",
           "locator": "§2.4, p. 186",
-          "excerpt": "i .e., si les x . peuvent être choisis parmi les unités de K0 . Dans le cas contraire, nous dirons que K et pp sont très ramifiées .",
           "match": "Units, and très ramifiée."
         }
       ],
@@ -7386,13 +7189,11 @@
         {
           "sourceId": "Serre87",
           "locator": "§2.8, proof of Proposition 4, p. 190",
-          "excerpt": "on constate (suite exacte de Kummer) que la classe de l'extension J est donnée par un élément u E R */R *P",
           "match": "The Kummer class of a finite flat extension is a unit class (OCR: E is ∈)."
         },
         {
           "sourceId": "Serre87",
           "locator": "§2.8, proof of Proposition 4, p. 190",
-          "excerpt": "Dans le premier cas, on voit facilement que l'extension J est scindée (utiliser la composante connexe de l'élément neutre)",
           "match": "Part (a)."
         }
       ],
@@ -7439,13 +7240,11 @@
         {
           "sourceId": "Serre87",
           "locator": "§2.8, Proposition 4, p. 189",
-          "excerpt": "PROPOSITION 4 . On a k = 2 si et seulement si les deux conditions suivantes sont satisfaites :",
           "match": "Proposition 4 (k = 2 iff det|_I = χ and finite at p)."
         },
         {
           "sourceId": "Serre87",
           "locator": "§2.8, proof of Proposition 4, p. 190",
-          "excerpt": "Reste à prouver que k = 2 entraîne que pP est finie en p . D'après la prop . 3, il y a deux cas à considérer :",
           "match": "The 'if' direction and its two cases."
         }
       ],
@@ -7503,13 +7302,11 @@
         {
           "sourceId": "Serre87",
           "locator": "§2.6, p. 188",
-          "excerpt": "Pour p = 2, on a k = 2 si l'action de Ip est triviale, ou peu ramifiée, et k = 4 si l'action de Ip est très ramifiée .",
           "match": "The p = 2 dichotomy."
         },
         {
           "sourceId": "Serre87",
           "locator": "§2.6, Exemple, p. 188",
-          "excerpt": "Soit K/Q 2 l'extension quadratique correspondant au noyau de u .",
           "match": "The example (OCR: Q 2 is ℚ₂)."
         }
       ],
@@ -7557,7 +7354,6 @@
         {
           "sourceId": "Stix12-notes",
           "locator": "§9.2, example (6), p. 56",
-          "excerpt": "The motivating example. Let A/S be an abelian scheme of dimension g. Then multiplication by pv is an isogeny of A/S of degree p2gv , hence the kernels Gv = A[pv ] lead to a p-divisible group",
           "match": "A[p^∞] of an abelian scheme."
         }
       ],
@@ -7602,19 +7398,16 @@
         {
           "sourceId": "Fontaine85",
           "locator": "§1.1, p. 517 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Soit L une extension finie galoisienne de K et soit G = Gal(L/K). Pour tout g ∈ G, soit a_g l'idéal de O_L engendré par les (g − 1)x, pour x ∈ O_L, et soit i_{L/K}(g) = v_K(a_g)",
           "match": "Fontaine's lower index."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§1.2, Remarque i), p. 518 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Si j et v sont des nombres réels ≥ −1, on a, avec les notations du chapitre IV de [Se 1]: G_j = G_((j+1)/e_{L/K}), G^v = G^(v+1)",
           "match": "The dictionary with Serre."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§1.3, Proposition, p. 518 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Soit L une extension finie galoisienne de K, et soit 𝔇_{L/K} la différente de l'extension L/K. On a v_K(𝔇_{L/K}) = u_{L/K} − i_{L/K}.",
           "match": "Proposition 1.3."
         }
       ],
@@ -7720,13 +7513,11 @@
         {
           "sourceId": "Fontaine85",
           "locator": "§1.5, Proposition, p. 519 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Alors: i) si m > u_{L/K}, (P_m) est vraie; ii) si (P_m) est vraie, m > u_{L/K} − e_{L/K}^{−1}.",
           "match": "Proposition 1.5."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§1.4, Proposition, p. 518 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Si l'on pose i = sup_{g∈G} v_K(β − gα) et u = v_K(P(β)), alors u = φ_{L/K}(i) et i = ψ_{L/K}(u).",
           "match": "Proposition 1.4."
         }
       ],
@@ -7768,13 +7559,11 @@
         {
           "sourceId": "Fontaine85",
           "locator": "§1.7, Proposition, pp. 520–521 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Soit B une O_K-algèbre finie et plate, localement d'intersection complète. On suppose qu'il existe a ∈ O_K, annulant Ω¹_{B/O_K}, tel que Ω¹_{B/O_K} est un (B/a)-module plat.",
           "match": "Proposition 1.7."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§1.8, Corollaire, p. 524 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Conservons les hypothèses et notations de la Proposition 1.7 et soit 𝔇_{L/K} la différente de l'extension L/K. On a v_K(𝔇_{L/K}) < v_K(a) + e/(p − 1).",
           "match": "Corollary 1.8."
         }
       ],
@@ -7818,19 +7607,16 @@
         {
           "sourceId": "Fontaine85",
           "locator": "Introduction, Théorème A, p. 515 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Théorème A. Soit n un entier ≥ 1 et soit J un groupe fini sur l'anneau des entiers O_K de K, tué par pⁿ. Si u > e(n + 1/(p−1)), G^(u) opère trivialement sur J(K̄).",
           "match": "Théorème A."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§2.1, Théorème 1, p. 525 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Soient H le noyau de l'action de G_K = Gal(K̄/K) sur J(K̄), L = K̄^H, 𝔇_{L/K} la différente de l'extension L/K. On a G^(u) ⊂ H pour tout u > e(n + 1/(p−1)) et v_K(𝔇_{L/K}) < e(n + 1/(p−1)).",
           "match": "Théorème 1."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§2.2, Remarque a), p. 526 (transcribed from the page image; the text layer of the scan is garbled)",
-          "excerpt": "Nous n'allons utiliser le Théorème 1 que lorsque e = n = 1. Dans ce cas, il n'est pas nécessaire d'utiliser l'existence d'un plongement dans un Barsotti-Tate",
           "match": "The case e = n = 1."
         }
       ],
@@ -8049,7 +7835,7 @@
       "source": "Schoof03",
       "kind": "misprint",
       "locator": "Proof of Corollary 2.4, last paragraph, p. 420",
-      "printed": "Finally, suppose that X and X′ are extensions of H by G over the rings R̂ and R[1/p] respectively. … Then the R-group scheme that corresponds via Prop.2.3 to the triple (X, X′, θ) is an extension of H by G over R",
+      "printed": "The source takes X over R̂ and X′ over R[1/p], each extending H by G. It then says that Prop.2.3 associates to (X, X′, θ) an R-group scheme extending H by G over R.",
       "correction": "extensions of G by H (0 → H → X → G → 0), in both places.",
       "reason": "The step proves exactness at Ext¹_R̂(G, H) × Ext¹_{R[1/p]}(G, H), whose elements are extensions of G by H, the convention used earlier in the same proof ('let X be an extension of G by H over R') and in the definition of δ. Extensions of H by G would lie in Ext¹(H, G).",
       "affects": "nothing",
@@ -8064,7 +7850,7 @@
       "source": "FL82",
       "kind": "misprint",
       "locator": "§6.5, first sentence, p. 584",
-      "printed": "6.5. DÉMONSTRATION DU (ii) DU THÉORÈME 6.1. — D'après le théorème 4.3 le foncteur U_S est exact et fidèle.",
+      "printed": "In §6.5, proving (ii) of Theorem 6.1, the source cites Theorem 4.3 for the exactness and faithfulness of U_S.",
       "correction": "“D'après le théorème 3.3 …”: exactness and faithfulness of U_S is Theorem 3.3.",
       "reason": "4.3 is a definition (A-objects of the category of simple p-torsion objects, p. 566), not a theorem; the exactness and faithfulness of U_S is Theorem 3.3 (p. 562), as the introduction (0.6, 'cf. th. 3.3') also says. Checked on the page image of the Numdam scan, not only its OCR.",
       "affects": "nothing",
@@ -8079,7 +7865,7 @@
       "source": "Kisin06",
       "kind": "misprint",
       "locator": "Introduction, Theorem (0.1) and the paragraph before Theorem (0.3), pp. 2–3 (author DVI)",
-      "printed": "Theorem (0.1). The category of crystalline representations with all Hodge-Tate weights ⩽ 0, admits a fully faithful embedding … for crystalline representations with all Hodge-Tate weights equal to 0 or −1, there is a refinement of Theorem (0.1). … Theorem (0.3). Any crystalline representation with all Hodge-Tate weights equal to 0 or 1 arises from a p-divisible group.",
+      "printed": "Theorem (0.1) asserts a fully faithful embedding for the category whose crystalline representations have Hodge-Tate weights all ⩽ 0. The source announces a refinement of Theorem (0.1) when those weights are all either 0 or −1. Theorem (0.3) says that a p-divisible group gives rise to every crystalline representation whose Hodge-Tate weights are all either 0 or 1.",
       "correction": "One convention throughout: in the body's convention (HT(χ_cyc) = +1), Theorem (0.1) should say 'weights ⩾ 0' and the paragraph 'equal to 0 or 1'; Theorem (0.3) is then correct as printed.",
       "reason": "Theorem (0.1) and the paragraph after Theorem (0.2) use HT(χ_cyc) = −1, while Theorem (0.3), the abstract ('Hodge-Tate weights 0,1'), the proof of (2.1.14) ('non-negative Hodge-Tate weights') and (2.2.6) use HT(χ_cyc) = +1, which is what effectivity of D = Hom(V, B⁺_cris) gives. Read in the convention of the preceding paragraph, Theorem (0.3) would claim that representations such as ℚ_p(−1) come from p-divisible groups. The glyph in (0.1) is msam10 character 54, ⩽, decoded from the DVI font tables.",
       "affects": "nothing",
@@ -8095,7 +7881,7 @@
       "source": "Kisin06",
       "kind": "misprint",
       "locator": "§2.3, first paragraph, p. 27 (author DVI)",
-      "printed": "In this final subsection of the paper, we use (2.2.5) to give a classification of finite flat group schemes over 𝒪K .",
+      "printed": "The source says that its final subsection classifies finite flat group schemes over 𝒪K using (2.2.5).",
       "correction": "'we use (2.2.7)'.",
       "reason": "(2.2.5) is a remark that Breuil's calculations also give the isomorphism of Lemma (2.2.4); the classification of finite flat group schemes rests on Theorem (2.2.7), which the proof of Theorem (2.3.5) cites.",
       "affects": "nothing",
@@ -8111,7 +7897,7 @@
       "source": "Kisin06",
       "kind": "misprint",
       "locator": "§1.3.3, first sentence, p. 14 (author DVI)",
-      "printed": "We want to show that if 𝒨 in Mod ϕ /𝒭 arises from a module 𝒨𝒪 in Mod ϕ,N? /𝒪 , then the slope filtration of (4) is induced by a filtration on 𝒨𝒪 .",
+      "printed": "The source aims to show that, when 𝒨 in Mod ϕ /𝒭 comes from 𝒨𝒪 in Mod ϕ,N? /𝒪, a filtration on 𝒨𝒪 induces the slope filtration cited as (4).",
       "correction": "'the slope filtration of (1.3.2)(2)'.",
       "reason": "The slope filtration is part (2) of Theorem (1.3.2), which has only two parts; there is no item (4) nearby.",
       "affects": "nothing",
@@ -8127,7 +7913,7 @@
       "source": "Kisin06",
       "kind": "gap",
       "locator": "§2.3, Theorem (2.3.5) and Corollary (2.3.6), pp. 28–29 (author DVI)",
-      "printed": "Theorem (2.3.5). There is an exact anti-equivalence between (Mod /𝔖) and the category (p-Gr /𝒪K ) of finite flat group schemes over 𝒪K .",
+      "printed": "Theorem (2.3.5) asserts that (Mod /𝔖) is exactly anti-equivalent to (p-Gr /𝒪K ), the category consisting of finite flat group schemes over 𝒪K.",
       "correction": "Add the hypothesis p > 2 to Theorem (2.3.5) and Corollary (2.3.6), as in Theorem (0.5) of the introduction ('For p > 2, the category (Mod /𝔖) is equivalent to the category of finite flat group schemes over 𝒪K').",
       "reason": "The proof identifies isogenies of p-divisible groups with two-term complexes in BT^φ_{/𝔖} 'by (2.2.7)', and (2.2.7) is an equivalence only up to isogeny when p = 2, which says nothing about kernels of isogenies. The statement at p = 2 is true, but its proof came afterwards, from Kim (Corollary 4.3 of arXiv:1007.1904), Lau and Liu.",
       "affects": "a stated result",
@@ -8143,7 +7929,7 @@
       "source": "Kisin09",
       "kind": "misprint",
       "locator": "§2.2, proof of Corollary (2.2.22), p. 29 (author DVI)",
-      "printed": "By (1.2.5) there exists 𝔐1 in (Mod FI /S)𝔽p which maps to 𝒨1 under the functor of (1.2.5).",
+      "printed": "The source invokes (1.2.5) to obtain 𝔐1 in (Mod FI /S)𝔽p, with image 𝒨1 under the functor cited as (1.2.5).",
       "correction": "'𝔐1 in (Mod FI /𝔖)𝔽p'.",
       "reason": "The functor of (1.2.5) (from (1.2.4)) goes from (Mod FI/𝔖)_A to (Mod FI/S)_A, and 𝔐1 is the 𝔖-module being constructed; the DVI distinguishes the Fraktur 𝔖 from the script S, so this is not an extraction artefact.",
       "affects": "nothing",
@@ -8158,7 +7944,7 @@
       "source": "Kisin06",
       "kind": "error",
       "locator": "§1.3, proof of Lemma (1.3.5), p. 15 (author DVI)",
-      "printed": "Let s0 : 𝒨/u𝒨 → 𝒨 be any K0 -linear map lifting the identity on 𝒨/u𝒨. We define a new section by s = Σ_{i=0}^∞ ∇(d/du)^i(s0)(−u)^i/i! …",
+      "printed": "The source chooses an arbitrary K0-linear lift s0 : 𝒨/u𝒨 → 𝒨 of the identity of 𝒨/u𝒨, then constructs a section using s = Σ_{i=0}^∞ ∇(d/du)^i(s0)(−u)^i/i! …",
       "correction": "Kisin 2008, Errata (E.1): s = Σ sᵢuⁱ with s₀ lifting the identity, s₁ = −(1 − N)⁻¹∇(d/du)(s₀) and s_{i+1} = −(1 + i − N)⁻¹(∇(d/du) + N/u)(sᵢ), convergent for |u| small since N is nilpotent.",
       "reason": "The printed formula does not converge in general unless N = 0 (Kisin's erratum).",
       "affects": "the proof",
@@ -8172,7 +7958,7 @@
       "source": "Kisin06",
       "kind": "error",
       "locator": "§2.1.1, p. 20 (author DVI)",
-      "printed": "If Fr R denotes the field of fractions of R, then the inclusion 𝔖 ,→ W(R) extends to an inclusion 𝒠 ,→ W(Fr R). … We regard all these rings as subrings of W(R).",
+      "printed": "Writing Fr R for the fraction field of R, the source says that 𝔖 ,→ W(R) extends to 𝒠 ,→ W(Fr R). It subsequently treats every one of these rings as a subring of W(R).",
       "correction": "Kisin 2008, Errata (E.3): ℰ embeds in W(Fr R)[1/p]; ℰ̂^ur is the p-adic closure of ℰ^ur in W(Fr R)[1/p]; 𝔖^ur = 𝒪̂_{ℰ^ur} ∩ W(R).",
       "reason": "ℰ = 𝒪_ℰ[1/p] contains 1/p, so it cannot lie in W(Fr R); and 𝒪̂_{ℰ^ur} is not contained in W(R). Used in R07.4/bk-coefficient-rings.",
       "affects": "nothing",
@@ -8186,7 +7972,7 @@
       "source": "Kisin06",
       "kind": "gap",
       "locator": "§2.1, proof of Proposition (2.1.12), p. 23 (author DVI)",
-      "printed": "Now consider the case of any map h. Let 𝒨3 = h(𝒨1 ), 𝔐3 = h(𝔐1 ), …",
+      "printed": "For an arbitrary map h, the source sets 𝒨3 = h(𝒨1 ), 𝔐3 = h(𝔐1 ), …",
       "correction": "Kisin 2008, Errata (E.4): replace 𝔐₂ by 𝔐₁ ⊕ 𝔐₂ and h by its graph, so h is injective; then 𝔐₁, 𝔐₂ ⊆ Hom_{G_{K∞}}(V_𝔖(𝔐₂), 𝔖^ur), 𝔐₃ = 𝔐₁ + 𝔐₂ has F(𝔐₃) = 𝔐₂ by (2.1.9), and 𝔐₁ ⊆ 𝔐₂.",
       "reason": "It is not clear that 𝒪_ℰ ⊗ 𝔐₃ → 𝓜₃ is an isomorphism, so the identity case cannot be applied to conclude F(𝔐₃) = F(𝔐′₃) (found by Brian Conrad; Kisin's erratum). The proposition is true; R07.4/kisin-etale-full-faithfulness plans the repaired proof.",
       "affects": "the proof",
@@ -8200,7 +7986,7 @@
       "source": "Kisin06",
       "kind": "misprint",
       "locator": "§2.3.3, p. 28 (author DVI)",
-      "printed": "Concretely, (Mod /𝔖)• is obtained by taking the category of two term complexes 𝔐• , as above, dividing by homotopy equivalences",
+      "printed": "The source constructs (Mod /𝔖)• from the previously described category of two-term complexes 𝔐• by quotienting by homotopy equivalences.",
       "correction": "Kisin 2008, Errata (E.5): 'dividing by homotopies'.",
       "reason": "One divides the morphisms by null-homotopic ones (h∘d, d∘h), not by homotopy equivalences.",
       "affects": "nothing",
@@ -8214,7 +8000,7 @@
       "source": "Serre87",
       "kind": "misprint",
       "locator": "§2.8, proof of Proposition 4, case (a), p. 190",
-      "printed": "(a) Celui où ρ_p|I est donné par les deux caractères fondamentaux ψ et ψ′. Ce cas est traité dans Raynaud [35], th. 2.4.3.",
+      "printed": "In case (a), the source takes ρ_p|I to be given by the fundamental characters ψ and ψ′, and cites Raynaud [35], th. 2.4.3 for this case.",
       "correction": "'Raynaud [35], th. 3.4.3': the prolongation criterion for schemes in F-vector spaces (Théorème 3.4.3 of Raynaud 1974, p. 270).",
       "reason": "Reference [35] is Raynaud, Schémas en groupes de type (p, …, p), Bull. SMF 102 (1974), 241–280, as Serre's bibliography (entry 35) says. Its §2 has only 2.1–2.3 (table of contents, p. 242), so there is no Théorème 2.4.3. The statement Serre needs, that a scheme in F-vector spaces with tame character ψ = ψ_1^{n_1}⋯ prolongs iff 0 ≤ n_j ≤ e, is Théorème 3.4.3; the same proof cites the neighbouring results of that section correctly ('[35], cor. 3.4.4', '[35], prop. 3.3.2'). Checked on the page image of the scan, not only its OCR.",
       "affects": "nothing",
@@ -8230,7 +8016,7 @@
       "source": "Savitt05",
       "kind": "misprint",
       "locator": "§3.1, Definition 3.1, p. 12 (arXiv v3; the same in v1 and v2)",
-      "printed": "If G is a p-divisible group over OF , then descent data relative to F ′ is a collection of maps [g] : G → g G for each g ∈ Gal(F ′ /F ) satisfying [gh] = (g [h]) ◦ [g].",
+      "printed": "For a p-divisible group G over OF, the source defines descent data relative to F ′ using [g] : G → g G, with one map for every g ∈ Gal(F ′ /F ) and relation [gh] = (g [h]) ◦ [g].",
       "correction": "'for each g ∈ Gal(F/F′)'.",
       "reason": "F′ ⊆ F with F/F′ Galois (§2.2 and Hypotheses 3.5), so Gal(F′/F) is not defined; the maps are indexed by Gal(F/F′), which is what the preceding paragraph constructs ('if g ∈ Gal(F/F′), let g̃ be any extension') and what Corollary 3.6 and Definition 3.7 use. Checked on the page image.",
       "affects": "nothing",
@@ -8246,7 +8032,7 @@
       "source": "Savitt05",
       "kind": "misprint",
       "locator": "§3.5, the paragraph before Lemma 3.13 and the last line of its proof, p. 20 (arXiv v3; the same in v1 and v2)",
-      "printed": "If D is a filtered (ϕ, N, F/F ′ , Zp )-module, we say M is contained in S[1/p] ⊗F0 D … Thus D is actually a filtered (ϕ, N, F/F ′ , Zp )-module.",
+      "printed": "The source describes D as a module of filtered type (ϕ, N, F/F ′ , Zp ) and places M in S[1/p] ⊗F0 D. It concludes by again assigning D the filtered module type (ϕ, N, F/F ′ , Zp ).",
       "correction": "'(ϕ, N, F/F′, Qp)-module' in both places, as in the statement of Lemma 3.13.",
       "reason": "Filtered (φ, N, F/F′, E)-modules are defined for E a finite extension of ℚ_p (Definition 2.7: free F₀ ⊗_{ℚ_p} E-modules); Lemma 3.13 itself states 'a filtered (ϕ, N, F/F′, Qp)-module', and D = ker N on M ⊗_{W(k)} F₀ is a ℚ_p-vector space. Checked on the page image.",
       "affects": "nothing",

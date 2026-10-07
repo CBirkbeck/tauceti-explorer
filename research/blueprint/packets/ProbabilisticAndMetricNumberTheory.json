@@ -1641,7 +1641,6 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         }
       ],
@@ -1764,7 +1763,6 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         }
       ],
@@ -1801,7 +1799,6 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         }
       ],
@@ -1837,7 +1834,6 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         }
       ],
@@ -1873,7 +1869,6 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         }
       ],
@@ -1912,13 +1907,11 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         },
         {
           "sourceId": "ML-PRIME",
           "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
-          "excerpt": "lcm m n = m * n",
           "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
         }
       ],
@@ -1956,13 +1949,11 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         },
         {
           "sourceId": "ML-PRIME",
           "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
-          "excerpt": "lcm m n = m * n",
           "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
         }
       ],
@@ -2002,7 +1993,6 @@
         {
           "sourceId": "ML-ARITH",
           "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
-          "excerpt": "maps 0 to 0",
           "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
         }
       ],
@@ -2041,13 +2031,11 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         },
         {
           "sourceId": "TC-EMP",
           "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
-          "excerpt": "Integrating against an empirical measure is averaging over the sampled values.",
           "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
         }
       ],
@@ -2085,7 +2073,6 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         }
       ],
@@ -2125,13 +2112,11 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         },
         {
           "sourceId": "ML-PRIME",
           "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
-          "excerpt": "lcm m n = m * n",
           "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
         }
       ],
@@ -2171,13 +2156,11 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         },
         {
           "sourceId": "TC-EMP",
           "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
-          "excerpt": "Integrating against an empirical measure is averaging over the sampled values.",
           "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
         }
       ],
@@ -2215,13 +2198,11 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
-          "excerpt": "probabilistic statistics",
           "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
         }
       ],
@@ -2261,13 +2242,11 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         },
         {
           "sourceId": "TC-EMP",
           "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
-          "excerpt": "Integrating against an empirical measure is averaging over the sampled values.",
           "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
         }
       ],
@@ -2309,13 +2288,11 @@
         {
           "sourceId": "ML-PRIME",
           "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
-          "excerpt": "lcm m n = m * n",
           "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
-          "excerpt": "probabilistic statistics",
           "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
         }
       ],
@@ -2357,13 +2334,11 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
-          "excerpt": "probabilistic statistics",
           "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
         },
         {
           "sourceId": "TC-EMP",
           "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
-          "excerpt": "Integrating against an empirical measure is averaging over the sampled values.",
           "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
         }
       ],
@@ -2405,13 +2380,11 @@
         {
           "sourceId": "ML-COUNT",
           "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
-          "excerpt": "Exactly `n / p` naturals in `[1, n]` are multiples of `p`.",
           "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
-          "excerpt": "probabilistic statistics",
           "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
         }
       ],
@@ -2459,13 +2432,11 @@
         {
           "sourceId": "ML-FINITE-PRODUCT",
           "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
-          "excerpt": "Summing",
           "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
-          "excerpt": "statistics",
           "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
         }
       ]
@@ -2508,13 +2479,11 @@
         {
           "sourceId": "ML-FINITE-PRODUCT",
           "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
-          "excerpt": "Summing",
           "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
-          "excerpt": "statistics",
           "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
         }
       ]
@@ -2558,13 +2527,11 @@
         {
           "sourceId": "ML-FINITE-PRODUCT",
           "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
-          "excerpt": "Summing",
           "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
-          "excerpt": "statistics",
           "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
         }
       ]
@@ -2608,13 +2575,11 @@
         {
           "sourceId": "ML-FINITE-PRODUCT",
           "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
-          "excerpt": "Summing",
           "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
-          "excerpt": "statistics",
           "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
         }
       ],
@@ -2659,13 +2624,11 @@
         {
           "sourceId": "ML-FINITE-PRODUCT",
           "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
-          "excerpt": "Summing",
           "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
         },
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
-          "excerpt": "statistics",
           "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
         }
       ]
@@ -2708,7 +2671,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, pp.4-5: f_r and the finite average preceding (9)",
-          "excerpt": "G(r)",
           "match": "The source groups centered prime factors by multiplicity. This exact subset/floor formula is a derived finite refinement using existing counting and finite distributivity, not a verbatim numbered assertion."
         }
       ]
@@ -2751,7 +2713,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, pp.4-5: factorization of G(r) and remainder O(tau(R))",
-          "excerpt": "G(r)",
           "match": "Makes the finite remainder explicit by subset expansion. The subtraction of the empty-subset coefficient and its precise constant are independently derived, not attributed to the source."
         }
       ]
@@ -2793,7 +2754,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, pp.4-5, and weighted extension in proof of Proposition 4, pp.10-11",
-          "excerpt": "G(r)",
           "match": "The source supplies the centered factor and product-model structure. The uniform explicit 3/2 bound is a finite auxiliary estimate derived in the proof steps, not a source Gaussian-moment bound."
         }
       ]
@@ -2838,7 +2798,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, definition of G(r) in proof of Proposition 2, p.4; square-full-support observation, p.5",
-          "excerpt": "G(r)",
           "match": "The source's centered Bernoulli factor is retained. Exact complete-period equality is a finite specialization of the source calculation proved here by the inherited divisor remainder."
         }
       ]
@@ -2889,7 +2848,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, p.4, and opening weighted expansion in proof of Proposition 4, p.10",
-          "excerpt": "G(r)",
           "match": "Follows the source's ordered tuple expansion and multiplicity grouping, specialized to the positive integer sample. The explicit finite error (3/2)^k L^k/N is derived here; no Gaussian asymptotic or general sieve-multiset theorem is imported."
         }
       ]
@@ -2930,7 +2888,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "The source bounds local centered factors for exponents at least two. The sharper bound by v_p, including odd nonnegativity for u_p<=1/2, is derived here."
         }
       ]
@@ -2976,7 +2933,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "Repackages the source's ordered-tuple/fiber expansion through Mathlib's existing multinomial theorem; not a new general combinatorial theorem."
         }
       ]
@@ -3018,7 +2974,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "Exact finite paired-support specialization of the source's even-moment leading term; lower-support terms are deliberately retained separately."
         }
       ]
@@ -3060,7 +3015,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "The source switches between distinct ordered primes and unordered supports. This arithmetic-weight specialization uses existing equivalence cardinalities; it does not plan a new generic permutation count."
         }
       ]
@@ -3103,7 +3057,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "A finite variance-weighted refinement of the source's distinct-prime product estimate. The explicit Q collision term is derived here, not quoted as the source's displayed bound."
         }
       ]
@@ -3147,7 +3100,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "Decomposes the source's lower-support estimate while applying the already-recorded source finding E2. Replacing the source's local bound by v_p gives the stated finite refinement."
         }
       ]
@@ -3190,7 +3142,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "Finite version of the source's smaller-support summation preceding estimate (11), using the corrected exact count and variance weights. It does not claim the source's uniform asymptotic range."
         }
       ]
@@ -3242,7 +3193,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "Builds the arithmetic finite-error comparison into the source's paired/smaller-support method. Explicit epsilon and Q terms are derived; the generic Gaussian evaluation is imported."
         }
       ],
@@ -3290,7 +3240,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
-          "excerpt": "G(r)",
           "match": "Finite parity specialization of the source's lower-support argument. No symmetry of the arithmetic divisibility variables is assumed."
         }
       ]
@@ -3330,7 +3279,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
-          "excerpt": "Deduction of Theorem 1.",
           "match": "Exact auxiliary decomposition of the source's displayed split into p<=z and p>z. Real cutoffs are represented by the existing natural floor and primesLE. The source's O(k) is not assumed."
         }
       ],
@@ -3375,7 +3323,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
-          "excerpt": "Deduction of Theorem 1.",
           "match": "Explicit deterministic bound underlying the source's O(k) tail when z=x^(1/k). This is a derived auxiliary with exact hypotheses, not a quoted numbered inequality."
         }
       ],
@@ -3419,7 +3366,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
-          "excerpt": "Deduction of Theorem 1.",
           "match": "Quantifies both terms inside the source's O(k), without borrowing the unstated Mertens normalization. It is valid beyond the source's special cutoff."
         }
       ],
@@ -3462,7 +3408,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
-          "excerpt": "Deduction of Theorem 1.",
           "match": "Exact finite binomial-error version of the source's second displayed formula. No unspecified O-constant, asymptotic order range or moment convergence is assumed."
         }
       ],
@@ -3504,7 +3449,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
-          "excerpt": "Deduction of Theorem 1.",
           "match": "Specializes the source's Cauchy–Schwarz step, retaining the absolute moment rather than incorrectly using its possibly vanishing signed odd moment. Existing finite Cauchy–Schwarz supplies the generic theorem."
         }
       ],
@@ -3550,7 +3494,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
-          "excerpt": "Deduction of Theorem 1.",
           "match": "Finite, fully quantified transfer mechanism in the source's deduction of Theorem 1. It combines the displayed binomial expansion with adjacent-even Cauchy–Schwarz; the source's remaining asymptotic estimates are not claimed."
         }
       ],
@@ -3597,7 +3540,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3635,7 +3577,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3680,7 +3621,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3724,7 +3664,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3768,7 +3707,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3809,7 +3747,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3851,7 +3788,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3897,7 +3833,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3941,7 +3876,6 @@
         {
           "sourceId": "TAO-RESIDUES",
           "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
-          "excerpt": "residue classes",
           "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
         }
       ],
@@ -3984,7 +3918,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4024,7 +3957,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4067,7 +3999,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4109,7 +4040,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4158,7 +4088,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4204,7 +4133,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4248,7 +4176,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4294,7 +4221,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
-          "excerpt": "repeated prime factors",
           "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
         }
       ],
@@ -4334,7 +4260,6 @@
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4386,7 +4311,6 @@
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4441,7 +4365,6 @@
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4495,7 +4418,6 @@
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4552,13 +4474,11 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
-          "excerpt": "replaced by",
           "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
         },
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4613,13 +4533,11 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
-          "excerpt": "replaced by",
           "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
         },
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4675,13 +4593,11 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
-          "excerpt": "replaced by",
           "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
         },
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4743,13 +4659,11 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
-          "excerpt": "replaced by",
           "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
         },
         {
           "sourceId": "TAO-CLT-2010",
           "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
-          "excerpt": "converges in distribution",
           "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
         }
       ],
@@ -4805,7 +4719,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -4867,7 +4780,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -4928,7 +4840,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -4983,7 +4894,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -5046,7 +4956,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -5099,7 +5008,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -5153,7 +5061,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -5209,7 +5116,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -5257,7 +5163,6 @@
         {
           "sourceId": "TAO-PRIME-FACTORS",
           "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
-          "excerpt": "Exercise 46",
           "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
         }
       ],
@@ -5320,31 +5225,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Uniqueness of the limit measure. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Positive lower density and dense range. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "The non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5504,7 +5404,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "we say that a sequence x : N → X is totally asymptotically equidistributed if it is asymptotically equidistributed on every infinite arithmetic progression, i.e. that the sequence n ↦ x(qn + r) is asymptotically equidistributed for all integers q ≥ 1 and r ≥ 0.",
           "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5588,7 +5487,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5705,19 +5603,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "excerpt": "Here we use the dot product (k1, . . . , kd) · (x1, . . . , xd) := k1x1 + · · · + kdxd which maps Z^d × T^d to T.",
           "match": "The pairing Z^d × T^d → T used in the definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "The rational extreme, for the non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5832,13 +5727,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, Proposition 1.1.2",
-          "excerpt": "Proposition 1.1.2 (Weyl equidistribution criterion). Let x : N → T^d. Then x is asymptotically equidistributed if and only if lim_{N→∞} E_{n∈[N]} e(k · x(n)) = 0 (1.2) for all k ∈ Z^d\\{0}, where e(y) := e^{2πiy}.",
           "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, proof of Proposition 1.1.2",
-          "excerpt": "But by Fourier analysis (or from the Stone-Weierstrass theorem), the trigonometric polynomials are dense in C(T^d) in the uniform topology. The claim now follows from a standard limiting argument.",
           "match": "The density step of the proof. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5884,7 +5777,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Corollary 1.1.3",
-          "excerpt": "Corollary 1.1.3. Let x : N → T^d. Then x is asymptotically equidistributed in T^d if and only if, for each k ∈ Z^d\\{0}, the sequence n ↦ k · x(n) is asymptotically equidistributed in T.",
           "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5931,13 +5823,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5",
-          "excerpt": "Exercise 1.1.5. Let α, β ∈ T^d. By using the geometric series formula, show that the following are equivalent: (i) The sequence n ↦ nα + β is asymptotically equidistributed on N. (ii) The sequence n ↦ nα + β is totally asymptotically equidistributed on N.",
           "match": "Statements (i) and (ii); (iii) there is the ℤ-indexed version, not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Statement (iv), the irrationality condition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -5982,19 +5872,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 8, Corollary 1.1.7",
-          "excerpt": "Corollary 1.1.7 (van der Corput lemma). Let x : N → T^d be such that the derivative sequence ∂_h x : n ↦ x(n+h)−x(n) is asymptotically equidistributed on N for all positive integers h. Then x_n is asymptotically equidistributed on N. Similarly with N replaced by Z.",
           "match": "The statement; the ℤ-indexed version is not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 7, Lemma 1.1.6",
-          "excerpt": "Lemma 1.1.6 (van der Corput inequality). Let a1, a2, . . . be a sequence of complex numbers of magnitude at most 1. Then for every 1 ≤ H ≤ N, we have |E_{n∈[N]} a_n| ≪ (E_{h∈[H]} |E_{n∈[N]} a_{n+h} conj(a_n)|)^{1/2} + 1/H^{1/2} + H^{1/2}/N^{1/2}.",
           "match": "The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 8, end of the proof of Corollary 1.1.7",
-          "excerpt": "Taking limit superior as N → ∞, we conclude that lim sup_{N→∞} |E_{n∈[N]} e(k · x(n))| ≪ 1/H^{1/2}. Since H is arbitrary, the claim follows.",
           "match": "The limiting step. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6037,13 +5924,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 8, Corollary 1.1.9",
-          "excerpt": "Corollary 1.1.9 (Weyl equidistribution theorem for polynomials). Let s ≥ 1 be an integer, and let P(n) = α_s n^s + · · · + α_0 be a polynomial of degree s with α_0, . . . , α_s ∈ T^d. If α_s is irrational, then n ↦ P(n) is asymptotically equidistributed on Z.",
           "match": "The statement; the node is the ℕ-indexed half. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, proof of Corollary 1.1.9",
-          "excerpt": "For any positive integer h, we observe that P(n + h) − P(n) is a polynomial of degree s − 1 in n with leading coefficient shα_s n^{s−1}. As α_s is irrational, shα_s is irrational also, and so by the induction hypothesis, P(n + h) − P(n) is asymptotically equidistributed.",
           "match": "The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6090,19 +5975,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "The frequency characterisation, specialised to arcs of the circle. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Haar measure on T as Lebesgue measure on [0, 1). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, Proposition 1.1.2",
-          "excerpt": "Proposition 1.1.2 (Weyl equidistribution criterion). Let x : N → T^d. Then x is asymptotically equidistributed if and only if lim_{N→∞} E_{n∈[N]} e(k · x(n)) = 0 (1.2) for all k ∈ Z^d\\{0}, where e(y) := e^{2πiy}.",
           "match": "The criterion, at d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6142,13 +6024,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4",
-          "excerpt": "A doubly infinite sequence (x(n))n∈Z, indexed by the integers rather than the natural numbers, is said to be asymptotically equidistributed relative to µ if both halves of the sequence x(1), x(2), x(3), . . . and x(−1), x(−2), x(−3), . . . are asymptotically equidistributed relative to µ.",
           "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, footnote 2",
-          "excerpt": "This omits x(0) entirely, but it is easy to see that any individual element of the sequence has no impact on the asymptotic equidistribution.",
           "match": "Omitting x(0) is harmless. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6256,7 +6136,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, proof of Proposition 1.1.2",
-          "excerpt": "For the “if” part, we see from (1.2) that (1.1) holds whenever f is a plane wave f(y) := e(k · y) for some k ∈ Z^d (checking the k = 0 case separately), and thus by linearity whenever f is a trigonometric polynomial.",
           "match": "The argument of the proof, which uses nothing about Haar measure except the values of its Fourier coefficients; the source states only the Haar case. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6299,7 +6178,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.4",
-          "excerpt": "Exercise 1.1.4. Show that a sequence x : N → T^d is totally asymptotically equidistributed if and only if one has lim_{N→∞} E_{n∈[N]} e(k · x(n))e(αn) = 0 (1.3) for all k ∈ Z^d\\{0} and all rational α.",
           "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6342,7 +6220,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iii)–(iv)",
-          "excerpt": "(iii) The sequence n ↦ nα + β is totally asymptotically equidistributed on Z. (iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Statement (iii) and its equivalence with (iv). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6389,13 +6266,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, Exercise 1.1.6",
-          "excerpt": "Exercise 1.1.6. Let P(n) = αs n^s + · · · + α0 be a polynomial of degree s in T^d. Show that the following are equivalent: (i) P is asymptotically equidistributed on N. (ii) P is totally asymptotically equidistributed on N. (iii) P is totally asymptotically equidistributed on Z.",
           "match": "Statements (i)–(iii). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, Exercise 1.1.6 (iv)",
-          "excerpt": "(iv) There does not exist a non-zero k ∈ Z^d such that k · α1 = · · · = k · αs = 0. (Hint: it is convenient to first use Corollary 1.1.3 to reduce to the one-dimensional case.)",
           "match": "Statement (iv) and the reduction to d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6443,13 +6318,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "The source's description of a subtorus as the preimage of T^{d′} × {0} under L ∈ SL_d(Z); the node's M is the corresponding block of L⁻¹. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Every compact connected subgroup is of this form; that identification is not planned in this pass (see coverage). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6605,13 +6478,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 7, proof of Proposition 1.1.5",
-          "excerpt": "We then write k = mk′, where m is a positive integer and k′ ∈ Z^d is irreducible (i.e. k′ is not a proper multiple of any other element of Z^d); thus k′ · α is rational. We may thus write α = α1 + α2, where α2 is rational, and k′ · α1 = 0.",
           "match": "The source splits off one primitive k′ at a time and inducts on the dimension; the lemma does all of Γ at once by Smith normal form, which also yields the subtorus in the SL_d(Z) form of §1.1.2. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "The SL_d(Z) normal form of a subtorus. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6660,13 +6531,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, Exercise 1.1.7",
-          "excerpt": "Show that there exists a decomposition P = P′ + P′′, where P′, P′′ are polynomials of degree s, P′ is totally asymptotically equidistributed in a subtorus T′ of T on Z, and P′′ is periodic (or equivalently, that all non-constant coefficients of P′′ are rational).",
           "match": "The statement. The printed 'P′, P′′ are polynomials of degree s' should read 'of degree at most s' (P′′ can be constant); recorded as a misprint. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, after Exercise 1.1.7",
-          "excerpt": "In particular, we see that polynomial sequences in a torus are equidistributed with respect to a finite combination of Haar measures of cosets of a subtorus.",
           "match": "The consequence for the limit law. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6705,13 +6574,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 7, Proposition 1.1.5",
-          "excerpt": "Proposition 1.1.5 (Equidistribution for abelian linear sequences). Let T be a torus, and let x(n) := nα + β for some α, β ∈ T. Then there exists a decomposition x = x′ + x′′, where x′(n) := nα′ is totally asymptotically equidistributed on Z in a subtorus T′",
           "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "The rational extreme. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
         }
       ],
@@ -6755,13 +6622,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "The sets and the reason for reduced fractions."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "The measure bounds."
         }
       ],
@@ -6897,7 +6762,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.5), p. 253",
-          "excerpt": "Just like before, using the “easy” direction of the Borel-Cantelli lemma, we immediately ﬁnd that",
           "match": "The statement and its one-line proof."
         }
       ],
@@ -6950,13 +6814,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, Theorem 1, p. 253",
-          "excerpt": "Then A has Lebesgue measure 1.",
           "match": "The theorem."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§5, proof of Theorem 1 assuming Proposition 5.4, pp. 265–268",
-          "excerpt": "Thus we are left to establish Proposition 5.4.",
           "match": "The reduction; Lemma 5.1 is replaced by Mathlib's formal Gallagher theorem."
         }
       ],
@@ -6997,7 +6859,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§2, Case 2 and (2.2), pp. 257–258",
-          "excerpt": "These are the analogues of the sets Aq and A that appear in Theorem 1, but with ξ in place of ψ.",
           "match": "The reduction, following Catlin."
         }
       ],
@@ -7039,13 +6900,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, Theorem 2, p. 253",
-          "excerpt": "As a direct corollary, we obtain Catlin’s conjecture [7]",
           "match": "The theorem."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§2, pp. 256–258",
-          "excerpt": "This completes the proof of (2.2), and hence of Theorem 2 in all cases.",
           "match": "The deduction from Theorem 1."
         }
       ],
@@ -7086,7 +6945,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, p. 253",
-          "excerpt": "Khinchin’s Theorem implies the Duﬃn-Schaeﬀer conjecture when qψ(q) is decreasing.",
           "match": "The context; the comparison lemma itself is a worker derivation."
         }
       ],
@@ -7129,7 +6987,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, Khinchin's theorem, p. 252",
-          "excerpt": "Consider a function ψ : N →[0, +∞) such that the sequence (qψ(q))∞ q=1 is decreasing",
           "match": "The statement as the source gives it; the proof here goes through Theorem 2."
         }
       ],
@@ -7171,7 +7028,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§5, proof of Theorem 1, p. 266",
-          "excerpt": "Hence, the Cauchy-Schwarz inequality implies that",
           "match": "The inequality in the source's application."
         }
       ],
@@ -7208,7 +7064,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§5, Lemma 5.2, p. 264",
-          "excerpt": "The Duﬃn-Schaeﬀer Conjecture when ψ only takes large values",
           "match": "The statement; the proof is cited."
         }
       ],
@@ -7248,7 +7103,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§5, Lemma 5.3, p. 264",
-          "excerpt": "Bound for λ(Aq∩Ar)",
           "match": "The statement, with the indicator corrected (E10)."
         }
       ],
@@ -7287,7 +7141,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§5, Proposition 5.4, p. 265; §6, its proof from Proposition 6.3, p. 270",
-          "excerpt": "The key result to proving Theorem 1 is",
           "match": "The proposition and its translation into GCD graphs."
         }
       ],
@@ -7327,13 +7180,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definitions 6.1, 6.2 and 6.4, pp. 269–270",
-          "excerpt": "Let G be a septuple (µ, V, W, E, P, f, g) such that",
           "match": "The definitions."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§6, Lemma 6.7, p. 273",
-          "excerpt": "Basic properties of GCD graphs",
           "match": "The basic API."
         }
       ],
@@ -7449,7 +7300,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.6 and the remark after it, pp. 271–273",
-          "excerpt": "The quality of G is deﬁned by",
           "match": "The definitions."
         }
       ],
@@ -7575,7 +7425,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.5, p. 271",
-          "excerpt": "Special GCD subgraphs from prime power divisibility",
           "match": "The construction."
         }
       ],
@@ -7659,7 +7508,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§11, Lemma 11.1, p. 288",
-          "excerpt": "Quality variation for special GCD subgraphs",
           "match": "The formula."
         }
       ],
@@ -7702,7 +7550,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Proposition 6.3, p. 269; §7, its proof, pp. 275–279",
-          "excerpt": "Proposition 6.3 (Edge set bound).",
           "match": "The proposition and its proof from Proposition 7.1."
         }
       ],
@@ -7741,7 +7588,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§7, Lemma 7.2, p. 274",
-          "excerpt": "Bounds on multiplicative functions",
           "match": "The statement; the special case and its proof are worker-derived."
         }
       ],
@@ -7780,7 +7626,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§7, Lemma 7.3 and proof, pp. 274–275",
-          "excerpt": "Few numbers with many prime factors",
           "match": "The lemma and its proof."
         }
       ],
@@ -7827,7 +7672,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§7, Proposition 7.1, p. 273; §8, its proof, pp. 280–284",
-          "excerpt": "Existence of a good GCD subgraph",
           "match": "The proposition and its proof from Propositions 8.1–8.3 and Lemmas 8.4–8.5."
         }
       ],
@@ -7863,7 +7707,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§8, Proposition 8.1, p. 279; §12, proof, p. 295",
-          "excerpt": "Iteration when R♭(G)̸ = ∅",
           "match": "The proposition and its proof."
         }
       ],
@@ -7899,7 +7742,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§8, Proposition 8.2, p. 279; §14, proof, p. 304",
-          "excerpt": "Iteration when R♭(G) = ∅",
           "match": "The proposition and its proof."
         }
       ],
@@ -7936,7 +7778,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§8, Proposition 8.3, p. 279; §13, proof, pp. 299–300",
-          "excerpt": "Bounded quality loss for small primes",
           "match": "The proposition and its proof."
         }
       ],
@@ -7975,7 +7816,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§8, Lemma 8.4, p. 280; §9, proof, pp. 285–286",
-          "excerpt": "Removing the eﬀect of R(G) from Lt(v, w)",
           "match": "The lemma and its proof."
         }
       ],
@@ -8011,7 +7851,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§8, Lemma 8.5, p. 280; §10, proof, p. 287",
-          "excerpt": "Subgraph with high-degree vertices",
           "match": "The lemma and its proof."
         }
       ],
@@ -8048,7 +7887,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§10, Lemma 10.1 and proof, pp. 286–287",
-          "excerpt": "Quality increment or all vertices have high degree",
           "match": "The lemma and its proof."
         }
       ],
@@ -8085,7 +7923,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§11, Lemma 11.2 and proof, p. 288",
-          "excerpt": "One subgraph must have limited quality loss",
           "match": "The lemma and its proof."
         }
       ],
@@ -8124,7 +7961,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§11, Lemmas 11.3 and 11.4, pp. 288–290",
-          "excerpt": "Few edges between unbalanced sets, I",
           "match": "The lemmas and the proof of 11.3."
         }
       ],
@@ -8160,7 +7996,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§11, Lemma 11.5 and proof, p. 290",
-          "excerpt": "Few edges between small sets",
           "match": "The lemma and its proof."
         }
       ],
@@ -8196,7 +8031,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§11, Lemma 11.6 and proof, pp. 291",
-          "excerpt": "Subgraph with few edges between all small sets",
           "match": "The lemma and its proof."
         }
       ],
@@ -8237,7 +8071,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§12, Lemma 12.1 and proof, pp. 291–293",
-          "excerpt": "Bounds on edge sets",
           "match": "The lemma and its proof."
         }
       ],
@@ -8277,7 +8110,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§12, Lemma 12.2 and proof, pp. 293–295",
-          "excerpt": "Quality increment unless a prime power divides almost all",
           "match": "The lemma and its proof."
         }
       ],
@@ -8316,7 +8148,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§13, Lemma 13.1 and proof, p. 296",
-          "excerpt": "Small quality loss or prime power divides positive proportion",
           "match": "The lemma and its proof."
         }
       ],
@@ -8360,7 +8191,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§13, Lemma 13.2 and proof, pp. 297–299",
-          "excerpt": "Adding small primes to P",
           "match": "The lemma and its proof."
         }
       ],
@@ -8402,7 +8232,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§14, Lemma 14.1 and proof, pp. 300–304",
-          "excerpt": "Quality increment even when a prime power divides almost all",
           "match": "The lemma and its proof."
         }
       ],
@@ -8435,7 +8264,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, Lemma A.2, physical pp.38–39",
-          "excerpt": "additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8526,7 +8354,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, Lemma A.2, physical pp.38–39",
-          "excerpt": "additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8562,7 +8389,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, Lemma A.2, physical pp.38–39",
-          "excerpt": "additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8598,7 +8424,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, Lemma A.2, physical pp.38–39",
-          "excerpt": "additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8635,7 +8460,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, paragraph before Lemma A.3, physical p.39",
-          "excerpt": "strongly additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8718,7 +8542,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, paragraph before Lemma A.3, physical p.39",
-          "excerpt": "strongly additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8754,7 +8577,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, paragraph before Lemma A.3, physical p.39",
-          "excerpt": "strongly additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8790,7 +8612,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, paragraph before Lemma A.3, physical p.39",
-          "excerpt": "strongly additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8831,7 +8652,6 @@
         {
           "sourceId": "ML-PM79",
           "locator": "ArithmeticFunction.Defs and Nat.factorization; elementary specialization of native factorization",
-          "excerpt": "ArithmeticFunction",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8870,7 +8690,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, strongly additive convention",
-          "excerpt": "strongly additive",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8907,7 +8726,6 @@
         {
           "sourceId": "BSKK2023",
           "locator": "Lemma 7.2, physical p.36, concentration convention",
-          "excerpt": "Q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -8999,7 +8817,6 @@
         {
           "sourceId": "BSKK2023",
           "locator": "Lemma 7.2, physical p.36, concentration convention",
-          "excerpt": "Q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9035,7 +8852,6 @@
         {
           "sourceId": "BSKK2023",
           "locator": "Lemma 7.2, physical p.36, concentration convention",
-          "excerpt": "Q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9071,7 +8887,6 @@
         {
           "sourceId": "BSKK2023",
           "locator": "Lemma 7.2, physical p.36, concentration convention",
-          "excerpt": "Q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9107,7 +8922,6 @@
         {
           "sourceId": "BSKK2023",
           "locator": "Lemma 7.2, physical p.36, concentration convention",
-          "excerpt": "Q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9144,7 +8958,6 @@
         {
           "sourceId": "BSKK2023",
           "locator": "Lemma 7.2, physical p.36; references [19,33,34]",
-          "excerpt": "Q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9184,7 +8997,6 @@
         {
           "sourceId": "ML-PM79",
           "locator": "CDF.cdf_eq_real and Portmanteau.IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem",
-          "excerpt": "cdf",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9224,7 +9036,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, Lemma A.2, physical p.38",
-          "excerpt": "30",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9266,7 +9077,6 @@
         {
           "sourceId": "ElsholtzTao2011",
           "locator": "Appendix A, discussion after Lemma A.2, physical pp.38–39",
-          "excerpt": "log log",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9312,7 +9122,6 @@
         {
           "sourceId": "GS-SIEVING",
           "locator": "Author copy physical pp.2–4: (5), Theorem 1 and its deduction; new target combines the preserved fixed-moment nodes",
-          "excerpt": "ω",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9352,7 +9161,6 @@
         {
           "sourceId": "KoymansPagano2022",
           "locator": "Theorem 7.2(a), (7.2), physical p.60; family physical p.2",
-          "excerpt": "D",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9389,7 +9197,6 @@
         {
           "sourceId": "StrauchPorubsky2018",
           "locator": "§1.9 and §1.11.2, physical pp.73–74,95",
-          "excerpt": "D",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9475,7 +9282,6 @@
         {
           "sourceId": "StrauchPorubsky2018",
           "locator": "§1.9 and §1.11.2, physical pp.73–74,95",
-          "excerpt": "D",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9511,7 +9317,6 @@
         {
           "sourceId": "StrauchPorubsky2018",
           "locator": "§1.9 and §1.11.2, physical pp.73–74,95",
-          "excerpt": "D",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9547,7 +9352,6 @@
         {
           "sourceId": "StrauchPorubsky2018",
           "locator": "§1.9 and §1.11.2, physical pp.73–74,95",
-          "excerpt": "D",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9585,7 +9389,6 @@
         {
           "sourceId": "StrauchPorubsky2018",
           "locator": "Theorem 1.11.2.1, physical p.95; D*≤D comparison",
-          "excerpt": "D",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9625,7 +9428,6 @@
         {
           "sourceId": "StrauchPorubsky2018",
           "locator": "Theorem 1.9.0.3, physical p.74",
-          "excerpt": "V",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9662,7 +9464,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9746,7 +9547,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9782,7 +9582,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9818,7 +9617,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9855,7 +9653,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 1 digits/dynamics and Lesson 5, physical pp.5–7,28–29; native digit refinement",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9896,7 +9693,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 pointwise frequency theorem, physical pp.28–29, applied to base-b cylinders",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9936,7 +9732,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 pointwise frequency theorem, physical pp.28–29; countable intersection refinement",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -9973,7 +9768,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§2.1, printed p.974",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10057,7 +9851,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§2.1, printed p.974",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10093,7 +9886,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§2.1, printed p.974",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10129,7 +9921,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§2.1, printed p.974",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10169,7 +9960,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§2.1, Remark 3 and proof of Theorem 2, pp.974,977,979–980",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10207,7 +9997,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "Lemma 5 and its proof, printed pp.978–979",
-          "excerpt": "κ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10246,7 +10035,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.1–5.2, printed pp.980–986",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10325,7 +10113,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.1–5.2, printed pp.980–986",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10361,7 +10148,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.1–5.2, printed pp.980–986",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10397,7 +10183,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.1–5.2, printed pp.980–986",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10436,7 +10221,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.3–5.5, printed pp.986–990",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10515,7 +10299,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.3–5.5, printed pp.986–990",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10551,7 +10334,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.3–5.5, printed pp.986–990",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10588,7 +10370,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§§5.3–5.5, printed pp.986–990",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10627,7 +10408,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§5.4, printed p.987",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10664,7 +10444,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "Lemma 7, printed p.988, with corrected proof inequality",
-          "excerpt": "c",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10706,7 +10485,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§5.5, printed pp.988–990",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10749,7 +10527,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "Theorem 2 and §5, printed pp.977–990",
-          "excerpt": "B",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10791,7 +10568,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "Theorem 2 specialized to k=1, f(r)=r^s",
-          "excerpt": "B",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10831,7 +10607,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§3.2, printed pp.977–978",
-          "excerpt": "2",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10874,7 +10649,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "Theorem 1 and §3.1, printed pp.973,977",
-          "excerpt": "θ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10911,7 +10685,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "§2.2 and Lemmas 4–6, printed pp.976,979; refinement of the preserved second-moment argument",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10949,7 +10722,6 @@
         {
           "sourceId": "BeresnevichVelani",
           "locator": "Introduction, printed pp.971–972: simultaneous definition and Pollington–Vaughan theorem",
-          "excerpt": "S",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -10990,7 +10762,6 @@
         {
           "sourceId": "Sarig2023",
           "locator": "Theorems 2.2–2.3 and their complete proof, physical pp.45–49",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11031,7 +10802,6 @@
         {
           "sourceId": "Sarig2023",
           "locator": "Theorem 2.2 proof, physical pp.45–47",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11070,7 +10840,6 @@
         {
           "sourceId": "Sarig2023",
           "locator": "Theorem 2.3, physical pp.48–49",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11108,7 +10877,6 @@
         {
           "sourceId": "Sarig2023",
           "locator": "Theorem 2.2, ergodic conclusion, physical pp.45–47",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11145,7 +10913,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 and Appendix A.2, physical pp.11,32",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11231,7 +10998,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 and Appendix A.2, physical pp.11,32",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11267,7 +11033,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 and Appendix A.2, physical pp.11,32",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11303,7 +11068,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 and Appendix A.2, physical pp.11,32",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11341,7 +11105,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical pp.32–33, density with corrected upper bound",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11427,7 +11190,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical pp.32–33, density with corrected upper bound",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11463,7 +11225,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical pp.32–33, density with corrected upper bound",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11499,7 +11260,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical pp.32–33, density with corrected upper bound",
-          "excerpt": "μ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11537,7 +11297,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11620,7 +11379,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11656,7 +11414,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11694,7 +11451,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11732,7 +11488,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Mixing",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11815,7 +11570,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Mixing",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11852,7 +11606,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Mixing",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11888,7 +11641,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Mixing",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -11925,7 +11677,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Exactness",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12008,7 +11759,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Exactness",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12044,7 +11794,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Exactness",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12082,7 +11831,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "Exactness",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12118,7 +11866,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 and Appendix A.2, physical pp.12,32",
-          "excerpt": "v",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12156,7 +11903,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 transfer formula, physical p.12; worker’s exact telescoping verification",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12197,7 +11943,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Transfer duality Proposition 1.1 and §2.3, physical pp.6,12",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12234,7 +11979,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Exercise 2.5(c),(d), physical pp.12–13; one-branch consequence by direct differentiation, with the derivative-hint issue recorded separately",
-          "excerpt": "v",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12275,7 +12019,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Exercise 2.5(c),(d), physical pp.12–13",
-          "excerpt": "v",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12314,7 +12057,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical p.32",
-          "excerpt": "C",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12354,7 +12096,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical pp.32–33, corrected density estimate",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12392,7 +12133,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2: exactness implies mixing, physical p.32",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12429,7 +12169,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "Appendix A.2, physical pp.32–33",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12471,7 +12210,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 9 §1.2, physical pp.45–46",
-          "excerpt": "b",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12511,7 +12249,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 5 cylinder indicators and Lesson 9, physical pp.28–29,45–46",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12549,7 +12286,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Theorem 21, physical p.46, corrected using the preceding digit-frequency formula",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12628,7 +12364,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Theorem 21, physical p.46, corrected using the preceding digit-frequency formula",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12664,7 +12399,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Theorem 21, physical p.46, corrected using the preceding digit-frequency formula",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12703,7 +12437,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Theorem 21, physical p.46, corrected using the preceding digit-frequency formula",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12742,7 +12475,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 9 §1.2 and exercises 2.3–2.4, physical pp.46,48–49",
-          "excerpt": "log",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12784,7 +12516,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Theorem 21 and exercise 2.3(c), physical pp.46,48, corrected constant",
-          "excerpt": "K",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12827,7 +12558,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 7 continuants and Lesson 9 exercise 2.4, physical pp.34–37,48–49; sharper bounded-error refinement",
-          "excerpt": "q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12865,7 +12595,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 9 exercise 2.4(b),(c), physical p.49; negative of the log(x) integral gives positive denominator growth. The inherited allegation E25 of a source sign error is rejected.",
-          "excerpt": "log",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12907,7 +12636,6 @@
         {
           "sourceId": "Smyth2020",
           "locator": "Lesson 9 §1.2 and exercise 2.4, physical pp.46,48–49",
-          "excerpt": "q",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12950,7 +12678,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 Gauss–Kuzmin theorem and Doeblin–Fortet proof, physical pp.11–13",
-          "excerpt": "T",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -12991,7 +12718,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021",
-          "excerpt": "h",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13070,7 +12796,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021",
-          "excerpt": "h",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13106,7 +12831,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021",
-          "excerpt": "h",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13142,7 +12866,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021",
-          "excerpt": "h",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13183,7 +12906,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Theorem 1, physical p.1; collated published pp.1015–1017,1020–1021",
-          "excerpt": "δ",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13225,7 +12947,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Theorem 3 and (4), physical pp.6–7; collated published pp.1015–1017,1020–1021",
-          "excerpt": "S",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13263,7 +12984,6 @@
         {
           "sourceId": "TaoLogChowla",
           "locator": "Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6)",
-          "excerpt": "ω",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13346,7 +13066,6 @@
         {
           "sourceId": "TaoLogChowla",
           "locator": "Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6)",
-          "excerpt": "ω",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13382,7 +13101,6 @@
         {
           "sourceId": "TaoLogChowla",
           "locator": "Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6)",
-          "excerpt": "ω",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13418,7 +13136,6 @@
         {
           "sourceId": "TaoLogChowla",
           "locator": "Theorems 1.2–1.3 and Corollary 1.5, physical pp.1–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6)",
-          "excerpt": "ω",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13462,7 +13179,6 @@
         {
           "sourceId": "TaoLogChowla",
           "locator": "Theorem 1.2, physical p.2 and Corollary 1.5, pp.5–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6)",
-          "excerpt": "ω",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13506,7 +13222,6 @@
         {
           "sourceId": "TaoLogChowla",
           "locator": "Corollary 1.5 and Remark 1.6, physical pp.5–6; collated published Theorem 2 (p.3), Theorem 3 (p.5) and Corollary 5 (p.6)",
-          "excerpt": "t",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13545,7 +13260,6 @@
         {
           "sourceId": "MatomakiRadziwill",
           "locator": "Corollary 2, physical pp.2–3; collated published pp.1015–1017,1020–1021",
-          "excerpt": "h",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13582,7 +13296,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13668,7 +13381,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13704,7 +13416,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13740,7 +13451,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13778,7 +13488,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13857,7 +13566,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13893,7 +13601,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13929,7 +13636,6 @@
         {
           "sourceId": "Harper",
           "locator": "Introduction, printed p.2277",
-          "excerpt": "f",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -13967,7 +13673,6 @@
         {
           "sourceId": "Harper",
           "locator": "Printed p.2278, finite moment counting",
-          "excerpt": "E",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -14005,7 +13710,6 @@
         {
           "sourceId": "Harper",
           "locator": "Printed p.2278, finite moment counting",
-          "excerpt": "E",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -14044,7 +13748,6 @@
         {
           "sourceId": "Harper",
           "locator": "Printed p.2278, finite diagonal counting",
-          "excerpt": "E",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -14081,7 +13784,6 @@
         {
           "sourceId": "SarigTransfer",
           "locator": "§2.3 transfer formula and Appendix A.2, physical pp.12,32",
-          "excerpt": "v",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -14122,7 +13824,6 @@
         {
           "sourceId": "Kubilius2021",
           "locator": "Classical uniform result (1.1), physical p.2, and exact atom convention (1.6), p.3",
-          "excerpt": "dTV",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -14168,7 +13869,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "Published Corollary3, printed p.255, freshly read",
-          "excerpt": "min(s,1)",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
         }
       ],
@@ -14211,31 +13911,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14279,31 +13974,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14348,31 +14038,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14417,31 +14102,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14485,31 +14165,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14553,31 +14228,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14621,31 +14291,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14690,31 +14355,26 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "excerpt": "In particular, we say that the sequence x : N → X is asymptotically equidistributed on N with respect to a reference Borel probability measure µ on X if the µN converge in the vague topology to µ, or in other words that E_{n∈[N]} f(x(n)) = ∫_X f dµN → ∫_X f",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "excerpt": "Note (from the Riesz representation theorem) that any sequence is asymptotically equidistributed with respect to at most one Borel probability measure µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "excerpt": "Exercise 1.1.1. If x : N → X is a sequence into a compact metric space X, and µ is a probability measure on X, show that x is asymptotically equidistributed with respect to µ if and only if one has lim_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| = µ(U) for all open",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "excerpt": "Show that for any open set U in X with µ(U) > 0, the set {n ∈ N : x(n) ∈ U} is infinite, and furthermore has positive lower density in the sense that lim inf_{N→∞} (1/N)|{1 ≤ n ≤ N : x(n) ∈ U}| > 0. In particular, if the support of µ is equal to X, show that the set {x(n) : n ∈ N} is dense in X.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "excerpt": "Example 1.1.1. If X = {0, 1}, and x(n) := 1 whenever 2^{2j} ≤ n < 2^{2j+1} for some natural number j and x(n) := 0 otherwise, show that the sequence x is not asymptotically equidistributed with respect to any measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14756,7 +14416,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14798,7 +14457,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14840,7 +14498,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14883,7 +14540,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14926,7 +14582,6 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "excerpt": "This torus is then equipped with Haar measure, which is the unique Borel probability measure on the torus which is translation-invariant. One can identify the standard torus T^d with the standard fundamental domain [0, 1)^d, in which case the Haar measure is equated with the usual Lebesgue measure.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -14967,19 +14622,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "excerpt": "Here we use the dot product (k1, . . . , kd) · (x1, . . . , xd) := k1x1 + · · · + kdxd which maps Z^d × T^d to T.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15019,19 +14671,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "excerpt": "Here we use the dot product (k1, . . . , kd) · (x1, . . . , xd) := k1x1 + · · · + kdxd which maps Z^d × T^d to T.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15071,19 +14720,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "excerpt": "Here we use the dot product (k1, . . . , kd) · (x1, . . . , xd) := k1x1 + · · · + kdxd which maps Z^d × T^d to T.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15123,19 +14769,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "excerpt": "Here we use the dot product (k1, . . . , kd) · (x1, . . . , xd) := k1x1 + · · · + kdxd which maps Z^d × T^d to T.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15176,19 +14819,16 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "excerpt": "(iv) α is irrational, in the sense that k · α ≠ 0 for any non-zero k ∈ Z^d.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "excerpt": "Here we use the dot product (k1, . . . , kd) · (x1, . . . , xd) := k1x1 + · · · + kdxd which maps Z^d × T^d to T.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "excerpt": "At the other extreme, if α is rational in the sense that mα = 0 for some positive integer m, then the sequence n ↦ nα + β is clearly periodic of period m, and definitely not equidistributed.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15227,13 +14867,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4",
-          "excerpt": "A doubly infinite sequence (x(n))n∈Z, indexed by the integers rather than the natural numbers, is said to be asymptotically equidistributed relative to µ if both halves of the sequence x(1), x(2), x(3), . . . and x(−1), x(−2), x(−3), . . . are asymptotically equidistributed relative to µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, footnote 2",
-          "excerpt": "This omits x(0) entirely, but it is easy to see that any individual element of the sequence has no impact on the asymptotic equidistribution.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15272,13 +14910,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4",
-          "excerpt": "A doubly infinite sequence (x(n))n∈Z, indexed by the integers rather than the natural numbers, is said to be asymptotically equidistributed relative to µ if both halves of the sequence x(1), x(2), x(3), . . . and x(−1), x(−2), x(−3), . . . are asymptotically equidistributed relative to µ.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, footnote 2",
-          "excerpt": "This omits x(0) entirely, but it is easy to see that any individual element of the sequence has no impact on the asymptotic equidistribution.",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15321,13 +14957,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15371,13 +15005,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15421,13 +15053,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15472,13 +15102,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15523,13 +15151,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15573,13 +15199,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15625,13 +15249,11 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "excerpt": "We say that a subtorus T of some dimension d′ of a standard torus T^d has complexity at most M if there exists an invertible linear transformation L ∈ SLd(Z) with integer coefficients (which can thus be viewed as a homeomorphism of T^d that maps T to the",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "excerpt": "Exercise 1.1.22. Show that every subtorus (i.e. compact connected Lie subgroup) T of T^d has finite complexity. (Hint: Let V be the Lie algebra of T, then identify V with a subspace of R^d and T with V/(V ∩ Z^d).",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15669,13 +15291,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15714,13 +15334,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15759,13 +15377,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15804,13 +15420,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15849,13 +15463,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15894,13 +15506,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2)–(1.4), pp. 252–253",
-          "excerpt": "They discovered that it is more natural to focus on reduced solutions a/q to (1.1)",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§1, (1.2), p. 252",
-          "excerpt": "min{ψ(q), 1/2} ⩽λ(Kq) ⩽2 min{ψ(q), 1/2}",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15939,13 +15549,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definitions 6.1, 6.2 and 6.4, pp. 269–270",
-          "excerpt": "Let G be a septuple (µ, V, W, E, P, f, g) such that",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§6, Lemma 6.7, p. 273",
-          "excerpt": "Basic properties of GCD graphs",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -15984,13 +15592,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definitions 6.1, 6.2 and 6.4, pp. 269–270",
-          "excerpt": "Let G be a septuple (µ, V, W, E, P, f, g) such that",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§6, Lemma 6.7, p. 273",
-          "excerpt": "Basic properties of GCD graphs",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16029,13 +15635,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definitions 6.1, 6.2 and 6.4, pp. 269–270",
-          "excerpt": "Let G be a septuple (µ, V, W, E, P, f, g) such that",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§6, Lemma 6.7, p. 273",
-          "excerpt": "Basic properties of GCD graphs",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16074,13 +15678,11 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definitions 6.1, 6.2 and 6.4, pp. 269–270",
-          "excerpt": "Let G be a septuple (µ, V, W, E, P, f, g) such that",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         },
         {
           "sourceId": "KM-2020",
           "locator": "§6, Lemma 6.7, p. 273",
-          "excerpt": "Basic properties of GCD graphs",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16119,7 +15721,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.6 and the remark after it, pp. 271–273",
-          "excerpt": "The quality of G is deﬁned by",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16157,7 +15758,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.6 and the remark after it, pp. 271–273",
-          "excerpt": "The quality of G is deﬁned by",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16195,7 +15795,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.6 and the remark after it, pp. 271–273",
-          "excerpt": "The quality of G is deﬁned by",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16234,7 +15833,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.5, p. 271",
-          "excerpt": "Special GCD subgraphs from prime power divisibility",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16275,7 +15873,6 @@
         {
           "sourceId": "KM-2020",
           "locator": "§6, Definition 6.5, p. 271",
-          "excerpt": "Special GCD subgraphs from prime power divisibility",
           "match": "Independent review promotion of the parent API, with the displayed elementary derivation or explicitly recorded bridge; no new source theorem is attributed."
         }
       ],
@@ -16616,7 +16213,7 @@
       "source": "GS-SIEVING",
       "kind": "misprint",
       "locator": "Published preview p.15, sentence before inequality (1); also author copy p.1 and arXiv v1 p.1.",
-      "printed": "for any k ≥ 0",
+      "printed": "The source allows every k ≥ 0.",
       "correction": "In inequality (1) require integer k>=1. Treat k=0 separately: pi_0(x)=1 for x>=2. In its subsequent tail sum add the possible n=1 contribution separately.",
       "reason": "At k=0 the displayed (k-1)! is (-1)!, outside the natural factorial domain. The sole positive integer with no prime factor is 1. The exceptional contribution is negligible for the ensuing normal-order argument.",
       "affects": "a stated result",
@@ -16699,7 +16296,7 @@
       "source": "TAO-HOFA-1.1",
       "kind": "misprint",
       "locator": "Proof of Lemma 1.1.6, printed p. 8 (PDF p. 16); the same sentence in the proof of Lemma 4 of the blog notes.",
-      "printed": "We expand out the left-hand side as E_{n∈[N]} a_n ≪ (E_{h,h'∈[H]} E_{n∈[N]} a_{n+h} conj(a_{n+h'}))^{1/2} + H/N.",
+      "printed": "The proof says it expands the left-hand side, giving E_{n∈[N]} a_n ≪ (E_{h,h'∈[H]} E_{n∈[N]} a_{n+h} conj(a_{n+h'}))^{1/2} + H/N.",
       "correction": "'We expand out the right-hand side as'.",
       "reason": "The display expands the square |E_{h∈[H]} a_{n+h}|² on the right-hand side of the preceding Cauchy–Schwarz display; the left-hand side E a_n is unchanged.",
       "affects": "nothing",
@@ -16720,7 +16317,7 @@
       "source": "TAO-HOFA-1.1",
       "kind": "misprint",
       "locator": "Proof of Corollary 1.1.9, printed p. 9 (PDF p. 17); the same sentence in the proof of Corollary 6 of the blog notes.",
-      "printed": "P(n + h) − P(n) is a polynomial of degree s − 1 in n with leading coefficient shα_s n^{s−1}.",
+      "printed": "The source assigns degree s − 1 in n to the polynomial P(n + h) − P(n), and identifies its leading coefficient as shα_s n^{s−1}.",
       "correction": "'with leading coefficient shα_s' (equivalently, 'with leading term shα_s n^{s−1}').",
       "reason": "By the binomial theorem the n^{s−1} coefficient of P(n + h) − P(n) is s h α_s; the next sentence treats shα_s as the coefficient, whose irrationality is what the induction uses.",
       "affects": "nothing",
@@ -16741,7 +16338,7 @@
       "source": "TAO-HOFA-1.1",
       "kind": "misprint",
       "locator": "Paragraph after the proof of Proposition 1.1.5, printed p. 7 (PDF p. 15); the same sentence after the proof of Proposition 3 of the blog notes.",
-      "printed": "any linear sequence n ↦ nα + β in a torus T is equidistributed in some union of finite cosets of a subtorus T′. It is easy to see that this torus T is uniquely determined by α",
+      "printed": "The source considers n ↦ nα + β, a linear sequence on a torus T, and asserts equidistribution over a union of finitely many cosets of a subtorus T′. It then claims that α uniquely determines the torus T.",
       "correction": "'this torus T′ is uniquely determined by α'.",
       "reason": "T is the ambient torus, given in advance; the object that α determines is the subtorus T′ of Proposition 1.1.5.",
       "affects": "nothing",
@@ -16762,7 +16359,7 @@
       "source": "TAO-HOFA-1.1",
       "kind": "misprint",
       "locator": "Remark 1.1.19, printed p. 17 (PDF p. 25); Remark 5 of the blog notes, which says 'Example 7'.",
-      "printed": "Comparing this result with the asymptotically equidistributed analogue in Example 1.1.7",
+      "printed": "The source compares the result to the analogue for asymptotic equidistribution that it locates in Example 1.1.7.",
       "correction": "'in Exercise 1.1.7' (the blog notes: 'in Exercise 7').",
       "reason": "There is no Example 1.1.7. The result being compared is the single-scale theorem for abelian polynomial sequences, which the text introduces with 'This gives us the following analogue of Exercise 1.1.7'; Exercise 1.1.7 is the asymptotic equidistribution theorem for abelian polynomial sequences.",
       "affects": "nothing",
@@ -16783,7 +16380,7 @@
       "source": "TAO-HOFA-1.1",
       "kind": "misprint",
       "locator": "Exercise 1.1.7, printed p. 9 (PDF p. 17); Exercise 7 of the 2010 blog notes, same wording.",
-      "printed": "there exists a decomposition P = P′ + P′′, where P′, P′′ are polynomials of degree s",
+      "printed": "The source asserts a decomposition P = P′ + P′′ in which each of P′, P′′ has degree s.",
       "correction": "'where P′, P′′ are polynomials of degree at most s'.",
       "reason": "If P is already totally equidistributed on T (e.g. P(n) = n√2 with s = 1), the decomposition has P′′ constant, of degree 0 < s; likewise P′ = 0 when P is periodic. Only 'at most s' is always achievable, and it is what the argument gives.",
       "affects": "nothing",
@@ -16803,7 +16400,7 @@
       "source": "KM-2020",
       "kind": "error",
       "locator": "Lemma 5.3, p. 264 (arXiv v3 p. 12)",
-      "printed": "λ(A_q ∩ A_r)/(λ(A_q)λ(A_r)) ≪ 1_{M(q,r) ⩾ gcd(q,r)} ∏_{p | qr/gcd(q,r)², p > M(q,r)/gcd(q,r)} (1 + 1/p), with M(q,r) = max{rψ(q), qψ(r)}",
+      "printed": "Lemma 5.3 asserts λ(A_q ∩ A_r)/(λ(A_q)λ(A_r)) ≪ 1_{M(q,r) ⩾ gcd(q,r)} ∏_{p | qr/gcd(q,r)², p > M(q,r)/gcd(q,r)} (1 + 1/p), taking M(q,r) = max{rψ(q), qψ(r)}.",
       "correction": "The indicator should be 1_{2M(q,r) ⩾ gcd(q,r)} (or omitted); the rest of the bound is as printed.",
       "reason": "Distinct reduced fractions a/q, b/r satisfy |a/q − b/r| ⩾ gcd(q,r)/(qr), so A_q and A_r can meet when rψ(q) + qψ(r) ⩾ gcd(q,r), which allows M < gcd. Explicitly, q = 2, r = 3, ψ ≡ 3/10 ⩽ 1/2: A_2 = [0.35, 0.65], A_3 = [7/30, 13/30] ∪ [17/30, 23/30], λ(A_2 ∩ A_3) = 1/6 > 0, while M(2,3) = 9/10 < 1 = gcd(2,3), so the printed right-hand side is 0. The proof of Theorem 1 is unaffected: the indicator only restricts the sum (5.7), and pairs with gcd/2 ⩽ M < gcd satisfy the conditions of the later sets E_t.",
       "affects": "a stated result",
@@ -16823,7 +16420,7 @@
       "source": "KM-2020",
       "kind": "misprint",
       "locator": "Proof of Theorem 1 assuming Proposition 5.4, after (5.3), p. 265 (arXiv v3)",
-      "printed": "where A = lim sup_{q→∞} A_q with A_q defined by (1.4).",
+      "printed": "The source sets A = lim sup_{q→∞} A_q and cites (1.4) as the definition of A_q.",
       "correction": "A_q is defined by (1.3); (1.4) defines A.",
       "reason": "(1.3) defines A_q and (1.4) defines A = lim sup A_q; checked on the page image.",
       "affects": "nothing",
@@ -16843,7 +16440,7 @@
       "source": "KM-2020",
       "kind": "error",
       "locator": "Proof of Lemma 14.1, Case 1 (k = 0), p. 302 (arXiv v3)",
-      "printed": "In this case V_{p^{k−1}} = W_{p^{k−1}} = ∅, so all parameters of G⁺ are the same as those of G* except that the set of primes of G⁺ is P ∪ {p} … As a consequence, q(G⁺)/q(G*) = 1/(1 − 1/p^{31/30})^{10}.",
+      "printed": "The proof states V_{p^{k−1}} = W_{p^{k−1}} = ∅ in this case. It says G⁺ agrees with G* in every parameter except its prime set, which is P ∪ {p}, and deduces q(G⁺)/q(G*) = 1/(1 − 1/p^{31/30})^{10}.",
       "correction": "The vertex sets of G⁺ are V⁺ = V_{p⁰} ∪ V_{p¹} ⊆ V and W⁺ ⊆ W, which can be proper; by the displayed quality formula q(G⁺)/q(G*) = (μ(V)/μ(V⁺))⁹(μ(W)/μ(W⁺))⁹/(1 − 1/p^{31/30})^{10} ⩾ 1/(1 − 1/p^{31/30})^{10}.",
       "reason": "Vertices v with p² | v belong to V but not to V⁺; nothing in the hypotheses excludes them. The edge sets agree (every edge of E* has both ends in V⁺ × W⁺ when k = 0), but the vertex measures do not. Only the inequality is needed, and it holds.",
       "affects": "nothing",
@@ -16863,7 +16460,7 @@
       "source": "KM-2020",
       "kind": "gap",
       "locator": "Proofs of Lemma 13.2, pp. 297–298, and Lemma 14.1, p. 300",
-      "printed": "We now apply Lemma 13.1 to G(1). … We then apply Lemma 12.2 to G(1). … (Lemma 13.2); Hence, we may work with G(1) instead. … We now apply Lemma 12.2. … In view of Lemmas 11.3 and 11.4 applied with r = 1 (Lemma 14.1)",
+      "printed": "In Lemma 13.2, the proof invokes Lemma 13.1 and subsequently Lemma 12.2 for G(1). In Lemma 14.1, it replaces the working graph by G(1), invokes Lemma 12.2, and uses Lemmas 11.3 and 11.4 with r = 1.",
       "correction": "Lemmas 11.1, 11.3, 11.4, 12.1, 12.2 and 13.1 hold for every prime p ∉ P, not only for p ∈ R(G): their proofs never use p ∈ R(G). With that weaker hypothesis the applications are valid, and R(G′) ⊆ R(G) \\ {p} still follows from G′ ⪯ G(1) ⪯ G and p ∈ P′.",
       "reason": "G(1) is obtained from G by deleting vertices (Lemma 10.1) or restricting to smaller sets (Lemma 11.6), so R(G(1)) ⊆ R(G) may no longer contain p; the cited lemmas assume p ∈ R(G(1)). The planned nodes state these lemmas for p ∉ P.",
       "affects": "the proof",
@@ -16883,7 +16480,7 @@
       "source": "KM-2020",
       "kind": "misprint",
       "locator": "End of the proof of Lemma 14.1, p. 303 (arXiv v3)",
-      "printed": "by choosing G′ ∈ {G⁺, G_{p^k,p^{k+1}}, G_{p^{k+1},p^k}} according to which of the inequalities (14.13)–(14.15) hold.",
+      "printed": "The proof selects G′ ∈ {G⁺, G_{p^k,p^{k+1}}, G_{p^{k+1},p^k}} based on which inequalities among (14.13)–(14.15) are satisfied.",
       "correction": "G′ ∈ {G⁺, G_{p^k,p^{k−1}}, G_{p^{k−1},p^k}}",
       "reason": "(14.14) and (14.15), and the sentences just before, concern G_{p^k,p^{k−1}} and G_{p^{k−1},p^k}; the graphs with k+1 are not considered (the (k,k+1) edges are already in G⁺). Checked on the page image.",
       "affects": "nothing",
@@ -17128,7 +16725,7 @@
       "source": "Smyth2020",
       "kind": "error",
       "locator": "Exercise 2.4(d),(f), physical p.49 / printed Lesson 9 p.46",
-      "printed": "for all x∈[0,1)",
+      "printed": "The source applies the assertion to every x∈[0,1).",
       "correction": "Restrict the Fibonacci denominator bounds to irrational inputs, or indices before native rational termination.",
       "reason": "At x=1/2 the native continued fraction terminates; subsequent native denominators stay 2 while Fibonacci numbers grow without bound. The metric conclusions already discard this null rational set.",
       "affects": "the proof",
@@ -17211,7 +16808,7 @@
       "source": "BeresnevichVelani",
       "kind": "misprint",
       "locator": "Published §§6.1–6.2, pp.991–992, theorem numbering",
-      "printed": "Theorem 3",
+      "printed": "The theorem is numbered 3.",
       "correction": "Disambiguate the general-space MTP on p.991 from the distinct simultaneous-approximation consequence numbered Theorem 3 on p.992.",
       "reason": "The two displayed theorems have different hypotheses and conclusions but the same number. Our citations always include section and page.",
       "affects": "nothing",
@@ -17231,7 +16828,7 @@
       "source": "MatomakiRadziwill",
       "kind": "misprint",
       "locator": "Published p.1021, prose following Theorem 4; also arXiv v4 physical p.7",
-      "printed": "while Theorem 4",
+      "printed": "The comparison refers here to Theorem 4.",
       "correction": "Read “while Theorem 2” in the weaker C(ε) comparison.",
       "reason": "The paragraph explicitly compares Theorem 4 with Theorem 2, gives the stronger bound from Theorem 4, and then accidentally attributes the weaker bound to Theorem 4 again.",
       "affects": "nothing",
@@ -17251,7 +16848,7 @@
       "source": "TaoLogChowla",
       "kind": "misprint",
       "locator": "Published Theorem 2, p.3; also arXiv v4 Theorem 1.2 physical p.2",
-      "printed": "as n→∞",
+      "printed": "The limiting parameter is n→∞.",
       "correction": "Use x→∞.",
       "reason": "n is the bound summation variable; x is the free cutoff and ω depends on x. The hypothesis and the next displayed specialization both use x→∞.",
       "affects": "nothing",
@@ -17271,7 +16868,7 @@
       "source": "Smyth2020",
       "kind": "error",
       "locator": "Lesson 1 boxed digit/orbit equivalence, physical p.7 / printed p.4",
-      "printed": "T₃ⁿx∈I_(i₁⋯iₖ) iff digits match",
+      "printed": "The source asserts that T₃ⁿx∈I_(i₁⋯iₖ) holds exactly when the digits agree.",
       "correction": "Use half-open fundamental intervals for the canonical terminating expansion, or remove the countable endpoints.",
       "reason": "Earlier I₀ is the closed interval [0,1/3]. For x=1/9 and n=1, T₃x=1/3 belongs to I₀ while the second canonical digit is 1. The all-point equivalence fails at endpoints; the almost-everywhere consequence remains valid.",
       "affects": "a stated result",
@@ -17313,7 +16910,7 @@
       "source": "MatomakiRadziwill",
       "kind": "misprint",
       "locator": "Published p.1017, displayed (1)",
-      "printed": "as x→∞",
+      "printed": "The limit is taken as x→∞.",
       "correction": "Use X→∞.",
       "reason": "The average in that display uses the free cutoff X and has no free x. The surrounding text already discusses large X.",
       "affects": "nothing",
@@ -17428,7 +17025,7 @@
       "source": "KM-2020",
       "kind": "misprint",
       "locator": "Published p260 first paragraph; preprintv3 and author PDF8",
-      "printed": "a_j divides all elements of W_j and b_j divides all elements of V_j",
+      "printed": "The source says that every element of W_j is divisible by a_j, and every element of V_j is divisible by b_j.",
       "correction": "Exchange W_j and V_j in this sentence: a_j divides V_j, b_j divides W_j.",
       "reason": "The preceding iteration assigns k_i to valuations of V and ell_i to W. The products defining a_j and b_j use k_i and ell_i respectively; the following GCD-graph definition uses the correct sides.",
       "affects": "the proof",
@@ -17447,7 +17044,7 @@
       "source": "KM-2020",
       "kind": "error",
       "locator": "Published p291 Lemma12.1; preprintv3 and author PDF34",
-      "printed": "Let G = (μ,V,W,E,P,f,g) be a GCD graph",
+      "printed": "The hypothesis takes G = (μ,V,W,E,P,f,g) to be a GCD graph.",
       "correction": "Require μ(E)>0 (non-trivial G), as all actual callers do.",
       "reason": "Take V=W={1,2}, μ(1)=1, μ(2)=0, E={(2,2)}, P empty. The residual prime2 is present but μ(E)=0. Edge proportions are undefined; with total division zero the only positive vertex class k=ell=0 asks0≥1. Positive edge mass restores the normalized argument.",
       "affects": "a stated result",
@@ -17504,7 +17101,7 @@
       "source": "BeresnevichVelani",
       "kind": "error",
       "locator": "Published p977 Remark2 following Theorem2; preprintv3 PDF7",
-      "printed": "the condition r(B_i) → 0 as i → ∞ is redundant",
+      "printed": "The source says the requirement r(B_i) → 0 as i → ∞ can be omitted.",
       "correction": "Retain the shrinking-radius hypothesis of Theorem2.",
       "reason": "Take k=1, f(r)=sqrt(r), all r_i=1/4, and centers3m/4 for integersm, each repeated infinitely often. The f-expanded radius is1/2, so its limsup is allR. Original radius1/4 balls miss(1/4,1/2), hence miss B=closedBall(3/8,1/16). The f-Hausdorff measure of B is infinite while that of the original limsup intersect B is zero. The ratio f(r)/r=r^(-1/2) satisfies the stated monotonicity.",
       "affects": "a stated result",
@@ -17542,7 +17139,7 @@
       "source": "Smyth2020",
       "kind": "error",
       "locator": "PDF47, Lesson9 p44, Theorem23 multiple recurrence",
-      "printed": "every B ∈ B",
+      "printed": "The assertion applies to every B ∈ B.",
       "correction": "Require ν(B)>0.",
       "reason": "For B empty every displayed intersection has measure zero for every n, contradicting strict positivity. The following paragraph includes the missing positivity condition. This is outside the PM roadmap theorem targets.",
       "affects": "a stated result",
@@ -17561,7 +17158,7 @@
       "source": "Smyth2020",
       "kind": "error",
       "locator": "PDF47–48, Lesson9 Oppenheim discussion and Conjecture24",
-      "printed": "a quadratic form Q in at least three variables is not a multiple of a rational form and is not definite",
+      "printed": "The source considers a quadratic form Q with at least three variables, assuming that Q is neither definite nor proportional to a rational form.",
       "correction": "In addition to the integer-input correction E27, require Q to be nondegenerate (in the standard n≥3 formulation).",
       "reason": "The degenerate indefinite irrational form Q(m,n,z)=mn+sqrt(2)n² gives a counterexample to the proposed lattice formulation. For n≠0, if |Q|<1 then |m|≤(sqrt(2)+1)|n|, and |m+sqrt(2)n||m−sqrt(2)n|=|m²−2n²|≥1, so |Q|≥1/(2sqrt(2)+1). For n=0 it is0. Thus its integer values miss a punctured neighborhood of zero. No PM theorem depends on this aside.",
       "affects": "a stated result",
@@ -17580,7 +17177,7 @@
       "source": "Kubilius2021",
       "kind": "error",
       "locator": "Published p717 Example1.3, and its normalization argument",
-      "printed": "the variables J_n satisfy condition (H_t)",
+      "printed": "The source claims condition (H_t) holds for the variables J_n.",
       "correction": "At most the exponent min(t,1) follows in this generality; normalize with n c_n=1/L+O(n^(−min(t,1))) and rewrite the displayed sums with n, not n^t.",
       "reason": "Set υ≡L=1 and t=2. The displayed integral assumption is identically zero, and J_n is uniform. For a=2 and oddn its divisibility error is1/(2n), exceeding κ/n² for every fixedκ eventually. Thus H_2 is false. The printed n^t c_n=L+O(n^(−t)) also fails since c_n=1/n. This example is not used by the packet classical uniform model.",
       "affects": "a stated result",
@@ -17618,7 +17215,7 @@
       "source": "ElsholtzTao2011",
       "kind": "error",
       "locator": "Published p100 (PDF51), quadratic reciprocity displays(A.7),(A.8); author PDF39",
-      "printed": "for all odd m,n; (−1/n)=(−1)^((n−1)/4)",
+      "printed": "The statement covers all odd m,n and gives (−1/n)=(−1)^((n−1)/4).",
       "correction": "In(A.7) require gcd(m,n)=1 (with positive odd inputs). In(A.8) replace the exponent(n−1)/4 by(n−1)/2.",
       "reason": "For m=n=3 the two Jacobi symbols multiply to0 whereas the printed reciprocity right side is−1. For n=5, (−1/5)=1 but the printed(A.8) gives−1. Both defects remain in the published PDF, independently rendered and compared with the author copy. These formulas are incidental to the Turán–Kubilius passage used by PM.",
       "affects": "a stated result",
@@ -17637,7 +17234,7 @@
       "source": "BSKK2023",
       "kind": "error",
       "locator": "Lemma7.2 proof, arXiv2007.14567v3 PDF36 and current author PDF36–37",
-      "printed": "Apply Kolmogorov–Rogozin to X_j=a_j z^j after defining Q for real random variables.",
+      "printed": "The source defines Q for real random variables, then uses Kolmogorov–Rogozin with X_j=a_j z^j.",
       "correction": "First project complex values to a real line and keep a positive fraction of the indices with large projection. Choose a direction for which at least(2/3)(n−1) coefficients have projection magnitude≥|z|^j/2; condition on the other independent coefficients. Apply real Kolmogorov–Rogozin at radius min(1,|z|)^n/8 to these projected summands.",
       "reason": "The stated real inequality cannot directly take complex X_j. With z=i and a_j=±1, X_1=±i is not real. Even if one extends Q to disks with real centers, for radius below1 its concentration is0, not the claimed maximal atom1/2. Averaging directions gives the indicated positive-fraction projection repair, preserving the theorem order of magnitude. The packet plans only the real inequality and retains a separate projection gap.",
       "affects": "the proof",

@@ -289,13 +289,11 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Proposition 2.1 and Proposition 2.3 with the surrounding discussion, printed pp. 3-5",
-     "excerpt": "Proposition 2.3 (Szemeredi's theorem, again). Write nu_const : Z_N -> R+ for the constant function nu_const == 1. Let 0 < delta <= 1 and k >= 1 be fixed. ... Then we have E(f(x)f(x+r)...f(x+(k-1)r)|x,r in Z_N) >= c(k,delta) - o_{k,delta}(1) for some constant c(k,delta) > 0 which does not depend on f or N. ... such a statement can be deduced from Proposition 2.1 with some combinatorial trickery (of a less trivial nature this time - the argument was first worked out by Varnavides [43]).",
      "match": "Gives both forms with their exact hypotheses and the attribution of the correspondence to Varnavides, which is the correspondence AC.2's acceptance condition asks to be proved."
     },
     {
      "sourceId": "green-tao-2008",
      "locator": "Section 2, paragraph after Conjecture 2.2, printed p. 4",
-     "excerpt": "In one sentence, our argument can be described instead as a transference principle which allows us to deduce Theorems 1.1 and 1.2 from Szemeredi's theorem, regardless of what bound we know for N_0(delta,k) ... Thus, in this paper, we must assume Szemeredi's theorem. However with this one (rather large!) caveat our paper is self-contained.",
      "match": "Establishes that Szemeredi's theorem is an assumed input of this source, so AC.2 cannot be closed from this source alone."
     }
    ],
@@ -339,7 +337,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Definition 5.1, (5.1)-(5.4), printed pp. 11-12; (5.5)-(5.7) and the U^1 remark, printed pp. 12-13",
-     "excerpt": "we define the d-dimensional Gowers inner product <(f_omega)_{omega in {0,1}^d}>_{U^d} by the formula <(f_omega)>_{U^d} := E( prod_{omega in {0,1}^d} f_omega(x + omega . h) | x in Z_N, h in Z_N^d ). ... ||f||_{U^d} := <(f)_{omega in {0,1}^d}>_{U^d}^{1/2^d} ... from (5.4) that ||f||_{U^1} = |E(f)| and thus ||f||_{U^1} may vanish without f itself vanishing.",
      "match": "Verbatim definition of the inner product and the norm, with the explicit warning about U^1."
     }
    ],
@@ -450,7 +447,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Lemma 5.2 with proof, printed pp. 13-14",
-     "excerpt": "Lemma 5.2. Suppose that nu is k-pseudorandom (as defined in Definition 3.3). Then we have ||nu - nu_const||_{U^d} = ||nu - 1||_{U^d} = o(1) (5.8) for all 1 <= d <= k-1. ... Thus we may invoke the (2^{k-1}, k, 1)-linear forms condition, which is a consequence of the fact that nu is k-pseudorandom, to conclude that the expression (5.10) is 1 + o(1).",
      "match": "The statement with its range of d and the exact linear-forms parameters used in the proof."
     }
    ],
@@ -496,13 +492,11 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Proposition 5.3 with hypothesis (5.11) and the opening of its proof, printed p. 14",
-     "excerpt": "Proposition 5.3 (Generalised von Neumann). Suppose that nu is k-pseudorandom. Let f_0,...,f_{k-1} in L^1(Z_N) be functions which are pointwise bounded by nu + nu_const, or in other words |f_j(x)| <= nu(x) + 1 for all x in Z_N, 0 <= j <= k-1. (5.11) Let c_0,...,c_{k-1} be a permutation of some k consecutive elements of {-k+1,...,-1,0,1,...,k-1} ... Then E( prod_{j=0}^{k-1} f_j(x + c_j r) | x, r in Z_N ) = O( inf_{0<=j<=k-1} ||f_j||_{U^{k-1}} ) + o(1).",
      "match": "Verbatim statement including the nu + 1 majorant hypothesis and the restriction on the coefficients c_j."
     },
     {
      "sourceId": "green-tao-2008",
      "locator": "Lemma 5.4 with proof (printed pp. 16-17); proof of Proposition 5.3 and Lemma 5.5 with proof (printed pp. 18-19)",
-     "excerpt": "On the other hand we have P_d = 1 + o(1) for each 0 <= d <= k-2, since the k-pseudorandom hypothesis on nu implies the (2^d, k-1+d, k)-linear forms condition.",
      "match": "Read in review: shows that the proof of Proposition 5.3 consumes only linear forms instances, and records the Cauchy-Schwarz chain and Lemma 5.5."
     }
    ],
@@ -547,7 +541,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Definitions 3.1, 3.2, 3.3 and Lemma 3.4, printed pp. 7-9",
-     "excerpt": "Definition 3.3 (Pseudorandom measures). Let nu : Z_N -> R+ be a measure. We say that nu is k-pseudorandom if it satisfies the (k . 2^{k-1}, 3k-4, k)-linear forms condition and also the 2^{k-1}-correlation condition. ... Definition 3.2 ... there exists a weight function tau = tau_m : Z_N -> R+ which obeys the moment conditions E(tau^q) = O_{m,q}(1) (3.5) for all 1 <= q < infinity and such that E(nu(x+h_1)...nu(x+h_m) | x in Z_N) <= sum_{1<=i<j<=m} tau(h_i - h_j) (3.6) for all h_1,...,h_m in Z_N (not necessarily distinct).",
      "match": "Verbatim parameter values and the exact form of both conditions, including the 'not necessarily distinct' clause and the moment-only requirement on tau."
     }
    ],
@@ -664,7 +657,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Theorem 3.5 and its complete deduction from Proposition 8.1, printed pp. 9-10 and 29",
-     "excerpt": "Theorem 3.5 (Szemeredi's theorem relative to a pseudorandom measure). Let k >= 3 and 0 < delta <= 1 be fixed parameters. Suppose that nu : Z_N -> R+ is k-pseudorandom. Let f : Z_N -> R+ be any non-negative function obeying the bound 0 <= f(x) <= nu(x) for all x in Z_N (3.7) and E(f) >= delta. (3.8) Then we have E(f(x)f(x+r)...f(x+(k-1)r)|x,r in Z_N) >= c(k,delta) - o_{k,delta}(1) (3.9) where c(k,delta) > 0 is the same constant which appears in Proposition 2.3.",
      "match": "Verbatim statement with both hypotheses and the explicit identification of the constant with the dense case; the deduction quoted in the proof steps is on printed p. 29."
     }
    ],
@@ -715,7 +707,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Proposition 8.1 with (8.1)-(8.3) and the following remarks, printed pp. 28-29",
-     "excerpt": "Proposition 8.1 (Generalised Koopman-von Neumann structure theorem). Let nu be a k-pseudorandom measure, and let f in L^1(Z_N) be a non-negative function satisfying 0 <= f(x) <= nu(x) for all x in Z_N. Let 0 < epsilon << 1 be a small parameter, and assume N > N_0(epsilon) is sufficiently large. Then there exists a sigma-algebra B and an exceptional set Omega in B such that ... E(nu 1_Omega) = o_epsilon(1); ... ||(1-1_Omega) E(nu-1|B)||_{L^infinity} = o_epsilon(1) ... ||(1-1_Omega)(f - E(f|B))||_{U^{k-1}} <= epsilon^{1/2^k}.",
      "match": "Verbatim statement of the three conclusions with their hypotheses, which are exactly what the deduction of Theorem 3.5 consumes."
     }
    ],
@@ -763,13 +754,11 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "The W-trick and Definition of Lambda-tilde, printed pp. 35-36",
-     "excerpt": "Let w = w(N) be any function tending slowly to infinity with N, so that 1/w(N) = o(1), and let W = prod_{p <= w(N)} p be the product of the primes up to w(N). Define the modified von Mangoldt function Lambda-tilde : Z+ -> R+ by Lambda-tilde(n) := (phi(W)/W) log(W n + 1) when W n + 1 is prime, 0 otherwise.",
      "match": "Exact definition of the W-trick and of the modified von Mangoldt function used as the object to be majorized."
     },
     {
      "sourceId": "green-tao-2008",
      "locator": "Definition 9.2, Definition 9.3, Lemma 9.4, Propositions 9.5, 9.6, Lemma 9.7, Proposition 9.8 (printed pp. 37-40), Lemma 9.9 and Proposition 9.10 (printed pp. 40-42)",
-     "excerpt": "Definition 9.3. Let R := N^{k^{-1} 2^{-k-4}}, and let epsilon_k := 1/2^k (k+4)!. We define the function nu : Z_N -> R+ by nu(n) := (phi(W)/W) Lambda_R(W n+1)^2 / log R when epsilon_k N <= n <= 2 epsilon_k N, 1 otherwise ... Proposition 9.8. The function nu satisfies the (k . 2^{k-1}, 3k-4, k)-linear forms condition. ... Proposition 9.10. The measure nu satisfies the 2^{k-1}-correlation condition.",
      "match": "The explicit majorant with all its parameters and the two propositions asserting exactly the two halves of k-pseudorandomness. [Locator corrected in review: Proposition 9.10 is on printed p. 41, not p. 43.]"
     }
    ],
@@ -885,19 +874,16 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "Proof of Theorem 1.1 assuming Proposition 9.1, printed p. 36",
-     "excerpt": "Observe that the degenerate case r = 0 can only contribute at most O((1/N) log^k N) = o(1) to the left-hand side and can thus be discarded. Furthermore, every progression counted by the expression on the left is not just a progression in Z_N, but a genuine arithmetic progression of integers since epsilon_k < 1/k.",
      "match": "The two bookkeeping steps (degenerate r and wraparound) that convert the Z_N statement into a statement about integers."
     },
     {
      "sourceId": "green-tao-2008",
      "locator": "Section 1, statement of Theorems 1.1 and 1.2 and the remark on the count, printed pp. 1-2",
-     "excerpt": "we do not come close to establishing this conjecture here, obtaining instead a lower bound (gamma(k) + o(1)) N^2 / log^k N for some very small gamma(k) > 0 ... Theorem 1.2 (Szemeredi's theorem in the primes). Let A be any subset of the prime numbers of positive relative upper density, thus limsup_{N->infinity} pi(N)^{-1} |A cap [1,N]| > 0 ... Then A contains infinitely many arithmetic progressions of length k for all k.",
      "match": "Fixes exactly what is and is not proved about the counting function, and the density hypothesis in Theorem 1.2."
     },
     {
      "sourceId": "green-tao-2008",
      "locator": "Section 11, printed pp. 49-50 and footnote 23",
-     "excerpt": "As we remarked earlier, our method also extends to prove Theorem 1.2 ... The only significant change to the proof is that one must use the pigeonhole principle to replace the residue class n = 1 (mod W) by a more general residue class n = b (mod W) for some b coprime to W ... we leave the details to the reader.",
      "match": "Read in review: fixes that Theorem 1.2 is only sketched, which the draft's statement had presented as following by the same argument."
     }
    ],
@@ -943,7 +929,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "§5, the paragraph ending in (5.5), printed p. 12",
-     "excerpt": "Similarly if we replace the role of the ω_d digit by any of the other digits. Applying this Cauchy-Schwarz inequality once in each digit, we obtain the Gowers Cauchy-Schwarz inequality |⟨(f_ω)_{ω∈{0,1}^d}⟩_{U^d}| ≤ ∏_{ω∈{0,1}^d} ‖f_ω‖_{U^d}.",
      "match": "The statement (5.5) and the one-Cauchy–Schwarz-per-digit proof. Prose verbatim from the arXiv v6 LaTeX source; the displayed formula transcribed from it."
     }
    ],
@@ -983,7 +968,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "§5, the paragraph following (5.5), printed p. 12",
-     "excerpt": "From the multilinearity of the inner product, and the binomial formula, we then obtain the inequality |⟨(f+g)_{ω∈{0,1}^d}⟩_{U^d}| ≤ (‖f‖_{U^d} + ‖g‖_{U^d})^{2^d} whence we obtain the Gowers triangle inequality ‖f + g‖_{U^d} ≤ ‖f‖_{U^d} + ‖g‖_{U^d}.",
      "match": "The triangle inequality and its derivation from (5.5) by multilinearity and the binomial formula. Prose verbatim from the LaTeX source."
     }
    ],
@@ -1021,7 +1005,6 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "§5, the paragraph containing (5.6) and (5.7), printed p. 13",
-     "excerpt": "But the left-hand side can easily be computed to be ‖f‖_{U^{d−1}}^{2^{d−1}}, and thus we have the monotonicity relation ‖f‖_{U^{d−1}} ≤ ‖f‖_{U^d} for all d ≥ 2.",
      "match": "The statement (5.7) and the last step of its proof. Prose verbatim from the LaTeX source."
     }
    ],
@@ -1060,13 +1043,11 @@
     {
      "sourceId": "green-tao-2008",
      "locator": "§5, the paragraph following (5.7), printed p. 13",
-     "excerpt": "Since the U^2 norm was already shown to be strictly positive, we see that the higher norms U^d, d ≥ 2 are also. Thus the U^d norms are genuinely norms for all d ≥ 2. On the other hand, the U^1 norm is not actually a norm, since one can compute from (5.4) that ‖f‖_{U^1} = |E(f)|",
      "match": "The norm property for d ≥ 2 and the failure at d = 1. Prose verbatim from the LaTeX source."
     },
     {
      "sourceId": "green-tao-2008",
      "locator": "§5, the d = 2 example following (5.5), printed p. 12",
-     "excerpt": "Applying this with f_{10}, f_{01}, f_{11} set equal to Kronecker delta functions, one can easily verify that f_{00} ≡ 0 whenever ‖f_{00}‖_{U^2} = 0.",
      "match": "The positivity of U^2 on which the d ≥ 2 case rests. Prose verbatim from the LaTeX source."
     }
    ],
@@ -1109,19 +1090,16 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 8 (physical p. 34), the canonical dual-group alternative",
-     "excerpt": "One can make things more canonical by letting ξ range not in Z, but rather in the dual group Z∗, which consists of the characters on Z., in which case e(x, ξ) is just the tautological map of ξ applied to x.",
      "match": "The choice of indexing by the dual group AddChar G ℂ rather than by a chosen bi-character. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     },
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 8 (physical p. 34), normalised counting measure",
-     "excerpt": "Let dx denote normalized counting measure on Z, thus ∫_Z f(x) dx := (1/|Z|) ∑_{x∈Z} f(x)",
      "match": "The normalisation N⁻¹ on the position side. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     },
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), the Fourier transform and inversion",
-     "excerpt": "if we define define the Fourier transform fˆ(ξ) of a complex-valued function f(x) on Z by the formula fˆ(ξ) := ⟨f, e(·, ξ)⟩_{L²(Z,dx)} := ∫_Z f(x) conj(e(x, ξ)) dx then we have the Fourier inversion formula f(x) = ∫_Z fˆ(ξ)e(x, ξ) dξ = ∑_{ξ∈Z} fˆ(ξ)e(x, ξ) (Exercise 3).",
      "match": "The definition as the inner product against the character, and Fourier inversion. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1334,7 +1312,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), convolution",
-     "excerpt": "Furthermore, if we define convolution f ∗ g(x) := ∫_Z f(y)g(x − y) dy then we have (f ∗ g)ˆ(ξ) = fˆ(ξ)ĝ(ξ) (Exercise 3)",
      "match": "The definition of convolution against the normalised measure dy. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1488,7 +1465,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), the Parseval relation and Plancherel",
-     "excerpt": "Furthermore, we have the Parseval relation ⟨f, g⟩_{L²(Z,dx)} = ⟨fˆ, ĝ⟩_{L²(Z,dξ)} and hence the Plancherel formula ‖f‖_{L²(Z,dx)} = ‖fˆ‖_{L²(Z,dξ)} (Exercise 3).",
      "match": "The Parseval relation and the Plancherel formula for the transform. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1529,7 +1505,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), convolution to product",
-     "excerpt": "Furthermore, if we define convolution f ∗ g(x) := ∫_Z f(y)g(x − y) dy then we have (f ∗ g)ˆ(ξ) = fˆ(ξ)ĝ(ξ) (Exercise 3)",
      "match": "The convolution identity (f ∗ g)ˆ = fˆ ĝ. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1573,7 +1548,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 10 (physical p. 36), Plancherel applied to χ_A ∗ χ_A",
-     "excerpt": "Then χA ∗ χA is supported on A + A which has normalized measure at most cK. On the other hand, we have ‖χA ∗ χA‖_{L¹(Z,dx)} = ‖χA‖_{L¹(Z,dx)} ‖χA‖_{L¹(Z,dx)} = c², and hence by Hölder’s inequality (or Cauchy-Schwarz) ‖χA ∗ χA‖_{L²(Z,dx)} ≥ c^{3/2}K^{−1/2}. By Plancherel this implies that",
      "match": "The source uses this identity, in the case A = B, by applying Plancherel to χ_A ∗ χ_A to reach the fourth moment ∑_ξ |χ̂_A(ξ)|⁴; it does not display the energy formula itself, which is the rewriting of ‖χ_A ∗ χ_B‖² as a count. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1612,7 +1586,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), equation (1)",
-     "excerpt": "We now apply these Fourier identities to the characteristic function f(x) = χA(x) of some subset A ⊆ Z of cardinality |A| = c|Z| for some 0 < c ≤ 1; we shall think of c as being reasonably close to 1. Then from Plancherel we have Σ_{ξ∈Z} |χ̂A(ξ)|² = ∫_Z |χA(x)| dx = c (1)",
      "match": "Equation (1), with c = |A|/N. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1650,7 +1623,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), equation (2)",
-     "excerpt": "while from the triangle inequality we have the crude pointwise estimate |fˆ(ξ)| ≤ ∫_Z |χA(x)| dx ≤ c. (2)",
      "match": "The first inequality of (2), for a general f. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1691,7 +1663,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 9 (physical p. 35), equation (2)",
-     "excerpt": "while from the triangle inequality we have the crude pointwise estimate |fˆ(ξ)| ≤ ∫_Z |χA(x)| dx ≤ c. (2)",
      "match": "Equation (2) for the indicator. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1731,13 +1702,11 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 10 (physical p. 36), equation (5)",
-     "excerpt": "In contrast, notice from (1), (2) that Σ_{ξ∈Z} |χ̂A(ξ)|⁴ ≤ c² Σ_{ξ∈Z} |χ̂A(ξ)|² = c³ (5) so we have a very precise control on the l4 norm of χ̂A here, especially if K is small.",
      "match": "Equation (5). Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     },
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 10 (physical p. 36), equation (4)",
-     "excerpt": "By Plancherel this implies that Σ_{ξ∈Z} |χ̂A(ξ)|⁴ ≥ c³K⁻¹. (4)",
      "match": "The matching lower bound under small doubling, for the acceptance test. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1779,7 +1748,6 @@
     {
      "sourceId": "tao-254a-notes2-cmu",
      "locator": "§6, printed p. 10 (physical p. 36), equation (5)",
-     "excerpt": "In contrast, notice from (1), (2) that Σ_{ξ∈Z} |χ̂A(ξ)|⁴ ≤ c² Σ_{ξ∈Z} |χ̂A(ξ)|² = c³ (5) so we have a very precise control on the l4 norm of χ̂A here, especially if K is small.",
      "match": "The source proves the Fourier form for A = B (equation (5), which fourier-energy converts into E(A, A) ≤ |A|³). The combinatorial bound for two sets is the elementary count in the proof steps; no source was needed for it. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
     }
    ],
@@ -1829,7 +1797,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "Appendix A, (A.1)–(A.9), pp. 27–28 (AAM)",
-     "excerpt": "In this appendix we record some standard inequalities regarding Shannon entropy",
      "match": "The definitions and standard inequalities."
     }
    ],
@@ -1977,13 +1944,11 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§1, (1.1) and the following remarks, p. 4 (AAM)",
-     "excerpt": "A crucial notion is the entropic Ruzsa distance between random variables.",
      "match": "The definition and its basic properties."
     },
     {
      "sourceId": "GGMT-2025",
      "locator": "Appendix A, (A.10)–(A.15), pp. 29–30 (AAM)",
-     "excerpt": "We will also need conditional variants of the distance.",
      "match": "The conditional distance and the standard inequalities."
     }
    ],
@@ -2087,7 +2052,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "Appendix A, (A.13) and its proof, pp. 29–30 (AAM)",
-     "excerpt": "The most important property of the Ruzsa distance is the (Ruzsa) triangle inequality",
      "match": "The inequality and its proof."
     }
    ],
@@ -2125,7 +2089,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "Appendix A, Lemma A.1 and proof, p. 30 (AAM); (5.5), p. 20",
-     "excerpt": "The ﬁrst is an inequality of Madiman",
      "match": "The lemma and its proof."
     }
    ],
@@ -2165,7 +2128,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "Appendix A, Lemma A.2 and proof, pp. 30–32 (AAM)",
-     "excerpt": "The next lemma is not quite in the literature but is very closely related to the entropic version of the Balog–Szemer´edi–Gowers lemma",
      "match": "The lemma and its proof."
     }
    ],
@@ -2207,7 +2169,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§4, Proposition 4.1 and proof, pp. 16–17 (AAM)",
-     "excerpt": "Here we record the ﬁbring lemma",
      "match": "The proposition, with its explicit error term."
     }
    ],
@@ -2249,7 +2210,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§4, Corollary 4.2 and proof, p. 17 (AAM)",
-     "excerpt": "We extract the speciﬁc special case of this result that we will need in our arguments.",
      "match": "The corollary; the conditioning sign is corrected (E5)."
     }
    ],
@@ -2286,7 +2246,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§5, Lemma 5.2 and proof, p. 19 (AAM)",
-     "excerpt": "The ﬁrst is a bound relating conditioned and unconditioned variants of the Ruzsa distance.",
      "match": "The lemma and its proof."
     }
    ],
@@ -2324,7 +2283,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§5, Lemma 5.3 and proof, pp. 20–21 (AAM)",
-     "excerpt": "Let X, Y, Z be random variables taking values in some abelian group, and with Y, Z independent.",
      "match": "The lemma and its proof."
     }
    ],
@@ -2360,7 +2318,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§7, Lemma 7.1 and proof, p. 23 (AAM)",
-     "excerpt": "Let us begin by recording an inequality which will be used several times",
      "match": "The lemma and its proof."
     }
    ],
@@ -2400,7 +2357,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§2, Lemma 2.2 and proof, pp. 7–8 (AAM)",
-     "excerpt": "In order to deduce Theorem 1.8 from Proposition 2.1 we will use the ‘100 percent’ case of our main theorem",
      "match": "The lemma and its proof."
     }
    ],
@@ -2440,13 +2396,11 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§2, (2.1)–(2.3) and the proof of Theorem 1.8, pp. 6–9 (AAM)",
-     "excerpt": "For the rest of the paper, η will denote the constant 1 9.",
      "match": "The functional and its minimizers."
     },
     {
      "sourceId": "GGMT-2025",
      "locator": "§3, (3.12) and (3.15), pp. 14–15 (AAM)",
-     "excerpt": "Multiplying by pY1(y1)pY2(y2) and summing, we have",
      "match": "The conditioned form of minimality."
     }
    ],
@@ -2541,7 +2495,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§5, (5.1)–(5.8), pp. 18–21 (AAM)",
-     "excerpt": "In this section we establish the upper bound (3.13)",
      "match": "The estimate and the entropy bound (5.8)."
     }
    ],
@@ -2583,7 +2536,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§6, (6.1)–(6.6), pp. 21–23 (AAM)",
-     "excerpt": "In this section we establish the upper bound (3.14)",
      "match": "The estimate and its proof."
     }
    ],
@@ -2624,7 +2576,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§7, Lemma 7.2 and proof, pp. 25–26 (AAM)",
-     "excerpt": "We recommend that the reader ﬁrst work through this proof in the case δ = 0",
      "match": "The lemma and its proof; (7.5) notation corrected (E6)."
     }
    ],
@@ -2667,7 +2618,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§2, Proposition 2.1, p. 7; §7, pp. 23–27 (AAM)",
-     "excerpt": "Here is the main result from which we will deduce Theorem 1.8.",
      "match": "The proposition and the endgame computation."
     }
    ],
@@ -2708,7 +2658,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§1, Theorem 1.8, p. 5; §2, its proof, pp. 8–9 (AAM)",
-     "excerpt": "One consequence of the investigation in [9] was another equivalent formulation of the PFR conjecture.",
      "match": "The theorem and its deduction from Proposition 2.1."
     }
    ],
@@ -2755,7 +2704,6 @@
     {
      "sourceId": "GGMT-2025",
      "locator": "§1, Conjecture 1.1 and Theorem 1.2, pp. 1–2; Appendix B, pp. 32–33 (AAM)",
-     "excerpt": "Conjecture 1.1 is true with C = 12.",
      "match": "The theorem and the deduction from Theorem 1.8."
     }
    ],
@@ -2949,7 +2897,7 @@
    "source": "tao-254a-notes2-cmu",
    "kind": "error",
    "locator": "Lecture notes 2, §7, first paragraph of printed p.12 (PDF p.38), comparison with the chord radius 1/4 of (9).",
-   "printed": "one can shrink X a bit and take δ to be 1/20 for concreteness",
+   "printed": "The source proposes making X slightly smaller and choosing δ as 1/20 for a concrete value.",
    "correction": "For the asserted contained phase-distance Bohr set, use δ=1/32 (or any positive δ with 2 sin(πδ)≤1/4).",
    "reason": "Even after correcting δN to δ, t=1/24 satisfies ||t||<1/20 but |exp(2πit)−1|=sqrt(2−(sqrt(6)+sqrt(2))/2)>1/4. The phase radius 1/20 therefore does not ensure the chord-radius condition. In contrast δ=1/32 gives |exp(2πit)−1|≤2π||t||<π/16<1/4. This changes only a harmless absolute constant, not the existence of the progression.",
    "affects": "the proof",
@@ -2965,7 +2913,7 @@
    "source": "tao-254a-notes2-cmu",
    "kind": "misprint",
    "locator": "Lecture notes 2, §6, printed p. 9 (physical p. 35), the sentence introducing the Fourier transform.",
-   "printed": "Because of this, if we define define the Fourier transform fˆ(ξ) of a complex-valued function f(x) on Z by the formula",
+   "printed": "The source introduces the Fourier transform fˆ(ξ), for a complex-valued f(x) on Z, by a formula, repeating “define” in its introduction.",
    "correction": "Delete the repeated word: \"if we define the Fourier transform\".",
    "reason": "A duplicated word; the definition that follows is unaffected.",
    "affects": "nothing",

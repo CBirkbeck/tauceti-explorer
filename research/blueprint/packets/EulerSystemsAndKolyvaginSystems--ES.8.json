@@ -335,19 +335,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §1, Definition 1.1(ii), p. 21 (published: Definition 2.1.1(ii))",
-     "excerpt": "K contains an extension K∞ of K such that Gal(K∞/K) ≅ Z_p^d for some d ≥ 1, no (finite) prime of K splits completely in K∞/K.",
      "match": "The definition and the standing hypothesis this node formalises."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §1, Remark 1.2, p. 22",
-     "excerpt": "since Z_p^d has no proper finite subgroups, to say that a prime does not split completely in K∞/K is equivalent to saying that its decomposition group is infinite.",
      "match": "The characterisation by infinite decomposition groups (the API item noSplitPrimes_iff)."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, opening paragraph and Notation, pp. 26–27",
-     "excerpt": "Fix for this section an abelian extension K∞ of K such that Gal(K∞/K) ≅ Z_p^d for some d and such that no finite prime of K splits completely in K∞.",
      "match": "The setting of all Iwasawa-theoretic statements of this layer; Λ = O[[Γ]] = lim Λ_F is fixed in the same Notation paragraph."
     }
    ],
@@ -428,8 +425,8 @@
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
-    "EulerSystemsAndKolyvaginSystems:ES.4"
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses"
    ],
    "api": [
     {
@@ -481,19 +478,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Hypotheses Hyp(K∞, T), p. 27 (published p. 41)",
-     "excerpt": "(i) There is a τ ∈ G_K∞ such that • τ acts trivially on μ_p∞, on (O_K^×)^{1/p^∞}, and on K(1), • T/(τ − 1)T is free of rank one over O. (ii) T ⊗ k is an irreducible k[G_K∞]-module.",
      "match": "The definition of Hyp(K∞, T) verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, p. 27",
-     "excerpt": "We also write Hyp(K∞, T) (resp. Hyp(K∞, V)) for hypotheses Hyp(K, T) (resp. Hyp(K, V)) with G_K replaced by G_K∞",
      "match": "The relation to the finite-level hypotheses of ES.4."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §2, Remark 2.4, p. 24",
-     "excerpt": "If rank_O(T) = 1, then (i) holds with τ = 1, and (ii) holds as well.",
      "match": "The rank-one example (stated for Hyp(K, T); the same argument applies over G_K∞)."
     }
    ],
@@ -605,13 +599,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Hypothesis Hyp(K∞/K), p. 27 (published p. 41)",
-     "excerpt": "If rank_Zp(Γ) = 1 and G_K∞ acts either trivially or by the cyclotomic character on V, then either K is a totally real field and Leopoldt's conjecture holds for K (i.e., the p-adic completion of O_K^× injects into (O_K ⊗ Zp)^×), or K is an imaginary quadratic field.",
      "match": "The hypothesis verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, p. 27",
-     "excerpt": "We will need the following weak assumption to rule out some very special bad cases. In particular it is satisfied if K = Q.",
      "match": "Its role and the case K = Q."
     }
    ],
@@ -736,19 +728,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Definition 3.1, p. 28 (published Definition 2.3.1)",
-     "excerpt": "Define Λ-modules S_Σp(K∞, W*) = lim→ S_Σp(F, W*), X∞ = Hom_O(S_Σp(K∞, W*), D), H¹_∞(K, T) = lim← H¹(F, T), limits with respect to restriction and corestriction maps, respectively.",
      "match": "The construction verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §4, proof of Lemma 4.1, p. 110",
-     "excerpt": "Let J denote the augmentation ideal in Λ. Then X∞/JX∞ = Hom(S_Σp(K∞, W*)^G_K, D).",
      "match": "The coinvariants identity recorded as an API item."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §2, proof of Lemma 2.4, p. 103",
-     "excerpt": "Note that σ acts on ψ ∈ Hom_O(B, O/MO) by (σψ)(b) = ψ(σ^{-1}b)",
      "match": "The contragredient convention for duals used throughout Chapter VII."
     }
    ],
@@ -826,7 +815,7 @@
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
-    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
     "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
     "SelmerIwasawaCohomology:L3/universal-norms-unramified"
    ],
@@ -880,19 +869,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §1, discussion after Remark 1.2, p. 22",
-     "excerpt": "It follows from our definition that the Euler system classes are “universal norms” in the K∞/K direction, i.e., if K ⊂f F ⊂f F′ ⊂ F′K∞, then Σ(F′/F) is empty so Cor_F′/F(c_F′) = c_F.",
      "match": "The norm-coherence that makes c_{K,∞} an element of H¹_∞(K, T)."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Definition 3.1, p. 28",
-     "excerpt": "If c is an Euler system let c_K,∞ = {c_F}_K⊂f F⊂K∞ denote the corresponding element of H¹_∞(K, T)",
      "match": "The construction verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI §2, p. 91",
-     "excerpt": "For every extension L of K, write H¹_∞(L, T) = lim← H¹(FL, T), and if c is an Euler system let c_L,∞ = {c_LF}_K⊂f F⊂K∞ ∈ H¹_∞(L, T).",
      "match": "The variant c_{L,∞} used for twisting."
     }
    ],
@@ -1022,13 +1008,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Definition 3.1, p. 28",
-     "excerpt": "define an ideal ind_Λ(c) = {φ(c_K,∞) : φ ∈ Hom_Λ(H¹_∞(K, T), Λ)} ⊂ Λ. The ideal ind_Λ(c) is the analogue for Λ of the index of divisibility ind_O(c) of Definition 2.1.",
      "match": "The definition verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-2000",
      "locator": "Ch. 2 §3, proof of Theorem 2.3.8, p. 43",
-     "excerpt": "and by definition ind_Λ(c) divides ψ ∘ loc^s_Σp(c_K,∞).",
      "match": "The divisibility convention for a non-principal ideal, in the published text."
     }
    ],
@@ -1145,13 +1129,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Remark 3.6, pp. 28–29 (published Remark 2.3.6, p. 42)",
-     "excerpt": "Suppose that for every K ⊂f F ⊂ K∞ and every prime w dividing p we have subspaces H¹_f(F_w, V) ⊂ H¹(F_w, V) and H¹_f(F_w, V*) ⊂ H¹(F_w, V*) which are orthogonal complements under the pairing ⟨ , ⟩_F_w",
      "match": "The data of the construction."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Remark 3.6, p. 29",
-     "excerpt": "Define S(K∞, W*) = lim→ S(F, W*), H¹_∞,s(K_p, T) = lim← H¹_s(F_p, T).",
      "match": "The two modules verbatim."
     }
    ],
@@ -1222,7 +1204,8 @@
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
-    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.2/twisting",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
     "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
     "PadicMeasuresIwasawaAlgebras:L1"
    ],
@@ -1276,19 +1259,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI, introduction, p. 89",
-     "excerpt": "In this chapter we extend the methods of Chapter II §4 and show how to twist Euler systems by characters of infinite order. This will be used in Chapter VII when we prove Theorems II.3.2, II.3.3, and II.3.4",
      "match": "The purpose of the construction."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI §3, Theorem 3.5, p. 93",
-     "excerpt": "Then the collection of classes {c^ρ_F ∈ H¹(F, T ⊗ ρ)} defined above is an Euler system for (T ⊗ ρ, K, fN) where f is the non-archimedean, non-p part of the conductor of ρ.",
      "match": "Part (b) verbatim (Rubin's K is the field 𝒦 here)."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI §2, Proposition 2.1, p. 91",
-     "excerpt": "The natural map on cocycles induces G_K-isomorphisms (i) H¹_∞(L, T) ⊗ ρ ≅ H¹_∞(L, T ⊗ ρ) (ii) S_Σ(LK∞, W) ⊗ ρ ≅ S_Σ(LK∞, W ⊗ ρ) if Σ is a finite set of primes of K containing all primes above p.",
      "match": "Part (a)."
     }
    ],
@@ -1333,19 +1313,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI §4, Theorem 4.1, p. 94",
-     "excerpt": "If ρ : Γ → O× is a character then Theorems II.3.2, II.3.3, and II.3.4 for T and c are equivalent to Theorems II.3.2, II.3.3, and II.3.4, respectively, for T ⊗ ρ and c^ρ",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI §4, proof of Theorem 4.1, p. 94",
-     "excerpt": "The hypotheses Hyp(K∞, T), Hyp(K∞, V), and Hyp(K∞/K) depend only on the action of G_K∞ on T, so they are not affected by twisting by characters of Γ.",
      "match": "The invariance of the hypotheses."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VI §1, Lemma 1.2, p. 89",
-     "excerpt": "If B is a finitely-generated torsion Λ-module and ρ : Γ → O× is a character, then B ⊗ ρ is a finitely-generated torsion Λ-module and (i) Tw_ρ(char(B ⊗ ρ)) = char(B), (ii) Tw_ρ(Ann_Λ(B ⊗ ρ)) = Ann_Λ(B).",
      "match": "The twisting rule for characteristic ideals."
     }
    ],
@@ -1391,19 +1368,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §3, Proposition 3.4(iii), p. 107",
-     "excerpt": "The cokernel of the restriction map S_Σp(F, W*) −→ S_Σp(K∞, W*)^G_F is finite and is annihilated by A*_glob A*_N.",
      "match": "Part (iii) verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §3, Lemma 3.2, p. 106",
-     "excerpt": "The ideals A_glob, A_N, A*_glob, and A*_N defined above have height at least two in Λ.",
      "match": "The height statement."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §3, opening, pp. 105–106",
-     "excerpt": "By Lemma VI.1.3(i) applied to T ⊕ T*, we may twist T by a character of Γ if necessary to assume that, in addition to (1), for every prime λ of K dividing N, the decomposition group of λ in G_K contains an element γ_λ",
      "match": "The twist assumption (5)."
     }
    ],
@@ -1445,7 +1419,6 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §4, Lemma 4.1 and proof, p. 110",
-     "excerpt": "Lemma 4.1. X∞ is a finitely generated Λ module. Proof. Let J denote the augmentation ideal in Λ. Then X∞/JX∞ = Hom(S_Σp(K∞, W*)^G_K, D). Thus by Nakayama's Lemma, to prove the lemma we need only show",
      "match": "Statement and the Nakayama reduction."
     }
    ],
@@ -1514,8 +1487,11 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
     "EulerSystemsAndKolyvaginSystems:ES.8/restricted-iwasawa-selmer-module",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
     "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate"
    ],
    "api": [
@@ -1573,19 +1549,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Definition 1.2, p. 98",
-     "excerpt": "Define a positive integer a_τ by a_τ = [W^{τ=1} : (W^{τ=1})_div] · max{|Z|, |Z*|} where (W^{τ=1})_div is the maximal divisible subgroup of W^{τ=1}, and Z (resp. Z*) is the unique maximal G_K∞-stable submodule of (τ − 1)W (resp. (τ − 1)W*).",
      "match": "The constant a_τ verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Lemma 1.3, p. 98",
-     "excerpt": "(i) a_τ is finite. (ii) If T and τ satisfy hypotheses Hyp(K∞, T) then a_τ = 1.",
      "match": "Finiteness and the integral case."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Definition 1.1, p. 97",
-     "excerpt": "There is a natural evaluation homomorphism Ev* : G_Ω∞^⟨τ⟩ → Hom(H¹(K∞, W*), D), defined by Ev*(σ)([c]) = θ*(c(σ))",
      "match": "The map Ev*."
     }
    ],
@@ -1624,8 +1597,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/restriction-control-over-the-tower",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
     "ArithmeticGaloisDuality:R02.1/rationalization",
     "mathlib:Module.IsTorsion"
    ],
@@ -1637,19 +1610,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Theorem 3.2, p. 28 (published Theorem 2.3.2, p. 41)",
-     "excerpt": "Theorem 3.2. Suppose c is an Euler system for (T, K∞), and V satisfies Hyp(K∞, V). If c_K,∞ does not belong to the Λ-torsion submodule of H¹_∞(K, T) then X∞ is a torsion Λ-module.",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §4, opening, p. 110",
-     "excerpt": "The general idea is that if c ∉ H¹_∞(K, T)_tors, then we can use Corollary 2.8 to construct a nonzero annihilator of X∞, and hence X∞ is Λ-torsion.",
      "match": "The structure of the proof."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Remark 3.5, p. 28",
-     "excerpt": "The assertion that X∞ is a torsion Λ-module is called the weak Leopoldt conjecture for T.",
      "match": "Its name."
     }
    ],
@@ -1694,13 +1664,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §3, Lemma 3.7, p. 109",
-     "excerpt": "Suppose Γ ≅ Zp, and either K is imaginary quadratic or K is totally real and Leopoldt's conjecture holds for K. (i) If G_K∞ acts trivially on T then X∞/Ann_Λ(T)X∞ is finite.",
      "match": "Statement (i) verbatim; (ii) is the same for T(−1)."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §3, proof of Lemma 3.7, p. 109",
-     "excerpt": "If K is totally real and Leopoldt's conjecture holds for K, then K has no extension with Galois group Z_p², so L/K∞ is finite.",
      "match": "The Leopoldt step."
     }
    ],
@@ -1736,8 +1704,10 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/restriction-control-over-the-tower",
     "EulerSystemsAndKolyvaginSystems:ES.8/twisting-invariance-of-iwasawa-theorems",
     "EulerSystemsAndKolyvaginSystems:ES.8/rank-one-leopoldt-case",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
     "PadicMeasuresIwasawaAlgebras:L4/pseudo-null",
     "PadicMeasuresIwasawaAlgebras:L4/torsion-structure-normal-domain",
     "PadicMeasuresIwasawaAlgebras:L4"
@@ -1750,19 +1720,16 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Proposition 1.6, p. 100",
-     "excerpt": "There is an element h ∈ Λ relatively prime to char(X∞), and for every K ⊂f F ⊂ K∞ there is a power N_F of p, such that if K ⊂f F ⊂ K∞, M ≥ N_F is a power of p, and 0 ≤ k < r, then h a_τ^5 Ψ(k, F, MN_F)Λ_F,M ⊂ f_k+1 Ψ(k + 1, F, M).",
      "match": "Part (c) verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Proposition 1.4, pp. 98–99",
-     "excerpt": "There are elements z1, . . . , zr ∈ X∞ and ideals g1, . . . , gr ⊂ Λ such that for 1 ≤ k ≤ r (i) z_k ∈ Ev*(τG_Ω∞), (ii) a_τ g_k ⊂ f_kΛ and, if k < r, g_k ⊂ g_k+1",
      "match": "Part (a)."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, after Proposition 1.6, p. 100",
-     "excerpt": "Proposition 1.6 is the key to the proofs of Theorems II.3.3 and II.3.4; it will be proved in §7.",
      "match": "Its role."
     }
    ],
@@ -1797,7 +1764,7 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-index",
     "EulerSystemsAndKolyvaginSystems:ES.8/weak-leopoldt-from-an-euler-system",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
     "SelmerIwasawaCohomology:L3/universal-norms-unramified"
    ],
@@ -1809,13 +1776,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Theorem 1.9, p. 101",
-     "excerpt": "Theorem 1.9. With notation and assumptions as above, char(X∞) divides a_τ^{5r} ind_Λ(c).",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, Lemma 1.8, p. 101",
-     "excerpt": "Suppose G is a finite abelian group, R is a principal ideal domain, and B is finitely generated R[G]-module with no R-torsion. If f ∈ R[G] is not a zero-divisor, b ∈ B, and {ψ(b) : ψ ∈ Hom_R[G](B, R[G])} ⊂ fR[G], then b ∈ fB.",
      "match": "The divisibility lemma of the proof."
     }
    ],
@@ -1860,13 +1825,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Theorem 3.3, p. 28 (published Theorem 2.3.3, p. 42)",
-     "excerpt": "Theorem 3.3. Suppose c is an Euler system for (T, K∞), and T satisfies hypotheses Hyp(K∞, T) and Hyp(K∞/K). Then char(X∞) divides ind_Λ(c).",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, end, pp. 101–102",
-     "excerpt": "If in addition hypotheses Hyp(K∞, T) are satisfied then a_τ = 1 by Lemma 1.3(ii), and Theorem II.3.3 follows as well.",
      "match": "The deduction from Theorem VII.1.9."
     }
    ],
@@ -1905,13 +1868,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Theorem 3.4, p. 28 (published Theorem 2.3.4, p. 42)",
-     "excerpt": "Theorem 3.4. Suppose c is an Euler system for (T, K∞), and V satisfies hypotheses Hyp(K∞, V) and Hyp(K∞/K). Then there is a nonnegative integer t such that char(X∞) divides p^t ind_Λ(c).",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. VII §1, end, p. 102",
-     "excerpt": "Lemma 1.3(i) shows that a_τ is a (finite) positive integer, so Theorem II.3.4 is immediate from Theorem 1.9.",
      "match": "The deduction."
     }
    ],
@@ -1954,13 +1915,11 @@
     {
      "sourceId": "rubin-euler-systems-2000",
      "locator": "Ch. 2 §3, Proposition 2.3.7 and proof, pp. 42–43",
-     "excerpt": "Proof. By Corollary B.3.5, H¹_∞(K, T) = lim← S^Σp(F, T). Thus the proposition follows from Corollary 1.7.5 by passing to the (direct) limit and applying Hom_O( · , D).",
      "match": "The proof in the published text (the 1999 draft cites Corollary B.3.4 here)."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. II §3, Proposition 3.7, p. 29",
-     "excerpt": "There is an exact sequence 0 −→ H¹_∞,s(K_p, T)/loc^s_Σp(H¹_∞(K, T)) −→ Hom_O(S(K∞, W*), D) −→ X∞ −→ 0.",
      "match": "The statement verbatim."
     }
    ],
@@ -2005,13 +1964,11 @@
     {
      "sourceId": "rubin-euler-systems-2000",
      "locator": "Ch. 2 §3, Theorem 2.3.8, p. 43",
-     "excerpt": "Suppose further that loc^s_Σp(c_K,∞) ∉ H¹_∞,s(K_p, T)_Λ−tors and H¹_∞,s(K_p, T)/Λloc^s_Σp(c_K,∞) is a torsion Λ-module. Then Hom_O(S(K∞, W*), D) is a torsion Λ-module",
      "match": "The hypotheses and first conclusion, in the published text."
     },
     {
      "sourceId": "rubin-euler-systems-2000",
      "locator": "Ch. 2 §3, proof of Theorem 2.3.8, p. 43",
-     "excerpt": "Our assumptions ensure that loc^s_Σp(H¹_∞(K, T)) is a rank-one Λ-module, so there is a map ψ : loc^s_Σp(H¹_∞(K, T)) → Λ with pseudo-null cokernel.",
      "match": "The key step of the proof."
     }
    ],
@@ -2080,7 +2037,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
     "SelmerIwasawaCohomology:L3/universal-norms-unramified",
     "SelmerIwasawaCohomology:L2/unramified-condition",
-    "EulerSystemsAndKolyvaginSystems:ES.1"
+    "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection"
    ],
    "api": [
     {
@@ -2122,13 +2080,11 @@
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. IX §2, p. 136",
-     "excerpt": "In fact, the assumption that no prime splits completely is unnecessarily strong. We can remove this hypothesis if we assume instead that (*) for every prime q of K which splits completely in K∞/K, and for every finite extension F of K in K, we have (c_F)_q ∈ H¹_ur(F_q, T).",
      "match": "The condition verbatim."
     },
     {
      "sourceId": "rubin-euler-systems-1999",
      "locator": "Ch. IX §2, p. 136",
-     "excerpt": "This condition (*) takes care of (i), and for (ii) we only need observe that the set of primes splitting completely in K∞/K has density zero, so we can remove from R all ideals divisible by those primes without interfering with our Tchebotarev arguments.",
      "match": "The replacement argument."
     }
    ],
@@ -2261,19 +2217,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Definition 5.3.2, p. 60",
-     "excerpt": "We define a Selmer structure FΛ on T by setting Σ(FΛ) = Σ and H¹_F(Q_v, T) = H¹(Q_v, T) for v ∈ Σ. By Lemma 5.3.1(ii) we also have H¹_f(Q_v, T) = H¹(Q_v, T) for v ∉ Σ.",
      "match": "The canonical structure (a)."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, after Definition 5.3.2, p. 60",
-     "excerpt": "Note that the induced Selmer structure FΛ on quotients T/IT (such as T and T̄) will not usually satisfy H¹_FΛ(Q_v, T/IT) = H¹(Q_v, T/IT).",
      "match": "The propagation caveat."
     },
     {
      "sourceId": "howard-heegner-point-kolyvagin-system",
      "locator": "§2.2, Definition 2.2.6, p. 25",
-     "excerpt": "Define a Selmer structure FΛ on T by taking the unramified condition at primes of K not dividing p, and taking the image of H¹(Kv, Filv T) → H¹(Kv, T) at primes above p.",
      "match": "The ordinary structure (b)."
     }
    ],
@@ -2293,7 +2246,7 @@
     "Over Λ the ideals I_n are generally of finite index, so each κ_n is a class with coefficients in a finite quotient of 𝐓 (Mazur–Rubin, proof of Theorem 5.3.3)."
    ],
    "proofSteps": [
-    "The module structure, the functoriality in the ring (KS(T, F) ⊗_R R' → KS(T ⊗_R R', F ⊗ R') for R → R'), in P (restriction to P' ⊂ P) and in F (inclusion for F' ≤ F) are Mazur–Rubin's Remark 3.1.4, owned for general R by ES.4; here they are applied to R = Λ and its quotients Λ/I, Λ/𝔐^k and S_𝔓.",
+    "The module structure, the functoriality in the ring (KS(T, F) ⊗_R R' → KS(T ⊗_R R', F ⊗ R') for R → R'), in P (restriction to P' ⊂ P) and in F (inclusion for F' ≤ F) are Mazur–Rubin's Remark 3.1.4, owned for general R by ES.3/kolyvagin-system-module; here they are applied to R = Λ and its quotients Λ/I, Λ/𝔐^k and S_𝔓.",
     "The bottom class of κ̄ ∈ KS‾ is well defined because κ̄_1 is compatible in k and lim_k H¹_{F_Λ}(K, 𝐓/𝔐^k𝐓) = H¹_{F_Λ}(K, 𝐓) for the finitely generated, 𝔐-adically complete module H¹_{F_Λ}(K, 𝐓)."
    ],
    "acceptance": [
@@ -2349,8 +2302,10 @@
    },
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+    "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+    "EulerSystemsAndKolyvaginSystems:ES.3/kolyvagin-system-module",
     "PadicMeasuresIwasawaAlgebras:L1"
    ],
    "api": [
@@ -2403,19 +2358,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§3.1, Definition 3.1.3, p. 20",
-     "excerpt": "Concretely, a Kolyvagin system for (T, F, P) is a collection of cohomology classes {κn ∈ H¹_F(n)(Q, T/InT) ⊗ Gn : n ∈ N} such that if ℓ is prime and nℓ ∈ N, (κnℓ)ℓ,s = φfs_ℓ(κn) in H¹_s(Qℓ, T/InℓT) ⊗ Gnℓ.",
      "match": "The definition, applied to R = Λ."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§3.1, Definition 3.1.6, p. 21",
-     "excerpt": "There is a natural map KS(T) → KS‾(T), which in general need not be either injective or surjective.",
      "match": "The generalized module and the comparison map (the overline is lost in the text layer of the author copy)."
     },
     {
      "sourceId": "buyukboduk-lambda-adic-kolyvagin-systems",
      "locator": "§3.2, Remark 3.24, p. 27",
-     "excerpt": "when we say κ is a Λ-adic Kolyvagin system, we mean (by slight abuse) that κ is an element of one of the three modules of Kolyvagin systems discussed above.",
      "match": "The terminology."
     }
    ],
@@ -2449,8 +2401,13 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.2",
-    "EulerSystemsAndKolyvaginSystems:ES.3"
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
+    "EulerSystemsAndKolyvaginSystems:ES.2/conductor-presentation",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/finite-part-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.3/euler-to-kolyvagin"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KolyvaginSystems/Lambda",
@@ -2460,19 +2417,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Theorem 5.3.3, p. 61",
-     "excerpt": "Suppose that K contains the maximal abelian p-extension of Q which is unramified outside of p and P, and (a) T/(Fr_ℓ − 1)T is a cyclic R-module for every ℓ ∈ P, (b) Fr_ℓ^{p^k} − 1 is injective on T for every ℓ ∈ P and every k ≥ 0.",
      "match": "The hypotheses verbatim."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Theorem 5.3.3, p. 61",
-     "excerpt": "Then there is a canonical homomorphism ES(T, K, P) → KS(T, FΛ, P) with the property that if c maps to κ, then κ1 = {cQn} ∈ lim← H¹(Qn, T) = H¹(Q, T).",
      "match": "The conclusion (the target is the generalized module KS‾(𝐓); the overline and boldface are lost in the text layer)."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "Appendix A, proof of Theorem 5.3.3, pp. 81–82",
-     "excerpt": "The proof of Theorem 5.3.3 is essentially the same as that of Theorem 3.2.4. We sketch the argument again here.",
      "match": "The proof route."
     }
    ],
@@ -2579,7 +2533,6 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Definition 5.3.12, p. 62",
-     "excerpt": "Define an exceptional set of height-one primes of Λ by ΣΛ = {P : H²(QΣ/Q, T)[P] is infinite} ∪ {P : H²(Qp, T)[P] is infinite} ∪ {pΛ}. It follows from Lemma 5.3.4 that ΣΛ is finite.",
      "match": "The definition verbatim."
     }
    ],
@@ -2698,19 +2651,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, p. 62",
-     "excerpt": "Suppose P is a height-one prime ideal of Λ. Let SP denote the integral closure of Λ/P. Then SP is a discrete valuation ring, [SP : Λ/P] is finite, and T ⊗Λ SP = T ⊗Zp SP.",
      "match": "The ring S_𝔓 and the specialized representation."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Corollary 5.3.15, p. 64",
-     "excerpt": "For every height-one prime P of Λ, there is a natural map KS(T, FΛ) → KS(T ⊗ SP, Fcan).",
      "match": "The specialization map."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, proof of Theorem 5.3.10, p. 66",
-     "excerpt": "For every N let PN = (ρ(U) + p^N)Λ. Since P ≠ pΛ, the PN are distinct ideals of Λ, and different from P.",
      "match": "The perturbations."
     }
    ],
@@ -2744,7 +2694,9 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
+    "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
     "SelmerIwasawaCohomology:L3",
     "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
     "ArithmeticGaloisDuality:R02.4/poitou-tate"
@@ -2757,19 +2709,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Proposition 5.3.14, p. 64",
-     "excerpt": "For every P the map πP is injective. If P ∉ ΣΛ then coker(πP), ker(π*P), and coker(π*P) are all finite with order bounded by a constant depending only on T and [SP : Λ/P].",
      "match": "The global control statement."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Lemma 5.3.13, p. 62",
-     "excerpt": "If P ∉ ΣΛ, then the kernels and cokernels of these maps are finite with order bounded by a constant depending only on T and [SP : Λ/P].",
      "match": "The local control statement."
     },
     {
      "sourceId": "howard-heegner-point-kolyvagin-system",
      "locator": "§2.2, Proposition 2.2.8, p. 26",
-     "excerpt": "There is a finite set of primes ΣΛ of Λ such that for P ∉ ΣΛ the kernels and cokernels of these maps are finite and bounded by a constant depending only on [SP : Λ/P].",
      "match": "Howard's ordinary version."
     }
    ],
@@ -2799,7 +2748,8 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
     "SelmerIwasawaCohomology:L3"
    ],
    "library": {
@@ -2810,13 +2760,11 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Lemma 5.3.16, p. 65",
-     "excerpt": "If P is a height-one prime of Λ, and P ∉ ΣΛ, then χ(T ⊗ SP, Fcan) = rankZp T− where T− is the minus part of T for complex conjugation.",
      "match": "The statement verbatim."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Definition 5.3.17, p. 65",
-     "excerpt": "We define χ(T) to be the common value (by Lemma 5.3.16) of χ(T ⊗ SP, Fcan) for P ∉ ΣΛ. Equivalently, χ(T) = rankZp T−.",
      "match": "The definition of the generic core rank."
     }
    ],
@@ -2889,8 +2837,9 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.5",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants",
+    "EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
     "PadicMeasuresIwasawaAlgebras:L4/height-one-primes"
    ],
    "api": [
@@ -2943,13 +2892,11 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Definition 5.3.9, p. 61",
-     "excerpt": "If κ ∈ KS(T), we will say that κ is Λ-primitive if the blind spot of κ (see Definition 3.1.6) contains no height-one primes of Λ. This is not in general the same as being primitive (Definition 4.5.5), which requires that the image of κ be nonzero in KS(T̄).",
      "match": "Λ-primitivity and its distinction from primitivity."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§3.1, Definition 3.1.6, p. 21",
-     "excerpt": "In other words, I is not in the blind spot if for some k ∈ Z+, the image of κ in KS(T/(I, m^k)T, P ∩ Pj) is nonzero for every j ∈ Z+.",
      "match": "The blind spot."
     }
    ],
@@ -2976,7 +2923,7 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/blind-spot-and-lambda-primitivity",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
-    "EulerSystemsAndKolyvaginSystems:ES.5"
+    "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KolyvaginSystems/Lambda",
@@ -2986,7 +2933,6 @@
     {
      "sourceId": "buyukboduk-lambda-adic-kolyvagin-systems",
      "locator": "§4.1.1, proof of Proposition 4.1, pp. 28–29",
-     "excerpt": "the Kolyvagin system κρ is primitive, i.e., its image κρ under the map KS(T) −→ KS(T/mT) is non-zero. This proves that the image of κρ,∞ under the map KS(T ⊗ Λ) → KS(T ⊗ Λ/p) is non-zero for any height-one prime p ⊂ Λ",
      "match": "The argument, in the cyclotomic-unit case."
     }
    ],
@@ -3103,19 +3049,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Definition 5.3.8, p. 61",
-     "excerpt": "If c ∈ H¹(Q, T), we let Ind(c) denote the principal ideal of Λ Ind(c) = char((H¹(Q, T)/Λc)tors).",
      "match": "The definition as printed."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Definition 5.3.8, p. 61",
-     "excerpt": "If we fix a pseudo-isomorphism ψ : H¹(Q, T) → Λ^r and write ψ(c) = (a1, . . . , ar), then Ind(c) is the greatest common divisor of the ai.",
      "match": "The gcd description adopted here."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, proof of Theorem 5.3.10, p. 66",
-     "excerpt": "If κ1 = 0 then Ind(κ) = 0 and there is nothing to prove.",
      "match": "The convention Ind(0) = 0 used by the authors."
     }
    ],
@@ -3148,8 +3091,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
     "SelmerIwasawaCohomology:L3"
    ],
    "library": {
@@ -3160,19 +3103,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Theorem 5.3.6, p. 61",
-     "excerpt": "Suppose κ ∈ KS(T), and κ1 ≠ 0. Then H¹_F*Λ(Q, T*) is a co-torsion Λ-module.",
      "match": "Theorem 5.3.6 verbatim."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Corollary 5.3.19, p. 65",
-     "excerpt": "Suppose κ ∈ KS(T) and κ1 ≠ 0. Then for all but finitely many height-one primes P of Λ, the class κ(P)1 ∈ H¹(Q, T ⊗ SP) is nonzero.",
      "match": "Corollary 5.3.19 verbatim."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, proof of Theorem 5.3.6, pp. 65–66",
-     "excerpt": "Applying Theorem 5.2.2 to κ(P) shows that H¹_F*can(Q, (T ⊗ SP)*) is finite, and then Proposition 5.3.14 shows that H¹_F*Λ(Q, T*)[P] is finite.",
      "match": "The proof."
     }
    ],
@@ -3213,8 +3153,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/generic-core-rank",
     "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
-    "EulerSystemsAndKolyvaginSystems:ES.5",
+    "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.5/structure-theorem",
     "PadicMeasuresIwasawaAlgebras:L4",
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
    ],
@@ -3226,19 +3166,16 @@
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Theorem 5.3.10, p. 62",
-     "excerpt": "Theorem 5.3.10. Suppose κ ∈ KS(T). (i) char(X∞) divides Ind(κ). (ii) If χ(T) = 1, κ1 ≠ 0, and P is is a height-one prime of Λ not in the blind spot of κ, then ordP(char(X∞)) = ordP(Ind(κ)).",
      "match": "Parts (i)–(ii) verbatim, including the printed repetition 'is is'."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, Theorem 5.3.10(iii), p. 62",
-     "excerpt": "(iii) If χ(T) = 1, κ1 ≠ 0, and κ is Λ-primitive then char(X∞) = Ind(κ).",
      "match": "Part (iii) verbatim."
     },
     {
      "sourceId": "mazur-rubin-kolyvagin-systems",
      "locator": "§5.3, proof of Theorem 5.3.10, p. 67",
-     "excerpt": "so taking N sufficiently large shows that ordP(char(X∞)) ≤ ordP(Ind(κ)). Since P was arbitrary, this proves (i).",
      "match": "The length comparison along the perturbations."
     }
    ],
@@ -3277,8 +3214,11 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.5",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+    "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
     "PadicMeasuresIwasawaAlgebras:L4",
     "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two",
     "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism"
@@ -3291,19 +3231,16 @@
     {
      "sourceId": "howard-heegner-point-kolyvagin-system",
      "locator": "§2.2, Theorem 2.2.10, p. 26",
-     "excerpt": "Let X = Hom(H¹_FΛ(K, A), Qp/Zp) and suppose that for some s the Selmer triple (T, FΛ, Ls) admits a Kolyvagin system κ with κ1 ≠ 0. Then (a) H¹_FΛ(K, T) is a torsion free, rank one Λ-module,",
      "match": "The hypotheses and conclusion (a)."
     },
     {
      "sourceId": "howard-heegner-point-kolyvagin-system",
      "locator": "§2.2, Theorem 2.2.10(b)–(c), p. 26",
-     "excerpt": "(b) there is a torsion Λ-module M such that char(M) = char(M)ι and a pseudo-isomorphism X ∼ Λ ⊕ M ⊕ M, (c) char(M) divides char(H¹_FΛ(K, T)/Λκ1).",
      "match": "Conclusions (b)–(c)."
     },
     {
      "sourceId": "howard-heegner-point-kolyvagin-system",
      "locator": "§2.2, proof of Theorem 2.2.10, p. 27",
-     "excerpt": "We now argue as in the proof of [MR04] Proposition 5.3.10.",
      "match": "The method: Mazur–Rubin's perturbation argument (their Theorem 5.3.10)."
     }
    ],
@@ -3338,7 +3275,7 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
     "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors",
     "PadicMeasuresIwasawaAlgebras:L4",
     "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two",
     "SelmerIwasawaCohomology:L3"
@@ -3351,19 +3288,16 @@
     {
      "sourceId": "castella-grossi-lee-skinner-eisenstein",
      "locator": "§3.4, Theorem 3.4.1, p. 26",
-     "excerpt": "Suppose there is a Kolyvagin system κ ∈ KS(T, FΛ, LE) with κ1 ≠ 0. Then H¹FΛ(K, T) has Λ-rank one, and there is a finitely generated torsion Λ-module M such that (i) X ∼ Λ ⊕ M ⊕ M, (ii) charΛ(M) divides charΛ(H¹FΛ(K, T)/Λκ1) in Λ[1/p, 1/(γ − 1)].",
      "match": "Theorem 3.4.1 verbatim."
     },
     {
      "sourceId": "castella-grossi-lee-skinner-eisenstein",
      "locator": "§3.4, Corollary 3.4.2, p. 27",
-     "excerpt": "Assume also that H¹F(K, E[p∞]) has Zp-corank one (equivalently, H¹F(K, TpE) has Zp-rank one). Then charΛ(M) divides charΛ(H¹FΛ(K, T)/Λκ1) in Λ[1/p].",
      "match": "Corollary 3.4.2."
     },
     {
      "sourceId": "castella-grossi-lee-skinner-eisenstein",
      "locator": "§3.4, proof of Theorem 3.4.1, p. 27",
-     "excerpt": "If P ≠ P0, then the error term EαQ is bounded independently of m, since rankZp(SQ) = rankZp(SP) and the term CαQ in (3.3) satisfies CαQ = CαP for m ≫ 0.",
      "match": "The uniformity of the error, which is hypothesis (C')."
     }
    ],

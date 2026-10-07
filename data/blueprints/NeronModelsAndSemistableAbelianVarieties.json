@@ -417,7 +417,7 @@
       "source": "BCGP25",
       "kind": "misprint",
       "locator": "Lemma9.1.8 proof, arXiv2502.20645v1 p.191, page image",
-      "printed": "If B is purely toric, then t = 2 and T₂(B) gives the desired space.",
+      "printed": "The source says that purely toric B has t = 2, with the required space supplied by T₂(B).",
       "correction": "Use the toric submodule T₂(B)_t, of rank2, rather than the whole Tate module, of rank4.",
       "reason": "The proof seeks a rank-two saturated isotropic submodule. A surface has full Tate rank4 and the preceding filtration gives toric rank t=2 in this case. The intended argument and theorem are unchanged.",
       "affects": "nothing",
@@ -438,7 +438,7 @@
       "source": "YUAN-ARXIV",
       "kind": "misprint",
       "locator": "Lemma4.9 proof, arXiv2108.05625v4 printed p.75 (PDF75); original packet page76 was incorrect.",
-      "printed": "Here J is the Jacobian variety of X over K",
+      "printed": "The source identifies J as the Jacobian attached to X, with base field K.",
       "correction": "J is the Jacobian of C over K.",
       "reason": "The lemma introduces C and subsequently applies the curve criterion to C; no X is introduced here.",
       "affects": "nothing",
@@ -480,7 +480,7 @@
       "source": "YZ",
       "kind": "error",
       "locator": "Published2018 §2.3, Theorem2.7 proof p.549, compared with author erratum introduction",
-      "printed": "Thus we have a dual pair of exact sequences of their Neron models",
+      "printed": "The source concludes that their Neron models form two exact sequences dual to one another.",
       "correction": "Generic exact sequences need not remain exact on Néron models; use the specialized weakened statement in the erratum and retain explicit exactness hypotheses for every component/character sequence.",
       "reason": "The authors explicitly withdraw this general exactness step and cite BLR p.190 Example8. This packet does not derive general lattice or conductor sequences from it.",
       "affects": "the proof",
@@ -501,7 +501,7 @@
       "source": "CONRAD-SR",
       "kind": "error",
       "locator": "Proof of Theorem5.8, printed p.21, paragraph immediately following Lemma5.9; own text and page image checked.",
-      "printed": "The claimed equality A[ℓⁿ](K)=A[ℓⁿ](K′) for every n is inferred from equality of Vℓ(A) fixed spaces.",
+      "printed": "The source deduces A[ℓⁿ](K)=A[ℓⁿ](K′) for each n from the coincidence of the fixed subspaces of Vℓ(A).",
       "correction": "Keep the equality of rational fixed spaces and their intersections with the integral Tate lattice. Descend the corresponding compatible divisible torsion subsystem; do not infer equality of all finite-level rational torsion points. The integral/divisible descent argument must be supplied.",
       "reason": "Equal rational fixed spaces need not give equal invariants modulo ℓⁿ. On Zℓ², a generator with matrix [[1,ℓ],[0,1]] and its ℓ-th power [[1,ℓ²],[0,1]] have the same Qℓ fixed line y=0. Modulo ℓ², (0,1) is fixed by the latter but not the former. A split Tate curve with parameter of valuation ℓ over a strictly henselian DVR of residue characteristic different from ℓ realizes this pattern: adjoining an ℓ-th root of the uniformizer adds ℓ²-torsion without changing the rational fixed line. This is a flaw in the displayed intermediate inference, not a counterexample to the monodromy criterion.",
       "affects": "the proof",
@@ -549,7 +549,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Definition 1, printed p.12",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -669,7 +668,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Definition 1 and Proposition 2, printed pp.12–13",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -793,7 +791,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Proposition 2, printed p.13",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -906,7 +903,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Definition 1 and Proposition 2, printed pp.12–13",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -944,7 +940,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Proposition 2, printed p.13",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -983,7 +978,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Proposition 2(a), printed p.13",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1025,7 +1019,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Proposition 6, printed p.14",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1068,7 +1061,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Definition 1, printed p.12",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1181,7 +1173,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Criterion 9; §1.3 Theorem 1 and Corollary 2, printed pp.15–17",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1219,7 +1210,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.3 Theorem 1 and Corollary 2, printed pp.16–17",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1259,7 +1249,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.4 Proposition 2 and Theorem 3, printed pp.18–20",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1297,7 +1286,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Proposition 8, printed p.15",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1338,7 +1326,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Lemma5, printed pp.13–14; §1.4 Proposition1 and Theorem3, printed pp.18–20",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1380,7 +1367,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.2 Proposition 2(c), printed p.13",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1420,7 +1406,6 @@
         {
           "sourceId": "YZ",
           "locator": "§1.1, printed p.534 (PDF2); identity-model differential determinant and semistable base-change context",
-          "excerpt": "invariant",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1541,7 +1526,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §1.1, printed pp.321–322",
-          "excerpt": "composante",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1658,7 +1642,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §§1.1–1.2, printed pp.322–323",
-          "excerpt": "composantes",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1778,7 +1761,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "§2 Theorem 2.6, printed pp.3–4; Proposition 2.16, printed p.6; §3 Theorem 3.1, printed pp.7–8",
-          "excerpt": "perfect field",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1815,13 +1797,11 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §11.6.1, printed p.456; §10.4, printed p.444",
-          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         },
         {
           "sourceId": "CONRAD-SR",
           "locator": "Theorem3.1 and proof, printed pp.7–8; Proposition2.16, printed p.6",
-          "excerpt": "unique short exact sequence",
           "match": "The semiabelian torus descends to the actual residue field without perfectness; G-semiabelian-prefix records the absent carrier/character API."
         }
       ],
@@ -1861,13 +1841,11 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Proposition4.1 and proof, printed pp.8–9",
-          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         },
         {
           "sourceId": "YZ-ERR",
           "locator": "Introduction, printed p.1",
-          "excerpt": "exact",
           "match": "Confirms the failure of general Néron-model exactness; not a proof of isogeny rank invariance."
         }
       ],
@@ -1907,7 +1885,6 @@
         {
           "sourceId": "TATE",
           "locator": "§4 Theorems 4.1–4.2 and §6, printed pp.41–46",
-          "excerpt": "Néron symbol",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1945,7 +1922,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.5 Proposition 1, printed p.21",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -1987,7 +1963,6 @@
         {
           "sourceId": "TATE",
           "locator": "§6 geometric table, printed p.46 (above its characteristic restriction)",
-          "excerpt": "Néron symbol",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2028,7 +2003,6 @@
         {
           "sourceId": "TATE",
           "locator": "§6 geometric component-group row, printed p.46",
-          "excerpt": "Néron symbol",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2067,7 +2041,6 @@
         {
           "sourceId": "TATE",
           "locator": "§6 characteristic restriction and §7 algorithm, printed p.46; §7 not decomposed here",
-          "excerpt": "Néron symbol",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2108,7 +2081,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "§3 introductory semiabelian definition and Theorem3.1, printed pp.6–8; §4 definition of semistability, printed p.9",
-          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2228,7 +2200,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Proposition4.1 and proof, printed pp.8–9",
-          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2265,7 +2236,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Theorem4.4 and its proof, printed pp.10–16; Corollary4.5 and Example4.6, printed pp.11–12",
-          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2305,7 +2275,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Example4.6, printed pp.11–12",
-          "excerpt": "component",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2349,7 +2318,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Lemma5.4 and surrounding finite-part definitions, printed pp.17–18",
-          "excerpt": "saturated",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2389,7 +2357,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Theorem5.5 and proof, printed pp.18–20",
-          "excerpt": "orthogonal",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2428,7 +2395,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Remark5.6, printed p.18",
-          "excerpt": "unipotent",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2468,7 +2434,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Theorem5.8 and proof, printed pp.20–22; E6 corrects a finite-level inference",
-          "excerpt": "unipotent",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2510,7 +2475,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Theorem4.2 and Lemma4.3, printed pp.9–10; §7, printed pp.24–35; Theorem5.8, printed pp.20–22, is conditional on potential semistability",
-          "excerpt": "semistable",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2552,7 +2516,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Proposition6.5 and proof, printed pp.23–24",
-          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2592,7 +2555,6 @@
         {
           "sourceId": "RAYNAUD94",
           "locator": "§4.2(i–iv), printed pp.302–303; Theorem4.2.2, p.304 and Definition4.2.3, p.305",
-          "excerpt": "formel",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2632,13 +2594,11 @@
         {
           "sourceId": "RAYNAUD94",
           "locator": "§4.2(i–iv) and Theorem4.2.2, printed pp.302–304; §4.3, printed pp.308–309",
-          "excerpt": "monodromie",
           "match": "Raynaud gives the covering/lattice and valuation construction; its cited Bosch–Lütkebohmert inputs and polarized positivity remain G-Raynaud-algebraization/G-polarized-effectivity. Positivity is not proved in §4.7."
         },
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX Theorem10.4(b), printed p.444",
-          "excerpt": "positive",
           "match": "Supplies the polarized positivity statement; the rigorous compatibility with uniformisation remains G-polarized-effectivity."
         }
       ],
@@ -2680,7 +2640,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Theorem7.12 (Artin), Theorem7.13 (Raynaud), Proposition7.14, printed pp.34–35",
-          "excerpt": "Picard",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2801,7 +2760,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §12.3, printed pp.469–473; formulas12.3.1–12.3.14",
-          "excerpt": "tore",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2840,7 +2798,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX formula12.3.7 and formulas12.3.11–12.3.14, printed pp.472–473",
-          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2882,7 +2839,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX Theorem12.1(a–d), printed pp.465–467; §12.1.11, printed p.468",
-          "excerpt": "cohomologiquement plat",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -2923,7 +2879,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX Theorem10.4, printed p.444",
-          "excerpt": "accouplement de monodromie",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3042,7 +2997,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §§12.4–12.5, printed pp.473–475",
-          "excerpt": "accouplement de monodromie",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3080,7 +3034,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX Theorem11.5, Remark11.5.2(b) and §11.6 opening, printed pp.455–456",
-          "excerpt": "conoyau",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3124,7 +3077,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §§1.2–1.3, printed pp.323–324; Theorem11.5, printed p.455",
-          "excerpt": "accouplement",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3246,7 +3198,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX Theorem12.1(a–d), printed pp.465–467; reduced nodal comparison §§12.4–12.5, printed pp.473–475",
-          "excerpt": "cohomologiquement plat",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3286,7 +3237,6 @@
         {
           "sourceId": "BGW",
           "locator": "§3 curve and pinch construction, printed pp.9–10",
-          "excerpt": "ordinary double point",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3324,7 +3274,6 @@
         {
           "sourceId": "BGW",
           "locator": "§3, printed pp.10–11",
-          "excerpt": "generalized Jacobian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3364,7 +3313,6 @@
         {
           "sourceId": "BGW",
           "locator": "§3 Proposition22, printed p.11; divisor proof printed p.12",
-          "excerpt": "2-torsion",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3401,7 +3349,6 @@
         {
           "sourceId": "BGW",
           "locator": "§3 Picard/Brauer comparison, printed pp.10–11",
-          "excerpt": "Brauer",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3439,7 +3386,6 @@
         {
           "sourceId": "YUAN-ARXIV",
           "locator": "§3.1.3 and Lemma3.4 with proof, arXivv4 printed pp.43–44",
-          "excerpt": "semi-abelian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3481,13 +3427,11 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "§4 discussion before Lemma4.3, printed pp.9–10; Theorem5.8, printed pp.20–22",
-          "excerpt": "unramified",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         },
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX Theorem10.4, printed p.444",
-          "excerpt": "séparant",
           "match": "Provides the nondegenerate integral pairing statement; its identification with the actual inertia operator remains G-NOS-monodromy-bridge."
         }
       ],
@@ -3529,7 +3473,6 @@
         {
           "sourceId": "CONRAD-SR",
           "locator": "Proposition4.1, printed pp.8–9; good-reduction discussion printed pp.9–10",
-          "excerpt": "isogeny",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3568,7 +3511,6 @@
         {
           "sourceId": "BCGP21-PUBLISHED",
           "locator": "Proposition2.8.1 proof, published pp.194–195",
-          "excerpt": "Proposition 2.8.1",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3606,7 +3548,6 @@
         {
           "sourceId": "CG",
           "locator": "Appendix Lemma A.7 and its conductor argument",
-          "excerpt": "conductor",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3646,13 +3587,11 @@
         {
           "sourceId": "CG",
           "locator": "Appendix LemmaA.7 proof, author-copy p.89",
-          "excerpt": "conductor",
           "match": "CG states the surface residual-conductor application; the dimension formula for all semistable abelian varieties is supplied by Conrad Lemma5.4 plus the imported Artin/Swan formula."
         },
         {
           "sourceId": "CONRAD-SR",
           "locator": "Lemma5.4 and surrounding finite-part definitions, printed pp.17–18",
-          "excerpt": "saturated",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3692,7 +3631,6 @@
         {
           "sourceId": "RAYNAUD94",
           "locator": "Proposition4.6.1, printed p.315 (PDF22); Proposition4.7.4, printed p.317 (PDF24)",
-          "excerpt": "monodromie",
           "match": "Source acts on the homological realization with arithmetic Frobenius; the cohomological dual, geometric Frobenius and inertia/ker N adapter are explicit G-Euler-comparison obligations."
         }
       ],
@@ -3736,7 +3674,6 @@
         {
           "sourceId": "TATE",
           "locator": "§5 local factors, printed p.44",
-          "excerpt": "k is finite",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3778,7 +3715,6 @@
         {
           "sourceId": "CG",
           "locator": "Appendix Lemma A.7 proof, author-copy p.89 / journal p.889",
-          "excerpt": "conductor",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3819,7 +3755,6 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §10.2.6–10.2.8, printed p.441; §1.2, printed p.323",
-          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3858,13 +3793,11 @@
         {
           "sourceId": "SGA7",
           "locator": "Exposé IX §10.2.6–10.2.8, printed p.441; Theorem11.5, printed p.455",
-          "excerpt": "caractères",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         },
         {
           "sourceId": "YZ-ERR",
           "locator": "Introduction, printed p.1",
-          "excerpt": "exact",
           "match": "Records failure of automatic Néron-model exactness; does not itself construct the conditional exact torus sequence."
         }
       ],
@@ -3902,7 +3835,6 @@
         {
           "sourceId": "YZ",
           "locator": "§1.1, printed p.534 (PDF2); identity-model differential determinant and semistable base-change context",
-          "excerpt": "invariant",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -3942,7 +3874,6 @@
         {
           "sourceId": "YZ-ERR",
           "locator": "Introduction, printed p.1; weakened Theorem1 and Theorem2 statements, printed p.2",
-          "excerpt": "exact",
           "match": "The erratum withdraws general exactness and supplies a specialized CM graph-kernel repair; it does not prove a general isogeny local-length formula."
         }
       ],
@@ -3984,7 +3915,6 @@
         {
           "sourceId": "BLR-CH1",
           "locator": "§1.5, printed pp.20–23; native Weierstrass Reduction comparison",
-          "excerpt": "Néron mapping property",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4025,7 +3955,6 @@
         {
           "sourceId": "TATE",
           "locator": "§4 reduction geometry, printed p.41",
-          "excerpt": "canonical filtration",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4065,7 +3994,6 @@
         {
           "sourceId": "TATE",
           "locator": "§6 discriminant row and explicit restriction, printed p.46",
-          "excerpt": "Néron symbol",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4104,7 +4032,6 @@
         {
           "sourceId": "TATE",
           "locator": "§6 table, printed p.46 (tame display); full wild Ogg proof is an import",
-          "excerpt": "Néron symbol",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4144,7 +4071,6 @@
         {
           "sourceId": "TATE",
           "locator": "§§4–6, printed pp.41–46",
-          "excerpt": "canonical filtration",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4184,7 +4110,6 @@
         {
           "sourceId": "TATE",
           "locator": "Theorem4.2 and differential computation, printed pp.42–43",
-          "excerpt": "formal group",
           "match": "This passage gives the formal integral differential; the global smooth-locus chart/gluing comparison is G-Weierstrass-scheme, not already established by formal power series."
         }
       ],
@@ -4225,7 +4150,6 @@
         {
           "sourceId": "BCGP21-PUBLISHED",
           "locator": "Proposition2.8.1 and Definition2.8.2/Remark2.8.3, published pp.194–195",
-          "excerpt": "Proposition 2.8.1",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4265,7 +4189,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Definition 9.1.7 and Lemma 9.1.8, arXiv v1 pp.190–191",
-          "excerpt": "semistable ordinary reduction",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4304,7 +4227,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Proof of Lemma 9.1.8, arXiv v1 p.191",
-          "excerpt": "semistable ordinary reduction",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4342,7 +4264,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Lemma 9.1.8 and proof, arXiv v1 p.191",
-          "excerpt": "semistable ordinary reduction",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4379,7 +4300,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Lemma9.2.2 and proof, arXivv1 printed p.192",
-          "excerpt": "unramified",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4424,7 +4344,6 @@
         {
           "sourceId": "YUAN-ARXIV",
           "locator": "Lemma4.9 and full-level-extension paragraph, arXivv4 printed p.75 (PDF75)",
-          "excerpt": "semistable",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4466,7 +4385,6 @@
         {
           "sourceId": "TATE",
           "locator": "§§4–6, printed pp.41–46",
-          "excerpt": "canonical filtration",
           "match": "Tate supplies elliptic controls; the nodal graph controls use the separate SGA7 §§12.3–12.5 nodes, not a passage in Tate."
         }
       ],
@@ -4505,7 +4423,6 @@
         {
           "sourceId": "BGW",
           "locator": "§3 Proposition 22(3–4), printed p.11",
-          "excerpt": "generalized Jacobian",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],
@@ -4543,7 +4460,6 @@
         {
           "sourceId": "BGW",
           "locator": "End of §3, boundary/cup-product paragraph, printed p.12 (PDF12)",
-          "excerpt": "cup product",
           "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
         }
       ],

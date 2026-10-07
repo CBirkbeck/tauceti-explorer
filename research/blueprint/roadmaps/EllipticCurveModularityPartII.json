@@ -1,0 +1,186 @@
+{
+  "id": "EllipticCurveModularityPartII",
+  "title": "Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
+  "area": "automorphic",
+  "parent": "EllipticCurveModularity",
+  "summary": "Starting from unconditional modularity over ℚ, this continuation gives effective bounds on residual coincidences, exact-conductor comparison curves retaining rational two-torsion, sharp weight-two newspace dimension bounds, uniform irreducibility in two-torsion families, and restricted surjectivity for non-CM curves with rational cyclic isogenies. It keeps coefficient fields, primes above the residual characteristic and all local conductor hypotheses visible.",
+  "readme": "The definitive document is research/blueprint/readmes/EllipticCurveModularityPartII.md. EC.1–EC.6 plan the effective comparison route of Bennett–Siksek. Kraus uses the exact prime-to-ℓ residual conductor and Serre weight two. The three independent continuations combined by the queue are assigned explicitly in the packet’s split proposal. This roadmap extends R29 without feeding uniform irreducibility back into its fixed-curve proof. All mathematical carriers and general modularity, local conductor and Hecke theory are imported from their existing owners.",
+  "prerequisites": [
+    "EllipticCurveModularity",
+    "SerreWeightAndLevelOptimisation",
+    "AutomorphicGaloisRepresentations",
+    "ArithmeticGaloisRepresentations",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "ModularCurvesPartII",
+    "AlgebraicModularFormsAndSerreWeights",
+    "ComputationalNumberTheory",
+    "tauceti:TauCetiRoadmap/ModularCurves"
+  ],
+  "stages": [
+    {
+      "key": "EC.1",
+      "title": "Thresholds and sharp newspace dimensions",
+      "description": "**Kraus rationality threshold.** For positive N, μ(N)=[SL₂(ℤ):Γ₀(N)] and g⁺(N)=dimℂ S₂(Γ₀(N))new, define krausF(N)=(√(μ(N)/6)+1)^(2g⁺(N)), as a real number.\n\n**Kraus two-torsion threshold.** For positive N define krausG(N)=(√(μ(lcm(4,N))/6)+1)^2, using the full level lcm(4,N), as a real number.\n\n**Kraus comparison threshold.** For positive N define krausH(N)=max(krausF(N),krausG(N)).\n\n**Martin’s sharp weight-two dimension bound.** For every positive N, 12g⁺(N)≤N+1. Equality holds exactly when N=35 or N is prime with N≡11 mod 12.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms"
+      ]
+    },
+    {
+      "key": "EC.2",
+      "title": "Removed-prime exponent bounds",
+      "description": "**Effective congruence norm bound.** Let K be a number field of degree d, x∈𝒪K nonzero, λ a prime above the rational prime ℓ, and x∈λ. If |σ(x)|≤B for every embedding σ:K→ℂ and B≥0, then ℓ≤|NormK/ℚ(x)|≤B^d.\n\n**Removed-prime exponent bound.** Let E/ℚ have conductor M and minimal discriminant Δ, ℓ≥3 prime with E[ℓ] irreducible, and M₀ the reduced level of R20.6. If p≠ℓ is prime, p∥M and ℓ divides ordp(Δ), then ℓ≤(√p+1)^((M₀+1)/6).",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.3",
+        "EllipticCurveModularityPartII:EC.1",
+        "SerreWeightAndLevelOptimisation:R20.6",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality"
+      ]
+    },
+    {
+      "key": "EC.3",
+      "title": "Rationality and exact-conductor realization",
+      "description": "**Finite-prime rationality recognition.** For a normalized weight-two trivial-character newform f of level N, if c_q∈ℤ for every prime q≤μ(N)/6, then every coefficient c_n is in ℤ.\n\n**Small-prime integrality above the Kraus threshold.** Let E/ℚ have irreducible E[ℓ], Serre weight 2, ℓ≥5 prime, and residual conductor N. For a weight-two trivial-character newform f realizing E[ℓ] at N, if ℓ>krausF(N), then c_q∈ℤ for all primes q≤μ(N)/6.\n\n**Rational newform comparison curve.** For a normalized weight-two trivial-character newform f of exact level N with all coefficients in ℤ, there exists an elliptic curve F/ℚ of exact conductor N with a_q(F)=c_q at good primes. If f realizes irreducible E[ℓ], then F[ℓ]≅E[ℓ] over ℚ.\n\n**Kraus’s rational comparison theorem.** For E/ℚ, prime ℓ≥5, irreducible E[ℓ] of Serre weight 2 and prime-to-ℓ conductor N, ℓ>krausF(N) implies there is F/ℚ of exact conductor N with F[ℓ]≅E[ℓ].",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.5",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "AutomorphicGaloisRepresentations:R19.6",
+        "ComputationalNumberTheory:CN.3",
+        "EllipticCurveModularity:R29.6",
+        "EllipticCurveModularityPartII:EC.1",
+        "EllipticCurveModularityPartII:EC.2",
+        "ModularCurvesPartII:R14.5",
+        "SerreWeightAndLevelOptimisation:R20.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality"
+      ]
+    },
+    {
+      "key": "EC.4",
+      "title": "Full rational two-torsion realization",
+      "description": "**Finite recognition of point counts modulo four.** For E/ℚ of conductor N, 4 divides #E(𝔽q) at every prime q∤2N iff it does so for all such q≤μ(lcm(4,N))/6.\n\n**Small-prime point-count transfer.** Let ℓ≥5 be prime, E/ℚ have full rational 2-torsion and irreducible E[ℓ] of Serre weight 2 and prime-to-ℓ conductor N. Let F/ℚ have exact conductor N and F[ℓ]≅E[ℓ] as Gℚ-representations. If ℓ>krausG(N), then for every prime q∤2N with q≤μ(lcm(4,N))/6, E has good reduction at q, a_q(E)=a_q(F), and 4 divides #F(𝔽q).\n\n**Two-isogeny repair of rational two-torsion.** If E/ℚ satisfies 4|#E(𝔽q) for all but finitely many good odd q, then E is ℚ-isogenous by degree 1 or 2 to a curve F with full rational 2-torsion. For odd ℓ this isogeny preserves E[ℓ] and the conductor.\n\n**Kraus’s full-two-torsion realization.** If E/ℚ has full rational 2-torsion, ℓ≥5 is prime, E[ℓ] is irreducible of Serre weight 2 and prime-to-ℓ conductor N, and ℓ>krausH(N), then some F/ℚ has exact conductor N, full rational 2-torsion, and F[ℓ]≅E[ℓ].\n\n**Reduced-level adapter for Kraus’s theorem.** In an application with reduced level M₀ from R20.6, Kraus’s full-two-torsion theorem applies at M₀ only after establishing Serre weight 2 and N(E[ℓ])=M₀. In particular, for ℓ≥5 and ℓ∤M, local conductor comparison gives N(E[ℓ])=M₀; weight 2 must still be checked (for example by finite flatness at ℓ).",
+      "requires": [
+        "AlgebraicModularFormsAndSerreWeights:R15.4",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "EllipticCurveModularity:R29.6",
+        "EllipticCurveModularityPartII:EC.1",
+        "EllipticCurveModularityPartII:EC.3",
+        "SerreWeightAndLevelOptimisation:R20.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+      ]
+    },
+    {
+      "key": "EC.5",
+      "title": "Uniform two-torsion irreducibility",
+      "description": "**Mazur’s prime-isogeny theorem.** If E/ℚ admits a cyclic rational isogeny of prime degree r, then r∈{2,3,5,7,11,13,17,19,37,43,67,163}. For non-CM E the possibilities are {2,3,5,7,11,13,17,37}.\n\n**Two-torsion isogeny exclusions.** For every prime ℓ≥11, no elliptic curve over ℚ admits a cyclic rational 2ℓ-isogeny. For every prime ℓ≥7, none admits a cyclic rational 4ℓ-isogeny.\n\n**Two-torsion kernel transport.** For odd prime ℓ, if E/ℚ has a rational cyclic ℓ-subgroup and a rational point of order 2, it admits a rational cyclic 2ℓ-isogeny. If all E[2] is rational, some curve isogenous to E admits a rational cyclic 4ℓ-isogeny.\n\n**Irreducibility with full rational two-torsion.** If E/ℚ has full rational 2-torsion and ℓ≥7 is prime, E[ℓ] is irreducible over 𝔽ℓ; since it is odd, it is absolutely irreducible.\n\n**Irreducibility with a rational two-torsion point.** If E/ℚ has a rational point of order 2 and ℓ≥11 is prime, E[ℓ] is irreducible over 𝔽ℓ and absolutely irreducible.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli"
+      ]
+    },
+    {
+      "key": "EC.6",
+      "title": "Rational-isogeny uniformity",
+      "description": "**Potential good reduction in the nonsplit Cartan case.** If p≥5 is prime and ρ̄E,p(Gℚ) is contained in the normalizer of a nonsplit Cartan, then E has potentially good reduction at each rational prime q with q≢±1 mod p, and also at q=p.\n\n**Chen’s isogeny at rational-isogeny level.** For r∈{1,2,3,5,7,13} and prime p∉{1,2,3,5,7,13}, the Jacobian of X₀(r)×X(1)Xns⁺(p) is ℚ-isogenous to the p-new quotient of Jac(X₀⁺(rp²)), by a correspondence commuting with T_n for gcd(n,p)=1. Here X₀⁺(rp²) denotes the smooth projective normalization of X₀(r)×X(1)(X₀(p²)/⟨w_{p²}⟩), equivalently X₀(rp²)/⟨w_{p²}⟩; it is not the quotient by w_{rp²}. The mixed nonsplit curve is the smooth compactification of its level-moduli fiber product.\n\n**Rank-zero winding quotient.** For r∈{2,3,5,7,13} and prime p outside that set, J₀,ns⁺(r,p) has a nonzero optimal ℚ-quotient A with A(ℚ) finite and kernel stable under every T_n with gcd(n,p)=1.\n\n**Cuspidal formal immersion at isogeny level.** Let Σ={2,3,5,7,13}, r∈Σ, p∉Σ be prime, K=ℚ(ζp)⁺ and R=ℤ[1/p,ζp]⁺. Let X be the canonical mixed nonsplit modular curve X₀,ns⁺(r,p) over R, c an R-valued cusp, J its generic-fiber Jacobian, and π:J→A a nonzero optimal ℚ-quotient with A(ℚ) finite and kernel stable under T_n for gcd(n,p)=1. Let 𝒜 be the Néron model of A and φ:Xˢᵐ→𝒜 the extension of π∘[P↦(P)−(c)]. At a prime 𝔮|q of R, with q≠p prime and q≡±1 mod p, φ is a formal immersion at c_𝔮. For a noncuspidal P∈X(ℚ), φ(P) is torsion in A(K). These are the Lemos extension targets; the required canonical model and the extension of the proof beyond r=2,3 remain gaps.\n\n**Prime-integrality of the isogeny j-invariant.** For r∈Σ={2,3,5,7,13}, prime p∉Σ, and E/ℚ admitting a cyclic rational r-isogeny with mod-p image in a nonsplit Cartan normalizer, j(E)∈ℤ[1/p].\n\n**Integrality of the isogeny j-invariant.** For r∈{2,3,5,7,13}, prime p∉{2,3,5,7,13}, and non-CM E/ℚ with an r-isogeny and mod-p image in a nonsplit Cartan normalizer, j(E) is an integer.\n\n**Integral j-values at genus-zero isogeny levels.** For r∈{2,3,5,7,13}, choose t on X₀(r) so j=f_r(t)/t, where f₂=(t+16)^3, f₃=(t+27)(t+3)^3, f₅=(t²+10t+5)^3, f₇=(t²+5t+1)^3(t²+13t+49), f₁₃=(t⁴+7t³+20t²+19t+1)^3(t²+5t+13). Every noncuspidal rational point with integral j has nonzero integral t dividing f_r(0).\n\n**Large proper images are nonsplit Cartan images.** For non-CM E/ℚ and prime p>37, if ρ̄E,p is not surjective onto GL₂(𝔽p), its image is contained in a nonsplit Cartan normalizer.\n\n**Surjectivity under quadratic twisting.** For odd prime p and non-CM E/ℚ, quadratic twisting preserves surjectivity of the mod-p representation. Thus for a fixed non-CM rational j, surjectivity at p can be tested on one representative curve.\n\n**Finite rational-j Galois-image certificates.** For every non-CM j in the integral sets S₂∪S₃∪S₅∪S₇∪S₁₃ from the divisor enumeration, and every non-CM j in S₁₁={−11·131³,−2¹⁵,−11²}, S₁₇={−17²·101³/2,−17·373³/2¹⁷}, S₃₇={−7·137³·2083³,−7·11³}, an explicit curve with that j has surjective mod-p representation for every prime p>37.\n\n**Lemos’s rational-isogeny uniformity theorem.** If E/ℚ is non-CM, meaning Endℚ̄(E)=ℤ, and admits a nontrivial cyclic rational isogeny, then ρ̄E,p(Gℚ)=GL₂(𝔽p) for every prime p>37.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "ComputationalNumberTheory:CN.3",
+        "ComputationalNumberTheory:CN.5",
+        "EllipticCurveModularityPartII:EC.5",
+        "ModularCurvesPartII:R14.2",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BS",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), 355–392; published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§2, pp. 358–360; §3, pp. 361–364; §6, p. 373; references"
+      ]
+    },
+    {
+      "id": "Kraus",
+      "title": "Majorations effectives pour l’équation de Fermat généralisée",
+      "authors": "Alain Kraus",
+      "edition": "Canadian Journal of Mathematics 49 (1997), 1139–1161; published PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FEF2CCCEC964C8D0AAD3EE8F40875A4D/S0008414X00034258a.pdf/majorations-effectives-pour-l-equation-de-fermat-generalisee.pdf",
+      "sha256": "d235ed8bba1c21618ade20f3e4a387846c641e730c3e981936056b10cfdc4ab6",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§1 notation; §3.1–3.3, pp. 1142–1146; Appendix I dimension formula; Appendix II, pp. 1158–1160"
+      ]
+    },
+    {
+      "id": "Martin",
+      "title": "Dimensions of the spaces of cusp forms and newforms on Γ₀(N) and Γ₁(N)",
+      "authors": "Greg Martin",
+      "edition": "arXiv math/0306128v1, 6 June 2003; published J. Number Theory 112 (2005), 298–331; preprint read",
+      "url": "https://arxiv.org/pdf/math/0306128",
+      "sha256": "844017dec299d575ee49f731b7ae6ec27be03d76bf6463bc428b9e9b49c0a8d4",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Theorems 1–2 and definitions 1A–1F; §4, Lemmas 16–22 and proof of Theorem 2, pp. 14–16 (v1)"
+      ]
+    },
+    {
+      "id": "Mazur",
+      "title": "Rational isogenies of prime degree",
+      "authors": "Barry Mazur; appendix by Dorian Goldfeld",
+      "edition": "Inventiones mathematicae 44 (1978), 129–162; published scan",
+      "url": "https://www.math.columbia.edu/~goldfeld/Mazur-Goldfeld1978.pdf",
+      "sha256": "f3da9ef0d3d184225c4799951897be7b90d8b25050c5d508b69aeff70fd2ead3",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Introduction, pp. 129–133; §7, pp. 153–155; proof inputs located in §§1,4–6"
+      ]
+    },
+    {
+      "id": "Lemos",
+      "title": "Serre’s uniformity conjecture for elliptic curves with rational cyclic isogenies",
+      "authors": "Pedro Lemos",
+      "edition": "arXiv:1702.01985v2, 8 March 2017; published Trans. AMS 371 (2019), 137–146, DOI 10.1090/tran/7198; preprint read",
+      "url": "https://arxiv.org/pdf/1702.01985v2",
+      "sha256": "ce889428aa4d6cbe1f30fcb504591063927fdaa96baa1bdf598596bbc02bd043",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Entire v2, pp. 1–11: Theorems 1.1–1.4; §2; §3; references"
+      ]
+    },
+    {
+      "id": "DarmonMerel",
+      "title": "Winding quotients and some variants of Fermat’s Last Theorem",
+      "authors": "Henri Darmon and Loïc Merel",
+      "edition": "Author copy dated 5 January 2001; published J. reine angew. Math. 490 (1997), 81–100; author-copy pagination",
+      "url": "https://perso.imj-prg.fr/loic-merel/wp-content/uploads/merel-pub/winding.pdf",
+      "sha256": "89c4a7a8563c35f6124279b883075c40b7aa8fcb485385098896e003d80e9aa7",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§6 notation/Theorem 6.1; §7, Propositions 7.1–7.2, pp. 18–21; §8, Theorem 8.1 and Lemmas 8.2–8.3, pp. 21–23"
+      ]
+    }
+  ],
+  "status": "draft"
+}

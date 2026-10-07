@@ -1,100 +1,120 @@
 /-
-FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
-Current revision is unchecked and NOT COMPILED. Any earlier compilation
-record below describes only that earlier revision and environment.
-
-V.5/finite-field-bloch-comparison: not stated; needs Hutchinson's natural
-map H3(SL2(F_q), Z[1/char(F_q)]) -> K3(F_q) and the finite refined
-Bloch–Wigner map. The Suslin map below still requires Infinite F.
-V.5/nonsplit-cartan-mod-n: not stated; needs the actual Cartan embedding and
-its bar-homology map. Abstract finite cyclic isomorphisms do not supply it.
-V.2 imports the degree-three case of T.2:symbols/milnor-number-field.
-V.6 imports analytic comparison from P.2/D.2; exact real scalar/sign needs R.7.
--/
-/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/K3BlochGroups.md` is definitive. These statements
-suggest Lean forms so that contributors and reviewers can converge on names and
-signatures. They claim no implementation.
+suggest Lean forms so that contributors and reviewers converge on names and
+signatures. They claim no implementation; packet implementationStatus remains
+unchecked. Proposed proofs and constructions use `sorry`.
 
-BP-K3BlochGroups: partial prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Synced with the corrected packet (102 nodes) in review REV-K3BlochGroups and
-elaborated with `lake env lean` against Mathlib 082e2d3: `sorry` is the only
-warning. The file imports only Mathlib.
-FIX-RT-AREA-ktheory-1 (2026-09-30, RT-AREA-ktheory-1/29): the three V.1
-declarations for uce-superperfect, central-extension-comp and
-split-extensions-kill-h2 moved with their nodes to K2SymbolsBrauer T.1:classical
-(suggested file K2SymbolsBrauer--T.1.lean); the packet now has 99 nodes and
-`steinberg_superperfect` is stated as the corollary V.1 draws from them. Re-elaborated
-after this edit against the same Mathlib: `sorry` is still the only warning.
 
-Objects that another roadmap owns appear as `variable`s, never as invented
-definitions: Quillen K-groups, their functoriality and products, the K₁-class of a
-unit, the product with `[-1]`, the spaces `BGL(A)⁺`, `BE(A)⁺` and the stable group
-`GL(A)` (GeneralAlgebraicKTheory K.2); the stable and finite-rank Steinberg groups,
-the elementary group and the generators `x_ij(a)` (K2SymbolsBrauer T.1); Milnor
-K-theory, its symbols, the graded map and Matsumoto's symbol (K2SymbolsBrauer T.2);
-classifying spaces (StableHomotopyKTheory H.3); motivic cohomology of a field
-(MotivicEtaleKTheory M.6); the transfer on K₃ of finite fields (KTheoryFiniteLocalFields
-L.1); the Bloch-Wigner function and its descent (Polylogarithms P.1, P.2); the weight-two
-and Borel regulators (Polylogarithms P.2, BorelRegulators); the second Adams-Bott
-invariant (ArithmeticKTheory N.5). Statements about them are forms, true only once
-the variables are instantiated by the supplier. Nothing below encodes a missing theorem
-as an assumed structure field or as a `Prop`-valued definition, and `sorry` occurs only
-as the body of a declaration (or a proof obligation inside one), never in a statement.
+The primary namespaces are TauCeti.K3, TauCeti.BlochGroup and TauCeti.Suslin.
+BlochConventions.Imported aliases their actual inherited field objects and
+maps; the reduced symbols map to the same P(F), not a second Bloch group.
+CGZPublished uses the negative-unit tensor target. The inherited cgzBloch
+uses the exterior target and image-of-raw-cycles convention; these are distinct.
 
-Unit tests are `example`s whose docstring begins "Test `<name>`" with the name the
-packet gives. A theorem node that cannot be stated honestly yet is a comment
-`-- <node id>: not stated; needs <missing object>`.
+Supplier-owned objects absent at the pins are parameters: Quillen K-groups,
+products, plus/classifying spaces, stable Steinberg and elementary groups,
+Milnor K-groups, motivic/étale comparisons, arithmetic K-groups and regulators.
+Their intended supplier instantiation is fixed by the reader and packets.
+Generic transport interfaces express conditional algebra, not a theorem that
+arbitrary groups compute K-theory. Missing homotopy, Hopf/sphere-unit, finite
+refined-configuration, smooth-curve or regulator comparison APIs are explicitly
+identified in comments, never invented as Prop-valued stand-ins.
+
+The primary field forms precede the six continuation interfaces, since V.3
+uses V.4's foundational cross-ratio. Sections keep supplier variables local.
+Unit-test names are those in the packets, in docstrings or adjacent comments.
 -/
+
+import Mathlib.Algebra.Category.Grp.Injective
 import Mathlib.Algebra.Category.ModuleCat.Abelian
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Basic
 import Mathlib.Algebra.Category.ModuleCat.Projective
 import Mathlib.Algebra.Exact.Basic
+import Mathlib.Algebra.Field.Subfield.Basic
+import Mathlib.Algebra.Field.ZMod
 import Mathlib.Algebra.FreeAbelianGroup.Finsupp
+import Mathlib.Algebra.Group.Subgroup.Ker
 import Mathlib.Algebra.Homology.QuasiIso
 import Mathlib.Algebra.Homology.ShortComplex.ModuleCat
+import Mathlib.Algebra.Homology.SpectralSequence.Basic
+import Mathlib.Algebra.Module.LinearMap.Defs
 import Mathlib.Algebra.Module.LocalizedModule.Basic
+import Mathlib.AlgebraicGeometry.FunctionField
+import Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact
+import Mathlib.AlgebraicGeometry.Morphisms.Separated
+import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.AlgebraicTopology.FundamentalGroupoid.SimplyConnected
 import Mathlib.AlgebraicTopology.SingularHomology.Basic
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+import Mathlib.Basic.Complex.Basic
+import Mathlib.Basic.Real.Basic
 import Mathlib.CategoryTheory.Monoidal.Tor
+import Mathlib.Data.Fin.Embedding
+import Mathlib.Data.ZMod.Basic
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.GroupTheory.FreeAbelianGroup
 import Mathlib.GroupTheory.GroupAction.Embedding
 import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
 import Mathlib.GroupTheory.IsPerfect
+import Mathlib.GroupTheory.QuotientGroup.Basic
 import Mathlib.GroupTheory.SpecificGroups.Alternating
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.GroupTheory.Torsion
 import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
+import Mathlib.LinearAlgebra.Finsupp.LinearCombination
+import Mathlib.LinearAlgebra.LinearIndependent.Basic
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.Permutation
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Projectivization.Action
 import Mathlib.LinearAlgebra.Projectivization.Independence
 import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Map
+import Mathlib.LinearAlgebra.TensorProduct.Tower
 import Mathlib.Logic.Equiv.Fin.Rotate
 import Mathlib.NumberTheory.Cyclotomic.Basic
+import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import Mathlib.RepresentationTheory.Coinvariants
+import Mathlib.RepresentationTheory.Homological.FiniteCyclic
+import Mathlib.RepresentationTheory.Homological.GroupHomology.Basic
 import Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality
 import Mathlib.RepresentationTheory.Homological.GroupHomology.Shapiro
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.RingTheory.Localization.Module
+import Mathlib.RingTheory.Norm.Defs
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
 import Mathlib.Topology.Category.TopCat.Basic
+import Mathlib.Topology.Compactification.OnePoint.Basic
 import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
 import Mathlib.Topology.Homotopy.Basic
 import Mathlib.Topology.Homotopy.Contractible
 import Mathlib.Topology.Homotopy.Equiv
+import Mathlib.Topology.Homotopy.HSpaces
 import Mathlib.Topology.Homotopy.HomotopyGroup
+import Mathlib.Topology.Homotopy.Lifting
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Topology.Instances.Real.Lemmas
+
+/-! ## Primary -/
+
+section Primary
 
 noncomputable section
 
@@ -1147,7 +1167,7 @@ def cgzXi (X Y : OnePoint F) : Option (FreeAbelianGroup (OnePoint F)) :=
           FreeAbelianGroup.of v + FreeAbelianGroup.of w
 
 open Classical in
-/-- CGZ's boundary `d : ℤ[ℙ¹(F)] → ⋀²(Additive Fˣ)`, `[X] ↦ X ∧ (1 - X)`, `[0], [1], [∞] ↦ 0`. -/
+/-- The exterior-convention boundary `d : ℤ[ℙ¹(F)] → ⋀²(Additive Fˣ)`, `[X] ↦ X ∧ (1 - X)`, `[0], [1], [∞] ↦ 0`. -/
 def cgzBoundary : FreeAbelianGroup (OnePoint F) →+ ⋀[ℤ]^2 (Additive Fˣ) :=
   FreeAbelianGroup.lift fun z => OnePoint.elim z 0 fun x =>
     if h : x ≠ 0 ∧ x ≠ 1 then
@@ -1162,7 +1182,7 @@ def cgzA : AddSubgroup (FreeAbelianGroup (OnePoint F)) := (cgzBoundary F).ker
 def cgzRelations : AddSubgroup (FreeAbelianGroup (OnePoint F)) :=
   AddSubgroup.closure {z | ∃ X Y, cgzXi F X Y = some z}
 
-/-- V.3/cgz-bloch-group: `B_CGZ(F)`, the image of `A(F)` in `ℤ[ℙ¹(F)] ⧸ ⟨ξ⟩`. -/
+/-- V.3/cgz-bloch-group: `B_CGZ,old(F)`, the image of `A(F)` in `ℤ[ℙ¹(F)] ⧸ ⟨ξ⟩`. -/
 def cgzBloch : AddSubgroup (FreeAbelianGroup (OnePoint F) ⧸ cgzRelations F) :=
   (cgzA F).map (QuotientAddGroup.mk' (cgzRelations F))
 
@@ -2725,15 +2745,2354 @@ theorem regulator_agreement (F : Type) [Field F] [NumberField F] :
 -- K₃(L)/pᵐ and the p-adic dilogarithm on the Bloch-group model (PadicHodgeRegulators D.2).
 
 end TauCeti.BlochGroup
+end
 
-/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
-claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
-unit test of the packet under the packet's name; these are listed with their packet
-statements so that the names agree, and a contributor gives each its signature (or an
-`example`) next to its node above.
+end Primary
 
-finite_field_bloch_comparison_1 (test, characterisation; K3BlochGroups:V.5/finite-field-bloch-comparison): At q=5, integral H₃(SL₂(F₅),ℤ) has characteristic-primary information that is excluded by ℤ[1/5]; do not identify the integral group with ℤ/24.
-finite_field_bloch_comparison_2 (test, characterisation; K3BlochGroups:V.5/finite-field-bloch-comparison): q=2 and q=3 remain outside this Bloch convention’s finite-field order formula.
-nonsplit_cartan_mod_n_1 (test, characterisation; K3BlochGroups:V.5/nonsplit-cartan-mod-n): q=5,n=3 and q=11,n=3 satisfy the hypotheses; q=7,n=3 does not.
-nonsplit_cartan_mod_n_2 (test, characterisation; K3BlochGroups:V.5/nonsplit-cartan-mod-n): A different cyclic generator must transform the bar-cycle image accordingly.
+
+/-! ## ContinuationV1 -/
+
+section ContinuationV1
+
+open CategoryTheory
+
+namespace K3Homological
+
+noncomputable section
+
+/-- Existing Mathlib objects; these abbreviations introduce no new chain model. -/
+abbrev integralHomology (G : Type) [Group G] (n : ℕ) : ModuleCat ℤ :=
+  TauCeti.K3.intHomology G n
+
+abbrev integralCycles (G : Type) [Group G] (n : ℕ) : ModuleCat ℤ :=
+  groupHomology.cycles (Rep.trivial ℤ G ℤ) n
+
+abbrev integralChains (G : Type) [Group G] (n : ℕ) : ModuleCat ℤ :=
+  (groupHomology.inhomogeneousChains (Rep.trivial ℤ G ℤ)).X n
+
+/-- The induced additive map is an abbreviation of the pinned homology morphism. -/
+abbrev homologyMap {G H : Type} [Group G] [Group H] (f : G →* H) (n : ℕ) :
+    integralHomology G n →+ integralHomology H n :=
+  (groupHomology.map (A := Rep.trivial ℤ G ℤ)
+    (B := Rep.trivial ℤ H ℤ) f (𝟙 _) n).hom.toAddMonoidHom
+
+section CanonicalComparison
+
+variable {G : Type} [Group G]
+variable {K Q P R : Type} [AddCommGroup K] [AddCommGroup Q]
+  [AddCommGroup P] [AddCommGroup R]
+
+/-- canonical-comparison-interface: q = q₃, h = h₃, j = j₃, b = b₃. -/
+def comparison (q : Q ≃+ K) (h : Q ≃+ P) (j : R ≃+ P)
+    (b : R ≃+ integralHomology G 3) : K ≃+ integralHomology G 3 := by sorry
+
+lemma comparison_apply (q : Q ≃+ K) (h : Q ≃+ P) (j : R ≃+ P)
+    (b : R ≃+ integralHomology G 3) (x : K) :
+    comparison q h j b x = b (j.symm (h (q.symm x))) := by sorry
+
+lemma comparison_symm_apply (q : Q ≃+ K) (h : Q ≃+ P) (j : R ≃+ P)
+    (b : R ≃+ integralHomology G 3) (z : integralHomology G 3) :
+    (comparison q h j b).symm z = q (h.symm (j (b.symm z))) := by sorry
+
+lemma comparison_zero (q : Q ≃+ K) (h : Q ≃+ P) (j : R ≃+ P)
+    (b : R ≃+ integralHomology G 3) : comparison q h j b 0 = 0 := by sorry
+
+lemma comparison_add (q : Q ≃+ K) (h : Q ≃+ P) (j : R ≃+ P)
+    (b : R ≃+ integralHomology G 3) (x y : K) :
+    comparison q h j b (x + y) = comparison q h j b x + comparison q h j b y := by sorry
+
+/-- Test comparison_identity_data. -/
+example : comparison (AddEquiv.refl (integralHomology G 3)) (AddEquiv.refl _)
+    (AddEquiv.refl _) (AddEquiv.refl _) = AddEquiv.refl _ := by sorry
+
+/-- Test comparison_trivial_group: a zero-group test does not fabricate K₃. -/
+example [Subsingleton G] (c : K ≃+ integralHomology G 3) : Subsingleton K := by sorry
+
+/-- Test comparison_detects_nonzero. -/
+example (q : Q ≃+ K) (h : Q ≃+ P) (j : R ≃+ P)
+    (b : R ≃+ integralHomology G 3) (x : K) :
+    comparison q h j b x = 0 ↔ x = 0 := by sorry
+
+end CanonicalComparison
+
+section CycleCertificates
+
+variable {G : Type} [Group G] {K : Type} [AddCommGroup K]
+
+/-- cycle-certificate-evaluator: c will be the genuine canonical comparison. -/
+def eval3 (c : K ≃+ integralHomology G 3) : integralCycles G 3 →+ K := by sorry
+
+lemma eval3_comparison (c : K ≃+ integralHomology G 3) (z : integralCycles G 3) :
+    c (eval3 c z) = groupHomology.π (Rep.trivial ℤ G ℤ) 3 z := by sorry
+
+lemma eval3_zero (c : K ≃+ integralHomology G 3) : eval3 c 0 = 0 := by sorry
+
+lemma eval3_add (c : K ≃+ integralHomology G 3) (z z' : integralCycles G 3) :
+    eval3 c (z + z') = eval3 c z + eval3 c z' := by sorry
+
+lemma eval3_zsmul (c : K ≃+ integralHomology G 3) (m : ℤ) (z : integralCycles G 3) :
+    eval3 c (m • z) = m • eval3 c z := by sorry
+
+lemma eval3_boundary (c : K ≃+ integralHomology G 3) (w : integralChains G 4) :
+    eval3 c (groupHomology.toCycles (Rep.trivial ℤ G ℤ) 4 3 w) = 0 := by sorry
+
+lemma eval3_eq_iff_certificate (c : K ≃+ integralHomology G 3)
+    (z z' : integralCycles G 3) :
+    eval3 c z = eval3 c z' ↔ ∃ w : integralChains G 4,
+      groupHomology.toCycles (Rep.trivial ℤ G ℤ) 4 3 w = z - z' := by sorry
+
+lemma eval3_surjective (c : K ≃+ integralHomology G 3) :
+    Function.Surjective (eval3 c) := by sorry
+
+/-- Test eval3_identity_triple: use a concrete boundary as the cycle witness. -/
+example (c : K ≃+ integralHomology G 3) :
+    let w : integralChains G 4 := Finsupp.single (fun _ : Fin 4 => (1 : G)) 1
+    let z := groupHomology.toCycles (Rep.trivial ℤ G ℤ) 4 3 w
+    groupHomology.iCycles (Rep.trivial ℤ G ℤ) 3 z =
+      Finsupp.single (fun _ : Fin 3 => (1 : G)) 1 ∧ eval3 c z = 0 := by sorry
+
+/-- Test eval3_zero_cycle. -/
+example (c : K ≃+ integralHomology G 3) : eval3 c 0 = 0 := by sorry
+
+/-- Test eval3_baseline_projection. -/
+example (c : K ≃+ integralHomology G 3) (z : integralCycles G 3) :
+    c (eval3 c z) = groupHomology.π (Rep.trivial ℤ G ℤ) 3 z := by sorry
+
+/-- Test eval3_not_injective, valid even for the trivial group. -/
+example (c : K ≃+ integralHomology G 3) : ¬ Function.Injective (eval3 c) := by sorry
+
+/-- Test single_g_one_one_not_cycle: no cycle constructor on arbitrary chains. -/
+example (g : G) (hg : g ≠ 1) :
+    (groupHomology.inhomogeneousChains (Rep.trivial ℤ G ℤ)).d 3 2
+      (Finsupp.single ![g, 1, 1] 1) ≠ 0 := by sorry
+
+end CycleCertificates
+
+section Naturality
+
+variable {G H : Type} [Group G] [Group H]
+variable {K L : Type} [AddCommGroup K] [AddCommGroup L]
+
+/-- ring-map-comparison-square: the algebraic evaluator consequence of the canonical square.
+The hypothesis is the explicit equality of genuine maps supplied by the topological theorem. -/
+theorem ring_map_eval (f : G →* H) (k : K →+ L)
+    (c : K ≃+ integralHomology G 3) (c' : L ≃+ integralHomology H 3)
+    (natural : ∀ x, c' (k x) = groupHomology.map f (𝟙 _) 3 (c x))
+    (z : integralCycles G 3) :
+    k (eval3 c z) = eval3 c' (groupHomology.cyclesMap f (𝟙 _) 3 z) := by sorry
+
+theorem map_boundary_certificate (f : G →* H)
+    (w : integralChains G 4) (z z' : integralCycles G 3)
+    (certificate : groupHomology.toCycles (Rep.trivial ℤ G ℤ) 4 3 w = z - z') :
+    groupHomology.toCycles (Rep.trivial ℤ H ℤ) 4 3
+      ((groupHomology.chainsMap f (𝟙 _)).f 4 w) =
+      groupHomology.cyclesMap f (𝟙 _) 3 z -
+        groupHomology.cyclesMap f (𝟙 _) 3 z' := by sorry
+
+end Naturality
+
+section FiniteStages
+
+variable {G : Type} [Group G] {K : Type} [AddCommGroup K]
+variable (Gstage : ℕ → Type) [∀ n, Group (Gstage n)]
+  (stageIn : ∀ n, Gstage n →* G)
+
+/-- finite-stage-cycle-certificates: available interface conditional on the supplier's
+surjectivity of the directed homology presentation. Full colimit data comes from T.1. -/
+theorem finite_stage_representative (c : K ≃+ integralHomology G 3)
+    (finite_homology : ∀ y : integralHomology G 3,
+      ∃ n, ∃ y' : integralHomology (Gstage n) 3,
+        groupHomology.map (stageIn n) (𝟙 _) 3 y' = y)
+    (x : K) :
+    ∃ n, ∃ z : integralCycles (Gstage n) 3,
+      eval3 c (groupHomology.cyclesMap (stageIn n) (𝟙 _) 3 z) = x := by sorry
+
+/- The eventual finite boundary-witness statement additionally needs the actual directed
+transition functor and the filtered-colimit comparison for equality. This is omitted rather
+than replaced by an injectivity hypothesis on include n. -/
+
+end FiniteStages
+
+/- elementary-cover-hspace is an application of upstream's general H-space lift.
+The pinned HSpace and covering-map carriers are available, but the ring block-sum
+plus model and the owner theorem are not. Its definitive signature is omitted
+rather than redeclaring a general coverHSpace construction in V.1. The requested
+supplier exports its chosen-unit, multiplication-projection and lift-uniqueness
+API, including identity-cover, real-addition and one-point acceptance checks. -/
+
+section ExactSequence
+
+variable {G E : Type} [Group G] [Group E]
+variable {K₂ K₃ : Type} [AddCommGroup K₂] [AddCommGroup K₃]
+
+/-- elementary-homology-exact-sequence-refinement: algebraic transport of the
+simply connected H-space exact sequence along its actual comparison maps.
+Here eta and h are the source-side Hopf and Hurewicz maps; the missing sphere-unit
+comparison supplies operation_square. This does not assume the desired target exactness. -/
+theorem elementary_homology_exact {P₃ : Type} [AddCommGroup P₃]
+    (s : G →* E) (c : K₃ ≃+ integralHomology G 3) (q : P₃ ≃+ K₃)
+    (eta : K₂ →+ P₃) (h : P₃ →+ integralHomology E 3) (minusOne : K₂ →+ K₃)
+    (hurewicz_square : ∀ y, h y = homologyMap s 3 (c (q y)))
+    (operation_square : ∀ a, q (eta a) = minusOne a)
+    (source_exact : ∀ y, h y = 0 ↔ ∃ a, eta a = y)
+    (source_onto : Function.Surjective h) :
+    (∀ x : K₃, homologyMap s 3 (c x) = 0 ↔ ∃ a, minusOne a = x) ∧
+    Function.Surjective (fun x : K₃ => homologyMap s 3 (c x)) := by sorry
+
+/- No signature asserts that an arbitrary minusOne map is the Hopf action. The unavailable
+sphere-unit operation cannot be replaced by a Prop-valued surrogate. -/
+
+end ExactSequence
+
+end
+
+end K3Homological
+end ContinuationV1
+
+
+/-! ## ContinuationV2 -/
+
+section ContinuationV2
+
+noncomputable section
+open scoped BigOperators
+namespace TauCeti.K3.V2
+
+variable {M A B : Type*} [AddCommGroup M] [AddCommGroup A] [AddCommGroup B]
+variable {R : Type*} [Fintype R] [DecidableEq R]
+
+/-- Notation for the inherited image cokernel, using the existing Mathlib quotient. -/
+abbrev Ind (j : M →+ A) := A ⧸ j.range
+/-- The inherited quotient homomorphism; this is Mathlib notation, not a new object. -/
+abbrev q (j : M →+ A) : A →+ Ind j := QuotientAddGroup.mk' j.range
+
+/-! K3BlochGroups:V.2/real-place-basis -/
+/-- The canonical inverse of a signature coordinate. -/
+def realBasis (sigma : M ≃+ (R → ZMod 2)) (v : R) : M :=
+  sigma.symm (Pi.single v 1)
+
+lemma realBasis_signature (sigma : M ≃+ (R → ZMod 2)) (v w : R) :
+    sigma (realBasis sigma v) w = if w = v then 1 else 0 := by sorry
+lemma realBasis_nonzero (sigma : M ≃+ (R → ZMod 2)) (v : R) :
+    realBasis sigma v ≠ 0 := by sorry
+lemma realBasis_two_nsmul (sigma : M ≃+ (R → ZMod 2)) (v : R) :
+    (2 : ℕ) • realBasis sigma v = 0 := by sorry
+lemma realBasis_expand (sigma : M ≃+ (R → ZMod 2)) (x : M) :
+    x = ∑ v : R, if sigma x v = 1 then realBasis sigma v else 0 := by sorry
+lemma realBasis_map {N T : Type*} [AddCommGroup N] [Fintype T] [DecidableEq T]
+    (sigma : M ≃+ (R → ZMod 2)) (tau : N ≃+ (T → ZMod 2))
+    (f : M →+ N) (rho : T → R)
+    (comm : ∀ x w, tau (f x) w = sigma x (rho w)) (v : R) :
+    f (realBasis sigma v) = ∑ w : T, if rho w = v then realBasis tau w else 0 := by sorry
+
+/-- Test `realBasis_single`: the Q signature has one coordinate. -/
+example (sigma : M ≃+ (Unit → ZMod 2)) :
+    sigma (realBasis sigma ()) () = 1 := by sorry
+/-- Test `realBasis_empty`: a totally imaginary signature has no coordinates. -/
+example (sigma : M ≃+ (Empty → ZMod 2)) (x : M) : x = 0 := by sorry
+/-- Test `realBasis_distinct`: different places are not the same all-minus-one class. -/
+example (sigma : M ≃+ (R → ZMod 2)) (v w : R) (hne : v ≠ w) :
+    realBasis sigma v ≠ realBasis sigma w := by sorry
+
+/-! K3BlochGroups:V.2/real-basis-symbol-representatives.
+The general typed implication below specializes to {-1,-1,u_v}. Existence of the
+sign-isolating unit is supplied by the pinned weak-approximation theorem. -/
+lemma real_basis_symbol_representative (sigma : M ≃+ (R → ZMod 2))
+    (v : R) (symbol : M) (signs : sigma symbol = Pi.single v 1) :
+    symbol = realBasis sigma v := by sorry
+
+/-! K3BlochGroups:V.2/minus-one-product-surjective -/
+/-- The lifted coordinate generators prove surjectivity of the product map. -/
+theorem minusOneProduct_surjective {M2 : Type*} [AddCommGroup M2]
+    (sigma : M ≃+ (R → ZMod 2)) (p : M2 →+ M) (lifts : R → M2)
+    (hlifts : ∀ v, p (lifts v) = realBasis sigma v) :
+    Function.Surjective p := by sorry
+/-- The product square and Matsumoto transport the image identity. -/
+theorem minusOneProduct_range {M2 K2 : Type*} [AddCommGroup M2] [AddCommGroup K2]
+    (p : M2 →+ M) (m2 : M2 ≃+ K2) (j : M →+ A) (product : K2 →+ A)
+    (hp : Function.Surjective p) (square : ∀ x, product (m2 x) = j (p x)) :
+    product.range = j.range := by sorry
+
+/-! K3BlochGroups:V.2/decomposable-signature -/
+def decomposableSignature (j : M →+ A) (hj : Function.Injective j)
+    (sigma : M ≃+ (R → ZMod 2)) : j.range ≃+ (R → ZMod 2) := by sorry
+lemma decomposableSignature_apply (j : M →+ A) (hj : Function.Injective j)
+    (sigma : M ≃+ (R → ZMod 2)) (x : M) :
+    decomposableSignature j hj sigma ⟨j x, ⟨x, rfl⟩⟩ = sigma x := by sorry
+lemma decomposableSignature_symm (j : M →+ A) (hj : Function.Injective j)
+    (sigma : M ≃+ (R → ZMod 2)) (t : R → ZMod 2) :
+    ((decomposableSignature j hj sigma).symm t : A) = j (sigma.symm t) := by sorry
+lemma decomposableSignature_two_nsmul (j : M →+ A) (hj : Function.Injective j)
+    (sigma : M ≃+ (R → ZMod 2)) (d : j.range) : (2 : ℕ) • d = 0 := by sorry
+lemma decomposableSignature_card (j : M →+ A) (hj : Function.Injective j)
+    (sigma : M ≃+ (R → ZMod 2)) : Nat.card j.range = 2 ^ Fintype.card R := by sorry
+lemma decomposableSignature_map {N C T : Type*} [AddCommGroup N] [AddCommGroup C]
+    [Fintype T] [DecidableEq T] (j : M →+ A) (k : N →+ C)
+    (hj : Function.Injective j) (hk : Function.Injective k)
+    (sigma : M ≃+ (R → ZMod 2)) (tau : N ≃+ (T → ZMod 2))
+    (fm : M →+ N) (fa : A →+ C) (rho : T → R)
+    (square : ∀ x, fa (j x) = k (fm x))
+    (signs : ∀ x w, tau (fm x) w = sigma x (rho w)) (x : M) (w : T) :
+    decomposableSignature k hk tau ⟨fa (j x), ⟨fm x, (square x).symm⟩⟩ w =
+      decomposableSignature j hj sigma ⟨j x, ⟨x, rfl⟩⟩ (rho w) := by sorry
+
+/-- Test `decomposableSignature_zero`: agreement on the zero representative. -/
+example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (R → ZMod 2)) :
+    decomposableSignature j hj sigma ⟨j 0, ⟨0, rfl⟩⟩ = 0 := by sorry
+/-- Test `decomposableSignature_one_real`: the Q class does not disappear in K3. -/
+example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (Unit → ZMod 2)) :
+    j (sigma.symm (fun _ => 1)) ≠ 0 := by sorry
+/-- Test `decomposableSignature_empty`: the decomposable subgroup is zero when r1=0. -/
+example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (Empty → ZMod 2))
+    (x : M) : j x = 0 := by sorry
+
+/-- Test `decomposableSignature_coordinate`: the equivalence preserves each labelled coordinate. -/
+example (j : M →+ A) (hj : Function.Injective j) (sigma : M ≃+ (R → ZMod 2))
+    (v : R) :
+    decomposableSignature j hj sigma
+      ⟨j (realBasis sigma v), ⟨realBasis sigma v, rfl⟩⟩ = Pi.single v 1 := by sorry
+
+/-! K3BlochGroups:V.2/totally-imaginary-quotient-equivalence.
+`hD` is precisely the consequence of the imported Bass–Tate theorem with no real
+places. This is a general quotient construction, not an assumed quotient equivalence. -/
+def totallyImaginaryQuotientEquiv (j : M →+ A) (hD : j.range = ⊥) : A ≃+ Ind j := by sorry
+lemma totallyImaginaryQuotientEquiv_apply (j : M →+ A) (hD : j.range = ⊥) (x : A) :
+    totallyImaginaryQuotientEquiv j hD x = q j x := by sorry
+lemma totallyImaginaryQuotientEquiv_symm_apply (j : M →+ A) (hD : j.range = ⊥) (x : A) :
+    (totallyImaginaryQuotientEquiv j hD).symm (q j x) = x := by sorry
+lemma totallyImaginaryQuotientEquiv_map {N : Type*} [AddCommGroup N]
+    (j : M →+ A) (k : N →+ B) (hj : j.range = ⊥) (hk : k.range = ⊥)
+    (f : A →+ B) (h : j.range ≤ k.range.comap f) (x : A) :
+    totallyImaginaryQuotientEquiv k hk (f x) =
+      QuotientAddGroup.map j.range k.range f h (totallyImaginaryQuotientEquiv j hj x) := by sorry
+
+/-- Test `totallyImaginaryQuotient_zero`: zero maps to zero. -/
+example (j : M →+ A) (hD : j.range = ⊥) :
+    totallyImaginaryQuotientEquiv j hD 0 = 0 := by sorry
+/-- Test `totallyImaginaryQuotient_representative`: the canonical representative round trip. -/
+example (j : M →+ A) (hD : j.range = ⊥) (x : A) :
+    (totallyImaginaryQuotientEquiv j hD).symm (q j x) = x := by sorry
+/-- Test `totallyImaginaryQuotient_injective`: exactly the zero-image hypothesis is used. -/
+example (j : M →+ A) (hD : j.range = ⊥) (x y : A) :
+    q j x = q j y ↔ x = y := by sorry
+
+/-! K3BlochGroups:V.2/number-field-stable-hurewicz-equivalence.
+`H` is the supplied stable integral H3(SL(F)); `h` is the V.1/V.2 Hurewicz map.
+Its surjectivity and kernel equality come from the inherited theorem and the new
+product theorem. No unstable SL2 object is identified here. -/
+variable {H : Type*} [AddCommGroup H]
+def stableHurewiczQuotientEquiv (j : M →+ A) (h : A →+ H)
+    (hs : Function.Surjective h) (hk : j.range = h.ker) : Ind j ≃+ H := by sorry
+lemma stableHurewiczQuotientEquiv_apply (j : M →+ A) (h : A →+ H)
+    (hs : Function.Surjective h) (hk : j.range = h.ker) (x : A) :
+    stableHurewiczQuotientEquiv j h hs hk (q j x) = h x := by sorry
+lemma stableHurewiczQuotientEquiv_symm_apply (j : M →+ A) (h : A →+ H)
+    (hs : Function.Surjective h) (hk : j.range = h.ker) (x : A) :
+    (stableHurewiczQuotientEquiv j h hs hk).symm (h x) = q j x := by sorry
+lemma stableHurewiczQuotientEquiv_unique (j : M →+ A) (h : A →+ H)
+    (hs : Function.Surjective h) (hk : j.range = h.ker) (f : Ind j →+ H)
+    (hf : ∀ x, f (q j x) = h x) :
+    f = (stableHurewiczQuotientEquiv j h hs hk).toAddMonoidHom := by sorry
+lemma stableHurewiczQuotientEquiv_map {N C I : Type*}
+    [AddCommGroup N] [AddCommGroup C] [AddCommGroup I]
+    (j : M →+ A) (k : N →+ C) (h : A →+ H) (h' : C →+ I)
+    (hs : Function.Surjective h) (hs' : Function.Surjective h')
+    (hk : j.range = h.ker) (hk' : k.range = h'.ker)
+    (f : A →+ C) (g : H →+ I) (range_le : j.range ≤ k.range.comap f)
+    (square : ∀ x, h' (f x) = g (h x)) (x : Ind j) :
+    stableHurewiczQuotientEquiv k h' hs' hk' (QuotientAddGroup.map j.range k.range f range_le x) =
+      g (stableHurewiczQuotientEquiv j h hs hk x) := by sorry
+
+/-- Test `stableHurewiczQuotient_zero`: zero maps to zero. -/
+example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h) (hk : j.range = h.ker) :
+    stableHurewiczQuotientEquiv j h hs hk 0 = 0 := by sorry
+/-- Test `stableHurewiczQuotient_decomposable`: every Milnor image is killed. -/
+example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h)
+    (hk : j.range = h.ker) (x : M) :
+    stableHurewiczQuotientEquiv j h hs hk (q j (j x)) = 0 := by sorry
+/-- Test `stableHurewiczQuotient_kernel`: the stable kernel is the actual quotient kernel. -/
+example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h)
+    (hk : j.range = h.ker) (x : A) : h x = 0 ↔ q j x = 0 := by sorry
+
+/-- Test `stableHurewiczQuotient_representative`: the canonical map uses the supplied Hurewicz map. -/
+example (j : M →+ A) (h : A →+ H) (hs : Function.Surjective h)
+    (hk : j.range = h.ker) (x : A) :
+    stableHurewiczQuotientEquiv j h hs hk (q j x) = h x := by sorry
+
+/-! K3BlochGroups:V.2/weight-two-mod-two-obstruction-zero: not stated;
+needs actual integral motivic complexes, coefficient triangle and degree-zero
+motivic-to-etale comparison, together with the K4 algebraic-closure divisibility
+supplier. Exact field theorem: char F != 2 implies H^0(F,Z(2))/2 = 0.
+Proof uses the exponent-two kernel bound (Chern composite +2), injects this quotient
+into the natural constant etale H^0=Z/2, descends from Fbar, and forces d2=0 over
+Fbar by torsionfreeness of Milnor K3 before using the surjection from divisible K4.
+No predicate or assumed structure field stands in for these missing operations. -/
+
+/-! K3BlochGroups:V.2/indecomposable-motivic-edge-equivalence.
+`B` specializes to the supplied motivic H^1(F,Z(2)). Its surjectivity and exactness
+are the rightmost part of the inherited motivic sequence, independent of m3 injectivity. -/
+def motivicEdgeQuotientEquiv (j : M →+ A) (edge : A →+ B)
+    (hs : Function.Surjective edge) (exact : Function.Exact j edge) : Ind j ≃+ B := by sorry
+lemma motivicEdgeQuotientEquiv_apply (j : M →+ A) (edge : A →+ B)
+    (hs : Function.Surjective edge) (exact : Function.Exact j edge) (x : A) :
+    motivicEdgeQuotientEquiv j edge hs exact (q j x) = edge x := by sorry
+lemma motivicEdgeQuotientEquiv_symm_apply (j : M →+ A) (edge : A →+ B)
+    (hs : Function.Surjective edge) (exact : Function.Exact j edge) (x : A) :
+    (motivicEdgeQuotientEquiv j edge hs exact).symm (edge x) = q j x := by sorry
+lemma motivicEdgeQuotientEquiv_unique (j : M →+ A) (edge : A →+ B)
+    (hs : Function.Surjective edge) (exact : Function.Exact j edge) (f : Ind j →+ B)
+    (hf : ∀ x, f (q j x) = edge x) :
+    f = (motivicEdgeQuotientEquiv j edge hs exact).toAddMonoidHom := by sorry
+lemma motivicEdgeQuotientEquiv_map {N C I : Type*}
+    [AddCommGroup N] [AddCommGroup C] [AddCommGroup I]
+    (j : M →+ A) (k : N →+ C) (e : A →+ B) (e' : C →+ I)
+    (hs : Function.Surjective e) (hs' : Function.Surjective e')
+    (hex : Function.Exact j e) (hex' : Function.Exact k e')
+    (f : A →+ C) (g : B →+ I) (range_le : j.range ≤ k.range.comap f)
+    (square : ∀ x, e' (f x) = g (e x)) (x : Ind j) :
+    motivicEdgeQuotientEquiv k e' hs' hex' (QuotientAddGroup.map j.range k.range f range_le x) =
+      g (motivicEdgeQuotientEquiv j e hs hex x) := by sorry
+
+/-- Test `motivicEdgeQuotient_zero`: zero maps to zero. -/
+example (j : M →+ A) (edge : A →+ B) (hs : Function.Surjective edge)
+    (exact : Function.Exact j edge) : motivicEdgeQuotientEquiv j edge hs exact 0 = 0 := by sorry
+/-- Test `motivicEdgeQuotient_symbol`: the edge kills every Milnor image. -/
+example (j : M →+ A) (edge : A →+ B) (hs : Function.Surjective edge)
+    (exact : Function.Exact j edge) (x : M) :
+    motivicEdgeQuotientEquiv j edge hs exact (q j (j x)) = 0 := by sorry
+/-- Test `motivicEdgeQuotient_lift`: the inverse returns the correct quotient class. -/
+example (j : M →+ A) (edge : A →+ B) (hs : Function.Surjective edge)
+    (exact : Function.Exact j edge) (x : A) :
+    (motivicEdgeQuotientEquiv j edge hs exact).symm (edge x) = q j x := by sorry
+
+-- Inherited V.2 node names and forms remain in K3BlochGroups.lean:
+-- milnorToQuillen3, K3ind (quotient API), decomposable_exactness,
+-- milnorToQuillen3_injective, milnorK3_numberField, k3_rank,
+-- rationalisation, k3_to_h3_sl_field, motivic_low_degree_sequence,
+-- milnor_k3_kernel_exponent_two. Their source/supplier refinements are in this
+-- packet's imports, importResolutions, requests and gaps, never fresh definitions.
+end TauCeti.K3.V2
+end
+
+end ContinuationV2
+
+
+/-! ## ContinuationV3 -/
+
+section ContinuationV3
+
+noncomputable section
+open scoped TensorProduct
+open CategoryTheory
+
+namespace TauCeti.BlochConventions
+
+instance primeTwo : Fact (Nat.Prime 2) := ⟨by decide⟩
+instance primeThree : Fact (Nat.Prime 3) := ⟨by decide⟩
+instance primeFive : Fact (Nat.Prime 5) := ⟨by decide⟩
+instance primeSeven : Fact (Nat.Prime 7) := ⟨by decide⟩
+instance primeEleven : Fact (Nat.Prime 11) := ⟨by decide⟩
+
+abbrev Nondeg (F : Type) [Field F] := {x : F // x ≠ 0 ∧ x ≠ 1}
+abbrev RawSymbols (F : Type) [Field F] := FreeAbelianGroup (Nondeg F)
+abbrev UnitAdd (F : Type) [Field F] := Additive Fˣ
+abbrev FullTensor (F : Type) [Field F] := UnitAdd F ⊗[ℤ] UnitAdd F
+abbrev ProjectiveSymbols (F : Type) [Field F] := FreeAbelianGroup (OnePoint F)
+def FourElements (F : Type) : Prop := 4 ≤ Cardinal.mk F
+
+namespace Imported
+variable (F : Type) [Field F]
+
+abbrev sym (x : F) : RawSymbols F := TauCeti.BlochGroup.symbAdm F x
+def unit (x : F) (hx : x ≠ 0) : UnitAdd F := Additive.ofMul (Units.mk0 x hx)
+
+abbrev symmetric : Submodule ℤ (FullTensor F) :=
+  TauCeti.BlochGroup.symmetrisedSubmodule ℤ (UnitAdd F)
+abbrev Qs := TauCeti.BlochGroup.unitsWedge F
+abbrev pi : FullTensor F →+ Qs F :=
+  (TauCeti.BlochGroup.antisymSquare.mkQ ℤ (UnitAdd F)).toAddMonoidHom
+abbrev Exterior := ⋀[ℤ]^2 (UnitAdd F)
+abbrev toExterior : Qs F →+ Exterior F :=
+  (TauCeti.BlochGroup.antisymSquare.toExterior ℤ (UnitAdd F)).toAddMonoidHom
+
+def fiveTerm (x y : F) : RawSymbols F :=
+  sym F x - sym F y + sym F (y / x) -
+    sym F ((1 - x⁻¹) / (1 - y⁻¹)) + sym F ((1 - x) / (1 - y))
+abbrev R5 : AddSubgroup (RawSymbols F) :=
+  AddSubgroup.closure {r | ∃ x y : F, x ≠ 0 ∧ x ≠ 1 ∧ y ≠ 0 ∧ y ≠ 1 ∧
+    x ≠ y ∧ r = fiveTerm F x y}
+abbrev P := TauCeti.BlochGroup.preBloch F
+def q : RawSymbols F →+ P F :=
+  FreeAbelianGroup.lift (fun x => TauCeti.BlochGroup.preBloch.gen F x.1)
+abbrev boundary : P F →+ Qs F := TauCeti.BlochGroup.blochBoundary F
+abbrev B := TauCeti.BlochGroup.blochGroup F
+abbrev BE := TauCeti.BlochGroup.extBloch F
+
+/-- The two inherited presentations differ only by killing the [1] generator. -/
+theorem q_kernel : (q F).ker = R5 F := by sorry
+theorem q_surjective : Function.Surjective (q F) := by sorry
+def reducedPresentation : (RawSymbols F ⧸ R5 F) ≃+ P F := by sorry
+lemma reducedPresentation_mk (x : RawSymbols F) :
+    reducedPresentation F (QuotientAddGroup.mk x) = q F x := by sorry
+
+abbrev angle (u : UnitAdd F) : P F := TauCeti.BlochGroup.angle F u.toMul
+lemma fourElements_ENat (hF : FourElements F) : 4 ≤ ENat.card F := by sorry
+abbrev h (hF : FourElements F) : UnitAdd F →+ P F :=
+  TauCeti.BlochGroup.angleBracket F (fourElements_ENat F hF)
+lemma h_apply (hF : FourElements F) (u : UnitAdd F) :
+    h F hF u = angle F u := by sorry
+abbrev H : AddSubgroup (P F) := AddSubgroup.closure (Set.range (angle F))
+lemma H_eq_range (hF : FourElements F) : H F = (h F hF).range := by sorry
+abbrev c : B F := TauCeti.BlochGroup.c F
+
+variable {E : Type} [Field E]
+def freeMap (f : F →+* E) : RawSymbols F →+ RawSymbols E :=
+  FreeAbelianGroup.map (fun x => ⟨f x.1, by sorry⟩)
+abbrev tensorMap (f : F →+* E) : FullTensor F →+ FullTensor E :=
+  (TensorProduct.map (AddMonoidHom.toIntLinearMap (Units.map f.toMonoidHom).toAdditive)
+    (AddMonoidHom.toIntLinearMap (Units.map f.toMonoidHom).toAdditive)).toAddMonoidHom
+abbrev pMap (f : F →+* E) : P F →+ P E := TauCeti.BlochGroup.preBloch.map F f
+abbrev bMap (f : F →+* E) : B F →+ B E := TauCeti.BlochGroup.blochGroup.map F f
+
+-- Owned by V.4/cross-ratio; no second configuration object.
+open Classical in
+abbrev crossRatio (t : Fin 4 ↪ OnePoint F) : Nondeg F := TauCeti.Suslin.crossRatio F t
+abbrev Cext : AddSubgroup (ProjectiveSymbols F) := TauCeti.BlochGroup.cgzRelations F
+abbrev Extended := ProjectiveSymbols F ⧸ Cext F
+abbrev extQ : ProjectiveSymbols F →+ Extended F := QuotientAddGroup.mk' (Cext F)
+abbrev j : P F →+ Extended F := TauCeti.BlochGroup.preBlochToCGZ F
+abbrev oldBoundary : ProjectiveSymbols F →+ Exterior F := TauCeti.BlochGroup.cgzBoundary F
+abbrev OldCycles := TauCeti.BlochGroup.cgzA F
+def oldCycleMap : OldCycles F →+ Extended F := (extQ F).comp (OldCycles F).subtype
+abbrev OldB := TauCeti.BlochGroup.cgzBloch F
+abbrev oldCompare : B F →+ OldB F := TauCeti.BlochGroup.cgzComparison F
+
+def coeffMap (R : Type) [CommRing R] {M N : Type} [AddCommGroup M] [AddCommGroup N]
+    (f : M →+ N) : R ⊗[ℤ] M →+ R ⊗[ℤ] N :=
+  (TensorProduct.map (LinearMap.id : R →ₗ[ℤ] R) f.toIntLinearMap).toAddMonoidHom
+end Imported
+
+/-! K3BlochGroups:V.3/bloch-lecture-kernel -/
+namespace LectureBloch
+variable (F : Type) [Field F]
+
+def lambda : RawSymbols F →+ FullTensor F := by sorry
+abbrev Group := (lambda F).ker
+
+lemma lambda_symbol (x : F) (hx : x ≠ 0) (hx1 : x ≠ 1) :
+    lambda F (Imported.sym F x) =
+      Imported.unit F (1 - x) (by sorry) ⊗ₜ[ℤ] Imported.unit F x hx := by sorry
+lemma mem_iff (α : RawSymbols F) : α ∈ (lambda F).ker ↔ lambda F α = 0 := by sorry
+lemma inclusion_injective : Function.Injective ((lambda F).ker.subtype) := by sorry
+
+def map {E : Type} [Field E] (f : F →+* E) : Group F →+ Group E := by sorry
+lemma map_symbol {E : Type} [Field E] (f : F →+* E) :
+    (lambda E).comp (Imported.freeMap F f) =
+      (Imported.tensorMap F f).comp (lambda F) ∧
+    ∀ α : Group F, ((map F f α) : RawSymbols E) = Imported.freeMap F f α := by sorry
+lemma map_id (α : Group F) : map F (RingHom.id F) α = α := by sorry
+lemma map_comp {E G : Type} [Field E] [Field G] (f : F →+* E) (g : E →+* G)
+    (α : Group F) : map E g (map F f α) = map F (g.comp f) α := by sorry
+
+/-- Test `LectureBloch.test_F2`. -/
+example : Subsingleton (Group (ZMod 2)) := by sorry
+/-- Test `LectureBloch.test_F3`. -/
+example : ∃ e : RawSymbols (ZMod 3) ≃+ ℤ,
+    e (Imported.sym (ZMod 3) (-1)) = 1 ∧
+    (∃ t : FullTensor (ZMod 3) ≃+ ZMod 2,
+      t (lambda (ZMod 3) (Imported.sym (ZMod 3) (-1))) = 1) ∧
+    ∀ α, lambda (ZMod 3) α = 0 ↔ Even (e α) := by sorry
+/-- Test `LectureBloch.test_F5_relation`. -/
+example : Imported.fiveTerm (ZMod 5) 2 3 = Imported.sym (ZMod 5) 4 ∧
+    lambda (ZMod 5) (Imported.sym (ZMod 5) 4) ≠ 0 ∧
+    2 • lambda (ZMod 5) (Imported.sym (ZMod 5) 4) = 0 := by sorry
+
+/-! K3BlochGroups:V.3/bloch-lecture-comparison -/
+def mu : Group F →+ Imported.B F := by sorry
+abbrev rawRelations : AddSubgroup (Group F) := (Imported.R5 F).comap (lambda F).ker.subtype
+abbrev RelationQuotient := Group F ⧸ rawRelations F
+def muRel : RelationQuotient F →+ Imported.B F := by sorry
+
+lemma boundary_compare : (Imported.boundary F).comp (Imported.q F) =
+    -((Imported.pi F).comp (lambda F)) := by sorry
+lemma mu_coe (α : Group F) : ((mu F α) : Imported.P F) = Imported.q F α := by sorry
+lemma mu_ker (α : Group F) : mu F α = 0 ↔ (α : RawSymbols F) ∈ Imported.R5 F := by sorry
+lemma muRel_injective : Function.Injective (muRel F) ∧
+    (muRel F).comp (QuotientAddGroup.mk' (rawRelations F)) = mu F ∧
+    ∀ f : RelationQuotient F →+ Imported.B F,
+      f.comp (QuotientAddGroup.mk' (rawRelations F)) = mu F → f = muRel F := by sorry
+
+/-- Test `LectureBloch.test_F5_kernel`. -/
+example : ∃ α : Group (ZMod 5),
+    (α : RawSymbols (ZMod 5)) = 2 • Imported.sym (ZMod 5) 4 ∧
+    α ≠ 0 ∧ mu (ZMod 5) α = 0 ∧ addOrderOf α = 0 := by sorry
+/-- Test `LectureBloch.test_F5_generator`. -/
+example : ∃ α : Group (ZMod 5),
+    (α : RawSymbols (ZMod 5)) = 4 • Imported.sym (ZMod 5) 3 ∧
+    ((mu (ZMod 5) α) : Imported.P (ZMod 5)) = 4 • Imported.q (ZMod 5)
+      (Imported.sym (ZMod 5) 3) ∧ addOrderOf (mu (ZMod 5) α) = 3 := by sorry
+/-- Test `LectureBloch.test_Q_kernel`. -/
+example : ∃ α : Group ℚ, (α : RawSymbols ℚ) = 4 • Imported.sym ℚ (-1) ∧
+    α ≠ 0 ∧ mu ℚ α = 0 ∧ addOrderOf α = 0 := by sorry
+
+/-! K3BlochGroups:V.3/bloch-lecture-obstruction -/
+abbrev E := (lambda F).range ⊓ (Imported.symmetric F).toAddSubgroup
+abbrev L := (Imported.R5 F).map (lambda F)
+abbrev Obstruction := E F ⧸ ((L F).comap (E F).subtype)
+def obstruction : Imported.B F →+ Obstruction F := by sorry
+
+theorem obstruction_exact : L F ≤ E F ∧ (mu F).ker = rawRelations F ∧
+    Function.Exact (mu F) (obstruction F) ∧ Function.Surjective (obstruction F) := by sorry
+
+def sigma : RawSymbols F →+ RawSymbols F := by sorry
+def degree : RawSymbols F →+ ℤ := FreeAbelianGroup.lift (fun _ => 1)
+
+/-! K3BlochGroups:V.3/bloch-lecture-six-torsion -/
+theorem six_lift (hF : FourElements F) (β : Imported.B F) (α : RawSymbols F)
+    (hα : Imported.q F α = (β : Imported.P F)) :
+    let γ := 3 • (α - sigma F α) + degree F α • (2 • Imported.sym F (-1))
+    lambda F γ = 0 ∧ Imported.q F γ = 6 • (β : Imported.P F) := by sorry
+
+theorem six_obstruction (hF : FourElements F) (x : Obstruction F) : 6 • x = 0 := by sorry
+end LectureBloch
+
+/-! K3BlochGroups:V.3/goncharov-generic-b2 -/
+namespace GoncharovB2
+variable (F : Type) [Field F]
+
+def configurationRelation (t : Fin 5 ↪ OnePoint F) : RawSymbols F :=
+  ∑ i : Fin 5, ((-1 : ℤ) ^ (i : ℕ)) •
+    FreeAbelianGroup.of (Imported.crossRatio F (i.succAboveEmb.trans t))
+abbrev relations : AddSubgroup (RawSymbols F) :=
+  AddSubgroup.closure (Set.range (configurationRelation F))
+abbrev Group := RawSymbols F ⧸ relations F
+abbrev mk : RawSymbols F →+ Group F := QuotientAddGroup.mk' (relations F)
+def «class» (x : F) : Group F := mk F (Imported.sym F x)
+
+lemma eq_iff (α β : RawSymbols F) : mk F α = mk F β ↔ α - β ∈ relations F := by sorry
+def lift {M : Type} [AddCommGroup M] (f : RawSymbols F →+ M)
+    (hf : ∀ t, f (configurationRelation F t) = 0) : Group F →+ M := by sorry
+lemma lift_mk {M : Type} [AddCommGroup M] (f : RawSymbols F →+ M)
+    (hf : ∀ t, f (configurationRelation F t) = 0) :
+    (lift F f hf).comp (mk F) = f ∧
+    ∀ g : Group F →+ M, g.comp (mk F) = f → g = lift F f hf := by sorry
+
+def map {E : Type} [Field E] (f : F →+* E) : Group F →+ Group E := by sorry
+lemma map_symbol {E : Type} [Field E] (f : F →+* E) (x : F) :
+    map F f («class» F x) = «class» E (f x) := by sorry
+lemma map_id (x : Group F) : map F (RingHom.id F) x = x := by sorry
+lemma map_comp {E G : Type} [Field E] [Field G] (f : F →+* E) (g : E →+* G)
+    (x : Group F) : map E g (map F f x) = map F (g.comp f) x := by sorry
+
+/-- Test `GoncharovB2.test_F2`. -/
+example : Subsingleton (Group (ZMod 2)) := by sorry
+/-- Test `GoncharovB2.test_F3`. -/
+example : ∃ e : Group (ZMod 3) ≃+ ℤ, e («class» (ZMod 3) (-1)) = 1 := by sorry
+/-- Test `GoncharovB2.test_F5`. -/
+example : ∃ e : Group (ZMod 5) ≃+ ZMod 6,
+    e («class» (ZMod 5) 3) = 1 := by sorry
+
+/-! K3BlochGroups:V.3/goncharov-generic-comparison -/
+def compare : Group F ≃+ Imported.P F := by sorry
+def boundary : Group F →+ Imported.Qs F := by sorry
+
+theorem generic_compare : (relations F = Imported.R5 F) ∧
+    (∀ x, compare F («class» F x) = Imported.q F (Imported.sym F x)) ∧
+    boundary F = -((Imported.boundary F).comp (compare F).toAddMonoidHom) := by sorry
+
+def kernelCompare : (boundary F).ker ≃+ Imported.B F := by sorry
+/-- The second half of Test `GoncharovB2.test_F5`: B₂ is not its cycle kernel. -/
+example : boundary (ZMod 5) («class» (ZMod 5) 3) ≠ 0 ∧
+    Nonempty ((boundary (ZMod 5)).ker ≃+ ZMod 3) := by sorry
+end GoncharovB2
+
+/-! K3BlochGroups:V.3/cgz-published-negative-tensor -/
+namespace CGZPublished
+variable (F : Type) [Field F]
+
+def negativeUnit (u : UnitAdd F) : UnitAdd F := Additive.ofMul (-u.toMul)
+abbrev negativeRelations : Submodule ℤ (FullTensor F) :=
+  Submodule.span ℤ (Set.range fun u : UnitAdd F => u ⊗ₜ[ℤ] negativeUnit F u)
+abbrev NegativeTarget := FullTensor F ⧸ negativeRelations F
+abbrev tensorProjection : FullTensor F →+ NegativeTarget F :=
+  (negativeRelations F).mkQ.toAddMonoidHom
+def negativeProjection : Imported.Qs F →+ NegativeTarget F := by sorry
+
+lemma negativeTensor_zero (u : UnitAdd F) :
+    tensorProjection F (u ⊗ₜ[ℤ] negativeUnit F u) = 0 := by sorry
+lemma tensorProjection_surjective : Function.Surjective (tensorProjection F) ∧
+    (negativeProjection F).comp (Imported.pi F) = tensorProjection F := by sorry
+
+def tensorLift {M : Type} [AddCommGroup M] (f : FullTensor F →+ M)
+    (hf : ∀ u, f (u ⊗ₜ[ℤ] negativeUnit F u) = 0) : NegativeTarget F →+ M := by sorry
+lemma tensorLift_unique {M : Type} [AddCommGroup M] (f : FullTensor F →+ M)
+    (hf : ∀ u, f (u ⊗ₜ[ℤ] negativeUnit F u) = 0) :
+    (tensorLift F f hf).comp (tensorProjection F) = f ∧
+    ∀ g : NegativeTarget F →+ M,
+      g.comp (tensorProjection F) = f → g = tensorLift F f hf := by sorry
+lemma symmetrizer_le : Imported.symmetric F ≤ negativeRelations F := by sorry
+
+/-- Test `CGZPublished.test_tensor_F3`. -/
+example : Nonempty (NegativeTarget (ZMod 3) ≃+ ZMod 2) ∧
+    Subsingleton (Imported.Exterior (ZMod 3)) := by sorry
+/-- Test `CGZPublished.test_tensor_F5`. -/
+example : Nonempty (Imported.Qs (ZMod 5) ≃+ ZMod 2) ∧
+    Subsingleton (NegativeTarget (ZMod 5)) ∧
+    (∃ t : FullTensor (ZMod 5) ≃+ ZMod 4,
+      let g := Imported.unit (ZMod 5) 2 (by sorry)
+      t (g ⊗ₜ[ℤ] g) = 1 ∧
+      t (g ⊗ₜ[ℤ] negativeUnit (ZMod 5) g) = 3) := by sorry
+/-- Test `CGZPublished.test_tensor_Q`. -/
+example : let u := Imported.unit ℚ 2 (by sorry)
+    let v := negativeUnit ℚ u
+    tensorProjection ℚ (u ⊗ₜ[ℤ] v) = 0 ∧
+      Imported.toExterior ℚ (Imported.pi ℚ (u ⊗ₜ[ℤ] v)) ≠ 0 := by sorry
+
+/-! K3BlochGroups:V.3/cgz-published-target-kernel -/
+theorem target_kernel (hF : FourElements F) :
+    (negativeProjection F).ker = (Imported.H F).map (Imported.boundary F) ∧
+    ((negativeProjection F).comp (Imported.boundary F)).ker =
+      Imported.B F ⊔ Imported.H F ∧ ∀ h : Imported.H F, 2 • h = 0 := by sorry
+
+/-! K3BlochGroups:V.3/cgz-published-boundary -/
+def boundary : ProjectiveSymbols F →+ NegativeTarget F := by sorry
+def boundaryQuotient : Imported.Extended F →+ NegativeTarget F := by sorry
+
+lemma boundary_symbol (x : F) (hx : x ≠ 0) (hx1 : x ≠ 1) :
+    boundary F (FreeAbelianGroup.of (x : OnePoint F)) = tensorProjection F
+      (Imported.unit F x hx ⊗ₜ[ℤ] Imported.unit F (1 - x) (by sorry)) ∧
+    boundary F (FreeAbelianGroup.of (0 : F)) = 0 ∧
+    boundary F (FreeAbelianGroup.of (1 : F)) = 0 ∧
+    boundary F (FreeAbelianGroup.of (OnePoint.infty : OnePoint F)) = 0 := by sorry
+lemma relations_le_kernel : Imported.Cext F ≤ (boundary F).ker := by sorry
+lemma boundaryQuotient_unique :
+    (boundaryQuotient F).comp (Imported.extQ F) = boundary F ∧
+    ∀ d : Imported.Extended F →+ NegativeTarget F,
+      d.comp (Imported.extQ F) = boundary F → d = boundaryQuotient F := by sorry
+lemma boundary_ordinary : (boundaryQuotient F).comp (Imported.j F) =
+    (negativeProjection F).comp (Imported.boundary F) := by sorry
+
+/-- Test `CGZPublished.test_boundary_degenerate`. -/
+example : boundary F (FreeAbelianGroup.of ((0 : F) : OnePoint F)) = 0 ∧
+    boundary F (FreeAbelianGroup.of ((1 : F) : OnePoint F)) = 0 ∧
+    boundary F (FreeAbelianGroup.of (OnePoint.infty : OnePoint F)) = 0 := by sorry
+/-- Test `CGZPublished.test_boundary_F5`. -/
+example : boundary (ZMod 5) (FreeAbelianGroup.of ((2 : (ZMod 5)) : OnePoint (ZMod 5)) +
+      FreeAbelianGroup.of ((3 : (ZMod 5)) : OnePoint (ZMod 5))) = 0 ∧
+    Imported.boundary (ZMod 5)
+      (Imported.q (ZMod 5) (Imported.sym (ZMod 5) 2 + Imported.sym (ZMod 5) 3)) ≠ 0 := by sorry
+/-- Test `CGZPublished.test_boundary_Q_relation`. -/
+example : let r : ProjectiveSymbols ℚ := FreeAbelianGroup.of ((2 : ℚ) : OnePoint ℚ) +
+    FreeAbelianGroup.of ((1 / 2 : ℚ) : OnePoint ℚ) - FreeAbelianGroup.of ((1 : ℚ) : OnePoint ℚ)
+    boundary ℚ r = 0 ∧ Imported.oldBoundary ℚ r ≠ 0 := by sorry
+
+/-! K3BlochGroups:V.3/cgz-published-bloch-group -/
+abbrev Cycles := (boundary F).ker
+abbrev cycleRelations : AddSubgroup (Cycles F) :=
+  (Imported.Cext F).comap (boundary F).ker.subtype
+abbrev CycleQuotient := Cycles F ⧸ cycleRelations F
+abbrev Group := (boundaryQuotient F).ker
+
+def cycleClass : Cycles F →+ Group F := by sorry
+lemma cycleClass_eq_iff (α β : Cycles F) :
+    cycleClass F α = cycleClass F β ↔
+      (α : ProjectiveSymbols F) - (β : ProjectiveSymbols F) ∈ Imported.Cext F := by sorry
+def kernelEquiv : CycleQuotient F ≃+ Group F := by sorry
+lemma kernelEquiv_mk (α : Cycles F) :
+    kernelEquiv F (QuotientAddGroup.mk' (cycleRelations F) α) = cycleClass F α ∧
+    ((cycleClass F α) : Imported.Extended F) = Imported.extQ F α := by sorry
+
+def cycleLift {M : Type} [AddCommGroup M] (f : Cycles F →+ M)
+    (hf : cycleRelations F ≤ f.ker) : Group F →+ M := by sorry
+lemma cycleLift_unique {M : Type} [AddCommGroup M] (f : Cycles F →+ M)
+    (hf : cycleRelations F ≤ f.ker) :
+    (cycleLift F f hf).comp (cycleClass F) = f ∧
+    ∀ g : Group F →+ M, g.comp (cycleClass F) = f → g = cycleLift F f hf := by sorry
+
+def zeroCycle : Cycles F := ⟨FreeAbelianGroup.of ((0 : F) : OnePoint F), by sorry⟩
+/-- Test `CGZPublished.test_group_F2`. -/
+example : ∃ e : Group (ZMod 2) ≃+ ZMod 3,
+    e (cycleClass (ZMod 2) (zeroCycle (ZMod 2))) = 1 := by sorry
+/-- Test `CGZPublished.test_group_F3`. -/
+example : Subsingleton (Group (ZMod 3)) ∧
+    Nonempty (Imported.Extended (ZMod 3) ≃+ ZMod 2) ∧
+    Function.Bijective (boundaryQuotient (ZMod 3)) := by sorry
+/-- Test `CGZPublished.test_group_F11`. -/
+example : Nonempty (Group (ZMod 11) ≃+ ZMod 3) ∧
+    Nonempty (Imported.OldB (ZMod 11) ≃+ ZMod 6) := by sorry
+
+/-! K3BlochGroups:V.3/cgz-published-comparison-map -/
+def compare : Imported.B F →+ Group F := by sorry
+lemma compare_coe (β : Imported.B F) :
+    ((compare F β) : Imported.Extended F) = Imported.j F β := by sorry
+lemma compare_c (hF : FourElements F) :
+    compare F (Imported.c F) = cycleClass F (zeroCycle F) := by sorry
+lemma compare_angle (hF : FourElements F) (u : UnitAdd F)
+    (hu : Imported.angle F u ∈ Imported.B F) :
+    compare F ⟨Imported.angle F u, hu⟩ = 0 := by sorry
+
+def map {E : Type} [Field E] (f : F →+* E) : Group F →+ Group E := by sorry
+lemma compare_natural {E : Type} [Field E] (f : F →+* E) :
+    (map F f).comp (compare F) = (compare E).comp (Imported.bMap F f) := by sorry
+lemma map_id (β : Group F) : map F (RingHom.id F) β = β := by sorry
+lemma map_comp {E G : Type} [Field E] [Field G] (f : F →+* E) (g : E →+* G)
+    (β : Group F) : map E g (map F f β) = map F (g.comp f) β := by sorry
+
+/-- Test `CGZPublished.test_compare_F5`. -/
+example : Function.Bijective (compare (ZMod 5)) ∧
+    compare (ZMod 5) (Imported.c (ZMod 5)) = cycleClass (ZMod 5) (zeroCycle (ZMod 5)) ∧
+    addOrderOf (compare (ZMod 5) (Imported.c (ZMod 5))) = 3 := by sorry
+/-- Test `CGZPublished.test_compare_F7`. -/
+example : Nonempty (Imported.B (ZMod 7) ≃+ ZMod 4) ∧
+    Nonempty (Group (ZMod 7) ≃+ ZMod 2) ∧
+    (compare (ZMod 7)).ker = AddSubgroup.zmultiples (Imported.c (ZMod 7)) ∧
+    addOrderOf (Imported.c (ZMod 7)) = 2 ∧ compare (ZMod 7) (Imported.c (ZMod 7)) = 0 := by sorry
+/-- Test `CGZPublished.test_compare_F11`. -/
+example : Nonempty (Imported.B (ZMod 11) ≃+ ZMod 6) ∧
+    addOrderOf (compare (ZMod 11) (Imported.c (ZMod 11))) = 3 ∧
+    (compare (ZMod 11)).ker = AddSubgroup.zmultiples (3 • Imported.c (ZMod 11)) := by sorry
+
+/-! K3BlochGroups:V.3/cgz-published-lemma-two-two -/
+abbrev angleKernel : AddSubgroup (Imported.B F) := (Imported.H F).comap (Imported.B F).subtype
+
+theorem published_lemma_two_two (hF : FourElements F) :
+    Function.Surjective (compare F) ∧ (compare F).ker = angleKernel F ∧
+    ∀ β : angleKernel F, 2 • β = 0 := by sorry
+
+def classicalQuotientEquiv (hF : FourElements F) :
+    Imported.B F ⧸ angleKernel F ≃+ Group F := by sorry
+
+/-! K3BlochGroups:V.3/cgz-published-to-older -/
+def toOlder (hF : FourElements F) : Group F →+ Imported.OldB F := by sorry
+abbrev olderCorrection := Imported.BE F ⧸
+  ((Imported.B F ⊔ (Imported.BE F ⊓ Imported.H F)).comap (Imported.BE F).subtype)
+
+theorem published_to_older (hF : FourElements F) :
+    Function.Injective (toOlder F hF) ∧
+    Imported.oldCompare F = (toOlder F hF).comp (compare F) ∧
+    Nonempty ((Imported.OldB F ⧸ (toOlder F hF).range) ≃+ olderCorrection F) ∧
+    ∀ z : olderCorrection F, 2 • z = 0 := by sorry
+
+abbrev zeroDegenerateSubgroup : AddSubgroup (Group F) :=
+  AddSubgroup.zmultiples (cycleClass F (zeroCycle F))
+abbrev ZeroDegenerate := Group F ⧸ zeroDegenerateSubgroup F
+abbrev zeroDegenerateCompare : Imported.B F →+ ZeroDegenerate F :=
+  (QuotientAddGroup.mk' (zeroDegenerateSubgroup F)).comp (compare F)
+
+theorem extra_zero_degenerate (hF : FourElements F) :
+    Function.Surjective (zeroDegenerateCompare F) ∧
+    (zeroDegenerateCompare F).ker = angleKernel F ⊔ AddSubgroup.zmultiples (Imported.c F) ∧
+    ∀ β : (zeroDegenerateCompare F).ker, 6 • β = 0 := by sorry
+end CGZPublished
+
+/-! K3BlochGroups:V.3/goncharov-curve-b2.
+The scheme bundle records mathematical predicates already in Mathlib. No
+field stores an unspecified theorem or a stand-in proposition. Its general
+geometry is owned by the upstream AlgebraicCurves dictionary.
 -/
+open AlgebraicGeometry
+
+structure SmoothCurve (F : Type) [Field F] where
+  X : Scheme.{0}
+  toBase : X ⟶ Spec (CommRingCat.of F)
+  integral : IsIntegral X
+  smooth : SmoothOfRelativeDimension 1 toBase
+  quasiCompact : QuasiCompact toBase
+  separated : IsSeparated toBase
+-- Smoothness is locally of finite presentation. Quasi-compactness makes
+-- these finite-type curves; separatedness excludes nonseparated schemes.
+attribute [instance] SmoothCurve.integral SmoothCurve.smooth
+  SmoothCurve.quasiCompact SmoothCurve.separated
+
+abbrev SmoothCurve.Point {F : Type} [Field F] (C : SmoothCurve F) :=
+  {u : Spec (CommRingCat.of F) ⟶ C.X // u ≫ C.toBase = 𝟙 _}
+
+/-- Type of the upstream projective evaluation maps. Canonical construction
+and its local-DVR correctness contract are an outstanding request, not assumed
+as an opaque proposition. The quotient below can be formed from any family;
+its geometric comparisons need the explicit input conditions shown below. -/
+abbrev CurveSpecializations := ∀ (F : Type) [Field F] (C : SmoothCurve F),
+  C.Point → OnePoint C.X.functionField → OnePoint F
+
+namespace GoncharovCurve
+variable (sp : CurveSpecializations) (F : Type) [Field F]
+
+abbrev Symbols := OnePoint F →₀ ℚ
+abbrev Target := ℚ ⊗[ℤ] Imported.Qs F
+
+def rawBoundary : Symbols F →ₗ[ℚ] Target F := by
+  classical
+  exact Finsupp.linearCombination ℚ fun z =>
+    match z with
+    | none => 0
+    | some x => if hx : x ≠ 0 ∧ x ≠ 1 then
+        (1 : ℚ) ⊗ₜ[ℤ] Imported.pi F
+          (Imported.unit F (1 - x) (by sorry) ⊗ₜ[ℤ] Imported.unit F x hx.1)
+      else 0
+
+def specialize (C : SmoothCurve F) (u : C.Point) :
+    Symbols C.X.functionField →ₗ[ℚ] Symbols F :=
+  Finsupp.linearCombination ℚ fun z => Finsupp.single (sp F C u z) 1
+
+abbrev relations : Submodule ℚ (Symbols F) :=
+  Submodule.span ℚ {r | r = Finsupp.single ((0 : F) : OnePoint F) 1 ∨
+    r = Finsupp.single (OnePoint.infty : OnePoint F) 1 ∨
+    ∃ (C : SmoothCurve F) (u v : C.Point) (α : Symbols C.X.functionField),
+      rawBoundary C.X.functionField α = 0 ∧
+      r = specialize sp F C u α - specialize sp F C v α}
+abbrev Group := Symbols F ⧸ relations sp F
+abbrev mk : Symbols F →ₗ[ℚ] Group sp F := (relations sp F).mkQ
+
+def «class» (z : OnePoint F) : Group sp F := mk sp F (Finsupp.single z 1)
+lemma eq_iff (α β : Symbols F) : mk sp F α = mk sp F β ↔
+    α - β ∈ relations sp F := by sorry
+
+def lift {M : Type} [AddCommGroup M] [Module ℚ M] (f : Symbols F →ₗ[ℚ] M)
+    (h0 : f (Finsupp.single ((0 : F) : OnePoint F) 1) = 0)
+    (hInfinity : f (Finsupp.single (OnePoint.infty : OnePoint F) 1) = 0)
+    (hsp : ∀ (C : SmoothCurve F) (u v : C.Point) (α : Symbols C.X.functionField),
+      rawBoundary C.X.functionField α = 0 →
+      f (specialize sp F C u α - specialize sp F C v α) = 0) :
+    Group sp F →ₗ[ℚ] M := by sorry
+lemma lift_unique {M : Type} [AddCommGroup M] [Module ℚ M] (f : Symbols F →ₗ[ℚ] M)
+    (h0 : f (Finsupp.single ((0 : F) : OnePoint F) 1) = 0)
+    (hInfinity : f (Finsupp.single (OnePoint.infty : OnePoint F) 1) = 0)
+    (hsp : ∀ (C : SmoothCurve F) (u v : C.Point) (α : Symbols C.X.functionField),
+      rawBoundary C.X.functionField α = 0 →
+      f (specialize sp F C u α - specialize sp F C v α) = 0) :
+    (lift sp F f h0 hInfinity hsp).comp (mk sp F) = f ∧
+    ∀ g : Group sp F →ₗ[ℚ] M, g.comp (mk sp F) = f → g = lift sp F f h0 hInfinity hsp := by sorry
+lemma specialization_relation (C : SmoothCurve F) (u v : C.Point)
+    (α : Symbols C.X.functionField) (hα : rawBoundary C.X.functionField α = 0) :
+    mk sp F (specialize sp F C u α) = mk sp F (specialize sp F C v α) := by sorry
+
+/-- Test `GoncharovCurve.test_zero`. -/
+example : «class» sp F ((0 : F) : OnePoint F) = 0 ∧
+    «class» sp F (OnePoint.infty : OnePoint F) = 0 := by sorry
+/-- Test `GoncharovCurve.test_one`.
+Instantiate C with P¹, t with its affine coordinate and u,v with 0,∞.
+The evaluation equalities are genuine geometric inputs of the missing supplier,
+not a proposition replacing them. -/
+example (C : SmoothCurve F) (u v : C.Point) (t : C.X.functionField)
+    (hu : sp F C u (t : OnePoint C.X.functionField) = ((0 : F) : OnePoint F))
+    (hu1 : sp F C u (((1 : C.X.functionField) - t : C.X.functionField) : OnePoint C.X.functionField) = ((1 : F) : OnePoint F))
+    (hv : sp F C v (t : OnePoint C.X.functionField) = OnePoint.infty)
+    (hv1 : sp F C v (((1 : C.X.functionField) - t : C.X.functionField) : OnePoint C.X.functionField) = OnePoint.infty) :
+    «class» sp F ((1 : F) : OnePoint F) = 0 := by sorry
+/-- Test `GoncharovCurve.test_inversion`.
+Instantiate C with P¹, t with its coordinate, and u,v with x,0. -/
+example (C : SmoothCurve F) (u v : C.Point) (t : C.X.functionField) (x : F) (hx : x ≠ 0)
+    (hu : sp F C u (t : OnePoint C.X.functionField) = (x : OnePoint F))
+    (hui : sp F C u ((t⁻¹ : C.X.functionField) : OnePoint C.X.functionField) = ((x⁻¹ : F) : OnePoint F))
+    (hv : sp F C v (t : OnePoint C.X.functionField) = ((0 : F) : OnePoint F))
+    (hvi : sp F C v ((t⁻¹ : C.X.functionField) : OnePoint C.X.functionField) = OnePoint.infty) :
+    «class» sp F (x : OnePoint F) + «class» sp F ((x⁻¹ : F) : OnePoint F) = 0 := by sorry
+
+/-! K3BlochGroups:V.3/goncharov-curve-boundary.
+`relations_le_kernel`: not stated unconditionally; needs the canonical
+local-DVR projective specialization and the P.4 degree-two valuation formula.
+The following is the exact, conventional quotient-descent signature.
+-/
+def boundary (hclosure : relations sp F ≤ (rawBoundary F).ker) :
+    Group sp F →ₗ[ℚ] Target F := (relations sp F).liftQ (rawBoundary F) hclosure
+lemma boundary_class (hclosure : relations sp F ≤ (rawBoundary F).ker) (z : OnePoint F) :
+    boundary sp F hclosure («class» sp F z) = rawBoundary F (Finsupp.single z 1) := by sorry
+lemma boundary_unique (hclosure : relations sp F ≤ (rawBoundary F).ker) :
+    (boundary sp F hclosure).comp (mk sp F) = rawBoundary F ∧
+    ∀ d : Group sp F →ₗ[ℚ] Target F,
+      d.comp (mk sp F) = rawBoundary F → d = boundary sp F hclosure := by sorry
+lemma mem_kernel (hclosure : relations sp F ≤ (rawBoundary F).ker) (α : Symbols F) :
+    mk sp F α ∈ (boundary sp F hclosure).ker ↔ rawBoundary F α = 0 := by sorry
+
+/-- Test `GoncharovCurve.test_boundary_degenerate`. -/
+example (hclosure : relations sp F ≤ (rawBoundary F).ker) :
+    boundary sp F hclosure («class» sp F ((0 : F) : OnePoint F)) = 0 ∧
+    boundary sp F hclosure («class» sp F ((1 : F) : OnePoint F)) = 0 ∧
+    boundary sp F hclosure («class» sp F (OnePoint.infty : OnePoint F)) = 0 := by sorry
+/-- Test `GoncharovCurve.test_boundary_complex`. -/
+example (hclosure : relations sp ℂ ≤ (rawBoundary ℂ).ker) :
+    boundary sp ℂ hclosure («class» sp ℂ (Complex.I : OnePoint ℂ)) = 0 := by sorry
+
+/-! K3BlochGroups:V.3/goncharov-curve-comparison.
+`generic_relations_le`: not stated unconditionally; needs the canonical
+P¹ specialization compatibility to evaluate R(1+t(x-1),y) at 1 and 0.
+An arbitrary `sp` does not discharge either `hR5` or `hclosure`.
+-/
+abbrev RationalP := ℚ ⊗[ℤ] Imported.P F
+abbrev RationalB := ℚ ⊗[ℤ] Imported.B F
+
+def toGeneric : Symbols F →ₗ[ℚ] RationalP F :=
+  Finsupp.linearCombination ℚ fun z => match z with
+    | none => 0
+    | some x => (1 : ℚ) ⊗ₜ[ℤ] Imported.q F (Imported.sym F x)
+abbrev reducedRelations : Submodule ℚ (Symbols F) := (toGeneric F).ker
+abbrev Correction := relations sp F ⧸ (reducedRelations F).comap (relations sp F).subtype
+
+def genericCompare (hR5 : reducedRelations F ≤ relations sp F) :
+    RationalP F →ₗ[ℚ] Group sp F := by sorry
+def rationalPartial : RationalP F →ₗ[ℚ] Target F := by sorry
+
+def cycleCompare (hR5 : reducedRelations F ≤ relations sp F)
+    (hclosure : relations sp F ≤ (rawBoundary F).ker) :
+    RationalB F →ₗ[ℚ] (boundary sp F hclosure).ker := by sorry
+
+theorem curve_comparison (hR5 : reducedRelations F ≤ relations sp F)
+    (hclosure : relations sp F ≤ (rawBoundary F).ker) :
+    Function.Surjective (genericCompare sp F hR5) ∧
+    (genericCompare sp F hR5).comp (toGeneric F) = mk sp F ∧
+    Nonempty ((genericCompare sp F hR5).ker ≃ₗ[ℚ] Correction sp F) ∧
+    Function.Surjective (cycleCompare sp F hR5 hclosure) ∧
+    Nonempty ((cycleCompare sp F hR5 hclosure).ker ≃ₗ[ℚ] Correction sp F) := by sorry
+
+/-- Test `GoncharovCurve.test_boundary_sign`. -/
+example (hR5 : reducedRelations F ≤ relations sp F)
+    (hclosure : relations sp F ≤ (rawBoundary F).ker) (β : RationalP F) :
+    boundary sp F hclosure (genericCompare sp F hR5 β) = -(rationalPartial F β) := by sorry
+
+-- The canonical projective-line evaluations prove hOne and hInv below.
+-- This is the exceptional small-field acceptance calculation, not an
+-- unconditional claim about an arbitrary evaluation family.
+example (hR5 : reducedRelations (ZMod 3) ≤ relations sp (ZMod 3))
+    (hOne : «class» sp (ZMod 3) ((1 : ZMod 3) : OnePoint (ZMod 3)) = 0)
+    (hInv : «class» sp (ZMod 3) ((-1 : ZMod 3) : OnePoint (ZMod 3)) +
+      «class» sp (ZMod 3) ((-1 : ZMod 3) : OnePoint (ZMod 3)) = 0) :
+    Subsingleton (Group sp (ZMod 3)) ∧
+    Nonempty (Correction sp (ZMod 3) ≃ₗ[ℚ] ℚ) := by sorry
+
+-- No assertion `Correction sp F = 0`: for fields with at least four
+-- elements this all-curve comparison remains a mathematical gap. F₃ is
+-- a proved exception with rational kernel ℚ, conditional on the canonical
+-- projective-line evaluation facts above.
+-- Polylogarithms:P.4/explicit-to-inductive-comparison supplies the different
+-- F(t)-only rational identification for infinite fields; it is not restated.
+end GoncharovCurve
+
+/-! K3BlochGroups:V.3/convention-coefficient-exports -/
+theorem convention_coefficient_exports (F : Type) [Field F] (hF : FourElements F) :
+    Function.Bijective (Imported.coeffMap (Localization.Away (2 : ℤ)) (CGZPublished.compare F)) ∧
+    Function.Bijective (Imported.coeffMap ℚ (CGZPublished.compare F)) ∧
+    Function.Bijective (Imported.coeffMap (Localization.Away (2 : ℤ)) (CGZPublished.toOlder F hF)) ∧
+    Function.Bijective (Imported.coeffMap ℚ (CGZPublished.toOlder F hF)) ∧
+    Function.Bijective (Imported.coeffMap (Localization.Away (6 : ℤ)) (LectureBloch.muRel F)) ∧
+    Function.Bijective (Imported.coeffMap ℚ (LectureBloch.muRel F)) ∧
+    (∀ n : ℕ, 0 < n → Odd n →
+      Function.Bijective (Imported.coeffMap (ZMod n) (CGZPublished.compare F)) ∧
+      Function.Bijective (Imported.coeffMap (ZMod n) (CGZPublished.toOlder F hF))) ∧
+    (∀ n : ℕ, 0 < n → Nat.Coprime n 6 →
+      Function.Bijective (Imported.coeffMap (ZMod n) (LectureBloch.muRel F))) := by sorry
+
+/-- The 2-primary coefficient restriction is real. -/
+example : ¬Function.Bijective (Imported.coeffMap (ZMod 2) (CGZPublished.compare (ZMod 11))) := by sorry
+/-- The extra degenerate-zero quotient has a 3-primary obstruction. -/
+example : ¬Function.Bijective
+    (Imported.coeffMap (ZMod 3) (CGZPublished.zeroDegenerateCompare (ZMod 5))) := by sorry
+
+end TauCeti.BlochConventions
+end
+
+end ContinuationV3
+
+
+/-! ## ContinuationV4 -/
+
+section ContinuationV4
+
+noncomputable section
+open CategoryTheory CategoryTheory.Limits
+open scoped TensorProduct
+set_option linter.unusedVariables false
+namespace TauCeti.SuslinV4
+
+variable (F : Type) [Field F]
+
+/-- Routine index abbreviation: q ordered vectors, independently projected to Fⁿ. -/
+abbrev Frame (n m q : ℕ) :=
+  {t : Fin q → ((Fin n → F) × (Fin m → F)) //
+    LinearIndependent F (fun i => (t i).1)}
+
+def Frame.delete {n m q : ℕ} (t : Frame F n m (q + 1)) (i : Fin (q + 1)) :
+    Frame F n m q := ⟨fun j => t.val (i.succAbove j), by sorry⟩
+
+def Frame.mapField {E : Type} [Field E] (f : F →+* E) {n m q : ℕ}
+    (t : Frame F n m q) : Frame E n m q :=
+  ⟨fun i => (fun j => f ((t.val i).1 j), fun j => f ((t.val i).2 j)), by sorry⟩
+
+/-- The lower-block action (g 0; u 1), including the affine shear when m > 0. -/
+def Frame.affine {n m q : ℕ} (g : Matrix.GeneralLinearGroup (Fin n) F)
+    (u : (Fin n → F) →ₗ[F] (Fin m → F)) (t : Frame F n m q) : Frame F n m q :=
+  ⟨fun i => ((Matrix.GeneralLinearGroup.toLin g).val ((t.val i).1),
+    u ((t.val i).1) + (t.val i).2), by sorry⟩
+
+-- K3BlochGroups:V.4/unimodular-vector-chains
+-- The empty frame has degree 0; ordinary simplex dimension is q-1.
+def unimodularChains (F : Type) [Field F] (n m : ℕ) : ChainComplex (ModuleCat ℤ) ℕ := by sorry
+
+namespace unimodularChains
+
+def frame {n m q : ℕ} (t : Frame F n m q) : (unimodularChains F n m).X q := by sorry
+
+lemma frame_d {n m q : ℕ} (t : Frame F n m (q + 1)) :
+    (unimodularChains F n m).d (q + 1) q (frame F t) =
+      ∑ i : Fin (q + 1), (-1 : ℤ) ^ (i : ℕ) • frame F (t.delete F i) := by sorry
+
+def basisEquiv (n m q : ℕ) :
+    FreeAbelianGroup (Frame F n m q) ≃ₗ[ℤ] (unimodularChains F n m).X q := by sorry
+
+lemma basisEquiv_of (n m q : ℕ) (t : Frame F n m q) :
+    basisEquiv F n m q (FreeAbelianGroup.of t) = frame F t := by sorry
+
+def affineMap {n m : ℕ} (g : Matrix.GeneralLinearGroup (Fin n) F)
+    (u : (Fin n → F) →ₗ[F] (Fin m → F)) :
+    unimodularChains F n m ⟶ unimodularChains F n m := by sorry
+
+lemma affineMap_frame {n m q : ℕ} (g : Matrix.GeneralLinearGroup (Fin n) F)
+    (u : (Fin n → F) →ₗ[F] (Fin m → F)) (t : Frame F n m q) :
+    (affineMap F g u).f q (frame F t) = frame F (t.affine F g u) := by sorry
+
+lemma affineMap_id (n m : ℕ) :
+    affineMap F (1 : Matrix.GeneralLinearGroup (Fin n) F)
+      (0 : (Fin n → F) →ₗ[F] (Fin m → F)) = 𝟙 _ := by sorry
+
+lemma affineMap_comp {n m : ℕ} (g h : Matrix.GeneralLinearGroup (Fin n) F)
+    (u v : (Fin n → F) →ₗ[F] (Fin m → F)) :
+    affineMap F (h * g) (v.comp (Matrix.GeneralLinearGroup.toLin g).val + u) =
+      affineMap F g u ≫ affineMap F h v := by sorry
+
+def glRepresentation (n : ℕ) :
+    ChainComplex (Rep ℤ (Matrix.GeneralLinearGroup (Fin n) F)) ℕ := by sorry
+
+lemma glRepresentation_forget (n : ℕ) :
+    ∃ e : ∀ q, ((glRepresentation F n).X q) ≃ₗ[ℤ] (unimodularChains F n 0).X q,
+      ∀ p q x, e q (((glRepresentation F n).d p q).hom x) =
+        (unimodularChains F n 0).d p q (e p x) := by sorry
+
+-- The same equivalence identifies the action, so a trivial GL action cannot qualify.
+lemma glRepresentation_frame (n : ℕ) :
+    ∃ e : ∀ q, ((glRepresentation F n).X q) ≃ₗ[ℤ] (unimodularChains F n 0).X q,
+      (∀ p q x, e q (((glRepresentation F n).d p q).hom x) =
+        (unimodularChains F n 0).d p q (e p x)) ∧
+      ∀ q (g : Matrix.GeneralLinearGroup (Fin n) F) (t : Frame F n 0 q),
+        e q (((glRepresentation F n).X q).ρ g ((e q).symm (frame F t))) =
+          frame F (t.affine F g 0) := by sorry
+
+def mapField {E : Type} [Field E] (f : F →+* E) (n m : ℕ) :
+    unimodularChains F n m ⟶ unimodularChains E n m := by sorry
+
+lemma mapField_frame {E : Type} [Field E] (f : F →+* E) {n m q : ℕ}
+    (t : Frame F n m q) :
+    (mapField F f n m).f q (frame F t) = frame E (t.mapField F f) := by sorry
+
+lemma mapField_id (n m : ℕ) : mapField F (RingHom.id F) n m = 𝟙 _ := by sorry
+lemma mapField_comp {E L : Type} [Field E] [Field L] (f : F →+* E) (g : E →+* L)
+    (n m : ℕ) : mapField F (g.comp f) n m = mapField F f n m ≫ mapField E g n m := by sorry
+
+end unimodularChains
+
+-- unimodularChains_rank_zero: the augmentation survives in rank 0.
+example (m : ℕ) : Nonempty ((unimodularChains F 0 m).X 0 ≅ ModuleCat.of ℤ ℤ) ∧
+    ∀ q, IsZero ((unimodularChains F 0 m).X (q + 1)) := by sorry
+
+-- Routine test frames. Their subtype proofs encode linear independence, not distinctness.
+def rationalPoint (a : ℚˣ) : Frame ℚ 1 0 1 :=
+  ⟨fun _ => (fun _ => (a : ℚ), Fin.elim0), by sorry⟩
+def emptyFrame (n m : ℕ) : Frame F n m 0 := ⟨Fin.elim0, by sorry⟩
+def standardTwoFrame : Frame F 2 0 2 :=
+  ⟨fun i => (Pi.single i 1, Fin.elim0), by sorry⟩
+
+-- unimodularChains_rank_one: d([2]-[1])=0, but both basis vectors augment to 1.
+example :
+    (unimodularChains ℚ 1 0).d 1 0
+      (unimodularChains.frame ℚ (rationalPoint (Units.mk0 2 (by norm_num)))) =
+      unimodularChains.frame ℚ (emptyFrame ℚ 1 0) ∧
+    (unimodularChains ℚ 1 0).d 1 0
+      (unimodularChains.frame ℚ (rationalPoint 1)) =
+      unimodularChains.frame ℚ (emptyFrame ℚ 1 0) ∧
+    (unimodularChains ℚ 1 0).d 1 0
+      (unimodularChains.frame ℚ (rationalPoint (Units.mk0 2 (by norm_num))) -
+        unimodularChains.frame ℚ (rationalPoint 1)) = 0 ∧
+    IsZero ((unimodularChains ℚ 1 0).X 2) := by sorry
+
+-- unimodularChains_ordered_boundary: d(e₁,e₂)=[e₂]-[e₁].
+example : (unimodularChains F 2 0).d 2 1
+    (unimodularChains.frame F (standardTwoFrame F)) =
+      unimodularChains.frame F ((standardTwoFrame F).delete F 0) -
+        unimodularChains.frame F ((standardTwoFrame F).delete F 1) := by sorry
+
+-- unimodularChains_linear_independence: e₁ and 2e₁ are distinct but dependent.
+example : ¬ LinearIndependent ℚ
+    (![Pi.single (0 : Fin 2) (1 : ℚ), Pi.single (0 : Fin 2) (2 : ℚ)] :
+      Fin 2 → Fin 2 → ℚ) := by sorry
+
+-- unimodularChains_affine_shear: (1 0; 1 1) sends the frame (1,0) to (1,1).
+example (t : Frame ℚ 1 1 1) (ht : t.val 0 = (fun _ => 1, fun _ => 0)) :
+    (t.affine ℚ 1 (LinearMap.id)).val 0 = (fun _ => 1, fun _ => 1) := by sorry
+
+-- K3BlochGroups:V.4/unimodular-acyclic-range
+lemma unimodular_acyclic_range [Infinite F] (n m q : ℕ) (hq : q ≠ n) :
+    IsZero ((unimodularChains F n m).homology q) := by sorry
+
+-- K3BlochGroups:V.4/stability-coinvariants
+-- The definition is the baseline H₀ of the baseline homology representation.
+def stabilityCoinvariants (n : ℕ) : ModuleCat ℤ :=
+  groupHomology ((unimodularChains.glRepresentation F n).homology n) 0
+
+namespace stabilityCoinvariants
+
+def gen {n : ℕ} [NeZero n] (a : Fin n → Fˣ) : stabilityCoinvariants F n := by sorry
+
+lemma ext [Infinite F] {n : ℕ} [NeZero n] {A : Type} [AddCommGroup A]
+    (f g : stabilityCoinvariants F n →+ A)
+    (h : ∀ a, f (gen F a) = g (gen F a)) : f = g := by sorry
+
+/-- Routine formula for the i-th term: delete i, multiply by lamⱼ-lamᵢ, append lamᵢ. -/
+def relationEntry {n : ℕ} (a lam : Fin (n + 1) → Fˣ)
+    (hlam : Function.Injective lam) (i : Fin (n + 1)) : Fin (n + 1) → Fˣ :=
+  Fin.snoc (fun j => Units.mk0
+    ((a (i.succAbove j) : F) * ((lam (i.succAbove j) : F) - (lam i : F)))
+    (by sorry)) (lam i)
+
+lemma relation [Infinite F] (n : ℕ) (a lam : Fin (n + 1) → Fˣ)
+    (hlam : Function.Injective lam) :
+    gen F (fun i => lam i * a i) - gen F a =
+      ∑ i : Fin (n + 1), (-1 : ℤ) ^ ((i : ℕ) + (n + 1) + 1) •
+        gen F (relationEntry F a lam hlam i) := by sorry
+
+def mul (n m : ℕ) :
+    (stabilityCoinvariants F n ⊗[ℤ] stabilityCoinvariants F m) →ₗ[ℤ]
+      stabilityCoinvariants F (n + m) := by sorry
+
+def unit : stabilityCoinvariants F 0 := by sorry
+
+lemma mul_unit (n : ℕ) (x : stabilityCoinvariants F n) :
+    (by simpa using mul F 0 n (TensorProduct.tmul ℤ (unit F) x)) = x ∧
+    (by simpa using mul F n 0 (TensorProduct.tmul ℤ x (unit F))) = x := by sorry
+
+/-- Multiplication by e=⟨1,1⟩, with the codomain index transported to n+2. -/
+def eMul (n : ℕ) : stabilityCoinvariants F n →+ stabilityCoinvariants F (n + 2) := by sorry
+
+lemma eMul_apply (n : ℕ) (x : stabilityCoinvariants F n) :
+    eMul F n x = (by simpa only [Nat.add_comm] using
+      (mul F 2 n (TensorProduct.tmul ℤ (gen F (fun _ => 1)) x))) := by sorry
+
+lemma mul_assoc (n m l : ℕ) (x : stabilityCoinvariants F n)
+    (y : stabilityCoinvariants F m) (z : stabilityCoinvariants F l) :
+    (by simpa only [Nat.add_assoc] using
+      mul F (n + m) l (TensorProduct.tmul ℤ (mul F n m (TensorProduct.tmul ℤ x y)) z)) =
+      mul F n (m + l) (TensorProduct.tmul ℤ x (mul F m l (TensorProduct.tmul ℤ y z))) := by sorry
+
+-- MK and symbol are imported from K2SymbolsBrauer:T.2/milnor-k-theory.
+def milnorRetraction (MK : ℕ → Type) [∀ n, AddCommGroup (MK n)] (n : ℕ) :
+    stabilityCoinvariants F n →+ MK n := by sorry
+
+lemma milnorRetraction_gen (MK : ℕ → Type) [∀ n, AddCommGroup (MK n)]
+    (symbol : ∀ n, (Fin n → Fˣ) → MK n) [Infinite F] {n : ℕ} [NeZero n]
+    (a : Fin n → Fˣ) : milnorRetraction F MK n (gen F a) = symbol n a := by sorry
+
+end stabilityCoinvariants
+
+-- stabilityCoinvariants_zero
+example : Nonempty (stabilityCoinvariants F 0 ≃+ ℤ) := by sorry
+-- stabilityCoinvariants_one
+example [Infinite F] : ∃ e : stabilityCoinvariants F 1 ≃+ Additive Fˣ,
+    ∀ a : Fˣ, e (stabilityCoinvariants.gen F (fun _ => a)) = Additive.ofMul a := by sorry
+-- stabilityCoinvariants_two_unit
+example [Infinite F] (MK : ℕ → Type) [∀ n, AddCommGroup (MK n)] :
+    ∃ e : stabilityCoinvariants F 2 ≃+ (MK 2 × ℤ),
+      e (stabilityCoinvariants.gen F (fun _ => 1)) = (0, 1) := by sorry
+-- stabilityCoinvariants_product_two
+example [Infinite F] (a b : Fˣ) :
+    stabilityCoinvariants.mul F 1 1 (TensorProduct.tmul ℤ
+      (stabilityCoinvariants.gen F (fun _ => a)) (stabilityCoinvariants.gen F (fun _ => b))) =
+    stabilityCoinvariants.gen F ![a,b] - stabilityCoinvariants.gen F ![1,b] -
+      stabilityCoinvariants.gen F ![a,1] + stabilityCoinvariants.gen F ![1,1] := by sorry
+
+/-- Abbreviation for baseline integral GL homology, not a new homology theory. -/
+abbrev GLH (n i : ℕ) :=
+  groupHomology (Rep.trivial ℤ (Matrix.GeneralLinearGroup (Fin n) F) ℤ) i
+
+-- These maps are the specified block inclusions and ordered homology products supplied
+-- by the parent/H.1; they are parameters until their supplier modules exist.
+variable (stabilization : ∀ n i, GLH F n i →+ GLH F (n + 1) i)
+
+-- K3BlochGroups:V.4/frame-connecting-map
+-- Index n+1 guarantees the positive degree required by the source.
+def frameConnecting [Infinite F] (n : ℕ) :
+    GLH F (n + 1) (n + 1) →+ stabilityCoinvariants F (n + 1) := by sorry
+
+lemma frameConnecting_stabilization [Infinite F] (n : ℕ) :
+    (frameConnecting F n).comp (stabilization n (n + 1)) = 0 := by sorry
+
+lemma frameConnecting_product [Infinite F] (n m : ℕ)
+    (orderedProduct : (GLH F (n + 1) (n + 1) ⊗[ℤ] GLH F (m + 1) (m + 1)) →ₗ[ℤ]
+      GLH F ((n + 1) + (m + 1)) ((n + 1) + (m + 1)))
+    (x : GLH F (n + 1) (n + 1)) (y : GLH F (m + 1) (m + 1)) :
+    frameConnecting F (n + m + 1) (by simpa only [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+      using (orderedProduct (TensorProduct.tmul ℤ x y))) =
+    (by simpa only [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using
+      (stabilityCoinvariants.mul F (n + 1) (m + 1)
+        (TensorProduct.tmul ℤ (frameConnecting F n x) (frameConnecting F m y)))) := by sorry
+
+lemma frameConnecting_one [Infinite F] (h1 : Additive Fˣ ≃+ GLH F 1 1) (a : Fˣ) :
+    frameConnecting F 0 (h1 (Additive.ofMul a)) =
+      stabilityCoinvariants.gen F (fun _ => a) := by sorry
+
+lemma frameConnecting_field {E : Type} [Field E] [Infinite F] [Infinite E]
+    (f : F →+* E) (n : ℕ)
+    (homologyField : GLH F (n + 1) (n + 1) →+ GLH E (n + 1) (n + 1))
+    (sField : stabilityCoinvariants F (n + 1) →+ stabilityCoinvariants E (n + 1)) :
+    (frameConnecting E n).comp homologyField = sField.comp (frameConnecting F n) := by sorry
+
+-- frameConnecting_one_test
+example (h1 : Additive ℚˣ ≃+ GLH ℚ 1 1) :
+    frameConnecting ℚ 0 (h1 (Additive.ofMul (Units.mk0 2 (by norm_num)))) =
+      stabilityCoinvariants.gen ℚ (fun _ => Units.mk0 2 (by norm_num)) := by sorry
+-- frameConnecting_old_rank
+example [Infinite F] (x : GLH F 2 3) :
+    frameConnecting F 2 (stabilization 2 3 x) = 0 := by sorry
+
+section MilnorComparison
+variable (MK : ℕ → Type) [∀ n, AddCommGroup (MK n)]
+variable (symbol : ∀ n, (Fin n → Fˣ) → MK n)
+variable (torusWord : ∀ n, (Fin n → Fˣ) → GLH F n n)
+
+-- frameConnecting_torus_three
+example [Infinite F] (a : Fin 3 → Fˣ) :
+    stabilityCoinvariants.milnorRetraction F MK 3 (frameConnecting F 2 (torusWord 3 a)) =
+      symbol 3 a := by sorry
+
+-- Routine abbreviation of the baseline additive quotient; θ has positive index n+1.
+abbrev StabilityQuotient (n : ℕ) :=
+  GLH F (n + 1) (n + 1) ⧸ (stabilization n (n + 1)).range
+
+-- K3BlochGroups:V.4/normalized-milnor-homology-map
+-- The source symbol universal property and unstable Steinberg input are supplier gaps.
+def milnorHomologyTheta [Infinite F] (n : ℕ) :
+    MK (n + 1) →+ StabilityQuotient F stabilization n := by sorry
+
+lemma milnorHomologyTheta_symbol [Infinite F] (n : ℕ) (a : Fin (n + 1) → Fˣ) :
+    milnorHomologyTheta F stabilization MK n (symbol (n + 1) a) =
+      QuotientAddGroup.mk (torusWord (n + 1) a) := by sorry
+
+lemma milnorHomologyTheta_field {E : Type} [Field E] [Infinite F] [Infinite E]
+    (f : F →+* E) (n : ℕ) (MKE : ℕ → Type) [∀ n, AddCommGroup (MKE n)]
+    (stabE : ∀ n i, GLH E n i →+ GLH E (n + 1) i)
+    (mkField : MK (n + 1) →+ MKE (n + 1))
+    (quotientField : StabilityQuotient F stabilization n →+ StabilityQuotient E stabE n) :
+    (milnorHomologyTheta E stabE MKE n).comp mkField =
+      quotientField.comp (milnorHomologyTheta F stabilization MK n) := by sorry
+
+lemma milnorHomologyTheta_unique [Infinite F] (n : ℕ)
+    (φ : MK (n + 1) →+ StabilityQuotient F stabilization n)
+    (hφ : ∀ a, φ (symbol (n + 1) a) = QuotientAddGroup.mk (torusWord (n + 1) a)) :
+    φ = milnorHomologyTheta F stabilization MK n := by sorry
+
+-- milnorHomologyTheta_one
+example [Infinite F] : Function.Bijective (milnorHomologyTheta F stabilization MK 0) := by sorry
+-- milnorHomologyTheta_steinberg
+example [Infinite F] (a b : F) (ha : a ≠ 0) (ha1 : a ≠ 1) (hb : b ≠ 0) :
+    (QuotientAddGroup.mk (torusWord 3
+      ![Units.mk0 a ha, Units.mk0 (1-a) (by sorry), Units.mk0 b hb]) :
+        StabilityQuotient F stabilization 2) = 0 := by sorry
+-- milnorHomologyTheta_real_sign: T.2's real Milnor symbol has order 2 and survives θ.
+example (stabR : ∀ n i, GLH ℝ n i →+ GLH ℝ (n + 1) i)
+    (MKR : ℕ → Type) [∀ n, AddCommGroup (MKR n)]
+    (symbolR : ∀ n, (Fin n → ℝˣ) → MKR n) :
+    let x := milnorHomologyTheta ℝ stabR MKR 2 (symbolR 3 (fun _ => -1))
+    x ≠ 0 ∧ (2 : ℤ) • x = 0 := by sorry
+
+-- The descended δ and the finite degree-n edge are actual supplier maps, not dummy predicates.
+variable (descendedDelta : ∀ n, StabilityQuotient F stabilization n →+ stabilityCoinvariants F (n + 1))
+
+-- K3BlochGroups:V.4/milnor-frame-retraction
+lemma milnor_frame_retraction [Infinite F] (n : ℕ) :
+    (stabilityCoinvariants.milnorRetraction F MK (n + 1)).comp
+      ((descendedDelta n).comp (milnorHomologyTheta F stabilization MK n)) =
+      AddMonoidHom.id (MK (n + 1)) := by sorry
+
+-- K3BlochGroups:V.4/frame-algebra-splitting
+-- The embedded Milnor summand is δ ∘ θ, already present in this file.
+lemma frame_algebra_splitting [Infinite F] :
+    (∃ e : stabilityCoinvariants F 2 ≃+ (MK 2 × ℤ),
+      ∀ a : Fin 2 → Fˣ, e (stabilityCoinvariants.gen F a) = (symbol 2 a, 1)) ∧
+    (∀ n, ∀ x : stabilityCoinvariants F (n + 2),
+      ∃ a : MK (n + 2), ∃ y : stabilityCoinvariants F n,
+        x = descendedDelta (n + 1) (milnorHomologyTheta F stabilization MK (n + 1) a) +
+          stabilityCoinvariants.eMul F n y) ∧
+    (∀ n (a : MK (n + 2)) (y : stabilityCoinvariants F n),
+      descendedDelta (n + 1) (milnorHomologyTheta F stabilization MK (n + 1) a) =
+        stabilityCoinvariants.eMul F n y →
+      a = 0) := by sorry
+
+-- The positive-degree products generate in every degree at least three.
+lemma frame_decomposable [Infinite F] (n : ℕ) (x : stabilityCoinvariants F (n + 3)) :
+    ∃ (k : ℕ) (i : Fin k → Fin (n + 2))
+      (a : ∀ j, stabilityCoinvariants F ((i j).val + 1))
+      (b : ∀ j, stabilityCoinvariants F (n + 2 - (i j).val)),
+      x = ∑ j : Fin k, (by
+        have hdeg : (i j).val + 1 + (n + 2 - (i j).val) = n + 3 := by omega
+        exact hdeg ▸ (stabilityCoinvariants.mul F ((i j).val + 1)
+          (n + 2 - (i j).val) (TensorProduct.tmul ℤ (a j) (b j)))) := by sorry
+
+-- This clause is proved by the simultaneous spectral-sequence induction, not by splitting.
+lemma frame_e_injective [Infinite F] (n : ℕ) :
+    Function.Injective (stabilityCoinvariants.eMul F n) := by sorry
+
+-- K3BlochGroups:V.4/degree-three-torus-quotient
+lemma degree_three_torus_quotient [Infinite F] :
+    Function.Bijective (milnorHomologyTheta F stabilization MK 2) ∧
+      ∀ x : GLH F 3 3, ∃ y : GLH F 2 3, ∃ z : FreeAbelianGroup (Fin 3 → Fˣ),
+        x = stabilization 2 3 y + FreeAbelianGroup.lift (torusWord 3) z := by sorry
+
+end MilnorComparison
+
+-- K3BlochGroups:V.4/frame-spectral-sequence-collapse
+-- E is the frame hyperhomology spectral sequence supplied by H.1 Part II, starting at1.
+-- The E¹ identification, finite convergence/edge and e-injectivity await that interface.
+lemma frame_spectral_sequence_collapse [Infinite F]
+    (c : ℤ → ComplexShape (ℕ × ℕ))
+    (E : SpectralSequence (ModuleCat ℤ) c 1) (r : ℤ) (hr : 2 ≤ r) (pq pq' : ℕ × ℕ) :
+    (E.page r (by omega)).d pq pq' = 0 := by sorry
+
+lemma homological_stability [Infinite F] (n i : ℕ) (hi : i ≤ n) :
+    Function.Bijective (stabilization n i) := by sorry
+
+-- K3BlochGroups:V.4/scalar-homology-vanishing
+-- The inner additive homology with its functorially induced scalar action is a supplied Rep.
+-- The prime-field condition is expressible at baseline. Identifying the induced Rep
+-- with H_j(V_add,k) still awaits H.1 Part II, and only that condition is omitted.
+lemma scalar_homology_vanishing [Infinite F] (k : Type) [Field k]
+    (hprime : Subfield.closure (∅ : Set k) = ⊤)
+    (V : Type) [AddCommGroup V] [Module F V] (j i : ℕ) (hj : 0 < j)
+    (scalarCoefficientHomology : Rep k Fˣ) :
+    IsZero (groupHomology scalarCoefficientHomology i) := by sorry
+
+-- K3BlochGroups:V.4/affine-block-homology
+-- Block-group and scalar-containment syntax belong to the supplier's semidirect/LHS API.
+lemma affine_block_homology [Infinite F] (G P : Type) [Group G] [Group P]
+    (blockInclusion : G →* P)
+    (coeff : Rep.trivial ℤ G ℤ ⟶ Rep.res blockInclusion (Rep.trivial ℤ P ℤ)) (i : ℕ) :
+    IsIso (groupHomology.map blockInclusion coeff i) := by sorry
+
+-- K3BlochGroups:V.4/cross-ratio-coefficient-change
+-- Parent cross-ratios are parameters, so no second definition of cross-ratio appears.
+lemma cross_ratio_coefficient_change {E : Type} [Field E] (f : F →+* E)
+    (crF : (Fin 4 → OnePoint F) → F) (crE : (Fin 4 → OnePoint E) → E)
+    (t : Fin 4 → OnePoint F) (ht : Function.Injective t) :
+    crE (fun i => OnePoint.map f (t i)) = f (crF t) := by sorry
+
+section TorsionDetection
+-- K is the closure's Quillen K₃. κ is the torsion lift of the parent δ after scalar extension.
+-- Twist is the early Chern supplier's second Tate twist, with its weight-two Galois action.
+-- Neither the Tate twist nor the e-invariant is redefined here.
+variable {Mu K Twist Gamma : Type} [CommGroup Mu] [AddCommGroup K]
+  [AddCommGroup Twist] [Group Gamma]
+abbrev RootH3 := groupHomology (Rep.trivial ℤ Mu ℤ) 3
+variable (κ : RootH3 (Mu := Mu) →+ AddCommGroup.torsion K)
+variable (e : AddCommGroup.torsion K →+ Twist) (action : Representation ℤ Gamma Twist)
+
+-- K3BlochGroups:V.4/closure-torsion-detector
+def closureTorsionDetector (κ : RootH3 (Mu := Mu) →+ AddCommGroup.torsion K)
+    (e : AddCommGroup.torsion K →+ Twist) : RootH3 (Mu := Mu) →+ Twist := by sorry
+
+lemma closureTorsionDetector_formula (x : RootH3 (Mu := Mu)) :
+    closureTorsionDetector κ e x = e (κ x) := by sorry
+
+lemma closureTorsionDetector_fixed (hfixed : ∀ g x, action g (e (κ x)) = e (κ x))
+    (g : Gamma) (x : RootH3 (Mu := Mu)) :
+    action g (closureTorsionDetector κ e x) = closureTorsionDetector κ e x := by sorry
+
+lemma closureTorsionDetector_field {Mu' K' Twist' : Type} [CommGroup Mu']
+    [AddCommGroup K'] [AddCommGroup Twist']
+    (κ' : RootH3 (Mu := Mu') →+ AddCommGroup.torsion K')
+    (e' : AddCommGroup.torsion K' →+ Twist')
+    (homologyField : RootH3 (Mu := Mu) →+ RootH3 (Mu := Mu'))
+    (twistField : Twist →+ Twist')
+    (hcompat : (e'.comp κ').comp homologyField = twistField.comp (e.comp κ)) :
+    (closureTorsionDetector κ' e').comp homologyField =
+      twistField.comp (closureTorsionDetector κ e) := by sorry
+
+-- The Chern/Bockstein square supplies this specific isomorphism and equality over Ω.
+-- This is diagram data, not an invented Prop-valued model of e or the Tate twist.
+variable (cyclicDetection : RootH3 (Mu := Mu) ≃+ Twist)
+variable (hSquare : e.comp κ = cyclicDetection.toAddMonoidHom)
+
+-- closureTorsionDetector_alg_closed
+include hSquare in
+example : Function.Bijective (closureTorsionDetector κ e) := by sorry
+-- closureTorsionDetector_two: use a nonzero H₃(C₂) class and its root-group injection.
+include hSquare in
+example (ι : groupHomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ) 3 →+
+    RootH3 (Mu := Mu)) (hι : Function.Injective ι)
+    (x : groupHomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ) 3) (hx : x ≠ 0) :
+    closureTorsionDetector κ e (ι x) ≠ 0 := by sorry
+-- Routine coefficient morphism: the underlying linear map is the identity.
+def rootTrivialCoeff {G H : Type} [Group G] [Group H] (f : G →* H) :
+    Rep.trivial ℤ G ℤ ⟶ Rep.res f (Rep.trivial ℤ H ℤ) :=
+  Rep.ofHom { toLinearMap := LinearMap.id, isIntertwining' := by sorry }
+
+def cyclicPowerTwo : Multiplicative (ZMod 7) →* Multiplicative (ZMod 7) where
+  toFun x := x ^ 2
+  map_one' := by sorry
+  map_mul' := by sorry
+
+-- closureTorsionDetector_weight_two: the actual power2 map, without assuming its answer.
+example (κ7 : RootH3 (Mu := Multiplicative (ZMod 7)) →+ AddCommGroup.torsion K)
+    (x : RootH3 (Mu := Multiplicative (ZMod 7))) :
+    closureTorsionDetector κ7 e
+      ((groupHomology.map cyclicPowerTwo (rootTrivialCoeff cyclicPowerTwo) 3).hom x) =
+      (4 : ℤ) • closureTorsionDetector κ7 e x := by sorry
+
+-- closureTorsionDetector_tensor_zero: divisibility kills the ordinary tensor target.
+example [DivisibleBy (Additive Mu) ℤ]
+    (hTorsion : ∀ x : Additive Mu, ∃ n : ℕ, 0 < n ∧ n • x = 0) :
+    ∀ x : Additive Mu ⊗[ℤ] Additive Mu, x = 0 := by sorry
+
+-- K3BlochGroups:V.4/closure-detector-injectivity, closure case after the supplied square.
+include hSquare in
+lemma closure_detector_injectivity {A B : Type} [AddCommGroup A] [AddCommGroup B]
+    (detectorF : A →+ B) (toClosure : A →+ RootH3 (Mu := Mu))
+    (targetInclusion : B →+ Twist) (hRoots : Function.Injective toClosure)
+    (hNaturality : targetInclusion.comp detectorF = (closureTorsionDetector κ e).comp toClosure) :
+    Function.Injective detectorF := by sorry
+
+-- K3BlochGroups:V.4/cyclic-chern-evaluation
+-- A is H₄(µ_m,Z/m); B is µ_m⊗_{Z/m}µ_m, supplied finite-level coefficient objects.
+-- lam and ρ are the tautological character and lam⊕lam⁻¹. The supplier identifies these maps.
+lemma cyclic_chern_evaluation {A B : Type} [AddCommGroup A] [AddCommGroup B]
+    (c2rho : A →+ B) (cupSquare : A →+ B)
+    (hWhitney : c2rho = -cupSquare) (hPeriodicity : Function.Bijective cupSquare) :
+    c2rho = -cupSquare ∧ Function.Bijective c2rho := by sorry
+
+-- K3BlochGroups:V.4/chern-bockstein-square
+-- H4Roots and H4SL are finite-coefficient homology. Hurewicz goes FROM K₄coeff TO H₄SL.
+-- The supplier identifies rootsToSL with the monomial/SL composite, c2K with the
+-- normalized étale Chern class, and kBockstein with the K-theory Bockstein.
+-- Its universal construction and Bott conditions await the early Chern/H.6 syntax.
+-- KV11.3.2 supplies the product rule for odd m or 8|m; m=8 covers order-two torsion.
+lemma chern_bockstein_square {H4Roots H4SL K4coeff : Type}
+    [AddCommGroup H4Roots] [AddCommGroup H4SL] [AddCommGroup K4coeff]
+    (rootsToSL : H4Roots →+ H4SL) (hurewicz : K4coeff →+ H4SL)
+    (c2Homology : H4SL →+ Twist) (c2K : K4coeff →+ Twist)
+    (kBockstein : K4coeff →+ AddCommGroup.torsion K)
+    (homologyBockstein : H4Roots →+ RootH3 (Mu := Mu))
+    (m : ℕ) (hm : 2 ≤ m) (hproduct : Odd m ∨ 8 ∣ m) :
+    (e.comp κ).comp homologyBockstein = -(c2Homology.comp rootsToSL) ∧
+      c2K = c2Homology.comp hurewicz ∧
+      e.comp kBockstein = -c2K := by sorry
+
+end TorsionDetection
+end TauCeti.SuslinV4
+end
+
+end ContinuationV4
+
+
+/-! ## ContinuationV5 -/
+
+section ContinuationV5
+
+noncomputable section
+open CategoryTheory Module
+open scoped TensorProduct
+set_option autoImplicit false
+namespace TauCeti.K3Concrete
+
+instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+instance : Fact (Nat.Prime 7) := ⟨by decide⟩
+
+abbrev SL2 (F : Type) [CommRing F] := Matrix.SpecialLinearGroup (Fin 2) F
+abbrev AwayZ (ell : ℕ) := Localization (Submonoid.powers (ell : ℤ))
+abbrev H3 (R G : Type) [CommRing R] [Group G] :=
+  groupHomology (Rep.trivial R G R) 3
+abbrev H3Int (F : Type) [Field F] := H3 ℤ (SL2 F)
+abbrev H3Away (ell : ℕ) (F : Type) [Field F] := H3 (AwayZ ell) (SL2 F)
+abbrev h3Map {R G H : Type} [CommRing R] [Group G] [Group H] (f : G →* H) :
+    H3 R G →+ H3 R H :=
+  (groupHomology.map (A := Rep.trivial R G R) (B := Rep.trivial R H R)
+    f (𝟙 _) 3).hom.toAddMonoidHom
+abbrev ModN (M : Type) [AddCommGroup M] (n : ℕ) := M ⊗[ℤ] ZMod n
+abbrev modNMap {M N : Type} [AddCommGroup M] [AddCommGroup N] (n : ℕ) (f : M →+ N) :
+    ModN M n →+ ModN N n :=
+  (TensorProduct.map f.toIntLinearMap (LinearMap.id : ZMod n →ₗ[ℤ] ZMod n)).toAddMonoidHom
+
+section ImportedObjects
+variable
+  (K3 Milnor3 Ind3 B : Type → Type)
+  [∀ F, AddCommGroup (K3 F)] [∀ F, AddCommGroup (Milnor3 F)]
+  [∀ F, AddCommGroup (Ind3 F)] [∀ F, AddCommGroup (B F)]
+  (quot : ∀ F, K3 F →+ Ind3 F)
+  (milnorToK : ∀ F, Milnor3 F →+ K3 F)
+  (Kmap : ∀ {F E : Type} [Field F] [Field E], (F →+* E) → K3 F →+ K3 E)
+  (Bmap : ∀ {F E : Type} [Field F] [Field E], (F →+* E) → B F →+ B E)
+
+-- finite-indecomposable-specialization: ambient K3 is an L.1 import.
+theorem finite_quotient_bijective (F : Type) [Field F] [Finite F] :
+    Function.Bijective (quot F) := by sorry
+
+-- transfer-on-indecomposables: signatures use the actual supplier maps.
+theorem finite_ind_transfer_composites {F E : Type} [Field F] [Field E]
+    [Fintype F] [Fintype E] [Algebra F E]
+    (res : Ind3 F →+ Ind3 E) (tr : Ind3 E →+ Ind3 F) :
+    (∀ x, tr (res x) = Module.finrank F E • x) ∧
+    (∀ y, res (tr y) = ((Fintype.card F ^ (2 * Module.finrank F E) - 1) /
+      (Fintype.card F ^ 2 - 1)) • y) := by sorry
+
+-- localized-sl2-homology: the concrete coefficient ring is present in the type.
+theorem localized_sl2_cyclic (F : Type) [Field F] [Fintype F]
+    (ell : ℕ) [Fact ell.Prime] [CharP F ell] :
+    Nonempty (H3Away ell F ≃+ ZMod (Fintype.card F ^ 2 - 1)) := by sorry
+
+theorem prime_to_char_subgroup_h3_injective (F : Type) [Field F] [Finite F]
+    (ell : ℕ) [Fact ell.Prime] [CharP F ell]
+    (C : Subgroup (SL2 F)) (hC : Nat.Coprime (Nat.card C) ell) :
+    Function.Injective (h3Map (R := ℤ) C.subtype) := by sorry
+
+-- sl2-characteristic-exceptions: a single abstract group statement records both factors.
+theorem integral_sl2_order (F : Type) [Field F] [Fintype F]
+    (ell : ℕ) [Fact ell.Prime] [CharP F ell] :
+    Nonempty (H3Int F ≃+ ZMod
+      ((if Fintype.card F ∈ ([2, 3, 4, 5, 8, 9, 27] : List ℕ) then ell else 1) *
+        (Fintype.card F ^ 2 - 1))) := by sorry
+
+/-- finite-stabilization-map: actual SL2 → stable SL → K3 composite, then localization. -/
+def finiteStabilization (F : Type) [Field F] [Finite F] (ell : ℕ)
+    [Fact ell.Prime] [CharP F ell] : H3Away ell F →+ K3 F := by sorry
+
+lemma finiteStabilization_natural {F E : Type} [Field F] [Field E]
+    [Finite F] [Finite E] (ell : ℕ) [Fact ell.Prime] [CharP F ell] [CharP E ell]
+    (f : F →+* E) (x : H3Away ell F) :
+    finiteStabilization K3 E ell (h3Map (R := AwayZ ell)
+      (Matrix.SpecialLinearGroup.map f) x) = Kmap f (finiteStabilization K3 F ell x) := by sorry
+
+lemma finiteStabilization_unique (F : Type) [Field F] [Finite F] (ell : ℕ)
+    [Fact ell.Prime] [CharP F ell] (loc : H3Int F →+ H3Away ell F)
+    (g : H3Away ell F →+ K3 F)
+    (h : ∀ z, g (loc z) = finiteStabilization K3 F ell (loc z)) :
+    g = finiteStabilization K3 F ell := by sorry
+
+-- hurewicz and stabilize are the actual maps from V.2/k3-to-h3-sl-field
+-- and SL2 → stable SL, with loc the actual coefficient map.
+lemma finiteStabilization_hurewicz (F : Type) [Field F] [Finite F] (ell : ℕ)
+    [Fact ell.Prime] [CharP F ell] (HStable : Type) [AddCommGroup HStable]
+    (hurewicz : K3 F →+ HStable) (stabilize : H3Int F →+ HStable)
+    (loc : H3Int F →+ H3Away ell F) (z : H3Int F) :
+    hurewicz (finiteStabilization K3 F ell (loc z)) = stabilize z := by sorry
+
+/-- Test `finiteStabilization_char_torsion`: loc is the coefficient localization map. -/
+example (F : Type) [Field F] [Finite F] (ell : ℕ) [Fact ell.Prime] [CharP F ell]
+    (loc : H3Int F →+ H3Away ell F) (a : ℕ) (z : H3Int F)
+    (hz : ell ^ a • z = 0) : finiteStabilization K3 F ell (loc z) = 0 := by sorry
+
+/-- Test `finiteStabilization_F2_F4`: E is the supplied field of cardinality four. -/
+example (E : Type) [Field E] [Fintype E] [CharP E 2] (hE : Fintype.card E = 4)
+    (f : ZMod 2 →+* E) (x : H3Away 2 (ZMod 2)) :
+    finiteStabilization K3 E 2 (h3Map (R := AwayZ 2)
+      (Matrix.SpecialLinearGroup.map f) x) =
+      Kmap f (finiteStabilization K3 (ZMod 2) 2 x) := by sorry
+
+/-- Test `finiteStabilization_not_integral_iso_F5`. -/
+example (loc : H3Int (ZMod 5) →+ H3Away 5 (ZMod 5)) :
+    ¬ Function.Injective ((finiteStabilization K3 (ZMod 5) 5).comp loc) ∧
+    Function.Bijective (finiteStabilization K3 (ZMod 5) 5) := by sorry
+
+-- finite-stabilization-equivalence.
+theorem finiteStabilization_bijective (F : Type) [Field F] [Finite F]
+    (ell : ℕ) [Fact ell.Prime] [CharP F ell] :
+    Function.Bijective (finiteStabilization K3 F ell) := by sorry
+
+/-- finite-cross-ratio-map: the refined edge map followed by RB → B. -/
+def finiteBlochHom (F : Type) [Field F] [Fintype F] (hq : 4 ≤ Fintype.card F) :
+    H3Int F →+ B F := by sorry
+
+lemma finiteBlochHom_natural {F E : Type} [Field F] [Field E] [Fintype F] [Fintype E]
+    (hF : 4 ≤ Fintype.card F) (hE : 4 ≤ Fintype.card E)
+    (f : F →+* E) (z : H3Int F) :
+    Bmap f (finiteBlochHom B F hF z) =
+      finiteBlochHom B E hE (h3Map (R := ℤ) (Matrix.SpecialLinearGroup.map f) z) := by sorry
+
+lemma finiteBlochHom_char_torsion (F : Type) [Field F] [Fintype F]
+    (hq : 4 ≤ Fintype.card F) (ell : ℕ) [Fact ell.Prime] [CharP F ell]
+    (a : ℕ) (z : H3Int F) (hz : ell ^ a • z = 0) : finiteBlochHom B F hq z = 0 := by sorry
+
+-- API `finiteBlochHom_cyclic_bar`: NOT STATED. Needs refined square-class
+-- configuration chains, β_(x,y), the periodic-to-homogeneous bar chain map,
+-- and its comparison with Mathlib inhomogeneous chains. The intended equation
+-- is λ(sum_i (1,t,t^(i+1),t^(i+2))) = sum_i cr(β_(x,y)(...)), in the
+-- Suslin Bloch kernel, independent of x,y. No extra five-term relation is assumed.
+
+/-- Test `finiteBlochHom_F5_kernel`. -/
+example : Nat.card (finiteBlochHom B (ZMod 5) (by decide)).ker = 40 := by sorry
+/-- Test `finiteBlochHom_F7_kernel`. -/
+example : Nat.card (finiteBlochHom B (ZMod 7) (by decide)).ker = 12 := by sorry
+/-- Test `finiteBlochHom_F4_kernel`. -/
+example (F : Type) [Field F] [Fintype F] (hF : Fintype.card F = 4) :
+    Nat.card (finiteBlochHom B F (by omega)).ker = 6 := by sorry
+
+-- finite-bloch-orders, including the deliberate q≥4 condition.
+theorem finite_bloch_cyclic (F : Type) [Field F] [Fintype F]
+    (hq : 4 ≤ Fintype.card F) :
+    Nonempty (B F ≃+ ZMod (if Odd (Fintype.card F) then
+      (Fintype.card F + 1) / 2 else Fintype.card F + 1)) := by sorry
+
+theorem small_bloch_F2 : Subsingleton (B (ZMod 2)) := by sorry
+theorem small_bloch_F3 : Nonempty (B (ZMod 3) ≃+ ℤ) := by sorry
+
+/-- finite-k3-bloch-map: λ_loc composed with the inverse of σ, without generators. -/
+def finiteK3Bloch (F : Type) [Field F] [Fintype F] (hq : 4 ≤ Fintype.card F) :
+    K3 F →+ B F := by sorry
+
+lemma finiteK3Bloch_triangle (F : Type) [Field F] [Fintype F]
+    (hq : 4 ≤ Fintype.card F) (ell : ℕ) [Fact ell.Prime] [CharP F ell]
+    (loc : H3Int F →+ H3Away ell F) (z : H3Int F) :
+    finiteK3Bloch K3 B F hq (finiteStabilization K3 F ell (loc z)) =
+      finiteBlochHom B F hq z := by sorry
+
+lemma finiteK3Bloch_natural {F E : Type} [Field F] [Field E] [Fintype F] [Fintype E]
+    (hF : 4 ≤ Fintype.card F) (hE : 4 ≤ Fintype.card E) (f : F →+* E) (x : K3 F) :
+    Bmap f (finiteK3Bloch K3 B F hF x) =
+      finiteK3Bloch K3 B E hE (Kmap f x) := by sorry
+
+lemma finiteK3Bloch_surjective (F : Type) [Field F] [Fintype F]
+    (hq : 4 ≤ Fintype.card F) : Function.Surjective (finiteK3Bloch K3 B F hq) := by sorry
+
+/-- Test `finiteK3Bloch_F5_kernel`. -/
+example : Nat.card (finiteK3Bloch K3 B (ZMod 5) (by decide)).ker = 8 := by sorry
+/-- Test `finiteK3Bloch_F7_kernel`. -/
+example : Nat.card (finiteK3Bloch K3 B (ZMod 7) (by decide)).ker = 12 := by sorry
+/-- Test `finiteK3Bloch_F4_kernel`. -/
+example (F : Type) [Field F] [Fintype F] (hF : Fintype.card F = 4) :
+    Nat.card (finiteK3Bloch K3 B F (by omega)).ker = 3 := by sorry
+
+-- finite-enhanced-torsion-sequence: T and its arrow are the parent enhanced Tor supplier.
+theorem finite_bloch_exact (F : Type) [Field F] [Fintype F]
+    (hq : 4 ≤ Fintype.card F) (T : Type) [AddCommGroup T] (torToK : T →+ K3 F) :
+    Function.Injective torToK ∧
+      torToK.range = (finiteK3Bloch K3 B F hq).ker ∧
+      Function.Surjective (finiteK3Bloch K3 B F hq) := by sorry
+
+-- odd-coefficient-finite-comparison: tensor quotient, not H3 with Z/n coefficients.
+theorem finite_bloch_mod_n_bijective (F : Type) [Field F] [Fintype F]
+    (hq : 4 ≤ Fintype.card F) (n : ℕ) (hn : 0 < n) (hodd : Odd n)
+    (hcop : Nat.Coprime n (Fintype.card F - 1)) :
+    Function.Bijective (modNMap n (finiteK3Bloch K3 B F hq)) := by sorry
+
+/-- The omitted gcd hypothesis gives a real failure: q=7,n=3. -/
+example : ¬ Function.Bijective (modNMap 3 (finiteK3Bloch K3 B (ZMod 7) (by decide))) := by sorry
+
+-- rational-decomposable-subgroup: ambient K3 is imported from N.5/N.7/N.8.
+-- number-field-product-image: negOneMul is the supplier's actual product [−1]·K2.
+theorem number_field_product_image (F : Type) [Field F] [NumberField F]
+    (K2F : Type) [AddCommGroup K2F] (negOneMul : K2F →+ K3 F) :
+    (milnorToK F).range = negOneMul.range := by sorry
+
+theorem rational_decomposable_image (cyclic : K3 ℚ ≃+ ZMod 48) :
+    ∀ x : ZMod 48, x ∈ (cyclic.toAddMonoidHom.comp (milnorToK ℚ)).range ↔
+      x = 0 ∨ x = 24 := by sorry
+
+theorem rational_ind_structure : Nonempty (Ind3 ℚ ≃+ ZMod 24) := by sorry
+
+theorem rational_quotient_nonsplit :
+    ¬ ∃ s : Ind3 ℚ →+ K3 ℚ, (quot ℚ).comp s = AddMonoidHom.id (Ind3 ℚ) := by sorry
+
+-- gaussian-decomposable-vanishing: E must be the supplier Q(i), identified by a quadratic i.
+theorem gaussian_ind_structure (E : Type) [Field E] [Algebra ℚ E]
+    (i : E) (hi : i ^ 2 = -1) (hdeg : Module.finrank ℚ E = 2) :
+    Subsingleton (Milnor3 E) ∧ Function.Bijective (quot E) ∧
+      Nonempty (Ind3 E ≃+ (ℤ × ZMod 24)) := by sorry
+end ImportedObjects
+
+section Cartan
+variable {F E : Type} [Field F] [Field E] [Algebra F E]
+
+-- Exact Mathlib norm-one subgroup, not an alternative norm carrier.
+abbrev NormOne := (Units.map (Algebra.norm F : E →* F)).ker
+
+def cartanEmbedding (e : Basis (Fin 2) F E) : NormOne (F := F) (E := E) →* SL2 F := by sorry
+
+lemma cartanEmbedding_toMatrix (e : Basis (Fin 2) F E) (u : NormOne (F := F) (E := E)) :
+    (cartanEmbedding e u : Matrix (Fin 2) (Fin 2) F) =
+      LinearMap.toMatrix e e (Algebra.lmul F E (u.val : E)) := by sorry
+
+lemma cartanEmbedding_injective (e : Basis (Fin 2) F E) :
+    Function.Injective (cartanEmbedding e) := by sorry
+
+lemma cartanEmbedding_changeBasis (e e' : Basis (Fin 2) F E)
+    (u : NormOne (F := F) (E := E)) :
+    let U := LinearMap.toMatrix e e' (LinearMap.id : E →ₗ[F] E)
+    (cartanEmbedding e' u : Matrix (Fin 2) (Fin 2) F) =
+      U * (cartanEmbedding e u : Matrix (Fin 2) (Fin 2) F) *
+        LinearMap.toMatrix e' e (LinearMap.id : E →ₗ[F] E) := by sorry
+
+/-- Test `cartanEmbedding_one`. -/
+example (e : Basis (Fin 2) F E) : cartanEmbedding e 1 = 1 := by sorry
+/-- Test `cartanEmbedding_negOne`: membership is the determinant of −id in dimension2. -/
+example (e : Basis (Fin 2) F E) (hneg : (-1 : Eˣ) ∈ (Units.map (Algebra.norm F : E →* F)).ker) :
+    (cartanEmbedding e ⟨-1, hneg⟩ : Matrix (Fin 2) (Fin 2) F) = -1 := by sorry
+/-- Test `cartanEmbedding_trace`. -/
+example (e : Basis (Fin 2) F E) (u : NormOne (F := F) (E := E)) :
+    algebraMap F E (Matrix.trace (cartanEmbedding e u : Matrix (Fin 2) (Fin 2) F)) =
+      (u.val : E) + ((u.val)⁻¹ : Eˣ) := by sorry
+
+-- cartan-homology-modulo-n: actual map induced by actual inclusion.
+theorem cartan_mod_n_bijective [Fintype F] [Fintype E] (e : Basis (Fin 2) F E)
+    (hcard : 4 ≤ Fintype.card F) (hq : Odd (Fintype.card F))
+    (n : ℕ) (hn : 0 < n) (hodd : Odd n)
+    (hdvd : n ∣ Fintype.card F + 1) :
+    Function.Bijective (modNMap n (h3Map (R := ℤ) (cartanEmbedding e))) := by sorry
+end Cartan
+
+section Rogers
+variable (L : ℝ → ℝ)
+local notation "PReal" => TauCeti.BlochGroup.preBloch ℝ
+local notation "sym" => (fun x : {x : ℝ // x ≠ 0 ∧ x ≠ 1} =>
+  TauCeti.BlochGroup.preBloch.gen ℝ (Subtype.val x))
+
+/-- real-rogers-detector: L is P.1's interval Rogers function; sym is the V.3 generator. -/
+def realRogersHom (L : ℝ → ℝ) :
+    PReal →+ AddCircle (Real.pi ^ 2) := by sorry
+
+lemma realRogersHom_pos (x : ℝ) (hx : 0 < x) (hx1 : x < 1) :
+    realRogersHom L (sym ⟨x, by constructor <;> linarith⟩) =
+      ((L x - Real.pi ^ 2 / 6 : ℝ) : AddCircle (Real.pi ^ 2)) := by sorry
+
+lemma realRogersHom_gt_one (x : ℝ) (hx : 1 < x) :
+    realRogersHom L (sym ⟨x, by constructor <;> linarith⟩) =
+      ((Real.pi ^ 2 / 6 - L (1 / x) : ℝ) : AddCircle (Real.pi ^ 2)) := by sorry
+
+lemma realRogersHom_neg (x : ℝ) (hx : x < 0) :
+    realRogersHom L (sym ⟨x, by constructor <;> linarith⟩) =
+      ((L (1 / (1 - x)) - Real.pi ^ 2 / 3 : ℝ) : AddCircle (Real.pi ^ 2)) := by sorry
+
+lemma realRogersHom_unique (g : PReal →+ AddCircle (Real.pi ^ 2))
+    (h : ∀ x, g (sym x) = realRogersHom L (sym x)) :
+    g = realRogersHom L := by sorry
+
+/-- Test `realRogersHom_half`. -/
+example : realRogersHom L (sym ⟨1/2, by norm_num⟩) =
+    ((-Real.pi ^ 2 / 12 : ℝ) : AddCircle (Real.pi ^ 2)) := by sorry
+/-- Test `realRogersHom_two`. -/
+example : realRogersHom L (sym ⟨2, by norm_num⟩) =
+    ((Real.pi ^ 2 / 12 : ℝ) : AddCircle (Real.pi ^ 2)) := by sorry
+/-- Test `realRogersHom_neg_one`. -/
+example : realRogersHom L (sym ⟨-1, by norm_num⟩) =
+    ((-Real.pi ^ 2 / 4 : ℝ) : AddCircle (Real.pi ^ 2)) := by sorry
+
+-- universal-class-order-six: c is the V.3 Bloch class, included in PReal.
+theorem real_universal_class_order : addOrderOf (sym ⟨2, by norm_num⟩ + sym ⟨-1, by norm_num⟩) = 6 := by sorry
+
+theorem rational_universal_class_order :
+    addOrderOf (TauCeti.BlochGroup.c ℚ) = 6 := by sorry
+end Rogers
+
+
+/-- Test `finite_field_bloch_comparison_1`: integral H₃ differs from its localization. -/
+example : Nat.card (H3Int (ZMod 5)) = 120 ∧
+    ¬ Nonempty (H3Int (ZMod 5) ≃+ ZMod 24) := by sorry
+
+/-- Test `finite_field_bloch_comparison_2`: the q≥4 order formula excludes these fields. -/
+example : Subsingleton (TauCeti.BlochGroup.blochGroup (ZMod 2)) ∧
+    Nonempty (TauCeti.BlochGroup.blochGroup (ZMod 3) ≃+ ℤ) := by sorry
+
+/-- Test `nonsplit_cartan_mod_n_1`: actual numerical hypotheses, including the failure at q=7. -/
+example : 3 ∣ (5 + 1 : ℕ) ∧ 3 ∣ (11 + 1 : ℕ) ∧ ¬ 3 ∣ (7 + 1 : ℕ) ∧
+    Nat.Coprime 3 (5 - 1) ∧ Nat.Coprime 3 (11 - 1) ∧ ¬ Nat.Coprime 3 (7 - 1) := by decide
+
+/-- Test `nonsplit_cartan_mod_n_2`: a generator change acts quadratically on H₃. -/
+example {F E : Type} [Field F] [Field E] [Algebra F E] [Fintype F] [Fintype E]
+    (e : Basis (Fin 2) F E) (a : ℕ)
+    (z : H3 ℤ (NormOne (F := F) (E := E))) :
+    h3Map (R := ℤ) (cartanEmbedding e)
+      (h3Map (R := ℤ) (powMonoidHom a) z) =
+        (a ^ 2) • h3Map (R := ℤ) (cartanEmbedding e) z := by sorry
+
+end TauCeti.K3Concrete
+end
+
+end ContinuationV5
+
+
+/-! ## ContinuationV6 -/
+
+section ContinuationV6
+
+noncomputable section
+open scoped TensorProduct
+
+namespace TauCeti.Blueprint.K3BlochV6
+
+section Roots
+variable {P W P' W' : Type*}
+variable [AddCommGroup P] [AddCommGroup W] [AddCommGroup P'] [AddCommGroup W']
+
+/-- V.6/integral-root-multiple. For fields h is supplied by
+V.6/root-of-unity-symbol, using IsPrimitiveRoot ζ m, m≥2 and x=[ζ]. -/
+def rootMultiple (δ : P →+ W) (x : P) (m : ℕ) (h : δ (m • x) = 0) : δ.ker :=
+  ⟨m • x, h⟩
+
+lemma rootMultiple_coe (δ : P →+ W) (x : P) (m : ℕ) (h : δ (m • x) = 0) :
+    (rootMultiple δ x m h : P) = m • x := by
+  sorry
+
+lemma rootMultiple_proof_irrel (δ : P →+ W) (x : P) (m : ℕ)
+    (h h' : δ (m • x) = 0) : rootMultiple δ x m h = rootMultiple δ x m h' := by
+  sorry
+
+lemma rootMultiple_zero (δ : P →+ W) (x : P) (m : ℕ)
+    (h : δ (m • (0 : P)) = 0) (h' : δ (0 • x) = 0) :
+    rootMultiple δ 0 m h = 0 ∧ rootMultiple δ x 0 h' = 0 := by
+  sorry
+
+lemma rootMultiple_of_mem (δ : P →+ W) (b : δ.ker) (m : ℕ)
+    (h : δ (m • (b : P)) = 0) : rootMultiple δ b m h = m • b := by
+  sorry
+
+lemma rootMultiple_mul (δ : P →+ W) (x : P) (m k : ℕ)
+    (h : δ (m • x) = 0) (h' : δ ((m * k) • x) = 0) :
+    rootMultiple δ x (m * k) h' = k • rootMultiple δ x m h := by
+  sorry
+
+lemma rootMultiple_map (δ : P →+ W) (δ' : P' →+ W') (f : P →+ P')
+    (fB : δ.ker →+ δ'.ker) (hfB : ∀ b, (fB b : P') = f (b : P))
+    (x : P) (m : ℕ) (h : δ (m • x) = 0) (h' : δ' (m • f x) = 0) :
+    fB (rootMultiple δ x m h) = rootMultiple δ' (f x) m h' := by
+  sorry
+
+-- rootMultiple_mod_two
+example (h : (Int.castAddHom (ZMod 2)) (2 • (1 : ℤ)) = 0) :
+    (rootMultiple (Int.castAddHom (ZMod 2)) 1 2 h : ℤ) = 2 := by
+  sorry
+
+-- rootMultiple_zero_multiplier
+example (δ : P →+ W) (x : P) (h : δ (0 • x) = 0) :
+    rootMultiple δ x 0 h = 0 := by
+  sorry
+
+-- rootMultiple_kernel_compat
+example (δ : P →+ W) (b : δ.ker) (h : δ (3 • (b : P)) = 0) :
+    rootMultiple δ b 3 h = 3 • b := by
+  sorry
+
+-- rootMultiple_raw_rejected
+example : (1 : ℤ) ∉ (Int.castAddHom (ZMod 2)).ker ∧
+    (2 : ℤ) ∈ (Int.castAddHom (ZMod 2)).ker := by
+  sorry
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+
+/-- V.6/root-coefficient-class. hu is retained to forbid division by a
+noninvertible root order. No flatness is assumed. -/
+def rootCoefficient (δ : P →+ W) (x : P) (m : ℕ) (h : δ (m • x) = 0)
+    (u : Rˣ) (_hu : (u : R) = (m : R)) : δ.ker ⊗[ℤ] R :=
+  rootMultiple δ x m h ⊗ₜ[ℤ] ((u⁻¹ : Rˣ) : R)
+
+lemma rootCoefficient_toPre (δ : P →+ W) (x : P) (m : ℕ) (h : δ (m • x) = 0)
+    (u : Rˣ) (hu : (u : R) = (m : R)) :
+    TensorProduct.map δ.ker.subtype.toIntLinearMap (LinearMap.id : R →ₗ[ℤ] R)
+      (rootCoefficient δ x m h u hu) = x ⊗ₜ[ℤ] (1 : R) := by
+  sorry
+
+lemma rootCoefficient_zero (δ : P →+ W) (m : ℕ) (h : δ (m • (0 : P)) = 0)
+    (u : Rˣ) (hu : (u : R) = (m : R)) : rootCoefficient δ 0 m h u hu = 0 := by
+  sorry
+
+lemma rootCoefficient_of_mem (δ : P →+ W) (b : δ.ker) (m : ℕ)
+    (h : δ (m • (b : P)) = 0) (u : Rˣ) (hu : (u : R) = (m : R)) :
+    rootCoefficient δ b m h u hu = b ⊗ₜ[ℤ] (1 : R) := by
+  sorry
+
+lemma rootCoefficient_denominator_independent (δ : P →+ W) (x : P) (m l : ℕ)
+    (h : δ (m • x) = 0) (h' : δ (l • x) = 0)
+    (u v : Rˣ) (hu : (u : R) = (m : R)) (hv : (v : R) = (l : R)) :
+    rootCoefficient δ x m h u hu = rootCoefficient δ x l h' v hv := by
+  sorry
+
+lemma rootCoefficient_changeRing (δ : P →+ W) (x : P) (m : ℕ)
+    (h : δ (m • x) = 0) (u : Rˣ) (hu : (u : R) = (m : R)) (ρ : R →+* S)
+    (hρ : ((Units.map ρ.toMonoidHom u : Sˣ) : S) = (m : S)) :
+    TensorProduct.map (LinearMap.id : δ.ker →ₗ[ℤ] δ.ker)
+      ρ.toAddMonoidHom.toIntLinearMap (rootCoefficient δ x m h u hu) =
+        rootCoefficient δ x m h (Units.map ρ.toMonoidHom u) hρ := by
+  sorry
+
+lemma rootCoefficient_map (δ : P →+ W) (δ' : P' →+ W') (f : P →+ P')
+    (fB : δ.ker →+ δ'.ker) (hfB : ∀ b, (fB b : P') = f (b : P))
+    (x : P) (m : ℕ) (h : δ (m • x) = 0) (h' : δ' (m • f x) = 0)
+    (u : Rˣ) (hu : (u : R) = (m : R)) :
+    TensorProduct.map fB.toIntLinearMap (LinearMap.id : R →ₗ[ℤ] R)
+      (rootCoefficient δ x m h u hu) = rootCoefficient δ' (f x) m h' u hu := by
+  sorry
+
+-- The field specializations are typed below against the primary constructors.
+
+
+-- rootCoefficient_mod_five
+example (h : (Int.castAddHom (ZMod 2)) (2 • (1 : ℤ)) = 0)
+    (u : (ZMod 5)ˣ) (hu : (u : ZMod 5) = 2) :
+    rootCoefficient (Int.castAddHom (ZMod 2)) 1 2 h u hu =
+      rootMultiple (Int.castAddHom (ZMod 2)) 1 2 h ⊗ₜ[ℤ] (3 : ZMod 5) ∧
+    TensorProduct.map (Int.castAddHom (ZMod 2)).ker.subtype.toIntLinearMap
+      (LinearMap.id : ZMod 5 →ₗ[ℤ] ZMod 5)
+      (rootCoefficient (Int.castAddHom (ZMod 2)) 1 2 h u hu) =
+        (1 : ℤ) ⊗ₜ[ℤ] (1 : ZMod 5) := by
+  sorry
+
+-- rootCoefficient_zero_test
+example (δ : P →+ W) (m : ℕ) (h : δ (m • (0 : P)) = 0)
+    (u : Rˣ) (hu : (u : R) = (m : R)) : rootCoefficient δ 0 m h u hu = 0 := by
+  sorry
+
+-- rootCoefficient_two_denominators
+example (h : (Int.castAddHom (ZMod 2)) (2 • (1 : ℤ)) = 0)
+    (h' : (Int.castAddHom (ZMod 2)) (4 • (1 : ℤ)) = 0)
+    (u v : (ZMod 5)ˣ) (hu : (u : ZMod 5) = 2) (hv : (v : ZMod 5) = 4) :
+    rootCoefficient (Int.castAddHom (ZMod 2)) 1 2 h u hu =
+      rootCoefficient (Int.castAddHom (ZMod 2)) 1 4 h' v hv := by
+  sorry
+
+-- rootCoefficient_nonflat
+example : (∃ t : (Int.castAddHom (ZMod 2)).ker ⊗[ℤ] ZMod 2,
+    t ≠ 0 ∧ TensorProduct.map (Int.castAddHom (ZMod 2)).ker.subtype.toIntLinearMap
+      (LinearMap.id : ZMod 2 →ₗ[ℤ] ZMod 2) t = 0) ∧
+    ¬ IsUnit (2 : ZMod 2) := by
+  sorry
+end Roots
+
+section FieldSpecializations
+open TauCeti.BlochGroup
+variable {F : Type} [Field F] {ζ : F} {m : ℕ}
+
+/-- The generic integral multiple is the primary field constructor. -/
+lemma rootMultiple_field (hζ : IsPrimitiveRoot ζ m) (hm : 2 ≤ m)
+    (h : blochBoundary F (m • preBloch.gen F ζ) = 0) :
+    rootMultiple (blochBoundary F) (preBloch.gen F ζ) m h =
+      ofData ((m : ℤ) • symb F ζ) (by sorry) := by sorry
+
+/-- API `rootCoefficient_specializations`, quotient form. The comparison map is
+the canonical tensor/quotient map, characterized on pure tensors. -/
+lemma rootCoefficient_specializations (hζ : IsPrimitiveRoot ζ m) (hm : 2 ≤ m)
+    (h : blochBoundary F (m • preBloch.gen F ζ) = 0)
+    (n : ℕ) (hn : Nat.Coprime n m) (u : (ZMod n)ˣ) (hu : (u : ZMod n) = (m : ZMod n))
+    (φ : blochGroup F ⊗[ℤ] ZMod n →ₗ[ℤ] blochMod F n)
+    (hφ : ∀ b r, φ (b ⊗ₜ[ℤ] r) = r.val • QuotientAddGroup.mk b) :
+    φ (rootCoefficient (blochBoundary F) (preBloch.gen F ζ) m h u hu) =
+      rootClassMod hζ hm n hn := by sorry
+
+/-- API `rootCoefficient_specializations`, localized form. -/
+lemma rootCoefficient_specializations_loc (hζ : IsPrimitiveRoot ζ m) (hm : 2 ≤ m)
+    (h : blochBoundary F (m • preBloch.gen F ζ) = 0)
+    (u : (Localization.Away (m : ℤ))ˣ)
+    (hu : (u : Localization.Away (m : ℤ)) = (m : Localization.Away (m : ℤ)))
+    (φ : blochGroup F ⊗[ℤ] Localization.Away (m : ℤ) →ₗ[ℤ]
+      LocalizedModule (Submonoid.powers (m : ℤ)) (blochGroup F))
+    (hφ : ∀ b r, φ (b ⊗ₜ[ℤ] r) = r • LocalizedModule.mk b 1) :
+    φ (rootCoefficient (blochBoundary F) (preBloch.gen F ζ) m h u hu) =
+      rootClassLoc hζ hm := by sorry
+
+/-- API `rootCoefficient_specializations`, p-adic form; no tensor/kernel
+identification or flatness is assumed. -/
+lemma rootCoefficient_specializations_padic (hζ : IsPrimitiveRoot ζ m) (hm : 2 ≤ m)
+    (h : blochBoundary F (m • preBloch.gen F ζ) = 0)
+    (p : ℕ) [Fact p.Prime] (hp : ¬ p ∣ m)
+    (u : ℤ_[p]ˣ) (hu : (u : ℤ_[p]) = (m : ℤ_[p])) :
+    rootCoefficient (blochBoundary F) (preBloch.gen F ζ) m h u hu =
+      rootClassPadic hζ hm p hp := by sorry
+
+end FieldSpecializations
+
+
+section Lifts
+variable {K B T K' B' K'' B'' : Type*}
+variable [AddCommGroup K] [AddCommGroup B] [AddCommGroup T]
+variable [AddCommGroup K'] [AddCommGroup B'] [AddCommGroup K''] [AddCommGroup B'']
+
+/-- V.6/suslin-lift-fibre. Substitute the supplier's actual K₃^ind and q.
+This is an actual fibre subtype, without a chosen group structure or origin. -/
+abbrev SuslinLift (q : K →+ B) (β : B) := {k : K // q k = β}
+
+namespace SuslinLift
+def ofRep (q : K →+ B) (β : B) (k : K) (h : q k = β) : SuslinLift q β := ⟨k, h⟩
+
+lemma over (q : K →+ B) (β : B) (a : SuslinLift q β) : q a.val = β := by
+  sorry
+
+lemma ext (q : K →+ B) (β : B) (a b : SuslinLift q β) :
+    a = b ↔ a.val = b.val := by
+  sorry
+
+def choose (q : K →+ B) (hq : Function.Surjective q) (β : B) : SuslinLift q β := by
+  sorry
+
+def translate (q : K →+ B) (i : T →+ K) (hi : ∀ t, q (i t) = 0)
+    (β : B) (a : SuslinLift q β) (t : T) : SuslinLift q β :=
+  ⟨a.val + i t, by sorry⟩
+
+lemma translate_zero_add (q : K →+ B) (i : T →+ K) (hi : ∀ t, q (i t) = 0)
+    (β : B) (a : SuslinLift q β) (s t : T) :
+    translate q i hi β a 0 = a ∧
+    translate q i hi β (translate q i hi β a t) s = translate q i hi β a (s + t) := by
+  sorry
+
+lemma unique_difference (q : K →+ B) (i : T →+ K) (hi : Function.Injective i)
+    (he : ∀ k, q k = 0 ↔ ∃ t, i t = k) (β : B) (a b : SuslinLift q β) :
+    ∃! t : T, b.val = a.val + i t := by
+  sorry
+
+def map (q : K →+ B) (q' : K' →+ B') (f : K →+ K') (g : B →+ B')
+    (h : ∀ k, q' (f k) = g (q k)) (β : B) (a : SuslinLift q β) :
+    SuslinLift q' (g β) := ⟨f a.val, by sorry⟩
+
+lemma map_id_comp (q : K →+ B) (q' : K' →+ B') (q'' : K'' →+ B'')
+    (f : K →+ K') (g : B →+ B') (f' : K' →+ K'') (g' : B' →+ B'')
+    (h : ∀ k, q' (f k) = g (q k)) (h' : ∀ k, q'' (f' k) = g' (q' k))
+    (hc : ∀ k, q'' ((f'.comp f) k) = (g'.comp g) (q k))
+    (β : B) (a : SuslinLift q β) :
+    map q q (AddMonoidHom.id K) (AddMonoidHom.id B) (fun _ => rfl) β a = a ∧
+    map q' q'' f' g' h' (g β) (map q q' f g h β a) =
+      map q q'' (f'.comp f) (g'.comp g) hc β a := by
+  sorry
+end SuslinLift
+
+-- SuslinLift_zero_test
+example (q : K →+ B) : (SuslinLift.ofRep q 0 0 (by sorry)).val = 0 := by
+  sorry
+
+-- SuslinLift_Q_fibre
+example : Fintype.card
+    (SuslinLift (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)).toAddMonoidHom 1) = 4 ∧
+    (∀ k : ZMod 24,
+      (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)) k = 1 ↔
+        k = 1 ∨ k = 7 ∨ k = 13 ∨ k = 19) := by
+  sorry
+
+-- SuslinLift_kernel_compat
+example (q : K →+ B) (k : K) :
+    q k = 0 ↔ k ∈ q.ker := by
+  sorry
+
+-- SuslinLift_Q_nonsplit
+example : ¬ ∃ s : ZMod 6 →+ ZMod 24,
+    (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)).toAddMonoidHom.comp s =
+      AddMonoidHom.id (ZMod 6) := by
+  sorry
+end Lifts
+
+section BarLifts
+variable {G G' G'' : Type} [Group G] [Group G'] [Group G'']
+variable {B B' B'' : Type} [AddCommGroup B] [AddCommGroup B'] [AddCommGroup B'']
+
+-- Abbreviations for baseline objects; these introduce no replacement homology theory.
+private abbrev barRep (G : Type) [Group G] := Rep.trivial ℤ G ℤ
+
+/-- V.6/bar-lift-witness. For the field interface G is the supplier's St(F)
+and ψ is H₃(St(F))≃K₃(F)→K₃^ind(F)→B(F). -/
+abbrev BarLiftCertificate (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B) :=
+  {z : groupHomology.cycles (barRep G) 3 // ψ (groupHomology.π (barRep G) 3 z) = β}
+
+namespace BarLiftCertificate
+def chain (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) : (Fin 3 → G) →₀ ℤ :=
+  groupHomology.iCycles (barRep G) 3 c.val
+
+lemma cycle_eq (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) :
+    groupHomology.inhomogeneousChains.d (barRep G) 2 (chain ψ β c) = 0 := by
+  sorry
+
+def homology (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) : groupHomology (barRep G) 3 :=
+  groupHomology.π (barRep G) 3 c.val
+
+lemma over (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) : ψ (homology ψ β c) = β := by
+  sorry
+
+def ofCycle (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (z : groupHomology.cycles (barRep G) 3)
+    (h : ψ (groupHomology.π (barRep G) 3 z) = β) : BarLiftCertificate ψ β := ⟨z, h⟩
+
+def ofChain (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (z : (Fin 3 → G) →₀ ℤ)
+    (hz : (groupHomology.inhomogeneousChains (barRep G)).d 3 2 z = 0)
+    (h : ψ (groupHomology.π (barRep G) 3
+      (groupHomology.cyclesMk 3 2 ((ComplexShape.down ℕ).next_eq' (by decide)) z hz)) = β) : BarLiftCertificate ψ β :=
+  ofCycle ψ β (groupHomology.cyclesMk 3 2 ((ComplexShape.down ℕ).next_eq' (by decide)) z hz) h
+
+lemma ofChain_chain (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (z : (Fin 3 → G) →₀ ℤ)
+    (hz : (groupHomology.inhomogeneousChains (barRep G)).d 3 2 z = 0)
+    (h : ψ (groupHomology.π (barRep G) 3
+      (groupHomology.cyclesMk 3 2 ((ComplexShape.down ℕ).next_eq' (by decide)) z hz)) = β) :
+    chain ψ β (ofChain ψ β z hz h) = z := by
+  sorry
+
+lemma ext (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c d : BarLiftCertificate ψ β) :
+    (c = d ↔ c.val = d.val) ∧ (c = d ↔ chain ψ β c = chain ψ β d) := by
+  sorry
+
+def addBoundary (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) (w : (Fin 4 → G) →₀ ℤ) : BarLiftCertificate ψ β :=
+  ⟨c.val + groupHomology.toCycles (barRep G) 4 3 w, by sorry⟩
+
+lemma addBoundary_spec (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) (w : (Fin 4 → G) →₀ ℤ) :
+    (addBoundary ψ β c w).val = c.val + groupHomology.toCycles (barRep G) 4 3 w ∧
+    homology ψ β (addBoundary ψ β c w) = homology ψ β c := by
+  sorry
+
+def choose (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B)
+    (hψ : Function.Surjective ψ) (β : B) : BarLiftCertificate ψ β := by
+  sorry
+
+def map (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B)
+    (ψ' : groupHomology (barRep G') 3 →ₗ[ℤ] B')
+    (f : groupHomology.cycles (barRep G) 3 →ₗ[ℤ] groupHomology.cycles (barRep G') 3)
+    (g : B →+ B')
+    (h : ∀ z, ψ' (groupHomology.π (barRep G') 3 (f z)) =
+      g (ψ (groupHomology.π (barRep G) 3 z))) (β : B) (c : BarLiftCertificate ψ β) :
+    BarLiftCertificate ψ' (g β) := ⟨f c.val, by sorry⟩
+
+lemma map_id_comp (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B)
+    (ψ' : groupHomology (barRep G') 3 →ₗ[ℤ] B')
+    (ψ'' : groupHomology (barRep G'') 3 →ₗ[ℤ] B'')
+    (f : groupHomology.cycles (barRep G) 3 →ₗ[ℤ] groupHomology.cycles (barRep G') 3)
+    (f' : groupHomology.cycles (barRep G') 3 →ₗ[ℤ] groupHomology.cycles (barRep G'') 3)
+    (g : B →+ B') (g' : B' →+ B'')
+    (h : ∀ z, ψ' (groupHomology.π (barRep G') 3 (f z)) =
+      g (ψ (groupHomology.π (barRep G) 3 z)))
+    (h' : ∀ z, ψ'' (groupHomology.π (barRep G'') 3 (f' z)) =
+      g' (ψ' (groupHomology.π (barRep G') 3 z)))
+    (hc : ∀ z, ψ'' (groupHomology.π (barRep G'') 3 ((f'.comp f) z)) =
+      (g'.comp g) (ψ (groupHomology.π (barRep G) 3 z)))
+    (β : B) (c : BarLiftCertificate ψ β) :
+    map ψ ψ LinearMap.id (AddMonoidHom.id B) (fun _ => rfl) β c = c ∧
+    map ψ' ψ'' f' g' h' (g β) (map ψ ψ' f g h β c) =
+      map ψ ψ'' (f'.comp f) (g'.comp g) hc β c := by
+  sorry
+end BarLiftCertificate
+
+-- BarLiftCertificate_zero_test
+example (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B)
+    (h : ψ (groupHomology.π (barRep G) 3 0) = 0) :
+    BarLiftCertificate.chain ψ 0 (BarLiftCertificate.ofCycle ψ 0 0 h) = 0 ∧
+    BarLiftCertificate.homology ψ 0 (BarLiftCertificate.ofCycle ψ 0 0 h) = 0 := by
+  sorry
+
+-- BarLiftCertificate_boundary_test
+example (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (c : BarLiftCertificate ψ β) (w : (Fin 4 → G) →₀ ℤ) :
+    BarLiftCertificate.homology ψ β (BarLiftCertificate.addBoundary ψ β c w) =
+      BarLiftCertificate.homology ψ β c := by
+  sorry
+
+-- BarLiftCertificate_trivial_group
+example [Subsingleton G] (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B)
+    (β : B) (hβ : β ≠ 0) : IsEmpty (BarLiftCertificate ψ β) := by
+  sorry
+
+-- BarLiftCertificate_one_cube
+example [Subsingleton G] (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) :
+    ∃ c : BarLiftCertificate ψ 0,
+      BarLiftCertificate.chain ψ 0 c = Finsupp.single (fun _ : Fin 3 => (1 : G)) 1 ∧
+      BarLiftCertificate.chain ψ 0 c ≠ 0 ∧ BarLiftCertificate.homology ψ 0 c = 0 := by
+  sorry
+
+-- BarLiftCertificate_reject_noncycle
+example (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B) (g : G) (hg : g ≠ 1) :
+    ∀ c : BarLiftCertificate ψ β,
+      BarLiftCertificate.chain ψ β c ≠
+        Finsupp.single (fun i : Fin 3 => if i = 0 then g else 1) 1 := by
+  sorry
+end BarLifts
+
+section FiniteCoefficients
+variable {K E H : Type*} [AddCommGroup K] [AddCommGroup E] [AddCommGroup H]
+
+/- V.6/finite-coefficient-identification
+K=K₃(F;ℤ/n), E=B_CGZ(F;ℤ/n), H=H¹(F,ℤ/n(2)) are unavailable supplier
+types. For F a number field, n=p^a with p odd, a≥1 and p∤w₂(F), M.7/M.8
+provide the finite Chern equivalence c and HB.2 provides R_ζ=r. This generic
+composition is the exact proposed Φ=r⁻¹c; none of those objects is defined as
+a bare Type or a Prop here. The original modulo comparison remains separate.
+-/
+def finiteCoefficientBlochEquiv (c : K ≃+ H) (r : E ≃+ H) : K ≃+ E := c.trans r.symm
+
+lemma finiteCoefficientBlochEquiv_spec (c : K ≃+ H) (r : E ≃+ H) (x : K) (y : E) :
+    r (finiteCoefficientBlochEquiv c r x) = c x ∧
+    (finiteCoefficientBlochEquiv c r).symm y = c.symm (r y) ∧
+    (∀ e : K ≃+ E, (∀ z, r (e z) = c z) → e = finiteCoefficientBlochEquiv c r) := by
+  sorry
+
+lemma finiteCoefficientBlochEquiv_def (c : K ≃+ H) (r : E ≃+ H) :
+    finiteCoefficientBlochEquiv c r = c.trans r.symm := by
+  sorry
+
+lemma finiteCoefficientBlochEquiv_natural
+    {K' E' H' : Type*} [AddCommGroup K'] [AddCommGroup E'] [AddCommGroup H']
+    (c : K ≃+ H) (r : E ≃+ H) (c' : K' ≃+ H') (r' : E' ≃+ H')
+    (f : K →+ K') (g : E →+ E') (h : H →+ H')
+    (hc : ∀ x, c' (f x) = h (c x)) (hr : ∀ y, r' (g y) = h (r y)) (x : K) :
+    finiteCoefficientBlochEquiv c' r' (f x) = g (finiteCoefficientBlochEquiv c r x) := by
+  sorry
+
+-- finiteCoefficientBlochEquiv_mod_five
+example (c r : ZMod 5 ≃+ ZMod 5) (hc : ∀ x, c x = (2 : ZMod 5) * x)
+    (hr : ∀ x, r x = (3 : ZMod 5) * x) : finiteCoefficientBlochEquiv c r 1 = 4 := by
+  sorry
+
+-- finiteCoefficientBlochEquiv_zero
+example (c r : ZMod 1 ≃+ ZMod 1) : finiteCoefficientBlochEquiv c r 0 = 0 := by
+  sorry
+
+-- finiteCoefficientBlochEquiv_composition
+example (c : K ≃+ H) (r : E ≃+ H) :
+    finiteCoefficientBlochEquiv c r = c.trans r.symm ∧
+    (finiteCoefficientBlochEquiv c r).symm = r.trans c.symm := by
+  sorry
+
+-- finiteCoefficientBlochEquiv_middle_not_left
+example : ¬ Nonempty (ZMod 1 ≃+ ZMod 5) := by
+  sorry
+
+variable {n : ℕ} {L : Type*} [AddCommGroup L] [Module (ZMod n) L]
+variable [Module (ZMod n) H]
+
+/-- The modulo restriction in the additional M_F range uses the actual unit
+γ from HB.2's comparison and retains its inverse factor. No claim about the
+right-hand K₂[n] map is hidden in these hypotheses. -/
+lemma finiteCoefficientBlochEquiv_on_quotient
+    (c : K ≃+ H) (r : E ≃+ H) (jK : L →+ K) (jB : L →+ E)
+    (h₀ : L →ₗ[ZMod n] H) (γ : (ZMod n)ˣ)
+    (hc : ∀ x, c (jK x) = h₀ x)
+    (hr : ∀ x, r (jB x) = (γ : ZMod n) • h₀ x) (x : L) :
+    finiteCoefficientBlochEquiv c r (jK x) = jB (((γ⁻¹ : (ZMod n)ˣ) : ZMod n) • x) := by
+  sorry
+
+/- Exact omitted field acceptance statement:
+For F=ℚ,n=5, K₃(ℚ)/5=0, but the HB.2 coefficient Bloch class [32] has
+δ_B([32])={2,−31} with tame symbol 2 of order 5 at 31. Thus E and K cannot
+be substituted by the corresponding ordinary modulo groups. The missing K₂,
+symbols and étale Bloch types belong to their supplier nodes.
+
+Open normalization input: identify δ_B ∘ finiteCoefficientBlochEquiv with
+the precise scalar multiple of the finite K-theory Bockstein ∂_K using the
+M.8/Tate convention. Equality with scalar 1 is not a signature in this file.
+-/
+end FiniteCoefficients
+
+end TauCeti.Blueprint.K3BlochV6
+end
+
+end ContinuationV6
+
+
+/-! The V.1 transport evaluator specializes to the primary canonical comparison. -/
+namespace K3Homological
+noncomputable section
+lemma eval3_parent (K : ℕ → Type → Type) [∀ n A, AddCommGroup (K n A)]
+    (St : Type → Type) [∀ A, Group (St A)] (A : Type) [Ring A]
+    (z : TauCeti.K3.barCycle3 St A) :
+    eval3 (TauCeti.K3.k3EquivH3Steinberg K St A) z =
+      TauCeti.K3.evalBarCycle K St A z := by sorry
+end
+end K3Homological
