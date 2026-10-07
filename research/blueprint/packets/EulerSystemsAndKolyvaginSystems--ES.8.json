@@ -425,8 +425,8 @@
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
-    "EulerSystemsAndKolyvaginSystems:ES.4"
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses"
    ],
    "api": [
     {
@@ -815,7 +815,7 @@
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
-    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
     "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
     "SelmerIwasawaCohomology:L3/universal-norms-unramified"
    ],
@@ -1204,7 +1204,8 @@
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
-    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.2/twisting",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
     "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
     "PadicMeasuresIwasawaAlgebras:L1"
    ],
@@ -1486,8 +1487,11 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
     "EulerSystemsAndKolyvaginSystems:ES.8/restricted-iwasawa-selmer-module",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
     "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate"
    ],
    "api": [
@@ -1593,8 +1597,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/restriction-control-over-the-tower",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
     "ArithmeticGaloisDuality:R02.1/rationalization",
     "mathlib:Module.IsTorsion"
    ],
@@ -1700,8 +1704,10 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/restriction-control-over-the-tower",
     "EulerSystemsAndKolyvaginSystems:ES.8/twisting-invariance-of-iwasawa-theorems",
     "EulerSystemsAndKolyvaginSystems:ES.8/rank-one-leopoldt-case",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
     "PadicMeasuresIwasawaAlgebras:L4/pseudo-null",
     "PadicMeasuresIwasawaAlgebras:L4/torsion-structure-normal-domain",
     "PadicMeasuresIwasawaAlgebras:L4"
@@ -1758,7 +1764,7 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-index",
     "EulerSystemsAndKolyvaginSystems:ES.8/weak-leopoldt-from-an-euler-system",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
-    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
     "SelmerIwasawaCohomology:L3/universal-norms-unramified"
    ],
@@ -2031,7 +2037,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
     "SelmerIwasawaCohomology:L3/universal-norms-unramified",
     "SelmerIwasawaCohomology:L2/unramified-condition",
-    "EulerSystemsAndKolyvaginSystems:ES.1"
+    "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection"
    ],
    "api": [
     {
@@ -2239,7 +2246,7 @@
     "Over Λ the ideals I_n are generally of finite index, so each κ_n is a class with coefficients in a finite quotient of 𝐓 (Mazur–Rubin, proof of Theorem 5.3.3)."
    ],
    "proofSteps": [
-    "The module structure, the functoriality in the ring (KS(T, F) ⊗_R R' → KS(T ⊗_R R', F ⊗ R') for R → R'), in P (restriction to P' ⊂ P) and in F (inclusion for F' ≤ F) are Mazur–Rubin's Remark 3.1.4, owned for general R by ES.4; here they are applied to R = Λ and its quotients Λ/I, Λ/𝔐^k and S_𝔓.",
+    "The module structure, the functoriality in the ring (KS(T, F) ⊗_R R' → KS(T ⊗_R R', F ⊗ R') for R → R'), in P (restriction to P' ⊂ P) and in F (inclusion for F' ≤ F) are Mazur–Rubin's Remark 3.1.4, owned for general R by ES.3/kolyvagin-system-module; here they are applied to R = Λ and its quotients Λ/I, Λ/𝔐^k and S_𝔓.",
     "The bottom class of κ̄ ∈ KS‾ is well defined because κ̄_1 is compatible in k and lim_k H¹_{F_Λ}(K, 𝐓/𝔐^k𝐓) = H¹_{F_Λ}(K, 𝐓) for the finitely generated, 𝔐-adically complete module H¹_{F_Λ}(K, 𝐓)."
    ],
    "acceptance": [
@@ -2295,8 +2302,10 @@
    },
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+    "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+    "EulerSystemsAndKolyvaginSystems:ES.3/kolyvagin-system-module",
     "PadicMeasuresIwasawaAlgebras:L1"
    ],
    "api": [
@@ -2392,8 +2401,13 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
     "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.2",
-    "EulerSystemsAndKolyvaginSystems:ES.3"
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
+    "EulerSystemsAndKolyvaginSystems:ES.2/conductor-presentation",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/finite-part-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.3/euler-to-kolyvagin"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KolyvaginSystems/Lambda",
@@ -2680,7 +2694,9 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
+    "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
     "SelmerIwasawaCohomology:L3",
     "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
     "ArithmeticGaloisDuality:R02.4/poitou-tate"
@@ -2732,7 +2748,8 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
     "SelmerIwasawaCohomology:L3"
    ],
    "library": {
@@ -2820,8 +2837,9 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.5",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants",
+    "EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
     "PadicMeasuresIwasawaAlgebras:L4/height-one-primes"
    ],
    "api": [
@@ -2905,7 +2923,7 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/blind-spot-and-lambda-primitivity",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
-    "EulerSystemsAndKolyvaginSystems:ES.5"
+    "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KolyvaginSystems/Lambda",
@@ -3073,8 +3091,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
-    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
     "SelmerIwasawaCohomology:L3"
    ],
    "library": {
@@ -3135,8 +3153,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/generic-core-rank",
     "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
-    "EulerSystemsAndKolyvaginSystems:ES.5",
+    "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.5/structure-theorem",
     "PadicMeasuresIwasawaAlgebras:L4",
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
    ],
@@ -3196,8 +3214,11 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.5",
-    "EulerSystemsAndKolyvaginSystems:ES.1",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+    "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
     "PadicMeasuresIwasawaAlgebras:L4",
     "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two",
     "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism"
@@ -3254,7 +3275,7 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
     "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
-    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors",
     "PadicMeasuresIwasawaAlgebras:L4",
     "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two",
     "SelmerIwasawaCohomology:L3"
