@@ -23626,9 +23626,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology--C0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #709"
+   "note": "deliverables arrived from an external worker on issue #709",
+   "finishedAt": "2026-10-07T08:15:05Z"
   },
   {
    "id": "REV-DiamondEtaleCohomology--C0",
