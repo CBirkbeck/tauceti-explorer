@@ -525,7 +525,6 @@
         {
           "sourceId": "GK09",
           "locator": "§4.5, p. 109; authored proof of the torsion-count step supplying the stated decomposition",
-          "excerpt": "p=2",
           "match": "The source states the decomposition; this node supplies its missing general-r argument without invoking a restricted book."
         }
       ],
@@ -567,7 +566,6 @@
         {
           "sourceId": "WU12",
           "locator": "§2.1, equations (1)–(3), and §3",
-          "excerpt": "the algebra of linearized polynomials",
           "match": "The source’s skew-polynomial model, generalized from fields to commutative F-algebras using the native noninvertible Frobenius action."
         }
       ],
@@ -659,7 +657,6 @@
         {
           "sourceId": "WU12",
           "locator": "§2.1 and §3, pp. 4–10",
-          "excerpt": "Ln (Fqn )",
           "match": "The finite composition algebra, with explicit multiplication and reduction convention."
         }
       ],
@@ -748,7 +745,6 @@
         {
           "sourceId": "WU12",
           "locator": "§3, Theorem 3.1 with the evaluation identification preceding it",
-          "excerpt": "EndFq (Fqn )",
           "match": "Uses actual F-linear endomorphisms, not an abstract supplied multiplication table."
         }
       ],
@@ -836,7 +832,6 @@
         {
           "sourceId": "WU12",
           "locator": "§3, Theorem 3.1, and §5.1",
-          "excerpt": "composition algebra",
           "match": "Finite-field coordinates for the generic tensor–Hom equivalence already in Mathlib."
         }
       ],
@@ -876,7 +871,6 @@
         {
           "sourceId": "WU12",
           "locator": "§5, Theorem 5.1(1)–(2), pp. 17–18 and §5.1 proof",
-          "excerpt": "linearized polynomial of rank",
           "match": "The basis-dependent trace formulas and their rank statements, using the native trace-dual basis."
         }
       ],
@@ -915,7 +909,6 @@
         {
           "sourceId": "WU12",
           "locator": "Theorem 5.1(3) and §5.1 proof, pp. 18–20",
-          "excerpt": "both {ωj } and {θj } are linearly independent",
           "match": "The minimal number of pure trace tensors equals map rank."
         }
       ],
@@ -953,7 +946,6 @@
         {
           "sourceId": "WU12",
           "locator": "§5.3, Proposition 5.5(1), p. 26",
-          "excerpt": "the inverse of L(x)",
           "match": "The inverse expression with both trace-dual bases and its orientation fixed."
         }
       ],
@@ -994,7 +986,6 @@
         {
           "sourceId": "WU12",
           "locator": "§6, Theorems 6.1–6.2, pp. 26–27",
-          "excerpt": "Characterizations of Ln (Fqm )",
           "match": "The intermediate coefficient algebra, with its intrinsic centralizer characterization."
         }
       ],
@@ -1079,7 +1070,6 @@
         {
           "sourceId": "WU12",
           "locator": "§6, Theorem 6.1, p. 26",
-          "excerpt": "Fqm [x; σ]/(xn − 1)",
           "match": "Uses the actual skew relation and the central cyclic quotient."
         }
       ],
@@ -1120,7 +1110,6 @@
         {
           "sourceId": "WU12",
           "locator": "§6, (14)–(15) and Theorem 6.2, pp. 26–27",
-          "excerpt": "Assume i = jm + k",
           "match": "Fixes the final index in (15): the last entry is α_(m−1)^(q^((t−1)m)), not α_(n−1) with the same exponent."
         }
       ],
@@ -1159,7 +1148,6 @@
         {
           "sourceId": "WU12",
           "locator": "§6, displayed block matrix and Theorem 6.3, p. 27",
-          "excerpt": "block circulant matrix",
           "match": "Coordinate comparison, with first block row B0,…,B_(t−1) and indices j−i."
         }
       ],
@@ -1199,7 +1187,6 @@
         {
           "sourceId": "WU12",
           "locator": "§6, passage before and statement of Corollary 6.4, pp. 27–28",
-          "excerpt": "Mm Fq [x]/(xt − 1)",
           "match": "The corollary has exponent t; the preceding sentence’s exponent n is corrected."
         }
       ],
@@ -1240,7 +1227,6 @@
         {
           "sourceId": "GK09",
           "locator": "§13.3, pp. 315–316",
-          "excerpt": "Tr",
           "match": "The matrix layout and corrected zero-column count; inherited E512 already records the denominator correction."
         }
       ],
@@ -1279,7 +1265,6 @@
         {
           "sourceId": "GK09",
           "locator": "§13.4, pp. 316–317",
-          "excerpt": "ϕB",
           "match": "The finite trace-frequency Fourier transform, with its normalization pinned."
         }
       ],
@@ -1371,7 +1356,6 @@
         {
           "sourceId": "GK09",
           "locator": "§13.4, p. 317",
-          "excerpt": "bent",
           "match": "Correctly requires the magnitude of the Fourier coefficients, rather than equality of complex numbers to a positive real."
         }
       ],
@@ -1457,7 +1441,6 @@
         {
           "sourceId": "GK09",
           "locator": "§13.4, p. 317",
-          "excerpt": "Cb,a",
           "match": "The all-elements versus nonzero-elements correction and Parseval restriction."
         }
       ],
@@ -1495,7 +1478,6 @@
         {
           "sourceId": "GK09",
           "locator": "§13.4, p. 317",
-          "excerpt": "F=Fp",
           "match": "The dependence-on-character warning and prime-field exception."
         }
       ],
@@ -1533,7 +1515,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.1, Theorem 14.1.1 with proof, pp. 329–330",
-          "excerpt": "Welch",
           "match": "The source’s Gram-sum proof, extended to arbitrary unit-modulus complex vectors."
         }
       ],
@@ -1572,7 +1553,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.2, (14.1), pp. 330–331",
-          "excerpt": "S(A,B)",
           "match": "The two-parameter family; no false equivalence between full minimal-polynomial degree and a primitive element is assumed."
         }
       ],
@@ -1658,7 +1638,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.3, Theorem 14.3.2 and Table 14.1, pp. 332–333; quadratic-form reduction (14.4)",
-          "excerpt": "Q",
           "match": "Replaces the draft’s defective magnitude table by an intrinsic radical test derived directly from the trace polynomial."
         }
       ],
@@ -1697,7 +1676,6 @@
         {
           "sourceId": "GK09",
           "locator": "§3.3 on quadratic forms, as used in §14.3 (14.4) and Table 14.1",
-          "excerpt": "Q",
           "match": "A direct character-orthogonality proof avoids relying on the misprinted table of magnitudes."
         }
       ],
@@ -1739,7 +1717,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.3, Lemma 14.3.1 with proof, pp. 331–332",
-          "excerpt": "S1",
           "match": "Preserves the source’s hypothesis 2s≠n and distinguishes shift classes from exact periods."
         }
       ],
@@ -1780,7 +1757,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.3, Theorem 14.3.2, binary odd-n row of Table 14.1, pp. 332–333",
-          "excerpt": "C+1",
           "match": "The classical binary Gold case; general alphabets retain the intrinsic radical formula instead of a false table."
         }
       ],
@@ -1821,7 +1797,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.4, pp. 332–334, definition and Lemma 14.4.1",
-          "excerpt": "K(A)",
           "match": "Corrects α∈F to α∈L and A∈L to A∈E, as required by the displayed formula and lemma."
         }
       ],
@@ -1909,7 +1884,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.4, Lemma 14.4.1 and its proof, pp. 333–334",
-          "excerpt": "K(A)",
           "match": "Supplies a direct nondegenerate trace–norm proof of the correlation values, without the defective odd-q Gold-table row."
         }
       ],
@@ -1947,7 +1921,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.5, (14.5) and Figure 14.2, pp. 334–335",
-          "excerpt": "f",
           "match": "The surrounding formula and figure determine the correct feed codomain F, correcting one occurrence of K."
         }
       ],
@@ -2031,7 +2004,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.5, proof of Theorem 14.5.1, pp. 335–336; reference to Lemma 13.5.2",
-          "excerpt": "Hu",
           "match": "The precise finite-field linear-algebra input behind the correlation formula."
         }
       ],
@@ -2071,7 +2043,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.5, Theorem 14.5.1 and proof, pp. 335–336",
-          "excerpt": "C0",
           "match": "Pins the conjugation order and repairs the feed-zero and scalar-domain ambiguities in the printed passage."
         }
       ],
@@ -2109,7 +2080,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.6, (14.6), p. 336",
-          "excerpt": "h",
           "match": "The exact nonlinear feed and its coprimality hypothesis."
         }
       ],
@@ -2198,7 +2168,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.6, Theorem 14.6.1 and proof, pp. 336–338",
-          "excerpt": "h",
           "match": "The proof must retain the h-power in feed hyperplanes; substitute v=u^h and C^h before applying trace orthogonality."
         }
       ],
@@ -2238,7 +2207,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.6, block-distribution proof of Theorem 14.6.1, p. 337",
-          "excerpt": "m",
           "match": "The exact count, generalized from the displayed j=m case to every j≤m."
         }
       ],
@@ -2277,7 +2245,6 @@
         {
           "sourceId": "GK09",
           "locator": "§14.6, last paragraph of the proof of Theorem 14.6.1, pp. 337–338",
-          "excerpt": "h",
           "match": "The comparison is stronger than a freshly proved shift-and-add special case and reuses the parent ownership."
         }
       ],
@@ -2315,13 +2282,11 @@
         {
           "sourceId": "KLAPPER-TN",
           "locator": "§1, Definition 1.1, pp. 2–3",
-          "excerpt": "H(ax) = ad H(x)",
           "match": "Original d-form convention and the coprimality data needed by the correlation theorem."
         },
         {
           "sourceId": "GK09",
           "locator": "§14.7, p. 338",
-          "excerpt": "d-form",
           "match": "The definition itself does not require coprimality; its theorem does."
         }
       ],
@@ -2417,13 +2382,11 @@
         {
           "sourceId": "KLAPPER-TN",
           "locator": "Theorem 2.1 with proof, pp. 3–5",
-          "excerpt": "cross-correlation",
           "match": "Uses the original paper’s hypotheses absent from the GK09 statement."
         },
         {
           "sourceId": "GK09",
           "locator": "§14.7, Theorem 14.7.1 and §14.11 Exercise 1, pp. 338,345",
-          "excerpt": "z",
           "match": "The formula is retained with the missing necessary coprimality assumptions restored."
         }
       ],
@@ -2463,7 +2426,6 @@
         {
           "sourceId": "BAZLOV23",
           "locator": "Week 9, Vectors as polynomials and proof of Theorem 9.3, pp. 1–5",
-          "excerpt": "cyclic shift",
           "match": "The word–polynomial conversion, strengthened to the native quotient linear equivalence."
         }
       ],
@@ -2556,7 +2518,6 @@
         {
           "sourceId": "BAZLOV23",
           "locator": "Week 9, opening Definition and E3 example, pp. 1–2",
-          "excerpt": "A cyclic code",
           "match": "A predicate on existing linear codes, with the source’s right-shift convention."
         }
       ],
@@ -2645,7 +2606,6 @@
         {
           "sourceId": "SZONYI",
           "locator": "p. 2, first Proposition and its preceding argument",
-          "excerpt": "C(x) is an ideal",
           "match": "The gcd restriction is unnecessary for this algebraic correspondence; it is retained only for the roots used by BCH."
         }
       ],
@@ -2731,7 +2691,6 @@
         {
           "sourceId": "BAZLOV23",
           "locator": "Lemma 9.2 and Theorem 9.3, pp. 3–5",
-          "excerpt": "unique generator polynomial",
           "match": "The null-code convention is explicit; no least-degree nonzero-word choice is attempted there."
         }
       ],
@@ -2825,7 +2784,6 @@
         {
           "sourceId": "BAZLOV23",
           "locator": "Definition: check polynomial and Theorem 9.4, pp. 5–7",
-          "excerpt": "check polynomial",
           "match": "The annihilator test is an actual quotient-ring condition, with nonzero constants explicit."
         }
       ],
@@ -2919,7 +2877,6 @@
         {
           "sourceId": "BAZLOV23",
           "locator": "Theorem 9.3 and generator matrix in Theorem 9.4, pp. 4–7",
-          "excerpt": "k rows",
           "match": "The basis proof and dimension n−deg g, with zero-code boundary."
         }
       ],
@@ -2960,7 +2917,6 @@
         {
           "sourceId": "BAZLOV23",
           "locator": "Theorem 9.4 and Corollary 9.5, pp. 6–7",
-          "excerpt": "Scaling by h0",
           "match": "The source explicitly requires monic normalization; the unscaled version in SZONYI is interpreted only as an ideal generator."
         }
       ],
@@ -3001,7 +2957,6 @@
         {
           "sourceId": "SZONYI",
           "locator": "p. 3, Proposition (BCH bound)",
-          "excerpt": "consecutive zeros",
           "match": "The general cyclic-code consecutive-root form, with explicit primitive-root and nonzero-code conventions."
         }
       ],
@@ -3040,13 +2995,11 @@
         {
           "sourceId": "ECT25",
           "locator": "Exercise 5.23(1),(4),(5), p. 111",
-          "excerpt": "Consider the code",
           "match": "The explicit code, extended to l=0 and corrected for the small-l dimensional range."
         },
         {
           "sourceId": "ECT26",
           "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "excerpt": "Consider the code",
           "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
         }
       ],
@@ -3146,13 +3099,11 @@
         {
           "sourceId": "ECT25",
           "locator": "Exercise 5.23(1), p. 111",
-          "excerpt": "exactly p3 solutions",
           "match": "Elementary trace–norm point count, independent of FF.2."
         },
         {
           "sourceId": "ECT26",
           "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "excerpt": "exactly p3 solutions",
           "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
         }
       ],
@@ -3191,13 +3142,11 @@
         {
           "sourceId": "ECT25",
           "locator": "Exercise 5.23(4), p. 111",
-          "excerpt": "dimension",
           "match": "Corrects the range of the rectangular monomial count."
         },
         {
           "sourceId": "ECT26",
           "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "excerpt": "dimension",
           "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
         }
       ],
@@ -3239,13 +3188,11 @@
         {
           "sourceId": "ECT25",
           "locator": "Exercise 5.23(2)–(6), p. 111",
-          "excerpt": "algebraic-geometric",
           "match": "The explicit monomial code is compared with the parent AG construction through the native curve model; ECT’s Bezout hint is not rebuilt here."
         },
         {
           "sourceId": "ECT26",
           "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "excerpt": "algebraic-geometric",
           "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
         }
       ],
@@ -3288,13 +3235,11 @@
         {
           "sourceId": "ECT25",
           "locator": "Exercise 5.23(5)–(6), p. 111",
-          "excerpt": "minimum distance at least",
           "match": "Uses the corrected dimension and a positive designed distance; general Bezout is not claimed as a library baseline."
         },
         {
           "sourceId": "ECT26",
           "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "excerpt": "minimum distance at least",
           "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
         }
       ],
@@ -3332,7 +3277,6 @@
         {
           "sourceId": "KATZ93",
           "locator": "Theorem 1, pp. 143–144, specialized to n=2",
-          "excerpt": "Estimates for Soto-Andrade sums",
           "match": "The published definition with zero extension even for trivial ε; no engineering value at zero is used."
         }
       ],
@@ -3433,7 +3377,6 @@
         {
           "sourceId": "KATZ93",
           "locator": "Theorem 1, p. 143; proof for n=2, pp. 145–149",
-          "excerpt": "2√q",
           "match": "Published proof decomposed through the actual norm-one Lang character sheaf, tameness, cohomology dimension and weights."
         }
       ],
@@ -3479,13 +3422,11 @@
         {
           "sourceId": "KUANG94",
           "locator": "§§3–5 and §8, pp. 1–4; comparison theorem proof on p. 3",
-          "excerpt": "orthogonal basis",
           "match": "Source for the spherical-to-character transfer; normalization and exhaustiveness remain a bounded gap, rather than an unverified library claim."
         },
         {
           "sourceId": "KATZ93",
           "locator": "Theorem 1 and n=2 proof, pp. 143–149",
-          "excerpt": "Soto-Andrade sums",
           "match": "Bounds the cuspidal character sums after the nondegenerate graph parameter substitution."
         }
       ],

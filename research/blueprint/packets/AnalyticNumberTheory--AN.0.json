@@ -2152,7 +2152,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2198,7 +2197,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2250,7 +2248,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2297,7 +2294,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2343,7 +2339,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2391,7 +2386,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2440,7 +2434,6 @@
         {
           "sourceId": "tao-divisor-2008",
           "locator": "Second proof, exponential estimate and small/large-prime split",
-          "excerpt": "The divisor bound",
           "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
         }
       ],
@@ -2477,7 +2470,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem8.8 and (8.3.1)–(8.3.6), printed pp.50–51; prerequisites §8.2 pp.48–49",
-          "excerpt": "There exists a constant",
           "match": "Retains the inherited ID with its review's high-height qualification; corrects the Gamma argument in the proof and records missing analytic lemmas."
         }
       ],
@@ -2521,7 +2513,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Definition7.1/Theorem7.2, printed pp.43–44; Theorem9.9 final assembly, pp.56–58",
-          "excerpt": "von Mangoldt’s formula",
           "match": "Restores the half-weight convention and restricts to T≥2. Final assembly was freshly read; its prerequisite lemmas and exercises remain a decomposition gap."
         }
       ],
@@ -2565,7 +2556,6 @@
         {
           "sourceId": "tate-thesis-1950",
           "locator": "§4.5, thesis p.(4.23), scan p.57; comparison and continuation discussion scan pp.58–59",
-          "excerpt": "classical",
           "match": "Fresh page-image verification of the displayed Euler comparison. Character construction and full admissibility proofs remain imported, with exact unread boundaries recorded."
         }
       ],
@@ -2612,7 +2602,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Chapter22, §§22.2–22.5, Theorems22.3–22.4, printed pp.128–129",
-          "excerpt": "Sketch of proof",
           "match": "Retains the inherited ID only for the near-line analytic theorem, with rational induction, root-gluing and Hecke boundary inputs explicitly open. The defective Lemma22.1 is not used."
         }
       ],
@@ -2655,7 +2644,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.3, Lemma 3.6 and Exercise 3.6.1, printed pp. 19 and 21",
-          "excerpt": "represented by a Dirichlet series with abscissa of convergence",
           "match": "Lemma 3.6, whose proof is left as Exercise 3.6.1 (hint: adapt the case f = ζ); the proof steps here are that adaptation."
         }
       ],
@@ -2696,7 +2684,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.3, Theorem 3.7 and (3.3.1), printed p. 19",
-          "excerpt": "which is a Dirichlet series with nonnegative real coeﬀicients",
           "match": "Kedlaya proves the case K = ℚ; the same orthogonality argument applies to Cl_𝔪(K)."
         }
       ],
@@ -2740,13 +2727,11 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.3–§3.4, Theorems 3.8, 3.10 and 3.11, printed pp. 19–20",
-          "excerpt": "For any nonreal Dirichlet character",
           "match": "The three steps for Dirichlet characters; the Hecke case follows the same steps with AL.1's continuation."
         },
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5, Theorem 22.4, printed p. 129",
-          "excerpt": "One first proves the claim for",
           "match": "Kedlaya records this Hecke input as the first step of Theorem 22.4, with a reference."
         }
       ],
@@ -2796,7 +2781,6 @@
         {
           "sourceId": "tate-thesis-1950",
           "locator": "§4.4 Main Theorem 4.4.1 and §4.5, physical pp. 50–58 (read on page images, cc-39fac3)",
-          "excerpt": "Main Theorem",
           "match": "The residue −κf(0), κf̂(0) and the comparison of ζ(f, c|·|^s) with the classical ζ(s, χ)."
         }
       ],
@@ -2840,7 +2824,6 @@
         {
           "sourceId": "tate-thesis-1950",
           "locator": "§4.5, physical pp. 57–59 (read on page images, cc-39fac3)",
-          "excerpt": "Analytic Continuation and Functional Equation",
           "match": "Tate's derivation of Hecke's functional equation for ζ(s, χ)."
         }
       ],
@@ -2880,7 +2863,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5, proof of Theorem 22.4, printed p. 129",
-          "excerpt": "by choosing the right root, we get a",
           "match": "The m-th root step of Theorem 22.4, stated and proved here in full."
         }
       ],
@@ -2930,7 +2912,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Section 7, Proposition 7.1 and following paragraph, pp. 373-374",
-          "excerpt": "Exceptional real zero",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/40. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3014,7 +2995,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§§6–9, especially p. 369",
-          "excerpt": "Chebyshev sums used by the argument",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         }
       ],
@@ -3092,7 +3072,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Proposition 7.1 and equation (25), pp. 373-374",
-          "excerpt": "Repulsion of exceptional conductors",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/41. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3136,7 +3115,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Lemma 7.3, p. 375",
-          "excerpt": "Largest prime factor of a quadratic conductor",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/43. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3182,7 +3160,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Equation (10), p. 362; Schoenfeld 1976, concluding note p. 360",
-          "excerpt": "Schoenfeld explicit Chebyshev bound",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/65. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3228,7 +3205,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§6, pp. 369,372, Ramaré–Rumely input",
-          "excerpt": "Mod-eight prime mass",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/78. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3278,7 +3254,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§6 end of Case I, pp. 369–370; Schoenfeld Theorem 6*, (5.3*)–(5.4*)",
-          "excerpt": "Prime powers do not erase the character-sum margin",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/79. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3322,7 +3297,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Proposition 7.1(i), (23), p. 373",
-          "excerpt": "Two-real-zero inequality",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/87. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3368,7 +3342,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Proposition 7.1(ii), (24), pp. 373–374",
-          "excerpt": "Uniqueness and simplicity of an exceptional zero",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/88. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3414,7 +3387,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "Theorem 5, (26), p. 374; Iwaniec–Kowalski Theorem 5.27",
-          "excerpt": "Effective character prime-number estimate",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/89. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3458,7 +3430,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§9 proof, p. 382; Rosser–Schoenfeld Theorem 1",
-          "excerpt": "Rosser–Schoenfeld explicit prime-count bounds",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/102. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3502,7 +3473,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§9 proof, p. 382; Rosser–Schoenfeld Theorem 5",
-          "excerpt": "Explicit reciprocal-prime estimate",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/103. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3546,7 +3516,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§12 opening, p. 386; Bombieri §5 p.39; Iwaniec–Kowalski Theorem 5.26",
-          "excerpt": "Bounded-height Landau–Page theorem",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/116. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3590,7 +3559,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§12 proof of Proposition 12.1, p. 386; Bombieri §5 remark after Theorem 14, p.40",
-          "excerpt": "Selberg zero-density input",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/117. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3634,7 +3602,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§12 p.387; Bennett–Martin–O'Bryant–Rechnitzer Proposition 1.11",
-          "excerpt": "Quadratic real-zero separation from one",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/118. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3678,7 +3645,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§9 p.384; Rosser–Schoenfeld Theorem 6, p.70",
-          "excerpt": "Weighted-prime sum input to the factorial estimate",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/142. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3722,7 +3688,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§5 proof of Lemma 5.1, p.365; alternate direct input from Rosser–Schoenfeld Theorem 8 (3.29), p.70",
-          "excerpt": "Explicit prime Euler-product bound",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BENNETT-SIKSEK-20/151. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3766,7 +3731,6 @@
         {
           "sourceId": "reviewed-paper-bennett-siksek-20",
           "locator": "§9 p.384; Rosser–Schoenfeld Theorem 6, p.70",
-          "excerpt": "Weighted-prime sum input to the factorial estimate",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         }
       ],
@@ -3807,7 +3771,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "2.2, p. 382; proof of Corollary 3.3, p. 384; [4]",
-          "excerpt": "Bounded-degree Brauer-Siegel",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/brauer-siegel. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3854,7 +3817,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "2.2, p. 382",
-          "excerpt": "Uniform bounded-norm ideal count",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/small-ideal-count. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3898,7 +3860,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384",
-          "excerpt": "Sufficient conductor-discriminant estimate",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/conductor-discriminant-control. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3942,7 +3903,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384",
-          "excerpt": "Logarithmic functional equation",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/artin-functional-equation. The original external proof is not certified by its acceptance."
         }
       ],
@@ -3986,7 +3946,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384",
-          "excerpt": "Two-sided subpolynomial values at one",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/artin-values. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4030,7 +3989,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384; [10], (5.2)",
-          "excerpt": "Factorwise logarithmic derivative at one",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/artin-derivatives. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4077,7 +4035,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Quadratic Euler-factor calculation; Thorner-Zaman 2017 equations (2-1)-(2-7); main Corollary 3.3 adapter",
-          "excerpt": "Quadratic zeta factorization and the residue quotient",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/cm-hecke-zeta-factorization. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4124,7 +4081,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Brauer 1947 input as used in main sections 2-3; Tsimerman arXiv:1103.5619v3 Lemma 4.1 for comparison",
-          "excerpt": "Uniform subpolynomial Dedekind residues",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/bounded-degree-residue-bounds. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4175,7 +4131,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Derived adapter for main Corollary 3.3",
-          "excerpt": "Two-sided quadratic Hecke value bound",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/cm-hecke-value-one. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4220,14 +4175,12 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Thorner-Zaman 2017, Lemma 2.3, printed p. 1142; credits Rademacher 1959",
-          "excerpt": "Uniform finite-order Hecke convexity",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/primitive-hecke-convexity. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "thorner-zaman-2017",
           "locator": "Lemma2.3 [Rademacher 1959], unnumbered bound, printed p.1142",
-          "match": "Fresh selected primary-source reading by codex-ws2Gd5. The CM specialization is a derived statement; the cited Rademacher proof is not certified.",
-          "excerpt": "primitive Hecke character"
+          "match": "Fresh selected primary-source reading by codex-ws2Gd5. The CM specialization is a derived statement; the cited Rademacher proof is not certified."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4277,7 +4230,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Derived from Thorner-Zaman Lemma 2.3 and Cauchy derivative estimate",
-          "excerpt": "A fixed small circle gives a subpolynomial derivative",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/cm-hecke-cauchy-derivative. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4327,7 +4279,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Derived adapter for main Corollary 3.3",
-          "excerpt": "Subpolynomial logarithmic derivative at one",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/cm-hecke-log-derivative-one. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4381,14 +4332,12 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Derived from Thorner-Zaman (2-3)-(2-6), odd gamma factors",
-          "excerpt": "Logarithmic functional equation at zero and one",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/cm-hecke-log-functional-equation. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "thorner-zaman-2017",
           "locator": "(2-3)–(2-7), printed pp.1140–1141; specialized using CM sign characters",
-          "match": "Fresh selected primary-source reading by codex-ws2Gd5. The CM specialization is a derived statement; the cited Rademacher proof is not certified.",
-          "excerpt": "functional equation"
+          "match": "Fresh selected primary-source reading by codex-ws2Gd5. The CM specialization is a derived statement; the cited Rademacher proof is not certified."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4431,7 +4380,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Elementary decomposition of the ideal-count input in main section 2.2",
-          "excerpt": "Uniform coefficient bound by a divisor function",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/ideal-coefficient-divisor-majorant. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4476,7 +4424,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Elementary fixed-degree proof of the bound used in main section 2.2",
-          "excerpt": "Subpolynomial fixed-order divisor function",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/fixed-divisor-subpolynomial. The original external proof is not certified by its acceptance."
         }
       ],
@@ -4524,7 +4471,6 @@
         {
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Quadratic Euler-factor calculation; Thorner-Zaman 2017 equations (2-1)-(2-7); main Corollary 3.3 adapter",
-          "excerpt": "Quadratic zeta factorization and the residue quotient",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         }
       ],
@@ -4576,14 +4522,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§7, p970",
-          "excerpt": "Partial ideal zeta function",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "§7, p970",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7). The passage gives the quadratic specialization; the general number-field coefficient definition and ℚ test are a justified extension using imported norm fibres, finite class partition and domination, rather than a claim that the paper states that generality.",
-          "excerpt": "ideal class"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7). The passage gives the quadratic specialization; the general number-field coefficient definition and ℚ test are a justified extension using imported norm fibres, finite class partition and domination, rather than a claim that the paper states that generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4673,14 +4617,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§7, p970",
-          "excerpt": "Ideal-character Hecke L-function",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/134. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "§7, p970",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "Clearly"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4730,14 +4672,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(7.1)",
-          "excerpt": "Hecke CM partial-zeta identity",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/135. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "(7.1)",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(7.1)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4786,14 +4726,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(7.2), p.970 (Hecke; a cited result, 'He showed')",
-          "excerpt": "Hecke positive-sign real quadratic formula",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/136. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "(7.2), p.970 (Hecke; a cited result, 'He showed')",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(7.2)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4839,14 +4777,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8)",
-          "excerpt": "Genus Hecke factorization",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/139. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "§7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8)",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "Genus characters."
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4895,14 +4831,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Theorem3 first branch",
-          "excerpt": "Theorem3 negative factors",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/140. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "Theorem3 first branch",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(7.10)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4951,14 +4885,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Theorem 3, second case, p.964; for all s by (7.8), p.972",
-          "excerpt": "Theorem3 positive factors",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/141. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "Theorem 3, second case, p.964; for all s by (7.8), p.972",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(7.8)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5007,14 +4939,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Theorem 3, third case, p.964 (Re(s) = 1/2); for all s by the display after 'By (7.6) we have when D < 0', p.971",
-          "excerpt": "Theorem3 CM factors",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/142. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "Theorem 3, third case, p.964 (Re(s) = 1/2); for all s by the display after 'By (7.6) we have when D < 0', p.971",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(7.6)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5063,14 +4993,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(7.3)",
-          "excerpt": "Hecke negative-sign real quadratic formula",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/158. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "(7.3)",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(7.3)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5124,14 +5052,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "(6.7), proof of Proposition 2, p.969",
-          "excerpt": "Eisenstein Weyl sums bounded by Dirichlet L-values",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/eisenstein-weyl-to-dirichlet-l-values. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "(6.7), proof of Proposition 2, p.969",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "(6.7)"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5174,14 +5100,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Proof of Proposition 2, p.969 ('standard estimates for the gamma function quotient and for ζ(2s)')",
-          "excerpt": "Standard gamma-quotient and 1/ζ(1+2it) estimates (black box)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/gamma-quotient-and-zeta-one-line-bounds. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "Proof of Proposition2, printed p.969, sentence preceding (6.7)",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "standard estimates"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5226,14 +5150,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "Proof of Proposition 2, p.969 ('standard estimates for the gamma function quotient and for ζ(2s)')",
-          "excerpt": "Standard gamma-quotient and 1/ζ(1+2it) estimates (black box)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/gamma-quotient-and-zeta-one-line-bounds. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "Proof of Proposition2, printed p.969, sentence preceding (6.7)",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "standard estimates"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5276,14 +5198,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§6, p.968 ('By Siegel's theorem'); proof of Proposition 1, p.968 ('Siegel's theorem (see [11])')",
-          "excerpt": "Siegel's theorem (black box)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/siegel-theorem. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "§6, p.968 ('By Siegel's theorem'); proof of Proposition 1, p.968 ('Siegel's theorem (see [11])')",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "Siegel’s theorem"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5329,14 +5249,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§6, pp967–968",
-          "excerpt": "Siegel lower bound and regulator conversion",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/145. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "§6, pp967–968",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "Siegel’s theorem"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5382,14 +5300,12 @@
         {
           "sourceId": "reviewed-paper-duke-imamoglu-toth-16",
           "locator": "§6, pp967–968",
-          "excerpt": "Siegel lower bound and regulator conversion",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-DUKE-IMAMOGLU-TOTH-16/145. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "dit-published-2016",
           "locator": "§6, pp967–968",
-          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7).",
-          "excerpt": "Siegel’s theorem"
+          "match": "Fresh selected primary-source check by codex-ws2Gd5 against the published passage. Statements quoted from outside sources (including Siegel and Hecke) are target checks, not verification of their original proofs; gamma and reciprocal-zeta bounds are the decomposed inputs of (6.7)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5437,7 +5353,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Theorem3.4(b) and its proof, printed pp.40–41",
-          "excerpt": "Mertens’ three estimates",
           "match": "Direct source statement and bounded-remainder Abel proof; no quantitative PNT is used."
         }
       ],
@@ -5484,7 +5399,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Theorem3.4(c), (3.6), printed pp.40–41; Exercise5.4, printed p.61",
-          "excerpt": "It remains to show that κ = γ.",
           "match": "The source supplies the logarithmic product proof and explicitly identifies the remaining constant calculation. Exercise5.4(c) has the sign slip recorded as E19; use the corrected sign. The detailed uniform estimates remain gaps."
         }
       ],
@@ -5535,7 +5449,6 @@
         {
           "sourceId": "bkk-primary-v3",
           "locator": "§3.6, definition immediately preceding (3.4), p.26",
-          "excerpt": "the product of m distinct primes",
           "match": "The closed interval [x/2,x], distinct unordered primes and the m=0 empty product are explicit in the source."
         }
       ],
@@ -5636,7 +5549,6 @@
         {
           "sourceId": "bkk-primary-v3",
           "locator": "§3.5, proof of Theorem2, p.25",
-          "excerpt": "the set of primes in (x, 3x]",
           "match": "The exact bounds including the additive 4 are printed; they follow from the rational PNT with a sufficiently large threshold."
         }
       ],
@@ -5683,7 +5595,6 @@
         {
           "sourceId": "bkk-primary-v3",
           "locator": "§3.6 (3.4), p.26",
-          "excerpt": "by a simple application of the Prime Number Theorem",
           "match": "The fixed-m specialization follows from the exact cardinality and pinned isEquivalent_choose; no moving-m estimate is asserted."
         }
       ],
@@ -5724,7 +5635,6 @@
         {
           "sourceId": "smati-primary-1992",
           "locator": "Introduction pp.143–145; stated effective theorem p.145",
-          "excerpt": "Ce nombre est fini",
           "match": "The source defines the finite inverse-totient count and states a stronger effective asymptotic. The O(x) target follows from that stated theorem; the later proof and computational boundary have not been audited, so its proof gap remains."
         }
       ],
@@ -5779,13 +5689,11 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Exercise2.9(b),(e),(f), printed pp.33–34, k=2",
-          "excerpt": "Exercise 2.9.",
           "match": "The source states the prime-power and cutoff inequalities and asks for the limiting bound. The detailed proof below is an independent solution of that exercise, not a claim of an original-source proof."
         },
         {
           "sourceId": "reviewed-paper-barysoroker-koukoulopoulos-kozma-23",
           "locator": "arXiv v3, proof of Lemma 3.1, p. 18, citing [18, §18.1, Theorem 317] (Hardy–Wright, sixth edition); subpower use in the proof of Lemma 12.3, p. 60",
-          "excerpt": "Maximal-order divisor bound and subpower corollary",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/129. The original external proof is not certified by its acceptance."
         }
       ],
@@ -5830,7 +5738,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "§3.1, definitions preceding Corollary3.3, published p.691",
-          "excerpt": "truncated von Mangoldt function",
           "match": "The published definitions are on positive integers. The even integer extension and its finite cutoff at zero are specified here; the native identity is used only at |n|>0. At zero the positive-divisor cutoff is evaluated directly."
         }
       ],
@@ -5910,7 +5817,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "§3.1, definitions preceding Corollary3.3, published p.691",
-          "excerpt": "truncated von Mangoldt function",
           "match": "The published definitions are on positive integers. The even integer extension and its finite cutoff at zero are specified here; the native identity is used only at |n|>0. At zero the positive-divisor cutoff is evaluated directly."
         }
       ],
@@ -5994,7 +5900,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "§3.1, definitions preceding Corollary3.3, published p.691",
-          "excerpt": "truncated von Mangoldt function",
           "match": "The published definitions are on positive integers. The even integer extension and its finite cutoff at zero are specified here; the native identity is used only at |n|>0. At zero the positive-divisor cutoff is evaluated directly."
         }
       ],
@@ -6071,7 +5976,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Lemma3.2 and proof reference, published p.690",
-          "excerpt": "the implied constant depends only on A.",
           "match": "The displayed uniform estimate is checked for the packet’s smaller range y≥2. The paper refers its proof to Davenport1937 or Iwaniec–Kowalski13.10; neither external proof was read."
         }
       ],
@@ -6117,7 +6021,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Equation(3.6), proof of Lemma3.11, published p.699",
-          "excerpt": "consequences of the prime number theorem",
           "match": "Both displayed sums and the cited exercise are present. The displayed (3.6) does not state the q≤T^4 uniform range required by these nodes; that strengthened supplier is an explicit unresolved proof obligation, not a source-verification receipt."
         }
       ],
@@ -6169,7 +6072,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Lemma4.3 and full proof, published pp.705–706, equations(4.2)–(4.3)",
-          "excerpt": "Wintner’s theorem",
           "match": "The full proof gives the stronger pointwise Cx+O(sqrt x) estimate before integrating. The complex extension follows from the same convolution expansions and absolute-value bounds; it is not asserted to be an extra printed theorem."
         }
       ],
@@ -6216,7 +6118,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Lemma4.5 and full proof, published pp.708–709",
-          "excerpt": "Exponentiating gives",
           "match": "The paper proves its bound by a local binomial estimate and an integer telescoping tail. The packet restricts to x≥e², where p>log x excludes p=2 and the strict binomial inequality applies. Subproducts use the same positive bounds."
         }
       ],
@@ -6263,13 +6164,11 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Theorem3.4(c), printed pp.40–41",
-          "excerpt": "Mertens’ three estimates",
           "match": "Two-sided comparison follows from the verified target’s positive main term and a finite starting range. Original application locators were checked in the published paper; no particular numerical constant is claimed."
         },
         {
           "sourceId": "ss-primary-published",
           "locator": "Proof of Lemma4.9 p.713 and proof of Lemma4.11 p.716",
-          "excerpt": "By Mertens’ estimate",
           "match": "The published paper uses upper and lower Mertens comparisons; no source-specific numerical constant is inferred."
         }
       ],
@@ -6316,7 +6215,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Lemma3.11 and proof, published p.699",
-          "excerpt": "the implied constants depend only on A.",
           "match": "The lemma explicitly has 1≤q≤T^(1/2). Its proof uses both (3.6) sums; the node’s q≤T^4 suppliers still need their own uniform proof."
         }
       ],
@@ -6365,7 +6263,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Equation(3.7), published p.699; cited Montgomery–Vaughan Theorem2.9",
-          "excerpt": "standard bounds",
           "match": "The source states the order bound; the elementary small/large-prime proof below uses the pinned Euler-totient product and the Mertens-product node instead of assuming the cited book’s proof was read."
         }
       ],
@@ -6412,7 +6309,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Corollary3.3 and proof reference, published p.691",
-          "excerpt": "the implied constant depends only on A.",
           "match": "The displayed positive-integer estimate is checked on y,z≥2. Its full proof is cited to Iwaniec–Kowalski(19.17) and remains unread; this is not a proof-completion receipt."
         }
       ],
@@ -6457,7 +6353,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Equation(3.6), proof of Lemma3.11, published p.699",
-          "excerpt": "consequences of the prime number theorem",
           "match": "Both displayed sums and the cited exercise are present. The displayed (3.6) does not state the q≤T^4 uniform range required by these nodes; that strengthened supplier is an explicit unresolved proof obligation, not a source-verification receipt."
         }
       ],
@@ -6501,7 +6396,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "Lemma4.3, published pp.705–706",
-          "excerpt": "which concludes the proof.",
           "match": "After its pointwise mean estimate the paper obtains the integrated formula. The exact finite step-sum identity and the sqrt remainder integration also justify the complex-valued extension."
         }
       ],
@@ -6546,7 +6440,6 @@
         {
           "sourceId": "ss-primary-published",
           "locator": "§3.1 definitions and Corollary3.3, published p.691",
-          "excerpt": "truncated von Mangoldt function",
           "match": "The two-sided extension is a derived statement: apply the positive theorem at α and −α, retain the finite zero term separately, and bound it from Davenport at α=0 by Abel summation. It is not printed as Corollary3.3."
         }
       ],
@@ -6593,19 +6486,16 @@
         {
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
-          "excerpt": "Landau-type counts",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Chapter13, (13.1)–(13.2), Theorem13.2 pp.130–134 and Exercise13.4 p.140",
-          "excerpt": "Exercise 13.4 (Landau).",
           "match": "The exercise gives this exact indicator asymptotic and prime-factor criterion. Theorem13.2 supplies the reusable multiplicative-mean route, whose proof is not closed here."
         },
         {
           "sourceId": "gs-primary-v3",
           "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
-          "excerpt": "special admissible k’s",
           "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
@@ -6654,13 +6544,11 @@
         {
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
-          "excerpt": "Landau-type counts",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "gs-primary-v3",
           "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
-          "excerpt": "special admissible k’s",
           "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
@@ -6711,13 +6599,11 @@
         {
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
-          "excerpt": "Landau-type counts",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "gs-primary-v3",
           "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
-          "excerpt": "special admissible k’s",
           "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
@@ -6768,13 +6654,11 @@
         {
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
-          "excerpt": "Landau-type counts",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "gs-primary-v3",
           "locator": "Introduction p.3, exceptional families; §4.1 pp.12–13",
-          "excerpt": "special admissible k’s",
           "match": "Fresh source support for the three exceptional families and the asserted union asymptotic; the paper does not supply the individual Landau proofs or the shifted intersection estimate."
         }
       ],
@@ -6828,19 +6712,16 @@
         {
           "sourceId": "reviewed-paper-ghosh-sarnak-22",
           "locator": "§1, p.3; §4.1, pp.12–13; §8, p.24, arXiv:1706.06712v3 (final version)",
-          "excerpt": "Landau-type counts",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-GHOSH-SARNAK-22/40. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "gs-primary-v3",
           "locator": "§8, Proposition8.1 and ensuing density discussion, pp.22–24",
-          "excerpt": "congruence classes",
           "match": "The fixed quadratic residue-support families motivate the target. The arbitrary M,R,a formulation is a generalization requiring the separately recorded multiplicative-mean proof, not a literal theorem of this paper."
         },
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Chapter13 (13.1)–(13.2), Theorem13.2 pp.130–134",
-          "excerpt": "Theorem 13.2.",
           "match": "The theorem gives the complex-κ multiplicative-mean framework after prime distribution and divisor domination have been checked. This checkpoint has not read its whole proof."
         }
       ],
@@ -6886,13 +6767,11 @@
         {
           "sourceId": "reviewed-paper-lipnowski-tsimerman-18",
           "locator": "§3.2.2 (24), [18]; used again in §5.4.2 (49)",
-          "excerpt": "Explicit residue bound for Dedekind zeta functions (Louboutin)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LIPNOWSKI-TSIMERMAN-18/residue-source. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "lt-primary-v1-residue",
           "locator": "§3.2.2, (24), printed p.14; reference[18]",
-          "excerpt": "upper bound on the residue",
           "match": "The exact quoted target and exponent are freshly read in arXivv1. This is not an independent read of Louboutin JNT85 (2000), whose proof remains the Explicit Dedekind estimates gap."
         }
       ],
@@ -6940,13 +6819,11 @@
         {
           "sourceId": "reviewed-paper-lemkeoliver-wang-wood-25",
           "locator": "Theorem 4.2, p.20, citing Lemke Oliver–Thorner [Pas17, Proposition A.2] and Thorner–Zaman [TZ21, Theorem 1.2], Forum Math. Pi 13 (2025), e19",
-          "excerpt": "Theorem 4.2 (zero-density estimate for ray class L-functions)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LEMKEOLIVER-WANG-WOOD-25/17. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "low-primary-published",
           "locator": "§4, Theorem4.2, printed p.20",
-          "excerpt": "primitive ray class characters",
           "match": "Freshly read published theorem preserves Q,T>1, the strict real-part interval and the ε exponent. It is a recalled consequence, not a proof of the original density theorem."
         }
       ],
@@ -7004,13 +6881,11 @@
         {
           "sourceId": "reviewed-paper-lemkeoliver-wang-wood-25",
           "locator": "Lemma 4.3 and proof, pp.20–22, Forum Math. Pi 13 (2025), e19",
-          "excerpt": "Lemma 4.3 (most quadratic extensions have many small split primes)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LEMKEOLIVER-WANG-WOOD-25/18. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "low-primary-published",
           "locator": "§4, Lemma4.3 and full proof, printed pp.20–22",
-          "excerpt": "exceptional quadratic extensions",
           "match": "Fresh published statement and proof route, with the smoothed kernel, endpoint residues, height√X and dependence onσ₁; invoked Lemma4.1/IK inputs remain open."
         }
       ],
@@ -7057,19 +6932,16 @@
         {
           "sourceId": "reviewed-paper-lemkeoliver-wang-wood-25",
           "locator": "Lemma 4.4, p.22, citing [Zam17], Forum Math. Pi 13 (2025), e19",
-          "excerpt": "Lemma 4.4 (Zaman's effective lower bound for prime ideals)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-LEMKEOLIVER-WANG-WOOD-25/19. The original external proof is not certified by its acceptance."
         },
         {
           "sourceId": "low-primary-published",
           "locator": "§4, Lemma4.4 and ensuing discussion, printed p.22",
-          "excerpt": "absolute, effective constants",
           "match": "The published discussion explicitly gives β=35,γ=19 and degree-dependent implied lower-bound constants."
         },
         {
           "sourceId": "zaman-primary-thesis",
           "locator": "Theorem1.3.1, pp.11–12; conventions §1.5 p.26; selected §7.2.1 pp.159–160 and §7.2.4 pp.166–169",
-          "excerpt": "Theorem 1.3.1.",
           "match": "The theorem gives the stronger general Galois count; the target specializes the identity extension k/k. Only selected proof passages read. Lemma7.2.3 prints threshold40 while the theorem and final weight case use35; the reduction must be reconciled before proof certification."
         }
       ],
@@ -7119,7 +6991,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Theorem3.4(a) and proof, printed p.40",
-          "excerpt": "the identity log = Λ ∗ 1",
           "match": "The elementary proof uses the convolution identity, Chebyshev upper bound and a log-summatory estimate, not merely qualitative PNT. The strict endpoint differs by a uniformly bounded single term."
         }
       ],
@@ -7171,7 +7042,6 @@
         {
           "sourceId": "reviewed-paper-shankar-shankar-tang-etal-22",
           "locator": "Proof of Proposition 5.2, p.27",
-          "excerpt": "Mertens's first theorem and Σ_{p | N} log p/p = O(log log N)",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         }
       ],
@@ -7227,7 +7097,6 @@
         {
           "sourceId": "mestre-primary-published",
           "locator": "§I.2, pp.212–214",
-          "excerpt": "la fonction (F(x) − F(0))/x est à variation bornée.",
           "match": "The symmetric weight is an explicit correction/strengthening; bounded variation of q does not require its two one-sided limits at0 to coincide. E20 records the printed negative-tail omission."
         }
       ],
@@ -7338,13 +7207,11 @@
         {
           "sourceId": "mestre-primary-published",
           "locator": "§I.1–I.2, pp.211–215; Remark1.1.3, Lemmas1.2.1–1.2.2",
-          "excerpt": "La démonstration est calquée sur celle de [10]",
           "match": "Full source argument read; exact I,J signs/subtractions and symmetric zero summation checked on images. Negative-tail and zero-slope conventions are corrected explicitly; Poitou’s proof remains unread."
         },
         {
           "sourceId": "ct-primary-published",
           "locator": "§2.3 pp.275–276, (2.3.5)",
-          "excerpt": "an even function",
           "match": "The motivating automorphic specialization is even with c=0, not an arbitrary asymmetric test."
         }
       ],
@@ -7392,7 +7259,6 @@
         {
           "sourceId": "kp-primary-v1",
           "locator": "§1 pp.2–3, D(X) and classical asymptotic",
-          "excerpt": "d < X",
           "match": "Original definition and cited asymptotic checked; the displayed Euler-factor/constant computation is the reviewer’s derivation, not a quoted proof of the transfer."
         }
       ],
@@ -7439,13 +7305,11 @@
         {
           "sourceId": "kp-primary-v1",
           "locator": "§7.1 Theorem7.2, (7.3), p.60; proof citing[8] p.13",
-          "excerpt": "for all A > 0",
           "match": "The all-A target is printed here. Its quoted supplier’s stated range is narrower; this is a proof boundary, not a confirmed false theorem."
         },
         {
           "sourceId": "ckmp-primary-preprint",
           "locator": "§4 opening, p.13",
-          "excerpt": "uniformly in the range r < 2µ",
           "match": "Acquired source states r<log log x. It does not literally supply the full all-A range; continuation/alternate-source proof remains open."
         }
       ],
@@ -7496,7 +7360,6 @@
         {
           "sourceId": "kp-primary-v1",
           "locator": "§7.2 Definition7.5 and following paragraph, p.61",
-          "excerpt": "|di|² ≤ |di+1|",
           "match": "Printed square-growth assertion checked. The pairwise proof and explicit conductor-log constant are reviewer deductions conditional on the existing two-real-zero supplier."
         }
       ],
@@ -7546,7 +7409,6 @@
         {
           "sourceId": "kp-primary-v1",
           "locator": "§7.2 proof of Proposition7.6, (7.7), p.62",
-          "excerpt": "for some absolute constant c > 0",
           "match": "Printed radicand error is checked; conductor, endpoint, ramification and exceptional-zero conventions are made explicit. IK Theorem5.13 remains unread."
         }
       ],
@@ -7593,7 +7455,6 @@
         {
           "sourceId": "kp-primary-v1",
           "locator": "§7.2 proof of Proposition7.6, p.62, immediately after(7.7)",
-          "excerpt": "We have the effective lower bound",
           "match": "Target estimate read, but its original proof is absent here; derivative/class-number/fundamental-unit interfaces remain explicit gaps."
         }
       ],
@@ -7649,13 +7510,11 @@
         {
           "sourceId": "heilbronn-primary-published",
           "locator": "Theorem1 p.870; complete proof pp.871–873; postscript p.873",
-          "excerpt": "Any real simple zero",
           "match": "The original four-page proof was read. Its Aramata–Brauer entire-quotient and virtual-character parity arguments are explicit prerequisites still missing from the lemma-level packet."
         },
         {
           "sourceId": "kp-primary-v1",
           "locator": "§8.3 p.92, proof following Theorem8.13",
-          "excerpt": "a well-known result of Heilbronn",
           "match": "The application needs a quadratic subfield; the original theorem first passes through the quadratic compositum."
         }
       ],
@@ -7701,7 +7560,6 @@
         {
           "sourceId": "kp-primary-v1",
           "locator": "§7.2 Definition7.5 and its enumeration paragraph, p.61",
-          "excerpt": "the (conjecturally empty) set of squarefree integers",
           "match": "Closed near-one interval and+4 denominator checked. Nonzero/nontrivial field and finite-enumeration conventions are made explicit; its canonical quadratic-character carrier remains unresolved."
         }
       ],
@@ -7791,7 +7649,6 @@
         {
           "sourceId": "gz-primary-published-bu",
           "locator": "ChapterII§4, p.248, immediately after(4.1)",
-          "excerpt": "one-half the number of units",
           "match": "Normalization/units and the partial-class sum were checked as an image. Add fundamental-discriminant scope and derive the comparison from the existing DIT-normalized CM node to prevent duplicate construction."
         }
       ],
@@ -7842,7 +7699,6 @@
         {
           "sourceId": "gz-primary-published-bu",
           "locator": "ChapterIV introduction after(0.3), p.268",
-          "excerpt": "a character with values ±1",
           "match": "Original classification is quoted without proof; literal norm/prime-to-D statement checked on image. Distinguish the arithmetic classification from the already planned analytic product."
         }
       ],
@@ -7894,7 +7750,6 @@
         {
           "sourceId": "gz-primary-published-bu",
           "locator": "ChapterIV§4, p.282, proof of(4.1), and§5 p.290 after(5.4)",
-          "excerpt": "by the functional equation of L(s, ε)",
           "match": "The quoted quadratic functional-equation uses were checked on images; the conductor/gamma/root-one comparison is explicit and still needs its arithmetic proof. Pinned Dirichlet continuation is reused."
         }
       ],
@@ -7945,7 +7800,6 @@
         {
           "sourceId": "gz-primary-published-bu",
           "locator": "ChapterIV§4 pp.283–284, Propositions(4.4)–(4.5), implicit class-number substitution",
-          "excerpt": "2L(1, ε)",
           "match": "The printed coefficients use the class-number substitution; these pages do not prove the class-number theorem. Statement follows the existing residue node plus the pinned explicit residue formula after arithmetic specialization."
         }
       ],
@@ -7997,7 +7851,6 @@
         {
           "sourceId": "gz-primary-published-bu",
           "locator": "ChapterIV§4 pp.283–284, implicit special-value substitution",
-          "excerpt": "2L(1, ε)",
           "match": "The value at0 is a consequence of the completed quadratic symmetry and the class-number value at1, not a separately proved theorem on these pages."
         }
       ],
@@ -8042,7 +7895,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Definition 8.1, printed p.47; extension to ρ=0 by the same growth condition",
-          "excerpt": "an entire function",
           "match": "The predicate restates the infimum-order convention. Entirety and nonnegative ρ are part of it; the polynomial boundary case is explicit."
         }
       ],
@@ -8134,7 +7986,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7, (8.2.3), printed p.49; corrected quadratic sign in E6",
-          "excerpt": "Define",
           "match": "The factor is (1−w)exp(w). The same factor is E₁ in Yun–Zhang Appendix B.1."
         }
       ],
@@ -8218,7 +8069,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8263,7 +8113,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8309,7 +8158,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8351,7 +8199,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8395,7 +8242,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8439,7 +8285,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8483,7 +8328,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8529,7 +8373,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8571,7 +8414,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8615,7 +8457,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8656,7 +8497,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8706,7 +8546,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8748,7 +8587,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8792,7 +8630,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8842,7 +8679,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8892,7 +8728,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52",
-          "excerpt": "the product converges absolutely uniformly",
           "match": "This declaration isolates a construction or estimate in the proof, supplying the displayed mathematical detail and using the corrected E6/E7 conventions. Exact pinned inputs appear in prerequisites; residual obligations remain gaps."
         }
       ],
@@ -8936,7 +8771,6 @@
         {
           "sourceId": "yun-zhang-primary-published",
           "locator": "Appendix B.1, Proposition B.1 and its proof, printed pp.902–903",
-          "excerpt": "all roots",
           "match": "The paired-product proof uses equal multiplicities, imaginary roots and a positive leading coefficient. Strict positivity is limited to the nonpolynomial case; the published nonconstant claim is not imported."
         }
       ],
@@ -8978,7 +8812,6 @@
         {
           "sourceId": "yun-zhang-primary-published",
           "locator": "Appendix B.1, Proposition B.1 and its proof, printed pp.902–903",
-          "excerpt": "all roots",
           "match": "The paired-product proof uses equal multiplicities, imaginary roots and a positive leading coefficient. Strict positivity is limited to the nonpolynomial case; the published nonconstant claim is not imported."
         }
       ],
@@ -9021,7 +8854,6 @@
         {
           "sourceId": "yun-zhang-primary-published",
           "locator": "Appendix B.1, Proposition B.1 and its proof, printed pp.902–903",
-          "excerpt": "all roots",
           "match": "The paired-product proof uses equal multiplicities, imaginary roots and a positive leading coefficient. Strict positivity is limited to the nonpolynomial case; the published nonconstant claim is not imported."
         }
       ],
@@ -9064,7 +8896,6 @@
         {
           "sourceId": "yun-zhang-primary-published",
           "locator": "Appendix B.1, (B.1)–(B.3), printed pp.901–902; cited Ahlfors §§5.2.3/5.3.2",
-          "excerpt": "the function",
           "match": "The passage states the general Hadamard/genus relation. Its original proof and the higher-genus interface remain the precise existing refinement gap."
         }
       ],
@@ -9111,7 +8942,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§5.1 (5.1.4), xi definition and reflection, printed pp.34–35; Lemma8.3 p.47",
-          "excerpt": "The function",
           "match": "The paper motivates xi; the actual definition uses the pinned pole-subtracted completion and therefore has correct endpoint values."
         }
       ],
@@ -9197,7 +9027,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§5.1 omega/theta definitions and (5.1.4), p.34; Lemma8.3 p.47",
-          "excerpt": "2ω(x) = θ(x) − 1.",
           "match": "Explicit geometric domination supplies the exponential tail used by the source; the kernel itself is already in Mathlib."
         }
       ],
@@ -9247,7 +9076,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§5.1 (5.1.4), p.34; Lemma8.3 integral display, p.47",
-          "excerpt": "integral representation",
           "match": "The full complex-plane comparison is an adapter to pinned regular completion. The printed xi-growth proof is corrected separately in E16."
         }
       ],
@@ -9294,7 +9122,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Lemma8.3 p.47, corrected using the Euler gamma integral §5.1 p.33 and pinned factorial bound",
-          "excerpt": "Γ(n + 1) = n!",
           "match": "This elementary corrected proof replaces the invalid printed bound; its gamma integral and factorial input are existing library declarations."
         }
       ],
@@ -9341,7 +9168,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.1 Lemma8.3, corrected proof",
-          "excerpt": "log |s|",
           "match": "Corrected proof of the stated upper-order conclusion; source E16 remains a proof error."
         }
       ],
@@ -9391,7 +9217,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.2 (8.2.5), p.49; §8.3 (8.3.3), p.50, corrected argument E2",
-          "excerpt": "Gamma",
           "match": "Logarithmic differentiation gives the corrected formula and stricter domain; the printed gamma shift is wrong."
         }
       ],
@@ -9436,13 +9261,11 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.4 Exercise8.4.5, p.52; DLMF5.11.2 and §5.11(ii)",
-          "excerpt": "Γ′",
           "match": "The printed exercise states the target but leaves the proof. The DLMF gives the needed sector remainder; its original proof is not claimed read."
         },
         {
           "sourceId": "dlmf-gamma-asymptotics-2026",
           "locator": "§5.11(i), (5.11.2), and §5.11(ii) complex remainder bound",
-          "excerpt": "Asymptotic Expansions",
           "match": "Confirms the sector-uniform statement. The original remainder proof remains unread and is recorded as a gap."
         }
       ],
@@ -9486,7 +9309,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.3 negative log-derivative series, p.50; pinned LSeries_vonMangoldt_eq_deriv_riemannZeta_div",
-          "excerpt": "von Mangoldt",
           "match": "A uniform norm-bound specialization of an already implemented series identity and summability theorem."
         }
       ],
@@ -9531,7 +9353,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.3 (8.3.2), p.50; pinned pole-cleared regular-completion formula",
-          "excerpt": "simple pole",
           "match": "Precise bounded-remainder form of the paper’s near-one pole estimate; the regular analytic-germ adapter is explicit."
         }
       ],
@@ -9577,7 +9398,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.3 (8.3.1) and preceding Λ-series, p.50",
-          "excerpt": "3 + 4 cos θ + cos 2θ",
           "match": "The precise zeta specialization consumes ADS8; generic positivity is not duplicated."
         }
       ],
@@ -9623,7 +9443,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.3 (8.3.4)–(8.3.6), pp.50–51; Remark5.2 p.35",
-          "excerpt": "Re(1/ρ) > 0",
           "match": "The paper’s single-zero positivity argument, now with an explicit critical-strip supplier and limit justification."
         }
       ],
@@ -9672,7 +9491,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.3 (8.3.1)–(8.3.6) and final selection, pp.50–51",
-          "excerpt": "σ−β",
           "match": "Precise effective high-height conclusion supported by the argument, with quantitative adapters retained as gaps."
         }
       ],
@@ -9725,7 +9543,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§9.2 Lemma9.2 and strict-cutoff Theorem9.9, pp.54,56–58; §5.1 xi symmetry p.35",
-          "excerpt": "counted with multiplicity",
           "match": "The source zero sum is represented by finite analytic-order weights. Closed compact enclosure is a proof of finiteness, not a change to the strict height endpoint."
         }
       ],
@@ -9817,7 +9634,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Lemma9.4 p.54 and Exercise9.6.1 p.58, via Exercise8.4.9 p.52",
-          "excerpt": "The number of zeroes",
           "match": "The omitted exercise is supplied by the separately planned positive-weight lemma."
         }
       ],
@@ -9863,7 +9679,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Remark9.3 p.54 and Theorem9.9 height adjustment p.57",
-          "excerpt": "T by a bounded amount",
           "match": "Precise interval-separation and x^rho/rho cutoff estimate implicit in the source; the former unrestricted weighted-sum assertion was too broad."
         }
       ],
@@ -9912,7 +9727,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Lemma9.6 pp.55–56 and Exercise9.6.2 p.58",
-          "excerpt": "subtract the two",
           "match": "Detailed derivation of the omitted exercise; the source’s exclusion of every zero ordinate can be weakened to nonzero evaluation points by this proof."
         }
       ],
@@ -9960,7 +9774,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Lemma9.8 p.56; pinned full functional equation",
-          "excerpt": "Re(s) ≤ −1",
           "match": "Uniform all-domain version of the source’s asymptotic after compact absorption. The already implemented full functional equation removes a duplicate gamma-identity prerequisite."
         }
       ],
@@ -10010,7 +9823,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§9.2 Lemma9.2 p.54, proof omitted; local analytic-order factorization",
-          "excerpt": "The sum of the residues",
           "match": "Correct residue signs and multiplicities; the implicit simplicity of the trivial zeros is now a separate justified lemma."
         }
       ],
@@ -10059,7 +9871,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Lemma9.5 p.55; full Theorem9.9 proof pp.57–58; ADS6 endpoint contract",
-          "excerpt": "nearest prime power other than",
           "match": "Precise repaired endpoint and distance conventions in the source proof; the quantitative finite-height arithmetic interchange remains a formal adapter."
         }
       ],
@@ -10106,7 +9917,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem9.9 proof, horizontal segments p.57",
-          "excerpt": "horizontal segments",
           "match": "Detailed bound with the missing c>2 branch supplied by an already implemented series identity."
         }
       ],
@@ -10150,7 +9960,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem9.9 proof, remaining segments p.57",
-          "excerpt": "odd positive integers",
           "match": "Corrected limit and uniform tail bound; original source typo is E11."
         }
       ],
@@ -10198,7 +10007,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Remark9.7 p.56, citing Davenport§15; original phase proof still required",
-          "excerpt": "precise asymptotic",
           "match": "The author notes state this target but do not prove it. The missing branch, gamma phase and zeta argument inputs remain explicit gaps."
         }
       ],
@@ -10243,7 +10051,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Bennett–Siksek §12 Proposition12.2 p.387, repaired half-interval deduction",
-          "excerpt": "Proposition 12.2",
           "match": "Elementary corrected kernel for the published application; it is not literally proved in that paragraph."
         }
       ],
@@ -10289,7 +10096,6 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Bennett–Siksek §12 Proposition12.2 p.387; Kedlaya Lemma10.3 p.60",
-          "excerpt": "standard proof",
           "match": "The published paragraph invokes an unsafe unqualified reciprocal-zero sum; this bounded-weight replacement follows conditionally from the separate local-count supplier."
         }
       ],
@@ -10340,13 +10146,11 @@
         {
           "sourceId": "bennett-siksek-2020",
           "locator": "Bennett–Siksek §12 Proposition12.2 p.387; Kedlaya §§10.1–10.2 pp.59–60, parity corrected E8",
-          "excerpt": "Proposition 12.2",
           "match": "Precise repaired interface motivated by the published paragraph. Its underlying conductor-uniform explicit-formula proof is not supplied by accepted extraction approval."
         },
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§10.2 Lemma10.3 p.60, uniform local count used in the explicit-formula route",
-          "excerpt": "the implied constant is absolute",
           "match": "Underlying continuation/explicit-formula proof references remain gaps; the printed parity and imprimitive generality cannot be imported without correction."
         }
       ],
@@ -10401,7 +10205,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.2 p.128 ramified-prime paragraph",
-          "excerpt": "invariants under an inertia group",
           "match": "The printed parenthesis supplies the ramified invariant-space prescription over Q. Extension to all nonzero prime ideals of K uses the precisely named NFA supplier and existing representation/characteristic-polynomial carriers; it is not a fresh original-proof receipt."
         }
       ],
@@ -10491,7 +10294,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.2 pp.127–128 incomplete Euler product and ramified-factor prescription",
-          "excerpt": "Euler factors missing",
           "match": "The source initially deletes ramified rational primes. The packet deliberately reinstates them and works over K; the resulting full Dedekind test needs those factors and the imported ideal coefficient/product adapters."
         }
       ],
@@ -10583,7 +10385,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.2 p.128 displayed direct-sum identity",
-          "excerpt": "Note also that",
           "match": "The displayed incomplete-product identity is extended at each ramified prime by the explicit inertia-fixed block decomposition; the underlying characteristic-polynomial product is implemented at the pin."
         }
       ],
@@ -10630,7 +10431,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.2 p.128 absolute convergence paragraph",
-          "excerpt": "converges absolutely",
           "match": "The source gives the unramified Q-prime estimate. The new explicit finite-factor bound and the separately imported Dedekind/convolution interfaces account for all K-primes and norm coefficients; no imprimitive deletion is concealed."
         }
       ],
@@ -10673,7 +10473,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5 Theorem22.4 sketch p.129",
-          "excerpt": "one-dimensional representation",
           "match": "The printed sketch uses induced L-functions. The complete all-prime induction identity is isolated into a local polynomial lemma and retains the ramified Mackey/prime correspondence proof gap."
         }
       ],
@@ -10721,7 +10520,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5 Theorem22.4 sketch p.129",
-          "excerpt": "ray class character",
           "match": "The source explicitly defers this step to class field theory. The precise all-prime character-conductor and arithmetic reciprocity interfaces are named; the original local/global comparison proof remains a gap."
         }
       ],
@@ -10766,13 +10564,11 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5 boundary result; integral Brauer strengthening requires its original source",
-          "excerpt": "Theorem 22.4",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         },
         {
           "sourceId": "milne-cft-4-03",
           "locator": "ChapterVIII§10 Artin L-series, pp.261–262",
-          "excerpt": "Later Brauer proved a stronger theorem",
           "match": "The author notes state the integer-power Dirichlet/Hecke product conclusion, while omitting the induction proof. This is a statement receipt, not certification of the required integral monomial refinement."
         }
       ],
@@ -10819,7 +10615,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.3 Theorem3.7 p.19 equation(3.3.1), corrected by E18",
-          "excerpt": "nonnegative real coeﬀicients",
           "match": "The complete printed Dirichlet-character proof was read; the ray-class extension uses the named finite-dual and ideal logarithm contracts. The missing1/k is restored before norm regrouping."
         }
       ],
@@ -10865,7 +10660,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.4 Theorem3.10 p.19 full proof",
-          "excerpt": "two factors with zeroes",
           "match": "The printed proof is for Dirichlet characters. Its ray-class specialization additionally imports canonical holomorphy, conjugation and the simple principal pole; these are stated prerequisites rather than unproved identifications."
         }
       ],
@@ -10910,7 +10704,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.4 Theorem3.11 p.20 displayed quadratic auxiliary product",
-          "excerpt": "formal factorization",
           "match": "The complete source proof deletes common bad primes. The stated full Dedekind specialization restores positive factors1+x there and uses the existing ideal product/norm regrouping carrier."
         }
       ],
@@ -10954,7 +10747,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.4 Theorem3.11 p.20 pole-cancellation paragraph",
-          "excerpt": "simple pole",
           "match": "The printed proof supplies holomorphy and the right limit0. The quotient zero is stated with order at least1 because the numerator may also vanish; the general Dedekind/Hecke carriers are imported."
         }
       ],
@@ -10998,7 +10790,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§3.4 Theorem3.11 p.20 complete proof and §2.1 Theorem2.4 p.12 proof",
-          "excerpt": "for s > 1/2",
           "match": "The fresh complete source proof uses only real convergence strictly to the right and the limit0. This resolves the inherited endpoint objection. ADS8 singularity applies only when a finite actual abscissa equality is supplied; the −∞ alternative is separate."
         }
       ],
@@ -11041,7 +10832,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5 Theorem22.4 p.129 root-gluing sketch",
-          "excerpt": "m-th root",
           "match": "The source invokes local roots but does not expand the analytic-log or prescribed-value uniqueness argument. These steps are supplied mathematically using the pinned logarithm and the earlier analytic-upgrade lemma; canonical Artin application still requires its absent carrier."
         }
       ],
@@ -11081,7 +10871,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5 Theorem22.4 p.129 patching sentence; expanded geometric input",
-          "excerpt": "patches together",
           "match": "The source asserts patching. This geometric lemma is an explicit sufficient expansion: every nonempty overlap is connected and meets the original right half-plane, where identity fixes the root branch."
         }
       ],
@@ -11127,7 +10916,6 @@
         {
           "sourceId": "tate-thesis-1950",
           "locator": "§4.5, scan pp.56–59, especially (4.24) on scan p.58; local factors tabulated in §2.5",
-          "excerpt": "Analytic Continuation and Functional Equation",
           "match": "The global/local equation and inverse-different power yield the trivial-character specialization. Scan p.58 was viewed; exact gamma/measure conversion remains an explicit adapter."
         }
       ],
@@ -11172,7 +10960,6 @@
         {
           "sourceId": "tate-thesis-1950",
           "locator": "§4.5 equation on scan p.58, with §2.5 archimedean factors; derived negative-even specialization",
-          "excerpt": "functional equation",
           "match": "Order calculation from the reflected nonzero right-side value; exact zero multiplicity is a derived comparison, not a printed Tate theorem."
         }
       ],
@@ -11217,7 +11004,6 @@
         {
           "sourceId": "tate-thesis-1950",
           "locator": "§4.5, scan p.57, Euler product over finite primes outside S",
-          "excerpt": "Euler product",
           "match": "The displayed product is restricted to primes outside S. Reinstating the primitive factors and deleting the additional modulus primes yields this finite comparison."
         }
       ],
@@ -11263,7 +11049,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Chapter6 §6.1 Theorem6.1 (Newman route), with §7.1 ψ equivalence; chosen ADS9 route uses the separately specified boundary adapter",
-          "excerpt": "Prime number theorem",
           "match": "The mathematical target is the source’s PNT. Its Newman proof is not mislabelled a Wiener–Ikehara proof; this packet imports that generic theorem instead."
         }
       ],
@@ -11313,7 +11098,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§10.1 p.59, paragraph following Theorem10.2; §4.3 finite Fourier extraction",
-          "excerpt": "For a fixed N",
           "match": "Exact fixed-modulus scope; the ADS route uses the new progression boundary rather than relying on the unverified conductor-uniform error theorem."
         }
       ],
@@ -11365,7 +11149,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§7.2 Theorem7.7 and its proof, printed p.45; ψ endpoint convention §7.1 p.43",
-          "excerpt": "Error bound in the prime number theorem",
           "match": "The full proof was reread. Repair its reciprocal-ordinate shortcut by treating a finite low-zero set separately; exact effective constants remain unestablished."
         }
       ],
@@ -11410,7 +11193,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§1.3 partial summation, §1.4 PNT equivalences and Exercise1.6.7; §7.1 p.43",
-          "excerpt": "partial summation",
           "match": "The conversion is owned by ADS6/10, while rational higher-prime-power removal is already pinned Mathlib."
         }
       ],
@@ -11457,7 +11239,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§10.4 Theorem10.6 and Remark10.8, pp.61–62; cited Davenport §14 unread",
-          "excerpt": "absolute constant",
           "match": "The printed denominator is weaker than the planned standard theorem. Its stronger logarithmic-height form is explicitly unverified here, not claimed as a literal match."
         }
       ],
@@ -11507,7 +11288,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§10.5 Theorem10.9 pp.62–63 and Theorem10.11 p.63; corrected coprimality, range and ineffectivity",
-          "excerpt": "Siegel–Walfisz",
           "match": "The source omits the logarithmic range/reduced-class hypotheses and prints explicit constants. The packet keeps the standard precise theorem, with its original separation/proof still an explicit gap."
         }
       ],
@@ -11549,7 +11329,6 @@
         {
           "sourceId": "pretentious-gs",
           "locator": "pp.2–4: M(x,T) on p.2 and weighted unit-disc product norm on pp.3–4",
-          "excerpt": "a distance",
           "match": "The finite-prime version uses weights1/p and conjugates the second argument. Nonunit prime values give a nonzero diagonal; no metric diagonal axiom is imported."
         }
       ],
@@ -11646,7 +11425,6 @@
         {
           "sourceId": "pretentious-gs",
           "locator": "pp.3–4, inequality(5) and the unit-disc weight example",
-          "excerpt": "triangle inequality",
           "match": "Finite cutoff removes all infinite-sum convergence issues. The missing scalar extension is now a separate lemma."
         }
       ],
@@ -11693,7 +11471,6 @@
         {
           "sourceId": "halasz-ghs",
           "locator": "§1 p.1, first three displayed series and definition of C(κ)",
-          "excerpt": "absolutely convergent",
           "match": "Exact coefficient/branch predicate on existing ArithmeticFunction and LSeries, including zero extension for an injective coefficient API. This is the source’s coprime-multiplicative class, not a class of completely multiplicative functions."
         }
       ],
@@ -11794,7 +11571,6 @@
         {
           "sourceId": "halasz-ghs",
           "locator": "Theorem1.1 p.2; §2 pp.7–12, Lemmas2.2–2.6, Proposition2.1 and final proof",
-          "excerpt": "Theorem 1.1",
           "match": "The complete selected proof was reread. Its short-interval and prime-weighted mean-square inputs are made explicit; no bounded-gap theorem is used."
         }
       ],
@@ -11839,7 +11615,6 @@
         {
           "sourceId": "pretentious-gs",
           "locator": "p.2, displayed definition of M(x,T) and following mean-value bound",
-          "excerpt": "M (x, T )",
           "match": "The source states this refinement and credits Montgomery–Tenenbaum; its original proof remains unread. Preserve |t|≤2T and the T^(−1/2) remainder."
         }
       ],
@@ -11886,7 +11661,6 @@
         {
           "sourceId": "smooth-ht",
           "locator": "Introduction, printed p.411 (terminology); Introduction p.412 and §1 p.414 formula(1.3)",
-          "excerpt": "\"smooth\" integers",
           "match": "The source uses inclusive prime cutoff; the +1 natural cutoff is an adapter to pinned Mathlib, whose carrier is already built."
         }
       ],
@@ -11977,7 +11751,6 @@
         {
           "sourceId": "smooth-ht",
           "locator": "Introduction, printed p.411 (terminology); p.414 equation(1.5); §2 Lemma2.5 and complete proof p.426",
-          "excerpt": "\"smooth\" integers",
           "match": "Both formula pages were viewed as images. The source proves the integral identity, positivity and decrease; the consecutive-interval construction/uniqueness argument is made explicit here. The more precise asymptotics in the remainder of §2 were not audited."
         }
       ],
@@ -12086,7 +11859,6 @@
         {
           "sourceId": "smooth-ht",
           "locator": "Introduction, printed p.411 (terminology); p.414 equations(1.5)–(1.6)",
-          "excerpt": "\"smooth\" integers",
           "match": "Exact fixed-u statement checked on the page image. This is a survey statement receipt, not a fresh original-proof receipt; the moving-prime limit is a gap."
         }
       ],
@@ -12130,7 +11902,6 @@
         {
           "sourceId": "smooth-ht",
           "locator": "Introduction, printed p.411 (terminology); p.414 equation(1.3), page image",
-          "excerpt": "\"smooth\" integers",
           "match": "The displayed Rankin inequality is exactly the target for σ>0; extending its printed x>1 to x=1 uses the elementary endpoint check."
         }
       ],
@@ -12174,7 +11945,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Theorem3.3 and complete hyperbola proof, printed pp.38–39; Theorem1.11 pp.15–16",
-          "excerpt": "hyperbola method",
           "match": "Source proof newly read; its two nonroutine inputs are separate nodes. The printed preliminary calculation has local typographical slips recorded under sourceIssues; the theorem and corrected argument are sound."
         }
       ],
@@ -12214,7 +11984,6 @@
         {
           "sourceId": "atlas-an-brief",
           "locator": "AN.5 target specification",
-          "excerpt": "Multiplicative functions and value distribution",
           "match": "Fully specified target. Its original proof is explicitly unacquired; the gap lists the required source and nonroutine inputs."
         }
       ],
@@ -12254,7 +12023,6 @@
         {
           "sourceId": "atlas-an-brief",
           "locator": "AN.5 target specification",
-          "excerpt": "Multiplicative functions and value distribution",
           "match": "Fully specified target. Its original proof is explicitly unacquired; the gap lists the required source and nonroutine inputs."
         }
       ],
@@ -12298,7 +12066,6 @@
         {
           "sourceId": "atlas-an-brief",
           "locator": "AN.5 target specification",
-          "excerpt": "Multiplicative functions and value distribution",
           "match": "Fully specified target. Its original proof is explicitly unacquired; the gap lists the required source and nonroutine inputs."
         }
       ],
@@ -12343,7 +12110,6 @@
         {
           "sourceId": "beurling-dv",
           "locator": "Introduction p.1, definition and counting functions (1); §2.1 p.3",
-          "excerpt": "multiplicities into account",
           "match": "The complete discrete definition was freshly read. The finite-vector proof and added monoid API are explicit consequences of its positive, locally finite indexed-prime data."
         }
       ],
@@ -12465,7 +12231,6 @@
         {
           "sourceId": "beurling-dv",
           "locator": "§2.1 pp.2–3, (5)–(7) and displayed discrete Euler product",
-          "excerpt": "Euler product",
           "match": "Full discrete comparison paragraph read. The independent geometric-series and compact-majorant arguments are made explicit; the exact infinite-product native proof adapter remains open."
         }
       ],
@@ -12513,7 +12278,6 @@
         {
           "sourceId": "beurling-dv",
           "locator": "Theorem1 p.2; entire §§3–4 pp.4–11, Theorem2, Proposition1, Theorem3, Lemma1",
-          "excerpt": "The PNT with remainder",
           "match": "Both directions and their complete selected proofs freshly read. General distribution/Fourier, Laplace-Stieltjes and boundary-regularity interfaces remain explicitly open; §5 Cesàro extension is outside this target."
         }
       ],
@@ -12553,7 +12317,6 @@
         {
           "sourceId": "halasz-ghs",
           "locator": "§2.3 Lemma2.6 uses a specialized mean-square bound; original general theorem required",
-          "excerpt": "mean value theorem",
           "match": "GHS motivates the general mean-square target but proves only its stated specialized lemma. The original general proof is an explicit acquisition gap."
         }
       ],
@@ -12605,7 +12368,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "Introduction (1.1); §3.3 pp.24–25; Theorem5.1 proof p.36",
-          "excerpt": "Lerch transcendent",
           "match": "Selected defining-series and special-value arguments newly read. Enlarging the printed initial rectangle to Re c>0 and every s uses the explicit compact-majorant lemma; the native series is not its continuation outside the unit disc."
         }
       ],
@@ -12710,7 +12472,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "§2 p.4 (2.1) and §5 pp.20–22 termwise derivative proof",
-          "excerpt": "series representation",
           "match": "Both passages freshly read; the larger-domain compact proof is spelled out rather than claimed verbatim from the source."
         }
       ],
@@ -12752,7 +12513,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "§4 p.17, (4.30)–(4.32), specialized to N=0",
-          "excerpt": "series representation",
           "match": "The finite-term separation and branch continuation proof freshly read; the initial shift is an input to global continuation, not an assumption of it."
         }
       ],
@@ -12794,7 +12554,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "Theorem2.3 p.13 (2.3), §4 Theorem4.1 and proof p.33",
-          "excerpt": "Differential-Difference Operators",
           "match": "Published identities and the full selected §4 derivative proof freshly read. The PDE has the printed publication minus sign; the sourceIssues preprint correction is preserved."
         }
       ],
@@ -12836,7 +12595,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "Theorem2.3 p.13 (2.4), §4 Theorem4.1 and proof p.33",
-          "excerpt": "Differential-Difference Operators",
           "match": "Published identities and the full selected §4 derivative proof freshly read. The PDE has the printed publication minus sign; the sourceIssues preprint correction is preserved."
         }
       ],
@@ -12878,7 +12636,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "Theorem2.3 p.13 (2.5), §4 Theorem4.1 and proof p.33",
-          "excerpt": "Differential-Difference Operators",
           "match": "Published identities and the full selected §4 derivative proof freshly read. The PDE has the printed publication minus sign; the sourceIssues preprint correction is preserved."
         }
       ],
@@ -12922,7 +12679,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "§2 p.5, (2.2)–(2.4), integral cut-domain paragraph; §4 (4.18)–(4.23)",
-          "excerpt": "integral representation",
           "match": "Complete selected integral/contour discussion newly read; the endpoint estimates are explicit and a distinct principal-sheet function prevents a false claim about a divergent totalized series."
         }
       ],
@@ -12973,7 +12729,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "Theorems2.1–2.2 p.12; complete selected §3.2–§3.5 pp.21–32, and LerchII §§3–4/§8",
-          "excerpt": "Analytic Continuation",
           "match": "The full selected topological/monodromy argument and LerchII extension proof were newly read. Universal-cover construction is imported; the analytic cell/homotopy and exponential-cover adapters remain gaps until their pinned interfaces are matched."
         }
       ],
@@ -13018,7 +12773,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "Theorem4.5 (4.15) p.14, complete finite-shift proof (4.28)–(4.34) pp.17–18",
-          "excerpt": "monodromy functions",
           "match": "All selected branch/shift calculations newly read; loops around positive integers are locally removable by the separate extension argument."
         }
       ],
@@ -13060,7 +12814,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "Theorem4.5 (4.11) pp.13–14, negative-imaginary cut convention; complete contour/residue proof (4.18)–(4.27) pp.14–17",
-          "excerpt": "monodromy functions",
           "match": "The based-loop orientation and full cut-log/residue proof were read; using the standard negative-real principal log for all a−n would change this branch on part of the strip."
         }
       ],
@@ -13105,7 +12858,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "§5 Theorem5.1 and complete recurrence proof p.36, (5.2)–(5.5)",
-          "excerpt": "special values",
           "match": "The source states the z-prefactored Li; dividing by z on the nonzero initial domain gives Φ, whose rational expression extends at z=0. The elementary binomial/operator recurrence fixes every m."
         }
       ],
@@ -13156,7 +12908,6 @@
         {
           "sourceId": "lerch-I",
           "locator": "§1 p.2 Hurwitz specialization; exact pinned Hurwitz series/residue declarations",
-          "excerpt": "Hurwitz zeta function",
           "match": "Selected introductory degeneration text read and each cited pinned declaration statement matched; no new real Hurwitz continuation is planned."
         }
       ],
@@ -13201,7 +12952,6 @@
         {
           "sourceId": "lerch-I",
           "locator": "§1 p.2 defining periodic series; LerchIII §6 Theorem6.1 pp.41–42",
-          "excerpt": "periodic zeta",
           "match": "Initial series normalization freshly matched to the pinned HasSum theorem; the published LerchIII introductory prefactor omission is recorded separately as a source misprint. Published Theorem6.1(2) has a separate order-zero exception E26, not used by this Re s>1 comparison."
         }
       ],
@@ -13246,7 +12996,6 @@
         {
           "sourceId": "lerch-I",
           "locator": "Introductory Hurwitz/Dirichlet specializations; exact pinned ZMod.LFunction definition",
-          "excerpt": "Hurwitz zeta",
           "match": "The continuation is already defined in Mathlib; only the positive-real representative adapter is planned."
         }
       ],
@@ -13291,7 +13040,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "Theorem2.1 (2.7)–(2.10) p.5; complete §3 pp.8–10, Lemma3.1 and Theorem2.1 proof",
-          "excerpt": "Functional Equations",
           "match": "Selected whole §3 proof read; its real-parameter LerchI/Weil proof is separately recorded as an open source boundary, not supplied by the global-cover theorem."
         }
       ],
@@ -13336,7 +13084,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "Theorem2.1 (2.7)–(2.10) p.5; complete §3 pp.8–10, Lemma3.1 and Theorem2.1 proof",
-          "excerpt": "Functional Equations",
           "match": "Selected whole §3 proof read; its real-parameter LerchI/Weil proof is separately recorded as an open source boundary, not supplied by the global-cover theorem."
         }
       ],
@@ -13381,7 +13128,6 @@
         {
           "sourceId": "lerch-I",
           "locator": "Theorem2.3 boundary statement and §1 singular-strata discussion; discrete dominated-convergence specialization",
-          "excerpt": "singular strata",
           "match": "The selected boundary statement is checked; the radial complex-c proof is written from absolute series domination and does not rely on a real-circle c carrier."
         }
       ],
@@ -13424,7 +13170,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "§2 integral at z=1 with separate origin subtraction",
-          "excerpt": "Hurwitz zeta",
           "match": "Exact target or stated specialization; unresolved proof inputs are named in the gap ledger."
         }
       ],
@@ -13515,7 +13260,6 @@
         {
           "sourceId": "lerch-II",
           "locator": "§9 p.28 Hurwitz singular-stratum paragraph; complete separate complex-c proof remains required",
-          "excerpt": "Hurwitz zeta",
           "match": "The paper supplies the singular-stratum target but not the complete Taylor-subtraction proof; this source and native existence contract are explicitly conditional on the recorded gap."
         }
       ],
@@ -13560,7 +13304,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "§6 p.40 Bernoulli/Hurwitz discussion; full separate Taylor/generating-function proof required",
-          "excerpt": "special values",
           "match": "The source discussion and pinned Bernoulli normalization are read. The printed Bernoulli generating index and Riemann order-zero formula have local corrections recorded under sourceIssues; this is not a completed complex Hurwitz proof."
         }
       ],
@@ -13600,7 +13343,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§8.2, Theorem8.7 and its genus-one product, printed pp.48–49",
-          "excerpt": "Theorem 8.7",
           "match": "Derived algebraic identity E₁(w)E₁(−w)=1−w² from the displayed genus-one factors; this label is a literal source locator, not a claim that the source names a separate pairing lemma."
         }
       ],
@@ -13642,7 +13384,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§5.1 xi definition, p.35; Lemma8.3 integral display, p.47",
-          "excerpt": "The function ξ(s) is entire",
           "match": "Direct endpoint and entirety API promotion from the pinned regular-completion definition."
         }
       ],
@@ -13686,7 +13427,6 @@
         {
           "sourceId": "bkk-primary-v3",
           "locator": "§3.6, definition and (3.4), p.26",
-          "excerpt": "m distinct primes",
           "match": "The finite-cardinality identity is the elementary intermediate step of the stated asymptotic; its complete justification uses pinned prime-factor recovery and finite cardinalities."
         }
       ],
@@ -13726,7 +13466,6 @@
         {
           "sourceId": "pretentious-gs",
           "locator": "Weighted norm discussion pp3–4",
-          "excerpt": "a distance between multiplicative",
           "match": "Derived finite-sum identity from the distance on pp.3–4, under unit-disc hypotheses ensuring every summand is nonnegative. The former excerpt was an invented title, not source text."
         }
       ],
@@ -13766,7 +13505,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "Theorem5.1, (5.3) and m=0 proof p.36",
-          "excerpt": "special values",
           "match": "The exact initial geometric-series value was freshly read; the former node-title excerpt was not a checked literal source passage and has been replaced."
         }
       ],
@@ -13811,7 +13549,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52",
-          "excerpt": "we leave this step as an exercise",
           "match": "The following derivation supplies one omitted estimate, retaining its zero-count and nonzero-family assumptions. The source does not print a completed proof of the exercise."
         }
       ],
@@ -13857,7 +13594,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52",
-          "excerpt": "we leave this step as an exercise",
           "match": "The following derivation supplies one omitted estimate, retaining its zero-count and nonzero-family assumptions. The source does not print a completed proof of the exercise."
         }
       ],
@@ -13903,7 +13639,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52",
-          "excerpt": "we leave this step as an exercise",
           "match": "The following derivation supplies one omitted estimate, retaining its zero-count and nonzero-family assumptions. The source does not print a completed proof of the exercise."
         }
       ],
@@ -13949,7 +13684,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52",
-          "excerpt": "we leave this step as an exercise",
           "match": "The following derivation supplies one omitted estimate, retaining its zero-count and nonzero-family assumptions. The source does not print a completed proof of the exercise."
         }
       ],
@@ -13997,7 +13731,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52",
-          "excerpt": "we leave this step as an exercise",
           "match": "The following derivation supplies one omitted estimate, retaining its zero-count and nonzero-family assumptions. The source does not print a completed proof of the exercise."
         }
       ],
@@ -14045,7 +13778,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§5.1 Remark5.2, p.35; §8.3 p.51",
-          "excerpt": "0 < Re(s) < 1",
           "match": "The xi-zero strip follows from already implemented zeta nonvanishing, gamma nonvanishing and xi reflection; it is the exact premise of the positivity argument."
         }
       ],
@@ -14094,7 +13826,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Exercise8.4.9 p.52; Lemma9.4 and Exercise9.6.1 pp.54,58",
-          "excerpt": "1 + (T − Im(ρ))",
           "match": "Complete mathematical derivation of the exercise from the explicit existing product, gamma and right-edge inputs. Formal sum/real-part adapters remain scoped in the gap ledger."
         }
       ],
@@ -14142,7 +13873,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "Remark5.2 p.35; Lemma9.2 p.54, trivial-zero residues",
-          "excerpt": "trivial zeroes",
           "match": "The simple-zero input implicit in each trivial-zero residue follows from the already implemented full functional equation and a simple cosine zero."
         }
       ],
@@ -14188,7 +13918,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§10.2 Lemma10.3 p.60, referring to Davenport§16",
-          "excerpt": "the implied constant is absolute",
           "match": "Exact primitive-character supplier stated by the author notes; the original conductor-uniform proof is unread and remains a gap. The logarithm is enlarged to cover bounded heights."
         }
       ],
@@ -14231,7 +13960,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.2 p.128 local O(p^−s) estimate",
-          "excerpt": "implied constant depends on the dimension",
           "match": "An explicit derivation of the printed local bound, with all finite-product hypotheses and the zero-dimensional endpoint."
         }
       ],
@@ -14277,7 +14005,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§22.5 Theorem22.4 sketch p.129; full ramified local identity is a required expansion",
-          "excerpt": "Sketch of proof",
           "match": "The author sketch invokes induced Artin/Hecke comparison but does not prove this full ramified norm-variable identity. It remains a sourced expansion with original proof/interface gaps."
         }
       ],
@@ -14328,7 +14055,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§6.1 Theorem6.1 and §7.1; derived Wiener–Ikehara boundary adapter",
-          "excerpt": "prime number theorem",
           "match": "The source motivates the PNT; the boundary is derived from pinned continuation/nonvanishing, not attributed to a nonexistent printed Wiener–Ikehara lemma."
         }
       ],
@@ -14379,7 +14105,6 @@
         {
           "sourceId": "kedlaya-ant-2025",
           "locator": "§4.3 finite Fourier extraction, pp.25–26; §10.1 p.59; derived fixed-modulus boundary adapter",
-          "excerpt": "discrete Fourier analysis",
           "match": "Orthogonality and the fixed-modulus PNT route are printed. The continuous boundary package is separately derived from pinned declarations, preserving the nonnegative progression coefficient."
         }
       ],
@@ -14419,7 +14144,6 @@
         {
           "sourceId": "pretentious-gs",
           "locator": "p.4 first paragraph, extension of the η product inequality to the closed unit disc",
-          "excerpt": "all pairs",
           "match": "The source states the extension; the explicit algebraic proof here supplies it in under a page."
         }
       ],
@@ -14464,7 +14188,6 @@
         {
           "sourceId": "halasz-ghs",
           "locator": "§2.3 Lemma2.6 and its complete proof, p.11",
-          "excerpt": "Brun–Titchmarsh theorem",
           "match": "The complete selected source proof was read. It invokes an interval prime-weight bound rather than the ordinary Montgomery–Vaughan mean-square inequality."
         }
       ],
@@ -14508,7 +14231,6 @@
         {
           "sourceId": "smooth-ht",
           "locator": "Introduction, printed p.411 (terminology); p.414 fixed-u formula(1.6); elementary largest-prime partition used for its limiting recursion",
-          "excerpt": "\"smooth\" integers",
           "match": "This is a derived finite combinatorial adapter, not a theorem claimed verbatim from the survey."
         }
       ],
@@ -14552,7 +14274,6 @@
         {
           "sourceId": "smooth-ht",
           "locator": "Introduction, printed p.411 (terminology); p.414 equation(1.3), finite-prime geometric factorization",
-          "excerpt": "\"smooth\" integers",
           "match": "The displayed Rankin proof uses this equality; the exact reindexing carrier is pinned Mathlib. Further Tonelli/geometric/rpow library consumers still need full audit."
         }
       ],
@@ -14596,7 +14317,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Theorem1.11 and complete proof, printed pp.15–16; pinned Euler-sequence inequalities",
-          "excerpt": "harmonic series",
           "match": "The author preliminary source supplies the classical remainder proof; the explicit one-sided bound follows directly from stronger pinned inequalities."
         }
       ],
@@ -14636,7 +14356,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Hyperbola discussion, printed pp.38–39, (3.4)–(3.5) and Theorem3.3 proof",
-          "excerpt": "hyperbola method",
           "match": "Complete selected proof read; the symmetric inclusive floor identity is the explicit specialization A=B=sqrt x."
         }
       ],
@@ -14678,7 +14397,6 @@
         {
           "sourceId": "beurling-dv",
           "locator": "§2.1 p.3, growth deduction after (6)",
-          "excerpt": "region of convergence",
           "match": "The source states this consequence; its discrete proof is written directly from nonnegative series and the native exponent-vector carrier."
         }
       ],
@@ -14722,7 +14440,6 @@
         {
           "sourceId": "beurling-dv",
           "locator": "§2.1 p.3, (7) and subsequent prime-power bounds",
-          "excerpt": "Riemann prime distribution",
           "match": "Complete discrete prime-power paragraph freshly read; this is not a statement for non-discrete prime measures."
         }
       ],
@@ -14766,7 +14483,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "§3.2 Lemma3.1 pp.21–24; §3.3 Theorem3.4 pp.25–28, (3.24)–(3.35)",
-          "excerpt": "monodromy functions",
           "match": "Complete selected published continuation/monodromy argument newly read; the general topology is imported rather than rebuilt."
         }
       ],
@@ -14812,7 +14528,6 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "§3.4 Theorem3.5 and complete proof pp.28–31; §3.5 Theorem3.6 pp.31–32",
-          "excerpt": "monodromy functions",
           "match": "Complete selected published continuation/monodromy argument newly read; the general topology is imported rather than rebuilt."
         }
       ],
@@ -14859,7 +14574,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Exercise2.9(b),(e),(f), printed pp.33–34, k=2",
-          "excerpt": "Exercise 2.9.",
           "match": "The source states the prime-power and cutoff inequalities and asks for the limiting bound. The detailed proof below is an independent solution of that exercise, not a claim of an original-source proof."
         }
       ],
@@ -14907,7 +14621,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Exercise2.9(b),(e),(f), printed pp.33–34, k=2",
-          "excerpt": "Exercise 2.9.",
           "match": "The source states the prime-power and cutoff inequalities and asks for the limiting bound. The detailed proof below is an independent solution of that exercise, not a claim of an original-source proof."
         }
       ],
@@ -14954,7 +14667,6 @@
         {
           "sourceId": "kouk-primary-preliminary",
           "locator": "Exercise2.9(b),(e),(f), printed pp.33–34, k=2",
-          "excerpt": "Exercise 2.9.",
           "match": "The source states the prime-power and cutoff inequalities and asks for the limiting bound. The detailed proof below is an independent solution of that exercise, not a claim of an original-source proof."
         }
       ],

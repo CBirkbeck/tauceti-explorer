@@ -243,7 +243,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 32 (Numdam PDF page 29; printed page = PDF page + 3)",
-     "excerpt": "Suppose k is parallel (i.e., v = 0). We now give an alternate (but equivalent) definition",
      "match": "The operator e = lim T₀(p)^{p^n(p^m−1)} in the second definition of T_k(U_a, 𝒪)."
     }
    ],
@@ -288,13 +287,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 34 (Numdam PDF page 31; printed page = PDF page + 3)",
-     "excerpt": "Moreover, e annihilates",
      "match": "The operator e on H⁰(X(U), R) for an 𝒪-module R."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 33 (Numdam PDF page 30; printed page = PDF page + 3)",
-     "excerpt": "The principal goal of this subsection is to show that",
      "match": "The quaternionic setting introduced for the Λ-adic theory."
     }
    ],
@@ -403,7 +400,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 34 (Numdam PDF page 31; printed page = PDF page + 3)",
-     "excerpt": "Moreover, e annihilates",
      "match": "e annihilates I^D(U_a, ℤ) ⊗ R."
     }
    ],
@@ -449,13 +445,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 32 (Numdam PDF page 29; printed page = PDF page + 3)",
-     "excerpt": "yields the same ring as did the previous one can be seen as follows",
      "match": "The two definitions of T₂(U_a, 𝒪)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 33 (Numdam PDF page 30; printed page = PDF page + 3)",
-     "excerpt": "A theorem of Jacquet, Langlands, and Shimizu [J-L], [Shi] states that there is a system of isomorphisms",
      "match": "The Jacquet–Langlands–Shimizu comparison used to pass to D."
     }
    ],
@@ -564,7 +558,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 34 (Numdam PDF page 31; printed page = PDF page + 3)",
-     "excerpt": "is not Hecke-equivariant, but a straight-forward calculation shows that",
      "match": "The adjointness formula and the twisted module H⁰(X(U_a), R)⁺."
     }
    ],
@@ -662,7 +655,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 35 (Numdam PDF page 32; printed page = PDF page + 3)",
-     "excerpt": "then it is easy to see that this is independent of the chosen coset representatives",
      "match": "The trace map tr(V, U) and its compatibilities."
     }
    ],
@@ -700,7 +692,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, proof of Proposition 3.3, p. 36 (Numdam PDF page 33; printed page = PDF page + 3)",
-     "excerpt": "The same argument applies to the Pontryagin dual of",
      "match": "The level drop eH⁰(X(U⁰_a), K/𝒪) = eH⁰(X(U⁰_1), K/𝒪)."
     }
    ],
@@ -742,7 +733,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 35 (Numdam PDF page 32; printed page = PDF page + 3)",
-     "excerpt": "The following proposition is due to Hida [H2, Theorem 3.8].",
      "match": "The definitions of M_∞, M⁺_∞ and their identification with Pontryagin duals, just before Proposition 3.3."
     }
    ],
@@ -795,7 +785,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 31 (Numdam PDF page 28; printed page = PDF page + 3)",
-     "excerpt": "Call such a line v-good.",
      "match": "The v-good line and nearly ordinary representations."
     }
    ],
@@ -898,19 +887,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 31 (Numdam PDF page 28; printed page = PDF page + 3)",
-     "excerpt": "is a finite, flat, commutative, reduced",
      "match": "The first definition of T_k(U_a)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 32 (Numdam PDF page 29; printed page = PDF page + 3)",
-     "excerpt": "yields the same ring as did the previous one can be seen as follows",
      "match": "Agreement of the two definitions."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 37 (Numdam PDF page 34; printed page = PDF page + 3)",
-     "excerpt": "Therefore there is a correspondence between homomorphisms as at the start of this paragraph and nearly ordinary automorphic representations",
      "match": "Weight-two arithmetic homomorphisms and nearly ordinary representations."
     }
    ],
@@ -945,13 +931,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "Such a maximal ideal, if it exists, is unique.",
      "match": "The first definition, with ρ̄_m ≅ χ ⊕ 1."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.4, p. 46 (Numdam PDF page 43; printed page = PDF page + 3)",
-     "excerpt": "An equivalent definition of permissible maximal ideal is a maximal ideal",
      "match": "The Hecke-theoretic definition (3.9)."
     }
    ],
@@ -1054,19 +1038,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.4, p. 46 (Numdam PDF page 43; printed page = PDF page + 3)",
-     "excerpt": "In this subsection we establish sufficient conditions for the existence of a permissible ideal",
      "match": "Proposition 3.18 and its set-up."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.4, proof of Proposition 3.18, p. 47 (Numdam PDF page 44; printed page = PDF page + 3)",
-     "excerpt": "The existence of such a g for large n is proven in [Ch, §4.5].",
      "match": "Chai's form with prescribed constant terms."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.4, proof of Proposition 3.18, p. 48 (Numdam PDF page 45; printed page = PDF page + 3)",
-     "excerpt": "It remains to show that this maximal ideal occurs in",
      "match": "The final level check at U^χ."
     }
    ],
@@ -1109,7 +1090,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "Consequently, we obtain the following lemma.",
      "match": "The Λ_𝒪-structure at a permissible m and the map Λ′_𝒪 → Λ_𝒪, just before Lemma 3.10."
     }
    ],
@@ -1202,7 +1182,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.2, Lemma 3.10, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "Consequently, we obtain the following lemma.",
      "match": "Lemma 3.10."
     }
    ],
@@ -1248,13 +1227,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.5, Lemma 3.19, p. 49 (Numdam PDF page 46; printed page = PDF page + 3)",
-     "excerpt": "then much more is true, as the following lemma shows",
      "match": "Lemma 3.19 and (3.12)–(3.13)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.5, proof of Lemma 3.19, p. 50 (Numdam PDF page 47; printed page = PDF page + 3)",
-     "excerpt": "Combining these observations we find that",
      "match": "The counting argument."
     }
    ],
@@ -1293,7 +1270,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, p. 9 (Numdam PDF page 6; printed page = PDF page + 3)",
-     "excerpt": "A deformation datum for F is a 4-tuple",
      "match": "The deformation datum, (2.1) and ρ_c."
     }
    ],
@@ -1388,13 +1364,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, p. 10 (Numdam PDF page 7; printed page = PDF page + 3)",
-     "excerpt": "We omit the precise formulation of the universal property as well as the proof of existence as these are now standard",
      "match": "Deformations of type 𝒟 and R_𝒟."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.3, p. 18 (Numdam PDF page 15; printed page = PDF page + 3)",
-     "excerpt": "In the course of our analysis of the rings",
      "match": "Types 𝒟_Q, minimal deformations and R_{𝒟_Q} ≅ R^min ⊗ 𝒪[N_Σ]."
     }
    ],
@@ -1497,7 +1471,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, p. 10 (Numdam PDF page 7; printed page = PDF page + 3)",
-     "excerpt": "In this subsection we give a preliminary analysis of the structure of",
      "match": "Permissible extensions and Remark 2.1."
     }
    ],
@@ -1581,13 +1554,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, p. 13 (Numdam PDF page 10; printed page = PDF page + 3)",
-     "excerpt": "The above lemma and its corollary, together with minor variations of the methods used to prove them, yield the following ring-theoretic description of",
      "match": "Proposition 2.4."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, proof of Proposition 2.4, p. 14 (Numdam PDF page 11; printed page = PDF page + 3)",
-     "excerpt": "Arguing as in [M, Proposition 2] shows that",
      "match": "The auxiliary presentation and the count."
     }
    ],
@@ -1624,7 +1595,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, p. 15 (Numdam PDF page 12; printed page = PDF page + 3)",
-     "excerpt": "We conclude this subsection with two simple facts about deformation rings.",
      "match": "Lemmas 2.5 and 2.6."
     }
    ],
@@ -1659,7 +1629,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.3, p. 19 (Numdam PDF page 16; printed page = PDF page + 3)",
-     "excerpt": "is the unique unramified quadratic extension of",
      "match": "Types A, B, B′ and C (the text layer reads the last 'Type C' as 'Type G')."
     }
    ],
@@ -1737,13 +1706,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, p. 19 (Numdam PDF page 16; printed page = PDF page + 3)",
-     "excerpt": "For our purposes, following [W2] a (2-dimensional) pseudo-representation",
      "match": "The axioms, trace, determinant and pseudo-deformations."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, p. 21 (Numdam PDF page 18; printed page = PDF page + 3)",
-     "excerpt": "There is therefore a universal pseudo-deformation",
      "match": "Pseudo-data of type 𝒟^ps_Q."
     }
    ],
@@ -1848,7 +1815,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, Lemma 2.10, p. 20 (Numdam PDF page 17; printed page = PDF page + 3)",
-     "excerpt": "It is relatively straightforward to verify that the functor",
      "match": "Lemma 2.10."
     }
    ],
@@ -1882,7 +1848,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, p. 21 (Numdam PDF page 18; printed page = PDF page + 3)",
-     "excerpt": "There is therefore a universal pseudo-deformation",
      "match": "The maps r_𝒟, r_{𝒟_Q} and r^min_𝒟."
     }
    ],
@@ -1959,13 +1924,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, Proposition 2.11, p. 21 (Numdam PDF page 18; printed page = PDF page + 3)",
-     "excerpt": "The following proposition reflects the relation of",
      "match": "Proposition 2.11."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, Corollary 2.12, p. 22 (Numdam PDF page 19; printed page = PDF page + 3)",
-     "excerpt": "As a corollary of this we have the following important result.",
      "match": "Corollary 2.12."
     }
    ],
@@ -2002,7 +1965,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, Lemma 2.13, p. 23 (Numdam PDF page 20; printed page = PDF page + 3)",
-     "excerpt": "We now collect a few results connecting deformations and pseudo-deformations.",
      "match": "Lemma 2.13 and Corollary 2.14."
     }
    ],
@@ -2040,13 +2002,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, p. 24 (Numdam PDF page 21; printed page = PDF page + 3)",
-     "excerpt": "Our next result also associates deformations to pseudo-deformations.",
      "match": "The construction of R⁺ and ρ⁺."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.4, p. 25 (Numdam PDF page 22; printed page = PDF page + 3)",
-     "excerpt": "For ease of reference we summarize these results in a proposition.",
      "match": "Proposition 2.15."
     }
    ],
@@ -2086,7 +2046,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.5, p. 26 (Numdam PDF page 23; printed page = PDF page + 3)",
-     "excerpt": "In this subsection we describe how each of the deformation rings",
      "match": "The Λ_𝒪-structures of §2.5."
     }
    ],
@@ -2179,19 +2138,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 38 (Numdam PDF page 35; printed page = PDF page + 3)",
-     "excerpt": "In [W2] it was shown that there exists a continuous, irreducible representation",
      "match": "(3.2)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 39 (Numdam PDF page 36; printed page = PDF page + 3)",
-     "excerpt": "Hida has shown that there is a continuous, semi-simple representation",
      "match": "(3.4) and the existence proof."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 40 (Numdam PDF page 37; printed page = PDF page + 3)",
-     "excerpt": "This can be deduced from the corresponding properties of the",
      "match": "The proof of (3.4)(vi)."
     }
    ],
@@ -2293,13 +2249,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "here we have used the fact that",
      "match": "(3.5)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "Consequently, there is a map",
      "match": "(3.6)."
     }
    ],
@@ -2385,7 +2339,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "Such a maximal ideal, if it exists, is unique.",
      "match": "The first definition and uniqueness."
     }
    ],
@@ -2424,13 +2377,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, proof of Lemma 3.11, p. 42 (Numdam PDF page 39; printed page = PDF page + 3)",
-     "excerpt": "These expressions for",
      "match": "Lemma 3.11's formulas for T_y and T_0(𝔭_i)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, Lemma 3.11, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
-     "excerpt": "Consequently, there is a map",
      "match": "Lemma 3.11 follows (3.6) on this page."
     }
    ],
@@ -2474,13 +2425,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 42 (Numdam PDF page 39; printed page = PDF page + 3)",
-     "excerpt": "We conclude this subsection with a few results about the",
      "match": "Proposition 3.14."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 43 (Numdam PDF page 40; printed page = PDF page + 3)",
-     "excerpt": "As a variant of the above we have the following result.",
      "match": "Proposition 3.15."
     }
    ],
@@ -2517,7 +2466,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, p. 44 (Numdam PDF page 41; printed page = PDF page + 3)",
-     "excerpt": "Next we record for later reference the following relations between",
      "match": "Lemma 3.16."
     }
    ],
@@ -2554,7 +2502,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.3, Lemma 3.17, p. 45 (Numdam PDF page 42; printed page = PDF page + 3)",
-     "excerpt": "We conclude this subsection with a simple observation about twists of the representations",
      "match": "Lemma 3.17 and (3.7)."
     }
    ],
@@ -2595,13 +2542,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.5, Proposition 3.20, p. 50 (Numdam PDF page 47; printed page = PDF page + 3)",
-     "excerpt": "It is a consequence of the lemma that many characteristic",
      "match": "Proposition 3.20."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.5, proof of Proposition 3.20, p. 51 (Numdam PDF page 48; printed page = PDF page + 3)",
-     "excerpt": "Our final claim, which proves the proposition",
      "match": "The end of the proof."
     }
    ],
@@ -2641,7 +2586,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.5, Lemma 3.21, p. 51 (Numdam PDF page 48; printed page = PDF page + 3)",
-     "excerpt": "Recall that both A^ and",
      "match": "Lemma 3.21 and Remark 3.22."
     }
    ],
@@ -2682,7 +2626,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.6, p. 52 (Numdam PDF page 49; printed page = PDF page + 3)",
-     "excerpt": "In this subsection we associate Hecke rings to various deformation data.",
      "match": "§3.6: U_{𝒟_Q}, T_{𝒟_Q}, T^min."
     }
    ],
@@ -2779,13 +2722,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.6, p. 54 (Numdam PDF page 51; printed page = PDF page + 3)",
-     "excerpt": "We now relate",
      "match": "Gal(L_Θ/F) ≅ N_𝒟, (3.14)–(3.15)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.6, Proposition 3.23, p. 55 (Numdam PDF page 52; printed page = PDF page + 3)",
-     "excerpt": "We now define a",
      "match": "Proposition 3.23, Corollary 3.24, Lemma 3.25 and M_{𝒟_Q}."
     }
    ],
@@ -2826,13 +2767,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.7, p. 56 (Numdam PDF page 53; printed page = PDF page + 3)",
-     "excerpt": "We now make some important observations concerning the modules introduced in",
      "match": "λ_a, λ_∞, β_∞."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.7, (3.17), p. 57 (Numdam PDF page 54; printed page = PDF page + 3)",
-     "excerpt": "This will be important in our later computation of various congruences.",
      "match": "(3.16)–(3.17)."
     }
    ],
@@ -2870,13 +2809,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.8, Lemma 3.26, p. 57 (Numdam PDF page 54; printed page = PDF page + 3)",
-     "excerpt": "The following is the analog of lhara's Lemma (cf. [Ri]) in our setting.",
      "match": "Lemma 3.26 (the text layer reads 'lhara')."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.8, proof of Lemma 3.26, p. 58 (Numdam PDF page 55; printed page = PDF page + 3)",
-     "excerpt": "Our proof of this lemma is a straight-forward generalization of",
      "match": "The proof."
     }
    ],
@@ -2915,13 +2852,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.8, Lemmas 3.27–3.28, p. 59 (Numdam PDF page 56; printed page = PDF page + 3)",
-     "excerpt": "Now consider the map",
      "match": "Lemma 3.28."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.8, Lemma 3.27, p. 58 (Numdam PDF page 55; printed page = PDF page + 3)",
-     "excerpt": "Our proof of this lemma is a straight-forward generalization of",
      "match": "Lemma 3.27 follows on this page."
     }
    ],
@@ -2961,13 +2896,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.8, Lemma 3.29, p. 59 (Numdam PDF page 56; printed page = PDF page + 3)",
-     "excerpt": "We conclude our discussion of congruence maps with an important application of",
      "match": "Lemma 3.29."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§3.8, proof of Lemma 3.29, p. 61 (Numdam PDF page 58; printed page = PDF page + 3)",
-     "excerpt": "Applying the snake lemma we find that",
      "match": "The Chebotarev step and (3.22)–(3.23)."
     }
    ],
@@ -3003,13 +2936,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.2, p. 15 (Numdam PDF page 12; printed page = PDF page + 3)",
-     "excerpt": "A reducible deformation of p, is a deformation",
      "match": "§2.2 opening (the text layer reads ρ_c as 'p,')."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.2, Lemmas 2.7–2.9, p. 17 (Numdam PDF page 14; printed page = PDF page + 3)",
-     "excerpt": "As easy consequences of this explicit description of",
      "match": "Lemmas 2.7–2.9."
     }
    ],
@@ -3045,13 +2976,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.1, p. 61 (Numdam PDF page 58; printed page = PDF page + 3)",
-     "excerpt": "We assume throughout §4 that",
      "match": "Pro-modular primes, (4.1)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.1, p. 62 (Numdam PDF page 59; printed page = PDF page + 3)",
-     "excerpt": "It is immediate from the above definition that if",
      "match": "Specialisation and pro-modular components."
     }
    ],
@@ -3141,19 +3070,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.2, p. 62 (Numdam PDF page 59; printed page = PDF page + 3)",
-     "excerpt": "Our primary goal is to show that for certain",
      "match": "Good pairs."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.2, p. 63 (Numdam PDF page 60; printed page = PDF page + 3)",
-     "excerpt": "Such a prime is nice if it is also the inverse image of a pro-modular prime of",
      "match": "Nice primes and (P1)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.2, p. 63 (Numdam PDF page 60; printed page = PDF page + 3)",
-     "excerpt": "The second important property of",
      "match": "(P2)."
     }
    ],
@@ -3248,13 +3174,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Appendix A, Corollary A.2, p. 123 (Numdam PDF page 120; printed page = PDF page + 3)",
-     "excerpt": "The following result, in the guise of its corollary stated below, is the linchpin in our proof of the Main Theorem.",
      "match": "Proposition A.1 and Corollary A.2."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Appendix A, proof of Corollary A.2, p. 123 (Numdam PDF page 120; printed page = PDF page + 3)",
-     "excerpt": "Our proof is by induction on",
      "match": "The proof."
     }
    ],
@@ -3300,19 +3224,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.3, Proposition 4.1, p. 63 (Numdam PDF page 60; printed page = PDF page + 3)",
-     "excerpt": "The following proposition is the key ingredient in our proof of the Main Theorem.",
      "match": "Proposition 4.1."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.3, proof of Proposition 4.1, p. 64 (Numdam PDF page 61; printed page = PDF page + 3)",
-     "excerpt": "it follows from Proposition 2.12 that",
      "match": "The step citing Corollary 2.12 (E5)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.3, end of the proof, p. 66 (Numdam PDF page 63; printed page = PDF page + 3)",
-     "excerpt": "This completes the proof of the proposition.",
      "match": "The end of the proof."
     }
    ],
@@ -3367,19 +3288,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.4, Proposition 4.2, p. 66 (Numdam PDF page 63; printed page = PDF page + 3)",
-     "excerpt": "so it follows from Proposition 3.14 that",
      "match": "Proposition 4.2 and step one (E6)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.4, proof of Proposition 4.2, p. 69 (Numdam PDF page 66; printed page = PDF page + 3)",
-     "excerpt": "the first inequality coming from Proposition 2.12",
      "match": "Step two (E5)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.4, end of the proof, p. 73 (Numdam PDF page 70; printed page = PDF page + 3)",
-     "excerpt": "completing the proof that the deformation",
      "match": "Step three."
     }
    ],
@@ -3429,7 +3347,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§8, Proposition 8.4, p. 123 (Numdam PDF page 120; printed page = PDF page + 3)",
-     "excerpt": "We have thus shown that any minimal prime of",
      "match": "Proposition 8.4 and its proof."
     }
    ],
@@ -3473,13 +3390,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.5, p. 73 (Numdam PDF page 70; printed page = PDF page + 3)",
-     "excerpt": "We now state and prove our Main Theorem.",
      "match": "The Main Theorem."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.5, proof of the Main Theorem, p. 74 (Numdam PDF page 71; printed page = PDF page + 3)",
-     "excerpt": "Proposition 3.7. Thus there is a Hilbert modular newform",
      "match": "The proof, (4.10)–(4.11) and base change."
     }
    ],
@@ -3527,7 +3442,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.5, Hypothesis H, p. 75 (Numdam PDF page 72; printed page = PDF page + 3)",
-     "excerpt": "A critical ingredient in the proof of Theorem A is a result of Washington on",
      "match": "Hypothesis H and its motivation."
     }
    ],
@@ -3609,19 +3523,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.5, Theorem A, p. 74 (Numdam PDF page 71; printed page = PDF page + 3)",
-     "excerpt": "In the next subsection we will deduce the following theorems from this one.",
      "match": "Theorem A."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.6, proof of Theorem A, p. 75 (Numdam PDF page 72; printed page = PDF page + 3)",
-     "excerpt": "We now prove Theorems A and B.",
      "match": "The proof of Theorem A."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.6, proof of Theorem A, p. 77 (Numdam PDF page 74; printed page = PDF page + 3)",
-     "excerpt": "Let E^ C H^ C L^ be the maximal unramified subextension of",
      "match": "(4.17)–(4.19)."
     }
    ],
@@ -3671,19 +3582,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.5, Theorem B, p. 75 (Numdam PDF page 72; printed page = PDF page + 3)",
-     "excerpt": "For our next theorem, we make the following hypothesis",
      "match": "Theorem B."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.6, proof of Theorem B, p. 78 (Numdam PDF page 75; printed page = PDF page + 3)",
-     "excerpt": "Proof of Theorem B.",
      "match": "The reduction to F⁺ and step (4.21)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.6, end of the proof of Theorem B, p. 79 (Numdam PDF page 76; printed page = PDF page + 3)",
-     "excerpt": "Since L has even degree by construction",
      "match": "(4.22)–(4.25)."
     }
    ],
@@ -3721,7 +3629,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§5, p. 79 (Numdam PDF page 76; printed page = PDF page + 3)",
-     "excerpt": "In this section we will describe a formal patching argument which is a variant",
      "match": "§5 and (5.1)–(5.11)."
     }
    ],
@@ -3805,13 +3712,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§5, Lemma 5.6, p. 85 (Numdam PDF page 82; printed page = PDF page + 3)",
-     "excerpt": "Now we set, taking limits over odd integers",
      "match": "R_∞, M_∞ and Lemma 5.6."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§5, Remark 5.10, p. 88 (Numdam PDF page 85; printed page = PDF page + 3)",
-     "excerpt": "The circuitous route to this proposition via a counting argument",
      "match": "Proposition 5.9 and Remark 5.10."
     }
    ],
@@ -3852,7 +3757,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§6, (6.1)–(6.2), p. 88 (Numdam PDF page 85; printed page = PDF page + 3)",
-     "excerpt": "In this section we consider a representation",
      "match": "(6.1)–(6.2) and Lemma 6.1."
     }
    ],
@@ -3894,13 +3798,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§6, Lemma 6.9, p. 95 (Numdam PDF page 92; printed page = PDF page + 3)",
-     "excerpt": "The following lemma is an analogue of [Wl, Proposition 1.11]",
      "match": "Lemma 6.9."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§6, Proposition 6.10, p. 97 (Numdam PDF page 94; printed page = PDF page + 3)",
-     "excerpt": "The next result, the principal result of this section, will enable us to control the",
      "match": "Proposition 6.10."
     }
    ],
@@ -3940,7 +3842,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§7, Remark 7.2, p. 103 (Numdam PDF page 100; printed page = PDF page + 3)",
-     "excerpt": "The same result holds for",
      "match": "Lemma 7.1 (proof ending here) and Remark 7.2."
     }
    ],
@@ -3986,19 +3887,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§7, p. 103 (Numdam PDF page 100; printed page = PDF page + 3)",
-     "excerpt": "Next we define the rings and modules which will be used for patching.",
      "match": "(7.7)–(7.13)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§7, p. 106 (Numdam PDF page 103; printed page = PDF page + 3)",
-     "excerpt": "We now verify that these constructions satisfy the properties in §5 needed for",
      "match": "Verification of (5.2)–(5.11)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§7, Proposition 7.3, p. 111 (Numdam PDF page 108; printed page = PDF page + 3)",
-     "excerpt": "We have now verified all the hypotheses in §5 and are thus in a position to",
      "match": "Proposition 7.3 and its proof."
     }
    ],
@@ -4039,7 +3937,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§8.2, Lemma 8.2, p. 113 (Numdam PDF page 110; printed page = PDF page + 3)",
-     "excerpt": "A key ingredient in our proof that",
      "match": "§8.2, Lemma 8.2 and the definition of η_i."
     }
    ],
@@ -4082,19 +3979,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§8.4, p. 119 (Numdam PDF page 116; printed page = PDF page + 3)",
-     "excerpt": "We now complete the proof that",
      "match": "§8.4, (8.3)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§8.4, p. 120 (Numdam PDF page 117; printed page = PDF page + 3)",
-     "excerpt": "it follows from [DRS, Criterion I]",
      "match": "(8.4) and (8.5)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§8.4, end of the proof, p. 122 (Numdam PDF page 119; printed page = PDF page + 3)",
-     "excerpt": "This completes the proof of Proposition 8.1.",
      "match": "The end of the proof."
     }
    ],
@@ -4138,13 +4032,11 @@
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "§3, p. 6 of arXiv math/0310275v1",
-     "excerpt": "These are the duals of the representations deﬁned by Breuil in [Br03, §3.1]. They are crystalline, irreducible, and their Hodge-Tate weights are 0 and −(k −1).",
      "match": "V_{k,a_p}: crystalline, irreducible, weights 0 and −(k − 1) for V*."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "§1.1, p. 2 of arXiv math/0310275v1",
-     "excerpt": "One can show that if V is any irreducible 2-dimensional crystalline Qp-linear representation, then there exist k ⩾2, ap ∈mQp and η a crystalline character such that V ≃Vk,ap ⊗η (see [Br03, prop 3.1.1] for a proof).",
      "match": "Breuil's classification."
     }
    ],
@@ -4254,31 +4146,26 @@
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Proposition 3.1, p. 6",
-     "excerpt": "(4) Let m = ⌊(k −2)/(p −1)⌋; if we write pm(λ−/λ+)k−1 = P i⩾0 ziπi and we deﬁne z = z0 + z1π + · · · + zk−2πk−2 then z ∈Zp[[π]].",
      "match": "The integrality that makes the family exist."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Proposition 3.3, p. 7",
-     "excerpt": "Proposition 3.3. — There exists a unique matrix Gγ(X) ∈Id +π M(2, Zp[[π, X]]) such that P(X)ϕ(Gγ(X)) = Gγ(X)γ(P(X)).",
      "match": "The Γ-action on the family."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Theorem 4.1, p. 10",
-     "excerpt": "Theorem 4.1. — Given α ∈mE, the two kE-representations kE ⊗OE Tk,ap and kE ⊗OE Tk,0 are isomorphic.",
      "match": "Theorem 4.1."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Remark 4.2(1), p. 10",
-     "excerpt": "For example, if k = p + 1, then one may take m = 0;",
      "match": "The endpoint weight."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Corollary 4.3, p. 11",
-     "excerpt": "(1) If k ⩽p + 1, then V k,ap ≃V k,0 if vp(ap) > 0;",
      "match": "Corollary 4.3(1)."
     }
    ],
@@ -4317,13 +4204,11 @@
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Proposition 4.4, p. 11",
-     "excerpt": "(1) If (p + 1) ∤(k −1), then V k,0 = ind(ωk−1 2 ); (2) If (p",
      "match": "The irreducible case."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Proposition 4.4, p. 11",
-     "excerpt": "This proposition is itself a consequence of [Br03, prop 3.1.2]",
      "match": "Breuil's computation."
     }
    ],
@@ -4370,13 +4255,11 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Paso 6, p. 14 of arXiv:2108.07577v2",
-     "excerpt": "Furthermore, ˜ρ3 is ordinary by [BLZ04, Corollary 4,3], because the weight is either 2 or 4 = 3 + 1, so the third hypothesis of Theorem 1.7 is satisﬁed.",
      "match": "The use in the modern p = 3 branch."
     },
     {
      "sourceId": "BERGER-LI-ZHU-2004",
      "locator": "Corollary 4.3, p. 11",
-     "excerpt": "(1) If k ⩽p + 1, then V k,ap ≃V k,0 if vp(ap) > 0;",
      "match": "The input."
     }
    ],
@@ -4420,19 +4303,16 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, p. 6 (Numdam PDF page 3)",
-     "excerpt": "In this paper we consider the case where p is reducible, and we prove the following theorem.",
      "match": "The ℚ-version stated in the introduction (the OCR renders ρ as p)."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, p. 6 (Numdam PDF page 3)",
-     "excerpt": "Then p comes from a modular form.",
      "match": "Its conclusion."
     },
     {
      "sourceId": "KHARE-LEVEL-ONE",
      "locator": "Introduction, p. 3 of arXiv:math/0504080v1",
-     "excerpt": "The residually degenerate cases are handled by quoting the results of Skinner and Wiles in [48], [49] which may be applied as in these cases the lifts that need to be proved modular are ordinary up to a twist.",
      "match": "Khare's use of Skinner–Wiles."
     }
    ],
@@ -4477,25 +4357,21 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Theorem 1.7, p. 4 of arXiv:2108.07577v2",
-     "excerpt": "Theorem 1.7. Let ρ : GalQ →GL2(Q3) be a continuous, irreducible odd Ga- lois representation ramiﬁed at ﬁnitely many primes and satisfying all the following hypothesis: • ρss ≃1 ⊕χ3",
      "match": "DP's statement (hypotheses begin)."
     },
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Proof of Theorem 1.7, p. 5",
-     "excerpt": "See [SW99] Theorem in the third page.",
      "match": "DP cite the introduction theorem of Skinner–Wiles."
     },
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Paso 6, p. 14",
-     "excerpt": "Since Serre’s weight is not 3, the image of ˜ρ3|D3 is non-trivial, hence Theorem 1.7 implies that ˜ρ3 is modular.",
      "match": "The check DP make for the second hypothesis, unnecessary once it is read as χ̄₃|_{D₃} ≠ 1."
     },
     {
      "sourceId": "PAN-2022",
      "locator": "Introduction, Theorem 1.0.2, p. 3 (arXiv v2)",
-     "excerpt": "If p = 3, we require that χ̄χ̄21 |Gal(Qp /Qp ) 6= ω. Here ω denotes the mod p cyclotomic character.",
      "match": "Pan's p = 3 exclusion (the extraction garbles χ̄₁χ̄₂^{−1} and ≠); it is exactly the case ρ̄^{ss} ≅ 1 ⊕ χ̄₃."
     }
    ],
@@ -4538,7 +4414,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§4.5, Theorem A, p. 74 (Numdam PDF page 71)",
-     "excerpt": "then p is a representation associated to a Hilbert modular newform.",
      "match": "The conclusion that is exported."
     }
    ],
@@ -4583,13 +4458,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, p. 6 (Numdam PDF page 3)",
-     "excerpt": "This hypothesis, which is in fact a conjecture of Serre, is as yet unproved.",
      "match": "The irreducible case needs a Serre-type hypothesis; the reducible case does not."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, p. 8 (Numdam PDF page 5)",
-     "excerpt": "which in turn uses techniques for proving the existence of congruences between cusp forms and Eisenstein series)",
      "match": "Residual modularity comes from Eisenstein congruences."
     }
    ],
@@ -4631,19 +4504,16 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, (2.1) and the definition of deformation data, p. 188 (Numdam PDF page 5; printed page = PDF page + 183)",
-     "excerpt": "Such a deformation is of type-D if",
      "match": "Conditions (2.1), deformation data and the type-𝒟 conditions (continued on p. 189)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, p. 189 (Numdam PDF page 6; printed page = PDF page + 183)",
-     "excerpt": "This is well known (see [Ml] and [M2] for a precise formulation of the universal property as well as a proof of existence).",
      "match": "The universal deformation ρ_𝒟 (the OCR reads [M1] as [Ml])."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, (2.2), p. 190 (Numdam PDF page 7; printed page = PDF page + 183)",
-     "excerpt": "easily seen to be a deformation of type-DQ. It follows from the universal",
      "match": "Minimal deformations and R_{𝒟_Q} ≅ R^min_{𝒟_Q} ⊗ 𝒪[N_Σ]."
     }
    ],
@@ -4756,13 +4626,11 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, Proposition 2.1, p. 189 (Numdam PDF page 6; printed page = PDF page + 183)",
-     "excerpt": "We now state a preliminary result on the structure of RD as an abstract ring.",
      "match": "The remark that the proof is that of Skinner–Wiles 1999 Proposition 2.4, with the nonsplit local case."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, Proposition 2.1, p. 189 (Numdam PDF page 6; printed page = PDF page + 183)",
-     "excerpt": "There exist integers g and r, depending on D, such that",
      "match": "Proposition 2.1 (the presentation and the bound are displayed below it)."
     }
    ],
@@ -4804,19 +4672,16 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, (2.3)–(2.4), p. 190 (Numdam PDF page 7; printed page = PDF page + 183)",
-     "excerpt": "The following properties of dihedral deformations are trivialities:",
      "match": "Dihedral deformations, (2.3) and (2.4)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, before Lemma 2.2, p. 191 (Numdam PDF page 8; printed page = PDF page + 183)",
-     "excerpt": "By [Wal] we know that",
      "match": "The printed bound δ⁻_{F′} ≤ d/2 (source issue E11)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, Lemma 2.2, p. 191 (Numdam PDF page 8; printed page = PDF page + 183)",
-     "excerpt": "is a prime containing p such that pD mod q is dihedral and its determinant has finite order",
      "match": "Lemma 2.2."
     }
    ],
@@ -4853,13 +4718,11 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, Lemma 2.3, p. 192 (Numdam PDF page 9; printed page = PDF page + 183)",
-     "excerpt": "The following lemma is immediate from [C] and the universality of RDQ",
      "match": "Lemma 2.3 and its source (Carayol)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§2, end, p. 191 (Numdam PDF page 8; printed page = PDF page + 183)",
-     "excerpt": "is an algebra over a certain multivariate",
      "match": "The Λ_𝒪-structure on R_𝒟 and R_{𝒟_Q} (as in Skinner–Wiles 1999 §2.5)."
     }
    ],
@@ -4902,19 +4765,16 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, (H_even), p. 193 (Numdam PDF page 10; printed page = PDF page + 183)",
-     "excerpt": "We now make the added hypothesis that",
      "match": "The hypothesis (H_even)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, before Lemma 3.3, p. 195 (Numdam PDF page 12; printed page = PDF page + 183)",
-     "excerpt": "This last fact can be proven by the arguments on the bottom of page 482 and top of page 483 of [W].",
      "match": "The integral model of ρ_{U,m} for irreducible ρ_m."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, Lemma 3.3, p. 195 (Numdam PDF page 12; printed page = PDF page + 183)",
-     "excerpt": "Part (i) of the following lemma can be proven as was",
      "match": "Lemma 3.3."
     }
    ],
@@ -5022,25 +4882,21 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, permissible maximal ideals, p. 195 (Numdam PDF page 12; printed page = PDF page + 183)",
-     "excerpt": "Such a maximal ideal is clearly unique.",
      "match": "Permissibility and uniqueness."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, U_{𝒟_Q} and (H_def), p. 196 (Numdam PDF page 13; printed page = PDF page + 183)",
-     "excerpt": "Let m be a permissible maximal ideal of",
      "match": "The groups U_{𝒟_Q}, (H_def) and T_{𝒟_Q}."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, after Proposition 3.4, p. 197 (Numdam PDF page 14; printed page = PDF page + 183)",
-     "excerpt": "These are defined exactly as in the paragraph following",
      "match": "The modules M_{𝒟_Q}, M⁺_{𝒟_Q}."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, T^min_{𝒟_Q}, p. 198 (Numdam PDF page 15; printed page = PDF page + 183)",
-     "excerpt": "As in [SW1] we shall find it necessary to work with a quotient",
      "match": "T^min_{𝒟_Q}."
     }
    ],
@@ -5152,19 +5008,16 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, Proposition 3.2, p. 194 (Numdam PDF page 11; printed page = PDF page + 183)",
-     "excerpt": "has established the following remarkable connection between algebraic homomorphisms and automorphic representations.",
      "match": "Proposition 3.2 (Hida), used at algebraic primes (the OCR reads Hida [H1] as [HI])."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, proof of Proposition 3.4, p. 196 (Numdam PDF page 13; printed page = PDF page + 183)",
-     "excerpt": "can be seen by reducing pp modulo algebraic primes and then invoking the compatibility of these reduced representations with the local Langlands’ correspondence",
      "match": "The unramified determinant at Q."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, end of the proof of Proposition 3.4, p. 197 (Numdam PDF page 14; printed page = PDF page + 183)",
-     "excerpt": "completing the proof of the proposition.",
      "match": "The end of the proof."
     }
    ],
@@ -5203,7 +5056,6 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§3, Lemma 3.5, p. 198 (Numdam PDF page 15; printed page = PDF page + 183)",
-     "excerpt": "is a finite, reduced, torsion-free Ao-algebra.",
      "match": "Lemma 3.5(ii) (the OCR reads Λ_𝒪 as Ao)."
     }
    ],
@@ -5240,13 +5092,11 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§4, (4.1) and pro-modular primes, p. 198 (Numdam PDF page 15; printed page = PDF page + 183)",
-     "excerpt": "if it is the inverse image under rD of a prime of TD.",
      "match": "Good pairs (4.1) and pro-modular primes."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§4, (4.2) and property (P), p. 199 (Numdam PDF page 16; printed page = PDF page + 183)",
-     "excerpt": "Our preliminaries are completed by stating the following property of primes that are nice for D.",
      "match": "Nice primes (4.2) and property (P)."
     }
    ],
@@ -5349,25 +5199,21 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§4, Proposition 4.1, p. 199 (Numdam PDF page 16; printed page = PDF page + 183)",
-     "excerpt": "The proof of this Proposition is essentially the same as that of",
      "match": "Proposition 4.1 and the start of its proof."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§4, proof of Proposition 4.1, step three, p. 200 (Numdam PDF page 17; printed page = PDF page + 183)",
-     "excerpt": "the inequality by (4.1).",
      "match": "The bound dim Q_1 > 1 + d/2."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§4, proof of Proposition 4.1, step three, p. 201 (Numdam PDF page 18; printed page = PDF page + 183)",
-     "excerpt": "which contradicts (4.1).",
      "match": "The contradiction with (4.1)(ii)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§4, proof of Proposition 4.1, general 𝒟, p. 202 (Numdam PDF page 19; printed page = PDF page + 183)",
-     "excerpt": "It follows from this and from (4.1) that the dimension of Q2 is at least d/2 +1",
      "match": "The general step, which needs the bound on #Σ (E14)."
     }
    ],
@@ -5408,19 +5254,16 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§7, the assumptions on ρ, p. 207 (Numdam PDF page 24; printed page = PDF page + 183)",
-     "excerpt": "Throughout this section we make the following assumptions on p:",
      "match": "The hypotheses of §7 (the OCR reads ρ as p)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§7, Lemma 7.1, p. 208 (Numdam PDF page 25; printed page = PDF page + 183)",
-     "excerpt": "This can be proved exactly as",
      "match": "Lemma 7.1 is proved as Skinner–Wiles 1999 Lemma 6.3."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§7, Proposition 7.2, p. 209 (Numdam PDF page 26; printed page = PDF page + 183)",
-     "excerpt": "This proposition is proved exactly as [SW1, Proposition 6.10]",
      "match": "Proposition 7.2 and its proof by reference."
     }
    ],
@@ -5467,31 +5310,26 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§6, Proposition 6.1, p. 207 (Numdam PDF page 24; printed page = PDF page + 183)",
-     "excerpt": "This is just the main results of [SW1, Propositions 5.8 and 5.9] in the case",
      "match": "Proposition 6.1 is Skinner–Wiles 1999 Propositions 5.8–5.9 with R^{tr} = R."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§8, opening, p. 209 (Numdam PDF page 26; printed page = PDF page + 183)",
-     "excerpt": "We retain the notation and assumptions of",
      "match": "The setting of §8."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§8, verification of (6.2)–(6.8), p. 212 (Numdam PDF page 29; printed page = PDF page + 183)",
-     "excerpt": "We now verify that these constructions satisfy the properties in §6 needed",
      "match": "The verification of the patching hypotheses."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§8, Proposition 8.1, p. 213 (Numdam PDF page 30; printed page = PDF page + 183)",
-     "excerpt": "We have now verified all the hypotheses in §6 and are thus in a position to prove the following result.",
      "match": "Proposition 8.1."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§8, Proposition 8.2, p. 214 (Numdam PDF page 31; printed page = PDF page + 183)",
-     "excerpt": "Using this proposition, one can deduce as in [SWl, §8] that",
      "match": "Proposition 8.2 (the OCR reads [SW1] as [SWl])."
     }
    ],
@@ -5537,25 +5375,21 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§5, (5.1), p. 202 (Numdam PDF page 19; printed page = PDF page + 183)",
-     "excerpt": "It is widely believed that such a p is a representation associated to some",
      "match": "The conditions (5.1) (listed just above; the OCR reads ρ as p)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§5, proof of Theorem 5.1, p. 203 (Numdam PDF page 20; printed page = PDF page + 183)",
-     "excerpt": "The hypotheses of the theorem, together with the main result of [SW2], implies that there exists some totally real extension L of F such that the Galois closure of L over F is solvable and",
      "match": "The base change to L."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§5, proof of Theorem 5.1, p. 204 (Numdam PDF page 21; printed page = PDF page + 183)",
-     "excerpt": "By further requiring L to contain a large real subfield of a suitable cyclotomic extension we can also ensure that",
      "match": "d_L/2 > 2 + 7·#Σ_L and d_v > 2 + 7·#Σ_L."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§5, end of the proof of Theorem 5.1, p. 204 (Numdam PDF page 21; printed page = PDF page + 183)",
-     "excerpt": "the conclusion of the theorem now follows from known cases of base change for GL2.",
      "match": "Descent by solvable base change."
     }
    ],
@@ -5598,25 +5432,21 @@
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "Introduction, Theorem, p. 186 (Numdam PDF page 3; printed page = PDF page + 183)",
-     "excerpt": "Here and throughout the rest of this paper p is an odd prime.",
      "match": "The theorem of the introduction (stated on this page)."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "Introduction, p. 187 (Numdam PDF page 4; printed page = PDF page + 183)",
-     "excerpt": "These are in fact precisely the cases not covered in [W] and [Dl].",
      "match": "The cases ρ̄^{ss} reducible over ℚ(ζ_p) (the OCR reads [D1] as [Dl])."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§5, Theorem 5.2, p. 204 (Numdam PDF page 21; printed page = PDF page + 183)",
-     "excerpt": "If F = Q then one can weaken hypothesis (ii) of the above theorem.",
      "match": "Theorem 5.2."
     },
     {
      "sourceId": "SKINNER-WILES-2001",
      "locator": "§5, proof of Theorem 5.2, p. 204 (Numdam PDF page 21; printed page = PDF page + 183)",
-     "excerpt": "in the remaining cases is obvious.",
      "match": "The appeal to Diamond [D2, Theorem 6.4]."
     }
    ],
@@ -5665,37 +5495,31 @@
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.3, Theorem 2.3.1, p. 10 (arXiv v1; printed page = PDF page)",
-     "excerpt": "In this section we recall the basic facts regarding",
      "match": "Theorem 2.3.1 and its properties (1)–(5)."
     },
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.3, proof of Theorem 2.3.1, p. 10 (arXiv v1; printed page = PDF page)",
-     "excerpt": "Proof. See [17, Thm. 2.1] and [14, Thm. 2.6].",
      "match": "Hida and Greenberg–Stevens."
     },
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.3, Proposition 2.3.2, p. 11 (arXiv v1; printed page = PDF page)",
-     "excerpt": "then the tame conductor of ρa is equal to N.",
      "match": "Proposition 2.3.2."
     },
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.3, Theorem 2.3.4, p. 12 (arXiv v1; printed page = PDF page)",
-     "excerpt": "The next result describes the residual representation",
      "match": "Theorem 2.3.4 (on p. 13)."
     },
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.3, Proposition 2.3.5 and Definitions 2.3.6–2.3.7, p. 13 (arXiv v1; printed page = PDF page)",
-     "excerpt": "This follows from the irreducibility of",
      "match": "The integral model over (T^new_N)_m (Carayol, EPW [2])."
     },
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.3, Definition 2.3.7, p. 13 (arXiv v1; printed page = PDF page)",
-     "excerpt": "comes equipped with a natural p-stabilisation",
      "match": "The canonical p-stabilisation."
     }
    ],
@@ -5816,13 +5640,11 @@
     {
      "sourceId": "EMERTON-POLLACK-WESTON-2006",
      "locator": "§2.1, after Theorem 2.1.2, p. 8 (arXiv v1; printed page = PDF page)",
-     "excerpt": "To summarise, the classical height one primes in TN correspond to Galois conju- gacy classes of p-ordinary normalised Hecke eigenforms of tame level N and weight k ≥2",
      "match": "Every ordinary eigenform of weight ≥ 2 gives a classical point of T_N."
     },
     {
      "sourceId": "HIDA-IWASAWA-MODULES-1986",
      "locator": "§3, Corollary 3.7, p. 253 (Numdam PDF page 24; printed page = PDF page + 229)",
-     "excerpt": "Conversely, if f is an ordinary form in",
      "match": "The converse half of Corollary 3.7 (uniqueness and primitivity)."
     }
    ],
@@ -5865,13 +5687,11 @@
     {
      "sourceId": "MAZUR-EISENSTEIN-1977",
      "locator": "Chapter II, Proposition 9.7 and the definition of Eisenstein primes, p. 96 (Numdam PDF page 65; printed page = PDF page + 31)",
-     "excerpt": "the Eisenstein ideal",
      "match": "T/𝔍 = ℤ/n with n = numerator((N − 1)/12)."
     },
     {
      "sourceId": "MAZUR-EISENSTEIN-1977",
      "locator": "Chapter II, before Proposition 9.8, p. 96 (Numdam PDF page 65; printed page = PDF page + 31)",
-     "excerpt": "One checks easily that",
      "match": "n > 1 exactly when X₀(N) has positive genus."
     }
    ],
@@ -5908,7 +5728,6 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, p. 6 (Numdam PDF page 3)",
-     "excerpt": "In this paper we consider the case where p is reducible, and we prove the following theorem.",
      "match": "Hypothesis (i) χ|_{D_p} ≠ 1 of the ℚ-theorem (the OCR reads ρ as p)."
     }
    ],

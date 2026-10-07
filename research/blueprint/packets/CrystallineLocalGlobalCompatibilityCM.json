@@ -167,7 +167,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.11, p.17",
-          "excerpt": "particular elements of some Weyl groups, besides the longest element w0,n in the Weyl group of GLn which we have already mentioned. For G = G or G, e we will write wG for the longest element in the Weyl group 0 e W ((ResF + /Q G)E , (ResF + /Q T )E ). We set w0P = w0G w0G . It is the longest element in the set W P of",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -256,7 +255,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.12, pp.17–18",
-          "excerpt": "Lemma 2.1.12. The natural Pn,n (O)-equivariant morphism Vλ̃τ → Vλτ̃ ⊗ V−w0,n λτ̃ c 18 ANA CARAIANI AND JAMES NEWTON given by evaluation of functions at the identity is surjective. Proof. By transitivity of parabolic indu",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -299,7 +297,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.13, p.19",
-          "excerpt": "For integers c ≥ b ≥ 0, we define subgroups e Pv̄ (b, c) ⊂ G(OFv̄+ ) = GL2n (OFṽ ) which reduce to block upper-triangular matrices (with two n × n blocks) modulo ̟ṽc and to block unipotent matrices modulo ̟ṽb . We set",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -417,7 +414,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.15, p.20; Remark 2.1.16",
-          "excerpt": "Lemma 2.1.15. (1) For ν ∈ XQv̄ , the element ν(̟v̄ ) is Qv̄ -positive; i.e. we have ν(̟v̄ ) (NQv̄ ∩ Qv̄ ) ν(̟v̄ )−1 ⊂ NQv̄ ∩ Qv̄ and ν(̟v̄ )−1 N Qv̄ ∩ Qv̄ ν(̟v̄ ) ⊂ N Qv̄ ∩ Qv̄ . e v̄Qv̄ is a monoid under multiplicatio",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -459,7 +455,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.17, p.20; Levi action (corrected E8), p.21",
-          "excerpt": "Lemma 2.1.17. Fix v̄ ∈ S̄ and τ ∈ Hom(Fv̄+ , E). Define an action of O[∆ Vλ̃τ by (2.1.7) g ·λ̃Qv̄ x := α̃λ̃Qv̄ (g)−1 g · x, τ τ where g · x is the usual action of g ∈ e ∆v̄Qv̄ ⊂ e G(Fv̄+ ) on x ∈ Vλ̃τ . The lattice Vλ̃τ is e v̄Qv̄ ]. stable under the ·λ̃Qv̄ -action of O[∆ τ Proof. This follows from the fact that the",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -555,7 +550,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.17, p.20",
-          "excerpt": "Lemma 2.1.17. Fix v̄ ∈ S̄ and τ ∈ Hom(Fv̄+ , E). Define an action of O[∆ Vλ̃τ by (2.1.7) g ·λ̃Qv̄ x := α̃λ̃Qv̄ (g)−1 g · x, τ τ where g · x is the usual action of g ∈ e ∆v̄Qv̄ ⊂ e G(Fv̄+ ) on x ∈ Vλ̃τ . The lattice Vλ̃τ",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -597,7 +591,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.21, pp.22–23",
-          "excerpt": "Lemma 2.1.21. Let m ⊂ TT (K, λ) be a maximal ideal as in Theorem 2.1.20. Suppose k = k(m). Let v be a p-adic place of F . The Hecke operator Uv has a unique n(n−1) eigenvalue on H ∗ (XK , Vλ /̟)m , equal to ǭp 2 (ArtFv",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -642,7 +635,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.1, pp.25–26",
-          "excerpt": "2.2.1. P -ordinary Hida theory at finite level. In this section, we will only consider good subgroups K e ⊂ G(A e F,f ) such that the tame level K e p is fixed and such that, for all v̄ ∈ S̄, K e v̄ = Pv̄ (b, c) for some",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -735,7 +727,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Definition 2.2.3, pp.26–27",
-          "excerpt": "Definition 2.2.3. We have a functor of P -ordinary parts + e Dsm (∆S̄ , O/̟m ) → Dsm + (∆S̄ , O/̟m ), π 7→ RΓ(US̄0 , π)ord",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -838,7 +829,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.4, p.27",
-          "excerpt": "Lemma 2.2.4. There is a natural isomorphism ordb ◦Γ(KS̄ (b), ) ≃ Γ(KS̄ (b), ) ◦ ord + of functors Modsm (∆S̄ , O/̟m ) → Mod(∆S̄ /KS̄ (b), O/̟m ), which extends to an isomorphism of derived functors ordb ◦RΓ(KS̄ (b), ) ≃",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -878,7 +868,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.5, p.27",
-          "excerpt": "Lemma 2.2.5. 14 For all c ≥ b ≥ 0 with c ≥ 1, there is a natural isomorphism ordb ◦Γ(US̄0 ⋊ KS̄ (b), ) ≃ ordb ◦Γ(PS̄ (b, c), ) of functors e S̄ , O/̟m ) → Mod(∆S̄ /KS̄ (b), O/̟m ). Modsm (∆ Proof. Let V ∈ Modsm (∆ e S̄ )",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -920,7 +909,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.6, p.28",
-          "excerpt": "Lemma 2.2.6. Let π ∈ Dsm (∆S̄ , O/̟m ). Then for any c ≥ b ≥ 0 with c ≥ 1 there is a natural isomorphism ∼ RΓ(KS̄ (b), ord RΓ(US̄0 , π)) → ordb RΓ(PS̄ (b, c), π) in D+ (∆S̄ /KS̄ (b), O/̟m ). Proof. This is proved in the",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -961,7 +949,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.7, p.28",
-          "excerpt": "2.2.7. Independence of level. Recall that the finite free O-module Vλ̃ is equipped with an action of ∆e S̄ . We consider the completed cohomology at S̄ with coefficients m in Vλ̃ /̟ : π(K e S̄ , λ̃, m) := RΓ K e S̄",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1053,7 +1040,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.2.8, p.28",
-          "excerpt": "Proposition 2.2.8. For any integers m ≥ 1 and c ≥ b ≥ 0 with c ≥ 1, there is a e T -equivariant isomorphism natural T ord e S̄ , λ̃, m) ≃ RΓ X RΓ KS̄ (b), π ord (K ee m K(b,c) , Vλ̃ /̟ in D+ (KS̄ /KS̄ (b), O/̟m ).",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1096,7 +1082,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Corollary 2.2.9, p.28",
-          "excerpt": "2.2.9 (Independence of level15). For any integers m ≥ 1 and c ≥ b ≥ 0 with c ≥ 1, the natural e TT -equivariant morphism ord ord ee m → RΓ Xee m RΓ X K(b,max{1,b}) , Vλ̃ /̟ K(b,c) , Vλ̃ /̟ is an isomorphism in D+ (",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1137,7 +1122,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.2.10, p.29",
-          "excerpt": "Proposition 2.2.10. For any integers m ≥ 1 and c ≥ b ≥ 0 with c ≥ 1, there is a e T -equivariant isomorphism natural T ord e S̄ , λ̃, m) ≃ RΓ ∂ X RΓ KS̄ (b), π∂ord (K ee m K(b,c) , Vλ̃ /̟ in D+ (KS̄ /KS̄ (b), O/̟m",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1179,7 +1163,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.11, p.29",
-          "excerpt": "2.2.11. A variant at parahoric level. We now suppose we have standard parabolic subgroups Qv̄ ⊂ Pv̄ for each v̄ ∈ S̄, with corresponding parahoric subgroup Qv̄ ⊂ e G(OF + ). We will still be interested in P -ordinary par",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1264,7 +1247,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.12, pp.29–30",
-          "excerpt": "Lemma 2.2.12. Let π ∈ Dsm (∆S̄ , O/̟m ). There is a natural isomorphism ∼ RΓ(KS̄ , ord RΓ(US̄0 , π)) → ord0 RΓ (QS̄ , π) + ±1 in Dsm (KS̄ [ũṽ,n |v̄ ∈ S̄]/KS̄ , O/̟m ) under which the action of [Kv̄ ν(̟v̄ )Kv̄ ] ∈ Q H(∆",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1304,7 +1286,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.14, p.30",
-          "excerpt": "2.2.14. Using our identification of KS̄ with the block diagonal Levi sub- group of v̄∈S̄ Pn,n (OFṽ ), we can identify O O VλS̄ = V−w0,n λτ̃ c ⊗ Vλτ̃ v̄∈S̄ τ ∈Hom(Fv̄+ ,E),O with the action on both factors V−w0,n λτ̃ c ⊗",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1348,7 +1329,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.2.15, p.31",
-          "excerpt": "Proposition 2.2.15. Given a dominant weight λ̃ for G S̄ λ̃ be defined as follows: • if v̄ ∈ S̄ and τ ∈ Hom(Fv̄+ , E), then λ̃S̄τ := (0, . . . , 0). • if v̄ ∈ S̄p \\ S̄ and τ ∈ Hom(Fv̄+ , E), then λ̃S̄τ := λ̃τ . Identify λ",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1393,7 +1373,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.16, pp.31–32",
-          "excerpt": "Lemma 2.2.16. Let τ ∈ Hom(Fv̄+ , E) and let Kλ̃τ := ker Vλ̃τ → Vλτ̃ ⊗ Vλ−w0,n λτ̃ c be the kernel of the evaluation at identity map. For any m ≥ 1, we have (ũṽ,n )m (Kλ̃τ /̟m ) = 0. 32 ANA CARAIANI AND JAMES NEWTON",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1433,7 +1412,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.2.17, p.32",
-          "excerpt": "Proposition 2.2.17. Given a weight λ̃ and a subset S̄ ⊆ S̄p , let λ̃S̄ be defined e T -equivariant as in Proposition 2.2.15. For any integer m ≥ 1 there is a natural T isomorphism ∼ e S̄ , λ̃, m) → π∂ord (K e S̄ , λ̃S̄ ,",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1474,7 +1452,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.18, pp.32–33",
-          "excerpt": "2.2.18. A variant with dual cofficients. We will also make use of a variant of P - ordinary Hida theory which can be applied with dual coefficient systems. It is formulated in terms of the ordinary parts ord∨ , ord∨ 0 de",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1569,7 +1546,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.2.19, p.32",
-          "excerpt": "Lemma 2.2.19. Let π ∈ Dsm e v̄Qv̄ )−1 , O/̟m ). There is a natural isomorphism ((∆ 1 ∼ RΓ(Kv̄ , ord∨ RΓ(U v̄ , π)) → ord∨ 0 RΓ (Qv̄ , π) + in Dsm ±1 (Kv̄ [ũṽ,n ]/Kv̄ , O/̟m ) under which the action of [Kv̄ ν(̟v̄ )−1 Kv",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1610,7 +1586,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.1, Lemma 2.3.2, p.33",
-          "excerpt": "Lemma 2.3.2. We have a set-theoretic decomposition a G(L) = P(L)wP(L). w∈P WP The closure relations (for the p-adic topology) are given by the Bruhat ordering a P(L)wP(L) = P(L)w′ P(L). w ′ ≤w∈P WP Moreover, if Ω ⊂ P WP",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1651,7 +1626,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.1, p.34",
-          "excerpt": "I≥i : Modsm (P(L), O/̟m ) → Modsm (P(L), O/̟m ) by sending π ∈ Modsm (P(L), O/̟m ) to I≥i (π) = {f : G≥i → π | f locally constant, of compact support modulo P(L), ∀p ∈ P(L), g ∈ G≥i , f (pg) = pf (g)}, where P(L) acts by right translation. For w ∈ P WP , we define a functor Iw : Modsm (P(L), O/̟m ) → Modsm (P(L), O/̟m",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -1753,7 +1727,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.3.3, p.34",
-          "excerpt": "Proposition 2.3.3. G(L) G(L) (1) We have I≥0 = ResP(L) ◦ IndP(L) . (2) Each functor I≥i , Iw and Iw◦ is exact. (3) For each i ∈ Z≥0 and π ∈ Modsm (P(L), O/̟m ), there is a functorial short exact sequence M 0 → I≥i+1 (π)",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1794,7 +1767,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.3.4, pp.34–35",
-          "excerpt": "Proposition 2.3.4. Let π ∈ Dsm (P(L), O/̟m ) and let V be a finite free O/̟m - module equipped with a smooth representation of an open submonoid ∆+ ⊂ M(L) containing an open subgroup K ⊂ M(OL ). For any i ∈ Z≥0 and j ∈ Z",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1834,7 +1806,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.5, pp.35–36",
-          "excerpt": "Lemma 2.3.5. For any i ∈ Z≥0 , there exist decompositions G≥i = U1m ⊔ U2m into open and closed subsets, indexed by m ∈ Z≥1 , that are P(L)-invariant on the left and P(OL )-invariant on the right, such that [ G≥i+1 = U1m",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1879,7 +1850,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.6, pp.36–37",
-          "excerpt": "Lemma 2.3.6. Let w0P be the longest element of P WP . Then: (1) Iw◦ P takes injectives to Γ(U0 , )-acyclics. 0 + (2) Let π ∈ Dsm (P(L), O/̟m ). Then there is a natural isomorphism ∼ ord RΓ(U0 , Iw◦ P (π)) → ord RΓ(U0 , I",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1925,7 +1895,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.7, p.37",
-          "excerpt": "Lemma 2.3.7. Let w0P be the longest element of P WP and let π ∈ Dsm + (P(L), O/̟m ). Then there is a natural isomorphism ∼ P RΓ(U0 , Iw◦ P (π)) → π w0 0 P + in Dsm (M(L)+ , O/̟m ), where m ∈ M(L)+ acts on π w0 via the ac",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -1965,7 +1934,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.1, p.37",
-          "excerpt": "character defined by the formula −1 NmL/Qp detL Ad(m)|Lie U(L) χ(m) = . |NmL/Qp detL Ad(m)|Lie U(L) |p + Lemma 2.3.8. Let π ∈ Dsm (M(L), O/̟m ). Then there is a natural isomorphism M(L)+ ⋉U0 ∼ ord RΓ U0 , Inf M(L)",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2050,7 +2018,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.8, pp.37–38; Remark 2.3.9 and Corollary 2.3.10, p.38",
-          "excerpt": "Lemma 2.3.8. Let π ∈ Dsm (M(L), O/̟m ). Then there is a natural isomorphism M(L)+ ⋉U0 ∼ ord RΓ U0 , Inf M(L)+ π → O/̟m (χ) ⊗O/̟m π[−rkZp U0 ] + in Dsm (M(L)+ , O/̟m ). Proof. Since U0 acts trivially on π, we have",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2093,7 +2060,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.3.11, p.38",
-          "excerpt": "Proposition 2.3.11. Let π ∈ Dsm + (G(Fv̄+ ), O/̟m ) and let V be a finite free O/̟ -module equipped with a smooth representation of ∆Q m v̄ v̄ ,+ with ũṽ,n acting e Q Q ,+ 0 trivially, which we inflate to an action of",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2137,7 +2103,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Corollary 2.3.12, p.39",
-          "excerpt": "Corollary 2.3.12. Let π ∈ Dsm + (G(Fv̄+ ), O/̟m ) and let V be a finite free O/̟m - −1 module equipped with a smooth representation of ∆v̄Qv̄ ,+ −1 with ũṽ,n acting triv- −1 ially, which we inflate to an action o",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2178,7 +2143,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.13, Lemma 2.3.14, pp.39–40",
-          "excerpt": "Lemma 2.3.14. We have a natural isomorphism in Dsm (G(L), O/̟m ) ∼ G(L) (2.3.4) RΓ (X ×P G, O/̟m ) → IndP(L) RΓ(X, O/̟m ). Proof. First, we explain how to construct a natural map from the LHS of (2.3.4) to the RHS, then",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2221,7 +2185,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.16, pp.41–42 (Lemma 2.3.17 on p.42)",
-          "excerpt": "Lemma 2.3.17. For any m ∈ Z≥1 , there exists M = M (m) ≥ m such that rkZp U0 M RΓ(U0 , O/̟m ) ≃ H i (U0 , O/̟m )[−i]. i=0 + as an object in Dsm (KM , O/̟m ). Moreover, each H i (U0 , O/̟m ) is non-zero and equipped with the trivial action of KM . Proof. By [Eme10b, Prop. 2.1.11], an injective smooth representation of",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -2265,7 +2228,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.18, p.43",
-          "excerpt": "Lemma 2.3.18. Let N be a finite Zp -module and M be a subquotient of N . For any positive integer m ∈ Z≥1 , there exists an integer m′ ≥ m such that M/pm M is ′ a subquotient of N/pm N . Proof. If M is a quotient of N ,",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2307,7 +2269,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§3.1, p.43",
-          "excerpt": "define a cocharacter νk ∈ XQv̄ by νk (̟v̄ ) := ι−1 e Qv̄ v diag(̟v , . . . , ̟v , 1, . . . , 1) ∈ ∆v̄ , where there are n1 + · · · + nk entries equal to ̟, and denote the Hecke operator e v̄Qv̄ , Qv̄ ) by U [Qv̄ νk (̟v̄",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2392,7 +2353,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Definition 3.1.1, p.43",
-          "excerpt": "Definition 3.1.1. Let π be a cuspidal automorphic representation of e G(AF + ) and ∼ 2n Hom(F + ,Qp ) fix an isomorphism ι : Qp → C. Let λ̃ ∈ (Z+ ) be a dominant weight for e G. We say that π is ι-Qv̄ -ordinary of weight",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2479,7 +2439,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 3.1.2, pp.43–44",
-          "excerpt": "Theorem 3.1.2. Suppose that π is a cuspidal automorphic representation of e G(AF + ), ∼ + ι is an isomorphism ι : Qp → C and v̄ is a p-adic place of F such that π is ι-Qv̄ - ordinary of weight λ̃. Then we have the follow",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2523,7 +2482,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 3.1.3, pp.44–45",
-          "excerpt": "Lemma 3.1.3. Assume that r : GFv → GLm (Qp ) is a semi-stable Galois rep- resentation. Let v1 ≤ v2 ≤ · · · ≤ vm denote the valuations of the eigenvalues of the geometric Frobenius acting on WD(r), and, for each τ : F ֒→",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2568,7 +2526,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.1.1, p.53",
-          "excerpt": "We also define the object VU (λ̃S̄ , m) in Db (ShGT ×KT (XG , O/̟m )) corresponding to the object RΓ(US̄0 , Vλ̃S̄ /̟m ) of Dsm b (KS , O/̟m ) (after inflation to Dsm b (GT × m KT , O/̟ )). The boundedness is a consequenc",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2653,7 +2610,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.1.2, Theorem 4.1.3, p.54",
-          "excerpt": "Theorem 4.1.3. Assume that K e ⊂ eG(AF + ,f ) is a good subgroup that is decomposed with respect to P , and with the property that, for each v̄ ∈ S̄p , K e U,v̄ = Uv̄0 . Let T m ⊂ T be a non-Eisenstein maximal ideal and",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2699,7 +2655,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.1.4, pp.54–55",
-          "excerpt": "Proposition 4.1.4. e F + ,f )-equivariant closed immersion (1) We have G(A (XP × e G(AF + ,f ))/P (AF + ,f ) ֒→ ∂XGe 18, 18Here, we consider the groups e G(A F + ,f ) and P (AF + ,f ) as endowed with their natural proﬁ-",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2740,7 +2695,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.1.5, p.55",
-          "excerpt": "Lemma 4.1.5. Keep the assumption on λ̃ from the statement of Theorem 4.1.3. + e S̄1 There is a natural isomorphism in Dsm e 0 , O/̟m ) (G × G S̄1 Ge S̄1 ×G e0 e F + ,f ))/P (AF + ,f ), V /̟m →∼ RΓ (XP × G(A λ̃ IndP",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2781,7 +2735,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.1.6, pp.55–56",
-          "excerpt": "Lemma 4.1.6. There is a natural isomorphism P (A + ) ∼ Inf G(AF + ,f ) RΓ XG , O/̟m → RΓ XP , O/̟m F ,f + in Dsm (P (AF + ,f ), O/̟m ). 56 ANA CARAIANI AND JAMES NEWTON Proof. The map is given by pullback along the P",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2823,7 +2776,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.1.7, p.56",
-          "excerpt": "Lemma 4.1.7. With the notation as in the proof of Theorem 4.1.3, there exists a natural isomorphism P T \\S̄2 ∼ Inf G T \\S̄2 RΓ K T \\S̄2 , RΓ XG , V U (λ̃S̄1 , m) → RΓ KP,T \\S̄2 , RΓ(XP , Vλ̃ /̟m ) + in Dsm (P T",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2864,7 +2816,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.1.8, pp.56–57",
-          "excerpt": "Proposition 4.1.8. With the notation as in the proof of Theorem 4.1.3, we have a TTP -equivariant isomorphism PS̄ ∼ ∗ RΓ KPS̄2 , RΓ(XP , Vλ̃ /̟m ) → rG ◦ Inf GS̄2 RΓ K S̄2 , RΓ XG , VU (λ̃S̄1 , m) 2 + in Dsm (PS̄2 , O/̟m ). Proof. We separate the set of finite places of F + away from S̄2 into the union of the set of",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -2906,7 +2857,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Corollary 4.1.9, p.57",
-          "excerpt": "Corollary 4.1.9. Assume that K e ⊂ G(A e F + ,f ) is a good subgroup that is decom- e U,v̄ = Uv̄0 . posed with respect to P , and with the property that, for each v̄ ∈ S̄p , K T Let m ⊂ T be a non-Eisenstein maximal idea",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -2952,7 +2902,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.58",
-          "excerpt": "We introduce the following notation on the level of abstract Hecke algebras:     O Q , S̄−ord O P w P TQS̄ ,S̄−ord := TT ⊗Z  H(∆v̄Qv̄ , Kv̄ ) , TwPS̄ := TT ⊗Z  H((∆v̄Qv̄ )w0 , Kv̄ 0 ) 0 v̄∈S̄ v̄∈S̄   O and T e",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3048,7 +2997,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.2, pp.58–60",
-          "excerpt": "Proposition 4.2.2. Assume that K e ⊂ G(A e F + ,f ) is a good subgroup that is decom- posed with respect to P and with the property that, for each v̄ ∈ S̄p , K e U,v̄ = Uv̄0 . Let m ⊂ TT be a non-Eisenstein maximal ideal",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3094,7 +3042,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.2.3, p.60",
-          "excerpt": "Lemma 4.2.3. Let S̄ ⊂ S̄p , let λ̃ and λ be dominant weights for G e and G respec- tively. Assume that the following condition is satisfied: (1) For each τ : F + ֒→ E inducing a place v̄ ∈ S̄, λ̃τ = (λτ̃ , −w0,n λτ̃ c )",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3137,7 +3084,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.4, p.61",
-          "excerpt": "Proposition 4.2.4. Assume that K e ⊂ G(A e F + ,f ) is a good subgroup that is decom- posed with respect to P , and with the property that, for each v̄ ∈ S̄p , K e U,v̄ = U 0 . Let v̄ T m ⊂ T be a non-Eisenstein maximal",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3178,7 +3124,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.61",
-          "excerpt": "A(K, λ, q) := TwPS̄ (H q (XK , Vλ )m ) , 0 P w0 Q ,S̄−ord A(K, λ, q, m) := TwPS̄ (H q (XK , Vλ /̟m )m ) , and 0 wP A( e e e QS̄ 0 ,S̄−ord H d (X K, λ̃, S̄) := T e e , V )ord . K λ̃ e m Given a neat compact open subgroup K ⊂ GLn (AF,f ) and an integer m ∈ Z≥1 , define the subgroup K(m, S̄) ⊂ K by setting K(m, S̄)v :=",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -3267,7 +3212,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.2.5, p.62",
-          "excerpt": "Lemma 4.2.5. Assume that the subset S̄ ⊂ S̄p has the following property: v̄6∈S̄ [Fv̄+ : P Qp ] ≥ 12 [F + : Q]. Let q ∈ d2 , d − 1 . Then d − q ≤ v̄6∈S̄ n2 [Fv̄+ : Qp ]. Proof. If d is odd, then so is [F + : Q], an",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3318,7 +3262,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.6, pp.62–65",
-          "excerpt": "Proposition 4.2.6. Let v̄, v̄ ′ be two distinct places of S̄p . Let S̄1 := {v̄ ′ }, S̄3 := {v̄} Hom(F,E) and S̄2 be their complement in S̄p . Let λ ∈ Zn+ be a highest weight for G. Let m ∈ Z≥1 be an integer and K e ⊂ G(A e F + ,f ) be a good subgroup. Assume that the following conditions are satisfied. (1) We have X 1",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -3363,7 +3306,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.65",
-          "excerpt": "A∨ (K, λ, q) := TQS̄3 ,S̄3 −ord,ι (H q (XK , Vλ∨ )m∨ ) , A∨ (K, λ, q, m) := TQS̄3 ,S̄3 −ord,ι (H q (XK , Vλ∨ /̟m )m∨ ) , and ∨ e∨ ( e A K, λ̃, S̄3 ) := e e e , V ∨ )ord TQS̄3 ,S̄3 −ord,ι̃ H d (X . K λ̃ S ∗ m∨ Proposition 4.2.8. Let v̄, v̄ ′ be two distinct places of S̄p . Let S̄1 := {v̄ ′ }, S̄3 := {v̄} Hom(F,E) and",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -3444,7 +3386,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.8, pp.65–66",
-          "excerpt": "Proposition 4.2.8. Let v̄, v̄ ′ be two distinct places of S̄p . Let S̄1 := {v̄ ′ }, S̄3 := {v̄} Hom(F,E) and S̄2 be their complement in S̄p . Let λ ∈ Zn+ be a highest weight for G. Let m ∈ Z≥1 be an integer and K e⊂ e G",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3488,7 +3429,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.9, pp.66–67",
-          "excerpt": "Proposition 4.2.9. Let v̄ be a p-adic place of F + , let m ⊂ TwPv̄ be a 0 ∗ e := non-Eisenstein maximal ideal in the support of some H (XK , Vλ ), and set m wP w0P ∗ e Qv̄ 0 ,v̄−ord e k e (S ) (m), a maximal ideal of T .",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3529,7 +3469,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.11, p.67",
-          "excerpt": "Proposition 4.2.11. Let m ⊂ TT be a non-Eisenstein maximal ideal. Fix a place v̄ ∈ S̄p and a standard parabolic Qv̄ ⊂ Pv̄ and suppose e m is a maximal ideal of e TQv̄ ,{v̄}−ord which extends S ∗ (m). Let K e⊂ e G(AF + ,f",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3576,7 +3515,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.13, pp.67–71",
-          "excerpt": "Proposition 4.2.13. Assume that p splits in an imaginary quadratic subfield of F . Let K ⊂ G(AF + ,f ) = GLn (AF,f ) be a good subgroup and fix distinct places v̄, v¯′ ∈ Sp . Let λ be a dominant weight for G. Let m ∈ Z≥1",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3622,7 +3560,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Sub-lemma 1, pp.70–71",
-          "excerpt": "Sub-lemma 1. Possibly after enlarging O, there is a continuous character ψ : GF → k × , unramified at Sp and with ρm(ψ) ] decomposed generic, such that (1) the isomorphism classes of the irreducible constituents of ρm(ψ) |GFṽ are disjoint from those of ρ∨,c m(ψ) (1 − 2n)|GFṽ ; (2) for all 1 ≤ i ≤ r the isomorphism",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -3664,7 +3601,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 4.2.15, pp.71–72",
-          "excerpt": "Theorem 4.2.15. Suppose that F is an imaginary CM field that contains an imagi- nary quadratic field. Let p be a prime which splits in an imaginary quadratic subfield of F . Let T be a finite set of finite places of F , which contains Sp and which is stable under complex conjugation, and such that the following",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -3708,7 +3644,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Corollary 4.2.16, p.72",
-          "excerpt": "Corollary 4.2.16. In the setting of Theorem 4.2.15, assume moreover that p ∤ n and we have a quotient map f : TQv̄ ,{v̄−ord} (RΓ(XK , Vλ )m )/J → A such that det(f∗ (ρm )) = ψ for a character ψ : GF,TP→ O× which is cryst",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3755,7 +3690,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.3, Theorem 4.3.1, p.73",
-          "excerpt": "Theorem 4.3.1. Suppose π is cuspidal automorphic representation of GLn (AF ), regular algebraic of weight λ, with F a totally real or CM field. Let v be a place of F dividing p and suppose π GLn (OFv ) and π GLn (OFvc )",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3801,7 +3735,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.1, Theorem 5.2, pp.73–74",
-          "excerpt": "Theorem 5.2. Let F be an imaginary CM field and let p be an odd prime. Sup- pose given a continuous representation ρ : GF → GL2 (Qp ) satisfying the following conditions: (1) ρ is unramified almost everywhere and det(ρ)",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3845,7 +3778,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.4, Proposition 5.4.2, pp.78–79",
-          "excerpt": "Proposition 5.4.2. Consider the automorphic subset of Spec R∞ : SuppR∞ (H ∗ (C∞ )) = Spec T∞ ⊂ Spec R∞ . (1) There exists an irreducible component Ca ⊂ Spec R∞ , containing the auto- morphic point x, with Ca ⊂ Spec T∞ .",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3889,7 +3821,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Corollary 5.4.3, p.79",
-          "excerpt": "Corollary 5.4.3. Let C be an irreducible component of Spec R∞ satisfying the assumption of Proposition 5.4.2(2) for some ‘automorphic’ component Ca . Let x be a point of C, and let y be the contraction of x in S∞ . Then",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -3933,7 +3864,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.5, pp.79–80",
-          "excerpt": "5.5. Hecke algebras and cohomology of locally symmetric spaces for PGL2 . We now go back to the constructions of §2.1.2, which we apply to G = G =QPGL2,F for an imaginary CM field F . We need to drop the assumption that",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4028,7 +3958,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 5.5.1, p.80",
-          "excerpt": "Lemma 5.5.1. There are natural Hecke equivariant quasi-isomorphisms A(K/K ′ , V) ∼ = C • (K/K ′ , V), where A(K/K ′ , V) are the complexes constructed in [AKT23, §5.1] dis using the singular chains of XG . Proof. We can",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4070,7 +3999,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.5.2, pp.80–81",
-          "excerpt": "Proposition 5.5.2. Suppose that p is odd, and that S satisfies the following con- ditions: (1) S is stable under complex conjugation (2) F contains an imaginary quadratic field. Let v ∈ / S be a finite place, with residu",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4114,7 +4042,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.5.3, p.81",
-          "excerpt": "Proposition 5.5.3. Let m be a maximal ideal of TG (C • (K, V)) with residue field k. We make the following assumptions: (1) V ⊗ k ∼= k (with trivial action of KS ). (2) p is odd and ρm is absolutely irreducible. (3) ζp ∈",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4160,7 +4087,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.6, pp.81–82",
-          "excerpt": "assume the following conditions are satisfied: 82 ANA CARAIANI AND JAMES NEWTON (5) If l is a prime lying below an element of S, or which is ramified in F , then F contains an imaginary quadratic field in which l splits.",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4258,7 +4184,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.6.1, p.82",
-          "excerpt": "Proposition 5.6.1. With notation and assumptions as in (1)–(15), suppose given a continuous representation ρ : GF → GL2 (Qp ) satisfying the following conditions: (1) We have ρ ∼= rπ,ι and det(ρ) = ǫ−1 . p (2) For each p",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4307,7 +4232,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.6, pp.83–84",
-          "excerpt": "deformation problems Q weQ will be working with. They will depend on a choice of character χ = v∈R χv : v∈R OF×v → O× which is trivial modulo ̟. For each χ, we have the global deformation problem with fixed determinant ǫ",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4395,7 +4319,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.6.2, pp.83–84",
-          "excerpt": "Proposition 5.6.2. There exists an integer N ≥ 1, depending only on [F : Q], S,QS̄ ,S̄p −ord an ideal J ⊂ TG p (C • (K, O(χ−1 ))m ) such that J N = 0, and a continuous surjective homomorphism S,QS̄p ,S̄p −ord fSχ : RSχ →",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4437,7 +4360,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.6.3, p.84",
-          "excerpt": "Proposition 5.6.3. There exists an integer N ≥ 1, depending only on [F : Q], an ideal J ⊂ Tχ,Q such that J N = 0, and a continuous surjective O[∆Q ]-algebra homomorphism fSχ,Q : RSχ,Q → Tχ,Q /J such that for each finite",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4479,7 +4401,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 5.6.4, pp.84–85",
-          "excerpt": "Lemma 5.6.4. Cχ,Q is a perfect complex of O[∆Q ]-modules, with a canonical isomorphism Cχ,Q ⊗LO[∆Q ] O ∼ = Cχ in D(O). Proof. This follows from the fact that we can identify Cχ,Q and Cχ with the duals of perfect complexe",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4518,7 +4439,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 5.6.5, pp.85–86",
-          "excerpt": "Lemma 5.6.5. Suppose that G is a finite group with a representatation ρ : G → × GL2 (Fp ) for an odd prime p. Suppose that the character det ρ : G → Fp has order d > 1, and for all g with det ρ(g) 6= 1 we have (5.6.1) (t",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4565,7 +4485,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "End of the proof of Theorem 5.2, pp.85–87",
-          "excerpt": "It suffices to prove that ρ ∼ = rι (Π) for a cuspidal automorphic representation Π of GL2 (AF ); then the fact that det(ρ) = ǫ−1 p implies that Π has trivial central character. Let L/F (ζp ) be the extension cut out by ρ|GF (ζp ) . If F ′ /F is any finite solvable extension, we denote the base change of π to F ′ by πF",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -4612,13 +4531,11 @@
         {
           "sourceId": "AKT22v2",
           "locator": "Proposition A.6, p.87; Lemma A.5 and Proposition A.4, p.86",
-          "excerpt": "Proposition A.6. Assume that K = K + K0 with K + totally real and K0 an imaginary CM field. Assume that ρ|GK(ζp ) is absolutely irreducible. If p = 5 and the projective image of ρ(GK(ζ5 ) ) is conjugate to PSL2 (F5 ), we assume further that the extension of K cut out by the projective image of ρ does not contain ζ5 .",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Proof of Proposition 5.6.1, p.85",
-          "excerpt": "Proposition A.6] (existence of Taylor–Wiles primes) as in the proof of [AKT23, Theorem A.7]. In particular, we make use of two options for the tuple o",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -4661,7 +4578,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.13, p.19",
-          "excerpt": "cocharacters XQv̄ := {ν ∈ X∗ (Z(MQv̄ )) : hν, δi ≥ 0 for all δ ∈ ∆ − I}. In fact, this is simply the subset of B ev̄ -dominant cocharacters in X∗ (Z(MQv̄ )). We then define a subset ∆ e v̄ ⊂ e Q v̄ + G(Fv̄ ) containing the parahoric subgroup Qv̄ ⊂ Pv̄ by a e v̄Qv̄ := ∆ Qv̄ ν(̟v̄ )Qv̄ . ν∈XQv̄ e v̄Pv̄ = ∆ We have ∆ e",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -4740,7 +4656,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.13, pp.19–20",
-          "excerpt": "We then define a subset ∆ e v̄ ⊂ e Q v̄ + G(Fv̄ ) containing the parahoric subgroup Qv̄ ⊂ Pv̄ by a e v̄Qv̄ := ∆ Qv̄ ν(̟v̄ )Qv̄ . ν∈XQv̄ e v̄Pv̄ = ∆ We have ∆ e v̄ . We set ∆v̄ Qv̄ ,+ := ∆ e v̄Qv̄ ∩ G + and ∆v̄Qv̄ := ∆Q v̄ v̄ ,+ −1 −1 [ιṽ (ũṽ,n )] (the submonoid of Fv̄ G(Fv̄+ ) generated by ∆Q v̄ v̄ ,+ and its",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -4833,13 +4748,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.13, p.20 (unitary character)",
-          "excerpt": "Fix v̄ ∈ S̄ and τ ∈ Hom(Fv̄+ , E). Let λ̃ ∈ Z2n + . We define a character Qv̄ e Qv̄ × α̃λ̃ : ∆v̄ → E by setting τ e G α̃λ̃Qv̄ (ν(̟v̄ )) = τ (̟v̄ )hν,w0 λ̃τ i τ and setting the character to be trivial on Qv̄ . e v̄Qv̄ ] on Lemma 2.1.17. Fix v̄ ∈ S̄ and τ ∈ Hom(Fv̄+ , E). Define an action of O[∆ Vλ̃τ by (2.1.7) g ·λ̃Qv̄",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.13, p.21 (Levi character)",
-          "excerpt": "character αQv̄ : ∆v̄Qv̄ → E × (not necessarily dominant) weight λ̃ of G. λ using the formula Y G αλQv̄ (ν(̟v̄ )) = τ (̟v̄ )hν,w0 λ̃τ i τ ∈Hom(Fv̄+ ,E) and a rescaled action of ∆Qv̄ on Vλ by g ·λ x = αλQv̄ (x)−1 g · x. Note that the rescaling means that ιṽ−1 (ũṽ,n ) ·λ x = x. Let T ⊇ Sp be a finite set of finite",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -4924,7 +4837,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.2, equation (2.2.1), p.26",
-          "excerpt": "2.2.2. The P -ordinary part of a smooth representation. In this section, we will de- fine various functors that will allow us to study P -ordinary Hida theory using com- pleted cohomology. These will be variants of the f",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -5003,7 +4915,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.2, p.26",
-          "excerpt": "We also define a functor ord : Modsm (∆+ S̄ , O/̟m ) → Modsm (∆S̄ , O/̟m ) that is the composition of the localisation functors ⊗O/̟m [ũṽ,n ] O/̟m [(ũṽ,n )±1 ] for all v̄ ∈ S̄. Note that ord is an exact functor because localisation is an exact functor, and it preserves injectives by the same argument as in [ACC+",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5081,7 +4992,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.1, p.34",
-          "excerpt": "Iw : Modsm (P(L), O/̟m ) → Modsm (P(L), O/̟m ) by sending π ∈ Modsm (P(L), O/̟m ) to Iw (π) = {f : Sw → π | f locally constant, of compact support modulo P(L), ∀p ∈ P(L), g ∈ Sw , f (pg) = pf (g)}, where again P(L) acts by right translation. Finally, for w ∈ P WP , we also define a functor Iw◦ : Modsm (P(L), O/̟m ) →",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5171,7 +5081,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.1, p.34; Lemma 2.3.6, pp.36–37",
-          "excerpt": "Finally, for w ∈ P WP , we also define a functor Iw◦ : Modsm (P(L), O/̟m ) → Modsm (M(L)+ ⋉ U 0 , O/̟m ) by defining Iw◦ (π) ⊂ Iw (π) to be the subset of functions with support in Sw ◦ . Proposition 2.3.3. G(L) G(L) (1) We have I≥0 = ResP(L) ◦ IndP(L) . (2) Each functor I≥i , Iw and Iw◦ is exact. (3) For each i ∈ Z≥0",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5258,7 +5167,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§3.1, after Definition 3.1.1, p.43",
-          "excerpt": "ordinary subspace of ι−1 πv̄Qv̄ to be the largest H(∆ e v̄Qv̄ , Qv̄ )-submodule on which the rescaled operators U evk have only p-adic unit eigenvalues for 1 ≤ k ≤ t. The goal of this section is to establish the following result, generalising [Ger19, Corollary 2.33], [Tho15, Theorem 2.4]. Theorem 3.1.2. Suppose that π",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5337,7 +5245,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.61",
-          "excerpt": "A(K, λ, q, m) := TwPS̄ (H q (XK , Vλ /̟m )m ) , and 0 wP A( e e e QS̄ 0 ,S̄−ord H d (X K, λ̃, S̄) := T e e , V )ord . K λ̃ e m Given a neat compact open subgroup K ⊂ GLn (AF,f ) and an integer m ∈ Z≥1 , define the subgroup K(m, S̄) ⊂ K by setting K(m, S̄)v := Kv ∩ {(1n ) mod ̟vm } ⊂ GLn (OFv ) if v is a p-adic place",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5417,7 +5324,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.61",
-          "excerpt": "A( e e e QS̄ 0 ,S̄−ord H d (X K, λ̃, S̄) := T e e , V )ord . K λ̃ e m Given a neat compact open subgroup K ⊂ GLn (AF,f ) and an integer m ∈ Z≥1 , define the subgroup K(m, S̄) ⊂ K by setting K(m, S̄)v := Kv ∩ {(1n ) mod ̟vm } ⊂ GLn (OFv ) if v is a p-adic place of F which lies above a place in S̄, and K(m, S̄)v := Kv",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5496,7 +5402,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.61",
-          "excerpt": "Given a neat compact open subgroup K ⊂ GLn (AF,f ) and an integer m ∈ Z≥1 , define the subgroup K(m, S̄) ⊂ K by setting K(m, S̄)v := Kv ∩ {(1n ) mod ̟vm } ⊂ GLn (OFv ) if v is a p-adic place of F which lies above a place in S̄, and K(m, S̄)v := Kv otherwise. Also, given a good subgroup K e ⊂ eG(AF + ,f ) and an",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5574,7 +5479,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.2.1, p.61",
-          "excerpt": "Also, given a good subgroup K e ⊂ eG(AF + ,f ) and an integer m ∈ Z≥1 , e e define the good subgroup K(m, S̄) ⊂ K by setting e e 1n ∗ m e K(m, S̄)v̄ := Kv̄ ∩ mod ̟ṽ ⊂ GL2n (OFṽ ) = G(O Fv̄+ ) 0 1n",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -5654,7 +5558,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.6, p.84",
-          "excerpt": "Now we define deformation problems ǫ−1 ,BT ǫ−1 ,χv ǫ−1 Sχ,Q = (ρ, ǫ−1 p , S∪Q, {Rv p }v∈Spcr ∪{Rv△ }v∈Spst ∪{Rvp }v∈R ∪{Rvp }v∈S∪Q−(Sp ∪R) ). For v ∈ Q, let ∆v = kv× (p), the maximal p-power quotient of kv× . As in [AKT23, p ǫ−1 §A.1.4], the local liftingQ ring Rv is equipped with the structure of an O[∆v ]- algebra. Setting ∆Q = v∈Q ∆v , we obtain an O[∆Q ]-algebra structure",
           "match": "Independently read the actual Taylor–Wiles datum and Δ_Q algebra structure on p.84, rather than the preceding tame deformation definition on p.83."
         }
       ],
@@ -5734,7 +5637,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.4, Assumption 5.4.1, pp.77–78",
-          "excerpt": "We assume given the following objects: (1) A power series ring S∞ = O[[X1 , · · · , Xr ]] with augmentation ideal a∞ = (X1 , . . . , Xr ). ′ (2) Perfect complexes C∞ , C∞ of S∞ -modules, and a fixed isomorphism C∞ ⊗L ∼ ′",
           "match": "Read this statement and its proof at this locator in the recorded version. The mathematical statement below expands the paper’s standing notation; corrections are enumerated under sourceIssues."
         }
       ],
@@ -5826,13 +5728,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proof of Proposition 5.6.1, pp.82–83",
-          "excerpt": "Proof. We define a compact open subgroup K = v Kv of PGL2 (O bF ) as follows: / S or v ∈ Spcr , then Kv = PGL2 (OFv ). • If v ∈ • If v ∈ R ∪ Spst , then Kv = Iwv . • If v ∈ S − (Sp ∪ R), then Kv = Iwv,1 is the pro-v Iwahori subgroup of PGL2 (OFv ). If S − (Sp ∪ R) non-empty, K is neat, by the same argument as [ACC+",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Unitary parabolic cases and residual Hecke ideal, p.83",
-          "excerpt": "of F , ṽ|v̄. We make this choice so that if at least one v|v̄ is in Spst , then ṽ is in Spst . Then for each v̄ ∈ S p we consider the following three cases: (cr-ord) ṽ ∈ Spst and ṽ c ∈ Spcr . Then ιṽ (Qv̄ ) is the standard parabolic given by the partition (2, 1, 1). (ord) ṽ ∈ Spst and ṽ c ∈ Spst . Then ιṽ (Qv̄",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6054,13 +5954,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.1.13, p.19",
-          "excerpt": "For integers c ≥ b ≥ 0, we define subgroups e Pv̄ (b, c) ⊂ G(OFv̄+ ) = GL2n (OFṽ ) which reduce to block upper-triangular matrices (with two n × n blocks) modulo ̟ṽc and to block unipotent matrices modulo ̟ṽb . We set",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.6, pp.36–37",
-          "excerpt": "Lemma 2.3.6. Let w0P be the longest element of P WP . Then: (1) Iw◦ P takes injectives to Γ(U0 , )-acyclics. 0 + (2) Let π ∈ Dsm (P(L), O/̟m ). Then there is a natural isomorphism ∼ ord RΓ(U0 , Iw◦ P (π)) → ord RΓ(U0 , I",
           "match": "The proof uses coefficient-injective smooth coinduction and locally constant functions on P(L)w₀^P U₀; this export is explicitly requested, not treated as the parent Borel acyclicity theorem."
         }
       ],
@@ -6085,13 +5983,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 2.2.15, p.31",
-          "excerpt": "Proposition 2.2.15. Given a dominant weight λ̃ for G S̄ λ̃ be defined as follows: • if v̄ ∈ S̄ and τ ∈ Hom(Fv̄+ , E), then λ̃S̄τ := (0, . . . , 0). • if v̄ ∈ S̄p \\ S̄ and τ ∈ Hom(Fv̄+ , E), then λ̃S̄τ := λ̃τ . Identify λ",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.6, pp.36–37",
-          "excerpt": "Lemma 2.3.6. Let w0P be the longest element of P WP . Then: (1) Iw◦ P takes injectives to Γ(U0 , )-acyclics. 0 + (2) Let π ∈ Dsm (P(L), O/̟m ). Then there is a natural isomorphism ∼ ord RΓ(U0 , Iw◦ P (π)) → ord RΓ(U0 , I",
           "match": "The proof uses coefficient-injective smooth coinduction and locally constant functions on P(L)w₀^P U₀; this export is explicitly requested, not treated as the parent Borel acyclicity theorem."
         }
       ],
@@ -6118,13 +6014,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Definition 2.2.3, pp.26–27",
-          "excerpt": "Definition 2.2.3. We have a functor of P -ordinary parts + e Dsm (∆S̄ , O/̟m ) → Dsm + (∆S̄ , O/̟m ), π 7→ RΓ(US̄0 , π)ord",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.17, p.42",
-          "excerpt": "Lemma 2.3.17. For any m ∈ Z≥1 , there exists M = M (m) ≥ m such that rkZp U0 M RΓ(U0 , O/̟m ) ≃ H i (U0 , O/̟m )[−i]. i=0 + as an object in Dsm (KM , O/̟m ). Moreover, each H i (U0 , O/̟m ) is non-zero and equipped with the trivial action of KM . Proof. By [Eme10b, Prop. 2.1.11], an injective smooth representation of",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6151,7 +6045,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.2.7, p.28",
-          "excerpt": "2.2.7. Independence of level. Recall that the finite free O-module Vλ̃ is equipped with an action of ∆e S̄ . We consider the completed cohomology at S̄ with coefficients m in Vλ̃ /̟ : π(K e S̄ , λ̃, m) := RΓ K e S̄",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6175,7 +6068,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.15, p.20; Remark 2.1.16",
-          "excerpt": "Lemma 2.1.15. (1) For ν ∈ XQv̄ , the element ν(̟v̄ ) is Qv̄ -positive; i.e. we have ν(̟v̄ ) (NQv̄ ∩ Qv̄ ) ν(̟v̄ )−1 ⊂ NQv̄ ∩ Qv̄ and ν(̟v̄ )−1 N Qv̄ ∩ Qv̄ ν(̟v̄ ) ⊂ N Qv̄ ∩ Qv̄ . e v̄Qv̄ is a monoid under multiplicatio",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6197,7 +6089,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 3.1.2, pp.43–44",
-          "excerpt": "Theorem 3.1.2. Suppose that π is a cuspidal automorphic representation of e G(AF + ), ∼ + ι is an isomorphism ι : Qp → C and v̄ is a p-adic place of F such that π is ι-Qv̄ - ordinary of weight λ̃. Then we have the follow",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6217,7 +6108,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 3.1.2, pp.43–44",
-          "excerpt": "Theorem 3.1.2. Suppose that π is a cuspidal automorphic representation of e G(AF + ), ∼ + ι is an isomorphism ι : Qp → C and v̄ is a p-adic place of F such that π is ι-Qv̄ - ordinary of weight λ̃. Then we have the follow",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6237,7 +6127,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 3.1.2, pp.43–44",
-          "excerpt": "Theorem 3.1.2. Suppose that π is a cuspidal automorphic representation of e G(AF + ), ∼ + ι is an isomorphism ι : Qp → C and v̄ is a p-adic place of F such that π is ι-Qv̄ - ordinary of weight λ̃. Then we have the follow",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6256,7 +6145,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 3.1.2, pp.43–44",
-          "excerpt": "Theorem 3.1.2. Suppose that π is a cuspidal automorphic representation of e G(AF + ), ∼ + ι is an isomorphism ι : Qp → C and v̄ is a p-adic place of F such that π is ι-Qv̄ - ordinary of weight λ̃. Then we have the follow",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6275,13 +6163,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Corollary 4.1.9, p.57",
-          "excerpt": "Corollary 4.1.9. Assume that K e ⊂ G(A e F + ,f ) is a good subgroup that is decom- e U,v̄ = Uv̄0 . posed with respect to P , and with the property that, for each v̄ ∈ S̄p , K T Let m ⊂ T be a non-Eisenstein maximal ideal and let m e e := S (m) ⊂ TT . ∗ Choose a partition S̄p = S̄1 ⊔ S̄2 ⊔ S̄3 of the set S̄p of primes",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.2.3, p.60",
-          "excerpt": "Lemma 4.2.3. Let S̄ ⊂ S̄p , let λ̃ and λ be dominant weights for G e and G respec- tively. Assume that the following condition is satisfied: (1) For each τ : F + ֒→ E inducing a place v̄ ∈ S̄, λ̃τ = (λτ̃ , −w0,n λτ̃ c ) (note that this is the w0P -conjugate of the standard identification). Let m ∈ Z≥1 be an integer.",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6301,13 +6187,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Theorem 2.1.24, p.23",
-          "excerpt": "Theorem 2.1.24. Let m ⊂ TT (K, λ) be a non-Eisenstein maximal ideal. There exist an integer N ≥ 1, which depends only on n and [F : Q], an ideal I ⊂ TT (K, λ) satisfying I N = 0, and a continuous homomorphism ρm : GF,T → GLn TT (K, λ)/I such that, for each finite place v 6∈ T of F , the characteristic polynomial of ρm",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.5.2, pp.80–81",
-          "excerpt": "Proposition 5.5.2. Suppose that p is odd, and that S satisfies the following con- ditions: (1) S is stable under complex conjugation (2) F contains an imaginary quadratic field. Let v ∈ / S be a finite place, with residue characteristic l. Then either S contains no l-adic places and l is unramified in F , or there",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6328,7 +6212,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§5.4, Proposition 5.4.2, pp.78–79",
-          "excerpt": "Proposition 5.4.2. Consider the automorphic subset of Spec R∞ : SuppR∞ (H ∗ (C∞ )) = Spec T∞ ⊂ Spec R∞ . (1) There exists an irreducible component Ca ⊂ Spec R∞ , containing the auto- morphic point x, with Ca ⊂ Spec T∞ .",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6348,7 +6231,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.6.1, p.82",
-          "excerpt": "Proposition 5.6.1. With notation and assumptions as in (1)–(15), suppose given a continuous representation ρ : GF → GL2 (Qp ) satisfying the following conditions: (1) We have ρ ∼= rπ,ι and det(ρ) = ǫ−1 . p (2) For each p",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6368,7 +6250,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Sub-lemma 1, pp.70–71",
-          "excerpt": "Sub-lemma 1. Possibly after enlarging O, there is a continuous character ψ : GF → k × , unramified at Sp and with ρm(ψ) ] decomposed generic, such that (1) the isomorphism classes of the irreducible constituents of ρm(ψ) |GFṽ are disjoint from those of ρ∨,c m(ψ) (1 − 2n)|GFṽ ; (2) for all 1 ≤ i ≤ r the isomorphism",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6386,7 +6267,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.3, Theorem 4.3.1, p.73",
-          "excerpt": "Theorem 4.3.1. Suppose π is cuspidal automorphic representation of GLn (AF ), regular algebraic of weight λ, with F a totally real or CM field. Let v be a place of F dividing p and suppose π GLn (OFv ) and π GLn (OFvc )",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6406,7 +6286,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§4.3, Theorem 4.3.1, p.73",
-          "excerpt": "Theorem 4.3.1. Suppose π is cuspidal automorphic representation of GLn (AF ), regular algebraic of weight λ, with F a totally real or CM field. Let v be a place of F dividing p and suppose π GLn (OFv ) and π GLn (OFvc )",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6425,7 +6304,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.1, Lemma 2.3.2, p.33",
-          "excerpt": "Lemma 2.3.2. We have a set-theoretic decomposition a G(L) = P(L)wP(L). w∈P WP The closure relations (for the p-adic topology) are given by the Bruhat ordering a P(L)wP(L) = P(L)w′ P(L). w ′ ≤w∈P WP Moreover, if Ω ⊂ P WP",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6443,7 +6321,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.12, pp.17–18",
-          "excerpt": "Lemma 2.1.12. The natural Pn,n (O)-equivariant morphism Vλ̃τ → Vλτ̃ ⊗ V−w0,n λτ̃ c 18 ANA CARAIANI AND JAMES NEWTON given by evaluation of functions at the identity is surjective. Proof. By transitivity of parabolic indu",
           "match": "This consuming statement/proof uses the missing input specified in need. The supplier claim is a request, not a claim of an already available theorem."
         }
       ],
@@ -6466,7 +6343,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.16, pp.41–42; Lemma 2.3.17 on p.42",
-          "excerpt": "Lemma 2.3.17. For any m ∈ Z≥1 , there exists M = M (m) ≥ m such that rkZp U0 M RΓ(U0 , O/̟m ) ≃ H i (U0 , O/̟m )[−i]. i=0 + as an object in Dsm (KM , O/̟m ). Moreover, each H i (U0 , O/̟m ) is non-zero and equipped with the trivial action of KM . Proof. By [Eme10b, Prop. 2.1.11], an injective smooth representation of",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6484,7 +6360,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§2.3.16, pp.41–42; Lemma 2.3.17 on p.42",
-          "excerpt": "Lemma 2.3.17. For any m ∈ Z≥1 , there exists M = M (m) ≥ m such that rkZp U0 M RΓ(U0 , O/̟m ) ≃ H i (U0 , O/̟m )[−i]. i=0 + as an object in Dsm (KM , O/̟m ). Moreover, each H i (U0 , O/̟m ) is non-zero and equipped with the trivial action of KM . Proof. By [Eme10b, Prop. 2.1.11], an injective smooth representation of",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6502,13 +6377,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 5.5.3, p.81",
-          "excerpt": "Proposition 5.5.3. Let m be a maximal ideal of TG (C • (K, V)) with residue field k. We make the following assumptions: (1) V ⊗ k ∼= k (with trivial action of KS ). (2) p is odd and ρm is absolutely irreducible. (3) ζp ∈ F . Then the cohomology groups H i (C • (K, V))m vanish for i > dimR X G . In particular, C • (K,",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "AKT22v2",
           "locator": "Theorem 5.11, p.46; proof completed on pp.47–48",
-          "excerpt": "Theorem 5.11. Let U ∈ J S and let R = O or O/̟c for some c ≥ 1. Let M be an R[US ]-module, finite free as R-module, such that M ⊗R k = k. Let m ⊂ TS (A(U, M )) be a maximal ideal of residue field k. Suppose that the following conditions are satisfied: 46",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6530,7 +6403,6 @@
         {
           "sourceId": "AKT22v2",
           "locator": "Theorem 5.10(2–3), p.45",
-          "excerpt": "Theorem 5.10. Fix an isomorphism ι : Qp → C. Let U ∈ JPGLn and let λ ∈ (Zn+,0 )Hom(K,E) . 1. Let π be a regular algebraic cuspical automorphic representation of PGLn (AK ) of weight ιλ such that (ι−1 π)U 6= 0. The homomorphism TS → Qp assoc",
           "match": "Read the PGL_n rational cohomological range and cuspidal character realization. For n=2 this gives q₀=l₀=[F⁺:Q]."
         }
       ],
@@ -6555,13 +6427,11 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 4.1.7, p.56",
-          "excerpt": "Lemma 4.1.7. With the notation as in the proof of Theorem 4.1.3, there exists a natural isomorphism P T \\S̄2 ∼ Inf G T \\S̄2 RΓ K T \\S̄2 , RΓ XG , V U (λ̃S̄1 , m) → RΓ KP,T \\S̄2 , RΓ(XP , Vλ̃ /̟m ) + in Dsm (P T \\S̄2 , O/̟m ). Proof. By Lemma 2.1.9, we have isomorphisms ∼ RΓ XG , VU (λ̃S̄1 , m) → RΓ(XG , O/̟m ) ⊗LO/̟m",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         },
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.3.6, pp.36–37",
-          "excerpt": "Lemma 2.3.6. Let w0P be the longest element of P WP . Then: (1) Iw◦ P takes injectives to Γ(U0 , )-acyclics. 0 + (2) Let π ∈ Dsm (P(L), O/̟m ). Then there is a natural isomorphism ∼ ord RΓ(U0 , Iw◦ P (π)) → ord RΓ(U0 , Iw0P (π)). 0 Proof. Since w0P is the longest element in P WP , it normalises M(L) and therefore ◦ P",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6579,7 +6449,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Lemma 2.1.21 and its proof, pp.22–23",
-          "excerpt": "Lemma 2.1.21. Let m ⊂ TT (K, λ) be a maximal ideal as in Theorem 2.1.20. Suppose k = k(m). Let v be a p-adic place of F . The Hecke operator Uv has a unique n(n−1) eigenvalue on H ∗ (XK , Vλ /̟)m , equal to ǭp 2 (ArtFv (̟v )) · det ρ̄m (ArtFv (̟v )). Proof. Our proof of this will be global, computing the action of Uv",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6597,7 +6466,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "§3.1, p.43",
-          "excerpt": "ordinary subspace of ι−1 πv̄Qv̄ to be the largest H(∆ e v̄Qv̄ , Qv̄ )-submodule on which the rescaled operators U evk have only p-adic unit eigenvalues for 1 ≤ k ≤ t. The goal of this section is to establish the following result, generalising [Ger19, Corollary 2.33], [Tho15, Theorem 2.4]. Theorem 3.1.2. Suppose that π",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6615,7 +6483,6 @@
         {
           "sourceId": "CN25v3",
           "locator": "Proposition 4.2.13 proof, pp.69–71",
-          "excerpt": "Sub-lemma 1. Possibly after enlarging O, there is a continuous character ψ : GF → k × , unramified at Sp and with ρm(ψ) ] decomposed generic, such that (1) the isomorphism classes of the irreducible constituents of ρm(ψ) |GFṽ are disjoint from those of ρ∨,c m(ψ) (1 − 2n)|GFṽ ; (2) for all 1 ≤ i ≤ r the isomorphism",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],
@@ -6633,7 +6500,6 @@
         {
           "sourceId": "AKT22v2",
           "locator": "Propositions A.4, A.6 and Lemma A.5, pp.86–87",
-          "excerpt": "Proposition A.4. 1. There is a surjective map ATS JX1 , . . . , Xg K → RST of ATS -algebras, where g = h1S,T (ad0 ρ). If Rv is a formally smooth Λv -algebra for each v ∈ S − T , then the kernel of this map can be generated by r elements, where r = h1S ⊥ ,T (ad0 ρ(1)). 2. If v ∈ S, let ℓv = dimk Lv . Let δT = 1 if T is",
           "match": "Independently read the statement and proof in the recorded public version at these pages. The excerpt is from this passage, not an introduction reference; expanded notation and source corrections are specified in the node and sourceIssues."
         }
       ],

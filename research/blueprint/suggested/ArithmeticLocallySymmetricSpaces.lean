@@ -2359,16 +2359,14 @@ ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action; SmoothRepresentatio
 ### ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est — Nomizu–van Est: cohomology of unipotent arithmetic groups is Lie algebra cohomology
 
 Mathematical specification:
-Let N be a unipotent group over ℚ (the unipotent radical of a rational parabolic), 𝔫 = Lie N, Γ_N ⊂
-N(ℚ) an arithmetic subgroup (a lattice in N(ℝ)) and V a finite-dimensional rational representation
-of N over a field E of characteristic 0. Then the inclusion of N(ℝ)-invariant forms gives natural
-isomorphisms H^*(𝔫, V) ≅ H^*(Γ_N\N(ℝ), V) ≅ H^*(Γ_N, V), the Lie algebra cohomology carries its
-algebraic M-action, while the fixed nilmanifold comparison is equivariant for the normalizer of Γ_N
-in M(ℚ). Other Levi/commensurator elements require transported lattices and the corresponding
-pullback/trace maps; a fixed arithmetic lattice need not be preserved by all of M. This is a
-characteristic-zero statement: for integral or mod-p coefficients H^*(Γ_N, V) is not given by
-𝔫-cohomology in general, and integral boundary statements must not assume it
-(ALS.4/boundary-stratum-cohomology-formula keeps the two regimes separate).
+Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arithmetic lattice, E a number field,
+and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to
+E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\N(ℝ). After an
+embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its
+coefficient action. If N is the radical of P=M⋉N and V extends to an algebraic P_E-representation,
+its Lie cohomology carries the algebraic M_E-action. The fixed nilmanifold comparison is equivariant
+for the normalizer of Γ_N in M(ℚ); other commensurator elements require transported lattices and
+their pullback/trace maps. No integral or mod-p Nomizu–Kostant comparison is asserted.
 
 OMITTED theorem signature: LocallySymmetric.nomizu_van_est.
 
@@ -2387,20 +2385,20 @@ AutomorphicFormsOnReductiveGroups:AF.1a; mathlib:groupCohomology
 ### ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula — Cohomology of a boundary stratum via van Est and Kostant
 
 Mathematical specification:
-Let G be connected reductive over F, P=M⋉N proper, K good neat, E characteristic 0 containing all
-coefficient embeddings and splitting the chosen restriction-of-scalars root datum, with a
-highest-weight Borel contained in P, and V_λ algebraic. For each transported decomposed level L_g
-from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives
+Let G be connected reductive over F, P=M⋉N proper, K good neat, E a number field that splits
+𝐆=Res_{F/ℚ}G and contains all embeddings of F, and V_λ the irreducible algebraic 𝐆_E-representation
+of dominant integral highest weight λ for a fixed split Borel and torus. For each transported
+decomposed level L_g from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives
 E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant
 identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general
-reductive G and does not assert degeneration. For G=Res_{F/ℚ}GL_N with F totally real,
-Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the natural
-cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the
-transported-component and real-component invariants of that source. Over all levels this is its
-algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial
-components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion to normalized
-induction multiplies by the explicit modulus half-character. Beyond that totally real GL_N setting,
-a direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality
+reductive G and does not assert degeneration. For 𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois
+containing F, Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the
+natural cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}),
+with the transported-component and real-component invariants of that source. Over all levels this is
+its algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible
+hyperspecial components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion
+to normalized induction multiplies by the explicit modulus half-character. A general reductive
+direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality
 theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No
 integral Kostant decomposition is asserted.
 
@@ -3295,4 +3293,14 @@ The boundary formula needs the AF.1a parabolic Kostant theorem with actual
 Levi representations. The existing complex-relative cochain node over C does
 not state these exact outputs; the AF.1a request and gap retain them.
 No integral or mod-p Kostant comparison is inferred.
+-/
+
+/-
+Scoped RT /6 source alignment: Harder–Raghuram arXiv:1405.6513v2 §4.2.1, pp.25–26
+contains the rational unipotent comparison, equation (4.2), and Proposition 4.3;
+§4.2.3 (4.5), p.27 is Kostant. E is a splitting number field and lambda a dominant
+integral highest weight. The algebraic Levi action requires the coefficient to extend
+to P; other commensurator elements compare transported lattices. The arithmetic
+lattice comparison stays in ALS.4, with the absolute complex and split Kostant
+module theorem requested from AF.1a.
 -/

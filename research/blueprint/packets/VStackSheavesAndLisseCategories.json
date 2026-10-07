@@ -391,7 +391,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition IV.1.1; Remarks IV.1.2–IV.1.6, pp.107–109; Example IV.1.9(iv), p.110",
-          "excerpt": "Definition IV.1.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -499,7 +498,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Convention IV.1.12; Definitions IV.1.13–IV.1.15, pp.110–111",
-          "excerpt": "Convention IV.1.12",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -597,7 +595,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.5, construction after Lemma IV.5.1, pp.151–153",
-          "excerpt": "IV.5",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -709,7 +706,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IV.5.3, pp.153–155",
-          "excerpt": "Theorem IV.5.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -753,7 +749,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Remark IV.1.10, p.110",
-          "excerpt": "is not cohomologically smooth (unless G is finite)",
           "match": "The remark identifies the exceptional pullback as distributions, rather than an invertible constant sheaf."
         }
       ],
@@ -799,7 +794,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.1.11–IV.1.16, pp.110–112, including Remark IV.1.16",
-          "excerpt": "Definition IV.1.13.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -904,7 +898,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IV.1.8; Definition IV.1.11, pp.109–110",
-          "excerpt": "Proposition IV.1.8.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -950,7 +943,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IV.6.5; Propositions IV.6.6–IV.6.9, pp.156–162",
-          "excerpt": "Theorem IV.6.5.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -994,7 +986,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.7, construction before Proposition IV.7.1, p.164",
-          "excerpt": "IV.7",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1090,7 +1081,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IV.7.3, pp.165–166",
-          "excerpt": "Proposition IV.7.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1136,7 +1126,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IV.7.1; Corollary IV.7.2, pp.164–165",
-          "excerpt": "Proposition IV.7.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1181,7 +1170,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition IV.3.1, p.130",
-          "excerpt": "Definition IV.3.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1280,7 +1268,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Observations following Definition IV.3.1; Propositions IV.3.2–IV.3.5; Corollary IV.3.6, pp.130–133",
-          "excerpt": "Proposition IV.3.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1323,7 +1310,6 @@
         {
           "sourceId": "SW20",
           "locator": "SW20 Lemma 16.3.2, pp.144–145; FS Lemma IV.7.3, pp.165–166",
-          "excerpt": "Lemma 16.3.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1364,7 +1350,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions IV.6.12–IV.6.14, pp.163–164",
-          "excerpt": "Proposition IV.6.12.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1407,7 +1392,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Hypothesis IV.6.1; Proposition IV.6.2; Definition IV.6.11, pp.155–156,162",
-          "excerpt": "Hypothesis IV.6.1",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1519,7 +1503,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IV.4.2; proof IV.4.22–IV.4.30, pp.134–151",
-          "excerpt": "Theorem IV.4.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1565,7 +1548,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.2.3.3, pp.123–125",
-          "excerpt": "IV.2.3.3",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1665,7 +1647,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.7 before Proposition IV.7.3, p.165",
-          "excerpt": "v-locally constant with perfect fibres",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1771,7 +1752,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Lemmas IV.2.16–IV.2.18; Proposition IV.2.19; Remark IV.2.21, pp.119–123",
-          "excerpt": "Proposition IV.2.19.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1820,7 +1800,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.4 preamble; Definition IV.4.1; Theorem IV.4.2; Remark IV.4.6; Example IV.4.7, pp.134–136",
-          "excerpt": "Definition IV.4.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -1927,7 +1906,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IV.2.34, p.130",
-          "excerpt": "is ℓ-cohomologically smooth for all ℓ",
           "match": "The proof separately establishes ULA and invertibility over the integral formal base."
         }
       ],
@@ -1971,7 +1949,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions IV.2.32–IV.2.33, pp.129–130",
-          "excerpt": "Proposition IV.2.32.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2013,7 +1990,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IV.2.30 and footnote 2, p.128",
-          "excerpt": "Proposition IV.2.30.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2059,7 +2035,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition IV.2.1; Remarks IV.2.2–IV.2.3, pp.114–116",
-          "excerpt": "Definition IV.2.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2166,7 +2141,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions IV.2.4–IV.2.6, IV.2.11–IV.2.13, pp.116–119",
-          "excerpt": "Proposition IV.2.4.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2210,7 +2184,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IV.2.23; Proposition IV.2.24; Corollary IV.2.25, pp.124–126",
-          "excerpt": "Theorem IV.2.23.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2254,7 +2227,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition IV.2.31, p.129",
-          "excerpt": "Definition IV.2.31.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2352,7 +2324,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IV.2.24; Corollary IV.2.25; Proposition IV.2.26; Corollary IV.2.27; Proposition IV.2.28; Corollary IV.2.29, pp.125–128",
-          "excerpt": "Proposition IV.2.24.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2394,7 +2365,6 @@
         {
           "sourceId": "PQ26",
           "locator": "Appendix A, affine construction; Lemma A.8, pp.88,90–91 (corrected by inherited E10)",
-          "excerpt": "Lemma A.8.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2494,7 +2464,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Theorems 4.5,4.10; Proposition 4.17; Appendix IV, pp.25,29–32",
-          "excerpt": "Proposition 4.17.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2536,7 +2505,6 @@
         {
           "sourceId": "PQ26",
           "locator": "Appendix A, Lemma A.8, pp.90–91",
-          "excerpt": "Lemma A.8.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2581,7 +2549,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.5, Propositions VII.5.2–VII.5.3; Corollary VII.5.4, pp.264–268",
-          "excerpt": "VII.5",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2624,7 +2591,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Theorems 3.2–3.3, pp.20–23",
-          "excerpt": "Theorem 3.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2665,7 +2631,6 @@
         {
           "sourceId": "PQ26",
           "locator": "Appendix A, Lemmas A.1–A.2,A.5–A.7, pp.88–90",
-          "excerpt": "Lemma A.7.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2706,7 +2671,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Theorem 4.3; Corollary 4.8; Proposition 5.7 proof, pp.24–28,35",
-          "excerpt": "Theorem 4.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2751,7 +2715,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Example VII.5.1(a)–(b), pp.264–265",
-          "excerpt": "Example VII.5.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2792,7 +2755,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Theorem 6.2; Proposition 6.3; Examples 6.4, pp.43–44",
-          "excerpt": "Theorem 6.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2895,7 +2857,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Lecture VII, Definition 7.1 footnote 14; Mathlib Condensed/Solid TODO, pp.45–47",
-          "excerpt": "Definition 7.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -2990,7 +2951,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "§2.2.1, pp.18–20, solid E-vector spaces",
-          "excerpt": "2.2.1. Solid E-vector spaces.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3089,7 +3049,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Remark 2.4.1; Examples 2.4.2–2.4.3, p.31",
-          "excerpt": "Example 2.4.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3133,7 +3092,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions VII.3.2–VII.3.5, pp.258–261",
-          "excerpt": "Proposition VII.3.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3176,7 +3134,6 @@
         {
           "sourceId": "PQ26",
           "locator": "Appendix A, definitions preceding Lemmas A.3–A.4, pp.89–90",
-          "excerpt": "Lemma A.4.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3273,7 +3230,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.3.1, pp.257–258",
-          "excerpt": "Proposition VII.3.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3384,7 +3340,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Theorem 5.8(i); proof in Lecture VI, pp.35–41",
-          "excerpt": "Theorem 5.8.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3498,7 +3453,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions VII.2.1–VII.2.4; Warning VII.2.5, pp.252–254",
-          "excerpt": "Warning VII.2.5.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3600,7 +3554,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Corollary 5.5; Propositions 5.6–5.7, pp.34–35",
-          "excerpt": "Corollary 5.5.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3643,7 +3596,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.2.6; Corollaries VII.2.7–VII.2.8, pp.255–256",
-          "excerpt": "Proposition VII.2.6.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3684,7 +3636,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VII.2.9, p.256",
-          "excerpt": "Definition VII.2.9.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3788,7 +3739,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem VII.2.10, pp.256–257",
-          "excerpt": "Theorem VII.2.10.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3832,7 +3782,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem VII.1.3; Proposition VII.1.6; Propositions VII.1.12–VII.1.15, pp.245–252",
-          "excerpt": "Theorem VII.1.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3875,7 +3824,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definitions VII.1.1,VII.1.9–VII.1.10,VII.1.17; Remark VII.1.18, pp.245,249–252",
-          "excerpt": "Remark VII.1.18.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -3980,7 +3928,6 @@
         {
           "sourceId": "Scholze-condensed",
           "locator": "Theorem 5.8; Lemmas 5.9–5.10; Theorem 6.2, pp.35–38,43",
-          "excerpt": "Theorem 5.8.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4092,7 +4039,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.4.1; Propositions VII.4.1–VII.4.3, pp.261–264",
-          "excerpt": "VII.4.1",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4137,7 +4083,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Remark 2.4.1, pp.30–31",
-          "excerpt": "Remark 2.4.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4232,7 +4177,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.6.3 and subsequent constructions, p.269",
-          "excerpt": "Proposition VII.6.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4334,7 +4278,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VII.6.1; Proposition VII.6.2, pp.268–269",
-          "excerpt": "Definition VII.6.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4438,7 +4381,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.6 coefficient convention; VII.3.1(v), pp.258,268",
-          "excerpt": "Definition VII.6.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4482,7 +4424,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Propositions VII.6.4–VII.6.6, pp.269–270",
-          "excerpt": "Proposition VII.6.4.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4526,7 +4467,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.6.7, pp.270–271",
-          "excerpt": "Proposition VII.6.7.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4574,7 +4514,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem V.1.1; Lemmas V.1.2–V.1.3; Corollary V.1.4, pp.168–171",
-          "excerpt": "Theorem V.1.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4625,7 +4564,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem V.4.1; Proposition VII.7.4; Lemma VII.7.5, pp.177–179,273–274",
-          "excerpt": "Theorem V.4.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4675,7 +4613,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition V.2.1; Proposition VII.7.1 proof, pp.171–172,271",
-          "excerpt": "Proposition V.2.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4722,7 +4659,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary V.2.3; Proposition VII.7.3, pp.172,273",
-          "excerpt": "Corollary V.2.3",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4767,7 +4703,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.2, pp.272–273",
-          "excerpt": "Proposition VII.7.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4876,7 +4811,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition V.2.2; Proposition VII.7.1, pp.172,271–272",
-          "excerpt": "Proposition V.2.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4923,7 +4857,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition V.4.2; Remarks V.4.3,V.4.5; Corollary V.4.4, pp.178–180",
-          "excerpt": "Proposition V.4.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4969,7 +4902,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem V.5.1, pp.180–181",
-          "excerpt": "Theorem V.5.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5074,7 +5006,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "V.7 and VII.7 proofs on compact generators; VII.3.1(v); IX.2.2, pp.258,274–276,321–323",
-          "excerpt": "Proposition VII.7.10.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5118,7 +5049,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.6, pp.274–275",
-          "excerpt": "Proposition VII.7.6.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5223,7 +5153,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.10, p.276",
-          "excerpt": "Proposition VII.7.10.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5264,7 +5193,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VII.7.8, p.275",
-          "excerpt": "Definition VII.7.8.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5365,7 +5293,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.9, pp.275–276",
-          "excerpt": "Proposition VII.7.9.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5407,7 +5334,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.7, p.275; Proposition V.6.1 proof",
-          "excerpt": "Proposition VII.7.7.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5449,7 +5375,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "V.5 preceding Theorem V.5.1; footnote 3 and proof, pp.180–181",
-          "excerpt": "Theorem V.5.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5546,7 +5471,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition V.7.2; Remark V.7.3, pp.183–185",
-          "excerpt": "Proposition V.7.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5589,7 +5513,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem V.7.1, pp.183–186",
-          "excerpt": "Theorem V.7.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -5635,7 +5558,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorems V.6.1–V.6.2; Lemma V.6.3, pp.182–183",
-          "excerpt": "Lemma V.6.3.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],

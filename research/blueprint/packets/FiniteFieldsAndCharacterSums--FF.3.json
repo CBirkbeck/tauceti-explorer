@@ -159,7 +159,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "squarefree polynomials",
           "match": "The degree-pair census is refined by exact degree and monic normalization; the carrier reuses the parent census."
         }
       ],
@@ -268,7 +267,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "written uniquely",
           "match": "The source asserts squarefree times a monic square. The proof normalizes both factors for monic inputs using existing UFD results; no new generic decomposition is planned."
         }
       ],
@@ -309,7 +307,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "monic polynomial",
           "match": "The exact-degree decomposition supplies the coefficient recurrence behind the degree-pair recurrence on p. 8."
         }
       ],
@@ -398,7 +395,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "simple induction",
           "match": "The source degree-pair induction is resolved into its monic exact-degree convolution, valid in every characteristic."
         }
       ],
@@ -438,7 +434,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "simple induction",
           "match": "The finite recurrence proves the monic constituent of the source degree-pair count without an odd-characteristic assumption."
         }
       ],
@@ -479,7 +474,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "single variable",
           "match": "This is exactly the source P_g; both degrees and every nonzero leading coefficient must be retained."
         }
       ],
@@ -580,7 +574,6 @@
         {
           "sourceId": "BFP24",
           "locator": "§5, arXiv v2, printed p. 8",
-          "excerpt": "simple induction",
           "match": "The normalized finite-set argument proves the displayed count, separating its exceptional g=0 case."
         }
       ],
@@ -620,7 +613,6 @@
         {
           "sourceId": "BKK23",
           "locator": "Lemma 3.2 proof, arXiv v3, printed p. 20",
-          "excerpt": "and the number of",
           "match": "The positive-degree fiber count is the printed statement; the zero-degree correction is already recorded in parent source issue E734 and paper issue E6."
         }
       ],

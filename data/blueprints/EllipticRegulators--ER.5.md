@@ -486,7 +486,7 @@ coverage. The two new planets are **The CM Gauss coefficient** and
 
 Read Bloch, *Higher Regulators, Algebraic K-Theory, and Zeta Functions of
 Elliptic Curves*, CRM Monograph Series 11 (2000), Lecture 11 §§11.1–11.2,
-printed pp.87–93, through the [public digitization](https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html)
+printed pp.87–93, in [the book](https://bookstore.ams.org/crmm-11)
 on 2026-10-06. Its text loses overlines. No page-image or private-scan
 verification is claimed. The source hash and version scope are recorded in
 the packet. E7/E8/E9 are confirmed findings of REV-EllipticRegulators and

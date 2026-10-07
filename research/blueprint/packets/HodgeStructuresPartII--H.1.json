@@ -159,7 +159,7 @@
       "accessed": "2026-10-07",
       "readSections": [
         "§4, pp.18–19: Proposition 4.1 construction, scaling and nonzero trivialization",
-        "§9, pp.36–39: complete Theorem 9.1 argument and Corollary 9.2; Conjecture 9.3 is distinguished from the theorem"
+        "§9, pp.36–39: complete Theorem 9.1 argument and Corollary 9.2; p.40: Conjecture 9.3 distinguished from the fixed-X theorem"
       ]
     },
     {
@@ -221,8 +221,7 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.11–12, representation scheme and Proposition 6.1",
-          "excerpt": "irreducible",
-          "match": "This is the stable complex-point object, before taking the coarse algebraic quotient."
+          "match": "Restrict the source representation construction to irreducibles; native Representation.IsIrreducible supplies the invariant-subspace condition."
         }
       ],
       "acceptance": [
@@ -309,7 +308,8 @@
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.1/betti-stable-representation",
-        "mathlib:Representation.Equiv"
+        "mathlib:Representation.Equiv",
+        "mathlib:Representation.IsIrreducible.finrank_eq_one_of_isMulCommutative"
       ],
       "proofSteps": [
         "Reflexivity, symmetry and transitivity are supplied by native Representation.Equiv.refl, symm and trans.",
@@ -319,7 +319,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, Proposition 6.1, pp.11–12",
-          "excerpt": "closed points",
           "match": "Restrict Jordan classes to irreducible representations, where they are ordinary isomorphism classes."
         }
       ],
@@ -424,7 +423,6 @@
         {
           "sourceId": "S94I",
           "locator": "§3, scalar endomorphism argument, p.90; §4, Theorem 4.7(4), p.104",
-          "excerpt": "scalars",
           "match": "The source explains scalar endomorphisms and the base-line ambiguity; determinant rigidification additionally uses the native scalar determinant formula."
         }
       ],
@@ -468,13 +466,11 @@
         {
           "sourceId": "EG20",
           "locator": "Introduction, p.103, and §2.1, pp.108–109",
-          "excerpt": "torsion determinant",
           "match": "The determinant is a rank-one flat connection on the de Rham side and (L,0) on the Higgs side."
         },
         {
           "sourceId": "S92",
           "locator": "§1, rank-one example, p.21",
-          "excerpt": "unitary representations",
           "match": "Zero Higgs fields correspond to unitary characters; finite-order characters are unitary."
         }
       ],
@@ -497,7 +493,7 @@
       "title": "Stability for invariant coherent subsheaves",
       "kind": "definition",
       "declarationName": "TauCeti.NonabelianHodge.IsStableParameterConnection",
-      "statement": "For a torsion-free coherent integrable λ-connection E on X, test only nonzero proper coherent subsheaves F preserved by the operator. Gieseker semistability means P_F/rk(F)≤P_E/rk(E) for all sufficiently large integers; stability uses strict inequality. Slope semistability/stability replaces reduced Hilbert polynomials by μ_H(F)=c₁(F)·H^(d−1)/rk(F). Polystability is a direct sum of slope-stable bundles of the same slope. Stability is a predicate on the operator object, not on its underlying coherent sheaf alone.",
+      "statement": "For a torsion-free coherent integrable λ-connection E on X, test coherent subsheaves F preserved by the operator with 0<rk(F)<rk(E). Equal-rank proper subsheaves are excluded from both tests; saturation gives the equivalent saturated-subsheaf criterion. Gieseker semistability means P_F/rk(F)≤P_E/rk(E) for all sufficiently large integers; stability uses strict inequality. Slope semistability/stability replaces reduced Hilbert polynomials by μ_H(F)=c₁(F)·H^(d−1)/rk(F). Polystability is a direct sum of slope-stable bundles of the same slope. Stability is a predicate on the operator object, not on its underlying coherent sheaf alone.",
       "hypotheses": [
         "X is a smooth connected projective complex variety, x is a base point, H is a fixed ample polarization and r is a positive integer, unless the statement explicitly works for a general group or rank zero.",
         "δ:π₁(Xᵃⁿ,x)→ℂ× has finite order; (L,∇L) is its algebraic flat line and the Dolbeault determinant is (L,0)."
@@ -506,7 +502,8 @@
         "HodgeStructuresPartII:H.0/intrinsic-preconnection",
         "HodgeStructuresPartII:H.0/intrinsic-curvature",
         "AlgebraicModuliForArithmeticGeometry:R09.1",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "HodgeStructuresPartII:H.0"
       ],
       "proofSteps": [
         "Use the generic Hilbert polynomial and degree of coherent sheaves. Define operator-invariant subsheaves through the induced map into the quotient tensored with Ω¹.",
@@ -516,18 +513,17 @@
         {
           "sourceId": "S94I",
           "locator": "§3, pp.88–89, definitions of p- and μ-stability",
-          "excerpt": "p-semistable",
           "match": "The invariant-submodule condition is applied to integrable parameter connections."
         },
         {
           "sourceId": "S92",
-          "locator": "§1, pp.13–14",
-          "excerpt": "polystable",
+          "locator": "§1, pp.18–19, slope stability and polystability",
           "match": "Slope-polystability is the metric existence hypothesis."
         }
       ],
       "acceptance": [
-        "Compare p- and μ-stability only after the vanishing-Chern-class theorem below."
+        "Compare p- and μ-stability only after the vanishing-Chern-class theorem below.",
+        "The rank restriction is explicit for both p- and μ-stability; point examples use the invariant-subspace criterion."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -543,7 +539,7 @@
         {
           "name": "TauCeti.NonabelianHodge.IsStableParameterConnection.iso_iff",
           "role": "compatibility",
-          "statement": "Stability and semistability are invariant under operator-compatible vector-bundle isomorphism."
+          "statement": "Stability and semistability are invariant under operator-compatible coherent-sheaf isomorphism."
         },
         {
           "name": "TauCeti.NonabelianHodge.IsStableParameterConnection.scale_unit_iff",
@@ -576,6 +572,11 @@
           "name": "TauCeti.NonabelianHodge.IsStableParameterConnection.trivial_rankTwo_excluded",
           "kind": "non-example",
           "statement": "(O⊕O,0) is semistable but not stable; either summand is an invariant subsheaf of equal slope and polynomial."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.IsStableParameterConnection.equal_rank_ignored",
+          "kind": "non-example",
+          "statement": "On X=P² with (E,θ)=(O,0), the ideal I_p of a point is a proper invariant rank-one subsheaf with degree zero. It is excluded because rk(I_p)=rk(E); (O,0) remains slope-stable. Testing all proper subsheaves would fail here."
         }
       ],
       "uses": [
@@ -624,13 +625,11 @@
         {
           "sourceId": "S94I",
           "locator": "§4, Theorem 4.7(1),(4), pp.104–105",
-          "excerpt": "universal",
           "match": "Coarse universality and the base-line-bundle ambiguity are essential to the family convention."
         },
         {
           "sourceId": "S96",
           "locator": "§4, p.18, relative λ-connection definition",
-          "excerpt": "λ-connection",
           "match": "Differentiation is relative to the parameter scheme, so λ is constant in the X direction."
         }
       ],
@@ -663,6 +662,16 @@
           "name": "TauCeti.NonabelianHodge.FixedDeterminantFamily.twist_from_base",
           "role": "relation",
           "statement": "Tensoring with the pullback of a line bundle on S preserves the fibrewise class; it changes a chosen determinant identification by its rth tensor power."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.FixedDeterminantFamily.mk",
+          "role": "constructor",
+          "statement": "Given a rank-r bundle, its relative integrable λ-operator, the prescribed family determinant witness, and the fibrewise Chern and stability proofs, construct an object of the specified semistable or stable family groupoid."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.FixedDeterminantFamily.iso_ext",
+          "role": "extensionality",
+          "statement": "Two operator-compatible family isomorphisms are equal when their underlying bundle maps agree; in the determinant-rigidified version determinant preservation is a condition on those maps."
         }
       ],
       "tests": [
@@ -690,6 +699,11 @@
           "name": "TauCeti.NonabelianHodge.FixedDeterminantFamily.geometric_determinant_nonexample",
           "kind": "non-example",
           "statement": "For S=Spec(C[ε]/ε²), λ=1 and a nonzero holomorphic one-form α on a positive-genus projective curve, (O,d+εα) has the trivial determinant on every geometric fibre but fails the fixed family determinant (O,d)."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.FixedDeterminantFamily.rigidification_inertia",
+          "kind": "non-example",
+          "statement": "Over C a stable unrigidified fixed-determinant object has scalar automorphisms C×; choosing and preserving its determinant identification restricts them to μ_r. In rank one the latter group is trivial. These groupoids cannot be identified."
         }
       ],
       "uses": [
@@ -733,7 +747,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.11–12, construction before Proposition 6.1",
-          "excerpt": "affine scheme",
           "match": "The functor is represented by generator-and-relation matrix equations."
         }
       ],
@@ -820,7 +833,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, Proposition 6.1, pp.11–12",
-          "excerpt": "quotient",
           "match": "The stable restriction changes Jordan classes to ordinary irreducible isomorphism classes."
         }
       ],
@@ -916,8 +928,7 @@
       "sources": [
         {
           "sourceId": "S94I",
-          "locator": "§3, Lemma 3.3 through Theorem 3.8, pp.90–96",
-          "excerpt": "bounded family",
+          "locator": "§3, Lemma 3.3 through Theorem 3.8 and its complete proof, pp.90–98",
           "match": "These proofs supply the operator-specific boundedness step before invoking generic Quot and GIT."
         }
       ],
@@ -960,7 +971,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.16–17, definition of M_Dol and Proposition 6.6",
-          "excerpt": "rational Chern classes",
           "match": "The source explicitly imposes all rational Chern classes, in addition to the Hilbert polynomial."
         }
       ],
@@ -1004,7 +1014,6 @@
         {
           "sourceId": "S92",
           "locator": "§3, Lemmas 3.1–3.5 and Proposition 3.6 through Lemma 3.9, pp.32–39",
-          "excerpt": "extensions",
           "match": "The complete extension and restriction arguments are needed in the local-freeness proof."
         }
       ],
@@ -1042,20 +1051,18 @@
       "proofSteps": [
         "In dimension two compare a stable sheaf with its double dual, apply the HYM curvature inequality and use the length of the singularity quotient; equality forces that quotient to vanish.",
         "In larger dimensions restrict to a high smooth hypersurface, apply induction and the extension comparison, and transport the local system using Lefschetz π₁. Extend its Higgs bundle and identify double duals by Hom restriction.",
-        "Riemann–Roch gives P_E=rP_O; the equality of Hilbert polynomials kills E**/E. Stable Jordan factors and invariant degree-zero subsheaves have zero Chern classes; compare their reduced polynomials. The generic Lefschetz and restriction inputs remain gaps."
+        "Riemann–Roch gives P_E=rP_O; the equality of Hilbert polynomials kills E**/E. Stable Jordan factors and invariant degree-zero subsheaves with torsion-free quotient have zero Chern classes; compare their reduced polynomials. The generic Lefschetz and restriction inputs remain gaps."
       ],
       "sources": [
         {
           "sourceId": "S92",
           "locator": "§3, Theorem 2, pp.39–40",
-          "excerpt": "torsion free",
           "match": "The proof requires the reflexive or Hilbert-polynomial hypothesis, which the all-Chern-zero component supplies."
         },
         {
           "sourceId": "S94II",
           "locator": "§6, Proposition 6.6 and Corollary 6.7, p.17",
-          "excerpt": "locally free",
-          "match": "The component-level local-freeness and p/μ stability equivalence are then used in the family construction."
+          "match": "The component-level local-freeness and p/μ stability equivalence are then used in the family construction. The final sentence of Proposition 6.6 needs saturation; sourceIssues records the missing torsion-free-quotient hypothesis already present in this node."
         }
       ],
       "acceptance": [
@@ -1100,7 +1107,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.16–17, M_Dol construction and Corollary 6.7",
-          "excerpt": "co-represents",
           "match": "Coarse universality, stable openness and local universal bundles are part of the construction."
         }
       ],
@@ -1201,7 +1207,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.24–25 and Theorem 6.13",
-          "excerpt": "integrable connection",
           "match": "Theorem 6.13 applies the operator-moduli construction and identifies the de Rham objects."
         }
       ],
@@ -1299,13 +1304,11 @@
         {
           "sourceId": "S96",
           "locator": "§4, Proposition 4.1, pp.18–19",
-          "excerpt": "moduli",
           "match": "This is the relative quotient construction, with the fixed determinant restriction spelled out."
         },
         {
           "sourceId": "EG20",
           "locator": "§4.2, pp.131–132",
-          "excerpt": "By definition",
           "match": "The Hodge parameter and zero/one fibres supply the routed target."
         }
       ],
@@ -1405,7 +1408,6 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Lemma 7.4 through Corollary 7.6, pp.28–30",
-          "excerpt": "nonreduced",
           "match": "The proof is required for comparison of analytic functors, not merely their complex points."
         }
       ],
@@ -1452,7 +1454,6 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Theorem 7.1, Lemmas 7.2–7.7 and proof, pp.26–30",
-          "excerpt": "same functor",
           "match": "The complete proof compares analytic families, including nilpotent coefficient bases."
         }
       ],
@@ -1497,13 +1498,11 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Proposition 7.8 and full proof, p.31",
-          "excerpt": "Riemann-Hilbert correspondence",
           "match": "The proof explicitly needs analytification of universal categorical quotients."
         },
         {
           "sourceId": "S94I",
           "locator": "§5, Proposition 5.5 and complete proof, pp.114–118",
-          "excerpt": "categorical quotient",
           "match": "The proof retains nonreduced analytic bases and imports a moment-map compact lift."
         }
       ],
@@ -1547,8 +1546,7 @@
       "sources": [
         {
           "sourceId": "S92",
-          "locator": "§1, pp.12–17, constructions and Lemma 1.1",
-          "excerpt": "harmonic bundle",
+          "locator": "§1, pp.12–18, metric operators, Lemma 1.1 and harmonic-bundle definition",
           "match": "This is the chosen-metric presentation of the source’s metric-independent harmonic object."
         }
       ],
@@ -1579,7 +1577,17 @@
         {
           "name": "TauCeti.NonabelianHodge.HarmonicBundlePresentation.pullback",
           "role": "functoriality",
-          "statement": "A holomorphic pullback between smooth projective varieties pulls back the flat and Higgs operators and metric; harmonic flatness equations persist, although stability need not."
+          "statement": "A holomorphic pullback between smooth projective varieties pulls back the flat and Higgs operators and metric; harmonic flatness equations persist, although stability need not. Pullback preserves identity and composition of these morphisms."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.HarmonicBundlePresentation.mk",
+          "role": "constructor",
+          "statement": "Given a smooth bundle, integrable holomorphic Higgs structure and positive Hermitian metric for which D=∂_h+∂̄+θ+θ*_h is flat, construct its harmonic presentation."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.HarmonicBundlePresentation.hom_ext",
+          "role": "extensionality",
+          "statement": "Two morphisms of presentations are equal if their underlying smooth complex-linear bundle maps agree; commuting with D′ and D″ is a property."
         }
       ],
       "tests": [
@@ -1638,8 +1646,7 @@
       "sources": [
         {
           "sourceId": "S92",
-          "locator": "§1, Lemmas 1.1–1.2, pp.15–17; §2, pp.22–23",
-          "excerpt": "Kahler identities",
+          "locator": "§1, pp.14–17, first-order identities, and Lemma 1.2, pp.19–20; §2, pp.22–23",
           "match": "The coefficient identities supply integrability and full faithfulness, not just a correspondence on objects."
         }
       ],
@@ -1662,13 +1669,15 @@
       "title": "Donaldson’s functional for Higgs metrics",
       "kind": "construction",
       "declarationName": "TauCeti.NonabelianHodge.DonaldsonFunctional",
-      "statement": "Fix a smooth Higgs bundle and a background Hermitian metric K whose determinant is the prescribed flat metric. For H=K exp(s) with s K-self-adjoint and trace zero, define M(K,H)=∫_X tr(s·iΛF_K)dvol+∫_X⟨Ψ(s)D″s,D″s⟩_K dvol, with Ψ(a,b)=(exp(b−a)−(b−a)−1)/(b−a)² and diagonal value 1/2. Fibrewise spectral calculus lets Ψ(s) act on End(E)-valued forms; F_K is the curvature of D″+D′_K. The volume and Λ conventions are fixed by the chosen Kähler form.",
+      "statement": "Fix a smooth Higgs bundle and a background Hermitian metric K whose determinant is the prescribed flat metric. For H=K exp(s) with s K-self-adjoint and trace zero, define M(K,H)=∫_X tr(s·iΛF_K)dvol+∫_X⟨Ψ(s)D″s,D″s⟩_K dvol, with Ψ(a,b)=(exp(b−a)−(b−a)−1)/(b−a)² and diagonal value 1/2. Fibrewise spectral calculus lets Ψ(s) act on End(E)-valued forms; F_K is the curvature of D″+D′_K. The volume and Λ conventions are fixed by the chosen Kähler form. Neither K nor H is assumed to make the total connection flat or to solve the HYM equation.",
       "hypotheses": [
         "X is a smooth connected projective complex variety, x is a base point, H is a fixed ample polarization and r is a positive integer, unless the statement explicitly works for a general group or rank zero.",
         "δ:π₁(Xᵃⁿ,x)→ℂ× has finite order; (L,∇L) is its algebraic flat line and the Dolbeault determinant is (L,0)."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.1/harmonic-bundle",
+        "HodgeStructuresPartII:H.0/symmetric-action",
+        "ComplexComparisonPartII:C0",
+        "EnhancedDerivedSheaves:E1",
         "HodgeStructuresPartII:H.1/stability",
         "tauceti:TauCetiRoadmap/PDE#milestone-a-4",
         "tauceti:TauCetiRoadmap/PDE#milestone-a-6"
@@ -1682,8 +1691,7 @@
         {
           "sourceId": "S88",
           "locator": "§4, pp.879–882; §5, pp.882–884, definition and Proposition 5.1",
-          "excerpt": "functional",
-          "match": "The scalar kernel was checked on the printed p.882 PDF image, including its diagonal extension."
+          "match": "The off-diagonal kernel was checked on the printed p.882 image; its diagonal value 1/2 follows by the Taylor limit, rather than a separately printed formula."
         }
       ],
       "acceptance": [
@@ -1736,6 +1744,11 @@
           "name": "TauCeti.NonabelianHodge.DonaldsonFunctional.missing_higgs_term",
           "kind": "non-example",
           "statement": "For a nonzero Higgs field θ, the first variation involves curvature F=F_Chern+[θ,θ*]+∂_hθ+∂̄θ*, so deleting the Higgs commutator generally changes the functional derivative."
+        },
+        {
+          "name": "TauCeti.NonabelianHodge.DonaldsonFunctional.nonharmonic_background",
+          "kind": "non-example",
+          "statement": "On a compact projective curve, take E=O², θ=0 and K=diag(exp(f),exp(−f)) for a smooth real f with nonzero ∂∂̄f. The determinant metric is flat but K has nonzero trace-free curvature. M(K,H) is still defined for every smooth H with the same determinant; requiring a harmonic presentation would exclude this input."
         }
       ],
       "uses": [
@@ -1777,13 +1790,11 @@
         {
           "sourceId": "S88",
           "locator": "§3, Theorem 1 and Proposition 3.3, p.878; §§5–7, pp.884–895",
-          "excerpt": "Theorem 1",
           "match": "The complete published coercivity and heat-flow construction was read in the compact specialization."
         },
         {
           "sourceId": "S92",
-          "locator": "§1, Theorem 1(2), pp.16–18",
-          "excerpt": "Hermitian-Yang-Mills",
+          "locator": "§1, Theorem 1(2), p.19; curvature discussion, pp.16–17",
           "match": "The source packages the polystable existence criterion needed by the correspondence."
         }
       ],
@@ -1826,13 +1837,11 @@
         {
           "sourceId": "S88",
           "locator": "§3, Proposition 3.4 and its proof, pp.878–879",
-          "excerpt": "flat",
           "match": "The printed proof separates trace-free curvature from the determinant curvature."
         },
         {
           "sourceId": "S92",
-          "locator": "§1, Theorem 1(2) and its discussion, pp.17–18",
-          "excerpt": "Chern classes",
+          "locator": "§1, curvature discussion, pp.16–17, and Theorem 1(2), p.19",
           "match": "The source’s ch₁/ch₂ pairing criterion is kept distinct from the all-Chern-zero component."
         }
       ],
@@ -1875,8 +1884,7 @@
       "sources": [
         {
           "sourceId": "S92",
-          "locator": "§1, Theorem 1(1), pp.16–17, reference to Corlette",
-          "excerpt": "semisimple",
+          "locator": "§1, Theorem 1(1), p.19, reference to Corlette",
           "match": "This is a read primary statement of the metric criterion; its external existence proof remains explicitly unread."
         }
       ],
@@ -1921,8 +1929,7 @@
       "sources": [
         {
           "sourceId": "S92",
-          "locator": "§1, Corollary 1.3 and full proof, pp.17–20",
-          "excerpt": "equivalence",
+          "locator": "§1, Lemma 1.2, pp.19–20, and Corollary 1.3 with full proof, p.20",
           "match": "This is a category equivalence, before proving a homeomorphism of coarse moduli."
         }
       ],
@@ -1965,13 +1972,11 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.20–21, definition of σ and Y_Dol",
-          "excerpt": "characteristic polynomial",
           "match": "The convention has first coefficient −tr θ, not +tr θ."
         },
         {
           "sourceId": "EG20",
           "locator": "§2.1, p.109",
-          "excerpt": "Hitchin morphism",
           "match": "The coefficient map is the input to the rigid-nilpotence argument in H.5."
         }
       ],
@@ -2068,7 +2073,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, Lemmas 6.8–6.10 and Theorem 6.11 with full proof, pp.18–23",
-          "excerpt": "proper",
           "match": "The theorem is on semistable coarse moduli, including polystable limits."
         }
       ],
@@ -2091,7 +2095,7 @@
       "title": "Compactness of normalized harmonic presentations",
       "kind": "theorem",
       "declarationName": "TauCeti.NonabelianHodge.harmonic_compactness",
-      "statement": "For fixed compact X and rank r, a sequence of harmonic presentations whose Higgs characteristic coefficients stay bounded has, after unitary gauge transformations and passage to a subsequence, a harmonic limit with its operators converging in the Sobolev operator norms needed for monodromy and Higgs-family convergence. Normalized harmonic frames form a closed proper space over the semisimple Dolbeault and de Rham coarse spaces, and U(r) acts with fibres its compact orbits, allowing nontrivial stabilizers. This is a metric/gauge compactness theorem, not algebraic properness of M_dR.",
+      "statement": "For fixed compact smooth projective Kähler X, rank r and a real exponent 1<q<∞, let harmonic presentations have Higgs characteristic coefficients uniformly bounded in L¹ (equivalently in any fixed norm on their finite-dimensional holomorphic section spaces). After metric-preserving smooth bundle identifications and passage to a subsequence there is a harmonic limit with a fixed Hermitian metric, and the differences of ∂, ∂̄, θ, θ* and their first-order linear combinations converge strongly in operator norm W^{1,q}→L^q. On fixed X the identifications can be expressed as unitary gauges after initial isometric identification of the smooth Hermitian bundles. Normalized harmonic frames form a closed proper space over the semisimple Dolbeault and de Rham coarse spaces, and U(r) acts with fibres its compact orbits, allowing nontrivial stabilizers. This is metric/gauge compactness; it does not assert algebraic properness of M_dR.",
       "hypotheses": [
         "X is a smooth connected projective complex variety, x is a base point, H is a fixed ample polarization and r is a positive integer, unless the statement explicitly works for a general group or rank zero.",
         "δ:π₁(Xᵃⁿ,x)→ℂ× has finite order; (L,∇L) is its algebraic flat line and the Dolbeault determinant is (L,0)."
@@ -2109,7 +2113,7 @@
       ],
       "proofSteps": [
         "A coefficient bound gives bounded eigenforms. Simpson’s curvature inequality for log|θ| and the Ahlfors estimate bound the whole Higgs field, including its nonnormal part.",
-        "The unitary connection curvature equals −[θ,θ*]. Apply Uhlenbeck weak compactness in unitary gauges, then elliptic estimates for ∂̄θ=0 and Rellich to extract operator limits; the integrability equations pass to that limit.",
+        "The unitary connection curvature equals −[θ,θ*]. Apply Uhlenbeck weak compactness in unitary gauges, then elliptic estimates for ∂̄θ=0 and Rellich to extract operator limits; the integrability equations pass to that limit. Choose p>2dim_C(X), use weak W^{1,p} coefficient compactness and strong coefficient convergence, and obtain the stated W^{1,q}→L^q operator norm convergence as in Proposition 7.9; no convergence at q=∞ is asserted.",
         "For the de Rham direction, the affine reductive quotient needs a Kempf–Ness compact lift of bounded closed orbits. Bounded monodromy yields uniformly bounded-energy equivariant maps; harmonic maps minimize energy and bound the Higgs eigenforms.",
         "Normalize a frame by the harmonic metric; compactness of U(r) supplies frame limits. Gauge compactness, Ahlfors/subharmonic estimates and the analytic Kempf–Ness input remain explicit gaps."
       ],
@@ -2117,13 +2121,11 @@
         {
           "sourceId": "S92",
           "locator": "§2, Lemmas 2.7–2.8, pp.26–28",
-          "excerpt": "bounded",
           "match": "The eigenvalue-to-full-norm estimate and compactness proofs were read."
         },
         {
           "sourceId": "S94II",
           "locator": "§7, Proposition 7.9 through Lemma 7.17, pp.32–37",
-          "excerpt": "proper",
           "match": "The complete argument handles both coarse-space directions and normalized frames."
         }
       ],
@@ -2165,13 +2167,11 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Lemmas 7.16–7.17 and Theorem 7.18, pp.36–38",
-          "excerpt": "homeomorphism",
           "match": "This is the explicit proved regularity used for singular coarse moduli."
         },
         {
           "sourceId": "EG20",
           "locator": "§2.1, pp.108–109, comparison diagram",
-          "excerpt": "moduli spaces",
           "match": "The diagram is used with the precise topological conclusion proved in Simpson’s source."
         }
       ],
@@ -2219,13 +2219,11 @@
         {
           "sourceId": "S96",
           "locator": "§4, pp.18–19, after Proposition 4.1",
-          "excerpt": "action",
           "match": "The action and algebraic trivialization hold only over the nonzero parameter."
         },
         {
           "sourceId": "EG20",
           "locator": "§4.2, Lemma 4.9 proof, p.132",
-          "excerpt": "splits",
           "match": "The nonzero product is the H.1 input to the rigid-locus splitting in H.5."
         }
       ],
@@ -2315,13 +2313,11 @@
         {
           "sourceId": "S92",
           "locator": "§2, Lemmas 2.1–2.2 and Corollary 2.3, pp.22–24",
-          "excerpt": "Formality",
           "match": "The complete two-types proof and multiplicative formality argument were read."
         },
         {
           "sourceId": "S96",
-          "locator": "§9, proof of Theorem 9.1, pp.37–38",
-          "excerpt": "complex",
+          "locator": "§9, relative quasi-isomorphisms in the proof of Theorem 9.1, pp.38–39",
           "match": "The relative parameter argument supplies local product structure, not a global moduli product."
         }
       ],
@@ -2344,7 +2340,7 @@
       "title": "Formal local Hodge product with fixed determinant",
       "kind": "comparison",
       "declarationName": "TauCeti.NonabelianHodge.hodge_formal_product",
-      "statement": "At a polystable fixed-determinant point m of the zero Hodge fibre on fixed X, the formal deformation groupoid of parameter connections is the product of the fixed-det Higgs deformation groupoid and the formal parameter line. Consequently the completed local ring of the coarse Hodge moduli is isomorphic, as a ℂ[[λ]]-algebra, to the completed local ring of the coarse Dolbeault moduli at m with one formal variable. For stable points the scalar stabilizer acts trivially; for polystable points retain the reductive stabilizer action when passing from groupoids to coarse completed rings.",
+      "statement": "At a polystable fixed-determinant point m of the zero Hodge fibre on fixed X, choose its determinant identification. The based determinant-rigidified Artinian deformation groupoid (arrows induce the identity on the special fibre and preserve the determinant identification) is the product of the corresponding Higgs deformation groupoid and the formal parameter line. This is the End₀ Maurer–Cartan problem. Passing to completed coarse rings requires the full determinant-preserving reductive stabilizer and the rigidification-to-coarse comparison; it does not identify this groupoid with the unrigidified fixed-determinant groupoid. With that bridge, the completed local coarse Hodge ring is isomorphic as a C[[λ]]-algebra to the completed local coarse Dolbeault ring at m with one formal variable. At stable points μ_r acts trivially; the unrigidified scalar C× also acts trivially on the coarse deformation parameters. For polystable points retain the full stabilizer action on the versal deformation space.",
       "hypotheses": [
         "X is a smooth connected projective complex variety, x is a base point, H is a fixed ample polarization and r is a positive integer, unless the statement explicitly works for a general group or rank zero.",
         "δ:π₁(Xᵃⁿ,x)→ℂ× has finite order; (L,∇L) is its algebraic flat line and the Dolbeault determinant is (L,0)."
@@ -2353,24 +2349,25 @@
         "HodgeStructuresPartII:H.1/hodge-coarse",
         "HodgeStructuresPartII:H.1/two-types-formality",
         "HodgeStructuresPartII:H.1/stable-automorphisms",
-        "AlgebraicModuliForArithmeticGeometry:R09.6"
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "HodgeStructuresPartII:H.1/parameter-families"
       ],
       "proofSteps": [
-        "Identify Artinian fixed-det deformations with nilpotent Maurer–Cartan solutions in the actual End₀ harmonic parameter dg Lie complex, with gauge equivalence.",
+        "Identify based determinant-rigidified Artinian deformations with Maurer–Cartan solutions in the actual End₀ harmonic parameter dg Lie complex tensored with the maximal ideal, with gauge exp(End₀⊗m). Use the genuine exponential gauge action η↦g⁻¹ηg+g⁻¹Dg, g=exp(s); the linear d(s) expression in the read S96 preprint is corrected in sourceIssues.",
         "Use relative dg Lie quasi-isomorphism invariance to replace it by its constant harmonic cohomology model; keep the stabilizer action equivariant.",
-        "Apply the supplier’s versal/completed-coarse-ring comparison rather than equating deformation groupoids directly with schemes. The fixed-det trace-zero adaptation of Simpson’s GLr argument is stated explicitly."
+        "Apply the supplier’s equivariant versal/completed-coarse-ring comparison. Compare determinant-rigidified and unrigidified coarse quotients: the scalar centre acts trivially and determinant roots exist étale locally in characteristic zero. Preserve the finite μ_r inertia and full polystable stabilizer before taking invariants. The trace-zero adaptation of Simpson’s GL_r argument is required; it does not equate a deformation groupoid with a scheme."
       ],
       "sources": [
         {
           "sourceId": "S96",
-          "locator": "§9, Theorem 9.1 proof, pp.36–38",
-          "excerpt": "formal",
+          "locator": "§9, Theorem 9.1 and full proof, pp.36–39 (arXiv v1 pagination)",
           "match": "The source uses formal deformation equivalence as the input to Artin approximation."
         }
       ],
       "acceptance": [
         "In rank one the completed fixed-det Hodge ring is ℂ[[λ]].",
-        "The isomorphism is not claimed canonical in a choice-free moduli sense."
+        "The isomorphism is not claimed canonical in a choice-free moduli sense.",
+        "In rank one the based rigidified groupoid has no automorphisms, whereas the unrigidified based groupoid has 1+m scalar automorphisms. Both coarse rings are C[[λ]], so an End₀ calculation alone cannot identify the unrigidified groupoid."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -2405,8 +2402,7 @@
       "sources": [
         {
           "sourceId": "S96",
-          "locator": "§9, Theorem 9.1 and full proof, pp.36–38",
-          "excerpt": "etale locally",
+          "locator": "§9, Theorem 9.1 and full proof, pp.36–39 (arXiv v1 pagination)",
           "match": "Only the fixed-X theorem is used; Conjecture 9.3 is not promoted to a theorem."
         }
       ],
@@ -2447,8 +2443,7 @@
       "sources": [
         {
           "sourceId": "S96",
-          "locator": "§9, Corollary 9.2, p.38",
-          "excerpt": "flat",
+          "locator": "§9, Corollary 9.2, p.39 (arXiv v1 pagination)",
           "match": "The proof is a direct consequence of the fixed-X local product theorem."
         }
       ],
@@ -2494,7 +2489,6 @@
         {
           "sourceId": "S94I",
           "locator": "§4, Lemmas 4.1–4.5, Corollary 4.6 and Theorem 4.7, pp.98–104; §1, proof of Theorem 1.21, pp.71–73",
-          "excerpt": "good quotient",
           "match": "All operator-specific invariant-theory arguments and the delegated moduli-universality proof were inspected; generic reductive GIT and Luna remain supplier inputs."
         }
       ],
@@ -2541,7 +2535,6 @@
         {
           "sourceId": "S94I",
           "locator": "§4, Lemma 4.9, Theorem 4.10 and complete proofs, pp.105–109; §5, Propositions 5.1–5.4 and Lemma 5.7, pp.110–114,119",
-          "excerpt": "frame",
           "match": "The free auxiliary action and functor representability cannot be inferred from a coarse quotient alone."
         }
       ],
@@ -2655,7 +2648,7 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.6",
-      "need": "Supply the comparison of Artinian deformation groupoids with versal/completed local rings, including equivariant reductive stabilizers and coarse invariants. State and prove the Artin approximation theorem giving a common étale neighborhood from an isomorphism of completed finite-type complex local algebras over the parameter line. Retain nonreduced structure and list all algebraization hypotheses.",
+      "need": "Supply the comparison of Artinian deformation groupoids with versal/completed local rings, including equivariant reductive stabilizers and coarse invariants. State and prove the Artin approximation theorem giving a common étale neighborhood from an isomorphism of completed finite-type complex local algebras over the parameter line. Retain nonreduced structure and list all algebraization hypotheses. Distinguish based determinant-rigidified End₀ gauge groupoids from unrigidified scalar inertia. Export their comparison at the level of coarse invariant rings, using the characteristic-zero determinant-root and central-inertia argument, rather than an equivalence of groupoids.",
       "neededBy": [
         "HodgeStructuresPartII:H.1/hodge-formal-product",
         "HodgeStructuresPartII:H.1/hodge-etale-product",
@@ -2671,7 +2664,8 @@
         "HodgeStructuresPartII:H.1/horizontal-sections",
         "HodgeStructuresPartII:H.1/riemann-hilbert-coarse",
         "HodgeStructuresPartII:H.1/harmonic-bundle",
-        "HodgeStructuresPartII:H.1/operator-framed"
+        "HodgeStructuresPartII:H.1/operator-framed",
+        "HodgeStructuresPartII:H.1/donaldson-functional"
       ],
       "supplierState": "Requested statement; not an implemented export."
     },
@@ -2710,18 +2704,22 @@
       "neededBy": [
         "HodgeStructuresPartII:H.1/parameter-families",
         "HodgeStructuresPartII:H.1/horizontal-sections",
-        "HodgeStructuresPartII:H.1/harmonic-bundle"
+        "HodgeStructuresPartII:H.1/harmonic-bundle",
+        "HodgeStructuresPartII:H.1/donaldson-functional"
       ],
       "supplierState": "Requested statement; not an implemented export."
     },
     {
       "supplier": "HodgeStructuresPartII:H.0",
-      "need": "Export the global relative filtered differential-operator sheaf, its split almost-polynomial/PBW and base-change presentation, and the Rees family with fibres Sym(T_X) and D_X. The accepted affine preconnection and curvature nodes are used directly; they do not by themselves supply these global sheaf constructions. Also globalize top-exterior-power determinant operators and their relative base-line twisting laws.",
+      "need": "Export the global relative filtered differential-operator sheaf, its split almost-polynomial/PBW and base-change presentation, and the Rees family with fibres Sym(T_X) and D_X. The accepted affine preconnection and curvature nodes are used directly; they do not by themselves supply these global sheaf constructions. Also globalize top-exterior-power determinant operators and their relative base-line twisting laws. Extend the intrinsic finite-locally-free preconnection/symmetric-action interfaces to torsion-free coherent operator modules and their invariant coherent subsheaves on smooth projective bases. At λ=0, integrable coherent Higgs sheaves correspond to Sym(T_X)-modules without assuming local freeness of E; maintain the distinction until the Chern-zero local-freeness theorem.",
       "neededBy": [
         "HodgeStructuresPartII:H.1/operator-boundedness",
         "HodgeStructuresPartII:H.1/derham-coarse",
         "HodgeStructuresPartII:H.1/hodge-coarse",
-        "HodgeStructuresPartII:H.1/operator-git"
+        "HodgeStructuresPartII:H.1/operator-git",
+        "HodgeStructuresPartII:H.1/stability",
+        "HodgeStructuresPartII:H.1/higgs-restriction",
+        "HodgeStructuresPartII:H.1/higgs-local-freeness"
       ],
       "supplierState": "Requested statement; not an implemented export."
     },
@@ -2807,11 +2805,11 @@
       "stageId": "HodgeStructuresPartII:H.1",
       "status": "planned",
       "remaining": [
-        "G1: Global relative operator and bundle carriers. The accepted H.0 affine/intrinsic operator nodes do not yet provide the global sheaf/Rees/PBW construction, the global determinant functor, or smooth/analytic bundle carriers. E1 and C0/C2 also lack a source-checked common underived locally free operator interface. A coherent algebraic connection is locally free on smooth characteristic-zero X, but the general proof/interface must be read and exported; S94II states it in its construction. These interfaces are exact supplier needs, not surrogate carriers defined in H.1.",
+        "G1: Global relative coherent operators and bundle carriers. The accepted H.0 affine/intrinsic operator nodes do not yet provide the global sheaf/Rees/PBW construction, the global determinant functor, or smooth/analytic bundle carriers. E1 and C0/C2 also lack a source-checked common underived locally free operator interface. A coherent algebraic connection is locally free on smooth characteristic-zero X, but the general proof/interface must be read and exported; S94II states it in its construction. These interfaces are exact supplier needs, not surrogate carriers defined in H.1. The accepted H.0 intrinsic carrier is finite locally free. Stability, boundedness and restriction instead require an extension to torsion-free coherent operator modules and invariant coherent subsheaves. At λ=0 the Sym(T_X) action dictionary must work for coherent E without assuming E locally free; local freeness on the Chern-zero component is a conclusion of the H.1 theorem, not a carrier assumption. The smooth Higgs/metric interface must likewise admit arbitrary background metrics before harmonic flatness.",
         "G2: Reductive GIT, slices and analytic quotient exports. Simpson I imports Mumford finite generation/good quotients, the Hilbert numerical criterion, Matsushima reductivity and Luna slices. The source-specific argument pp.98–109 and the delegated Theorem 1.21 proof pp.71–73 were read, but full proofs of these generic imports were not acquired here. R09.5 currently names particular finite-inertia/quotient cases, not these unrestricted reductive theorems. Its expansion must provide these exact characteristic-zero quotient presentations and their analytic universal quotient bridge; the moment-map compact lift inside Proposition 5.5 remains G9.",
         "G3: Relative analytic coefficient and Quot representability. C5 states scalar comparison, not the relative locally free coefficient Poincaré theorem on arbitrary nonreduced analytic bases. Simpson II Lemmas 7.4–7.7 give the read proof route. The arbitrary analytic-base representability proof in Simpson I Propositions 5.3–5.4 additionally uses Grauert coherent base change and analytified Quot; projective GAGA on a fixed variety or Artinian base alone is insufficient. Export that bridge with flatness and relative Hilbert polynomial hypotheses, retaining nilpotents.",
         "G4: Kähler Hodge theory and the Chern–Weil bridge. No inspected supplier exports compact Kähler coefficient elliptic Hodge decomposition, integration by parts, the primitive-form Riemann bilinear norm identity, Chern–Weil realization with its 2πi conventions, or local constancy of rational characteristic classes in coherent flat families. SF.5 and MC.2 provide the algebraic/realization sides only. C1 is a Stein/coherent stage. A dedicated added layer of ComplexComparisonPartII must supply these differential-geometric interfaces; the coefficient-specific operator identities remain the H.1 nodes.",
-        "G5: Artinian dg Lie and equivariant coarse deformation bridge. The full fixed-X proof of S96 Theorem 9.1 was read. Its nilpotent Maurer–Cartan/gauge invariance and passage to completed coarse rings require actual End_0 dg Lie carriers, relative quasi-isomorphism invariance and equivariance for reductive stabilizers. DGAInfinity L4 supplies finite twisting and its Hochschild-specific gauge regime, not automatically this vector-bundle deformation theorem. R09.6 must also provide the precise Artin approximation/algebraization theorem. The trace-zero fixed-determinant adaptation is a stated required argument, not evidence that the generic formal deformation machinery exists.",
+        "G5: Artinian dg Lie and equivariant coarse deformation bridge. The full fixed-X proof of S96 Theorem 9.1 was read. Its nilpotent Maurer–Cartan/gauge invariance and passage to completed coarse rings require actual End_0 dg Lie carriers, relative quasi-isomorphism invariance and equivariance for reductive stabilizers. DGAInfinity L4 supplies finite twisting and its Hochschild-specific gauge regime, not automatically this vector-bundle deformation theorem. R09.6 must also provide the precise Artin approximation/algebraization theorem. The trace-zero fixed-determinant adaptation is a stated required argument, not evidence that the generic formal deformation machinery exists. End₀ and its exponential nilpotent gauge group control the based determinant-rigidified problem. They omit the unrigidified scalar 1+m automorphisms. Export the central rigidification/coarse-ring comparison and retain μ_r and the full determinant-preserving reductive stabilizer before coarse invariants; no equivalence of those distinct groupoids is asserted.",
         "G6: Projective topology and generic restriction inputs. The source proof imports finite presentation of pi_1 of compact smooth projective X, Mehta–Ramanathan operator restriction, Enriques–Severi/Hom restriction and hyperplane Lefschetz for pi_1. The complete Simpson II representation construction and Simpson 1992 §3 adaptation were read; the generic imported proofs and native interfaces were not found. Generic coherent-sheaf restriction belongs with algebraic moduli foundations; projective topological finite-presentation/Lefschetz belongs in a Part II extending UniversalCovers, not a rewrite of the upstream cover construction.",
         "G7: Nonlinear Higgs heat flow and weak subbundle regularity. The complete compact specialization of Simpson 1988 §§4–7 was read, including coercivity, normalized logarithms, weak eigenprojections and heat convergence. The proof imports Uhlenbeck–Yau weak-subbundle regularity and nonlinear parabolic existence/continuation and coefficient Sobolev calculus. The existing PDE layers provide linear estimates, not these results. A PDE Part II must expose them under compact smooth-bundle hypotheses before the prototype can state this metric construction natively.",
         "G8: Corlette primary existence proof remains unread. Simpson 1992 Theorem 1(1) is a read primary statement citing Corlette, Flat G-bundles with canonical metrics, JDG 28(3) (1988), 361–382, DOI 10.4310/jdg/1214442469. Attempts to retrieve the public Project Euclid and publisher PDF endpoints returned access-interstitial HTML or HTTP errors rather than paper bytes. No checksum or full-proof reading is claimed for Corlette. Obtain an accessible primary copy and expand the reductive harmonic-map existence/uniqueness inputs in PDE Part II, keeping semisimplicity and compactness explicit.",
@@ -2834,7 +2832,7 @@
   "gaps": [
     {
       "id": "G1",
-      "title": "Global relative operator and bundle carriers",
+      "title": "Global relative coherent operators and bundle carriers",
       "neededBy": [
         "HodgeStructuresPartII:H.1/torsion-determinant-dictionary",
         "HodgeStructuresPartII:H.1/parameter-families",
@@ -2844,9 +2842,13 @@
         "HodgeStructuresPartII:H.1/dolbeault-coarse",
         "HodgeStructuresPartII:H.1/derham-coarse",
         "HodgeStructuresPartII:H.1/hodge-coarse",
-        "HodgeStructuresPartII:H.1/harmonic-bundle"
+        "HodgeStructuresPartII:H.1/harmonic-bundle",
+        "HodgeStructuresPartII:H.1/stability",
+        "HodgeStructuresPartII:H.1/higgs-restriction",
+        "HodgeStructuresPartII:H.1/higgs-local-freeness",
+        "HodgeStructuresPartII:H.1/donaldson-functional"
       ],
-      "detail": "The accepted H.0 affine/intrinsic operator nodes do not yet provide the global sheaf/Rees/PBW construction, the global determinant functor, or smooth/analytic bundle carriers. E1 and C0/C2 also lack a source-checked common underived locally free operator interface. A coherent algebraic connection is locally free on smooth characteristic-zero X, but the general proof/interface must be read and exported; S94II states it in its construction. These interfaces are exact supplier needs, not surrogate carriers defined in H.1."
+      "detail": "The accepted H.0 affine/intrinsic operator nodes do not yet provide the global sheaf/Rees/PBW construction, the global determinant functor, or smooth/analytic bundle carriers. E1 and C0/C2 also lack a source-checked common underived locally free operator interface. A coherent algebraic connection is locally free on smooth characteristic-zero X, but the general proof/interface must be read and exported; S94II states it in its construction. These interfaces are exact supplier needs, not surrogate carriers defined in H.1. The accepted H.0 intrinsic carrier is finite locally free. Stability, boundedness and restriction instead require an extension to torsion-free coherent operator modules and invariant coherent subsheaves. At λ=0 the Sym(T_X) action dictionary must work for coherent E without assuming E locally free; local freeness on the Chern-zero component is a conclusion of the H.1 theorem, not a carrier assumption. The smooth Higgs/metric interface must likewise admit arbitrary background metrics before harmonic flatness."
     },
     {
       "id": "G2",
@@ -2893,7 +2895,7 @@
         "HodgeStructuresPartII:H.1/hodge-formal-product",
         "HodgeStructuresPartII:H.1/hodge-etale-product"
       ],
-      "detail": "The full fixed-X proof of S96 Theorem 9.1 was read. Its nilpotent Maurer–Cartan/gauge invariance and passage to completed coarse rings require actual End_0 dg Lie carriers, relative quasi-isomorphism invariance and equivariance for reductive stabilizers. DGAInfinity L4 supplies finite twisting and its Hochschild-specific gauge regime, not automatically this vector-bundle deformation theorem. R09.6 must also provide the precise Artin approximation/algebraization theorem. The trace-zero fixed-determinant adaptation is a stated required argument, not evidence that the generic formal deformation machinery exists."
+      "detail": "The full fixed-X proof of S96 Theorem 9.1 was read. Its nilpotent Maurer–Cartan/gauge invariance and passage to completed coarse rings require actual End_0 dg Lie carriers, relative quasi-isomorphism invariance and equivariance for reductive stabilizers. DGAInfinity L4 supplies finite twisting and its Hochschild-specific gauge regime, not automatically this vector-bundle deformation theorem. R09.6 must also provide the precise Artin approximation/algebraization theorem. The trace-zero fixed-determinant adaptation is a stated required argument, not evidence that the generic formal deformation machinery exists. End₀ and its exponential nilpotent gauge group control the based determinant-rigidified problem. They omit the unrigidified scalar 1+m automorphisms. Export the central rigidification/coarse-ring comparison and retain μ_r and the full determinant-preserving reductive stabilizer before coarse invariants; no equivalence of those distinct groupoids is asserted."
     },
     {
       "id": "G6",
@@ -3004,7 +3006,60 @@
       "affectedNodes": [
         "HodgeStructuresPartII:H.1/stability",
         "HodgeStructuresPartII:H.1/parameter-families"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HodgeStructuresPartII--H.1",
+        "reason": "The published Acta p.108 prints both integrality and Ω¹_X while fixing Z. The exterior-flatness equations and the fixed variety justify both corrections; this is the inherited finding, not a new discovery."
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII/E11-S94II-P6.6-H1",
+      "source": "S94II",
+      "kind": "error",
+      "locator": "§6, Proposition 6.6, final sentence, published p.17",
+      "printed": "Any sub-Higgs sheaf of degree zero is a strict subbundle with vanishing Chern classes.",
+      "correction": "Require the sub-Higgs sheaf to be saturated, equivalently that its quotient in E be torsion-free. With that hypothesis the stated subbundle and Chern conclusions apply.",
+      "reason": "On P² let E=O² with zero Higgs field and F=I_p⊕0 for a point p. E is slope-semistable with all rational Chern classes zero. F is invariant of rank one and degree zero, but I_p is not locally free at p; E/F=O⊕O_p has torsion. Thus F is not a strict subbundle, and c₂(I_p)=[p] is nonzero. This refutes only the unrestricted last sentence. The packet already requires a torsion-free quotient.",
+      "affects": "a stated result",
+      "known": "new; no existing correction found in the limited search recorded below",
+      "searched": [
+        "2026-10-07: Numdam publication record https://www.numdam.org/item/PMIHES_1994__80__5_0/ and its published PDF; no corrigendum link was found.",
+        "2026-10-07: title/author erratum searches and quoted Proposition 6.6/sub-Higgs/saturated/degree-zero searches returned no correction.",
+        "2026-10-07: https://math.univ-cotedazur.fr/u/carlos/papers.html lists recent papers and sends earlier papers to arXiv; no relevant correction was found there. Atlas source-issue register searched for the quoted sentence; no existing entry found."
+      ],
+      "affectedNodes": [
+        "HodgeStructuresPartII:H.1/higgs-local-freeness"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HodgeStructuresPartII--H.1",
+        "reason": "Checked the published p.17 image and the rank-one ideal-of-a-point counterexample. Saturation is essential; this does not invalidate the main local-freeness assertion of Proposition 6.6."
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII/E12-S96-gauge-H1",
+      "source": "S96",
+      "kind": "misprint",
+      "locator": "§9, p.37, exponential gauge formula, arXiv alg-geom/9604005 v1 (4 April 1996); finding scoped to this preprint",
+      "printed": "η′ = d(s) + e^(−s) η e^s",
+      "correction": "For g=exp(s), use η′=g⁻¹ηg+g⁻¹d(g). In dg Lie notation the derivative term is the finite series Σ_{n≥0}(−ad_s)^n d(s)/(n+1)!, not d(s) alone. It reduces to d(s) only at first order or when the relevant commutators vanish.",
+      "reason": "Take A=C[t]/(t³), η=0, s=t(zS+T), S=diag(1,−1), T=E₁₂ and d=d_z. At z=0, ST=T, TS=−T and T²=0. Truncating exp gives g⁻¹dg=tS dz+t²T dz, whereas d(s)=tS dz. The missing second-order term is nonzero. Both matrices have trace zero, so the issue also matters for the required End₀ gauge interface. The correct gauge action preserves the intended deformation theorem.",
+      "affects": "the proof",
+      "known": "new in the read preprint; published formula not checked",
+      "searched": [
+        "2026-10-07: https://arxiv.org/abs/alg-geom/9604005 lists only v1; title/author/gauge erratum searches found no correction.",
+        "2026-10-07: author papers page https://math.univ-cotedazur.fr/u/carlos/papers.html and the atlas source-issue register; no correction found.",
+        "2026-10-07: attempted AMS version-of-record endpoint https://www.ams.org/books/pspum/062.2/1492538/pspum062.2-1492538.pdf returned HTTP 403. No published-text finding or claim of checking its formula is made."
+      ],
+      "affectedNodes": [
+        "HodgeStructuresPartII:H.1/hodge-formal-product"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HodgeStructuresPartII--H.1",
+        "reason": "The read preprint p.37 uses s in L⁰⊗m and prints the linear derivative term. The explicit second-order matrix calculation proves that term must be the logarithmic derivative. The verdict concerns arXiv v1 alone."
+      }
     }
   ],
   "upstreamNotes": [
@@ -3133,7 +3188,8 @@
     ],
     "links": "Stage edges and blueprint link entries mentioning HodgeStructuresPartII were inspected; no additional exact H.1 declaration supplier was found.",
     "sourceProofBoundary": "The read sections are positive receipts only. Corlette and generic imported GIT, analytic/PDE/topology/deformation proof closures remain explicit G2–G9.",
-    "prototype": "Native set-level Betti subset elaborated with lean-check against Mathlib 082e2d3; no TauCeti import is used. All remaining signatures are explicit omissions in G11. All implementationStatus values are unchecked."
+    "prototype": "Native set-level Betti subset elaborated with lean-check against Mathlib 082e2d3; no TauCeti import is used. All remaining signatures are explicit omissions in G11. All implementationStatus values are unchecked.",
+    "independentReview": "REV-HodgeStructuresPartII--H.1: all 36 nodes and 13 pinned baseline statements reviewed; six source hashes reproduced; source locators/excerpts corrected; 0 packet errors/warnings; suggested native subset independently elaborated with 18 admitted-proof warnings only. Supplier gaps and 34 omitted node signatures remain explicit."
   },
   "signatureCoverage": [
     {
@@ -3199,7 +3255,8 @@
         "TauCeti.NonabelianHodge.IsStableParameterConnection.line_stable",
         "TauCeti.NonabelianHodge.IsStableParameterConnection.zero_excluded",
         "TauCeti.NonabelianHodge.IsStableParameterConnection.zero_higgs_iff",
-        "TauCeti.NonabelianHodge.IsStableParameterConnection.trivial_rankTwo_excluded"
+        "TauCeti.NonabelianHodge.IsStableParameterConnection.trivial_rankTwo_excluded",
+        "TauCeti.NonabelianHodge.IsStableParameterConnection.equal_rank_ignored"
       ],
       "reason": "G11; requires actual global operator, scheme/family, analytic, smooth metric or dg Lie carriers named by G1–G9. Comments inventory names; they do not declare or test them."
     },
@@ -3212,11 +3269,14 @@
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.fibre",
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.determinant",
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.twist_from_base",
+        "TauCeti.NonabelianHodge.FixedDeterminantFamily.mk",
+        "TauCeti.NonabelianHodge.FixedDeterminantFamily.iso_ext",
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.rankOne_class",
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.zero_fibre",
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.one_fibre",
         "TauCeti.NonabelianHodge.FixedDeterminantFamily.absolute_derivative_excluded",
-        "TauCeti.NonabelianHodge.FixedDeterminantFamily.geometric_determinant_nonexample"
+        "TauCeti.NonabelianHodge.FixedDeterminantFamily.geometric_determinant_nonexample",
+        "TauCeti.NonabelianHodge.FixedDeterminantFamily.rigidification_inertia"
       ],
       "reason": "G11; requires actual global operator, scheme/family, analytic, smooth metric or dg Lie carriers named by G1–G9. Comments inventory names; they do not declare or test them."
     },
@@ -3364,6 +3424,8 @@
         "TauCeti.NonabelianHodge.HarmonicBundlePresentation.higgs",
         "TauCeti.NonabelianHodge.HarmonicBundlePresentation.tensor_dual",
         "TauCeti.NonabelianHodge.HarmonicBundlePresentation.pullback",
+        "TauCeti.NonabelianHodge.HarmonicBundlePresentation.mk",
+        "TauCeti.NonabelianHodge.HarmonicBundlePresentation.hom_ext",
         "TauCeti.NonabelianHodge.HarmonicBundlePresentation.trivial_line",
         "TauCeti.NonabelianHodge.HarmonicBundlePresentation.point",
         "TauCeti.NonabelianHodge.HarmonicBundlePresentation.zero_higgs_unitary",
@@ -3391,7 +3453,8 @@
         "TauCeti.NonabelianHodge.DonaldsonFunctional.equal_metrics",
         "TauCeti.NonabelianHodge.DonaldsonFunctional.rankOne_fixed",
         "TauCeti.NonabelianHodge.DonaldsonFunctional.diagonal_kernel",
-        "TauCeti.NonabelianHodge.DonaldsonFunctional.missing_higgs_term"
+        "TauCeti.NonabelianHodge.DonaldsonFunctional.missing_higgs_term",
+        "TauCeti.NonabelianHodge.DonaldsonFunctional.nonharmonic_background"
       ],
       "reason": "G11; requires actual global operator, scheme/family, analytic, smooth metric or dg Lie carriers named by G1–G9. Comments inventory names; they do not declare or test them."
     },
@@ -3539,5 +3602,243 @@
       ],
       "reason": "G11; requires actual global operator, scheme/family, analytic, smooth metric or dg Lie carriers named by G1–G9. Comments inventory names; they do not declare or test them."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "S94I",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PMIHES_1994__79__47_0.pdf",
+      "citation": "Publications Mathématiques de l’IHÉS 79 (1994), 47–129",
+      "read": "2026-10-07",
+      "sha256": "c75ffddf60b20eea2d93fa12e1d030cda524d9f8e2b4df4d60014bc8130a7054"
+    },
+    {
+      "sourceId": "S94II",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PMIHES_1994__80__5_0.pdf",
+      "citation": "Publications Mathématiques de l’IHÉS 80 (1994), 5–79",
+      "read": "2026-10-07",
+      "sha256": "5dc0ef646f59819f717b75a90a6a2952af7e29065c34e517e65b2844f90fedbe"
+    },
+    {
+      "sourceId": "S92",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PMIHES_1992__75__5_0.pdf",
+      "citation": "Publications Mathématiques de l’IHÉS 75 (1992), 5–95",
+      "read": "2026-10-07",
+      "sha256": "74651fcdbcd66b5fdf19724b74e0ecbfcad09033dbff2f14c3b7ed2994f76029"
+    },
+    {
+      "sourceId": "S96",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/alg-geom/9604005",
+      "citation": "arXiv alg-geom/9604005, v1, 4 April 1996; preprint pagination",
+      "read": "2026-10-07",
+      "sha256": "2b2096f89734c40995f7a1f20ae2f4568cfed4dd00a5c0ca5df507dfe6ca88c8"
+    },
+    {
+      "sourceId": "EG20",
+      "kind": "published",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "citation": "Acta Mathematica 225 (2020), 103–158; published version",
+      "read": "2026-10-07",
+      "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab"
+    },
+    {
+      "sourceId": "S88",
+      "kind": "published",
+      "url": "https://math.mit.edu/events/talbot/2011/library/simpson_AMS_variations_hodge_yang-mills.pdf",
+      "citation": "Journal of the American Mathematical Society 1(4) (1988), 867–918; MIT mirror of published article",
+      "read": "2026-10-07",
+      "sha256": "6404bb5a8f43d059ead1b15a0ec30db13d327dd16a8504722b06d072ed8126e4"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HodgeStructuresPartII--H.1",
+    "date": "2026-10-07",
+    "notes": "Independent complete target-level review: 19 corrected and 17 verified nodes, all 13 pinned baseline citations confirmed, no nodes or citations removed, four API items and three discriminating tests added. Six primary-source hashes reproduced and every node locator/excerpt checked. Corrected stability ranks, coherent-carrier closure, arbitrary-metric functional inputs, determinant-rigidified deformation groupoids, exponential gauge and compactness norms. Three source findings have confirmed verdicts, with published/preprint version receipts. H.1 remains planned, not closed; G1–G11, 18 requests and 34 omitted node signatures remain explicit. Packet checks report 0 errors/warnings and the native Mathlib suggested subset elaborates with 18 admitted-proof warnings only.",
+    "checked": [
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/betti-stable-representation",
+        "verdict": "corrected",
+        "note": "Native determinant equality, nonzero irreducibility and intertwining equivalence checked against all seven pinned carriers. Replaced an excerpt absent from the cited S94II pages by representations, separating the irreducible restriction from the source construction."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/betti-stable-classes",
+        "verdict": "corrected",
+        "note": "Native quotient has the equality and invariant-function universal properties, without a scheme claim. Added the pinned commutative-monoid finrank theorem used by the abelian rank-two test."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/stable-automorphisms",
+        "verdict": "verified",
+        "note": "S94I p.90 scalar endomorphism argument and p.104 base-line ambiguity agree with native Schur and det_scalar. Unrigidified C× and determinant-preserving μ_r are distinct, including rank one."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/torsion-determinant-dictionary",
+        "verdict": "verified",
+        "note": "Finite order is one uniform exponent of the character, not pointwise torsion. The torsion-line trivialization induces the finite-monodromy connection in characteristic zero; scaling its trivialization by a projective global constant does not change that connection. Cover/descent and GAGA inputs are requested."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/stability",
+        "verdict": "corrected",
+        "note": "Corrected both p- and μ-stability to test 0<rk(F)<rk(E), as in S94I p.88; corrected the S92 polystability locator to pp.18–19. Added the ideal-of-a-point equal-rank test and explicit coherent-operator extension gap/request."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/parameter-families",
+        "verdict": "corrected",
+        "note": "Relative λ-differentials and the family determinant condition retain Artinian directions. Added data constructor, arrow extensionality and rigidification-inertia test; scalar inertia is not confused with a determinant frame or a universal coarse bundle."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/betti-framed",
+        "verdict": "verified",
+        "note": "S94II pp.11–12 realizes the finite-presentation relations as an affine representation scheme. Irreducibility is open by proper invariant-plane incidence; scheme/fundamental-group supplier gaps are explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/betti-coarse",
+        "verdict": "verified",
+        "note": "S94II Proposition 6.1 gives an affine invariant quotient with semisimple Jordan representatives; the irreducible open has ordinary isomorphism classes. Its quasi-affine stable structure does not make it a fine family moduli space. G2 retains the reductive quotient theorem."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/operator-boundedness",
+        "verdict": "corrected",
+        "note": "S94I Lemmas 3.3–3.6 and Theorem 3.8 use operator-generation slope bounds, Quot/Hom equations and openness. Extended the locator through p.98 to include the complete proof; global coherent operators and generic boundedness remain supplier obligations."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/chern-component",
+        "verdict": "verified",
+        "note": "S94II pp.16–17 imposes all rational Chern classes, not only rank/Hilbert polynomial or torsion determinant. GRR yields rP_O and flat bundles retain possible integral torsion. Family local constancy/Chern–Weil realization is explicitly G4."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/higgs-restriction",
+        "verdict": "verified",
+        "note": "S92 pp.32–39 prove finite-extension comparison using dg completion and then operator restriction/Hom comparison. The source-specific statements are nodes; generic restriction and projective Lefschetz proofs remain G6, coherent carriers G1."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/higgs-local-freeness",
+        "verdict": "corrected",
+        "note": "S92 Theorem 2 and S94II Proposition 6.6 support the Chern-zero local-freeness theorem. Clarified torsion-free quotients in the proof sketch; independently recorded the missing saturation hypothesis in the printed final sentence, already corrected in this node statement."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/dolbeault-coarse",
+        "verdict": "corrected",
+        "note": "S94II pp.16–17 gives the Chern-zero semistable coarse scheme and stable open, with étale-local universal-family ambiguity. Replaced the absent co-represents excerpt by the printed corepresented; fixed Higgs determinant includes trace zero."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/derham-coarse",
+        "verdict": "verified",
+        "note": "S94II Theorem 6.13 uses coherent connection local freeness and the operator moduli construction. Stability means irreducibility of the flat object; fixing the algebraic line alone does not fix its connection. G1–G2 retain the required interfaces."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hodge-coarse",
+        "verdict": "verified",
+        "note": "S96 Proposition 4.1 and EG20 pp.131–132 construct relative λ-moduli with exact zero and one fibres. The determinant is (L,λ∇L), nilpotents are retained and flatness is a separate later theorem."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/horizontal-sections",
+        "verdict": "verified",
+        "note": "Read the full S94II Lemma 7.4–Corollary 7.6 proof: Artinian uniqueness, one-dimensional extension, induction on relative dimension and horizontal frames. It works over nonreduced analytic bases; scalar C5 alone is insufficient, as recorded in G3."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/riemann-hilbert-framed",
+        "verdict": "verified",
+        "note": "S94II Lemmas 7.2–7.7 compare represented framed functors on analytic bases, then Theorem 7.1 gives the analytic isomorphism equivariant for frame change. Universal-cover descent/GAGA and relative Quot/Grauert bridges are explicit inputs."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/riemann-hilbert-coarse",
+        "verdict": "verified",
+        "note": "S94II Proposition 7.8 descends the equivariant framed isomorphism through analytic universal categorical quotients. Read S94I Proposition 5.5 proof; its generic analytic reductive quotient and compact-lift inputs remain G2/G9. A point bijection is not used as the proof."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/harmonic-bundle",
+        "verdict": "corrected",
+        "note": "The flat metric presentation agrees with S92 metric operators and harmonic-bundle definition through p.18. Corrected the locator, added constructor and morphism extensionality, and specified pullback identity/composition; morphisms need not be unitary and tensor need not preserve stability."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/kahler-identities",
+        "verdict": "corrected",
+        "note": "The first-order identities and Lemma 1.2 have different page ranges, now pp.14–17 and pp.19–20. The compact coefficient identities prove integrability/full faithfulness; elliptic Hodge decomposition and integration by parts remain G4."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/donaldson-functional",
+        "verdict": "corrected",
+        "note": "Verified the printed S88 p.882 kernel and computed diagonal limit 1/2. Removed a harmonic-presentation prerequisite: the functional must accept arbitrary fixed-determinant background metrics before solving HYM. Added a nonharmonic diagonal-metric test and direct sheaf/operator suppliers."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/higgs-metric-existence",
+        "verdict": "corrected",
+        "note": "Read S88 Theorem 1, coercivity, weak eigenprojections, Proposition 5.8, heat continuation and convergence. Corrected S92 Theorem 1(2) to p.19. Compact specialization and polystable summands are valid; generic nonlinear/weak-subbundle machinery remains G7."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/chern-weil-flatness",
+        "verdict": "corrected",
+        "note": "S88 Proposition 3.4 and S92 curvature norm argument use degree zero and ch₂ pairing zero, with the curve exception stated. Corrected the S92 locator to pp.16–17 and p.19; primitive-form normalization and Chern–Weil realization remain G4."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/flat-metric-existence",
+        "verdict": "corrected",
+        "note": "Corrected the S92 Theorem 1(1) locator to p.19. It states the semisimple harmonic metric criterion; the packet explicitly does not claim to have read Corlette’s existence proof, retained as G8."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/harmonic-correspondence",
+        "verdict": "corrected",
+        "note": "S92 Lemma 1.2 and Corollary 1.3 prove operator/morphism compatibility and the semisimple category equivalence. Tightened the locator to pp.19–20. Stable restrictions and torsion determinant agree; underlying bundle stability is not substituted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hitchin-map",
+        "verdict": "verified",
+        "note": "S94II pp.20–21 and EG20 p.109 give characteristic coefficients with the stated det(tI−θ) signs, weighted scaling and trace-zero fixed determinant. It descends through Jordan equivalence, and zero coefficients mean nilpotent rather than θ=0."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hitchin-properness",
+        "verdict": "verified",
+        "note": "Read S94II Lemmas 6.8–6.10 and complete Theorem 6.11 proof, pp.18–23: spectral support stays finite and the Quot/Hilbert compactification plus invariant quotient gives properness. A closed fixed-det fibre preserves this; the stable open need not."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/harmonic-compactness",
+        "verdict": "corrected",
+        "note": "Specified the source L¹ characteristic-coefficient bound, 1<q<∞ and strong W^{1,q}→L^q operator convergence from S94II Proposition 7.9. Normalized-frame fibres are compact U(r) orbits with stabilizers. Generic gauge/Ahlfors/Kempf–Ness inputs remain G9."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/nonabelian-hodge-topology",
+        "verdict": "verified",
+        "note": "Read both continuity/properness directions in S94II Lemmas 7.16–7.17 and Theorem 7.18. The conclusion is the global coarse homeomorphism and isolated-point preservation; the stronger EG20 real-analytic wording remains the precisely scoped G10."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hodge-scaling",
+        "verdict": "verified",
+        "note": "S96 pp.18–19 and EG20 Lemma 4.9 scale operator and λ together. Division by nonzero λ is an algebraic family isomorphism preserving the determinant section; no fixed-λ connection scaling or global A¹ product is inferred."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/two-types-formality",
+        "verdict": "corrected",
+        "note": "S92 Lemmas 2.1–2.2/Corollary 2.3 supply the two-types dg argument. The S96 relative quasi-isomorphisms reach p.39; locator corrected to pp.38–39. Trace commutes with both operators, permitting the End₀ restriction; generic dg Lie gauge/coarse comparison remains G5."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hodge-formal-product",
+        "verdict": "corrected",
+        "note": "Restricted the End₀ Maurer–Cartan groupoid to based determinant-rigidified deformations, retaining full stabilizers and a separate central coarse-ring bridge. Corrected exponential gauge to g⁻¹dg and locator through p.39; rank-one inertia distinguishes the two groupoids. G5 records the precise supplier obligation."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hodge-etale-product",
+        "verdict": "corrected",
+        "note": "Corrected S96 Theorem 9.1 full-proof locator to pp.36–39. The formal coarse-ring product and Artin approximation yield common étale neighborhoods for fixed X, including nilpotents; Conjecture 9.3 for varying X is not asserted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/hodge-flatness",
+        "verdict": "corrected",
+        "note": "Corrected Corollary 9.2 locator to p.39. Flatness follows by étale descent from products over the field, plus nonzero scaling, not from flat universal quotient sheaves. Smoothness/reducedness are not inferred."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/operator-git",
+        "verdict": "verified",
+        "note": "S94I pp.98–104 proves the operator-specific Hilbert criterion, orbit/Jordan comparison and quasi-projective quotient; the delegated pp.71–73 argument gives coarse universality/base-line ambiguity. Generic GIT/Luna remains G2, not replanned here."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.1/operator-framed",
+        "verdict": "verified",
+        "note": "Read S94I pp.105–109, pp.110–114 and p.119: auxiliary frames, free descent, representation of analytic family functors and framed uniqueness. Base-point frames kill inertia; an unframed coarse scheme is not made fine. Global operators and relative analytic Quot remain G1/G3."
+      }
+    ]
+  }
 }

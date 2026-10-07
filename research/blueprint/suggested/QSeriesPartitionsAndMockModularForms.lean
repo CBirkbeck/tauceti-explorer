@@ -1749,7 +1749,9 @@ theorem jacobiModularSlash_sum_thetaIndex (k : ℤ) (m : ℕ) (hm : 0 < m) (h : 
 -- `MetaplecticAutomorphicForms:MP.6`, and neither Mathlib nor Tau Ceti has them at the pinned
 -- commits. Only part (c′), the passage `φ(τ, z) ↦ φ(τ, 2z)` from half-integral index `m` to index
 -- `4m`, is between classical spaces; it is stated below. The node is a comparison and has no API or
--- unit tests.
+-- unit tests. The general Skoruppa Theorem5 comparison uses the balanced tensor
+-- `(M_{k-n/2} ⊗ W(F)*) ⊗_{ℂ[Mp₂(ℤ)]} Ind_Γ^{Mp₂(ℤ)} V`, with Γ of finite
+-- index and finite image on V; an ordinary unbalanced triple tensor is not the target.
 
 /-- Part (c′) of node `QM.1/jacobi-rank-one-specialisation`: for `m ∈ ½ + ℤ`, `m > 0`, and a
 character `χ` of `ℤ²` with `χ² = 1`, `φ(τ, z) ↦ φ(τ, 2z)` is a bijection from `J_{k,m}(v, χ)` onto

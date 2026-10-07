@@ -11,7 +11,7 @@ from sources import blocked, citations, dependencies, documents, leaning, only, 
 
 REGISTER = {
     "checkHosts": ["doi.org", "link.springer.com", "www.jstor.org"],
-    "pirateHosts": ["dokumen.pub", "libgen.is", "sci-hub.se"],
+    "blockedHosts": ["dokumen.pub", "libgen.is", "sci-hub.se"],
     "works": [
         {"id": "NEUKIRCH-ANT", "title": "Neukirch, Algebraic Number Theory", "access": "restricted",
          "match": [r"Neukirch, \*Algebraic Number Theory\*"],
@@ -172,8 +172,8 @@ class Unlawful(unittest.TestCase):
     """A scan site is not a free source; citing one has to fail loudly."""
 
     def test_a_link_to_a_scan_site_is_named_with_its_file(self):
-        docs = {"SomeReview": "read the transcription at https://dokumen.pub/seminaire-1988-89.html here"}
-        self.assertEqual(unlawful(docs, REGISTER), [("SomeReview", "https://dokumen.pub/seminaire-1988-89.html")])
+        docs = {"SomeReview": "read it at https://dokumen.pub/some-book.html here"}
+        self.assertEqual(unlawful(docs, REGISTER), [("SomeReview", "https://dokumen.pub/some-book.html")])
 
     def test_a_legitimate_source_passes(self):
         docs = {"Roadmap": "[BMS](https://arxiv.org/abs/1602.03148) and the author's copy at https://www.jmilne.org/math/CourseNotes/ANT.pdf"}

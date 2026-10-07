@@ -16818,8 +16818,9 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6905"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6905",
+   "finishedAt": "2026-10-07T20:35:51Z"
   },
   {
    "id": "DESIGN-EllAdicHomotopyTypesAndWeights",
@@ -16953,8 +16954,9 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6906"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6906",
+   "finishedAt": "2026-10-07T20:35:55Z"
   },
   {
    "id": "DESIGN-EllipticCurveModularityWild3Adic",
@@ -32540,7 +32542,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.0.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6937",
+   "finishedAt": "2026-10-07T20:35:58Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.0",
@@ -32607,7 +32611,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.1",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.1.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7025",
+   "finishedAt": "2026-10-07T20:35:59Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.2",
@@ -32630,8 +32636,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6939"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6939",
+   "finishedAt": "2026-10-07T20:36:02Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.2",
@@ -32675,7 +32682,8 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6941"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.3",
@@ -32719,7 +32727,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.4.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6942",
+   "finishedAt": "2026-10-07T20:36:05Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.4",
@@ -32763,7 +32773,8 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6943"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.5",
@@ -32851,7 +32862,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.7.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6946",
+   "finishedAt": "2026-10-07T20:36:06Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.7",
@@ -37006,7 +37019,8 @@
    ],
    "revisionOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6895"
   },
   {
    "priority": 2,
@@ -37661,7 +37675,9 @@
    ],
    "revisionOf": "BP-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentations~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6924",
+   "finishedAt": "2026-10-07T20:36:08Z"
   },
   {
    "priority": 2,
@@ -38805,7 +38821,9 @@
    ],
    "revisionOf": "BP-GeometricSatakeAndFusion--GS0",
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS0~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7303",
+   "finishedAt": "2026-10-07T20:36:10Z"
   },
   {
    "priority": 2,
@@ -39489,8 +39507,9 @@
     "BP-KTheoryFiniteLocalFields~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryFiniteLocalFields~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7068"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7068",
+   "finishedAt": "2026-10-07T20:36:12Z"
   },
   {
    "kind": "blueprint",
@@ -39581,7 +39600,9 @@
    ],
    "revisionOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6974",
+   "finishedAt": "2026-10-07T20:36:16Z"
   },
   {
    "priority": 2,
@@ -39718,8 +39739,9 @@
     "BP-KTheoryLowDegrees--Z.3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7070"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7070",
+   "finishedAt": "2026-10-07T20:36:18Z"
   },
   {
    "kind": "blueprint",
@@ -39914,8 +39936,9 @@
    ],
    "revisionOf": "BP-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/BP-LocalGaloisDeformationRings~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6933"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6933",
+   "finishedAt": "2026-10-07T20:36:22Z"
   },
   {
    "priority": 2,
@@ -40020,7 +40043,8 @@
    ],
    "revisionOf": "BP-MetaplecticAutomorphicForms--MP.8",
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6994"
   },
   {
    "priority": 2,
@@ -40074,7 +40098,9 @@
    ],
    "revisionOf": "BP-MotivicEtaleKTheory--M.5d",
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.5d~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6995",
+   "finishedAt": "2026-10-07T20:36:24Z"
   },
   {
    "priority": 2,
@@ -40839,7 +40865,9 @@
    ],
    "revisionOf": "BP-ShimuraData",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7009",
+   "finishedAt": "2026-10-07T20:36:25Z"
   },
   {
    "priority": 2,
@@ -41001,7 +41029,9 @@
    ],
    "revisionOf": "BP-SpecialValuesBirchTate",
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7012",
+   "finishedAt": "2026-10-07T20:36:27Z"
   },
   {
    "priority": 2,
@@ -41164,7 +41194,8 @@
    ],
    "revisionOf": "BP-VectorBundlesAndIsocrystals--VB0",
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7015"
   },
   {
    "priority": 2,
@@ -41271,7 +41302,9 @@
    ],
    "revisionOf": "BP-WeightsInEtaleCohomology",
    "prompt": "research/blueprint/prompts/BP-WeightsInEtaleCohomology~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7017",
+   "finishedAt": "2026-10-07T20:36:29Z"
   },
   {
    "priority": 2,
@@ -41826,7 +41859,9 @@
    ],
    "revisionOf": "BP-EffectiveDiophantineMethods",
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7305",
+   "finishedAt": "2026-10-07T20:36:31Z"
   },
   {
    "priority": 2,
@@ -42040,7 +42075,8 @@
    ],
    "revisionOf": "BP-Polylogarithms--P.3",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6979"
   },
   {
    "priority": 2,
@@ -42138,7 +42174,8 @@
    ],
    "revisionOf": "BP-ArithmeticKTheory--N.3-finite-generation",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3-finite-generation~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6919"
   },
   {
    "priority": 2,
@@ -42338,8 +42375,9 @@
    ],
    "revisionOf": "BP-HabiroNumberFields--HB.2",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6969"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6969",
+   "finishedAt": "2026-10-07T20:36:33Z"
   },
   {
    "priority": 2,
@@ -70233,8 +70271,9 @@
     "FIX-RT-AREA-automorphic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6902"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6902",
+   "finishedAt": "2026-10-07T20:36:35Z"
   },
   {
    "id": "FIX-RT-AREA-automorphic-1~4",
@@ -70301,7 +70340,8 @@
     "FIX-RT-AREA-automorphic-1~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7280"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~4",
@@ -70779,8 +70819,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",

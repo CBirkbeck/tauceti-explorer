@@ -298,13 +298,11 @@
         {
           "sourceId": "Ito20",
           "locator": "§6.2, p. 35 (after Remark 6.9)",
-          "excerpt": "For an element ε ∈ |K^×| with ε ≤ 1, we define B(ε) := {x ∈ B(1) | |T(x)| ≤ ε} and B(ε)^* := B(ε)∖{0}.",
           "match": "The closed disc of radius ε and its punctured version, as rational subsets of the unit disc B(1) = Spa(K⟨T⟩, O⟨T⟩)."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Remarks 6.3.4 (ii), p. 121",
-          "excerpt": "For 0 < r ≤ R < ∞ we denote by A(r, R) the annulus {x ∈ A¹ | r ≤ |T(x)| ≤ R}.",
           "match": "Berkovich's closed annulus, r = R allowed; the adic interpretation at all ranks is A2's."
         }
       ],
@@ -421,13 +419,11 @@
         {
           "sourceId": "Ito20",
           "locator": "§6.2, p. 35 (after Remark 6.9)",
-          "excerpt": "For an element ε ∈ |K^×| with ε ≤ 1, we define B(ε) := {x ∈ B(1) | |T(x)| ≤ ε} and B(ε)^* := B(ε)∖{0}.",
           "match": "The closed disc of radius ε and its punctured version, as rational subsets of the unit disc B(1) = Spa(K⟨T⟩, O⟨T⟩)."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Corollary 6.3.6, p. 122",
-          "excerpt": "Let D be an open disc with center at zero, and set D* = D∖E(0, r), where 0 ≤ r < r(D). Then any tame finite étale Galois covering φ* : Y* → D* extends to a finite flat covering φ : Y → D, which is étale outside zero.",
           "match": "Open discs D and their punctured or annular complements D* (r = 0 is the punctured disc)."
         }
       ],
@@ -521,13 +517,11 @@
         {
           "sourceId": "Ito20",
           "locator": "§6.1, p. 31 (repeated in Appendix A.1, p. 46)",
-          "excerpt": "For elements a, b ∈ |K^×| with a ≤ b ≤ 1, we define B(a, b) := {x ∈ B(1) | a ≤ |T(x)| ≤ b} := {x ∈ B(1) | |ϖ_a(x)| ≤ |T(x)| ≤ |ϖ_b(x)|}, which is called an open annulus.",
           "match": "The weak-inequality annulus with radius representatives ϖ_a, ϖ_b; a = b is allowed. Ito calls it open because it is an open (rational) subspace."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Remarks 6.3.4 (ii), p. 121",
-          "excerpt": "For 0 < r ≤ R < ∞ we denote by A(r, R) the annulus {x ∈ A¹ | r ≤ |T(x)| ≤ R}.",
           "match": "Berkovich's closed annulus, r = R allowed; the adic interpretation at all ranks is A2's."
         }
       ],
@@ -632,19 +626,16 @@
         {
           "sourceId": "Ito20",
           "locator": "§6.2, p. 37 (before Lemma 6.12)",
-          "excerpt": "For an element ε ∈ |K^×|, we define D(ε) := {x ∈ B(1) | |T(x)| < ε}. This is a closed constructible subset of B(1).",
           "match": "A strict valuative inequality cuts out a closed, not an open, subset of the adic space."
         },
         {
           "sourceId": "Ito20",
           "locator": "Appendix A.1, Example A.1 (2), p. 47",
-          "excerpt": "We assume that a ≤ b < 1. Let B(a, b)^c be the closure of B(a, b) in B(1). Then we have B(a, b)^c∖B(a, b) = {η(a), η(b)′}. In particular, the complement B(a, b)^c∖B(a, b) consists of two points.",
           "match": "The rank-two points η(a), η(b)′ at the two endpoints; with Example A.1 (1) they separate weak loci, strict loci and unions of smaller closed annuli."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Remarks 6.3.4 (i), p. 121",
-          "excerpt": "contains the annulus B(r′, r) = D∖E(a, r′) for some 0 < r′ < r",
           "match": "Berkovich's open annulus B(r′, r) is the complement of a closed disc in an open disc; on rank-one points it is the strict locus r′ < |T − a| < r."
         }
       ],
@@ -736,19 +727,16 @@
         {
           "sourceId": "Ito20",
           "locator": "proof of Lemma 6.12 (1)(b), p. 38",
-          "excerpt": "Let t ∈ |K^×| be an element with t < 1. Then we have D(d)° ∩ B(c, d) = ⋃_{m∈ℤ_{>0}} B(c, t^{1/m}d).",
           "match": "The interior of a strict locus is the union of the closed annuli with strictly smaller outer radius: the exhaustion used to define the analytic open annulus."
         },
         {
           "sourceId": "Ito20",
           "locator": "Appendix A.1, Example A.1 (2), p. 47",
-          "excerpt": "We assume that a ≤ b < 1. Let B(a, b)^c be the closure of B(a, b) in B(1). Then we have B(a, b)^c∖B(a, b) = {η(a), η(b)′}. In particular, the complement B(a, b)^c∖B(a, b) consists of two points.",
           "match": "The rank-two points η(a), η(b)′ at the two endpoints; with Example A.1 (1) they separate weak loci, strict loci and unions of smaller closed annuli."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Remarks 6.3.4 (i), p. 121",
-          "excerpt": "contains the annulus B(r′, r) = D∖E(a, r′) for some 0 < r′ < r",
           "match": "Berkovich's open annulus B(r′, r) is the complement of a closed disc in an open disc; on rank-one points it is the strict locus r′ < |T − a| < r."
         }
       ],
@@ -845,19 +833,16 @@
         {
           "sourceId": "Ito20",
           "locator": "§6.2, p. 37 (before Lemma 6.12)",
-          "excerpt": "For an element ε ∈ |K^×|, we define D(ε) := {x ∈ B(1) | |T(x)| < ε}. This is a closed constructible subset of B(1).",
           "match": "A strict valuative inequality cuts out a closed, not an open, subset of the adic space."
         },
         {
           "sourceId": "Ito20",
           "locator": "Appendix A.1, Example A.1 (2), p. 47",
-          "excerpt": "We assume that a ≤ b < 1. Let B(a, b)^c be the closure of B(a, b) in B(1). Then we have B(a, b)^c∖B(a, b) = {η(a), η(b)′}. In particular, the complement B(a, b)^c∖B(a, b) consists of two points.",
           "match": "The rank-two points η(a), η(b)′ at the two endpoints; with Example A.1 (1) they separate weak loci, strict loci and unions of smaller closed annuli."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Corollary 6.3.6, p. 122",
-          "excerpt": "Let D be an open disc with center at zero, and set D* = D∖E(0, r), where 0 ≤ r < r(D). Then any tame finite étale Galois covering φ* : Y* → D* extends to a finite flat covering φ : Y → D, which is étale outside zero.",
           "match": "Open discs D and their punctured or annular complements D* (r = 0 is the punctured disc)."
         }
       ],
@@ -953,13 +938,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Theorem 6.3.2, p. 119",
-          "excerpt": "Any tame finite étale Galois covering of the one-dimensional disc is trivial.",
           "match": "The statement; in the proof the disc is the closed disc E(0, r)."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, opening paragraph, p. 119",
-          "excerpt": "The morphism φ is said to be tame at y if v_φ(y) is not divisible by p. It is said to be tame if it is tame at all points of Y.",
           "match": "Tameness is a condition on the geometric ramification index v_φ(y) = [𝓗(y) : 𝓗(x)] at every point; k is algebraically closed and p is the residue characteristic."
         }
       ],
@@ -1002,13 +985,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Theorem 6.3.5, p. 121 (proof pp. 121–122)",
-          "excerpt": "Any tame finite étale Galois covering φ : Y → X = A(r, R) with connected Y is standard.",
           "match": "The classification; r = R is allowed and treated first in the proof."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Remarks 6.3.4 (ii), p. 121",
-          "excerpt": "A finite étale covering of A(r, R) is said to be standard if it is isomorphic to φ_n for some n. If n is prime to p, then φ_n is tame.",
           "match": "Definition of standard coverings: φ_n : A(r^{1/n}, R^{1/n}) → A(r, R), z ↦ zⁿ."
         }
       ],
@@ -1056,13 +1037,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "Taking the direct limit over all L kills the class in degree 1 by extracting ℓ-power roots of the uniformizer; this finishes the proof.",
           "match": "The degree-one class is the Kummer class of the coordinate and dies along ℓ-th root extraction."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.2, after Lemma 6.2.2, p. 112",
-          "excerpt": "For f ∈ O(A)^* we set deg_D(f) = m, if D = D(a, r), and deg_D(f) = −m, if D = P¹∖E(a, r), where m is from Lemma 6.2.2. We get a homomorphism deg_D : O(A)^* → Z.",
           "match": "The degree of a unit on a circle with respect to a complementary disc; its sign depends on the disc."
         }
       ],
@@ -1166,13 +1145,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Corollary 6.3.3, p. 121",
-          "excerpt": "Any finite étale Galois covering of the one-dimensional disc, whose degree is prime to p, is trivial.",
           "match": "Vanishing of H¹ of the disc with coefficients of order prime to p."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.4, Theorem 6.4.1, p. 125",
-          "excerpt": "Let X be a one-dimensional k-affinoid space, and let n be an integer prime to p. Then (i) the group H^q(X, Z/nZ) is finite for q = 0, 1 and equal to zero for q ≥ 2",
           "match": "Vanishing in degrees ≥ 2 for affinoid curves; k algebraically closed, p the residue characteristic (Remark 6.4.2: false for p-torsion)."
         }
       ],
@@ -1218,13 +1195,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.2, Remark 6.2.10, p. 118",
-          "excerpt": "let X = D be the open unit disc in A¹. Then the embeddings D ↪ P¹ ← E = P¹∖D induce an exact sequence 0 → H¹(E, μ_p) → H²_c(D, μ_p) → H²(P¹, μ_p) → 0.",
           "match": "The sequence that computes H²_c of the open disc; for n prime to the residue characteristic the left term vanishes, for n = p it is huge."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.2, Theorem 6.2.1, p. 112",
-          "excerpt": "If n is prime to char(k̃) and X is connected, then Tr_X is an isomorphism.",
           "match": "Tr_X : H²_c(X, μ_n) → Z/nZ for a smooth k-analytic curve X; the open disc and the open annulus are connected."
         }
       ],
@@ -1270,19 +1245,16 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "Thus, Y′_{n,L} is an annulus over Spa(C, C⁺) (the defining inequalities can also be written as {|ϖ|ⁿ ≤ |t| ≤ |ϖ|^{1/n}}), which implies that H^i(Y′_{n,L}, F_ℓ) = F_ℓ for i = 0, 1 and 0 else.",
           "match": "The annulus computation as ECD uses it. The base is Spa(C′, C′⁺); the printed Spa(C, C⁺) is the registered misprint PAPER-SCHOLZE-17/E55."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Theorem 6.3.5, p. 121 (proof pp. 121–122)",
-          "excerpt": "Any tame finite étale Galois covering φ : Y → X = A(r, R) with connected Y is standard.",
           "match": "The classification; r = R is allowed and treated first in the proof."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.4, Theorem 6.4.1, p. 125",
-          "excerpt": "Let X be a one-dimensional k-affinoid space, and let n be an integer prime to p. Then (i) the group H^q(X, Z/nZ) is finite for q = 0, 1 and equal to zero for q ≥ 2",
           "match": "Vanishing in degrees ≥ 2 for affinoid curves; k algebraically closed, p the residue characteristic (Remark 6.4.2: false for p-torsion)."
         }
       ],
@@ -1329,13 +1301,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.2, Theorem 6.2.1, p. 112",
-          "excerpt": "If n is prime to char(k̃) and X is connected, then Tr_X is an isomorphism.",
           "match": "Tr_X : H²_c(X, μ_n) → Z/nZ for a smooth k-analytic curve X; the open disc and the open annulus are connected."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "Thus, Y′_{n,L} is an annulus over Spa(C, C⁺) (the defining inequalities can also be written as {|ϖ|ⁿ ≤ |t| ≤ |ϖ|^{1/n}}), which implies that H^i(Y′_{n,L}, F_ℓ) = F_ℓ for i = 0, 1 and 0 else.",
           "match": "The annulus computation as ECD uses it. The base is Spa(C′, C′⁺); the printed Spa(C, C⁺) is the registered misprint PAPER-SCHOLZE-17/E55."
         }
       ],
@@ -1377,13 +1347,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Theorem 6.3.5, p. 121 (proof pp. 121–122)",
-          "excerpt": "Any tame finite étale Galois covering φ : Y → X = A(r, R) with connected Y is standard.",
           "match": "The classification; r = R is allowed and treated first in the proof."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "Thus, Y′_{n,L} is an annulus over Spa(C, C⁺) (the defining inequalities can also be written as {|ϖ|ⁿ ≤ |t| ≤ |ϖ|^{1/n}}), which implies that H^i(Y′_{n,L}, F_ℓ) = F_ℓ for i = 0, 1 and 0 else.",
           "match": "The annulus computation as ECD uses it. The base is Spa(C′, C′⁺); the printed Spa(C, C⁺) is the registered misprint PAPER-SCHOLZE-17/E55."
         }
       ],
@@ -1430,13 +1398,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Corollary 6.3.6, p. 122",
-          "excerpt": "Let D be an open disc with center at zero, and set D* = D∖E(0, r), where 0 ≤ r < r(D). Then any tame finite étale Galois covering φ* : Y* → D* extends to a finite flat covering φ : Y → D, which is étale outside zero.",
           "match": "Open discs D and their punctured or annular complements D* (r = 0 is the punctured disc)."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Theorem 6.3.5, p. 121 (proof pp. 121–122)",
-          "excerpt": "Any tame finite étale Galois covering φ : Y → X = A(r, R) with connected Y is standard.",
           "match": "The classification; r = R is allowed and treated first in the proof."
         }
       ],
@@ -1478,13 +1444,11 @@
         {
           "sourceId": "Ber93",
           "locator": "§6.3, Corollary 6.3.6, p. 122",
-          "excerpt": "Let D be an open disc with center at zero, and set D* = D∖E(0, r), where 0 ≤ r < r(D). Then any tame finite étale Galois covering φ* : Y* → D* extends to a finite flat covering φ : Y → D, which is étale outside zero.",
           "match": "Open discs D and their punctured or annular complements D* (r = 0 is the punctured disc)."
         },
         {
           "sourceId": "Ber93",
           "locator": "§6.2, Remark 6.2.10, p. 118",
-          "excerpt": "let X = D be the open unit disc in A¹. Then the embeddings D ↪ P¹ ← E = P¹∖D induce an exact sequence 0 → H¹(E, μ_p) → H²_c(D, μ_p) → H²(P¹, μ_p) → 0.",
           "match": "The sequence that computes H²_c of the open disc; for n prime to the residue characteristic the left term vanishes, for n = p it is huge."
         }
       ],
@@ -1529,13 +1493,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "Taking the direct limit over all L kills the class in degree 1 by extracting ℓ-power roots of the uniformizer; this finishes the proof.",
           "match": "The degree-one class is the Kummer class of the coordinate and dies along ℓ-th root extraction."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "all L are isomorphic to k((t_L^{1/p^∞})) for some pseudo-uniformizer t_L, as one can take for t_L a uniformizer of the finite separable extension of k((t)) corresponding to L",
           "match": "The tower of annuli: each finite stage is an annulus in the coordinate t_L."
         }
       ],
@@ -1585,19 +1547,16 @@
         {
           "sourceId": "Ito20",
           "locator": "§6.2, Theorem 6.8 (Huber [11, Theorem 6.2.2]), p. 35",
-          "excerpt": "Let f : X → Y be a morphism of adic spaces which is smooth, separated, and quasi-compact. Let F be a constructible sheaf of Z/nZ-modules on X with n ∈ O^×. Then, the sheaf R^i f_! F on Y is a constructible sheaf of Z/nZ-modules for every i.",
           "match": "Public restatement of Hub96 Theorem 6.2.2; Y is an adic space over Spa(K, O), with K algebraically closed throughout Ito's §6 and adic spaces locally strongly noetherian Tate (§4.1)."
         },
         {
           "sourceId": "Ito20",
           "locator": "§6.2, Remark 6.9, p. 35",
-          "excerpt": "The assertion of Theorem 6.8 can fail for non-smooth morphisms.",
           "match": "Smoothness cannot be dropped."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 24.1, condition (ii), p. 152",
-          "excerpt": "By [Hub96, Theorem 6.2.2], the sheaf R^j f_{X_i!} F_i is constructible on X_i, and thus its pullback along g^* is a constructible sheaf on X, as desired.",
           "match": "The use of the theorem: the relative ball over a finite-type approximation X_i of a strictly totally disconnected X."
         }
       ],
@@ -1648,13 +1607,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 24.1, condition (ii), p. 152",
-          "excerpt": "By [Hub96, Theorem 6.2.2], the sheaf R^j f_{X_i!} F_i is constructible on X_i, and thus its pullback along g^* is a constructible sheaf on X, as desired.",
           "match": "The use of the theorem: the relative ball over a finite-type approximation X_i of a strictly totally disconnected X."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 24.1, condition (iv), p. 152",
-          "excerpt": "but in fact this factors over Spa(C, O_C), where C is the completed algebraic closure of K, as X has no nonsplit finite étale covers.",
           "match": "A strictly totally disconnected X lives over an algebraically closed C, so the approximating bases can be taken over C."
         }
       ],
@@ -1703,13 +1660,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 24.1, condition (ii), p. 152",
-          "excerpt": "Then for all j ≥ 0, one has R^j f_{X!} F = R^j f_{X!} h^* F_i = g^* R^j f_{X_i!} F_i.",
           "match": "ECD obtains this identity from base change for diamonds; the classical statement over the perfectoid base is the contract of this node."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 24.1, condition (ii), p. 152",
-          "excerpt": "By [Hub96, Theorem 6.2.2], the sheaf R^j f_{X_i!} F_i is constructible on X_i, and thus its pullback along g^* is a constructible sheaf on X, as desired.",
           "match": "The use of the theorem: the relative ball over a finite-type approximation X_i of a strictly totally disconnected X."
         }
       ],
@@ -1752,13 +1707,11 @@
         {
           "sourceId": "ECD",
           "locator": "Theorem 19.5 (iii), p. 111",
-          "excerpt": "C′/C is an extension of algebraically closed complete nonarchimedean fields, and C′⁺ ⊂ C′ an open and bounded valuation subring containing C⁺, such that Spa(C′, C′⁺) → Spa(C, C⁺) is surjective.",
           "match": "The surjectivity hypothesis on the extension of geometric field pairs."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "so we can assume that Y = Spa(C′, C′⁺), where C′ is an algebraically closed nonarchimedean field with an open and bounded valuation subring C′⁺ ⊂ C′, and we only need to verify the statement on global sections.",
           "match": "The base of the annulus computation is a geometric point with an arbitrary plus ring."
         }
       ],
@@ -1802,13 +1755,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "so we can assume that Y = Spa(C′, C′⁺), where C′ is an algebraically closed nonarchimedean field with an open and bounded valuation subring C′⁺ ⊂ C′, and we only need to verify the statement on global sections.",
           "match": "The base of the annulus computation is a geometric point with an arbitrary plus ring."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 19.5 (ii), p. 112",
-          "excerpt": "Thus, Y′_{n,L} is an annulus over Spa(C, C⁺) (the defining inequalities can also be written as {|ϖ|ⁿ ≤ |t| ≤ |ϖ|^{1/n}}), which implies that H^i(Y′_{n,L}, F_ℓ) = F_ℓ for i = 0, 1 and 0 else.",
           "match": "The annulus computation as ECD uses it. The base is Spa(C′, C′⁺); the printed Spa(C, C⁺) is the registered misprint PAPER-SCHOLZE-17/E55."
         }
       ],
@@ -1858,19 +1809,16 @@
         {
           "sourceId": "Huber-EtaleCohomology-1996",
           "locator": "§3.7, Theorem 3.7.2, p. 226",
-          "excerpt": "In the situation above, assume that f is proper. Let Λ be a torsion ring. Then the base change morphism of functors from D^+(X_et, Λ) to D^+((Y^ad)_et, Λ) ... is an isomorphism.",
           "match": "Inherited from the reviewed decomposition (independent-review-REVIEW-EXT-05-EXT-02), which read a scan of the book; restored verbatim by the review and not re-read (the book is not public). Statement (the display was lost in the scan's text)."
         },
         {
           "sourceId": "Huber-EtaleCohomology-1996",
           "locator": "§3.7, proof of 3.7.2, p. 227",
-          "excerpt": "The ring B^+ is henselian along I. Hence by (3.2.10) H^n(X^ad ×_R Spa(B,B^+), G) = H^n(X ×_S Spec B, L).",
           "match": "Inherited from the reviewed decomposition (independent-review-REVIEW-EXT-05-EXT-02), which read a scan of the book; restored verbatim by the review and not re-read (the book is not public). The henselian comparison step."
         },
         {
           "sourceId": "Huber-EtaleCohomology-1996",
           "locator": "§3.7, Lemma 3.7.3, p. 227",
-          "excerpt": "Then O_R(R) is noetherian and hence by Chow's Lemma ((EGA, II.5.6.2]) we may assume that f: X -> S is projective.",
           "match": "Inherited from the reviewed decomposition (independent-review-REVIEW-EXT-05-EXT-02), which read a scan of the book; restored verbatim by the review and not re-read (the book is not public). The noetherian step in the written proof that f^ad is quasi-compact."
         }
       ],
@@ -1917,7 +1865,6 @@
         {
           "sourceId": "Huber-EtaleCohomology-1996",
           "locator": "§3.8, proof of Lemma 3.8.2, p. 229",
-          "excerpt": "Then the preimage L of f'_! F' on X' ×_{Y'} Y'(y) vanishes. By (2.6.1) (R^n g'_* f'_! F')_y = H^n(X' ×_{Y'} Y'(y), L) = 0.",
           "match": "Inherited from the reviewed decomposition (independent-review-REVIEW-EXT-05-EXT-02), which read a scan of the book; restored verbatim by the review and not re-read (the book is not public). The excision argument."
         }
       ],
@@ -1967,37 +1914,31 @@
         {
           "sourceId": "Huber-EtaleCohomology-1996",
           "locator": "§3.8, Theorem 3.8.1, pp. 227–228",
-          "excerpt": "We assume that if the characteristic char(k) of the ground field k is positive then n is prime to char(k). Theorem 3.8.1. In the situation from above, for every constructible Z/nZ-module F on X_et and every q ∈ N_0, the base change morphism ... is bijective.",
           "match": "Inherited from the reviewed decomposition (independent-review-REVIEW-EXT-05-EXT-02), which read a scan of the book; restored verbatim by the review and not re-read (the book is not public). Statement and torsion hypothesis."
         },
         {
           "sourceId": "Huber-EtaleCohomology-1996",
           "locator": "§3.8, after 3.8.1, p. 228",
-          "excerpt": "If char(k) > 0 then one can prove (3.8.1) as the comparison theorem in [Ber1, 7.5].",
           "match": "Inherited from the reviewed decomposition (independent-review-REVIEW-EXT-05-EXT-02), which read a scan of the book; restored verbatim by the review and not re-read (the book is not public). The characteristic-p route; the sentence before it sends the characteristic-zero case to SGA 4 XVI.4 with (3.7.2), (3.9.1.b) and Lemma 3.8.2."
         },
         {
           "sourceId": "Ber93",
           "locator": "§7.5, Corollary 7.5.3, p. 150",
-          "excerpt": "Let φ : 𝒴 → 𝒳 be a morphism of finite type between schemes of locally finite type over k, and let ℱ be a constructible abelian sheaf on 𝒴 with torsion orders prime to char(k̃). Then for any q ≥ 0 there is a canonical isomorphism (R^qφ_*ℱ)^an ≅ R^qφ^an_*ℱ^an.",
           "match": "Berkovich's comparison theorem; the torsion is prime to the residue characteristic, which equals char(k) when char(k) > 0."
         },
         {
           "sourceId": "Ber93",
           "locator": "§7.4, Theorem 7.4.9, p. 145",
-          "excerpt": "Let φ : Y → X be a separated smooth morphism of pure dimension d, and suppose that F is a finite locally constant (Z/nZ)_Y-module such that all the sheaves R^qφ_!(F^∨), q ≥ 0, are finite locally constant.",
           "match": "Hypotheses of the duality formula R^qφ_*F ≅ (R^{2d−q}φ_!(F^∨))^∨(−d) used in Lemma 7.5.2 (p. 147), for every relative dimension d."
         },
         {
           "sourceId": "Ber93",
           "locator": "§7.1, Corollary 7.1.4, pp. 129–130",
-          "excerpt": "Let φ : 𝒴 → 𝒳 be a compactifiable morphism between schemes of locally finite type over Spec(𝒜), where 𝒜 is a k-affinoid algebra, and let 𝒢 be an abelian torsion sheaf on 𝒴.",
           "match": "Hypotheses of the comparison theorem for cohomology with compact support, (R^qφ_!𝒢)^an ≅ R^qφ^an_!𝒢^an; all torsion is allowed."
         },
         {
           "sourceId": "Zav25",
           "locator": "Appendix A, Lemma A.18, p. 87",
-          "excerpt": "[Hub96, Theorem 8.3.5] Let X be a taut rigid K-space. Then the functor θ_X^* : Ab(u(X)_ét.s) → Ab(X_ét) induces an equivalence of categories θ_X^* : Ab(u(X)_ét.s) → Ab^ov(X_ét).",
           "match": "Berkovich étale sheaves are the overconvergent adic étale sheaves on a taut space; with Theorem A.15 (partially proper morphisms) and Lemma A.19 this is the scope of the transport."
         }
       ],
@@ -2044,7 +1985,6 @@
         {
           "sourceId": "Mieda-Zelevinsky",
           "locator": "proof of Proposition 3.38, p. 20 (setting: §3.3.1, p. 12)",
-          "excerpt": "As F is constructible, H^{i−1}(U_n, F) is a finitely generated Λ-module for every n by [Hub98a, Proposition 3.1] (in the case where the characteristic of k is 0) or [Hub96, Proposition 6.1.1, (1.7.7)] (in the case where X is smooth over Spa(k, k⁺)).",
           "match": "Per-degree finiteness on quasi-compact quasi-separated opens U_n, with k separably closed and ℓ different from the residue characteristic."
         }
       ],
@@ -2093,7 +2033,6 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Proposition 27.2, p. 164",
-          "excerpt": "Moreover, by [Hub96, Proposition 6.1.1], we know that for each n, the cohomology RΓ(X_{C,n}, c_X^*A) is of finite total dimension.",
           "match": "The use of Hub96 6.1.1: finite total dimension on each ball."
         }
       ],
@@ -2141,7 +2080,6 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Proposition 27.2, p. 164",
-          "excerpt": "We can write X_C^♢ as a filtered colimit of infinite-dimensional balls X_{C,(n_i)_{i∈I}} over C, where n_i ≥ 1 are integers which we can assume to be powers of p and X_{C,(n_i)_{i∈I}} = Spd C⟨(t^{n_i} X_i)^{1/p^∞}, i ∈ I⟩.",
           "match": "The ball system {|t^{n_i}X_i| ≤ 1}; larger exponent means larger radius. The reduction to finitely many coordinates and to a common n ∈ ℤ[1/p] follows on the same page."
         }
       ],
@@ -2263,13 +2201,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Proposition 27.2, p. 164",
-          "excerpt": "It follows that for n > 1 sufficiently close to 1, the map RΓ(X_{C,n}, c_X^*A) → RΓ(X_{C,1}, c_X^*A) is surjective in each degree, and thus an isomorphism (as both are of the same finite cardinality).",
           "match": "The stabilisation concerns the actual restriction maps."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Proposition 27.2, p. 164",
-          "excerpt": "On the other hand, as c_X^*A is overconvergent, we have RΓ(X_{C,1}, c_X^*A) = lim−→_{n>1} RΓ(X_{C,n}, c_X^*A).",
           "match": "Neighbourhood continuity for overconvergent sheaves: a filtered colimit over n > 1."
         }
       ],
@@ -2315,13 +2251,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Proposition 27.2, p. 164",
-          "excerpt": "Thus, we also have RΓ(X_C^♢, c_X^*A) = lim←−_j RΓ(X_{C,n^j}, c_X^*A) = RΓ(X_{C,1}, c_X^*A)",
           "match": "Affine space as the inverse limit over the stable ball system."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Proposition 27.2, p. 164",
-          "excerpt": "by the identification of X_C^♢ with the diamond associated to the rigid space to C associated to X_C and [Hub96, Theorem 3.8.1], we know that the natural map RΓ(X_C, A) → RΓ(X_C^♢, c_X^*A) is an isomorphism.",
           "match": "The use of Hub96 3.8.1 over a field of characteristic p, for affine space of every finite dimension."
         }
       ],
@@ -2365,7 +2299,6 @@
         {
           "sourceId": "Lut95",
           "locator": "§5, Definition 5.6, p. 200",
-          "excerpt": "X is said to be S-compactifiable if there exists an open S-immersion of X into a flat projective formal curve C → U where U is the image of X under the morphism X → S and where the associated rigid curve C_rig → U_rig is smooth.",
           "match": "First clause of Definition 5.6, for a flat morphism X → S of admissible formal schemes whose rigid morphism is a smooth rigid curve fibration."
         }
       ],
@@ -2458,13 +2391,11 @@
         {
           "sourceId": "Lut95",
           "locator": "§5, Proposition 5.4 (Infinitesimal compactification), p. 197",
-          "excerpt": "Let f : X → S be a flat affine morphism of formal schemes with reduced geometric fibres which are equidimensional of dimension 1.",
           "match": "Hypotheses; the conclusion gives a stratification of S₀, a rig-étale cover S′ → S, projective compactifications P^ρ over the completions along the strata, smooth at infinity, and an ample relative Cartier divisor Δ^ρ on P^ρ."
         },
         {
           "sourceId": "Lut95",
           "locator": "§5, Lemma 5.5 (d), p. 198",
-          "excerpt": "there exists a U′(n)-ample invertible sheaf O_{P′(n)}(Δ(n)) where Δ(n) is a relative Cartier divisor which contains P′(n) − X′(n) and which is contained in the smooth locus of P′(n)",
           "match": "The divisor contains the boundary and lies in the smooth locus: this is in Lemma 5.5, at every level n, not in the statement of Proposition 5.4."
         }
       ],
@@ -2505,7 +2436,6 @@
         {
           "sourceId": "Lut95",
           "locator": "§5, Definition 5.6, p. 200",
-          "excerpt": "X is said to be locally S-compactifiable if for every closed point x₀ of X₀ there exists an open neighborhood V which is S-compactifiable.",
           "match": "Second clause; the third clause defines (locally) S-compactifiable over an open U of S by base change to U."
         }
       ],
@@ -2596,13 +2526,11 @@
         {
           "sourceId": "Lut95",
           "locator": "§5, Proposition 5.7 (Extension of compactifications), p. 200 (proof pp. 200–202)",
-          "excerpt": "Let V = Spf(B) be an open affine subscheme of X which is faithfully flat over an open affine subscheme U = Spf(A) of S. Assume that V is S-compactifiable.",
           "match": "Hypotheses, with K the fraction field of a complete discrete valuation ring and X → S flat affine with smooth rigid curve fibration; the conclusion extends V after admissible blowing-ups."
         },
         {
           "sourceId": "Lut95",
           "locator": "§5, Lemma 5.8, p. 202",
-          "excerpt": "Then H(d, g, N) is smooth over Z if d ≥ 2g − 1.",
           "match": "Smoothness of the Hilbert scheme of smooth curves of genus g and degree d in P^N; the proof uses lifting of curves and of relative Cartier divisors and Serre duality."
         }
       ],
@@ -2648,7 +2576,6 @@
         {
           "sourceId": "Lut95",
           "locator": "§5, Theorem 5.3, p. 197 (proof pp. 202–203)",
-          "excerpt": "Let K be the field of fractions of a complete discrete valuation ring R. Let f_K : X_K → S_K be a smooth rigid curve fibration. Then, étale locally on S_K and locally on X_K, there exists a smooth projective S_K-compactification.",
           "match": "The theorem: discretely valued base field, étale-local on the base and local on the source."
         }
       ],
@@ -2694,19 +2621,16 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 25.1, p. 160",
-          "excerpt": "We may embed X into a proper smooth rigid-analytic curve X′ by [Lüt95, Theorem 5.3], and we continute to denote by j : U → X′ the open immersion.",
           "match": "The use of the compactification theorem, over an algebraically closed (hence nondiscretely valued) C and for the whole of X; see source issues E-H4-1 and E-H4-2."
         },
         {
           "sourceId": "Lut95",
           "locator": "§5, Theorem 5.3, p. 197 (proof pp. 202–203)",
-          "excerpt": "Let K be the field of fractions of a complete discrete valuation ring R. Let f_K : X_K → S_K be a smooth rigid curve fibration. Then, étale locally on S_K and locally on X_K, there exists a smooth projective S_K-compactification.",
           "match": "The theorem: discretely valued base field, étale-local on the base and local on the source."
         },
         {
           "sourceId": "Lut95",
           "locator": "§6, Remark 6.7, p. 211",
-          "excerpt": "Throughout the paper we always assumed that the valuation of the base field is discrete.",
           "match": "The remark goes on to say that the paper can be generalised to an arbitrary valuation of height 1 if parts of EGA are rewritten for universally coherent base rings; no proof is given."
         }
       ],
@@ -2751,7 +2675,6 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 25.1, p. 160",
-          "excerpt": "is concentrated on Ū∖U, which is a discrete finite set of points. In particular, the cone of RΓ(X, j_!M) → R Hom_{D_ét(X,F_ℓ)}(Rj_*F_ℓ, M) decomposes into a direct sum of contributions over Ū∖U.",
           "match": "Support of the cone on the finite discrete frontier and the resulting decomposition."
         }
       ],
@@ -2801,13 +2724,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 25.1, p. 160",
-          "excerpt": "so the result follows from Poincaré duality on U; indeed, RΓ_c(U, Rf^!F_ℓ) and its dual RΓ(U, F_ℓ) are finite by Proposition 23.10 (ii), so both sides commute with all colimits in M, and we may reduce to M = F_ℓ.",
           "match": "Reduction of the proper case to Poincaré duality and finiteness on U."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 25.1, p. 160",
-          "excerpt": "The previous discussion implies that the cone of RΓ(X, j_!M) → R Hom_{D_ét(X,F_ℓ)}(Rj_*F_ℓ, M) is a direct summand of the cone of RΓ(X′, j_!M) → R Hom_{D_ét(X′,F_ℓ)}(Rj_*F_ℓ, M).",
           "match": "The direct-summand statement; only the contributions at frontier points lying in X are compared."
         }
       ],
@@ -2850,13 +2771,11 @@
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 25.1, p. 160",
-          "excerpt": "The previous discussion implies that the cone of RΓ(X, j_!M) → R Hom_{D_ét(X,F_ℓ)}(Rj_*F_ℓ, M) is a direct summand of the cone of RΓ(X′, j_!M) → R Hom_{D_ét(X′,F_ℓ)}(Rj_*F_ℓ, M).",
           "match": "The direct-summand statement; only the contributions at frontier points lying in X are compared."
         },
         {
           "sourceId": "ECD",
           "locator": "proof of Theorem 25.1, p. 160",
-          "excerpt": "is concentrated on Ū∖U, which is a discrete finite set of points. In particular, the cone of RΓ(X, j_!M) → R Hom_{D_ét(X,F_ℓ)}(Rj_*F_ℓ, M) decomposes into a direct sum of contributions over Ū∖U.",
           "match": "Support of the cone on the finite discrete frontier and the resulting decomposition."
         }
       ],

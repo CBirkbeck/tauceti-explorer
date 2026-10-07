@@ -22,91 +22,91 @@
         "ref": "mathlib:WeierstrassCurve",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "Five-coefficient Weierstrass equations over a commutative ring; reuse the carrier, not a new elliptic-curve structure.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Δ",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "The b-invariant discriminant formula, with no factor 1728 in the denominator.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:WeierstrassCurve.IsElliptic",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "Ellipticity means that Δ is a unit; over a field this is Δ ≠ 0.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:WeierstrassCurve.j",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "j = Δ-unit inverse times c₄ cubed; requires IsElliptic.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:WeierstrassCurve.baseChange",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "Map all five coefficients along the algebra map, for an arbitrary algebra.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:RatFunc.mk",
         "module": "Mathlib/FieldTheory/RatFunc/Defs.lean",
         "provides": "Rational function represented by a pair of polynomials; denominator zero returns zero, so this is never the value of the j-map at a cusp.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:MvPolynomial.X",
         "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
         "provides": "The monomial indexed by a variable; used for ternary homogeneous equations.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:MvPolynomial.eval₂",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Evaluate the coefficients by a ring hom and the variables by a valuation into a commutative semiring.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "Relative integral-closure normalization of a qcqs scheme morphism; not the smooth compactification or Cartan quotient by itself.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:RatFunc.eval",
         "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
         "provides": "Evaluate reduced numerator/denominator using a coefficient ring hom into a field; at a pole totalized evaluation is zero, not a geometric j-value.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:RatFunc.intDegree",
         "module": "Mathlib/FieldTheory/RatFunc/Degree.lean",
         "provides": "The integer difference natDegree(num)−natDegree(denom), distinct from the degree of the induced map of proper curves.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:Polynomial.X",
         "module": "Mathlib/Algebra/Polynomial/Basic.lean",
         "provides": "The polynomial monomial with coefficient 1 and exponent 1; used for literal quartic and sextic equations.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:Polynomial.eval",
         "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
         "provides": "Evaluation of a polynomial at a point of its coefficient semiring; eval₂ handles a coefficient hom into another semiring.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Affine.Equation",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
         "provides": "The existing affine polynomial equation, equivalent to y²+a₁xy+a₃y=x³+a₂x²+a₄x+a₆.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Affine.Point.mk",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
         "provides": "For an elliptic curve over a nontrivial ring, an equation proof constructs the actual nonsingular affine point, distinct from infinity. Over a field the existing point carrier has its additive commutative group.",
-        "checked": "Declaration statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+        "checked": "Independently read the declaration and its ambient assumptions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by Codex codex-BaAQGd; see the fifteen-entry review table."
       }
     ]
   },
@@ -296,8 +296,7 @@
         {
           "sourceId": "CN",
           "locator": "§6.1, definition before Theorem 6.1, p.87",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Geometric CM is a separate branch; the cuspidal branch uses the dual Tate module, source weight 0 and cyclotomic inverse determinant. Genuine carriers remain G1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -392,8 +391,7 @@
         {
           "sourceId": "CN",
           "locator": "Lemma 6.1.3(1), p.88",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Strong multiplicity one gives uniqueness up to isomorphism; the determinant/central-character normalization gives trivial central character. CM is excluded here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -439,8 +437,7 @@
         {
           "sourceId": "CN",
           "locator": "Lemma 6.1.3(2), p.88",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Common coefficients and semisimple Frobenius comparison precede the isomorphism at every prime; an existential modularity datum alone is insufficient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -486,8 +483,7 @@
         {
           "sourceId": "CN",
           "locator": "Lemma 6.1.3(3) and proof, p.88",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Frobenius semisimplification retains N. Varma’s semisimplified comparison needs elliptic purity to recover Steinberg monodromy, explicitly requested in G2."
         }
       ],
       "implementationStatus": "unchecked",
@@ -533,8 +529,7 @@
         {
           "sourceId": "CN",
           "locator": "Lemma 6.1.3(4) and proof, p.88",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Use an auxiliary ℓ≠p to identify a Steinberg twist and then the ordinary criterion at p; the p-adic comparison is not applied at v∤p."
         }
       ],
       "implementationStatus": "unchecked",
@@ -580,8 +575,7 @@
         {
           "sourceId": "CN",
           "locator": "Proofs of Theorem 6.1, Corollaries 7.1.2, 7.2.5 and 7.3.4",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Isogeny, quadratic twist and field conjugacy preserve the endpoint. Solvable CM descent checks irreducibility/cuspidality, treating CM separately."
         }
       ],
       "implementationStatus": "unchecked",
@@ -624,8 +618,7 @@
         {
           "sourceId": "CN",
           "locator": "Proof of Proposition 6.1.5, p.89; AKT §9, twists in Lemmas 9.6–9.7",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Fine fixed-pairing twists at 3 and 5 have geometric genus zero; an F-point is needed before identifying the completion with P¹. No coarse universal curve is asserted."
         }
       ],
       "implementationStatus": "unchecked",
@@ -703,25 +696,26 @@
       "proofSteps": [
         "Choose one decomposed-generic rational q and require all q-adic places to split, so the same local Frobenius eigenvalue ratios survive.",
         "Construct solvable local extensions trivializing the finite residual images and p-torsion of ordinary/supersingular local curves; make the required places split over the real subfield.",
-        "Globalize the finite local conditions with disjointness from Favoid and the indicated cyclotomic field; the exact CM globalization theorem is G3."
+        "Globalize the finite local conditions with disjointness from Favoid and the indicated cyclotomic field; the exact CM globalization theorem is G3.",
+        "Preserve the finite residual/cyclotomic image by disjointness from its field in Favoid. Do not invoke PA.5/split-test-prime-image-preservation: its enormousness and scalar hypotheses are stronger than the switching hypotheses, particularly at p=3."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
         "ArithmeticGaloisRepresentations:R01.4",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "PotentialAutomorphyInfrastructure:PA.5/split-test-prime-image-preservation"
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes"
       ],
       "acceptance": [
         "The witness q is one rational prime and every place above it is retained, not only one selected place.",
-        "Disjointness from Favoid preserves residual image only if the required residual field was included in Favoid."
+        "Disjointness from Favoid preserves residual image only if the required residual field was included in Favoid.",
+        "A retained q supplies genericity; full image preservation separately requires the residual field in the avoidance datum. No enormousness assumption is inserted at p=3."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Proof of Proposition 6.1.5, p.89; proof of Proposition 6.1.6, p.90, compared with AKT 9.13–9.15",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Keep the all-place generic witness and residual/cyclotomic avoidance separately. Replace the overly strong PA.5 enormous-image import with AG2’s infinite-witness lemma; G3 owns the still missing globalization contract."
         }
       ],
       "implementationStatus": "unchecked",
@@ -765,8 +759,7 @@
         {
           "sourceId": "AKT",
           "locator": "AKT Proposition 9.12, using Lemmas 9.4 and 9.11",
-          "excerpt": "Then E is modular.",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "AKT 9.12 supplies the independent seed: Tate at 2 and 3, the stated valuation and conjugate-discriminant conditions, and large mod-3 image. AKT 7.1/8.1 are explicit owner extensions, not CN 6.1 in disguise."
         }
       ],
       "implementationStatus": "unchecked",
@@ -790,11 +783,11 @@
       ],
       "title": "Simultaneous local and residual specialization",
       "kind": "theorem",
-      "statement": "After solvable_preparation has made Yρ̄ an open subcurve of ℙ¹L, given nonempty open subsets Ωw⊂Yρ̄(Lw) at all the finitely many selected places and the finite covers encoding auxiliary large mod-3 or mod-5 image, there is an L-point in every Ωw outside the relevant thin exceptional sets. In the p=5 construction impose the AKT 9.7 discriminant-conjugacy, Tate valuation and large mod-3 conditions for seed_modular; independently choose at every w|5 ordinary, supersingular or split multiplicative local prototypes according to the prescribed partition. In the p=3 construction impose ordinary mod-5 seed conditions without constraining the prescribed 3-adic ordinary/supersingular/multiplicative choices.",
+      "statement": "After solvable_preparation has made Yρ̄ an open subcurve of ℙ¹L, given nonempty open subsets Ωw⊂Yρ̄(Lw) at all the finitely many selected places and the finite covers encoding auxiliary large mod-3 or mod-5 image, there is an L-point in every Ωw outside the relevant thin exceptional sets. In the p=5 construction impose the AKT 9.7 discriminant-conjugacy, Tate valuation and large mod-3 conditions for seed_modular; independently choose at every w|5 ordinary, supersingular or split multiplicative local prototypes according to the prescribed partition. In the p=3 construction impose Tate reduction at every place above 5 for the ordinary mod-5 seed without constraining the prescribed 3-adic ordinary/supersingular/multiplicative choices.",
       "hypotheses": [],
       "proofSteps": [
         "Show each reduction condition is locally open on the affine parameter curve and nonempty using the selected prototypes.",
-        "Use AKT 9.7 to couple discriminant conditions at 2 and 3, and Hilbert specialization to avoid residual image drops.",
+        "Use AKT 9.7 to retain the Tate/discriminant conditions at 2 and 3 for p=5; for p=3 choose Tate prototypes at every place above 5. Hilbert specialization avoids auxiliary residual image drops without changing the prescribed p-adic partition.",
         "Apply the number-field Hilbert irreducibility theorem with weak approximation; preserve the fixed q witness and the avoidance field."
       ],
       "prerequisites": [
@@ -812,8 +805,7 @@
         {
           "sourceId": "CN",
           "locator": "Proofs of Propositions 6.1.5–6.1.6; AKT Lemma 9.7 and Propositions 9.13–9.15",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Retain Tate places at 2,3 for p=5 and choose Tate at every place above 5 for p=3; the prescribed p-adic partition is independent. Thin-set avoidance is stronger than finite search."
         }
       ],
       "implementationStatus": "unchecked",
@@ -834,7 +826,7 @@
       ],
       "title": "Mod-5 switching with prescribed reduction",
       "kind": "theorem",
-      "statement": "Let F be imaginary CM, ρ̄:GF→GL₂(𝔽5) continuous with det=ε̄5 and decomposed generic, and partition the places v|5 as S5st⊔S5ord⊔S5ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,5≅ρ̄|GL, and ρ̄|GL remains decomposed generic. ζ5∉F is not a hypothesis of this proposition.",
+      "statement": "Let F be imaginary CM, ρ̄:GF→GL₂(𝔽5) continuous with det=ε̄5 and decomposed generic, and partition the places v|5 as S5st⊔S5ord⊔S5ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a non-CM modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,5≅ρ̄|GL, and ρ̄|GL remains decomposed generic. ζ5∉F is not a hypothesis of this proposition. The construction also retains Tate reduction at every place above 2 and 3, independently of the prescribed 5-adic partition. These Tate places force A to be non-CM because a CM elliptic curve has potentially good reduction everywhere.",
       "hypotheses": [
         "F imaginary CM.",
         "ρ̄ continuous, det=ε̄5, decomposed generic.",
@@ -844,23 +836,26 @@
       "proofSteps": [
         "Perform solvable preparation and simultaneous selection on Yρ̄ with the specified 5-adic prototypes.",
         "Obtain modularity from the independent 2–3 seed; match residual mod-5 representation via the symplectic level identification.",
-        "Retain the q witness and disjointness; read A over Lw, correcting the printed Fw."
+        "Retain the q witness and disjointness; read A over Lw, correcting the printed Fw.",
+        "Retain the seed’s Tate places above 2 and 3 and deduce non-CM from the CM potentially-good-reduction theorem; the congruence alone does not imply non-CM."
       ],
       "prerequisites": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection",
-        "EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity"
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "acceptance": [
         "Taking S5ss to be all 5-adic places yields an auxiliary curve with good supersingular reduction everywhere above 5.",
-        "The modularity argument never invokes the target CN Theorem 6.1, avoiding a cycle."
+        "The modularity argument never invokes the target CN Theorem 6.1, avoiding a cycle.",
+        "The auxiliary curve is non-CM even when every prescribed 5-adic place is supersingular: retain its Tate places above 2 and 3."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Proposition 6.1.5, pp.88–89",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CN 6.1.5 modifies the AKT construction only at 5. Export retained Tate places at 2,3 and non-CM, including the all-supersingular-at-5 test; ζ5∉F is not added here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -884,7 +879,7 @@
       ],
       "title": "Mod-3 switching with prescribed reduction",
       "kind": "theorem",
-      "statement": "Let F be imaginary CM with ζ5∉F, ρ̄:GF→GL₂(𝔽3) continuous with det=ε̄3 and decomposed generic, and partition all places v|3 as S3st⊔S3ord⊔S3ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,3≅ρ̄|GL, and ρ̄|GL remains decomposed generic.",
+      "statement": "Let F be imaginary CM with ζ5∉F, ρ̄:GF→GL₂(𝔽3) continuous with det=ε̄3 and decomposed generic, and partition all places v|3 as S3st⊔S3ord⊔S3ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a non-CM modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,3≅ρ̄|GL, and ρ̄|GL remains decomposed generic. The construction also retains Tate reduction at every place above 5, independently of the prescribed 3-adic partition. These Tate places force A to be non-CM because a CM elliptic curve has potentially good reduction everywhere.",
       "hypotheses": [
         "F imaginary CM and ζ5∉F.",
         "ρ̄ continuous, det=ε̄3, decomposed generic.",
@@ -893,26 +888,29 @@
       ],
       "proofSteps": [
         "Add F(ζ5) and the relevant residual fields to avoidance.",
-        "Construct an auxiliary curve on Yρ̄ with the prescribed 3-adic local prototypes, good ordinary or Tate 5-adic behavior and large mod-5 image.",
-        "Use the independent ordinary mod-5 AKT 9.14 seed (Theorem 8.1) to prove the auxiliary curve modular, retaining disjointness and the 3-adic generic witness."
+        "Construct an auxiliary curve on Yρ̄ with the prescribed 3-adic local prototypes, Tate reduction at every 5-adic place and large mod-5 image.",
+        "Use the independent ordinary mod-5 AKT 9.14 seed (Theorem 8.1) to prove the auxiliary curve modular, retaining disjointness and the 3-adic generic witness.",
+        "The retained Tate places above 5 force A to be non-CM; export this witness before choosing its cuspidal representation."
       ],
       "prerequisites": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity",
-        "ArithmeticGaloisRepresentations:R01.4"
+        "ArithmeticGaloisRepresentations:R01.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
       ],
       "acceptance": [
         "The ζ5 condition belongs here and is kept when invoking the ordinary mod-5 seed.",
-        "Supersingular at 3 is allowed; ordinary modularity lifting is used at 5, not incorrectly at 3."
+        "Supersingular at 3 is allowed; ordinary modularity lifting is used at 5, not incorrectly at 3.",
+        "The auxiliary curve is non-CM even when every prescribed 3-adic place is supersingular: retain its Tate places above 5."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Proposition 6.1.6, pp.89–90; AKT 9.14–9.15",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CN 6.1.6 keeps ζ5∉F and prescribed 3-adic types; AKT 9.15 allows Tate at every 5-adic place. Export that non-CM witness and preserve avoidance."
         }
       ],
       "implementationStatus": "unchecked",
@@ -937,29 +935,31 @@
       ],
       "title": "Local factors of the auxiliary representation",
       "kind": "theorem",
-      "statement": "For A/L supplied by switch_five (p=5) or switch_three (p=3), let π be its non-CM weight-zero modular representation with rπ,ι≅rA,p∨. For every w|p above v of F, π is ι-ordinary if v∈Spst; πw is unramified if v∈Spord∪Spss. In the latter case the associated p-adic representation is crystalline with N=0 and is potentially ordinary precisely in the ordinary case. The prime order printed in CN Lemma 6.1.7 is reversed and corrected here.",
+      "statement": "For A/L supplied by switch_five (p=5) or switch_three (p=3), A is non-CM by its retained Tate places; let π be its weight-zero cuspidal modular representation with rπ,ι≅rA,p∨. For every w|p above v of F, π is ι-ordinary if v∈Spst; πw is unramified if v∈Spord∪Spss. In the latter case the associated p-adic representation is crystalline with N=0 and is potentially ordinary precisely in the ordinary case. The prime order printed in CN Lemma 6.1.7 is reversed and corrected here.",
       "hypotheses": [],
       "proofSteps": [
+        "Use the retained Tate places in the switching output. CM implies potentially good reduction everywhere, whereas Tate reduction has nonintegral j; hence A is non-CM and has the required cuspidal π.",
         "Apply full WD compatibility at an auxiliary ℓ≠p to identify good reduction with the unramified local factor and split multiplicative with Steinberg.",
         "Use local p-adic Hodge theory of elliptic curves to distinguish good ordinary from good supersingular reduction.",
-        "Apply potentially-multiplicative ordinarity; if A is CM, handle the final modularity goal directly rather than choose a nonexistent cuspidal π."
+        "Apply potentially-multiplicative ordinarity to this non-CM A. CM of an auxiliary curve would not establish modularity of the unrelated target E."
       ],
       "prerequisites": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three",
         "EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne",
         "EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary",
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
       ],
       "acceptance": [
-        "Verify every quantified hypothesis and the stated comparison against the cited passage."
+        "Verify every quantified hypothesis and the stated comparison against the cited passage.",
+        "A Tate place excludes CM of A; no inference from CM of A to modularity of the target E is used."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Lemma 6.1.7, p.90, and Theorem 6.1 proof",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CM of A cannot prove modularity of the unrelated target E. Retained Tate places exclude CM of A and justify its cuspidal π before local compatibility is invoked."
         }
       ],
       "implementationStatus": "unchecked",
@@ -967,7 +967,10 @@
       "library": {
         "module": "TauCeti/NumberTheory/EllipticCurve/ImaginaryQuadraticModularity",
         "namespace": "TauCeti.ImaginaryQuadraticModularity"
-      }
+      },
+      "gaps": [
+        "EllipticCurveModularityImaginaryQuadratic/G3"
+      ]
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic:IQ.3/elliptic-lifting-data",
@@ -977,12 +980,15 @@
       ],
       "title": "Elliptic data for CM lifting",
       "kind": "comparison",
-      "statement": "For an elliptic curve E over an imaginary CM field F and p∈{3,5}, ρ=rE,p∨ is continuous, det ρ=εp⁻¹ and unramified at almost all finite places. At every v|p it is potentially semistable with the source-normalized labeled Hodge–Tate weights {0,1}; after a finite solvable CM extension chosen with the avoidance field and generic witness, the potentially good places are Barsotti–Tate (ordinary exactly at the potentially ordinary ones), while the potentially multiplicative places become split multiplicative and the dual local representation is a noncrystalline extension of εp⁻¹ by 1. Translate the imported convention HT(εp)=+1 to CN’s HT(εp)=−1 when using R06; do not swap the covariant Tate module with its dual.",
-      "hypotheses": [],
+      "statement": "For an elliptic curve E over an imaginary CM field F and p∈{3,5}, ρ=rE,p∨ is continuous, det ρ=εp⁻¹ and unramified at almost all finite places. At every v|p it is potentially semistable with the source-normalized labeled Hodge–Tate weights {0,1}. For the extension assertion additionally assume the selected residual representation is decomposed generic, fix a witnessing rational prime q>5, and fix a finite Galois avoidance field containing the residual and cyclotomic fields. Then after a finite Galois solvable CM extension disjoint from that avoidance field and splitting every place above q, the potentially good places are Barsotti–Tate (ordinary exactly at the potentially ordinary ones), while the potentially multiplicative places become split multiplicative and the dual local representation is a noncrystalline extension of εp⁻¹ by 1. Translate the imported convention HT(εp)=+1 to CN’s HT(εp)=−1 when using R06; do not swap the covariant Tate module with its dual.",
+      "hypotheses": [
+        "The determinant, ramification and potentially semistable weight assertions require only E/F elliptic, F imaginary CM and p∈{3,5}.",
+        "The witness-preserving extension assertion additionally requires residual decomposed genericity, a fixed witnessing rational q>5 and a specified finite Galois avoidance field."
+      ],
       "proofSteps": [
         "Use the Weil pairing for det rE,p and dualize; apply geometric p-adic comparison to E.",
         "Classify local reduction into potentially ordinary good, supersingular good and multiplicative.",
-        "Use solvable_preparation with the needed residual/cyclotomic avoidance fields to reach the local shapes required by the CM lifting supplier."
+        "For the conditional extension assertion, choose a generic q>5 using infinitely-many-decomposed-generic-primes, then apply solvable_preparation with that witness and the specified residual/cyclotomic avoidance field. The local comparison assertions themselves remain unconditional."
       ],
       "prerequisites": [
         "mathlib:WeierstrassCurve",
@@ -992,18 +998,19 @@
         "PadicHodgeTheory:R06.6",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation",
         "ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison",
-        "ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness"
+        "ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes"
       ],
       "acceptance": [
         "For the source convention the dual, not the covariant Tate module, has weights {0,1}.",
-        "The potentially multiplicative case has N≠0 and cannot enter the crystalline set."
+        "The potentially multiplicative case has N≠0 and cannot enter the crystalline set.",
+        "A curve with no supplied generic witness still has the unconditional local comparison; the witness-preserving extension clause cannot be invoked for it."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Proof of Theorem 6.1, p.90, with Theorem 5.2, p.74",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Determinant, ramification and labeled weights remain unconditional; witness-preserving preparation is conditional on decomposed genericity and a fixed q/avoidance datum. Translate HT(ε)=+1 to CN’s −1 explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1030,7 +1037,7 @@
       "proofSteps": [
         "Handle geometric CM directly. For a non-CM E choose a p satisfying both residual conditions and include the residual field and F(ζ5) in avoidance.",
         "Produce a modular auxiliary A/L with matching residual representation and reduction partition; auxiliary_local_types supplies the unramified/ordinary local π conditions.",
-        "Apply CN Theorem 5.2 from CrystallineLocalGlobalCompatibilityCM to rE,p∨|GL, using the imported R01.4 Lemma 6.1.4 to discharge the exceptional p=5 projective-field condition.",
+        "Apply CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2 (potentially_barsotti_tate_lifting_qualified) to rE,p∨|GL. Its E12 qualification is automatic here: [L(ζp):L] divides p−1, hence cannot equal 3 for p=3 or 5. Use R01.4 Lemma 6.1.4 for the exceptional p=5 projective-field condition, preserving the full residual/cyclotomic avoidance datum.",
         "Descend modularity through the finite solvable CM extension using modularity_transport."
       ],
       "prerequisites": [
@@ -1041,18 +1048,19 @@
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types",
         "EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance",
         "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
-        "AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity"
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity",
+        "CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2"
       ],
       "acceptance": [
         "Theorem applies to non-Galois CM fields when the residual conditions are given.",
-        "The final statement is never extended to ζ5∈F by deleting that hypothesis."
+        "The final statement is never extended to ζ5∈F by deleting that hypothesis.",
+        "The supplier’s extra condition d_cyc≠3 or projective image not A4 is discharged by d_cyc|p−1 for p=3,5; its general odd-prime theorem is not silently strengthened."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Theorem 6.1 and proof, pp.87,90",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Import the now-written CL.9/thm-5-2 qualified theorem. Its cyclotomic-degree-three/A4 qualification is automatic at 3,5; the p=5 projective-field condition still requires R01.4 and full avoidance."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1097,8 +1105,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 6.1.1, p.87, and Lemma 6.2.2, pp.90–91",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The quadratic-field Goursat/Chebotarev implication supplies decomposed genericity from cyclotomic absolute irreducibility; no extra genericity hypothesis or real-field extension is introduced."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1139,8 +1146,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 6.1.2 proof, pp.87–88; Zywina §1.1 and Proposition 5.2",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Count integral pairs with 4a³+27b²≠0 under a norm on the 2[F:Q]-dimensional lattice, not isomorphism classes or discriminant height. Isomorphic pairs (0,1),(0,64) remain distinct."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1231,8 +1237,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 6.1.2, pp.87–88 (=Theorem 1.2); Zywina Proposition 5.2",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Retain imaginary CM, Galois over Q and ζ5∉F. Zywina’s quantitative exceptional-image bound, lattice denominator asymptotic and singular-locus deletion are explicit G6 inputs, not qualitative Hilbert irreducibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1280,8 +1285,7 @@
         {
           "sourceId": "CN",
           "locator": "§7.1, pp.92–93, definition of X(H) and X(H₁,H₂)",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Smooth proper coarse quotients contain −I and have surjective determinant; mixed curves are normalized fiber products. The reusable Cartan compactification extension belongs once to ModularCurvesPartII, G7."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1367,8 +1371,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(1), p.94",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Exact numerator/denominator, coprimality and map degree 4 checked. Pole evaluation in RatFunc is totalized zero, not a geometric finite j-value; intDegree is 3."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1448,8 +1451,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(2), p.94",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Exact function and map degree 6 checked; intDegree is 1. The source Fricke coordinate is 125/x on X(b5), distinct from 5/x on X(ns3,b5)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1529,8 +1531,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(3), p.94",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The normalizer function is x³ of degree 3. The actual nonsplit Cartan has the separately planned conic, not this P¹ carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1610,8 +1611,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(4), p.94",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Numerator/denominator are coprime of equal degree 10; geometric degree is 10, intDegree is 0 and j at infinity is 8000. Cusps are the quadratic denominator roots."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1694,8 +1694,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(6), p.94",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The split-normalizer function has map degree 6, intDegree 3 and value −1728 at x=1. The equation is not the b3 function."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1779,8 +1778,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(5), p.94; ns3ns5-elliptic.m",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Coefficients (0,0,−1,0,1) give y²−y=x³+1, Δ=−675 and j=0. Literal carrier/invariants are separate from model identification and rank."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1869,8 +1867,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(1)–(4),(6), p.94",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The five source-normalized P¹ comparisons, projective map degrees and b5 Fricke coordinate agree with CN 7.1.3. G7 retains the missing comparison certificates."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1913,8 +1910,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(5) and proof, p.94; ns3ns5-elliptic.m",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The homogeneous B equation and dense-open forward/inverse map conventions agree with the script; exact substitution verifies landing on B. Proper extension and modular map identities remain G8."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1955,8 +1951,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.1.3(5), p.94; Proposition 7.4.4, p.100",
-          "excerpt": "j-invariant",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CN asserts B(Q)≅Z (225A1), not just positive analytic rank. A saturated generator and trivial torsion must be exported in G8 before any index argument."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1998,8 +1993,7 @@
         {
           "sourceId": "CN",
           "locator": "Proof of Corollary 7.1.2, p.93",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Literal Legendre model x(x+16)(x+25), Δ=207360000 and three rational roots checked; no rank conclusion is inferred from this calculation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2082,8 +2076,7 @@
         {
           "sourceId": "CN",
           "locator": "Proof of Corollary 7.1.2, p.93",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Literal Legendre model x(x+1)(x+16), Δ=921600 checked. Its modular identification and rational group belong to the next node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2167,8 +2160,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 7.1.2 proof, p.93; FLHS arXiv v4 Lemmas 15.3–15.4, p.29 (published locators cited by CN are Lemmas 5.6–5.7)",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "FLHS v4 15.3/15.4 use minimal models; CN uses isomorphic Legendre models with labels 15A1/15A3. Both rational groups are Z/2⊕Z/4 and a rational isogeny transfers rank over F."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2213,8 +2205,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 7.1.2 proof, p.93, citing Kwon Theorem 1",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CN’s Kwon specialization distinguishes E15 growth at i,√5 from Es35 growth only at √5. The original Kwon theorem and eight-point orbit certificate remain G9, explicitly not independently proved."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2255,8 +2246,7 @@
         {
           "sourceId": "LMF-GAUSS",
           "locator": "LMFDB 4050.1-c3, curve data; CN Corollary 7.1.2 proof, p.93",
-          "excerpt": "4050.1-c3",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Fresh LMFDB record matches all five coefficients, Δ and j. Exact invariant calculations pass; mod-3 and mod-5 Borel images prevent using the residual criterion as a shortcut."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2342,8 +2332,7 @@
         {
           "sourceId": "CN",
           "locator": "Proof of Corollary 7.1.2, p.93, citing DGP10 and LMFDB 4050.1-c3",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Preserve the separate Faltings–Serre finite test-set/comparison certificate and eight Gaussian j-orbit matching. A database modular-form link alone is not a proof; G9 remains open."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2384,8 +2373,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.2.1(1) and proof, pp.94–95",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The scalar −3, weighted projective closure and reciprocal identity x⁴h(5/x)=25h(x) are correct. Genus/model identification is separate from the polynomial definition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2472,8 +2460,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.2.1(1)–(2) and proof, pp.94–95",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The degree-two map to X(ns3,b5) has coordinate x and j=b5J(x³), with denominator x¹⁵; Fricke 5/x is asserted on that quotient only."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2509,8 +2496,7 @@
         {
           "sourceId": "CN",
           "locator": "Points displayed before Proposition 7.2.2, p.95",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The five weighted triples satisfy the model when s²=−3, including both infinity charts. Rational Jacobian classes formed from them do not imply rational points on C."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2593,8 +2579,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.2.1(3) and points discussion, p.95; ns3ob5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The source Jacobian is 45A2 with rational group Z/2⊕Z/2; C(Q3)=∅. Jacobian existence does not require a rational basepoint; the comparison and descent certificate remain G11."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2637,8 +2622,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.2.2 and Remark 7.2.3, pp.95–96; Bruin–Flynn §2; ns3ob5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "BF §2 distinguishes rational divisors from rational Jacobian points. Image {0,D0}, not all four points, matches CN; corrected additive RR functions verify all three quadratic fibers (E19)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2682,8 +2666,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.2.4, p.96",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Outside infinity, the effective conjugate divisor gives rational x or norm-five x. Degenerate leading coefficient is treated; the assertion does not select a sign of an involution lift."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2704,12 +2687,12 @@
       ],
       "title": "Modularity from genus-one quadratic points",
       "kind": "theorem",
-      "statement": "For every quadratic number field F, every elliptic E/F giving a noncuspidal point of X(ns3°,b5) is modular. In the imaginary case: rational x gives rational j through the degree-two quotient; otherwise σP=w5P, so E is a degree-5 Q-curve (up to the fixed coarse orbit) and the Q-curve modularity supplier applies. Infinite-coordinate points are treated by the same quotient/cusp dictionary. The real-quadratic branch uses the already established FLHS modularity theorem from the general totally-real modularity owner, rather than assuming an imaginary-CM theorem over a real field.",
+      "statement": "For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(ns3°,b5) is modular. In the imaginary case rational x gives rational j through the degree-two quotient. For a nonrational affine x the classification gives x(P)x(σP)=5, so the images of P and σP in X(ns3,b5) are related by its specified Fricke w5. The quotient moduli dictionary gives a geometric degree-5 isogeny between E and its conjugate and hence a Q-curve; the Q-curve modularity supplier applies. This does not assert σP=w5P for a chosen lift on the genus-one double cover. Infinite-coordinate points use the quotient/cusp dictionary. For real quadratic F use the imported FLHS modularity theorem.",
       "hypotheses": [],
       "proofSteps": [
         "Separate cusps and the infinity charts using the j-map.",
         "For rational j use a ℚ-curve with that j, base change and quadratic twisting (the CM cases j=0,1728 use Modular.of_cm).",
-        "For nonrational x, prove the conjugate point is the Fricke image and invoke the concurrent GL₂-type/Q-curve supplier.",
+        "For nonrational affine x, use the norm-five equation only on the quotient X(ns3,b5), where Fricke is x↦5/x. The modular interpretation gives the geometric 5-isogeny and Q-curve endpoint without selecting either sign of a Fricke lift to the quartic.",
         "For real quadratic F invoke the imported FLHS theorem; G10 records the exact owner extension needed."
       ],
       "prerequisites": [
@@ -2720,14 +2703,14 @@
         "EllipticCurveModularity:R29.6/modularity-theorem"
       ],
       "acceptance": [
-        "Verify every quantified hypothesis and the stated comparison against the cited passage."
+        "On the quartic h(x)=−3(x⁴+2x³−x²+10x+25), both (x,y)↦(5/x,±5y/x²) induce the same quotient action. The norm-five equation alone does not choose a sign.",
+        "For P=(1+2i,3+6i), σP equals the plus lift and differs from the minus lift; this is a regression against an inference from x alone, not identification of the actual modular lift."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Corollary 7.2.5, p.97",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Use the Fricke relation of images in X(ns3,b5), not σP=w5P on the genus-one double cover. The quotient gives the geometric 5-isogeny; preserve the rational-j and real-FLHS branches (G10)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2768,8 +2751,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.3.1(1), p.97; b3ns5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Degree six, squarefreeness, factorization, three rational roots, infinity values ±3 and both smoothness derivatives checked. The fixed model has two rational infinity points."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2854,8 +2836,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.3.1(1)–(2) and proof, p.97; b3ns5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CN/script identify X(b3,ns5), with w3 equal to y↦−y. Both rational infinity points are exchanged; j is the transported modular map, not x."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2897,8 +2878,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.3.1(3) and proof, p.97; b3ns5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "CN asserts Z/2⊕Z/10, using rank-zero two-descent and reductions 7,13. The twenty-class group/table/principal-function certificate is explicitly G12, not a finite-search proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2941,8 +2921,7 @@
         {
           "sourceId": "CN",
           "locator": "Lemma 7.3.2 and proof, p.98",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Canonical degree-two divisors move in ⟨1,x⟩; noncanonical effective degree-two classes have RR dimension 1 and a unique representative. Infinity and rational-divisor descent are retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2982,8 +2961,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.3.3 and proof, p.98; b3ns5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The imaginary exception ((−5+s)/6,±(17−s)/6), s²=−11, satisfies the sextic exactly. The nineteen-class enumeration separates 9 rational-x, 2 infinity, 2 imaginary and 6 real classes; G12 certifies completeness."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3027,8 +3005,7 @@
         {
           "sourceId": "MAGMA-b3ns5",
           "locator": "b3ns5.m, final exceptional-curve block; Corollary 7.3.4 proof, p.98",
-          "excerpt": "a is root of x^2-x+3",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "For a²−a+3=0 the script’s coefficients, Δ=4512−736a and j=(11155375a+3126750)/32 pass exact reduction. The 8100.2/8100.3 conjugate-label reconciliation remains G13, not an erratum."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3114,8 +3091,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 7.3.4 proof, p.98; b3ns5.m final block",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The required mod-5 image is the full nonsplit normalizer, not mere containment. The script gives the mixed fiber coordinates with matching j; image and transported point certificates remain G13."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3136,10 +3112,10 @@
       ],
       "title": "Modularity from genus-two quadratic points",
       "kind": "theorem",
-      "statement": "For every quadratic number field F, every elliptic E/F giving a noncuspidal point of X(b3,ns5) is modular. For imaginary F, the rational-x and infinity cases have σP=w3P and are degree-3 Q-curves, while the ℚ(√−11) exceptions are covered by eleven_exceptional_modular. The real-quadratic branch uses the imported FLHS endpoint and is not deduced from Proposition 7.3.3, whose hypothesis is imaginary.",
+      "statement": "For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(b3,ns5) is modular. For imaginary F first handle rational P, including both infinity points, by the rational j-map and rational modularity, base change and twisting. A nonrational affine P of exact degree two with rational x satisfies σP=w3P and gives a geometric degree-3 Q-curve. The ℚ(√−11) exceptions are covered by eleven_exceptional_modular. The real-quadratic branch uses the imported FLHS endpoint, not Proposition 7.3.3 outside its imaginary hypothesis.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the certified Fricke identification in the rational-x and infinity cases; invoke the concurrent Q-curve modularity theorem.",
+        "If P is rational, including either infinity point, its noncuspidal j-value is rational; use the parent rational modularity theorem and twisting/base change, handling j=0,1728 through CM. If P is nonrational affine with rational x, exact degree two gives y(σP)=−y(P), so the certified Fricke dictionary gives the geometric 3-isogeny and Q-curve modularity.",
         "Handle the imaginary exceptional orbit by eleven_exceptional_modular and isogeny/conjugacy/twist invariance.",
         "For real F invoke the external FLHS modularity theorem through G10."
       ],
@@ -3148,17 +3124,18 @@
         "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-model",
         "EllipticCurveModularityImaginaryQuadratic:IQ.6/eleven-exceptional-comparison",
         "EllipticCurveModularityImaginaryQuadratic:IQ.4/cartan-curves",
-        "EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance"
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance",
+        "EllipticCurveModularity:R29.6/modularity-theorem"
       ],
       "acceptance": [
-        "Verify every quantified hypothesis and the stated comparison against the cited passage."
+        "At infinity t=1/x,v=y/x³ gives v=±3 at t=0. Each point is rational and Galois-fixed, while w3 exchanges them. The proof must use rational j there.",
+        "For nonrational affine P with x∈ℚ, σ sends y to −y; do not apply this assertion to an arbitrary rational P in C(F)."
       ],
       "sources": [
         {
           "sourceId": "CN",
           "locator": "Corollary 7.3.4, p.98",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Rational points including infinity use rational j. Only exact-degree-two nonrational affine points with rational x satisfy σP=w3P; add the parent theorem dependency and confirm source finding E20."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3199,8 +3176,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.3(1), p.100; ns3ons5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "All homogeneous coefficients match CN and the script. Smooth projective genus-three/modular identification is separately required, never inferred from a raw polynomial carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3265,7 +3241,7 @@
       ],
       "title": "The bielliptic involution w1",
       "kind": "definition",
-      "statement": "For a commutative ℚ-algebra K, define quartic1Coordinates: (Fin 3→K)→(Fin 3→K) by (X,−Y−Z,Z). Its square is 1 times the identity and quartic1(quartic1Coordinates(v))=1quartic1(v). Thus it induces an order-two automorphism w1 of C1. For i=2 the linear map does not square to the identity: projectivization removes the nonzero scalar 25. The characteristic-zero hypothesis is essential for its inverse.",
+      "statement": "For a commutative ℚ-algebra K, define quartic1Coordinates: (Fin 3→K)→(Fin 3→K) by (X,−Y−Z,Z). Its square is 1 times the identity and quartic1(quartic1Coordinates(v))=quartic1(v). Thus it induces an order-two automorphism w1 of C1. For i=2 the linear map does not square to the identity: projectivization removes the nonzero scalar 25. The characteristic-zero hypothesis is essential for its inverse.",
       "hypotheses": [],
       "proofSteps": [
         "Check the coordinate substitution and square as polynomial identities.",
@@ -3283,8 +3259,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.3(1), p.100",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The map (X,−Y−Z,Z) squares to identity and preserves quartic1 exactly. Fix the harmless printed planning string “1quartic1”; rational/projective order is separate from raw coordinate evaluation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3363,8 +3338,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.3(2), p.100; s3ns5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "All homogeneous coefficients match CN and the script; use the plane quartic, not an affine-only curve. Three acceptance tests discriminate the actual polynomial."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3447,8 +3421,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.3(2), p.100",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The homogeneous matrix squares to 25I and scales quartic2 by 625. It is invertible in a Q-algebra and induces a projective involution through affine denominator poles."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3537,8 +3510,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.3(1)–(2) and proof, p.100; ns3ons5.m and s3ns5.m",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The source/script give the two smooth genus-three curves, unique nonidentity rational automorphisms and common quotient B. Quotient/j/modular compatibility and smoothness require G14 certificates."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3576,8 +3548,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.3(3), p.100; s3ns5.m exceptional-place block",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Both √−55 projective triples satisfy quartic2 exactly. CN and the script give j=−32768 (CM discriminant −11); the computed j-map certificate is still G14."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3666,8 +3637,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.4(1) and proof, pp.100–101",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The 225c,225a,225d factors have ranks 0,1,0; C2 has the 5-new/old 75c,75a decomposition. General Chen/projector comparison is requested once from R14.2, with exact rank certificates G14."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3707,8 +3677,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.4(2) proof, p.101; s3ns5.m torsion block",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "D10 and D2 use the stated four rational supports and degree-two places Pl1/Pl2; all supports pass substitution and the degree is zero. Orders/independence/principal witnesses remain G15."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3778,7 +3747,7 @@
       "proofSteps": [
         "Certify smooth good reductions and finite Jacobian group orders at the three primes.",
         "Use prime-to-p torsion injectivity at multiple primes to get the full rational torsion bound.",
-        "Use the 13-primary comparison for C1 and the independent twenty-element subgroup for C2."
+        "Use the 2-primary comparison at the good prime 13 for C1 and the independent twenty-element subgroup for C2."
       ],
       "prerequisites": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-models",
@@ -3793,8 +3762,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.4(2) and proof, p.101",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "C1 has a subgroup of Z/2⊕Z/2, not claimed equality; C2 has Z/2⊕Z/10. Correct “13-primary” to the 2-primary comparison at good prime 13; retain good-reduction/group certificates G15."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3818,7 +3786,7 @@
       "statement": "Choose a saturated generator D of B(ℚ)≅ℤ, viewed in Jac(B)(ℚ), and set Gi=⟨πi*D⟩⊂Jac(Ci)(ℚ). Then 2Jac(Ci)(ℚ)⊂⟨Gi,Jac(Ci)(ℚ)tors⟩ for i=1,2. Consequently 4Jac(C1)(ℚ)⊂2G1 and 10Jac(C2)(ℚ)⊂⟨5G2,Jac(C2)(ℚ)[2]⟩. The source prints G1 in the second inclusion; the correct group is G2.",
       "hypotheses": [],
       "proofSteps": [
-        "Import only the general weak inclusion required from the rank-equal degree-two pullback/norm theorem. On the free quotient the involution acts as +1 and π*π*=1+w, so twice a class is a pullback modulo torsion.",
+        "Import only the general weak inclusion required from the rank-equal degree-two pullback/norm theorem. On the free quotient the involution acts as +1 and π^*π_*=1+w, so twice a class is a pullback modulo torsion.",
         "Use the torsion exponents 2 and 10 to obtain the two displayed inclusions.",
         "Keep each generator inside its own Jacobian; do not identify G1 and G2."
       ],
@@ -3836,8 +3804,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.4(3) and proof, pp.100–101; Box Proposition 3.1",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Only the weak 2J pullback-plus-torsion inclusion is needed. Correct pullback/norm notation to π^*π_*=1+w; torsion exponents yield 4J1⊂2G1 and 10J2⊂⟨5G2,J2[2]⟩ (E9)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3876,8 +3843,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.5(1), p.101; ns3ons5.m sieve block",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Relative symmetric sieve uses G=⟨2π1*D⟩, I=4, prime 43 and eight pullback divisors covering seven reduction classes. Exact finite bad-coset/local differential certificates remain G15."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3925,8 +3891,7 @@
         {
           "sourceId": "CN",
           "locator": "Proposition 7.4.5(2), p.101; s3ns5.m sieve block",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Use G=⟨5π2*D,D2,5D10⟩, I=10 and primes 11,43. Sixteen exceptions comprise eight rational sums and eight quadratic pairs; only two quadratic orbits are imaginary. Finite intersection certificate remains G15."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3970,8 +3935,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 7.4.6(1), p.102",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Every relevant quadratic divisor is a pullback from B(Q); the modular j-map then gives rational j. C1 has no rational point by its map to the anisotropic nonsplit conic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4012,8 +3976,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 7.4.6(2), p.102",
-          "excerpt": "curve",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Restrict this endpoint to imaginary fields. Nonpullback imaginary exceptions have CM j=−32768; the six real exceptional classes are not silently covered by this assertion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4058,8 +4021,7 @@
         {
           "sourceId": "CN",
           "locator": "Theorem 7.1, p.91; Lemma 7.1.1, pp.92–93; conclusion p.102",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Mod-5 irreducibility is over F5, not absolute irreducibility; the mod-3 exclusion concerns the whole split normalizer, not every subgroup. Cyclotomic classification plus the four curve branches closes the source argument."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4088,7 +4050,7 @@
       "proofSteps": [
         "By imaginary_quadratic_residual_modularity only X(b3,b5)=X₀(15) and X(s3,b5) remain.",
         "Use the rational isogeny between their elliptic models to transfer rank zero and finiteness. Every F-point is torsion.",
-        "Use quadratic_torsion_growth: imaginary torsion growth for X₀(15) occurs only at ℚ(i), while X(s3,b5) has no imaginary growth. Rational points give rational j; the eight new Gaussian points are handled by gaussian_torsion_modular.",
+        "Use quadratic_torsion_growth: imaginary torsion growth for X₀(15) occurs only at ℚ(i), while X(s3,b5) has no imaginary growth. Rational points give rational j; the eight new Gaussian points are handled by gaussian_exceptional_modular.",
         "Handle geometric CM separately and transport each non-CM geometric coarse class by its quadratic twist."
       ],
       "prerequisites": [
@@ -4107,9 +4069,8 @@
       "sources": [
         {
           "sourceId": "CN",
-          "locator": "Theorem 1.1, p.1; Corollary 7.1.2 and proof, p.93",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "locator": "Theorem 1.1, p.2; Corollary 7.1.2 and proof, p.93",
+          "match": "Preserve the full finite compact X0(15)(F) condition and unrestricted target E. Correct Theorem 1.1 locator to p.2 and the Gaussian declaration name; the eight-point comparison is still mandatory."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4150,9 +4111,8 @@
       "sources": [
         {
           "sourceId": "CN",
-          "locator": "§1 after Theorem 1.1, p.1",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "locator": "§1 after Theorem 1.1, p.2",
+          "match": "The source introductory examples are on p.2. For d=1,2,3,5 require algebraic rank-zero twist certificates, retaining Gaussian torsion growth. G16 is an explicit computation gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4192,8 +4152,7 @@
         {
           "sourceId": "CN",
           "locator": "Corollary 7.1.2 torsion-growth proof, p.93; explicit substitution in its E15 equation",
-          "excerpt": "modular",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "The point (−1,6√−10) passes substitution; no torsion growth at √−10 makes it nontorsion. This demonstrates why finite X0(15) is a substantive hypothesis, without any assertion of nonmodularity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4231,8 +4190,7 @@
         {
           "sourceId": "CN",
           "locator": "Proof of Proposition 7.2.1, p.95; Proposition 7.4.3 proof, p.100; ns3ons5.m opening",
-          "excerpt": "elliptic curves",
-          "match": "Exact statement and proof inputs, with the conventions specified in the node."
+          "match": "Complete the square to Y²+3(X+6Z)²+324Z²=0: no rational projective point. Projection [X:Z] has degree two to the normalizer curve, and cusps are over √−3, agreeing with source and script."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4272,10 +4230,13 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-      "need": "Local Tate uniformization, good ordinary/supersingular reduction, potential reduction trichotomy and the associated elliptic WD representations over finite extensions of p-adic fields.",
+      "need": "Local Tate uniformization, good ordinary/supersingular reduction, potential reduction trichotomy and the associated elliptic WD representations over finite extensions of p-adic fields. Required extension: geometric CM implies potentially good reduction at every finite place; a Tate place has nonintegral j and therefore excludes CM. This supplies the non-CM auxiliary witness independently of the prescribed p-adic partition.",
       "neededBy": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne",
-        "EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary"
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types"
       ]
     },
     {
@@ -4301,9 +4262,12 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
-      "need": "An isogeny induces an isomorphism of rational Tate modules over the number field; use the upstream isogeny carrier.",
+      "need": "An isogeny induces an isomorphism of rational Tate modules over the number field; use the upstream isogeny carrier. Expose the geometric CM endomorphism predicate and its isogeny compatibility. The CM potentially-good-reduction theorem is requested from EllipticCurves Layer 4; these are interfaces to the same CM carrier.",
       "neededBy": [
-        "EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance"
+        "EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types"
       ]
     },
     {
@@ -4476,7 +4440,8 @@
       "supplier": "EllipticCurveModularity:R29.6/modularity-theorem",
       "need": "Unconditional modularity over ℚ, used only for rational-j representatives and the parent comparison, with the dual Tate-module normalization.",
       "neededBy": [
-        "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity"
+        "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-modularity"
       ]
     },
     {
@@ -4532,6 +4497,13 @@
         "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity",
         "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-modularity"
       ]
+    },
+    {
+      "supplier": "CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2",
+      "need": "Import CL.9/thm-5-2 (CrystallineCM.potentially_barsotti_tate_lifting_qualified), now written but not independently accepted or formalized at this checkout. The d_cyc=3/A4 qualification is automatic for p=3,5; G5 retains the carrier/formalization gap.",
+      "neededBy": [
+        "EllipticCurveModularityImaginaryQuadratic:IQ.3/cm-modularity"
+      ]
     }
   ],
   "coverage": [
@@ -4555,7 +4527,7 @@
       "stageId": "EllipticCurveModularityImaginaryQuadratic:IQ.3",
       "status": "planned",
       "remaining": [
-        "EllipticCurveModularityImaginaryQuadratic/G5: Concurrent CM lifting contract",
+        "EllipticCurveModularityImaginaryQuadratic/G5: Planned qualified CM lifting supplier",
         "EllipticCurveModularityImaginaryQuadratic/G6: Number-field quantitative Hilbert image estimate"
       ]
     },
@@ -4624,12 +4596,13 @@
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/G3",
       "title": "CM globalization and Hilbert local conditions",
-      "detail": "Supply a proof-level globalization lemma for finite solvable local extensions and split CM places, avoiding a specified finite Galois field while splitting the retained generic prime. IG.2 supplies Hilbert specialization but its current stage alone does not establish this local CM globalization. Also supply nonemptiness/openness for the AKT 9.7 discriminant conditions with each prescribed p-adic prototype. The conditions and consumers above specify the exact work; a formaliser cannot replace this by unconstrained solvable base change.",
+      "detail": "Supply a proof-level globalization lemma for finite solvable local extensions and split CM places, avoiding a specified finite Galois field while splitting the retained generic prime. IG.2 supplies Hilbert specialization but its current stage alone does not establish this local CM globalization. Also supply nonemptiness/openness for the AKT 9.7 discriminant conditions with each prescribed p-adic prototype. The conditions and consumers above specify the exact work; a formaliser cannot replace this by unconstrained solvable base change. The retained Tate places must exclude CM of each switching output. Request the general CM-potentially-good-everywhere theorem and the Tate nonintegral-j criterion from EllipticCurves Layers 1/4; neither a congruence nor the Tate carrier alone proves non-CM.",
       "neededBy": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation",
         "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five",
-        "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three"
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three",
+        "EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types"
       ]
     },
     {
@@ -4643,8 +4616,8 @@
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/G5",
-      "title": "Concurrent CM lifting contract",
-      "detail": "CrystallineLocalGlobalCompatibilityCM has no written roadmap or reserved node at this checkout. Its accepted split owns CN Theorem 5.2. Required contract: p odd; F imaginary CM; continuous almost-unramified ρ with det εp⁻¹, potentially semistable labeled weights {0,1}; residual decomposed generic and absolutely irreducible over F(ζp); if p=5 and the projective restricted image is PSL₂(𝔽5), the projective field excludes ζ5. Residual π on PGL₂(𝔸F) has weight 0 and matching residual representation; at potentially crystalline places rπ is potentially ordinary iff ρ is, with monodromy zero; at other p-adic places π is ordinary and rπ is not potentially crystalline. Then ρ is automorphic of weight 0. No theorem or proof of §§2–5 is replanned here. Replace this gap by the supplier’s eventual declaration ID and verify its exact hypotheses; source extraction E12 affects wider odd-prime projective-image arguments, whereas this application uses only p=3,5. The printed source states irreducibility of the Q̄p-residual cyclotomic restriction; in this coefficient field this is absolute irreducibility. Its residual automorphic match is ρ̄≅r̄π, and monodromy-zero in the crystalline clause refers to recFv(πv). The output is cuspidal on PGL₂ with rΠ≅ρ. Only the p=3,5 specializations are required here.",
+      "title": "Planned qualified CM lifting supplier",
+      "detail": "CrystallineLocalGlobalCompatibilityCM now plans CL.9/thm-5-2, Lean name CrystallineCM.potentially_barsotti_tate_lifting_qualified. Its packet has no accepted independent review at this checkout and is not formalized. Import its exact CN Theorem 5.2 contract: odd p, imaginary CM F, continuous almost-unramified ρ with determinant εp⁻¹ and potentially semistable labeled weights {0,1}; residual decomposed generic and absolutely irreducible on GF(ζp); exceptional p=5 projective-field condition; matching weight-zero cuspidal PGL₂ residual lift with the stipulated crystalline monodromy-zero/potential ordinarity equivalence and noncrystalline ordinary conditions elsewhere. The supplier adds the E12 qualification [F(ζp):F]≠3 or full projective residual image not A4. For this application p=3,5 its cyclotomic degree divides p−1 and is never 3. Preserve the complete residual/cyclotomic avoidance field. No CN §§2–5 proof is replanned here; the remaining gap is realizing the named planned supplier, not inventing a missing roadmap.",
       "neededBy": [
         "EllipticCurveModularityImaginaryQuadratic:IQ.3/cm-modularity"
       ]
@@ -4768,7 +4741,12 @@
         "2026-10-07: Caraiani’s public papers page was checked for a revised text or erratum; none was listed for this source.",
         "Prior reviewed extraction also searched Crossref on 2026-09-29; this run does not claim an exhaustive novelty search."
       ],
-      "source": "CN"
+      "source": "CN",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local field is L_w because w is a place of L and the curve is defined over L.",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/E5",
@@ -4784,7 +4762,12 @@
         "2026-10-07: Caraiani’s public papers page was checked for a revised text or erratum; none was listed for this source.",
         "Prior reviewed extraction also searched Crossref on 2026-09-29; this run does not claim an exhaustive novelty search."
       ],
-      "source": "CN"
+      "source": "CN",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The final paragraph is about the 15A3 model, whose only quadratic torsion growth is √5; 15A1 has the separate Gaussian case.",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/E9",
@@ -4800,7 +4783,12 @@
         "2026-10-07: Caraiani’s public papers page was checked for a revised text or erratum; none was listed for this source.",
         "Prior reviewed extraction also searched Crossref on 2026-09-29; this run does not claim an exhaustive novelty search."
       ],
-      "source": "CN"
+      "source": "CN",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed subgroup for Jac(C2) uses its own pullback generator G2, not G1 in Jac(C1).",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/E17",
@@ -4816,7 +4804,12 @@
         "2026-10-07: Caraiani’s public papers page was checked for a revised text or erratum; none was listed for this source.",
         "Prior reviewed extraction also searched Crossref on 2026-09-29; this run does not claim an exhaustive novelty search."
       ],
-      "source": "CN"
+      "source": "CN",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The product level structure uses two distinct primes p_i and each component representation must have that prime.",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/E18",
@@ -4832,7 +4825,12 @@
         "2026-10-07: arXiv 2301.10509 lists v3 (27 March 2025) as latest.",
         "2026-10-07: Caraiani’s public papers page was checked for a revised text or erratum; none was listed for this source.",
         "Prior reviewed extraction also searched Crossref on 2026-09-29; this run does not claim an exhaustive novelty search."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The cited propositions have prescribed primes 5 and 3 respectively.",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
     },
     {
       "id": "EllipticCurveModularityImaginaryQuadratic/E19",
@@ -4848,7 +4846,33 @@
         "2026-10-07: arXiv 2301.10509 lists v3 (27 March 2025) as latest.",
         "2026-10-07: Caraiani’s public papers page was checked for a revised text or erratum; none was listed for this source.",
         "Prior reviewed extraction also searched Crossref on 2026-09-29; this run does not claim an exhaustive novelty search."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rendered p.96 has the extra final y; the subsequent additive equations and the author script agree after its removal. Exact substitution checks all three fibers.",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityImaginaryQuadratic/E20",
+      "source": "CN",
+      "kind": "error",
+      "locator": "Corollary 7.3.4 proof, printed p.98, arXiv:2301.10509v3 (27 March 2025); read with Proposition 7.3.1 on p.97. Both page images inspected 2026-10-07.",
+      "printed": "(and the points at infinity) have σ(P) = w₃(P).",
+      "correction": "Handle rational points, including both infinity points, through rational j. Use σ(P)=w₃(P) only for nonrational affine points of exact degree two with rational x-coordinate.",
+      "reason": "For f(x)=9x^6−6x^5−35x^4+40x^2+12x−8, the infinity chart t=1/x, v=y/x^3 has v^2=9−6t−35t^2+40t^4+12t^5−8t^6. Its smooth infinity points (0,3),(0,−3) are Q-rational. Galois fixes each, whereas w3 sends v to −v. Thus the asserted equality fails there; the rational-j branch repairs the proof without changing its endpoint.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-07: arXiv 2301.10509 version history and v3 were checked.",
+        "2026-10-07: James Newton's public publications page was checked for the paper and a correction link.",
+        "2026-10-07: targeted queries for the arXiv identifier with erratum/corrigendum and the corollary number did not identify a correction. This is not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently confirmed against the freshly downloaded v3 rendered p.98 and the exact rational infinity-chart calculation on 2026-10-07. Rational j repairs this branch; this finding concerns the preprint proof, not a verified version of record.",
+        "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
+      }
     }
   ],
   "restructure": [
@@ -4887,6 +4911,12 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge"
       ],
       "note": "The read relative Picard/Jacobian layers supply a genuine Jacobian without a rational basepoint. The CN 7.2.2 application additionally needs the rational-divisor-class image and Brauer–Severi obstruction of degree-two complete linear systems. Preserve the distinction between rational Jacobian points and classes represented by rational divisors; expose the descent API or route its extension once, rather than let this application build private Picard machinery."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/EllipticCurves"
+      ],
+      "note": "The strengthened switching interface needs the existing geometric-CM carrier from Layer 1 together with a Layer 4 extension proving geometric CM implies potentially good reduction everywhere and Tate reduction gives nonintegral j. Retained Tate places then exclude CM of the auxiliary curve. Route this general theorem once in the local-reduction layer; the application does not prove a private CM/reduction theorem."
     }
   ],
   "sourceVersions": [
@@ -5107,7 +5137,7 @@
     "imports": [
       {
         "roadmap": "CrystallineLocalGlobalCompatibilityCM",
-        "need": "CN Theorem 5.2, see G5; no written roadmap or reserved ID in this checkout."
+        "need": "Import CL.9/thm-5-2 (CrystallineCM.potentially_barsotti_tate_lifting_qualified), now written but not independently accepted or formalized at this checkout. The d_cyc=3/A4 qualification is automatic for p=3,5; G5 retains the carrier/formalization gap."
       },
       {
         "roadmap": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -5120,6 +5150,354 @@
       "General Chabauty, sieve, Jacobian/Picard theory",
       "Classical nonsolvable wild 3-adic lifting",
       "The Bennett–Siksek effective-comparison sibling"
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityImaginaryQuadratic",
+    "date": "2026-10-07",
+    "notes": "Completed independent review of all 68 nodes, fifteen pinned declarations, API/tests, supplier ownership, source issues and routes. Applied F1–F4, qualified lifting import and scoped interface corrections. Accepted as a complete planning pass: eight stages planned, zero closed, sixteen explicit gaps, all implementations unchecked. Magma/rank/image/sieve certificates are not claimed verified. Suggested Mathlib-only signatures elaborate with proof-hole warnings; Tau Ceti checkout differs from the pinned commit.",
+    "checked": [
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.1/modular",
+        "verdict": "verified",
+        "note": "Geometric CM is a separate branch; the cuspidal branch uses the dual Tate module, source weight 0 and cyclotomic inverse determinant. Genuine carriers remain G1."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.1/automorphic-uniqueness",
+        "verdict": "verified",
+        "note": "Strong multiplicity one gives uniqueness up to isomorphism; the determinant/central-character normalization gives trivial central character. CM is excluded here."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.1/all-primes",
+        "verdict": "verified",
+        "note": "Common coefficients and semisimple Frobenius comparison precede the isomorphism at every prime; an existential modularity datum alone is insufficient."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne",
+        "verdict": "verified",
+        "note": "Frobenius semisimplification retains N. Varma’s semisimplified comparison needs elliptic purity to recover Steinberg monodromy, explicitly requested in G2."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary",
+        "verdict": "verified",
+        "note": "Use an auxiliary ℓ≠p to identify a Steinberg twist and then the ordinary criterion at p; the p-adic comparison is not applied at v∤p."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance",
+        "verdict": "verified",
+        "note": "Isogeny, quadratic twist and field conjugacy preserve the endpoint. Solvable CM descent checks irreducibility/cuspidality, treating CM separately."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/symplectic-twist",
+        "verdict": "verified",
+        "note": "Fine fixed-pairing twists at 3 and 5 have geometric genus zero; an F-point is needed before identifying the completion with P¹. No coarse universal curve is asserted."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation",
+        "verdict": "corrected",
+        "note": "Keep the all-place generic witness and residual/cyclotomic avoidance separately. Replace the overly strong PA.5 enormous-image import with AG2’s infinite-witness lemma; G3 owns the still missing globalization contract."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity",
+        "verdict": "verified",
+        "note": "AKT 9.12 supplies the independent seed: Tate at 2 and 3, the stated valuation and conjugate-discriminant conditions, and large mod-3 image. AKT 7.1/8.1 are explicit owner extensions, not CN 6.1 in disguise."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection",
+        "verdict": "corrected",
+        "note": "Retain Tate places at 2,3 for p=5 and choose Tate at every place above 5 for p=3; the prescribed p-adic partition is independent. Thin-set avoidance is stronger than finite search."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five",
+        "verdict": "corrected",
+        "note": "CN 6.1.5 modifies the AKT construction only at 5. Export retained Tate places at 2,3 and non-CM, including the all-supersingular-at-5 test; ζ5∉F is not added here."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three",
+        "verdict": "corrected",
+        "note": "CN 6.1.6 keeps ζ5∉F and prescribed 3-adic types; AKT 9.15 allows Tate at every 5-adic place. Export that non-CM witness and preserve avoidance."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types",
+        "verdict": "corrected",
+        "note": "CM of A cannot prove modularity of the unrelated target E. Retained Tate places exclude CM of A and justify its cuspidal π before local compatibility is invoked."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.3/elliptic-lifting-data",
+        "verdict": "corrected",
+        "note": "Determinant, ramification and labeled weights remain unconditional; witness-preserving preparation is conditional on decomposed genericity and a fixed q/avoidance datum. Translate HT(ε)=+1 to CN’s −1 explicitly."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.3/cm-modularity",
+        "verdict": "corrected",
+        "note": "Import the now-written CL.9/thm-5-2 qualified theorem. Its cyclotomic-degree-three/A4 qualification is automatic at 3,5; the p=5 projective-field condition still requires R01.4 and full avoidance."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.3/quadratic-modularity",
+        "verdict": "verified",
+        "note": "The quadratic-field Goursat/Chebotarev implication supplies decomposed genericity from cyclotomic absolute irreducibility; no extra genericity hypothesis or real-field extension is introduced."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.3/short-weierstrass-family",
+        "verdict": "verified",
+        "note": "Count integral pairs with 4a³+27b²≠0 under a norm on the 2[F:Q]-dimensional lattice, not isomorphism classes or discriminant height. Isomorphic pairs (0,1),(0,64) remain distinct."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.3/density-one",
+        "verdict": "verified",
+        "note": "Retain imaginary CM, Galois over Q and ζ5∉F. Zywina’s quantitative exceptional-image bound, lattice denominator asymptotic and singular-locus deletion are explicit G6 inputs, not qualitative Hilbert irreducibility."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/cartan-curves",
+        "verdict": "verified",
+        "note": "Smooth proper coarse quotients contain −I and have surjective determinant; mixed curves are normalized fiber products. The reusable Cartan compactification extension belongs once to ModularCurvesPartII, G7."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/b3-j",
+        "verdict": "verified",
+        "note": "Exact numerator/denominator, coprimality and map degree 4 checked. Pole evaluation in RatFunc is totalized zero, not a geometric finite j-value; intDegree is 3."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/b5-j",
+        "verdict": "verified",
+        "note": "Exact function and map degree 6 checked; intDegree is 1. The source Fricke coordinate is 125/x on X(b5), distinct from 5/x on X(ns3,b5)."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/ns3-j",
+        "verdict": "verified",
+        "note": "The normalizer function is x³ of degree 3. The actual nonsplit Cartan has the separately planned conic, not this P¹ carrier."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/ns5-j",
+        "verdict": "verified",
+        "note": "Numerator/denominator are coprime of equal degree 10; geometric degree is 10, intDegree is 0 and j at infinity is 8000. Cusps are the quadratic denominator roots."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/s3-j",
+        "verdict": "verified",
+        "note": "The split-normalizer function has map degree 6, intDegree 3 and value −1728 at x=1. The equation is not the b3 function."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/elliptic-quotient",
+        "verdict": "verified",
+        "note": "Coefficients (0,0,−1,0,1) give y²−y=x³+1, Δ=−675 and j=0. Literal carrier/invariants are separate from model identification and rank."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/small-models",
+        "verdict": "verified",
+        "note": "The five source-normalized P¹ comparisons, projective map degrees and b5 Fricke coordinate agree with CN 7.1.3. G7 retains the missing comparison certificates."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/mixed-elliptic-model",
+        "verdict": "verified",
+        "note": "The homogeneous B equation and dense-open forward/inverse map conventions agree with the script; exact substitution verifies landing on B. Proper extension and modular map identities remain G8."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/quotient-mordell-weil",
+        "verdict": "verified",
+        "note": "CN asserts B(Q)≅Z (225A1), not just positive analytic rank. A saturated generator and trivial torsion must be exported in G8 before any index argument."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/e15-model",
+        "verdict": "verified",
+        "note": "Literal Legendre model x(x+16)(x+25), Δ=207360000 and three rational roots checked; no rank conclusion is inferred from this calculation."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/es35-model",
+        "verdict": "verified",
+        "note": "Literal Legendre model x(x+1)(x+16), Δ=921600 checked. Its modular identification and rational group belong to the next node."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/level-fifteen-identification",
+        "verdict": "verified",
+        "note": "FLHS v4 15.3/15.4 use minimal models; CN uses isomorphic Legendre models with labels 15A1/15A3. Both rational groups are Z/2⊕Z/4 and a rational isogeny transfers rank over F."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/quadratic-torsion-growth",
+        "verdict": "verified",
+        "note": "CN’s Kwon specialization distinguishes E15 growth at i,√5 from Es35 growth only at √5. The original Kwon theorem and eight-point orbit certificate remain G9, explicitly not independently proved."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/gaussian-exceptional-model",
+        "verdict": "verified",
+        "note": "Fresh LMFDB record matches all five coefficients, Δ and j. Exact invariant calculations pass; mod-3 and mod-5 Borel images prevent using the residual criterion as a shortcut."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/gaussian-modularity",
+        "verdict": "verified",
+        "note": "Preserve the separate Faltings–Serre finite test-set/comparison certificate and eight Gaussian j-orbit matching. A database modular-form link alone is not a proof; G9 remains open."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-quartic",
+        "verdict": "verified",
+        "note": "The scalar −3, weighted projective closure and reciprocal identity x⁴h(5/x)=25h(x) are correct. Genus/model identification is separate from the polynomial definition."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-identification",
+        "verdict": "verified",
+        "note": "The degree-two map to X(ns3,b5) has coordinate x and j=b5J(x³), with denominator x¹⁵; Fricke 5/x is asserted on that quotient only."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-special-points",
+        "verdict": "verified",
+        "note": "The five weighted triples satisfy the model when s²=−3, including both infinity charts. Rational Jacobian classes formed from them do not imply rational points on C."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-jacobian",
+        "verdict": "verified",
+        "note": "The source Jacobian is 45A2 with rational group Z/2⊕Z/2; C(Q3)=∅. Jacobian existence does not require a rational basepoint; the comparison and descent certificate remain G11."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/rational-divisor-classes",
+        "verdict": "verified",
+        "note": "BF §2 distinguishes rational divisors from rational Jacobian points. Image {0,D0}, not all four points, matches CN; corrected additive RR functions verify all three quadratic fibers (E19)."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-quadratic-points",
+        "verdict": "verified",
+        "note": "Outside infinity, the effective conjugate divisor gives rational x or norm-five x. Degenerate leading coefficient is treated; the assertion does not select a sign of an involution lift."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity",
+        "verdict": "corrected",
+        "note": "Use the Fricke relation of images in X(ns3,b5), not σP=w5P on the genus-one double cover. The quotient gives the geometric 5-isogeny; preserve the rational-j and real-FLHS branches (G10)."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-sextic",
+        "verdict": "verified",
+        "note": "Degree six, squarefreeness, factorization, three rational roots, infinity values ±3 and both smoothness derivatives checked. The fixed model has two rational infinity points."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-model",
+        "verdict": "verified",
+        "note": "CN/script identify X(b3,ns5), with w3 equal to y↦−y. Both rational infinity points are exchanged; j is the transported modular map, not x."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-mordell-weil",
+        "verdict": "verified",
+        "note": "CN asserts Z/2⊕Z/10, using rank-zero two-descent and reductions 7,13. The twenty-class group/table/principal-function certificate is explicitly G12, not a finite-search proof."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-divisor-dichotomy",
+        "verdict": "verified",
+        "note": "Canonical degree-two divisors move in ⟨1,x⟩; noncanonical effective degree-two classes have RR dimension 1 and a unique representative. Infinity and rational-divisor descent are retained."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-quadratic-points",
+        "verdict": "verified",
+        "note": "The imaginary exception ((−5+s)/6,±(17−s)/6), s²=−11, satisfies the sextic exactly. The nineteen-class enumeration separates 9 rational-x, 2 infinity, 2 imaginary and 6 real classes; G12 certifies completeness."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/eleven-exceptional-model",
+        "verdict": "verified",
+        "note": "For a²−a+3=0 the script’s coefficients, Δ=4512−736a and j=(11155375a+3126750)/32 pass exact reduction. The 8100.2/8100.3 conjugate-label reconciliation remains G13, not an erratum."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/eleven-exceptional-comparison",
+        "verdict": "verified",
+        "note": "The required mod-5 image is the full nonsplit normalizer, not mere containment. The script gives the mixed fiber coordinates with matching j; image and transported point certificates remain G13."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-modularity",
+        "verdict": "corrected",
+        "note": "Rational points including infinity use rational j. Only exact-degree-two nonrational affine points with rational x satisfy σP=w3P; add the parent theorem dependency and confirm source finding E20."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-1",
+        "verdict": "verified",
+        "note": "All homogeneous coefficients match CN and the script. Smooth projective genus-three/modular identification is separately required, never inferred from a raw polynomial carrier."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-1-involution",
+        "verdict": "corrected",
+        "note": "The map (X,−Y−Z,Z) squares to identity and preserves quartic1 exactly. Fix the harmless printed planning string “1quartic1”; rational/projective order is separate from raw coordinate evaluation."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-2",
+        "verdict": "verified",
+        "note": "All homogeneous coefficients match CN and the script; use the plane quartic, not an affine-only curve. Three acceptance tests discriminate the actual polynomial."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-2-involution",
+        "verdict": "verified",
+        "note": "The homogeneous matrix squares to 25I and scales quartic2 by 625. It is invertible in a Q-algebra and induces a projective involution through affine denominator poles."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-models",
+        "verdict": "verified",
+        "note": "The source/script give the two smooth genus-three curves, unique nonidentity rational automorphisms and common quotient B. Quotient/j/modular compatibility and smoothness require G14 certificates."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-imaginary-points",
+        "verdict": "verified",
+        "note": "Both √−55 projective triples satisfy quartic2 exactly. CN and the script give j=−32768 (CM discriminant −11); the computed j-map certificate is still G14."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-ranks",
+        "verdict": "verified",
+        "note": "The 225c,225a,225d factors have ranks 0,1,0; C2 has the 5-new/old 75c,75a decomposition. General Chen/projector comparison is requested once from R14.2, with exact rank certificates G14."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-torsion-classes",
+        "verdict": "verified",
+        "note": "D10 and D2 use the stated four rational supports and degree-two places Pl1/Pl2; all supports pass substitution and the degree is zero. Orders/independence/principal witnesses remain G15."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-torsion",
+        "verdict": "corrected",
+        "note": "C1 has a subgroup of Z/2⊕Z/2, not claimed equality; C2 has Z/2⊕Z/10. Correct “13-primary” to the 2-primary comparison at good prime 13; retain good-reduction/group certificates G15."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-index-bounds",
+        "verdict": "corrected",
+        "note": "Only the weak 2J pullback-plus-torsion inclusion is needed. Correct pullback/norm notation to π^*π_*=1+w; torsion exponents yield 4J1⊂2G1 and 10J2⊂⟨5G2,J2[2]⟩ (E9)."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/first-quartic-sieve",
+        "verdict": "verified",
+        "note": "Relative symmetric sieve uses G=⟨2π1*D⟩, I=4, prime 43 and eight pullback divisors covering seven reduction classes. Exact finite bad-coset/local differential certificates remain G15."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/second-quartic-sieve",
+        "verdict": "verified",
+        "note": "Use G=⟨5π2*D,D2,5D10⟩, I=10 and primes 11,43. Sixteen exceptions comprise eight rational sums and eight quadratic pairs; only two quadratic orbits are imaginary. Finite intersection certificate remains G15."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/first-quartic-modularity",
+        "verdict": "verified",
+        "note": "Every relevant quadratic divisor is a pullback from B(Q); the modular j-map then gives rational j. C1 has no rational point by its map to the anisotropic nonsplit conic."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.7/second-quartic-modularity",
+        "verdict": "verified",
+        "note": "Restrict this endpoint to imaginary fields. Nonpullback imaginary exceptions have CM j=−32768; the six real exceptional classes are not silently covered by this assertion."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.8/residual-image-modularity",
+        "verdict": "verified",
+        "note": "Mod-5 irreducibility is over F5, not absolute irreducibility; the mod-3 exclusion concerns the whole split normalizer, not every subgroup. Cyclotomic classification plus the four curve branches closes the source argument."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.8/finite-level-fifteen-modularity",
+        "verdict": "corrected",
+        "note": "Preserve the full finite compact X0(15)(F) condition and unrestricted target E. Correct Theorem 1.1 locator to p.2 and the Gaussian declaration name; the eight-point comparison is still mandatory."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.8/finite-level-fifteen-examples",
+        "verdict": "corrected",
+        "note": "The source introductory examples are on p.2. For d=1,2,3,5 require algebraic rank-zero twist certificates, retaining Gaussian torsion growth. G16 is an explicit computation gap."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.8/nonfinite-level-fifteen-example",
+        "verdict": "verified",
+        "note": "The point (−1,6√−10) passes substitution; no torsion growth at √−10 makes it nontorsion. This demonstrates why finite X0(15) is a substantive hypothesis, without any assertion of nonmodularity."
+      },
+      {
+        "nodeId": "EllipticCurveModularityImaginaryQuadratic:IQ.4/nonsplit-cartan-conic",
+        "verdict": "verified",
+        "note": "Complete the square to Y²+3(X+6Z)²+324Z²=0: no rational projective point. Projection [X:Z] has degree two to the normalizer curve, and cusps are over √−3, agreeing with source and script."
+      }
     ]
   }
 }

@@ -222,7 +222,6 @@
         {
           "sourceId": "acc",
           "locator": "§2.4.1, Theorem 2.4.4 with (2.4.5)–(2.4.7), pp. 945–946",
-          "excerpt": "Theorem 2.4.4. Let K ‹ ∞+ ) be as at the start of Section 2.4.1, and ‹ ⊂ G(A F + let λ ∈ (Zn+ )Hom(F,E) be a dominant weight whose image in (Z2n )Hom(F ,E) is G-dominant. ‹ Let m ⊂ TS (K, λ) be a non-Eisenstein maximal ideal, and let e ‹ S ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             49
@@ -266,7 +265,6 @@
         {
           "sourceId": "acc",
           "locator": "§2.4.1, proof of Theorem 2.4.4, (2.4.7), pp. 945–946",
-          "excerpt": "However, arguing in the same way as on [NT16, p. 58], we see that there is an isomorphism P m ∼ ‹S P S ×KS KU,S Vλe /$m )), ‹ ‹ , Vλ RΓ(XK e /$ ) = RΓ(KP × KS , RΓ(Inf GS ×K XG , R1∗ P S where the derived pushforward sends (comple",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             50
@@ -311,7 +309,6 @@
         {
           "sourceId": "acc",
           "locator": "§2.4.1, Theorem 2.4.8, pp. 946–948",
-          "excerpt": "Theorem 2.4.8. Let K ‹ ⊂ ‹ G(A∞ F + ) be as at the start of Section 2.4.1, S let m ⊂ T (K, 0) be a non-Eisenstein maximal ideal, and let e m⊂‹ TS denote its pullback under the homomorphism S : T ‹S → TS . Suppose, moreover, that there is a ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             50
@@ -358,7 +355,6 @@
         {
           "sourceId": "acc",
           "locator": "§1.2 Notation, pp. 905–906",
-          "excerpt": "We write WP (G, T ) for the absolute Weyl group of this Levi subgroup, which may be identified with a subgroup of W (G, T ). Suppose that G comes equipped with a Borel subgroup B containing T . Then we can form X ∗ (T )+ ⊂ X ∗ (T ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             10
@@ -461,7 +457,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.2, after Theorem 4.2.1, p. 969",
-          "excerpt": "R-equivariant direct summand of B if there are a complex C ∈ D(S) equipped with a homomorphism of S-algebras fC : R → EndD(S) (C) and an isomorphism φ : B ∼ = A ⊕ C in D(S) such that for each r ∈ R, we have fB (r) = φ−1 ◦ (fA (r) ⊕ fC (r)) ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             73
@@ -569,7 +564,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.2, Lemma 4.2.2(1), p. 970",
-          "excerpt": "Lemma 4.2.2. Let v ∈ S p , let K = Fv+ , and fix an integer m ≥ 1. (1) For each i ∈ Z≥0 there is a G(OK )-equivariant isomorphism H i (U (OK ), O/$m ) ∼ = HomZp (∧iZp U (OK ), O/$m ) = HomO (∧iO (U (OK ) ⊗Zp O), O/$m ) with G(OK )-action on",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             74
@@ -619,7 +613,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.2, Theorem 4.2.1, pp. 968–970",
-          "excerpt": "Theorem 4.2.1. Let K ‹ ∞+ ) be a good subgroup that is decomposed ‹ ⊂ G(A F with respect to P , and with the property that for each v ∈ S p , K ‹U,v = U (O + ). Fv Let m ⊂ TS be a non-Eisenstein maximal ideal, and let e m = S ∗ (m",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             72
@@ -667,7 +660,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.2, Lemma 4.2.2(2), pp. 970–971",
-          "excerpt": "(2) Suppose p ≥ 2n − 1. Given w ∈ W_v^P, let λ_w = w(ρ_v) − ρ_v.",
           "match": "This is Lemma 4.2.2(2) itself, rather than claim (2) in the preceding proof of Theorem 4.2.1. Its integral decomposition and bottom-alcove hypothesis are retained.",
           "pdfPages": [
             74
@@ -712,7 +704,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.2, Lemma 4.2.3, pp. 971–972",
-          "excerpt": "Lemma 4.2.3. Let v ∈ S p , let K = Fv+ , and fix an integer m ≥ 1. Suppose that p > n2 . Then we have a natural isomorphism (inducing the identity on cohomology ) n2 [K:Qp ] ∼ M RΓ(U (OK ), O/$m ) → H i (U (OK ), O/$m )[−i] i=0 in D(O/$m [G",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             75
@@ -757,7 +748,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.3, Proposition 4.3.4, pp. 973–974",
-          "excerpt": "Proposition 4.3.4. Suppose that [F + : Q] > 1. Let K ‹⊂‹ G(A∞F + ) be a 2n Hom(F + ,E) good subgroup that is decomposed with respect to P . Let λ e ∈ (Z ) . + Fix a decomposition S p = S 1 t S 2 . Suppose that the following conditions are s",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             77
@@ -802,7 +792,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.3, Definition 4.3.5 and following paragraph, p. 974",
-          "excerpt": "Definition 4.3.5. A weight λ e ∈ (Z2n )Hom(F,E) will be said to be CTG + (“cohomologically trivial for G”) if it satisfies the following condition: • Given w ∈ W P , define λw = w(λ e + ρ) − ρ ∈ (Zn )Hom(F,E) . Then for + all w ∈ W P and fo",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             78
@@ -895,7 +884,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.3, Lemma 4.3.6 and (4.3.7), pp. 974–975",
-          "excerpt": "Lemma 4.3.6. Suppose that [F + : Q] > 1. Let λe ∈ (Z2n )Hom(F + ,E) , and + + 0 fix a choice of embedding τ0 : F ,→ E. Then there exists λ ∈ (Z2n Hom(F + ,E) + ) e satisfying the following conditions: (1) λeτ = λe0 for all τ 6= τ0 . τ (2) λ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             78
@@ -939,7 +927,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.4, Proposition 4.4.1 (with Hypothesis 4.4.2 and (4.4.3)–(4.4.5) in its proof), pp. 975–978",
-          "excerpt": "Proposition 4.4.1. Let λ ∈ (Zn+ )Hom(F,E) , and let v, v 0 be distinct places of S p . (The condition that S p has at least two distinct places implies, in particular, that F + 6= Q.) Fix an integer m ≥ 1. Let K‹⊂‹ G(A∞ F + ) be a good subg",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             79
@@ -995,7 +982,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.4, Proposition 4.4.6, pp. 979–981",
-          "excerpt": "Proposition 4.4.6. Let λ ∈ (Zn+ )Hom(F,E) , and let v, v 0 be distinct places of S p . Fix an integer m ≥ 1. Let K‹⊂‹ G(A∞ F + ) be a good subgroup. Suppose that the following conditions are satisfied: (1) For each embedding τ : F ,→ E indu",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             83
@@ -1041,7 +1027,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.4, proof of Proposition 4.4.6, pp. 980–981 (determinant-kernel transfer)",
-          "excerpt": "Its kernel is a two-sided ideal of A[G e e F,S ]. (See [Che14, §1.17] for the definition of the kernel of a determinant.) The formation of kernels commutes with flat base change over A, e so there is an algebra embedding (A[G ‹ ⊗O",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             84
@@ -1050,7 +1035,6 @@
         {
           "sourceId": "chenevier",
           "locator": "§1.17 and Lemma 1.18(iii), PDF p. 16; Theorem 2.22, PDF p. 34",
-          "excerpt": "Lemma 1.18. (i) ker(P ) is the biggest A-submodule K ⊂ M such that P admits a factorization P = Pe ◦ π with π is the canonical A-linear surjection M −→ M/K and Pe ∈ PA (M/K, N). (ii) Pe : R/ker(P ) −→ S is faithful. (iii) If B is ",
           "pdfPages": [
             16
           ],
@@ -1098,7 +1082,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.4, Corollary 4.4.8, pp. 981–984",
-          "excerpt": "Corollary 4.4.8. Let v ∈ Sp , and let K ⊂ GLn (A∞ F ) be a good subgroup. n Let λ ∈ (Z+ )Hom(F,E) S , and let m ⊂ T (K, λ) be a non-Eisenstein maximal ideal. Suppose that the following conditions are satisfied: (1) For each place v|v of F ,",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             85
@@ -1143,7 +1126,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.4, proof of Corollary 4.4.8, pp. 983–984",
-          "excerpt": "Propositions 2.2.21 and 2.2.23 together imply that the isomorphism TS → TS , [K S gK S ] 7→ \u000f(ArtK (det(g)))−n0 [K S g −1 K S ]",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             87
@@ -1188,7 +1170,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.4, proof of Corollary 4.4.8, p. 984",
-          "excerpt": "We now remove the assumption that ρme is decomposed generic, assuming instead only that ρm is decomposed generic. After possibly enlarging k, we can find a character ψ : GF → k × such that (ρm ⊗ ψ) ⊕ ((ρm ⊗ ψ)c,∨ ⊗ \u000f1−2n ) is deco",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             88
@@ -1227,7 +1208,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.5, Lemma 4.5.2, p. 989",
-          "excerpt": "Lemma 4.5.2. Let m ≥ 1 be an integer, and let A, B, C, D be sets of integers each of size m. Assume that for any c ∈ C and d ∈ D, we have c > d. If A ∪ B = C ∪ D and (A + 1) ∪ B = (C + 1) ∪ D and both of these sets have 2m elements, then A ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             93
@@ -1279,7 +1259,6 @@
         {
           "sourceId": "acc",
           "locator": "§4.1, Theorem 4.5.1, p. 967 (restated §4.5, p. 985; proof pp. 985–988)",
-          "excerpt": "Theorem 4.5.1. Let m ⊂ TS (K, λ) be a non-Eisenstein maximal ideal. Suppose that TS (K, λ)/m = k has residue characteristic p. Let v be a p-adic place of F + , and suppose that the following additional conditions are satisfied: (1) The prim",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             71,
@@ -1328,7 +1307,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.1, pp. 989–991",
-          "excerpt": "K(b, c) ⊂ K by the formula K(b, c)v = Kv if v - p and Kv = Iwv (b, c) if v|p. Thus K(0, 1) = K. Then there is an isomorphism K(0, c)/K(b, c) ∼ = v|p Tn (OFv /$vb ). (Here we Q are using notation for open compact subgroups and Hecke operator",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             93
@@ -1424,7 +1402,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.1, p. 990",
-          "excerpt": "By the theory of ordinary parts (cf. [KT17, §2.4]), there is a well-defined direct summand RΓK(0,c)/K(b,c) (XK(b,c) , Vλ )ord of RΓK(0,c)/K(b,c) (XK(b,c) , Vλ ) in D(O[K(0, c)/K(b, c)]) on which Up acts in- vertibly, and we define",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             94
@@ -1519,7 +1496,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.1, p. 990",
-          "excerpt": "For each place v|p and for each i = 1, . . . , n, we define a character χλ,v,i : GFv → TS (K(b, c), λ)ord,× as the unique continuous character satisfying the identities χλ,v,i ◦ ArtFv (u) Ç å G Y = \u000f1−i (ArtFv (u)) τ (u)−(w0 λ)τ,i",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             94
@@ -1613,7 +1589,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, pp. 992–993",
-          "excerpt": "We write Tn (Fp )+ ⊂ Tn (Fp ) for the open submonoid consisting of those elements t ∈ Tn (Fp ) with tNn (OF,p )t−1 ⊂ Nn (OF,p ), and Tn (Fv )+ = Tn (Fv ) ∩ Tn (Fp )+ . We recall (Section 2.2.5) that ∆p ⊂ GLn (Fp ) denotes the",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             96
@@ -1707,7 +1682,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, p. 993",
-          "excerpt": "Projection to the lowest weight space determines an O-module homomorphism Vλ → O(w0G λ) that is equivariant for the action of Bn (Fp )+ (where Bn (Fp )+ acts through the ·p -action on the source and through its projection to Tn (F",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             97
@@ -1802,7 +1776,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, (5.2.5), pp. 993–994",
-          "excerpt": "(5.2.5) t·v = ntv; n∈Nn (OF,p )/tNn (OF,p )t−1 cf. [Eme10a, §3], and note that the action of t is by the “double coset operator” [Nn (OF,p )tNn (OF,p )]. We write Γ(Bn (OF,p )(b), −) : Modsm (O/$m [∆p ]) → Mod(O/$m [Tn (Fp )+ b ]) for the f",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             98
@@ -1900,7 +1873,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, Lemma 5.2.6, p. 995",
-          "excerpt": "Lemma 5.2.6. The following diagram is commutative up to natural iso- morphism: Γ(Tn (OF,p )(b), −) Modsm (O/$m [Tn (Fp )+ ]) / Mod(O/$ m [Tn (Fp )+ ]) b ord ordb \u000f \u000f Modsm (O/$m [Tn (Fp )]) / Mod(O/$ m [Tn (Fp )b ]). Γ(Tn (OF,p )(b), −) Pro",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             99
@@ -1942,7 +1914,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, Lemma 5.2.7(1), p. 995",
-          "excerpt": "Lemma 5.2.7. (1) Each functor Γ(Nn (OF,p ), −), Γ(Bn (OF,p )(b), −), and Γ(Iwp (b, c), −) is left exact. For any b ≥ 0, the functor Γ(Nn (OF,p ), −) sends injectives to Γ(Tn (OF,p )(b), −)-acyclics. (2) The functors ord and ordb are exact a",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             99
@@ -1984,7 +1955,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, Lemma 5.2.7(2), pp. 995–996",
-          "excerpt": "Lemma 5.2.7. (1) Each functor Γ(Nn (OF,p ), −), Γ(Bn (OF,p )(b), −), and Γ(Iwp (b, c), −) is left exact. For any b ≥ 0, the functor Γ(Nn (OF,p ), −) sends injectives to Γ(Tn (OF,p )(b), −)-acyclics. (2) The functors ord and ordb are exact a",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             99
@@ -2026,7 +1996,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, Lemma 5.2.8, pp. 996–997",
-          "excerpt": "Lemma 5.2.8. For any c ≥ b ≥ 0 with c ≥ 1, there is a natural isomor- phism ordb ◦Γ(Iwp (b, c), −) ∼ = ordb ◦Γ(Bn (OF,p )(b), −) of functors Modsm (O/$m [∆p ]) → Mod(O/$m [Tn (Fp )b ]). Proof. We first show that for any V ∈ Modsm (O/$m [∆p ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             100
@@ -2070,7 +2039,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.1, Lemma 5.2.9, pp. 997–998",
-          "excerpt": "Lemma 5.2.9. Let π ∈ Dsm (O/$m [∆p ]) be a bounded below complex. Then for any c ≥ b ≥ 0, c ≥ 1, there is a natural isomorphism RΓ(Tn (OF,p )(b), ord RΓ(Nn (OF,p ), π)) ∼ = ordb RΓ(Iwp (b, c), π) in D(O/$m [Tn (Fp )b ]). Proof. We will use ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             101
@@ -2116,7 +2084,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.10, (5.2.11)–(5.2.13), p. 998",
-          "excerpt": "we define the weight λ completed cohomology π(K p , λ, m) = RΓK p ,sm RΓ(XG , Vλ /$m ) ∈ Dsm (O/$m [∆p ]). If K S = v6∈S GLn (OF,v ), then π(K p , λ, m) comes equipped with a homomor- Q phism (5.2.11) TS → EndDsm (O/$m [∆p ]) (π(K",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             102
@@ -2211,7 +2178,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.10, p. 999",
-          "excerpt": "We define the ordinary part of completed cohomology π ord (K p , λ, m) = ord RΓ(Nn (OF,p ), π(K p , λ, m)) ∈ Dsm (O/$m [Tn (Fp )]). (If λ = 0, then we write simply π ord (K p , m).) Its relation to the complex RΓK(0,c)/K(b,c) (XK(",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             103
@@ -2302,7 +2268,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.10, Proposition 5.2.15, p. 999",
-          "excerpt": "Proposition 5.2.15. Let K ⊂ G∞ be a good subgroup with Kv = Iwv for each v|p and K S = v6∈S GLn (OFv ). Let c ≥ b ≥ 0 be integers with c ≥ 1. Q Then for any λ ∈ (Zn+ )Hom(F,E) , there is a TS,ord -equivariant isomorphism RΓ(Tn (OF,p )(b), π",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             103
@@ -2343,7 +2308,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.10, Corollary 5.2.16, p. 999",
-          "excerpt": "Corollary 5.2.16 (Independence of level). Let K ⊂ GLn (A∞ F ) be a good subgroup with Kv = Iwv for each v|p and K S = v6∈S GLn (OFv ). Let c ≥ b ≥ 0 Q be integers with c ≥ 1. Then for any λ ∈ (Zn+ )Hom(F,E) , the natural morphism RΓK(0,max(",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             103
@@ -2386,7 +2350,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.10, Proposition 5.2.17, p. 1000",
-          "excerpt": "Proposition 5.2.17. Let K ⊂ GLn (A∞ S F ) be a good subgroup with K = Q S v6∈S GLn (OF,v ). Then there are the following T -equivariant isomorphisms in D(O/$m [Tn (Fp )]): π ord (K p , λ, m) ∼ = ord RΓ(Nn (OF,p ), RΓK p ,sm RΓ(XG , O(wG λ)/",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             104
@@ -2428,7 +2391,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.10, Corollary 5.2.18, p. 1000",
-          "excerpt": "Corollary 5.2.18 (Independence of weight). Let K ⊂ GLn (A∞ F ) be a S Q good subgroup with Kv = Iwv for each v|p and K = v6∈S GLn (OFv ). Let c ≥ b ≥ 0 be integers with c ≥ 1. Then for any λ, λ0 ∈ (Zn+ )Hom(F,E) such that O(w0G λ)/$m ∼ = O(",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             104
@@ -2478,7 +2440,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.19, pp. 1000–1001",
-          "excerpt": "We define ‹S ⊗O OJT (OF + ,p )K[{U T ‹v,1 , . . . , U ‹−1 }v∈Sp ] ‹v,2n , U ‹S,ord = v,2n T . ({U‹vc ,i − U ‹−1 } v∈Sp ) ‹v,2n−i U v,2n i=1,...,2n We define U ‹v = U ‹v,2 · · · U ‹v,1 U ‹v,n−1 and U Q ‹p = v∈S U ‹S,ord . If K ‹v ∈",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             105
@@ -2571,7 +2532,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.19, p. 1001",
-          "excerpt": "We extend the homomorphism S : ‹ F F+ TS → TS (defined by equation (2.1.8)) to a homomorphism T ‹S,ord → TS,ord , also denoted S, using the identification OJT (OF + ,p )K ∼ = OJTn (OF,p )K, ‹v,i to the operator Uvc ,n−i U −1 and b",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             105
@@ -2617,7 +2577,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.19, (5.2.20)–(5.2.27), p. 1002",
-          "excerpt": "(5.2.20) π ‹p , λ, e (K e m) = RΓ ‹p RΓ(X ‹, Ve /$m ) ∈ Dsm (O/$m [∆ ‹p ]). K ,sm G λ ‹S = G( If K ‹O “S + ), then this complex comes equipped with a homomorphism F (5.2.21) ‹S → End T ‹ p ]) (e ‹p , λ, m)). π (K Dsm (O/$m [∆ We d",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             106
@@ -2709,7 +2668,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.2.19, Proposition 5.2.28, p. 1003",
-          "excerpt": "Proposition 5.2.28. Let K ‹ ∞+ ) be a good subgroup with K ‹ ⊂ G(A ‹v = Iw fv F ‹S = G( for each S p and K ‹O “S + ). Let c ≥ b ≥ 0 be integers with c ≥ 1. Then for F + any λe ∈ (Z2n )Hom(F ,E) , there are T‹S,ord -equivariant isomorphisms ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             107
@@ -2755,7 +2713,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, pp. 1003–1004",
-          "excerpt": "Bruhat ⊂ Sw . The closure S w of Sw in G(F p ordering of r W P : G Sw = Sw 0 . w0 ≤w Note that if w0 < w, then lr (w0 ) < lr (w). For an integer i ≥ 0, we define G G ‹≥i = Sw . w∈r W P lr (w)≥i It is an open subset of ‹G(Fp+ ) that is invar",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             108
@@ -2850,7 +2807,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, pp. 1003–1004",
-          "excerpt": "we define a functor Iw : Modsm (O/$m [P (Fp+ )]) → Modsm (O/$m [B(Fp+ )]) by sending π to Iw (π) = {f : Sw → π | f locally constant, of compact support modulo P (Fp+ ) ∀p ∈ P (Fp+ ), g ∈ Sw , f (pg) = pf (g)}, where again B(Fp+ ) ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             108
@@ -2941,7 +2897,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Proposition 5.3.1 and (5.3.2), pp. 1004–1005",
-          "excerpt": "Proposition 5.3.1. ‹ +) G(F ‹ +) G(F (1) I≥0 = ResB(Fp+ ) ◦ IndP (Fp+ ) . p p (2) Each functor I≥i , Iw and Iw◦ is exact.",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             108
@@ -2982,7 +2937,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Lemma 5.3.3, pp. 1005–1006",
-          "excerpt": "Lemma 5.3.3. Let π ∈ Dsm (O/$m [P (Fp+ )]) be a bounded below complex, e ∈ (Z2n )Hom(F + ,E) . Then for any i ≥ 0 and any and fix an integer b ≥ 0. Let λ + j ∈ Z, the sequence 0 → Rj Γ(B(OF,p )(b), O(w0G λ) ⊗O I≥i+1 (π)) ‹e → Rj Γ(B(OF,p )(",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             109
@@ -3024,7 +2978,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Lemma 5.3.4(1), p. 1006",
-          "excerpt": "Lemma 5.3.4. Let w ∈ r W P . Then (1) Iw◦ takes injectives to Γ(N (OF + ,p ), −)-acyclics. (2) Let π ∈ Dsm (O/$m [P (Fp+ )]) be a bounded below complex. Then there is a natural isomorphism ord RΓ(N (OF + ,p ), Iw◦ (π)) ∼ = ord RΓ(N (OF + ,p",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             110
@@ -3066,7 +3019,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Lemma 5.3.4(2), pp. 1006–1007",
-          "excerpt": "Lemma 5.3.4. Let w ∈ r W P . Then (1) Iw◦ takes injectives to Γ(N (OF + ,p ), −)-acyclics. (2) Let π ∈ Dsm (O/$m [P (Fp+ )]) be a bounded below complex. Then there is a natural isomorphism ord RΓ(N (OF + ,p ), Iw◦ (π)) ∼ = ord RΓ(N (OF + ,p",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             110
@@ -3111,7 +3063,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, p. 1007",
-          "excerpt": "Nw = P (Fp+ ) ∩ wN (OF + ,p )w−1 . It is a compact subgroup of P (Fp+ ) that contains Nn (OF,p ). We define a functor Γ(Nw , −) : Modsm (O/$m [P (Fp+ )]) → Modsm (O/$m [T (Fp+ )+ ]), where an element t ∈ T (Fp+ )+ acts by the formula t · v ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             111
@@ -3202,7 +3153,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Lemma 5.3.5 and (5.3.6), pp. 1007–1008",
-          "excerpt": "Lemma 5.3.5. Let w ∈ r W P , and let π ∈ Dsm (O/$m [P (Fp+ )]) be a bounded below complex. Then there is a natural isomorphism RΓ(N (OF + ,p ), Iw◦ (π)) ∼ = RΓ(Nw , π). Proof. By the first part of Lemma 5.3.4, it is enough to show that ther",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             111
@@ -3247,7 +3197,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, p. 1008",
-          "excerpt": "we define a character χw : T (Fp+ ) → O× by the formula NFp+ /Qp detFp+ (Ad(tw )|Lie U (Fp+ )∩wN (Fp+ )w−1 )−1 χw (t) = . |NFp+ /Qp detFp+ (Ad(tw )|Lie U (Fp+ )∩wN (Fp+ )w−1 )|p Note that there is an isomorphism O(χw ) ∼ = O(−ρ + ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             112
@@ -3341,7 +3290,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Lemma 5.3.7, pp. 1008–1010",
-          "excerpt": "Lemma 5.3.7. Let w ∈ r W P , and let π ∈ Dsm (O/$m [G(Fp+ )]) be a bounded below complex. Then there is a natural isomorphism between the following two complexes in Dsm (O/$m [Tn (Fp )]): P (F + ) ord RΓ(Nw , Inf G(Fp+ ) π) p and O/$m (χw )",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             112
@@ -3384,7 +3332,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.3, Proposition 5.3.8, pp. 1010–1011",
-          "excerpt": "Proposition 5.3.8. Let w ∈ r W P , and let π ∈ Dsm (O/$m [G(Fp+ )]) be a bounded below complex. Then there is a natural isomorphism between the following two complexes in Dsm (O/$m [Tn (Fp )]): P (F + ) ord RΓ(N (OF + ,p ), Iw (Inf G(Fp+ ) ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             114
@@ -3429,7 +3376,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Theorem 5.4.1, pp. 1011–1013",
-          "excerpt": "Theorem 5.4.1. Let K ‹⊂‹ G(A∞ F + ) be a good subgroup that is decomposed S with respect to P . Let m ⊂ T be a non-Eisenstein maximal ideal, and let ‹ +) G(F m = S ∗ (m) ⊂ ‹ e TS . Then the complex Ind p+ π(K p , m)m is a ‹ P (Fp ) TS -equi",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             115
@@ -3473,7 +3419,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Theorem 5.4.3, pp. 1013–1015",
-          "excerpt": "Theorem 5.4.3. Let K ‹ ∞+ ) be a good subgroup that is decomposed ‹ ⊂ G(A F with respect to P , and such that K ‹v = Iwv for each place v ∈ S p . Let λe ∈ 2n Hom(F + ,E) r P n Hom(F,E) (Z+ ) , let w ∈ W , and let λw = w(λ e + ρ) − ρ ∈ (Z ) ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             117
@@ -3521,7 +3466,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Lemma 5.4.8 and (5.4.9)–(5.4.12), pp. 1015–1017",
-          "excerpt": "Lemma 5.4.8. Fix m ≥ 1. Then we can find λ ∈ (Zn+ )Hom(F,E) with the following properties: (1) There is an isomorphism O(λ)/$m ∼ = O/$m of Tn (Fp )-modules. Pn (2) The sum i=1 (λτ,i + λτ c,i ) is independent of the choice of τ ∈ Hom(F, E). ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             119
@@ -3564,7 +3508,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Proposition 5.4.13, pp. 1017–1018",
-          "excerpt": "Proposition 5.4.13. Suppose that [F + : Q] > 1. Let m ≥ 1 be an integer. Then there exists a dominant weight λ ∈ (Zn+ )Hom(F,E) such that a finite index subgroup of OF× acts trivially on Vλ and for each i = 0, . . . , n2 − 1, a dominant ei ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             121
@@ -3608,7 +3551,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, pp. 1018, 1020",
-          "excerpt": "real torus of dimension [F + : Q] − 1 (with cocharacter lattice F × ∩ det(K), a torsion-free congruence subgroup of OF× ). We denote the identity component of AK by A◦K . If g ∈ GLn (A∞ −1 F ), then we set Γg,K = GLn (F ) ∩ gKg , ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             122
@@ -3703,7 +3645,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Lemma 5.4.14(2)–(4), pp. 1018–1019",
-          "excerpt": "Lemma 5.4.14. (1) The maps x 7→ (x, g) induce a homeomorphism Γg \\X ∼ a = XK . [g]∈GLn (F )\\GLn (A∞ F )/K (2) The determinant gives a continuous map det XK → AK which induces a bijection on sets of connected components. (3) Suppose g ∈ GLn ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             122
@@ -3744,7 +3685,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Lemma 5.4.15, pp. 1019–1020",
-          "excerpt": "Lemma 5.4.15. Let K be a good subgroup of G(A∞ F + ). Fix a finite set T of finite places of F . There exists a good normal subgroup K 0 ⊂ K with KT0 = KT such that det(Γg,K 0 ) = det(F × ∩ K 0 ) for all g ∈ GLn (A∞ F ). Proof. We begin by ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             123
@@ -3790,7 +3730,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Lemma 5.4.16 and (5.4.17), pp. 1020–1021",
-          "excerpt": "Lemma 5.4.16. Let K ⊂ GLn (A∞ F ) be a good subgroup, and let λ ∈ n (Z+ )Hom(F,E) . Suppose that the following conditions are satisfied: (1) det(Γg ) = det(F × ∩ K) for all g ∈ GLn (A∞ F ). (2) F × ∩ K acts trivially on Vλ . Recall that we ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             124
@@ -3837,7 +3776,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.4, Proposition 5.4.18 and (5.4.19)–(5.4.23), pp. 1022–1026",
-          "excerpt": "Proposition 5.4.18. Suppose that [F + : Q] > 1. Let K ⊂ GLn (A∞ F ) be a good subgroup such that for each v ∈ Sp , Kv = Iwv . Fix integers c ≥ b ≥ 0 with c ≥ 1, and also an integer m ≥ 1. Let m ⊂ TS be a non-Eisenstein maximal ideal, and le",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             126
@@ -3886,7 +3824,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.5, Corollary 5.5.2, p. 1028",
-          "excerpt": "Corollary 5.5.2. Let F be an imaginary CM field, let ι : Qp → C be an isomorphism, and let π be a cuspidal automorphic representation of GLn (AF ), regular algebraic of weight ιλ for λ ∈ (Zn+ )Hom(F,Qp ) . Suppose that (1) For every v ∈ Sp ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             132
@@ -3936,7 +3873,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, Proposition 6.5.3, p. 1063",
-          "excerpt": "Proposition 6.5.3. There exist an integer δ ≥ 1, depending only on n and [F : Q], an ideal J ⊂ TS (RΓ(XK , Vλ (χ−1 )))m such that J δ = 0, and a continuous surjective homomorphism fSχ : RSχ → TS (RΓ(XK , Vλ (χ−1 )))m /J such that for each f",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             167
@@ -3993,7 +3929,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, (6.6.3), (6.6.4), pp. 1076–1077",
-          "excerpt": "We define A1 (µ, χ, c) = R HomΛ1,c (RΓ(XK(c,c) , Vµ (χ−1 ))ord , Λ1,c )[−d].",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             180
@@ -4091,7 +4026,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, Proposition 6.6.7, p. 1078",
-          "excerpt": "Proposition 6.6.7. There exist an integer δ ≥ 1, depending only on n and [F : Q], an ideal J ⊂ TS,Λ1 (A(µ, χ)m ⊗O O(ν + w0G µ)−1 ) such that J δ = 0, and a continuous surjective homomorphism of Λ-algebras fSχ : RSχ → TS,Λ1 (A(µ, χ)m ⊗O O(ν ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             182
@@ -4140,7 +4074,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.4.2, Proposition 6.4.17, pp. 1060–1061",
-          "excerpt": "Proposition 6.4.17. (1) The quasi-isomorphisms CN /$ ∼ = CN0 /$ induce a quasi-isomorphism C /$ ∞ ∼ = ∞C 0 /$. (2) Via the identification C∞ /$ ∼ = C∞0 /$ of the previous part, T 0 ∞ and T∞ 0 have the same image in EndD(S∞ ) (C∞ /$) and End",
           "match": "The proof establishes the stronger reduced-coefficient comparison used here. Its restriction of scalars is the printed statement; E3 is rejected as an erratum.",
           "pdfPages": [
             164
@@ -4191,7 +4124,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, paragraphs after Corollary 6.5.5, (6.5.6), (6.5.7), pp. 1064–1065",
-          "excerpt": "auxiliary level subgroups. These will be associated to a choice of Taylor–Wiles datum (Q, (αv,1 , . . . , αv,n )v∈Q ) for S1 ; see Section 6.2.28. We assume that for each v ∈ Q, there exists an imaginary quadratic subfield of F in which the",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             168
@@ -4284,7 +4216,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, paragraph before Lemma 6.5.8, p. 1065",
-          "excerpt": "We define mQ ⊂ TS∪Q (K, Vλ (χ−1 )) to be the pullback of m under the inclusion TS∪Q (K, Vλ (χ−1 )) ⊂ TS (K, Vλ (χ−1 )). We define mQ 0 ⊂T S∪Q (K0 (Q), Vλ (χ−1 )) to be the pullback of mQ and define mQ 1 ⊂K0 (Q)/K1 (Q) T S∪Q (K0 (Q",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             169
@@ -4376,7 +4307,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, Lemma 6.5.8, p. 1065",
-          "excerpt": "Lemma 6.5.8. Each ideal mQ , mQ Q Q Q 0 , m1 , n0 , and n1 is a (proper) maximal ideal. Proof. This is clear for the ideals mQ , mQ Q Q 0 , and m1 . Since n1 is the pre- image of nQ0 under a surjective algebra homomorphism, we just need to ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             169
@@ -4385,7 +4315,6 @@
         {
           "sourceId": "kt",
           "locator": "§5, Lemma 5.3 and proof, manuscript p. 26",
-          "excerpt": "Then for each w ∈ W, the maximal ideal m_w is in the support of M.",
           "match": "Read with the finite-dimensional residual Iwahori Hecke-module hypotheses and the split spherical inclusion of Lemma 5.2.",
           "pdfPages": [
             26
@@ -4429,7 +4358,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, Lemma 6.5.9, p. 1066",
-          "excerpt": "Lemma 6.5.9. The natural morphisms RΓ(XK , Vλ (χ−1 ))mQ → RΓ(XK , Vλ (χ−1 ))m , RΓ(XK0 (Q) , Vλ (χ−1 ))nQ → RΓ(XK , Vλ (χ−1 ))mQ , 0 and RΓ(∆Q , RΓK0 (Q)/K1 (Q) (XK1 (Q) , Vλ (χ−1 ))nQ ) → RΓ(XK0 (Q) , Vλ (χ−1 ))nQ 1 0 in D(O) are isomorphi",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             170
@@ -4438,7 +4366,6 @@
         {
           "sourceId": "kt",
           "locator": "§5, Lemma 5.4 and proof, manuscript p. 27",
-          "excerpt": "the maps ... are isomorphisms.",
           "match": "With distinct residual roots and a unique central character, the trace identifies one ordered-root localization with the spherical subspace.",
           "pdfPages": [
             27
@@ -4482,7 +4409,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, (6.5.10) and following paragraph, p. 1066",
-          "excerpt": "nearly faithfully on H ∗ (XK1 (Q) , Vλ (χ−1 ))nQ . (We recall 1 ([Tay08, Def. 2.1]) that a finitely generated module over a Noetherian local ring is said to be nearly faithful if its annihilator is a nilpotent ideal.) We can now state a res",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             170
@@ -4530,7 +4456,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, Proposition 6.5.11, pp. 1066–1067",
-          "excerpt": "Proposition 6.5.11. There exist an integer δ ≥ 1, depending only on n and [F : Q], an ideal J ⊂ K0 (Q)/K1 (Q) TS∪Q (RΓK0 (Q)/K1 (Q) (XK1 (Q) , Vλ (χ−1 ))nQ ) 1 such that J δ = 0, and a continuous surjective O[∆Q ]-algebra homomorphism fSχ,Q",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             170
@@ -4585,7 +4510,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, proof of Theorem 6.5.4, pp. 1067–1069",
-          "excerpt": "For each N ≥ 1, we fix a choice of Taylor–Wiles Q Q datum (QN , (αv,1 , . . . , αv,n )v∈QN ) as in Proposition 6.2.33. (This is possible by our assumption that rι (π)(GF (ζp ) ) is enormous; we choose any imaginary quadratic subfi",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             172
@@ -4635,7 +4559,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, proof of Theorem 6.5.4, pp. 1069–1070",
-          "excerpt": "R∞ is equidimensional, and R∞ and R∞ 0 have the common dimension 1 + g + n2 |S| + n(n−1) 2 [F : Q]. Since F is CM, the quantity l0 for the locally symmetric space XK is l0 = n[F + : Q] − 1. Then since dim S∞ = n2 |S| + qn and g = ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             174
@@ -4684,7 +4607,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, Theorem 6.5.4, p. 1063; proof pp. 1067–1070",
-          "excerpt": "Theorem 6.5.4. Under assumptions (1)–(17) above, H ∗ (XK , Vλ (1))m has full support over RS1 . Corollary 6.5.5. Under assumptions (1)–(17) above, suppose given a continuous representation ρ : GF → GLn (Qp ) satisfying the following condi- ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             167
@@ -4734,7 +4656,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, Corollary 6.5.5, pp. 1063–1064",
-          "excerpt": "Corollary 6.5.5. Under assumptions (1)–(17) above, suppose given a continuous representation ρ : GF → GLn (Qp ) satisfying the following condi- tions: (1) We have ρ ∼= rι (π). (2) For each place v|p of F , ρ|GFv is crystalline. For each emb",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             167
@@ -4780,7 +4701,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.12, proof of Theorem 6.1.1, pp. 1073–1074 (and §6.6.10, p. 1084); Lemma 6.5.2, p. 1062, for neatness",
-          "excerpt": "By the Chebotarev density theorem, we can find infinitely many places v0 of E of degree 1 over Q such that ρ(Frobv0 ) is scalar and qv0 6≡ 1 mod p, v0 ∈/ S 0 ∪ Rc and the residue characteristic of v0 is odd. Then H 2 (Ev0 , ad ρ) ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             177,
@@ -4829,7 +4749,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, p. 1077",
-          "excerpt": "B1 (µ, χ) = A1 (µ, χ) ⊗O O(ν + w0G µ)−1 , where O(ν + w0G µ)−1 is the O[Tn (Fp )]-module described in Section 5.2.1. (In particular, the action of Tn (OF,p ) extends uniquely to an action of the completed group algebra OJTn (OF,p )K.) Thus ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             181
@@ -4922,7 +4841,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, Lemma 6.6.5, p. 1077",
-          "excerpt": "Lemma 6.6.5. The complex B1 (µ, χ) is independent of µ. More pre- cisely, for any µ0 ∈ (Zn+ )Hom(F,E) , there is a TS,ord -equivariant isomorphism B1 (µ, χ) ∼ = B1 (µ0 , χ) in D(Λ1 ). Proof. This follows from Proposition 5.2.17 and [KT17, L",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             181
@@ -4965,7 +4883,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, Corollary 6.6.6, pp. 1077–1078",
-          "excerpt": "Corollary 6.6.6. Let µ0 ∈ (Zn+ )Hom(F,E) . Then there is a TS,ord - equivariant isomorphism in D(O): G 0 −1 ∼ B1 (µ, χ) ⊗L Λ1 O(ν + w0 µ ) = A1 (µ0 , χ, 1) ⊗O O(ν + w0G µ0 )−1 . Proof. By the lemma, it suffices to treat the case µ0 = µ. In ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             181
@@ -5021,7 +4938,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, pp. 1078–1079",
-          "excerpt": "They are good subgroups of GLn (A∞ F ), determined by the following conditions: • If v 6∈ S ∪ Q, then K(c, c)1 (Q)v = K(c, c)0 (Q)v = K(c, c)v . • If v ∈ Q, then K(c, c)0 (Q)v = Iwv and K(c, c)1 (Q)v is the maximal pro- prime-to-p",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             183
@@ -5115,7 +5031,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, Lemma 6.6.8, p. 1079",
-          "excerpt": "Lemma 6.6.8. The ideal nQ occurs in the support of H ∗ (A1 (µ, χ, Q)). There are TS∪Q,ord -equivariant isomorphisms A1 (µ, χ, Q) Q ⊗L n Λ1 ∼ = A1 (µ, χ) Q ∼ Λ1 [∆Q ] = A1 (µ, χ)m . m Proof. These properties can be established in the same wa",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             183
@@ -5162,7 +5077,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, Proposition 6.6.9 and the preceding paragraph, pp. 1079–1080",
-          "excerpt": "Proposition 6.6.9. There exist an integer δ ≥ 1, depending only on n and [F : Q], an ideal J ⊂∆Q TS∪Q,Λ1 (A(Λ, χ, Q)nQ ⊗O O(ν + w0G µ)−1 ) such that J δ = 0, and a continuous surjective homomorphism of Λ[∆Q ]-algebras fSχ,Q : RSχ,Q →∆Q TS∪Q",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             183
@@ -5217,7 +5131,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, proof of Theorem 6.6.2, pp. 1080–1081",
-          "excerpt": "We can then apply the results of Section 6.4.2 to complexes A(µ, χ, Q)nQ ⊗O O(ν +w0G µ)−1 (for choices of Taylor–Wiles data (Q, (αv,1 , . . . , αv,n )v∈Q ), proved to exist using Proposition 6.2.33) and obtain the following:",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             184
@@ -5270,7 +5183,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, proof of Theorem 6.6.2, pp. 1080–1081",
-          "excerpt": "We deduce that the support of H ∗ (B(µ, 1)m ⊗L G −1 Λ O(ν + w0 λ) ) [1/p] contains ker f . This completes the proof. \u0003 6.6.10. End of the proof (ordinary case). We can now deduce Theo- rem 6.1.2, our main automorphy lifting result",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             185
@@ -5320,7 +5232,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.1, Theorem 6.6.2, p. 1075; proof pp. 1080–1081",
-          "excerpt": "Theorem 6.6.2. With assumptions (1)–(15) as above, suppose given a continuous representation ρ : GF → GLn (Qp ) and a weight λ ∈ (Zn+ )Hom(F,Qp ) satisfying the following conditions: (1) We have ρ ∼ = rι (π). (2) For each place v|p, there i",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             179
@@ -5370,7 +5281,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.12, Proposition 6.5.13 and its proof, pp. 1070–1072",
-          "excerpt": "Proposition 6.5.13. Fix an integer n ≥ 2, a prime p, and an isomorphism ι : Qp → C.",
           "match": "Exact statement with the weight subscript and the restriction in (2) corrected as in the reviewed extraction (items 268–269).",
           "pdfPages": [
             174,
@@ -5417,7 +5327,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.12, proof of Theorem 6.1.1, p. 1072 (and §6.6.10, p. 1082)",
-          "excerpt": "Choose finite sets V0 , V1 , V2 of finite places of F having the following properties: • For each v ∈ V0 , v splits in F (ζp ). For each proper subfield K/K 0 /F (ζp ), there exists v ∈ V0 such that v splits in F (ζp ) but does no",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             176,
@@ -5461,7 +5370,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.12, proof of Theorem 6.1.1, pp. 1072–1073",
-          "excerpt": "Let E0 /F be a soluble CM extension satisfying the following conditions: • Each place of V0 ∪ V1 ∪ V2 splits in E0 , and the rational prime p is unramified in E0 . Iww • For each finite place w of E0 , πE 0 ,w 6= 0. • For each fin",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             176,
@@ -5505,7 +5413,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.10, proof of Theorem 6.1.2, pp. 1082–1084",
-          "excerpt": "Let E0 /F be a soluble CM extension satisfying the following conditions: • Each place of V0 ∪ V1 ∪ V2 splits in E0 . Iww • For each finite place w of E0 , πE0 ,w 6= 0.",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             186,
@@ -5553,7 +5460,6 @@
         {
           "sourceId": "acc",
           "locator": "§7.1, Lemma 7.1.1, p. 1086",
-          "excerpt": "Lemma 7.1.1. If R is an extremely weakly compatible system of rank 2, then either rλ is irreducible for all λ or there exist weakly compatible systems X1 and X2 of rank 1 with rλ ∼ = χ1,λ ⊕ χ2,λ for all λ. Proof. Suppose that for one prime ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             190
@@ -5601,7 +5507,6 @@
         {
           "sourceId": "acc",
           "locator": "§7.1, Lemma 7.1.2, pp. 1086–1087",
-          "excerpt": "Lemma 7.1.2. If R is an extremely weakly compatible system of rank 2 and R is irreducible, then either (1) R is strongly irreducible; or (2) R is Artin up to twist; or (3) there is a quadratic extension F 0 /F and a weakly compatible system",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             190
@@ -5647,7 +5552,6 @@
         {
           "sourceId": "acc",
           "locator": "§7.1, proof of Lemma 7.1.3, facts (1)–(8), pp. 1088–1089",
-          "excerpt": "(1) The only morphisms PGL2 → PGL2 over Ql are the trivial map and conjugation by an element of PGL2 (Ql ). (2) The only morphisms PGLr2 → PGL2 over Ql are the trivial map and projec- tion onto one factor composed with conjugation",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             192
@@ -5693,7 +5597,6 @@
         {
           "sourceId": "acc",
           "locator": "§7.1, Lemma 7.1.3, pp. 1087–1089",
-          "excerpt": "Lemma 7.1.3. If R is an extremely weakly compatible system of rank 2 and R is irreducible, then for all l in a set of Dirichlet density 1 and all λ|l, the residual representation rλ is absolutely irreducible. If, moreover, R is neither indu",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             191
@@ -5745,7 +5648,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.12, proof of Theorem 6.1.1, pp. 1071–1074",
-          "excerpt": "We see that the hypotheses (1)–(17) of Section 6.5.1 are now satisfied for E, πE , and the set S. We can therefore apply Corollary 6.5.5 to ρ|GE and Proposition 6.5.13 to conclude that ρ is associated to a cuspidal, regular algebr",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             178
@@ -5796,7 +5698,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.10, proof of Theorem 6.1.2, pp. 1081–1084",
-          "excerpt": "By Proposition 6.5.13 and [Ger19, Lem. 5.7], we can descend ΠE to obtain a cuspidal, regular algebraic automorphic representation Π of GLn (AF ) such that Π is ι-ordinary of weight λ and rι (Π) ∼ = ρ. Taking into account the final",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             188
@@ -5848,7 +5749,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.1, Theorem 6.1.1 and Remark 6.1.4, pp. 1029–1030",
-          "excerpt": "Theorem 6.1.1. Let F be an imaginary CM or totally real field, let c ∈ Aut(F ) be complex conjugation, and let p be a prime. Suppose given a con- tinuous representation ρ : GF → GLn (Qp ) satisfying the following conditions: (1) ρ is unrami",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             133
@@ -5905,7 +5805,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.1, Theorem 6.1.2 and Remark 6.1.3, pp. 1029–1030",
-          "excerpt": "Theorem 6.1.2. Let F be an imaginary CM or totally real field, let c ∈ Aut(F ) be complex conjugation, and let p be a prime. Suppose given a con- tinuous representation ρ : GF → GLn (Qp ) satisfying the following conditions: (1) ρ is unrami",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             133
@@ -5956,7 +5855,6 @@
         {
           "sourceId": "acc",
           "locator": "§5.1, Theorem 5.5.1, p. 991; restated and proved in §5.5, pp. 1026–1027",
-          "excerpt": "Theorem 5.5.1. Suppose that [F + : Q] > 1. Let K ⊂ GLn (A∞ F ) be a good subgroup such that for each place v ∈ Sp of F , Kv = Iwv . Let c ≥ b ≥ 0 be integers with c ≥ 1, let λ ∈ (Zn )Hom(F,E) , and let m ⊂ TS (K(b, c), λ)ord be a non-Eisens",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             95,
@@ -6008,7 +5906,6 @@
         {
           "sourceId": "blggt-published",
           "locator": "§2.1, definition of ι-ordinary, printed p. 537 (PDF p. 37)",
-          "excerpt": "We say that π is ι-ordinary if for each v|l there is an integer b > 0",
           "match": "The unpolarized definition and normalizing factor agree with the preprint. Its b-th-power assertion is false; E77 replaces it by finite diamond order and the weight-unit factor.",
           "pdfPages": [
             37
@@ -6017,7 +5914,6 @@
         {
           "sourceId": "blggt",
           "locator": "§2.1, definition of ι-ordinary, printed and PDF p. 33",
-          "excerpt": "We say that π is ι-ordinary if for each v|l there is an integer b > 0 such that",
           "match": "The definition and normalizing factor agree with the published passage; uniformizer independence uses the corrected finite-order argument in E77, not the printed b-th-power claim.",
           "pdfPages": [
             33
@@ -6026,7 +5922,6 @@
         {
           "sourceId": "qian",
           "locator": "Definition 1.3, p. 1241 (NSF PDF p. 3), citing Geraghty Definition 5.3",
-          "excerpt": "such that the automorphic representation π it corresponds to is ι-ordinary (in the sense of [8] Definition 5.3) at all places v above l.",
           "match": "Qian’s and ACC’s uses refer to Geraghty’s Definition 5.3; Geraghty’s text itself was not obtained (gap).",
           "pdfPages": [
             3
@@ -6159,7 +6054,6 @@
         {
           "sourceId": "qian",
           "locator": "Definition 1.3, p. 1241 (NSF PDF p. 3)",
-          "excerpt": "We say it is ι-ordinarily automorphic if there exists an automor-",
           "match": "Exact definition for residual representations; the l-adic form is the one used in Lemma 4.3 and in the conclusion of ACC Theorem 6.1.2.",
           "pdfPages": [
             3
@@ -6257,7 +6151,6 @@
         {
           "sourceId": "qian",
           "locator": "Proof of Lemma 4.3, second paragraph, p. 1273 (NSF PDF p. 35), citing Geraghty Lemmas 5.2 and 5.6",
-          "excerpt": "Now we apply a variant of Lemma 5.6 of [8] to conclude πv is ι-ordinary from the fact that πv is Steinberg.",
           "match": "General-weight criterion split out of the proof, with the sign corrected as in source issue E74.",
           "pdfPages": [
             35
@@ -6302,7 +6195,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.6.10, proof of Theorem 6.1.2, p. 1084; proof of Corollary 5.5.2, p. 1028",
-          "excerpt": "Let πE denote the base change of π to E, which exists, by Proposition 6.5.13. Then πE is ι-ordinary, by [Ger19, Lem. 5.7].",
           "match": "Both directions are used in §6.6.10; the split case is the proof of Corollary 5.5.2.",
           "pdfPages": [
             188,
@@ -6346,7 +6238,6 @@
         {
           "sourceId": "acc",
           "locator": "§2.1.2, pp. 910–911 (groupoid/sheaf cohomology and Hecke actions); §2.2; §6.5.1, pp. 1064–1069 (finite normal levels and perfect cellular models)",
-          "excerpt": "cohomology groups with compact support: G H(GS , KG S ) ⊗Z R → EndD(R) (RΓ(G(F ) × KG , RΓ(X × G(A∞ F ), j! V))) G = EndD(R) (RΓc (XKG , V)). We have the following lemma, which is a consequence of the existence of the Borel–Serre ",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             15
@@ -6392,7 +6283,6 @@
         {
           "sourceId": "acc",
           "locator": "§2.4.1 Theorems 2.4.2 and 2.4.4",
-          "excerpt": "Theorem 2.4.2. Let m ⊂ TS (K, λ) be a non-Eisenstein maximal ideal, m = S ∗ (m) ⊂ ‹ and let e e ∈ (Z2n )Hom(F + ,E) . Then there is a natural TS . Let λ +",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             45
@@ -6437,7 +6327,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.5.1, pp. 1062, 1068–1069 (variable-determinant Sχ and reduced coefficient comparison); §6.6.1, equation (6.6.4), p. 1077",
-          "excerpt": "For each tuple (χv,i )v∈R,i=1,...,n of characters χv,i : k(v)× → O× that are trivial modulo $, we define a global deformation problem by the formula Sχ = (ρm , S, {O}v∈S , {DvFL }v∈Sp ∪ {Dvχ }v∈R ∪ {Dv\u0003 }v∈S−(R∪Sp ) ). We fix repr",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             166
@@ -6488,7 +6377,6 @@
         {
           "sourceId": "acc",
           "locator": "Proof of Theorem 6.5.4 pp. 1069–1070; proof of Theorem 6.6.2 pp. 1080–1081",
-          "excerpt": "common dimension 1 + g + n2 |S| + n(n−1) 2 [F : Q]. Since F is CM, the quantity l0 for the locally symmetric space XK is l0 = n[F + : Q] − 1. Then since dim S∞ = n2 |S| + qn and g = qn − n[F + : Q], we have 0 dim R∞ = dim R∞ = dim",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             174
@@ -6535,7 +6423,6 @@
         {
           "sourceId": "acc",
           "locator": "§6.3.5, Proposition 6.3.8 and Corollary 6.3.9, pp. 1052–1053",
-          "excerpt": "Proposition 6.3.8. With the notation and assumptions just established, SuppR∞ (H ∗ (C∞ )) = Spec T∞ ⊂ Spec R∞ contains every irreducible component of Spec R∞ of maximal dimension. Proof. As T∞ and H ∗ (C∞ ) are finite over S∞ we s",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             156
@@ -6578,7 +6465,6 @@
         {
           "sourceId": "qian",
           "locator": "Proof of Lemma 2.6(2), pp. 1251–1252 (the claims 'Gal(Ẽ/E) = (Z/2Z)^r' and 'Gal(F̃′_i/F̃′_{i−1}) … is of form Δ_i^m', both attributed to Goursat's lemma); NSF online-first PDF pp. 13–14 (journal pagination inferred from 1239–1275)",
-          "excerpt": "Goursat Lemma, Gal( E/E) = (Z/2Z)r for ker adr some r ≥ 0. Hence F and E are linearly disjoint over E by an analysis of the simple factors of each Galois group. Thus adr (G E ) = P S L 2 (k) ⊃ ker adr ker adr \u0003 ker adr P S L 2 (Fl ). Now si",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             13
@@ -6624,7 +6510,6 @@
         {
           "sourceId": "acc",
           "locator": "Lemma 7.1.6(3), pp. 1090–1091",
-          "excerpt": "Lemma 7.1.6. Suppose that F/Q is a finite extension with normal closure F /Q and that m ∈ Z>0 . Suppose also that l > 2m + 3 is a rational prime ‹ and that r : GF −→ GL2 (Fl ) is a continuous representation such that r(GF‹) ⊃ SL2 (Fl ). Fin",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             194
@@ -6673,7 +6558,6 @@
         {
           "sourceId": "qian",
           "locator": "Lemma 2.6(2), p. 1251; proof pp. 1251–1252; NSF online-first PDF pp. 13–14 (journal pagination inferred from 1239–1275)",
-          "excerpt": "Lemma 2.6 Suppose F/Q is a finite extension with normal closure F/Q and n ∈ Z>0 . Suppose also that l > 2n + 5 is a rational prime and that r : G F → G L 2 (Fl ) is a continuous representation such that r (G F ) ⊃ S L 2 (Fl ). Finally ker r",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             13
@@ -6717,7 +6601,6 @@
         {
           "sourceId": "acc",
           "locator": "Lemma 7.1.7, p. 1091",
-          "excerpt": "Lemma 7.1.7. Suppose that r : GF → GLn (Fl ) is decomposed generic and absolutely irreducible. Let E/Q be a Galois extension that is linearly disjoint ker r from the Galois closure of F (ζl ) over Q. Then r|GF E is decomposed generic and ab",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             195
@@ -6760,7 +6643,6 @@
         {
           "sourceId": "qian",
           "locator": "Remark after Definition 1.3, p. 1241; proof of Theorem 1.4, p. 1274 ('all conditions except decomposed genericity follows from the corresponding conditions of r̄'); NSF online-first PDF pp. 3 and 36",
-          "excerpt": "We also remark here that restricting to some G F \u0005 for a Galois extension F \u0005 /F that avoids a prescribed finite extension F av of F can ensure that the image r (G F \u0005 ) does not shrink. Combine our main theorem for residual repre",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             3
@@ -6805,7 +6687,6 @@
         {
           "sourceId": "bianchi",
           "locator": "Definition 6.1.2(3), author PDF p. 58",
-          "excerpt": "weakly automorphic of level prime to T , if T is a finite set of finite places of F , disjoint from S, and there is a regular algebraic, cuspidal automorphic representation π of GLn (AF ) and an embedding ι : M ,→ C such that for all but fi",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             58
@@ -6901,7 +6782,6 @@
         {
           "sourceId": "bianchi",
           "locator": "Lemma 6.1.4, author PDF p. 59",
-          "excerpt": "Lemma 6.1.4. Let F be a CM number field, and let R = (M, S, {Qv (X)}, {rλ }, {Hτ }) be a very weakly compatible system of rank n representations of GF which is weakly automorphic, corresponding to a regular algebraic, cuspidal automorphic r",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             59
@@ -6944,7 +6824,6 @@
         {
           "sourceId": "bianchi",
           "locator": "Lemma 6.1.5, author PDF p. 59",
-          "excerpt": "Lemma 6.1.5. Let F be a number field and let R = (M, S, {Qv (X)}, {rλ }, {Hτ }) be a very weakly compatible system of rank 2 representations of GF which is strongly irreducible. Let L(R) denote the set of primes l satisfying the following c",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             59
@@ -6988,7 +6867,6 @@
         {
           "sourceId": "bianchi",
           "locator": "§6.2, proof discussion after Remark 6.2.2, author PDF p. 60 (parallel HT formula); the determinant formula is the imported symmetric-power calculation",
-          "excerpt": "parallel Hodge–Tate weights {0, m, 2m, . . . , (n − 1)m}, while the auxiliary motives that we can construct to show potential automorphy have consecutive (and paral- lel) Hodge–Tate weights (and moreover, our automorphy lifting th",
           "match": "The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.",
           "pdfPages": [
             60
@@ -7030,7 +6908,6 @@
         {
           "sourceId": "bcgp",
           "locator": "§9.1, definitions before Lemma 9.1.10, p. 251",
-          "excerpt": "weight 0 if Hτ (R) = {0, 1} for each τ , and we say that R is odd if det R(cv ) = −1 for all v|∞. If π is a cuspidal automorphic representation of GL2 (AF ) of weight 0, then R(π) is odd and has weight 0. We have the following sta",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             251
@@ -7124,7 +7001,6 @@
         {
           "sourceId": "bcgp",
           "locator": "§9.1 definitions before Lemma 9.1.10, p. 251",
-          "excerpt": "R is odd if det R(cv ) = −1 for all v|∞. If π is a cuspidal automorphic representation of GL2 (AF ) of weight 0, then R(π) is odd and has weight 0. We have the following standard lemma. Lemma 9.1.10. Let R be a rank two weakly com",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             251
@@ -7214,7 +7090,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Lemma 9.1.10(1), pp. 251–252",
-          "excerpt": "Lemma 9.1.10. Let R be a rank two weakly compatible system. (1) The following are equivalent: (a) R is irreducible. (b) For all λ the representation rλ is irreducible. (c) For some λ the representation rλ is irreducible. (2) If R is irreduc",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             251
@@ -7256,7 +7131,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Lemma 9.1.10(2), pp. 251–252",
-          "excerpt": "(a) R is strongly irreducible. (b) Sym2 R is irreducible. (c) For all λ, Sym2 rλ is irreducible. (d) For some λ, Sym2 rλ is irreducible. If these equivalent conditions do not hold, then there is a quadratic exten- sion F 0 /F and ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             252
@@ -7297,7 +7171,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Lemma 9.1.10(3), pp. 251–252, corrected by ACC Lemma 7.1.3",
-          "excerpt": "(3) If R is strongly irreducible and regular, then for a density one set of primes l of Q, if λ|l is a place of M , then the image of rλ contains SL2 (OM /λ). Proof. This is well known. Part (1) is [ACC+ 18, Lem. 7.1.1], and part ",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             252
@@ -7336,7 +7209,6 @@
         {
           "sourceId": "acc",
           "locator": "§2.2.1 equation (2.2.2), pp. 918–919",
-          "excerpt": "(2.2.2) eτ = (−λτec,n , . . . , −λτec,1 , λτe,1 , λτ,2 , . . . , λτe,n ). λ Now let Ω = E. We define integral structures under the assumption that each place v of F + above p splits in F . Let Sp denote the set of p-adic places of F , and l",
           "match": "Exact arithmetic specialization of the cited statement, with the hypotheses retained.",
           "pdfPages": [
             22

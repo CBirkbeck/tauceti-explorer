@@ -388,19 +388,16 @@
     {
      "sourceId": "Tho15",
      "locator": "§2, Definition 2.5, PDF p. 11 of the version recorded in sources",
-     "excerpt": "We say that ρ is ordinary of weight λ if for each place v|l of F , there is an isomorphism",
      "match": "the definition, in Thorne's normalisation"
     },
     {
      "sourceId": "NT26",
      "locator": "§2, Definition 2.5(2), PDF p. 12 of the version recorded in sources",
-     "excerpt": "We say that ρ is ordinary of weight λ if for each place",
      "match": "the same definition with the finite-order formulation used here"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, PDF p. 25 of the version recorded in sources",
-     "excerpt": "We call a continuous representation ρ : GK → GLn (Ql ) ordinary if the following",
      "match": "the local ordinary, ss-ordinary and cr-ordinary notions"
     }
    ],
@@ -524,19 +521,16 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.1, PDF p. 33 of the version recorded in sources",
-     "excerpt": "We say that π is ι-ordinary if for each v|l there is an integer b > 0 such that",
      "match": "the definition via ordinary parts at Iwahori level"
     },
     {
      "sourceId": "Tho15",
      "locator": "§2, Lemma 2.3, PDF p. 9 of the version recorded in sources",
-     "excerpt": "Then π is ι-ordinary if and only if for each place v|l",
      "match": "the equivalent principal-series description used here"
     },
     {
      "sourceId": "NT26",
      "locator": "§2, Definition 2.5(1), PDF p. 11 of the version recorded in sources",
-     "excerpt": "Then π is said to be ι-ordinary if for each place v|p of F there exist",
      "match": "the same notion, printed with ι for ι⁻¹ (source issue E1)"
     }
    ],
@@ -654,13 +648,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.1, PDF p. 34 of the version recorded in sources",
-     "excerpt": "We will call (r, µ) (resp. (r, µ), resp. r, resp. r) automorphic if there is a regular",
      "match": "the definition of automorphy and its level variants"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§2.1, PDF p. 35 of the version recorded in sources",
-     "excerpt": "By Theorem 3.13 of [Clo90] these definitions",
      "match": "independence of ι"
     }
    ],
@@ -700,13 +692,11 @@
     {
      "sourceId": "Tho15",
      "locator": "§2, Corollary 2.6, PDF p. 12 of the version recorded in sources",
-     "excerpt": "Suppose that π is ι-ordinary. Then rι (π) is ordinary of weight λ.",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§2.1, remark (6), PDF p. 34 of the version recorded in sources",
-     "excerpt": "If π is ı-ordinary and v|l then rl,ı (π)|GFv is ordinary.",
      "match": "the same statement, with the reference to Geraghty Lemma 5.2.1"
     }
    ],
@@ -747,7 +737,6 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.1, remark (7), PDF p. 34 of the version recorded in sources",
-     "excerpt": "If π has level potentially prime to l and if rl,ı (π) is ordinary then π is",
      "match": "the statement, with the references to Geraghty Lemmas 5.1.6 and 5.2.1"
     }
    ],
@@ -781,13 +770,11 @@
     {
      "sourceId": "NT26",
      "locator": "§2, Lemma 2.6, PDF p. 12 of the version recorded in sources",
-     "excerpt": "πv is a character twist of the Steinberg representation",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§2.1, PDF p. 33 of the version recorded in sources",
-     "excerpt": "if π has weight 0 and if πv is Steinberg for all",
      "match": "the same remark, citing Geraghty Lemma 5.1.5"
     }
    ],
@@ -824,13 +811,11 @@
     {
      "sourceId": "NT26",
      "locator": "§3, proof of Lemma 3.5, PDF p. 17 of the version recorded in sources",
-     "excerpt": "We can apply [CT14, Lemma 2.6] to see that π1 ⊞π2",
      "match": "the statement as applied"
     },
     {
      "sourceId": "CT14",
      "locator": "§2, Lemma 2.6 and proof, PDF p. 6 of the version recorded in sources",
-     "excerpt": "Then wτ depends only on the place v of E dividing l induced by the embedding",
      "match": "the necessary infinity-type compatibility absent from the original statement"
     }
    ],
@@ -866,7 +851,6 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.2, Lemma 2.2.1, PDF p. 35 of the version recorded in sources",
-     "excerpt": "Suppose that F is a CM (or totally real) field and that ψ is an",
      "match": "the statement"
     }
    ],
@@ -903,13 +887,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.2, Lemma 2.2.2, PDF p. 35 of the version recorded in sources",
-     "excerpt": "Suppose that M/F is a soluble Galois extension of fields and that",
      "match": "the statement"
     },
     {
      "sourceId": "Tho12",
      "locator": "§1, Lemma 1.2, PDF p. 6 of the version recorded in sources",
-     "excerpt": "Suppose that L/F is a soluble extension of CM imaginary",
      "match": "descent of the weight"
     }
    ],
@@ -950,13 +932,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.2, Lemma 2.2.4, PDF p. 36 of the version recorded in sources",
-     "excerpt": "Let F be a CM (or totally real) field and M/F a soluble Galois,",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§2.2, Lemma 2.2.3, PDF p. 36 of the version recorded in sources",
-     "excerpt": "with half integral Harish-",
      "match": "the archimedean input"
     }
    ],
@@ -993,13 +973,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "Appendix A.2, Lemma A.2.1, PDF p. 87 of the version recorded in sources",
-     "excerpt": "Then we can find a finite, soluble Galois extension E/F linearly",
      "match": "A.2.1"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "Appendix A.2, Corollary A.2.3, PDF p. 88 of the version recorded in sources",
-     "excerpt": "Then we can find a cyclic CM extension E/F of degree N in which all the",
      "match": "A.2.3"
     }
    ],
@@ -1038,13 +1016,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "Appendix A.2, Lemma A.2.5, pp. 88–89; literal excerpt occurs on PDF pp. 88, 89 of the recorded version",
-     "excerpt": "Then there is a continuous character",
      "match": "the statement (both parts)"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "Appendix A.2, Lemma A.2.4, PDF p. 88 of the version recorded in sources",
-     "excerpt": "We start by restating (a special case",
      "match": "the restated HSBT lemma"
     }
    ],
@@ -1176,19 +1152,16 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§1.3, PDF p. 21 of the version recorded in sources",
-     "excerpt": "We say that ρ1 connects to ρ2 , which we denote",
      "match": "the l ≠ p definition"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, PDF p. 26 of the version recorded in sources",
-     "excerpt": "ρ1 and ρ2 are both potentially crystalline",
      "match": "the l = p definition"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.3, PDF p. 21 of the version recorded in sources",
-     "excerpt": "We say that ρ1 strongly connects to ρ2",
      "match": "strong connection"
     }
    ],
@@ -1227,19 +1200,16 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§1.3, remarks (1)–(12), PDF p. 21 of the version recorded in sources",
-     "excerpt": "Strongly connects’ is a transitive relationship, whereas ‘connects’ may not",
      "match": "the l ≠ p properties"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.3, Lemma 1.3.4 (Choi), PDF p. 22 of the version recorded in sources",
-     "excerpt": "Suppose that ℘1 and ℘2 are two maximal ideals lying on the same irreducible",
      "match": "the inertia comparison"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, remarks (1)–(7), PDF p. 26 of the version recorded in sources",
-     "excerpt": "Connects’ is an equivalence relation.",
      "match": "the l = p properties"
     }
    ],
@@ -1276,13 +1246,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§1.3, Lemma 1.3.2, PDF p. 19 of the version recorded in sources",
-     "excerpt": "If π is generic then ρ is smooth.",
      "match": "part (1)"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.3, Lemma 1.3.2(2), PDF p. 19 of the version recorded in sources",
-     "excerpt": "is robustly smooth are Zariski dense",
      "match": "part (2)"
     }
    ],
@@ -1402,19 +1370,16 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, PDF p. 26 of the version recorded in sources",
-     "excerpt": "We will call a representation ρ : GK → GLn (OQl ) diagonalizable if it is crystalline",
      "match": "the definition"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, Lemma 1.4.1, PDF p. 27 of the version recorded in sources",
-     "excerpt": "If ρ1 and ρ2 are conjugate in GLn (Ql ) then ρ1 is potentially diag-",
      "match": "independence of the lattice"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§4.1, Proposition 4.1.1 conclusion, arXiv v4 PDF p. 50",
-     "excerpt": "potentially diagonalizably automorphic",
      "match": "the global notion as used in the conclusion; the former §2.1 p. 35 locator did not contain this excerpt"
     }
    ],
@@ -1453,13 +1418,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, Lemma 1.4.3, PDF p. 29 of the version recorded in sources",
-     "excerpt": "If ρ has a GK -invariant filtration with one dimensional graded pieces",
      "match": "part (1)"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, Lemma 1.4.3(2), PDF p. 29 of the version recorded in sources",
-     "excerpt": "If K/Ql is unramified, if ρ is crystalline and if for each",
      "match": "part (2)"
     }
    ],
@@ -1498,13 +1461,11 @@
     {
      "sourceId": "NT21B",
      "locator": "§3, proof of Theorem 3.1, PDF p. 27 of the version recorded in sources",
-     "excerpt": "potentially diagonalizable representation ([GK14, Lemma 4.4.1])",
      "match": "the statement as applied"
     },
     {
      "sourceId": "GK14",
      "locator": "§4.4, Lemma 4.4.1 and proof, arXiv v5, PDF p. 20 of the version recorded in sources",
-     "excerpt": "assume that ρ|GL has a decomposable non-ordinary crystalline lift of Hodge type",
      "match": "the split nonordinary lift as well as the ordinary lift in the actual proof"
     }
    ],
@@ -1539,13 +1500,11 @@
     {
      "sourceId": "NT21B",
      "locator": "§3, proof of Theorem 3.1, PDF p. 27 of the version recorded in sources",
-     "excerpt": "cf. the remark following [BLGG11, Definition 3.3.5]",
      "match": "symmetric powers"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§1.4, PDF p. 27 of the version recorded in sources",
-     "excerpt": "is diagonalizable (resp. potentially diagonalizable) then ρ|GK ′′ is diagonalizable",
      "match": "restriction"
     }
    ],
@@ -1660,13 +1619,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, PDF p. 31 of the version recorded in sources",
-     "excerpt": "Under these hypotheses, we can choose (·)∗ so that",
      "match": "the construction with the local conditions (i), (ii)"
     },
     {
      "sourceId": "Tho12",
      "locator": "§6, PDF p. 31 of the version recorded in sources",
-     "excerpt": "This defines an integral model for G over OL+ , which we continue",
      "match": "the integral model and ι_w"
     }
    ],
@@ -1780,13 +1737,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, Definition 6.1, PDF p. 32 of the version recorded in sources",
-     "excerpt": "we write Sλ,{χv } (U, A) for the set of functions",
      "match": "the definition"
     },
     {
      "sourceId": "Tho12",
      "locator": "§6, Proposition 6.2, PDF p. 33 of the version recorded in sources",
-     "excerpt": "Then there is an ι-linear isomorphism of",
      "match": "the comparison with automorphic forms"
     }
    ],
@@ -1907,13 +1862,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, PDF p. 32 of the version recorded in sources",
-     "excerpt": "The spaces Sλ,{χv } (U, A) receive an action of the Hecke operators",
      "match": "the Hecke operators and algebra"
     },
     {
      "sourceId": "Tho12",
      "locator": "§6, Proposition 6.6, PDF p. 36 of the version recorded in sources",
-     "excerpt": "Let m be a maximal ideal of TTλ (U, O). Then there",
      "match": "the residual representation of a maximal ideal"
     }
    ],
@@ -1949,13 +1902,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, Lemma 6.3, PDF p. 33 of the version recorded in sources",
-     "excerpt": "contains no element of order l. Then the functor A 7→ Sλ,{χv } (U, A) on",
      "match": "part (1)"
     },
     {
      "sourceId": "Tho12",
      "locator": "§6, Lemma 6.4, PDF p. 34 of the version recorded in sources",
-     "excerpt": "Sλ,{χv } (V, O) is a free O[U/V ]-module.",
      "match": "part (2)"
     }
    ],
@@ -1992,7 +1943,6 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, Theorem 6.5, p. 35; literal excerpt occurs on PDF pp. 5, 35 of the recorded version",
-     "excerpt": "Then there exists a continuous semisimple",
      "match": "the statement"
     }
    ],
@@ -2032,7 +1982,6 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, Proposition 6.7, PDF p. 36 of the version recorded in sources",
-     "excerpt": "admits a continuous lift, unique up to conjugacy, to a representation",
      "match": "the statement"
     }
    ],
@@ -2071,19 +2020,16 @@
     {
      "sourceId": "NT26",
      "locator": "§3, end of the proof of Proposition 3.13, PDF p. 25 of the version recorded in sources",
-     "excerpt": "Lemma 2.25] and [Lab11, Corollaire 5.3] that s|GK3 is automorphic, associated to",
      "match": "part (2)"
     },
     {
      "sourceId": "Tho12",
      "locator": "§10, proof of Theorem 10.1, PDF p. 55 of the version recorded in sources",
-     "excerpt": "such that πL is a strong base change of Π, in the sense of",
      "match": "part (1) as applied"
     },
     {
      "sourceId": "Tho15",
      "locator": "§4, Proposition 4.4, PDF p. 37 of the version recorded in sources",
-     "excerpt": "There exists an automorphic representation σ = ⊗0v σv of G(AL+ ) satisfying the following conditions",
      "match": "part (4)"
     }
    ],
@@ -2197,19 +2143,16 @@
     {
      "sourceId": "Tho12",
      "locator": "§8, PDF p. 44 of the version recorded in sources",
-     "excerpt": "those matrices which are congruent to an upper-triangular matrix mod-",
      "match": "the Iwahori subgroups"
     },
     {
      "sourceId": "Tho12",
      "locator": "§8, PDF p. 45 of the version recorded in sources",
-     "excerpt": "We have the ordinary idempotent e = limr→∞ U(l)r! , where we set",
      "match": "the ordinary idempotent"
     },
     {
      "sourceId": "NT21",
      "locator": "§1.23, PDF p. 22 of the version recorded in sources",
-     "excerpt": "However, the ordinary part of Sλ (U, M ), defined below using these",
      "match": "the decomposition S = S^{ord} ⊕ S^{n-ord}"
     }
    ],
@@ -2316,19 +2259,16 @@
     {
      "sourceId": "Tho12",
      "locator": "§8, Definition 8.1, PDF p. 45 of the version recorded in sources",
-     "excerpt": "We define the ordinary Hecke algebra",
      "match": "the definition"
     },
     {
      "sourceId": "Tho12",
      "locator": "§8, Definition 8.3, PDF p. 46 of the version recorded in sources",
-     "excerpt": "This gives rise to an O-algebra homomorphism Λ → TT,ord",
      "match": "the Λ-algebra structure"
     },
     {
      "sourceId": "NT21",
      "locator": "§6, PDF p. 79 of the version recorded in sources",
-     "excerpt": "Following [Ger19, §2.4], we define Tord (D) = limc Tord (D, c)",
      "match": "the variant of a deformation datum"
     }
    ],
@@ -2361,19 +2301,16 @@
     {
      "sourceId": "Tho12",
      "locator": "§8, Proposition 8.2, PDF p. 46 of the version recorded in sources",
-     "excerpt": "is a free Λ-module of rank",
      "match": "the freeness statement"
     },
     {
      "sourceId": "NT21",
      "locator": "§6, Proposition 6.5, PDF p. 79 of the version recorded in sources",
-     "excerpt": "is a finite free ΛL -module and Tord (D) is a finite",
      "match": "the variant for deformation data"
     },
     {
      "sourceId": "Tho15",
      "locator": "§4, Proposition 4.3, PDF p. 36 of the version recorded in sources",
-     "excerpt": "is a finite faithful Λ-algebra,",
      "match": "finiteness and faithfulness"
     }
    ],
@@ -2410,13 +2347,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§8, PDF p. 48 of the version recorded in sources",
-     "excerpt": "Using that the χv are trivial modulo",
      "match": "part (2)"
     },
     {
      "sourceId": "Tho15",
      "locator": "§4, Proposition 4.3, PDF p. 37 of the version recorded in sources",
-     "excerpt": "This is proved exactly as in [Ger, Proposition 2.5.3] and [Ger, Corollary 2.5.4].",
      "match": "the Geraghty control results as cited"
     }
    ],
@@ -2455,13 +2390,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§8, Proposition 8.5, PDF p. 47 of the version recorded in sources",
-     "excerpt": "In this case r m admits an extension to a continuous",
      "match": "the statement"
     },
     {
      "sourceId": "Tho12",
      "locator": "§8, proof of Theorem 8.6, PDF p. 49 of the version recorded in sources",
-     "excerpt": "That rm{χv } is of type S{χv } is Lemma 4.1.7 of [Ger].",
      "match": "type 𝒮_{χ_v}"
     }
    ],
@@ -2569,13 +2502,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, proof of Theorem 6.8, p. 38; literal excerpt occurs on PDF pp. 38, 49 of the recorded version",
-     "excerpt": "be the parahoric subgroup of GLn (OLve ) corresponding to the partition",
      "match": "the levels U₀(Q), U₁(Q)"
     },
     {
      "sourceId": "Tho12",
      "locator": "§5, Proposition 5.12, PDF p. 29 of the version recorded in sources",
-     "excerpt": "Then we can decompose ρ ⊗Rp1 R′ = s ⊕ ψ canonically as a sum of",
      "match": "the parahoric projection"
     }
    ],
@@ -2683,13 +2614,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§4, Definition 4.1, PDF p. 15 of the version recorded in sources",
-     "excerpt": "where for v ∈ Q we take Dv to consist of all lifts which are 1+Mn (mR )-",
      "match": "the definition"
     },
     {
      "sourceId": "Tho12",
      "locator": "§4, Lemma 4.2, PDF p. 16 of the version recorded in sources",
-     "excerpt": "Then Dv is a local deformation",
      "match": "the local deformation problem"
     }
    ],
@@ -2733,19 +2662,16 @@
     {
      "sourceId": "Tho12",
      "locator": "§4, Proposition 4.4, PDF p. 17 of the version recorded in sources",
-     "excerpt": "Then for any N ∈ Z≥1 we can find (Q, e Q, {ψv }v∈Q ) as in the above",
      "match": "version (a)"
     },
     {
      "sourceId": "Tho17",
      "locator": "§7, Proposition 7.1, PDF p. 31 of the version recorded in sources",
-     "excerpt": "is absolutely irreducible and that ρ(GF (ζl ) ) ⊂ GLn (Fl ) is adequate, in the sense of",
      "match": "version (b)"
     },
     {
      "sourceId": "Tho17",
      "locator": "§7, PDF p. 31 of the version recorded in sources",
-     "excerpt": "possible for the subgroup r(GF + (ζl ) ) ⊂ Gn (Fl ) to be adequate in the sense of [Tho12, Definition 2.3]",
      "match": "why (a) fails when F ⊂ F⁺(ζ_l)"
     }
    ],
@@ -2787,7 +2713,6 @@
     {
      "sourceId": "Tho17",
      "locator": "§2.4, Proposition 2.21, PDF p. 14 of the version recorded in sources",
-     "excerpt": "Then for each N ≥ 1, we can find infinitely many",
      "match": "the statement"
     }
    ],
@@ -2836,13 +2761,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§6, Theorem 6.8, PDF p. 37 of the version recorded in sources",
-     "excerpt": "Then there exists a second homomorphism f : TTλ (U, O)m → O such",
      "match": "the statement"
     },
     {
      "sourceId": "Tho12",
      "locator": "§6, Corollary 6.9, PDF p. 40 of the version recorded in sources",
-     "excerpt": "We have µm ≡ n mod 2.",
      "match": "the corollary"
     }
    ],
@@ -2892,13 +2815,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§8, Theorem 8.6, PDF p. 49 of the version recorded in sources",
-     "excerpt": "Then there exists a second homomorphism f : TT,ord ∞",
      "match": "the statement"
     },
     {
      "sourceId": "Tho12",
      "locator": "§8, Corollary 8.7, PDF p. 53 of the version recorded in sources",
-     "excerpt": "Proof. This is proved in exactly the same way as Corollary 6.9, using",
      "match": "finiteness over Λ"
     }
    ],
@@ -2937,7 +2858,6 @@
     {
      "sourceId": "Tho17",
      "locator": "§7, Proposition 7.2, PDF p. 32 of the version recorded in sources",
-     "excerpt": "hold with the assumption ‘r(GL+ (ζl ) ) is adequate, in the sense of [Tho12, Definition 2.3]’ replaced with the following two assumptions",
      "match": "the statement"
     }
    ],
@@ -2986,19 +2906,16 @@
     {
      "sourceId": "Tho12",
      "locator": "§7, Theorem 7.1, PDF p. 42 of the version recorded in sources",
-     "excerpt": "Then (ρ, µ) is automorphic. Moreover, if π has level prime to l and ρ",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§2.3, Theorem 2.3.1, PDF p. 38 of the version recorded in sources",
-     "excerpt": "Then (r, µ) is automorphic of level potentially prime to l.",
      "match": "the BLGGT form"
     },
     {
      "sourceId": "Tho17",
      "locator": "§7, Corollary 7.3, PDF p. 32 of the version recorded in sources",
-     "excerpt": "The results [Tho12, Theorem 7.1] and [Tho12, Theorem 9.1] hold with the assumption",
      "match": "GHT adequacy"
     }
    ],
@@ -3102,13 +3019,11 @@
     {
      "sourceId": "Tho17",
      "locator": "§3.1, Definition 3.3, PDF p. 16 of the version recorded in sources",
-     "excerpt": "We say that the pair (ρ, µ) is strongly residually odd at v if r(cv ) is",
      "match": "the definition"
     },
     {
      "sourceId": "Tho17",
      "locator": "§3.1, Lemma 3.4, PDF p. 16 of the version recorded in sources",
-     "excerpt": "is strongly residually odd at v, then µ(cv ) = −1.",
      "match": "the consequence for lifts"
     }
    ],
@@ -3156,13 +3071,11 @@
     {
      "sourceId": "Tho17",
      "locator": "§5, Theorem 5.1, p. 25; literal excerpt occurs on PDF pp. 2, 23 of the recorded version",
-     "excerpt": "Then ρ is automorphic: there exists a RACSDC automorphic representation Π of GLn (AF ) such that",
      "match": "the statement"
     },
     {
      "sourceId": "Tho17",
      "locator": "§5, Remark after Theorem 5.1, PDF p. 23 of the version recorded in sources",
-     "excerpt": "We do not assume that ζp 6∈ F .",
      "match": "the comparison with Tho12 Theorem 7.1"
     }
    ],
@@ -3199,7 +3112,6 @@
     {
      "sourceId": "BCG25",
      "locator": "§3, proof of Theorem 3.1, PDF p. 10 of the version recorded in sources",
-     "excerpt": "the notion of adequacy in [Tho17, Defn. 2.20] can be relaxed to",
      "match": "the relaxation and its justification"
     }
    ],
@@ -3250,13 +3162,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.4, Theorem 2.4.1, PDF p. 39 of the version recorded in sources",
-     "excerpt": "Then (r, µ) is ordinarily automorphic. If r is also crystalline (resp. potentially",
      "match": "the statement"
     },
     {
      "sourceId": "Tho12",
      "locator": "§9, Theorem 9.1, PDF p. 54 of the version recorded in sources",
-     "excerpt": "Then ρ is ordinarily automorphic. If moreover ρ is crystalline (resp.",
      "match": "the imaginary CM case"
     }
    ],
@@ -3297,13 +3207,11 @@
     {
      "sourceId": "Tho12",
      "locator": "§10, Theorem 10.1, p. 55; literal excerpt occurs on PDF pp. 55, 56 of the recorded version",
-     "excerpt": "Then κ = 0 and RSuniv is",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§2.3, Theorem 2.3.2, p. 38; literal excerpt occurs on PDF pp. 38, 40 of the recorded version",
-     "excerpt": "Then the ring RSuniv is a finitely generated OL -module.",
      "match": "the BLGGT form"
     }
    ],
@@ -3346,13 +3254,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§2.4, Theorem 2.4.2, pp. 39–40; literal excerpt occurs on PDF pp. 38, 40 of the recorded version",
-     "excerpt": "Then the ring RSuniv is a finitely generated OL -module.",
      "match": "the statement"
     },
     {
      "sourceId": "Tho12",
      "locator": "§10, Theorem 10.2, PDF p. 56 of the version recorded in sources",
-     "excerpt": "An ordinary finiteness theorem.",
      "match": "the original"
     }
    ],
@@ -3390,13 +3296,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§1.5, Proposition 1.5.1, p. 30; literal excerpt occurs on PDF pp. 30, 58 of the recorded version",
-     "excerpt": "has Krull dimension at least 1.",
      "match": "the dimension bound"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§3.2, end of the proof of Proposition 3.2.1, PDF p. 47 of the version recorded in sources",
-     "excerpt": "has Krull dimension at least 1 and so there is a continuous ring homomorphism",
      "match": "the Khare–Wintenberger passage"
     }
    ],
@@ -3441,13 +3345,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§3.1, Theorem 3.1.2, PDF p. 42 of the version recorded in sources",
-     "excerpt": "Then we can find a finite totally real extension F ′ /F and for each i ∈ I a regular",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§3.1, proof of Theorem 3.1.2, PDF p. 42 of the version recorded in sources",
-     "excerpt": "The proof follows the proof of Theorem 6.3 of [BLGHT11], although the",
      "match": "the method"
     }
    ],
@@ -3491,7 +3393,6 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§3.2, Proposition 3.2.1, p. 45; literal excerpt occurs on PDF pp. 45, 55 of the recorded version",
-     "excerpt": "Then there is a lift",
      "match": "the statement"
     }
    ],
@@ -3541,13 +3442,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§4.1, Proposition 4.1.1, p. 50; literal excerpt occurs on PDF pp. 50, 53 of the recorded version",
-     "excerpt": "Then (r, µ) is potentially diagonalizably automorphic (of level potentially prime",
      "match": "the statement"
     },
     {
      "sourceId": "BLGGT14",
      "locator": "§4.1, PDF p. 50 of the version recorded in sources",
-     "excerpt": "Our main tool will be Harris’ tensor product trick",
      "match": "Harris's tensor product trick"
     }
    ],
@@ -3593,13 +3492,11 @@
     {
      "sourceId": "BLGGT14",
      "locator": "§4.2, Theorem 4.2.1, p. 53; literal excerpt occurs on PDF pp. 50, 53 of the recorded version",
-     "excerpt": "Then (r, µ) is potentially diagonalizably automorphic (of level potentially prime",
      "match": "the statement"
     },
     {
      "sourceId": "NT21B",
      "locator": "§3, proof of Theorem 3.1, PDF p. 27 of the version recorded in sources",
-     "excerpt": "We can now apply [BLGGT14,",
      "match": "the application to symmetric powers"
     }
    ],
@@ -3707,13 +3604,11 @@
     {
      "sourceId": "Tho15",
      "locator": "§3.1, Definition 3.2, PDF p. 13 of the version recorded in sources",
-     "excerpt": "We say that r is Schur if all irreducible ∆-subquotients of k n are absolutely irreducible",
      "match": "the definition"
     },
     {
      "sourceId": "Tho15",
      "locator": "§3.1, Lemma 3.3, PDF p. 13 of the version recorded in sources",
-     "excerpt": "is semisimple and multiplicity free, and each irreducible constituent",
      "match": "the consequences"
     }
    ],
@@ -3816,13 +3711,11 @@
     {
      "sourceId": "ANT20",
      "locator": "§1, Theorem 1.1(7), PDF p. 2 of the version recorded in sources",
-     "excerpt": "is primitive (i.e. not induced",
      "match": "the definition as a hypothesis"
     },
     {
      "sourceId": "NT21",
      "locator": "§5, Lemma 5.1, PDF p. 66 of the version recorded in sources",
-     "excerpt": "Then ρ is primitive.",
      "match": "the notion in Newton–Thorne"
     }
    ],
@@ -3854,7 +3747,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Lemma 5.1, PDF p. 66 of the version recorded in sources",
-     "excerpt": "such that for each i 6= j, χi /χj has order greater than n. Then ρ is",
      "match": "the statement"
     }
    ],
@@ -3952,13 +3844,11 @@
     {
      "sourceId": "Tho15",
      "locator": "§1, Definition 1.7, PDF p. 8 of the version recorded in sources",
-     "excerpt": "The connectedness dimension of R is",
      "match": "the definition"
     },
     {
      "sourceId": "Tho15",
      "locator": "§1, Proposition 1.8, PDF p. 8 of the version recorded in sources",
-     "excerpt": "Then we have c(S) ≥ c(R) − r(I) − 1.",
      "match": "the connectedness bound"
     }
    ],
@@ -4084,19 +3974,16 @@
     {
      "sourceId": "Tho15",
      "locator": "§3.4, Definition 3.27, PDF p. 23 of the version recorded in sources",
-     "excerpt": "We write PS for the image",
      "match": "the definition of P_𝒮"
     },
     {
      "sourceId": "Tho15",
      "locator": "§3.4, Proposition 3.29, PDF p. 24 of the version recorded in sources",
-     "excerpt": "Then the inclusion PS ⊂ RSuniv is an",
      "match": "the structure of P_𝒮 ⊂ R^univ"
     },
     {
      "sourceId": "ANT20",
      "locator": "§3, Proposition 3.2, PDF p. 8 of the version recorded in sources",
-     "excerpt": "We have an equality PS = (RSuniv )µ2 .",
      "match": "invariants for d constituents"
     }
    ],
@@ -4133,13 +4020,11 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Lemma 5.3, PDF p. 70 of the version recorded in sources",
-     "excerpt": "Then the map Qt|Σ → Qt classifying restriction to Σ is a finite",
      "match": "the statement"
     },
     {
      "sourceId": "Che14",
      "locator": "Example 3.6 and Proposition 3.7, arXiv v2, PDF p. 43 of the version recorded in sources",
-     "excerpt": "Assume either that (F) is satisfied, or that p > d",
      "match": "condition Φ_p, called (F), suffices for Noetherian determinant deformation rings"
     }
    ],
@@ -4247,19 +4132,16 @@
     {
      "sourceId": "Tho15",
      "locator": "§3.4, Definition 3.31, PDF p. 26 of the version recorded in sources",
-     "excerpt": "By a reducible deformation of r to R, we mean a deformation",
      "match": "the definition"
     },
     {
      "sourceId": "Tho15",
      "locator": "§3.4, Proposition 3.32, PDF p. 26 of the version recorded in sources",
-     "excerpt": "is a closed subfunctor of Def S , hence is represented by a quotient",
      "match": "representability"
     },
     {
      "sourceId": "ANT20",
      "locator": "§2, Proposition 2.5, PDF p. 5 of the version recorded in sources",
-     "excerpt": "There is an ideal IP of A such that an ideal",
      "match": "the ideals I_P"
     }
    ],
@@ -4300,7 +4182,6 @@
     {
      "sourceId": "ANT20",
      "locator": "§3, Lemma 3.6, PDF p. 11 of the version recorded in sources",
-     "excerpt": "Then dim A/(ISred , λ) ≤ n[F + : Q] − d0 .",
      "match": "the statement"
     }
    ],
@@ -4402,13 +4283,11 @@
     {
      "sourceId": "ANT20",
      "locator": "§3, Definition 3.7, PDF p. 12 of the version recorded in sources",
-     "excerpt": "We say that r is generic at l if it satisfies the following two conditions",
      "match": "the definition"
     },
     {
      "sourceId": "NT26",
      "locator": "§3, Proposition 3.10, PDF p. 21 of the version recorded in sources",
-     "excerpt": "is generic, in the sense of [ANT20, Definition 3.7] (we recall the definition",
      "match": "the prime-ideal form"
     }
    ],
@@ -4444,19 +4323,16 @@
     {
      "sourceId": "ANT20",
      "locator": "§3, Lemma 3.9, PDF p. 13 of the version recorded in sources",
-     "excerpt": "Then we can find a prime ideal p ⊂ A of dimension 1 and characteristic l such that",
      "match": "part (3)"
     },
     {
      "sourceId": "Tho15",
      "locator": "§1, Lemma 1.9, PDF p. 8 of the version recorded in sources",
-     "excerpt": "Then there exists a dimension one prime p ⊂ R such that p",
      "match": "part (2)"
     },
     {
      "sourceId": "ANT20",
      "locator": "§3, Lemma 3.8, PDF p. 12 of the version recorded in sources",
-     "excerpt": "There exists a countable collection of ideals Ii ⊂ Λ/(λ)",
      "match": "part (1)"
     }
    ],
@@ -4495,7 +4371,6 @@
     {
      "sourceId": "Tho15",
      "locator": "§5.1, Proposition 5.3, PDF p. 58 of the version recorded in sources",
-     "excerpt": "For every open subgroup N ⊂ ∆, r|N is absolutely irreducible.",
      "match": "the statement"
     }
    ],
@@ -4535,25 +4410,21 @@
     {
      "sourceId": "Tho15",
      "locator": "§3.5, Lemma 3.36, PDF p. 28 of the version recorded in sources",
-     "excerpt": "There is a canonical isomorphism",
      "match": "part (1)"
     },
     {
      "sourceId": "Tho15",
      "locator": "§3.5, Lemma 3.38(2), PDF p. 30 of the version recorded in sources",
-     "excerpt": "There exists a choice of ψ with the property that",
      "match": "part (2), first assertion"
     },
     {
      "sourceId": "Tho15",
      "locator": "§3.5, Lemma 3.40, PDF p. 31 of the version recorded in sources",
-     "excerpt": "With hypothesis as above, suppose in addition that:",
      "match": "part (2), components"
     },
     {
      "sourceId": "Tho15",
      "locator": "§4, Proposition 4.18, PDF p. 45 of the version recorded in sources",
-     "excerpt": "There is a commutative diagram of ΛM -algebras",
      "match": "part (3)"
     }
    ],
@@ -4608,19 +4479,16 @@
     {
      "sourceId": "ANT20",
      "locator": "§4, Theorem 4.1, PDF p. 15 of the version recorded in sources",
-     "excerpt": "Let Q ⊂ RSuniv 1 be a prime such that Q ⊂ p.",
      "match": "the statement"
     },
     {
      "sourceId": "Tho15",
      "locator": "§4, Theorem 4.19, PDF p. 47 of the version recorded in sources",
-     "excerpt": "Then the map PeS1 ,eq → T e 1,eq has nilpotent kernel.",
      "match": "the two-constituent case"
     },
     {
      "sourceId": "Tho15",
      "locator": "§4, Corollary 4.20, PDF p. 48 of the version recorded in sources",
-     "excerpt": "With hypotheses as in Theorem 4.19, let Q ⊂ p be a minimal prime",
      "match": "the corollary"
     }
    ],
@@ -4671,13 +4539,11 @@
     {
      "sourceId": "ANT20",
      "locator": "§6, Theorem 6.2, PDF p. 20 of the version recorded in sources",
-     "excerpt": "Then RSuniv is a finite Λ-algebra.",
      "match": "the statement"
     },
     {
      "sourceId": "NT26",
      "locator": "§3, proof of Proposition 3.9, PDF p. 21 of the version recorded in sources",
-     "excerpt": "modified as in [Tho24, Theorem 7.5] to weaken the con-",
      "match": "the weakened form"
     }
    ],
@@ -4727,7 +4593,6 @@
     {
      "sourceId": "ANT20",
      "locator": "§1, Theorem 1.1 (Theorem 6.1), p. 2; literal excerpt occurs on PDF pp. 2, 18 of the recorded version",
-     "excerpt": "Then ρ is automorphic: there exists an ι-ordinary RACSDC automorphic representation Π of GLn (AF ) such",
      "match": "the statement"
     }
    ],
@@ -4768,7 +4633,6 @@
     {
      "sourceId": "Tho15",
      "locator": "§7, Theorem 7.1, PDF p. 66 of the version recorded in sources",
-     "excerpt": "Then ρ is automorphic.",
      "match": "the statement"
     }
    ],
@@ -4810,7 +4674,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Theorem 5.2, PDF p. 67 of the version recorded in sources",
-     "excerpt": "Then RSΣ is a finite Λ-algebra.",
      "match": "the statement"
     }
    ],
@@ -4847,7 +4710,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Corollary 5.4, PDF p. 70 of the version recorded in sources",
-     "excerpt": "Then there exists a homomorphism r : GF + ,S → Gn (Zp ) lifting r such that r|GF,S is ordinary of weight",
      "match": "the statement as printed"
     }
    ],
@@ -4881,7 +4743,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Corollary 5.5, PDF p. 70 of the version recorded in sources",
-     "excerpt": "Then A is a finite Λ-algebra. Consequently, dim RS∅ /(̟) ≤ n[F + : Q] + n.",
      "match": "the statement"
     }
    ],
@@ -4916,7 +4777,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Proposition 5.6, PDF p. 71 of the version recorded in sources",
-     "excerpt": "With the above assumptions on RS /(̟) → A, suppose that the",
      "match": "the statement"
     }
    ],
@@ -4952,7 +4812,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Theorem 5.7, PDF p. 72 of the version recorded in sources",
-     "excerpt": "With assumptions as above, let RS → B be a surjection in CΛ , where",
      "match": "the statement"
     }
    ],
@@ -4989,7 +4848,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, proof of Proposition 5.8, PDF p. 75 of the version recorded in sources",
-     "excerpt": "the deformation ring, defined as in [BG19, Corollary 5.1.1], of",
      "match": "the application of Bellovin–Gee"
     }
    ],
@@ -5033,7 +4891,6 @@
     {
      "sourceId": "NT21",
      "locator": "§5, Proposition 5.8, PDF p. 73 of the version recorded in sources",
-     "excerpt": "Fix disjoint subsets T0 , Σ0 ⊂ S0 consisting of prime-to-p places",
      "match": "the statement"
     }
    ],
@@ -5139,13 +4996,11 @@
     {
      "sourceId": "NT23",
      "locator": "§1, Definition 1.1, PDF p. 5 of the version recorded in sources",
-     "excerpt": "We say that a Weil–Deligne representation (r, N ) is generic if",
      "match": "the definition"
     },
     {
      "sourceId": "NT23",
      "locator": "§1, PDF p. 5 of the version recorded in sources",
-     "excerpt": "We note that if W D(ρ)F −ss is generic, then ρ is generic.",
      "match": "Frobenius semisimplification and Allen's Lemma 1.1.3"
     }
    ],
@@ -5181,13 +5036,11 @@
     {
      "sourceId": "NT21",
      "locator": "§2.3.1, proof of Proposition 2.11, PDF p. 30 of the version recorded in sources",
-     "excerpt": "(see [All16, Remark 1.2.9]).",
      "match": "the statement as used"
     },
     {
      "sourceId": "NT23",
      "locator": "§2.3, Proposition 2.17(3), PDF p. 17 of the version recorded in sources",
-     "excerpt": "Suppose that for each v ∈ S, ρ|GFve is generic.",
      "match": "the global consequence"
     }
    ],
@@ -5301,13 +5154,11 @@
     {
      "sourceId": "NT23",
      "locator": "Introduction, Theorem A, p. 2; literal excerpt occurs on PDF pp. 2, 26, 40 of the recorded version",
-     "excerpt": "Then Hf1 (F + , ad rπ,ι ) = 0.",
      "match": "the adjoint Selmer group"
     },
     {
      "sourceId": "NT23",
      "locator": "§1, PDF p. 5 of the version recorded in sources",
-     "excerpt": "If p equals the residue characteristic of K and V is the E-vector space on which",
      "match": "the local subspaces H¹_f ⊂ H¹_g ⊂ H¹"
     }
    ],
@@ -5420,19 +5271,16 @@
     {
      "sourceId": "NT23",
      "locator": "§2.3, Proposition 2.12, PDF p. 13 of the version recorded in sources",
-     "excerpt": "The functor Def D,S is represented by an object RD,S ∈ CO .",
      "match": "representability"
     },
     {
      "sourceId": "NT23",
      "locator": "§2.3, condition (2.3), PDF p. 13 of the version recorded in sources",
-     "excerpt": "There exists a Cayley–Hamilton representation (O[GF,S ], D) → (B, D′ )",
      "match": "the semistable condition"
     },
     {
      "sourceId": "NT21B",
      "locator": "§2, PDF p. 7 of the version recorded in sources",
-     "excerpt": "of conjugate self-dual group determinants of GK,S lifting t which have similitude",
      "match": "the ring P of Newton–Thorne II"
     }
    ],
@@ -5471,13 +5319,11 @@
     {
      "sourceId": "NT23",
      "locator": "§2.3, Proposition 2.16, PDF p. 16 of the version recorded in sources",
-     "excerpt": "Moreover, there is a constant d ≥ 0 depending only on r (and not on S, [a, b] or",
      "match": "the integral comparison"
     },
     {
      "sourceId": "NT23",
      "locator": "§2.3, Proposition 2.17, PDF p. 17 of the version recorded in sources",
-     "excerpt": "There is an isomorphism trE,S : HL1 S (F + , WE ) →",
      "match": "the rational comparison"
     }
    ],
@@ -5530,13 +5376,11 @@
     {
      "sourceId": "NT23",
      "locator": "Introduction, Theorem A, PDF p. 2 of the version recorded in sources",
-     "excerpt": "Suppose that rπ,ι (GF (ζp∞ ) ) is enormous, in the",
      "match": "the statement"
     },
     {
      "sourceId": "NT23",
      "locator": "§4, Theorem 4.1, PDF p. 26 of the version recorded in sources",
-     "excerpt": "assume moreover that rπ,ι (GF (ζp∞ ) ) is enor-",
      "match": "the set-up of the proof"
     }
    ],
@@ -5575,13 +5419,11 @@
     {
      "sourceId": "NT21B",
      "locator": "§2, proof of Theorem 2.1, PDF p. 13 of the version recorded in sources",
-     "excerpt": "equals its residue field E, by the",
      "match": "the use in Newton–Thorne II"
     },
     {
      "sourceId": "NT23",
      "locator": "§2.3, Proposition 2.17(1), PDF p. 17 of the version recorded in sources",
-     "excerpt": "There is an isomorphism trE,S : HL1 S (F + , WE ) →",
      "match": "the tangent space identification"
     }
    ],
@@ -5618,7 +5460,6 @@
     {
      "sourceId": "NT21",
      "locator": "§2.18.1, proof of Theorem 2.27, PDF p. 43 of the version recorded in sources",
-     "excerpt": "from e.g. [Ger19, Lemma 3.9] (which gives the analogue of Lemma 2.7 in the ordi-",
      "match": "the statement as used"
     }
    ],
@@ -5723,13 +5564,11 @@
     {
      "sourceId": "LTXZZ",
      "locator": "§3.6, Definition 3.6.1, PDF p. 29 of the version recorded in sources",
-     "excerpt": "We say that r̄ is rigid for (Σ+ min , Σlr ) if the following are satisfied",
      "match": "the definition"
     },
     {
      "sourceId": "LTXZZ",
      "locator": "§3.6, after Definition 3.6.1, PDF p. 29 of the version recorded in sources",
-     "excerpt": "Then we have the global universal deformation ring Runiv",
      "match": "the global problem"
     }
    ],
@@ -5778,13 +5617,11 @@
     {
      "sourceId": "LTXZZ",
      "locator": "§3.6, Theorem 3.6.3, p. 30; literal excerpt occurs on PDF pp. 3, 30 of the recorded version",
-     "excerpt": "There is a canonical isomorphism Runiv",
      "match": "conclusion (1)"
     },
     {
      "sourceId": "LTXZZ",
      "locator": "§3.6, Theorem 3.6.3, PDF p. 30 of the version recorded in sources",
-     "excerpt": "is rigid for (Σ+ +",
      "match": "hypothesis (D3)"
     }
    ],
@@ -5821,13 +5658,11 @@
     {
      "sourceId": "LTXZZ",
      "locator": "§4.1, Corollary 4.1.2, PDF p. 36 of the version recorded in sources",
-     "excerpt": "Then for all but finitely many rational primes `, r̄A,` is",
      "match": "part (1)"
     },
     {
      "sourceId": "LTXZZ",
      "locator": "§4.2, Proposition 4.2.3, PDF p. 37 of the version recorded in sources",
-     "excerpt": "There exists a finite set Λ1 of primes of E depending on Πw only, such that for every",
      "match": "part (2)"
     }
    ],
@@ -5875,13 +5710,11 @@
     {
      "sourceId": "LLHLM23",
      "locator": "§9.2, Theorem 9.2.1, PDF p. 137 of the version recorded in sources",
-     "excerpt": "Then r is automorphic i.e. r ∼ = rι (π ′ ) for some π ′ a RACSDC automorphic representation of",
      "match": "the statement"
     },
     {
      "sourceId": "LLHLM23",
      "locator": "§9.2, proof of Theorem 9.2.1, PDF p. 137 of the version recorded in sources",
-     "excerpt": "This follows from Theorem 7.3.2 from standard base change and Taylor–Wiles patching",
      "match": "the method"
     }
    ],
@@ -5913,7 +5746,6 @@
     {
      "sourceId": "LLHLM23",
      "locator": "§9.2, Remark 9.2.2(1), PDF p. 137 of the version recorded in sources",
-     "excerpt": "using Theorem 9.1.6 to incorporate a “change of weight” result.",
      "match": "the statement"
     }
    ],

@@ -38,7 +38,7 @@ A harmless new misprint is recorded as **ArithmeticKTheory/E27**: Kahn §2.2.3 p
 
 ## Validation
 
-- The blueprint checker reports **0 errors, 0 warnings**.
+- The blueprint checker reports **0 errors, 0 warnings**, including after incorporating the concurrent main-branch source-quotation removal. All citations retain locators and matches in our own words; no source excerpts remain.
 - **lean-check** of the complete suggested file exits **0**, with exactly five expected prototype-proof warnings and no other diagnostics. All five named signatures and all seven baseline examples elaborate.
 - Available memory was checked before every compile and exceeded 20 GB. No builds, cache downloads or Lean language servers were run.
 - The shared Mathlib checkout is exactly **082e2d37e8b0463410cdb532e111cd43d5a66174**. The file imports Mathlib only. Tau Ceti statements were read at **f790474821cf4256814db967cb154e7af3d0c369**; the newer shared Tau Ceti checkout is not claimed to be the pinned build.

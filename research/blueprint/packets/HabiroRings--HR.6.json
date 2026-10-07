@@ -261,13 +261,11 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "Definition 1.4, printed p.10; Proposition 1.5(f), printed p.11",
-          "excerpt": "then fm(0)",
           "match": "The m=1 specialization is the integral order-one evaluation. Its module/tensor interpretation is conditional on the explicitly imported HB.7 descent contract."
         },
         {
           "sourceId": "GSWZ.v2",
           "locator": "Theorem 2, (25), printed p.10; its proof in §3.3, printed p.43",
-          "excerpt": "multiplication gives a canonical isomorphism",
           "match": "Supplies the inverse tensor pairing as refined by the accepted HB.7 follow-up; the source proof alone does not establish effective global descent."
         }
       ],
@@ -400,13 +398,11 @@
         {
           "sourceId": "Wagner.v2",
           "locator": "§1.1, paragraph 1.4, printed p.4",
-          "excerpt": "regulator becomes trivial",
           "match": "The source asserts completion-triviality without its proof. The new proof route is the first-fibre argument and pinned ordinary Nakayama, conditional on HB.7."
         },
         {
           "sourceId": "GSWZ.v2",
           "locator": "Proposition 1.5(f), printed p.11; §3.3, printed p.45",
-          "excerpt": "then fm(0)",
           "match": "Integral order-one values supply the fibre map, which is the only coefficient integrality needed."
         }
       ],
@@ -467,13 +463,11 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "Definition 1.1, (13), printed pp.6–7; Definition 1.4, printed pp.9–10",
-          "excerpt": "gluing property",
           "match": "Coordinate pullback of the ring/module formulas is the source motivation; scalar equivalence/naturality is the conditional imported HB.7 refinement, not a theorem stated by GSWZ."
         },
         {
           "sourceId": "Wagner.v2",
           "locator": "Corollary 2.13, printed p.19, and proof",
-          "excerpt": "agrees with the Habiro ring",
           "match": "The ring comparison is coordinatewise and so commutes with a supported coefficient pullback; the common-Δ extension is supplied by the parent node."
         }
       ],

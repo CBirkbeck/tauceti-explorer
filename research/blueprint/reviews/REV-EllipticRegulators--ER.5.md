@@ -73,7 +73,7 @@ citation was removed or replaced, and no new mathematical node was added.
 
 ## Sources and inherited errata
 
-For [Bloch, CRM Monograph Series 11](https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html),
+For [Bloch, CRM Monograph Series 11](https://bookstore.ams.org/crmm-11),
 I read Lecture 11 §§11.1–11.2, printed pp.87–93, through the final corollary
 and conjecture. The publicly available HTML preserves the locators but loses
 overlines and some mathematical glyphs. The packet's excerpts are literal

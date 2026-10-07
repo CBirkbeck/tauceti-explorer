@@ -163,13 +163,11 @@
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Definition 3.8 and Example 3.9, p. 8",
-          "excerpt": "any domination map",
           "match": "Definition of outgoing minimality over a DVR; the present definition extends the same marked-model condition to O_{F,S}. Example 3.9 explains why the marking is part of the object."
         },
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Section 55.8, opening conventions and Definition 55.8.4 (0C2V), pp. 33–34",
-          "excerpt": "exceptional curve",
           "match": "The local no-exceptional definition is imported, not reconstructed here. The global equivalence is the minimality-local-criterion node."
         }
       ],
@@ -321,13 +319,11 @@
         {
           "sourceId": "Stacks.ResolutionOfSurfaces",
           "locator": "Lemma 54.16.9(1), tag 0C2N, pp. 50–51",
-          "excerpt": "projective over S",
           "match": "Supplies global contraction over a Noetherian base, with projectivity preserved. It is an imported surface theorem; applying it successively to the finite arithmetic fibres is the new passage."
         },
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Lemma 55.8.5 (0CD9) and Proposition 55.8.6 (0C2W), pp. 34–35",
-          "excerpt": "minimal model exists",
           "match": "The local contraction-and-component-count proof is extended over the finite set of nonsmooth arithmetic fibres; all global hypotheses are checked explicitly."
         }
       ],
@@ -373,13 +369,11 @@
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Lemma 55.10.2, tag 0C9Z, p. 40",
-          "excerpt": "unique morphism",
           "match": "Supplies the local terminal map; the printed first proof sentence reverses the arrow (source issue E6-mapping-direction). This node proves the arithmetic extension via common resolution."
         },
         {
           "sourceId": "Stacks.ResolutionOfSurfaces",
           "locator": "Lemma 54.16.1, tag 0C5J, p. 46",
-          "excerpt": "there is a unique factorization",
           "match": "Factors the global map through each last point blowup once its exceptional curve is mapped to a point. No inverse-limit descent is asserted."
         }
       ],
@@ -424,7 +418,6 @@
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Definition 3.8, Theorem 3.10 and Remark 3.11, p. 8",
-          "excerpt": "for every regular proper R-model",
           "match": "Conrad relates outgoing minimality to the universal property over a DVR. The present proof derives the arithmetic equivalence from the previously established local-to-global mapping property."
         }
       ],
@@ -467,7 +460,6 @@
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Lemma 55.10.1, tag 0C6B, pp. 39–40",
-          "excerpt": "unique minimal model",
           "match": "The local uniqueness is an input and the arithmetic result follows from the terminal mapping property. The proof’s positive-genus condition is retained."
         }
       ],
@@ -518,13 +510,11 @@
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Definition 55.8.4, tag 0C2V, p. 34",
-          "excerpt": "regular, proper",
           "match": "The definition is local on the retained base primes; its use here is the elementary open-restriction consequence, not a theorem about arbitrary extension of DVRs."
         },
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Remark 3.11, p. 8",
-          "excerpt": "there is a unique map",
           "match": "Uniqueness of identity-marked comparison maps gives the coherence after open restriction."
         }
       ],

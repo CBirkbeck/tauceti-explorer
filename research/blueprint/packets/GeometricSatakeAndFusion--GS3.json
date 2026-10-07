@@ -284,7 +284,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.9 pp226–227; VI.0 p189",
-          "excerpt": "where xi ̸= xi′ whenever i, i′ ∈ I lie in different",
           "match": "Exact defining condition of the blockwise disjoint locus and factorization."
         }
       ],
@@ -381,7 +380,6 @@
         {
           "sourceId": "FS",
           "locator": "Proposition VI.9.3 pp227–228",
-          "excerpt": "The restriction functor",
           "match": "Proves the two full-faithfulness assertions by partial diagonal bounds; reconstruction follows in the proof."
         }
       ],
@@ -426,7 +424,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.9 pp228–229",
-          "excerpt": "we introduce a minus sign",
           "match": "The parity decomposition and exact commutativity correction."
         }
       ],
@@ -528,7 +525,6 @@
         {
           "sourceId": "FS",
           "locator": "Definition/Proposition VI.9.4 pp228–230",
-          "excerpt": "Rm∗ (p∗1 A1 ⊗LΛ . . . ⊗LΛ p∗k Ak )",
           "match": "Actual extension via convolution, flat-perverse proof and coherent sign-corrected tensor structure."
         }
       ],
@@ -630,7 +626,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.9 pp226–227, including the footnote p227; Proposition VI.9.4 pp228–229",
-          "excerpt": "on Hecke stacks the map is not a closed immersion",
           "match": "The diagonal pull-push defines arbitrary finite-set maps; the exterior fusion comparison and its symmetry/coherence follow from VI.9.3–VI.9.4."
         }
       ],
@@ -739,7 +734,6 @@
         {
           "sourceId": "FS",
           "locator": "Proposition VI.9.2 p226; Theorem IV.7.3 pp165–166 (full faithfulness begins p164)",
-          "excerpt": "finite projective Λ-modules",
           "match": "Combines the exact DLc Drinfeld equivalence with the finite-projective degree-zero specialization."
         }
       ],
@@ -784,7 +778,6 @@
         {
           "sourceId": "FS",
           "locator": "Proposition VI.9.6 p230; VI.7.13 pp223–224",
-          "excerpt": "is naturally symmetric monoidal",
           "match": "Precise shifted constant-term compatibility, proved after restriction to disjoint legs."
         }
       ],
@@ -830,7 +823,6 @@
         {
           "sourceId": "FS",
           "locator": "Corollary VI.9.5 p230; VI.8.2 pp225–226",
-          "excerpt": "making Verdier duality a symmetric monoidal functor",
           "match": "States the fibre-dual comparison and derives the symmetric involutions from existing rigidity."
         }
       ],
@@ -876,7 +868,6 @@
         {
           "sourceId": "FS",
           "locator": "Proposition VI.10.1 pp230–232",
-          "excerpt": "admits a left adjoint",
           "match": "The bounded left adjunction, LocSys linearity, fusion of generators and coefficient control."
         }
       ],
@@ -987,7 +978,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.10.2–10.3 pp232–235; VI.7.10 pp222–223",
-          "excerpt": "F -split parallel pairs",
           "match": "Matches the abstract MC chain and identifies the preservation hypothesis needing verification."
         }
       ],
@@ -1040,7 +1030,6 @@
         {
           "sourceId": "FS",
           "locator": "Propositions VI.10.2–VI.10.3 pp232–235",
-          "excerpt": "Now we can take a colimit",
           "match": "Relative reconstruction and its application; the coordinate object uses the dual of the bounded represented fibre."
         }
       ],
@@ -1143,7 +1132,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.10.3 pp234–235; VI.11.1 proof p235",
-          "excerpt": "induces an isomorphism",
           "match": "The product statement, coefficient compatibility and reduction to the ℓ-adic group are stated and used here."
         }
       ],
@@ -1189,13 +1177,11 @@
         {
           "sourceId": "FS",
           "locator": "VI.7.5 pp219–221; VI.11.1 proof pp235–236",
-          "excerpt": "(geometrically) semisimple",
           "match": "The geometric rational IC splitting used to recognize the generic group."
         },
         {
           "sourceId": "Zhu",
           "locator": "Lemma 2.1 p430 and Proposition 2.2 p432; context pp430–432",
-          "excerpt": "is semisimple.",
           "match": "Independent rational Witt-fibre calculation, with scheme decomposition as an imported input."
         }
       ],
@@ -1245,13 +1231,11 @@
         {
           "sourceId": "FS",
           "locator": "VI.11.1 proof pp235–236",
-          "excerpt": "is of finite type",
           "match": "Source proof separates finite type, connectedness and reductivity."
         },
         {
           "sourceId": "DM",
           "locator": "Propositions 2.20, 2.22, 2.23 pp24–27",
-          "excerpt": "G is pro-reductive",
           "match": "General criteria are imported from their single owners, and used with characteristic zero."
         }
       ],
@@ -1302,7 +1286,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.11.1 proof pp235–238; Lemmas VI.11.2–VI.11.3 pp237–238",
-          "excerpt": "Let H be a closed subgroup of SL2",
           "match": "Explicit torus/rank-one integral calculation and its special-fibre test; the component-grading statement uses the correction recorded below."
         }
       ],
@@ -1348,7 +1331,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.11.1 proof p238",
-          "excerpt": "contained in the convex",
           "match": "The rank-one Levi and weight-bound argument identifies the complete generic root datum."
         }
       ],
@@ -1397,13 +1379,11 @@
         {
           "sourceId": "FS",
           "locator": "VI.11.1 proof pp238–239; Lemma VI.11.4 p238",
-          "excerpt": "By Lemma VI.11.4, this is necessarily a closed immersion",
           "match": "Source integral recovery, exception and reduction to the adjoint case."
         },
         {
           "sourceId": "PY",
           "locator": "Corollary 1.3 pp2–3; proof §5.4 p12",
-          "excerpt": "Then φ is a closed immersion.",
           "match": "The general criterion is requested from RG2.3, not owned by this application."
         }
       ],
@@ -1451,7 +1431,6 @@
         {
           "sourceId": "FS",
           "locator": "Theorem VI.11.1 p235 and canonical-pinning/descent proof pp238–239",
-          "excerpt": "There is a canonical WE -equivariant isomorphism",
           "match": "Canonical integral identification with the geometrically twisted dual, including pinning independence and descent."
         }
       ],
@@ -1503,7 +1482,6 @@
         {
           "sourceId": "FS",
           "locator": "Theorem VI.0.2 p190; VI.11.1 p235; IX.2 p321",
-          "excerpt": "the cyclotomic twist can be trivialized",
           "match": "The source normalizes the geometric action using a chosen square root and exports finite-projective representations."
         }
       ],
@@ -1609,7 +1587,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.9.6 p230; VI.11.1 pp238–240; IX.7.1 p334",
-          "excerpt": "(2ρ b − 2ρ c )( q)|w| φ(w)",
           "match": "Geometric CT is natural; the source explicitly displays the correction in its parameter convention."
         }
       ],
@@ -1653,7 +1630,6 @@
         {
           "sourceId": "FS",
           "locator": "VI.11.1 proof pp237–239; IX.6.1 pp330–331",
-          "excerpt": "inducing an isomorphism of adjoint",
           "match": "The source uses exactly this Satake naturality to compare the global Hecke kernels."
         }
       ],
@@ -1696,7 +1672,6 @@
         {
           "sourceId": "FS",
           "locator": "IX.6.2 p331; VI.10.3 pp234–235",
-          "excerpt": "everything decomposes into products",
           "match": "Gives the product compatibility; the local comparison follows from product geometry and Hopf reconstruction."
         }
       ],
@@ -1742,7 +1717,6 @@
         {
           "sourceId": "FS",
           "locator": "IX.6.3 pp331–332",
-          "excerpt": "inflate V to a representation",
           "match": "Precise chosen-embedding inflation/induction and its geometric divisor/Grassmannian map."
         }
       ],
@@ -1788,7 +1762,6 @@
         {
           "sourceId": "FS",
           "locator": "Proposition VI.12.1 and proof pp239–241",
-          "excerpt": "up to conjugation by ρb(−1)",
           "match": "Includes the rank-one pairing computation and the essential inner sign."
         }
       ],
@@ -1844,7 +1817,6 @@
         {
           "sourceId": "FS",
           "locator": "IX.2 p321",
-          "excerpt": "the free stable ∞-category with an exact functor",
           "match": "Exact relative Perf base change and stable completion used to export the local Satake kernel functor."
         }
       ],
@@ -1952,13 +1924,11 @@
         {
           "sourceId": "Zhu",
           "locator": "§2.2 pp434–436, equations (2.2.7)–(2.2.10)",
-          "excerpt": "Satake isomorphism",
           "match": "Relates IC weight cohomology to the spherical transform, with rational coefficients."
         },
         {
           "sourceId": "Gross",
           "locator": "§3 pp6–8, (3.3), (3.4), (3.6), (3.13); §8 pp15–16 for choices of normalization",
-          "excerpt": "positive square-root",
           "match": "Modulus/half-root and minuscule coefficients; the packet separately tracks the perverse parity sign. Section 8 distinguishes central parameter normalizations."
         }
       ],
@@ -2059,13 +2029,11 @@
         {
           "sourceId": "Zhu",
           "locator": "§2.1 pp430–433 and §2.2 pp434–436",
-          "excerpt": "convolution product",
           "match": "Convolution is proper bounded pushforward, and the trace comparison uses this geometric construction."
         },
         {
           "sourceId": "Gross",
           "locator": "§2–§3 pp3–7, measure convention quoted in §3",
-          "excerpt": "Satake",
           "match": "The imported classical transform uses a specified compact-subgroup Haar normalization; no new transform is constructed here."
         }
       ],
@@ -2111,13 +2079,11 @@
         {
           "sourceId": "Gross",
           "locator": "§3 pp6–8, equations (3.4), (3.5), (3.6)",
-          "excerpt": "δ(t)1/2",
           "match": "Exact classical modulus and transform conventions."
         },
         {
           "sourceId": "Zhu",
           "locator": "§2.2 pp434–436, equations (2.2.7)–(2.2.10)",
-          "excerpt": "Pµν (q −1 )",
           "match": "The rational IC/weight calculation underlying classical comparison, not a construction of integral fusion."
         }
       ],
@@ -2163,13 +2129,11 @@
         {
           "sourceId": "Gross",
           "locator": "§3 pp7–8, Proposition 3.6 and (3.13)",
-          "excerpt": "S(cλ ) = q hλ,ρi χλ",
           "match": "The triangular and minuscule classical formulas."
         },
         {
           "sourceId": "Zhu",
           "locator": "§2.2 pp434–436, (2.2.7)–(2.2.10)",
-          "excerpt": "Satake isomorphism",
           "match": "The geometric IC character comparison provides the downstream rational bridge."
         }
       ],

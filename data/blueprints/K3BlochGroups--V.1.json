@@ -237,7 +237,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercise 1.9, IV.14–15",
-          "excerpt": "S and P are perfect groups.",
           "match": "Exercise 1.9 states the two-connectivity and degree-three comparison for a universal central extension. The proof sketch supplies the intermediate absolute Hurewicz argument from the upstream owner; this exercise has no Hurewicz hint."
         }
       ],
@@ -285,7 +284,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercises 1.8–1.9, IV.14–15",
-          "excerpt": "fibration",
           "match": "Generic cover and fibre comparisons, imported at finer supplier node IDs."
         }
       ],
@@ -331,7 +329,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercise 1.9, IV.14–15",
-          "excerpt": "St(R)",
           "match": "The degree-three comparison; the explicit composite is the planning interface."
         }
       ],
@@ -434,7 +431,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercise 1.9 and Definition 1.1, IV.2,14–15",
-          "excerpt": "homology",
           "match": "The source motivates transport through the homological K₃ comparison; explicit chain conventions follow the pinned Mathlib differential."
         }
       ],
@@ -564,7 +560,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Functoriality 1.1.2, IV.3",
-          "excerpt": "Functoriality",
           "match": "Group maps are natural although space representatives are chosen only up to homotopy."
         }
       ],
@@ -609,7 +604,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, stable GL convention, IV.2; Exercise 1.9, IV.15",
-          "excerpt": "union",
           "match": "The finite-stage interface follows from the imported stable presentation and finite supports, rather than a finite-rank comparison theorem."
         }
       ],
@@ -656,7 +650,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercise 1.11 and Corollary 1.20, IV.14–15",
-          "excerpt": "H-space",
           "match": "Lift the K-space multiplication to its simply connected cover before using the simply connected H-space lemma."
         }
       ],
@@ -697,13 +690,11 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Lemma 1.19 and Remark 1.19.1, IV.13",
-          "excerpt": "η",
           "match": "The target exact sequence and its extension to simply connected H-spaces."
         },
         {
           "sourceId": "Hatcher-AT-author",
           "locator": "Section 4.2, Examples 4.51–4.52, printed pp.380–381; Exercise 37, p.392",
-          "excerpt": "Whitehead",
           "match": "Elementary degree-three wedge generators and H-space vanishing; gap G1 assigns the generic package."
         }
       ],
@@ -751,7 +742,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercise 1.12(a),(e), IV.15; IV.4, Theorem 4.9.3, IV.43",
-          "excerpt": "[−1]",
           "match": "Sphere action identifies the operation; BPQ alone without its compatible unit/action is insufficient."
         }
       ],
@@ -799,7 +789,6 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Corollary 1.20, IV.13–14",
-          "excerpt": "exact",
           "match": "The all-ring exact sequence with the specific Hurewicz map and product convention."
         }
       ],

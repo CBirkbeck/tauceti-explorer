@@ -192,49 +192,41 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "I.2, p. 16",
-          "excerpt": "Consider the global Hecke stack HckG parametrizing pairs (E,E′) of G-bundles on XS, together with a map S → Div1 giving rise to a degree 1 Cartier divisor DS ⊂ XS, and an isomorphism f : E|XS\\DS ∼ = E′ |XS\\DS that is meromorphic along DS.",
           "match": "Definition of the global Hecke stack for one leg: two G-bundles, a degree-one divisor and a meromorphic isomorphism off it."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "I.2, p. 16",
-          "excerpt": "This gives a correspondence BunG h1 ← − HckG h2 − → BunG ×Div1",
           "match": "The two projections: h_1 to Bun_G and h_2 to Bun_G × Div¹."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "III.3, p. 97",
-          "excerpt": "The latter means that for any representation in RepE(G), the associated isomorphism between vector bundles, F|XS\\D ∼ − − → F′|XS\\D extends to a morphism F → F′(kD) for k ≫ 0 via F′ ,→ F′(kD).",
           "match": "Meromorphy is tested on every representation, by extension to a twist by kD."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX, introduction, p. 317",
-          "excerpt": "we get a perverse sheaf SV on HckI G, which we can pull back to the global Hecke stack HckI G; we denote its pullback still by SV",
           "match": "The multi-leg global Hecke stack is the target of pullback from the local stack; it is used here without a displayed definition."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX, introduction, p. 317",
-          "excerpt": "we get the Hecke operator TV : Dét(BunG,Λ) → Dét(BunG ×(Div1 )I ,Λ) : A 7→ Rp2∗(p∗ 1A ⊗L Λ SV ).",
           "match": "For a finite set I the target map p_2 lands in Bun_G × (Div¹)^I and p_1 in Bun_G."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, proof of Proposition IX.2.1, p. 322",
-          "excerpt": "where HckG,C parametrizes over S ∈ PerfC pairs of G-torsors E1,E2 on XS together with an isomor- phism over XS\\S♯ meromorphic along S♯.",
           "match": "The one-leg stack over C, as it is used in the proof of Proposition IX.2.1."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.9, p. 226",
-          "excerpt": "Indeed, there is a natural closed immersion GrI G ×(Div1 X)I (Div1 X)J ,→ GrJ G, so pull-push along",
           "match": "The repetition map for a map of finite sets, on Grassmannians; ι_a is its analogue on global Hecke stacks."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "I.13, p. 44",
-          "excerpt": "E denotes a nonarchimedean local field with residue field Fq of characteristic p > 0, and we fix an algebraic closure k",
           "match": "Base field: k is an algebraic closure of F_q, and E has residue field F_q."
         }
       ],
@@ -404,55 +396,46 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1, proof of Proposition VI.1.7, p. 193",
-          "excerpt": "By the Tannakian formalism, it follows that the category of G-bundles also satisfies v-descent, so one can descend E1,E2.",
           "match": "v-descent of G-bundles over the completed rings, the input for descent of the pair (E_1, α)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Appendix to Lecture 19, Proposition 19.5.3, p. 180",
-          "excerpt": "The functor on PerfS sending any S0 → S to the groupoid of G-torsors on U ×S ˙ ×SpaZp S0 ˙ ×SpaZp is a v-stack.",
           "match": "v-descent of G-torsors on open subsets of S ×̇ Spa ℤ_p."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "III.3, p. 98",
-          "excerpt": "with the moduli of D ∈ Div1 (S), E ∈ BunG(XS), and a modification between the trivial G-bundle and E at D, cf. [SW20, Proposition 19.1.2].",
           "match": "Beauville–Laszlo gluing: modifications of a fixed bundle at D are torsors over B⁺_dR with an isomorphism over B_dR; stated in the source for the trivial bundle."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1, proof of Proposition VI.1.7, p. 193",
-          "excerpt": "Trivializing E1 and E2 étale locally then directly produces the given presentations.",
           "match": "Étale-local trivialisations give the quotient presentations, hence the local product structure of p_2."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2, Proposition VI.2.7, p. 201",
-          "excerpt": "is a closed subfunctor. The map GrG,Divd Y,≤µ• → Divd Y is proper, representable in spatial diamonds, and of finite dim.trg.",
           "match": "Properness, spatial representability and finite dim.trg of the bounded Beilinson–Drinfeld Grassmannian."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8, Remark VI.8.4, p. 226",
-          "excerpt": "Then the case of Divd X follows from the case of Divd Y as any map S → Divd X can locally be lifted to a map S → Divd Y in such a way that the corresponding pullbacks of the local Hecke stacks are isomorphic.",
           "match": "Passage from the divisors on Y to those on X."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1, Proposition II.1.21, p. 56",
-          "excerpt": "The map Div1 → ∗ is proper, representable in spatial diamonds, and cohomologically smooth.",
           "match": "Div¹ → ∗ is proper and representable in spatial diamonds, used for p_{1,W}."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "I.2, p. 16",
-          "excerpt": "By pullback, this defines a correspondence BunG h1,≤µ ← − − − HckG,≤µ h2,≤µ − − − → BunG ×Div1 where now h1,≤µ and h2,≤µ are proper.",
           "match": "The source's assertion that both bounded projections are proper."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2, Proposition VI.2.4, p. 198",
-          "excerpt": "is cohomologically smooth of ℓ-dimension ⟨2ρ,µ⟩ over Div1",
           "match": "Cohomological smoothness and ℓ-dimension of the open cell."
         }
       ],
@@ -499,43 +482,36 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.9, proof of Definition/Proposition VI.9.4, p. 229",
-          "excerpt": "It parametrizes G-bundles E0,...,Ek over B+ (Div1 X)I together with isomorphisms of Ej−1 and Ej after inverting Ii for all i ∈ Ij, for j = 1,...,k.",
           "match": "The local convolution Hecke stack for an ordered partition: a chain of bundles with isomorphisms after inverting the ideals of the j-th part."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.9, proof of Definition/Proposition VI.9.4, p. 229",
-          "excerpt": "After pullback to (Div1 X)I;I1,...,Ik, the map m is an isomorphism",
           "match": "Over the locus where legs of different parts are disjoint, composition is an isomorphism."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8, p. 224",
-          "excerpt": "where the morphism a is an L+G-torsor, and the right morphism is ind-proper (its fibres are the fibres of GrG,Divd Y → Divd Y).",
           "match": "The convolution diagram at a common divisor; the composition map has the fibres of the Grassmannian."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 20, Definition 20.4.2, p. 187",
-          "excerpt": "to the set of G-torsors P1,...,Pm on S ˙ ×SpaQp, together with a trivialization of P1|S ˙ ×SpaQp\\S] 1 meromorphic along S] 1 and isomorphisms Pi|S ˙ ×SpaQp\\S] i ∼ = Pi−1|S ˙ ×SpaQp\\S] i for i = 2,...,n that are meromorphic along S] i .",
           "match": "The convolution Beilinson–Drinfeld Grassmannian: successive modifications at the legs (the index range is misprinted as n)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 20, Proposition 20.1.4, p. 183",
-          "excerpt": "the image is contained in the Schubert variety GrG,≤|µ•|, where |µ•| = µ1 + ... + µm, and the induced map f GrG,≤µ• → GrG,≤|µ•| is a surjective map of v-sheaves.",
           "match": "Bounds add under composition, and the bounded composition map is surjective."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 20, Proposition 20.4.5(2), p. 188",
-          "excerpt": "factors over GrG,SpdE1×...×SpdEm,≤µ• , and induces a surjective map of v- sheaves",
           "match": "Surjectivity of the bounded composition map over several legs."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "On the other hand, there is a natural exact RepΛ(QI)-linear monoidal functor D■(HckI G,Λ) → EndD■((Div1)I,Λ)(D■(BunG ×(Div1 )I ,Λ)),",
           "match": "The global Hecke stack acts by composition of kernels, which is formed along the chain stack."
         }
       ],
@@ -677,61 +653,51 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Definition 23.5.1, p. 223",
-          "excerpt": "parametrizes over a perfectoid space S of characteristic p with untilts S] i = Spa(R] i,R]+ i ), i = 1,...,m, over Ei, the set of G-torsors Pη on S ˙ ×SpaQp",
           "match": "The functor: G-torsors on S ×̇ Spa ℚ_p over a base of m untilts."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Definition 23.5.1, p. 223",
-          "excerpt": "for large enough r under which ϕPη gets identified with b × FrobS",
           "match": "The framing near infinity identifies the Frobenius with b × Frob_S."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Definition 23.5.1, p. 223",
-          "excerpt": "At all geometric rank 1 points, the relative position of Frob∗ S P and P at S] i is bounded by P j|S] j=S] i µj in the Bruhat order.",
           "match": "The bound: position of Frob_S^*P and P at a leg, with the sum over coinciding legs."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Definition 23.4.1, p. 221",
-          "excerpt": "1. Over the open subset (SpdQp)2 \\ S n6=0(ϕ×1)n (∆), it is the Beilinson-Drinfeld Grassmannian GrG,(SpdQp)2 .",
           "match": "Two legs: off the nonzero Frobenius translates of the diagonal it is the Beilinson–Drinfeld Grassmannian."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Definition 23.4.1, p. 221",
-          "excerpt": "2. Over the open subset (SpdQp)2 \\ S n6=m(ϕ × 1)n (∆) with m > 0, it is the pullback of the convolution Beilinson-Drinfeld Grassmannian f GrG,(SpdQp)2 under (ϕ × 1)−m",
           "match": "Two legs: near the m-th translate it is the pulled-back convolution Grassmannian."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, proof of Proposition 23.4.2, p. 222",
-          "excerpt": "we can first modify the trivial G-torsor at S] 1 (which is different from ϕ−n (S] 2) for n ≥ 0 at all geometric points) and continue this modification ϕ−1 -periodically, and afterwards modify at S] 2 and continue ϕ−1",
           "match": "The convolution chart: modify at the first leg, continue by Frobenius, then modify at the second."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Remark 23.4.3, p. 222",
-          "excerpt": "This description seems to depend on b, but in fact it is canon- ically independent of it: One can change the isomorphism ϕPη by any element of G(L).",
           "match": "The source's remark on independence of b, which statement (3) replaces by the precise comparison."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, Proposition 23.5.2, p. 223",
-          "excerpt": "Proposition 23.5.2. The map Grtw G,SpdE1×...×SpdEm,≤µ• → SpdE1 × ... × SpdEm is proper and representable in spatial diamonds.",
           "match": "Properness and spatial representability of the bounded twisted Grassmannian."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, proof of Proposition 23.5.2, p. 224",
-          "excerpt": "This gives an embedding Grtw G,U,≤µ• ,→ GrG,U×ϕ−1(U)×...×ϕ−n0+1(U) . Moreover, the image is contained in some Schubert variety, and is closed in there",
           "match": "The proof embeds it into a Beilinson–Drinfeld Schubert variety over finitely many Frobenius translates of the base."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, p. 326",
-          "excerpt": "More precisely, away from Frobenius-twisted partial diagonals, Grtw G, Q i∈I SpdĔi is isomorphic to the Beilinson–Drinfeld Grass- mannian GrG, Q i∈I SpdĔi , and we have defined SW on this locus.",
           "match": "Use in Fargues–Scholze: away from Frobenius-twisted partial diagonals it is the Beilinson–Drinfeld Grassmannian."
         }
       ],
@@ -883,67 +849,56 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "III.4, Corollary III.4.3, p. 101",
-          "excerpt": "For b basic there is an isomorphism of v-stacks BunG ≃ BunGb that induces an isomorphism Bunb",
           "match": "Basic twisting: Bun_G ≃ Bun_{G_b}, carrying the stratum of b to the trivial stratum."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "III.4, Proposition III.4.2, p. 101",
-          "excerpt": "sheaf of groups Gb ×Spa(E) XS over XS is the pure inner twisting of G ×Spa(E) XS by Eb.",
           "match": "G_b on the curve is the pure inner twist of G by E_b."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "III.4, Proposition III.4.1(ii), p. 100",
-          "excerpt": "The morphism of stacks on X, [∗/H] → [∗/HT ], that sends an H-torsor S to Isom(S,T), is an equivalence.",
           "match": "The equivalence of classifying stacks is S ↦ Isom(S,T); applied on opens of X_S it transports modifications."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 23, proof of Corollary 23.3.2, p. 219",
-          "excerpt": "Under this identification, Eb goes to the trivial Jb-torsor, and E1 goes to the Jb-torsor corresponding to b̌ = b−1 . The condition that the original modification is bounded by µ gets translated into the boundedness by µ̌ = µ−1",
           "match": "Transport of bounds under the inner-form equivalence; the inverse appears because the two bundles exchange roles."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.4, p. 333",
-          "excerpt": "implies that L- parameters are compatible with central characters (in case of connected center) and twisting, by applying Theorem IX.6.1 to the maps Z ×G → G and G → G×D where Z ⊂ G is the center and G → D is the quotient by the derived group.",
           "match": "Central characters and twisting are obtained from the maps Z × G → G and G → G × D."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6, proof of Theorem IX.6.1, p. 331",
-          "excerpt": "The first map is locally (over BunG′) isomorphic to the map GrI G′ → GrI G and hence pushforward takes SV ′ to the pullback of SV",
           "match": "For a homomorphism of groups the induced map of Hecke stacks is locally the map of Grassmannians."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "III.3, Proposition III.3.6(ii), p. 100",
-          "excerpt": "(ii) The composite |GrG| Beauville–Laszlo − − − − − − − − − − → |BunG | κ − − → π1(G) is the opposite of the preceding map.",
           "match": "The source's statement on the Kottwitz invariant of a modification of the trivial bundle; its sign is that of the orbit of μ(ξ)⁻¹."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "III.2.2, p. 91",
-          "excerpt": "Then the Harder–Narasimhan polygon of Eb is ν∗ b , and its first Chern class is −κ(b).",
           "match": "Normalisation: the first Chern class of E_b is −κ(b)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "II.2, proof of Proposition II.2.3, p. 61",
-          "excerpt": "The above constructions show that one has a map OXS → I(1) where I ⊂ OXS is the ideal sheaf of S♯, which by Proposition II.1.18 is a line bundle.",
           "match": "The ideal sheaf of a degree-one divisor is 𝒪(−1)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 24, Definition 24.1.1, p. 225",
-          "excerpt": "A local Shimura datum is a triple (G,b,µ) consisting of a reductive group G over Qp, a conjugacy class µ of minuscule cocharacters Gm → GQp , and b ∈ B(G,µ−1 ), i.e., νb ≤ (µ−1 )♦ and κ(b) = −µ",
           "match": "Independent check of the sign: κ(b) = −μ♮ when the trivial bundle is a μ-bounded modification of E_b."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.7, p. 337",
-          "excerpt": "To see this, we have to understand the moduli space of modifications of the trivial G-torsor of type bounded by µ that are isomorphic to Eb. This is in fact given by G(E)/P(E), the G(E)-orbit of the pushout of the modification from O to O(1) via µ.",
           "match": "The source's notion of type: the modification from 𝒪 to 𝒪(1) has type 1."
         }
       ],
@@ -994,31 +949,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "We can compose with the functor A 7→ D(A)∨ (where the Verdier duality is relative to the projection HckI G → [(Div1 )I/L+G]) to get exact RepZℓ[ √ q](QI)-linear monoidal functors RepZℓ[ √ q](b G ⋊ Q)I → D■(HckI G,Zℓ[ √ q]), functorially in I.",
           "match": "Definition of the local kernel: relative Verdier dual, then solid dual; exact, Rep(Q^I)-linear, monoidal, functorial in I."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "This extends by linearity uniquely to an exact RepΛ(QI)-linear monoidal functor RepΛ(b G ⋊ Q)I → D■(HckI G,Λ) : V 7→ S′ V ;",
           "match": "Unique Λ-linear extension, which defines S′_V for every Z_ℓ[√q]-algebra Λ."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "Pulling back to the global Hecke stack, we get exact RepΛ(QI)-linear monoidal functors RepΛ(b G ⋊ Q)I → D■(HckI G,Λ).",
           "match": "The global kernel is the pullback of the local one and the functor stays monoidal."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.5, p. 264",
-          "excerpt": "We can also precompose with Verdier duality DX/S to obtain a covariant fully faithful embedding DULA (X/S,Λ) ,→ D■(X,Λ) : A 7→ DX/S(A)∨ .",
           "match": "The covariant embedding A↦D_{X/S}(A)^∨ with A^∨ the solid dual: the order of the two dualities."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 322",
-          "excerpt": "We note that if we pull back to the diagonal geometric point SpdC → (Div1 )I, where C = b E, then this functor depends only on the composite RepΛ(b G ⋊ Q)I → D■(HckI G,Λ) → D■(HckI G ×(Div1)I SpdC,Λ), and this composite factors naturally over RepΛ(b GI).",
           "match": "Factorisation through Rep_Λ(Ĝ^I) at the diagonal geometric point."
         }
       ],
@@ -1185,37 +1135,31 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "gives rise to a functor TV : Dlis(BunG,Λ) → D■(BunG ×(Div1 )I ,Λ) via TV (A) = p2♮(p∗ 1A ■ ⊗L ΛS′ V )",
           "match": "The definition: source D_lis(Bun_G,Λ), target D_■(Bun_G×(Div¹)^I,Λ), formula p_{2♮}(p_1^*A⊗S′_V)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "On the other hand, there is a natural exact RepΛ(QI)-linear monoidal functor D■(HckI G,Λ) → EndD■((Div1)I,Λ)(D■(BunG ×(Div1 )I ,Λ)), where the right-hand side denotes the D■((Div1 )I,Λ)-linear endofunctors.",
           "match": "The endofunctor form, linear over D_■((Div¹)^I,Λ)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.3.1, p. 257",
-          "excerpt": "(i)The functor f∗ : D■(X,Λ) → D■(Y,Λ) admits a left adjoint f♮ : D■(Y,Λ) → D■(X,Λ).",
           "match": "The functor f_♮ is the left adjoint of f^*."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 322",
-          "excerpt": "Note that we have thus essentially used the translation of Proposition VII.5.2 to extend the Hecke operators from the case of torsion rings Λ to all Λ.",
           "match": "The formula extends the torsion Hecke operators through FS VII.5.2."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.5.2, p. 265",
-          "excerpt": "Proposition VII.5.2. Assume that A ∈ DULA(X/S,Λ) has bounded Tor-amplitude. Let Z/nZ be a discrete quotient of Λ. For B ∈ Dét(X,Z/nZ), there is a natural equivalence f♮(DX/S(A)∨ ■ ⊗L ΛB) ∼ = Rf!(An ⊗L Z/nZ B) ∈ Dét(S,Z/nZ).",
           "match": "The comparison f_♮(D(A)^∨⊗B)≅Rf_!(A_n⊗B) with its hypotheses."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX introduction, p. 317",
-          "excerpt": "we get the Hecke operator TV : Dét(BunG,Λ) → Dét(BunG ×(Div1 )I ,Λ) : A 7→ Rp2∗(p∗ 1A ⊗L Λ SV ).",
           "match": "The torsion Hecke operator A↦Rp_{2*}(p_1^*A⊗S_V) with which the formula is compared."
         }
       ],
@@ -1386,31 +1330,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.2.1, p. 322",
-          "excerpt": "Proposition IX.2.1. For any V ∈ RepΛ(b GI), the functor TV : D■(BunG ×SpdC,Λ) → D■(BunG ×SpdC,Λ) restricts to a functor TV : Dlis(BunG,Λ) → Dlis(BunG,Λ).",
           "match": "The statement."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.2.1, proof, p. 322",
-          "excerpt": "Now the category of such B is generated (under colimits) by the objects Rfẇ∗Zℓ for fẇ : L+ I\\Demẇ → HckG,SpdC/Div1 X a Demazure resolution (modulo action of Iwahori) of some Schubert variety in the affine flag variety.",
           "match": "Generation of the universally locally acyclic kernels by Demazure pushforwards, as asserted in the proof."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.2.1, proof, p. 322",
-          "excerpt": "Using Proposition VII.4.3, it thus suffices to see that for the corresponding push-pull correspondence on BunG,C with kernel given by the Demazure resolution, one has preservation of Dlis(BunG,C,Λ). But this is a proper and cohomologically smooth correspondence.",
           "match": "Reduction to the push-pull correspondence of a Demazure resolution, which is proper and cohomologically smooth."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.4.3, p. 263",
-          "excerpt": "Proposition VII.4.3. Let f : Y → X be a proper map of small v-stacks that is representable in spatial diamonds with dim.trgf < ∞. Let A ∈ D† ét(Y,Λ) with dual A∨ ∈ D■(Y,Λ). Then there is a natural isomorphism (Rf∗A)∨ ∼ = f♮A∨ .",
           "match": "Proper pushforward followed by the solid dual is relative homology of the solid dual, with its hypotheses on f and A."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.3, p. 273",
-          "excerpt": "Moreover, for any not necessarily quasicompact U, the functor Dlis(U,Λ) → Dlis(U ×Spdk SpaC,Λ) is an equivalence.",
           "match": "D_lis(Bun_G,Λ)≃D_lis(Bun_G×Spd C,Λ), used to state the restriction to D_lis(Bun_G,Λ)."
         }
       ],
@@ -1453,19 +1392,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, p. 322",
-          "excerpt": "Theorem IX.2.2. For any V ∈ RepΛ(b GI), the action of TV on Dlis(BunG,Λ) preserves all limits and colimits, and the full subcategories of compact objects, and of universally locally acyclic objects.",
           "match": "Statement: limits, colimits and compact objects are preserved, for every V∈Rep_Λ(Ĝ^I)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, proof, p. 323",
-          "excerpt": "The functor V 7→ TV is monoidal. As V is dualizable in the Satake category, with dual V ∨, it follows that TV has a left and a right adjoint, given by TV ∨,",
           "match": "Both adjoints are T_{V^∨}, from dualizability and monoidality."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.0.1(i), p. 318",
-          "excerpt": "(i)Forgetting the WI E-action, i.e. as an endofunctor of Dlis(BunG,Λ), the functor TV commutes with all limits and colimits, and preserves compact objects and universally locally acyclic objects.",
           "match": "The same statement for V∈Rep_Λ((Ĝ⋊Q)^I) after forgetting the Weil action."
         }
       ],
@@ -1512,31 +1448,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, proof, p. 323",
-          "excerpt": "Now recall that A ∈ Dlis(BunG,Λ) is universally locally acyclic if and only if for all compact B ∈ Dlis(BunG,Λ), the object RHomΛ(B,A) ∈ D(Λ) is perfect, by Proposition VII.7.9.",
           "match": "The criterion against compact objects, as the proof quotes it."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, proof, p. 323",
-          "excerpt": "Thus, the preservation of universally locally acyclic objects follows by adjointness from the preservation of compact objects.",
           "match": "Preservation follows by adjointness from the preservation of compact objects."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.9, p. 275",
-          "excerpt": "Proposition VII.7.9. Let A ∈ Dlis(BunG,Λ). Then A is universally locally acyclic if and only if for all b ∈ B(G), the pullback ib∗A to ib : Bunb G ,→ BunG corresponds under Dlis(Bunb G,Λ) ∼ = D(Gb(E),Λ) to a complex Mb of smooth Gb(E)-representations",
           "match": "The stratumwise criterion; the printed statement continues with M^K, to be read M_b^K."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VII.7.8, p. 275",
-          "excerpt": "Definition VII.7.8. A complex A ∈ Dlis(BunG,Λ) is universally locally acyclic (with respect to BunG → ∗) if the natural map",
           "match": "Universal local acyclicity for objects of D_lis(Bun_G,Λ)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem V.7.1, proof, p. 184",
-          "excerpt": "This is an isomorphism as soon as π♮(A1⊗L ΛA) ∈ D(Λ) is perfect for all compact A1. In fact, the converse is also true:",
           "match": "The step of the proof of V.7.1 (quoted for VII.7.9) giving the criterion in terms of π_♮(A_1⊗A)."
         }
       ],
@@ -1585,25 +1516,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, p. 322",
-          "excerpt": "Moreover, for the automorphism sw∗ of RepΛ(b GI) given by Proposition VI.12.1, there are natural isomorphisms DBZ(TV (A)) ∼ = Tsw∗V ∨(DBZ(A)) , RHomlis(TV (A),Λ) ∼ = Tsw∗V ∨RHomlis(A,Λ).",
           "match": "The two duality isomorphisms, with T_{sw^*V^∨}."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, proof, p. 323",
-          "excerpt": "For the duality statements, we note that, for π : BunG → ∗ the projection, there are natural isomorphisms π♮(TV (A) ■ ⊗L ΛB) ∼ = π♮(A ■ ⊗L ΛTsw∗V (B)), as follows from the definition of the Hecke operator, and Proposition VI.12.1:",
           "match": "The pairing identity (a) from which both follow."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.6, p. 274",
-          "excerpt": "Proposition VII.7.6. For any compact object A ∈ Dlis(BunG,Λ), there is a unique compact object DBZ(A) ∈ Dlis(BunG,Λ) with a functorial identification RHom(DBZ(A),B) ∼ = π♮(A ■ ⊗L ΛB) for B ∈ Dlis(BunG,Λ).",
           "match": "Bernstein–Zelevinsky duality on compact objects of D_lis(Bun_G,Λ) and its defining property."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VI.12.1, p. 239",
-          "excerpt": "Proposition VI.12.1. Under the isomorphism G V ∼ = b G with the dual group, the isomorphism sw∗ is given by the Chevalley involution, up to conjugation by b ρ(−1) ∈ b Gad(Zℓ).",
           "match": "sw^* is the Chevalley involution up to conjugation by ρ̂(−1)."
         }
       ],
@@ -1654,37 +1581,31 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.1, p. 320",
-          "excerpt": "We can associate to any extremally disconnected profinite set S the ∞-category Dlis(BunG ×S,Λ). This is a full condensed ∞-subcategory of the condensed ∞-category D■(BunG,Λ), taking any profinite S to D■(BunG ×S,Λ).",
           "match": "The condensed structure on D_lis and on D_■."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.1, p. 320",
-          "excerpt": "More concretely, this is the ∞-category of objects A ∈ D■(BunG,Λ) together with a map of condensed animated groups WI E → Aut(A).",
           "match": "Equivariant objects as objects with a map of condensed animated groups W_E^I→Aut(A)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.1, p. 320",
-          "excerpt": "We see in particular that to define D■(BunG,Λ)BWI E , we do not need to know the full structure as a condensed ∞-category. Rather, we only need the structure as an ∞-category enriched in condensed anima.",
           "match": "Only the enrichment in condensed anima is needed."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.1.1, p. 320",
-          "excerpt": "The essential image of the first functor consists of all objects A ∈ D■(BunG ×[∗/WI E],Λ) whose pullback to BunG lies in Dlis(BunG,Λ).",
           "match": "The essential image of D_lis(Bun_G,Λ)^{BW_E^I}."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.1.2, p. 320",
-          "excerpt": "Proposition IX.1.2. For A ∈ Dlis(BunG,Λ)ω and B ∈ Dlis(BunG,Λ), the condensed animated Λ-module HomDlis(BunG,Λ)(A,B) is relatively discrete over Zℓ.",
           "match": "Relative discreteness of Hom(A,B) for A compact."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.1.2, proof, p. 320",
-          "excerpt": "We claim that the restriction map RΓ( f Mb/K,B′) → RΓ([∗/K],B′) is an isomorphism, where [∗/K] ⊂ f Mb/K is the base point.",
           "match": "The step of the proof that reduces to the base point of the chart."
         }
       ],
@@ -1836,37 +1757,31 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.2.3, p. 323",
-          "excerpt": "takes image in the full subcategory D■(BunG ×[∗/WI E],Λ); moreover, all objects in the image have the property that their pullback to D■(BunG,Λ) lies in Dlis(BunG,Λ),",
           "match": "The statement: values in D_■(Bun_G×[*/W_E^I],Λ) with lisse underlying object."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.2.3, proof, p. 323",
-          "excerpt": "One can reduce to the case that V is an exterior tensor product of |I| representations Vi ∈ RepΛ(b G ⋊ Q) — one can always find a, possibly infinite, resolution by such exterior tensor products that involves only finitely many weights of b GI,",
           "match": "Reduction to exterior tensor products through a possibly infinite resolution."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.2.3, proof, p. 323",
-          "excerpt": "By Corollary VII.2.7, it suffices to see that the pullback to D■(BunG ×SpdC,Λ) lies in D■(BunG,Λ).",
           "match": "The one-leg criterion taken from Corollary VII.2.7."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary VII.2.8, p. 256",
-          "excerpt": "Corollary VII.2.8. For any small v-stack X and finite set I, pullback along X × (Div1 )I → X × [∗/WI E] induces a fully faithful functor D■(X × [∗/WI E],Λ) → D■(X × (Div1 )I ,Λ).",
           "match": "Full faithfulness of pullback to X×(Div¹)^I for solid sheaves, any small v-stack X and finite set I."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.1.1, p. 320",
-          "excerpt": "The essential image of the first functor consists of all objects A ∈ D■(BunG ×[∗/WI E],Λ) whose pullback to BunG lies in Dlis(BunG,Λ).",
           "match": "The criterion for an equivariant solid object to be lisse."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IV.7.3, p. 165",
-          "excerpt": "The equivalence certainly fails without the local constancy condition, as there are sheaves supported on proper subsets of |(Div1 )I|, like the partial diagonals.",
           "match": "Essential surjectivity holds only for locally constant objects with perfect fibres."
         }
       ],
@@ -1918,19 +1833,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "This extends by linearity uniquely to an exact RepΛ(QI)-linear monoidal functor RepΛ(b G ⋊ Q)I → D■(HckI G,Λ) : V 7→ S′ V ;",
           "match": "The kernel for general Λ is defined by unique linear extension from Z_ℓ[√q]; the comparison (a) is this uniqueness. The source does not state the comparison."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.3.1(ii), p. 257",
-          "excerpt": "(ii)The formation of f♮ commutes with restriction of coefficients along a map Λ′ → Λ.",
           "match": "Relative homology commutes with restriction of coefficients, used for (c)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 335",
-          "excerpt": "We note that to prove the theorem, we can assume that Λ is killed by power of ℓ (if ℓ divides the order of π0Z(G), replacing the left-hand side with an algebra of excursion operators), as the result for Λ = Zℓ[ √ q] implies it in general,",
           "match": "A place where the source changes coefficients for statements about Hecke operators without stating the comparison."
         }
       ],
@@ -1981,43 +1893,36 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 23.1.1, p. 216",
-          "excerpt": "a smooth group scheme G with reductive generic fiber G and connected special fiber, an element b ∈ G(L), and a collection µ1,...,µm of conjugacy classes of cocharacters Gm → GQp",
           "match": "The datum (𝒢, b, μ•): hypotheses on the integral model, b in G(L), conjugacy classes of cocharacters."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 23.1.1, p. 217",
-          "excerpt": "ιr is an isomorphism ιr : P|Y[r,∞)(S) ∼ → G × Y[r,∞)(S) for large enough r, under which ϕP gets identified with b × FrobS.",
           "match": "The framing near infinity, the fourth entry of a quadruple."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 23.1.1, p. 217",
-          "excerpt": "At all geometric rank 1 points of S, the relative position of Frob∗ S P and P at S] i is bounded by P j|S] j=S] i µj in the Bruhat order.",
           "match": "The bound, with the sum over coincident legs."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Remark 23.1.3, p. 217",
-          "excerpt": "The isomorphism class of ShtG,b,{µi} only depends on the class of b in B(G); replacing b by ϕ(y)by−1 corresponds to composing ιr with y × id, for y ∈ G(L).",
           "match": "Dependence on the class of b only; the printed σ-conjugation formula is the one corrected in the statement."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "sentence after Theorem 23.1.4, p. 217",
-          "excerpt": "already implies that Sht(G,b,µ•) is a v-sheaf.",
           "match": "The v-sheaf property, from Proposition 19.5.3."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 19.5.3, p. 180",
-          "excerpt": "The functor on PerfS sending any S0 → S to the groupoid of G-torsors on U ×S ˙ ×SpaZp S0 ˙ ×SpaZp is a v-stack.",
           "match": "Descent of 𝒢-torsors on open subsets of S ×̇ Spa Z_p."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Proposition 23.4.2, p. 222",
-          "excerpt": "We note that ιr extends to an isomorphism",
           "match": "Extension of the framing away from the Frobenius translates of the legs."
         }
       ],
@@ -2184,31 +2089,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "III.3, p. 97",
-          "excerpt": "a modification between E and E′ at D is an isomorphism E|XS\\D ∼ − − → E′ |XS\\D that is meromorphic along D.",
           "match": "Definition of a modification between two fixed G-bundles at a degree-one divisor."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "proof of Proposition IX.3.2, p. 326",
-          "excerpt": "we have to look at the moduli space M of modifications of type bounded by µ• from Eb to the trivial vector bundle, up to the action of K",
           "match": "The fibre of the Hecke correspondence over E_b and the trivial bundle, modulo K; this is the space Mod^I_{1,b,≤μ•}/K."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "proof of Theorem IX.3.1, p. 324",
-          "excerpt": "by the identification of M(G,b,µ),K,C with the space of modifications of G-torsors of type µ from the G-bundle Eb to the G-bundle E1, up to the action of K",
           "match": "The one-leg minuscule case; the direction from E_b to E_1 is the one printed."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.3, p. 219",
-          "excerpt": "admits an continuous action of the product G(Qp) × Jb(Qp), via the actions of those groups on E1 and Eb .",
           "match": "The two commuting actions through the automorphisms of the two bundles, for E = Q_p and one leg."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "proof of IX.7.2, p. 336",
-          "excerpt": "given by pushout of the standard modification of line bundles from O to O(1) via µN : Gm → G; its type is exactly µN .",
           "match": "Normalisation of types: O to O(1) has type z ↦ z."
         }
       ],
@@ -2366,43 +2266,36 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 22.6.2, p. 214",
-          "excerpt": "Then Latt(Pη) is representable by a perfectoid space étale over S. Its open image in S is the open subset Sa ⊂ S where νPη and κPη are identically 0, called the admissible locus.",
           "match": "Representability, étaleness and the admissible locus defined by ν = 0 and κ = 0."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 22.6.2, p. 214",
-          "excerpt": "Over Sa , one has a corresponding pro-étale G(Qp)-torsor Pη, and Latt(Pη) parametrizes pro-étale G(Zp)-torsors P with an identification",
           "match": "The G(Q_p)-torsor over the admissible locus and the description of Latt by 𝒢(Z_p)-lattices."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 22.6.1, p. 213",
-          "excerpt": "This construction defines an equivalence of categories between pro-étale G(Zp)-torsors on S and ϕ−1 -equivariant G-torsors on Y[0,r](S).",
           "match": "The classification of φ⁻¹-equivariant integral torsors."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§22.6, p. 213",
-          "excerpt": "We assume that G has connected fibers.",
           "match": "Standing hypothesis on the integral model."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 22.3.3, p. 209",
-          "excerpt": "Then Latt(Eη) is representable by a perfectoid space étale over S. Its image in S is the open subset Sa ⊂ S where the Newton polygon of Eη is identically 0, called the admissible locus.",
           "match": "The case of vector bundles."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 22.5.2, p. 212",
-          "excerpt": "Pro-étale G(Qp)-torsors on S, and • G-torsors on XFF,S which are trivial at every geometric point of S.",
           "match": "The equivalence used to produce the torsor ℙ_η over the admissible locus."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Theorem 22.6.2, p. 214",
-          "excerpt": "one sees that this is indeed étale over S, as fixing a trivialization of Pη, one sees that pro-étale locally on S it is the product S × G(Qp)/G(Zp).",
           "match": "Étaleness through the local product structure."
         }
       ],
@@ -2550,43 +2443,36 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.3.1, p. 218",
-          "excerpt": "The S-points of the moduli space ShtG,b,µ are in bijection with isomorphism classes of quadruples (S] ,E,α,P), where",
           "match": "The bijection of (a)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.3.1, p. 218",
-          "excerpt": "which is meromorphic along S] and bounded by µ, and finally • P is G(Zp)-lattice in the pro-étale G(Qp)-torsor corresponding to E under Theorem 22.5.2.",
           "match": "Direction of α (from E to E_b), its bound μ and the lattice."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Proposition 23.3.1, p. 218",
-          "excerpt": "thus we get an isomorphism α between E and Eb away from the image of S] in XFF,S.",
           "match": "Construction of α from a shtuka."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.3, p. 219",
-          "excerpt": "Its S-points parametrize pairs (S] ,α), where S] is an untilt of S to E, and α is an isomorphism of G-torsors",
           "match": "The infinite-level space of (b)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "proof of Theorem IX.3.1, p. 324",
-          "excerpt": "by the identification of M(G,b,µ),K,C with the space of modifications of G-torsors of type µ from the G-bundle Eb to the G-bundle E1, up to the action of K",
           "match": "The direction printed in the source, from E_b to E_1; with its Hecke operators the modification goes from E_1 to E_b."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, p. 324",
-          "excerpt": "with field of definition E|Qp and some element b ∈ B(G,µ) ⊂ B(G).",
           "match": "The condition b ∈ B(G, μ) as printed; for the tower of (G, b, μ) it is b ∈ B(G, μ⁻¹)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 24.1.1, p. 225",
-          "excerpt": "a conjugacy class µ of minuscule cocharacters Gm → GQp , and b ∈ B(G,µ−1 ), i.e., νb ≤ (µ−1 )♦",
           "match": "The Scholze–Weinstein condition b ∈ B(G, μ⁻¹)."
         }
       ],
@@ -2632,31 +2518,26 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.3.3, p. 220",
-          "excerpt": "Proposition 23.3.3. The period morphism πGM : ShtG,b,µ,K → GrG,SpdĔ,≤µ is étale.",
           "match": "Étaleness of the period morphism at every level K."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Remark 23.3.4, p. 220",
-          "excerpt": "Since GrG,SpdĔ,≤µ is a spatial diamond (Proposition 20.2.3), this implies that ShtG,b,µ,K is a locally spatial diamond.",
           "match": "Local spatiality of the finite levels."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Proposition 23.3.3, p. 220",
-          "excerpt": "The fiber of πGM over S is the space of K-lattices in Pη. This is indeed étale, as pro-étale locally on S, this fiber is the projection Sa × G(Qp)/K → S.",
           "match": "The fibre of the period map."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Proposition 23.3.3, p. 220",
-          "excerpt": "the admissible locus, through which the morphism from Sa must factor.",
           "match": "The open admissible locus of the Grassmannian."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.4, p. 221",
-          "excerpt": "which presents ShtG,b,{µi},∞ as a pro-étale G(Qp)-torsor over an open subset of a Grassmannian",
           "match": "The infinite level as a pro-étale torsor."
         }
       ],
@@ -2700,37 +2581,31 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.3, p. 219",
-          "excerpt": "where K ⊂ G(Qp) is any compact open subgroup: this will parametrize quadruples (S] ,E,α,P), where P is instead a pro-étale K-torsor, such that Pη = P ×K G(Qp) is the pro-étale G(Qp)-torsor corresponding to E.",
           "match": "Definition of the level-K space."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.3, p. 219",
-          "excerpt": "is finite étale, and a K/K0 -torsor in case K0 ⊂ K is normal. All spaces in this tower carry compatible continuous actions by Jb(Qp), since this group operates on Eb .",
           "match": "Transition maps and the action of J_b(Q_p)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.3, p. 219",
-          "excerpt": "admits an continuous action of the product G(Qp) × Jb(Qp), via the actions of those groups on E1 and Eb .",
           "match": "The two commuting actions on the limit."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "after Corollary 23.5.3, p. 224",
-          "excerpt": "of finite étale covers whose inverse limit is the G(Qp)-torsor",
           "match": "The tower and its inverse limit, for any number of legs."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§3.4, p. 824",
-          "excerpt": "This association is functorial in the tuple (G,b,μ,K), i.e. if f : G → H is a morphism of groups, we let bH := f(b), μH := f ◦ μ and we assume f(K) ⊆ KH , then we have a morphism of diamonds",
           "match": "Functoriality in the group and the level."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, p. 325",
-          "excerpt": "as K ranges over compact open subgroups of G(E), equipped with compatible étale period maps",
           "match": "The tower for a general local field E, used by HS2/general-local-field."
         }
       ],
@@ -2884,43 +2759,36 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 23.5.3, p. 224",
-          "excerpt": "in particular, ShtG,b,{µi} is a locally spatial diamond. Its open image is the admissible locus",
           "match": "Étale period map, local spatiality and the admissible locus."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 23.5.3, p. 224",
-          "excerpt": "over which there is a G(Qp)-torsor Pη. The space ShtG,b,{µi} parametrizes G(Zp)-lattices P inside Pη.",
           "match": "The torsor on the admissible locus and the lattice description."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 23.1.4, p. 217",
-          "excerpt": "Theorem 23.1.4. The moduli space ShtG,b,{µi} is a locally spatial diamond.",
           "match": "The main theorem."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.5.2, p. 223",
-          "excerpt": "is proper and representable in spatial diamonds.",
           "match": "Properness of the bounded twisted Grassmannian over the leg base."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "after Corollary 23.5.3, p. 224",
-          "excerpt": "In particular, ShtG,b,{µi} depends on G only through G and G(Zp), and for any compact open subgroup K ⊂ G(Qp), we can define",
           "match": "Independence of the model and the levels."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "proof of Proposition IX.3.2, p. 326",
-          "excerpt": "there is a natural map from M to Sht(G,b,µ•,K) that is an isomorphism away from Frobenius-twisted partial diagonals.",
           "match": "Comparison of the tower with the fibre of the Hecke correspondence."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "§23.4, p. 221",
-          "excerpt": "which presents ShtG,b,{µi},∞ as a pro-étale G(Qp)-torsor over an open subset of a Grassmannian",
           "match": "The infinite level as a torsor over the admissible locus."
         }
       ],
@@ -2969,25 +2837,21 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.2.1, p. 217",
-          "excerpt": "The moduli space ShtG,b,∅ is empty if b does not lie in the trivial class in B(G), and ShtG,1,∅ is isomorphic to the constant perfectoid space G(Qp)/G(Zp).",
           "match": "Statement (a)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Proposition 23.2.1, p. 218",
-          "excerpt": "By Theorem 22.6.2, a ϕ-equivariant G-torsor on Y(0,∞)(S) can be extended to a G-torsor on Y[0,∞)(S) if and only if its descent to XFF,S is trivial at all geometric points of S.",
           "match": "The use of the lattice theorem in the proof of (a)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 23.3.2, p. 219",
-          "excerpt": "Define a dual local shtuka datum (Ǧ,b̌,µ̌) via Ǧ = Jb the σ-centralizer of b, which is an inner form of G, b̌ = b−1 ∈ Ǧ = Jb and µ̌ = µ−1 under the identification ǦQp ∼ = GQp . Then there is a natural G(Qp)×Jb(Qp)-equivariant isomorphism",
           "match": "Statement (b): the dual datum and the equivariant isomorphism."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Corollary 23.3.2, p. 219",
-          "excerpt": "The condition that the original modification is bounded by µ gets translated into the boundedness by µ̌ = µ−1 .",
           "match": "The bound of the dual datum."
         }
       ],
@@ -3040,31 +2904,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, paragraph after the proof of Theorem IX.3.1, p. 325",
-          "excerpt": "We start with a general E now. As in [SW20, Lecture XXIII], for any collection {µi}i of conjugacy classes of cocharacters with fields of definition Ei/E and b ∈ B(G), there is a tower of moduli spaces of local shtukas",
           "match": "The only statement of the tower for general E: asserted by reference to Lecture 23 of Scholze–Weinstein, together with compatible étale period maps to the twisted Grassmannian; no construction or proof for general E."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, proof of Proposition IX.3.2, p. 326",
-          "excerpt": "Indeed, Sht(G,b,µ•,K) parametrizes G-torsors over YS together with an isomorphism with their Frobenius pullback away from the given points, together with a level-K-trivialization of the G-bundle near {π = 0}.",
           "match": "The moduli description for general E: a Frobenius G-torsor on Y_S with a level-K structure near π = 0."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 23.5.1, p. 223",
-          "excerpt": "Definition 23.5.1. The functor Grtw G,SpdE1×...×SpdEm,≤µ• → SpdE1 × ... × SpdEm parametrizes over a perfectoid space S of characteristic p with untilts S] i = Spa(R] i,R]+ i ), i = 1,...,m, over Ei, the set of G-torsors Pη on S ˙ ×SpaQp together with an isomorphism",
           "match": "The twisted Grassmannian for E = Q_p; (1) is this definition with S ×̇ Spa Q_p replaced by Y_S."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 23.5.3 and the paragraph after it, p. 224",
-          "excerpt": "for any compact open subgroup K ⊂ G(Qp), we can define ShtG,b,{µi},K as parametrizing K-lattices P inside P",
           "match": "Levels as K-lattices in the G(Q_p)-torsor over the admissible locus; the definition used in (3)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 11.1.2, pp. 90–91",
-          "excerpt": "Definition 11.1.2. A local shtuka of rank n over an adic space S/SpaFp with legs x1,...,xm ∈ b X(S) is a rank n vector bundle E over S ×Fp b X together with an isomorphism",
           "match": "The equal-characteristic model case only: G = GL_n and E = F_p((T)), a vector bundle on S ×_{F_p} Spf F_p[[T]] with a meromorphic Frobenius; no framing by b, no bound and no level structure."
         }
       ],
@@ -3202,49 +3061,41 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 24.1.1, p. 225",
-          "excerpt": "Definition 24.1.1. A local Shimura datum is a triple (G,b,µ) consisting of a reductive group G over Qp, a conjugacy class µ of minuscule cocharacters Gm → GQp , and b ∈ B(G,µ−1 )",
           "match": "The datum: G reductive over Q_p, μ minuscule, [b] ∈ B(G,μ⁻¹)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 24.1.2, p. 225",
-          "excerpt": "Then there is a trivialization of Eb|XFF,C[ \\SpecC whose relative position at SpecC is given by µ if and only if b ∈ B(G,µ−1 ).",
           "match": "Non-emptiness criterion, quoted from Rapoport; it is the reason for the condition on b."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "24.1, after Proposition 24.1.2, p. 225; Definition 24.1.3, p. 226",
-          "excerpt": "for a unique smooth rigid space MG,b,µ,K over Ĕ with an étale map towards F`G,µ,Ĕ. Moreover, the transition maps are finite étale.",
           "match": "The rigid space, its uniqueness together with the étale map to the flag variety, and the transition maps."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 10.4.2, p. 81",
-          "excerpt": "The functor X 7→ X♦ from analytic pre-adic spaces over Zp to diamonds induces an equivalence of sites",
           "match": "The equivalence of étale sites used to construct M_{G,b,μ,K} from the étale period map."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 19.4.2, pp. 176–177",
-          "excerpt": "For any µ, there is a natural Bialynicki-Birula map πµ : Grµ → F`♦ G,µ . If µ is minuscule, the Bialynicki-Birula map is an isomorphism.",
           "match": "Statement (1), over an algebraically closed field C."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lemma 19.1.4, p. 171",
-          "excerpt": "Moreover, GrG is partially proper.",
           "match": "Partial properness of the Grassmannian, the first input of step 4."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, before Theorem IX.3.1, p. 324",
-          "excerpt": "In [SW20, Lecture 24], we construct a tower of partially proper smooth rigid-analytic spaces",
           "match": "Partial properness is asserted here by reference to Lecture 24 of Scholze–Weinstein, which does not state it."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "24.2, after the proof of Theorem 24.2.5, p. 229",
-          "excerpt": "between the generic fiber of the Rapoport-Zink space and the local Shimura variety",
           "match": "The comparison with Rapoport–Zink towers used in the Lubin–Tate test."
         }
       ],
@@ -3407,55 +3258,46 @@
         {
           "sourceId": "HK23v2",
           "locator": "Proposition 7.3.3, p. 43",
-          "excerpt": "is open in Gr[µ],Q̆p([µ]) and non-empty if and only if [b] ∈ B(G,[µ−1 ])",
           "match": "Non-emptiness of the admissible part of the cell; the sentence on a rigid analytic point that follows is printed for the whole cell and is meant for the admissible locus."
         },
         {
           "sourceId": "HK23v2",
           "locator": "proof of Proposition 7.3.3, p. 43",
-          "excerpt": "In this case, non-emptiness implies [b] ∈ B(G,[µ−1 ]) by [7, Proposition 3.5.3] and, in the other direction, if [b] ∈ B(G,[µ−1 ]), then the existence of a rigid analytic point follows from [38, Proposition 3.1]",
           "match": "The reductive case is by reference: Caraiani–Scholze 3.5.3 and Rapoport–Viehmann 3.1."
         },
         {
           "sourceId": "HK23v2",
           "locator": "Proposition 7.3.4 and its proof, pp. 43–44",
-          "excerpt": "the argument given there first establishes that the open cells Grb−adm [µ] are connected then deduces it for the closed cells Grb−adm ≤[µ] by dimension considerations",
           "match": "Connectedness of the admissible part of the cell is read off from the proof of Gleason–Lourenço."
         },
         {
           "sourceId": "GL22v2",
           "locator": "Theorem 1.1, p. 3",
-          "excerpt": "Theorem 1.1. The map Grb G,µ → SpdĔ has connected geometric fibers. Moreover, Grb G,µ ⊂ GrG,µ is geometrically dense as spaces over Spd",
           "match": "Connected geometric fibres and density, for the admissible locus of the closed Schubert variety."
         },
         {
           "sourceId": "GL22v2",
           "locator": "Theorem 3.1, p. 10",
-          "excerpt": "Theorem 3.1. If b ∈ B(G,µ), then Grb G,µ is dense in GrG,µ and connected.",
           "match": "The same over an algebraically closed C, with the hypothesis b ∈ B(G,μ) in their orientation."
         },
         {
           "sourceId": "GL22v2",
           "locator": "proof of Theorem 3.2, p. 10",
-          "excerpt": "We consider the Schubert cell Gr◦ G,µ ⊂ GrG,µ. Since dimℓ(GrG,µ \\ Gr◦ G,µ) < d it suffices to prove that dimℓ(Gr (g,b) G,µ ∩ Gr◦ G,µ) < d.",
           "match": "The reduction to a dimension bound on the cell."
         },
         {
           "sourceId": "GL22v2",
           "locator": "Introduction, p. 4",
-          "excerpt": "For U to be connected, it suffices that dim(Z) < dim(X)",
           "match": "The connectedness criterion, quoted from Hansen."
         },
         {
           "sourceId": "GL22v2",
           "locator": "Lemma 3.3, p. 12",
-          "excerpt": "Lemma 3.3. The geometric fibers of (3.7) are either Autunip Fil (Eb)-torsors or empty.",
           "match": "The fibre description used in the non-basic case."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 24.1.1, p. 225",
-          "excerpt": "and b ∈ B(G,µ−1 ), i.e., νb ≤ (µ−1 )♦",
           "match": "The Berkeley orientation of the condition on b."
         }
       ],
@@ -3501,37 +3343,31 @@
         {
           "sourceId": "GLX26-published",
           "locator": "Proposition 3.12, p. 828",
-          "excerpt": "The G(ℚp)-action on π0(Sht(G,b,μ,∞) ×Spdℂp) is transitive.",
           "match": "The statement, for all μ; (P2) proves it for minuscule μ and (P3) reduces the general case to one input."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "proof of Proposition 3.12, p. 828",
-          "excerpt": "This follows from Lemma 3.2 and the identity of v-sheaves",
           "match": "The printed proof. Its use of the component formula of Lemma 3.2 for the non-compact group G(Q_p) is not valid; steps 1–4 replace it."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "Lemma 3.2, p. 820",
-          "excerpt": "Suppose that K acts on ℱ and that 𝒢 = ℱ/K. Then |𝒢| = |ℱ|/K and π0(𝒢) = π0(ℱ)/K.",
           "match": "The first equality is used in step 4. The second holds for profinite K by (T) and fails for K = Z."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "Theorem 3.11, p. 828",
-          "excerpt": "The b-admissible locus Grb μ ×Spdℂp is connected and dense within",
           "match": "Connectedness of the quotient A/H, from Gleason–Lourenço."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "Theorem 3.9, p. 826",
-          "excerpt": "For any parahoric Kp ⊆ G(ℚp) and any field extension Ĕ ⊆ F ⊆ ℂp, the map π0(sp) : π0(Sht(G,b,μ,Kp) ×SpdF) ∼ − → π0(X 𝒦p μ (b)) (3.12) is bijective.",
           "match": "This gives open components at parahoric level for all μ, the components of an affine Deligne–Lusztig variety being open; it rests on integral models of the spaces of shtukas and their local models."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "24.1, after Proposition 24.1.2, p. 225",
-          "excerpt": "for a unique smooth rigid space MG,b,µ,K over",
           "match": "For minuscule μ the finite levels are rigid spaces, whose connected components are open."
         }
       ],
@@ -3579,19 +3415,16 @@
         {
           "sourceId": "GLX26-published",
           "locator": "§3.6, p. 829",
-          "excerpt": "In general, the map (3.18) is not an isomorphism (it is an isomorphism only when μ is minuscule), but it always induces a bijection on classical points, i.e. finite extensions F of Ĕ (see for example [55, Theorem 5.2]).",
           "match": "Statements (a), (b) and (e); (b) is given by reference to Viehmann."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§3.6, p. 829",
-          "excerpt": "denote the weakly admissible (or equivalently, semistable) locus inside the flag variety [6, §5], and let Gr◦,b μ := Gr◦ μ ∩Grb μ. By [4], we have a bijection BB : Gr◦,b μ (F) ∼ = Fladm μ (F) for all finite extensions F of",
           "match": "Statement (c), by reference to Colmez–Fontaine; the hypothesis b ∈ B(G,μ) is the standing one of the paper."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 19.4.2, pp. 176–177",
-          "excerpt": "For any µ, there is a natural Bialynicki-Birula map πµ : Grµ → F`♦ G,µ . If µ is minuscule, the Bialynicki-Birula map is an isomorphism.",
           "match": "The Białynicki-Birula map and statement (a)."
         }
       ],
@@ -3640,43 +3473,36 @@
         {
           "sourceId": "GLX26-published",
           "locator": "Definition 3.14, p. 829",
-          "excerpt": "A morphism f : G → H is called an ad-isomorphism if f sends the center of G to the center of H and induces an isomorphism of adjoint groups.",
           "match": "Definition of ad-isomorphism."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "Proposition 6.6(1), p. 849",
-          "excerpt": "We have a canonical identification of diamonds Sht(H,bH ,μH ,∞) ∼ = Sht(G,b,μ,∞)× G(ℚp) H(ℚp). (6.4)",
           "match": "Statement (3); the printed identity omits the base change to the reflex field of μ."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "proof of Proposition 6.6(1), Step 1, p. 850",
-          "excerpt": "there is an obvious proper map Grμ → GrμH of spatial dia- monds. Therefore, to prove that it is an isomorphism, it suffices to prove bijectivity on points",
           "match": "Statement (1), with the bijectivity on points left to a reference."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "proof of Proposition 6.6(1), Step 2, p. 850",
-          "excerpt": "This ultimately boils down to the fact that an element e ∈ B(G) is basic if and only if f(e) ∈ B(H) is basic, which holds because centrality of the Newton point νe can be checked after applying an ad-isomorphism.",
           "match": "Statement (2); the argument needs κ of the modified bundle to vanish, that is b ∈ B(G,μ)."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "proof of Proposition 6.6(1), Step 3, p. 850",
-          "excerpt": "extends to a map of H(ℚp)-torsors Sht(G,b,μ,∞) × G(ℚp) H(ℚp) → Sht(H,bH ,μH ,∞), (6.6) and any map of torsors is an isomorphism, the conclusion follows.",
           "match": "Statement (3): a map of H(Q_p)-torsors is an isomorphism."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§1, p. 807; repeated in Theorem 6.1, p. 845",
-          "excerpt": "Assume b lies in the Kottwitz set B(G, 𝝁).",
           "match": "The standing hypothesis of the paper, under which Proposition 6.6 is stated; Theorem 6.1 repeats it as \"Suppose that b ∈ B(G,𝝁)\"."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "proof of Proposition 6.7, p. 851",
-          "excerpt": "and we have an identification (see proof of Proposition 6.6) Grb μ ×E SpdẼ = Grb̃ μ̃.",
           "match": "The base change to the larger reflex field, written out where the proposition is applied to a z-extension."
         }
       ],
@@ -3720,31 +3546,26 @@
         {
           "sourceId": "GLX26-published",
           "locator": "Proposition 6.4, p. 848",
-          "excerpt": "Suppose that b ∈ B(T,𝝁). The following hold:",
           "match": "The hypothesis of the torus statement."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "Proposition 6.4(2) and the paragraph after it, pp. 848–849",
-          "excerpt": "Also, T◦ = T(ℚp) and Sht(T,b,μ,∞) × Spdℂp is a T(ℚp)-torsor over Spdℂp (see for example [9, Lemma 3.10]).",
           "match": "Part (1) after base change to C_p, given with a reference."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§3.4, ¶8, (3.6), p. 824",
-          "excerpt": "This association is functorial in the tuple (G,b,μ,K), i.e. if f : G → H is a morphism of groups, we let bH := f(b), μH := f ◦ μ and we assume f(K) ⊆ KH , then we have a morphism of diamonds",
           "match": "Part (3), with the condition f(K) ⊆ K_H."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§3.4, (3.7), p. 824",
-          "excerpt": "is the natural quotient map, and KH = det(K) =: Kab",
           "match": "Part (4): the level of the determinant map is det(K)."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "Lemma 3.6, p. 824",
-          "excerpt": "Suppose G = G1 ×G2, b = (b1,b2), μ = (μ1,μ2) and 𝒦p = 𝒦1 p ×𝒦2 p. Then X 𝒦p μ (b) = X 𝒦1 p μ1 (b1)×X 𝒦2 p μ2 (b2). Proof This follows directly from the definition.",
           "match": "The product statement of the source is for affine Deligne–Lusztig varieties; part (2) is its analogue for shtukas, proved in step 2."
         }
       ],
@@ -3803,25 +3624,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, definition before Theorem IX.3.1, p. 324",
-          "excerpt": "where U ⊂ M(G,b,µ),K,C runs through quasicompact open subsets, and one defines RΓc(U,Zℓ) =",
           "match": "Huber's convention: colimit over quasicompact opens U of the limit over m of RΓ_c(U,Z/ℓ^m)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, paragraph before Proposition IX.3.2, p. 326",
-          "excerpt": "By Proposition VII.5.2, with torsion coefficients",
           "match": "f_{K♮}S′_W agrees with Rf_{K!}S_W for torsion coefficients and is defined in general."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.5.2, p. 265",
-          "excerpt": "Assume that A ∈ DULA(X/S,Λ) has bounded Tor-amplitude. Let Z/nZ",
           "match": "The hypotheses (universally locally acyclic, bounded Tor-amplitude) of the comparison f_♮(D(A)^∨⊗B)≃Rf_!(A⊗B)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.3.1, p. 324",
-          "excerpt": "As the left-hand side is perfect, it is given by its limit over reductions modulo ℓm.",
           "match": "The ℓ-adic limit is taken on each quasicompact open, where the complex is perfect."
         }
       ],
@@ -4001,19 +3818,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, paragraph before Proposition IX.3.2, p. 326",
-          "excerpt": "One can uniquely extend over these Frobenius-twisted partial diagonals to universally locally acyclic, necessarily perverse, sheaves, as in the discussion of the fusion product.",
           "match": "Existence and uniqueness of S_W on the twisted Grassmannian; the next sentences define its pullback to Sht_K and S′_W=D(S_W)^∨."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.3.2, p. 326",
-          "excerpt": "is equipped with partial Frobenii, thus descends to an object of",
           "match": "The partial Frobenius structure and its equivalence with descent to ∏_iSpd F̆_i/φ_i^Z."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 23.4.1, p. 221",
-          "excerpt": "it is the pullback of the convolution Beilinson-Drinfeld Grassmannian",
           "match": "The charts of the twisted Grassmannian around Frobenius-twisted diagonals, on which S_W is the convolution kernel."
         }
       ],
@@ -4187,31 +4001,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Proposition IX.3.2, p. 326",
-          "excerpt": "there is a natural map from M to Sht(G,b,µ•,K) that is an isomorphism away from Frobenius-twisted partial diagonals",
           "match": "The comparison of the Hecke fibre ℳ with the shtuka space; the sentences before it state the key observation f_{K♮}S′_W=T_W(j_![c-Ind_KΛ]) restricted to Bun_G^b. The source writes the map from ℳ to Sht, while the construction in its next sentences goes from Sht to ℳ, the direction used here."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Proposition IX.3.2, p. 327",
-          "excerpt": "W admits natural partial Frobenius operators. The rest of the proof is now as before.",
           "match": "The partial Frobenii of f_{K♮}S′_W are obtained from the comparison."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.3.1, p. 324",
-          "excerpt": "But this is, up to shift again, precisely fK♮Zℓ, by the identification of M(G,b,µ),K,C with the space of modifications of G-torsors of type µ from the G-bundle Eb to the G-bundle E1",
           "match": "The one-leg minuscule case; the shift is [−d](−d/2)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.7.3, proof of Theorem IX.7.4, p. 338",
-          "excerpt": "is hidden inside the normalization of the perverse sheaf corresponding to the standard representation.",
           "match": "The shift [n−1] and twist ((n−1)/2) for the Lubin–Tate tower, and the convention that T_std integrates over modifications O(−1/n)⊂E."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.3.1, p. 218",
-          "excerpt": "which is meromorphic along S] and bounded by µ, and finally",
           "match": "Sht_{G,b,μ} parametrises modifications of a geometrically trivial bundle to E^b bounded by μ, with a lattice."
         }
       ],
@@ -4261,25 +4070,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, before Theorem IX.3.1, p. 324",
-          "excerpt": "Following Huber [Hub98], one defines",
           "match": "Huber's compactly supported cohomology with Z_ℓ-coefficients: colimit over quasicompact opens of the limit over m."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.3.1, p. 324",
-          "excerpt": "As the left-hand side is perfect, it is given by its limit over reductions modulo ℓm.",
           "match": "The identification Rf_{K!}Rf_K^!Z_ℓ|_U=f_{K♮}Z_ℓ|_U by VII.5.2 and the passage to the ℓ-adic limit on each quasicompact U."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 10.4.2, p. 81",
-          "excerpt": "from analytic pre-adic spaces over Zp to diamonds induces an equivalence of sites",
           "match": "The equivalence of étale sites of a rigid space and its diamond."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "24.1, after Proposition 24.1.2, p. 225",
-          "excerpt": "for a unique smooth rigid space MG,b,µ,K over Ĕ with an étale map towards",
           "match": "The smooth rigid space M_{G,b,μ,K} whose diamond is Sht_{G,b,μ,K}."
         }
       ],
@@ -4324,25 +4129,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.3.1, p. 324",
-          "excerpt": "The complex RΓc(M(G,b,µ),K,C,Zℓ) is naturally a complex of smooth Gb(Qp)-representations, and, if K is pro-p, a compact object in D(Gb(Qp),Zℓ). Moreover, the action of WE is continuous.",
           "match": "The theorem; E in the source is the field of definition of μ, written F here."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, sentence after Theorem IX.3.1, p. 324",
-          "excerpt": "By descent, this is true even for all K (not necessarily pro-p).",
           "match": "Finite generation of each H^i_c for all K, part (4)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, first paragraph, p. 324",
-          "excerpt": "with field of definition E|Qp and some element b ∈ B(G,µ) ⊂ B(G).",
           "match": "The datum as printed in the source: G over Q_p, μ minuscule, b∈B(G,μ)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Definition 24.1.1, p. 225",
-          "excerpt": "A local Shimura datum is a triple (G,b,µ) consisting of a reductive group G over Qp, a conjugacy class µ of minuscule cocharacters",
           "match": "The normalisation b∈B(G,μ⁻¹) of the tower M_{G,b,μ,K} used in the statement."
         }
       ],
@@ -4386,19 +4187,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.3.2, p. 326",
-          "excerpt": "and its restriction to D(Gb(E),Λ) is compact. In particular, for any admissible representation ρ of",
           "match": "The compactness assertion; the proposition places no condition on K, and the statement here adds the pro-p hypothesis of Theorem IX.3.1."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Proposition IX.3.2, p. 327",
-          "excerpt": "W admits natural partial Frobenius operators. The rest of the proof is now as before.",
           "match": "The proof is that of Theorem IX.3.1, which uses that K is pro-p."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.4, p. 273",
-          "excerpt": "is compact if and only if it has finite support and ib∗A",
           "match": "Stalks of compact objects are compact; compact objects of D(G_b(E),Λ) are generated by compact inductions from open pro-p subgroups."
         }
       ],
@@ -4457,31 +4255,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, after the proof of Theorem IX.3.1, p. 325",
-          "excerpt": "In fact, as Tµ is left adjoint to Tµ∨, we see that this is (up to shift) given by",
           "match": "The level colimit of RHom is i^{1*}T_{μ^∨}(Ri^b_*[ρ]); the shift is [d](d/2) for RΓ_c and none for C_K."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, p. 325",
-          "excerpt": "Assuming again that ρ is admissible, one can pull through Verdier duality,",
           "match": "The duality formula; as printed it is exact for basic b."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, p. 325",
-          "excerpt": "Being also admissible, it is then of finite length by Howe’s theorem [Ren10, VI.6.3].",
           "match": "The finite length statement for Λ=Q̄_ℓ and its proof."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.3.2, p. 326",
-          "excerpt": "Taking the colimit over K, this gives rise to a complex of admissible G(E)-representations",
           "match": "Perfectness of RHom and admissibility of the level colimit for general bounds; the next sentence is the assertion for compact ρ."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.9, p. 275",
-          "excerpt": "Then A is universally locally acyclic if and only if for all b ∈ B(G), the pullback ib∗A",
           "match": "Universally locally acyclic means admissible stalks; used for admissibility of X(ρ)."
         }
       ],
@@ -4534,13 +4327,11 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "23.3, text between Proposition 23.3.1 and Corollary 23.3.2, p. 219",
-          "excerpt": "is finite étale, and a K/K0 -torsor in case K0 ⊂ K is normal.",
           "match": "The level maps are finite étale, and torsors for normal subgroups (one leg). The trace identities (1)–(5) are not stated in the sources; they are proved from the finite étale formalism of the six operations."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "After Corollary 23.5.3, p. 224",
-          "excerpt": "of finite étale covers whose inverse limit is the G(Qp)-torsor",
           "match": "The same for several legs."
         }
       ],
@@ -4590,43 +4381,36 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Theorem 24.2.5, p. 227",
-          "excerpt": "Here, GLn denotes the group scheme over Zp, so the right-hand side corre- sponds to level GLn(Zp).",
           "match": "The GL_n comparison at level GL_n(Z_p)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proof of Theorem 24.2.5, p. 227",
-          "excerpt": "is the covariant rational Dieudonné module of X, on which Frobenius acts as bϕ.",
           "match": "b is the Frobenius of the covariant Dieudonné module."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "12.1, footnote 1, p. 99",
-          "excerpt": "Here, we are using the covariant normalization of Dieudonné theory that sends Qp/Zp to (W(k),ϕ) and µp∞ to (W(k),p−1ϕ).",
           "match": "The normalisation of covariant Dieudonné theory in the lectures: slopes in [−1,0]."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "After the proof of Theorem 24.2.5, p. 229",
-          "excerpt": "between the generic fiber of the Rapoport-Zink space and the local Shimura variety.",
           "match": "The isomorphism of towers over all levels K."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "24.3, before Definition 24.3.3, p. 230",
-          "excerpt": "Finally, we assume that G is connected and G is parahoric, and we fix an element b ∈ B(G,µ−1",
           "match": "The hypotheses of the EL/PEL comparison."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 24.3.5, p. 231",
-          "excerpt": "of smooth rigid spaces over Ĕ, identifying the natural G(Zp)-torsors.",
           "match": "The EL/PEL comparison."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Appendix to Lecture 21, after Remark 21.6.7, p. 200",
-          "excerpt": "The conditions imposed in [RZ96, Definition 3.18] translate into the following condition on µ.",
           "match": "The conditions on μ in (2): weights 0 and 1 on V, and c∘μ the identity in the PEL case; p. 230 refers to them as the conditions of Section 21.4."
         }
       ],
@@ -4676,43 +4460,36 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.2.4, p. 323",
-          "excerpt": "Endowing the stable Zℓ-linear ∞-category Dlis(BunG,Λ)ω with the rela- tively discrete condensed structure, the Hecke action defines exact RepΛ(QI)-linear monoidal func- tors",
           "match": "The functor itself: exact, Rep_Λ(Q^I)-linear, monoidal, with target End_Λ(D_lis(Bun_G,Λ)^ω)^{BW_E^I}, 'functorially in I'."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.0.1(ii), p. 318",
-          "excerpt": "As a functor of V , it induces an exact RepΛ(QI)-linear monoidal functor",
           "match": "Summary statement; the next lines describe the target as W_E^I-equivariant objects of the condensed ∞-category of endofunctors 'equipped with the trivial W_E^I-action'."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.0.1(iii) and the paragraph after it, p. 318",
-          "excerpt": "Varying also I, the functors of (ii) are functorial in I.",
           "match": "Functoriality in I."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "paragraph after Theorem IX.0.1, p. 318",
-          "excerpt": "the functors are then required to lift to the total space of these coCartesian fibrations.",
           "match": "The coherent form of functoriality in I; the sentence does not say that coCartesian edges are preserved, nor which maps of finite sets act how."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Section VI.9, p. 226",
-          "excerpt": "For any map f : I → J of finite sets, there is a natural monoidal functor",
           "match": "Finite-set maps of the Satake categories for arbitrary maps, which gives unit insertion at legs outside the image."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Section VI.9, p. 227",
-          "excerpt": "where the lower functor is pullback under",
           "match": "Fibre functors intertwine the finite-set maps with restriction along W_E^J → W_E^I."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.5.1, proof, p. 328",
-          "excerpt": "then it also acts trivially on TV ⊗W (A) = TV (TW (A)) = TW (TV (A))",
           "match": "The source's use of case (4): T_{V⊠W} ≅ T_V∘T_W ≅ T_W∘T_V equivariantly for W_E^{I⊔I}."
         }
       ],
@@ -4761,31 +4538,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, proof, p. 323",
-          "excerpt": "The functor V 7→ TV is monoidal. As V is dualizable in the Satake category, with dual V ∨, it follows that TV has a left and a right adjoint, given by TV ∨",
           "match": "The adjunctions whose units and counits are the images of coev and ev; the source states them for V ∈ Rep_Λ(Ĝ^I), with the Weil action forgotten, and does not write out triangle identities."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VIII.4.2 and the construction after it, p. 291",
-          "excerpt": "Now consider excursion data D = (I,V,α,β,(γi)i∈I). These give rise to an endomorphism of the identity functor of C, as follows.",
           "match": "The general creation and annihilation maps T_α and T_β and their composite with the Weil elements."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VIII.4.2, p. 291",
-          "excerpt": "is the restriction to the diagonal copy of",
           "match": "α and β are equivariant only for the diagonal Ĝ, so T_α and T_β are maps of underlying endofunctors."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.6.5, proof, p. 333",
-          "excerpt": "It is enough to compute the excursion operators corresponding to I = {1,2}, V = std ⊠ std∨ and the tautological maps α : 1 → std ⊗ std∨ and β : std ⊗ std∨ → 1.",
           "match": "The dual-leg pair (create, annihilate′) for the standard character of G_m, and its value on E^×."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "paragraph after Theorem IX.0.1, p. 318",
-          "excerpt": "the functors are then required to lift to the total space of these coCartesian fibrations.",
           "match": "Functoriality along {1,2} → {∗}, which gives the two-leg form."
         }
       ],
@@ -4968,37 +4740,31 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.6.1, proof, p. 331",
-          "excerpt": "This identification is functorial in V ′ and I, and is over BunG ×(Div1)I, hence implies the desired equality of excursion operators.",
           "match": "(c): the displayed chain π♮T_{V′}(π*A) ≅ … = T_V(A ⊗ π♮Λ) directly above this sentence, natural in V′ and I."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.6.1, proof, p. 331",
-          "excerpt": "The first map is locally (over BunG′) isomorphic to the map GrI G′ → GrI G and hence pushforward takes SV ′ to the pullback of SV",
           "match": "(a): the factorisation of π_H and the local comparison of kernels."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.6.1, proof, p. 331",
-          "excerpt": "Now the projection formula shows",
           "match": "(b): the display π_{H♮}S′_{V′} ≅ h_1*π♮Λ ⊗ S′_V follows this sentence."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.6.1, proof, p. 331",
-          "excerpt": "We are interested in computing an endomorphism of π∗A; in particular, it is enough to compute",
           "match": "Why the source applies π♮ instead of stating (d)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.3.1, p. 257",
-          "excerpt": "Let f : Y → X be any map of small v-stacks.",
           "match": "♮-pushforward for arbitrary maps, with the projection formula (i) and base change (iii) used in (b)–(d)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem VI.11.1, proof, p. 237",
-          "excerpt": "is an isomorphism when restricted to each connected component, inducing an isomorphism",
           "match": "The one-leg model for step (a): for G of rank one the map Gr_{G,Div¹} → Gr_{G_ad,Div¹} is an isomorphism on each connected component. The passage states this for G → G_ad and a single leg only."
         }
       ],
@@ -5048,19 +4814,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.6.2, proof, p. 331",
-          "excerpt": "The statement can be checked using excursion operators, and the proof is a straight- forward diagram chase, noting that everything decomposes into products.",
           "match": "The whole proof in the source; (a) and (b) spell out the decomposition of Bun_G, Hck^I_G, kernels and operators."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.10, p. 276",
-          "excerpt": "these objects form a class of compact generators, and for all further objects",
           "match": "(c): compact generation by exterior products and the Künneth formula for Hom; the statement prints D_ét(Bun_G,Λ) where D_lis(Bun_G,Λ) is meant."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.3.1, p. 257",
-          "excerpt": "Let f : Y → X be any map of small v-stacks.",
           "match": "Base change and projection formula for ♮, giving the Künneth formula used in (b)."
         }
       ],
@@ -5111,19 +4874,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.6.3, proof, p. 332",
-          "excerpt": "Geometrically, this procedure amounts to the commutative diagram",
           "match": "(b), (c): the diagram, followed by 'and taking ψ_* on sheaves'; the procedure is inflation to (Ĝ⋊W_{E′})^I and induction to (Ĝ⋊W_E)^I, described in the sentence before."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.6.3, proof, p. 332",
-          "excerpt": "is a closed immersion (compatibly with a similar closed immersion of Beilinson–Drinfeld Grassman- nians). Now the claim follows from a diagram chase.",
           "match": "(b): the closed immersion Hck^I_{G′} → Hck^I_G×_{(Div¹)^I}(Div′¹)^I; the rest of the proof is this one sentence."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.6.3, statement, p. 331",
-          "excerpt": "Then there are canonical identifications",
           "match": "(a): Bun_{G′} ≅ Bun_G; the sentence continues with the identifications of cocycle stacks and excursion algebras, which are not used for (a)–(d)."
         }
       ],
@@ -5180,43 +4940,36 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 337",
-          "excerpt": "This means that Rg!SV arises via pullback from",
           "match": "(b): the source's statement that Rg_!S_V is the pullback of CT_P(S_V) ∈ D_ét(𝓗ck^I_M,Λ); it holds for the Grassmannian of the second bundle relative to the first with the switched Satake sheaf."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 337",
-          "excerpt": "Up to the shift [degP ], this agrees with",
           "match": "(b): comparison with the Satake sheaf of V restricted to (M̂⋊Q)^I, the restriction involving the cyclotomic twist; in the normalisation in which types are positions of the first bundle relative to the second, the shift and the twist have the opposite sign."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 336",
-          "excerpt": "and thus parametrizes modifica- tions from an M-bundle to a P-bundle.",
           "match": "The definition of Hck^I_{M,P} as the fibre product Hck^I_P×_{Bun_P}Bun_M under the three-row diagram."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 336",
-          "excerpt": "we can pick N large enough so that any modification of EbN to itself, of type bounded by V , is automatically compatible with the Harder–Narasimhan reduction to P.",
           "match": "(c): the instability hypothesis on the stratum, depending on V."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 336",
-          "excerpt": "noting that on the support of A′ N, the map π : BunP → BunM is (cohomologically) smooth, so Rπ! is defined on A′ N (although π is a stacky map).",
           "match": "(c): B_N = Rπ_!A′_N and A′_N = Rψ_!B_N on one stratum; the displayed computation follows on p. 337."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2, proof, p. 335",
-          "excerpt": "We note that to prove the theorem, we can assume that Λ is killed by power of ℓ",
           "match": "The computation is made with torsion coefficients and étale sheaves."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VI.7.13, p. 223",
-          "excerpt": "These functors are compatible with composition, i.e. if P ′ ⊂ P is a further parabolic with image",
           "match": "CT_P[deg_P] and its compatibility with nested parabolics."
         }
       ],
@@ -5256,25 +5009,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.2.4, p. 323",
-          "excerpt": "Endowing the stable Zℓ-linear ∞-category Dlis(BunG,Λ)ω with the rela- tively discrete condensed structure, the Hecke action defines exact RepΛ(QI)-linear monoidal func- tors",
           "match": "The family on compact objects with its condensed structure. The corollary says nothing about tensor generators."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.5.1, proof, p. 328",
-          "excerpt": "then it also acts trivially on TV ⊗W (A) = TV (TW (A)) = TW (TV (A))",
           "match": "(E1)–(E3) as the source uses them."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.5.1, proof, p. 328",
-          "excerpt": "is a ⊗-generator, it follows that it suffices that P acts trivially on TV (A).",
           "match": "The reduction to a tensor generator, which consumes (E3) and (E4)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition IX.5.1, proof, p. 328",
-          "excerpt": "as for any relatively discrete condensed animated Zℓ-algebra R with a map Zℓ[WE] → R, the map factors over Zℓ[WE/P] for some P.",
           "match": "Where the relatively discrete condensed structure of End(T_V(A)) is used."
         }
       ],
@@ -5315,37 +5064,31 @@
         {
           "sourceId": "GLX26-published",
           "locator": "§3.5, p. 828",
-          "excerpt": "Moreover, there is a (universal) G(ℚp)- torsor 𝕃b over Grb μ, such that for each finite extension K over Ĕ and x ∈ Grb μ(K), x∗𝕃b is a crystalline representation associated to the isocrystal with G-structure de- fined by b",
           "match": "The torsor 𝕃_b and its pullback to points over finite extensions; the crystalline property is given by reference."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§3.5, p. 828",
-          "excerpt": "is the moduli space of trivializations of 𝕃b. The first author",
           "match": "Statement (2): the infinite level is the space of trivialisations of 𝕃_b."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "proof of Proposition 23.3.3, p. 220",
-          "excerpt": "corresponds via Theorem 22.5.2 to a pro-étale G(Qp)-torsor Pη on Sa . The fiber of πGM over S is the space of K-lattices in P",
           "match": "The pro-étale G(Q_p)-torsor on the admissible locus and the finite levels as K-lattices."
         },
         {
           "sourceId": "HK23v2",
           "locator": "§7.2, after Definition 7.2.2, p. 42",
-          "excerpt": "then the filtration on (ωIsoc ◦ G) ⊗Q̆p O (this is the Hodge filtration) has type [µ−1 ].",
           "match": "Normalisation of the types in (4): Hodge filtration of type μ⁻¹; the next sentence gives type μ for the Hodge–Tate filtration."
         },
         {
           "sourceId": "HK23v2",
           "locator": "proof of Theorem 7.2.3, p. 42",
-          "excerpt": "the Galois representation attached to the rigid analytic admissible pair at a classical point is de Rham as it is crystalline by I.Theorem 5.5.1.",
           "match": "The crystalline property at classical points, by reference to Part I."
         },
         {
           "sourceId": "GLX26-published",
           "locator": "§1.4, footnote 8, p. 812",
-          "excerpt": "For local Shimura varieties coming from Rapoport–Zink spaces, this torsor corresponds to the local sys- tem defined by the p-adic Tate module of the universal p-divisible group.",
           "match": "The Tate-module description used in the third test."
         }
       ],
@@ -5490,61 +5233,51 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "I.2, p. 16",
-          "excerpt": "Geometrically, HckG admits a Schubert stratification in terms of the conjugacy classes of cocharacters of G; in particular, there are closed Schubert cells HckG,≤µ for each conjugacy class µ : Gm → G.",
           "match": "Closed Schubert substacks of the Hecke stack for each conjugacy class of cocharacters."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 19, Proposition 19.2.1, p. 172",
-          "excerpt": "where ξµ ∈ GrG(C) is the image of µ(ξ) ∈ G(BdR(C)).",
           "match": "Normalisation of Schubert cells: the orbit of μ(ξ)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 19, proof of Proposition 19.4.2, p. 177",
-          "excerpt": "includes the lattice Ξ0 = n M i=1 ξmi B+ dR(R] )ei ,",
           "match": "For GL_n the cell of μ contains the lattice with elementary divisors ξ^{μ_i}."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2, Definition VI.2.2, p. 197",
-          "excerpt": "be the subfunctor of all those maps S → HckG,Div1 Y such that at all geometric points S′ = Spa(C,C+) → S, the corresponding S′-valued point is given by some µ′ ∈ X∗(T)+ with µ′ ≤ µ.",
           "match": "One-leg bounded substack: relative position at every geometric point below μ."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2, Definition VI.2.6, p. 200",
-          "excerpt": "there is some bijection between ψ : I ∼ = J such that the relative position of E1 and E2 at Spa(C♯ i ,C♯+ i ) is bounded",
           "match": "Several legs: the bound at an untilt is the sum of the cocharacters attached to it (the direction of the bijection is misprinted)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2, Proposition VI.2.7, p. 201",
-          "excerpt": "is a closed subfunctor. The map GrG,Divd Y,≤µ• → Divd Y is proper, representable in spatial diamonds, and of finite dim.trg.",
           "match": "Closedness of the bounded substack for several legs."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 20, Definition 20.4.4, p. 187",
-          "excerpt": "In the first case, the relative position of P and the trivial G- torsor at S] i is bounded by P j|S] j=S] i µj in the Bruhat order for all i = 1,...,n.",
           "match": "Ordered legs: the bound at S♯_i is the sum over the legs equal to it (the range of the index is misprinted as n)."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.10, p. 230",
-          "excerpt": "Given any finite and Galois-stable subsets Wi ⊂ X∗(T)+, i ∈ I, closed under the dominance order, we have a quasicompact closed substack HckI G,(Wi)i ⊂ HckI",
           "match": "Bounds for general G: finite Galois-stable sets closed under the dominance order."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lecture 20, §20.2, p. 184",
-          "excerpt": "There is one subtlety however, namely that Schubert varieties are not themselves defined over Qp.",
           "match": "A single Schubert variety is defined over the field of definition of μ only."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2, proof of Proposition VI.2.4, p. 199",
-          "excerpt": "one has moved Ξ to the lattice ξk1 B+ dR(R♯ ) ⊕ ... ⊕ ξkn B+ dR(R♯ ). This is the lattice corresponding to [µ] ∈ GrGLn,Div1 Y",
           "match": "Fargues–Scholze state the normalisation themselves: for GL_n the section [μ] = μ(ξ) of the Grassmannian is the lattice ⊕ ξ^{k_i}B⁺_dR, as in Scholze–Weinstein."
         }
       ],
@@ -5692,31 +5425,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "On the other hand, there is a natural exact RepΛ(QI)-linear monoidal functor D■(HckI G,Λ) → EndD■((Div1)I,Λ)(D■(BunG ×(Div1 )I ,Λ)), where the right-hand side denotes the D■((Div1 )I,Λ)-linear endofunctors.",
           "match": "The monoidal functor from kernels on the global Hecke stack to linear endofunctors."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.2, p. 321",
-          "excerpt": "We note that as the convolution on D■ makes use only of pullback, tensor product, and π♮-functors, all of which are defined naturally on ∞-categories,",
           "match": "The convolution uses only pullback, tensor product and ♮-pushforward, so the monoidal structure exists on ∞-categories."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.5, p. 267",
-          "excerpt": "The composition in CS,■ is defined by the convolution D■(X ×S Y,Λ) × D■(Y ×S Z,Λ) → D■(X ×S Z,Λ) : (A,B) 7→ A ⋆ B = p13♮(p∗ 12A ■ ⊗L Λp∗ 23B).",
           "match": "Composition of kernel functors is the convolution with ♮-pushforward."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.2.2, proof, p. 323",
-          "excerpt": "The functor V 7→ TV is monoidal.",
           "match": "The monoidality of V↦T_V as it is used in the proofs of IX.2.1–IX.2.3."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.9, p. 226",
-          "excerpt": "For any map f : I → J of finite sets, there is a natural monoidal functor SatI G(Λ) → SatJ G(Λ).",
           "match": "Functoriality of the Satake category in the finite set, the source of (c)."
         }
       ],
@@ -5776,25 +5504,21 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Corollary 23.5.3, p. 224",
-          "excerpt": "in particular, ShtG,b,{µi} is a locally spatial diamond. Its open image is the admissible locus",
           "match": "Étaleness of the period map and local spatiality."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.5.2, p. 223",
-          "excerpt": "is proper and representable in spatial diamonds.",
           "match": "The projection of the bounded twisted Grassmannian."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.5, p. 264",
-          "excerpt": "If f : X → S is a compactifiable map of small v-stacks that is representable in",
           "match": "The standing hypotheses under which relative homology and Rf_! are compared."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, p. 326",
-          "excerpt": "By Proposition VII.5.2, with torsion coefficients fK♮S′ W agrees with RfK!SW , but fK♮S′ W is well-defined in general.",
           "match": "The use of these hypotheses for the tower of local shtukas."
         }
       ],
@@ -5917,31 +5641,26 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, before Theorem IX.3.1, p. 324",
-          "excerpt": "over Ĕ, equipped with a Weil descent datum",
           "match": "The descent datum of the tower of local Shimura varieties is asserted, by reference to Lecture 24 of Scholze–Weinstein, which does not construct it."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3, proof of Proposition IX.3.2, p. 326",
-          "excerpt": "there is a natural map from M to Sht(G,b,µ•,K) that is an isomorphism away from Frobenius-twisted partial diagonals.",
           "match": "Statement (4): the space of modifications over the quotient by partial Frobenii, compared with the shtuka space."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IV.7, before Proposition IV.7.1, p. 164",
-          "excerpt": "More precisely, τ ∈ WE acts as τ ◦ Frob−degτ where deg : WE → Z is the projection; note that this as a map over Spdk as on Spdk the two Frobenii cancel. The natural map [SpdC/WE] → [SpdĔ/φZ ] is an isomorphism",
           "match": "Spd C is a W_E-torsor over Spd Ĕ/φ^Z, with the stated action of Frobenius elements; used in (3)."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 23.3.1 and its proof, p. 218",
-          "excerpt": "thus we get an isomorphism α between E and Eb away from the image of S] in XFF,S",
           "match": "The one-leg data (E, α) live on X_S and only see the image of the untilt; this gives (1) for E = Q_p."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary II.2.4, p. 61",
-          "excerpt": "There is a well-defined map BC(O(1))\\{0} → Div1 sending a nonzero section f ∈ H0(XS,OXS (1)) to the closed Cartier divisor given by V (f). This descends to an isomorphism (BC(O(1)) \\ {0})/E× ∼ = Div1",
           "match": "The example used in the tests: the space of modifications for G_m, μ = id, b = π⁻¹ is BC(O(1)) ∖ {0} over Div¹."
         }
       ],
@@ -6097,25 +5816,21 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.2, p. 272",
-          "excerpt": "For any b ∈ B(G) with locally closed immersion ib : Bunb G → BunG, the functor",
           "match": "The left adjoint π_{b♮}q_b^* of i^{b*}, used to define Φ^{b′,b}_V; the unit of the adjunction is an equivalence."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VII.7.4, p. 273",
-          "excerpt": "An object A ∈ Dlis(BunG,Λ) is compact if and only if it has finite support and ib∗A ∈ Dlis(Bunb G,Λ) ∼ = D(Gb(E),Λ) is compact for all b ∈ B(G)",
           "match": "Compact objects have compact stalks, so i^{b*} preserves compact objects; the same proposition gives the compact generators A^b_K = f_{K♮}Λ."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.3.1, p. 324",
-          "excerpt": "By Proposition VII.7.4, it follows that also ib∗Tµ(A) ∈ Dlis(Bunb G,Zℓ) ∼ = D(Gb(Qp),Zℓ) is compact.",
           "match": "The case b′ = 1 of (b), for A = j_!c-Ind_K^{G(Q_p)}Z_ℓ."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.7.2, p. 335",
-          "excerpt": "If b is basic, the theorem follows from the identification BunG ∼ = BunGb of Corollary III.4.3, which is equivariant for the Hecke action.",
           "match": "Part (e): the inner-form equivalence commutes with Hecke operators. The same proof restricts T_V(A_N), A_N on Bun_G^{b_N}, to Bun_G^b: a Hecke operator between two non-trivial strata. Parts (b), (c), (f) for general b′ are not stated in the source and are proved in the steps."
         }
       ],

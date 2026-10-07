@@ -82,25 +82,21 @@
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "§3, p. 15 of the arXiv version",
-     "excerpt": "If the image is non-solvable, take an odd weight two lift (guaranteed by Theorem 1.9(1) and (2)), make it part of an almost strictly compatible system and reduce modulo a prime greater than 3 and which is not in the ramiﬁcation set of the compatible system",
      "match": "The lift, the system and the choice of the prime."
     },
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "§3, p. 15 of the arXiv version",
-     "excerpt": "(since the residual Serre weight is 2 under these conditions, applying Lemma 1.14 we see that p > 2 · 2 −1 = 3 is enough to avoid the bad-dihedral situation)",
      "match": "The bound p > 3 from Lemma 1.14."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§5, definitions on p.8 and Theorem 5.1(1)–(2) on p.9 of the author preprint",
-     "excerpt": "almost strictly compatible, irreducible, odd system",
      "match": "The selected system has all members irreducible and odd by the definitions on p.8. Types (1)/(2) supply the two dyadic weight-two lifts. This is the restricted input used here."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§5, p.8, almost-strict compatibility at equal residue characteristics",
-     "excerpt": "if ℓ ≠ 2 and rq is unramified",
      "match": "At an odd auxiliary prime outside the ramification set, this clause supplies crystallinity with the common Hodge–Tate weights even for a reducible residual member."
     }
    ],
@@ -145,13 +141,11 @@
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "§3, p. 15 of the arXiv version",
-     "excerpt": "Recall that all solvable subgroups of PGL2(F2) in the irreducible case have dihedral projective image (the S4 case does not occur, while the A4 case corresponds to a Borel subgroup over F4 see [KW09b, Lemma 6.1]). The dihedral case was proven in [RT97].",
      "match": "The solvable branch: Lemma 6.1 and Rohrlich–Tunnell."
     },
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "§3, p. 15 of the arXiv version",
-     "excerpt": "to end in a situation covered before, namely: the representation is either reducible (so modularity follows from Theorem 1.6) or irreducible in odd characteristic hence it is covered by the cases of Serre’s conjecture we have already solved, in which case modularity of the system follows from Theorem 1.4 since we know that the residual representation is not bad-dihedral.",
      "match": "The non-solvable branch ends in the odd case or in Theorem 1.6."
     }
    ],
@@ -193,13 +187,11 @@
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Introduction, p. 1 of the arXiv version",
-     "excerpt": "For this reason, we will focus on proving Serre’s weak modular conjecture, namely. Theorem (Serre’s modularity conjecture). Let ρ : GalQ →GL2(Fp) be an odd continuous irreducible Galois representation. Then ρ is modular, i.e. there exists a modular form f ∈Sk(Γ0(N), ε) such that ρ ≃ρf,p.",
      "match": "The weak statement proved."
     },
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Introduction, p. 2 of the arXiv version",
-     "excerpt": "The proof for p = 2 is based on a reduction to the odd case.",
      "match": "The structure: odd case first, then p = 2."
     }
    ],
@@ -251,13 +243,11 @@
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Proof of Theorem 1.9, p. 6 of the arXiv version",
-     "excerpt": "The ﬁrst three cases are due to Khare-Wintenberger ([KW09b, Theorem 5.1], its proof given in [KW09c]).",
      "match": "DP Theorem 1.9(1)–(3) is KW I Theorem 5.1."
     },
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Introduction, p. 2 of the arXiv version",
-     "excerpt": "It is important to emphasize that the last step, which substitutes the “weight reduction”, is only possible due to two very strong and general modularity lifting theorems: a result of Kisin in the residually irreducible case and a recent result of Pan in the residually reducible case.",
      "match": "The lifting theorems that replace weight reduction."
     }
    ],
@@ -298,13 +288,11 @@
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Introduction, p. 1 of the arXiv version",
-     "excerpt": "Let ρ : GalQ →GL2(Fp) be an odd continuous irreducible Galois representation. Then ρ is modular, i.e. there exists a modular form f ∈Sk(Γ0(N), ε) such that ρ ≃ρf,p.",
      "match": "DP's notion."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1, p. 2 of the preprint",
-     "excerpt": "By arises from f we mean that there is an integral model ρ : GQ →GL2(O) of the p-adic representation ρf associated to f, such that ¯ρ is isomorphic to the reduction of ρ modulo the maximal",
      "match": "KW I's notion, which the atlas adopts."
     }
    ],
@@ -349,13 +337,11 @@
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Introduction, p. 1 of the arXiv version",
-     "excerpt": "The equivalence between Serre’s strong and weak version is due to many authors, the main contributions on the weight reduction being due to Edixhoven (see [Edi92] and the references therein). The level reduction is mainly due to Ribet (see [Rib90, BLR91] see also [Rib94]).",
      "match": "DP import the refinement from Edixhoven and Ribet."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1.1, p. 2 of the preprint",
-     "excerpt": "We note that Theorem 1.2(2) also completes the work that the qualitative form of Serre’s conjecture implies the reﬁned form by ﬁlling in a missing case in characteristic 2: control of the level for ¯ρ|D2 scalar when the projectve image of ¯ρ is not dihedral (see [6] and [42]).",
      "match": "The dyadic scalar case that the older refinement results left open."
     }
    ],
@@ -403,13 +389,11 @@
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1.1, p. 2 of the preprint",
-     "excerpt": "We note that Theorem 1.2(2) also completes the work that the qualitative form of Serre’s conjecture implies the reﬁned form by ﬁlling in a missing case in characteristic 2: control of the level for ¯ρ|D2 scalar when the projectve image of ¯ρ is not dihedral (see [6] and [42]).",
      "match": "The scalar local dyadic case."
     },
     {
      "sourceId": "dieulefait-pacetti",
      "locator": "Introduction, p. 2 of the arXiv version",
-     "excerpt": "the sophisticated process of weight reduction dis- appears. ",
      "match": "What the modern route removes."
     }
    ],
@@ -456,7 +440,6 @@
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1, p. 2 of the preprint",
-     "excerpt": "Serre conjectured further that ¯ρ arises from a newform f of weight k(¯ρ) and level N(¯ρ).",
      "match": "The refined statement that the export specialises."
     }
    ],

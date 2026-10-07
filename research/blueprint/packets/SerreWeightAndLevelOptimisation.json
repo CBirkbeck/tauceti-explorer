@@ -207,19 +207,16 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, the definition of n(p, ρ) and N(ρ), pp. 3–4 of the author's copy",
-     "excerpt": "(i >0). LetVbe a two-dimensionalF-vector space affording the representationρ. For eachi≥0, letV i be the subspace ofVconsisting of those v∈Vwhich are fixed by all elements ofG i . Then n(p, ρ) = X i≥0 1 (G 0 :G i ) dimV /V i . In particular,N(ρ) is prime toℓ, so that Serre’s refined conjecture implies the weaker statement thatρarises from some space of cusp formsS k",
      "match": "The conductor formula itself: n(p, ρ) = Σ_{i≥0} (1/(G₀:G_i)) dim V/V_i with V_i the G_i-fixed subspace, and the conclusion that N(ρ) is prime to ℓ. This is the primary citation for the statement of this node."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§1, the Refined Conjecture and the local nature of k(ρ) and N(ρ)",
-     "excerpt": "The associatedRefined Conjecture[49, (3.2.4 ? )] asserts thatρis a representation ¯ρ λ associated to an eigenform in aspecificspaceS k(ρ) (Γ 1 (N(ρ))). The invariants k(ρ) andN(ρ) are defined by local properties ofρ. More precisely, as we recall in§2,N(ρ) is an integer prime toℓwhich depends only on the restrictions ofρto decomposition groups in Gal(",
      "match": "That N(ρ) is an integer prime to ℓ depending only on the restrictions of ρ to decomposition groups at the primes p ≠ ℓ, which is what makes the level a product of local Artin conductor exponents."
     },
     {
      "sourceId": "serre87-duke",
      "locator": "1.2, (1.2.1)–(1.2.3), printed p. 181",
-     "excerpt": "Nous appellerons N le conducteur de p ; par construction, N est premier à p",
      "match": "Serre's own definition of n(l, ρ) by (1.2.1) and of N by (1.2.3), matching Ribet's restatement."
     }
    ],
@@ -348,13 +345,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§4, statement (4.7) Mazur's Principle",
-     "excerpt": "(4.7) Mazur’s Principle.Suppose thatℓ≥5and thatp̸=ℓis a prime such that p̸≡1 modℓ. Assume thatρarises from an eigenformfof weightkonΓ 1 (M)∩ Γ o (p), withMprime top, and thatρis unramified atp. Thenρarises from an eigenform onΓ 1 (M).",
      "match": "The statement of Mazur's Principle, with its hypotheses ℓ ≥ 5, p ≠ ℓ, p ≢ 1 mod ℓ, M prime to p and ρ unramified at p."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§4, remark following (4.7) on the proof given in §8",
-     "excerpt": "(p).) For the convenience of the reader, we establish Mazur’s principle, in case (a), in§8 below. (In§8, we require only that ℓbe odd: we do not exclude the caseℓ= 3. Also, we use slightly different notation: the primeqof§8 plays the role ofpin 4.7.)",
      "match": "The source's own statement that the §8 proof requires only that ℓ be odd and does not exclude ℓ = 3, and that §8's prime q plays the role of p."
     }
    ],
@@ -407,7 +402,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§1, statement (1.5) Theorem",
-     "excerpt": "(1.5) Theorem.Letℓ≥3be a prime, and letρ: Gal( Q/Q)→GL(2,F)be irreducible. Suppose thatρarises from an eigenformfof weight two and trivial character onΓ 1 (M)∩Γ o (p), wherepis prime toℓM. Assume thatρis unramified atp. Thenρarises from a weight-two eigenform with trivial character onΓ 1 (M).",
      "match": "The statement of Theorem 1.5 with its hypotheses ℓ ≥ 3, weight two and trivial character on Γ₁(M) ∩ Γ₀(p), p prime to ℓM, ρ unramified at p."
     }
    ],
@@ -452,7 +446,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§4, statement (4.5) Proposition and its proof",
-     "excerpt": "(4.5) Proposition[7].Assume thate >0and thatαis ramified. Then there is a Dirichlet characterφof conductorpandℓ-power order such that the newform associated tof⊗φhas level dividingN/p. In particular,ρis modular of levelN/p. Proof. Sincee >0, we have dim F V",
      "match": "The statement of Proposition 4.5: a character φ of conductor p and ℓ-power order twists f so that the associated newform has level dividing N/p."
     }
    ],
@@ -496,13 +489,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§4, statement (4.6) Problem",
-     "excerpt": "(4.6) Problem.Suppose thatℓ≥5and thatpis a prime distinct fromℓ. Assume thatρarises from an eigenformfof weightkonΓ 1 (M)∩Γ o (p), whereMis prime topand thatρis unramified atp. Show thatρarises from an eigenform onΓ 1 (M).",
      "match": "The one-prime problem the iteration solves: from an eigenform of weight k on Γ₁(M) ∩ Γ₀(p) with M prime to p and ρ unramified at p, produce an eigenform on Γ₁(M)."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§2, the definition of n(p, ρ) and N(ρ)",
-     "excerpt": "(i >0). LetVbe a two-dimensionalF-vector space affording the representationρ. For eachi≥0, letV i be the subspace ofVconsisting of those v∈Vwhich are fixed by all elements ofG i . Then n(p, ρ) = X i≥0 1 (G 0 :G i ) dimV /V i . In particular,N(ρ) is prime toℓ, so that Serre’s refined conjecture implies the weaker statement thatρarises from some space of cusp formsS k",
      "match": "The target of the descent, with its exponents: N(ρ) = ∏ p^{n(p,ρ)} for the Artin conductor exponent n(p,ρ), so the terminal level is not in general squarefree."
     }
    ],
@@ -550,7 +541,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§6, opening paragraph, Character groups and component groups",
-     "excerpt": "6. Character groups and component groups. In this§, we recall some material from [41] concerning the component groups and character groups associated with bad reductions of ordinary modular curves and Shimura curves. In addition, we explore in further detail a relation that was first found by Jordan and Livn´e [23] and then deepened by [41, Theorem 4.3]. For eachN≥1, we letX",
      "match": "The source's own description of the integral objects the level-lowering proofs run on: the component groups and character groups attached to bad reductions of ordinary modular curves and Shimura curves, and the relation of [41, Theorem 4.3]."
     }
    ],
@@ -592,7 +582,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§7, opening of the proof of Theorem 1.5",
-     "excerpt": "7. Proof of Theorem 1.5. Letρ,ℓ,M, andpbe as in the statement of Theorem 1.5. In other words, we assume thatℓ≥3 is a prime, thatρ: Gal( Q/Q)→GL(2,F) is an irreducible representation arising from an eigenformfof weight two on Γ o (Mp), and thatpis prime toℓM. Suppose thatρis unramified atp. We shall prove thatρarises from a weight-two eigenform on Γ o",
      "match": "The setting of the proof that consumes this definition: ℓ ≥ 3, ρ irreducible arising from a weight-two eigenform on Γ₀(Mp) with p prime to ℓM and ρ unramified at p."
     }
    ],
@@ -698,7 +687,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§7, opening of the proof of Theorem 1.5",
-     "excerpt": "7. Proof of Theorem 1.5. Letρ,ℓ,M, andpbe as in the statement of Theorem 1.5. In other words, we assume thatℓ≥3 is a prime, thatρ: Gal( Q/Q)→GL(2,F) is an irreducible representation arising from an eigenformfof weight two on Γ o (Mp), and thatpis prime toℓM. Suppose thatρis unramified atp. We shall prove thatρarises from a weight-two eigenform on Γ o",
      "match": "The proof whose first move is to pass between the residual eigensystem and a characteristic-zero eigenform at a controlled level, which is what this node states."
     }
    ],
@@ -746,19 +734,16 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Theorem 2.8, hypotheses (p. 6)",
-     "excerpt": "Theorem 2.8. Let M be a positive integer, and let p be a prime not dividing 2M. Let f ∈ S 2 (Γ 1 (M) ∩ Γ 0 (p); Q 2 ) be a normalised cuspidal eigenform. Assume that the associated mod 2 Galois representation ρ associated to f 6 is absolutely irreducible and satisfies multiplicity one. Assume furthermore that M is odd if ρ is finite at 2, and that 2 divides M exactly once if ρ is not finite at 2. ",
      "match": "The hypotheses of Theorem 2.8: M positive, p a prime not dividing 2M, f a normalised cuspidal eigenform in S₂(Γ₁(M) ∩ Γ₀(p); Q̄₂), and ρ mod 2 absolutely irreducible satisfying multiplicity one."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Theorem 2.8, remaining hypotheses and conclusion (pp. 6–7)",
-     "excerpt": "is absolutely irreducible and satisfies multiplicity one. Assume furthermore that M is odd if ρ is finite at 2, and that 2 divides M exactly once if ρ is not finite at 2. Finally, assume that ρ is not induced from Q(i). Then there is a normalised eigenform g ∈ S 2 (Γ 1 (M); Q 2 ) giving rise to ρ. Moreover, we may find such a g with the property that a 2 (g) ≡ a 2 (f) mod λ. Remarks. (a) Level-low",
      "match": "The parity hypotheses on M, the exclusion 'assume that ρ is not induced from Q(i)', and the conclusion: a normalised eigenform g ∈ S₂(Γ₁(M); Q̄₂) giving rise to ρ with a₂(g) ≡ a₂(f) mod λ."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Remark (c) following Theorem 2.8",
-     "excerpt": "(c) In the case when ρ is irreducible and induced from Q(i) one can prove the theorem as well, by “brute force”. Rather than explaining the details, we shall simply deal with these representations separately when we prove the general level-lowering theorem in § 3. Proof of Theorem 2.8. We use the notation of [R3] and [D], and refer to these papers for more details.",
      "match": "The source's own statement that the Q(i)-induced case is provable by brute force and is dealt with separately when the general level-lowering theorem is proved in §3."
     }
    ],
@@ -800,13 +785,11 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§0 Introduction, the remark on the scalar case",
-     "excerpt": "for mod l representations with l > 2 (see [R2]). We remark that in the case where the restriction of ρ to a decomposition group at 2 is contained in the scalars, the multiplicity one result alluded to above does not appear to be known, and indeed it is not clear whether one should expect it to be true. This remains an interesting open question. In the third section we indicate how to deduce from t",
      "match": "The source's statement that when the restriction of ρ to a decomposition group at 2 is contained in the scalars, the multiplicity one result does not appear to be known and it is unclear whether it should be expected; it remains an open question."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1, p. 2 (authors' preprint)",
-     "excerpt": "control of the level for ρ̄|D2 scalar when the projectve image of ρ̄ is not dihedral (see [6] and [42])",
      "match": "Khare–Wintenberger's identification of the missing case: ρ̄|_{D₂} scalar with non-dihedral projective image, completed by their Theorem 1.2(2)."
     }
    ],
@@ -847,13 +830,11 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§1, Proposition 1.1, p. 2 of the DVI",
-     "excerpt": "If N is odd and ρ is modular of level 2^n N for some n ≥ 0, then ρ is modular of level N.",
      "match": "Removing 2 from the level, losing the weight."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§1, Lemma 1.2 and Proposition 1.3, p. 4 of the DVI",
-     "excerpt": "is modular of weight 2 and level 2N if and only if ρ is modular of weight 3 and level N",
      "match": "Weight 3 at level N versus weight 2 at level 2N, and the finite/non-finite dichotomy."
     }
    ],
@@ -901,13 +882,11 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§3, Theorem 3.1, p. 9 of the DVI",
-     "excerpt": "Assume that ρ satisfies multiplicity one and is not induced from Q(i).",
      "match": "The hypotheses and conclusion of Theorem 3.1."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§3, proof of Theorem 3.1, p. 9 of the DVI",
-     "excerpt": "Recall from Section 2.2 of [C] that there are 4 possible cases where degeneration may occur",
      "match": "Carayol's four local cases and their treatment."
     }
    ],
@@ -956,13 +935,11 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§3, Theorem 3.2, p. 10 of the DVI",
-     "excerpt": "Set k = 2 if ρ is finite at 2, and k = 3 otherwise.",
      "match": "The weight and level statement."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§3, proof of Theorem 3.2, p. 10 of the DVI",
-     "excerpt": "Firstly we deal with the case where ρ is induced from a character of Q(i).",
      "match": "The separate ℚ(i)-induced branch."
     }
    ],
@@ -1018,7 +995,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§1, statement (1.3) Theorem, attributed to Carayol [7, Proposition 3]",
-     "excerpt": "(1.3) Theorem.Assume thatℓ≥5and thatρ: Gal( Q/Q)→GL(2,F)is an odd irreducible representation. Suppose thatρarises from an eigenformf∈S k (Γ 1 (N)) and thatεis the Dirichlet character which is associated tof. Letε",
      "match": "The statement of Carayol's theorem on replacing the nebentypus by a congruent character, with the hypothesis ℓ ≥ 5."
     }
    ],
@@ -1061,13 +1037,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, statement (2.1) Theorem",
-     "excerpt": "(2.1) Theorem.Assumeℓ≥3. Suppose thatρarises fromΓ 1 (M), whereMis the productNℓ α with(N, ℓ) = 1. Thenρarises fromΓ 1 (N).",
      "match": "The statement of Theorem 2.1: for ℓ ≥ 3, if ρ arises from Γ₁(M) with M = Nℓ^α and (N,ℓ) = 1 then ρ arises from Γ₁(N)."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§2, the remark following (2.1) on its proof and on ℓ = 2",
-     "excerpt": "(N). We prove (2.1) using the concrete techniques of Serre [46,§3], [47, Theorem 5.4] and Queen [35,§3]. An alternative method would be based on results of N. Katz: see the appendices of [25] and the discussions in [20,§1] and [21,§1]. (Thanks are due to Fred Diamond for pointing out these references.) Note that the assumption ℓ≥3 is made principally for convenience; it should be possible to analy",
      "match": "The source's remark that ℓ ≥ 3 is assumed principally for convenience and that ℓ = 2 should be analysable without great difficulty, together with the techniques the proof uses."
     }
    ],
@@ -1110,7 +1084,6 @@
     {
      "sourceId": "bs2020",
      "locator": "§2, equation (3), p. 358",
-     "excerpt": "(3)M 0 =M . Y q∥M, qprime ℓ|ord q (Δ) q, where we write ord q (x) for the largest power of a primeqdividing a nonzero integerx.",
      "match": "The definition of M₀ as M divided by the product of the primes q ∥ M with ℓ ∣ ord_q(Δ), together with the source's explanation of the notation ord_q."
     }
    ],
@@ -1217,13 +1190,11 @@
     {
      "sourceId": "bs2020",
      "locator": "§2, Theorem 3, p. 359",
-     "excerpt": "Theorem 3.IfE[ℓ]is irreducible,then there is a cuspidal newformf= P n≥1 c n q n of weight2and levelM 0 such that ρ E,ℓ ∼ ρ f,λ ,whereλ|ℓis a prime of the totally real fieldK=Q(c",
      "match": "The statement of Theorem 3: a cuspidal newform of weight 2 and level M₀ with ρ_{E,ℓ} ∼ ρ_{f,λ} and λ ∣ ℓ a prime of the totally real field K."
     },
     {
      "sourceId": "bs2020",
      "locator": "§2, the sentence introducing Theorem 3, p. 359",
-     "excerpt": "˝ OS359 The following theorem is a standard consequence of Ribet’s level lowering theorem [33] (stated, for example, in [42, p. 157]). It was originally conditional on the modularity of elliptic curves overQ, a result that was subsequently proved by Wiles, Breuil, Conrad, Diamond and Taylor (see [46] and [8]). Ad- ditionally, it is, in fact, a special case of Serre’s Modularity Conjecture [37], no",
      "match": "The source's attribution: a standard consequence of Ribet's level lowering theorem, originally conditional on modularity of elliptic curves over Q, and a special case of Serre's modularity conjecture."
     }
    ],
@@ -1268,7 +1239,6 @@
     {
      "sourceId": "bs2020",
      "locator": "§2, Lemma 2.1(i) and (ii), p. 359",
-     "excerpt": "Lemma 2.1.With notation as in Theorem3,letpbe a rational prime. (i)Ifp∤ℓMM 0 ,thena p (E)≡c p (modλ). (ii)Ifp∤ℓM 0 andp∥M,thenp+ 1≡ ±c p (modλ). The following lemma will be invaluable to us:",
      "match": "The statement of both parts of Lemma 2.1, including (ii): if p ∤ ℓM₀ and p ∥ M then p + 1 ≡ ±c_p (mod λ)."
     }
    ],
@@ -1309,7 +1279,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§5, the paragraph following (5.1) defining S^{q-new}",
-     "excerpt": "We first make some comments concerning the two conditions. Let S be the space Sk (Γ1 (N ) ∩ Γo (q)), and let S q−new be the “q-new” subspace of S, defined, for example, as the kernel of the natural trace map from S to the direct sum of two copies of Sk (Γ1 (N )). Condition I means simply that ρ arises from an eigenform in the space S q−new . Next, we should point out that Condition II is satisfied",
      "match": "The definition of the q-new subspace as the kernel of the trace map to two copies of S_k(Γ₁(N)), and the statement that Condition I says exactly that ρ arises from an eigenform in it."
     }
    ],
@@ -1403,13 +1372,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§5, the definition of an auxiliary prime and the computation of ρ̄(Frob_q)",
-     "excerpt": "of Gal(Q/Q) over F. An auxiliary prime is a prime number q, prime to ℓN , such that σ(Frobq ) is conjugate to the matrices σ(c), with c ∈ Gal(Q/Q) a complex conjugation. If q is such a prime, the characteristic polynomial of ρ(Frobq ) co- incides µ with¶that of the ρ(c). Since ρ is an odd representation, ρ(c) is conjugate",
      "match": "The definition of an auxiliary prime as one with σ(Frob_q) conjugate to σ(c), and the deduction that ρ̄(c) is conjugate to diag(−1,1) with characteristic polynomial (T−1)(T+1). The μ…¶ marks are the text layer's rendering of the matrix delimiters."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§5, the Čebotarev argument for the density of auxiliary primes",
-     "excerpt": "Frobq map to conjugate elements in the image of ρ × χ has positive density. In particular, there are an infinite number of auxiliary primes. Also, we should point out that the implication “Condition I ⇒ Condition II” is a direct consequence of Langlands’s theorem ([28], see also [6]). Indeed, suppose that I is satisfied, and let f be a newform in S q−new which gives rise to ρ. Let",
      "match": "That the primes for which c and Frob_q map to conjugate elements in the image of ρ̄ × χ have positive density, so there are infinitely many auxiliary primes."
     }
    ],
@@ -1510,13 +1477,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§5, Conditions I and II and the statement (5.1) Theorem (Diamond)",
-     "excerpt": "from Sk (Γ1 (N )), with N prime to ℓ. Consider the following two conditions on a prime number q, assumed to be prime to N ℓ: I. The representation ρ arises from a weight-k eigenform on Γ1 (N )∩Γo (q) for which the associated newform has level divisible by q. II. The characteristic polynomial of ρ(Frobq ) is of the form (T − a)(T − qa), with a ∈ F∗ .",
      "match": "The two conditions on q, stated for ρ̄ irreducible arising from S_k(Γ₁(N)) with N prime to ℓ: Condition I on the newform level being divisible by q, and Condition II that the characteristic polynomial of ρ̄(Frob_q) is (T−a)(T−qa) with a ∈ F*."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§5, statement (5.1) Theorem (Diamond)",
-     "excerpt": "(5.1) Theorem (Diamond). Assume that k satisfies 2 ≤ k ≤ ℓ+1. Then condi- tions I and II are equivalent. We first make some comments concerning the two conditions. Let S be the space",
      "match": "The theorem: for 2 ≤ k ≤ ℓ + 1, Conditions I and II are equivalent."
     }
    ],
@@ -1563,7 +1528,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§6, the definition of η and statement (6.1) Theorem",
-     "excerpt": "are defined over Q. Also, in analogy with the situation of §5, we let η = U 2 − 1 in T. (6.1) Theorem. There is a unique homomorphism of abelian varieties σ : Jo (qN ) → Jo (N ) × Jo (N ) such that σ ◦δ = η. This homomorphism is T-equivariant.",
      "match": "That η = U² − 1 in T, and Theorem 6.1: there is a unique homomorphism of abelian varieties σ : J₀(qN) → J₀(N) × J₀(N) with σ ∘ δ = η, and it is T-equivariant."
     }
    ],
@@ -1607,13 +1571,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§6, the Néron fibre at p and the definition of L_p, L_q, X_p and X_q",
-     "excerpt": "by Γo (qN ). Let Jo (pqM )/Fp be the fiber at p of the Néron model of Jo (pqM ). This group variety is an extension of a finite “component group” Θp by a connected group Jo (pqM )o/Fp , which is in turn an extension of the product of two copies of Jo (qM ) by a torus T over Fp . Let Lp be the character group of this torus, and let Lq be the character group of the analogous torus for Jo (pqM )/Fq ",
      "match": "That the fibre at p of the Néron model of J₀(pqM) is an extension of a finite component group Θ_p by a connected group, itself an extension of two copies of J₀(qM) by a torus, and that L_p is the character group of that torus."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§6, the map δ : L_p → X_p and its surjectivity",
-     "excerpt": "Continuing the abuse of notation, we will write simply δ for the map Lp → Xp induced by the degeneracy map δ : Jo (M p)×Jo (M p) → Jo (M pq). The surjectivity of δ : Lp → Xp was established in [41, Th. 3.15]. (In [41], the author wrote “X” for the character group associated to a single copy of Jo (pM ) or Jo (qM ).) Theorem 4.1 of [41] identifies the kernel of δ with an analogue of Lq in which Xo ",
      "match": "That δ denotes also the induced map L_p → X_p and that its surjectivity was established in the author's earlier paper, Theorem 3.15."
     }
    ],
@@ -1723,7 +1685,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§6, the Shimura curve, the genus-zero components and the exact sequences (6.2) and (6.3)",
-     "excerpt": "the reductions of J at p and q are “semiabelian,” with trivial abelian variety parts. Then theorem 4.1 of [41] provides an exact sequence ι δ (6.2) 0 → Yq → Lp → Xp → 0 and an analogue (6.3) 0 → Yp → Lq → Xq → 0 in which the roles of p and q have been permuted. These sequences are compatible with the Hecke operators labeled Tn on J and on Jo (pqM ); note, incidentally, that the operators Tp and Tq",
      "match": "That the reductions of J at p and q are semiabelian with trivial abelian-variety parts, and the exact sequences 0 → Y_q → L_p → X_p → 0 and 0 → Y_p → L_q → X_q → 0, compatible with the Hecke operators, with T_p and T_q involutions on J."
     }
    ],
@@ -1763,7 +1724,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§6, the monodromy pairing on L_p and the identification of the cokernel with Θ_p",
-     "excerpt": "pairing associated with Lp is a bilinear map h , i : Lp × L0p → Z, which induces an injection L0p ,→ Hom(Lp , Z) with finite cokernel. According to [18, §11], the cokernel of this injection is canonically isomorphic to Θp . The exact sequence 0 → L0p → Hom(Lp , Z) → Θp → 0 is T-equivariant when the elements of T act in the natural way, i.e., when Tn ∈ T",
      "match": "That the monodromy pairing L_p × L'_p → ℤ induces an injection L'_p ↪ Hom(L_p, ℤ) with finite cokernel canonically isomorphic to Θ_p, and that the resulting exact sequence is T-equivariant with T_n acting as T_n on Θ_p and as T'_n on L'_p."
     }
    ],
@@ -1801,7 +1761,6 @@
     {
      "sourceId": "edixhoven-weight",
      "locator": "2.5, p. 5 of the DVI",
-     "excerpt": "2.5 Theorem. (Deligne) Let f be a cusp form of type (N, k, ε) with 2 ≤ k ≤ p + 1 which is an eigenform for all T*_l with eigenvalues a_l. Suppose that a_p ≠ 0. Then ρ_{f,p} is reducible",
      "match": "The ordinary local form; the proof is referred to Gross [10]."
     }
    ],
@@ -1846,13 +1805,11 @@
     {
      "sourceId": "edixhoven-weight",
      "locator": "2.6, p. 6 of the DVI",
-     "excerpt": "Suppose that a_p = 0. Then ρ_{f,p} is irreducible",
      "match": "The supersingular local form."
     },
     {
      "sourceId": "edixhoven-weight",
      "locator": "6.1, p. 16 of the DVI",
-     "excerpt": "The aim of this section is to give a proof of Theorem 2.6",
      "match": "Edixhoven's proof in §6 (Fontaine's is unpublished)."
     }
    ],
@@ -1896,7 +1853,6 @@
     {
      "sourceId": "edixhoven-weight",
      "locator": "2.8, p. 6 of the DVI",
-     "excerpt": "2.8 Theorem. (Mazur) Let f be a cuspidal eigenform of type (N, p + 1, ε). Suppose that ρ_f is irreducible and that there exists no form g of type (N, 2) such that f = Ag",
      "match": "The weight p + 1 conclusion and the p = 2 adaptation."
     }
    ],
@@ -1936,13 +1892,11 @@
     {
      "sourceId": "edixhoven-weight",
      "locator": "2.7, p. 6 of the DVI",
-     "excerpt": "2.7 Proposition. Let f be a cuspidal eigenform of type (N, 1, ε) with T*_p f = a_p f",
      "match": "Unramifiedness of weight-one forms."
     },
     {
      "sourceId": "edixhoven-weight",
      "locator": "Introduction, the note after the acknowledgements, p. 3 of the DVI",
-     "excerpt": "For p > 2 and f a weight 1 cuspidal eigenform over F̄_p the representation ρ_f is unramified at p",
      "match": "The Coleman–Voloch consequence."
     }
    ],
@@ -1976,7 +1930,6 @@
     {
      "sourceId": "edixhoven-weight",
      "locator": "2.9, p. 7 of the DVI",
-     "excerpt": "Then ρ_{f,p} is tamely ramified (i.e., its restriction to the inertia group is diagonalizable) if and only if there exists a cuspidal eigenform f′ of type (N, k′, ε), with k′ = p + 1 − k",
      "match": "Gross's criterion; the Coleman–Voloch improvement is in the introduction's note."
     }
    ],
@@ -2031,19 +1984,16 @@
     {
      "sourceId": "edixhoven-weight",
      "locator": "4.5, p. 11 of the DVI",
-     "excerpt": "Then there exists a cuspidal eigenform f of type (N, k_ρ, ε) which has the same eigenvalues for T*_l (l ≠ p) as g has, such that ρ is isomorphic to ρ_f",
      "match": "The theorem; its proof follows on pp. 11–12."
     },
     {
      "sourceId": "edixhoven-weight",
      "locator": "Proof of 4.5, p. 12 of the DVI",
-     "excerpt": "Now we prove the minimality statement in the theorem",
      "match": "Minimality through Gross's Proposition 4.12 and a case-by-case check."
     },
     {
      "sourceId": "edixhoven-weight",
      "locator": "Introduction, the note after the acknowledgements, p. 3 of the DVI",
-     "excerpt": "All statements in Thm. 4.5 are true for p > 2 without the condition",
      "match": "The Coleman–Voloch consequence for exceptional ρ."
     }
    ],
@@ -2096,7 +2046,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, proof of (2.1), Step 1, p. 5",
-     "excerpt": "Step 1. The representation ρ arises from Γo (ℓr ) ∩ Γ1 (ℓN ) for some r ≥ 0. When ℓ ≥ 5, the assertion follows from (1.3). In that case, we can take r = α. It can be proved in an elementary manner, for all ℓ ≥ 3, by the following argument.",
      "match": "The statement of Step 1, that for ℓ ≥ 5 it follows from (1.3) with r = α, and that it holds for all ℓ ≥ 3 by the elementary twisting argument."
     }
    ],
@@ -2136,7 +2085,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, proof of (2.1), Step 2, p. 5",
-     "excerpt": "E := c−1 G is a form with v-integral coefficients such that E ≡ 1 mod v. Consequently, the product f E, viewed mod v, is a non- zero eigenform with the same eigenvalues as f . At the same time, f E is on the group Γo (ℓr ) ∩ Γ1 (N ). By a well known lemma [12, Lemme 6.11], we may find an eigenform on Γo (ℓr ) ∩ Γ1 (N ) whose eigenvalues are congruent to those of f .",
      "match": "The normalisation E := c^{−1}G ≡ 1 mod v, the conclusion that fE is a nonzero mod-v eigenform with the eigenvalues of f on Γ₀(ℓ^r) ∩ Γ₁(N), and the appeal to the lifting lemma [12, Lemme 6.11]."
     }
    ],
@@ -2175,7 +2123,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, proof of (2.1), Step 3, p. 5",
-     "excerpt": "Consider g := (σ −1 f )ℓ |U , where U is the ℓth Hecke operator Tℓ . On the one hand, g is a form on Γo (ℓr−1 ) ∩ Γ1 (N ) (see, e.g., [29, Lemma P 1]). On the other hand, the Fourier expansion of g is congruent mod v to (σ −1 an )ℓ q n , which in turn is congruent to the Fourier expansion of f .",
      "match": "The construction g := (σ^{−1}f)^ℓ|U, that g lies on Γ₀(ℓ^{r−1}) ∩ Γ₁(N), and that its expansion is congruent mod v to that of f."
     }
    ],
@@ -2214,7 +2161,6 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, proof of (2.1), Step 4, p. 6",
-     "excerpt": "Let f be an eigenform giving rise to ρ, as above, and consider Tr(f g i ), where i is a positive integer. The modular form Tr(f g i ) is a form on Γ1 (N ). On the other hand, a calculation similar to that of §3.2 of [46] shows that Tr(f g i ) ≡ f mod ℓ for sufficiently large i.",
      "match": "The conclusion of Step 4: Tr(f g^i) is a form on Γ₁(N) and is congruent to f mod ℓ for i large, following Serre's calculation in [46, §3.2]."
     }
    ],
@@ -2253,13 +2199,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§2, statement (2.2) Theorem, p. 6",
-     "excerpt": "(2.2) Theorem. Suppose that ρ arises from Sk (Γ1 (N )), with N prime to ℓ and 2 ≤ k ≤ ℓ+1. Assume that ℓ > 3 or that N > 3. Then ρ arises from S2 (Γ1 (N ℓ)).",
      "match": "The statement of Theorem 2.2 with its hypotheses."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§2, the paragraph following (2.2), p. 6",
-     "excerpt": "For ℓ ≥ 5, the theorem is proved by Ash and Stevens [2, Theorem 3.5a] by methods involving parabolic cohomology. Another approach, which originated with Serre, is worked out in Gross’s article [17, Proposition 9.3]. Although Gross’s prime p (which corresponds to our ℓ) is arbitrary, he assumes that the level N satisfies N ≥ 4.",
      "match": "The two proofs the source cites, and the ranges they cover: Ash–Stevens for ℓ ≥ 5, and Gross's Proposition 9.3 for arbitrary ℓ with N ≥ 4."
     }
    ],
@@ -2299,13 +2243,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§3, (3.2) Corollary, p. 8 of the author's copy",
-     "excerpt": "(3.2) Corollary. Suppose that",
      "match": "The statement."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§3, proof of (3.2), p. 8 of the author's copy",
-     "excerpt": "The definition of k(ρ) is such that a suitable twist",
      "match": "The choice of the twist."
     }
    ],
@@ -2350,13 +2292,11 @@
     {
      "sourceId": "ribet1994",
      "locator": "§3, (3.3) Theorem, p. 8 of the author's copy",
-     "excerpt": "(3.3) Theorem. If",
      "match": "The statement."
     },
     {
      "sourceId": "ribet1994",
      "locator": "§3, proof of (3.3), p. 8 of the author's copy",
-     "excerpt": "The equality of N1 and N2 is guaranteed by Theorem 3.1",
      "match": "The chain of inclusions."
     }
    ],
@@ -2446,19 +2386,16 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Definition 2.1, p. 4 of the DVI",
-     "excerpt": "Definition 2.1. With notation as above, we say that m satisfies multiplicity one if the finite group",
      "match": "Definition 2.1."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Definition 2.2 and Lemma 2.3, p. 5 of the DVI",
-     "excerpt": "Lemma 2.3. If Γ1 (M) ⊆ Γ ⊆ Γ0 (M) then",
      "match": "The reduction to Γ₁(M)."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Proposition 2.4, p. 5 of the DVI",
-     "excerpt": "Proposition 2.4. If ρ : Gal",
      "match": "Proposition 2.4."
     }
    ],
@@ -2505,19 +2442,16 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Lemma 2.5, p. 6 of the DVI",
-     "excerpt": "Lemma 2.5. Let ρ : Gal",
      "match": "The statement."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§2, proof of Lemma 2.5, p. 6 of the DVI",
-     "excerpt": "But any subgroup of GL 2 (𝔽 2 ) composed entirely of symmetric matrices must be abelian",
      "match": "The key step of case 2."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Corollary 2.6 and its proof, p. 6 of the DVI",
-     "excerpt": "This g works.",
      "match": "The end of the proof of Corollary 2.6."
     }
    ],
@@ -2563,7 +2497,6 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§2, Corollary 2.7, p. 6 of the DVI",
-     "excerpt": "Corollary 2.7 (\"Carayol's Lemma\").",
      "match": "The statement."
     }
    ],
@@ -2603,13 +2536,11 @@
     {
      "sourceId": "buzzard2000",
      "locator": "§0 Introduction, the scalar case, p. 1",
-     "excerpt": "decomposition group at 2 is contained in the scalars, the multiplicity one result alluded to above does not",
      "match": "The scalar dyadic case singled out by Buzzard."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1, after Theorem 1.2, p. 2",
-     "excerpt": "also completes the work that the qualitative",
      "match": "KW's Theorem 1.2(2), the weight-two case, fills this case."
     }
    ],
@@ -2657,37 +2588,31 @@
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1, Theorem 1.2 and the remark after it, p. 2",
-     "excerpt": "also completes the work that the qualitative",
      "match": "The dyadic completion."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§1, the strong form in the sense of Edixhoven, p. 3",
-     "excerpt": "for p = 2 the strong form of the conjecture in the sense of Edixhoven",
      "match": "What is not claimed at 2."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§3, Theorem 3.4 and its remark, p. 6",
-     "excerpt": "implies Serre’s conjecture for",
      "match": "(D_r) and the cases it yields."
     },
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "§9, Theorem 9.1, p. 18",
-     "excerpt": "Assume Hypothesis (H). Then Serre’s conjecture is true.",
      "match": "Modularity for p = 2, k = 4 and for p odd, N even."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§1, proof of Proposition 1.3, p. 4",
-     "excerpt": "Hasse invariant",
      "match": "The weight 3 to weight 4 step."
     },
     {
      "sourceId": "buzzard2000",
      "locator": "§3, Remark after Theorem 3.2, p. 10",
-     "excerpt": "Serre could not initially predict k = 3 in this case.",
      "match": "Serre's weight 4 against weight 3 at p = 2."
     }
    ],

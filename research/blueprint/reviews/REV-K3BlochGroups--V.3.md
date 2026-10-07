@@ -207,7 +207,7 @@ signatures expose the exact containment inputs until that supplier exists.
 
 I checked all locators/excerpts against these public versions:
 
-- [Bloch's book-text mirror](https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html):
+- [Bloch's book-text mirror](https://bookstore.ams.org/crmm-11):
   §6.1 p.43 (6.1.2), §7.2 pp.51–54 and §7.4 pp.57–60. The raw full-tensor
   kernel and its boundary match the packet. This dynamic HTML fetch has a
   different byte hash from the author's recorded fetch; its mathematical

@@ -80,15 +80,16 @@ import TauCeti.RingTheory.MvPolynomial.Symmetric.Substitution
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/KTheoryLowDegrees--Z.3.md` carries all 260 reviewed nodes and the
 corrections recorded in `research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md` and
-`research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3~2.md`. The statements below suggest
+`research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3~2.md` and
+`research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3~3.md`. The statements below suggest
 Lean forms so that contributors and reviewers converge on names and signatures; they claim no
 implementation, and `implementationStatus` stays `"unchecked"` for every node.
 
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-The round-2 independent review and the 7 October 2026 round-3 revision attempted
-`lean-check`: both stopped at the missing prebuilt
+The round-2 independent review, the 7 October 2026 round-3 revision and the independent
+round-3 review attempted `lean-check`: all stopped at the missing prebuilt
 `TauCeti.Algebra.AlgebraicGroup.GeneralLinear.DiagonalTorus.Basic` import before checking the
 file. No available existing build matches both pinned commits, and elaboration remains
 unverified. The independent review and handoff record the source checks and remaining
@@ -2661,8 +2662,10 @@ theorem exteriorExtensionFiltration_map {N' N : Type u} [AddCommGroup N'] [Modul
       exteriorExtensionFiltration κ n i := by
   sorry
 
-/-- Base change: `S ⊗ Fⁱ` maps onto the filtration of the base-changed extension under the
-comparison `S ⊗ ⋀ⁿM ≅ ⋀ⁿ_S(S ⊗ M)` of `KTheoryLowDegrees:Z.3/exterior-base-change`. -/
+/-- Base change: the image of `S ⊗ Fⁱ` is the filtration of the base-changed first map under
+`S ⊗ ⋀ⁿM ≅ ⋀ⁿ_S(S ⊗ M)` of `KTheoryLowDegrees:Z.3/exterior-base-change`. This range equality
+does not assert an injection for arbitrary `S`. The surjection onto the range is an isomorphism
+if `S` is flat over `R` or the original sequence splits, in particular if `M''` is projective. -/
 theorem exteriorExtensionFiltration_baseChange (S : Type u) [CommRing S] [Algebra R S]
     (ι : M' →ₗ[R] M) (n i : ℕ) :
     ∃ e : (S ⊗[R] ⋀[R]^n M) ≃ₗ[S] ⋀[S]^n (S ⊗[R] M),
@@ -6605,7 +6608,7 @@ API TauCeti.GradedDeterminant.graded_line_groupoid_line [projection]: The underl
 API TauCeti.GradedDeterminant.graded_line_groupoid_grade [projection]: The grade of (L,f) is f.
 API TauCeti.GradedDeterminant.graded_line_groupoid_hom [characterisation]: Hom((L,f),(M,g)) is empty unless f=g, and then is Isom(L,M).
 API TauCeti.GradedDeterminant.graded_line_groupoid_iso_ext [extensionality]: Two morphisms agree exactly when their sheaf isomorphisms agree after the unique grade transport.
-TEST TauCeti.GradedDeterminant.graded_line_groupoid_point [example]: Over Spec ℚ, (O,1) is a graded line.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_point [computation]: Over Spec ℚ, (O,1) is a graded line.
 TEST TauCeti.GradedDeterminant.graded_line_groupoid_empty [degenerate]: Over the empty scheme the groupoid is contractible.
 TEST TauCeti.GradedDeterminant.graded_line_groupoid_unequal [non-example]: Over Spec ℚ there is no isomorphism (O,0)≅(O,1).
 TEST TauCeti.GradedDeterminant.graded_line_groupoid_automorphism [compatibility]: Aut((O,0)) over Spec ℚ is ℚˣ, not the trivial group.
@@ -6624,7 +6627,7 @@ API TauCeti.GradedDeterminant.graded_line_tensor_pullback [compatibility]: Pullb
 TEST TauCeti.GradedDeterminant.graded_line_tensor_odd_swap [non-example]: On (O,1)⊗(O,1) over Spec ℚ, self-braiding is −id.
 TEST TauCeti.GradedDeterminant.graded_line_tensor_zero_grade [compatibility]: In grade zero the ordinary line-bundle tensor and braiding are recovered.
 TEST TauCeti.GradedDeterminant.graded_line_tensor_unit_test [degenerate]: Tensoring with (O,0) preserves the object and unit constraint.
-TEST TauCeti.GradedDeterminant.graded_line_tensor_mixed [example]: Grades 1 and 2 exchange with sign +1.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_mixed [computation]: Grades 1 and 2 exchange with sign +1.
 -/
 
 /- OMISSION KTheoryLowDegrees:Z.3/graded-line-inverse [omitted]
@@ -6636,7 +6639,7 @@ API TauCeti.GradedDeterminant.graded_line_inverse_eval [equivalence]: (L,f)⊗in
 API TauCeti.GradedDeterminant.graded_line_inverse_double_dual [compatibility]: inv(inv(L,f))≅(L,f).
 API TauCeti.GradedDeterminant.graded_line_inverse_grade [projection]: grade(inv A)=−grade A.
 API TauCeti.GradedDeterminant.graded_line_inverse_pullback [functoriality]: Pullback of the inverse is canonically the inverse of the pullback.
-TEST TauCeti.GradedDeterminant.graded_line_inverse_odd [example]: The inverse of (O,1) has grade −1.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_odd [computation]: The inverse of (O,1) has grade −1.
 TEST TauCeti.GradedDeterminant.graded_line_inverse_zero [degenerate]: The unit is its own inverse.
 TEST TauCeti.GradedDeterminant.graded_line_inverse_wrong_grade [non-example]: (O,1)⊗(O,1) cannot be isomorphic to the unit over Spec ℚ.
 TEST TauCeti.GradedDeterminant.graded_line_inverse_affine [compatibility]: In grade zero affine duality agrees with Module.Invertible and CommRing.Pic inverse.
@@ -6651,7 +6654,7 @@ API TauCeti.GradedDeterminant.graded_line_pullback_id [simp]: Identity pullback 
 API TauCeti.GradedDeterminant.graded_line_pullback_comp [functoriality]: (h∘g)*≅g*∘h* coherently.
 API TauCeti.GradedDeterminant.graded_line_pullback_tensor [compatibility]: h*(A⊗B)≅h*A⊗h*B.
 API TauCeti.GradedDeterminant.graded_line_pullback_braiding [compatibility]: The pullback constraint intertwines both signed braidings.
-TEST TauCeti.GradedDeterminant.graded_line_pullback_point [example]: Pullback to a point evaluates the grade at that point.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_point [computation]: Pullback to a point evaluates the grade at that point.
 TEST TauCeti.GradedDeterminant.graded_line_pullback_empty [degenerate]: Pullback to the empty scheme yields its unique object.
 TEST TauCeti.GradedDeterminant.graded_line_pullback_product [non-example]: On Spec(ℚ×ℚ), grades (0,1) remain distinct; there is no single global integer rank.
 TEST TauCeti.GradedDeterminant.graded_line_pullback_affine [compatibility]: On affine grade-zero classes, pullback agrees with CommRing.Pic.mapRingHom.
@@ -6684,7 +6687,7 @@ API TauCeti.GradedDeterminant.forget_grade_tensor [compatibility]: η(A⊗B)≅�
 API TauCeti.GradedDeterminant.forget_grade_unit [simp]: η(O,0)=O.
 API TauCeti.GradedDeterminant.forget_grade_retract [compatibility]: η composed with grade-zero inclusion is identity.
 API TauCeti.GradedDeterminant.forget_grade_space_split [equivalence]: The underlying E₁-space decomposes as Pic(X)×H⁰(X,ℤ).
-TEST TauCeti.GradedDeterminant.forget_grade_even [example]: On grade-zero objects η preserves the braiding.
+TEST TauCeti.GradedDeterminant.forget_grade_even [computation]: On grade-zero objects η preserves the braiding.
 TEST TauCeti.GradedDeterminant.forget_grade_odd [non-example]: On (O,1) over Spec ℚ it sends self-braiding to −id, not ordinary +id.
 TEST TauCeti.GradedDeterminant.forget_grade_char_two [compatibility]: The odd sign obstruction vanishes over Spec 𝔽₂; this does not imply a general symmetric retraction.
 TEST TauCeti.GradedDeterminant.forget_grade_empty [degenerate]: Over the empty scheme forgetting grade is the unique functor.
@@ -6712,7 +6715,7 @@ API TauCeti.GradedDeterminant.projective_graded_det_zero [simp]: Det^Z(0)≅(R,0
 API TauCeti.GradedDeterminant.projective_graded_det_sum [compatibility]: Det^Z(P⊕Q)≅Det^Z(P)⊗Det^Z(Q).
 API TauCeti.GradedDeterminant.projective_graded_det_symmetry [compatibility]: The direct-sum swap maps to signed Picard braiding.
 API TauCeti.GradedDeterminant.projective_graded_det_base_change [functoriality]: The functor commutes coherently with scalar extension.
-TEST TauCeti.GradedDeterminant.projective_graded_det_line [example]: Det^Z(R)=(R,1).
+TEST TauCeti.GradedDeterminant.projective_graded_det_line [computation]: Det^Z(R)=(R,1).
 TEST TauCeti.GradedDeterminant.projective_graded_det_zero_test [degenerate]: Det^Z(0)=(R,0).
 TEST TauCeti.GradedDeterminant.projective_graded_det_swap [non-example]: Over ℤ, swapping two free rank-one summands maps to −1.
 TEST TauCeti.GradedDeterminant.projective_graded_det_product [compatibility]: For R=F×F and P=e₁R, the grade is (1,0), agreeing with companion rank.
@@ -6728,7 +6731,7 @@ API TauCeti.GradedDeterminant.ring_spectrum_det_sum [compatibility]: The map pre
 API TauCeti.GradedDeterminant.ring_spectrum_det_pi_zero [compatibility]: On π₀ it is the existing rank and determinant pair.
 API TauCeti.GradedDeterminant.ring_spectrum_det_pi_one [compatibility]: On automorphism loops it is the determinant in Rˣ; arbitrary SK₁ may remain.
 TEST TauCeti.GradedDeterminant.ring_spectrum_det_field [compatibility]: Over a field, π₀ is rank and π₁ is the usual determinant.
-TEST TauCeti.GradedDeterminant.ring_spectrum_det_negative [example]: −[R] has grade −1 and the dual determinant line.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_negative [computation]: −[R] has grade −1 and the dual determinant line.
 TEST TauCeti.GradedDeterminant.ring_spectrum_det_zero [degenerate]: The zero-ring K-spectrum and Pic^Z are contractible.
 TEST TauCeti.GradedDeterminant.ring_spectrum_det_not_ordinary_pic [non-example]: [R] over ℚ cannot map into the grade-zero Pic inclusion because its grade is one.
 -/
@@ -6760,7 +6763,7 @@ API TauCeti.GradedDeterminant.scheme_spectrum_det_object [compatibility]: A vect
 API TauCeti.GradedDeterminant.scheme_spectrum_det_pullback [functoriality]: Derived pullback commutes coherently with Det_X.
 API TauCeti.GradedDeterminant.scheme_spectrum_det_shift [compatibility]: Det(C[1])≅Det(C) inverse.
 API TauCeti.GradedDeterminant.scheme_spectrum_det_triangle [compatibility]: Every distinguished triangle induces Det(C)≅Det(C′)⊗Det(C″) coherently.
-TEST TauCeti.GradedDeterminant.scheme_spectrum_det_line [example]: An invertible sheaf in degree zero maps to itself with grade one.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_line [computation]: An invertible sheaf in degree zero maps to itself with grade one.
 TEST TauCeti.GradedDeterminant.scheme_spectrum_det_zero [degenerate]: The zero complex maps to (O,0).
 TEST TauCeti.GradedDeterminant.scheme_spectrum_det_shift_test [compatibility]: O[1] has grade −1 and determinant O.
 TEST TauCeti.GradedDeterminant.scheme_spectrum_det_nonseparated [non-example]: On the doubled plane do not replace Perf K by vector-bundle K; the Cartan groups differ.
@@ -6799,7 +6802,7 @@ API TauCeti.GradedDeterminant.witt_supported_input_alpha [constructor]: α_X is 
 API TauCeti.GradedDeterminant.witt_supported_input_object [compatibility]: α sends C to the same supported restriction-of-scalars complex.
 API TauCeti.GradedDeterminant.witt_supported_input_natural [functoriality]: α is natural in perfect-scheme pullback through the specified derived comparison.
 API TauCeti.GradedDeterminant.witt_supported_input_zero [simp]: α sends the zero object and K basepoint to zero.
-TEST TauCeti.GradedDeterminant.witt_supported_input_field [example]: Over a perfect field k, k is represented by W(k) --p→ W(k).
+TEST TauCeti.GradedDeterminant.witt_supported_input_field [computation]: Over a perfect field k, k is represented by W(k) --p→ W(k).
 TEST TauCeti.GradedDeterminant.witt_supported_input_zero_test [degenerate]: The zero complex satisfies the support condition.
 TEST TauCeti.GradedDeterminant.witt_supported_input_unsupported [non-example]: W(k) in degree zero is excluded, since it remains nonzero after p inversion.
 TEST TauCeti.GradedDeterminant.witt_supported_input_filtration [compatibility]: W(k)/p² has two k graded pieces in its p-adic filtration.
@@ -6827,7 +6830,7 @@ API TauCeti.GradedDeterminant.witt_supported_det_additivity [compatibility]: Sup
 API TauCeti.GradedDeterminant.witt_supported_det_zero [simp]: The zero supported complex has determinant (O,0).
 API TauCeti.GradedDeterminant.witt_supported_det_unique [universal-property]: The space of natural extending maps with extension compatibility is contractible.
 TEST TauCeti.GradedDeterminant.witt_supported_det_residue [compatibility]: The supported residue module k maps to (k,1).
-TEST TauCeti.GradedDeterminant.witt_supported_det_length_two [example]: Over a perfect field, W(k)/p² maps to (k,2) up to the canonical filtration identification.
+TEST TauCeti.GradedDeterminant.witt_supported_det_length_two [computation]: Over a perfect field, W(k)/p² maps to (k,2) up to the canonical filtration identification.
 TEST TauCeti.GradedDeterminant.witt_supported_det_zero_test [degenerate]: The zero supported object maps to the tensor unit.
 TEST TauCeti.GradedDeterminant.witt_supported_det_unsupported [non-example]: No value on W(k)[1/p] is supplied by this supported determinant construction.
 -/
