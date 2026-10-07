@@ -21929,9 +21929,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #676"
+   "note": "claimed on GitHub issue #676"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations",
