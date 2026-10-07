@@ -22733,8 +22733,9 @@
    ],
    "avoidAccountOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/REV-BunGAndNewtonStrata.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #366"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #366",
+   "finishedAt": "2026-10-07T10:23:43Z"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H0",
@@ -30444,7 +30445,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructure.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -30464,7 +30465,7 @@
     "BP-TorsionCohomologyInfrastructure",
     "BP-WeightsInEtaleCohomology"
    ],
-   "note": "released on GitHub issue #1018"
+   "note": "claimed on GitHub issue #1018"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructure",
