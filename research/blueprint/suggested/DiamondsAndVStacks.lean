@@ -318,6 +318,10 @@ def IsQuasicompact {F G : Sheaf J (Type u)} (f : F ⟶ G) : Prop :=
   ∀ (H : Sheaf J (Type u)), Sheaf.IsQuasicompact J H →
     ∀ g : H ⟶ G, Sheaf.IsQuasicompact J (pullback f g)
 
+def IsQuasiseparated {F G : Sheaf J (Type u)} (f : F ⟶ G) : Prop :=
+  IsQuasicompact J (pullback.lift (𝟙 F) (𝟙 F)
+    (show (𝟙 F) ≫ f = (𝟙 F) ≫ f from rfl))
+
 theorem isQuasicompact_comp {F G H : Sheaf J (Type u)} (f : F ⟶ G) (g : G ⟶ H)
     (hf : IsQuasicompact J f) (hg : IsQuasicompact J g) :
     IsQuasicompact J (f ≫ g) := by sorry
@@ -326,7 +330,9 @@ end Hom
 def IsAlgebraic : Prop :=
   ∀ F : Sheaf J (Type u), ∃ (ι : Type u) (G : ι → Sheaf J (Type u))
     (f : ∀ i, G i ⟶ F), EffectiveEpiFamily G f ∧
-      ∀ i, IsQuasicompact J (G i) ∧ IsQuasiseparated J (G i)
+      ∀ i, IsQuasicompact J (G i) ∧ IsQuasiseparated J (G i) ∧
+        Hom.IsQuasiseparated J (terminal.from (G i))
+-- SGA VI 2.2: this terminal-map condition makes coherent objects stable under fibre products.
 end CategoryTheory.Sheaf
 
 namespace TauCeti.Diamonds
@@ -534,15 +540,13 @@ namespace CategoryTheory.Sheaf
 variable {C : Type u} [Category.{u} C] (J : GrothendieckTopology C)
 namespace Hom
 
-def IsQuasiseparated {F G : Sheaf J (Type u)} (f : F ⟶ G) : Prop :=
-  IsQuasicompact J (pullback.lift (𝟙 F) (𝟙 F)
-    (show (𝟙 F) ≫ f = (𝟙 F) ≫ f from rfl))
-
 theorem isQuasiseparated_iff_diagonal {F G : Sheaf J (Type u)} (f : F ⟶ G) :
     IsQuasiseparated J f ↔ IsQuasicompact J (pullback.lift (𝟙 F) (𝟙 F) (show (𝟙 F) ≫ f = (𝟙 F) ≫ f from rfl)) := by sorry
 end Hom
 
+-- The terminal-object hypothesis corrects the false unconditional assertion in ECD p. 41.
 theorem isQuasicompact_of_isQuasicompact_terminal (F : Sheaf J (Type u))
+    (hterminal : IsQuasicompact J (CategoryTheory.Limits.terminal (Sheaf J (Type u))))
     (h : Hom.IsQuasicompact J (terminal.from F)) : IsQuasicompact J F := by sorry
 
 theorem isQuasiseparated_iff_of_cover (F : Sheaf J (Type u))
@@ -1019,7 +1023,7 @@ api Perfd.Stack.isQuasiProEtale_iff_isProEtale: For a map of perfectoid spaces o
 api Perfd.Stack.isEtale_iff_of_perfectoid: For a map of perfectoid spaces the etale and finite etale predicates agree with the absolute ones.
 tests pro_etale_of_perfectoid_spaces: A pro-etale map of perfectoid spaces is quasi-pro-etale; the converse fails for a general base (a non-example).
 tests open_immersion: An open immersion is etale, and a finite disjoint union of isomorphisms is finite etale (the degenerate cases).
-tests locally_separated_is_needed: Without local separatedness the quotient of a perfectoid space by a free discrete group action would be counted as etale over a point in a way ECD's convention excludes.
+tests locally_separated_is_needed: For a morphism failing local separatedness, both the étale and quasi-pro-étale predicates are false even when their other pullback conditions are postulated. This checks that Convention 10.2 is present in each predicate; it asserts no unsupported geometric quotient example.
 tests agrees_with_absolute_notion: For a map of perfectoid spaces the predicates agree with the usual etale and finite etale notions of ECD section 6.
 
 DiamondsAndVStacks:D3/immersions-separatedness-and-truncatedness
@@ -1031,7 +1035,7 @@ api Perfd.Stack.isSeparated_uniqueness_general_pair: The variant for a general p
 api Perfd.Stack.isSeparated_comp: The four classes are stable under composition and base change.
 api Perfd.Stack.isSeparated_of_perfectoid: For a map of perfectoid spaces the notions agree with those of PerfectoidSpaces:P4.
 tests open_immersion_of_perfectoid_spaces: An open immersion of perfectoid spaces is an open immersion of v-sheaves and conversely.
-tests separated_not_quasiseparated: X/phi^Z for X a characteristic p perfectoid space and phi its absolute Frobenius is separated and not quasiseparated (the required non-example).
+tests separated_not_quasiseparated: There exists a characteristic-p perfectoid X for which X/φ^ℤ is separated and not quasiseparated, as in ECD Remark 10.8. Instantiate a suitable nonempty X when typing this test; do not quantify universally over X.
 tests classifying_stack_not_zero_truncated: The classifying stack of a nontrivial locally profinite group is not 0-truncated (the degenerate stack case).
 tests valuative_criterion: A map of perfectoid spaces is separated exactly when the valuative criterion holds, matching PerfectoidSpaces:P4.
 
@@ -1212,11 +1216,11 @@ Let (C, J) be a site with a generating full subcategory of qcqs objects stable u
 Required interface: The ordinary categorical/topological carrier for this precise statement is not yet connected to the prototype (bounded ordinal subcategory assembly, coherent topoi/derived comparisons, or the groupoid-object and isomorphism-class stack interfaces). Build it from this node’s pinned categorical APIs and proof steps; there is no geometry assumed as an opaque predicate.
 
 DiamondsAndVStacks:D0/cech-to-derived-comparison — TauCeti.Diamonds.CechToDerivedComparison
-For a site (C, J), a cover of an object X and an abelian sheaf F there is a spectral sequence from the Cech cohomology of the cover with coefficients in the presheaves H^q(F) converging to H^{p+q}(X, F). For a morphism of sites f there is a Leray spectral sequence H^p(X, R^q f_* F) converging to H^{p+q}(Y, F). If B is a basis of the site consisting of objects on which F is acyclic and on which the covers of the site can be refined by covers by objects of B, then Cech cohomology computed on B agrees with sheaf cohomology. Mathlib has the Cech complex functor and Ext-theoretic sheaf cohomology, but none of these three comparisons.
+For a site (C, J), a cover of an object X and an abelian sheaf F there is a spectral sequence from the Cech cohomology of the cover with coefficients in the presheaves H^q(F) converging to H^{p+q}(X, F). For a morphism of topoi f:Y→X, whose inverse image on abelian sheaves is exact, there is a Leray spectral sequence H^p(X, R^q f_* F) converging to H^{p+q}(Y, F). If B is a basis of the site consisting of objects on which F is acyclic and on which the covers of the site can be refined by covers by objects of B, then Cech cohomology computed on B agrees with sheaf cohomology. Mathlib has the Cech complex functor and Ext-theoretic sheaf cohomology, but none of these three comparisons.
 Required interface: The ordinary categorical/topological carrier for this precise statement is not yet connected to the prototype (bounded ordinal subcategory assembly, coherent topoi/derived comparisons, or the groupoid-object and isomorphism-class stack interfaces). Build it from this node’s pinned categorical APIs and proof steps; there is no geometry assumed as an opaque predicate.
 
 DiamondsAndVStacks:D1/split-cover-characterisation — TauCeti.Diamonds.SplitCoverCharacterisation
-Let X be a spectral space. The following are equivalent: every open cover of X splits; every connected component of X has a unique closed point; the global sections functor on sheaves on X is exact, that is, commutes with all finite colimits; the global sections functor on sheaves of abelian groups is exact; H^i(X, F) = 0 for all abelian sheaves F and all i > 0; H^1(X, F) = 0 for all abelian sheaves F. The result is due to L. Fargues.
+Let X be spectral. The following are equivalent: every open cover splits; every connected component has a unique closed point; global sections on ordinary set-valued sheaves sends epimorphisms to surjections; global sections on abelian sheaves is exact; every abelian sheaf has vanishing H^i for i>0; every abelian sheaf has vanishing H^1. This is the corrected Fargues characterization: ECD 7.2(iii) overstates the set-valued condition as preservation of all finite colimits. For the two-point discrete X, global sections is the product functor Set×Set→Set and does not preserve binary coproducts. No finite-colimit-preservation claim for set-valued global sections is made.
 Required interface: Requires the supplied category of perfectoid spaces with affinoid rings, residue valuation fields, rational localization and pro-étale limits (PerfectoidSpaces P2/P4/P5/P6). The prototype only states the literal underlying-space or cover-splitting predicate; it cannot instantiate this geometric statement before those interfaces exist.
 
 DiamondsAndVStacks:D1/components-of-totally-disconnected — TauCeti.Diamonds.ComponentsOfTotallyDisconnected
@@ -1232,7 +1236,7 @@ Let X be a strictly totally disconnected perfectoid space and f : Y -> X a quasi
 Required interface: Requires the supplied category of perfectoid spaces with affinoid rings, residue valuation fields, rational localization and pro-étale limits (PerfectoidSpaces P2/P4/P5/P6). The prototype only states the literal underlying-space or cover-splitting predicate; it cannot instantiate this geometric statement before those interfaces exist.
 
 DiamondsAndVStacks:D1/topological-classification-of-pro-etale-maps — TauCeti.Diamonds.TopologicalClassificationOfProEtaleMaps
-Let T be a spectral space each of whose connected components is a totally ordered chain of specializations. Call a spectral map S -> T affinoid pro-etale if the induced map S -> T x_{pi_0 T} pi_0(S) is a pro-constructible generalizing embedding, and pro-etale if S is covered by spectral subsets whose restrictions are affinoid pro-etale. For X a strictly totally disconnected perfectoid space, sending f : Y -> X to |f| : |Y| -> |X| gives equivalences between the category of (kappa-small) affinoid pro-etale perfectoid spaces over X and the category of affinoid pro-etale spectral maps to |X| (of cardinality less than kappa), and likewise in the pro-etale case. The inverse sends S -> |X| to the space with O^+_S the varpi-adic completion of the pullback of O^+_X.
+Let T be spectral with every connected component a totally ordered chain of specializations. A spectral map S→T with S spectral is affinoid pro-étale if S→T×_{π₀(T)}π₀(S) is a pro-constructible generalizing embedding. A spectral map from a locally spectral S is pro-étale if S has an open cover by spectral subspaces on which the map is affinoid pro-étale. Here spectral for locally spectral spaces means the restriction between any spectral open subspaces is quasicompact, as in ECD 2.1; it does not require S itself to be quasicompact. For strictly totally disconnected perfectoid X, Y↦|Y| gives equivalences between affinoid pro-étale spaces over X and affinoid pro-étale spectral maps to |X|, and between arbitrary pro-étale spaces over X and pro-étale locally spectral maps to |X|. The κ-small restrictions use the same cutoff cardinal on spaces and topological sources. The inverse uses the varpi-adic completion of the pullback of O^+_X and valuations pulled back from X, and glues on spectral opens.
 Required interface: Requires the supplied category of perfectoid spaces with affinoid rings, residue valuation fields, rational localization and pro-étale limits (PerfectoidSpaces P2/P4/P5/P6). The prototype only states the literal underlying-space or cover-splitting predicate; it cannot instantiate this geometric statement before those interfaces exist.
 
 DiamondsAndVStacks:D1/automatic-flatness — TauCeti.Diamonds.AutomaticFlatness

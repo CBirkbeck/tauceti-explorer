@@ -1,0 +1,9 @@
+# REV-DiamondsAndVStacks handoff
+
+Job #389 is complete. Codex session `codex-nYijoc` independently reviewed and corrected the packet and suggested file; the packet records `accepted` by `independent-review-REV-DiamondsAndVStacks`. This is not a checkpoint and needs no continuation of this review.
+
+See [the review report](../reviews/REV-DiamondsAndVStacks.md) for the evidence, corrections and orchestrator actions; all durable findings are there or in the packet. There are 90 nodes, 107 confirmed pinned baseline entries, 166 checked citations, 213 API items, 116 tests and 41 planets. Thirty review ledger entries are corrected (29 node bodies and one additional gap association), 60 verified. No nodes were added or removed. All seven stages remain planned, none closed, with seven precise gaps and six requests. Seven source issues are independently confirmed, five added in this review; version provenance distinguishes this run's hashed preprints from inherited published-GLX inspection.
+
+The packet checker and source-issue/version validation pass. The suggested file elaborates with `lean-check`, with only 95 `sorry` warnings. Its signature ledger explicitly omits 222 API/test and 49 named-target signatures; 87 API items, 20 complete tests and 11 named-target prototypes are typed. No implementations are claimed.
+
+For assembly/follow-up: synchronize the reader with the corrected packet, especially the Fargues and terminal-object errors; the reader was outside #389's authorized paths. Apply the confirmed RS-05 canonical-compactification owner correction to C4. Route the seven exact gaps and six requests recorded in the packet; do not introduce backward C4 or D6 dependencies or promote planned supplier interfaces to existing library facts. Continue errata/collation using the specified text versions. The scratch directory can be deleted: no follow-up depends on it.
