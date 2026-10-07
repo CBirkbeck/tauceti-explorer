@@ -12675,7 +12675,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3397"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityPartII",
@@ -37677,7 +37678,8 @@
     "REV-PrismaticCohomology--PR.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-PrismaticCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #254"
   },
   {
    "id": "ASM-RankZeroOneBSD",
@@ -61033,8 +61035,9 @@
     "REV-FIX-RT-AREA-iwasawa-3~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5868"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5868",
+   "finishedAt": "2026-10-07T00:55:51Z"
   },
   {
    "id": "REV-FIX-RT-AREA-iwasawa-3~3",
