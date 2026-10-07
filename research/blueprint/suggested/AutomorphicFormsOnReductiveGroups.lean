@@ -347,3 +347,26 @@ example (m : M) : (fun _ : Gf => m) ∈ AlgebraicModularForm ι σ ⊤ ↔
 end AlgebraicModularForms
 
 end TauCeti.Automorphic
+
+/-
+Findings /2, /6, /29 and /30: the single AF.1b real-representation proposal
+includes Casselman embedding and globalization as well as classification;
+globalization consumes its classification/discrete-series reduction. AL keeps
+Tate's rank-one factors and imports the AF higher-rank dictionary.
+The independent AF.1a cochain owner must supply ALS.4's requested absolute
+characteristic-zero complex and Kostant theorem; existing relative cochains
+and Mathlib's low-degree absolute cochains do not assert that full output.
+An early AF.4 local-weight prefix supplies ALS/AS comparison proofs. The
+rationality and torsion-eigenclass suffix imports the actual Betti/Hecke
+comparison, retaining its source group hypotheses. These proposed splits
+add no native signature and do not certify all stage dependencies acyclic.
+-/
+
+/-
+AF.1/tempered-square-integrable takes a supplied continuous SF or unitary
+Hilbert realization. Its coefficient integrability definition precedes CW.
+Existence of the discrete/tempered realizations and comparison with the later
+canonical SAF realization remain explicit source/signature gaps. This prevents
+classification/globalization from assuming the globalization theorem in its
+own initial matrix-coefficient definition.
+-/

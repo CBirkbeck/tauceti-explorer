@@ -1961,7 +1961,7 @@
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/cuspidal-tensor-factorization",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
         "SmoothRepresentationsOfLocalGroups:SR.5"
       ],
       "sources": [
@@ -2046,7 +2046,7 @@
       ],
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
         "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
       ],
       "sources": [
@@ -2261,6 +2261,7 @@
         "Number field F; uniform bound |χᵢ,v(ϖv)| between qv^{−r} and qv^r for a common r at principal-series unramified places; all local constituents infinite-dimensional/generic; full archimedean and analytic conditions above."
       ],
       "proofSteps": [
+        "Use the full-rank AL.3 converse contract at n=2 as the generic analytic owner. Verify the displayed JL growth, full quasicharacter family and archimedean hypotheses separately; the n≥3 reduced-rank contract is inapplicable.",
         "Use JL Theorem 11.3/Cogdell Theorem 3.1 with n=2 and all GL₁ cuspidal twists, i.e. all Hecke characters.",
         "Construct the Whittaker sum; Mellin inversion and every character functional equation prove Weyl invariance and the growth estimates.",
         "Entireness removes constant terms/pole obstructions; the constructed nonzero tensor is a cusp form."
@@ -2275,7 +2276,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.2",
         "AutomorphicLFunctionsAndLocalFactors:AL.3",
         "AutomorphicFormsOnReductiveGroups:AF.1",
-        "AutomorphicFormsOnReductiveGroups:AF.2"
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank"
       ],
       "sources": [
         {

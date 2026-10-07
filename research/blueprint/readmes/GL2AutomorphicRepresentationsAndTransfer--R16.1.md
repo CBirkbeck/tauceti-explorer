@@ -861,7 +861,7 @@ Fix nontrivial ψ:F\𝔸→ℂ× and additive Haar mass vol(F\𝔸)=1. For a smo
 2. Cuspidality removes the zero coefficient; conjugation by diag(a,1) identifies the remaining coefficients.
 3. Use AL.3 convergence/injectivity theorem and local uniqueness SR.5 for factorization.
 
-**Direct prerequisites:** [R16.4/cuspidal-tensor-factorization](#R16-4-cuspidal-tensor-factorization), `AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `SmoothRepresentationsOfLocalGroups:SR.5`.
+**Direct prerequisites:** `GL2AutomorphicRepresentationsAndTransfer:R16.4/cuspidal-tensor-factorization`, `AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space`, `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion`, `SmoothRepresentationsOfLocalGroups:SR.5`.
 
 **Acceptance.** If Wφ=0, then φ=0; the constant term cannot be retained for a cusp form.
 
@@ -905,7 +905,7 @@ Let π,π′ be cuspidal automorphic representations of GL₂(𝔸F). If there i
 2. Cancel equal cofinite Euler factors; import the nonvanishing/regularity needed for the finite omitted factors at one.
 3. Compare the classical fixed-level baseline after the AF.5 dictionary; Casselman Theorem 2 supplies a parallel local-converse proof when the infinite-place factors are already identified.
 
-**Direct prerequisites:** [R16.4/global-multiplicity-one](#R16-4-global-multiplicity-one), `AutomorphicLFunctionsAndLocalFactors:AL.3`, `tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq`.
+**Direct prerequisites:** `GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one`, `AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one`, `tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq`.
 
 **Acceptance.** The theorem recovers the infinite-place factors; the pinned classical theorem alone does not prove this number-field statement.
 
@@ -1018,11 +1018,12 @@ Let Π=⊗′vΠv be an irreducible admissible generic GL₂(𝔸F) tensor, with
 
 **Proof or construction.**
 
-1. Use JL Theorem 11.3/Cogdell Theorem 3.1 with n=2 and all GL₁ cuspidal twists, i.e. all Hecke characters.
-2. Construct the Whittaker sum; Mellin inversion and every character functional equation prove Weyl invariance and the growth estimates.
-3. Entireness removes constant terms/pole obstructions; the constructed nonzero tensor is a cusp form.
+1. Use the full-rank AL.3 converse contract at n=2 as the generic analytic owner. Verify the displayed JL growth, full quasicharacter family and archimedean hypotheses separately; the n≥3 reduced-rank contract is inapplicable.
+2. Use JL Theorem 11.3/Cogdell Theorem 3.1 with n=2 and all GL₁ cuspidal twists, i.e. all Hecke characters.
+3. Construct the Whittaker sum; Mellin inversion and every character functional equation prove Weyl invariance and the growth estimates.
+4. Entireness removes constant terms/pole obstructions; the constructed nonzero tensor is a cusp form.
 
-**Direct prerequisites:** [R16.5/whittaker-integral-comparison](#R16-5-whittaker-integral-comparison), [R16.2/archimedean-classification](#R16-2-archimedean-classification), `AutomorphicLFunctionsAndLocalFactors:AL.1`, `AutomorphicLFunctionsAndLocalFactors:AL.2`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `AutomorphicFormsOnReductiveGroups:AF.1`, `AutomorphicFormsOnReductiveGroups:AF.2`.
+**Direct prerequisites:** `GL2AutomorphicRepresentationsAndTransfer:R16.5/whittaker-integral-comparison`, `GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification`, `AutomorphicLFunctionsAndLocalFactors:AL.1`, `AutomorphicLFunctionsAndLocalFactors:AL.2`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `AutomorphicFormsOnReductiveGroups:AF.1`, `AutomorphicFormsOnReductiveGroups:AF.2`, `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank`.
 
 **Acceptance.** A tensor whose twisted completed L-function has a pole fails the theorem; analytic continuation by itself does not meet the hypotheses.
 

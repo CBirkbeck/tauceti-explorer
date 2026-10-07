@@ -1380,3 +1380,18 @@ end TraceInterfaces
 
 end
 end TauCeti.Metaplectic
+
+/-
+Jacobi and special-function supplier boundary (finding /20):
+The four MP.6 Jacobi nodes remain the unique adelic owner. Their current
+integral-index prototypes do not yet state QM.1's classical items (a)-(e):
+discrete J_n(Gamma), matrix-index slash, typus and Fourier cusp support,
+half-integral scalar index, and Skoruppa's Heisenberg/theta decomposition.
+The packet gap retains these exact outputs and the unitary L2s contract;
+there is no proposed L2 edge. No classical comparison signature is counted
+as supplied merely because an adelic Jacobi node exists.
+MP.7 imports QM.2/I and QM.2/J for the Bessel carriers, and AS.0/dit-112 for
+Whittaker M/W. Its fine-node requests retain complex-order differentiated
+uniformity and exceptional-parameter continuation. DIT Appendix A gives
+fixed-parameter formulas, not all of these uniform estimates.
+-/

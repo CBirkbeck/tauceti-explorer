@@ -8219,6 +8219,7 @@
         "Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained."
       ],
       "proofSteps": [
+        "Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.",
         "Integrate in the periodic x variable to recover coefficients.",
         "Solve the resulting Whittaker ODE and use the cusp/L² condition to eliminate growing terms; apply the supplier’s differentiated convergence estimate."
       ],
@@ -8227,8 +8228,8 @@
       ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.7/half-weight-maass-space",
-        "QSeriesPartitionsAndMockModularForms:QM.2",
-        "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker"
+        "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker",
+        "AutomorphicSpectralTheory:AS.0/dit-112"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Metaplectic/Stage7",
@@ -9045,6 +9046,7 @@
         "Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained."
       ],
       "proofSteps": [
+        "Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.",
         "Form the Γ∞\\Γ₀(4) orbit sum of the normalized Whittaker-M seed.",
         "Prove absolute/compact-uniform convergence for Re(s)>1, covariance, and its Fourier expansion."
       ],
@@ -9053,10 +9055,10 @@
       ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.7/theta-multiplier",
-        "QSeriesPartitionsAndMockModularForms:QM.2",
         "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker",
         "mathlib:QuotientGroup.rightRel",
-        "mathlib:CongruenceSubgroup.Gamma0"
+        "mathlib:CongruenceSubgroup.Gamma0",
+        "AutomorphicSpectralTheory:AS.0/dit-112"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Metaplectic/Stage7",
@@ -9172,6 +9174,7 @@
         "Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained."
       ],
       "proofSteps": [
+        "Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.",
         "Compute the projected Poincaré Fourier coefficient by orbit unfolding.",
         "Apply the Whittaker–Bessel integral, selecting I for nd<0 and J for nd>0 and retaining all Gamma and power factors."
       ],
@@ -9180,8 +9183,9 @@
       ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.7/plus-kloosterman",
-        "QSeriesPartitionsAndMockModularForms:QM.2",
-        "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker"
+        "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker",
+        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i",
+        "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Metaplectic/Stage7",
@@ -9594,6 +9598,7 @@
         "Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained."
       ],
       "proofSteps": [
+        "Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.",
         "Use the corrected weight-two oriented unfolding.",
         "Evaluate the differentiated Whittaker integral, retaining Γ((s+1)/2)² and the source’s oriented differential."
       ],
@@ -9602,8 +9607,8 @@
       ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding",
-        "QSeriesPartitionsAndMockModularForms:QM.2",
-        "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker"
+        "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker",
+        "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Metaplectic/Stage7",
@@ -11282,16 +11287,6 @@
       ]
     },
     {
-      "supplier": "QSeriesPartitionsAndMockModularForms:QM.2",
-      "need": "Whittaker M/W and ordinary/modified Bessel function carriers with exact integrals, differentiated asymptotics and decay. Reuse the existing I-Bessel node; new Whittaker/cycle evaluation is requested, not a duplicate special-function definition.",
-      "neededBy": [
-        "MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion",
-        "MetaplecticAutomorphicForms:MP.7/half-weight-poincare",
-        "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
-        "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum"
-      ]
-    },
-    {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
       "need": "Invariant genus characters χ_d on possibly imprimitive binary forms, including discriminant/conductor/parity at2; MP owns only the finite oscillator/Kohnen sum adapter. The current GN.2 lattice/genus nodes do not state this binary genus-character and extended Kronecker API; route its missing arithmetic extension and then cite exact nodes.",
       "neededBy": [
@@ -11305,6 +11300,29 @@
       "need": "Import the level-one orbifold geometry and the proposed FuchsianOrbifolds PartII arithmetic Nielsen-core/Stokes extension from the DIT16 routing. MP must not duplicate core surfaces or generic cycle geometry.",
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.7/negative-factor-trace"
+      ]
+    },
+    {
+      "supplier": "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i",
+      "need": "Extend the I-Bessel API with differentiated bounds locally uniform for complex order ν=2s−1 in the Re(s)>1 half-plane. The existing real-order bound is not this complex-parameter estimate.",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient"
+      ]
+    },
+    {
+      "supplier": "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j",
+      "need": "Extend the J-Bessel API with the locally uniform complex-order small-argument and differentiated cycle-integral estimates. Import the existing series/ODE carrier; no second Bessel definition is planned.",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
+        "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum"
+      ]
+    },
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.0/dit-112",
+      "need": "Export the displayed M/W positive-real normalization and continued parameter domains; refine the compact-parameter derivative/endpoint estimates needed by the half-weight Fourier and Poincaré adapters. DIT11 Appendix A gives fixed-parameter asymptotics, not unrestricted uniform estimates.",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.7/half-weight-poincare",
+        "MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion"
       ]
     }
   ],
@@ -11431,7 +11449,8 @@
         "Ideal-lattice Poisson comparison proof/signature boundary: The finite-dimensional complex Gaussian Fourier/covolume comparison is an AL Part-II input; ideal trace-duality belongs to GN.3.",
         "Toric theta pairing interface proof/signature boundary: The exact original toric theta unfolding/ramified local calculations are not read. GZ.5 must supply its period theorem; MP.6 supplies the common kernel, convergence/range and normalization adapter, with this proof gap explicit.",
         "Arithmetic supplier routing and broad GN stage feedback: Read GN.2–3 in GeometryOfNumbersAndQuadraticArithmetic.json: the supplied nodes concern integral lattices, Hermitian densities and masses, not the requested binary genus characters, ideal-class/norm/trace-dual arithmetic, CM points or oriented cycles. GN.3/theta-lattice-coefficient-interface itself imports MP.5. Expanding the whole GN.3 stage therefore gives GN.3 → theta-lattice-coefficient-interface → MP.5 → ideal-class-theta → GN.3. The broad stage references remain unresolved requested inputs, not verified suppliers. Route exact independent arithmetic nodes/Part II with the maintainer; do not import the consumer theta interface or duplicate its theta construction.",
-        "Torus orbit dictionary before the Waldspurger consumer: Removed GZ.5 as a prerequisite and request: this node explicitly exports the normalized pairing to the Waldspurger owner, so the consumer period identity cannot justify its input. Supply the precise norm-torus orbit/character dictionary independently (with arithmetic and AA quotient/measure owners), including ramified factors and absolute integrability on both quotients. Do not move the Waldspurger special-value theorem into MP.6."
+        "Torus orbit dictionary before the Waldspurger consumer: Removed GZ.5 as a prerequisite and request: this node explicitly exports the normalized pairing to the Waldspurger owner, so the consumer period identity cannot justify its input. Supply the precise norm-torus orbit/character dictionary independently (with arithmetic and AA quotient/measure owners), including ramified factors and absolute integrability on both quotients. Do not move the Waldspurger special-value theorem into MP.6.",
+        "Round3: Classical and unitary Jacobi consumer contracts"
       ]
     },
     {
@@ -11459,7 +11478,8 @@
         "Ramified quadratic-twist kernel inputs proof/signature boundary: FH95 full public mathematical text was not obtained: only the publisher metadata was read. Its exact kernel/ramified-local adapter remains to be stated after acquisition. This records the missing MP.7 target explicitly instead of claiming the BFH family proves it.",
         "Biró trace identity and general-level automorphy: Supply the source Lemma10 and equation(14) (Biró printed128–129, PDF26–27), including the Kuznetsov/special-function convergence argument, actual genus-weighted traces and V*_{1/2}(4N)→Γ₀(N) spaces. Finite coefficient separation proves automorphy only after this identity; an unnamed identity183 or a nonexistent source theta kernel cannot supply it.",
         "Arithmetic supplier routing and broad GN stage feedback: Read GN.2–3 in GeometryOfNumbersAndQuadraticArithmetic.json: the supplied nodes concern integral lattices, Hermitian densities and masses, not the requested binary genus characters, ideal-class/norm/trace-dual arithmetic, CM points or oriented cycles. GN.3/theta-lattice-coefficient-interface itself imports MP.5. Expanding the whole GN.3 stage therefore gives GN.3 → theta-lattice-coefficient-interface → MP.5 → ideal-class-theta → GN.3. The broad stage references remain unresolved requested inputs, not verified suppliers. Route exact independent arithmetic nodes/Part II with the maintainer; do not import the consumer theta interface or duplicate its theta construction.",
-        "Friedberg–Hoffstein adapter without the BSD consumer: Removed BSD.2 as a prerequisite and request: RankZeroOneBSD--BSD.0.json, BSD.2/twist-series-residue imports MP.7 and MP.8, so importing the whole BSD.2 stage back into the MP.7 kernel interface creates feedback. The separate original FH95 kernel, level/character restrictions and ramified/dyadic comparison are still unread/unavailable in this packet. Establish that analytic adapter from the original source and route its own independent supplier; BSD.2 remains the owner of continuation/residue/positivity and nonvanishing."
+        "Friedberg–Hoffstein adapter without the BSD consumer: Removed BSD.2 as a prerequisite and request: RankZeroOneBSD--BSD.0.json, BSD.2/twist-series-residue imports MP.7 and MP.8, so importing the whole BSD.2 stage back into the MP.7 kernel interface creates feedback. The separate original FH95 kernel, level/character restrictions and ramified/dyadic comparison are still unread/unavailable in this packet. Establish that analytic adapter from the original source and route its own independent supplier; BSD.2 remains the owner of continuation/residue/positivity and nonvanishing.",
+        "Round3: Special-function uniformity beyond the exact carriers"
       ]
     }
   ],
@@ -12198,6 +12218,26 @@
         "MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface"
       ],
       "detail": "Removed GZ.5 as a prerequisite and request: this node explicitly exports the normalized pairing to the Waldspurger owner, so the consumer period identity cannot justify its input. Supply the precise norm-torus orbit/character dictionary independently (with arithmetic and AA quotient/measure owners), including ramified factors and absolute integrability on both quotients. Do not move the Waldspurger special-value theorem into MP.6."
+    },
+    {
+      "title": "Special-function uniformity beyond the exact carriers",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
+        "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum",
+        "MetaplecticAutomorphicForms:MP.7/half-weight-poincare",
+        "MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion"
+      ],
+      "detail": "The broad QM.2 imports are replaced by its existing I/J nodes and AS.0/dit-112 for Whittaker M/W. The three fine-node requests retain the missing complex-order uniform differentiated bounds and continued exceptional-parameter domains. Neither a real-order I estimate nor a fixed-parameter Whittaker asymptotic proves these uniform estimates."
+    },
+    {
+      "title": "Classical and unitary Jacobi consumer contracts",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+        "MetaplecticAutomorphicForms:MP.6/jacobi-spaces",
+        "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-extraction",
+        "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface"
+      ],
+      "detail": "QM.1’s request to MP.6, items(a)–(e), is binding: the discrete J_n(Γ) and Heisenberg-center bridge; matrix-index slash action; typus(Γ,V) and Fourier cusp support; half-integral scalar index through central characters or z↦2z; the elliptic-function theta decomposition and Skoruppa Theorem5, with the dual finite Weil module and finite-image hypothesis. The existing four adelic integral-index contracts do not yet supply these outputs, so QM.1’s eight stage prerequisites remain. Also extract the unitary Jacobi/Schrödinger–Weil and Fourier–Jacobi instance needed by AutomorphicCongruences:L2s, with its unitary splitting, coefficient/index and multiplier conventions. No use by L2 itself has been established, and no L2 edge is added. BFH genus-two and QM classical q-series specializations retain their owners."
     }
   ],
   "sourceIssues": [
@@ -12718,6 +12758,16 @@
       ],
       "detail": "MP.3 now contains distinct orthogonal/unitary, quaternionic splitting, conservation/first-occurrence and specialized classical theta adapters; MP.7 has multiplier/operators, Eisenstein/resolvent, finite sums and Shimura trace groups.",
       "proposal": "Display those groups as sublayers in a future structure job, retaining current MP.0–7 ids and the current maximum of six source-named planets per layer. MP.8 remains the genus-two BFH supplier."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "MetaplecticAutomorphicForms",
+        "QSeriesPartitionsAndMockModularForms",
+        "AutomorphicCongruences"
+      ],
+      "detail": "RT-AREA-automorphic-1/20 and the round2 review: the four MP.6 adelic contracts exist, but are insufficient for the matrix-index/half-integral classical and unitary consumers.",
+      "proposal": "Keep one Jacobi producer before MP.7, using the four existing MP.6 nodes. Complete exactly QM.1 request items(a)–(e) at least for SL₂ and a lattice index; add the separately source-qualified unitary instance for L2s. Skoruppa arXiv:0707.0718v1 §4 pp.10–13 fixes the classical action, cusp support and dual-Weil conventions; it does not prove a general unitary theorem. Retarget QM.1’s eight prerequisites only after those outputs exist. Keep MP.8’s GSp4 cover/BFH normalization and QM.1’s eta, theta, weak forms and q-series operations. No L2 edge follows from its embedded L2s paragraph. The MP.7 special-function consumers now cite the actual independent I/J and Whittaker carrier nodes; the remaining uniformity requests are explicit."
     }
   ],
   "audit": {

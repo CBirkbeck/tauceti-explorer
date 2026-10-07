@@ -898,7 +898,7 @@ I_ν(y)=2^(−2ν−1/2)Γ(ν+1)⁻¹y^(−1/2)M_{0,ν}(2y), and K_ν(y)=√(π/
 2. Compare the small-argument I branch and large-argument decaying K branch with the QM.2 normalizations.
 3. Determine the √t and gamma constants from the initial series/integral values, then use analytic continuation for permitted parameters.
 
-**Dependencies.** `mathlib:Complex.regularizedHGFun`, `mathlib:Complex.radius_regularizedHGFunSeries_eq_top`, `mathlib:Complex.betaIntegral_eq_Gamma_mul_div`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `mathlib:Complex.regularizedHGFun`, `mathlib:Complex.radius_regularizedHGFunSeries_eq_top`, `mathlib:Complex.betaIntegral_eq_Gamma_mul_div`, `QSeriesPartitionsAndMockModularForms:QM.2`, `QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i`.
 
 **Proposed declaration.** `TauCeti.AutomorphicSpectral.dit_113`.
 
@@ -942,7 +942,7 @@ For Re(ν)>0 and complex β, ∫_0^π e^{iβθ}sin^(ν−1)θ dθ=πe^{iπβ/2}�
 2. Use the uniform endpoint majorant to interchange integrals and evaluate the inner beta/Gamma integral.
 3. Compare with the Bessel branch from item113 and continue only the proved parameter identity, with its displayed constants retained.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`, `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`, `AutomorphicSpectralTheory:AS.0/dit-113`.
 
 **Proposed declaration.** `TauCeti.AutomorphicSpectral.dit_115`.
 
@@ -964,7 +964,7 @@ For μ∈C,t>0,Re(s)>0, ∫_0^π exp(±i(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)d
 2. Control the two endpoints by the proved sin^(σ−1) majorant and show the integration-by-parts terms vanish.
 3. Identify the required Bessel solution by its leading behavior, not solely by the differential equation.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`, `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`.
 
 **Proposed declaration.** `TauCeti.AutomorphicSpectral.dit_118`.
 
@@ -1030,7 +1030,7 @@ For μ ∈ ℂ, Re(s) > 0, t > 0: G(s,μ) t^{1/2} J_{s−1/2}(t) = π^{3/2} e(μ
 2. Use the beta/gamma duplication identity to put each coefficient in the same Pochhammer convention as the Whittaker-cycle expansion.
 3. Compare the powers and sign dependence without replacing the minus-sign identity by conjugation.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`, `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`.
 
 **Proposed declaration.** `TauCeti.AutomorphicSpectral.dit_appendix_a3_series_of_rhs`.
 
@@ -1908,7 +1908,7 @@ For mn≠0 and Re(s)>1, Φ(m,n;s)=Σ_{c>0}c⁻¹K(m,n;c)B_{2s−1}(4π√|mn|/c)
 2. Prove the Re(s)>1 convergence with coefficient bounds and the respective archimedean asymptotics.
 3. Keep the parity/sign convention for opposite indices; these coefficients will be obtained again from Poincaré/resolvent Fourier expansion.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `AutomorphicSpectralTheory:AS.0/dit-113`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `AutomorphicSpectralTheory:AS.0/dit-113`, `QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i`, `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`, `QSeriesPartitionsAndMockModularForms:QM.3/classical-kloosterman-sum`.
 
 **Uses that determine the interface.**
 
@@ -1946,7 +1946,7 @@ For m≠0 and Re(s)>1 let F_m(z,s)=Σ_{Γ∞\Γ}√Im(γz) I_{s−1/2}(2π|m|Im(
 2. Use reduction of the y-height and Bessel small-argument behavior for absolute convergence in Re(s)>1; the zero-index seed is the separately normalized Eisenstein family.
 3. Differentiate only after local uniform seed/derivative bounds, to obtain the stated Laplace equation.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.1/eisenstein-convergence`, `AutomorphicSpectralTheory:AS.0/dit-112`, `AutomorphicSpectralTheory:AS.0/dit-113`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.1/eisenstein-convergence`, `AutomorphicSpectralTheory:AS.0/dit-112`, `AutomorphicSpectralTheory:AS.0/dit-113`, `QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i`.
 
 **Uses that determine the interface.**
 
@@ -1984,7 +1984,7 @@ F_m converges normally on compact sets for Re(s)>1, is Γ-invariant and satisfie
 2. Compare their sums with the absolutely convergent Eisenstein majorant for Re(s)>1.
 3. Obtain locally uniform convergence and the parameter-holomorphic sum; the boundary Re(s)=1 is not inferred from these bounds.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `AutomorphicSpectralTheory:AS.0/dit-113`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `AutomorphicSpectralTheory:AS.0/dit-113`, `QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i`.
 
 **Proposed declaration.** `TauCeti.AutomorphicSpectral.dit_90`.
 
@@ -2932,11 +2932,12 @@ For N≥1 and z,z′∈𝔥 off the Γ₀(N)-orbit diagonal, construct G_{N,s}(z
 
 **Proof work.**
 
-1. Use Q-decay and lattice-point growth to prove locally uniform convergence of the effective-group sum off the diagonal.
-2. Pass the point-pair eigen-equation through the sum on compact off-diagonal sets and use inversion in Γ for symmetry.
-3. Continue the quotient resolvent and identify its constant spectral projection; retain the explicit pole before taking the finite part.
+1. At weight zero identify Δ_GZ with the negative of QM.3/weight-k-hyperbolic-laplacian. QM.2 does not own a Laplacian; retain the sign conversion before the eigen-equation.
+2. Use Q-decay and lattice-point growth to prove locally uniform convergence of the effective-group sum off the diagonal.
+3. Pass the point-pair eigen-equation through the sum on compact off-diagonal sets and use inversion in Γ for symmetry.
+4. Continue the quotient resolvent and identify its constant spectral projection; retain the explicit pole before taking the finite part.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/gz-64`, `AutomorphicSpectralTheory:AS.0/gz-65`, `AutomorphicSpectralTheory:AS.0/gz-66`, `AutomorphicSpectralTheory:AS.0/unbounded-selfadjoint-spectral`, `EllipticRegulators:ER.7/real-analytic-eisenstein-series`, `QSeriesPartitionsAndMockModularForms:QM.2`.
+**Dependencies.** `AutomorphicSpectralTheory:AS.0/gz-64`, `AutomorphicSpectralTheory:AS.0/gz-65`, `AutomorphicSpectralTheory:AS.0/gz-66`, `AutomorphicSpectralTheory:AS.0/unbounded-selfadjoint-spectral`, `EllipticRegulators:ER.7/real-analytic-eisenstein-series`, `QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian`.
 
 **Uses that determine the interface.**
 
@@ -5594,29 +5595,132 @@ The following declarations and their surrounding hypotheses were read at the pin
 
 ## Supplier requests
 
-A stage reference is used only where a supplier has no exact node for the requested statement. Each request below names the consuming declarations.
+### `SmoothRepresentationsOfLocalGroups:SR.2`
 
-- **SmoothRepresentationsOfLocalGroups:SR.2**: The local parabolic induction and geometric-lemma indexing used in comparing compact-picture intertwiners. Rational F-points and automorphic global Bruhat cosets are a separate missing input below. Consumers: `AutomorphicSpectralTheory:AS.1/cuspidal-constant-term`.
-- **AutomorphicLFunctionsAndLocalFactors:AL.0**: Fourier–Laplace inversion for C_c∞ on finite-dimensional real height spaces with dual Haar measure and the componentwise Paley–Wiener characterization; this is the real-place Schwartz–Bruhat interface. Consumers: `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein`.
-- **SmoothRepresentationsOfLocalGroups:SR.2**: Local normalized induction, induction in stages and compact-picture source/target identifications over nonarchimedean fields. Consumers: `AutomorphicSpectralTheory:AS.2/local-intertwiner`, `AutomorphicSpectralTheory:AS.2/local-normalization`.
-- **SmoothRepresentationsOfLocalGroups:SR.3**: Admissible and tempered representations, Harish-Chandra matrix-coefficient estimates, rank-one meromorphic continuation and the nonarchimedean Langlands classification. Consumers: `AutomorphicSpectralTheory:AS.2/local-intertwiner`, `AutomorphicSpectralTheory:AS.2/local-normalization`.
-- **AutomorphicFormsOnReductiveGroups:AF.1**: Real reductive Harish-Chandra modules, tempered/discrete-series parameters, compact-picture normalized induction and the real Langlands classification needed in local normalization. Consumers: `AutomorphicSpectralTheory:AS.2/local-intertwiner`, `AutomorphicSpectralTheory:AS.2/local-normalization`.
-- **SmoothRepresentationsOfLocalGroups:SR.4**: Hyperspecial spherical vectors and the rank-one unramified c-function for normalized induction; fixed Haar volume K=1. Consumers: `AutomorphicSpectralTheory:AS.2/local-normalization`, `AutomorphicSpectralTheory:AS.2/local-intertwiner`.
-- **AutomorphicFormsOnReductiveGroups:AF.4**: Restricted tensor factorization of irreducible automorphic representations with their multiplicity spaces and spherical vectors outside a finite set; needed for the local–global intertwiner identification. Consumers: `AutomorphicSpectralTheory:AS.2/intertwiner-factorization`.
-- **AutomorphicFormsOnReductiveGroups:AF.3**: Langlands square-integrability criterion for automorphic forms with finitely many parabolic exponents: negative real exponents on every proper parabolic modulo the split center, including the weak/non-strict boundary distinction. Consumers: `AutomorphicSpectralTheory:AS.2/residue-calculus`.
-- **AutomorphicLFunctionsAndLocalFactors:AL.3**: Import only the GL×GL Rankin–Selberg normalization/factor input covered by AL.3. The GL×classical and exterior/symmetric/Asai Shahidi factors exceed its current scope and are the precise Part II gap below. Consumers: `AutomorphicSpectralTheory:AS.2/shahidi-normalization`, `AutomorphicSpectralTheory:AS.2/tempered-standard-intertwiner`.
-- **EndoscopicTransferAndUnitaryTraceComparison:ET.0**: Import the unitary-group local parameter and relevant packet carriers covered by ET.0; the full orthogonal/classical generic packet theory needed by Jiang–Zhang is a Part II request recorded as a gap. Consumers: `AutomorphicSpectralTheory:AS.2/shahidi-normalization`, `AutomorphicSpectralTheory:AS.2/generic-standard-module`, `AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy`.
-- **AutomorphicFormsOnReductiveGroups:AF.2**: Harish-Chandra finiteness of automorphic forms at fixed finite level, finite archimedean K types and fixed finite-codimension infinitesimal-character ideal, with uniform moderate growth. Consumers: `AutomorphicSpectralTheory:AS.4/discrete-finite-multiplicity`.
-- **SmoothRepresentationsOfLocalGroups:SR.1**: Complex finite Hecke convolution and its integrated unitary action, involution and L¹ operator-norm bound; compact-open idempotents project to finite-level invariants. Consumers: `AutomorphicSpectralTheory:AS.4/hecke-central-compatibility`, `AutomorphicSpectralTheory:AS.6/automorphic-kernel`.
-- **EndoscopicTransferAndUnitaryTraceComparison:ET.1**: The unweighted quotient-centralizer orbital integral, its semisimple convergence and singular extension, with connected/full centralizer and discriminant conventions exposed for comparison. Consumers: `AutomorphicSpectralTheory:AS.6/weighted-orbital-integral`.
-- **EndoscopicTransferAndUnitaryTraceComparison:ET.1**: Import unitary/discrete-series and tempered pseudo-coefficient carriers; AS.6 adds the full finite-length EP trace identity and L²-Lefschetz application. Consumers: `AutomorphicSpectralTheory:AS.6/general-euler-poincare`.
-- **AutomorphicLFunctionsAndLocalFactors:AL.3**: Import only the GL×GL Rankin–Selberg normalization/factor input covered by AL.3. The GL×classical and exterior/symmetric/Asai Shahidi factors exceed its current scope and are the precise Part II gap below. Consumers: `AutomorphicSpectralTheory:AS.2/yu-066`.
-- **SmoothRepresentationsOfLocalGroups:SR.4**: Spherical Satake/normalized constant-term map for GL_n and the rank-one Gindikin–Karpelevich action, with local vol N(𝒪_v)=1. Consumers: `AutomorphicSpectralTheory:AS.2/yu-066`.
-- **GeometryOfNumbersAndQuadraticArithmetic:GN.3**: Oriented quadratic cycles/cores and their involution with the genus-character sign; AS.4 imports the periods instead of defining them again. Consumers: `AutomorphicSpectralTheory:AS.4/dit-wrong-sign-weyl-integrals-vanish`.
-- **AutomorphicLFunctionsAndLocalFactors:AL.0**: Completed Riemann zeta Λ(s)=π^(−s/2)Γ(s/2)ζ(s), scalar functional equation and gamma-pole cancellation; these are inputs to, not substitutes for, function-valued Eisenstein continuation. Consumers: `AutomorphicSpectralTheory:AS.1/dit-58`.
-- **AutomorphicLFunctionsAndLocalFactors:AL.0**: Dirichlet characters, gamma factors and the partial Dirichlet L^(N)(s,ε) normalization in the odd-weight Eisenstein primitive/unrestricted comparison. Consumers: `AutomorphicSpectralTheory:AS.1/gz-179`, `AutomorphicSpectralTheory:AS.1/gz-192`.
-- **AutomorphicLFunctionsAndLocalFactors:AL.2**: Unramified standard GL_n local Euler factors; an isobaric block sum concatenates Satake multisets and multiplies these factors. This does not request the isobaric existence theorem from AL.2. Consumers: `AutomorphicSpectralTheory:AS.2/isobaric-sum`.
-- **QSeriesPartitionsAndMockModularForms:QM.2**: The named J,I,K Bessel functions, their differential equations and small/large-argument estimates, and the finite Kloosterman sum. AS owns the Whittaker comparison and modular spectral adapters, not these definitions. Consumers: `AutomorphicSpectralTheory:AS.1/dit-88`, `AutomorphicSpectralTheory:AS.1/dit-89`, `AutomorphicSpectralTheory:AS.1/dit-90`, `AutomorphicSpectralTheory:AS.0/dit-113`, `AutomorphicSpectralTheory:AS.0/dit-115`, `AutomorphicSpectralTheory:AS.0/dit-118`, `AutomorphicSpectralTheory:AS.0/dit-appendix-a3-series-of-rhs`, `AutomorphicSpectralTheory:AS.0/gz-217`.
+The local parabolic induction and geometric-lemma indexing used in comparing compact-picture intertwiners. Rational F-points and automorphic global Bruhat cosets are a separate missing input below.
+
+Needed by: `AutomorphicSpectralTheory:AS.1/cuspidal-constant-term`.
+
+### `AutomorphicLFunctionsAndLocalFactors:AL.0`
+
+Fourier–Laplace inversion for C_c∞ on finite-dimensional real height spaces with dual Haar measure and the componentwise Paley–Wiener characterization; this is the real-place Schwartz–Bruhat interface.
+
+Needed by: `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein`.
+
+### `SmoothRepresentationsOfLocalGroups:SR.2`
+
+Local normalized induction, induction in stages and compact-picture source/target identifications over nonarchimedean fields.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/local-intertwiner`; `AutomorphicSpectralTheory:AS.2/local-normalization`.
+
+### `SmoothRepresentationsOfLocalGroups:SR.3`
+
+Admissible and tempered representations, Harish-Chandra matrix-coefficient estimates, rank-one meromorphic continuation and the nonarchimedean Langlands classification.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/local-intertwiner`; `AutomorphicSpectralTheory:AS.2/local-normalization`.
+
+### `AutomorphicFormsOnReductiveGroups:AF.1`
+
+Real reductive Harish-Chandra modules, tempered/discrete-series parameters, compact-picture normalized induction and the real Langlands classification needed in local normalization.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/local-intertwiner`; `AutomorphicSpectralTheory:AS.2/local-normalization`.
+
+### `SmoothRepresentationsOfLocalGroups:SR.4`
+
+Hyperspecial spherical vectors and the rank-one unramified c-function for normalized induction; fixed Haar volume K=1.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/local-normalization`; `AutomorphicSpectralTheory:AS.2/local-intertwiner`.
+
+### `AutomorphicFormsOnReductiveGroups:AF.2`
+
+Import AF.2/flath-factorization for the irreducible admissible algebraic restricted tensor product and almost-everywhere spherical vectors. Match its Hilbert completion and the separate discrete multiplicity space in AS.2; AF.4 rationality is not this theorem.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/intertwiner-factorization`.
+
+### `AutomorphicFormsOnReductiveGroups:AF.3`
+
+Langlands square-integrability criterion for automorphic forms with finitely many parabolic exponents: negative real exponents on every proper parabolic modulo the split center, including the weak/non-strict boundary distinction.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/residue-calculus`.
+
+### `AutomorphicLFunctionsAndLocalFactors:AL.3`
+
+Import only the GL×GL Rankin–Selberg normalization/factor input covered by AL.3. The GL×classical and exterior/symmetric/Asai Shahidi factors exceed its current scope and are the precise Part II gap below.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/shahidi-normalization`; `AutomorphicSpectralTheory:AS.2/tempered-standard-intertwiner`.
+
+### `EndoscopicTransferAndUnitaryTraceComparison:ET.0`
+
+EndoscopicTransferAndUnitaryTraceComparison, Part II: local unitary and orthogonal/classical tempered parameter and packet carriers with pure-inner-form/genericity conventions. Current ET.0 supplies conjugacy data; it supplies none of these packet carriers. No existing ET node discharges this request.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/shahidi-normalization`; `AutomorphicSpectralTheory:AS.2/generic-standard-module`; `AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy`.
+
+### `AutomorphicFormsOnReductiveGroups:AF.2`
+
+Harish-Chandra finiteness of automorphic forms at fixed finite level, finite archimedean K types and fixed finite-codimension infinitesimal-character ideal, with uniform moderate growth.
+
+Needed by: `AutomorphicSpectralTheory:AS.4/discrete-finite-multiplicity`.
+
+### `SmoothRepresentationsOfLocalGroups:SR.1`
+
+Complex finite Hecke convolution and its integrated unitary action, involution and L¹ operator-norm bound; compact-open idempotents project to finite-level invariants.
+
+Needed by: `AutomorphicSpectralTheory:AS.4/hecke-central-compatibility`; `AutomorphicSpectralTheory:AS.6/automorphic-kernel`.
+
+### `EndoscopicTransferAndUnitaryTraceComparison:ET.1`
+
+The unweighted quotient-centralizer orbital integral, its semisimple convergence and singular extension, with connected/full centralizer and discriminant conventions exposed for comparison.
+
+Needed by: `AutomorphicSpectralTheory:AS.6/weighted-orbital-integral`.
+
+### `EndoscopicTransferAndUnitaryTraceComparison:ET.1`
+
+Import unitary/discrete-series and tempered pseudo-coefficient carriers; AS.6 adds the full finite-length EP trace identity and L²-Lefschetz application.
+
+Needed by: `AutomorphicSpectralTheory:AS.6/general-euler-poincare`.
+
+### `AutomorphicLFunctionsAndLocalFactors:AL.3`
+
+Import only the GL×GL Rankin–Selberg normalization/factor input covered by AL.3. The GL×classical and exterior/symmetric/Asai Shahidi factors exceed its current scope and are the precise Part II gap below.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/yu-066`.
+
+### `SmoothRepresentationsOfLocalGroups:SR.4`
+
+Spherical Satake/normalized constant-term map for GL_n and the rank-one Gindikin–Karpelevich action, with local vol N(𝒪_v)=1.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/yu-066`.
+
+### `GeometryOfNumbersAndQuadraticArithmetic:GN.3`
+
+GeometryOfNumbersAndQuadraticArithmetic, Part II (with the Fuchsian-orbifold Part II route): oriented quadratic cycles/cores, the cycle involution and genus-character sign used by DIT16. Current GN.3 supplies mass/theta results, not these cycles; no existing GN.3 node discharges this request.
+
+Needed by: `AutomorphicSpectralTheory:AS.4/dit-wrong-sign-weyl-integrals-vanish`.
+
+### `AutomorphicLFunctionsAndLocalFactors:AL.1`
+
+Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.
+
+Needed by: `AutomorphicSpectralTheory:AS.1/dit-58`.
+
+### `AutomorphicLFunctionsAndLocalFactors:AL.1`
+
+Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.
+
+Needed by: `AutomorphicSpectralTheory:AS.1/gz-179`; `AutomorphicSpectralTheory:AS.1/gz-192`.
+
+### `AutomorphicLFunctionsAndLocalFactors:AL.2`
+
+Unramified standard GL_n local Euler factors; an isobaric block sum concatenates Satake multisets and multiplies these factors. This does not request the isobaric existence theorem from AL.2.
+
+Needed by: `AutomorphicSpectralTheory:AS.2/isobaric-sum`.
+
+### `QSeriesPartitionsAndMockModularForms:QM.2`
+
+Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112.
+
+Needed by: `AutomorphicSpectralTheory:AS.0/dit-113`; `AutomorphicSpectralTheory:AS.0/gz-217`.
+
 
 ## Remaining source and proof work
 
@@ -5858,7 +5962,7 @@ Consumers: `AutomorphicSpectralTheory:AS.0/vector-schwartz`, `AutomorphicSpectra
 
 ### Effective modular-group and Green-resolvent integration
 
-ER.7 supplies congruence groups and upper-half-plane geometry. Integrate the Γ₀(N)/±I index for the Green sum, distinguishing it from Γ∞\Γ for Eisenstein series. Prove the off-diagonal lattice-growth/differentiation bounds and obtain the quoted Hejhal Chapters6–7 continuation proof; GZ p.239 quotes that proof rather than giving it. The supplied QM.2 Laplacian must use Δ_GZ=+y²(∂x²+∂y²), opposite to DIT’s nonnegative convention.
+ER.7 supplies congruence groups and upper-half-plane geometry. Integrate the Γ₀(N)/±I index for the Green sum, distinguishing it from Γ∞\Γ for Eisenstein series. Prove the off-diagonal lattice-growth/differentiation bounds and obtain the quoted Hejhal Chapters6–7 continuation proof; GZ p.239 quotes that proof rather than giving it. The imported QM.3 weight-zero Laplacian must use Δ_GZ=+y²(∂x²+∂y²), opposite to DIT’s nonnegative convention.
 
 Consumers: `AutomorphicSpectralTheory:AS.2/automorphic-green`, `AutomorphicSpectralTheory:AS.2/gz-68`.
 
@@ -6228,3 +6332,16 @@ The following decisions account for the routed paper items. “Covered” identi
 - `PAPER-CHENEVIER-TAIBI-20/l2-lefschetz`: covered → `AutomorphicSpectralTheory:AS.6/l2-lefschetz`, `AutomorphicSpectralTheory:AS.6/general-euler-poincare`. The target-level general node supplies the routed consumer; exact source/proof gaps are retained.
 - `PAPER-BOXER-CALEGARI-GEE-PILLONI-21/228`: covered → `AutomorphicSpectralTheory:AS.4/wallach-cuspidality`. The target-level general node supplies the routed consumer; exact source/proof gaps are retained.
 - `PAPER-BOXER-CALEGARI-GEE-PILLONI-21/335`: covered → `AutomorphicSpectralTheory:AS.4/wallach-cuspidality`. The target-level general node supplies the routed consumer; exact source/proof gaps are retained.
+
+## Round-3 structural proposals
+
+### RT-AREA-automorphic-1/4 and /24: real harmonic analysis supplies ET.1, whereas weighted orbital integrals use ET.1. A whole AS.6→ET.1 import would cycle.
+
+Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, AS.1/induced-family and AF.1 real representation theory. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes.
+
+
+### Real harmonic-analysis prefix before ET.1
+
+The rescope proposal now names the three existing real Paley–Wiener/multiplier nodes and their independent inputs as an AS.1a export prefix. Current atlas stages and node ids remain unchanged pending maintainer integration. ET.1 must import that prefix, not the complete AS.6 stage, which imports ET.1 for orbital integrals. General Euler–Poincaré functions remain an AS.6 consumer of ET.1; they are not part of the exported harmonic-analysis prefix.
+
+Needed by: `AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener`; `AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener`; `AutomorphicSpectralTheory:AS.6/spectral-multiplier`; `AutomorphicSpectralTheory:AS.6/general-euler-poincare`.

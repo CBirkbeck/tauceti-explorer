@@ -2176,6 +2176,46 @@ Opposite Whittaker characters cancel on the unipotent quotient. For unequal rank
 
 **Source.** [A. Raghuram, Critical values of Rankin–Selberg L-functions for GL_n×GL_(n−1) and the symmetric cube L-functions for GL₂](https://repository.ias.ac.in/105986/1/GL%28n%29xGL%28n-1%29-revised.pdf), §2.5.2 pp.24–25 (2.37)–(2.39).
 
+### The GL(n) converse theorem with twists through rank n−1
+
+**Declaration.** `TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank` (`AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank`).
+
+**Theorem.** For n≥2, under the stated niceness hypotheses for every cuspidal automorphic twist of each rank 1≤m≤n−1, Π is cuspidal automorphic. At n=2 the twisting family consists of all idele-class quasicharacters; R16.5 retains its separately checked growth and archimedean hypotheses.
+
+**Hypotheses and conventions.** F is a number field; Π is an irreducible admissible restricted tensor representation of GL_n(𝔸_F), spherical almost everywhere, with idele-class central character and Euler products convergent in a right half-plane. Local factors, duals, additive character and archimedean conventions are fixed by AL.2–AL.3. For every indicated cuspidal twist τ, both completed L(s,Π×τ) and its contragredient partner have entire continuations bounded on finite vertical strips and the matching functional equation; these conditions are hypotheses, not consequences of automorphy of τ alone.
+
+**Proof route.**
+
+1. First justify the reduction to generic Π in the original converse proof. Then construct the two opposite-mirabolic Whittaker sums, with their convergence and invariance. The existing cuspidal Fourier expansion fixes conventions, but does not construct these sums for arbitrary Π.
+2. Use local functional equations and Mellin/spectral inversion on SL_(n−1) to compare the two sums.
+3. Recover rational GL_n invariance and cuspidality from the full twisting family. The missing proof interiors are recorded in G16.
+
+**Direct inputs.** `AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model`; `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation`; `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion`.
+
+**Acceptance checks.** All ranks in the specified twisting family and all analytic hypotheses are retained. Changing the family changes the conclusion. The GL₃ reduced-rank theorem is not silently specialized to GL₂.
+
+**Source.** [James W. Cogdell, Piatetski-Shapiro’s work on converse theorems](https://people.math.osu.edu/cogdell.1/PSCT-www.pdf), §2; §3 Theorem3.1, pp.5–8. The statements and survey outline were read on 7 October 2026; G16 retains the original proof decomposition and missing native Lean signatures.
+
+### The GL(n) converse theorem with twists through rank n−2
+
+**Declaration.** `TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank` (`AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank`).
+
+**Theorem.** For n≥3 and a finite set S of finite places, assume niceness for every cuspidal twist of rank 1≤m≤n−2 unramified at S. If S is empty, Π is cuspidal automorphic; otherwise an automorphic representation agrees with Π outside S. For n=3 these are GL₁ twists. This theorem gives no rank-two conclusion and no highly ramified-twist variant.
+
+**Hypotheses and conventions.** F is a number field; Π is an irreducible admissible restricted tensor representation of GL_n(𝔸_F), spherical almost everywhere, with idele-class central character and Euler products convergent in a right half-plane. Local factors, duals, additive character and archimedean conventions are fixed by AL.2–AL.3. For every indicated cuspidal twist τ, both completed L(s,Π×τ) and its contragredient partner have entire continuations bounded on finite vertical strips and the matching functional equation; these conditions are hypotheses, not consequences of automorphy of τ alone.
+
+**Proof route.**
+
+1. First justify the reduction to generic Π in the original converse proof. Then construct the two opposite-mirabolic Whittaker sums, with their convergence and invariance. The existing cuspidal Fourier expansion fixes conventions, but does not construct these sums for arbitrary Π.
+2. Use local functional equations and Mellin/spectral inversion to compare the sums; in the reduced-rank variant apply the additional Fourier inversion and local vanishing construction.
+3. Recover rational GL_n invariance and cuspidality; for nonempty S use essential vectors and weak approximation. The missing proof interiors are recorded in G16.
+
+**Direct inputs.** `AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model`; `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation`; `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion`.
+
+**Acceptance checks.** All ranks in the specified twisting family and all analytic hypotheses are retained. Changing the family changes the conclusion. The GL₃ reduced-rank theorem is not silently specialized to GL₂.
+
+**Source.** [James W. Cogdell, Piatetski-Shapiro’s work on converse theorems](https://people.math.osu.edu/cogdell.1/PSCT-www.pdf), §2; §3 Theorem3.3, pp.5–6,9. The statements and survey outline were read on 7 October 2026; G16 retains the original proof decomposition and missing native Lean signatures.
+
 ## AL.4 — Unramified L-group factors
 
 A supplied L-group representation r and normalized Satake class t give the native reversed characteristic polynomial of r(t). The new interface is its independence of representative and basis and its agreement with the Hecke normalization. Eigenvalue bounds give a right half-plane of absolute convergence. Arbitrary r has no automatic global continuation or functional equation. Ramified factors require an actual compatible parameter; the spherical polynomial alone does not define them. Transfer comparisons assume the actual established transfer and specify each constituent's arithmetic shift.
@@ -2483,3 +2523,22 @@ The function-field residual index has the extra stabilizer term d precisely in t
 - Peter Humphries. [Test vectors for nonarchimedean Godement–Jacquet zeta integrals](https://arxiv.org/pdf/1903.02031v2). arXiv:1903.02031v2.
 - Hervé Jacquet. [Archimedean Rankin–Selberg integrals](https://www.math.columbia.edu/~hj/PerfectRankinSelberg.pdf). Contemporary Mathematics 489 (2009), 57–172, author manuscript.
 - Armand Borel. [Automorphic L-functions](https://www.math.utah.edu/~ptrapa/math-library/borel/borel-automorphic-L-functions.pdf). Corvallis II, PSPM33 (1979), 27–61, published scan.
+
+### Converse source version
+
+Cogdell’s public survey: [author PDF](https://people.math.osu.edu/cogdell.1/PSCT-www.pdf). Read §§2–3 (pp.5–9) on 7 October 2026. SHA-256 `0c922b6e6c26bc6d98ad7cf1162955d34e61491a1e73dc1f803b987cab2f2ffe`. The original JPSS and Cogdell–Piatetski-Shapiro proof interiors were not acquired in this round.
+
+## Round-3 closure boundaries
+
+### G16: generic converse proof interiors and native signatures
+
+The owner contracts are now explicit. Decompose the reduction from an arbitrary irreducible admissible Π to the generic case and the opposite-mirabolic sums for an arbitrary admissible Π (including convergence), the weak SL_(n−1)/SL_(n−2) spectral inversion, rational-generation argument, reduced-rank local Fourier vanishing construction, and essential-vector/weak-approximation modification at S from the original JPSS and Cogdell–Piatetski-Shapiro proofs. The survey gives statements and an outline, not these full proofs. Identify exact independent analytic suppliers before importing a whole AS stage, which could depend on AL.3. Native global admissible GL_n tensor and completed twisted L/epsilon carriers are required for the two Lean signatures. No arbitrary Prop stand-in is used. Gelbart–Jacquet’s highly ramified T-twist variant is a separate acquisition obligation.
+
+Needed by: `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank`; `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank`.
+
+
+## Round-3 structural proposals
+
+### RT-AREA-automorphic-1/1: generic converse theory has a single analytic owner; the GL₃ theorem cannot supply the rank-two theorem by specializing n.
+
+Extract an AL.3b converse prefix containing AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank after their independent local/integral and spectral-inversion suppliers and before R16.5 and R17.4a. Until integration, these nodes realise AL.3. The prefix imports neither GL₂ consumer. R16.5 compares its separately checked n=2 full-twist theorem with the full-rank node; R17.4a uses the n=3 reduced-rank node and the existing AL.3 pole criterion. Keep the highly ramified T-twist variant and original proof decomposition open in G16.
