@@ -42771,8 +42771,9 @@
     "REV-ArithmeticKTheory--N.6~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-ArithmeticKTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #214"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #214",
+   "finishedAt": "2026-10-07T21:20:10Z"
   },
   {
    "id": "ASM-AutomorphicBundles",
@@ -77780,8 +77781,9 @@
     "REV-HabiroNahmSeries--HB.9"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroNahmSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6420"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6420",
+   "finishedAt": "2026-10-07T21:20:14Z"
   },
   {
    "id": "BP-DirichletPadicLFunctions",
