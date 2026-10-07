@@ -16744,8 +16744,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6897"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6897",
+   "finishedAt": "2026-10-07T16:43:04Z"
   },
   {
    "id": "REV-DESIGN-CrystallineLocalGlobalCompatibilityCM",
@@ -22979,7 +22980,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #361"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -37851,8 +37853,8 @@
     "BP-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6908"
+   "state": "external",
+   "note": "claimed on GitHub issue #6908"
   },
   {
    "kind": "blueprint",
@@ -39480,7 +39482,8 @@
     "BP-IgusaVarietiesAndTorsionConcentration~2"
    ],
    "prompt": "research/blueprint/prompts/REV-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6909"
   },
   {
    "kind": "blueprint",
@@ -39537,8 +39540,9 @@
     "BP-IntegralHeckeAndGaloisDeterminants~2"
    ],
    "prompt": "research/blueprint/prompts/REV-IntegralHeckeAndGaloisDeterminants~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6910"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6910",
+   "finishedAt": "2026-10-07T16:43:06Z"
   },
   {
    "kind": "blueprint",
@@ -71058,8 +71062,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "RT-AREA-langlands-3",
