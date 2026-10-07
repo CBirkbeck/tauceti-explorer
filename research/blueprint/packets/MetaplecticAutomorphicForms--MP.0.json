@@ -977,7 +977,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "has multiplication deﬁned by",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1071,7 +1070,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "has multiplication deﬁned by",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1116,7 +1114,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "has multiplication deﬁned by",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1160,7 +1157,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "This action is trivial on the center Z = {(0, t)} ≃ F of H(W ) .",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1206,7 +1202,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "has multiplication deﬁned by",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1253,7 +1248,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "This action is trivial on the center Z = {(0, t)} ≃ F of H(W ) .",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1299,7 +1293,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "acts as a group of automorphisms of H(W ) by the rule:",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1393,7 +1386,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, p.3, Heisenberg group and symplectic action; excerpt at PDF3",
-          "excerpt": "acts as a group of automorphisms of H(W ) by the rule:",
           "match": "An algebraic consequence of the displayed Heisenberg multiplication. The packet separates the calculation from the source’s local-field and representation-theoretic hypotheses and uses the existing native extension."
         }
       ],
@@ -1485,7 +1477,6 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§3 equation(3), printed148, PDF6; literal excerpt PDF6",
-          "excerpt": "F ( z . z ~ ) =<xl, x*2>            (z1=(xl,x*),z*=(x2,x*))\"                             (3)",
           "match": "Weil uses the polarized cocycle pairing the first primal coordinate with the second dual coordinate. The displayed algebra derives the exact additive coboundary relating it to Kudla’s half-alternating convention; neither source is claimed to state this native-library formulation verbatim."
         }
       ],
@@ -1531,7 +1522,6 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§3 equation(3), printed148, PDF6; comparison with Kudla I.2 Lemma2.2 PDF7; literal excerpt PDF6",
-          "excerpt": "F ( z . z ~ ) =<xl, x*2>            (z1=(xl,x*),z*=(x2,x*))\"                             (3)",
           "match": "Weil’s polarized cocycle and Kudla’s half-pairing Schrödinger phase determine this quadratic change of coordinates. The construction is proved directly with the native rescaling equivalence."
         }
       ],
@@ -1618,7 +1608,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2, p.6, the asserted extension ψ_Y; corrected statement; excerpt at PDF6",
-          "excerpt": "unique extension ψY to H(Y ) , given by ψY (y, t) = ψ(t) . Let",
           "match": "The source formula requires exactly the cocycle-killing condition proved here. For an isotropic F-subspace it holds because the form itself vanishes; character-self-duality of an arbitrary additive subgroup alone does not suffice."
         }
       ],
@@ -1664,7 +1653,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2, p.6, extension ψ_Y; corrected normalization and hypothesis; excerpt at PDF6",
-          "excerpt": "unique extension ψY to H(Y ) , given by ψY (y, t) = ψ(t) . Let",
           "match": "This is the distinguished character intended in the induced model, with the missing cocycle hypothesis and the normalization needed for uniqueness made explicit."
         }
       ],
@@ -1756,7 +1744,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1 pp.3–4; I.2 p.6; excerpt at PDF3",
-          "excerpt": "H(W ) := W ⊕ F",
           "match": "The existing algebraic carrier receives the topology of W×F; the coordinate order is swapped."
         }
       ],
@@ -1837,7 +1824,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2 pp.6–10; excerpt at PDF8",
-          "excerpt": "Haar measure dµg (y) on ker(c)\\Y such that the operator r(g) deﬁned for",
           "match": "The quotient integrals require translation invariant and self-dual normalizations."
         }
       ],
@@ -1880,7 +1866,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2 Lemma2.2, PDF7, translation and phase action; literal excerpt PDF7",
-          "excerpt": "Lemma 2.2. The resulting action of H(W ) in S(X) is given by:",
           "match": "Formula (2.1), using the packet’s coefficient-first coordinates."
         }
       ],
@@ -1973,7 +1958,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2 Lemma2.2, PDF7, polarization realization; literal excerpt PDF7",
-          "excerpt": "Lemma 2.2. The resulting action of H(W ) in S(X) is given by:",
           "match": "The isotropic-subspace instance satisfies the corrected character condition E-MP0-3."
         }
       ],
@@ -2057,7 +2041,6 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§4, printed149, PDF7; I.§10 Théorème1, printed157, PDF15; literal excerpt PDF7",
-          "excerpt": "representation\nunitaire de A(G). On ddsignera par A(G) le g r o u p e form~ p a r les op~rateurs t. U(w); si",
           "match": "The unitary Weyl model is completed in L²; group-variable continuity is an extra condition."
         }
       ],
@@ -2141,7 +2124,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2 p.10; excerpt at PDF10",
-          "excerpt": "precisely the space of smooth vectors in L2 (X) for the action",
           "match": "The nonarchimedean comparison is stated after the unitary completion."
         }
       ],
@@ -2181,7 +2163,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "II.1, PDF29–30, tensor orthogonal–symplectic pair; literal excerpt PDF30",
-          "excerpt": "and there is a natural map\n\n                             G(V ) × G(W ) −→ Sp(W)",
           "match": "Tensor embedding and its centralizers."
         }
       ],
@@ -2265,7 +2246,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "II.3 Corollary3.3, PDF36; cocycle comparison Proposition3.2 PDF35; literal excerpt PDF36",
-          "excerpt": "Corollary 3.3. The homomorphism jV : Sp(W ) → Sp(W) lifts uniquely to a\nhomomorphism j˜V : M p(W ) → M p(W) whose restriction to C× takes z to z m .",
           "match": "Parity of the symplectic restriction and the orthogonal splitting."
         }
       ],
@@ -2309,13 +2289,11 @@
         {
           "sourceId": "GanIchino16",
           "locator": "§4 local theta setup, arXiv-v2 PDF11–12",
-          "excerpt": "splitting of the metaplectic cover over U(V ) × U(W ), as shown in [37], [25]. In\nfact, it does not depend on the choice of δ.",
           "match": "The character restrictions in the unitary setup."
         },
         {
           "sourceId": "GQT",
           "locator": "§2.9, equation(2.2), PDF13",
-          "excerpt": "Then one has",
           "match": "In zero Hermitian dimension the remaining unitary group acts by the auxiliary determinant character, not necessarily trivially."
         }
       ],
@@ -2404,7 +2382,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "II.2, PDF32–33, maximal isotypic quotient and its theta factor; literal excerpt PDF32",
-          "excerpt": "S(π) be the maximal quotient of S on which G̃ acts as a multiple of π . A little",
           "match": "The maximal isotypic quotient definition and its theta multiplicity space."
         }
       ],
@@ -2490,7 +2467,6 @@
         {
           "sourceId": "GanTakeda16",
           "locator": "§1 PDF1–2; excerpt at PDF1",
-          "excerpt": "maximal semisimple quotient θ(π). One has the following fundamental conjecture due to",
           "match": "Definition of small theta as the maximal semisimple quotient."
         }
       ],
@@ -2574,7 +2550,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "II.2 pp31–33, isotypic quotient and admissibility; excerpt at PDF33",
-          "excerpt": "of ﬁnite\nlength.",
           "match": "Admissibility and finite length are assertions about the big module."
         }
       ],
@@ -2618,19 +2593,16 @@
         {
           "sourceId": "GanTakeda16",
           "locator": "Theorem1.2 and(HD), PDF2; proof §§4–6 PDF9 onward; literal excerpt PDF2",
-          "excerpt": "Theorem 1.2. The Howe duality conjecture (HD) holds for the pair G(W ) × H(V ).\n\n    Let us make a few remarks:",
           "match": "Full theorem with characteristic and pair scope separated."
         },
         {
           "sourceId": "PAPER-GAN-ICHINO-18",
           "locator": "§2.2, arXiv-v3 PDF8; excerpt at PDF8",
-          "excerpt": "by the Howe duality [35, 90, 26], Θψ (π) has a unique",
           "match": "Classical local Howe input across characteristic-zero places. The archimedean original source and category comparison remain explicit gaps."
         },
         {
           "sourceId": "PAPER-GAN-SAVIN-23",
           "locator": "§14.1–14.3, arXiv-v1 PDF50–51; excerpt at PDF51",
-          "excerpt": "by the classical Howe duality theorem, Θ′ (σ)",
           "match": "The classical input to the exceptional argument; the exceptional Howe theorem itself stays at its proposed separate owner."
         }
       ],
@@ -2679,7 +2651,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "IV.1 pp59–66, see-saw examples and oscillator Hom route; excerpt at PDF60",
-          "excerpt": "a natural isomorphism",
           "match": "The standard see-saw statement; its use is checked independently in Gan–Ichino §5."
         }
       ],
@@ -2724,7 +2695,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "III.4 Propositions4.1,4.3–4.5, PDF44–49; literal excerpt PDF48",
-          "excerpt": "Proposition 4.3. (stable range) If r ≥ 2n , then for every π ∈ Irr(G) , Θ(π, Vr )",
           "match": "Persistence and the safe stable-range bounds."
         }
       ],
@@ -2765,7 +2735,6 @@
         {
           "sourceId": "SunZhu15",
           "locator": "§1.5 PDF5–8; excerpt at PDF7",
-          "excerpt": "first occurrence index",
           "match": "Enhanced towers and their dimension-index convention."
         }
       ],
@@ -2847,7 +2816,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "III.6 Theorems6.1–6.2 pp52–53; proof sketch IV.3 pp70–74; excerpt at PDF53",
-          "excerpt": "For all r ≥ r0 , Θ(π, Vr ) is an irreducible admissible representation of O(Vr ) .",
           "match": "First occurrence and higher tower behavior."
         }
       ],
@@ -2891,7 +2859,6 @@
         {
           "sourceId": "GanTakeda16",
           "locator": "Lemma3.1 PDF7–8; excerpt at PDF7",
-          "excerpt": "filtration. The first lemma describes the computation of the Jacquet modules",
           "match": "Rank-orbit normalized Jacquet quotients and their exponents."
         }
       ],
@@ -2933,7 +2900,6 @@
         {
           "sourceId": "GanTakeda16",
           "locator": "Lemma3.2, PDF7–8, filtration of degenerate principal series; literal excerpt PDF7",
-          "excerpt": "Lemma 3.2. As a representation of G(W ) × G(W − ), I(s) possesses an equivariant filtration",
           "match": "Doubling filtration separating boundary and nonboundary cases."
         }
       ],
@@ -2973,7 +2939,6 @@
         {
           "sourceId": "GanTakeda16",
           "locator": "§3 proof strategy, PDF9, cited general-linear Howe input; original Mínguez statement is a gap; literal excerpt PDF9",
-          "excerpt": "Minguez [M] in his proof of the Howe duality conjecture for general linear groups.\n  In Section 6, we assemble the results of Section 4 and Section 5 to complete the proof of",
           "match": "The type-II input is source-qualified."
         }
       ],
@@ -3017,7 +2982,6 @@
         {
           "sourceId": "PAPER-GAN-ICHINO-18",
           "locator": "§5.2–5.3 PDF18–20, Lemma5.2; excerpt at PDF19",
-          "excerpt": "MVW involution [63, 84], we obtain an injection",
           "match": "Contragredient and induction are used with distinct variance."
         }
       ],
@@ -3064,7 +3028,6 @@
         {
           "sourceId": "SunZhu15",
           "locator": "Theorem1.10 PDF8–10; §§5–6; excerpt at PDF8",
-          "excerpt": "conservation relations assert the following:",
           "match": "Dimension-index conservation, not a universal rank-only formula."
         }
       ],
@@ -3108,7 +3071,6 @@
         {
           "sourceId": "SunZhu15",
           "locator": "§7.2 Theorems7.1,7.3,7.6 PDF43–46; excerpt at PDF44",
-          "excerpt": "no conservation relation in the case under consideration.",
           "match": "Exceptional archimedean cases and the coset formula."
         }
       ],
@@ -3152,7 +3114,6 @@
         {
           "sourceId": "GanIchino16",
           "locator": "Theorems4.1 and4.4 PDF11–15; excerpt at PDF11",
-          "excerpt": "tempered L-parameter φ for G±",
           "match": "Precise tempered big-lift irreducibility and the two rank ranges."
         }
       ],
@@ -3194,7 +3155,6 @@
         {
           "sourceId": "PAPER-LI-LIU-21",
           "locator": "Proposition3.6 PDF15–17; excerpt at PDF16",
-          "excerpt": "semisimple representation of H̃(F ). By [GT16, Theorem 1.2], we know that",
           "match": "Dichotomy and the distinct semisimplicity proof obligation."
         }
       ],
@@ -3241,7 +3201,6 @@
         {
           "sourceId": "PAPER-GAN-ICHINO-18",
           "locator": "Remark5.3 PDF19–20; Lemmas6.3,6.8,6.10 PDF21,24–27; excerpt at PDF19",
-          "excerpt": "unramified, i.e. has a nonzero",
           "match": "Unramified principal series and smaller odd towers."
         }
       ],
@@ -3288,7 +3247,6 @@
         {
           "sourceId": "PAPER-CHENEVIER-TAIBI-20",
           "locator": "§5.3.2 PDF50; §5.4 PDF54–55; excerpt at PDF50",
-          "excerpt": "Rallis [Ral82, §6]",
           "match": "The local theta Satake input; global level-one results stay in their owner."
         }
       ],
@@ -3332,13 +3290,11 @@
         {
           "sourceId": "PAPER-LI-LIU-21",
           "locator": "Definition6.8, Proposition6.10 PDF31–32; Lemma11.1 PDF49–50; excerpt at PDF31",
-          "excerpt": "canonical surjective homomorphism θR : HW         R",
           "match": "Hecke character factorization and its dual convention."
         },
         {
           "sourceId": "PAPER-LI-LIU-22",
           "locator": "Definition3.2, Lemma3.3, Proposition3.4 PDF43–45; excerpt at PDF43",
-          "excerpt": "spherical doubling zeta integral, and the local theta lifting for a tempered admissible",
           "match": "Ramified special-compact oscillator module."
         }
       ],
@@ -3383,7 +3339,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1 Theorem1.1 p.3; excerpt at PDF3",
-          "excerpt": "Theorem 1.1. (Stone, von Neumann) Up to isomorphism, there is a unique",
           "match": "The precise nonarchimedean smooth uniqueness target."
         }
       ],
@@ -3425,13 +3380,11 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§10 Théorème1, printed157, PDF15 (scalar commutant); classification proof is Garrett20; literal excerpt PDF15",
-          "excerpt": "Le centralisateur de A(G) daus le groupe des automorphismes de L~(G) est\nle centre T de ces deux groupes; de plus, si B0(G ) est le normalisateur de A(G) dans le mdme",
           "match": "Weil proves normalizer surjectivity and scalar commutants; the full classification has an additional proof source."
         },
         {
           "sourceId": "Garrett20",
           "locator": "Author notes23March2020, Claims0.1–0.7, PDF1–4; excerpt at PDF4",
-          "excerpt": "so π is a multiple of σ in this sense. In particular, for π irreducible, necessarily X 0 ≈ {0}, and π ≈ σ.",
           "match": "The real proof route; the two p4 corrections are recorded. The Schwartz Fourier-density step remains an analytic gap."
         }
       ],
@@ -3473,7 +3426,6 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§10 Théorème1, printed157, PDF15; III.§§31–36, PDF39–45; literal excerpt PDF15",
-          "excerpt": "Le centralisateur de A(G) daus le groupe des automorphismes de L~(G) est\nle centre T de ces deux groupes; de plus, si B0(G ) est le normalisateur de A(G) dans le mdme",
           "match": "The topological unitary normalizer, with central circle rather than a chosen matrix lift."
         }
       ],
@@ -3561,7 +3513,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1, PDF3–5, irreducibility and intertwiners; literal excerpt PDF4",
-          "excerpt": "The automorphism A(g) is only unique up to a scalar in C× , and so the au-\ntomorphisms A(g1 )A(g2 ) and A(g1 g2 ) need not coincide. But at least the map",
           "match": "Scalar ambiguity is derived from uniqueness, not chosen as an axiom."
         }
       ],
@@ -3601,7 +3552,6 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§14 Théorème2, printed161–162, PDF19–20; II.§§24–28; literal excerpt PDF19",
-          "excerpt": "Soit / un caract~re du second degrg non ddgdndrd de G, associg ~t l'iso-\nmorphisme symdtrique ~ de G sur G*. Alors / poss~de une trans/ormge de Fourier 7(]), donnde",
           "match": "The quadratic character’s Fourier scalar, with the polar matrix and self-dual measure pinned."
         }
       ],
@@ -3694,7 +3644,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.4 pp.17–18 Lemmas4.1–4.2; excerpt at PDF17",
-          "excerpt": "Hilbert symbol of F . In particular, a character of",
           "match": "The normalized index identities, with real and dyadic places included."
         }
       ],
@@ -3737,7 +3686,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.3 pp.11–13; excerpt at PDF12",
-          "excerpt": "L(Y0 , Y1 , Y2 ) := L(Y0,R , Y1,R , Y2,R ).",
           "match": "The quadratic space of a Lagrangian triple; quotient notation is corrected as recorded in sourceIssues."
         }
       ],
@@ -3822,7 +3770,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.3 Theorem3.1 p.13; excerpt at PDF13",
-          "excerpt": "Theorem 3.1. Let W = X + Y be a complete polarization. The cocycle cY",
           "match": "The factor set is tied to the actual intertwining operators."
         }
       ],
@@ -3864,7 +3811,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.4 pp.19–22 Proposition4.3 and Theorem4.5; excerpt at PDF20",
-          "excerpt": "Theorem 4.5. For g ∈ Sp(W ) , let",
           "match": "The explicit μ₂-valued cocycle, not an arbitrary square root of c_Y."
         }
       ],
@@ -3949,7 +3895,6 @@
         {
           "sourceId": "Weil64",
           "locator": "IV.§§42–44, printed194–199, PDF52–57; literal excerpt PDF53",
-          "excerpt": "extension par le groupe ~ deux ~l~ments ( • 1}, ou, comme on pour-\nrait le dire aussi, ~ u n revdtement ~ deux feuillets.",
           "match": "The continuous squared scalar character and its double-cover kernel."
         }
       ],
@@ -4033,7 +3978,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.5 pp.23–24; II.4 pp.37–39; excerpt at PDF23",
-          "excerpt": "Weil representation (ωψ , S) .",
           "match": "The normalized cover acts genuinely on the concrete model."
         }
       ],
@@ -4118,7 +4062,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.2 pp.8–10; II.4 pp.35–39; excerpt at PDF37",
-          "excerpt": "Proposition 4.3. Let χV be the quadratic character of F × deﬁned by",
           "match": "The scalar and μ₂ normalizations are distinguished; the Fourier sign is fixed by the actual Weyl matrix."
         }
       ],
@@ -4163,7 +4106,6 @@
         {
           "sourceId": "Weil64",
           "locator": "I.§13, printed160, PDF18; I.§14 relation(9), PDF19; literal excerpt PDF18",
-          "excerpt": "monomorphismes, dans Bo(G), du groupe des automorphismes de G, et du groupe X2(G),\nrespectivement; et, quand ~, /, ~ sont comme ci-dessus, on a :",
           "match": "The presentation check ties explicit operators to the intrinsic representation."
         }
       ],
@@ -4204,7 +4146,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.1 p.5; II.4 Remark4.1 p.37; excerpt at PDF36",
-          "excerpt": "λ(z) = z 2 and whose kernel is the",
           "match": "Character/dual conversion and corrected scalar-circle tensor twists."
         }
       ],
@@ -4245,7 +4186,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA.1, (A.1)–(A.2), arXiv-v2 PDF87–89; excerpt at PDF87",
-          "excerpt": "symplectic form\n                                                        1",
           "match": "Quaternionic tensor pairing, matched similitudes and polarization."
         }
       ],
@@ -4330,7 +4270,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "PropositionA.1 and §§A.2–A.7 PDF89–99; excerpt at PDF89",
-          "excerpt": "Proposition A.1 will be given in §A.3–§A.6 below. From now on, we fix a place v of F",
           "match": "Scalar splitting and its central, compact and rational properties."
         }
       ],
@@ -4413,7 +4352,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.3–A.4, PDF90; literal excerpt PDF90",
-          "excerpt": "Lemma A.3. For α ∈ E × and g ∈ U(V",
           "match": "Conjugation invariance and norm-one evaluation."
         }
       ],
@@ -4456,7 +4394,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.5–A.7, PDF92; literal excerpt PDF92",
-          "excerpt": "Lemma A.5. For α ∈ E × and h ∈ U(W",
           "match": "The two distinct norm-one scalar embeddings."
         }
       ],
@@ -4499,7 +4436,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.8–A.12, PDF93–96; literal excerpt PDF93",
-          "excerpt": "Lemma A.8. For g1 , g2 ∈ G ♯ , we have\n                                                                 ŝ♯ (g1 g2 )",
           "match": "Sharp cochain, polarization correction and descent."
         }
       ],
@@ -4543,7 +4479,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA.8 LemmaA.13, PDF97; literal excerpt PDF97",
-          "excerpt": "Lemma A.13. We have\n                                             s♮ (α, h) = s(α, h) · χ(α)−1 .\n\nProof. Recall that",
           "match": "See-saw restriction and the Periods-II character twist."
         }
       ],
@@ -4591,7 +4526,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA PropositionA.14, equations(A.9)–(A.11), PDF98–99; literal excerpt PDF98",
-          "excerpt": "Proposition A.14. Assume that\n     • F is totally real;\n     • E is totally imaginary;\n     • B1,v and B2,v are split for some real place v of F .",
           "match": "Global character argument and its real-place hypothesis."
         }
       ],
@@ -4636,7 +4570,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.15–A.17, PDF100–104; literal excerpt PDF100",
-          "excerpt": "Lemma A.15. We have\n                                           s̃(1, α, α) = γF (J1 , 21 ψ) · (−2abJ2 , J1 )F .",
           "match": "Three calculations for (A.9)."
         }
       ],
@@ -4681,7 +4614,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.18–A.20, PDF104–106; literal excerpt PDF104",
-          "excerpt": "Lemma A.18. We have\n                                  s̃(α, α−1 , 1) = γF (J, 21 ψ) · (−2abJ1 , J)F .",
           "match": "Three calculations for (A.10)."
         }
       ],
@@ -4725,7 +4657,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.21–A.23, PDF106–108; literal excerpt PDF106",
-          "excerpt": "Lemma A.21. We have\n                                                           s̃(j♮1 , j♮2 , 1) = 1.",
           "match": "Square-quaternion generators."
         }
       ],
@@ -4769,7 +4700,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "AppendixA LemmasA.24–A.27, PDF108–115; literal excerpt PDF110",
-          "excerpt": "Proposition A.25. We have\n                                                         s0 |G = s.\n\n   The rest of this section is devoted to the proof of Proposition A.25.",
           "match": "Morita comparison and polarization correction."
         }
       ],
@@ -4816,7 +4746,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "§7.2 and Lemma9.3 arXiv PDF41–42,50–52; excerpt at PDF41",
-          "excerpt": "Howe duality [28].",
           "match": "Similitude extension on its multiplier-image subgroup."
         }
       ],
@@ -4861,7 +4790,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "§7.2.1–7.2.2 arXiv PDF41–42; excerpt at PDF41",
-          "excerpt": "discrete series representation of G′ of weight k + 1 (i.e. with",
           "match": "Holomorphic/dual distinction at the two signatures."
         }
       ],
@@ -4904,7 +4832,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "Lemma9.4 arXiv PDF53; excerpt at PDF53",
-          "excerpt": "unramified characters χ1 , χ2 of F × . Note that χ1 , χ2 are not necessarily uniquely determined.",
           "match": "Unramified similitude lift and characters."
         }
       ],
@@ -4948,7 +4875,6 @@
         {
           "sourceId": "PAPER-GAN-SAVIN-23",
           "locator": "§8.4 PDF26–28; corrected §11.4, existing source finding E36; excerpt at PDF27",
-          "excerpt": "Steinberg representation of SO(3) ∼    = PGL2 . We extend st to two representations",
           "match": "Even/odd oscillator and the corrected additive character."
         }
       ],
@@ -4992,7 +4918,6 @@
         {
           "sourceId": "PAPER-GAN-SAVIN-23",
           "locator": "Lemma13.2 PDF40–41; excerpt at PDF41",
-          "excerpt": "Lemma 13.2. Consider the similitude theta correspondence for the dual pair GL2 × GSO4",
           "match": "Generic GL₂ similitude correspondence and its dual convention."
         }
       ],
@@ -5035,7 +4960,6 @@
         {
           "sourceId": "PAPER-GAN-SAVIN-23",
           "locator": "§14.2 Proposition14.2 and §14.3, arXiv-v1 PDF50–51; literal excerpt PDF50",
-          "excerpt": "Proposition 14.2. Let Πn be the minimal representation of SO(2n) for n = 5 or 6. Then\nfor tempered π ∈ Irr(G2 ), Θn (π) is a finite length Hn -module where Hn = SO2n−7 .",
           "match": "The source explicitly invokes [Y, Prop.8.4]; the original proof remains unread. Classical finite length supplies the §14.3 Hom module, not finite dimension."
         }
       ],
@@ -5080,7 +5004,6 @@
         {
           "sourceId": "PAPER-GAN-SAVIN-23",
           "locator": "§15.1 preceding Lemma15.4, arXiv-v1 PDF54; literal excerpt PDF54",
-          "excerpt": "For each cuspidal representation ρ of PGL2 ∼  = SO3 , let\nJL(ρ) be its Jacquet-Langlands lift to the an isotropic inner form P B × = SO∗3 (where B is",
           "match": "Precisely the supercuspidal PGL₂ domain stated before Lemma15.4. The original rank-one/Jacquet–Langlands proofs remain explicit gaps."
         }
       ],
@@ -5125,7 +5048,6 @@
         {
           "sourceId": "PAPER-GAN-SAVIN-23-B",
           "locator": "§4.2 PDF17–18; excerpt at PDF17",
-          "excerpt": "similitude\n            theta lift of 𝜎 to PGSO8 . Both these theta lifts are nonzero and one has the following compatibility:",
           "match": "Classical similitude lift used by the G₂ parameter construction."
         }
       ],
@@ -5168,7 +5090,6 @@
         {
           "sourceId": "PAPER-GAN-SAVIN-23-B",
           "locator": "§12.2 PDF34–35; excerpt at PDF34",
-          "excerpt": "dichotomy\n           We shall make use of the similitude theta correspondence associated to the following dual pairs:",
           "match": "The classical similitude dichotomy used by the exceptional programme."
         }
       ],
@@ -5212,7 +5133,6 @@
         {
           "sourceId": "PAPER-DISEGNI-LIU-24",
           "locator": "Lemma4.1 arXiv PDF41; excerpt at PDF41",
-          "excerpt": "Lemma 4.1. For every v ∈ Vfin  F , there exists a (unique up to isomorphism) hermitian",
           "match": "Relevant representation dichotomy and the recovery Hom."
         }
       ],
@@ -5255,7 +5175,6 @@
         {
           "sourceId": "PAPER-DISEGNI-LIU-24",
           "locator": "Lemma4.5 and (4.2) arXiv PDF42; excerpt at PDF42",
-          "excerpt": "Lemma 4.5. For every v ∈ Vfin    F , every embedding ι : L → C, and every σ ∈",
           "match": "Coefficient conjugation with its finite abelian field."
         }
       ],
@@ -5298,7 +5217,6 @@
         {
           "sourceId": "PAPER-LI-ZHANG-22-B",
           "locator": "Proposition8.1.2, Corollary8.1.4 PDF56–57; excerpt at PDF57",
-          "excerpt": "uncertainty principle is also used in the new proof by Beuzart-Plessis [BP19]",
           "match": "The quadratic support theorem uses valuation inequalities."
         }
       ],
@@ -5341,7 +5259,6 @@
         {
           "sourceId": "PAPER-LI-ZHANG-22-B",
           "locator": "Proposition8.1.6 PDF57–58; excerpt at PDF57",
-          "excerpt": "hermitian space with respect to a (possibly",
           "match": "Hermitian-to-quadratic Fourier adapter."
         }
       ],
@@ -5386,25 +5303,21 @@
         {
           "sourceId": "PAPER-LI-LIU-22",
           "locator": "§§2.1,3.1 PDF11,43–44; excerpt at PDF11",
-          "excerpt": "Fourier\ntransform φb is defined by",
           "match": "Ramified Hermitian Fourier convention."
         },
         {
           "sourceId": "PAPER-LI-ZHANG-22-B",
           "locator": "§§1.7,8.1,12.3 PDF8–9,56,78–79; excerpt at PDF56",
-          "excerpt": "Weil representation ω of SL2 (F ). The group SL2 (F ) acts",
           "match": "Hermitian generator normalization."
         },
         {
           "sourceId": "PAPER-DISEGNI-LIU-24",
           "locator": "§4.1 H7 PDF40–41; excerpt at PDF40",
-          "excerpt": "Weil representations. Let π be a relevant L-",
           "match": "Coefficient-valued finite-place formulas."
         },
         {
           "sourceId": "PAPER-ZHANG-21",
           "locator": "§11.1 PDF70–71 and AppendixA PDF108–109; excerpt at PDF70",
-          "excerpt": "Weil represen-\ntation.",
           "match": "Even quadratic and Hermitian phase conventions."
         }
       ],
@@ -5452,7 +5365,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§36, printed186–187, PDF44–45; literal excerpt PDF45",
-          "excerpt": "homomorphisme ~u de Ps(X) dans Bo(X ) applique Ps(X,L) dans Bo(X,L ).\n    Avec les notations ci-dessus, l'espaee H(G, I TM)du Chapitre I, n ~ 18, devient un espace",
           "match": "Distinguished almost-everywhere compact lift."
         }
       ],
@@ -5493,7 +5405,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§§37–38, printed187–189, PDF45–47; IV.§42 for the twofold reduction; literal excerpt PDF46",
-          "excerpt": "groupe mgtaplectique Mp(X)A comme\n6tant le sous-groupe de Ps(X)A •             form6 des 616ments (s,s) de ce produit tels que",
           "match": "Restricted adelic extension and its finite central identification."
         }
       ],
@@ -5577,7 +5488,6 @@
         {
           "sourceId": "Weil64",
           "locator": "II.§30 Proposition5, printed179–180; excerpt at PDF37",
-          "excerpt": "PROI'OSIT*ON 5. Soit / une ]orme quadratique non d~ggngrge sur un espace vectoriel",
           "match": "Analytic product formula, including all local places."
         }
       ],
@@ -5622,7 +5532,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§40, printed190–193, PDF48–51; §41 rational invariance; literal excerpt PDF48",
-          "excerpt": "u n r e l b v e m e n t de Ps(X)k d a n s B0(G), et p a r suite u n r e l b v e m e n t de Ps(X)k d a n s Mp(X)A,",
           "match": "Rational splitting and the theta summation functional."
         }
       ],
@@ -5708,7 +5617,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§§38–39, printed188–190, PDF46–48; literal excerpt PDF47",
-          "excerpt": "39. Comme dans le cas local, on v a m o n t r e r m a i n t e n a n t clue (S,(P)-->S(I) ddtermine une",
           "match": "Actual adelic model with joint archimedean Schwartz space."
         }
       ],
@@ -5794,7 +5702,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§§38–40, printed188–193, PDF46–51; literal excerpt PDF47",
-          "excerpt": "rel~vement continu rs de g2s dans\nMp(X)A. De l~ on tire aussitSt les consdquences annoncdes plus haut.",
           "match": "Local-to-global transport of the chosen models."
         }
       ],
@@ -5836,7 +5743,6 @@
         {
           "sourceId": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
           "locator": "§4.7 published452–453, PDF62–63; excerpt at PDF63",
-          "excerpt": "complex conjugate representation ω L : SL › 2 (Z) → Aut(SL ) by",
           "match": "Finite adelic subspace and conjugate-representation convention."
         }
       ],
@@ -5925,7 +5831,6 @@
         {
           "sourceId": "PAPER-LAFFORGUE-18",
           "locator": "§14, Remarks14.1–14.2, (14.1)–(14.5), arXiv-v10 PDF169–173; excerpt at PDF169",
-          "excerpt": "métaplectiques\n   Ce chapitre indique sommairement comment les résultats de cet article",
           "match": "Conditional indications, with no theorem promoted beyond the source."
         }
       ],
@@ -5969,7 +5874,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§41 Théorème6, printed193–194, PDF51–52; literal excerpt PDF51",
-          "excerpt": "Alors ~) est une /onction continue sur Mp(X)~, invariante par les translations h gauche ddter-\nmin&s par les ~ldments de Mp(X)A de la /orme rk(s), avec s ePs(X)k.",
           "match": "Rational sum, continuity and rational invariance."
         }
       ],
@@ -6058,7 +5962,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§41 Lemmas4–5 and compact normal convergence, printed193–194, PDF51–52; literal excerpt PDF52",
-          "excerpt": "LEMME 5. Soient G u n    groupe abdlien localement compact et C une partie compacte",
           "match": "Compact-family Schwartz majorants underlying continuity; stronger growth requires the stated supplier comparison."
         }
       ],
@@ -6103,13 +6006,11 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§41 Théorème6, printed193, PDF51; AF.2/3 supplies finiteness and growth conditions; literal excerpt PDF51",
-          "excerpt": "Alors ~) est une /onction continue sur Mp(X)~, invariante par les translations h gauche ddter-\nmin&s par les ~ldments de Mp(X)A de la /orme rk(s), avec s ePs(X)k.",
           "match": "The actual cover carries genuine theta functions; analytic automorphic-space conditions are imported and compared."
         },
         {
           "sourceId": "GQT",
           "locator": "§2.10, arXiv-v3 PDF13",
-          "excerpt": "we do not impose the usual K-finiteness condition. Hence the full group G(A) acts on\nA(G).",
           "match": "Separates full smooth group action from the K-finite Harish–Chandra core; the cover transfer remains MP-specific."
         }
       ],
@@ -6194,7 +6095,6 @@
         {
           "sourceId": "Kudla96",
           "locator": "I.6 Lemma6.3, PDF25–26 (unique unipotent lift); compare I.6 formulas PDF26–27; literal excerpt PDF25",
-          "excerpt": "Lemma 6.3. The homomorphism µ : n → (n, 1) is the unique homomorphism\nlifting the natural inclusion",
           "match": "Generator splitting and its extension to unipotent radicals."
         }
       ],
@@ -6238,7 +6138,6 @@
         {
           "sourceId": "Weil64",
           "locator": "III.§41 Théorème6, printed193, PDF51 (theta realization); AA.1 and AF.3 supply the quotient-integral API; literal excerpt PDF51",
-          "excerpt": "Alors ~) est une /onction continue sur Mp(X)~, invariante par les translations h gauche ddter-\nmin&s par les ~ldments de Mp(X)A de la /orme rk(s), avec s ePs(X)k.",
           "match": "Theta continuity permits compact unipotent integration; spectral expansion inputs are separate."
         }
       ],
@@ -6322,7 +6221,6 @@
         {
           "sourceId": "GQT",
           "locator": "§11.1, PDF52, cuspidal theta lift; §2.11 PDF13 gives the kernel; literal excerpt PDF52",
-          "excerpt": "theta lift Θn,r (π) to H(Vr ), so that Θn,r (π) is the automorphic subrepresentation of\nH(Vr ) spanned by the automorphic forms",
           "match": "The actual theta integral and its convergence/automorphic output."
         }
       ],
@@ -6408,7 +6306,6 @@
         {
           "sourceId": "GQT",
           "locator": "§3.1, PDF14, Weil convergent range; literal excerpt PDF14",
-          "excerpt": "r = 0 or m − r = m0 + r > d(n).\nWe call this the Weil’s convergent range.\n   In particular, the pair (Wn , V0 ) is in this range. Then for φ0 ∈ S(Yn∗ ⊗ V0 )(A), we have the theta",
           "match": "Convergence inequality with anisotropic exception."
         }
       ],
@@ -6455,7 +6352,6 @@
         {
           "sourceId": "GQT",
           "locator": "§§3.2–3.7, PDF14–18; definition §3.5 and functional equation(3.7); literal excerpt PDF18",
-          "excerpt": "3.5. Regularized theta integral. The regularized theta integral is defined to be the function",
           "match": "Named regularizer, eigenvalue denominator and Laurent convention."
         }
       ],
@@ -6541,7 +6437,6 @@
         {
           "sourceId": "PAPER-YUAN-ZHANG-18",
           "locator": "Published §6.1, printed578–579, PDF46–47; recalled definitions originate in YZZ13 §§2.1.3,4.1; literal excerpt PDF46",
-          "excerpt": "6.1. Schwartz functions and theta series. We first recall the notion of\nSchwartz functions and theta series in [YZZ13], which is a variant of the stan-\ndard notions.",
           "match": "Extended real test functions and similitude action."
         }
       ],
@@ -6626,7 +6521,6 @@
         {
           "sourceId": "PAPER-YUAN-ZHANG-18",
           "locator": "Published §6.1, printed578–579, PDF46–47; literal excerpt PDF47",
-          "excerpt": "Here the natural action of µK on V × F × is just α ◦ (x, u) 7→ (αx, α−2 u). The\nsummation over u is well defined since φ(αx, α−2 u) = r(α−1 )φ(x, u) = φ(x, u)",
           "match": "The unit quotient and multiplicity normalization."
         }
       ],
@@ -6711,7 +6605,6 @@
         {
           "sourceId": "PAPER-YUAN-ZHANG-18",
           "locator": "Published §6.2, printed580–581, PDF48–49, restriction formula preceding(6.2.1); literal excerpt PDF49",
-          "excerpt": "Here we write d = dim V and d1 = dim V1 .\n    This result implies that",
           "match": "Restriction factors and the positive Iwasawa modulus."
         }
       ],
@@ -6757,7 +6650,6 @@
         {
           "sourceId": "GQT",
           "locator": "§2.5, PDF11, cover pushforward measure and orthogonal exceptions; literal excerpt PDF11",
-          "excerpt": "2.5. Measures. Having fixed the additive character ψ of F \\A, we fix the Haar measure dxv on Fv (for",
           "match": "Normalized theta measure, including split orthogonal exception."
         }
       ],
@@ -6801,7 +6693,6 @@
         {
           "sourceId": "GQT",
           "locator": "§§5.3–5.4, PDF25; global §6.2 PDF28; literal excerpt PDF25",
-          "excerpt": "Φn,r (φ)(g) = (ωn,r (g)φ)(0),     for φ ∈ S(Yn∗ ⊗ Vr )(k).\nThis defines an Hr (k)-invariant and Gn (k)-equivariant map",
           "match": "Evaluation section and the normalized parameter."
         }
       ],
@@ -6889,7 +6780,6 @@
         {
           "sourceId": "GQT",
           "locator": "§2.7 equation(2.1), PDF12; equivariance PDF13; literal excerpt PDF12",
-          "excerpt": "2.7. Ikeda’s map. Suppose that Vr ⊃ Vr′ (not necessarily complementary spaces). Then one may write",
           "match": "Integration along isotropic coordinates and its composition."
         }
       ],
@@ -6970,7 +6860,6 @@
         {
           "sourceId": "GQT",
           "locator": "Theorem7.1, PDF33–34; excerpt at PDF33",
-          "excerpt": "Theorem 7.1. For φ ∈ S(Yn∗ ⊗ V0 )(A), the Eisenstein series E(s, Φn,0 (φ)) is holomorphic at s = sm,n =",
           "match": "Anisotropic formula and source scalar."
         }
       ],
@@ -7014,7 +6903,6 @@
         {
           "sourceId": "GQT",
           "locator": "Theorems7.3(ii) and7.4, §7.2, PDF34–35; excerpt at PDF34",
-          "excerpt": "first term\nrange. The following theorem was shown by Kudla-Rallis [KR5], Moeglin [Mo], Ichino [I1, Theorem 3.1]",
           "match": "First-term and exceptional boundary coefficients."
         }
       ],
@@ -7058,7 +6946,6 @@
         {
           "sourceId": "GQT",
           "locator": "Theorem1.2, PDF5–6, quotient-valued second-term identity; proof refinements remain gaps; literal excerpt PDF6",
-          "excerpt": "(ii) (Second term identity) For all φ ∈ ωn,r , one has\n                                                      ′",
           "match": "Leading and quotient second-term identities with complementary-tower correction."
         }
       ],
@@ -7107,7 +6994,6 @@
         {
           "sourceId": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
           "locator": "Published §6.1 equations(6.1.1)–(6.1.2), printed466–467, PDF76–77; literal excerpt PDF76",
-          "excerpt": "incoherence of C implies that\nE(g, s, Φ) vanishes identically at s = 0.\n    Endow AF with the Haar measure self-dual with respect to ψF , and give",
           "match": "The finite Weil and incoherent Eisenstein conventions consumed by the arithmetic application."
         }
       ],
@@ -7190,7 +7076,6 @@
         {
           "sourceId": "PAPER-DISEGNI-LIU-24",
           "locator": "§4.1(H8), PDF41–42; excerpt at PDF41",
-          "excerpt": "Siegel–Weil measure, satisfying that for every T □ ∈ Herm◦2r (Fv )",
           "match": "Rational measure specified by the exact orbital/Whittaker comparison."
         }
       ],
@@ -7234,7 +7119,6 @@
         {
           "sourceId": "PAPER-DISEGNI-LIU-24",
           "locator": "Definition4.2 and Remark4.3, PDF41–42; excerpt at PDF41",
-          "excerpt": "coherent if Vv ≃ Vπv for every v ∈ Vfin",
           "match": "The exact parity condition defining π-coherence."
         }
       ],
@@ -7279,7 +7163,6 @@
         {
           "sourceId": "GQT",
           "locator": "§11.2, (11.4)–(11.6), PDF52–53; excerpt at PDF52",
-          "excerpt": "doubling see-saw",
           "match": "The doubled map and evaluation inner-product normalization."
         }
       ],
@@ -7363,7 +7246,6 @@
         {
           "sourceId": "GQT",
           "locator": "§11.3, (11.7)–(11.9), PDF53–54; excerpt at PDF54",
-          "excerpt": "local zeta integrals (see [G] for the metaplectic",
           "match": "Local integral, normalized factor and unramified denominator."
         }
       ],
@@ -7447,7 +7329,6 @@
         {
           "sourceId": "GQT",
           "locator": "Proposition11.1 and §11.3, PDF52–54; excerpt at PDF54",
-          "excerpt": "Euler product\n                                                    Y",
           "match": "Factorization applies to unfolded integrals under verified convergence."
         }
       ],
@@ -7492,7 +7373,6 @@
         {
           "sourceId": "GQT",
           "locator": "Theorem11.4, PDF54; excerpt at PDF54",
-          "excerpt": "Theorem 11.4. Suppose that d(n) < m ≤ 2 · d(n) and r ≤ n. Let π be an irreducible cuspidal represen-",
           "match": "Source-qualified Rallis formula in its positive second-term range."
         }
       ],
@@ -7537,7 +7417,6 @@
         {
           "sourceId": "GQT",
           "locator": "§§11.8–11.9, Proposition11.6 and Theorem11.7, PDF55–57; excerpt at PDF55",
-          "excerpt": "non-vanishing. But since by our assumption Θn,j (π) = 0 for all j < r, Vr#′ belongs",
           "match": "Nonvanishing criterion with its archimedean qualifications."
         }
       ],
@@ -7582,7 +7461,6 @@
         {
           "sourceId": "PAPER-ICHINO-PRASANNA-23",
           "locator": "§§7–9, PDF41–42,50–53; excerpt at PDF41",
-          "excerpt": "theta lifts. Let the notation be as in §8 below. In particular, G ≃ O(p, q) and G′ ≃",
           "match": "Global theta pairings using compatible quaternionic splittings."
         }
       ],
@@ -7627,7 +7505,6 @@
         {
           "sourceId": "GQT",
           "locator": "§3.1, PDF14; anisotropic Theorem7.1 PDF33; exceptional boundary Theorem7.3(ii) PDF34; second-term Theorem1.2 PDF5–6 and Theorem8.1 PDF35; literal excerpt PDF14",
-          "excerpt": "r = 0 or m − r = m0 + r > d(n).\nWe call this the Weil’s convergent range.\n   In particular, the pair (Wn , V0 ) is in this range. Then for φ0 ∈ S(Yn∗ ⊗ V0 )(A), we have the theta",
           "match": "The dimension/Witt-index criterion selects the actual theta integral for each norm-form instance."
         }
       ],
@@ -7674,7 +7551,6 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§1 equations(1.1)–(1.5), printed547, PDF6",
-          "excerpt": "We have the relations",
           "match": "Visual transcription. The two slash actions and their compatibility motivate the intrinsic semidirect product; the semidirect product itself reuses the native library."
         }
       ],
@@ -7759,7 +7635,6 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§1 equations(1.6)–(1.9), printed547, PDF6",
-          "excerpt": "which is holomorphic in W",
           "match": "Visual transcription. Central/elliptic covariance; full weight and cusp conditions are stated separately in the generic definition."
         }
       ],
@@ -7842,7 +7717,6 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§2 equations(2.2)–(2.3), printed551–552, PDF10–11",
-          "excerpt": "has a Fourier expansion",
           "match": "Visual transcription. Actual compact fibre Fourier extraction and its measure; arithmetic genus-two specialization remains MP.8."
         }
       ],
@@ -7926,7 +7800,6 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§2 Proposition2.2, equations(2.4)–(2.10), printed552–553, PDF11–12",
-          "excerpt": "We have the transformation properties",
           "match": "Visual transcription. Finite component transformation, positive-on-pure-imaginary determinant branch; genus-two theorem is imported from MP.8."
         }
       ],
@@ -7968,7 +7841,6 @@
         {
           "sourceId": "PAPER-GROSS-ZAGIER-86",
           "locator": "I.§5(5.2), printed229, PDF6; IV.§1(1.1), printed270, PDF47",
-          "excerpt": "theta-series",
           "match": "Visual transcription from the published scan; corrected SL₂ lift and Gauss modulus conventions are retained. The toric period identity belongs to GZ.5."
         }
       ],
@@ -8058,7 +7930,6 @@
         {
           "sourceId": "PAPER-GROSS-ZAGIER-86",
           "locator": "IV.§1 after(1.1), printed270, PDF47",
-          "excerpt": "It is known",
           "match": "Visual transcription from the published scan; corrected SL₂ lift and Gauss modulus conventions are retained. The toric period identity belongs to GZ.5."
         }
       ],
@@ -8101,7 +7972,6 @@
         {
           "sourceId": "PAPER-GROSS-ZAGIER-86",
           "locator": "IV.§2 proof of Lemma(2.3), printed275, PDF52",
-          "excerpt": "because κ(D₁)κ(D₂) = i and θ_{A⁻¹d₁} = θ_{Ad₁}.",
           "match": "Visual transcription from the published scan; corrected SL₂ lift and Gauss modulus conventions are retained. The toric period identity belongs to GZ.5."
         }
       ],
@@ -8146,7 +8016,6 @@
         {
           "sourceId": "PAPER-GROSS-ZAGIER-86",
           "locator": "IV.§2 proof of Lemma(2.3), printed274–275, PDF51–52; excerpt at PDF51",
-          "excerpt": "the Poisson summation formula gives",
           "match": "Visual transcription from the published scan; corrected SL₂ lift and Gauss modulus conventions are retained. The toric period identity belongs to GZ.5."
         }
       ],
@@ -8192,7 +8061,6 @@
         {
           "sourceId": "PAPER-GROSS-ZAGIER-86",
           "locator": "IV.§2 Lemma(2.3), printed274, PDF51; proof275, PDF52",
-          "excerpt": "(2.3) Lemma.",
           "match": "Visual transcription from the published scan; corrected SL₂ lift and Gauss modulus conventions are retained. The toric period identity belongs to GZ.5."
         }
       ],
@@ -8235,7 +8103,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§5, (5.14) and the next display, p964; excerpt at PDF16",
-          "excerpt": "(5.14)                         J( , z) =                         for       2   0 (4).",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8321,7 +8188,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, printed975, PDF27; literal excerpt PDF27",
-          "excerpt": "A Maass form of weight 1/2 for 0 (4) has weight 1/2, is smooth and satisfies\n  1/2 F = F, where we write         = (F ) = 14 + ( 2r )2 . Usually we also require",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8405,7 +8271,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Theorem 4, p965 (display before (5.16)); (8.8), p976; (10.1), p981; excerpt at PDF28",
-          "excerpt": "(8.8)                       (z) =          b(n)W 1 sign n, ir (4⇡|n|y)e(nx).",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8450,7 +8315,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§5, unnumbered display after (5.14) and the Shimura relation, p964, quoting [16, Prop. 2 p. 959] (coefficient evaluation from [16, Lemma 4, (2.23)–(2.25), pp. 961–962]); excerpt at PDF16",
-          "excerpt": "Then it follows from [16, Prop. 2 p. 959] that",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8533,7 +8397,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§5, (5.13) (Λ(s,χ_d)) and the unnumbered definition of b(d,s), p964; excerpt at PDF16",
-          "excerpt": "For fundamental d, set",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8616,7 +8479,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§5, the two unnumbered displays after (5.14) (Shimura relation for b(dm²,s) and E*_{1/2}), p964; excerpt at PDF16",
-          "excerpt": "Shimura relation",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8658,7 +8520,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(5.15); excerpt at PDF16",
-          "excerpt": "(5.15)            ⇤(s, d0 )⇤(s, d ) = 2 ⇡|D|3/4 b(d0 , s)b(d, s)",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8702,7 +8563,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Remarks after Theorem4, p965; excerpt at PDF17",
-          "excerpt": "Perhaps not\ncoincidentally,",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8745,7 +8605,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, p976; excerpt at PDF28",
-          "excerpt": "Kohnen the plus space, that contains those Maass cusp",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8832,7 +8691,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, printed976, PDF28, U,W and footnote6; literal excerpt PDF28",
-          "excerpt": "projection operator pr+ : Vr ! Vr+ defined by pr+ = 23 W U + 13 ,\nwhere6\n                      p     3",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8914,7 +8772,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8 equation(8.10) and footnote7, printed977, PDF29; projection definition printed976 PDF28; literal excerpt PDF29",
-          "excerpt": "(8.10)        pr F1/2,d (z, s) =              M 1 sign d,s                     1   (4⇡|d|y)e(dx)",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -8953,7 +8810,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, p.976; DIT11 p.964 (unnumbered display just before (3.4)); DIT11 (3.4), p.965, is K⁺; excerpt at PDF28",
-          "excerpt": "Kloosterman sums of weight",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9034,7 +8890,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, p976; excerpt at PDF28",
-          "excerpt": "Kloosterman sums of weight",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9115,7 +8970,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(8.9); excerpt at PDF28",
-          "excerpt": "(8.9)                  K + (m, n; c) = K + (n, m; c) = K + (n, m; c).",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9158,7 +9012,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(8.5); excerpt at PDF27",
-          "excerpt": "(8.5)              1/2       s(1   s)                  G 1 (z, z 0 ; s)u(z)dµ(z) = u(z 0 )",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9247,7 +9100,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(8.6); excerpt at PDF27",
-          "excerpt": "(8.6)         F1/2,n (z, s) =      4⇡|n| (2s)                      J( , z) 1 f1/2,n ( z, s)",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9331,7 +9183,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8 equation(8.7), printed976, PDF28; literal excerpt PDF28",
-          "excerpt": "(8.7)                 Ress= 1 + ir (2s        1)F1/2,n (z, s) =            b(n) (z).\n                              2     2",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9376,7 +9227,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8 equation(8.11), printed977, PDF29; literal excerpt PDF29",
-          "excerpt": "(8.11)                (n, d; s) =         1   p                1",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9460,7 +9310,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8 equations(8.10)–(8.11), printed977, PDF29; literal excerpt PDF29",
-          "excerpt": "(8.10)        pr F1/2,d (z, s) =              M 1 sign d,s                     1   (4⇡|d|y)e(dx)",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9504,7 +9353,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Proposition4, p977; excerpt at PDF29",
-          "excerpt": "Proposition 4. For fixed discriminants d0 , d, the function                                       + (d0 , d; s)",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9545,7 +9393,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(9.1); excerpt at PDF30",
-          "excerpt": "(9.1)              Sm (d0 , d; c) =                             [ 4c , b, b c D ] e       2mb",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9627,7 +9474,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Lemma 8, p.980; the same as DIT11 Proposition 3, p.965, with DIT11's (d,D) renamed (d′,d); excerpt at PDF32",
-          "excerpt": "Lemma 8. For positive c ⌘ 0 (mod 4), d, m 2 Z with d0 ⌘ 0, 1 (mod 4)",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9675,7 +9521,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Lemma6, (9.3); DIT11 Lemmas6–8; excerpt at PDF31",
-          "excerpt": "Lemma 6. Suppose that d0 , d < 0 and that dd0 = D is not a square. Then",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9719,7 +9564,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Lemma3, p978; DIT11 Proposition4; excerpt at PDF30",
-          "excerpt": "Lemma 3. For m 6= 0, d0 d < 0 and Re(s) > 1, we have",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9763,7 +9607,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Lemma4, p979; excerpt at PDF31",
-          "excerpt": "Lemma 4. For m 6= 0, d0 , d > 0 with d0 d not a square and Re(s) > 1, we",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9807,7 +9650,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Lemma5, p979; excerpt at PDF31",
-          "excerpt": "Lemma 5. For m 6= 0, d0 , d < 0 with d0 d not a square and Re(s) > 1, we",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9853,7 +9695,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Proposition5, p978; excerpt at PDF30",
-          "excerpt": "Proposition 5. Let m 6= 0 and Re(s) > 1. Suppose that d is a funda-",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9896,7 +9737,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§10, pp980–981; Katok–Sarnak[34]; excerpt at PDF32",
-          "excerpt": "orthonormal basis Br = { }",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -9941,7 +9781,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(10.1)–(10.3); excerpt at PDF33",
-          "excerpt": "(10.3)            Shim (z) = y 1/2                      2a (|n|)Kir (2⇡|n|y)e(nx).",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10024,7 +9863,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Theorem4; §10, pp981–982; excerpt at PDF17",
-          "excerpt": "Shimura relation",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10063,7 +9901,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§10, p982; excerpt at PDF34",
-          "excerpt": "Proposition 4 gives",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10110,7 +9947,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "(10.4)–(10.6); excerpt at PDF33",
-          "excerpt": "(10.4)            12⇡ 2 D 4                b(d0 )b(d)a (m) =                      a(m)T (', ),",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10154,7 +9990,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§10, p982, citing Biró[3]p129; excerpt at PDF34",
-          "excerpt": "Biró in [3], one",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10197,7 +10032,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Proposition6 proof, [1]Theorem1.2; excerpt at PDF34",
-          "excerpt": "bijection\nbetween Br and the even Hecke-Maass cusp forms ' with Laplace eigenvalue",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10244,7 +10078,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Proposition6, pp981–982; excerpt at PDF33",
-          "excerpt": "Proposition 6. For any even Hecke-Maass cusp form ' for             with",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10288,7 +10121,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Theorem4, (5.16) first branch; excerpt at PDF17",
-          "excerpt": "Theorem 4. Let\n                                          X",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10332,7 +10164,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Theorem4, (5.16) second branch; excerpt at PDF17",
-          "excerpt": "Theorem 4. Let\n                                          X",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10376,7 +10207,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Theorem4, (5.16) third branch and footnote4; excerpt at PDF17",
-          "excerpt": "Theorem 4. Let\n                                          X",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10420,7 +10250,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "Duke88 Theorem5 pp85–86; DIT16 (6.6); excerpt at PDF20",
-          "excerpt": "(6.6)                 Weyl(h', 'i 1 ', ) ⌧✏ rC |D|13/28+✏ ,",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10459,13 +10288,11 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, printed976, PDF28, U,W and footnote6; DIT11 §2 printed959 PDF13; literal excerpt PDF28",
-          "excerpt": "projection operator pr+ : Vr ! Vr+ defined by pr+ = 23 W U + 13 ,\nwhere6\n                      p     3",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         },
         {
           "sourceId": "DIT11",
           "locator": "§2, printed959, PDF13; excerpt at PDF13",
-          "excerpt": "projection operator pr+ = 32 (U4 ◦W4 )+ 13 ,",
           "match": "The old and new scalar conjugations preserve composition order."
         }
       ],
@@ -10507,7 +10334,6 @@
         {
           "sourceId": "Biro00",
           "locator": "Proof of Theorem1, printed128–129, PDF26–27; excerpt at PDF26",
-          "excerpt": "Theorem 1, Theorem 2 and its Corollary. Mul-",
           "match": "Finite Fourier separation, preserving the positive-coefficient kernel."
         }
       ],
@@ -10592,7 +10418,6 @@
         {
           "sourceId": "Biro00",
           "locator": "Proof of Theorem1, printed128–129, PDF26–27; excerpt at PDF26",
-          "excerpt": "Theorem 1, Theorem 2 and its Corollary. Mul-",
           "match": "Finite Fourier separation, preserving the positive-coefficient kernel."
         }
       ],
@@ -10635,7 +10460,6 @@
         {
           "sourceId": "Biro00",
           "locator": "Proof of Theorem1, printed128–129, PDF26–27; excerpt at PDF26",
-          "excerpt": "Theorem 1, Theorem 2 and its Corollary. Mul-",
           "match": "Finite Fourier separation, preserving the positive-coefficient kernel."
         }
       ],
@@ -10679,7 +10503,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "DIT11 Lemma 4, (2.23)–(2.25), pp961–962; used for the E*_{1/2} display, DIT16 p964, which cites only [16, Prop. 2 p. 959]; excerpt at PDF16",
-          "excerpt": "Then it follows from [16, Prop. 2 p. 959] that",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10723,7 +10546,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§8, pp.975–977, citing Fay [20, Thm 3.1] and footnote 5; Fay Cor. 3.6 p.178; excerpt at PDF27",
-          "excerpt": "Fay [20] (see also [43]). It satisfies",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10768,7 +10590,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§10, p.981 (display after (10.1)); excerpt at PDF33",
-          "excerpt": "(10.2)                       (1    a (p)p s + p 2s ) 1 =                              a (n)n s",
           "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
         }
       ],
@@ -10813,7 +10634,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§10 geometric trace display preceding Proposition6, printed981, PDF33; literal excerpt PDF33",
-          "excerpt": "It is convenient to define\n                                      8 p\n                                      >",
           "match": "The three-case norm-normalized trace used by the spectral identity."
         }
       ],
@@ -10901,7 +10721,6 @@
         {
           "sourceId": "Biro00",
           "locator": "§1 and Theorem1, printed105–106, PDF3–4; proof128–129, PDF26–27; excerpt at PDF4",
-          "excerpt": "Theorem 1. If f ∈ V1/2     (4N ) is a cusp form with ∆1/2 -eigenvalue",
           "match": "Lift, spectral rescaling and finite Fourier proof with repaired Vitali argument."
         }
       ],
@@ -10993,7 +10812,6 @@
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
           "locator": "§5(5.14)–(5.16), PDF16–17; §8, PDF27–29; excerpt at PDF16",
-          "excerpt": "(5.14)                         J( , z) =                         for       2   0 (4).",
           "match": "Classical multiplier and Fourier/spectral conventions; full adelization proof is a gap."
         }
       ],
@@ -11042,7 +10860,6 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§1 construction printed549, PDF8; §2 Proposition2.2 printed552, PDF11",
-          "excerpt": "convergent for re(s) sufficiently large",
           "match": "Visual transcription. Initial Jacobi Eisenstein construction and finite components; subsequent analytic kernel results are supplied by MP.8, not claimed read here."
         }
       ],
@@ -11087,7 +10904,6 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§1 quadratic-twist completion, printed551, PDF10",
-          "excerpt": "provided gcd(M, D) = 1",
           "match": "Visual transcription. This condition gates the printed functional equation; the separate FH95 original-kernel adaptation remains a source gap, not an import from the consuming BSD.2 theorem."
         }
       ],
@@ -11132,7 +10948,6 @@
         {
           "sourceId": "GQT",
           "locator": "§§5.3,6.1–6.2, PDF25,28; pole statement Proposition6.1 excludes O(1,1); literal excerpt PDF28",
-          "excerpt": "6.1. Siegel Eisenstein series. For a standard section Φs ∈ Inn (s, χ), we consider the Siegel Eisenstein",
           "match": "Siegel family as the scoped worked case; general covered induction/continuation remains requested."
         }
       ],
@@ -11216,13 +11031,11 @@
         {
           "sourceId": "PAPER-GROSS-ZAGIER-86",
           "locator": "I.§5(5.2), printed229, PDF6; IV.§2 printed273–275, PDF50–52",
-          "excerpt": "theta-series",
           "match": "Visual transcription from the published scan; corrected SL₂ lift and Gauss modulus conventions are retained. The toric period identity belongs to GZ.5."
         },
         {
           "sourceId": "yzz-gross-zagier-shimura-curves-2011-draft",
           "locator": "6 November 2011 draft, §2.2.1 Proposition2.2.1 and proof pp.48–50; §§2.3–2.4 pp.51–55",
-          "excerpt": "the case that B is non-split",
           "match": "The draft proves its Shimizu contraction by ternary Siegel–Weil in the nonsplit case, explicitly refers the split case to Waldspurger’s different proof, and supplies the torus unfolding/measure comparison. It does not establish an automatic split regularization adapter."
         }
       ],

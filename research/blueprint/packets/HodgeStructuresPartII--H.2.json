@@ -279,7 +279,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definitions 4.1.1–4.1.2, pp.27–28",
-          "excerpt": "Hermitian",
           "match": "Exact smooth, Hermitian and differential convention; no real structure required."
         }
       ],
@@ -398,13 +397,11 @@
         {
           "sourceId": "Del87",
           "locator": "§1.11, printed p.8",
-          "excerpt": "réelles",
           "match": "Complex variations are treated by adding their complex conjugate."
         },
         {
           "sourceId": "Timm87",
           "locator": "Theorem 7.1 proof, pp.169–170",
-          "excerpt": "real",
           "match": "Unitary special case: V⊕V dual and fixed real subsystem."
         }
       ],
@@ -511,7 +508,6 @@
         {
           "sourceId": "SZ85",
           "locator": "Definitions 3.4–3.5, pp.508–509",
-          "excerpt": "variation",
           "match": "Bounded W by subsystems, F by subbundles and pure graded variation."
         }
       ],
@@ -632,7 +628,6 @@
         {
           "sourceId": "SZ85",
           "locator": "Definition 3.4, p.508",
-          "excerpt": "Gr",
           "match": "The defining weight-graded pure variation."
         }
       ],
@@ -729,7 +724,6 @@
         {
           "sourceId": "SZ85",
           "locator": "Definition 3.5, p.509",
-          "excerpt": "polarizable",
           "match": "Polarization on graded pieces, not the whole mixed object."
         }
       ],
@@ -835,13 +829,11 @@
         {
           "sourceId": "SZ85",
           "locator": "Definition 3.13 and Appendix A.9, pp.510–511 and 540",
-          "excerpt": "admissible",
           "match": "The third condition is deduced from the first two in Appendix A."
         },
         {
           "sourceId": "Peters",
           "locator": "Appendix A, Definition A.1, pp.51–53",
-          "excerpt": "relative",
           "match": "The graded-compatible limit and relative filtration are separate requirements."
         }
       ],
@@ -954,7 +946,6 @@
         {
           "sourceId": "Peters",
           "locator": "Appendix A, first three paragraphs, p.51",
-          "excerpt": "curve",
           "match": "Admissibility by all curves, compactification independence and the explicitly assumed quasi-unipotence."
         }
       ],
@@ -1058,7 +1049,6 @@
         {
           "sourceId": "SZ85",
           "locator": "Appendix A.9, pp.540–541",
-          "excerpt": "(iii)",
           "match": "Full printed proof reduces to pure graded degeneration and extension strictness."
         }
       ],
@@ -1110,7 +1100,6 @@
         {
           "sourceId": "SZ85",
           "locator": "Appendix A.4 and A.10, pp.537–541",
-          "excerpt": "tensor",
           "match": "Relative-weight tensor proof and admissibility closure are printed."
         }
       ],
@@ -1162,7 +1151,6 @@
         {
           "sourceId": "Del70",
           "locator": "II.5, Propositions 5.2 and 5.4, Remark 5.5(i)",
-          "excerpt": "extension",
           "match": "Existence, uniqueness and the specified strip; not asserted tensor monoidal in general."
         }
       ],
@@ -1281,7 +1269,6 @@
         {
           "sourceId": "Del70",
           "locator": "II.5.4, property (c) and its proof",
-          "excerpt": "exact",
           "match": "Exactness of the chosen extension functor."
         }
       ],
@@ -1327,7 +1314,6 @@
         {
           "sourceId": "Del70",
           "locator": "II.5.2–5.4 local construction",
-          "excerpt": "monodromie",
           "match": "The local commuting residue frame fixes the sign."
         }
       ],
@@ -1375,7 +1361,6 @@
         {
           "sourceId": "Del70",
           "locator": "II.5.2, tensor property and uniqueness",
-          "excerpt": "unipotente",
           "match": "The nilpotent branch is tensor compatible."
         }
       ],
@@ -1425,13 +1410,11 @@
         {
           "sourceId": "SZ85",
           "locator": "§3.13 and §5.26, pp.510–511 and 534",
-          "excerpt": "filtration",
           "match": "Admissible limit and exact extended filtration."
         },
         {
           "sourceId": "LL22",
           "locator": "Proposition 4.1.4(4), p.28 and proof",
-          "excerpt": "transversality",
           "match": "Pure curve canonical-extension transversality cites Brunebarbe §7."
         }
       ],
@@ -1541,7 +1524,6 @@
         {
           "sourceId": "Del70",
           "locator": "II.6.10, and local inputs II.3.15/6.9",
-          "excerpt": "isomorphisme",
           "match": "Canonical strip satisfies the comparison hypothesis."
         }
       ],
@@ -1593,13 +1575,11 @@
         {
           "sourceId": "Del70",
           "locator": "II.6.13–6.14 and §§6.17–6.18",
-          "excerpt": "Gauss-Manin",
           "match": "Full-base local freeness uses a smooth proper relative SNC compactification."
         },
         {
           "sourceId": "LL24",
           "locator": "§5.1 setup and equation (5.3), pp.27–29",
-          "excerpt": "connection",
           "match": "Curve coefficient instance consumed by the period derivative."
         }
       ],
@@ -1709,13 +1689,11 @@
         {
           "sourceId": "Del71",
           "locator": "§4.1.1–4.1.2, pp.40–43",
-          "excerpt": "projectif",
           "match": "Proper/projective geometric fixed-part setup."
         },
         {
           "sourceId": "Del71",
           "locator": "§4.2.9(a), p.47",
-          "excerpt": "lisse",
           "match": "Polarizable geometric local systems supply integral monodromy."
         }
       ],
@@ -1765,13 +1743,11 @@
         {
           "sourceId": "Timm87",
           "locator": "Lemma 6.2, Theorem 6.3/Proposition 6.4, Theorem 7.1(a), pp.166–170",
-          "excerpt": "filtrations",
           "match": "Weight range, mixed complex proof and complex coefficient degeneration."
         },
         {
           "sourceId": "LL24",
           "locator": "Theorem 4.1.1 proof, pp.24–25",
-          "excerpt": "pointwise",
           "match": "Precisely this fibre calculation is used in the family."
         }
       ],
@@ -1821,7 +1797,6 @@
         {
           "sourceId": "LL24",
           "locator": "Theorem 4.1.1 and complete printed proof, pp.24–25",
-          "excerpt": "weights",
           "match": "Family formula plus the separate mixed-Hodge-module argument."
         }
       ],
@@ -1869,7 +1844,6 @@
         {
           "sourceId": "LL24",
           "locator": "Lemma 4.1.2, equations (4.1)–(4.2), p.25",
-          "excerpt": "decomposition",
           "match": "Exact three-component formula and dual-conjugate comparison."
         }
       ],
@@ -1920,7 +1894,6 @@
         {
           "sourceId": "SZ85",
           "locator": "Theorem 4.1, §§4.2–4.17, Corollary 4.19, pp.513–518",
-          "excerpt": "cohomology",
           "match": "Complete printed construction and curve fixed-part corollary; cited analytic engine separated."
         }
       ],
@@ -1975,25 +1948,21 @@
         {
           "sourceId": "SZ85",
           "locator": "Corollary 4.19 and proof, p.518",
-          "excerpt": "constant",
           "match": "Curve theorem; no higher-dimensional claim attributed to this corollary."
         },
         {
           "sourceId": "LL24",
           "locator": "Theorem 4.2.1, p.26",
-          "excerpt": "fixed",
           "match": "Smooth quasiprojective mixed fixed part."
         },
         {
           "sourceId": "Andre92",
           "locator": "§5, proof after Theorem 1, pp.10–11",
-          "excerpt": "curves",
           "match": "Reduction to curves follows Katz §4.3.4.0."
         },
         {
           "sourceId": "Katz72",
           "locator": "§4.3.4.0, printed p.70",
-          "excerpt": "nearby",
           "match": "Connect nearby points by smooth affine curves; global invariants remain curve-invariant."
         }
       ],
@@ -2113,7 +2082,6 @@
         {
           "sourceId": "Del87",
           "locator": "§1.11, p.8, complete printed proof",
-          "excerpt": "invariants",
           "match": "Complex fixed part through realification and Hodge norm constancy."
         }
       ],
@@ -2162,13 +2130,11 @@
         {
           "sourceId": "Del87",
           "locator": "§1.12, pp.8–9",
-          "excerpt": "Nori",
           "match": "Separates Hodge-category semisimplicity from underlying complex-system semisimplicity."
         },
         {
           "sourceId": "LL22",
           "locator": "Proposition 4.1.4(1), p.28",
-          "excerpt": "semisimple",
           "match": "Curve instance, not alone a general-base proof."
         }
       ],
@@ -2218,13 +2184,11 @@
         {
           "sourceId": "Del87",
           "locator": "§§1.13–1.14 and full proof, pp.9–10",
-          "excerpt": "graduations",
           "match": "Matrix grading lift, homogeneous projector and shift ambiguity."
         },
         {
           "sourceId": "LL22",
           "locator": "Proposition 4.1.4(2), p.28",
-          "excerpt": "isotypic",
           "match": "Isotypic version used by Landesman–Litt."
         }
       ],
@@ -2273,7 +2237,6 @@
         {
           "sourceId": "LL24",
           "locator": "Equation (4.3) and Proposition 4.2.2 proof, p.26",
-          "excerpt": "irreducible",
           "match": "Exactly the real-form versus doubled branch."
         }
       ],
@@ -2367,7 +2330,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proposition 4.2.2 and complete proof, p.26",
-          "excerpt": "evaluation",
           "match": "Q is a constant real mixed Hodge structure and evaluation is nonzero."
         }
       ],
@@ -2416,7 +2378,6 @@
         {
           "sourceId": "Del71",
           "locator": "§4.2.9, pp.47–48",
-          "excerpt": "Zariski",
           "match": "Connected algebraic monodromy is the identity component of the closure."
         }
       ],
@@ -2533,7 +2494,6 @@
         {
           "sourceId": "Del71",
           "locator": "§4.2.8(iv), pp.45–47",
-          "excerpt": "Kronecker",
           "match": "The lattice and conjugate determinant argument are essential."
         }
       ],
@@ -2585,7 +2545,6 @@
         {
           "sourceId": "Del71",
           "locator": "§4.2.9(a) and proof, pp.47–48",
-          "excerpt": "semi-simple",
           "match": "Connected semisimplicity from integral polarizable monodromy."
         }
       ],
@@ -2637,7 +2596,6 @@
         {
           "sourceId": "Andre92",
           "locator": "§5, Theorem 1, Corollaries 1–2 and proof, pp.10–11",
-          "excerpt": "unipotent",
           "match": "Integral good variations and connected monodromy: pure semisimplicity, mixed unipotent radical."
         }
       ],

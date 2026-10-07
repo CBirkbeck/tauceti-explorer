@@ -723,19 +723,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15",
-          "excerpt": "Let F be a totally real number field. Then ζ_F(−1) = ± |K_2(o_F)|/w_2(F)",
           "match": "The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, before Corollary 3.4, p. 15",
-          "excerpt": "Furthermore we denote the order of H^0(F, Q/Z(n)) simply by w_n(F).",
           "match": "w₂(F) is the order of H⁰(F, ℚ/ℤ(2)), the N.4 invariant, not the number of roots of unity in F."
         }
       ],
@@ -854,7 +851,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.8, proof, PDF p. 524 (book p. 516)",
-          "excerpt": "By the functional equation for ζ_F, the sign of ζ_F(1 − 2k) is (−1)^{kr_1}.",
           "match": "The sign theorem at k = 1; the proof below derives it from the functional equation."
         }
       ],
@@ -895,7 +891,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.8, proof, PDF p. 524 (book p. 516)",
-          "excerpt": "By the functional equation for ζ_F, the sign of ζ_F(1 − 2k) is (−1)^{kr_1}.",
           "match": "The sign theorem at k = 1; the proof below derives it from the functional equation."
         }
       ],
@@ -943,13 +938,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.8, proof, PDF p. 524 (book p. 516)",
-          "excerpt": "By the functional equation for ζ_F, the sign of ζ_F(1 − 2k) is (−1)^{kr_1}.",
           "match": "The sign theorem at k = 1; the proof below derives it from the functional equation."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, after Conjecture 3.5, p. 15",
-          "excerpt": "The order of vanishing of the zeta-function of F at 1 − n is equal to",
           "match": "For n = 2 the order is r_2, so ζ_F(−1) = 0 as soon as F has a complex place."
         }
       ],
@@ -997,13 +990,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.8, proof, PDF p. 524 (book p. 516)",
-          "excerpt": "By the functional equation for ζ_F, the sign of ζ_F(1 − 2k) is (−1)^{kr_1}.",
           "match": "The sign theorem at k = 1; the proof below derives it from the functional equation."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1049,13 +1040,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, PDF p. 523 (book p. 515); corrected in ArithmeticKTheory/E18",
-          "excerpt": "If F is a number field, the zeta function ζ_F(s) has a pole of order r_2 at s = −1.",
           "match": "Read with the correction recorded as ArithmeticKTheory/E18: a zero, not a pole, of order r_2."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, after Conjecture 3.5, p. 15",
-          "excerpt": "The order of vanishing of the zeta-function of F at 1 − n is equal to",
           "match": "For n = 2 the order is r_2, so ζ_F(−1) = 0 as soon as F has a complex place."
         }
       ],
@@ -1098,7 +1087,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15",
-          "excerpt": "Let F be a totally real number field. Then ζ_F(−1) = ± |K_2(o_F)|/w_2(F)",
           "match": "The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign."
         }
       ],
@@ -1135,13 +1123,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15",
-          "excerpt": "Let F be a totally real number field. Then ζ_F(−1) = ± |K_2(o_F)|/w_2(F)",
           "match": "The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1186,13 +1172,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15",
-          "excerpt": "Let F be a totally real number field. Then ζ_F(−1) = ± |K_2(o_F)|/w_2(F)",
           "match": "The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1234,7 +1218,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1276,7 +1259,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, the paragraph after Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "For example, when F = Q we have ζ_Q(−1) = −1/12, |K_2(Z)| = 2 and w_2(Q) = 24",
           "match": "The three independent inputs of Birch–Tate for ℚ."
         }
       ],
@@ -1315,7 +1297,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, the paragraph after Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "For example, when F = Q we have ζ_Q(−1) = −1/12, |K_2(Z)| = 2 and w_2(Q) = 24",
           "match": "The three independent inputs of Birch–Tate for ℚ."
         }
       ],
@@ -1354,7 +1335,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, the paragraph after Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "For example, when F = Q we have ζ_Q(−1) = −1/12, |K_2(Z)| = 2 and w_2(Q) = 24",
           "match": "The three independent inputs of Birch–Tate for ℚ."
         }
       ],
@@ -1395,13 +1375,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, the paragraph after Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "For example, when F = Q we have ζ_Q(−1) = −1/12, |K_2(Z)| = 2 and w_2(Q) = 24",
           "match": "The three independent inputs of Birch–Tate for ℚ."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1458,7 +1436,6 @@
         {
           "sourceId": "COHEN-ANT-2007",
           "locator": "§10.5.2, Proposition 10.5.5, printed p. 219",
-          "excerpt": "ζK (s) = ζ(s)L(χD , s)",
           "match": "Quadratic splitting at every prime gives ζ_F = ζ·L(χ_D); specialize the fundamental discriminant to D = 5."
         }
       ],
@@ -1503,7 +1480,6 @@
         {
           "sourceId": "COHEN-ANT-2007",
           "locator": "§10.5.2, Proposition 10.5.5, printed p. 219",
-          "excerpt": "ζK (s) = ζ(s)L(χD , s)",
           "match": "Quadratic splitting at every prime gives ζ_F = ζ·L(χ_D); specialize the fundamental discriminant to D = 5."
         }
       ],
@@ -1547,13 +1523,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "so the full Birch-Tate Conjecture holds for all abelian extensions of Q",
           "match": "Birch–Tate is a theorem for ℚ(√5), which is abelian over ℚ; the example must still compute #K₂ independently."
         },
         {
           "sourceId": "COHEN-ANT-2007",
           "locator": "§10.5.2, Proposition 10.5.5, printed p. 219 (PDF p. 242); §10.3.1, Theorem 10.3.1 p. 186 and Corollary 10.3.3 pp. 188–189 (PDF pp. 209, 211–212)",
-          "excerpt": "ζK (s) = ζ(s)L(χD , s)",
           "match": "The quadratic factorization followed by the explicit Bernoulli-polynomial sum gives the value, independently of K₂."
         }
       ],
@@ -1599,7 +1573,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, before Corollary 3.4, p. 15",
-          "excerpt": "Furthermore we denote the order of H^0(F, Q/Z(n)) simply by w_n(F).",
           "match": "w₂(F) is the order of H⁰(F, ℚ/ℤ(2)), the N.4 invariant, not the number of roots of unity in F."
         }
       ],
@@ -1641,13 +1614,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "so the full Birch-Tate Conjecture holds for all abelian extensions of Q",
           "match": "Birch–Tate is a theorem for ℚ(√5), which is abelian over ℚ; the example must still compute #K₂ independently."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1690,7 +1661,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §1, p. 8",
-          "excerpt": "Removing the Euler factors for primes in S from the Artin L-functions we obtain the L-functions",
           "match": "The S-modified zeta function is ζ_F with the Euler factors at S removed."
         }
       ],
@@ -1797,7 +1767,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §1, p. 8",
-          "excerpt": "Removing the Euler factors for primes in S from the Artin L-functions we obtain the L-functions",
           "match": "The S-modified zeta function is ζ_F with the Euler factors at S removed."
         }
       ],
@@ -1843,7 +1812,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §1, p. 8",
-          "excerpt": "Removing the Euler factors for primes in S from the Artin L-functions we obtain the L-functions",
           "match": "The S-modified zeta function is ζ_F with the Euler factors at S removed."
         }
       ],
@@ -1883,13 +1851,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §1, p. 8",
-          "excerpt": "Removing the Euler factors for primes in S from the Artin L-functions we obtain the L-functions",
           "match": "The S-modified zeta function is ζ_F with the Euler factors at S removed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515)",
-          "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r_2 = 0) we have ζ_F(−1) = (−1)^{r_1} |K_2(O_F)|/w_2(F).",
           "match": "The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F."
         }
       ],
@@ -1991,13 +1957,11 @@
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Conjecture 3 and the definition of G(T), p. 250",
-          "excerpt": "the following Main Conjecture for p = 2 (cf. [4]):",
           "match": "Federer's conjecture as Kolster states it."
         },
         {
           "sourceId": "KOLSTER-1989",
           "locator": "the tower F_n, Γ, γ_0 and u, p. 248",
-          "excerpt": "It is shown that for totally real number fields the Main",
           "match": "The abstract; the tower is set up on the same page."
         }
       ],
@@ -2046,19 +2010,16 @@
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Theorem 1, p. 249",
-          "excerpt": "The compatibility of the conjectures is based on the following result:",
           "match": "Theorem 1."
         },
         {
           "sourceId": "KOLSTER-1989",
           "locator": "proof of Theorem 1, p. 249",
-          "excerpt": "It was shown in [7], Theorem 3.7, that there is an exact sequence of finite",
           "match": "Kolster's exact sequence."
         },
         {
           "sourceId": "KOLSTER-1989",
           "locator": "proof of Theorem 1, p. 249",
-          "excerpt": "The structure of the cohomology groups",
           "match": "Iwasawa's Proposition 2."
         }
       ],
@@ -2098,7 +2059,6 @@
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Lemma 2 and its proof, p. 250",
-          "excerpt": "no non-trivial finite A-submodules (cf. [4])",
           "match": "Federer's input, stated for A_∞^- where the dual is meant (source issue E2)."
         }
       ],
@@ -2144,13 +2104,11 @@
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Theorem 5, p. 250",
-          "excerpt": "The relation between these conjectures is given by",
           "match": "Theorem 5."
         },
         {
           "sourceId": "KOLSTER-1989",
           "locator": "proof of Theorem 5, p. 250",
-          "excerpt": "By definition of the number e we obtain",
           "match": "The chain of ~."
         }
       ],
@@ -2205,25 +2163,21 @@
         {
           "sourceId": "GREITHER-1992",
           "locator": "§1, closing remark, p. 454",
-          "excerpt": "Finally let us mention that (as Wiles points out) the 2-adic main",
           "match": "Greither's statement that his theorem and Kolster's give the 2-part of Birch–Tate."
         },
         {
           "sourceId": "GREITHER-1992",
           "locator": "§3, Lemma 3.3, p. 469",
-          "excerpt": "X is quasi-isomorphic to Hom^(A^,Q/Z) over A^.",
           "match": "The comparison of X with the dual of A_∞."
         },
         {
           "sourceId": "GREITHER-1992",
           "locator": "§1, the Main Conjecture (= Theorem 3.2), p. 452",
-          "excerpt": "The correct formulation for the main",
           "match": "The inclusive odd-character statement p. 452, with the meromorphic G₂ normalization and single exceptional pole; the χ=ω argument is on p. 470. The contradictory exclusion printed in Theorem 3.2 p. 469 is source issue E7."
         },
         {
           "sourceId": "GREITHER-1992",
           "locator": "§3, exceptional-character argument in the proof of Theorem 3.2, p. 470",
-          "excerpt": "We claim that",
           "match": "The source proves X_ω finite, so its characteristic ideal is (1); this separate case must be exported by the supplier."
         }
       ],
@@ -2258,13 +2212,11 @@
         {
           "sourceId": "GREITHER-1992",
           "locator": "§1, closing remark, p. 454",
-          "excerpt": "Finally let us mention that (as Wiles points out) the 2-adic main",
           "match": "The claim."
         },
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Theorem 5, p. 250",
-          "excerpt": "The relation between these conjectures is given by",
           "match": "The implication used."
         }
       ],
@@ -2303,7 +2255,6 @@
         {
           "sourceId": "GREITHER-1992",
           "locator": "§1, closing remark, p. 454",
-          "excerpt": "Finally let us mention that (as Wiles points out) the 2-adic main",
           "match": "The full Birch–Tate formula for real abelian fields."
         }
       ],
@@ -2346,7 +2297,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, before Theorem 3.3, p. 14",
-          "excerpt": "Hence by the Main Conjecture:",
           "match": "Kolster works with 𝓞_F[1/p] throughout; the passage to 𝓞_F is this lemma."
         }
       ],
@@ -2389,7 +2339,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, after Corollary 3.4, p. 15",
-          "excerpt": "In the special case n = 2 the group",
           "match": "H²(𝓞_F, ℤ(2)) ≅ K₂(𝓞_F), citing Tate [35]."
         }
       ],
@@ -2430,13 +2379,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §2, the coefficient sequence, p. 9",
-          "excerpt": "In particular this implies that the torsion subgroup of",
           "match": "H¹_tors ≅ H⁰(ℚ_p/ℤ_p(n)); stated for every n, but it needs n ≠ 0 (source issue E5)."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §2, Proposition 2.1, p. 10",
-          "excerpt": "Proposition 2.1. Let p be an odd prime and let n ≥ 2. Then",
           "match": "The ranks, rk H¹(F, ℤ_p(n)) = r₂ for even n."
         }
       ],
@@ -2482,25 +2429,21 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, the set-up, p. 13",
-          "excerpt": "We are now ready to apply the Main Conjecture in the case, where ψ is of order",
           "match": "E = F_ψ(μ_p), G of order prime to p."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Proposition 3.1, p. 14",
-          "excerpt": "Proposition 3.1. The Pontryagin dual of",
           "match": "The descent."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Theorem 3.3, p. 15",
-          "excerpt": "Theorem 3.3. Let χ be a 1-dimensional Artin character of order prime to p over",
           "match": "The theorem, applied with χ = 1, n = 2 and S = S_ℓ."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §1, Iwasawa's Main Conjecture 1.3 (Wiles), p. 9",
-          "excerpt": "MainConjecture 1.3 (Wiles)",
           "match": "Wiles's theorem, the input from IntegralIwasawaTheory I.5."
         }
       ],
@@ -2540,7 +2483,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Corollary 3.4 and Birch–Tate Conjecture 3.5, p. 15",
-          "excerpt": "In the special case n = 2 the group",
           "match": "The odd part of Birch–Tate from Corollary 3.4."
         }
       ],
@@ -2646,13 +2588,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §2, the global models, p. 11",
-          "excerpt": "which are finite groups and play in many situations a role similar to that of the",
           "match": "H²(𝓞_F, ℤ(n)) as a product; its order h_n(F)."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §2, the group H¹(𝓞_F, ℤ(n)), p. 11",
-          "excerpt": "is an analog of the group of units. It is a finitely generated abelian",
           "match": "The printed ranks are interchanged (source issue E6)."
         }
       ],
@@ -2750,25 +2690,21 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15",
-          "excerpt": "Lichtenbaum Conjecture 3.6. Up to powers of 2:",
           "match": "The K-theoretic form."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, the order of vanishing, p. 15",
-          "excerpt": "by a result of Borel",
           "match": "Orders of vanishing and Borel's ranks."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Motivic Lichtenbaum Conjecture 3.7, p. 16",
-          "excerpt": "Motivic Lichtenbaum Conjecture 3.7.",
           "match": "The motivic form."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, the regulators, p. 16",
-          "excerpt": "differs from the Borel regulator by a power of 2.",
           "match": "R_n^M against R_n^B."
         }
       ],
@@ -2813,13 +2749,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Theorem 3.3, p. 15",
-          "excerpt": "Theorem 3.3. Let χ be a 1-dimensional Artin character of order prime to p over",
           "match": "Theorem 3.3 with χ = 1."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Corollary 3.4, p. 15",
-          "excerpt": "Corollary 3.4. Let F be a totally real number field and let n ≥ 2 be an even",
           "match": "Corollary 3.4."
         }
       ],
@@ -2861,13 +2795,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1, §2, the comparison with K-theory, p. 11",
-          "excerpt": "For i = 1, 2 and all n ≥ 2there are isomorphisms",
           "match": "K_{2n−i} against motivic and étale cohomology."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15",
-          "excerpt": "Lichtenbaum Conjecture 3.6. Up to powers of 2:",
           "match": "The statement proved away from 2."
         }
       ],
@@ -2914,13 +2846,11 @@
         {
           "sourceId": "KURIHARA-2025",
           "locator": "§4.1, the p-adic L-function g_{K∞/k,S}, p. 23",
-          "excerpt": "for the projective limit of RΓc (OFn ,S , Zp (1)) where Fn",
           "match": "The set-up of §4.1, with p = 2 allowed."
         },
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Conjecture 3 and the definition of G(T), p. 250",
-          "excerpt": "the following Main Conjecture for p = 2 (cf. [4]):",
           "match": "Kolster's G with L₂(χ₀, s) = G(u^s − 1)/(u^s − u)."
         }
       ],
@@ -2957,13 +2887,11 @@
         {
           "sourceId": "KURIHARA-2025",
           "locator": "§4.1, Theorem 4.1, printed p. 24; proof in §4.2, p. 24",
-          "excerpt": "Theorem 4.1. (Equivariant Iwasawa Main Conjecture) We have",
           "match": "Theorem 4.1, for every p including 2."
         },
         {
           "sourceId": "KURIHARA-2025",
           "locator": "§4.2, the remarks after the proof, p. 27",
-          "excerpt": "We give three remarks here.",
           "match": "(γ − 1)g at the augmentation prime."
         }
       ],
@@ -3011,13 +2939,11 @@
         {
           "sourceId": "KURIHARA-2025",
           "locator": "§4.2, Lemma 4.2(1), p. 25",
-          "excerpt": "whose cokernel",
           "match": "The order-2 cokernel at p = 2."
         },
         {
           "sourceId": "KURIHARA-2025",
           "locator": "§4.1, the complex RΓc, p. 22",
-          "excerpt": "From this section, p is any prime number (p = 2 is allowed).",
           "match": "The compact-support convention of §4."
         }
       ],
@@ -3059,7 +2985,6 @@
         {
           "sourceId": "KURIHARA-2025",
           "locator": "§4.1, Theorem 4.1, printed p. 24; proof in §4.2, p. 24",
-          "excerpt": "Theorem 4.1. (Equivariant Iwasawa Main Conjecture) We have",
           "match": "The input over an arbitrary totally real base."
         }
       ],
@@ -3101,7 +3026,6 @@
         {
           "sourceId": "KOLSTER-1989",
           "locator": "Theorem 5, p. 250",
-          "excerpt": "The relation between these conjectures is given by",
           "match": "Kolster's implication, applied to every totally real F."
         }
       ],
@@ -3139,13 +3063,11 @@
         {
           "sourceId": "COHEN-ANT-2007",
           "locator": "§10.5.1, Theorem 10.5.3, p. 218",
-          "excerpt": "For all k ⩾ 1 we have ζK (1 − 2k) ∈ Q∗.",
           "match": "Siegel’s rationality theorem for totally real negative odd integers."
         },
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2 §3, p. 15",
-          "excerpt": "The order of vanishing of the zeta-function of F at 1 − n",
           "match": "Rank-zero case of the leading-term and regulator conventions."
         }
       ],
@@ -3187,7 +3109,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 2 §4, p. 16, Deligne–Ribet integrality preceding Conjecture 4.1",
-          "excerpt": "AnnZ[G] (H 0 (E, Q/Z(n)))",
           "match": "The annihilator-integrality assertion specializes to the denominator bound at the trivial extension."
         }
       ],
@@ -3227,7 +3148,6 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1 §1, printed p. 8; Lecture 2 §3, pp. 13–15",
-          "excerpt": "Now let S be again a finite set of primes in F containing Sp .",
           "match": "Euler removal and the arithmetic comparison are compatible with finite S."
         }
       ],
@@ -3281,13 +3201,11 @@
         {
           "sourceId": "kolster-park-city-2009",
           "locator": "Lecture 1 §1, printed p. 8; Lecture 2 §3, pp. 13–15",
-          "excerpt": "Now let S be again a finite set of primes in F containing Sp .",
           "match": "The cohomological descent and main-conjecture evaluation retain the same finite-S Euler factors."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.11.11 proof and V.11.12(4), printed pp. 457–459 (PDF pp. 465–467); VI.9.4–9.5, printed pp. 519–520 (PDF pp. 527–528)",
-          "excerpt": "The Functoriality and Triviality axioms have been already checked.",
           "match": "V.11 constructs natural Chern classes in its stated geometric setting and their étale realizations; it does not by itself give the arithmetic Galois-symbol comparison or residue normalization. VI.9.4 uses arithmetic real-place restriction, and VI.9.5 identifies the odd higher groups for S-integers. M.3 supplies the actual Galois/Tate maps and signed residues, M.8 the separate normalized Chern/Galois agreement, and M.7 the higher corrected integral comparisons. The regulator claim uses the induced isomorphism of torsion-free integral lattices, not rationalized rank equality alone."
         }
       ],
@@ -3330,7 +3248,6 @@
         {
           "sourceId": "ROGNES-WEIBEL-2000",
           "locator": "Theorem 0.1, p. 1; Theorems 0.3 and 0.6, pp. 2–4",
-          "excerpt": "Theorem 0.1. Let F be a totally real number field, with r1 real embeddings.",
           "match": "The even-weight order ratio follows from the actual 2-adic arithmetic comparison and the two congruence classes."
         }
       ],
@@ -3383,13 +3300,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.8.8, printed pp. 515–516",
-          "excerpt": "the Birch-Tate conjecture",
           "match": "The full corrected finite-group equality for totally real abelian fields."
         },
         {
           "sourceId": "ROGNES-WEIBEL-2000",
           "locator": "Theorem 0.2, p. 2; Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3, pp. 45–47",
-          "excerpt": "Let F be a totally real Abelian number field",
           "match": "The classical 2-primary special-value consequence holds for even weight and totally real abelian fields."
         }
       ],
@@ -3441,7 +3356,6 @@
         {
           "sourceId": "BURNS-FLACH-2001",
           "locator": "§3.4, Lemma 5 pp. 526–528, Lemma 6 and their consequence pp. 528–529; §4.2, Lemma 9 pp. 534–535; §4.3, Conjectures 4–6 and Remark 9 pp. 535–537",
-          "excerpt": "T Ω(M, A) := L(M, A) + RΩ(M, A)",
           "match": "The precise relative-K-group conjecture, sign convention, local correction and graded determinant framework."
         }
       ],

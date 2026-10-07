@@ -836,13 +836,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1 and Lemma 3.2, p. 12",
-     "excerpt": "using class ﬁeld theory or Kummer theory, it can be checked that Φp holds if G = GK = Gal(K/K) for some prime l (possibly equal to p) and some ﬁnite extension K/Ql",
      "match": "Φ_p for G_K, the input to the representability lemma."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.2) and Proposition (1.2.1)(1), p. 2",
-     "excerpt": "Examples of groups satisfying this condition include the absolute Galois group of a ﬁnite extension K/Qp",
      "match": "The local case of Mazur's representability."
     }
    ],
@@ -890,13 +888,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Corollary 3.12, Lemma 3.13 and Corollary 3.14, pp. 13–14",
-     "excerpt": "In any case, the Krull dimension of R□ρ is at least 1 + n2 − dimF H0(G, ad ρ) + dimF H1(G, ad ρ) − dimF H2(G, ad ρ).",
      "match": "The tangent/obstruction bound; the local Euler characteristic turns it into the stated dimensions."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Lemma (1.3.1)(2), p. 3",
-     "excerpt": "dimF D□VF(F[ϵ]) = dimF DVF(F[ϵ]) + n2 − dimF(adVF)G = n2 + H1(G, adVF) − H0(G, adVF).",
      "match": "The tangent-space dimension."
     }
    ],
@@ -943,7 +939,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.18 and Exercise 3.19, p. 15",
-     "excerpt": "Check that the material developed in the previous section goes over unchanged, except that ad ρ needs to be replaced with ad0ρ := {x ∈ ad ρ : tr x = 0}.",
      "match": "Fixed determinant replaces ad by ad⁰."
     }
    ],
@@ -984,13 +979,11 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Remark (1.2.2)(3), p. 2",
-     "excerpt": "Note that when the conditions in (2) of the Proposition hold the map of local W(F)-algebras RVF → R□VF is formally smooth, thus the singularities of these two rings are in some sense equivalent.",
      "match": "Forgetting the framing is formally smooth under the Schur hypothesis."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Exercise 3.9, p. 13",
-     "excerpt": "Show that if ρ is absolutely irreducible, then R□ρ is isomorphic to a power series ring in (n2 − 1) variables over Runivρ.",
      "match": "The number of variables."
     }
    ],
@@ -1033,7 +1026,6 @@
     {
      "sourceId": "TUNG-2021",
      "locator": "§3.2.5, Proposition 3.2.7, p. 15",
-     "excerpt": "Assume that Fv = R and ρ|GFv is odd, i.e. det ρ(c) = −1 for c the complex conjugation. Let Λv = O. Proposition 3.2.7. There is a reduced and p-torsion free quotient Roddv of R□,ψv such that",
      "match": "The archimedean setting; for odd p the ring is formally smooth, which is the elementary case of the proposition."
     }
    ],
@@ -1077,7 +1069,6 @@
     {
      "sourceId": "TUNG-2021",
      "locator": "§3.2.5, Proposition 3.2.7, p. 15",
-     "excerpt": "Rodd v is a complete intersection domain of relative dimension 2 over O. • Rodd v [1/p] is formally smooth over E. • Rodd v ⊗O k is a domain. Proof. See [KW09b, Proposition 3.3].",
      "match": "The statement; the explicit equation is derived in the proof steps."
     }
    ],
@@ -1123,7 +1114,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1, p. 12",
-     "excerpt": "Take L/Qp ﬁnite with ring of integers O = OL and maximal ideal λ, and write F = O/λ.",
      "match": "The coefficient setting varied by the base change."
     }
    ],
@@ -1165,7 +1155,6 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.4, Lemma 2.4.10 and Corollary 2.4.13, pp. 41–43",
-     "excerpt": "The exact sequence (0) −→ PFv −→ GFv −→ TFv −→ (0) splits, so that GFv becomes the semidirect product of PFv by TFv.",
      "match": "The splitting; Corollary 2.4.13 gives the reduction to tame pieces."
     }
    ],
@@ -1210,13 +1199,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Definition 3.36(1) and Theorem 3.38(2), p. 21",
-     "excerpt": "R□ρ,χ,ur is formally smooth over O (and thus geometrically irreducible) of relative dimension 3.",
      "match": "The n = 2 case; the general case is the proof steps."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.4, remark after Definition 2.4.14, p. 43",
-     "excerpt": "We remark that if r|GFv is unramiﬁed then minimally ramiﬁed lifts are just unramiﬁed lifts.",
      "match": "Unramified = minimally ramified for unramified ρ̄."
     }
    ],
@@ -1258,7 +1245,6 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.4, Definition 2.4.14 and Corollary 2.4.18, pp. 43–44",
-     "excerpt": "We will call r minimally ramiﬁed if for all i the natural map ker(ρ(σq) −1m)i ⊗R k −→ ker(ρ(σq) −1m)i is an isomorphism.",
      "match": "The definition; Corollary 2.4.18 shows it is a deformation problem."
     }
    ],
@@ -1366,13 +1352,11 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.4, Corollary 2.4.21, p. 46",
-     "excerpt": "Deﬁne a local deformation problem Dv to consist of all minimally ramiﬁed lifts of r. 1. Dv is liftable. 2. The space Lv of deformations of r to k[ϵ]/(ϵ2) has dimension equal to the dimension of H0(GFv, ad r). 3. The corresponding quotient Rloc v /Iv is a power series ring in n2 variables over O.",
      "match": "The statement."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.4, Lemma 2.4.22, p. 47",
-     "excerpt": "Suppose that l ∤ #r(IFv) and that Dv consists of all minimal lifts of r. Then Lv = H1(GFv/IFv, (ad r)IFv).",
      "match": "The prime-to-p inertia case (CHT's l is our p)."
     }
    ],
@@ -1417,19 +1401,16 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.3, Lemma 2.4.9, p. 40",
-     "excerpt": "If H0(GFv, (ad r)(1)) = (0) then H2(GFv, ad r) = (0), Dv is liftable, and Rloc v is a power series ring in n2 variables over O.",
      "match": "Part (1)."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Theorem 3.31, p. 19",
-     "excerpt": "R□ρ,χ is equidimensional of Krull dimension 4, and the generic ﬁbre R□ρ,χ[1/p] has Krull dimension 3. Furthermore: (a) The function which takes a Qp-point x : R□ρ,χ[1/p] → Qp to (the isomorphism class of) WD(x ◦ ρ□)|IK (forgetting N) is constant on the irreducible components",
      "match": "Part (2)."
     },
     {
      "sourceId": "TUNG-2021",
      "locator": "§3.2.6, Lemma 3.2.8, p. 15",
-     "excerpt": "If x and y lie on the same irreducible component of Spec R□,ψ v ⊗ Qp, then (ρx)|ss IFv ≅ (ρy)|ss IFv.",
      "match": "The general-n component statement (BLGGT Lemma 1.3.4)."
     }
    ],
@@ -1467,13 +1448,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.31, after Theorem 3.31, pp. 19–20",
-     "excerpt": "Let τ be an inertial WD-type. Then there is a unique reduced, p-torsion free quotient R□ρ,χ,τ of R□ρ,χ with the property that a continuous homomorphism ψ : R□ρ,χ → Qp factors through R□ρ,χ,τ if and only if ψ ◦ ρ□ has inertial Weil–Deligne type τ.",
      "match": "The definition."
     },
     {
      "sourceId": "SHOTTON-2018",
      "locator": "Definition 3.5 and Proposition 3.6",
-     "excerpt": "the Zariski closure",
      "match": "The definition is a closure of exact-type points, not an iff at every boundary point."
     }
    ],
@@ -1570,7 +1549,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.32, Lemma 3.33 and Exercise 3.34, p. 20",
-     "excerpt": "Suppose that (#k − 1) is exactly divisible by pm. Then R□ρ,χ ≅ OJx, y, B, uK/((1 + u)pm − 1). Furthermore, if ϕ ∈ GK is a lift of FrobK, then ρ□(ϕ) is conjugate to a diagonal matrix.",
      "match": "The statement; Exercise 3.34 gives the proof steps."
     }
    ],
@@ -1609,13 +1587,11 @@
     {
      "sourceId": "TAYLOR-II-2008",
      "locator": "§3, definition of D^{Stein,1} and D^{Stein} before Proposition 3.1, p. 196",
-     "excerpt": "We will also let DStein,1 v ⊂ D(1,1,...,1) v denote the subset consisting of liftings r such that charr(φv)(X) ∈ Poln({n}, #k(v)).",
      "match": "The general-n definition."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Definition 3.36(3), p. 21",
-     "excerpt": "Let Pm be the minimal ideal of R□ρ,χ modulo which ρ□(σ) has characteristic polynomial (X − 1)2, and #k(tr ρ□(ϕ))2 = (1 + #k)2 det ρ□(ϕ).",
      "match": "The n = 2 form."
     }
    ],
@@ -1713,25 +1689,21 @@
     {
      "sourceId": "TAYLOR-II-2008",
      "locator": "§3, Proposition 3.1, p. 196",
-     "excerpt": "If all the χv,i|IF v are distinct characters then the spectrum SpecRloc v /I(χv,1,...,χv,n) v is irreducible and its generic point has characteristic zero. Moreover Rloc v /I(χv,1,...,χv,n) v has Krull dimension n2 + 1.",
      "match": "Part (1); parts (2)–(4) follow in the same proposition."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 3.37 and Theorem 3.38, p. 21",
-     "excerpt": "The minimal primes of R□ρ,χ are precisely √Pur, √Pm, and the √Pζ for ζ ≠ 1. We have √P1 = √Pur ∩ √Pm.",
      "match": "The n = 2 form."
     },
     {
      "sourceId": "NT-2026",
      "locator": "proof of Theorem 5.9, arXiv v2 p. 45",
-     "excerpt": "This non-vanishing follows from the congruence modulo ̟ between the unipotent and tamely-ramified-type lifting rings, cf. [Tay08, §3] or indeed [Sho18]. We note that the same congruence is exploited",
      "match": "(2): the unipotent and tamely ramified type rings are congruent mod ϖ, so the latter is non-zero."
     },
     {
      "sourceId": "THORNE-2015",
      "locator": "Proposition 3.15 and its proof",
-     "excerpt": "the proof of this lemma goes through without change",
      "match": "The proof explicitly extends Taylor’s p>n restriction; coefficients must be sufficiently large for geometric integrality."
     }
    ],
@@ -1775,13 +1747,11 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "(2.6), p. 531",
-     "excerpt": "then we say that VB is of p-adic Hodge type v if VB has all its Hodge-Tate weights in [0, h] and for i = 0, 1, . . . , h there is an isomorphism of B ⊗Qp K-modules griHomB[GK](VB, BdR ⊗Qp B) ∼ −→griDE,K ⊗E B.",
      "match": "Hodge type."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "(2.7), pp. 532–533",
-     "excerpt": "In other words, for any γ ∈IK, the trace of τ(γ) is equal to the trace of γ on D∗ pst(VB).",
      "match": "Galois type."
     }
    ],
@@ -1891,7 +1861,6 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Theorem (2.5.5) and its proof, pp. 530–531; Propositions (2.4.7), (2.5.4)",
-     "excerpt": "Theorem (2.5.5). Let A◦be a complete local Noetherian W(F)-algebra, and VA◦ a ﬁnite free A◦-module of rank r, equipped with a continuous action of GK. If h is a non-negative integer, then there exists a quotient Ast,h of A = A◦[1/p] with the following properties:",
      "match": "The statement and construction."
     }
    ],
@@ -1929,7 +1898,6 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Corollary (2.6.2) and Lemma (2.6.1), pp. 531–532",
-     "excerpt": "Corollary (2.6.2). Fix v as above. There exists a quotient Ast,v of Ast corre- sponding to a union of connected components of Spec Ast such that, if B is a ﬁnite E-algebra, and ζ : A →B is a map of E-algebras, then ζ factors through Ast,v if and only if VB = VA ⊗A B is semi-stable of p-adic Hodge type v.",
      "match": "The statement."
     }
    ],
@@ -1976,19 +1944,16 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Theorem (2.7.6) and its proof, p. 534",
-     "excerpt": "Theorem (2.7.6). There exists a quotient Aτ,v of A such that for any ﬁnite E- algebra B, a map of E-algebras ζ : A →B factors through Aτ,v if and only if VB = VA ⊗A B is potentially semi-stable of type τ and with p-adic Hodge type v.",
      "match": "(1)."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Corollary (2.7.7), p. 534",
-     "excerpt": "Corollary (2.7.7). There exists a quotient Aτ,v cr of A such that for any ﬁnite E- algebra B, a map of E-algebras ζ : A →B factors through Aτ,v cr if and only if VB = VA ⊗A B is potentially crystalline of type τ and with p-adic Hodge type v.",
      "match": "(2)."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Theorem 3.28, pp. 18–19",
-     "excerpt": "3.28. Theorem. There is a unique reduced, p-torsion free quotient R□ ρ,χ,cr,{Hσ} of R□ ρ,χ with the property that a continuous homomorphism ψ : R□ ρ,χ →Qp factors",
      "match": "(3), the integral ring as a reduced p-torsion-free quotient (crystalline case)."
     }
    ],
@@ -2037,13 +2002,11 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "(3.1.1), Proposition (3.1.2), Corollary (3.1.3), Lemma (3.1.5), Proposition (3.1.6), pp. 535–538",
-     "excerpt": "Proposition (3.1.2). Let A be a local Qp-algebra with maximal ideal mA, and I ⊂A an ideal with ImA = 0. Let DA/I be in Modϕ,N(A/I) and set DA/mA = DA/I ⊗A/I A/mA. (1) If H2(DA/mA) = 0, then there exists a module DA in Modϕ,N(A) whose reduction modulo I is isomorphic to DA/I.",
      "match": "Obstructions and lifts."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Lemma (3.2.1), Proposition (3.3.1), pp. 538–540",
-     "excerpt": "Proposition (3.3.1). Suppose that the morphism A◦→DVF is formally smooth. Then the morphism ˆAτ,v m →ModF,ϕ,N of groupoids on E-algebras is formally smooth.",
      "match": "The filtered case and the comparison with deformation rings."
     }
    ],
@@ -2092,13 +2055,11 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Theorem (3.3.4) and its proof, pp. 540–541",
-     "excerpt": "Theorem (3.3.4). Spec (R□ VF[1/p])τ,v is equi-dimensional of dimension d2 + dimE adDE,K/Fil0adDE,K, and admits a formally smooth, dense open subscheme.",
      "match": "The statement and the tangent-space computation."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Introduction, p. 514, footnote 1",
-     "excerpt": "Part (ii) of the conjecture, which asserts that R[a,b],L VF [1/p] is formally smooth, is not quite right, as can already be seen for ordinary representations with Hodge-Tate weights 0 and 1.",
      "match": "Why only a dense open is smooth."
     }
    ],
@@ -2147,13 +2108,11 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Theorem (3.3.8) and its proof, p. 541",
-     "excerpt": "Theorem (3.3.8). Spec (R□ VF[1/p])τ,v cr is formally smooth and equi-dimensional of dimension d2 + dimE adDE,K/Fil0adDE,K.",
      "match": "The statement."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Theorem 3.28, pp. 18–19",
-     "excerpt": "Furthermore it has Krull dimension given by dim R□ ρ,χ,cr,{Hσ} = n2 + [K : Qp] 1 2n(n −1), and in fact R□ ρ,χ,cr,{Hσ} is formally smooth over O",
      "match": "The Fontaine–Laffaille case."
     }
    ],
@@ -2197,7 +2156,6 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "(2.7.5), p. 534",
-     "excerpt": "Let A◦be a Noetherian, complete local OE-algebra and VA◦a ﬁnite free A◦-module of rank r equipped with a continuous action of GK.",
      "match": "The coefficients over which the quotients are formed; the base-change lemma is derived from the point characterisation."
     }
    ],
@@ -2239,7 +2197,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "(2.1.1), p. 16",
-     "excerpt": "By [Ram, § 2] the morphism D fl V𝔽 → DV𝔽 is relatively representable.",
      "match": "The flat deformation condition."
     }
    ],
@@ -2331,7 +2288,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Corollaries (2.1.11) and (2.1.13), p. 21",
-     "excerpt": "the set of (isomorphism classes of) finite flat models of V𝔽′ = V𝔽 ⊗𝔽 𝔽 ′ is in natural bijection with 𝔊ℜ V𝔽 ,0 (𝔽 ′ ).",
      "match": "The closed fibre; (2.1.11) gives the projective map Θ."
     }
    ],
@@ -2423,7 +2379,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Proposition (2.1.14), p. 22",
-     "excerpt": "Proposition (2.1.14). Suppose that e(K/ℚp ) < p − 1. Then the map ΘV𝔽 is an equivalence of categories.",
      "match": "Raynaud's case."
     }
    ],
@@ -2467,7 +2422,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Proposition (2.3.8) and Corollary (2.3.11), pp. 32–33",
-     "excerpt": "This shows, in particular, that Vξ is Barsotti-Tate",
      "match": "Proposition (2.3.8): flat deformations on the generic fibre are crystalline deformations; (2.3.11) gives smoothness and the dimension."
     }
    ],
@@ -2511,7 +2465,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "(2.4.1)–(2.4.3) and Proposition (2.4.8), pp. 34–37",
-     "excerpt": "This map becomes an isomorphism after applying ⊗𝒪F F.",
      "match": "Proposition (2.4.8)."
     }
    ],
@@ -2602,7 +2555,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Proposition (2.2.2), Corollary (2.2.8) and Proposition (2.4.6), pp. 23–35",
-     "excerpt": "is reduced and normal with rational singularities.",
      "match": "Proposition (2.4.6)(2), from (2.2.2) and (2.2.8)."
     }
    ],
@@ -2643,7 +2595,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Corollary (2.4.10), pp. 37–38",
-     "excerpt": "There is a bijection H0 (Spec R v [1/p]) ∼ − → H0 (𝔊ℜ v ,loc V𝔽 ,0 ).",
      "match": "Corollary (2.4.10)."
     }
    ],
@@ -2687,7 +2638,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Proposition (2.4.14), (2.4.15) and Conjecture (2.4.16), pp. 38–41",
-     "excerpt": "Then 𝔐A admits a maximal multiplicative subobject 𝔐 m A and a maximal ´etale quotient 𝔐 ´et A .",
      "match": "Proposition (2.4.14)."
     }
    ],
@@ -2729,7 +2679,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Lemmas (2.5.1), (2.5.3), (2.5.5) and Proposition (2.5.6), pp. 41–48",
-     "excerpt": "Then (the images of) x1 and x2 lie on the same component of 𝔊ℜ v V𝔽 ,0 .",
      "match": "Proposition (2.5.6)."
     }
    ],
@@ -2775,7 +2724,6 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Proposition (2.5.15), pp. 48–49",
-     "excerpt": "is non-empty then it consists of a single point, unless V𝔽 ∼ χ1 0 0 χ2 where χ1 and χ2 are unramified characters of GK .",
      "match": "Proposition (2.5.15)."
     }
    ],
@@ -2820,13 +2768,11 @@
     {
      "sourceId": "KISIN-FFLAT-2009",
      "locator": "Corollary (2.5.16), p. 49",
-     "excerpt": "(1) The complete local ring R v is flat over ℤp of pure relative dimension 4+[K : ℚp ], and R v [1/p] is formally smooth over F.",
      "match": "Corollary (2.5.16)."
     },
     {
      "sourceId": "CN-2023",
      "locator": "Lemma 5.3.4, arXiv v3 p. 77",
-     "excerpt": "Lemma 5.3.4. Let v be a place of F with v|p. Suppose that ρ|GFv is trivial, the ǫ−1 ,BT ǫ−1 ,BT residue field kv is not equal to Fp , and Rvp is non-zero. Then Spec(Rvp ) has exactly two irreducible components, one whose points correspond",
      "match": "The two components for trivial ρ̄ with k_v ≠ 𝔽_p (after Kisin 2.5.16 and Gee 2.3), as used by Caraiani–Newton."
     }
    ],
@@ -2873,7 +2819,6 @@
     {
      "sourceId": "SAVITT-2005",
      "locator": "Theorems 6.22–6.24, pp. 41–42",
-     "excerpt": "Theorem 6.24. Conjecture 2.2.2.4 of [BM02] (and so, in particular, [CDT99, Conj. 1.2.1]) holds for k = 2 and τ tame.",
      "match": "Theorem 6.24; the explicit rings are Theorems 6.22 and 6.23."
     }
    ],
@@ -2919,7 +2864,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§2.8, Proposition 2.12 and its proof, pp. 16–18",
-     "excerpt": "Proposition 2.12. Let X be as above a condition on deformations of ¯ρ and and let R be a smooth resolution of D□ X. Then R □ X is a domain, R □ X[1/p] is regular and the relative dimension of R □ X over O is the same as the relative dimension of R over O.",
      "match": "The statement and proof."
     }
    ],
@@ -2959,7 +2903,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3 opening and §3.2.2, pp. 18 and 22–24",
-     "excerpt": "In the theorem below, we state the needed information for ¯R□,ψ v that arises from prescribed conditions that we refer to by a name, and which is explained when we treat the diﬀer- ent cases.",
      "match": "The table of conditions."
     }
    ],
@@ -3055,7 +2998,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Proposition 3.3 and the Remark after it, pp. 20–21",
-     "excerpt": "If p = 2 and M = Id, it is not diﬃcult to see that R □,ψ ∞ is isomorphic to O[[X1, X2, X3]]/(X2 1 + X2X3 + 2X1).",
      "match": "The p = 2 ring."
     }
    ],
@@ -3094,7 +3036,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.3, p. 24",
-     "excerpt": "We suppose that the repre- sentation ¯ρp of Dv = Dp = GQp is irreducible of weight k ≤p and we consider lifts that are crystalline of weight k. The deformation ring is smooth over O of dimension 1",
      "match": "The statement."
     }
    ],
@@ -3132,7 +3073,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.4, p. 24",
-     "excerpt": "By the (obvious case of) Proposi- tion 2.1, the corresponding framed deformation ring ¯R□,ψ is isomorphic to O[[T1, T2, T3, T4, T5]]/(T1T2 −p).",
      "match": "The framed ring."
     }
    ],
@@ -3181,13 +3121,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.5, Proposition 3.6, Lemma 3.7 and their proofs, pp. 24–30",
-     "excerpt": "Proposition 3.6. There are ﬂat and reduced CNLO-algebras R □,ψ v which classify weight 2 and low-weight crystalline framed deformations (3.2.2).",
      "match": "The statement and proof."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 3.5, p. 22",
-     "excerpt": "(i) if V is crystalline of weight k such that 2 ≤k ≤p, V is ordinary if residually it is ordinary.",
      "match": "Ordinarity."
     }
    ],
@@ -3232,7 +3170,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.6, pp. 30",
-     "excerpt": "The ring R □,ψ v is formally smooth over O of relative dimension 3 + [F : Qp].",
      "match": "The generic case; the dyadic homothety case follows in the same paragraph."
     }
    ],
@@ -3274,7 +3211,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.7 and the Remark, pp. 31–32",
-     "excerpt": "Let us prove that the corresponding framed deformation ring R □,ψ v is formally smooth over O of relative dimension 3 + [Fv : Qp] i.e. is isomorphic to O[[T1, . . . , T3+[Fv:Qp]]].",
      "match": "The statement and proof."
     }
    ],
@@ -3317,7 +3253,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Theorem 3.1 and §3.3, pp. 18–19 and 32–37",
-     "excerpt": "v a ﬁnite place not above p, inertia-rigid deformations: ¯R□,ψ v is ﬂat over O, with each component of relative dimension 3, and ¯R□,ψ v [ 1 p] is regular.",
      "match": "The inertia-rigid case; the semistable case is the preceding bullet."
     }
    ],
@@ -3368,7 +3303,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Proposition 3.2, p. 19",
-     "excerpt": "(i) the completed tensor product ¯R□,loc,ψ := ˆ⊗v∈S ¯R□,ψ v is ﬂat over O, each of its components is of relative dimension 3|S|, and ¯R□,loc,ψ[1/p] is regular ;",
      "match": "The statement."
     }
    ],
@@ -3415,7 +3349,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Theorem 3.1, p. 19",
-     "excerpt": "Thus in particular by Proposition 2.2 we know in each of the cases that ¯R□,ψ v has points with values in the ring of integers of a ﬁnite extension of Qp.",
      "match": "Points for each condition."
     }
    ],
@@ -3458,19 +3391,16 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "(1.2), pp. 516–517",
-     "excerpt": "We say that M is of E-height ⩽h if there exists a ﬁnite free S-submodule M ⊂M of rank d, such that M is stable by ϕ, spans the OE-module M, and the cokernel of ϕ∗(M) →M is killed by E(u)h.",
      "match": "The definition (𝔖 and 𝔐 print as S and M in the extracted text)."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "(1.2), p. 517",
-     "excerpt": "By [Ki 2, 2.1.12] if a S-lattice of E-height ⩽h exists, then it is unique.",
      "match": "Uniqueness."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Errata for [Ki 2], (E.4), p. 545",
-     "excerpt": "There is a gap in the proof of (2.1.12). (We are grateful to Brian Conrad for pointing this out.)",
      "match": "The repaired uniqueness proof."
     }
    ],
@@ -3577,25 +3507,21 @@
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Proposition (1.3), p. 517",
-     "excerpt": "Proposition (1.3). The functor L⩽h VA is represented by a projective A-scheme L ⩽h VA .",
      "match": "(1), Artinian case."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Corollary (1.5.1), p. 518",
-     "excerpt": "Corollary (1.5.1). The functor L⩽h VA on A-algebras B such that mi A · B = 0 for some i, is represented by a projective A-scheme L ⩽h VA .",
      "match": "(1), complete case."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Proposition (1.6.4) and its proof, pp. 520–521",
-     "excerpt": "(1) The map ΘA : L ⩽h A →Spec A becomes a closed immersion after inverting p. (2) If A⩽h denotes the quotient of A corresponding to the scheme-theoretic image of ΘA, then for any ﬁnite W(F)[1/p]-algebra B, a map A →B factors through A⩽h if and only if VB = VA ⊗Zp B is of E-height ⩽h.",
      "match": "(2) and (3)."
     },
     {
      "sourceId": "KISIN-PST-2008",
      "locator": "Corollary (1.7), pp. 521–522",
-     "excerpt": "Corollary (1.7). There exists a ﬁnite SA⩽h-module MA⩽h such that (1) MA⩽h is equipped with a map ϕ∗(MA⩽h) →MA⩽h whose cokernel is killed by E(u)h.",
      "match": "(4)."
     }
    ],
@@ -3637,7 +3563,6 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, p. 138 (arXiv v2; printed page = PDF page)",
-     "excerpt": "6.2.6. Ordinary deformations.",
      "match": "Λ_v, 𝔞 and the universal characters."
     }
    ],
@@ -3741,13 +3666,11 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, p. 138 (arXiv v2; printed page = PDF page)",
-     "excerpt": "is preserved by the specialization of the universal lifting to A",
      "match": "𝒢_v and R^△_v (after [Ger19, §3.1])."
     },
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, p. 139 (arXiv v2; printed page = PDF page)",
-     "excerpt": "Its properties in an important special case are summarized in the following proposition.",
      "match": "The point criterion for R^△_v, stated just before."
     }
    ],
@@ -3857,13 +3780,11 @@
     {
      "sourceId": "GERAGHTY-2019",
      "locator": "Lemma 3.7 (preprint Lemma 3.2.3, p. 35), with Lemma 3.5 and Corollary 3.6 (preprint Lemma 3.2.1, p. 33; Corollary 3.2.2, p. 35)",
-     "excerpt": "(iii) If χ̃_{x,s} ≠ εχ̃_{x,r} for all r > s, or if Fil_{x,j} is the unique j-dimensional G_{F_w}-subspace of V_x for all j, then H^2(G_{F_w}, Fil^0 ad V_x) = {0}.",
      "match": "(3)–(4); (1)–(2) are the cited lemma and corollary."
     },
     {
      "sourceId": "THORNE-2015",
      "locator": "proof of Proposition 3.14, p. 17 (accepted manuscript)",
-     "excerpt": "the argument of [Ger, Lemma 3.2.3] (which is essentially to calculate the Zariski tangent space of G_v[1/l] at the unique point above x)",
      "match": "How Thorne uses (3)."
     }
    ],
@@ -3908,13 +3829,11 @@
     {
      "sourceId": "GERAGHTY-2019",
      "locator": "Lemma 3.10 (preprint Lemma 3.3.3, p. 37)",
-     "excerpt": "2. Spec R^{△λ_w,st} and Spec R^{△λ_w,cr} are unions of irreducible components of Spec R^{v_{λ_w},st} and Spec R^{v_{λ_w},cr} respectively.",
      "match": "(1)."
     },
     {
      "sourceId": "GERAGHTY-2019",
      "locator": "Lemmas 3.13–3.14 (preprint Lemmas 3.4.2–3.4.3, pp. 38–39)",
-     "excerpt": "Let λ_w ∈ (Z^n_+)^{Hom(F_w,K)}. If ρ̄ is the trivial representation G_{F_w} → {1_n} ⊂ GL_n(F) then R^{△λ_w,cr} is irreducible (when non-zero).",
      "match": "(2)–(3)."
     }
    ],
@@ -3959,19 +3878,16 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, Proposition 6.2.10, p. 139 (arXiv v2; printed page = PDF page)",
-     "excerpt": "Its properties in an important special case are summarized in the following proposition.",
      "match": "Proposition 6.2.10."
     },
     {
      "sourceId": "BCGP-2025",
      "locator": "Proposition 5.6.6 (3) and Remark 5.6.7, arXiv v1 p. 129",
-     "excerpt": "(3) Suppose that ρ|GFve is trivial, and that [Fv+ : Q2 ] > n(n − 1)/2 + 1. Let Q be a minimal prime of ΛGLn ,v . Then Spec Rv△ /Q is geometrically irreducible of dimension [Fv+ : Q2 ]n(n + 1)/2 + n2 + 1, and Rv△ /(Q, ̟)",
      "match": "The statement at p = 2 (Thorne Proposition 3.14(3)), and flatness of the flag scheme."
     },
     {
      "sourceId": "THORNE-2015",
      "locator": "Lemma 3.11, Corollary 3.12, Lemma 3.13, Proposition 3.14, pp. 16–17 (accepted manuscript, 16 April 2014)",
-     "excerpt": "Lemma 3.11. Suppose that [F_ṽ : Q_l] > n(n − 1)/2 + 1. Then G_v is O-flat and reduced.",
      "match": "(1)–(5)."
     }
    ],
@@ -4023,13 +3939,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, Lemma 2.2, p. 11 (Numdam PDF page 8; printed page = PDF page + 3)",
-     "excerpt": "Applying the criteria of Schlessinger as in [M], one sees that there is a versal local",
      "match": "The versal rings and Lemma 2.2."
     },
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "§2.1, Corollary 2.3, p. 13 (Numdam PDF page 10; printed page = PDF page + 3)",
-     "excerpt": "Combining this with the previous lemma and the fact that",
      "match": "Corollary 2.3 and its proof."
     }
    ],
@@ -4072,13 +3986,11 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, p. 138 (arXiv v2; printed page = PDF page)",
-     "excerpt": "We now deﬁne two ordinary deformation rings:",
      "match": "(6.2.7), (6.2.8) and R^{det,ord}_v."
     },
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, p. 139 (arXiv v2; printed page = PDF page)",
-     "excerpt": "(A ring similar to",
      "match": "The comparison with Calegari–Specter's ring."
     }
    ],
@@ -4175,7 +4087,6 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, Lemma 6.2.9, p. 139 (arXiv v2; printed page = PDF page)",
-     "excerpt": "It is enough to show that",
      "match": "Lemma 6.2.9 and its proof."
     }
    ],
@@ -4211,7 +4122,6 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, p. 139 (arXiv v2; printed page = PDF page)",
-     "excerpt": "(A ring similar to",
      "match": "The point criteria and the inclusion Spec R^△_v ⊂ Spec R^{det,ord}_v, which follow this remark."
     }
    ],
@@ -4249,7 +4159,6 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, Lemma 6.2.11, p. 140 (arXiv v2; printed page = PDF page)",
-     "excerpt": "Our analysis of the ring",
      "match": "Lemma 6.2.11."
     }
    ],
@@ -4297,13 +4206,11 @@
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, Proposition 6.2.12, p. 140 (arXiv v2; printed page = PDF page)",
-     "excerpt": "Let U ⊂Spec Λv be the open subscheme where the characters",
      "match": "Proposition 6.2.12."
     },
     {
      "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
      "locator": "§6.2.6, proof of Proposition 6.2.12, p. 141 (arXiv v2; printed page = PDF page)",
-     "excerpt": "We have already observed that there is an inclusion",
      "match": "The proof."
     }
    ],
@@ -4360,13 +4267,11 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.1, p. 33",
-     "excerpt": "which will play the key role in this section.",
      "match": "The category 𝓜𝓕_{𝒪,ṽ} and the functor 𝐆_ṽ."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.1, 𝒟_ṽ and Lemma 2.4.1, p. 35",
-     "excerpt": "(This was ﬁrst observed by Ramakrishna [Ra1].)",
      "match": "The deformation problem, its tangent space, and Lemma 2.4.1."
     }
    ],
@@ -4475,19 +4380,16 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.1, Lemma 2.4.2, p. 35",
-     "excerpt": "We will need to calculate",
      "match": "Lemma 2.4.2."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.1, proof of Lemma 2.4.2 and Corollary 2.4.3, p. 36",
-     "excerpt": "The lemma now follows easily.",
      "match": "Lemma 2.4.2 proved; Corollary 2.4.3."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.1, Corollary 2.4.4 and Lemma 2.4.5, p. 37",
-     "excerpt": "The next lemma is clear.",
      "match": "Lemma 2.4.5."
     }
    ],
@@ -4526,13 +4428,11 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.2, the characters χ_{v,i}, p. 37",
-     "excerpt": "This section is not required for our appli- cations to modularity lifting theorems and the Sato–Tate conjecture",
      "match": "The set-up of §2.4.2."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.2, 𝒟_v and Lemma 2.4.6, p. 38",
-     "excerpt": "The second of these two conditions can be weakened, but we have not been able to determine exactly how far.",
      "match": "The remark on condition (2); 𝒟_v and Lemma 2.4.6."
     }
    ],
@@ -4639,13 +4539,11 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.2, proof of Lemma 2.4.7, p. 39",
-     "excerpt": "and this latter group vanishes, because, for",
      "match": "The vanishing of the obstruction."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.2, proof of Lemma 2.4.8, p. 40",
-     "excerpt": "We will prove this by induction on",
      "match": "The induction on n."
     }
    ],
@@ -4684,13 +4582,11 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.5, the set-up, p. 47",
-     "excerpt": "Discrete series deformations. — Let n = md be a factorisation and let",
      "match": "The set-up and conditions (1)–(3)."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.5, Definition 2.4.24, p. 49",
-     "excerpt": "We will say that",
      "match": "r̃_v-discrete series lifts."
     }
    ],
@@ -4798,19 +4694,16 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.4.5, Lemma 2.4.27, p. 51",
-     "excerpt": "For the rest of this section we will assume that",
      "match": "Lemma 2.4.27."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.5, proof of Lemma 2.4.28, p. 52",
-     "excerpt": "We will prove by induction on",
      "match": "The dimension count."
     },
     {
      "sourceId": "CHT08",
      "locator": "§2.4.5, Lemma 2.4.30, p. 53",
-     "excerpt": "The next lemma is self-explanatory.",
      "match": "Lemma 2.4.30."
     }
    ],
@@ -4852,7 +4745,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.1, (2.1.1)–(2.1.7), pp. 19–21 (DVI)",
-     "excerpt": "We begin with a generalization of the category (Mod /𝔖) which allows coefficients.",
      "match": "(2.1.1)–(2.1.5) and Lemma 2.1.7."
     }
    ],
@@ -4948,7 +4840,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.1, Lemmas 2.1.8–2.1.9 and Proposition 2.1.10, p. 21 (DVI)",
-     "excerpt": "The natural inclusion of groupoids",
      "match": "Lemma 2.1.8, Lemma 2.1.9 and Proposition 2.1.10 with proofs."
     }
    ],
@@ -4986,7 +4877,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.1, Proposition 2.1.12, p. 22 (DVI)",
-     "excerpt": "The morphism D𝔖,M𝔽 → DM𝔽 is relatively representable and projective.",
      "match": "Proposition 2.1.12 and (2.1.11)."
     }
    ],
@@ -5031,7 +4921,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.2, (2.2.1)–(2.2.7), pp. 22–24 (DVI)",
-     "excerpt": "We now use the results of the previous section to study flat deformation rings.",
      "match": "Lemmas 2.2.2–2.2.3, Propositions 2.2.4 and 2.2.7, and (2.2.6)."
     }
    ],
@@ -5074,7 +4963,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.3, (2.3.1) and Lemmas 2.3.2–2.3.4, pp. 25–27 (DVI)",
-     "excerpt": "We say that 𝔐A is of type v if its 𝔖A -rank is 2",
      "match": "(2.3.1), Lemmas 2.3.2, 2.3.3 and 2.3.4 with proofs."
     }
    ],
@@ -5121,7 +5009,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.3, (2.3.5)–(2.3.13), pp. 27–30 (DVI)",
-     "excerpt": "are isomorphic to those on Hilbert modular varieties",
      "match": "Proposition 2.3.6, Theorems 2.3.9 and 2.3.11, Corollary 2.3.13."
     }
    ],
@@ -5168,7 +5055,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.4, (2.4.1)–(2.4.6), pp. 30–33 (DVI)",
-     "excerpt": "In this section we compute the ordinary deformation ring of a two dimensional representation of GK.",
      "match": "Lemma 2.4.2, (2.4.3), Proposition 2.4.4, Corollaries 2.4.5–2.4.6 (after KW II 3.2.6 and Kisin FM 2.5.15)."
     }
    ],
@@ -5207,7 +5093,6 @@
     {
      "sourceId": "KISIN-2ADIC-2009",
      "locator": "§2.5, Propositions 2.5.2–2.5.6, pp. 33–35 (DVI)",
-     "excerpt": "We recall the structure of deformations rings for mod p representations of Galois groups of local fields with residue characteristic l ≠ p, and archimedean local fields.",
      "match": "Propositions 2.5.2, 2.5.3, 2.5.4 and 2.5.6 (cited there to Kisin FM 2.6.6 and KW II 3.1)."
     }
    ],
@@ -5250,13 +5135,11 @@
     {
      "sourceId": "BIP-2023",
      "locator": "§3.5, the coefficient rings Λ and Remark 3.32, arXiv v2 pp. 25–26",
-     "excerpt": "Then Λ is a complete DVR with uniformiser ̟ and residue field κ. We equip Λ0 with its (̟, t)-adic topology, this induces a topology on Λ0 [1/t] and Λ0 [1/t]/pn Λ0 [1/t] for all n ≥ 1. We equip Λ = limn Λ0 [1/t]/pnΛ0 [1/t] ←− with the",
      "match": "Λ in case (3) and its uniqueness."
     },
     {
      "sourceId": "BIP-2023",
      "locator": "Proposition 3.33, arXiv v2 p. 26",
-     "excerpt": "Proposition 3.33. The functor Dρ : AΛ → Sets is pro-represented by a complete local Noetherian Λ-algebra Rρ . Moreover, there is a presentation (21) Rρ ∼ = ΛJx1 , . . . , xr K/(f1 , . . . , fs ) with r = dimκ Z 1 (GF , ad ρ) and s = dimκ H",
      "match": "D^□_ρ on 𝔄_Λ."
     }
    ],
@@ -5366,13 +5249,11 @@
     {
      "sourceId": "BIP-2023",
      "locator": "Proposition 3.33 and (21)–(22), arXiv v2 p. 26",
-     "excerpt": "with r = dimκ Z 1 (GF , ad ρ) and s = dimκ H 2 (GF , ad ρ). Proof. If κ is a finite field then this is a well known consequence of the obstruction theory due to Mazur, [37, Section 1.6]. (We revisit the argument in the proof of Proposition",
      "match": "(2)."
     },
     {
      "sourceId": "PQ-2026",
      "locator": "Lemma 3.1, arXiv v2 p. 22",
-     "excerpt": "Lemma 3.1. Let V be a continuous representation of Γ on a finite dimensional κ-vector space V . Then (13) dimκ Z 1 (Γ, V ) = h1 (Γ, V ) + dimκ V − h0 (Γ, V ), where hi (Γ, V ) := dimκ H i (Γ, V ). Moreover, if Γ = ΓF then dimκ Z 1 (ΓF , V",
      "match": "(1)."
     }
    ],
@@ -5414,25 +5295,21 @@
     {
      "sourceId": "BIP-2023",
      "locator": "Proposition 3.41, arXiv v2 p. 29",
-     "excerpt": "Proposition 3.41. Let x ∈ P1 Rρ , where Rρ is the framed deformation ring of ρ : GF → GLd (k ′ ), where k ′ is finite extension of k. Let ρx : GF → GLd (κ(x)) be the representation obtained by specializing the universal framed deformation",
      "match": "The statement for points of P₁."
     },
     {
      "sourceId": "CG-2018",
      "locator": "§4.1, proof of Lemma 4.11 (published p. 365)",
-     "excerpt": "The completion of Rv [1/p] at such a point is the corresponding characteristic 0 deformation ring of the lift ρ (see Prop. 2.3.5 of [Kis09]). In each case, we have dim H 2 (Gv , ad0 ρ) = 0 and hence this ring is a power series ring (over",
      "match": "Closed points of the generic fibre, citing Kisin Prop. 2.3.5."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "§7.1, the paragraph after Definition 7.1.2, arXiv v3 pp. 169–170",
-     "excerpt": "By an argument of Kisin, (Rv [1/p])∧ x is the universal lifting ring for ρx , i.e. if A is an Artinian local E ′ -algebra with residue ﬁeld E ′ and if ρ : Γ → GSp4 (A) is a continuous representation lifting ρx , then there is a unique",
      "match": "The GSp₄ version."
     },
     {
      "sourceId": "BHS-2019",
      "locator": "§3.6 and Remark 3.6.1, printed pp. 362–363",
-     "excerpt": "Let Xr be the groupoid over CL of deformations of r and XV the groupoid over CL of deformations of V . So the objects of Xr are the (A, rA : GK → GLn (A)) such that composing with GLn (A) ։ GLn (L) gives r and the objects of XV are the (A,",
      "match": "The framed groupoid X_r of a characteristic-zero r is this completed local ring."
     }
    ],
@@ -5476,7 +5353,6 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "Lemma 7.1.3, arXiv v3 p. 170",
-     "excerpt": "Lemma 7.1.3. Suppose that v ∤ p. Then the point x is smooth if and only if (ad0 ρx )(1)GFv = 0. In particular, if ρx is pure, then x is smooth. Proof. The ﬁrst claim is a special case of [BG19, Cor. 3.3.4, Rem. 3.3.6]. If ρx is pure, then",
      "match": "(1)–(2)."
     }
    ],
@@ -5514,7 +5390,6 @@
     {
      "sourceId": "BIP-2023",
      "locator": "Lemma 4.1 and its proof, arXiv v2 p. 36",
-     "excerpt": "It follows from local class field theory that the pro-p completion of GabF is [F :Qp ]+1 isomorphic to µp∞ (F ) × Zp and the assertion follows from [27, Proposition 3.13]. It follows immediately from Lemma 4.1 that the set of irreducible",
      "match": "The proof of Lemma 4.1."
     }
    ],
@@ -5554,13 +5429,11 @@
     {
      "sourceId": "BIP-2023",
      "locator": "§5, (30) and Proposition 5.1, arXiv v2 pp. 47–48",
-     "excerpt": "continuous characters θ : GF → 1 + mA whose restriction to µ under the Artin map is trivial. It follows from Lemma 4.1 that the functor X is pro-represented by (30) O(X ) ∼ = R1 ⊗O[µ] O ∼ = OJy1 , . . . , y[F :Q ]+1 K. p For e ∈ N let ϕe :",
      "match": "𝒳 and (2)."
     },
     {
      "sourceId": "BIP-2023",
      "locator": "Lemma 5.3, arXiv v2 p. 48",
-     "excerpt": "Lemma 5.3. The map ϕd is finite and flat and becomes étale after inverting p. Moreover, it induces a universal homeomorphism on the special fibres. Proof. We may write d = epm , such that p does not divide e. Then ϕd = ϕpm ◦ ϕe . Since e",
      "match": "(4)."
     }
    ],
@@ -5606,13 +5479,11 @@
     {
      "sourceId": "PQ-2026",
      "locator": "§3, Lemma 3.2, arXiv v2 p. 23",
-     "excerpt": "Lemma 3.2. Let ρ : Γ → G(κ) be a continuous representation. Then Dρ,G is □ pro-representable by a complete local noetherian Λ-algebra Rρ,G with residue field κ. Proof. If A, B, C ∈ AΛ , then a homomorphism Γ → G(A ×C B) is continuous if",
      "match": "(2)."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "§7.1, arXiv v3 p. 169",
-     "excerpt": "By an argument of Kisin, (Rv [1/p])∧ x is the universal lifting ring for ρx , i.e. if A is an Artinian local E ′ -algebra with residue ﬁeld E ′ and if ρ : Γ → GSp4 (A) is a continuous representation lifting ρx , then there is a unique",
      "match": "GSp₄-valued lifts with fixed similitude, as used for abelian surfaces."
     }
    ],
@@ -5734,19 +5605,16 @@
     {
      "sourceId": "PQ-2026",
      "locator": "Proposition 3.6, arXiv v2 p. 24",
-     "excerpt": "Proposition 3.6. Let φ : G → H be a morphism of smooth affine O-group schemes such that the induced morphism on neutral components G0 → H 0 is smooth and surjective. Let ρ : Γ → G(κ) be a continuous representation and let ad0,φ = □ ker(ad",
      "match": "(1)."
     },
     {
      "sourceId": "PQ-2026",
      "locator": "Corollary 3.12 and Proposition 3.13, arXiv v2 p. 26",
-     "excerpt": "Corollary 3.12. If Z is finite étale then RH = RG . Proof. Since Z is finite étale its Lie algebra is zero. We thus get ad0,φ ρ = 0 and the assertion follows from Proposition 3.6. □ Proposition 3.13. If Z is a torus such that Z ∩ G′ is",
      "match": "(3)."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "Proposition 7.4.2, arXiv v3 p. 189",
-     "excerpt": "Proposition 7.4.2. If H 0 (Fv , ad0 ρ(1)) = 0, then Rv is isomorphic to a power series ring over O in 10 variables. If furthermore ρ|GFv is unramiﬁed, then so are all of its lifts. Proof. By Tate duality, the condition is equivalent to H 2",
      "match": "(4)."
     }
    ],
@@ -5787,13 +5655,11 @@
     {
      "sourceId": "DING-2025",
      "locator": "§3.2.2, arXiv p. 61",
-     "excerpt": "deformations of D with respect to the refinement w(ϕ)), and RD,g be the uni- versal deformation ring of de Rham deformations or equivalently crystabelline deformations. All of these rings are formally smooth complete",
      "match": "R_{D,w} and R_{D,g}."
     },
     {
      "sourceId": "DING-2025",
      "locator": "§3.2.2, arXiv p. 61",
-     "excerpt": "All of these rings are formally smooth complete local Noetherian E-algebras (using the fact ϕ is generic). See [3, § 2.3.5, § 2.5.3] [54, § 2] for",
      "match": "Formal smoothness."
     }
    ],
@@ -5903,7 +5769,6 @@
     {
      "sourceId": "LTXZZ-RIGID-2021",
      "locator": "Definition 3.3.1, arXiv v1 p. 15",
-     "excerpt": "Definition 3.3.1. Let q ⩾ 1 be a positive integer coprime to `. We define the q-tame group, denoted by Tq , to be the semidirect product topological group tZ` o φbZq where φq maps t to tq , that is, φq tφq−1 = tq . For every integer b ⩾ 1,",
      "match": "The definition."
     }
    ],
@@ -6003,19 +5868,16 @@
     {
      "sourceId": "LTXZZ-RIGID-2021",
      "locator": "Definition 3.5.1, arXiv v1 p. 27",
-     "excerpt": "Definition 3.5.1. Let (r̄, χ) be as above. We define D mix to be the local deformation problem of r̄ (Definition 3.1.3) that classifies liftings r to an object R of CO such that in the decomposition (3.20), r\\ (IFw ) preserves M0 and acts",
      "match": "𝒟^mix, 𝒟^unr, 𝒟^ram."
     },
     {
      "sourceId": "LTXZZ-RIGID-2021",
      "locator": "Proposition 3.5.2, arXiv v1 p. 27",
-     "excerpt": "over Spf O[[x0 , x1 ]]/(x0 x1 ) of pure relative dimension N 2 − 1 such that the irreducible components defined by x0 = 0 and x1 = 0 are D unr and D ram , respectively. In particular, D ram is formally smooth over Spf O of pure relative",
      "match": "The local model."
     },
     {
      "sourceId": "LTXZZ-2022",
      "locator": "§6.4, published p. 281",
-     "excerpt": "is a p-tame group [LTXZZ, Definition 3.3.1]. By \\ definition, the homomorphism rmix is trivial on PFp+ . Let v̄ and v̄0 be eigenvectors in (Oλ /λ)⊕N for r̄\\",
      "match": "The local model at 𝔭 in the paper."
     }
    ],
@@ -6128,13 +5990,11 @@
     {
      "sourceId": "LTXZZ-RIGID-2021",
      "locator": "Proposition 3.4.12, arXiv v1 p. 25",
-     "excerpt": "r̄ is a reduced local complete intersection, flat and of pure relative dimension N 2 over O. (2) Every irreducible component of Spf Rloc r̄ is a local deformation problem (Definition 3.1.3). (3) When",
      "match": "(1)–(3)."
     },
     {
      "sourceId": "NT-2026",
      "locator": "proof of Lemma 3.6, arXiv v2 p. 18",
-     "excerpt": "They are quotients of Rv /(̟), which is again equidimensional of dimension n2 (cf. [Sho18, Theorem 2.5]). We see that (Rv /(̟))red ∼ = (Rv′ /(̟))red if and",
      "match": "The special fibre, citing Shotton Theorem 2.5."
     }
    ],
@@ -6175,13 +6035,11 @@
     {
      "sourceId": "NT-2026",
      "locator": "proof of Lemma 3.6, arXiv v2 p. 18",
-     "excerpt": "Following [Sho18], for us an inertial type is an isomorphism class of continuous representations τ : IK1,ev → GLn (Qp ) which can be extended to WK1,ev . (This is different to the terminology of [Dot18], which considers smooth τ . We are",
      "match": "The definition with monodromy."
     },
     {
      "sourceId": "SHOTTON-2018",
      "locator": "Definition 3.5 and Proposition 3.6",
-     "excerpt": "the Zariski closure",
      "match": "Defines the closure of exact-type points and identifies the resulting union of components."
     }
    ],
@@ -6292,13 +6150,11 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "Lemma 5.6.2 and its proof, arXiv v1 p. 128",
-     "excerpt": "Since the universal lifting ring of ρ|GFve is O-ﬂat by [Sho18, Thm. 2.5], it suﬃces to prove this for closed points of its generic ﬁbre. Since this generic ﬁbre has ﬁnitely many connected components, it suﬃces to prove the result for the",
      "match": "(3) with Shotton and BLGGT Lemma 1.3.4(1)."
     },
     {
      "sourceId": "NT-2026",
      "locator": "proof of Lemma 3.6, arXiv v2 p. 18",
-     "excerpt": "Both Rv /(̟) and Rv′ /(̟) are equidimensional of dimension n2 (as Rv and Rv′ are equidimensional of dimension 1 + n2 and O-flat, by definition). They",
      "match": "(1)."
     }
    ],
@@ -6342,19 +6198,16 @@
     {
      "sourceId": "CG-2018",
      "locator": "Lemma 4.11, published p. 364",
-     "excerpt": "Lemma 4.11. The rings Rv = Rv,φ for v 6= p are complete intersections. Moreover, their generic fibres Rv [1/p] are formally smooth over K. Proof. There are three cases in which Rv is not smooth. In two of these cases, we shall prove that",
      "match": "(1)."
     },
     {
      "sourceId": "CG-2018",
      "locator": "proof of Lemma 4.11, published p. 364",
-     "excerpt": "The three situations in which Rv is not smooth correspond to primes v such that: (1) v ≡ 1 mod p, ρ|Gv is reducible, and ρ|Iv ≃ χ ⊕ 1 for some ramified χ. (2) v ≡ −1 mod p, ρ|Gv is absolutely irreducible and induced from a character ξ. (3)",
      "match": "(2), cases (a)–(c)."
     },
     {
      "sourceId": "CG-2018",
      "locator": "footnote 5, published p. 365",
-     "excerpt": "One may take r to be C(T ) − T , where C is the Chebyshev-type polynomial determined by the relation C(t + t−1 ) = tv + t−v , and T is the trace of a generator of tame inertia (note that T − 2 ∈ mRv ). The generic fibre of Rv has (q + 1)/2",
      "match": "(4)."
     }
    ],
@@ -6395,7 +6248,6 @@
     {
      "sourceId": "CG-2018",
      "locator": "§8.5.1, published p. 408",
-     "excerpt": "consisting of lifts r of r|Gv of determinant ξ and of the form ρ ∼ = sv ⊕ ψv where sv (resp. ψv ) lifts sv (resp. ψ v ) and Iv acts via (possibly different) scalars on sv and ψv . Let Lv ⊂ H 1 (Gv ,",
      "match": "The condition 𝒟_v and the count."
     }
    ],
@@ -6433,13 +6285,11 @@
     {
      "sourceId": "NT-2026",
      "locator": "proof of Lemma 3.8, arXiv v2 p. 20",
-     "excerpt": "there is a natural surjection RvSt → Rve(Sp2r ). Since RvSt is a domain, by [Tho15, Proposition 3.17], and these two rings have the same Krull dimension, it must in fact be an isomorphism. The",
      "match": "The identification."
     },
     {
      "sourceId": "THORNE-2015",
      "locator": "Proposition 3.17",
-     "excerpt": "geometrically integral of dimension n2 + 1",
      "match": "The Steinberg ring and its generically reduced special fibre are accessible in the public author manuscript."
     }
    ],
@@ -6481,19 +6331,16 @@
     {
      "sourceId": "NT-2026",
      "locator": "proof of Lemma 3.6, arXiv v2 pp. 18–19",
-     "excerpt": "We can now invoke [Dot18, Theorem 6.1] to conclude that the elements of n2 Z (Rv /(̟)) associated to Rv and Rv′ are equal, since σv and 1",
      "match": "The cycle comparison."
     },
     {
      "sourceId": "DOTTO-2025",
      "locator": "§6, case ℓ ≠ p and Theorem 6.3, pp. 243–245 (journal pages)",
-     "excerpt": "Theorem 6.3 (Breuil–Mézard conjecture for D×, case ℓ ≠ p). Assume p ≠ 2. There exists a unique map cyc_{D×,ℓ} making the following diagram commute",
      "match": "(1)–(2)."
     },
     {
      "sourceId": "SHOTTON-2018",
      "locator": "Theorem 4.6, arXiv v2 p. 16 (with the abstract)",
-     "excerpt": "Theorem 4.6. If l > 2 then Conjecture 4.5 is true.",
      "match": "The GL_n cycle map used in (2); l is the coefficient characteristic."
     }
    ],
@@ -6529,7 +6376,6 @@
     {
      "sourceId": "CG-2020",
      "locator": "Appendix §A.4(2)(a), published p. 888",
-     "excerpt": "has characteristic polynomial (X − 1)n , then (given our assumption on r) this deformation problem coincides with the minimal condition in Definition 2.4.14 of [CHT08], namely, that the map ker(r(σ)",
      "match": "The equivalence."
     }
    ],
@@ -6568,13 +6414,11 @@
     {
      "sourceId": "CG-2020",
      "locator": "Assumption 4.3, published pp. 813–814",
-     "excerpt": "Assumption 4.3 (Ramification). If x ∈ S(r), then r|Gx is one of the following types: (1) U3 : r|Ix has unipotent image, and r|Ix is conjugate to the group generated by exp(N3 ), where   0 1 0 0 0 0 1 0  N3 = 0 0 0 −1 .  0 0 0 0 (2)",
      "match": "The types."
     },
     {
      "sourceId": "CG-2020",
      "locator": "Remark 4.4, published p. 814",
-     "excerpt": "Remark 4.4. Since we are assuming that the similitude character of r is a power of the cyclo- tomic character, it turns out that r|Ix can never be of type P. We expect that our arguments can also be adapted to deal with representations r",
      "match": "Type P never occurs."
     }
    ],
@@ -6673,7 +6517,6 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "Lemma 7.4.4, arXiv v3 p. 189",
-     "excerpt": "Lemma 7.4.4. Let ρ : GFv → GSp4 (A) be any lift of ρ. There are unique contin- uous characters γi : GFv → A× for i = 1, 2, such that ρ is GSp4 (A)-conjugate to a lift of the form γ1 ⊕ γ2 ⊕ ψγ2−1 ⊕ ψγ1−1 , where γi mod mA = γ i for each i =",
      "match": "(1)."
     }
    ],
@@ -6713,19 +6556,16 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "§7.4.9, arXiv v3 p. 190",
-     "excerpt": "exp2 : N → U N2 N3 N 7→ I + N + + 2 2 and log2 : U → N (U − I)2 U 7→ (U − I) − . 2 It is easily veriﬁed that these maps",
      "match": "exp₂ and log₂."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "Proposition 7.4.10, arXiv v3 p. 191",
-     "excerpt": "Proposition 7.4.10. (1) ZGSp4 (Ni ) is a smooth group scheme over Spec O with ﬁbres of dimensions 11, 7, 5, 3 for i = 0, 1, 2, 3. Each connected component of ZGSp4 (Ni ) is ir- reducible with",
      "match": "Centralisers of the strata."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "§7.4.13, Spaces of matrices",
-     "excerpt": "qN + q∗N3",
      "match": "The cubic correction is part of the definition of 𝒩(q)."
     }
    ],
@@ -6838,13 +6678,11 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "Proposition 7.4.7, arXiv v3 p. 189",
-     "excerpt": "Proposition 7.4.7. Assume that χ1 = χ2 = 1. Then Rv1 satisﬁes the following properties: 190 G. BOXER, F. CALEGARI, T. GEE, AND V. PILLONI (1) Spec Rv1 is equidimensional of dimension 11 and every generic point has characteristic zero. (2)",
      "match": "(2)."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "Proposition 7.4.21, arXiv v3 p. 197",
-     "excerpt": "Proposition 7.4.21. Let σ be a chosen topological generator of the tame inertia subgroup of GFv . Let x = χ1 (Art−1 −1 Fv (σ)) and y = χ2 (ArtFv (σ)). Then R̃vχ ≃ ÔM(x,y;qv ),(1,1) . Proof. Since ρ|GFv is trivial, any lifting of it",
      "match": "(3)."
     }
    ],
@@ -6885,19 +6723,16 @@
     {
      "sourceId": "FKP-2022",
      "locator": "§9, proof of Proposition 9.1, arXiv v5 p. 41",
-     "excerpt": "work ([Boo19]) shows that ρ̄|ΓFv has a lift ΓFv → GSp2n (O′ ) with multiplier κ1−2n , and that such 1−2n a lift lies on an irreducible component of Rρ̄|,κΓ isomorphic to O′ [[X1 , . . . ,",
      "match": "(2)."
     },
     {
      "sourceId": "FKP-2022",
      "locator": "§2, arXiv v5 p. 9",
-     "excerpt": "[BG19, Theorem 3.3.3] (or [BP19, Theorem 14]) continues to hold, as does [BG19, Lemma 3.4.1]. The latter is clear since its proof uses no arithmetic. The former follows by precisely the original",
      "match": "(1) in equal characteristic."
     },
     {
      "sourceId": "BOOHER-2019",
      "locator": "Theorem 1.1, p. 2; Corollary 6.16, p. 30 (arXiv v1)",
-     "excerpt": "let ρ̄ : Γ_L → G(k) be a continuous representation with ℓ ≠ p. After extending k, the minimally ramified deformation condition with fixed similitude character is a liftable deformation condition",
      "match": "(2)."
     }
    ],
@@ -6933,7 +6768,6 @@
     {
      "sourceId": "FKP-2022",
      "locator": "§8, proof of Theorem 8.1, arXiv v5 p. 38",
-     "excerpt": "some local lift of ρ̄|ΓFv follows as in [CHT08, Corollary 2.4.21]. In the context of that paper, F v is a finite extension of Qℓ , but the results of [CHT08, §2.4.4] only depend on • the fact that",
      "match": "The existence of lifts."
     }
    ],
@@ -6969,7 +6803,6 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Lemma 7.2, first bullet, arXiv v5 pp. 33–34",
-     "excerpt": "For v ∈ S not dividing p, and any such choice of µ, there is a lift ρv : ΓFv → GL2 (O′ ) of ρ̄|ΓFv with determinant µ. 33 • For v|p and any such choice of µ, there is an ordinary",
      "match": "The statement."
     }
    ],
@@ -7009,13 +6842,11 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "Lemma 5.6.2, arXiv v1 p. 128",
-     "excerpt": "Lemma 5.6.2. Suppose that v ∤ 2. Then there is a ﬁnite extension Fve′ /Fve such that any lifting of ρ|GFve becomes unipotently ramiﬁed after",
      "match": "(1)."
     },
     {
      "sourceId": "BCGP-2025",
      "locator": "Proposition 5.6.4, arXiv v1 p. 129",
-     "excerpt": "(1) Suppose that χv,j = 1 for each j. Then each irreducible component of Rv1 has dimension n2 + 1, and every prime of Rv1 minimal over ̟ contains a unique minimal prime. Every generic point of Rv1 is",
      "match": "(3)."
     }
    ],
@@ -7058,13 +6889,11 @@
     {
      "sourceId": "KISIN-PST-2008-AMS",
      "locator": "(2.7.5), p. 534",
-     "excerpt": "Let A◦ be a Noetherian, complete local OE -algebra and VA◦ a ﬁnite free A◦ -module of rank r equipped with a continuous action of GK . As usual, we set A = A◦ [1/p]. Finally, we ﬁx a representation ∼",
      "match": "The families set-up of (2.7.6)."
     },
     {
      "sourceId": "KISIN-PST-2008-AMS",
      "locator": "Theorem (2.5.5), p. 530",
-     "excerpt": "Theorem (2.5.5). Let A◦ be a complete local Noetherian W (F)-algebra, and VA◦ a ﬁnite free A◦ -module of rank r, equipped with a continuous action of",
      "match": "(1)."
     }
    ],
@@ -7108,7 +6937,6 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Appendix B, arXiv v5 pp. 52–53",
-     "excerpt": "[BG19, Theorem A] that the quotient Rρ̄,vλ of Rρ̄ whose points in finite local E-algebras parametrize potentially semistable",
      "match": "Theorem A as cited."
     }
    ],
@@ -7148,13 +6976,11 @@
     {
      "sourceId": "CDN-2023",
      "locator": "§5.2, arXiv p. 66",
-     "excerpt": "l’intersection des idéaux maximaux p de RB [1/p] tels que la spécialisation en p du pseudo-caractère universel soit la trace d’une représentation de de Rham à poids 0 et 1, et de type M (et donc de",
      "match": "I_{M,B}."
     },
     {
      "sourceId": "CDN-2023",
      "locator": "Théorème 5.11, arXiv p. 66",
-     "excerpt": "Théorème 5.11. — L’anneau RB,M s’identifie à l’anneau des fonctions analytiques bornées sur un ouvert de P1 , est un produit fini d’anneaux principaux, et il existe une unique (à isomorphisme près) représentation ρB,M : GQp → GL2 (RB,M )",
      "match": "The structure theorem."
     }
    ],
@@ -7260,19 +7086,16 @@
     {
      "sourceId": "BCDT-2001",
      "locator": "§1.1, p. 851; author manuscript pp.7–8 (§1.1)",
-     "excerpt": "weakly of type τ (resp. weakly of extended type τ 0 ) if the associated local O-algebra D0 map RV,O → R factors through",
      "match": "Weakly of type."
     },
     {
      "sourceId": "BCDT-2001",
      "locator": "Conjecture 1.1.1, p. 851; author manuscript pp.7–8 (§1.1)",
-     "excerpt": "Conjecture 1.1.1. Suppose that τ is an `-type and τ 0 an absolutely irreducible extended `-type. A deformation ρ : G` → GL(M ) of ρ to the ring of integers O0 of a finite extension K 0 /K in Q` is weakly of type τ (resp. weakly of extended",
      "match": "The conjecture."
     },
     {
      "sourceId": "KISIN-PST-2008-AMS",
      "locator": "Introduction, p. 513",
-     "excerpt": "Conrad-Diamond-Taylor [BCDT, Conj. 1.1.1] and Breuil-Mézard [BM, 2.2.2.4]. The purpose of this paper is to prove such",
      "match": "Kisin proves the conjecture."
     }
    ],
@@ -7309,7 +7132,6 @@
     {
      "sourceId": "CN-2023",
      "locator": "Lemma 3.3.6, arXiv v3 pp. 52–53",
-     "excerpt": "Lemma 3.3.6. Suppose p ∤ n. Let λv and ψ be as above. Let R = Rρcris,λ v v or Rρ△,λ v v , and Rψ = Rρcris,λ v v ,ψ or",
      "match": "The statement."
     }
    ],
@@ -7349,13 +7171,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.5, Lemma 3.7, author copy pp. 25–26",
-     "excerpt": "Lemma 3.7. The B-module Zf1 (B(Ξ)) is free of rank 1 + [Fv : Qp ]; morever Zf1 (N (Ξ)) = Zf1 (B(Ξ)) ⊗B N . Proof. Since Zf1 (N (Ξ)) = lim 1 n ←−n Zf",
      "match": "The statement."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.5, the definition of finite cocycles, p. 25",
-     "excerpt": "where the last arrow is the map given by Kummer theory 1 ∗ Hcont (Iv , N (χp )) ≃ (Fnr ⊗ N )b, where b is the mB -adic",
      "match": "Kummer theory over F^nr."
     }
    ],
@@ -7393,13 +7213,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 3.8, author copy p. 30",
-     "excerpt": "Lemma 3.8. Let M0 be a free A0 -module of finite type. Let M = A ⊗A0 M0 and m ∈ M . Then, there exists an m0 ∈ M0 and an isomorphism A ⊗A0 M0 ≃ M sending m0 to m. Pr Proof. Let (e1 , . . . , er ) a basis of M0 and let m = i=1 ai ei .",
      "match": "The statement."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Lemma 3.8, p. 30",
-     "excerpt": "By the Weierstrass preparation and division theorems, we can find a0i ∈ A0 such that a01 a−1 1 ∈A ∗ 0 −1 and (ai − ai )a1 ∈ A. Then B ∈ GLr",
      "match": "Weierstrass preparation and division."
     }
    ],
@@ -7437,13 +7255,11 @@
     {
      "sourceId": "CN-2023",
      "locator": "Lemma 5.3.3, arXiv v3 p. 76",
-     "excerpt": "Lemma 5.3.3. Each generic point of Spec(Rvp /̟) is the specialization of a ǫ−1 ,BT unique generic",
      "match": "The statement."
     },
     {
      "sourceId": "CN-2023",
      "locator": "Lemma 5.3.4, arXiv v3 p. 77",
-     "excerpt": "Lemma 5.3.4. Let v be a place of F with v|p. Suppose that ρ|GFv is trivial, the ǫ−1 ,BT ǫ−1 ,BT residue field kv is not equal to Fp , and Rvp is non-zero. Then Spec(Rvp ) has exactly two irreducible components, one whose points correspond",
      "match": "The two components."
     }
    ],
@@ -7483,13 +7299,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 3.5 (i) and its proof, author copy p. 22",
-     "excerpt": "(i) if V is crystalline of weight k such that 2 ≤ k ≤ p, V is ordinary if residually it is ordinary. The same is true for 2 ≤ k ≤ p + 1 if F = Qp . (ii) if V",
      "match": "(i), first part."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Lemma 3.5, p. 22",
-     "excerpt": "(If k = p, then were this not so, by 0.9. of [26], we would get Filp−1 (M ) = M leading to a contradiction). It follows that M has a",
      "match": "The endpoint k = p."
     }
    ],
@@ -7532,19 +7346,16 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.7, author copy p. 31",
-     "excerpt": "3.2.7. The case k(ρ̄) = p + 1, p 6= 2; crystalline lifts of weight p + 1. By [3], we know that such lifts are ordinary (Lemma 3.5, recall that we are supposing Fv = Qp ). Ordinary lifts of weight p + 1 are the lifts that are extensions of",
      "match": "The case and (1)."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.7, p. 31",
-     "excerpt": "ring Rv is formally smooth over O of relative dimension 3 + [Fv : Qp ] i.e. is isomorphic to O[[T1 , . . . , T3+[Fv :Qp",
      "match": "(2)."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Remark after §3.2.7, p. 32",
-     "excerpt": "Remark. It is not difficult to see using the proof above that the map ,ψ Specf(Rv ) → X which corresponds to",
      "match": "(3)."
     }
    ],
@@ -7586,13 +7397,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.6, author copy p. 30",
-     "excerpt": "Unless p = 2 and Dv acts by homotheties, the morphism from R to ,ψ Spec(R ) is an isomorphism ; R is a torsor over the completion of (P1 )F",
      "match": "(1)."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.6, p. 30",
-     "excerpt": "When p = 2 and Dv acts by homotheties, R is torsor over the completion of (P1 )O along its special fiber with structural group the completion of a free module",
      "match": "(2)."
     }
    ],
@@ -7630,13 +7439,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.3.1, author copy p. 33",
-     "excerpt": "The group G is a dihedral group of order 2d, with d prime to p = 2 and q divides d. The representation ρ̄v is isomorphic to the induced ∗ representation IndFLv",
      "match": "(a)."
     },
     {
      "sourceId": "KW1-2009",
      "locator": "§5, the definition of minimal lifts, p. 8",
-     "excerpt": "For p = 2 see §3.3.1 of [23], but we briefly recall the definition here. Whenever ρ̄(Iq ) is projectively not cyclic of order p, the reduction map ρ(Iq ) →",
      "match": "The dyadic minimal lift as recalled in KW I."
     }
    ],
@@ -7733,7 +7540,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.3.4, author copy pp. 36–37",
-     "excerpt": "The situation is analogous to the semistable case considered in 3.2.6 ex- cept the cocycles form an O-module of rank 2. All we have to note is that for A a finite CNLO -algebra instead of the formula",
      "match": "The count and conclusion."
     }
    ],
@@ -7774,13 +7580,11 @@
     {
      "sourceId": "KW1-2009",
      "locator": "Theorem 4.1, author copy p. 7",
-     "excerpt": "Theorem 4.1. Consider ρ̄ : GQ → GL2 (F) with F a finite field of char- acteristic p. We assume that",
      "match": "The theorem."
     },
     {
      "sourceId": "KW1-2009",
      "locator": "Theorem 4.1 (1), p. 7",
-     "excerpt": "1. (p = 2) Let ρ be an odd lift of ρ̄ to a 2-adic representation that is unramified outside a finite set of primes and is either crystalline of weight 2 at 2, or semistable of weight 2 at 2 with the latter case considered only when k(ρ̄) = 4. Then ρ is",
      "match": "The dyadic case."
     }
    ],
@@ -7827,7 +7631,6 @@
     {
      "sourceId": "KW1-2009",
      "locator": "Theorem 5.1, author copy p. 9",
-     "excerpt": "Theorem 5.1. Consider a S-type representation ρ̄ with 2 ≤ k(ρ̄) ≤ p + 1 when p > 2. We assume that ρ̄ has non-solvable",
      "match": "The theorem."
     }
    ],
@@ -7870,13 +7673,11 @@
     {
      "sourceId": "KW1-2009",
      "locator": "Theorem 5.1 (4), author copy pp. 9–10",
-     "excerpt": "4. Let q 6= p be a prime and assume ρ̄|Dq (up to unramified twist) is of the form χp ∗ , 0 1 ∗ and assume that p|q + 1.",
      "match": "The condition."
     },
     {
      "sourceId": "KW1-2009",
      "locator": "Remarks after Theorem 5.1, p. 10",
-     "excerpt": "F. Diamond pointed out to us that the list of corresponding (i, j) is given by: j = m(q + 1)/pr − 1, i = q − 1 − j for m with 0 < m < pr /2. In particular, i = j + 1 does not occur. 6. Some",
      "match": "The list of (i, j)."
     }
    ],
@@ -7919,13 +7720,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§3.2.2 (i), author copy p. 23",
-     "excerpt": "For p = 2, we consider lifts that are crystalline of weight 2 (equivalently Barsotti-Tate with det(ρv )|Iv = χp ) if k(ρ̄v ) = 2, and semistable of weight 2 if k(ρ̄v ) = 4, and with fixed determi- nant of the form ψχ2 . Note that by Lemma",
      "match": "The dyadic weight-two lifts."
     },
     {
      "sourceId": "KW1-2009",
      "locator": "Theorem 5.1 (2), p. 9",
-     "excerpt": "In the case p > 2, k(ρ̄) = p + 1 or p = 2 and k(ρ̄) = 4 it is of the form (id, N ) with N a non-zero nilpotent matrix ∈ GL2 (Q). 3. Assume q||N (ρ̄) with q an",
      "match": "The (id, N) parameter."
     }
    ],
@@ -7964,7 +7763,6 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Lemma 7.2, second bullet, arXiv v5 p. 34",
-     "excerpt": "For v|p and any such choice of µ, there is an ordinary potentially crystalline lift ρv : ΓFv → GL2 (O′ ) of ρ̄|ΓFv with Hodge–Tate weights {0, r − 1} and determinant µ. Moreover, we can always find",
      "match": "The statement."
     }
    ],
@@ -8001,7 +7799,6 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Lemma 7.2, third bullet, arXiv v5 p. 34",
-     "excerpt": "When F = Q (or is split at all places above p), and r is equal to the weight k(ρ̄|ΓQ p ) associated to ρ̄ by Serre ([Ser87, §2.3]), there is a crystalline lift ρ p : ΓQ p → GL2 (O′ ) of ρ̄|ΓQ p with",
      "match": "The statement."
     }
    ],
@@ -8044,13 +7841,11 @@
     {
      "sourceId": "NT-2026",
      "locator": "§4, after Theorem 4.1, arXiv v2 p. 27",
-     "excerpt": "If v ∈ Sp and rπ,ι |GFv is non-ordinary, the smallest reduced O-torsion-free quotient Rv of Rv such that if f : Rv → Qp is a homomorphism such that the pushforward of the universal lifting to Qp is",
      "match": "(1)."
     },
     {
      "sourceId": "NT-2026",
      "locator": "§4, after Theorem 4.1, p. 27",
-     "excerpt": "By [Sno18, Proposition 4.3.1], Rv is a domain of dimension 4 + [Fv : Qp ]. (Here it is helpful to",
      "match": "(3)."
     }
    ],
@@ -8086,7 +7881,6 @@
     {
      "sourceId": "NT-2026",
      "locator": "proof of Lemma 4.2, arXiv v2 pp. 28–29",
-     "excerpt": "follows from [WWE19, Theorem 2.3.4], together with the observation that ‘torsion semistable of Hodge–Tate weights in {0, 1}’ is a stable condition, cf. [WWE19, §5.2]). We need to",
      "match": "The stable condition."
     }
    ],
@@ -8123,7 +7917,6 @@
     {
      "sourceId": "BCDT-2001",
      "locator": "§4.3, p. 874; author manuscript pp.27–28 (§4.3)",
-     "excerpt": "Let S be a full subcategory of S(ρ) stable under isomorphisms and which is closed under finite products, S(ρ)-subobjects and S(ρ)-quotients, and which contains V . We will",
      "match": "The categories S."
     }
    ],
@@ -8229,19 +8022,16 @@
     {
      "sourceId": "NT-2026",
      "locator": "Definition 2.5(2), arXiv v2 p. 12",
-     "excerpt": "We say that ρ is ordinary of weight λ if for each place × v|p there exist continuous characters ψv,1 , . . . , ψv,n : GFv → Qp and an isomorphism   ψv,1 ∗ ∗ ∗  0  ψv,2 ∗ ∗   ρ|GFv ∼  . . . ,  .. .. .. ∗  0 ··· 0 ψv,n where for each i = 1, . . . , n,",
      "match": "The character convention with the finite-order factor."
     },
     {
      "sourceId": "BCGP-2025",
      "locator": "Definition 5.6.8, arXiv v1 pp. 129–130",
-     "excerpt": "Definition 5.6.8. Let λ ∈ (Zn+ )Hom(Fve ,K) . We say that a continuous representation ρ : GFve → GLn (O) is ordinary of weight λ if: 130 G. BOXER, F.",
      "match": "Ordinary of weight λ."
     },
     {
      "sourceId": "CN-2023",
      "locator": "Definition 3.3.1, arXiv v3 pp. 50–51",
-     "excerpt": "Definition 3.3.1. Let B be a finite E-algebra, and let λv = (λτ,1 ≥ · · · ≥ λτ,n )τ ∈Hom(Fv ,E) be a dominant weight for (ResFv /Qp GLn )E .",
      "match": "Semistable-ordinary of weight λ."
     }
    ],
@@ -8367,13 +8157,11 @@
     {
      "sourceId": "CN-2023",
      "locator": "Lemma 3.3.2, arXiv v3 p. 51",
-     "excerpt": "Lemma 3.3.2. Let B be a finite local E-algebra and suppose ρB : GFv → GLn (B) is semistable of Hodge type vλv with ρ := ρB ⊗B (B/mB ) semistable-ordinary of weight λv . Then ρB is semistable-ordinary of weight λv . Proof. Extending E if",
      "match": "(2)."
     },
     {
      "sourceId": "CN-2023",
      "locator": "Theorem 3.3.3, arXiv v3 p. 52",
-     "excerpt": "Theorem 3.3.3. Let λv = (λτ,1 ≥ · · · ≥ λτ,n )τ ∈Hom(Fv ,E) be a dominant weight for (ResFv /Qp GLn )E . (1) There is a",
      "match": "(1), (3)."
     }
    ],
@@ -8414,13 +8202,11 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Appendix B, arXiv v5 p. 52",
-     "excerpt": "Let TG denote the “canonical torus” of G: for any Borel subgroup B ⊂ G, TG is equal to the quotient B/Ru(B) by the unipotent radical of B. The sense in which",
      "match": "T_G."
     },
     {
      "sourceId": "FKP-2022",
      "locator": "Definition B.2, arXiv v5 p. 52",
-     "excerpt": "Definition B.2. Let A be a finite local E-algebra and λ = (λτ )τ: Fv →E as above. Fix a finite extension F v′ /F v . Let ρ : ΓFv → G(A) be a continuous",
      "match": "The definition."
     }
    ],
@@ -8527,13 +8313,11 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Lemma B.3, arXiv v5 p. 53",
-     "excerpt": "Lemma B.3. Gλ is representable by a closed subscheme of G. Proof. Let A be an",
      "match": "(1)."
     },
     {
      "sourceId": "FKP-2022",
      "locator": "Lemma B.4 (1), arXiv v5 p. 54",
-     "excerpt": "Lemma B.4 (cf. Lemma 3.10 of [Ger19]). (1) Let A be a finite local E-algebra, and let f : Rρ̄,vλ → A be an O-algebra",
      "match": "(3)."
     }
    ],
@@ -8645,13 +8429,11 @@
     {
      "sourceId": "FKP-2022",
      "locator": "Lemma B.4 (2)–(3), arXiv v5 pp. 54–55",
-     "excerpt": "(2) Rρ̄△λ is a union of irreducible components of Rρ̄,vλ . In particular, Rρ̄△λ [1/p] admits an open dense regular subscheme, and all of its irreducible",
      "match": "The statement."
     },
     {
      "sourceId": "BCG-2025",
      "locator": "proof of Theorem 2.1, arXiv v3 p. 6",
-     "excerpt": "the corresponding crystalline deformation ring which are ordinary, as in [FKP22, Lem. B.4]; this is indeed a nonempty set of components because (2.1.1) shows",
      "match": "As used for GL_n."
     }
    ],
@@ -8693,7 +8475,6 @@
     {
      "sourceId": "CN-2023",
      "locator": "Proposition 5.3.2, arXiv v3 pp. 75–76",
-     "excerpt": "Proposition 5.3.2. (1) Spec(Rv△ ) is equidimensional of dimension [Fv : Qp ]+ 4, with two irreducible components X cr = Spec(Rv△,cr ), X st = Spec(Rv△,st ) characterized by their points valued in",
      "match": "The statement."
     }
    ],
@@ -8733,19 +8514,16 @@
     {
      "sourceId": "CG-2018",
      "locator": "proof of Lemma 3.22, published pp. 336–337",
-     "excerpt": "Hence, it suffices to show that this ring is naturally a quotient of R e . As in Snowden, the † 30 FRANK CALEGARI AND DAVID GERAGHTY ring R e† represents the functor given by deformations to A with",
      "match": "Snowden's equations."
     },
     {
      "sourceId": "CG-2018",
      "locator": "Definition 3.20, published p. 335",
-     "excerpt": "Definition 3.20. Let Runr denote the largest quotient of R† corresponding to unramified eunr denote the corresponding quotient of R deformations of ρ. Let R e† . We are now in a position to define two ideals of Runiv . Definition 3.21. The",
      "match": "R^unr."
     },
     {
      "sourceId": "CG-2018",
      "locator": "Definition 3.21, published p. 335",
-     "excerpt": "Definition 3.21. The unramified ideal I is the kernel of the map Runiv → Runr . The e† /R† as an Runiv -module. doubling ideal J is the annihilator of R Lemma 3.22. There is an equality J = I . Proof. We first prove the inclusion J ⊆ I .",
      "match": "I and J."
     }
    ],
@@ -8857,19 +8635,16 @@
     {
      "sourceId": "CG-2018",
      "locator": "Theorem 4.3, published p. 356",
-     "excerpt": "Theorem 4.3. R e† is a complete normal local Cohen–Macaulay ring of relative dimension 4 over O. Let ωRe† denote the canonical module of Re† . Then dimk ω e† /m = 3. R Proof.",
      "match": "The type-three statement."
     },
     {
      "sourceId": "CG-2018",
      "locator": "Lemma 4.7, published p. 360",
-     "excerpt": "Lemma 4.7. {β, a, φ2 + φ3 , b + c + φ1 } is a regular sequence in A. Proof. It suffices to show that {a, φ2 + φ3 , b + c + φ1 } is regular in B = A/β. By Lemma 4.6, it suffices to show that the Hilbert series of B/I with I = (a, φ2 + φ3 ,",
      "match": "(4)."
     },
     {
      "sourceId": "CG-2018",
      "locator": "Lemma 4.5, published p. 358",
-     "excerpt": "Lemma 4.5. The first few terms of HB (t) are HB (t) = 1 + 6t + 15t2 + . . .",
      "match": "(2)."
     }
    ],
@@ -8908,13 +8683,11 @@
     {
      "sourceId": "CG-2020",
      "locator": "Definition 4.6 (6), published p. 815",
-     "excerpt": "The representation r has the following shape at p:   χα ψ",
      "match": "The condition."
     },
     {
      "sourceId": "CG-2020",
      "locator": "§4, the definition of L′_p, published p. 816",
-     "excerpt": "L′p = ker(H 1 (Gp , b0 ) → H 1 (Ip , b0 /u)) and Lp = LQ,p = Im(L′p → H 1 (Gp , g0 )). 1 (Q, ad0 (r(1))) denote the",
      "match": "L′_p and L_p."
     }
    ],
@@ -9018,13 +8791,11 @@
     {
      "sourceId": "CG-2020",
      "locator": "Lemma 4.8 and its proof, published pp. 816–817",
-     "excerpt": "Lemma 4.8. We have dimk Lp − dimk H 0 (Gp , ad0 (r)) = 3. Proof. The subspace L′p ⊂ H 1 (Gp , b0 ) is precisely set of elements mapping to the subspace H 1 (Gp /Ip , (b0 /u)Ip ) ⊂ H 1 (Gp , b0 /u). We have b0 /u ∼ = 1 ⊕ 1 ⊕ λ(β)λ(α)−1 as a",
      "match": "(2)."
     },
     {
      "sourceId": "CG-2020",
      "locator": "Remark 4.7, published p. 816",
-     "excerpt": "Remark 4.7. The local condition at p is equivalent to asking that r is ordinary (of fixed weight). When a = 2 it is also equivalent to being finite flat. This is because, for unrami- fied characters ψ1 and ψ2 , the group Ext1 (ψ1 , ψ2 ) in",
      "match": "(3)."
     }
    ],
@@ -9062,7 +8833,6 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "Definition 7.3.1, arXiv v3 p. 172",
-     "excerpt": "Definition 7.3.1. We say that ρ|GFv is p-distinguished weight 2 ordinary if it is conjugate to a",
      "match": "The definition."
     }
    ],
@@ -9169,19 +8939,16 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "Proposition 7.3.4, arXiv v3 p. 173",
-     "excerpt": "Proposition 7.3.4. The generic ﬁbres RvB,cv [1/p], RvP [1/p] are irreducible, and are of relative dimensions 16 and 14 respectively over Qp . Our arguments are rather ad hoc, and will require a number of preliminary lemmas. 174 G. BOXER,",
      "match": "(1)."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "Proposition 7.3.16, arXiv v3 p. 183",
-     "excerpt": "Proposition 7.3.16. Suppose that ρ is p-distinguished. Then RP,univ and RP are both complete intersections. Moreover, they are connected in characteristic zero, and the non-smooth locus in characteristic zero has codimension at least two.",
      "match": "(2)."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "Lemma 7.3.18, arXiv v3 p. 188",
-     "excerpt": "Lemma 7.3.18. If x is a closed point of the generic ﬁbre of RvB,cv [1/p] or RvP [1/p], and x is pure, then it is smooth. Proof. We ﬁrst consider the case of B. From the proof of Proposition 7.3.4, we see that it is enough to check that H 2",
      "match": "(5)."
     }
    ],
@@ -9221,13 +8988,11 @@
     {
      "sourceId": "BCGP-2021",
      "locator": "Lemma 7.3.6, arXiv v3 p. 174",
-     "excerpt": "Lemma 7.3.6. The generic ﬁbre RB2 [1/p] is irreducible, and has relative dimen- sion 5 over Qp . Proof. By a standard argument (see [Maz89, Prop. 2]), RB2 has a presentation of the form O[[x1 , . . . , xr ]]/(y1 , . . . , ys ), where r = 4",
      "match": "(2)."
     },
     {
      "sourceId": "BCGP-2021",
      "locator": "Lemma 7.3.9, arXiv v3 p. 179",
-     "excerpt": "Lemma 7.3.9. The points of RB2 [1/p] which are non-smooth over Λ are — up to unramiﬁed twist — crystalline extensions of ε−1 by 1. Proof. This is the characteristic zero version of the computation done in the proof of Lemma 7.3.7(3b), and",
      "match": "(4)."
     }
    ],
@@ -9266,13 +9031,11 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "§6.2, arXiv v1 p. 142",
-     "excerpt": "We now introduce the ordinary deformation ring we consider, following [Ger19, §3]. Let F denote the ﬂag variety for GSp4 over O, i.e. the variety",
      "match": "The construction."
     },
     {
      "sourceId": "BCGP-2025",
      "locator": "§6.2, arXiv v1 p. 143",
-     "excerpt": "(Note that here we diﬀer from [Ger19] by not passing to the p-torsion-free quotient.) We denote by Dv△ the",
      "match": "No flat closure."
     }
    ],
@@ -9389,7 +9152,6 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "Lemma 6.2.2, arXiv v1 p. 143",
-     "excerpt": "If H 2 (GFv+ , Fil0 ad0 ρx ) = 0 then x is a regular point of Gv [1/p]; and x is contained in a unique irreducible component of Gv [1/p], and this",
      "match": "(1)."
     }
    ],
@@ -9433,7 +9195,6 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "proof of Lemma 6.2.5, arXiv v1 p. 145",
-     "excerpt": "We claim that the formal completions of Gvflat at k′-points for k′/k finite are formally smooth. By a standard tangent-obstruction calculation as in Lemma 6.2.2 this amounts to the vanishing of H2flat(Fil0 ad0 ρ)",
      "match": "The claim and its reduction to H²_flat."
     }
    ],
@@ -9474,7 +9235,6 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "Lemma 6.2.5, arXiv v1 p. 145",
-     "excerpt": "Lemma 6.2.5. Assume that (ρ ⊗ ε)|GF + is ﬁnite ﬂat. Then any ordinary pure v weight 2 crystalline lift lies on a unique",
      "match": "(1)."
     }
    ],
@@ -9514,7 +9274,6 @@
     {
      "sourceId": "BLGGT-2014",
      "locator": "§1.4, arXiv v4",
-     "excerpt": "connects to ρ2 , which we denote ρ1 ∼ ρ2 , if and only if • the reduction ρ1 = ρ1 mod mQl is equivalent to the reduction ρ2 = ρ2 mod mQl , and • ρ1 and ρ2 define points on a common irreducible",
      "match": "The definition for l = p."
     }
    ],
@@ -9627,13 +9386,11 @@
     {
      "sourceId": "BCGNT-2025",
      "locator": "Lemma 5.1.4, arXiv p. 50",
-     "excerpt": "Lemma 5.1.4. Let K be a finite extension of Qp . Let ρ1 , ρ2 be ordinary, crystalline weight 0 representations of GK with ρ1 = ρ2 the trivial representation. Then ρ1 ∼ ρ2 . Proof. This follows immediately from [Ger19, Lemma 3.14] — the",
      "match": "(1)."
     },
     {
      "sourceId": "BCGNT-2025",
      "locator": "Lemma 5.1.5, arXiv p. 50",
-     "excerpt": "Lemma 5.1.5. Let K be a finite extension of Qp , and let ρ : GK → GLn (Zp ) be crystalline of weight 0. Then there exists a constant c = c(K, ρ, n) with the following property: • if t : GK → GLn (Zp ) is crystalline of weight 0, and t ≡",
      "match": "(2)."
     }
    ],
@@ -9672,13 +9429,11 @@
     {
      "sourceId": "BCGNT-2025",
      "locator": "Definition 5.1.1, arXiv p. 49",
-     "excerpt": "Definition 5.1.1. For n, m ∈ Z≥1 , let ε2 , ε′2 : GQp2 → Zp be the two Lubin–Tate characters trivial on ArtQp2 (p), and let ρn,m,0 denote the representation n m(n−i) ′ m(i−1) M (5.1.2) ρn,m,0 = ε2 (ε2 ) : GQp2 → GLn (Zp ). i=1 We assume",
      "match": "The definition."
     },
     {
      "sourceId": "BCGNT-2025",
      "locator": "Lemma 5.1.3, arXiv p. 49",
-     "excerpt": "Lemma 5.1.3. Let K0 /Qp2 be an unramified extension and let ρ : GK0 → GLn (Zp ) be any crystalline representation of Hodge–Tate weights {0, m, 2m, . . . , (n − 1)m} (with respect to any embedding K0 → Qp ) such that ρ|IK0 = ρn,m,0 |IK0 .",
      "match": "(2)."
     }
    ],
@@ -9785,13 +9540,11 @@
     {
      "sourceId": "LLHLM-2020",
      "locator": "Definition 3.1.3, published p. 27",
-     "excerpt": "Definition 3.1.3. An element (M, φM , {b g }) ∈ Y [0,h],τ (R) is a Kisin module (M, φM ) over SL0 ,R ([LLHLM18,",
      "match": "Y^{[0,h],τ}."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "Definition 3.3.1, published p. 31",
-     "excerpt": "Definition 3.3.1. Let τ be a principal series type, and let w e = (we0 , w f∨.",
      "match": "Shapes."
     }
    ],
@@ -9886,7 +9639,6 @@
     {
      "sourceId": "LLHLM-2020",
      "locator": "Theorem 3.3.11, published p. 33",
-     "excerpt": "Theorem 3.3.11. Let ρ : GK → GL3 (F). Assume that ρ has a potentially crystalline lift of type (λ, τ ) where λ ∈ X ∗ (T ) is effective. Assume that either (1) τ is a regular principal series type or (2) λ = η and τ is 3-generic. Then, for",
      "match": "(4)."
     }
    ],
@@ -9927,13 +9679,11 @@
     {
      "sourceId": "LLHLM-2020",
      "locator": "Theorem 3.5.3, published p. 38",
-     "excerpt": "Theorem 3.5.3. Let K/Qp be a finite unramified extension of degree f . Let ρ : GK → GL3 (F) be a",
      "match": "The theorem."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "Lemma 3.5.4, published p. 38",
-     "excerpt": "Lemma 3.5.4. Let K/Qp be a finite unramified extension of degree f . Let ρ : GK → GL3 (F) be a",
      "match": "Shapes of length > 1."
     }
    ],
@@ -9974,19 +9724,16 @@
     {
      "sourceId": "LLHLM-2020",
      "locator": "Table 3, published p. 51 (arXiv v4 p. 53), and its continuation, published p. 52 (arXiv v4 p. 54)",
-     "excerpt": "The table records further data relevant to Theorem 3.6.4. The meaning of the columns is the same as in Table 3.",
      "match": "The rows of Table 3 and the 𝔴 ideals of its continuation."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "§3.6.2, (3.14), arXiv v4 p. 43",
-     "excerpt": "there are no more relation than those listed in (3.14)",
      "match": "Completeness of the αβ relations."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "Table 4, published p. 60 (arXiv v4 p. 55)",
-     "excerpt": "Case w̃_{f−1−i} = βαt_1 and αβαt_1: The computations of these two cases are very similar to those we already performed and are left to the reader.",
      "match": "The minimal-type shapes (Table 4) and the cases left to the reader (p. 49)."
     }
    ],
@@ -10032,13 +9779,11 @@
     {
      "sourceId": "LLHLM-2020",
      "locator": "§3.6.1, items (1)–(4) and diagram (3.9), published p. 49; arXiv v4 pp. 36–39",
-     "excerpt": "In §3.6, we prove a geometric Breuil-Mézard conjecture which assigns to each (predicted) Serre weight a prime ideal of",
      "match": "The section on explicit rings and labelling."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "§3.6.1 item (4)(b)–(c), arXiv v4 p. 38 (relations for the shapes α and id; repeated on p. 48)",
-     "excerpt": "These equations comes from [LLHLM18, Proposition 8.11] and its proof, by restoring the units",
      "match": "The length-one and identity presentations."
     }
    ],
@@ -10141,25 +9886,21 @@
     {
      "sourceId": "LLHLM-2020",
      "locator": "Proposition 3.6.1, published p. 46",
-     "excerpt": "Proposition 3.6.1. (1) Let ρ be as in Theorem 3.5.3. There is a unique assignment σ 7→ p(σ) for σ ∈ W ? (ρ) such that",
      "match": "(1)."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "Theorem 3.6.4, published p. 55",
-     "excerpt": "Theorem 3.6.4. Assume ρ is 10-generic. Via the above bijections, we have −1 fY ∼ Y expl,∇ ∼ τ Σwei∗",
      "match": "(2)."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "Lemma 3.6.10, published p. 59 (arXiv v4 p. 43), with Definition 2.1.6 and Table 1 (arXiv v4 pp. 12, 17)",
-     "excerpt": "#({z_j(σ1)}_{j=1}^N Δ {z_j(σ2)}_{j=1}^N) = 2 d_gph(σ1, σ2) where Δ denotes the symmetric difference.",
      "match": "(5) and the weight graph."
     },
     {
      "sourceId": "LLHLM-2020",
      "locator": "Remark 3.6.8, arXiv v4 pp. 41–42",
-     "excerpt": "In all the matching the we perform below, we will always assume that the gauge bases have been chosen so that condition (3.12) holds.",
      "match": "The gauge normalisation in (3)."
     }
    ],
@@ -10196,7 +9937,6 @@
     {
      "sourceId": "CT-2017",
      "locator": "§5.1, item 5, accepted manuscript p. 39",
-     "excerpt": "for a choice of partition n = m1 + · · · + mk , m1 ≥ m2 · · · ≥ mk . The local deformation ring Rvm is the maximal O-flat reduced quotient of Rv1 classifying lifts for which a lift of Frob−1 e has characteristic v",
      "match": "The definition."
     }
    ],
@@ -10301,7 +10041,6 @@
     {
      "sourceId": "CT-2017",
      "locator": "Lemma 5.2, accepted manuscript p. 39",
-     "excerpt": "Lemma 5.2. Let x ∈ Spec Rvm [1/l] be a closed point induced by a homomorphism ρ : GLve → GLn (O) such that ρ ⊗O Ql is pure, in the sense of [TY07, Lemma 1.4]. Then Spec Rv1 [1/l] is formally smooth over K at x, and there is a unique",
      "match": "The statement."
     }
    ],
@@ -10344,7 +10083,6 @@
     {
      "sourceId": "CT-2017",
      "locator": "§5.1, accepted manuscript p. 39",
-     "excerpt": "If v - l, and qv ≡ 1 mod l, then there is the ring RvSt classifying unipotently ramified lifts for which a Frobenius lift has eigenvalues α, qv α, . . . , qvn−1 α for some α, as defined in [Tho15,",
      "match": "The rank-n Steinberg ring used alongside R^m_v."
     }
    ],
@@ -10381,13 +10119,11 @@
     {
      "sourceId": "CG-2018",
      "locator": "Lemma 3.22, published p. 335",
-     "excerpt": "Lemma 3.22. There is an equality J = I . Proof. We first",
      "match": "The statement."
     },
     {
      "sourceId": "CG-2018",
      "locator": "proof of Lemma 3.22, published pp. 336–337",
-     "excerpt": "denote the greatest power of ̟ dividing (χn−1 (g) − 1)O for all g in the decomposition group at p. By considering determinants, Runr (and R eunr ) is annihilated m m by ̟ . The moduli space of",
      "match": "The presentations of R^unr and R̃^unr."
     }
    ],
@@ -10430,7 +10166,6 @@
     {
      "sourceId": "BCGP-2025",
      "locator": "§5.5, arXiv v1 p. 124",
-     "excerpt": "R ∈ CNLΛ by declaring that r ∈ DvTW (R) if there is a decomposition ρ = Av ⊕ Bv lifting (5.5.1), with Bv unramiﬁed and Av |I + = ψv · 1n1 for some ψv : IFv+ → R× . Fv Note that while DvTW depends on",
      "match": "The condition."
     }
    ],
@@ -10538,7 +10273,6 @@
     {
      "sourceId": "CG-2020",
      "locator": "Definition 4.6 (3)–(4), published p. 815",
-     "excerpt": "If x ∈ S(r) is of type U1, U2 or U3, then r|Ix has unipotent image and its image is topologically generated by an element exp(N ) where N is nilpotent of rank 1, 2 or 3 respectively. ∼ (4) If x ∈ S(r) is of type P, then",
      "match": "The conditions."
     }
    ],
@@ -10642,7 +10376,6 @@
     {
      "sourceId": "LTXZZ-2022",
      "locator": "the rigidity definition (published Definition 6.3.3, p. 277; arXiv v3 Definition 6.3.4)",
-     "excerpt": "every lifting of r̄v is minimally ramified [LTXZZ, Definition 3.4.8]. (2) For v in Σ+ \\ lr , the generalized eigenvalues of r̄v (φw ) in F` contain the pair {kvk −N , kvk−N +2 } exactly once, where w",
      "match": "The four conditions."
     }
    ],
@@ -10734,7 +10467,6 @@
     {
      "sourceId": "LTXZZ-2022",
      "locator": "Definition 2.2.4, published pp. 124–125",
-     "excerpt": "Definition 2.2.4. Let a ⩽ b be two integers. (1) For an object R ∈ Mod(Fw , Z` )tor , we say that R is crystalline (with Hodge–Tate weights in [a, b]) if R = R00 /R0 where R0 ⊆ R00 are two ΓFw -stable Z` -lattices in a crystalline Q` -representation of ΓFw",
      "match": "The definition."
     }
    ],

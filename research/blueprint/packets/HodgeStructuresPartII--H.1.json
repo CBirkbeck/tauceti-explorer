@@ -221,7 +221,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.11–12, representation scheme and Proposition 6.1",
-          "excerpt": "representations",
           "match": "Restrict the source representation construction to irreducibles; native Representation.IsIrreducible supplies the invariant-subspace condition."
         }
       ],
@@ -320,7 +319,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, Proposition 6.1, pp.11–12",
-          "excerpt": "closed points",
           "match": "Restrict Jordan classes to irreducible representations, where they are ordinary isomorphism classes."
         }
       ],
@@ -425,7 +423,6 @@
         {
           "sourceId": "S94I",
           "locator": "§3, scalar endomorphism argument, p.90; §4, Theorem 4.7(4), p.104",
-          "excerpt": "scalars",
           "match": "The source explains scalar endomorphisms and the base-line ambiguity; determinant rigidification additionally uses the native scalar determinant formula."
         }
       ],
@@ -469,13 +466,11 @@
         {
           "sourceId": "EG20",
           "locator": "Introduction, p.103, and §2.1, pp.108–109",
-          "excerpt": "torsion determinant",
           "match": "The determinant is a rank-one flat connection on the de Rham side and (L,0) on the Higgs side."
         },
         {
           "sourceId": "S92",
           "locator": "§1, rank-one example, p.21",
-          "excerpt": "unitary representations",
           "match": "Zero Higgs fields correspond to unitary characters; finite-order characters are unitary."
         }
       ],
@@ -518,13 +513,11 @@
         {
           "sourceId": "S94I",
           "locator": "§3, pp.88–89, definitions of p- and μ-stability",
-          "excerpt": "p-semistable",
           "match": "The invariant-submodule condition is applied to integrable parameter connections."
         },
         {
           "sourceId": "S92",
           "locator": "§1, pp.18–19, slope stability and polystability",
-          "excerpt": "polystable",
           "match": "Slope-polystability is the metric existence hypothesis."
         }
       ],
@@ -632,13 +625,11 @@
         {
           "sourceId": "S94I",
           "locator": "§4, Theorem 4.7(1),(4), pp.104–105",
-          "excerpt": "universal",
           "match": "Coarse universality and the base-line-bundle ambiguity are essential to the family convention."
         },
         {
           "sourceId": "S96",
           "locator": "§4, p.18, relative λ-connection definition",
-          "excerpt": "λ-connection",
           "match": "Differentiation is relative to the parameter scheme, so λ is constant in the X direction."
         }
       ],
@@ -756,7 +747,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.11–12, construction before Proposition 6.1",
-          "excerpt": "affine scheme",
           "match": "The functor is represented by generator-and-relation matrix equations."
         }
       ],
@@ -843,7 +833,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, Proposition 6.1, pp.11–12",
-          "excerpt": "quotient",
           "match": "The stable restriction changes Jordan classes to ordinary irreducible isomorphism classes."
         }
       ],
@@ -940,7 +929,6 @@
         {
           "sourceId": "S94I",
           "locator": "§3, Lemma 3.3 through Theorem 3.8 and its complete proof, pp.90–98",
-          "excerpt": "bounded family",
           "match": "These proofs supply the operator-specific boundedness step before invoking generic Quot and GIT."
         }
       ],
@@ -983,7 +971,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.16–17, definition of M_Dol and Proposition 6.6",
-          "excerpt": "rational Chern classes",
           "match": "The source explicitly imposes all rational Chern classes, in addition to the Hilbert polynomial."
         }
       ],
@@ -1027,7 +1014,6 @@
         {
           "sourceId": "S92",
           "locator": "§3, Lemmas 3.1–3.5 and Proposition 3.6 through Lemma 3.9, pp.32–39",
-          "excerpt": "extensions",
           "match": "The complete extension and restriction arguments are needed in the local-freeness proof."
         }
       ],
@@ -1071,13 +1057,11 @@
         {
           "sourceId": "S92",
           "locator": "§3, Theorem 2, pp.39–40",
-          "excerpt": "torsion free",
           "match": "The proof requires the reflexive or Hilbert-polynomial hypothesis, which the all-Chern-zero component supplies."
         },
         {
           "sourceId": "S94II",
           "locator": "§6, Proposition 6.6 and Corollary 6.7, p.17",
-          "excerpt": "locally free",
           "match": "The component-level local-freeness and p/μ stability equivalence are then used in the family construction. The final sentence of Proposition 6.6 needs saturation; sourceIssues records the missing torsion-free-quotient hypothesis already present in this node."
         }
       ],
@@ -1123,7 +1107,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.16–17, M_Dol construction and Corollary 6.7",
-          "excerpt": "corepresented",
           "match": "Coarse universality, stable openness and local universal bundles are part of the construction."
         }
       ],
@@ -1224,7 +1207,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.24–25 and Theorem 6.13",
-          "excerpt": "integrable connection",
           "match": "Theorem 6.13 applies the operator-moduli construction and identifies the de Rham objects."
         }
       ],
@@ -1322,13 +1304,11 @@
         {
           "sourceId": "S96",
           "locator": "§4, Proposition 4.1, pp.18–19",
-          "excerpt": "moduli",
           "match": "This is the relative quotient construction, with the fixed determinant restriction spelled out."
         },
         {
           "sourceId": "EG20",
           "locator": "§4.2, pp.131–132",
-          "excerpt": "By definition",
           "match": "The Hodge parameter and zero/one fibres supply the routed target."
         }
       ],
@@ -1428,7 +1408,6 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Lemma 7.4 through Corollary 7.6, pp.28–30",
-          "excerpt": "nonreduced",
           "match": "The proof is required for comparison of analytic functors, not merely their complex points."
         }
       ],
@@ -1475,7 +1454,6 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Theorem 7.1, Lemmas 7.2–7.7 and proof, pp.26–30",
-          "excerpt": "same functor",
           "match": "The complete proof compares analytic families, including nilpotent coefficient bases."
         }
       ],
@@ -1520,13 +1498,11 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Proposition 7.8 and full proof, p.31",
-          "excerpt": "Riemann-Hilbert correspondence",
           "match": "The proof explicitly needs analytification of universal categorical quotients."
         },
         {
           "sourceId": "S94I",
           "locator": "§5, Proposition 5.5 and complete proof, pp.114–118",
-          "excerpt": "categorical quotient",
           "match": "The proof retains nonreduced analytic bases and imports a moment-map compact lift."
         }
       ],
@@ -1571,7 +1547,6 @@
         {
           "sourceId": "S92",
           "locator": "§1, pp.12–18, metric operators, Lemma 1.1 and harmonic-bundle definition",
-          "excerpt": "harmonic bundle",
           "match": "This is the chosen-metric presentation of the source’s metric-independent harmonic object."
         }
       ],
@@ -1672,7 +1647,6 @@
         {
           "sourceId": "S92",
           "locator": "§1, pp.14–17, first-order identities, and Lemma 1.2, pp.19–20; §2, pp.22–23",
-          "excerpt": "Kahler identities",
           "match": "The coefficient identities supply integrability and full faithfulness, not just a correspondence on objects."
         }
       ],
@@ -1717,7 +1691,6 @@
         {
           "sourceId": "S88",
           "locator": "§4, pp.879–882; §5, pp.882–884, definition and Proposition 5.1",
-          "excerpt": "functional",
           "match": "The off-diagonal kernel was checked on the printed p.882 image; its diagonal value 1/2 follows by the Taylor limit, rather than a separately printed formula."
         }
       ],
@@ -1817,13 +1790,11 @@
         {
           "sourceId": "S88",
           "locator": "§3, Theorem 1 and Proposition 3.3, p.878; §§5–7, pp.884–895",
-          "excerpt": "Theorem 1",
           "match": "The complete published coercivity and heat-flow construction was read in the compact specialization."
         },
         {
           "sourceId": "S92",
           "locator": "§1, Theorem 1(2), p.19; curvature discussion, pp.16–17",
-          "excerpt": "Hermitian-Yang-Mills",
           "match": "The source packages the polystable existence criterion needed by the correspondence."
         }
       ],
@@ -1866,13 +1837,11 @@
         {
           "sourceId": "S88",
           "locator": "§3, Proposition 3.4 and its proof, pp.878–879",
-          "excerpt": "flat",
           "match": "The printed proof separates trace-free curvature from the determinant curvature."
         },
         {
           "sourceId": "S92",
           "locator": "§1, curvature discussion, pp.16–17, and Theorem 1(2), p.19",
-          "excerpt": "Chern classes",
           "match": "The source’s ch₁/ch₂ pairing criterion is kept distinct from the all-Chern-zero component."
         }
       ],
@@ -1916,7 +1885,6 @@
         {
           "sourceId": "S92",
           "locator": "§1, Theorem 1(1), p.19, reference to Corlette",
-          "excerpt": "semisimple",
           "match": "This is a read primary statement of the metric criterion; its external existence proof remains explicitly unread."
         }
       ],
@@ -1962,7 +1930,6 @@
         {
           "sourceId": "S92",
           "locator": "§1, Lemma 1.2, pp.19–20, and Corollary 1.3 with full proof, p.20",
-          "excerpt": "equivalence",
           "match": "This is a category equivalence, before proving a homeomorphism of coarse moduli."
         }
       ],
@@ -2005,13 +1972,11 @@
         {
           "sourceId": "S94II",
           "locator": "§6, pp.20–21, definition of σ and Y_Dol",
-          "excerpt": "characteristic polynomial",
           "match": "The convention has first coefficient −tr θ, not +tr θ."
         },
         {
           "sourceId": "EG20",
           "locator": "§2.1, p.109",
-          "excerpt": "Hitchin morphism",
           "match": "The coefficient map is the input to the rigid-nilpotence argument in H.5."
         }
       ],
@@ -2108,7 +2073,6 @@
         {
           "sourceId": "S94II",
           "locator": "§6, Lemmas 6.8–6.10 and Theorem 6.11 with full proof, pp.18–23",
-          "excerpt": "proper",
           "match": "The theorem is on semistable coarse moduli, including polystable limits."
         }
       ],
@@ -2157,13 +2121,11 @@
         {
           "sourceId": "S92",
           "locator": "§2, Lemmas 2.7–2.8, pp.26–28",
-          "excerpt": "bounded",
           "match": "The eigenvalue-to-full-norm estimate and compactness proofs were read."
         },
         {
           "sourceId": "S94II",
           "locator": "§7, Proposition 7.9 through Lemma 7.17, pp.32–37",
-          "excerpt": "proper",
           "match": "The complete argument handles both coarse-space directions and normalized frames."
         }
       ],
@@ -2205,13 +2167,11 @@
         {
           "sourceId": "S94II",
           "locator": "§7, Lemmas 7.16–7.17 and Theorem 7.18, pp.36–38",
-          "excerpt": "homeomorphism",
           "match": "This is the explicit proved regularity used for singular coarse moduli."
         },
         {
           "sourceId": "EG20",
           "locator": "§2.1, pp.108–109, comparison diagram",
-          "excerpt": "moduli spaces",
           "match": "The diagram is used with the precise topological conclusion proved in Simpson’s source."
         }
       ],
@@ -2259,13 +2219,11 @@
         {
           "sourceId": "S96",
           "locator": "§4, pp.18–19, after Proposition 4.1",
-          "excerpt": "action",
           "match": "The action and algebraic trivialization hold only over the nonzero parameter."
         },
         {
           "sourceId": "EG20",
           "locator": "§4.2, Lemma 4.9 proof, p.132",
-          "excerpt": "splits",
           "match": "The nonzero product is the H.1 input to the rigid-locus splitting in H.5."
         }
       ],
@@ -2355,13 +2313,11 @@
         {
           "sourceId": "S92",
           "locator": "§2, Lemmas 2.1–2.2 and Corollary 2.3, pp.22–24",
-          "excerpt": "Formality",
           "match": "The complete two-types proof and multiplicative formality argument were read."
         },
         {
           "sourceId": "S96",
           "locator": "§9, relative quasi-isomorphisms in the proof of Theorem 9.1, pp.38–39",
-          "excerpt": "complex",
           "match": "The relative parameter argument supplies local product structure, not a global moduli product."
         }
       ],
@@ -2405,7 +2361,6 @@
         {
           "sourceId": "S96",
           "locator": "§9, Theorem 9.1 and full proof, pp.36–39 (arXiv v1 pagination)",
-          "excerpt": "formal",
           "match": "The source uses formal deformation equivalence as the input to Artin approximation."
         }
       ],
@@ -2448,7 +2403,6 @@
         {
           "sourceId": "S96",
           "locator": "§9, Theorem 9.1 and full proof, pp.36–39 (arXiv v1 pagination)",
-          "excerpt": "etale locally",
           "match": "Only the fixed-X theorem is used; Conjecture 9.3 is not promoted to a theorem."
         }
       ],
@@ -2490,7 +2444,6 @@
         {
           "sourceId": "S96",
           "locator": "§9, Corollary 9.2, p.39 (arXiv v1 pagination)",
-          "excerpt": "flat",
           "match": "The proof is a direct consequence of the fixed-X local product theorem."
         }
       ],
@@ -2536,7 +2489,6 @@
         {
           "sourceId": "S94I",
           "locator": "§4, Lemmas 4.1–4.5, Corollary 4.6 and Theorem 4.7, pp.98–104; §1, proof of Theorem 1.21, pp.71–73",
-          "excerpt": "good quotient",
           "match": "All operator-specific invariant-theory arguments and the delegated moduli-universality proof were inspected; generic reductive GIT and Luna remain supplier inputs."
         }
       ],
@@ -2583,7 +2535,6 @@
         {
           "sourceId": "S94I",
           "locator": "§4, Lemma 4.9, Theorem 4.10 and complete proofs, pp.105–109; §5, Propositions 5.1–5.4 and Lemma 5.7, pp.110–114,119",
-          "excerpt": "frame",
           "match": "The free auxiliary action and functor representability cannot be inferred from a coarse quotient alone."
         }
       ],

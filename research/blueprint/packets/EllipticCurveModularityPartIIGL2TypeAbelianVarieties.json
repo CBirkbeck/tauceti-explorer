@@ -355,7 +355,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "§2, p. 2",
-          "excerpt": "The dimension of this vector space is therefore a multiple of [E : Q], so that we have [E : Q] | dim A.",
           "match": "Ribet's Lie-algebra argument over ℚ, used again in the proof of Theorem 2.1 for the division algebra D and for subvarieties."
         }
       ],
@@ -398,7 +397,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "§2, p. 3",
-          "excerpt": "We say that an abelian variety A/Q of GL2 -type is primitive if it is not isogenous over Q to an abelian variety obtained by this matrix construction",
           "match": "Ribet's definition of primitive, after the matrix construction A = E ⊗_F B."
         }
       ],
@@ -557,13 +555,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Theorem 2.1, p. 3",
-          "excerpt": "Then the fol- lowing conditions are equivalent: (i) A is primitive; (ii) A/Q is simple; (iii) the endomorphism algebra of A/Q is a number field whose degree coincides with the dimension of A.",
           "match": "The statement."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 2.1, p. 3",
-          "excerpt": "This gives the equality D = E; i.e., it shows that E is its own commutant in X .",
           "match": "The commutant step; the rest of the proof gives X ≈ M(n, F)."
         }
       ],
@@ -609,7 +605,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "Let E be the en- domorphism algebra of A/Q. Then E is a number field which is either a totally real number field or a “CM field,”",
           "match": "Ribet's normalisation E = End⁰_ℚ(A) for the varieties of §3."
         }
       ],
@@ -778,13 +773,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "Then E is a number field which is either a totally real number field or a “CM field,” since each Q-polarization of A defines a positive involution on E.",
           "match": "The statement and the reason."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 6",
-          "excerpt": "The involution is the Rosati involution on E induced by every polarization of A/Q.",
           "match": "The Rosati involution is the canonical involution."
         }
       ],
@@ -835,13 +828,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "It is well known (and easy to show) that E is the full algebra of endomorphisms of A which are defined over Q [19, Cor. 4.2]. Thus, A is of GL2 -type over Q.",
           "match": "A_f is of GL₂-type with End⁰ = K_f."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "For each N ≥ 1, the Jacobian J1 (N ) is isogenous to a product of abelian varieties of the form Af [19, Prop. 2.3].",
           "match": "The isogeny decomposition of J₁(N)."
         }
       ],
@@ -890,13 +881,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 7",
-          "excerpt": "replace A by an abelian variety which is Q-isogenous to A and which has the property that its ring of Q-endomorphisms is the ring of integers O of E.",
           "match": "The integral model."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 7",
-          "excerpt": "The action of O on A[λ] makes A[λ] into a two-dimensional vector space over the residue field Fλ of λ.",
           "match": "The residual representation."
         }
       ],
@@ -1053,7 +1042,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "One knows that the collection (ρλ ) (as λ ranges over the set of finite primes of E) forms a strictly compatible system of E-rational representations whose exceptional set is the set of prime numbers at which A has bad reduction.",
           "match": "The statement, which Ribet quotes from Shimura and from Ribet 1976."
         }
       ],
@@ -1102,13 +1090,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 3.1, p. 4",
-          "excerpt": "There is a character of finite order ε : Gal(Q/Q) → E ∗ such that δλ = εχ` for each finite prime λ of E. This character is unramified at each prime which is a prime of good reduction for A.",
           "match": "The statement (the text layer renders ε as a control character)."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Lemma 3.1, p. 5",
-          "excerpt": "Since χ` has infinite order, we deduce that N(ε) = 1 and that n = 1.",
           "match": "The determinant comparison."
         }
       ],
@@ -1155,13 +1141,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 3.2, p. 5",
-          "excerpt": "Each character δλ is odd in the sense that it takes the value −1 on complex conjugations in Gal(Q/Q).",
           "match": "The statement."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Lemma 3.2, p. 5",
-          "excerpt": "To prove that F∞ does not act as a scalar, we recall that F∞ ⊗ 1 permutes the two subspaces H0,1 and H1,0",
           "match": "The Hodge-theoretic step."
         }
       ],
@@ -1203,7 +1187,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "Proposition 3.3, p. 5",
-          "excerpt": "For each λ, ρλ is an absolutely irreducible two dimensional representation of Gal(Q/Q) over Eλ . We have EndQ` [Gal(Q/Q)] Vλ = Eλ .",
           "match": "The statement; the proof cites Faltings [5]."
         }
       ],
@@ -1249,7 +1232,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "Proposition 3.4, p. 6",
-          "excerpt": "This gives ap = ε(p)ap , as required.",
           "match": "The conclusion a_p = ε(p)ā_p (the text layer drops the bar over the second a_p)."
         }
       ],
@@ -1291,7 +1273,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "Proposition 3.5, p. 6",
-          "excerpt": "Then the field E is generated over Q by the ap with p 6∈ S.",
           "match": "The statement."
         }
       ],
@@ -1333,7 +1314,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "Proposition 3.6, p. 7",
-          "excerpt": "The field F is totally real. The extension E/F is abelian.",
           "match": "The statement."
         }
       ],
@@ -1374,7 +1354,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 3.7, p. 7",
-          "excerpt": "For all but finitely many λ, the representation ρλ is absolutely irreducible.",
           "match": "The statement; the proof cites Faltings [6, Theorem 1, page 204]."
         }
       ],
@@ -1419,7 +1398,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Lemma 4.1, p. 8",
-          "excerpt": "The conductor of ρλ divides the conductor of the full `-adic representation V` (A). According to results of A. Grothendieck [8, Cor. 4.6], this latter conductor is independent of `.",
           "match": "The bound and the independence of ℓ."
         }
       ],
@@ -1465,13 +1443,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Lemma 4.2, p. 8",
-          "excerpt": "the kernel of multiplication by ` on AQ` extends to a finite flat group scheme G over Z` because of this good reduction [8, Cor. 2.2.9].",
           "match": "Finite flatness at a good prime."
         },
         {
           "sourceId": "KW-I",
           "locator": "§5, p. 8",
-          "excerpt": "for `  0, ι : E ,→ Q` , q above `, the restriction of ρι to Dq is crystalline of Hodge-Tate weights a, b as in (iii).",
           "match": "The condition at ℓ in Khare–Wintenberger's definition of a compatible system."
         }
       ],
@@ -1515,13 +1491,11 @@
         {
           "sourceId": "KW-I",
           "locator": "§10.2, p. 21",
-          "excerpt": "An abelian variety A over Q of GL2 -type is said to be modular if it is isomorphic to a quotient of J1 (N ) for some positive integer N .",
           "match": "The definition."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§1, p. 2",
-          "excerpt": "Equivalently, one wishes to study the set of elliptic curves which are quotients of the Jacobian J1 (N )Q of X1 (N )Q , for some N ≥ 1.",
           "match": "Ribet's formulation for elliptic curves."
         }
       ],
@@ -1708,13 +1682,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 4.1 and Lemma 4.2, p. 8",
-          "excerpt": "For all λ ∈ Λ, we have kλ = 2.",
           "match": "Weight two at the primes of Λ (Lemma 4.2); Lemma 4.1 bounds the levels."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 4.4, p. 8",
-          "excerpt": "Applying [24, (3.2.4? )] to the representations ρλ with λ ∈ Λ, we find that each ρλ arises from a newform of weight kλ = 2 and level dividing Nλ .",
           "match": "Serre's conjecture applied on Λ; it is now the strong form proved by Khare–Wintenberger."
         }
       ],
@@ -1763,7 +1735,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 4.4, pp. 8–9",
-          "excerpt": "Since the Nλ ’s are bounded (Lemma 4.1), there are only a finite number of such newforms.",
           "match": "The finiteness and the choice of a fixed f."
         }
       ],
@@ -1810,7 +1781,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 4.4, p. 8",
-          "excerpt": "For an infinite number of λ ∈ Λ, there is a ring homomorphism ϕλ : R → Fλ mapping ap to tr(ρλ (Frobp )) for all but finitely many primes p.",
           "match": "The congruences that are upgraded to equalities. Ribet passes instead from the congruences to Hom_{𝔽_ℓ[G]}(A_f[ℓ], A[ℓ]) ≠ 0 and Faltings' mod-ℓ theorem; this node follows the parent's route, which needs only Faltings' ℓ-adic theorem."
         }
       ],
@@ -1856,7 +1826,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 4.4, p. 8",
-          "excerpt": "By the Cebotarev Density Theorem, we have Af [`] ⊗R/`R Fλ ≈ A[λ] ⊗Fλ Fλ ,",
           "match": "Ribet's residual comparison; here the comparison is made in characteristic zero after GT.3/coefficient-identification."
         }
       ],
@@ -1902,13 +1871,11 @@
         {
           "sourceId": "KW-I",
           "locator": "Corollary 10.2, p. 21",
-          "excerpt": "Corollary 10.2. (i) An abelian variety A over Q of GL2 -type is modular.",
           "match": "The theorem."
         },
         {
           "sourceId": "Ribet92",
           "locator": "Theorem 4.4, p. 8",
-          "excerpt": "Then A is isogenous to a Q-simple factor of J1 (N ), for some N ≥ 1.",
           "match": "Ribet's theorem, conditional on Serre's conjecture, which Khare–Wintenberger proved (ClassicalSerreModularity R27.6)."
         }
       ],
@@ -1959,7 +1926,6 @@
         {
           "sourceId": "KW-I",
           "locator": "§10.2, p. 21",
-          "excerpt": "This is sometimes referred to in the literature as the generalised Shimura–Taniyama–Weil conjecture, and characterises the simple quotients of the Jacobian J1 (N ) of the modular curve X1 (N ) over Q.",
           "match": "The characterisation that the equivalences make precise."
         }
       ],
@@ -2005,13 +1971,11 @@
         {
           "sourceId": "KW-I",
           "locator": "§10.2, p. 21",
-          "excerpt": "The simple quotients of J1 (N ) over Q are abelian varieties over Q of GL2 -type.",
           "match": "The direction ⇒; Corollary 10.2(i) gives ⇐."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§1, p. 2",
-          "excerpt": "It is easy to see that J1 (N ) decomposes up to isogeny over Q as a product of such abelian varieties.",
           "match": "Ribet's version of ⇒."
         }
       ],
@@ -2060,13 +2024,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "In the case where E is totally real, we have det ρλ = χ` , where",
           "match": "Totally real E gives trivial character."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§7, p. 16",
-          "excerpt": "Since f is a form with trivial “Nebentypus” character, E is a priori a real quadratic field.",
           "match": "Trivial character gives a totally real field."
         }
       ],
@@ -2114,7 +2076,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "§1, p. 1",
-          "excerpt": "One knows that if there is a non- constant map X1 (M ) → C over Q for some M ≥ 1, then there is a non-constant map Xo (N ) → C.",
           "match": "The parametrisation formulation for elliptic curves, generalised here."
         }
       ],
@@ -2160,13 +2121,11 @@
         {
           "sourceId": "Carayol86",
           "locator": "Corollaire (0.8), p. 411",
-          "excerpt": "Alors la fonction L de Ey est égale à L(/, s), et le conducteur géométrique de Ey est égal à N.",
           "match": "The case K_f = ℚ: the conductor of E_f is the level (the text layer prints f as '/')."
         },
         {
           "sourceId": "Carayol86",
           "locator": "Théorème (A), pp. 410–411",
-          "excerpt": "la restriction a^ de o^ au groupe de Weil local Wp est équivalente à c^(TTp).",
           "match": "Local-global compatibility at every p ∤ ℓ, from which the conductor of ρ_{f,λ} is the level (text layer garbles σ_λ and π_p)."
         }
       ],
@@ -2216,13 +2175,11 @@
         {
           "sourceId": "KW-I",
           "locator": "§10.2, p. 21",
-          "excerpt": "We may take N to be M n where M is the conductor of A, and n its dimension.",
           "match": "Khare–Wintenberger's level; with Carayol's formula M = N_f^n, so M^n is a multiple of the exact level N_f = M^{1/n}."
         },
         {
           "sourceId": "Carayol86",
           "locator": "Corollaire (0.8), p. 411",
-          "excerpt": "le conducteur géométrique de Ey est égal à N.",
           "match": "The dimension-one case of the exact level."
         }
       ],
@@ -2271,19 +2228,16 @@
         {
           "sourceId": "KW-I",
           "locator": "§5, pp. 7–8",
-          "excerpt": "For a number field E, we call an E-rational, 2-dimensional strictly com- patible system of geometric representations (ρι ) of GF the data of:",
           "match": "The notion of strict compatibility, which requires Weil–Deligne comparison at all primes."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§3, p. 4",
-          "excerpt": "One knows that the collection (ρλ ) (as λ ranges over the set of finite primes of E) forms a strictly compatible system of E-rational representations whose exceptional set is the set of prime numbers at which A has bad reduction.",
           "match": "Ribet's strict compatibility, in Serre's sense, concerns only the primes of good reduction (GT.2/frobenius-polynomial)."
         },
         {
           "sourceId": "Carayol86",
           "locator": "§0.6 and Théorème (A) (§0.7), p. 410",
-          "excerpt": "une extension finie E",
           "match": "Both the simultaneous realisation of the local parameters and the theorem allow a finite extension of the rationality field; they do not promise realisation over K_f."
         }
       ],
@@ -2327,7 +2281,6 @@
         {
           "sourceId": "Carayol86",
           "locator": "Corollaire (0.8), p. 411",
-          "excerpt": "Alors la fonction L de Ey est égale à L(/, s)",
           "match": "The dimension-one case, with all local factors (the text layer prints f as '/')."
         }
       ],
@@ -2373,7 +2326,6 @@
         {
           "sourceId": "KW-I",
           "locator": "§10.2, p. 21",
-          "excerpt": "Part (i) of Theorem 10.1 combined with Faltings’ isogeny theorem yields modularity of abelian varieties of GL2 -type over Q (see Theorem 4.4 of [33]).",
           "match": "Corollary 10.2(i) generalises the modularity of elliptic curves over ℚ."
         }
       ],
@@ -2421,19 +2373,16 @@
         {
           "sourceId": "Ribet92",
           "locator": "§1, p. 2",
-          "excerpt": "Then C is a quotient of an abelian variety of GL2 -type over Q if and only if C is isogenous to each of its Galois conjugates σC with σ ∈ Gal(Q/Q).",
           "match": "Ribet's ℚ-curves: the defining property."
         },
         {
           "sourceId": "FLHS15",
           "locator": "§12, p. 18",
-          "excerpt": "By a Q-curve, we mean an elliptic curve defined over Q that is isogenous to all its Galois conjugates.",
           "match": "The same definition (the text layer drops the bar over ℚ)."
         },
         {
           "sourceId": "CN23",
           "locator": "§1, p. 7",
-          "excerpt": "The elliptic curves in the second family turn out to all be Q-curves (isogenous to their conjugates over Q).",
           "match": "The consumer's use of the notion."
         }
       ],
@@ -2599,13 +2548,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 6.1, p. 13",
-          "excerpt": "A short computation shows that c is a two-cocycle on Gal(K/Q) with values in Q∗ . The class of c in H 2 (Gal(K/Q), Q∗ ) is independent of the choices of the µg .",
           "match": "The construction."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 6.1, p. 13",
-          "excerpt": "where “deg” denotes the degree of an isogeny between elliptic curves",
           "match": "The degree relation c(g, h)² = deg μ_g deg μ_h / deg μ_{gh}, displayed just before."
         }
       ],
@@ -2764,13 +2711,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Theorem 6.3, p. 13",
-          "excerpt": "Let M be the discrete Gal(Q/Q)-module Q with trivial action. Then H 2 (Gal(Q/Q), M ) = 0.",
           "match": "Tate's theorem as Ribet states it (the text layer drops the bar and ×)."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 6.3, p. 13",
-          "excerpt": "Since the quotient of M by its torsion subgroup is uniquely divisible, and since the torsion subgroup of M is isomorphic to Q/Z, we obtain H 2 (Gal(Q/Q), M ) = H 2 (Gal(Q/Q), Q/Z) = 0.",
           "match": "The reduction to ℚ/ℤ."
         }
       ],
@@ -2816,13 +2761,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 6.4, p. 14",
-          "excerpt": "We have λσ λτ = c(σ, τ )λστ in R for σ, τ ∈ Gal(K/Q).",
           "match": "The multiplication table."
         },
         {
           "sourceId": "Ribet92",
           "locator": "§6, p. 14",
-          "excerpt": "The obvious map of Q-vector spaces ω : R → E, λσ 7→ α(σ) is in fact a surjective homomorphism of Q-algebras because of (6.4).",
           "match": "The map ω."
         }
       ],
@@ -2865,13 +2808,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Proposition 6.5, p. 15",
-          "excerpt": "The map ι is R-equivariant, for the action of R on T just defined and for the structural action of R on B.",
           "match": "The equivariance (proof omitted in the source)."
         },
         {
           "sourceId": "Ribet92",
           "locator": "Corollary 6.6, p. 15",
-          "excerpt": "The Lie algebra Lie(B/Q) is a free R-module of rank one.",
           "match": "The freeness."
         }
       ],
@@ -2918,13 +2859,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Theorem 6.1, p. 12",
-          "excerpt": "Then there is a primitive abelian variety A of GL2 -type over Q such that C is a simple factor of A over Q.",
           "match": "The statement (the second ℚ carries a bar in print)."
         },
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 6.1, p. 15",
-          "excerpt": "Then A is an abelian subvariety of B, defined over Q, whose algebra of Q-endomorphisms is E.",
           "match": "The construction of A as an image of a projector."
         }
       ],
@@ -2968,13 +2907,11 @@
         {
           "sourceId": "Ribet92",
           "locator": "Corollary 6.2, p. 12",
-          "excerpt": "Assume Serre’s conjecture [24, (3.2.4? )] on representations of Gal(Q/Q). Then C is a simple factor, over Q, of J1 (N ) for some N ≥ 1.",
           "match": "The corollary, conditional on Serre's conjecture, now unconditional (ClassicalSerreModularity R27.6)."
         },
         {
           "sourceId": "FLHS15",
           "locator": "§12, p. 18",
-          "excerpt": "Indeed, Ribet [60, Corollary 6.2] had shown that modular- ity of Q-curves is a consequence of Serre’s modularity conjecture, which is now a theorem of Khare and Wintenberger [43], [44].",
           "match": "The unconditional form as used by Freitas–Le Hung–Siksek."
         }
       ],
@@ -3022,19 +2959,16 @@
         {
           "sourceId": "Ribet92",
           "locator": "§7, p. 15",
-          "excerpt": "The algebra R may be written Q[X]/(X 2 − m), where X corresponds to the element of R we have been calling [σ].",
           "match": "The quadratic case."
         },
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 7.1, p. 16",
-          "excerpt": "The characters ε and θ are equal.",
           "match": "ε = θ."
         },
         {
           "sourceId": "Ribet92",
           "locator": "Proposition 7.2, p. 16",
-          "excerpt": "At least one of the two quadratic fields E, K is a real quadratic field.",
           "match": "Serre's proposition."
         }
       ],
@@ -3075,7 +3009,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "proof of Theorem 5.3, p. 10",
-          "excerpt": "A simple argument shows that there is a character ϕ : Gal(Q/Q) → Q∗` such that Vσ ≈ Vτ ⊗ ϕ as Q` [Gal(Q/Q)]-modules.",
           "match": "Ribet's use of the lemma for representations isomorphic on an open subgroup."
         }
       ],
@@ -3121,7 +3054,6 @@
         {
           "sourceId": "Ribet92",
           "locator": "Lemma 7.1 proof, p. 16",
-          "excerpt": "In particular, the λ-adic representations of AK are just the `-adic representations of C, viewed as taking values in GL(2, Eλ ) rather than in GL(2, Q` ).",
           "match": "Over the field of definition of the isogenies the representations of A and C agree; the twist ψ accounts for descending to K."
         }
       ],
@@ -3171,19 +3103,16 @@
         {
           "sourceId": "FLHS15",
           "locator": "§12, p. 18",
-          "excerpt": "It is known that Q-curves are modular.",
           "match": "The statement for the real quadratic curves of Freitas–Le Hung–Siksek."
         },
         {
           "sourceId": "CN23",
           "locator": "§1, p. 2",
-          "excerpt": "We say that an elliptic curve E/F is modular if either E has complex multiplication or if there exists a cuspidal automorphic representation π of GL2 (AF ) of parallel weight 2 whose associated L-function is the same as the L-function of E",
           "match": "The notion of modularity over F that the conclusion meets."
         },
         {
           "sourceId": "FLHS15",
           "locator": "§1, pp. 2–3",
-          "excerpt": "Recall that E is modular if there exists a Hilbert cuspidal eigenform f over K of parallel weight 2, with rational Hecke eigenvalues, such that the Hasse–Weil L-function of E is equal to the L-function of f.",
           "match": "The totally real notion."
         }
       ],
@@ -3229,19 +3158,16 @@
         {
           "sourceId": "CN23",
           "locator": "Corollary 7.2.5, p. 97",
-          "excerpt": "In particular, E is a Q-curve, and is therefore modular (cf. [FLHS15, §12]).",
           "match": "The consumer step."
         },
         {
           "sourceId": "CN23",
           "locator": "Corollary 7.3.4, p. 98",
-          "excerpt": "So in this case, E is a Q-curve.",
           "match": "The second consumer step."
         },
         {
           "sourceId": "FLHS15",
           "locator": "§11, p. 17",
-          "excerpt": "If these points correspond to CM elliptic curves or Q-curves then they are modular (see the remark at the beginning of Section 12 for more on the latter).",
           "match": "The real quadratic use."
         }
       ],
