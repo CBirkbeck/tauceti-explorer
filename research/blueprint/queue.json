@@ -26193,9 +26193,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #755"
+   "note": "deliverables arrived from an external worker on issue #755",
+   "finishedAt": "2026-10-07T13:19:18Z"
   },
   {
    "id": "REV-HodgeTateAndCanonicalSubgroups--T0",
@@ -31346,7 +31347,8 @@
    ],
    "avoidAccountOf": "BP-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/REV-ModularityAndLanglandsExtensions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #541"
   },
   {
    "id": "BP-PeriodsAndSpecialValues--PS.0",
@@ -53977,8 +53979,9 @@
     "FIX-RT-RS-21"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5712"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5712",
+   "finishedAt": "2026-10-07T13:19:20Z"
   },
   {
    "id": "RT-RS-22",
@@ -55943,8 +55946,9 @@
     "FIX-RT-BP-EllipticCurveModularity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5718"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5718",
+   "finishedAt": "2026-10-07T13:19:24Z"
   },
   {
    "id": "RT-BP-EllipticKTheory",
@@ -60649,7 +60653,8 @@
     "FIX-RT-AREA-automorphic-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6215"
   },
   {
    "id": "RT-AREA-automorphic-2",
