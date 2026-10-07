@@ -77729,7 +77729,14 @@
    "outputs": [
     "research/blueprint/readmes/HabiroNahmSeries.md",
     "research/blueprint/suggested/HabiroNahmSeries.lean",
-    "research/blueprint/handoff/ASM-HabiroNahmSeries.md"
+    "research/blueprint/handoff/ASM-HabiroNahmSeries.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
+    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
+    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
+    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
+    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
+    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
+    "research/blueprint/packets/HabiroNahmSeries.json"
    ],
    "after": [
     "REV-HabiroNahmSeries",
