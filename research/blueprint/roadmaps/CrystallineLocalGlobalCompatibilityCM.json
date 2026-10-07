@@ -3,7 +3,7 @@
   "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: P-ordinary degree shifting, crystalline local–global compatibility and Barsotti–Tate lifting",
   "area": "automorphic",
   "parent": "PotentialAutomorphyInfrastructure",
-  "summary": "Target-level plan of Caraiani–Newton §§2–5: integral Siegel P-ordinary control, Bruhat subquotients, arbitrary-prime deep-level degree shifting, crystalline and ordinary local–global compatibility, two-component derived Ihara avoidance, and potentially Barsotti–Tate lifting over imaginary CM fields. It imports the parent’s Fontaine–Laffaille/Borel machinery and exact supplier declarations. The final lifting statement carries the verified cubic-tetrahedral exception restriction; the unrestricted printed general-prime statement is a recorded gap. No elliptic-curve residual-modularity, modular-curve or Jacquet–Langlands programme is owned here.",
+  "summary": "Target-level plan of Caraiani–Newton §§2–5: integral Siegel P-ordinary control, Bruhat subquotients, arbitrary-prime deep-level degree shifting, crystalline and ordinary local–global compatibility, two-component derived Ihara avoidance, and potentially Barsotti–Tate lifting over imaginary CM fields. It imports the parent’s Fontaine–Laffaille/Borel machinery and exact supplier declarations and explicitly requested extensions. The final lifting statement carries the verified cubic-tetrahedral exception restriction; the unrestricted printed general-prime statement is a recorded gap. No elliptic-curve residual-modularity, modular-curve or Jacquet–Langlands programme is owned here.",
   "readmeMarkdown": "research/blueprint/readmes/CrystallineLocalGlobalCompatibilityCM.md",
   "prerequisites": [
     "ArithmeticGaloisRepresentations",
@@ -28,7 +28,7 @@
     {
       "key": "CL.0",
       "title": "Siegel parahorics and integral coefficient actions",
-      "description": "Fix the lower-right GL_n Levi of split U(n,n), descending dual Weyl weights and geometric Frobenius. Construct Siegel block exchange using existing finite permutations; define P(b,c) by C≡0 mod ϖ_v^c and A,D≡1 mod ϖ_v^b, c≥b≥0,c≥1; define positive central block cocharacters and the resulting positive parahoric monoid. Prove positivity and the commutative monoid-Hecke isomorphism. Define lowest-weight characters and the action α(g)^{-1}ρ(g), prove lattice stability and surjective Levi coefficient evaluation, and identify the U_v residual determinant eigenvalue.",
+      "description": "Fix the lower-right GL_n Levi of split U(n,n), descending dual Weyl weights and geometric Frobenius. Construct Siegel block exchange using existing finite permutations; define P(b,c) by C≡0 mod ϖ_v^c and A,D≡1 mod ϖ_v^b, c≥b≥0,c≥1; define positive central block cocharacters and the resulting positive parahoric monoid. Prove positivity and the commutative monoid-Hecke isomorphism. Define separate unitary and Levi lowest-weight characters using their respective longest Weyl elements and the action α(g)^{-1}ρ(g), prove lattice stability and surjective Levi coefficient evaluation, and identify the U_v residual determinant eigenvalue.",
       "requires": [
         "ArithmeticLocallySymmetricSpaces:ALS.1",
         "ArithmeticLocallySymmetricSpaces:ALS.3",
@@ -54,6 +54,7 @@
         "IntegralHeckeAndGaloisDeterminants:IHG.2",
         "PadicFamilies:L0a",
         "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ]
     },
@@ -118,6 +119,7 @@
         "CrystallineLocalGlobalCompatibilityCM:CL.2",
         "CrystallineLocalGlobalCompatibilityCM:CL.3",
         "PotentialAutomorphyInfrastructure:PA.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
         "SmoothRepresentationsOfLocalGroups:SR.2",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ]
@@ -138,7 +140,9 @@
         "CrystallineLocalGlobalCompatibilityCM:CL.5",
         "IgusaVarietiesAndTorsionConcentration:IG.7",
         "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "PotentialAutomorphyInfrastructure:PA.0",
         "PotentialAutomorphyInfrastructure:PA.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
         "SmoothRepresentationsOfLocalGroups:SR.4",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ]
@@ -146,7 +150,7 @@
     {
       "key": "CL.7",
       "title": "Crystalline local–global compatibility",
-      "description": "For all-unit Q-localized non-Eisenstein torsion Hecke systems, produce local finite-flat characteristic-zero lifts with crystalline blocks, labelled weights and determinant characters. Use CTG perturbation and a separating character twist, then import compatible local reconstruction. Assemble a global Hecke-valued representation modulo a uniformly nilpotent ideal factoring through crystalline/semistable-ordinary local deformation rings in the three specified partitions. Export fixed-determinant compatibility for p∤n and crystallinity of unramified characteristic-zero GL_n representations under residual irreducibility and decomposed genericity.",
+      "description": "For all-unit Q-localized non-Eisenstein torsion Hecke systems, produce local finite-flat characteristic-zero lifts with crystalline blocks, labelled weights and determinant characters. Use CTG perturbation and a separating character twist, then import compatible local reconstruction. Assemble a global Hecke-valued representation modulo a uniformly nilpotent ideal factoring through crystalline/semistable-ordinary local deformation rings in the three specified partitions. Export fixed-determinant compatibility for p∤n and crystallinity of unramified characteristic-zero GL_n representations under residual irreducibility and decomposed genericity. Reconstruction over torsion Hecke targets requires the explicit IHG.1 extension; its flat-target export alone is insufficient. In the char-zero endpoint, choose a cyclic CM extension where the selected p-places split completely, so their local fields are unchanged.",
       "requires": [
         "ArithmeticLocallySymmetricSpaces:ALS.3",
         "ArithmeticLocallySymmetricSpaces:ALS.5",
@@ -184,12 +188,15 @@
     {
       "key": "CL.9",
       "title": "Barsotti–Tate automorphy lifting and solvable descent",
-      "description": "State the fifteen prepared CM lifting hypotheses, define fixed-determinant χ-type and Taylor–Wiles deformation problems, and construct deformation-to-derived-Hecke surjections and diamond-compatible perfect complexes. Use AKT small-image Taylor–Wiles prime selection with its p=5 exception, check q₀=l₀=[F⁺:Q] and patch the two coefficient systems to prove prepared BT lifting. Prove solvable preparation and descent preserving the full residual/cyclotomic field. Export potentially BT automorphy under the original hypotheses plus d_cyc≠3 or projective residual image not A₄; record the unrestricted exceptional case as a source proof gap.",
+      "description": "State the fifteen prepared CM lifting hypotheses, define fixed-determinant χ-type and Taylor–Wiles deformation problems, and construct deformation-to-derived-Hecke surjections and diamond-compatible perfect complexes. Use AKT small-image Taylor–Wiles prime selection with its p=5 exception, check q₀=l₀=[F⁺:Q] and patch the two coefficient systems to prove prepared BT lifting. Prove solvable preparation and descent preserving the full residual/cyclotomic field. Export potentially BT automorphy under the original hypotheses plus d_cyc≠3 or projective residual image not A₄; record the unrestricted exceptional case as a source proof gap. Construct the prepared PGL₂ level with pro-v Iwahori auxiliary components, choose the three unitary parabolic branches and the residual ordinary Hecke ideal. The non-enormous AKT Selmer-detection and CM relative generator-count exports remain explicit requests.",
       "requires": [
         "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
         "ArithmeticLocallySymmetricSpaces:ALS.5",
         "ArithmeticLocallySymmetricSpaces:ALS.6",
         "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "CrystallineLocalGlobalCompatibilityCM:CL.4",
         "CrystallineLocalGlobalCompatibilityCM:CL.7",
         "CrystallineLocalGlobalCompatibilityCM:CL.8",
         "DeformationAndDerivedPatchingAlgebra:P8",
@@ -200,6 +207,7 @@
         "LocalGaloisDeformationRings:R08.3",
         "LocalGaloisDeformationRings:R08.4",
         "ModularityAndLanglandsExtensions:ML.5",
+        "PadicHodgeTheory:R06.3",
         "PotentialAutomorphyInfrastructure:PA.5",
         "PotentialModularityAndCompatibleSystems:R23.5"
       ]
