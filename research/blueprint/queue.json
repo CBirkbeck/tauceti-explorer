@@ -23808,7 +23808,8 @@
    ],
    "avoidAccountOf": "BP-DiamondsAndVStacks",
    "prompt": "research/blueprint/prompts/REV-DiamondsAndVStacks.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #389"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L0",
@@ -64189,8 +64190,9 @@
     "FIX-RT-AREA-topology~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6520"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6520",
+   "finishedAt": "2026-10-07T11:30:19Z"
   },
   {
    "id": "REV-FIX-RT-AREA-topology~4",
