@@ -36971,7 +36971,8 @@
     "REV-CrystallineCohomology--CR.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-CrystallineCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #221"
   },
   {
    "id": "ASM-DeligneWeightsAndPurity",
@@ -37273,8 +37274,9 @@
     "REV-GeneralizedHeegnerCycles--GH.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeneralizedHeegnerCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #234"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #234",
+   "finishedAt": "2026-10-07T03:17:34Z"
   },
   {
    "id": "ASM-GeometricSatakeAndFusion",
