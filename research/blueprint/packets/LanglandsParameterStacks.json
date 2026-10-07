@@ -19,147 +19,176 @@
       {
         "ref": "mathlib:Representation",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
-        "provides": "Abstract group representations on modules. Algebraic regularity, finite-projective coefficient conditions, rational reductive representations and their tensor/derived categories are supplied separately by RG/E5, not by this abstract representation alone."
+        "provides": "Abstract group representations on modules. Algebraic regularity, finite-projective coefficient conditions, rational reductive representations and their tensor/derived categories are supplied separately by RG/E5, not by this abstract representation alone.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:MonoidHom",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
-        "provides": "Group homomorphisms. A parameter is a cocycle, not a homomorphism, but the sections of the L-group projection and the maps F_n -> W indexing the excursion colimit are homomorphisms, and the distinction is exactly what LP0's first node fixes."
+        "provides": "Group homomorphisms. A parameter is a cocycle, not a homomorphism, but the sections of the L-group projection and the maps F_n -> W indexing the excursion colimit are homomorphisms, and the distinction is exactly what LP0's first node fixes.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Subgroup",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
-        "provides": "Subgroups. The inertia and wild inertia of W_E, the open P inside the wild inertia, the discrete dense W inside W_E/P, the parabolic and Levi subgroups of G-hat semidirect W_E and the fixed-point subgroup G^P are subgroups."
+        "provides": "Subgroups. The inertia and wild inertia of W_E, the open P inside the wild inertia, the discrete dense W inside W_E/P, the parabolic and Levi subgroups of G-hat semidirect W_E and the fixed-point subgroup G^P are subgroups.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:FreeGroup",
         "module": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
-        "provides": "Free groups with their universal property. The excursion algebra is a colimit over (n, F_n -> W), and AUDIT-21 records this as the indexing half of that construction, the cocycle spaces themselves being absent."
+        "provides": "Free groups with their universal property. The excursion algebra is a colimit over (n, F_n -> W), and AUDIT-21 records this as the indexing half of that construction, the cocycle spaces themselves being absent.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:RingHom",
         "module": "Mathlib/Algebra/Ring/Hom/Defs.lean",
-        "provides": "Ring homomorphisms. The Theta_n of the universal property are maps of Z_l-algebras, and the comparison Exc -> O(Z^1)^{G-hat} is one."
+        "provides": "Ring homomorphisms. The Theta_n of the universal property are maps of Z_l-algebras, and the comparison Exc -> O(Z^1)^{G-hat} is one.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:MvPolynomial",
         "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
-        "provides": "Polynomial algebras. O(Z^1(F_n,G-hat)) = O(G-hat^n) is a quotient of a polynomial algebra, and the finite presentation of the cocycle scheme is by equations in such a ring."
+        "provides": "Polynomial algebras. O(Z^1(F_n,G-hat)) = O(G-hat^n) is a quotient of a polynomial algebra, and the finite presentation of the cocycle scheme is by equations in such a ring.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
-        "provides": "Schemes. Z^1(W_E/P,G-hat) is an affine scheme of finite type, Z^1(W_E,G-hat) is a disjoint union of such, and Sing_{X/S} is an affine X-group scheme."
+        "provides": "Schemes. Z^1(W_E/P,G-hat) is an affine scheme of finite type, Z^1(W_E,G-hat) is a disjoint union of such, and Sing_{X/S} is an affine X-group scheme.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Module.Flat",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
-        "provides": "Flatness. Z^1(W_E/P,G-hat) is FLAT over Z_l, the excursion algebra is flat under the good-prime hypothesis, and the universal property of its l-torsion-free quotient is for FLAT test algebras."
+        "provides": "Flatness. Z^1(W_E/P,G-hat) is FLAT over Z_l, the excursion algebra is flat under the good-prime hypothesis, and the universal property of its l-torsion-free quotient is for FLAT test algebras.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsRegular",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
-        "provides": "REGULAR SEQUENCES, at the pins. AUDIT-21 records that Mathlib has no named local-complete-intersection predicate, but that the lci structure CAN be stated as a quotient by a regular sequence; this is the pinned notion that statement would use."
+        "provides": "REGULAR SEQUENCES, at the pins. AUDIT-21 records that Mathlib has no named local-complete-intersection predicate, but that the lci structure CAN be stated as a quotient by a regular sequence; this is the pinned notion that statement would use.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Algebra.Extension.H1Cotangent",
         "module": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
-        "provides": "Kernel of the naive extension cotangent-complex differential, the degree-one naive term. The full derived cotangent complex and H^1 of its dual are requested separately, not identified with this kernel."
+        "provides": "Kernel of the naive extension cotangent-complex differential, the degree-one naive term. The full derived cotangent complex and H^1 of its dual are requested separately, not identified with this kernel.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:groupCohomology",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
-        "provides": "Cohomology of an abstract group representation by the inhomogeneous cochain complex. Rational algebraic-group cohomology and condensed continuous Weil cohomology need separate interfaces."
+        "provides": "Cohomology of an abstract group representation by the inhomogeneous cochain complex. Rational algebraic-group cohomology and condensed continuous Weil cohomology need separate interfaces.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:PrimeSpectrum.isHomeomorph_comap",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Homeomorph.lean",
-        "provides": "A ring map with nilpotent kernel and positive powers of every target element in its image induces a homeomorphism on spectra. Universal homeomorphism requires this after every base change; it is not asserted by this declaration alone."
+        "provides": "A ring map with nil kernel (every element of the kernel is nilpotent) and positive powers of every target element in its image induces a homeomorphism on spectra. Universal homeomorphism requires this after every base change; it is not asserted by this declaration alone.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
-        "provides": "t-structures on a triangulated category, at the pins, as the abstract notion only. The GOOD-FILTRATION t-structure is defined against it, and AUDIT-21 records that good filtrations themselves are absent."
+        "provides": "t-structures on a triangulated category, at the pins, as the abstract notion only. The GOOD-FILTRATION t-structure is defined against it, and AUDIT-21 records that good filtrations themselves are absent.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CategoryTheory.Idempotents.Karoubi",
         "module": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
-        "provides": "The Karoubi envelope. 'Generated under cones and RETRACTS' is an idempotent-completion statement, and the categories of Chapter X are idempotent-complete by hypothesis."
+        "provides": "The Karoubi envelope. 'Generated under cones and RETRACTS' is an idempotent-completion statement, and the categories of Chapter X are idempotent-complete by hypothesis.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CategoryTheory.MonoidalCategory",
         "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
-        "provides": "Monoidal categories. Perf(*/G-hat) acts monoidally on Perf of the parameter stack, and the universal property of the colimit theorem is for exact MONOIDAL functors."
+        "provides": "Monoidal categories. Perf(*/G-hat) acts monoidally on Perf of the parameter stack, and the universal property of the colimit theorem is for exact MONOIDAL functors.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.Monoidal",
         "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
-        "provides": "Monoidal functors, the data the universal property quantifies over."
+        "provides": "Monoidal functors, the data the universal property quantifies over.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
-        "provides": "`abbrev CatCenter := End (1_C)`, at the pins: the Bernstein centre of a category, which is the target of the map out of the excursion algebra in FS VIII.4.1."
+        "provides": "Ordinary categorical centre End(id_C). It supplies the ordinary shadow of the excursion target; the stable infinity-category target is π₀End(id_C), whose enhancement is requested from E5.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Condensed",
         "module": "Mathlib/Condensed/Basic.lean",
-        "provides": "Condensed objects, at the pins. A parameter is a CONDENSED cocycle, the coefficient ring is made condensed as Lambda_disc tensor_{Z_l,disc} Z_l, and the evaluations of the excursion algebra over W_E/P are maps of condensed sets."
+        "provides": "Condensed objects, at the pins. A parameter is a CONDENSED cocycle, the coefficient ring is made condensed as Lambda_disc tensor_{Z_l,disc} Z_l, and the evaluations of the excursion algebra over W_E/P are maps of condensed sets.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CondensedMod",
         "module": "Mathlib/Condensed/Module.lean",
-        "provides": "Condensed modules, the ambient category for the condensed coefficient convention."
+        "provides": "Condensed modules, the ambient category for the condensed coefficient convention.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Module.Free",
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
-        "provides": "Free coefficient modules in Weil duality; finite rank is an additional hypothesis. The finite-type submodules of the condensed coefficient convention need not themselves be free."
+        "provides": "Free coefficient modules in Weil duality; finite rank is an additional hypothesis. The finite-type submodules of the condensed coefficient convention need not themselves be free.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:RootPairing",
         "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
-        "provides": "Root pairings, at the pins, with RootPairing.flip for the dual root datum. The exponents of the root system, the Chevalley isomorphism g-hat // G-hat = t-hat // W, the dominant weights indexing the nabla_lambda and pi_1(G-hat) as the quotient of the character lattice by the root lattice are all root-datum data."
+        "provides": "Root-pairing carrier and RootPairing.flip for dual data. This declaration supplies neither invariant degrees, Chevalley restriction, highest-weight modules nor the algebraic-group fundamental-group calculation. Those are separate supplier obligations, not consequences already available from RootPairing.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CoxeterSystem",
         "module": "Mathlib/GroupTheory/Coxeter/Basic.lean",
-        "provides": "Coxeter systems. The Coxeter number h, which bounds the exponents in the banality condition of FS VIII.2.11, is a Coxeter-theoretic invariant."
+        "provides": "Coxeter-system carrier with its generators and relations. It does not by itself supply the Coxeter-number table or the homogeneous invariant degrees in FS VIII.2.11; those computations are requested from the reductive/root-system owner.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "tauceti:TauCeti.ContinuousCohomology.continuousCohomologyFunctor",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
-        "provides": "Degree-n continuous cohomology as a coefficient functor from TopRep to TopModuleCat. This is an abelian cohomology interface, not nonabelian cocycles or local Weil duality."
+        "provides": "Degree-n continuous cohomology as a coefficient functor from TopRep to TopModuleCat. This is an abelian cohomology interface, not nonabelian cocycles or local Weil duality.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CategoryTheory.PresheafOfGroups.OneCocycle",
         "module": "Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean",
-        "provides": "Nonabelian Čech 1-cocycles of a presheaf of groups on a family of objects. The cocycle, gauge relation and quotient H1 are already supplied; continuous crossed cocycles of a group action are a different input. Their bridge is descent via SF.1."
+        "provides": "Nonabelian Čech 1-cocycles of a presheaf of groups on a family of objects. The cocycle, gauge relation and quotient H1 are already supplied; continuous crossed cocycles of a group action are a different input. Their bridge is descent via SF.1.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:SemidirectProduct",
         "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
-        "provides": "Group carrier N⋊[α]Γ with multiplication (n,γ)(n′,γ′)=(n α(γ)(n′),γγ′), rightHom projection and its sections. Does not supply a condensed or integral L-group."
+        "provides": "Group carrier N⋊[α]Γ with multiplication (n,γ)(n′,γ′)=(n α(γ)(n′),γγ′), rightHom projection and its sections. Does not supply a condensed or integral L-group.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Subalgebra",
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
-        "provides": "Subalgebras containing the base-ring image and closed under zero, one, addition and multiplication. An algebraic invariant ring also requires the rational action supplied by RG."
+        "provides": "Subalgebras containing the base-ring image and closed under zero, one, addition and multiplication. An algebraic invariant ring also requires the rational action supplied by RG.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:CommRingCat.Colimits.hasColimits_commRingCat",
         "module": "Mathlib/Algebra/Category/Ring/Colimits.lean",
-        "provides": "Small colimits of commutative rings, with cocone maps and universal descent. The excursion diagram and Z_l-algebra/animated enhancement remain additional inputs."
+        "provides": "Small colimits of commutative rings, with cocone maps and universal descent. The excursion diagram and Z_l-algebra/animated enhancement remain additional inputs.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "mathlib:Equiv.Perm.cycleFactorsFinset",
         "module": "Mathlib/GroupTheory/Perm/Cycle/Factors.lean",
-        "provides": "Finite set of disjoint nontrivial cyclic factors of a finite permutation. Fixed one-cycles must be added separately in the trace identity."
+        "provides": "Finite set of disjoint nontrivial cyclic factors of a finite permutation. Fixed one-cycles must be added separately in the trace identity.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       },
       {
         "ref": "tauceti:TauCeti.fixedSubgroup",
         "module": "TauCeti/GroupTheory/FixedSubgroup.lean",
-        "provides": "The equaliser of a group endomorphism F and identity; membership is F(g)=g. Point-group compatibility for cyclic fixed loci only; no scheme smoothness, reductivity or connectedness follows."
+        "provides": "The equaliser of a group endomorphism F and identity; membership is F(g)=g. Point-group compatibility for cyclic fixed loci only; no scheme smoothness, reductivity or connectedness follows.",
+        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
       }
     ]
   },
@@ -213,13 +242,13 @@
       "edition": "Public revised arXiv PDF (2025 revision). Lemma3.10 is the Weil–Deligne comparison cited as Lemma3.1.8 by FS; these are different numbering versions, not different assertions.",
       "sha256": "40b5f906d3238b80cde88e51f917e2c7a0f104a1d98bfb7366ac8dc4c35b79b2",
       "readSections": [
-        "§3.1, pp.31–36: discrete groups, strong continuity, Theorem3.7, Lemmas3.9–3.12 and proofs."
+        "§3.1, pp.31–36: discrete groups, strong continuity, Proposition3.7, Lemmas3.9–3.12 and proofs."
       ]
     },
     {
       "id": "DHKM-parameters",
       "title": "Moduli of Langlands parameters",
-      "authors": "Jean-François Dat; David Helm; Robert Kurinczuk; David Moss",
+      "authors": "Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss",
       "url": "https://arxiv.org/pdf/2009.06708",
       "accessed": "2026-10-07",
       "edition": "Public arXiv PDF; arithmetic Frobenius is inverse to the geometric Frobenius of FS.",
@@ -435,6 +464,16 @@
           "name": "LParameter.restrictWild",
           "role": "projection",
           "statement": "Restriction to wild inertia with the same action and coefficient convention."
+        },
+        {
+          "name": "LParameter.ext",
+          "role": "extensionality",
+          "statement": "Equality of the underlying condensed cocycle on every test object and section implies equality of parameters."
+        },
+        {
+          "name": "LParameter.gauge",
+          "role": "functoriality",
+          "statement": "The dual group acts by h·φ(w)=hφ(w)(w·h)⁻¹; this preserves the relatively discrete coefficient and continuous cocycle conditions, with identity and multiplication laws."
         }
       ],
       "uses": [
@@ -567,7 +606,8 @@
       "kind": "theorem",
       "statement": "For open normal P as above choose tame τ and geometric Frobenius σ. The dense group W⊂W_E/P generated by P_E/P, τ^{Z[1/p]} and σ is finitely presented, with σ⁻¹τσ=τ^q and the finite-wild conjugation relations. Restriction identifies condensed parameters trivial on P with crossed cocycles on W whose wild restriction is continuous (automatic for finite P_E/P).",
       "hypotheses": [
-        "Finite action factors through W_E/P; l≠p; use relatively discrete Z_l-algebras."
+        "Finite action factors through W_E/P; l≠p; use relatively discrete Z_l-algebras.",
+        "Convert the ClassFieldTheory supplier’s arithmetic Frobenius F to geometric σ=F⁻¹. The LP degree is the negative of the supplier’s arithmetic weilDegree; do not identify these degree maps."
       ],
       "proofSteps": [
         "Import the exact tame quotient and its topology. Matrices conjugate to their qth powers have roots-of-unity eigenvalues of order prime to p; a suitable power is unipotent. Extend its powers by the finite binomial formula, then the tame torsion part, giving existence and uniqueness of the extension."
@@ -636,7 +676,8 @@
       "kind": "definition",
       "statement": "In the complex classical-group setting of KSS, a wild inertial parameter is a homomorphism ρ:P_F→{}^LG which extends to an admissible Langlands parameter φ:W_F×SL₂(C)→{}^LG with the prescribed projection to W_F. It is taken up to conjugation by the complex dual group H.",
       "hypotheses": [
-        "The action on H is trivial on P_F, so this restriction is a homomorphism; admissibility and the classical-group L-group are supplied by RG2.5."
+        "The action on H is trivial on P_F, so this restriction is a homomorphism; admissibility and the classical-group L-group are supplied by RG2.5.",
+        "For the KSS §1.20–1.21 instance, G is quasi-split classical over a local field of odd residual characteristic, with complex coefficients; no wild local Langlands conjecture is asserted."
       ],
       "proofSteps": [
         "Restrict an admissible parameter to P_F; require extendibility as part of the definition, not a theorem that arbitrary wild homomorphisms extend."
@@ -658,7 +699,7 @@
         "LanglandsParameterStacks:LP0"
       ],
       "acceptance": [
-        "The trivial wild homomorphism is extendible by an unramified admissible parameter.",
+        "The wild parameter with trivial dual-group component, ρ(p)=(1,p), is extendible by the standard unramified admissible parameter.",
         "Restriction of hφh⁻¹ equals hρh⁻¹.",
         "Two admissible extensions with the same ρ define the same WildInertialParameter."
       ],
@@ -701,7 +742,7 @@
         {
           "name": "wild_inertial_trivial",
           "kind": "degenerate",
-          "statement": "The trivial wild homomorphism is extendible by an unramified admissible parameter."
+          "statement": "The wild parameter with trivial dual-group component, ρ(p)=(1,p), is extendible by the standard unramified admissible parameter."
         },
         {
           "name": "wild_inertial_conjugate",
@@ -745,7 +786,7 @@
         "LanglandsParameterStacks:LP0"
       ],
       "acceptance": [
-        "For ρ=1 the twisted centralizer is the whole L-group.",
+        "For ρ(p)=(1,p) and trivial P_F-action on H, the twisted centralizer is the whole L-group; this is not the constant homomorphism into a group projecting to P_F.",
         "Elements above w=1 are exactly the usual dual-group centralizer.",
         "For any extension φ, φ(w) lies in the twisted centralizer even when it does not commute with every ρ(p)."
       ],
@@ -786,7 +827,7 @@
         {
           "name": "wild_centralizer_trivial",
           "kind": "degenerate",
-          "statement": "For ρ=1 the twisted centralizer is the whole L-group."
+          "statement": "For ρ(p)=(1,p) and trivial P_F-action on H, the twisted centralizer is the whole L-group; this is not the constant homomorphism into a group projecting to P_F."
         },
         {
           "name": "wild_centralizer_kernel",
@@ -830,7 +871,7 @@
         "LanglandsParameterStacks:LP0"
       ],
       "acceptance": [
-        "For ρ=1 the numerator is Z(H)^{W_F}, so S_ρ is trivial.",
+        "For the trivial dual-group component ρ(p)=(1,p), the numerator is Z(H)^{W_F}, so S_ρ is trivial.",
         "The restricted representation is trivial on Z(H)^{W_F}.",
         "Conjugating φ and ρ transports the restricted representation by the induced S_ρ equivalence."
       ],
@@ -866,7 +907,7 @@
         {
           "name": "wild_enhancement_trivial_rho",
           "kind": "computation",
-          "statement": "For ρ=1 the numerator is Z(H)^{W_F}, so S_ρ is trivial."
+          "statement": "For the trivial dual-group component ρ(p)=(1,p), the numerator is Z(H)^{W_F}, so S_ρ is trivial."
         },
         {
           "name": "wild_enhancement_center_quotient",
@@ -887,7 +928,8 @@
       "kind": "definition",
       "statement": "An extended wild parameter is (ρ,χ_ρ), where ρ is wild inertial and χ_ρ is a representation of S_ρ obtained by restricting some irreducible enhancement χ_φ of an admissible extension φ. Wild(G) is the set of H-conjugacy classes of such pairs. Res:Lang(G)→Wild(G) sends (φ,χ_φ) to this restriction. χ_ρ is not required to be irreducible.",
       "hypotheses": [
-        "Complex classical-group setting, as in KSS; enhanced admissible parameters come from RG2.5. No bijection with endo-parameters is asserted."
+        "Complex classical-group setting, as in KSS; enhanced admissible parameters come from RG2.5. No bijection with endo-parameters is asserted.",
+        "Retain the quasi-split classical-group and odd residual-characteristic scope of KSS §1.20–1.21."
       ],
       "proofSteps": [
         "Use the centre restriction from the preceding construction.",
@@ -1121,7 +1163,8 @@
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
         "tauceti:TauCeti.ContinuousCohomology.continuousCohomologyFunctor",
         "mathlib:groupCohomology",
-        "mathlib:Module.Free"
+        "mathlib:Module.Free",
+        "EnhancedDerivedSheaves:E5:presentability"
       ],
       "sources": [
         {
@@ -1276,7 +1319,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.1, pp.281–282; Zhu §3.1, Theorem3.7",
+          "locator": "VIII.2.1, pp.281–282; Zhu §3.1, Proposition3.7",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1368,7 +1411,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.1, pp.281–282; Zhu Theorem3.7 and Lemma3.9, pp.32–35",
+          "locator": "VIII.2.1, pp.281–282; Zhu Proposition3.7 and Lemma3.9, pp.32–35",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1460,12 +1503,12 @@
       "parentStageId": "LanglandsParameterStacks:LP1",
       "title": "Weil–Deligne parameters",
       "kind": "definition",
-      "statement": "Over a Q_l-algebra Λ a Weil–Deligne parameter is (φ₀,N), where φ₀:W_E→H(Λ) is a crossed cocycle continuous for the discrete coefficient topology (trivial on an open inertia subgroup), N∈Lie(H)⊗Λ is nilpotent, and Ad(φ₀(w))(w·N)=q^{deg(w)}N in the FS degree normalisation.",
+      "statement": "Over a Q_l-algebra Λ a Weil–Deligne parameter is (φ₀,N), where φ₀:W_E→H(Λ) is a crossed cocycle continuous for the discrete coefficient topology (trivial on an open inertia subgroup), N∈Lie(H)⊗Λ is nilpotent, and Ad(φ₀(w))(w·N)=q^{−deg(w)}N, where deg sends the chosen geometric Frobenius σ to 1 and σ⁻¹τσ=τ^q. Thus arithmetic Frobenius σ⁻¹ scales N by q; see source issue E5 for the reciprocal convention in the printed formula.",
       "hypotheses": [
-        "Fix the tame coordinate and Frobenius normalisation; H has its standard finite action; nilpotence is in Lie(H), distinct from the dual nilpotent cone used for singularities."
+        "Fix the tame coordinate and geometric degree convention of LP0; H has its standard finite action; nilpotence is in Lie(H), distinct from the dual nilpotent cone used for singularities."
       ],
       "proofSteps": [
-        "Apply the discrete-cocycle definition and impose the Frobenius scaling equation.",
+        "Impose the discrete-cocycle condition and scaling equation. Conjugating exp(xN) using σ⁻¹τσ=τ^q gives Ad(φ₀(σ))(σ·N)=q⁻¹N, fixing the sign of the geometric degree.",
         "Gauge sends (φ₀,N) to (h·φ₀,Ad(h)N); the condition is stable under it."
       ],
       "prerequisites": [
@@ -1487,7 +1530,8 @@
       "acceptance": [
         "For unramified φ₀ and N=0 one obtains a Weil–Deligne parameter.",
         "For a torus in characteristic zero the nilpotent cone is zero, so every Weil–Deligne parameter has N=0.",
-        "Gauge of zeroMonodromy(φ₀) is zeroMonodromy(h·φ₀)."
+        "Gauge of zeroMonodromy(φ₀) is zeroMonodromy(h·φ₀).",
+        "In split GL₂ with q=3, N=E₁₂ and φ₀(σ)=diag(1/3,1), conjugation sends N to N/3. This is compatible with σ⁻¹τσ=τ³ and excludes the reciprocal scaling convention. The full inertia parameter is exp(xN)."
       ],
       "planet": {
         "name": "Weil–Deligne parameters"
@@ -1496,7 +1540,7 @@
         {
           "name": "WeilDeligneParameter",
           "role": "data",
-          "statement": "A discrete-inertia cocycle and nilpotent monodromy satisfying the scaling law."
+          "statement": "A discrete-inertia cocycle and nilpotent monodromy with scaling q^{−deg(w)} for geometric degree; the split GL_n prototype takes this norm as an explicit homomorphism."
         },
         {
           "name": "WeilDeligneParameter.cocycle",
@@ -1517,11 +1561,16 @@
           "name": "WeilDeligneParameter.zeroMonodromy",
           "role": "constructor",
           "statement": "Discrete-inertia cocycles give parameters with N=0."
+        },
+        {
+          "name": "WeilDeligneParameter.ext",
+          "role": "extensionality",
+          "statement": "Equality of the discrete cocycle and of monodromy implies equality of Weil–Deligne parameters; proof fields do not introduce extra data."
         }
       ],
       "uses": [
         {
-          "where": "LanglandsParameterStacks:LP1/weil-deligne-comparison",
+          "where": "LanglandsParameterStacks:LP2:integral-invariants/weil-deligne-and-the-monodromy-map",
           "how": "The characteristic-zero comparison target."
         }
       ],
@@ -1540,6 +1589,11 @@
           "name": "WD_gauge",
           "kind": "compatibility",
           "statement": "Gauge of zeroMonodromy(φ₀) is zeroMonodromy(h·φ₀)."
+        },
+        {
+          "name": "WD_geometric_frobenius",
+          "kind": "computation",
+          "statement": "In split GL₂ with q=3, N=E₁₂ and φ₀(σ)=diag(1/3,1), conjugation sends N to N/3. This is compatible with σ⁻¹τσ=τ³ and excludes the reciprocal scaling convention. The full inertia parameter is exp(xN)."
         }
       ]
     },
@@ -1554,7 +1608,7 @@
       ],
       "proofSteps": [
         "Use the requested quasi-unipotence theorem or the eigenvalue argument in VIII.1.3 to obtain a unipotent power. The finite logarithm and exponential are inverse on nilpotents.",
-        "Zhu3.10 constructs the continuous finite-inertia r and inverse exponential formula, with the chosen normal form for elements of the discrete group.",
+        "Zhu3.10 constructs the continuous finite-inertia r and inverse exponential formula, with the chosen normal form for elements of the discrete group. Convert any arithmetic Frobenius convention to geometric degree: Ad(φ₀(σ))(σ·N)=q⁻¹N for the LP0 relation.",
         "Check independence of the chosen sufficiently divisible m, then equivariance under gauge."
       ],
       "prerequisites": [
@@ -1800,7 +1854,8 @@
         "For H=1 the invariant algebra is the full coordinate algebra and the quotient map is identity.",
         "For a torus with trivial W-action the gauge action is trivial, so the coarse quotient equals the cocycle scheme.",
         "An invariant affine scalar function descends uniquely, and pulls back to itself.",
-        "For the SL₂ tuple (nontrivial upper unipotent), its coarse image equals the image of the identity tuple although the two tuples are not conjugate."
+        "For the SL₂ tuple (nontrivial upper unipotent), its coarse image equals the image of the identity tuple although the two tuples are not conjugate.",
+        "For the scaling action of the group scheme G_m/F₂ on A=F₂[x], coaction invariants are F₂, while the abstract group G_m(F₂) is trivial and its fixed algebra is all A. The invariant construction must use the coaction."
       ],
       "planet": {
         "name": "Coarse parameter quotients"
@@ -1809,7 +1864,7 @@
         {
           "name": "ParameterInvariantAlgebra",
           "role": "data",
-          "statement": "The algebraic H-invariant subalgebra of O(Z¹)."
+          "statement": "The equaliser of the algebraic coaction A→A⊗O(H) and a↦a⊗1, as a subalgebra of A=O(Z¹); taking fixed elements only under H(base) is insufficient."
         },
         {
           "name": "ParameterCoarseQuotient",
@@ -1835,6 +1890,21 @@
           "name": "ParameterInvariantAlgebra.flatBaseChange",
           "role": "compatibility",
           "statement": "For the DVR hypotheses of the next node, flat base change commutes with invariants."
+        },
+        {
+          "name": "ParameterInvariantAlgebra.mem_iff",
+          "role": "characterisation",
+          "statement": "An element belongs to the invariant subalgebra exactly when its coaction equals a↦a⊗1."
+        },
+        {
+          "name": "ParameterInvariantAlgebra.inclusion",
+          "role": "projection",
+          "statement": "The canonical algebra injection into the coordinate algebra is injective."
+        },
+        {
+          "name": "ParameterInvariantAlgebra.lift",
+          "role": "universal-property",
+          "statement": "An algebra map whose image equalises the coaction and a↦a⊗1 factors uniquely through the invariant subalgebra; composing with inclusion recovers the map."
         }
       ],
       "uses": [
@@ -1867,6 +1937,11 @@
           "name": "coarse_not_orbit_set",
           "kind": "non-example",
           "statement": "For the SL₂ tuple (nontrivial upper unipotent), its coarse image equals the image of the identity tuple although the two tuples are not conjugate."
+        },
+        {
+          "name": "coarse_scheme_invariants",
+          "kind": "non-example",
+          "statement": "For the scaling action of the group scheme G_m/F₂ on A=F₂[x], coaction invariants are F₂, while the abstract group G_m(F₂) is trivial and its fixed algebra is all A. The invariant construction must use the coaction."
         }
       ]
     },
@@ -2220,6 +2295,11 @@
           "name": "FreeCocycleIndex.sifted",
           "role": "structure",
           "statement": "The index is sifted, with the zero-generator object providing nonemptiness."
+        },
+        {
+          "name": "FreeCocycleIndex.ofTuple",
+          "role": "constructor",
+          "statement": "A finite tuple in Γ extends uniquely to a homomorphism F_n→Γ and hence gives an indexing object; evaluation on free generators recovers the tuple."
         }
       ],
       "uses": [
@@ -2457,7 +2537,7 @@
       "parentStageId": "LanglandsParameterStacks:LP2:excursion-presentation",
       "title": "Categorical Hecke data",
       "kind": "definition",
-      "statement": "For a Z_l-linear category C, a categorical Hecke datum assigns every finite I a Rep(Q^I)-linear monoidal functor Rep((H⋊Q)^I)→End(C)^{BΓ^I}, natural coherently in finite-set maps, where Γ→Q is fixed. The unit and diagonal/fusion identifications are part of the data. In a stable category the functors are exact.",
+      "statement": "For a Z_l-linear category C, a categorical Hecke datum assigns every finite I a Rep(Q^I)-linear monoidal functor Rep((H⋊Q)^I)→End(C)^{BΓ^I}, natural coherently in finite-set maps, where Γ→Q is fixed. The unit and diagonal/fusion identifications are part of the data. In a stable category the functors are exact. For a stable infinity-category use coherent exact functors and the operator centre π₀End(id_C); the ordinary categorical centre is only its ordinary shadow.",
       "hypotheses": [
         "Use the abstract category C, not Bun_G. Stable enhancements, endofunctors and equivariant objects are supplied by E5."
       ],
@@ -2492,7 +2572,7 @@
         {
           "name": "CategoricalHeckeDatum",
           "role": "data",
-          "statement": "Finite-set monoidal representation functors with Γ^I-equivariance and fusion coherence."
+          "statement": "Coherent finite-set monoidal representation functors with Γ^I-equivariance and fusion; exact in the stable infinity-category version, whose operator centre is π₀End(id_C)."
         },
         {
           "name": "CategoricalHeckeDatum.unit",
@@ -2548,7 +2628,7 @@
       "parentStageId": "LanglandsParameterStacks:LP2:excursion-presentation",
       "title": "Excursion data",
       "kind": "definition",
-      "statement": "An excursion datum is (I,V,α,β,(γ_i)), with I finite, V a finite-projective representation of (H⋊Q)^I, α:1→V and β:V→1 invariant under diagonal H, and γ_i∈Γ. For a categorical Hecke datum define S_D=T_β∘(γ_i)∘T_α∈End(id_C).",
+      "statement": "An excursion datum is (I,V,α,β,(γ_i)), with I finite, V a finite-projective representation of (H⋊Q)^I, α:1→V and β:V→1 invariant under diagonal H, and γ_i∈Γ. For a categorical Hecke datum define S_D=T_β∘(γ_i)∘T_αas a natural endomorphism of id_C, giving a class in π₀End(id_C) in the stable infinity-category setting.",
       "hypotheses": [
         "Integral finite-projective representations; the Γ^I action is part of the categorical datum."
       ],
@@ -2590,7 +2670,7 @@
         {
           "name": "ExcursionDatum.operator",
           "role": "constructor",
-          "statement": "The natural endomorphism S_D."
+          "statement": "The natural endomorphism S_D, with its class in π₀End(id_C) for a stable infinity-category."
         },
         {
           "name": "ExcursionDatum.reindex",
@@ -2726,9 +2806,9 @@
       "parentStageId": "LanglandsParameterStacks:LP2:excursion-presentation",
       "title": "Abstract excursion centre maps",
       "kind": "theorem",
-      "statement": "Every categorical Hecke datum for Γ over Q induces a natural Z_l-algebra map Exc(Γ,H)→End(id_C), sending an invariant function evaluated at a Γ-tuple to its excursion operator. This is group-agnostic and has no π₁ good-prime condition. The Bun_G and Bernstein-centre comparisons are consumer applications.",
+      "statement": "Every categorical Hecke datum for Γ over Q induces a natural Z_l-algebra map Exc(Γ,H)→π₀End(id_C), sending an invariant function evaluated at a Γ-tuple to its excursion operator. This is group-agnostic and has no π₁ good-prime condition. The Bun_G and Bernstein-centre comparisons are consumer applications.",
       "hypotheses": [
-        "Use coherent finite-set naturality and monoidal representation functors; exactness when C is stable."
+        "C is a Z_l-linear stable infinity-category and the finite-set monoidal functors are coherent and exact. The ordinary-category version targets End(id_C); the pinned CatCenter alone does not supply the enhanced target."
       ],
       "proofSteps": [
         "Use the matrix-coefficient presentation for operator independence. External tensors and the fold I⊔I→I prove multiplicativity, the trivial representation proves the unit.",
@@ -2767,7 +2847,8 @@
       "kind": "definition",
       "statement": "For a split reductive group H/Z, a group Γ and commutative ring A, an H-pseudocharacter is a family of ring maps Θ_n:Z[H^n]^H→Map(Γ^n,A), n≥1, compatible with reindexing and multiplication of the last two variables. It is continuous if all values are continuous functions for given topologies on Γ and A. Over a flat Z-algebra the source may equivalently be base changed; for nonflat coefficients do not replace integral invariants by new fibre invariants. The twisted finite-Q form uses the universal excursion relations.",
       "hypotheses": [
-        "H split over Z; Γ arbitrary for the algebraic definition; Γ profinite in BHKT4.7. The full ordered-word relations follow as in VIII.3.7."
+        "H split over Z; Γ arbitrary for the algebraic definition; Γ profinite in BHKT4.7. The full ordered-word relations follow as in VIII.3.7.",
+        "Import the general H⋊Q pseudocharacter carrier from IHG.0/reductive-pseudocharacter and impose the given Γ→Q projection; this local adapter must not be a second general owner. G6 records the API/reader alignment still needed."
       ],
       "proofSteps": [
         "Define the integral invariant ring maps and their two relations, using integral base-change only when flat.",
@@ -2776,7 +2857,8 @@
       "prerequisites": [
         "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
         "ReductiveGroupsPartII:RG2.5",
-        "mathlib:RingHom"
+        "mathlib:RingHom",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/reductive-pseudocharacter"
       ],
       "sources": [
         {
@@ -2880,7 +2962,8 @@
       "prerequisites": [
         "LanglandsParameterStacks:LP2:excursion-presentation/closed-orbit-criterion",
         "LanglandsParameterStacks:LP2:semisimple-characters/reductive-pseudocharacters",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction"
       ],
       "sources": [
         {
@@ -2902,19 +2985,21 @@
       "parentStageId": "LanglandsParameterStacks:LP2:semisimple-characters",
       "title": "Finite anchors in arbitrary characteristic",
       "kind": "theorem",
-      "statement": "For a compatible pseudocharacter over algebraically closed k, choose an anchor minimising the dimension of a containing parabolic, then centralizer dimension and component count. Its closed-orbit representative uniquely determines each appended element by its prescribed invariant values and unchanged centralizer. The resulting representation is completely reducible. This uses minimal parabolics and Levi irreducibility, rather than identifying complete reducibility with reductivity of the image in characteristic p.",
+      "statement": "For a compatible pseudocharacter over algebraically closed k, let d(γ̄) be the dimension of a minimal parabolic containing a representative of the prescribed closed tuple orbit. Choose an anchor maximising d(γ̄) over all tuples, then minimising centralizer dimension and component count. Its closed-orbit representative uniquely determines each appended element by its prescribed invariant values and unchanged centralizer. The resulting representation is completely reducible. This uses minimal parabolics and Levi irreducibility, rather than identifying complete reducibility with reductivity of the image in characteristic p.",
       "hypotheses": [
         "BHKT4.5 for connected H; the finite-Q twisted form uses the RG-requested nonconnected orbit/minimal-parabolic/finite-anchor extension. No very-good characteristic or good π₁ prime is required."
       ],
       "proofSteps": [
-        "The invariant quotient supplies the unique closed orbit for each tuple. Minimising the parabolic dimension stabilises its Levi irreducibility by BHKT3.7.",
+        "Use the unique closed orbit of each tuple. BHKT4.5 defines N=sup d(γ̄) and takes d(δ̄)=N; BHKT3.7 makes d well defined and shows that an appended tuple cannot have smaller minimal-parabolic dimension. This maximisation stabilises the containing Levi before centralizers are minimised.",
         "The centralizer dimension and component count then stabilise the centralizer; an appended coordinate is unique.",
         "Use augmented pairs and the pseudocharacter product relation for the group law; finite parabolic/Levi detection gives uniqueness among completely reducible representations."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP2:excursion-presentation/closed-orbit-criterion",
         "LanglandsParameterStacks:LP2:semisimple-characters/reductive-pseudocharacters",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-stable-tuple",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction"
       ],
       "sources": [
         {
@@ -2928,7 +3013,8 @@
         "LanglandsParameterStacks:LP2:semisimple-characters"
       ],
       "acceptance": [
-        "In positive characteristic a subgroup may be reductive without being G-completely reducible; the proof cannot replace the latter by the former."
+        "In positive characteristic a subgroup may be reductive without being G-completely reducible; the proof cannot replace the latter by the former.",
+        "For SL₂, the trivial tuple has minimal containing parabolic dimension 2, while an irreducible generating tuple has dimension 3. The anchor criterion must prefer the latter, not the trivial tuple."
       ]
     },
     {
@@ -2941,15 +3027,17 @@
         "Use relative H-conjugation and the prescribed Q-projection. In characteristic l use the complete-reducibility anchor; in characteristic zero use the reductive anchor."
       ],
       "proofSteps": [
-        "Construct the representation with either finite-anchor theorem, checking the Q projection by O(Q^n)-linearity.",
-        "Use appended pairs to verify the group law, obtaining a crossed cocycle by the section equivalence.",
-        "All finite invariant evaluations agree with Θ; uniqueness follows from the stabilised finite anchor and complete reducibility."
+        "Import the existing IHG.1/reductive-reconstruction theorem for the generalized reductive group H⋊Q, with H=its identity component, over algebraically closed coefficients of either characteristic.",
+        "Extend invariant functions from the prescribed Q-component to (H⋊Q)^n using the finite étale component idempotents. Their pseudocharacter evaluations fix projection Γ→Q; the reconstructed homomorphism therefore lifts the given projection, and H-conjugacy is the required gauge relation.",
+        "Conversely evaluate invariants on such a lift. Uniqueness in the imported theorem gives injectivity. The anchor arguments retained in adjacent nodes are source evidence pending transfer/alignment with the single IHG owner (G6), not an independently owned second reconstruction proof.",
+        "Apply the separately checked continuous/condensed coefficient clauses for the local Weil application; do not infer continuity merely from the abstract reconstruction statement."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor",
         "LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor",
         "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
-        "LanglandsParameterStacks:LP0/functoriality-of-cocycles"
+        "LanglandsParameterStacks:LP0/functoriality-of-cocycles",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction"
       ],
       "sources": [
         {
@@ -2988,7 +3076,8 @@
         "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor",
         "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
         "ReductiveGroupsPartII:RG2.5",
-        "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters"
+        "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-valued-continuity"
       ],
       "sources": [
         {
@@ -3023,7 +3112,8 @@
         "LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor",
         "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
         "ReductiveGroupsPartII:RG2.5",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-discrete-continuity"
       ],
       "sources": [
         {
@@ -3050,9 +3140,9 @@
         "Characteristic-zero continuity and discrete characteristic-l continuity are supplied separately. Unconditional coarse quotients are in excursion-presentation; no LP3 or integral good-prime theorem is a prerequisite."
       ],
       "proofSteps": [
-        "Closed-orbit classification gives (i)↔(ii) piecewise, and the universal homeomorphism identifies coarse and excursion geometric points.",
-        "Group-agnostic reconstruction gives the algebraic (i)↔(iii).",
-        "Apply the appropriate finite-anchor continuity theorem to inertia and hence W_E; the finite-wild kernel places the parameter in a piece."
+        "Import general reconstruction from IHG.1/reductive-reconstruction and specialise to H⋊Q with its prescribed W_E→Q projection using the component-idempotent construction in the preceding node.",
+        "Apply characteristic-zero relatively discrete continuity or discrete characteristic-l continuity as appropriate, and the LP0 dense Weil extension. These are additional topological assertions, not part of the abstract algebraic bijection.",
+        "The universal-homeomorphism comparison identifies coarse and excursion geometric points at all primes. No good-π₁ assumption or nonflat invariant-base-change isomorphism is used."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP2:excursion-presentation/parameter-closed-orbits",
@@ -3060,7 +3150,8 @@
         "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
         "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-continuity",
         "LanglandsParameterStacks:LP2:semisimple-characters/discrete-coefficient-continuity",
-        "LanglandsParameterStacks:LP0/finite-wild-ramification"
+        "LanglandsParameterStacks:LP0/finite-wild-ramification",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction"
       ],
       "sources": [
         {
@@ -3087,7 +3178,8 @@
       "kind": "definition",
       "statement": "For a group Γ and commutative ring A, an r-dimensional trace pseudocharacter is τ:Γ→A with τ(1)=r, τ(xy)=τ(yx), and the Frobenius alternating identity: for every (r+1)-tuple γ, sum over σ∈S_{r+1} of sign(σ) times the product over cycles (i₁…i_d) of τ(γ_{i₁}⋯γ_{i_d}) is zero. Cyclic invariance makes the cycle term independent of its starting point.",
       "hypotheses": [
-        "This definition has no reconstruction claim in small characteristic. The classification comparison below is restricted to algebraically closed characteristic-zero fields."
+        "This definition has no reconstruction claim in small characteristic. The classification comparison below is restricted to algebraically closed characteristic-zero fields.",
+        "This is the group-algebra adapter of the existing IHG.0/pseudocharacter definition: extend τ linearly to L[Γ], with fixed one-cycles included. Do not define a second owner of trace pseudocharacters."
       ],
       "proofSteps": [
         "Use permutations and their cycle decomposition to define the alternating polynomial, independent of cycle ordering and starting point.",
@@ -3096,7 +3188,8 @@
       "prerequisites": [
         "mathlib:Representation",
         "ReductiveGroupsPartII:RG2.5",
-        "mathlib:Equiv.Perm.cycleFactorsFinset"
+        "mathlib:Equiv.Perm.cycleFactorsFinset",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/pseudocharacter"
       ],
       "sources": [
         {
@@ -3179,14 +3272,16 @@
         "Characteristic zero is essential for this stated trace classification. Higher invariant Θ data, not traces alone, give the arbitrary-characteristic reductive theorem."
       ],
       "proofSteps": [
-        "Apply the RG-requested Procesi invariant generation and the alternating identity to construct the compatible Θ family.",
-        "Use the group-agnostic reconstruction theorem for GL_r.",
-        "Trace word invariants separate its semisimple conjugacy classes; use Newton identities to recover determinant and inverse determinant from traces of powers and inverse words."
+        "Extend the group trace linearly to L[Γ] and import IHG.0/determinant-trace-bijective-rational, then IHG.1/algebraically-closed-reconstruction for the semisimple GL_r representation.",
+        "The connected GL_r instance of IHG reductive reconstruction matches the full invariant pseudocharacter. Compare with the excursion evaluation maps; the cycle-trace identity includes fixed one-cycles and inverse-determinant functions.",
+        "This is a characteristic-zero group/excursion comparison using the existing IHG owners, not a second general Taylor/Procesi reconstruction theorem. G6 records the remaining API/reader reconciliation."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-pseudocharacters",
         "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction"
       ],
       "sources": [
         {
@@ -3208,9 +3303,9 @@
       "parentStageId": "LanglandsParameterStacks:LP2:semisimple-characters",
       "title": "Parameters of Schur objects",
       "kind": "theorem",
-      "statement": "If L is algebraically closed and a categorical Hecke datum acts on C, every object X with End_C(X)=L receives a unique semisimple cocycle Γ→H(L), up to H(L)-conjugation, whose invariant evaluations equal the excursion action on X.",
+      "statement": "If L is algebraically closed and a categorical Hecke datum acts on C, every object X with π₀End_C(X)=L receives a unique semisimple cocycle Γ→H(L), up to H(L)-conjugation, whose invariant evaluations equal the excursion action on X.",
       "hypotheses": [
-        "End_C(X)=L is given as an L-algebra identification. This is for the discrete Γ datum; continuity requires the separately checked continuous consumer data."
+        "π₀End_C(X)=L is given as an L-algebra identification. This is for the discrete Γ datum; continuity requires the separately checked continuous consumer data. For an ordinary category this means its ordinary endomorphism algebra."
       ],
       "proofSteps": [
         "Evaluate the abstract centre map on X and compose with End_C(X)≃L.",
@@ -3252,7 +3347,8 @@
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:abstract",
         "EnhancedDerivedSheaves:E5:presentability",
-        "mathlib:CategoryTheory.Triangulated.TStructure"
+        "mathlib:CategoryTheory.Triangulated.TStructure",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3350,7 +3446,8 @@
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP3/good-filtration-t-structure",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3384,7 +3481,8 @@
       "prerequisites": [
         "LanglandsParameterStacks:LP1/finite-presentation-over-Z-invert-p",
         "LanglandsParameterStacks:LP3/good-filtration-t-structure",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3520,7 +3618,8 @@
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:presentability",
         "SchemeKTheoryOperations:S.1",
-        "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality"
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3555,7 +3654,8 @@
         "LanglandsParameterStacks:LP3/good-filtration-t-structure",
         "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
         "LanglandsParameterStacks:LP3/bar-criterion",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3591,7 +3691,8 @@
         "LanglandsParameterStacks:LP3/bar-criterion",
         "ReductiveGroupsPartII:RG2.5",
         "SchemeKTheoryOperations:S.1",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3628,7 +3729,8 @@
       "prerequisites": [
         "LanglandsParameterStacks:LP3/adjoint-unit-generation",
         "LanglandsParameterStacks:LP1/finite-presentation-over-Z-invert-p",
-        "SchemeKTheoryOperations:S.1"
+        "SchemeKTheoryOperations:S.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3655,9 +3757,10 @@
         "Tensor product is in IndPerf(BG), and X may be derived. The statement does not assume the derived fibre is already classical."
       ],
       "proofSteps": [
-        "Adjoint-unit generation makes the tensor calculation finitary on bounded representations and agrees with the geometric derived fibre.",
-        "Connectivity follows from the tensor formula. Apply the bar criterion to perfect complexes over A.",
-        "Control the bar-cone resolution in the good-filtration t-structure, using finite coherent good-filtration dimension and separatedness, as in VIII.5.13."
+        "Adjoint-unit generation identifies the tensor in IndPerf(BG) with the geometric derived fibre. The formula implies connectivity when Ã is connective.",
+        "For M∈Perf(X/G), express the cone of the relative bar comparison as a sequential colimit of M⊗_A g* K_n⊗_A M*, with K_n coherent on the derived unit self-intersection */G×_G */G. Their images vanish after forgetting the self-intersection action because the bar construction then has extra degeneracies.",
+        "Give IndCoh of this self-intersection the t-structure generated by the diagonal image of good-filtration-connective objects, and pass to its separated quotient. Finite good-filtration dimension bounds the t-amplitude of K↦M⊗_A g*K⊗_A M*, so it descends to that quotient.",
+        "Prove the forgetful functor on the separated quotient conservative using central-cover reduction and the Borel-invariant Cartier flag from the adjoint-unit proof: its successive derived intersections admit line-bundle resolutions. The colimit of K_n is therefore zero. The bar criterion gives Perf(X/G)=Perf^ind. These are the VIII.5.13 arguments, not an assumption that the geometric fibre is classical."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP3/adjoint-unit-generation",
@@ -3665,7 +3768,8 @@
         "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:animation",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3693,7 +3797,7 @@
       ],
       "proofSteps": [
         "Use the free cocycle algebra good filtration and twisted free generation for the source.",
-        "Apply the derived-unit-fibre theorem to the relation word. For tame W include the prime-to-l tame/wild gerbe passage before identifying the desired finite-wild piece."
+        "Apply the derived-unit-fibre theorem to the surface relation word or tame relation σ⁻¹τσ τ^{-q}. The tame dense group is Z[1/p]⋊Z with the prescribed finite quotient action. The later wild-gerbe elimination theorem handles the full finite-wild piece; no wild passage is needed for this tame unit-fibre argument."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP3/free-cocycle-good-filtration",
@@ -3727,14 +3831,15 @@
         "No solvability assumption for this component theorem; all group orders are prime to l as specified."
       ],
       "proofSteps": [
-        "Embed G/H as the closed orbit of the fixed action data in a product of twisted copies of G; its coordinate algebra has a good G°-filtration.",
-        "Use the requested finite good-filtration-dimension theorem to bound H-cohomology via induction.",
-        "If π₀H had l-torsion, restrict to a subgroup mapping onto C_l to obtain nonzero cohomology in arbitrarily high degrees, contradicting the bound."
+        "Reduce to connected G. Embed G/H as the closed orbit of the identity in the product of Θ-twisted copies of G indexed by nonidentity Θ∈P. The AMBIENT coordinate algebra has a good G-filtration; no good filtration of its quotient O(G/H) is assumed.",
+        "Apply TvdK finite good-filtration dimension to equivariant coherent modules on that ambient affine scheme. If π₀H has l-torsion, choose H′ containing H° with π₀H′=C_l. The finite cover G/H′→G/H makes O(G/H′) such a coherent module, so its rational G-cohomology vanishes in sufficiently high degrees.",
+        "Shapiro and reductivity of H° identify RΓ(G,O(G/H′)) with RΓ(H′,L) and then RΓ(C_l,L). The latter is nonzero in arbitrarily high degrees, a contradiction. Return to disconnected G using the prime-to-l component hypothesis."
       ],
       "prerequisites": [
         "ReductiveGroupsPartII:RG2.5",
         "LanglandsParameterStacks:LP3/free-cocycle-good-filtration",
-        "LanglandsParameterStacks:LP3/good-filtration-t-structure"
+        "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3774,7 +3879,8 @@
         "EnhancedDerivedSheaves:E5:presentability",
         "SchemeAndStackFoundations:SF.4",
         "ReductiveGroupsPartII:RG2.5",
-        "tauceti:TauCeti.fixedSubgroup"
+        "tauceti:TauCeti.fixedSubgroup",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3809,7 +3915,8 @@
         "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
         "LanglandsParameterStacks:LP3/cyclic-fixed-locus-resolution",
         "ReductiveGroupsPartII:RG2.5",
-        "LanglandsParameterStacks:LP3/good-filtration-t-structure"
+        "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3839,15 +3946,17 @@
         "Induction here is algebraic rational induction, not compact induction of locally profinite groups. The finite component groups are prime to l."
       ],
       "proofSteps": [
-        "Combine Donkin restriction with the counit and its good kernel.",
-        "Use the highest-weight criterion and the separated bar resolution to relate the converse, the good kernels and generation.",
-        "Pass from identity groups to full groups by their finite prime-to-l component representations, keeping central-cover descent as in VIII.5.17."
+        "Follow VIII.5.17: relate induction detection, good counit kernels and restriction generation by the augmented induction–restriction bar resolution. Donkin restriction and good-filtration separatedness make the implications valid; generation is an equivalent auxiliary condition in this proof, not an imported LP3/fixed-restriction-generation theorem.",
+        "Reduce by induction on solvable P to prime cyclic P. For connected simply connected G, the explicit highest-weight surjections constructed in VIII.5.15 prove restriction generation; this establishes the equivalent detection and kernel conditions without a dependency cycle.",
+        "For a central simply connected cover, take the summand with trivial kernel character to descend the good counit-kernel condition. For general G, use its derived group and the linearly reductive quotient (torus identity and prime-to-l components); split the relevant induced representations as retracts. This preserves the actual centre, including non-smooth diagonalizable central kernels, rather than assuming an etale cover.",
+        "The identity-group and full-group cases then follow by the prime-to-l component splitting, as in VIII.5.17. The next node uses these established good kernels to build its separated resolution."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
         "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
         "ReductiveGroupsPartII:RG2.5",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3883,7 +3992,8 @@
         "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:presentability",
-        "SchemeKTheoryOperations:S.1"
+        "SchemeKTheoryOperations:S.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3916,7 +4026,8 @@
       "prerequisites": [
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:abstract",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -3972,12 +4083,12 @@
       "parentStageId": "LanglandsParameterStacks:LP3",
       "title": "Sifted parameter mapping approximations",
       "kind": "construction",
-      "statement": "For a gerbe 𝒢 over BΓ with fibres a finite union of BG for groups with reductive identity, define Perf(Map^Σ_{BΓ}(S,𝒢)) as the sifted-colimit-preserving left Kan extension of Perf(Map_{BΓ}(S,𝒢)) from finite Γ-torsors to anima over BΓ. This denotes a category, not an assertion that a new representing stack exists. Use its Ind-completion and canonical comparison to actual mapping stacks. The same definition over BQ and a coefficient DVR supplies the integral categorical universal property.",
+      "statement": "For a gerbe 𝒢 over BΓ with fibres a finite union of BG for groups with reductive identity, define Perf(Map^Σ_{BΓ}(S,𝒢)) as the sifted-colimit-preserving left Kan extension of Perf(Map_{BΓ}(S,𝒢)) from finite sets equipped with Γ-torsors (equivalently finite discrete anima over BΓ). The base set is finite; a principal Γ-torsor itself may be infinite when Γ is infinite to anima over BΓ. This denotes a category, not an assertion that a new representing stack exists. Use its Ind-completion and canonical comparison to actual mapping stacks. The same definition over BQ and a coefficient DVR supplies the integral categorical universal property.",
       "hypotheses": [
         "Generic left Kan extension, anima, linear stable categories and compact objects are imported from E5. Only parameter/gerbe instances are planned here."
       ],
       "proofSteps": [
-        "Restrict actual Perf mapping categories to finite torsors and left Kan extend in the specified linear category universe.",
+        "Restrict actual Perf mapping categories to finite sets equipped with Γ-torsors and left Kan extend in the specified linear category universe.",
         "Use the universal property to obtain the comparison and its naturality. Ind extends the compact linear-category diagram."
       ],
       "prerequisites": [
@@ -3999,8 +4110,8 @@
         "LanglandsParameterStacks:LP3"
       ],
       "acceptance": [
-        "On the base one-point torsor the category equals Perf of the gerbe fibre.",
-        "A finite coproduct of torsors maps to the tensor product of their linear Perf categories.",
+        "On a one-point base equipped with its Γ-torsor (whose total set can be infinite), the category equals Perf of the gerbe fibre.",
+        "A finite disjoint union of bases equipped with Γ-torsors maps to the tensor product of their linear Perf categories.",
         "Over F_l-bar with G=PGL_l and Γ=Z, the free-group approximation has induced-perfect image and excludes the unit skyscraper in Perf(G/G); it is not the actual mapping category."
       ],
       "api": [
@@ -4017,12 +4128,12 @@
         {
           "name": "ParameterMappingApproximation.finiteTorsor",
           "role": "compatibility",
-          "statement": "It agrees with the defining Perf category on finite torsors."
+          "statement": "It agrees with the defining Perf category on finite sets with Γ-torsors."
         },
         {
           "name": "ParameterMappingApproximation.leftKan",
           "role": "universal-property",
-          "statement": "Restriction to finite torsors classifies sifted-colimit-preserving extensions."
+          "statement": "Restriction to finite sets with Γ-torsors classifies sifted-colimit-preserving extensions."
         },
         {
           "name": "ParameterMappingApproximation.ind",
@@ -4044,12 +4155,12 @@
         {
           "name": "approx_point",
           "kind": "degenerate",
-          "statement": "On the base one-point torsor the category equals Perf of the gerbe fibre."
+          "statement": "On a one-point base equipped with its Γ-torsor (whose total set can be infinite), the category equals Perf of the gerbe fibre."
         },
         {
           "name": "approx_coproduct",
           "kind": "characterisation",
-          "statement": "A finite coproduct of torsors maps to the tensor product of their linear Perf categories."
+          "statement": "A finite disjoint union of bases equipped with Γ-torsors maps to the tensor product of their linear Perf categories."
         },
         {
           "name": "approx_bad_prime",
@@ -4215,8 +4326,8 @@
         "O the excellent coefficient DVR; finiteness, normality, closedness and orbit injectivity are explicit. The normalisation/inertia criterion is an SF.4 extension request, not implicitly available from field inertia subgroups."
       ],
       "proofSteps": [
-        "Use a Galois closure of the finite function-field extension and normalisations, with the SF.4 étaleness criterion for intermediate integral closures.",
-        "Translate the finite inertia inclusion through the closed orbit and its injectivity, showing the quotient normalisation is unramified at the quotient point.",
+        "Take a finite Galois closure L/K of the function-field extension E/K for Y→X. For the quotient put K₀=Frac(O[X]^G), L₀=the relative algebraic closure of K₀ in L and E₀=L₀∩E=Frac(O[Y]^G). Connected G makes K₀ relatively algebraically closed in K; L₀/K₀ is finite Galois with the image of Gal(L/K) as group. Normalise the quotient in L₀ and E₀, not in the transcendental extension L/K₀. Source issue E9 records this repair.",
+        "The map from the full normalisation to the L₀-normalisation sends stabilizers into the image group. Closed residual orbits and orbit injectivity give Stab(z₀)⊂image Gal(L/E), using the same orbit argument as BHKT3.11. Apply SF.4’s finite-Galois intermediate integral-closure criterion to L₀/K₀ to get étaleness at the quotient point.",
         "Use the invariant-neighbourhood property to localise and conclude étaleness as in BHKT3.11."
       ],
       "prerequisites": [
@@ -4250,7 +4361,7 @@
       ],
       "proofSteps": [
         "Choose an O-smooth transversal by splitting the tangent space of the orbit, using the trivial stabilizer.",
-        "The action G×S→X is étale near the point. Use Zariski main/normalisation and quotient étale descent to compare S with X//G.",
+        "The action G×S→X is étale near (1,x). Use Zariski main/normalisation and the repaired quotient étale descent to compare S with X//G at π(i(1,x)); the published point-name misprints are recorded in E10.",
         "Invariant principal neighbourhoods and formal étaleness identify the completed functors, yielding free formal action and the quotient equivalence."
       ],
       "prerequisites": [
@@ -4292,7 +4403,8 @@
       ],
       "prerequisites": [
         "ReductiveGroupsPartII:RG2.5",
-        "mathlib:RootPairing"
+        "mathlib:RootPairing",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4367,7 +4479,8 @@
         "LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit",
         "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
         "EnhancedDerivedSheaves:E5:presentability",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4408,7 +4521,8 @@
         "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:presentability",
-        "mathlib:Module.Flat"
+        "mathlib:Module.Flat",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4523,6 +4637,11 @@
           "name": "UniversalRepresentationBundle.act",
           "role": "functoriality",
           "statement": "Tensoring defines the exact Perf action, compatible with unit and composition."
+        },
+        {
+          "name": "UniversalRepresentationBundle.baseChange",
+          "role": "compatibility",
+          "statement": "Pullback along coefficient change carries the bundle associated to V to the bundle associated to its scalar extension, compatibly with W-action, tensor and unit; no invariant-ring base-change isomorphism is assumed."
         }
       ],
       "uses": [
@@ -4573,7 +4692,8 @@
         "LanglandsParameterStacks:LP4/rep-action-on-perf",
         "SchemeKTheoryOperations:S.1",
         "EnhancedDerivedSheaves:E5:presentability",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4649,7 +4769,8 @@
         "EnhancedDerivedSheaves:E5:presentability",
         "SchemeAndStackFoundations:SF.1",
         "SchemeKTheoryOperations:S.1",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4677,7 +4798,7 @@
       "kind": "theorem",
       "statement": "For any anima S→BQ, reductive H over characteristic-zero L with finite Q-action, and small idempotent-complete stable L-linear C, the anima of L-linear Perf(Map_{BQ}(S,B(H⋊Q)))-actions on C is equivalent to the anima of finite-set-functorial exact Rep_L(Q^I)-linear monoidal functors Rep_L((H⋊Q)^I)→End_L(C)^{S^I}. The comparison is given by universal representation bundles.",
       "hypotheses": [
-        "No good π₁ prime condition over L. This is the generic X.1.1 theorem retained in LP4 by the issue’s more specific ownership instruction; ES2 applies it to Bun_G."
+        "No good π₁ prime condition over L. This is the generic X.1.1 theorem. Its assignment to LP4 in this packet conflicts with the primary confirmed verifier of finding6; ownership is unresolved as recorded in G5."
       ],
       "proofSteps": [
         "Both data functors in S take sifted colimits to limits: for actions use the rational all-colimits theorem; for finite-set data use preservation of sifted colimits by finite powers.",
@@ -4689,7 +4810,8 @@
         "LanglandsParameterStacks:LP4/rep-action-on-perf",
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:abstract",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4719,8 +4841,8 @@
         "This is not the naive actual integral mapping-stack universal property; equality with actual Weil Perf is a separate theorem."
       ],
       "proofSteps": [
-        "Use the definition as left Kan extension from finite Q-torsors, so both sides take sifted colimits to limits.",
-        "On finite torsors use the finite-set Yoneda/highest-weight proof of X.1.1 over R and exact representation-to-Perf extension.",
+        "Use the definition as left Kan extension from finite sets equipped with Q-torsors, so both sides take sifted colimits to limits.",
+        "On finite bases with Q-torsors use the finite-set Yoneda/highest-weight proof of X.1.1 over R and exact representation-to-Perf extension.",
         "The coherent natural equivalence extends by animation."
       ],
       "prerequisites": [
@@ -4728,7 +4850,8 @@
         "LanglandsParameterStacks:LP4/rep-action-on-perf",
         "ReductiveGroupsPartII:RG2.5",
         "EnhancedDerivedSheaves:E5:abstract",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4759,13 +4882,14 @@
         "The functor is the approximation; split reductive H. Sifted-colimit preservation is built into its definition, whereas coproduct tensor compatibility is a theorem."
       ],
       "proofSteps": [
-        "For finite Q-torsors trivialise the torsors; finite disjoint unions give Perf(BH^{S₁})⊗_R Perf(BH^{S₂})≃Perf(BH^{S₁⊔S₂}) by highest-weight theory.",
+        "For finite sets equipped with Q-torsors trivialise the torsors; finite disjoint unions give Perf(BH^{S₁})⊗_R Perf(BH^{S₂})≃Perf(BH^{S₁⊔S₂}) by highest-weight theory.",
         "Extend this compatibility along animation and combine with the defining sifted-colimit property."
       ],
       "prerequisites": [
         "LanglandsParameterStacks:LP3/mapping-approximation",
         "ReductiveGroupsPartII:RG2.5",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -4801,7 +4925,8 @@
         "LanglandsParameterStacks:LP3/induced-perfect-complexes",
         "EnhancedDerivedSheaves:E5:presentability",
         "ReductiveGroupsPartII:RG2.5",
-        "SchemeKTheoryOperations:S.1"
+        "SchemeKTheoryOperations:S.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "sources": [
         {
@@ -5019,7 +5144,8 @@
       "status": "planned",
       "note": "Every stage target is a node, baseline citation or explicit requested/gap-ended dependency at target granularity. This is a finished planning pass, not a closed formalisation.",
       "remaining": [
-        "Verify the finite-Q arbitrary-characteristic anchor extension G4 and supply the algebraic invariant-ring/continuous coordinate interface; elaborate the full regular-function signatures."
+        "Verify the finite-Q arbitrary-characteristic anchor extension G4 and supply the algebraic invariant-ring/continuous coordinate interface; elaborate the full regular-function signatures.",
+        "Align the generic pseudocharacter and reconstruction inputs with the existing IHG.0/IHG.1 nodes and accepted BHKT fix; retain only the Γ→Q and Weil-continuity specialisations here (G6)."
       ]
     },
     {
@@ -5027,7 +5153,7 @@
       "status": "planned",
       "note": "Every stage target is a node, baseline citation or explicit requested/gap-ended dependency at target granularity. This is a finished planning pass, not a closed formalisation.",
       "remaining": [
-        "Register RG2.6 and supply its highest-weight/centralizer/root-case inputs, SF.4 normalisation/completion and the E5/S.1 enhanced bar/mapping categories; then elaborate the missing categorical signatures."
+        "Register the structural RG2.6 inputs; extend the accepted integral-representation Part II for highest weights/good filtrations; supply SF.4 normalisation/completion and the E5 enhanced bar/mapping categories. Reconcile accepted GIT routes under G6, then elaborate the missing signatures."
       ]
     },
     {
@@ -5035,15 +5161,16 @@
       "status": "planned",
       "note": "Every stage target is a node, baseline citation or explicit requested/gap-ended dependency at target granularity. This is a finished planning pass, not a closed formalisation.",
       "remaining": [
-        "Supply the E5/S.1 linear tensor/module/compact/left-Kan foundations and RG integral highest-weight tensor compatibility; elaborate the generic action signatures. ES2/ES3 perform the Bun_G and W→W_E/P applications."
+        "Supply the E5/S.1 linear tensor/module/compact/left-Kan foundations and RG integral highest-weight tensor compatibility; elaborate the generic action signatures. ES2/ES3 perform the Bun_G and W→W_E/P applications.",
+        "Resolve G5 by applying the primary confirmed ES2/ES3 Chapter-X ownership or a recorded superseding decision; update stage targets and the reader together. The retained Chapter-X mathematics is planned, but ownership is not accepted."
       ]
     }
   ],
   "gaps": [
     {
       "id": "LanglandsParameterStacks:G1",
-      "title": "Registration and verification of the RG2.6 extension",
-      "detail": "RG2.6 is named in the confirmed fix but is not a current or reserved atlas stage. The packet routes its exact eight input groups to the existing RG2.5 owner, explicitly as extensions, and proposes registration; this does not establish the inputs from RG2.5’s current statement. Prasad–Yu, Lusztig/FG, BMRT, TvdK, Procesi and the general highest-weight theorems cited by the six papers were not independently read. Their supplier must supply verified nodes before these chains close.",
+      "title": "Registration and verification of the reductive supplier extensions",
+      "detail": "The structural RG2.6 proposal is unregistered and its non-highest-weight needs route through RG2.5 only as extensions. The highest-weight needs instead extend the already accepted ReductiveGroupsIntegralRepresentationsPartII candidate (Kisin–Pappas18 route5 and KPZ26 route3), through its registered parent Layer9 until DESIGN assigns stage ids. Neither RG2.5 nor parent Layer9 currently establishes these inputs. Prasad–Yu, Lusztig/FG, BMRT, TvdK, Procesi and the general highest-weight sources must receive verified supplier nodes before the chains close. The reviewer checked the accepting routes and actual parent statements, not the unimplemented extensions. General GIT is not added as a new RG2.6 owner: the accepted LP and deformation-ring routes must be reconciled under G6.",
       "neededBy": [
         "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
         "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
@@ -5167,11 +5294,51 @@
     {
       "id": "LanglandsParameterStacks:G4",
       "title": "Finite-Q positive-characteristic reconstruction extension",
-      "detail": "BHKT4.5 proves the connected split reductive case; Lafforgue11.7 uses characteristic zero. FS VIII.3.8 asserts the finite-Q all-characteristic reconstruction. This packet spells out its anchor route, but the nonconnected relative-H minimal-parabolic/finite-anchor extension is requested from RG and needs a full independent check. It is not supplied by quoting the characteristic-zero continuity proof.",
+      "detail": "BHKT4.5 proves connected split reductive reconstruction, while Lafforgue11.7 uses characteristic zero; FS VIII.3.8 asserts the finite-Q all-characteristic case. The existing IHG.1/reductive-reconstruction node has the required generalized-reductive statement and is now imported for H⋊Q with fixed projection. The independent source proof of the nonconnected relative-H minimal-parabolic/finite-anchor route still needs checking at its owner. The connected or characteristic-zero anchor proof alone does not establish it.",
       "neededBy": [
         "LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor",
         "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
         "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection"
+      ]
+    },
+    {
+      "id": "LanglandsParameterStacks:G5",
+      "title": "Chapter X ownership and reader reconciliation",
+      "detail": "The planning issue repeated two conflicting fixes for RT-AREA-geomlanglands/6; the confirmed independent verifier explicitly chose ES2/ES3, while this packet and reader selected LP4. The mathematics of the retained Chapter X nodes has been checked, but their LP4 ownership is not accepted. Apply the primary verifier through a coordinated scope/routing revision, or record a new authoritative ownership decision. The reader also repeats the now-corrected Frobenius scaling, anchor direction, finite-base terminology, fixed-component proof and baseline overstatements, and is outside review issue444’s editable deliverables. Regenerate or revise it together with the approved routing before promotion.",
+      "neededBy": [
+        "LanglandsParameterStacks:LP4/rational-all-colimits",
+        "LanglandsParameterStacks:LP4/colimit-theorem-and-monoidal-universal-property",
+        "LanglandsParameterStacks:LP4/integral-universal-property",
+        "LanglandsParameterStacks:LP4/approximation-all-colimits",
+        "LanglandsParameterStacks:LP4/integral-free-group-comparison",
+        "LanglandsParameterStacks:LP4/sifted-approximation",
+        "LanglandsParameterStacks:LP4/weil-approximation-equivalence",
+        "LanglandsParameterStacks:LP4/compactly-supported-actions"
+      ]
+    },
+    {
+      "id": "LanglandsParameterStacks:G6",
+      "title": "Accepted GIT and pseudocharacter owner reconciliation",
+      "detail": "The primary geomlanglands verifier rejects a new RG2.6 general-GIT owner and routes its field-level inputs through the accepted BHKT19 route2 and Lafforgue18 route3 at LP2/LP3. Shared Seshadri inputs already also occur in LocalGaloisDeformationRingsPartIIComponentsAndNormality. The accepted BHKT fix RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/3 subsequently records IHG.0/IHG.1 as the general pseudocharacter/reconstruction owner, including disconnected groups. Existing IHG packet nodes have been read and added as precise imports; the Γ→Q and Weil specialisations are corrected here. Residual generic anchor/definition APIs and the reader still need coordinated alignment, and the exact shared Haboush/power-lifting/finite-Q proof inputs must be assigned without inventing a competing RG2.6 GIT layer. Until then the ownership of those retained generic nodes is not accepted. The current IHG packet is itself under revision and uses blanket LP3 stage prerequisites for its generic carriers/reconstruction. Replace those with the exact unconditional field-level inputs; importing its stated theorem here does not certify that this cross-packet prerequisite reconciliation is complete. Do not create aggregate LP2→IHG.1, which would cycle through semisimple-characters.",
+      "neededBy": [
+        "LanglandsParameterStacks:LP2:excursion-presentation/coarse-quotient",
+        "LanglandsParameterStacks:LP2:excursion-presentation/quotients-over-fields-and-DVRs",
+        "LanglandsParameterStacks:LP2:excursion-presentation/complete-reducibility",
+        "LanglandsParameterStacks:LP2:excursion-presentation/closed-orbit-criterion",
+        "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
+        "LanglandsParameterStacks:LP2:excursion-presentation/parameter-closed-orbits",
+        "LanglandsParameterStacks:LP2:excursion-presentation/universal-homeomorphism",
+        "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+        "LanglandsParameterStacks:LP2:semisimple-characters/reductive-pseudocharacters",
+        "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor",
+        "LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor",
+        "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
+        "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-continuity",
+        "LanglandsParameterStacks:LP2:semisimple-characters/discrete-coefficient-continuity",
+        "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
+        "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-pseudocharacters",
+        "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-comparison",
+        "LanglandsParameterStacks:LP2:semisimple-characters/schur-object-parameter"
       ]
     }
   ],
@@ -5236,7 +5403,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E5:presentability",
-      "need": "Ind-completion/compact objects; linear monoidal categories and tensor/module categories; Barr–Beck–Lurie and base change of module categories; sifted left Kan extension on anima, exact Ind–Pro constructions/formal power series and compact bar-resolution arguments. Supply continuous/condensed derived invariants and coefficient base-change so the Weil two-term resolution and good-filtration reduction have actual complexes.",
+      "need": "Ind-completion/compact objects; linear monoidal categories and tensor/module categories; Barr–Beck–Lurie and base change of module categories; sifted left Kan extension on anima, exact Ind–Pro constructions/formal power series and compact bar-resolution arguments. Supply continuous/condensed derived invariants and coefficient base-change so the Weil two-term resolution and good-filtration reduction have actual complexes. For VIII.5.13 supply IndCoh of the derived unit self-intersection, its good-filtration t-structure and separated quotient, and descent of colimit-preserving functors with bounded t-amplitude; the Borel-flag conservativity proof remains the parameter instance.",
       "neededBy": [
         "LanglandsParameterStacks:LP1/local-tate-duality",
         "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
@@ -5262,12 +5429,13 @@
         "LanglandsParameterStacks:LP4/approximation-all-colimits",
         "LanglandsParameterStacks:LP4/integral-free-group-comparison",
         "LanglandsParameterStacks:LP4/sifted-approximation",
-        "LanglandsParameterStacks:LP4/weil-approximation-equivalence"
+        "LanglandsParameterStacks:LP4/weil-approximation-equivalence",
+        "LanglandsParameterStacks:LP1/weil-cohomological-dimension-and-euler-characteristic"
       ]
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.5",
-      "need": "Existing RG2.5 supplies the integral pinned dual and finite action, semidirect L-group, parabolics/Levis and change of pinning. EXTENSION ROUTE, NOT EXISTING RG2.5 CONTENT: register the proposed RG2.6 independent of LP1 for (1) smooth fixed loci with reductive identity for prime-to-characteristic finite automorphism groups (Prasad–Yu PY02 Thm2.1, and related PY06 Cor5.2 in the confirmed routing); (2) finite unipotent classes in a smooth group with reductive identity (Lusztig/FG12 Cor2.6); (3) ∇λ, Δλ over Z and fields, Kempf vanishing, Donkin criterion, Donkin–Mathieu tensor stability and Koppinen/Donkin O(G) good G×G filtration, finite coherent good-filtration dimension (TvdK); (4) geometric reductivity, finite invariant generation, power lifting after arbitrary base change, unique closed orbit/separation, Hilbert–Mumford–Kempf, Richardson/BMR tuple/minimal-parabolic/finite-anchor criteria in connected and relative-H finite-Q nonconnected forms; (5) BMRT centralizer separability and the very-good root tables; (6) central isogenies, Borel/Bruhat Cartier flags and fixed-root case calculations used by VIII.5.15/5.19; (7) integral highest-weight character lattices for group Chevalley restriction and Procesi trace-word invariant generation in characteristic zero; (8) admissible enhanced complex classical-group L-parameters and their component-group representations for KSS1.20–1.21. No statement here certifies these extensions as already supplied; gap G1 and the rescope proposal record registration and proof obligations.",
+      "need": "Existing RG2.5 supplies the integral pinned dual and finite action, semidirect L-group, parabolics/Levis and change of pinning. EXTENSION ROUTE, NOT EXISTING RG2.5 CONTENT: register the proposed RG2.6 independent of LP1 for (1) smooth fixed loci with reductive identity for prime-to-characteristic finite automorphism groups (Prasad–Yu PY02 Thm2.1, and related PY06 Cor5.2 in the confirmed routing); (2) finite unipotent classes in a smooth group with reductive identity (Lusztig/FG12 Cor2.6); (3) integral highest-weight inputs are imported instead from the already accepted ReductiveGroupsIntegralRepresentationsPartII candidate through its registered parent Layer9 request; they must not be added as a second RG2.6 owner; (4) no new general GIT owner is proposed: the primary verifier rejects that RG2.6 allocation; use the accepted BHKT19 route2 and Lafforgue18 route3 inputs at LP2/LP3, coordinated with the Seshadri theory already routed to LocalGaloisDeformationRingsPartIIComponentsAndNormality. Registration of their shared Haboush/power-lifting and nonconnected finite-anchor proof inputs remains G6; (5) BMRT centralizer separability and the very-good root tables; (6) central isogenies, Borel/Bruhat Cartier flags and fixed-root case calculations used by VIII.5.15/5.19; (7) root/fundamental-group and centralizer data beyond the pinned dual; integral character lattices come from the accepted representation Part II, and trace/pseudocharacter comparison imports IHG; (8) admissible enhanced complex classical-group L-parameters and their component-group representations for KSS1.20–1.21. No statement here certifies these extensions as already supplied; gap G1 and the rescope proposal record registration and proof obligations.",
       "neededBy": [
         "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
         "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
@@ -5380,7 +5548,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
-      "need": "The topological local Weil group W_E, degree map, open profinite inertia and finite quotient actions; tame Frobenius normalisation and dense discrete models. Supply the exact topology and compact-inertia coordinate interface used to construct the two-stage continuous cochain model. LP1 owns the resulting Weil cohomology/duality theorem, not a new Weil-group carrier. Baseline AbsoluteGaloisGroup and valuation inertia do not supply this.",
+      "need": "The topological local Weil group W_E, degree map, open profinite inertia and finite quotient actions; tame Frobenius normalisation and dense discrete models. Supply the exact topology and compact-inertia coordinate interface used to construct the two-stage continuous cochain model. LP1 owns the resulting Weil cohomology/duality theorem, not a new Weil-group carrier. Baseline AbsoluteGaloisGroup and valuation inertia do not supply this. The supplier fixes arithmetic Frobenius F with weilDegree(F)=1 and FτF⁻¹=τ^q. LP0 uses geometric σ=F⁻¹, σ⁻¹τσ=τ^q and deg_LP=−weilDegree; transport the topology, finite action and Tate character through this explicit conversion.",
       "neededBy": [
         "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
         "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
@@ -5410,6 +5578,35 @@
         "LanglandsParameterStacks:LP1/weil-cohomological-dimension-and-euler-characteristic",
         "LanglandsParameterStacks:LP1/local-tate-duality"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "need": "EXTENSION through the already accepted candidate ReductiveGroupsIntegralRepresentationsPartII (PAPER-KISIN-PAPPAS-18 route5 and PAPER-KISIN-PAPPAS-ZHOU-26 route3), pending registration of its DESIGN stages. Extend that single owner with integral induced/dual-Weyl and Weyl modules, dominant CHARACTER lattices, Kempf vanishing, Donkin criterion, Donkin–Mathieu tensor stability, Koppinen/Donkin O(G) good G×G-filtration, finite coherent good-filtration dimension (TvdK), and integral highest-weight tensor/base-change interfaces. The parent Layer9 supplies pinned integral groups only, not these representation theorems. Do not create a competing highest-weight owner in RG2.6 or PA.1. In characteristic zero also supply rational representations of pro-reductive products and their inverse limits: semisimplicity and descent of finite-dimensional representations to finite stages, used in X.1.2.",
+      "neededBy": [
+        "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+        "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
+        "LanglandsParameterStacks:LP3/free-cocycle-good-filtration",
+        "LanglandsParameterStacks:LP3/bar-criterion",
+        "LanglandsParameterStacks:LP3/equivariant-vector-bundles-and-Perf-ind",
+        "LanglandsParameterStacks:LP3/adjoint-unit-generation",
+        "LanglandsParameterStacks:LP3/twisted-free-generation",
+        "LanglandsParameterStacks:LP3/derived-unit-fibre",
+        "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
+        "LanglandsParameterStacks:LP3/cyclic-fixed-locus-resolution",
+        "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+        "LanglandsParameterStacks:LP3/fixed-induction-and-counit",
+        "LanglandsParameterStacks:LP3/fixed-restriction-generation",
+        "LanglandsParameterStacks:LP3/bad-prime-fixed-counterexample",
+        "LanglandsParameterStacks:LP3/integral-chevalley-restriction",
+        "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+        "LanglandsParameterStacks:LP2:integral-invariants/cohomology-and-base-change",
+        "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+        "LanglandsParameterStacks:LP4/rational-all-colimits",
+        "LanglandsParameterStacks:LP4/colimit-theorem-and-monoidal-universal-property",
+        "LanglandsParameterStacks:LP4/integral-universal-property",
+        "LanglandsParameterStacks:LP4/approximation-all-colimits",
+        "LanglandsParameterStacks:LP4/integral-free-group-comparison"
+      ]
     }
   ],
   "restructure": [
@@ -5418,10 +5615,11 @@
       "roadmaps": [
         "ReductiveGroupsPartII",
         "LanglandsParameterStacks",
-        "PotentialAutomorphyInfrastructure"
+        "PotentialAutomorphyInfrastructure",
+        "ReductiveGroupsIntegralRepresentationsPartII"
       ],
-      "detail": "Confirmed findings4/16/24/19 require a common, parameter-independent supplier; RG2.6 is proposed in the issue but absent from the current atlas.",
-      "proposal": "Add ReductiveGroupsPartII:RG2.6 for the eight explicit extension groups in the RG2.5 routing request, with fixed-group reductivity/unipotent finiteness available before LP1 and highest-weight foundations before LP3 and PA.1. Add RG2.6→LP1, RG2.6→LP3, RG2.6→PA.1. RG2.5 remains pinned-dual/L-group structure; all RG2.6 extension links currently end at recorded gap G1. PA.1 retains GL_n-specific bounds."
+      "detail": "Finding4 requires a parameter-independent structural supplier; the confirmed verifier of finding24 names an already accepted integral-representation Part II, rather than a second highest-weight owner in RG2.6.",
+      "proposal": "Register RG2.6 for the non-highest-weight structural needs (fixed-group reductivity, unipotent-class finiteness and the explicitly requested root/centralizer inputs), ahead of LP1 and LP3. Extend the existing ReductiveGroupsIntegralRepresentationsPartII DESIGN brief with the highest-weight/good-filtration request and edges to LP3 and PA.1. The temporary request via its registered parent Layer9 is an extension route, not a claim that Layer9 proves modular representation theory. PA.1 retains its GL_n-specific bounds. General GIT follows the accepted LP2/LP3 and deformation-ring routes, not a new RG2.6 owner (G6). All structural supplier verification remains G1."
     },
     {
       "action": "rescope",
@@ -5438,17 +5636,18 @@
         "LanglandsParameterStacks",
         "ExcursionOperatorsAndSpectralAction"
       ],
-      "detail": "Findings5/6 and the more specific LP/BunG/VStack instruction give LP the abstract ownership.",
-      "proposal": "LP2:excursion-presentation owns VIII.3.7, VIII.4.1–4.2 and all abstract operators/relations; LP2:semisimple-characters owns VIII.4.3. ES0 checks HS1/HS4 categorical data and applies these results; ES1 retains finite-wild Bun_G pieces. LP4 owns VIII.5.1 generation/module comparison, X.1.1–1.2, X.3.1–3.4 and generic X.0.2. ES2/ES3 apply these to compact D_lis(Bun_G), perform W→W_E/P using IX.5.1, compact support and ES1 comparison. This follows the issue’s explicit more specific resolution, rather than the earlier alternative placing the abstract X theorems in ES."
+      "detail": "Finding5 leaves abstract excursion operators in LP. For finding6 the planning issue repeats two incompatible ownership fixes; its confirmed independent verifier explicitly selects the primary ES2/ES3 ownership. The packet previously asserted that the alternative was an explicit resolution, which is unsupported.",
+      "proposal": "Keep LP2:excursion-presentation as owner of VIII.3.7 and VIII.4.1–4.2 and LP2:semisimple-characters of VIII.4.3, with ES0 the Bun_G application. For finding6 follow the primary confirmed verifier: LP4 retains VIII.5.1 generation/module comparison and imports the LP2:integral-invariants coordinate theorem; ES2 owns X.1.1–X.1.3 and ES3 owns X.3.1–X.3.4/X.0.1–X.0.2. The current LP4 Chapter-X nodes are retained for review continuity pending the orchestrator’s scope reconciliation, not certified as correctly owned. Reroute their generic formulations without duplicating them, update stage targets and consumer edges, and regenerate the reader. Gap G5 records this unresolved conflict."
     },
     {
       "action": "rescope",
       "roadmaps": [
         "LanglandsParameterStacks",
-        "GlobalShtukasAndFunctionFieldLanglands"
+        "GlobalShtukasAndFunctionFieldLanglands",
+        "IntegralHeckeAndGaloisDeterminants"
       ],
-      "detail": "Finding25: local/global duplication of the group-theoretic core.",
-      "proposal": "LP2 supplies group-agnostic reconstruction and excursion relations for every Γ→Q, continuity as separate characteristic-zero/discrete clauses. Add excursion-presentation→GS.5 and semisimple-characters→GS.5; GS.5 retains shtuka-specific constructions and its global Galois continuity/application. No dependency from LP into GS.5."
+      "detail": "Finding25: local/global duplication of the group-theoretic core. The subsequently confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/3 fix chooses the existing IHG.1 owner for general reconstruction.",
+      "proposal": "Use the existing IHG.0 definitions and IHG.1 general reconstruction nodes; LP2:excursion-presentation supplies the unconditional field-level closed-orbit inputs already accepted from BHKT and Lafforgue, and LP2:semisimple-characters owns only the prescribed Γ→Q and local Weil specialisations/continuity. Add excursion-presentation→IHG.1, IHG.1→semisimple-characters and IHG.1→GS.5; never use aggregate LP2→IHG.1 because semisimple-characters feeds LP2. GS.5 retains shtuka operator relations and the global application. Reconcile the residual generic anchor/definition/comparison nodes and their reader/API with this accepted single owner under G6 rather than certify duplicate ownership."
     },
     {
       "action": "rescope",
@@ -5458,8 +5657,8 @@
         "SchemeAndStackFoundations",
         "SchemeKTheoryOperations"
       ],
-      "detail": "Finding27: general derived quotient/Perf foundations have independent owners.",
-      "proposal": "SF.1 owns fpqc descent/ordinary quotient interfaces; S.1 with E1 owns perfectness and pullback; extend E5 animation to derived quotient stacks, QCoh and Perf using both. LP1 owns only the parameter instances and their tangent/singularity calculations."
+      "detail": "Finding27 is narrowed by its verifier to SF.1 effective fpqc descent/ordinary quotient interfaces. Enhanced stacky QCoh/Perf is a separate requested foundation extension, not a duplicate proved to exist at S.1.",
+      "proposal": "SF.1 owns effective fpqc descent/ordinary quotient interfaces. S.1 supplies only its scheme-perfectness interfaces. Any enhanced derived quotient-stack/QCoh/Perf request through E5 animation is an explicit extension with G3, not an already supplied S.1 theorem and not a required consequence of finding27. LP1 owns the parameter instances and their tangent/singularity calculations."
     },
     {
       "action": "rescope",
@@ -5493,7 +5692,12 @@
       "searched": [
         "Public arXiv PDF 1209.5352 read in this pass; the same symbol remains.",
         "Web search for Lafforgue Proposition11.7/Lemma11.10 corrigendum or erratum; no correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked Lemma11.10 in the public French arXiv v10 text, p.145: its appended coordinate is in H^{n+1}; the printed G is a symbol slip.",
+        "by": "REV-LanglandsParameterStacks"
+      }
     },
     {
       "id": "LanglandsParameterStacks/E2",
@@ -5509,7 +5713,12 @@
         "Published Acta PDF opened at the recorded URL and hash.",
         "Search for BHKT G-local systems erratum/corrigendum; no correction located.",
         "Michael Harris public publications listing and arXiv search for a correction to this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked published Acta223 p.14 in the recorded PDF. G=G_m in characteristic3 satisfies the simple-factor restrictions and has a nonzero abelian Lie algebra, disproving semisimplicity for general reductive G.",
+        "by": "REV-LanglandsParameterStacks"
+      }
     },
     {
       "id": "LanglandsParameterStacks/E3",
@@ -5524,7 +5733,12 @@
       "searched": [
         "Author-hosted FS PDF at the recorded hash, proof VIII.4.1.",
         "Web search for Fargues Scholze VIII.4.1 errata/cartesian square; no correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked VIII.4.1 p.292. The zero-category/fold/G_m example in reason rules out a pullback square; the proof only uses commutativity.",
+        "by": "REV-LanglandsParameterStacks"
+      }
     },
     {
       "id": "LanglandsParameterStacks/E4",
@@ -5539,7 +5753,138 @@
       "searched": [
         "Author-hosted FS PDF at the recorded hash, pp.282–283.",
         "Web searches for Geometrization Hochschild HH Ext errata and Fargues Scholze VIII.2.2.1 correction; no correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked VIII.2.2.1 pp.282–283. The smooth flat syntomic algebra Q[x,y] has vanishing cotangent Ext1 but nonzero associative Hochschild degree2 from its diagonal Koszul resolution; the natural-map correction suffices for the support action.",
+        "by": "REV-LanglandsParameterStacks"
+      }
+    },
+    {
+      "id": "LanglandsParameterStacks/E5",
+      "source": "FS-geometrization",
+      "kind": "misprint",
+      "locator": "VIII.2.4 and preceding display p.282, compared with VIII.1.3 p.279 and IX.7.1 p.334, author-hosted 356-page PDF",
+      "printed": "q^{|σ|}N",
+      "correction": "For the geometric degree used in IX.7, use q^{−deg(σ)}N and replace the preceding conjugation exponent accordingly; alternatively use arithmetic degree in both displays and explicitly invert the Frobenius chosen in VIII.1.",
+      "reason": "VIII.1 uses σ⁻¹τσ=τ^q, so conjugation by geometric σ sends log τ to q⁻¹log τ. IX.7 explicitly sends geometric Frobenius to1. The p.282 positive exponent uses the reciprocal convention without saying so. For split GL₂, N=E₁₂ and φ₀(σ)=diag(q⁻¹,1) give Ad(φ₀(σ))N=q⁻¹N.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
+        "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "VIII.1 uses σ⁻¹τσ=τ^q, so conjugation by geometric σ sends log τ to q⁻¹log τ. IX.7 explicitly sends geometric Frobenius to1. The p.282 positive exponent uses the reciprocal convention without saying so. For split GL₂, N=E₁₂ and φ₀(σ)=diag(q⁻¹,1) give Ad(φ₀(σ))N=q⁻¹N.",
+        "by": "REV-LanglandsParameterStacks"
+      }
+    },
+    {
+      "id": "LanglandsParameterStacks/E6",
+      "source": "FS-geometrization",
+      "kind": "misprint",
+      "locator": "VIII.5.1 p.294; repeated in proof VIII.5.15 p.304, author-hosted 356-page PDF",
+      "printed": "The source describes the cocharacter as dominant.",
+      "correction": "Use dominant character (weight) of T to index ∇λ=H⁰(G/B,O(λ)).",
+      "reason": "The line bundle O(λ) is defined by a character T→G_m, belonging to X*(T), not a cocharacter G_m→T in X_*(T). The section explicitly writes G for the group being represented, so dual-side notation does not change its weight lattice.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
+        "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The line bundle O(λ) is defined by a character T→G_m, belonging to X*(T), not a cocharacter G_m→T in X_*(T). The section explicitly writes G for the group being represented, so dual-side notation does not change its weight lattice.",
+        "by": "REV-LanglandsParameterStacks"
+      }
+    },
+    {
+      "id": "LanglandsParameterStacks/E7",
+      "source": "FS-geometrization",
+      "kind": "misprint",
+      "locator": "Proof VIII.5.15 p.303, inner-automorphism case, author-hosted 356-page PDF",
+      "printed": "The source describes the element as semisimple and regular.",
+      "correction": "Use a semisimple element inducing the prime-order inner automorphism; regularity is not available or needed.",
+      "reason": "In SL₃ in characteristic different from2, diag(−1,−1,1) induces an inner involution and has a non-torus block centralizer. It is semisimple but not regular. A regular semisimple centralizer would be a maximal torus.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
+        "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In SL₃ in characteristic different from2, diag(−1,−1,1) induces an inner involution and has a non-torus block centralizer. It is semisimple but not regular. A regular semisimple centralizer would be a maximal torus.",
+        "by": "REV-LanglandsParameterStacks"
+      }
+    },
+    {
+      "id": "LanglandsParameterStacks/E8",
+      "source": "FS-geometrization",
+      "kind": "misprint",
+      "locator": "Proof VIII.5.15 p.304, paragraph before LemmaVIII.5.16, author-hosted 356-page PDF",
+      "printed": "The source describes λµ as a weight of G that lifts λ.",
+      "correction": "The highest weight λµ of G lifts µ, the H-weight currently used in the induction.",
+      "reason": "The preceding construction lifts an H-weight µ to a G-weight; the next tensor is ∇λ|H⊗∇λµ|H, used to control ∇λ|H⊗∇Hµ. Lifting λ again would not provide the required H-factor.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
+        "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding construction lifts an H-weight µ to a G-weight; the next tensor is ∇λ|H⊗∇λµ|H, used to control ∇λ|H⊗∇Hµ. Lifting λ again would not provide the required H-factor.",
+        "by": "REV-LanglandsParameterStacks"
+      }
+    },
+    {
+      "sourceId": "BHKT-local-systems",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf",
+      "published": "Acta Mathematica 223 (2019), open-access publisher PDF at the recorded source hash.",
+      "searched": [
+        "Published Acta text pp.16–19 read directly; RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 independent verifier finding15(f,h) and fixes consulted. No separate publisher erratum is linked in the supplied record."
+      ],
+      "id": "LanglandsParameterStacks/E9",
+      "kind": "error",
+      "locator": "Proof of Lemma3.11 pp.16–18, especially p.17 quotient normalisation and p.18 final appeal to Lemma3.12",
+      "printed": "The source denotes by Z 0 the normalization, in L, of X//G.",
+      "correction": "For the quotient replace L by its relative algebraic closure L₀ over Frac(O[X]^G), and use the image of Gal(L/K) on L₀. The intermediate quotient field is L₀∩E; normalise in these finite extensions.",
+      "reason": "L is finite algebraic over K=Frac O[X] but generally has positive transcendence degree over K₀=Frac(O[X]^G). Lemma3.12 requires a finite Galois extension of the fraction field of its base, so it cannot be applied to L/K₀. For connected reductive G, K₀ is relatively algebraically closed in K, and the relative algebraic closure L₀ is the required finite Galois extension.",
+      "affects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "L is finite algebraic over K=Frac O[X] but generally has positive transcendence degree over K₀=Frac(O[X]^G). Lemma3.12 requires a finite Galois extension of the fraction field of its base, so it cannot be applied to L/K₀. For connected reductive G, K₀ is relatively algebraically closed in K, and the relative algebraic closure L₀ is the required finite Galois extension.",
+        "by": "REV-LanglandsParameterStacks"
+      },
+      "known": "Already identified in the atlas by confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15(h,f); still present in the published Acta copy. No separate published correction was found in the checked records."
+    },
+    {
+      "sourceId": "BHKT-local-systems",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf",
+      "published": "Acta Mathematica 223 (2019), open-access publisher PDF at the recorded source hash.",
+      "searched": [
+        "Published Acta text pp.16–19 read directly; RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 independent verifier finding15(f,h) and fixes consulted. No separate publisher erratum is linked in the supplied record."
+      ],
+      "id": "LanglandsParameterStacks/E10",
+      "kind": "misprint",
+      "locator": "Proof of Proposition3.13 p.18, the action map and the quotient étale point",
+      "printed": "The source locates étaleness of the action map G×S → X at x, and that of η//G at i(1,x).",
+      "correction": "The action map is étale at (1,x), and η//G is étale at π_{X′}(i(1,x)).",
+      "reason": "The printed points belong to the wrong domains. The proof immediately supplies the intended points and the correct statement of Lemma3.11 already uses the quotient point.",
+      "affects": "nothing",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed points belong to the wrong domains. The proof immediately supplies the intended points and the correct statement of Lemma3.11 already uses the quotient point.",
+        "by": "REV-LanglandsParameterStacks"
+      },
+      "known": "Already identified in the atlas by confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15(h,f); still present in the published Acta copy. No separate published correction was found in the checked records."
     }
   ],
   "sourceVersions": [
@@ -5579,5 +5924,458 @@
       "read": "2026-10-07",
       "sha256": "1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092"
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-LanglandsParameterStacks",
+    "date": "2026-10-07",
+    "notes": "Independent review of all 89 nodes, 90 literal excerpts from six hashed public sources, 29 pinned baseline statements, target-level closure, supplier statements, accepted paper routes, APIs/tests, planets and suggested Lean. Clear mathematics, baseline and source corrections applied in place; ten source findings confirmed. The Lean algebraic prototypes elaborate with only warnings for admitted proofs at the pinned Mathlib; missing enhanced signatures and Tau Ceti object checks are disclosed. Not accepted: the reader remains inconsistent with the corrections, primary ES2/ES3 Chapter-X ownership is unresolved (G5), and accepted GIT/IHG routing and residual generic anchor/API ownership require coordinated alignment (G6). Existing honest foundation/source gaps G1–G4 do not independently justify rejection.",
+    "checked": [
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/functoriality-of-cocycles",
+        "verdict": "verified",
+        "note": "Crossed cocycle and L-group section/gauge formulas agree; the C₂ action by negation test distinguishes cocycles from homomorphisms."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
+        "verdict": "corrected",
+        "note": "The condensed coefficient tensor and finite-type continuous sections agree with VIII.1; the Lean continuous-group shadow is explicitly limited by G3. Added the missing user-facing API items and matching signature inventory."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/finite-wild-ramification",
+        "verdict": "verified",
+        "note": "Finite wild ramification means triviality on a cofinal open normal wild subgroup, not triviality on all inertia."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
+        "verdict": "corrected",
+        "note": "VIII.1 dense-model extension checked; the supplier's arithmetic Frobenius and degree are now explicitly inverted to the LP geometric convention."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/change-of-discretization",
+        "verdict": "verified",
+        "note": "Dense-model choices give canonical comparison only after Z_l base change; the integral Z[1/p] framed model is not declared canonical."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/wild-inertial-parameter",
+        "verdict": "corrected",
+        "note": "KSS1.20 scope restored: quasisplit classical groups, odd residual characteristic, complex coefficients. Trivial wild means trivial dual component with prescribed Weil projection."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/twisted-wild-centralizer",
+        "verdict": "corrected",
+        "note": "The centralizer is twisted inside the L-group and only splits after an actual extending section; trivial-wild tests now retain the projection."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/wild-enhancement-group",
+        "verdict": "corrected",
+        "note": "The enhancement is a centre quotient by the invariant dual centre, distinct from the component-group representation; the trivial-wild test is corrected."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP0/extended-wild-parameters",
+        "verdict": "corrected",
+        "note": "KSS1.21 scope restored; restriction of an admissible enhanced parameter is existential, and need not remain irreducible or define a bijection."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/finite-presentation-over-Z-invert-p",
+        "verdict": "verified",
+        "note": "Finite equations represent the chosen cocycle model over Z[1/p]; Z_l schemes are base changes of that model."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/decomposition-by-wild-kernel",
+        "verdict": "verified",
+        "note": "Open wild kernels give clopen finite-type pieces and filtered unions; not all pieces or their union are silently affine/quasi-compact."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/weil-cohomological-dimension-and-euler-characteristic",
+        "verdict": "corrected",
+        "note": "Derived continuous Weil cochains have perfect amplitude [0,2] and Euler characteristic zero; the missing enhanced complex/presentability prerequisite and request are added."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/dimension-bound-lemma",
+        "verdict": "verified",
+        "note": "The dimension lemma's finite unipotent classes and fixed-group reductivity come from an independent structural supplier, not later LP3."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+        "verdict": "verified",
+        "note": "VIII.1.3 flat lci relative dimension dim H and absolute dimension dim H+1 are distinct; the quotient has relative virtual dimension zero."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation",
+        "verdict": "verified",
+        "note": "DHKM4.1's arithmetic generator is inverse to LP's geometric generator; Gilbert Moss attribution corrected in the source record."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/derived-parameter-stack",
+        "verdict": "corrected",
+        "note": "Animated framed parameters are distinct from their derived quotient; E5 animation and SF.1 interfaces are explicit extensions under G3."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme",
+        "verdict": "corrected",
+        "note": "The revised Zhu source is Proposition3.7, not Theorem3.7; classical equality uses the cochain/dimension theorem, not just a point bijection."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/local-tate-duality",
+        "verdict": "verified",
+        "note": "Continuous local Tate duality has shift 2 and Tate-twisted dual coefficients; ordinary abstract group cohomology alone is insufficient."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/cotangent-complex-and-deformation-theory",
+        "verdict": "verified",
+        "note": "The mapping-stack tangent is RΓ(ad φ)[1]; duality gives RΓ(ad φ dual(1))[1] for cotangent without an assumed Lie self-duality."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/weil-deligne-parameters",
+        "verdict": "corrected",
+        "note": "The geometric degree convention forces q^{−deg} monodromy scaling; a GL₂ q=3 computation is added and source E5 records the printed reciprocal convention. Added the missing user-facing API items and matching signature inventory."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/weil-deligne-and-the-monodromy-map",
+        "verdict": "corrected",
+        "note": "Zhu's logarithm/exponential comparison is characteristic zero; explicitly convert its arithmetic Frobenius and keep the chosen tame coordinate."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/singularities-and-singular-support",
+        "verdict": "verified",
+        "note": "Singular fibres use the dual adjoint Lie module and H⁰; neither Lie self-duality nor equality with the nilpotent cone is silently assumed."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/hochshild-action-and-support",
+        "verdict": "verified",
+        "note": "HH² receives the natural Ext¹ cotangent map needed for singular support; source E4 rejects the false general equality. The CI/support enhancement remains an explicit extension."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP1/banal-case-and-the-nilpotent-cone",
+        "verdict": "verified",
+        "note": "Banality uses homogeneous invariant degrees and the residue degree of the outer-action extension; the conclusion is only nullcone inclusion."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/coarse-quotient",
+        "verdict": "corrected",
+        "note": "Use scheme coaction invariants, not invariants under H(base) alone; Lean now uses the two-AlgHom equalizer and the G_m/F₂ test detects the old definition. Accepted GIT routes need alignment under G6. Added the missing user-facing API items and matching signature inventory."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/quotients-over-fields-and-DVRs",
+        "verdict": "verified",
+        "note": "BHKT3.10 normality/finite generation/closed-orbit and flat base-change interfaces checked; arbitrary nonflat invariant base change is not asserted. General GIT is not assigned anew to RG2.6."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/complete-reducibility",
+        "verdict": "verified",
+        "note": "G-complete reducibility, strong reductivity and irreducibility are distinct positive-characteristic notions; the accepted field-level GIT routes, not a new RG2.6 owner, supply them."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/closed-orbit-criterion",
+        "verdict": "verified",
+        "note": "BHKT3.4/3.6/3.7 tuple closedness, cocharacter limits and minimal-parabolic Levi arguments retain all-characteristic hypotheses; no false reductive-Zariski-image replacement."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
+        "verdict": "verified",
+        "note": "Relative-H parabolic/Levi semisimplicity for H⋊Q agrees with VIII.3.1 and preserves the prescribed Γ→Q projection."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/parameter-closed-orbits",
+        "verdict": "verified",
+        "note": "Closed parameter orbits and their semisimple classes hold at every coefficient prime independently of the good-π₁ integral theorem."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index",
+        "verdict": "corrected",
+        "note": "The free-cocycle index has commuting word maps in the right direction; rank-zero initial object and finite coproducts provide siftedness. Added the missing user-facing API items and matching signature inventory."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
+        "verdict": "verified",
+        "note": "The excursion algebra is the colimit of free-cocycle invariant rings; a supplied CommRingCat diagram in Lean is an honest algebraic prototype."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/universal-homeomorphism",
+        "verdict": "verified",
+        "note": "Power lifting and elementwise nil kernel after every base change give the universal homeomorphism; nilpotence of the whole ideal is not required."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+        "verdict": "verified",
+        "note": "The compatible Θ_n relations include finite reindexing and multiplication; unit/inverse relations follow from words and the universal property."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity",
+        "verdict": "verified",
+        "note": "Choice independence and condensed continuity are stated for the torsion-free excursion quotient; full integral choice independence remains the source-open G2."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/categorical-hecke-datum",
+        "verdict": "corrected",
+        "note": "The generic Hecke datum is now coherent and exact in a stable category, whose excursion target is π₀End(id); ordinary prototypes do not fabricate the enhancement."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-datum",
+        "verdict": "corrected",
+        "note": "The excursion datum supplies invariant vector/form and a group tuple; its operator is a coherent natural endomorphism and its stable class lies in π₀End(id)."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence",
+        "verdict": "verified",
+        "note": "Finite-projective regular matrix coefficients and commutativity of the finite-set square give presentation independence; source E3 rejects a false cartesian-square claim."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center",
+        "verdict": "corrected",
+        "note": "The algebra map now targets π₀End(id_C) for coherent stable Hecke data; pinned ordinary CatCenter is only its ordinary shadow."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/reductive-pseudocharacters",
+        "verdict": "corrected",
+        "note": "Added the existing IHG.0 reductive-pseudocharacter import and prescribed Γ→Q adapter convention; its residual generic API/reader needs G6 alignment."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor",
+        "verdict": "unverifiable",
+        "note": "The characteristic-zero maximal reductive-image anchor mathematics is checked against Lafforgue11.7/11.10, but its generic proof ownership conflicts with the existing IHG owner (G6)."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor",
+        "verdict": "unverifiable",
+        "note": "BHKT4.5 first maximises the dimension of a minimal containing parabolic, then minimises centralizer dimension and components; corrected the reversed direction. Generic anchor ownership still needs G6 alignment."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
+        "verdict": "corrected",
+        "note": "Recast the generic reconstruction step as an import of IHG.1/reductive-reconstruction for H⋊Q; component idempotents enforce the given projection and topological continuity remains separate."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-continuity",
+        "verdict": "corrected",
+        "note": "Characteristic-zero continuity uses finite-valued coefficient extension and continuous invariant coordinates; existing IHG valued-continuity is imported only in its connected/profinite scope."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/discrete-coefficient-continuity",
+        "verdict": "corrected",
+        "note": "Discrete characteristic-l continuity uses compactness of inertia and yields a finite image/open kernel; the IHG connected/profinite theorem is not silently extended to all finite-Q data."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
+        "verdict": "corrected",
+        "note": "The all-prime local character bijection now imports IHG general reconstruction and proves the Weil/projection/continuity specialisation; universal homeomorphism is sufficient, with no good-π₁ assumption."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-pseudocharacters",
+        "verdict": "corrected",
+        "note": "The trace identity includes fixed one-cycles and τ(1)=rank; it is explicitly the group-algebra adapter of existing IHG.0/pseudocharacter."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-comparison",
+        "verdict": "corrected",
+        "note": "Characteristic-zero GL trace/excursion comparison imports IHG determinant-trace bijection and algebraically-closed reconstruction rather than creating a second general reconstruction owner."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/schur-object-parameter",
+        "verdict": "corrected",
+        "note": "Schur parameters require the supplied identification π₀End(X)=L and the separate continuous datum; scalar ordinary endomorphisms are not the complete enhanced hypothesis."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+        "verdict": "corrected",
+        "note": "The good-filtration t-structure has the source's ∇/Δ and D^{≤0} convention; highest-weight inputs now extend the already accepted integral-representation Part II."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
+        "verdict": "corrected",
+        "note": "Separatedness is detected by all highest-weight test modules; the generic O(G) filtration is imported from the accepted representation owner."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/free-cocycle-good-filtration",
+        "verdict": "corrected",
+        "note": "The twisted free coordinate algebra's good filtration follows from O(G) tensor stability; prime-to-l components provide the final full-G cohomological vanishing."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/induced-perfect-complexes",
+        "verdict": "verified",
+        "note": "Perf^ind is the stable retract-closed subcategory induced from BG; it is not all Perf by definition."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/bar-criterion",
+        "verdict": "corrected",
+        "note": "The compact bar criterion is formed in IndPerf(BG); its Borel/Kempf and highest-weight inputs are imported from their single owner."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/equivariant-vector-bundles-and-Perf-ind",
+        "verdict": "corrected",
+        "note": "Connective algebra with finite coherent good-filtration dimension gives the tensor criterion; that finite-dimension input is explicitly requested."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/adjoint-unit-generation",
+        "verdict": "corrected",
+        "note": "The adjoint unit is induced perfect iff the good-π₁ torsion condition holds, with the source's finite component hypotheses."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/twisted-free-generation",
+        "verdict": "corrected",
+        "note": "Twisted free generation uses the adjoint-unit criterion and has the same π₁/component prime restrictions, not merely smoothness."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/derived-unit-fibre",
+        "verdict": "corrected",
+        "note": "Expanded VIII.5.13's relative-bar/separated-IndCoh/bounded-t-amplitude and Borel-flag conservativity proof, and requested the general enhanced interfaces."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/surface-and-tame-relations",
+        "verdict": "corrected",
+        "note": "Surface and tame relations are derived unit fibres; the tame proof uses BS(1,q), and wild-gerbe reduction belongs later rather than being assumed here."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
+        "verdict": "corrected",
+        "note": "Corrected the component-order proof: ambient twisted coordinate algebra has good filtration; O(G/H′) has finite good-filtration dimension, not automatic good filtration as an arbitrary quotient."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/cyclic-fixed-locus-resolution",
+        "verdict": "corrected",
+        "note": "The cyclic fixed-locus resolution uses exact Ind–Pro constructions and formal rth roots for r prime to l; no averaging over a noninvertible order."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+        "verdict": "corrected",
+        "note": "Donkin restriction/induction for finite solvable prime-to-l P is distinct from good-π₁ generation; highest-weight imports no longer duplicate a new RG2.6 owner."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/fixed-induction-and-counit",
+        "verdict": "corrected",
+        "note": "Expanded the six-equivalence proof through separated bar detection, cyclic simply-connected generation and central-character summands; it no longer assumes the later good-kernel theorem."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/fixed-restriction-generation",
+        "verdict": "corrected",
+        "note": "Generation uses the established counit/good-kernel criterion, not a circular proof of its own prerequisite."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/bad-prime-fixed-counterexample",
+        "verdict": "corrected",
+        "note": "The characteristic-two swap example (SL₂×SL₂)/μ₂ has fixed PGL₂×μ₂ and obstructs generation; central coverings must retain nonsmooth central structure."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/fixed-fundamental-group",
+        "verdict": "verified",
+        "note": "Prime-to-l solvable fixed points preserve the good fundamental-group condition by the source's reductions/case calculations; component-order preservation is a separate theorem."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/mapping-approximation",
+        "verdict": "corrected",
+        "note": "Map^Σ is left Kan extension from finite base sets equipped with Γ-torsors; total torsors can be infinite. It is category-valued, not an asserted representing stack."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/free-gerbe-comparison",
+        "verdict": "verified",
+        "note": "Free-gerbe comparison is fully faithful with the induced image; essential surjectivity requires the source's π₁ hypothesis."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/wild-gerbe-elimination",
+        "verdict": "verified",
+        "note": "Finite solvable prime-to-l wild gerbe elimination gives finitely many reductive fixed-group gerbes, and preserves component/π₁ conditions separately."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/tame-case-and-the-wild-remainder",
+        "verdict": "verified",
+        "note": "Wild reduction precedes the tame unit-fibre application; generation over the original Weil piece uses those reductions in order."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/separable-centralizers",
+        "verdict": "verified",
+        "note": "BHKT3.8 separability/very-good hypotheses checked, with source E2 rejecting a semisimple-Lie assertion for arbitrary reductive groups."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/quotient-etale-descent",
+        "verdict": "corrected",
+        "note": "Repaired BHKT3.11's quotient normalisation by finite relative algebraic closure L₀ and the image Galois group; source E9 records the invalid direct appeal over the quotient field."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/formal-etale-slice",
+        "verdict": "corrected",
+        "note": "BHKT3.13 requires scheme-theoretically trivial stabilizer; corrected action/quotient point conventions and recorded the published misprints as E10."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP3/integral-chevalley-restriction",
+        "verdict": "corrected",
+        "note": "Integral group Chevalley restriction over Z uses highest-weight integral characters from the existing representation Part II; this is not bad-characteristic Lie restriction."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit",
+        "verdict": "verified",
+        "note": "The underlying animated free-coordinate algebra colimit theorem is all-prime and distinct from the equivariant/invariant theorem."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+        "verdict": "corrected",
+        "note": "The integral excursion/invariant isomorphism retains exactly l∤|π₁(H)_tors|, separate from rational equality and all-prime geometric equality."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/cohomology-and-base-change",
+        "verdict": "corrected",
+        "note": "Higher rational H-cohomology vanishing and all-coefficient base change are parameter-specific good-filtration results, not a general exactness of reductive invariants."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP2/three-way-separation",
+        "verdict": "verified",
+        "note": "The three mathematical strengths—universal homeomorphism, rational isomorphism, good-prime integral isomorphism—are kept separate."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/rep-action-on-perf",
+        "verdict": "corrected",
+        "note": "Universal torsors give the representation-bundle action at all primes; its existence does not assert generation. Added the missing user-facing API items and matching signature inventory."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+        "verdict": "corrected",
+        "note": "Representation-bundle generation uses the good-π₁ condition in characteristic l/integrally and has no such restriction in characteristic zero; inputs are imported from the single highest-weight owner."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/module-comparison",
+        "verdict": "verified",
+        "note": "The module comparison is inside IndPerf(BH), with Barr–Beck and compactness inputs; it is not merely an ordinary module equivalence."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/rational-all-colimits",
+        "verdict": "unverifiable",
+        "note": "X.1.2's rational arbitrary-anima/all-colimit mathematics checked, including pro-reductive finite-dimensional descent; LP4 ownership contradicts the primary ES2 allocation (G5)."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/colimit-theorem-and-monoidal-universal-property",
+        "verdict": "unverifiable",
+        "note": "X.1.1's characteristic-zero coherent monoidal universal property checked; the unsupported 'more specific resolution' claim is removed, but generic LP4 ownership remains unaccepted (G5)."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/integral-universal-property",
+        "verdict": "unverifiable",
+        "note": "X.3.1's integral universal property is for Map^Σ, not actual Perf of every integral mapping stack; primary ES3 ownership needs coordinated migration (G5)."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/approximation-all-colimits",
+        "verdict": "unverifiable",
+        "note": "X.3.2 proves all-colimit preservation for the approximation, with finite bases bearing Q-torsors; primary ES3 ownership remains unresolved in this packet (G5)."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/integral-free-group-comparison",
+        "verdict": "unverifiable",
+        "note": "X.3.3 gives full faithfulness for free groups before generation; good-prime essential surjectivity is separate. Generic ES3/LP4 routing remains G5."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/sifted-approximation",
+        "verdict": "unverifiable",
+        "note": "X.3.4 identifies sifted animated/equivariant approximation with the stated module construction, not just ordinary-ring colimits; generic ownership remains G5."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/weil-approximation-equivalence",
+        "verdict": "unverifiable",
+        "note": "The Weil approximation is an equivalence only under the good-π₁ hypothesis; Bun_G/W→W_E/P is the ES application. Coordinated Chapter-X migration remains G5."
+      },
+      {
+        "nodeId": "LanglandsParameterStacks:LP4/compactly-supported-actions",
+        "verdict": "unverifiable",
+        "note": "Objectwise compact support on the clopen union agrees with X.0.1–X.0.2; no uniform wild bound or universal non-quasi-compactness. Generic action ownership remains G5."
+      }
+    ]
+  }
 }
