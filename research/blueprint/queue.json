@@ -16744,7 +16744,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6897"
   },
   {
    "id": "REV-DESIGN-CrystallineLocalGlobalCompatibilityCM",
@@ -16788,7 +16789,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6898"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -37822,8 +37824,9 @@
    ],
    "revisionOf": "BP-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/BP-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6922"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6922",
+   "finishedAt": "2026-10-07T15:28:29Z"
   },
   {
    "priority": 2,
@@ -39449,7 +39452,8 @@
    ],
    "revisionOf": "BP-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/BP-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6931"
   },
   {
    "priority": 2,
@@ -39504,8 +39508,9 @@
    ],
    "revisionOf": "BP-IntegralHeckeAndGaloisDeterminants",
    "prompt": "research/blueprint/prompts/BP-IntegralHeckeAndGaloisDeterminants~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6932"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6932",
+   "finishedAt": "2026-10-07T15:28:31Z"
   },
   {
    "priority": 2,
@@ -41858,8 +41863,9 @@
    ],
    "revisionOf": "BP-EffectiveDiophantineMethods",
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6936"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6936",
+   "finishedAt": "2026-10-07T15:28:33Z"
   },
   {
    "priority": 2,
