@@ -1,106 +1,60 @@
-# BP-AutomorphicLFunctionsAndLocalFactors — checkpoint 2 (Claude Code cc-39fac3)
+# BP-AutomorphicLFunctionsAndLocalFactors — completed planning pass
 
-Claude Code, session `cc-39fac3`, 29 September 2026. Refs #688; the bot confirmed the claim (comment 5884362867). **Status: partial.** No stage is closed; AL.1 is decomposed except for three recorded items.
+Codex, session `codex-P6nWgb`, 7 October 2026. Refs #688. Claim comment 6031118523 was confirmed by the bot at 04:46:15 UTC. Scope is AL.0–AL.5, part null. **Status: complete under PROTOCOL §0; all six stages planned, none closed.** This is a mathematical plan and a suggested signature prototype, not a formalization claim. Every implementation status remains unchecked.
 
-## Checkpoint 2: Tate's thesis
+## Result and validation
 
-**Sources.** Both files match the recorded sha256.
-- Kudla 2004: printed pp.115–131 read on page images. This completes the chapter.
-- Tate 1950: physical pp.15–27 (§§2.4–2.5) and 40–59 (§§4.2–4.5) read on page images. Pp.28–39 (§3 and early §4.1) remain unread.
+The packet contains **120 nodes: 29 definitions, 2 constructions, 14 lemmas, 67 theorems and 8 comparisons; 136 API items, 117 discriminating tests, 29 planets and 68 pinned baseline declarations**. Planet counts by layer are 6, 6, 6, 6, 2 and 3. Fourteen precise gaps and 26 supplier requests remain, with stage-specific remaining lists. The reader gives the mathematical statements, hypotheses, API, tests, uses, direct inputs, acceptance conditions and proof routes for all nodes.
 
-**New nodes (29).** Library modules are `TauCeti/Analysis/Fourier/SchwartzBruhat`, `TauCeti/NumberTheory/TateThesis/Local` and `…/Global`.
-- **AL.0 (5):**
-  - `local-schwartz-bruhat-space` (definition; 6 API items, 4 tests): the SR.1 carrier, and Mathlib's 𝓢 and 𝓢′ at ℝ, ℂ.
-  - `local-fourier-inversion`.
-  - `adelic-schwartz-bruhat-space` (construction; 6 API items, 4 tests; with Tate's 𝔷1–𝔷3).
-  - `adelic-poisson-summation` (planet): Tate's Riemann–Roch.
-  - `point-supported-distributions`.
-- **AL.1 local (15):**
-  - quasi-characters and conductors (definition);
-  - the local zeta integral (definition);
-  - S′(ω) (definition);
-  - Lemmas 3.2 and 3.3;
-  - the unramified, exceptional (S′(ω₀) = ℂδ₀ via the nonsplit ρ(x)), ramified and archimedean theories;
-  - Theorem 3.4 (planet);
-  - Lemma 3.6, with its proof written out;
-  - ε/γ-factors (definition);
-  - the local functional equation (planet);
-  - the local Gauss sum (definition);
-  - Proposition 3.8 (planet).
-- **AL.1 global (9):**
-  - Lemma 4.1 with Theorem 4.2;
-  - the global zeta integral (definition);
-  - Λ(s, ω) (definition);
-  - κ = Mathlib's `NumberField.dedekindZeta_residue`;
-  - Tate's Lemmas A and B;
-  - Main Theorem 4.4.1 (planet);
-  - the global ε-factor (definition);
-  - the Hecke functional equation (planet).
+`check_blueprint.py` reports zero errors and zero warnings. The 120-node internal prerequisite graph is acyclic. The four deliverables pass `intake.py check-files`. The suggested Lean file elaborated using `lean-check` in the existing pinned shared build, with zero errors and only intentional `sorry` warnings. Mathlib is `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti is `f790474821cf4256814db967cb154e7af3d0c369`. No build, cache update or language server was used.
 
-**Planets.** AL.0 now has 6 and AL.1 has 5.
+The suggested file covers **205 distinct packet names with typed declarations or named examples**. Its final, explicit named omission manifest lists **158 full signatures** that cannot yet be stated on the unavailable arithmetic, representation, quotient, completion or parameter carriers. Formula specializations use native carriers and are identified as such; they do not assert that a cuspidal representation or analytic continuation has been constructed. No missing mathematical condition is replaced by a dummy proposition. Obtain the supplier carriers before replacing those omissions by the full signatures. The inherited finite Fourier examples and nine proved Tate comparison examples are retained.
 
-**Source findings.**
-- E3: Kudla p.128 cross-references (3.13) → (3.23) and Proposition 3.7 → 3.8.
-- E4: Kudla (3.22). With x^{−a} characters the real poles are at even −r with residue D^{a+r}δ₀.
-- E5: Tate p.26. N𝔡^{−1/2} → N𝔡^{+1/2}.
+## Ownership and normalization decisions
 
-Each was checked against the page images and a second argument; no published correction was found.
+The accepted RS-13 restructuring, six AUDIT-14 rows and review, and applicable RT-AREA automorphic/langlands findings were followed. All six target stages, all 35 touching edges and all 35 applicable link records were read. The two upstream model readers freshly read in full were ArithmeticDirichletSeries and CompactGroups; the earlier workers' different model readings are not claimed as this session's work.
 
-**Requests and gaps.**
-- New request: GlobalNumberFields Layer 6 (ideles and compactness of the norm-one class group).
-- The new nodes were added to the neededBy lists of the SR.1, AA.0, GNF 0/5/9/10 and ADS 3 requests.
-- New gaps: the unread proof source for point-supported distributions (no roadmap owns distribution theory, since FoundationsAndLibraryIntegration is retired), and Tate §3 unread.
-- The AL.1 gap text is rewritten to the three remaining items.
+SR.1 owns the finite Schwartz carrier; SR.3 supplies matrix-coefficient/asymptotic estimates, SR.4 normalized Satake, and SR.5 complex generic Whittaker/derivative/newform extensions. AA.0/AA.2 supply restricted products and actual quotient measures. GlobalNumberFields and ClassFieldTheory supply completions, ideles, characters and attained conductor exponents. AF supplies archimedean LLC, global cuspidality/decay and the requested AF.1b unitary/isobaric/residual classification and solvable-base-change extension. General finite-place complex GLₙ LLC compatibility is a recorded gap, rather than attributed to a generic SR stage.
 
-**Lean.** The suggested file now has an AL.1 section: signature sketches in a comment, plus 9 examples, all proved. They cover the unramified series, ρ(x), π·Γ_ℂ, Tate's real ρ = Γ_ℂ cos, Jacobi θ, the completed-ζ bracket and functional equation, κ(ℚ) = 1, |𝔤|² = 1, and the ℚ(√5) units. It elaborates against Mathlib 082e2d3 with 0 errors; the only warnings are the 25 existing placeholders.
+AL owns local matrix and Rankin–Selberg integral comparisons, GLₙ Fourier expansion, mirabolic Eisenstein analysis and analytic factor/period normalization. Whittaker/cohomological E-structures are explicit hypotheses, avoiding an AF.4 algebraicity dependency cycle. ModularSymbols L1/L2 supply the primitive character and p-stabilization dictionary. PeriodsSchwartz consumes the central period output; AL.5 does not import that consumer. General Hadamard theory stays with AnalyticNumberTheory; Landau positivity stays with ArithmeticDirichletSeries Layer 8.
 
-**Checks.** `check_blueprint.py`: 0 errors, 0 warnings (42 nodes). `intake.py check-files`: 0 problems. Unit tests pass.
+The positive source Fourier kernel is compared with Mathlib's negative kernel. Complex norm is z·conj(z), the trace-character self-dual complex measure is 2 dxdy, and finite additive volume is q^(−d/2). Tate's finite multiplicative measure and Kudla's unit-volume convention differ; their norm-one class volumes must be compared with the resulting discriminant scalar. The native real one-sided Dedekind residue theorem is imported, not replanned. Tau Ceti's three holomorphic cusp-form coefficient-series/continuation results are imported; Maass factors and Petersson normalization remain distinct comparisons. Strong multiplicity one recovers infinite-place agreement from cofinite finite-place data, retaining every omitted finite and archimedean local factor at s=1.
 
-**Continue with:**
-1. AL.2 (Godement–Jacquet: Jacquet's Corvallis article "Principal L-functions of the linear group" and Cogdell's Fields notes are free).
-2. AL.4 (Borel, "Automorphic L-functions", Corvallis II §§6–7).
-3. Read Tate §3 to close the product-integral gap.
+Fresh main was checked before publication. The accepted GL₂ R16.1–R17.2 review's normalization and omitted-archimedean-factor requirements agree with this plan. The MP.0 review is needs_changes; its advanced signatures and broad arithmetic feedback are not used as established suppliers here. Other new geometric/deformation/trace jobs do not change these analytic owners. Canonical Yu/Yun–Zhang errata used here were unchanged.
 
-# BP-AutomorphicLFunctionsAndLocalFactors — partial checkpoint
+## Source evidence and its limits
 
-Worker: Codex — codex-hjdg0j. Issue: #688. Claim comment 5851677325 won, confirmed by bot comment 5851678186. The complete issue was read before and after the bot reply. Scope remains AL.0–AL.5, with part null. This submission is partial and is intended to retain its concrete component while releasing the remainder through the normal checkpoint intake. No stage is claimed closed.
+The packet records 32 versioned sources, URLs, hashes and exact reading scopes, and routes 39 assigned items from 17 paper jobs. Reading a consumer statement does not certify its original construction proof. Current-session reading includes the full Tate thesis OCR and Kudla chapter OCR; fresh Kudla page images at printed 123, 124 and 126 check the measure and tensor-factorization passages. Earlier workers' image readings of Kudla 115–131 and selected Tate pages remain provenance, not fresh image readings by this worker.
 
-## Completed component
+Cogdell's relevant Fields Lectures 4–9, including the strong multiplicity-one proof, and Columbia §1.1.1–3 were read. Humphries' archimedean §2.3–4 and entire seven-page nonarchimedean Godement–Jacquet test-vector proof were read. Jacquet's §§1–2, §3 through Proposition 3.2 and §12.1–Proposition 12.2 were read; the remaining §§3–16 proof machinery is not certified. Borel's printed 27–29 and 46–55 were inspected on images, distinguishing proved standard-factor results from general conjectural functional equations. JPSS introduction 367–369 and Proposition 1.4 at 380–381 were inspected on images, not the whole rationality proof. Jacquet–Shalika II's introduction and §4.7 Artin discussion were read; the full strict-bound proof remains open. The restricted Godement–Jacquet 1972 source was located, not read. Godement's Bourbaki exposition was screened and does not substitute for the matrix-space proof. AMS Gelbart–Shahidi and the author PDF were unavailable; the general strip-bound proof remains open.
 
-Thirteen new declaration-sized items in AL.0 give the annihilator for a bilinear character pairing, its membership API, closedness and openness, Fourier vanishing from a period, support containment, subgroup and coset indicator transforms, modulation, frequency periods, local constancy, conditional compact support and conditional indicator inversion. Counts: one construction, seven lemmas, five theorems, four API items, four definition tests, four further finite Fourier examples and five planets. The packet has thirty checked baseline references, six stage gaps, nine supplier requests, two source findings and one ownership rescope proposal.
+Yu v5 §§5.1.2, 5.3.1, 6.1 and 6.2.2 were read; the journal version is uncollated. Yun–Zhang's published Appendix B was read in full. Wei Zhang's published §§11.1–2, the K-invariance/Lemma 12.3 proof and the Tate specialization were read. Yuan–Zhang's completion and gamma-correction passages were read. Leslie's §§8.1–2 were read; Theorem 9.8 was read as a consumer, not its full proof. Ramakrishnan's introduction was read, not §§1–5. Raghuram's §2.5.2 comparison and twist formula were read; rational-structure construction proofs remain open.
 
-All current signatures use the actual Mathlib Fourier integral, additive characters, bilinear maps, additive subgroups, measurable indicators and support notions. The general Fourier translation theorem already exists at the pin and is imported. The generic locally constant compact-support carrier belongs to SR.1; no duplicate carrier was created. The new annihilator is an additive subgroup, not a scalar submodule. Its test over the real integer lattice excludes the tempting scalar-stability assertion.
+Further consumer passages read were Duke–Imamoğlu–Tóth §5.2 and (5.17), Humphries–Nordentoft §4.1.1, Liu et al. introduction, Chenevier–Taïbi §2.1 gamma/epsilon and §2.3 strip boundedness, Gan–Ichino's almost-tempered bound and multiplicity-one application, Caraiani–Scholze Lemma 5.5.1 with proof, Allen et al. Corollary 7.1.13, Calegari–Geraghty's appendix A.5, Beuzart-Plessis–Chaudouard–Zydor §6.2.3 and §10.1.6.1, BCGP §1.8.25, Gross–Zagier's Bessel/partial-Fourier pages, Sarnak §1, Rodrigues Jacinto–Williams Appendix B and AKY's introductory conductor/newform statements. The packet's exact locators and version boundaries govern these readings; they are not full-paper claims. In particular the Duke advance copy and BCGP author manuscript are not silently substituted for a freshly collated journal version.
 
-The indicator formula keeps μ.real(U) explicitly. The coset formula uses the negative phase for an input translated as f(v−a), while positive modulation shifts the frequency by −w₀. Counting measure on Z/2 gives a factor of two under two transforms. The Z/4 coset example distinguishes −i from +i, and the Z/3 modulation example distinguishes frequency 1 from −1. The double-transform theorem assumes the double-annihilator equality and dual volume product; no self-dual Haar construction is claimed.
+Own E1–E5 retain the earlier workers' conductor, bibliography, cross-reference, real-pole and inverse-different corrections. New candidate E6 restricts Kudla's unrestricted distribution-factorization converse to eigendistributions or decomposable tensors; a rank-two tensor-sum counterexample is supplied, and no addressing published correction was located in the recorded bounded search. Independent review must adjudicate it. Canonical corrections PAPER-YU-23/E15 and PAPER-YUN-ZHANG-17/E1,E2,E15–E17 are attributed in sourceCorrections rather than renamed as new local findings. The rejected Yun–Zhang E8 is not imported.
 
-## Source and ownership evidence
+## Follow-up after independent review
 
-All six reviewed AUDIT-14 rows and the REV-AUDIT-14 record were read before planning. The accepted RS-13 result and full report were read and followed. All six AL stage descriptions, all thirty-five touching edges and all thirty-five applicable link records were screened. The count includes roadmap-level screens mentioning AL incidentally; they were not automatically treated as stage dependencies.
+Review this complete target-level pass first. Each planned stage has a precise remaining list; create follow-up work from those lists after acceptance. The open boundaries are:
 
-Supplier descriptions read include SR.1 and SR.5, AF.0 and AF.1, AA.0, GlobalNumberFields Layers 0, 5, 9 and 10, ArithmeticDirichletSeries Layer 3, FA.2, GL₂ R16.1 and the upstream OneParameterSemigroups positive-definite/Bochner milestones. There was no finer SR/AF/AA supplier packet or previous AL packet/integrated decomposition at the base snapshot. The two required upstream model documents, GrothendieckEulerForms and JacobianChallenge, had been fully read in this worker session and were byte-verified unchanged.
+- **G1: actual arithmetic/representation interfaces** — The named SR, AA, AF and GlobalNumberFields interfaces are planned suppliers, not accepted implementations. Their exact native carriers, coefficient hypotheses, completed tensor topology and measure transport must be supplied before full signatures can be elaborated. The suggested file uses native archimedean spaces and generic integral/representation formula specializations, and explicitly names the remaining unstatable declarations.
+- **G2: local-field inverse duality proof** — Tate states local self-duality using general LCA theory. The plan specifies a finite-lattice quotient inverse construction; its continuity/surjectivity proof has not been decomposed from a complete read primary proof. The native PontryaginDual carrier supplies no self-duality theorem. Fractional-ideal inverse-different identities require the GNF/LocalFields arithmetic comparison.
+- **G3: point-supported distributions** — The structure theorem behind Kudla Lemma3.3 is cited to Friedlander but its original proof source is unread. The finite-order jet argument is a proof outline, not closure. Keep continuity, distribution support and F×-finite distinctions in the actual statement.
+- **G4: K-Bessel order derivative proof** — Zhang Lemma12.3 and its proof were freshly read; the derivative formula is quoted there from Oberhettinger/Sneddon. That original tabulated proof was not accessed. The target normalization and Ei(−2c) are fixed; derive the integral identity or read its proof before closing this leaf.
+- **G5: nonarchimedean Godement–Jacquet proof source** — The 1972 Springer LNM260 monograph is restricted; its complete local/global proofs were not read. Fresh Humphries §§2.4 and Borel §§13–14 establish the precise interfaces and Humphries1903.02031v2 supplies the full newform proof. Rationality, bounded common denominators, minimality and the matrix-space global continuation need finer proof-source decomposition; neither a definition of the factor nor an unramified test proves them. The Godement Bourbaki exposition is not misidentified as the matrix-space monograph. The standard Re(s)>1 Euler-product proof also needs the self-pair Schur-positivity coefficient comparison and ADS Layer8 finite-abscissa argument, not merely the local q^(1/2) bound.
+- **G6: finite-place Rankin–Selberg proof refinement** — Fresh JPSS1983 images cover the introduction and mirabolic continuation Proposition1.4 (pp.380–381), while Cogdell Lectures6/8 state local theorems with proofs/sketches. JPSS main finite-place proof interiors are not freshly read in full. The SR.5 derivative filtration must be connected to rationality/common denominator, j-independence, uniqueness and exact test normalization, rather than treating those conclusions as definitions.
+- **G7: archimedean Rankin–Selberg proof refinement** — Jacquet §§1–2, §3 through Proposition3.2 and §12.1 through Proposition12.2 were read. The remaining §§3–16 majorization, polar-part and induction proofs are not claimed read. The Borel prescribed-jet lemma, continuity on completed tensor products and K-finite exceptions require those proof leaves. No Laurent-polynomial gcd is used at infinity.
+- **G8: general vertical-strip boundedness** — Cogdell Lecture9 identifies special-rank K-finite bounds and flags the general proof; Chenevier–Taïbi §2.3 quotes Gelbart–Shahidi. The AMS original timed out/returned403 and the attempted author PDF404. General arbitrary-rank bounds remain an unread proof-source leaf; special adjacent/equal ranks and native GL₁ estimates are distinguished.
+- **G9: classification and solvable base change** — AF.1b is a requested classification extension, not an existing theorem. Ramakrishnan2018 introduction/TheoremA/CorollaryB and strategy were read, not the full §§1–5 descent proof. Generic solvable base change/self-twist bounds and the cohomological field-construction step are missing supplier/proof leaves. GL₂ transfer alone is insufficient. The ordinary cuspidal SMO proof in Cogdell is freshly read.
+- **G10: global boundary nonvanishing proof** — Sarnak §1 and the BPCZ consumer quote the full JS/Shahidi result. The general original Shahidi proof is not read. Record the positive auxiliary-product strategy and meromorphic pole cases; do not infer the boundary theorem solely from absolute convergence in Re(s)>1.
+- **G11: function-field cohomological degree and duality** — The GS.6 fine nodes are planned correspondence/purity imports; FA.5 must supply tensor Artin rationality, compact cohomological degree and alternating Poincaré-duality pairing. Yu §§6.1–6.2.2 radius/count/reflection calculations and Yun–Zhang AppendixB were freshly read. The imported canonical source corrections PAPER-YU-23/E15 and PAPER-YUN-ZHANG-17/E1,E2,E15–E17 remain separately attributed; Yu’s final journal text is uncollated.
+- **G12: rational structures and primitive-character dictionary** — Raghuram §2.5.2 comparison and twist formula were read, but the construction proof of the Whittaker/cohomological rational structures is not read. The AL.3 theorem is conditional on those structures, not a new algebraicity theorem or an AF.4 dependency cycle. For GL₂/Q import ModularSymbols L1/L2: match χ versus χ−1, Gauss sum, period sign and primitive versus p-level L-series before using the two Euler factors. For general GL₂/F or higher-rank families a proved supplier algebraicity theorem must be named separately.
+- **G13: finite-place parameter compatibility** — AF.1 supplies the proved archimedean comparison. R19.4 supplies arithmetic local-global compatibility only in its scope. A general finite-place complex GL_n LLC theorem with L/epsilon/monodromy compatibility is not provided by the currently cited generic SR stages. Keep that comparison conditional; the unramified polynomial equality does not imply the ramified theorem.
+- **G14: general Hadamard owner refinement** — AN.2 must absorb the corrected order≤1/RH entire-function theorem from Yun–Zhang PropositionB.1, with a non-polynomial hypothesis for strict propagation. AL applies the supplier and proves its completion/order/positivity hypotheses; it does not create a second general Hadamard theory.
 
-Tate’s original thesis scan was read through physical p.24 in batches of at most three pages. That is the original thesis version, not the 1967 reprint. Physical p.24, printed (2.17), was rendered to check the Fourier calculation after OCR lost factors. Resume at physical p.25. The chapter-I LCA duality assumptions must not be replaced by the mere existence of Mathlib’s PontryaginDual carrier. The local inverse-different and measure formulas around physical pp.10–12 require rendering before exact transcription; the current component does not depend on their unverified OCR exponents.
+Start refinement with the actual supplier carriers and their named API; then replace the corresponding suggested-file omission entries. For proof refinement, obtain and read the original finite matrix/Rankin–Selberg rationality arguments, the rest of Jacquet's archimedean induction, strict local bounds, general vertical-strip and boundary-nonvanishing proofs, classification/base-change proof and rational structures. Preserve explicit measures, poles, primitive characters, residual inertial equivalence and exceptional zeros. No scratch artifact is needed to resume; all necessary mathematical boundaries and source locators are committed in the packet, reader and this note.
 
-Kudla’s published chapter was read through physical p.15, printed p.123. Printed pp.110 and 122 were rendered. Resume at physical p.16, printed p.124, for the explicit epsilon-factor calculations and the global section. The lecture preprint was read through p.9 only and was used for collation, not silently substituted for the published text. Resume at p.10 only if that version is needed. The packet records each URL, full SHA-256, version and date.
+## Prior checkpoint provenance
 
-Source finding E1 corrects M dividing N₀ to N₀ dividing M in the published conductor paragraph p.110; it was checked against the actual image and the earlier projection formula. Focused correction searches and the author/publisher pages did not reveal an addressing correction. E2 is the preprint bibliographic placeholder already corrected to Valenza on published p.110. Both are classified as misprints affecting no intended mathematics. Neither has an independent review yet.
-
-## Validation
-
-The indexed blueprint check has zero errors and zero warnings. The graph is acyclic and the component’s prerequisites terminate in checked native declarations. Lean 4.34.0-rc2 elaborates the assigned suggested file with zero errors and twenty-five intentional placeholder warnings only. All 8,482 transitive Mathlib import source files were byte-verified against the pin and matching cache; there are no Tau Ceti imports to build for this component. Every construction/API/test name matches its suggested-file declaration or named example. This is a signature prototype, with every implementationStatus unchecked.
-
-The intake check reports four files and zero problems, and the source-issue/version check reports no problems. The fresh-main check found sixty-nine guarded paths unchanged; the only new relevant supplier was the worker’s own fully read MP.0 packet, byte-identical to its submission and with no overlap in the present component.
-
-The publication guard compares the source archive against the working snapshot to require exactly the four authorized deliverables, checks for local paths, rechecks claim ownership and issue body, and compares all used protocols, audits, ownership inputs and suppliers against current main. Any new relevant supplier packet must be reviewed before publication. The assigned files contain no local scratch artifacts, and no source PDF is committed.
-
-## Exact continuation
-
-Start with the actual SR.1 generic locally constant compact-support carrier, using its finer node if one has appeared. Prove the finite-local-field characterization on Kudla p.115: a compactly supported locally constant function is invariant under a sufficiently small additive fractional ideal and has support in a sufficiently large fractional ideal. Separate uniform local constancy from the boundedness/compact-subgroup containment statement. The existing Tau Ceti translation-stabilizer openness theorem assumes a compact ambient group and does not immediately give the noncompact local-field version.
-
-Construct the standard additive character on each finite completion, including its trace and inverse-different convention, and prove the annihilator formula for fractional ideals. Establish continuity, local constancy, compact annihilators, the double-annihilator theorem and finite positive Haar volumes. The current general pairing component can then be applied to actual local-field lattices. Prove the dual volume product using the chosen measures. Extend the indicator calculations to all test functions using finite coset decompositions and the integrability hypotheses required by native Fourier additivity.
-
-At infinite places, read the actual pinned SchwartzMap and Fourier signatures before importing their theorems. Compare native negative Fourier convention with Kudla’s positive convention and Tate’s standard local character. Construct adelic tensor compatibility, the diagonal annihilator and quotient-volume normalization using AA.0 and GlobalNumberFields, then prove Poisson summation. This remains a substantive analytic component, not a consequence of a restricted-product type.
-
-For AL.1, the read source already identifies the distribution scaling action, point-supported distributions, eigenspace uniqueness, unramified difference operator, ramified test vectors, normalized zeta distributions, archimedean gamma computation and local functional equation. Each needs declaration-level extraction and its actual proof source. Preserve the exceptional unramified extension argument and the trivial/norm-character global poles. AL.2–AL.5 have specific remaining lists in the packet and reader; their primary construction proofs have not been read. Keep the archimedean arguments separate from finite-place gcd normalization, and preserve exceptional zeros in the interpolation interfaces.
-
-The job’s original scope and all incomplete targets remain explicit. The six gaps and nine requests are the restart worklist. No supplier file, upstream roadmap, checker or library file is modified by this submission.
+This pass continues Codex `codex-hjdg0j`'s AL.0 annihilator/Fourier component and Claude Code `cc-39fac3`'s Tate extraction. The former supplied the native subgroup prototype, finite sign/volume examples and initial ownership audit; the latter supplied the Tate nodes, nine proved comparison examples and E3–E5 image checks. Their partial-stage status is superseded by the six-stage planned coverage above, while their unchecked implementation status and explicitly scoped reading evidence are retained.
