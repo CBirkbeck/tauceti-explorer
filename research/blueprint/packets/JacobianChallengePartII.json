@@ -170,7 +170,7 @@
       "id": "JacobianChallengePartII/E1",
       "kind": "misprint",
       "locator": "Author manuscript21 August2024, §2.2.1 p.29; not collated against Annals203(2026)",
-      "printed": "We have a finite S-morphism",
+      "printed": "The source asserts that the S-morphism is finite.",
       "correction": "with d nonzero (the paper's own uses all take d > 0)",
       "reason": "For d = 0 the map i_alpha is the constant section of J -> S determined by -alpha, hence not finite as soon as dim X > dim S. For d nonzero it is finite, being a translation composed with the isogeny [d] and a closed immersion. The hypothesis is correctly imposed wherever the morphism is actually used: the proof of Proposition 2.6 on p. 31 says 'let alpha be a line bundle on X of degree d > 0', and Theorems 4.5, 4.17 and 4.19 all say 'of positive degree on fibers'.",
       "affects": "nothing",

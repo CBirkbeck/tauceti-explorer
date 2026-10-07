@@ -10116,7 +10116,7 @@
       "id": "DirichletPadicLFunctions/E36",
       "kind": "misprint",
       "locator": "§11.2, second paragraph (definition of I(Γ)), printed p. 175 (PDF 76), Essential Number Theory 4 (2025) version of record; arXiv v2 identical",
-      "printed": "for any σ ∈ Γ",
+      "printed": "The source makes the assertion for every σ ∈ Γ.",
       "correction": "where Λ(Γ) ↠ Z_p is the map induced by [g] ↦ 1 for any g ∈ Γ.",
       "reason": "Existing catalogue finding PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E66, already confirmed by REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23. The quantified variable is g; σ does not occur in the formula.",
       "affects": "nothing",

@@ -1322,7 +1322,7 @@
       "source": "H-published",
       "kind": "misprint",
       "locator": "§2, paragraph introducing the right adjoint R to the forgetful U, published p.162; also arXiv:1006.3125v3 p.24",
-      "printed": "with the counit and unit maps defined by",
+      "printed": "The source introduces definitions of the maps, naming them in the order counit, then unit.",
       "correction": "Replace “counit and unit” by “unit and counit”: λ:(A,λ)→(W(A),Δ_A) is the unit, while ε_A:W(A)→A is the counit of U⊣R.",
       "reason": "A unit has source an object of the coalgebra category and target RU of that object, exactly the displayed λ. A counit has source UR(A) and target A, exactly ε_A. The maps and adjunction are correct; only their names are reversed.",
       "affects": "nothing",

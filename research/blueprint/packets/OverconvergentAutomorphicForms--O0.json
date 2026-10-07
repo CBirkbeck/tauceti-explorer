@@ -5878,7 +5878,7 @@
       "source": "BHW-2023",
       "kind": "misprint",
       "locator": "Definition7.1(1), p1759; arXiv v4 §7.1",
-      "printed": "of order pm",
+      "printed": "The source specifies order pm.",
       "correction": "The O_F-linear canonical subgroup is of order p^(mg), g=[F:Q], while it is locally O_F/p^mO_F as an O_F-module.",
       "reason": "An O_F/p^mO_F module has p^(m[F:Q]) elements. The same definition gives this local module model; order p^m agrees only in degree1.",
       "affects": "nothing",

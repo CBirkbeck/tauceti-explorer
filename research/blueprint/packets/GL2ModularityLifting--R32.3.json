@@ -1922,7 +1922,7 @@
    "source": "DP-PUBLISHED",
    "kind": "gap",
    "locator": "Theorem 1.7, fourth hypothesis, published p.5; arXiv v2 p.4",
-   "printed": "for some k ≥ 2",
+   "printed": "The source requires some k ≥ 2.",
    "correction": "Require ψ to be a finite-order character in det ρ=ψε^{k−1}, as in the Skinner–Wiles theorem cited in its proof. The lifting and transfer nodes in this packet retain this qualification.",
    "reason": "Skinner–Wiles, printed p.6, explicitly assumes finite-order ψ. Without it, det ρ=ψε^{k−1} is satisfied tautologically by defining ψ from any ordinary representation and does not force a classical integral weight. The cited theorem therefore does not prove the unrestricted wording. The surrounding geometric use has finite-order ψ, so the DP application is unchanged.",
    "affects": "a stated result",

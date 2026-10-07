@@ -2472,7 +2472,7 @@
       "id": "Polylogarithms/E-P3-03",
       "kind": "gap",
       "locator": "Gon95 published §9.2 p. 310",
-      "printed": "higher differentials",
+      "printed": "The source refers to differentials of higher order.",
       "correction": "Display the spectral-sequence differentials and prove the asserted ker δ₃ cycle-lifting statement.",
       "reason": "The paper calls the computation unpleasant and states its result; it supplies no differential formulas there. The every-family determinant needs this precise step.",
       "known": "Explicitly omitted computation in the source; no detailed primary replacement located.",

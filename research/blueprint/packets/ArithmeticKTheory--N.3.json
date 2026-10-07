@@ -712,7 +712,7 @@
       "source": "Kahn.2014",
       "kind": "misprint",
       "locator": "arXiv:1108.2441v3, §4.3.4 Vogel argument, p. 18, first paragraph; rendered page checked.",
-      "printed": "Serre fibtration",
+      "printed": "The source names the construction a Serre “fibtration”.",
       "correction": "Serre fibration",
       "reason": "The argument replaces the map by a Serre fibration and immediately uses its fibration of pairs and the Leray–Serre spectral sequence. The printed word is a spelling slip, not a different construction.",
       "affects": "nothing",

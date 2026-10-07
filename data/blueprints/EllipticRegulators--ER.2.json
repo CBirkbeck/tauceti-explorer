@@ -599,7 +599,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Nekovar.AuthorCopy, §7.5 p.24, sentence describing r_D(f) immediately after the two comparison isomorphisms; this finding concerns only the hashed author copy.",
-      "printed": "df = π₀(ω_f), for ω_f = ∂f/f",
+      "printed": "The source asserts df = π₀(ω_f), specifying ω_f = ∂f/f.",
       "correction": "Replace df by dφ_f, where φ_f=log|f|: dφ_f=π₀(ω_f).",
       "reason": "The pair model (7.3.1) requires the differential of the real-valued φ_f, and (7.4.1) gives φ_f=log|f|. For the local holomorphic unit f=e^z at z=0, df=dz while π₀(df/f)=dx=dlog|f|; the printed equation cannot hold.",
       "known": "new; no correction found in the searches listed; no assertion about the publisher’s version of record.",

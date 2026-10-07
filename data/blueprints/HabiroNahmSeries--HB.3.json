@@ -848,7 +848,7 @@
       "id": "HabiroNahmSeries/E-HB3-rank-one",
       "kind": "misprint",
       "locator": "II.3B(a), printed p. 44 (public PDF page 42), rank-one paragraph below Table 1",
-      "printed": "A = 1/2, 1 or 2 (corresponding to Q₁ = (−1 + √5)/2, 1/2 and (3 − √5)/2, respectively).",
+      "printed": "The source pairs A = 1/2, 1 or 2 with Q₁ = (−1 + √5)/2, 1/2 and (3 − √5)/2, respectively.",
       "correction": "For equation 1−Q=Q^A, the order of the first and last displayed solutions is reversed: A=1/2 gives (3−√5)/2, A=1 gives 1/2, A=2 gives (√5−1)/2.",
       "reason": "Let r=(√5−1)/2. Then r²=1−r, so 1−r=r² solves A=2. Put s=r²; then 1−s=r=√s solves A=1/2. Direct substitution disproves the printed assignment.",
       "affects": "nothing",

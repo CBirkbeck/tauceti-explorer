@@ -2376,7 +2376,7 @@
       "source": "FS",
       "kind": "gap",
       "locator": "FS proof of II.1.4, p.50, recorded author-PDF hash; compare Berkeley author draft March 27 2020, proof of 11.3.1, p.95, whose wording differs",
-      "printed": "it is well-known that the maximum is taken on the Shilov boundary.",
+      "printed": "The source calls it a familiar fact that the maximum occurs on the Shilov boundary.",
       "correction": "Supply the classical one-variable boundary theorem for the indicated affinoid subdomains and the argument preserving norm detection through finite-root approximation and geometric fibers. No change to the claimed closed Cartier theorem is proposed.",
       "reason": "The read proofs name the classical maximum principle but give no locator for the exact boundary statement or proof of the perfected-disc approximation. This is an unverified proof-detail finding for independent review, recorded also as the boundary_supremum prerequisite gap; it does not establish a false theorem.",
       "affects": "the proof",

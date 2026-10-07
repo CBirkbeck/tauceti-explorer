@@ -1523,7 +1523,7 @@
       "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21/E14",
       "kind": "misprint",
       "locator": "§2.3.2, p. 9; §3.2, p. 15; §4.3.1, pp. 19 and 20",
-      "printed": "non zero-devisor; we way assume; continuty; distibutions",
+      "printed": "The source uses the expressions “non zero-devisor”, “we way assume”, “continuty” and “distibutions”.",
       "correction": "divisor; we may assume; continuity; distributions.",
       "reason": "Confirmed the four spelling slips at the input locators in the 24-page PDF and the corresponding 36-page passages (pp.13,21,28,29). They have no mathematical effect.",
       "affects": "nothing",

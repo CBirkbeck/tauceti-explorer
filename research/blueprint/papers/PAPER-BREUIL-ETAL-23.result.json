@@ -1452,7 +1452,7 @@
       "id": "PAPER-BREUIL-ETAL-23/E1",
       "kind": "misprint",
       "locator": "arXiv:2009.03127v7 (final version), §1.3, Theorem 1.8, p. 5 (introduction), against Theorem 8.3.9, p. 101",
-      "printed": "Theorem 1.8 (Corollary 8.3.9). For j ∈ {−1, …, f − 1} the R∞-module M∞(L_j) is free of finite rank …",
+      "printed": "Theorem 1.8, identified as Corollary 8.3.9, asserts finite-rank freeness of the R∞-module M∞(L_j) whenever j ∈ {−1, …, f − 1} …",
       "correction": "Theorem 1.8 (Theorem 8.3.9).",
       "reason": "The body statement is labelled Theorem 8.3.9 (p. 101), and the introduction itself later says the result 'is ultimately proven in Theorem 8.3.9'. No statement is numbered Corollary 8.3.9.",
       "affects": "nothing",

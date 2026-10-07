@@ -458,7 +458,7 @@
       "source": "blm",
       "kind": "misprint",
       "locator": "Proposition 7.2.4, author copy printed pp.86–87; finding scoped to this author copy, published interior unavailable",
-      "printed": "derived p-completion of N",
+      "printed": "The source uses the derived p-completion of N.",
       "correction": "The premise says N is the derived p-completion of M.",
       "reason": "As printed the premise is satisfied by any map into a p-complete N. For M=0 and N=Z_p it would incorrectly say Lη_p Z_p completes zero; the proof uses the corrected premise.",
       "affects": "a stated result",

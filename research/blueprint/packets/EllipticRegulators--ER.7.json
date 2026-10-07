@@ -1377,7 +1377,7 @@
       "source": "SS.1988",
       "kind": "misprint",
       "locator": "SS 3.1.8, author retypeset p.8 and published-pagination mirror p.286; both checked from rendered page images.",
-      "printed": "The residue of ηφ at the cusp k is equal to φ(k)/w(k,K).",
+      "printed": "The source assigns φ(k)/w(k,K) as the residue of ηφ at cusp k.",
       "correction": "With 3.0.1 q_w=exp(2πiz/w), 3.1.7 Eφ=−2πyφ+O(1), and ηφ=2∂Eφ, the residue is w(k,K)φ(k), not φ(k)/w(k,K).",
       "reason": "Since log|q_w|=−2πy/w, Eφ=wφ log|q_w|+O(1). Thus 2∂Eφ=wφ dq_w/q_w plus a regular term. SS 3.5.0 defines div(u)=ord_c(u)/w(c), and 3.5.1 η_div(u)=dlog(u) confirms this product convention. For width w=2 and φ=1, the residue is 2 rather than 1/2.",
       "affects": "a stated result",

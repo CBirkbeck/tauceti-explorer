@@ -833,7 +833,7 @@
       "source": "Cohen-II-public",
       "kind": "misprint",
       "locator": "Theorem 11.6.14, printed p.372 first line, 2007 scan",
-      "printed": "n ≥ 1 such that p ∤ n",
+      "printed": "The source requires n ≥ 1 with p ∤ n.",
       "correction": "Use N in place of n in both occurrences; N is the multiplier throughout the displayed distribution identity and its proof.",
       "reason": "The remainder of the theorem uses N for the same multiplier; the author explicitly corrects both occurrences.",
       "affects": "nothing",

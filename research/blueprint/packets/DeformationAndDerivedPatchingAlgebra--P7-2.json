@@ -5578,7 +5578,7 @@
       "source": "064N",
       "kind": "misprint",
       "locator": "Online Stacks Lemma 15.66.7 proof, accessed 5 October 2026",
-      "printed": "τ_≤m K is pseudo-coherent",
+      "printed": "The source describes τ_≤m K as pseudo-coherent.",
       "correction": "Here the proof only needs and proves m-pseudo-coherence.",
       "reason": "Finite top cohomology gives the required finite-order approximation, not unrestricted pseudo-coherence below m.",
       "affects": "the proof",

@@ -2036,7 +2036,7 @@
       "source": "Kbook.2013",
       "kind": "misprint",
       "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357); identical in the chapter file Kbook.IV.pdf of 17 August 2012",
-      "printed": "and K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R)",
+      "printed": "The source gives K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R).",
       "correction": "and K−k(R) ≅ π−kΛk−1K(R) ≅ π−kΛkK(R).",
       "reason": "n is not bound in that clause (the preceding clause is 'for n > −k'); since Λ^{k−1}K(R) is the (−k)-connective cover of Λ^kK(R), the group meant is π_{−k}Λ^{k−1}K(R), which equals π_{−k}Λ^kK(R).",
       "affects": "nothing",

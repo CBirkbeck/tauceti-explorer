@@ -1636,7 +1636,7 @@
       "source": "G95",
       "kind": "error",
       "locator": "Published Advances in Mathematics 114 (1995), proof of Lemma 1.16, p. 222, definition of s₀ on the tensor product",
-      "printed": "otherwise",
+      "printed": "The source specifies the alternative case.",
       "correction": "Use the multiplicative angular-component homomorphism on the tensor unit factor, not zero on every nonunit; then prove the needed relation descent separately.",
       "reason": "At t=0 over C(t), {1}_3⊗t and {1}_3⊗(2/t) are both sent to zero by the printed rule, while their sum is {1}_3⊗2 and is sent to {1}_3⊗2≠0. The first factor is nonzero since L₃(1)=ζ(3)≠0; the rational unit class of 2 is nonzero since 2 is not a root of unity. A nonzero pure tensor over Q is nonzero. Thus the proposed homomorphism is not bilinear. This diagnoses that proof step, not the truth of Lemma 1.16.",
       "affects": "the proof",
