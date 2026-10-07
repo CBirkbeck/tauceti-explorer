@@ -1,8 +1,7 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/VectorBundlesAndIsocrystals--VB0.md` awaits the reader
-corrections recorded in the independent review. Until that revision, the corrected
-packet supplies the contracts used by this file; the review is needs_changes.
+`research/blueprint/readmes/VectorBundlesAndIsocrystals--VB0.md` and its packet
+give the definitive mathematical plan, including supplier contracts and gaps.
 These statements suggest Lean forms so that contributors and reviewers can
 converge on names and signatures. They claim no implementation.
 
