@@ -1,291 +1,243 @@
-/-
-# Stratum maps and the GL_n comparison — suggested signatures (ES7)
+import Mathlib.Algebra.Group.End
+import Mathlib.Algebra.Ring.Hom.Defs
+import Mathlib.RepresentationTheory.Basic
+import Mathlib.LinearAlgebra.Trace
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.Tactic.NormNum
 
-Suggested Lean signatures for the blueprint packet
-`research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json`
-(Tau Ceti Atlas roadmap `ExcursionOperatorsAndSpectralAction`, part `ES7`, layers
-ES7, ES7:parabolic, ES7:GLn-comparison, ES7:equal-characteristic,
-ES7:function-field-automorphic).
+/-!
+This file is not the roadmap and is not exhaustive. The roadmap document is
+ definitive. These signatures suggest Lean forms so contributors and reviewers
+ converge on names and interfaces. Every geometric implementation remains unchecked.
 
-Written by Claude Code, session `cc-7b31c4`, for issue #728, 24 September 2026.
+The pinned library has no native smooth derived Bernstein centre, Bun_G stratum,
+D-elliptic chain, special formal O_D-module, building EP function or analytic
+compact-support cohomology carrier. Their conditions are omitted honestly: see
+ES7/gap/prototypes and the named omission ledger below. No desired theorem is
+encoded as a Prop field, a True statement or an assumption equal to its conclusion.
 
-**This file was not compiled.** The Mathlib build on the machine this was written on
-is a shared cache that must not be rebuilt. Nothing below is claimed to elaborate;
-the `example`s are the packet's unit tests written as statements.
-
-Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
-Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-
-The reviewed audit `AUDIT-20` returns **not built** for every layer of this roadmap.
-Three of its notes pointed to declarations a name search would have missed, and all
-three are used below rather than re-invented:
-
-* `MeasureTheory.Measure.modularCharacter` — the modulus of a *group*. `δ_P` of a
-  parabolic and normalised smooth induction are **absent**, which is exactly why the
-  dictionary of `ES7:parabolic` cannot yet be stated against the library.
-* `TauCeti.Cocharacter.parabolic` / `.levi` — the dynamic parabolic and its Levi, which
-  both FS IX.7.2 and IX.7.3 pick.
-* `Representation.nonempty_equiv_of_character_eq` — semisimple trace determination, but
-  only for **finite** groups in characteristic zero; the GL_n comparison needs it for
-  **continuous Weil-group** representations, which is absent.
-
-Sources: L. Fargues and P. Scholze, *Geometrization of the local Langlands
-correspondence* (SHA-256 `9ab9efbd0df251bf…`), read in full for IX.7; and T. Hausberger,
-*Uniformisation des variétés de Laumon–Rapoport–Stuhler et conjecture de
-Drinfeld–Carayol*, Ann. Inst. Fourier 55 (2005) (SHA-256 `d51dc22168dcd483…`), read in
-full. Laumon–Rapoport–Stuhler itself and Kaiser's erratum are image scans and were
-**not read**; everything attributed to them comes through Hausberger.
+The first section is the algebraic part of the stratum map after ES1/VS4/SR.1
+supply the actual rings and restriction maps. The second section is the pointwise
+algebraic part of the twisted inclusion, with actions, equivariance and invariance
+explicit. Continuity, scheme structure and the geometric identification of t remain
+in the roadmap. The final section checks the finite-dimensional trace and signs.
 -/
 
-import Mathlib.RepresentationTheory.Basic
-import Mathlib.Algebra.Group.Hom.Defs
-import Mathlib.Algebra.Group.Subgroup.Defs
-import Mathlib.Algebra.MonoidAlgebra.Defs
-import Mathlib.Algebra.Ring.Defs
-import Mathlib.Algebra.Module.LinearMap.End
-import Mathlib.Algebra.DirectSum.Basic
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.LinearAlgebra.FreeModule.Basic
-import Mathlib.LinearAlgebra.Projective
-import Mathlib.LinearAlgebra.RootSystem.Defs
-import Mathlib.CategoryTheory.Adjunction.Basic
-import Mathlib.CategoryTheory.Functor.Basic
-import Mathlib.CategoryTheory.Monoidal.Category
-import Mathlib.CategoryTheory.Preadditive.Basic
-import Mathlib.AlgebraicGeometry.Scheme
-import Mathlib.Condensed.Basic
-import Mathlib.MeasureTheory.Group.ModularCharacter
-
-universe u v w
-
-namespace TauCeti.StratumMaps
-
-open CategoryTheory
-
-/-! ## Placeholders for what neither pinned library has. -/
-
-/-- The local Weil group with its inertia and the **degree map**, normalised by sending
-a *geometric* Frobenius to `1`. Absent at both pins. -/
-class WeilGroup (W : Type u) [Group W] where
-  inertia : Subgroup W
-  degree : W →* Multiplicative ℤ
-  geometricFrobeniusToOne : True
-
-/-- The dual group with its `Q`-action, `2ρ` as a cocharacter, and the Levi inclusions.
-Owned by `GeometricSatakeAndFusion:GS4` and `ReductiveGroupsPartII:RG2.5`. -/
-class LGroupData (Ghat Q : Type u) [Group Ghat] [Group Q] where
-  twoRho : Multiplicative ℤ →* Ghat
-  leviInclusions : True
-
-/-- The classical local Langlands correspondence and Jacquet–Langlands for `GL_n`.
-Absent at both pins; imported from `EndoscopicTransferAndUnitaryTraceComparison:ET.6`. -/
-class ClassicalLLC (E : Type u) [Field E] (n : ℕ) where
-  sigma : True
-  jacquetLanglands : True
-
-section StratumMaps
-
-/-! ## ES7:parabolic — FS IX.7.1 -/
-
-/-- `Ψ_G : Z^spec(G,Λ) → Z(G(E),Λ)`, through `Z^geom` and the fully faithful `j_!`. -/
-def PsiG : True := trivial
-
-/-- `Ψ_G^b` for any `b`, through the embedding of the `b`-stratum's category — the
-**left adjoint** to `i_b^*`, since there is no general `i_{b!}` in the lisse setting. -/
-def PsiGb : True := trivial
-
-/-- **Unit test `no_general_shriek`.** Assuming a general `i_{b!}` is exactly the error
-FS warn against in the parenthesis of Definition IX.7.1. -/
-example : True := trivial
-
-/-- **Unit test `independence_of_embedding`.** All eligible embeddings induce the same
-map on centres, so `Ψ_G^b` is well posed. -/
-example : True := trivial
-
-/-- The **twisted Levi cocycle map**
-`φ ↦ (w ↦ (2ρ_Ĝ − 2ρ_{Ĝ_b})(√q)^{|w|} · φ(w))`, with `|·|` sending a **geometric**
-Frobenius to `1`. -/
-def twistedLeviCocycle : True := trivial
-
-/-- **Unit test `twist_is_not_optional`.** Dropping the factor gives a different — and
-wrong — parameter. -/
-example : True := trivial
-
-/-- **Unit test `cocycle_property`.** The twisting factor is central in `Ĝ_b`, so the
-formula does define a `1`-cocycle. FS assert the formula; this is the obligation. -/
-example : True := trivial
-
-/-- **Unit test `basic_case_trivial`.** For `b` basic, `Ĝ_b = Ĝ` and the twist vanishes. -/
-example : True := trivial
-
-end StratumMaps
-
-section Parabolic
-
-/-! ## ES7:parabolic — FS IX.7.2 and IX.7.3 -/
-
-/-- FS IX.7.2. `Ψ_G^b` factors through `Ψ_{G_b}` along the twisted Levi inclusion. -/
-theorem stratum_factors : True := trivial
-
-/-- The coefficient reduction: `Z(D(G_b(E),Λ)) = lim_K Z(Λ[K \ G_b(E) / K])` is
-`ℓ`-adically separated when `Λ` is killed by a power of `ℓ`, so one may work with
-`D_et` rather than `D_lis`. -/
-theorem coefficient_reduction : True := trivial
-
-/-- The basic case *is* `Bun_G ≅ Bun_{G_b}` (FS III.4.3), **Hecke-equivariantly**.
-Basic-inner-form invariance is the basic case, not the general one. -/
-theorem basic_case : True := trivial
-
-/-- The increasingly unstable sequence `b_N = b·μ(π)^N`: all share the canonical
-parabolic, `G_b = G_{b_N}`, and there is **exactly one** modification of `E_b` of type
-bounded by `Nμ` isomorphic to `E_{b_N}`, of type exactly `Nμ`. -/
-theorem increasingly_unstable : True := trivial
-
-/-- The constant term: `Rg_! S_V = CT_P(S_V)`, which up to `[deg_P]` is
-`S_V|_{(M̂⋊Q)^I}` **with a cyclotomic twist**; only the `deg_P = 0` component matters
-for excursion operators. -/
-theorem constant_term : True := trivial
-
-/-- FS IX.7.3, for **unnormalised** parabolic induction and **every** irreducible
-subquotient. -/
-theorem parabolic_induction : True := trivial
-
-/-- The concrete twist the computation produces:
-`T_μ(A)|_{Bun^1_G} = Ind^{G(E)}_{P(E)} π (d/2)[d]` with `d = ⟨2ρ,μ⟩`. -/
-theorem induction_twist : True := trivial
-
-/-- **The dictionary, an obligation with no locator.** `δ_P^{1/2}` must cancel against
-the cyclotomic twist in the fixed convention. At the pins only the modulus of a *group*
-exists; `δ_P` and normalised induction do not, so the statement below is written against
-`modularCharacter` to mark the boundary. -/
-example (G : Type u) [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
-    [LocallyCompactSpace G] [MeasurableSpace G] [BorelSpace G] : True := trivial
-
-/-- **Unit test `unnormalised_not_normalised`.** Calling the source's formula normalised
-induction, or omitting the twist, is the error the roadmap names. -/
-example : True := trivial
-
-end Parabolic
-
-section GLn
-
-/-! ## ES7:GLn-comparison — FS IX.7.4 -/
-
-/-- The two minuscule Hecke operators are the **Lubin–Tate** and **Drinfeld** towers,
-giving `π ⊗ σ` and `ρ ⊗ σ^∨` with `ρ = JL(π)`. Imported from `ET.6a`. -/
-theorem two_tower_realisation : True := trivial
-
-/-- **Unit test `shift_and_twist_are_inside`.** The shift `[n−1]` and the twist
-`((n−1)/2)` are hidden in the perverse normalisation of the standard representation;
-adding them again double-counts. -/
-example : True := trivial
-
-/-- The two-leg datum `I = {1,2}`, `V = std ⊗ std^∨` with unit and counit **determines
-the trace**, hence the semisimplification; the scalar is fixed by taking both Weil
-elements equal to `1`. -/
-theorem two_leg_trace : True := trivial
-
-/-- **Unit test `semisimple_trace_determination_is_missing`.** At the pins this
-implication exists only for finite groups in characteristic zero. -/
-example {k G V W : Type} [Field k] [Group G] [Fintype G] : True := trivial
-
-/-- FS IX.7.4: `φ_π = ρ_π^ss` for every irreducible smooth `Q̄_ℓ`-representation of
-`GL_n(E)`, by reduction to the supercuspidal case. -/
-theorem gl_agreement : True := trivial
-
-/-- **Unit test `no_monodromy`.** Only the semisimplification is obtained; `N` is not
-recovered, and no integral or mod-`ℓ` agreement with a stronger correspondence follows. -/
-example : True := trivial
-
-end GLn
-
-section EqualCharacteristic
-
-/-! ## ES7:equal-characteristic — Laumon–Rapoport–Stuhler and Hausberger
-
-Everything here is stated as Hausberger restates it; LRS itself is an image scan and
-was not read. -/
-
-/-- A **`D`-elliptic sheaf** of pole `∞` and zero `z`: the chain `(E_i, j, t)` with
-periodicity, pole, zero and normalisation. For `D = M_d(F)` this is Drinfeld's elliptic
-sheaf (`DrinfeldModulesAndTModules:DM.7`). -/
-structure DEllipticSheaf where
-  periodicity : True
-  pole : True
-  zero : True
-  normalisation : True
-
-/-- **Unit test `matrix_algebra_case`.** The `D = M_d(F)` case must recover Drinfeld's
-elliptic sheaves. -/
-example : True := trivial
-
-/-- **Unit test `zero_avoids_R`.** The zero lands in `X − {∞} − R`; letting it meet the
-ramification locus breaks the level-structure theory. -/
-example : True := trivial
-
-/-- The moduli `E^∞_{X,D,I}`: quasi-projective, smooth, purely of relative dimension
-`d−1` over `X^∞`, and **projective when `D` is a division algebra**. -/
-theorem moduli_representable : True := trivial
-
-/-- Drinfeld: the deformation functor of **special** formal `O_D`-modules is
-representable by `Ω̂^d ⊗̂_O Ô^nr`. Quoted, not proved, by Hausberger. -/
-theorem drinfeld_representability : True := trivial
-
-/-- Hausberger 8.1 and 8.3: **uniformisation**. The formal completion of the moduli
-along its special fibre is `[(Ω̂^d ⊗̂ Ô^nr) × Z_I]/GL_d(F_o)`, and rigid-analytically
-`[Σ^d_n × Z_{I^o}]/GL_d(F_o)`. -/
-theorem uniformisation : True := trivial
-
-/-- The **fundamental local representation** `U^{d−1}_d`, with its three commuting
-actions of `GL_d(K)`, `D^×_d` and `W_K`. -/
-def fundamentalLocalRepresentation : True := trivial
-
-/-- **Unit test `middle_degree`.** The fundamental local representation is the middle
-degree `d−1`; other degrees are the (unplanned) Carayol–Harris conjecture. -/
-example : True := trivial
-
-/-- The Hochschild–Serre spectral sequence and the **degeneration of its cuspidal part**.
-Note: the `GL_d(F_o)`-action is Drinfeld's composed with `g ↦ ᵗg⁻¹` (Hausberger 10.8). -/
-theorem hochschild_serre_degenerates : True := trivial
-
-/-- **Unit test `transpose_inverse_convention`.** Getting this convention wrong
-dualises the answer. -/
-example : True := trivial
-
-/-- Hausberger 9.5, the Drinfeld–Carayol conjecture in equal characteristic:
-`U^{d−1}_d(χ)[π] = JL(π) ⊗ (σ_d(π) ⊗ |·|^{(1−d)/2})`, concentrated in degree `d−1`. -/
-theorem drinfeld_carayol : True := trivial
-
-end EqualCharacteristic
-
-section FunctionFieldAutomorphic
-
-/-! ## ES7:function-field-automorphic
-
-The adelic infrastructure is **requested**, not planned: `AUDIT-20` names
-`FunctionFieldArithmetic:FA.6` as the declared supplier, with `FA.2`,
-`AdelicAlgebraicGroups:AA.0` and `AA.1`. -/
-
-/-- LRS 14.9 and 14.12, via Hausberger: which automorphic representations occur in
-`(H^n_o)^ss`, and that `V^{d−1}_Π` is semisimple of dimension `m(Π)·d`. -/
-theorem lrs_cohomology : True := trivial
-
-/-- LRS 15.10 / Badulescu: globalise a supercuspidal with prescribed local components. -/
-theorem globalisation : True := trivial
-
-/-- LRS 15.11 / Henniart: the inner-form transfer, by the **simple** trace formula of
-Deligne–Kazhdan, with **multiplicity one** in the stated range. -/
-theorem jl_transfer : True := trivial
-
-/-- **Unit test `no_general_global_JL`.** LRS's remarks about an unproved general global
-Jacquet–Langlands correspondence may not be used as theorems. -/
-example : True := trivial
-
-/-- **Kaiser's erratum** (not read; a two-page scan): an automorphic eigenspace is not
-self-dual unless its representation is self-dual up to the required character twist.
-The geometric pairing pairs *dual* isotypic components. -/
-example : True := trivial
-
-end FunctionFieldAutomorphic
-
-end TauCeti.StratumMaps
+set_option linter.unusedVariables false
+
+namespace TauCeti.ES7
+
+section Centres
+variable {S Zgeom Zclass : Type*}
+variable [CommRing S] [CommRing Zgeom] [CommRing Zclass]
+
+/-- Algebraic signature of the composite defining Ψ_G. -/
+def PsiG (spectral : S →+* Zgeom) (restrictCentre : Zgeom →+* Zclass) :
+    S →+* Zclass :=
+  restrictCentre.comp spectral
+
+/-- Algebraic signature of the composite for a specified b-stratum. -/
+def PsiGb (spectral : S →+* Zgeom) (restrictCentreB : Zgeom →+* Zclass) :
+    S →+* Zclass :=
+  restrictCentreB.comp spectral
+
+namespace PsiGb
+/-- After VS4 identifies the b=1 restriction with the trivial-stratum restriction. -/
+lemma basepoint (spectral : S →+* Zgeom) (restrictCentre : Zgeom →+* Zclass) :
+    PsiGb spectral restrictCentre = PsiG spectral restrictCentre := by
+  sorry
+end PsiGb
+
+-- PsiGb.basepoint_test: the algebraic part of the b=1 compatibility test.
+example (spectral : S →+* Zgeom) (restrictCentre : Zgeom →+* Zclass) (a : S) :
+    PsiGb spectral restrictCentre a = PsiG spectral restrictCentre a := by
+  sorry
+
+-- PsiG.one_test: a wrong nonunital map would fail this test.
+example (spectral : S →+* Zgeom) (restrictCentre : Zgeom →+* Zclass) :
+    PsiG spectral restrictCentre 1 = 1 := by
+  sorry
+
+end Centres
+
+section TwistedCocycles
+variable {W M H : Type*} [Group W] [Group M] [Group H]
+
+/-- Pointwise cocycle inclusion; Multiplicative ℤ bundles the additive degree map. -/
+def cocycleMap (degree : W →* Multiplicative ℤ) (j : M →* H)
+    (t : H) (φ : W → M) : W → H :=
+  fun w => t ^ (Multiplicative.toAdd (degree w)) * j (φ w)
+
+namespace cocycleMap
+
+/-- Invariance and centrality are both required; centrality alone is insufficient. -/
+lemma isCocycle (degree : W →* Multiplicative ℤ) (j : M →* H)
+    (α : W →* MulAut H) (β : W →* MulAut M) (t : H) (φ : W → M)
+    (equivariant : ∀ w m, j (β w m) = α w (j m))
+    (invariant : ∀ w, α w t = t)
+    (centralizes : ∀ m, t * j m = j m * t)
+    (cocycle : ∀ w v, φ (w * v) = φ w * β w (φ v))
+    (at_one : φ 1 = 1) :
+    (∀ w v, cocycleMap degree j t φ (w * v) =
+      cocycleMap degree j t φ w * α w (cocycleMap degree j t φ v)) ∧
+    cocycleMap degree j t φ 1 = 1 := by
+  sorry
+
+lemma degree_zero (degree : W →* Multiplicative ℤ) (j : M →* H)
+    (t : H) (φ : W → M) (w : W) (h : degree w = 1) :
+    cocycleMap degree j t φ w = j (φ w) := by
+  sorry
+
+lemma basicCase (degree : W →* Multiplicative ℤ) (j : M →* H) (φ : W → M) :
+    cocycleMap degree j 1 φ = fun w => j (φ w) := by
+  sorry
+
+/-- Conjugation part only; coefficient base change needs the dual-group carrier. -/
+lemma conjugation (degree : W →* Multiplicative ℤ) (j : M →* H)
+    (t : H) (φ : W → M) (m : M)
+    (centralizes : ∀ x, t * j x = j x * t) :
+    cocycleMap degree j t (fun w => m * φ w * m⁻¹) =
+      fun w => j m * cocycleMap degree j t φ w * (j m)⁻¹ := by
+  sorry
+
+end cocycleMap
+
+-- cocycleMap.basic_test: the basic case has no twist.
+example (degree : W →* Multiplicative ℤ) (j : M →* H) (φ : W → M) (w : W) :
+    cocycleMap degree j 1 φ w = j (φ w) := by
+  sorry
+
+-- cocycleMap.inertia_test: degree zero removes the twist, even if t≠1.
+example (degree : W →* Multiplicative ℤ) (j : M →* H)
+    (t : H) (φ : W → M) (w : W) (h : degree w = 1) :
+    cocycleMap degree j t φ w = j (φ w) := by
+  sorry
+
+-- cocycleMap.GL2_test: q=9, chosen sqrt(q)=3, upper-Borel dual torus.
+example :
+    let t : ℚˣ × ℚˣ :=
+      (Units.mk0 (3 : ℚ) (by norm_num), Units.mk0 (1 / 3 : ℚ) (by norm_num))
+    let out := cocycleMap (MonoidHom.id (Multiplicative ℤ))
+      (MonoidHom.id (ℚˣ × ℚˣ)) t (fun _ => 1) (Multiplicative.ofAdd (1 : ℤ))
+    ((out.1 : ℚ), (out.2 : ℚ)) = (3, 1 / 3) := by
+  sorry
+
+end TwistedCocycles
+
+section NormalizationAndTrace
+
+-- The actual root/modulus comparison is omitted (ES7/gap/normalization).
+-- These numerical tests fix geometric Frobenius and square-root signs at q=9.
+example : ((3 : ℚ) * (1 / 3), (1 / 3 : ℚ) * 3) = (1, 1) := by
+  sorry
+
+example : ((3 : ℚ)⁻¹, (1 / 3 : ℚ)⁻¹) = (1 / 3, 3) := by
+  sorry
+
+variable {k n : Type*} [CommRing k] [Fintype n] [DecidableEq n]
+
+/-- Coevaluation/evaluation in a basis, with B the dual inverse action. -/
+lemma two_leg_trace_algebra (A B : Matrix n n k) :
+    (∑ i, ∑ j, A i j * B j i) = Matrix.trace (A * B) := by
+  sorry
+
+-- The identity tuple gives n=2; the scalar is not normalized by assuming it is 1.
+example : Matrix.trace ((1 : Matrix (Fin 2) (Fin 2) ℚ) * 1) = 2 := by
+  sorry
+
+-- The one-dimensional datum computes χ(γ₁)/χ(γ₂), rather than their product.
+example (a b : ℚ) (hb : b ≠ 0) :
+    Matrix.trace ((fun (_ _ : Fin 1) => a) * (fun (_ _ : Fin 1) => b⁻¹)) = a / b := by
+  sorry
+
+-- Vanishing nilpotent off-diagonal entries illustrates what traces fail to detect.
+example : Matrix.trace (fun i j : Fin 2 => if i = j then (1 : ℚ) else if i < j then 1 else 0) =
+    Matrix.trace (1 : Matrix (Fin 2) (Fin 2) ℚ) := by
+  sorry
+
+end NormalizationAndTrace
+end TauCeti.ES7
+
+/-!
+Named omission ledger — ES7/gap/prototypes
+
+The following signatures need the native supplier carriers stated in the roadmap.
+They are mathematical specifications there, not Lean declarations here. Names listed
+as partial above cover only their explicitly stated algebraic components.
+
+ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps
+  omitted: PsiGb.embedding_independent, PsiGb.excursion, PsiGb.excursion_test
+
+ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/maximal-orders
+  omitted: DOrder.local, DOrder.split_equiv, DOrder.change_lattice, DOrder.ramification, DOrder.rank_one_test, DOrder.matrix_test, DOrder.integral_nonunit_test
+
+ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/euler-poincare-function
+  omitted: EulerPoincareFunction, EulerPoincareFunction.central, EulerPoincareFunction.haar_rescale, EulerPoincareFunction.support, EulerPoincareFunction.rank_one_test, EulerPoincareFunction.haar_test, EulerPoincareFunction.orientation_test
+
+ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/D-elliptic-sheaf
+  omitted: DEllipticSheaf, DEllipticSheaf.zero, DEllipticSheaf.period, DEllipticSheaf.ext, DEllipticSheaf.pullback, DEllipticSheaf.matrix_case, DEllipticSheaf.rank_test, DEllipticSheaf.frobenius_test, DEllipticSheaf.matrix_test
+
+ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/level-structure
+  omitted: DEllipticLevel, DEllipticLevel.restrict, DEllipticLevel.pullback, DEllipticLevel.frobenius_test, DEllipticLevel.nested_test, DEllipticLevel.zero_test
+
+ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/moduli-and-hecke
+  omitted: DEllipticModuli, DEllipticModuli.points, DEllipticModuli.level_map, DEllipticModuli.dimension, DEllipticModuli.projective, DEllipticModuli.rank_one_test, DEllipticModuli.shift_test, DEllipticModuli.level_at_o_test
+
+ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/frobenius-hecke-correspondences
+  omitted: DEllipticHecke, DEllipticHecke.mul, DEllipticHecke.frobenius, DEllipticHecke.level, DEllipticHecke.identity_test, DEllipticHecke.level_test, DEllipticHecke.right_left_test
+
+ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/special-formal-module
+  omitted: SpecialFormalODModule, SpecialFormalODModule.lie, SpecialFormalODModule.baseChange, SpecialFormalODModule.dimension, SpecialFormalODModule.rank_one_test, SpecialFormalODModule.eigenspaces_test, SpecialFormalODModule.dimension_only_test
+
+ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/fundamental-local-representation
+  omitted: U, U.threeActions, U.compactInduction, U.centralQuotient, U.level, U.degree_test, U.stabilizer_test, U.coproduct_test
+
+ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/cuspidal-local-selector
+  omitted: CuspidalSelector, CuspidalSelector.value_one, CuspidalSelector.trace, CuspidalSelector.support, CuspidalSelector.value_test, CuspidalSelector.central_test, CuspidalSelector.indicator_test
+
+Named theorems whose native geometric statements are omitted:
+  ExcursionOperatorsAndSpectralAction:ES7:parabolic/coefficient-reduction
+  ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction
+  ExcursionOperatorsAndSpectralAction:ES7:parabolic/increasingly-unstable-sequence
+  ExcursionOperatorsAndSpectralAction:ES7:parabolic/constant-term-computation
+  ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction
+  ExcursionOperatorsAndSpectralAction:ES7:parabolic/normalised-induction-dictionary
+  ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/two-tower-realisation
+  ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/two-leg-excursion-is-a-trace
+  ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/trace-determines-semisimplification
+  ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/supercuspidal-agreement
+  ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/all-irreducible-representations
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/division-quotient-compactness
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/discrete-spectrum
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/kernel-trace-identity
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/euler-poincare-orbital-integrals
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/euler-poincare-character-traces
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/simple-trace-comparison
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/globalisation
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/jacquet-langlands-transfer
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/special-formal-modules
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/uniformisation
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-cohomology-finiteness
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/global-cohomology
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/geometric-automorphic-trace
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/dual-isotypic-pairing
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/kaiser-erratum
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/kaiser-graded-chain-lemma
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/kaiser-graded-chain-proposition
+  ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/selected-isotypic-cohomology
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-correspondence-independence
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/classical-local-correspondence
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-character-identity
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/geometric-hochschild-serre
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/hochschild-serre-and-degeneration
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/drinfeld-carayol
+  ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/hecke-fibre-transport
+  ExcursionOperatorsAndSpectralAction:ES7/agreement-for-every-local-field
+  ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/classical-centre-agreement
+
+Each omission remains an unchecked blueprint target. No aliases to generic
+propositions are introduced to simulate these declarations. In particular the
+D-elliptic Frobenius map, D̄ uniformization factor, triple stabilizer, finite-order
+central quotient, selected isotypic concentration, and Kaiser dual/q-exponent
+correction are specified in the reader document and packet.
+-/
