@@ -31317,7 +31317,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -31325,7 +31325,8 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-PotentialAutomorphyInfrastructure"
    ],
-   "note": "claimed on GitHub issue #1033"
+   "note": "deliverables arrived from an external worker on issue #1033",
+   "finishedAt": "2026-10-07T13:07:49Z"
   },
   {
    "id": "REV-ModularityAndLanglandsExtensions",
@@ -55366,7 +55367,8 @@
     "FIX-RT-BP-ClassicalSerreModularity--R27.3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5716"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R33.5",
