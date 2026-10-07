@@ -21956,7 +21956,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #350"
   },
   {
    "id": "BP-ArithmeticKTheory--N.1",
