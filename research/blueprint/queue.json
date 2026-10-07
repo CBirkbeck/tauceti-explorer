@@ -22507,8 +22507,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #362"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #362",
+   "finishedAt": "2026-10-07T02:18:27Z"
   },
   {
    "id": "BP-AutomorphicLFunctionsAndLocalFactors",
@@ -25338,7 +25339,8 @@
    ],
    "avoidAccountOf": "BP-GeneralizedHeegnerCycles--GH.0",
    "prompt": "research/blueprint/prompts/REV-GeneralizedHeegnerCycles--GH.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #416"
   },
   {
    "id": "BP-GeneralizedHeegnerCycles--GH.8",
