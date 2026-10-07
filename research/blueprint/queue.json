@@ -10407,8 +10407,9 @@
    "avoidAccountOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyInfrastructurePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3592"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3592",
+   "finishedAt": "2026-10-07T05:36:29Z"
   },
   {
    "id": "DESIGN-ModularityAndLanglandsExtensionsPartII",
@@ -23619,8 +23620,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology--C0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #709"
   },
   {
    "id": "REV-DiamondEtaleCohomology--C0",
@@ -24724,9 +24726,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #727"
+   "note": "claimed on GitHub issue #727"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES5",
@@ -30986,13 +30988,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ColemanIntegration",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1028"
+   "note": "claimed on GitHub issue #1028"
   },
   {
    "id": "REV-EffectiveDiophantineMethods",
@@ -37253,8 +37255,9 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R17.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #231"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #231",
+   "finishedAt": "2026-10-07T05:36:32Z"
   },
   {
    "id": "ASM-GL2ModularityLifting",
