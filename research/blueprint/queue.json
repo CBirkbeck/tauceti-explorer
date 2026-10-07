@@ -37851,8 +37851,8 @@
     "BP-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6908"
+   "state": "pending",
+   "note": "released on GitHub issue #6908"
   },
   {
    "kind": "blueprint",
