@@ -22450,11 +22450,11 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "released on GitHub issue #686"
+   "note": "claimed on GitHub issue #686"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -23808,8 +23808,9 @@
    ],
    "avoidAccountOf": "BP-DiamondsAndVStacks",
    "prompt": "research/blueprint/prompts/REV-DiamondsAndVStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #389"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #389",
+   "finishedAt": "2026-10-07T12:14:36Z"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L0",
@@ -26309,8 +26310,9 @@
    ],
    "avoidAccountOf": "BP-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/REV-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #434"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #434",
+   "finishedAt": "2026-10-07T12:14:40Z"
   },
   {
    "id": "BP-IntegralHeckeAndGaloisDeterminants",
@@ -29532,7 +29534,8 @@
    ],
    "avoidAccountOf": "BP-VStackSheavesAndLisseCategories",
    "prompt": "research/blueprint/prompts/REV-VStackSheavesAndLisseCategories.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #499"
   },
   {
    "id": "BP-VectorBundlesAndIsocrystals--VB0",
