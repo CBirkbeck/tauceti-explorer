@@ -449,6 +449,18 @@
     "data/blueprints/ClassicalArithmeticCompletion.md"
    ]
   },
+  "research/blueprint/packets/ClassicalGroupsPartII.json": {
+   "promotedAt": "2026-10-07T21:04:12Z",
+   "review": "8312297ecb7ac54d",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-ClassicalGroupsPartII",
+   "sha256": "ff8b9ac3d4518e55c8711e187fe0e0f23f62f8cc294172fd85d189a3cb960ce1",
+   "to": [
+    "data/blueprints/ClassicalGroupsPartII.json",
+    "data/blueprints/ClassicalGroupsPartII.md",
+    "data/blueprints/roadmaps/ClassicalGroupsPartII.json"
+   ]
+  },
   "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
    "promotedAt": "2026-10-07T13:32:52Z",
    "review": "3257ead41b40fce9",
