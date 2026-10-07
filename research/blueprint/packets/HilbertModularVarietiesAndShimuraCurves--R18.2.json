@@ -1103,7 +1103,7 @@
       "statement": "Specialize the existing double-coset quotient to C_U=D×\\D_f×/(U A_F,f×). Its effective stabiliser at t is Γ_t=(U A_F,f×∩t⁻¹D×t)/F×. Use the quotient by the rational centre before asserting finiteness. Changing t by dtu z transports the stabiliser and its coefficient action by conjugation.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×."
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×."
       ],
       "proofSteps": [
         "Instantiate DoubleCoset.Quotient using the adelic centre times U as right subgroup.",
@@ -1192,7 +1192,7 @@
       "statement": "Specialize AF.4 coefficient lattices to parallel weight k≥2: W_k=⊗_{σ:F→E} Sym^{k−2} O², using chosen splittings at v|p and the restricted U_p action. The centre acts by N_{F/Q}(z)^{k−2}; hence ψ near p must have inverse this action. For p=2 KW uses k=2. At a dyadic ramified division place use its discrete order-two quotient and one of the two sign characters, rather than a nonexistent GL₂ splitting.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "p unramified in F for the KW weight construction; D split at each active p-adic weight place."
       ],
       "proofSteps": [
@@ -1284,7 +1284,7 @@
       "statement": "Use the extended AF.5 carrier, not a new generic definition, for functions f:D_f×→W_A satisfying f(dgu)=τ(u)⁻¹f(g), f(gz)=ψ(z)f(g). Evaluation at class representatives identifies S_{τ,ψ}(U,A) with ⊕_{t∈C_U} W_A^{Γ_t}. This requires AF.5 to admit the adelic central quotient: its current discrete-centre hypothesis does not cover O_F× of positive rank.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "A is an O-algebra; τ and ψ extend by scalars."
       ],
       "proofSteps": [
@@ -1323,7 +1323,7 @@
       "statement": "If every effective Γ_t has order invertible in O, S_{τ,ψ}(U,O) is finite free and base change to every O-algebra A identifies S(U,O)⊗A with S(U,A). Thus reduction modulo the uniformizer is surjective. Taylor Lemma 1.1 ensures this when p>3 is unramified in F in its stated compact definite setup. For p=2 or 3 use a specified auxiliary torsion-free level, not the automatic p>3 argument.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "All stabiliser orders prime to p, or an explicitly constructed auxiliary effective torsion-free level."
       ],
       "proofSteps": [
@@ -1369,7 +1369,7 @@
       "statement": "For a perfect τ-pairing satisfying the determinant/central-character similitude law and prime-to-p effective stabilisers, the sum over class representatives, weighted by |Γ_t|⁻¹ and ψ(Nrd t)⁻¹, is a perfect O-pairing on S(U,O). For the standard differential pairing on Sym^{k−2}, require its factorial entries to be units (Taylor uses 2≤k≤p+1). The adjoint of [UgU] is ψ(Nrd g)[Ug⁻¹U] with the matching coefficient action.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "A perfect integral coefficient pairing and unit isotropy denominators; Taylor weight range only where invoked."
       ],
       "proofSteps": [
@@ -1407,7 +1407,7 @@
       "statement": "At v∉S with D_v=M₂(F_v), U_v=GL₂(O_v) and unramified coefficients, specialize AF.5 double-coset Hecke action: T_v=[U diag(π_v,1)U], S_v=[U diag(π_v,π_v)U]=ψ(π_v). The arithmetic Satake polynomial is X²−T_vX+q_vS_v. All change-of-level and commuting away-place actions are imported and checked with these local and coefficient conventions.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×."
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×."
       ],
       "proofSteps": [
         "Compute the q_v+1 single cosets in the spherical T_v double coset.",
@@ -1444,7 +1444,7 @@
       "statement": "For parallel weight 2 and compatible finite character, the forms factoring through Nrd are exactly the SL₂-invariant local branch under the strong-approximation hypotheses of KW §7.1. Their good-place Hecke eigenvalues give sums of characters, so their localization at a non-Eisenstein maximal ideal vanishes. Following KW §7, a maximal ideal m of T_ψ(U) is Eisenstein if T_v−2 and S_v−1 lie in m for all but finitely many places v split in a fixed finite abelian extension of F; non-Eisenstein means not Eisenstein. No Galois representation is constructed here.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "Weight 2; strong approximation for D¹ at a chosen split finite place."
       ],
       "proofSteps": [
@@ -1479,16 +1479,16 @@
       ],
       "title": "Definite Ihara degeneracy map",
       "kind": "theorem",
-      "statement": "At a finite place w∉Σ (so D is split at w), with w added to S for the Hecke algebra, compact U with hyperspecial U_w and trivial local coefficient action, the degeneracy map S(U,A)²→S(U₀(w),A), (f₁,f₂)↦f₁+diag(1,π_w)f₂, has kernel supported on the norm-factor Eisenstein branch. Hence it is injective after non-Eisenstein localization, for the coefficient rings and coefficient extensions in KW Lemma 7.1. This is the definite version; an integral indefinite Ihara theorem is a separate supplier request.",
+      "statement": "At a finite place w∉Σ (so D is split at w), with w added to S for the Hecke algebra, compact U with hyperspecial U_w and a finite-dimensional residual coefficient module W̄_τ over k on which U_w acts trivially, the degeneracy map S_{W̄_τ,ψ̄}(U,k)²→S_{W̄_τ,ψ̄}(U₀(w),k), (f₁,f₂)↦f₁+diag(1,π_w)f₂, has kernel supported on the norm-factor Eisenstein branch. Hence it is injective after non-Eisenstein localization (KW Lemma 7.1). This node supplies the residual input to KW Corollary 7.5; arbitrary coefficient-algebra base change and an integral indefinite Ihara theorem are not consequences of Lemma 7.1.",
       "hypotheses": [
-        "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
-        "D split at w, U_w=GL₂(O_w); the action by diag(1,π_w) is defined on coefficients."
+        "F is totally real of even degree, p is unramified in F, and D/F is totally definite, with finite ramification set Σ as in KW §7.",
+        "U is compact open. W̄_τ is a finite-dimensional continuous representation over the finite residue field k, with ψ̄:A_F,f×/F×→k× and τ̄(z)=ψ̄(z)⁻¹ on U∩A_F,f×. The residual action factors through a finite quotient.",
+        "w∉Σ, U_w=GL₂(O_w), U_w acts trivially on W̄_τ, and the smaller level changes only its w-component to the Iwahori U₀(w). The Hecke algebra omits w."
       ],
       "proofSteps": [
-        "A kernel relation forces invariance under the two conjugate maximal compacts.",
-        "They generate the local SL₂ group.",
-        "Apply strong approximation and the norm-branch support theorem."
+        "Pass to an open subgroup that kills the finite residual coefficient action. A kernel relation then forces f₁ to be invariant under U·SL₂(F_w).",
+        "Use generation by the two conjugate maximal compact subgroups at w, and apply strong approximation for the norm-one quaternion group.",
+        "The resulting function factors through Nrd and is killed by non-Eisenstein localization. The later integral control theorem uses this residual injectivity together with its separate equal-rank and characteristic-zero comparisons."
       ],
       "acceptance": [
         "No automorphy-lifting theorem or R23 input enters this proof.",
@@ -1519,7 +1519,7 @@
       "statement": "Apply R17.3 global Jacquet–Langlands to the characteristic-zero cuspidal definite module after removing χ∘Nrd. At split finite places the Hecke eigensystems agree; at ramified places the GL₂ component is discrete series. Parallel Sym^{k−2} corresponds to holomorphic discrete series of weight k at every real place. Rational realization requires actual compatible coefficient-field models, not merely equality of rationality fields.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "Characteristic zero; exclude one-dimensional norm characters and fix embeddings/splittings."
       ],
       "proofSteps": [
@@ -1559,7 +1559,7 @@
       "statement": "For an auxiliary split place w∤p with hyperspecial local control, write N_w=|GL₂(k_w)|. The Sylow-p subgroups of all Γ_t have exponent dividing 2N_w in the compact-level case and 4N_w in KW’s allowed noncompact dyadic division-factor case. The norm maps to ((A_F,f×)²V∩F×)/(F×)²; this final map need not be surjective. Its target has exact sequence 0→O_F×/(O_F×)²→target→Cl(O_F)[2]→0.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "U,V and the distinguished w satisfy KW §7.2; in the noncompact case U⁰ is used for local compactness."
       ],
       "proofSteps": [
@@ -1596,7 +1596,7 @@
       "statement": "Let F′/F be totally real with w split and impose KW Lemma 7.3 residue-field divisibility at the chosen Iwahori places. Choose χ₀ of p-power order equal to the p-part of 2p(4N_w), and χ=χ₀^{4N_w}. Then χ kills every effective stabiliser; it is nontrivial, and when p=2 has order 4. Its local action is through the ratio a/d of the triangular reduction. This statement concerns a given F′ and local characters; choosing global auxiliary fields is R23 work.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "The prescribed residue fields admit χ₀, and all isotropy exponents divide 4N_w."
       ],
       "proofSteps": [
@@ -1632,7 +1632,7 @@
       "statement": "For any finite Q away S with D split, q_v≡1 mod p^n, and fixed p-power N divisible by all Sylow-p isotropy exponents, let Δ′_v be the maximal p-quotient of k_v× and Δ_v=Δ′_v/Δ′_v[N]. Put U′_v=Iwahori and U_v=ker(a/d:U′_v→Δ_v), with unchanged factors away Q. Then U′_Q/U_Q=Δ_Q=∏_vΔ_v. The quotient kills N-torsion; it is not the quotient by Nth powers.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "N and Q are inputs; no existence or selection of Taylor–Wiles primes is claimed."
       ],
       "proofSteps": [
@@ -1722,7 +1722,7 @@
       "statement": "For the level above, every character of Δ_Q kills the effective isotropy at U′_Q; the effective stabilisers at U_Q and U′_Q agree. Consequently Δ_Q acts freely on the class-set fibres C_{U_Q}→C_{U′_Q}. The invariant coefficient modules attached to all twists have equal O-rank; modulo the uniformizer their identifications are Hecke-equivariant, while arbitrary integral twist identifications need not be.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "N kills all p-isotropy exponents; Δ_Q is the quotient by Δ′[N]."
       ],
       "proofSteps": [
@@ -1759,7 +1759,7 @@
       "statement": "Under KW Lemma 7.4’s coefficient and level hypotheses, S_{τ,ψ}(U_Q,O) is finite free over O[Δ_Q], of rank rank_O S_{τ,ψ}(U′_Q,O). On each free Δ_Q-orbit, the common finite-free invariant coefficient summand gives a regular O[Δ_Q] factor. The localized non-Eisenstein direct factors inherit freeness when the Hecke idempotent is Δ_Q-equivariant.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "Invariant coefficient summands finite free as established in the KW setting; an arbitrary representation without this condition is not covered."
       ],
       "proofSteps": [
@@ -1800,13 +1800,13 @@
       "statement": "Given a non-Eisenstein residual system unramified at Q with two distinct Frobenius eigenvalues α_v,β_v, choose the Hensel lift A_v of α_v in X²−T_vX+q_vψ(π_v). Localizing at U_v−α_v selects a finite-free O[Δ_Q] module with rank rank_O S(U,O)_m; its Δ_Q-coinvariants identify with S(U,O)_m via ξ_v(f)=A_vf−diag(1,π_v)f. The Steinberg exclusion used in KW’s proof requires the stated R19 local–global compatibility; geometric Lemma 7.4 is independent of that input.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "Residual irreducibility/non-Eisenstein localization; q_v≡1 mod p, distinct α_v,β_v; actual characteristic-zero local–global compatibility supplied."
       ],
       "proofSteps": [
-        "Apply definite degeneracy injectivity and the Hensel eigenroot factorization.",
-        "Use R19 compatibility to exclude the unwanted Steinberg branch at Q.",
-        "Take the free Δ_Q-equivariant summand and prove the coinvariant/rank comparison."
+        "Apply the Hensel eigenroot factorization and construct the ξ_v maps.",
+        "Use R19 compatibility to exclude the unwanted Steinberg branch at Q and obtain the characteristic-zero isomorphism/equal ranks.",
+        "Use the residual definite-degeneracy theorem (KW Lemma 7.1) as in KW Corollary 7.5 to prove integral surjectivity. Take the Δ_Q-equivariant direct factor and prove the coinvariant/rank comparison."
       ],
       "acceptance": [
         "Repeated residual roots do not give the stated direct-summand projector.",
@@ -1838,7 +1838,7 @@
       "statement": "For p=2 and a given quadratic character χ:G_n/2G_n→O×, split at S and infinity and unramified outside Q, with 2^n>N ensuring χ(Nrd U_Q)=1, define T_χf(g)=χ(Nrd g)f(g). This O-linear involution preserves the weight, level and central character because Nrd(z)=z². Existence of χ and selection of Q belong to R22/R04, not to this construction.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "p=2; χ²=1; prescribed χ is trivial on the level norms."
       ],
       "proofSteps": [
@@ -1924,7 +1924,7 @@
       "statement": "For the norm twist, T_v and U_v are multiplied by χ(π_v), S_v is fixed, and (f|⟨h⟩)_χ=χ(h)⁻¹(f_χ|⟨h⟩). Since χ≡1 modulo the dyadic uniformizer, the residual maximal ideal is preserved. These equations transport the localized Taylor–Wiles modules and their ranks and coinvariants as in Proposition 7.6, conditional on the given auxiliary character.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "The dyadic norm-twist hypotheses and compatible local diamond lifts."
       ],
       "proofSteps": [
@@ -1962,7 +1962,7 @@
       "statement": "At a dyadic division place with U_v=D_v×, its maximal compact U_v⁰ has quotient U_vF_v×/(U_v⁰F_v×) of order two. For weight two, each choice of sign extends the compact coefficient action; over characteristic two the two reductions agree. With a set Σ₀ of such places there are 2^{|Σ₀|} sign choices. Compactness-based arguments must use U⁰ and retain this quotient.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "KW noncompact variant allowed only at the specified dyadic division factors; weight two."
       ],
       "proofSteps": [
@@ -1999,7 +1999,7 @@
       "statement": "In the CDN §4.1.3 setup, let T^S=O[T_v,S_v:v∉S] be the shared abstract good-place Hecke algebra. Given a continuous residual ρ̄:G_E→GL₂(k) unramified outside S, evaluate T_v↦tr ρ̄(Frob_v), S_v↦q_v⁻¹ det ρ̄(Frob_v), and coefficients by O→k. Define m_ρ̄ as the kernel. The coefficient reduction is surjective, hence this is a maximal ideal. Factoring this evaluation through the acting quotient Hecke algebra requires the eigen-system existence theorem supplied by R19.",
       "hypotheses": [
         "F totally real of even degree; D/F ramified at every real place, split at the finite places under discussion; O the integers of a sufficiently large finite extension of Q_p, with residue field k.",
-        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ a continuous central character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
+        "U is compact open unless the dyadic division-place variant is explicitly invoked; τ is a finite free coefficient representation and ψ:A_F,f×/F×→O× a continuous idele-class character with τ(z)=ψ(z)⁻¹ on U∩A_F,f×.",
         "For the CDN application p>2, local F=Q_p, global E even degree with p completely split, D₀ definite and finite-unramified; keep E distinct from the earlier auxiliary CM field.",
         "q_v is a unit in k; arithmetic Frobenius convention fixed."
       ],
@@ -3424,7 +3424,8 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.3/split-hecke-normalisation",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-degeneracy",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-level",
-        "HilbertModularVarietiesAndShimuraCurves:R18.3/residual-hecke-ideal"
+        "HilbertModularVarietiesAndShimuraCurves:R18.3/residual-hecke-ideal",
+        "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation"
       ]
     },
     {
@@ -4945,301 +4946,309 @@
     }
   ],
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2",
-    "date": "2026-10-06",
-    "notes": "Independent review of BP-HilbertModularVarietiesAndShimuraCurves--R18.2 (Codex, codex-rIRSNc), target level. All nine sources were downloaded; their SHA-256 match the packet. Every node locator was checked against the source text, and formulas that OCR drops were checked on page images (YZ pp.563, 573; BC pp.107–108, 146). 25 nodes verified, 33 corrected, none added. The corrections: 33 citations in 30 nodes (KW II, Taylor, CDN, BC, YZ, Carayol) whose locators were off-page or whose excerpts were paraphrased, not literal, or a single word; the connected-component field in connected-pel-comparison; the place condition in definite-degeneracy; KW’s Eisenstein definition in norm-branch; the Carayol citation on cohomological-degeneracy, which concerned a different morphism; a uniqueness API item for the Hodge line; the RZ level-structure input to tower-uniformisation; one test wording and one planet name. All 16 baseline declarations were read at Mathlib 082e2d3 and Tau Ceti f790474 and supply what the nodes use. Cross-roadmap node prerequisites (R17.3, AF.4–AF.5, AdicSpacesPartII R2, R34.3, R34.5) were read. Request 32 to StableReduction Layer 5 is made precise. In sourceRouting, 25 of the 27 KW II items, which all named neatness-base-change with one boilerplate decision, are re-routed to the nodes that plan them. All 19 sourceIssues were checked at their locators and confirmed; no further mistake was found. RT-AREA-automorphic-1/12 (the R17.3→R18.3 link, and R17.3 node prerequisites in R18.3 and R18.4) and RT-AREA-langlands-2/19 (R18.3 owns KW Lemmas 7.1–7.4, Corollary 7.5 and Proposition 7.6; R22.2 rescoped) are handled correctly. Two stage-order problems are recorded as restructure proposals: R18.2 and R18.5 depend on each other, and R18.3 needs R19.2, which needs R18.4. Both proposals have been checked to leave no backward edge. The six gaps are honest; Khare Lemma 2.2 could not be collated (arXiv v1 has no Lemma 2.2, and Project Euclid refuses scripted access). Accepted as a complete target-level pass: R18.2–R18.5 are planned with precise remaining lists, and R18.6 is source_decomposed per RS-23.",
-    "checked": [
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance",
-        "verdict": "verified",
-        "note": "YZ §3.2, pp.552–555 read: B′=B⊗_F E, ψ′=tr_{E/Q}tr_{B′/E}(γ′v w̄), O_{B′,p}=O*_{B,p}⊕O_{B,p}, Λ′_p=O^∨_{B,p}⊕O_{B,p}, special Lie condition on Lie(A)_{2℘} and Lie(A)_{2}^{℘}=0. The abelian dimension 4[F:Q] follows from dim_Q B′=8[F:Q] (E19). Representability is imported from PELModuli M1–M2."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/effective-small-level",
-        "verdict": "verified",
-        "note": "YZ Proposition 4.1, pp.561–562 read; the root-of-unity argument (ζ≡1 mod N Z[ζ] forces ζ=±1, and N≥3 forces ζ=1) is sound, and the effective quotient by the closure of F^× is as on p.561."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower",
-        "verdict": "verified",
-        "note": "YZ p.562 read: H_n=[B_p/O_{B,p}×X]/U_p(n) with right multiplication, and torsion-wise descent to a tame level depending on the torsion level. Carayol §1.4 (Lemma 1.4.1.1–Corollary 1.4.1.3, pp.159–160) gives the freeness behind it. Tests checked (|M_2(F_p)|=p^4, first row p^2)."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison",
-        "verdict": "corrected",
-        "note": "YZ Propositions 4.2–4.3, p.563, read on the page image. X^0 and X′^0 are the identity components over F̄, not over K; only the O^1_{B,p}-quotients X^0_1, X′^0_1 are defined over K = F_℘^ur. Statement corrected. E39 confirmed."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/finite-pel-comparison",
-        "verdict": "verified",
-        "note": "YZ Proposition 4.4, p.563, read on the page image: it compares the connected components X^0_{n,U^p} ≅ X′^0_{n,U′^p} over K, with U^p small depending on n and n prime to d_B, as stated."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/carayol-split-model",
-        "verdict": "verified",
-        "note": "Carayol §0.1–0.5, pp.151–153, read: d=[F:Q]>1, reduction at a finite place where B splits, smooth proper model for small H with étale transitions (Morita for F=Q). The higher-level regularity scope follows §§6–9."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/regular-model-tower",
-        "verdict": "verified",
-        "note": "YZ Theorem 4.5, pp.564–565, read (n prime to d_B, U^p⊂U^p(N), N≥3 prime to p; smooth at split ℘∤n, relative Mumford at ℘|d_B). Its division-place case uses R18.5/totally-real-uniformisation, a forward reference between layers; recorded as a restructure proposal."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/coarse-model",
-        "verdict": "verified",
-        "note": "YZ p.565 and Corollary 4.6 read: the quotient X_{U′}/(Ū/Ū′) is normal, projective and flat over O_F, independent of p, and π is flat only in codimension one, as stated."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/hecke-integral-extension",
-        "verdict": "verified",
-        "note": "Follows from the projective system of Theorem 4.5/Corollary 4.6 and the B^×-action on the tower (p.564); the target-level proof sketch is sound."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/qfactorial-model",
-        "verdict": "verified",
-        "note": "YZ Corollary 4.6(2), p.566, read with its exact unramified base-change hypothesis; E37 confirmed."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/arithmetic-hodge-line",
-        "verdict": "corrected",
-        "note": "YZ Theorem 4.7, pp.567–568, read. Theorem 4.7 is a uniqueness statement; added the API item QuaternionHodgeLine.unique. Metric |dz|=2y and the branch correction formula checked (E27 does not affect |dz|)."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/integral-pdiv",
-        "verdict": "verified",
-        "note": "YZ Theorem 4.9, pp.568–569, read: H^℘ étale, H_℘ special formal O_{B,℘}-module, deformation space, level classification for n prime to d_B. Heights checked. Uses R18.5/drinfeld-representability (forward reference, restructure proposal). E33 confirmed."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/integral-kodaira-spencer",
-        "verdict": "verified",
-        "note": "YZ Theorem 4.10, pp.569–570, read. The corrected determinant line (E8), the double-point failure and codimension-two extension (E9), and the absolute versus relative crystal (E30) are carried correctly; the ramified case is an honest gap."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-tate-comparison",
-        "verdict": "verified",
-        "note": "YZ §5.1, Proposition 5.1, pp.571–573, read: Δ(z)=(z,z^{-1}), action x·(b,e)=exb, T(H″)≅T(H)⊗_{O_{E,p}}T(I). The torus Y and the morphism to X″ are imported from R18.1 (request recorded)."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-integral-model",
-        "verdict": "verified",
-        "note": "YZ §5.2, p.573, read on the page image: smooth if ℘∤d_B, stable Mumford if ℘|d_B, not regular if ℘ is ramified in F′. E36 confirmed."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-point-extension",
-        "verdict": "verified",
-        "note": "YZ Proposition 5.2, p.574, read; the p=2 coverage and componentwise weight check (E34–E35) are carried correctly."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-filtered-crystal",
-        "verdict": "verified",
-        "note": "YZ Proposition 5.3 and p.575 read; the ramified τ-quotient failure (E31) is checked by the Q_p(√p) computation and kept as a gap."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-determinant",
-        "verdict": "verified",
-        "note": "YZ Proposition 5.4–Corollary 5.5, pp.575–576, read. The false identity (3) (E32) is not used; the unramified determinant cancellation is sound; the ramified case is an honest gap."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-class-set",
-        "verdict": "corrected",
-        "note": "KW §7 opening and display (5), pp.57–59, and §7.2, pp.61–62, read. Locator corrected (the set-up is §7’s opening, not §7.1; §7.2 is pp.61–62), and the excerpt replaced by KW’s literal isotropy group. Statement verified."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-weight",
-        "verdict": "corrected",
-        "note": "KW pp.58–59 and Taylor §1, pp.741–742, read. Locators and excerpts corrected: the cited Taylor formula is not printed; the literal weight range for perfection is quoted instead. Test factorialObstruction reworded: ⟨X²,Y²⟩=±2 is an antidiagonal entry, and the Gram determinant is ±4. The rank (k−1)^d and the central action N^{k−2} were checked."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation",
-        "verdict": "corrected",
-        "note": "KW display (5), p.59, read; locator corrected. AF.5’s discrete-centre hypothesis was confirmed in AutomorphicFormsOnReductiveGroups AF.5/algebraic-modular-forms, so the fixed-central-character request is justified."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/neatness-base-change",
-        "verdict": "corrected",
-        "note": "Taylor Lemma 1.1 and Corollary 1.2, pp.737–738, and KW pp.73, 77 read. The excerpts were not literal and are replaced. Khare Lemma 2.2 remains an honest gap: the arXiv version math/0504080v1 has Propositions 2.1–2.2 and no Lemma 2.2."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/integral-pairing",
-        "verdict": "verified",
-        "note": "Taylor pp.741–742 read: the pairing is perfect for 2≤k≤l+1, weighted by ψ(det x)^{-1}#Γ_x^{-1}, with the adjoint formula ([U′gU]f1,f2)=ψ(det g)(f1,[Ug^{-1}U′]f2)."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/split-hecke-normalisation",
-        "verdict": "corrected",
-        "note": "KW p.59 (T_v, S_v=ψ(π_v)) and p.65 (X²−T_vX+N(v)ψ(π_v)) read; locator and excerpt corrected. It agrees with R17.3/split-hecke."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/norm-branch",
-        "verdict": "corrected",
-        "note": "KW pp.59–60 read. Added KW’s definition of Eisenstein maximal ideals to the statement, which had only a vague description; locator and excerpt corrected."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-degeneracy",
-        "verdict": "corrected",
-        "note": "KW Lemma 7.1, p.60, read. KW takes w ∉ Σ and puts w in S for the Hecke algebra; the statement said w ∉ S and is corrected. The excerpt was from p.66 and is replaced by the lemma’s own wording."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-jl",
-        "verdict": "corrected",
-        "note": "KW pp.59–60 read; locator corrected. The R17.3 global-jl, definite-infinity and rational-models statements were read and supply what is used."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/isotropy-exponent",
-        "verdict": "corrected",
-        "note": "KW §7.2, displays (6)–(7), pp.61–62, read; locator and non-literal excerpt corrected. The 2N_w/4N_w bounds and the non-surjectivity caveat are right."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/base-change-annihilator",
-        "verdict": "corrected",
-        "note": "KW Lemma 7.3 and its proof, pp.62–63, read; locator corrected. χ=χ′^{4N_w} has order the p-part of 2p (4 for p=2), as stated."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-level",
-        "verdict": "corrected",
-        "note": "KW §7.4, p.63, read; locator and non-literal excerpt corrected. The tests (C_8 modulo its 2-torsion is C_4, while C_8/C_8² has order 2) were checked."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-stabilisers",
-        "verdict": "corrected",
-        "note": "KW proof of Lemma 7.4, display (8), pp.64–65, read; locator and non-literal excerpt corrected."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-freeness",
-        "verdict": "corrected",
-        "note": "KW Lemma 7.4(2), p.64, read; locator corrected. The planet is renamed from KW’s §7.4 title, since the source does not name a “Diamond freeness theorem”."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-localised-control",
-        "verdict": "corrected",
-        "note": "KW Corollary 7.5 and the construction of ξ_v, pp.65–66, read; locator and excerpt corrected. The use of R19.2 local–global compatibility (Steinberg exclusion) is genuine; it closes a loop of layers, recorded as a restructure proposal."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-norm-twist",
-        "verdict": "corrected",
-        "note": "KW §7.5, p.66, read; excerpt corrected to the printed f_χ(g):=f(g)χ(Nm(g)). Checked that 2^n>N makes det u_v a square in k_v^×, as the statement uses."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-hecke-twist",
-        "verdict": "corrected",
-        "note": "KW Proposition 7.6, pp.66–67, read; the excerpt “χ(Nv)” does not occur and is replaced. Formulas verified."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-sign-extension",
-        "verdict": "corrected",
-        "note": "KW pp.58–59 read ([U_v:(O_D)^×_v F_v^×]=2; 2^{|Σ₀|} extensions of W₂, unique extension of W̄₂); locator and excerpt corrected."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/residual-hecke-ideal",
-        "verdict": "corrected",
-        "note": "CDN23 §4.1.3, p.49, read: S_v ↦ N(v)^{-1}det ρ̄(Frob_v), with uniformisers sent to geometric Frobenius. Excerpt corrected; tests checked (3^{-1}·6=2 in F_7)."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-local-systems",
-        "verdict": "corrected",
-        "note": "Carayol §1.4, pp.159–160, read; the excerpt is replaced by the section title. The Tau Ceti LocalCoefficientSystem citation was read at f790474 and is correctly scoped to the fundamental-groupoid functor."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/finite-cohomology",
-        "verdict": "corrected",
-        "note": "CDN20 §5.2.1, pp.41–42, read; the excerpt “Hét” is replaced by the sentence on the commuting G_E × Ǧ(A_f) actions. The generic machinery is correctly requested from H0, H3, H5 and ALS.3, ALS.5."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/integral-cohomology-control",
-        "verdict": "corrected",
-        "note": "The criterion is the routine argument given in the proof steps: the coefficient long exact sequence, then duality, giving H²_m = 0 by Nakayama. The match now says that CDN20 states only the rational realization. The H⁰-vanishing gap is honest."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomology-pairing",
-        "verdict": "corrected",
-        "note": "Match corrected: CDN20 supplies only the finite-level H¹; duality is the generic proper-curve Poincaré duality requested from H3."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-eigenspaces",
-        "verdict": "corrected",
-        "note": "CDN20 §5.2.1, p.41, read (definition of SD2 and Proposition 5.2); the excerpt is replaced."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/definite-indefinite-comparison",
-        "verdict": "verified",
-        "note": "CDN20 §5.2.1 (Π^p_f=Π̌^p_f) and R17.3/invariant-exchange read; only matching eigenspaces are compared, as stated."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-degeneracy",
-        "verdict": "corrected",
-        "note": "The cited Carayol §§9.2–9.4 (pp.206–209) study the p-level morphism v : M_{n,H} → M_{n,v(H)}, not the degeneracy maps at w. Replaced by KW Lemma 7.1 (p.60) as the definite model, with a match saying that the indefinite construction is standard. The degree q_w+1 was checked. The integral Ihara gap is honest."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-purity",
-        "verdict": "corrected",
-        "note": "YZ does not state purity; the source is now the PEL moduli problem it applies to (YZ pp.553–554), with a match naming Weil II via R34.5. The R34.5 parabolic-cohomology-weight-comparison statement was read: it is elliptic-only, so the extension request is justified."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/finite-level-descent",
-        "verdict": "corrected",
-        "note": "The one-word excerpt is replaced by YZ p.565; the match states that the invariants/trace statement is generic Hochschild–Serre (H0)."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-half-plane",
-        "verdict": "verified",
-        "note": "CDN20 §1.2, p.12, and BC Part I read: Ω=P¹_F−P¹(F) as a rigid space with the homography action. Tests checked."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/affinoid-reduction",
-        "verdict": "verified",
-        "note": "CDN20 §1.2, pp.12–13, read: P_n=P¹(O_F/ϖ^n), U_n=P¹−∪B^−(x,n v_p(ϖ)), and U_n=r^{-1}(tree ball of radius n). Valence q+1 and the radius-one ball of q+2 vertices were checked."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-formal-model",
-        "verdict": "verified",
-        "note": "CDN20 §1.2, pp.12–13, read: iterated blow-ups of smooth k-points, formal opens Ũ_n with Ũ_n⊂Ũ_{n+1}, increasing union a semistable model, and the extremal components having smaller valence."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/special-formal-moduli",
-        "verdict": "corrected",
-        "note": "BC Definition 8.1, p.107, read on the page image: the framing is ρ : Φ_{B/πB} → X_{B/πB} of height zero, the inverse of BZ’s arrow, as the statement says. The excerpt is replaced by the literal framing clause."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-representability",
-        "verdict": "corrected",
-        "note": "BC Theorems 8.2 and 8.4, pp.107–108, read on the page images; the excerpt is replaced by the literal statement of Theorem 8.2."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/height-and-descent",
-        "verdict": "verified",
-        "note": "BZ Proposition 5.9, p.39 (δ(ω,m)=(pr(δ)ω, ord det δ+m), pr(δ)=h(Π)^{−ord det δ}δ) and Theorem 6.7, p.49 (id×|Π^{-1}×τ_c) read."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient",
-        "verdict": "corrected",
-        "note": "BZ §1, p.2 (Γ_g, its discrete cocompact image Γ̄_g, algebraizability by Mumford) and BC III §5.3, p.142, read; the excerpt “Γg” is replaced by the literal definition."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation",
-        "verdict": "verified",
-        "note": "BZ (6.29)–(6.31), Theorem 6.7 and Corollary 6.8, pp.45–50, read: maximal level at the division place, the other p-adic factors arbitrary, Hecke compatibility, the descent diagram, and the stable semistable model for small K^p."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/rational-uniformisation",
-        "verdict": "verified",
-        "note": "BC III Théorème (5.2), p.140, read; the rational-field scope is right."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/tower-uniformisation",
-        "verdict": "corrected",
-        "note": "CDN20 Proposition 5.4, p.43, read. BZ treats only maximal level at the division place, so the all-level step needs the Rapoport–Zink uniformisation with p-level structures and the identification of p-divisible groups. Proof step rewritten; added the prerequisites PELModuli:M2 (request extended) and R18.2/quaternion-pdiv-tower, and the citation BC III Théorème (5.5), p.146, for F=Q."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/tree-dual-graph",
-        "verdict": "corrected",
-        "note": "BC III §5.4, pp.144–146, read (Kurihara’s theorem: dual graph with lengths). The YZ citation was §8.2 with a French excerpt in an English paper; corrected to §8.3, pp.619–620, with the literal indexing of components."
-      },
-      {
-        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/character-monodromy",
-        "verdict": "verified",
-        "note": "BC III §5.4 graph identification read; the monodromy pairing is correctly imported from R11.4, and the test values (cycle of r edges gives r; a tree gives zero toric rank) were checked."
-      }
-    ]
-  }
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+    "date": "2026-10-07",
+    "notes": "Independent scoped review of RT-AREA-automorphic-1/12,/31, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-HilbertModularVarietiesAndShimuraCurves--R18.2. Retained the AF.5 generic algebraic-form owner and characteristic-zero JL versus integral-control distinction. Corrected the central-character quotient domain throughout R18.3 and restricted KW Lemma7.1 to finite-dimensional residual coefficients with finite quotient action; Corollary7.5 uses this residual input plus its separate characteristic-zero/equal-rank argument. The corrected packet/Lean slice passes its checker and has no new source-level blocker in this scope. Whole-deliverable promotion is withheld because reader line528 still asserts the degeneracy theorem over arbitrary coefficient algebras, with related psi-domain prose unsynchronized; readers are outside this issue's allowlist. Honest six proof/interface gaps alone are not rejection grounds. No new baseline citation or fresh all-baseline audit; Lean was not compiled."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2",
+      "date": "2026-10-06",
+      "notes": "Independent review of BP-HilbertModularVarietiesAndShimuraCurves--R18.2 (Codex, codex-rIRSNc), target level. All nine sources were downloaded; their SHA-256 match the packet. Every node locator was checked against the source text, and formulas that OCR drops were checked on page images (YZ pp.563, 573; BC pp.107–108, 146). 25 nodes verified, 33 corrected, none added. The corrections: 33 citations in 30 nodes (KW II, Taylor, CDN, BC, YZ, Carayol) whose locators were off-page or whose excerpts were paraphrased, not literal, or a single word; the connected-component field in connected-pel-comparison; the place condition in definite-degeneracy; KW’s Eisenstein definition in norm-branch; the Carayol citation on cohomological-degeneracy, which concerned a different morphism; a uniqueness API item for the Hodge line; the RZ level-structure input to tower-uniformisation; one test wording and one planet name. All 16 baseline declarations were read at Mathlib 082e2d3 and Tau Ceti f790474 and supply what the nodes use. Cross-roadmap node prerequisites (R17.3, AF.4–AF.5, AdicSpacesPartII R2, R34.3, R34.5) were read. Request 32 to StableReduction Layer 5 is made precise. In sourceRouting, 25 of the 27 KW II items, which all named neatness-base-change with one boilerplate decision, are re-routed to the nodes that plan them. All 19 sourceIssues were checked at their locators and confirmed; no further mistake was found. RT-AREA-automorphic-1/12 (the R17.3→R18.3 link, and R17.3 node prerequisites in R18.3 and R18.4) and RT-AREA-langlands-2/19 (R18.3 owns KW Lemmas 7.1–7.4, Corollary 7.5 and Proposition 7.6; R22.2 rescoped) are handled correctly. Two stage-order problems are recorded as restructure proposals: R18.2 and R18.5 depend on each other, and R18.3 needs R19.2, which needs R18.4. Both proposals have been checked to leave no backward edge. The six gaps are honest; Khare Lemma 2.2 could not be collated (arXiv v1 has no Lemma 2.2, and Project Euclid refuses scripted access). Accepted as a complete target-level pass: R18.2–R18.5 are planned with precise remaining lists, and R18.6 is source_decomposed per RS-23.",
+      "checked": [
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance",
+          "verdict": "verified",
+          "note": "YZ §3.2, pp.552–555 read: B′=B⊗_F E, ψ′=tr_{E/Q}tr_{B′/E}(γ′v w̄), O_{B′,p}=O*_{B,p}⊕O_{B,p}, Λ′_p=O^∨_{B,p}⊕O_{B,p}, special Lie condition on Lie(A)_{2℘} and Lie(A)_{2}^{℘}=0. The abelian dimension 4[F:Q] follows from dim_Q B′=8[F:Q] (E19). Representability is imported from PELModuli M1–M2."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/effective-small-level",
+          "verdict": "verified",
+          "note": "YZ Proposition 4.1, pp.561–562 read; the root-of-unity argument (ζ≡1 mod N Z[ζ] forces ζ=±1, and N≥3 forces ζ=1) is sound, and the effective quotient by the closure of F^× is as on p.561."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower",
+          "verdict": "verified",
+          "note": "YZ p.562 read: H_n=[B_p/O_{B,p}×X]/U_p(n) with right multiplication, and torsion-wise descent to a tame level depending on the torsion level. Carayol §1.4 (Lemma 1.4.1.1–Corollary 1.4.1.3, pp.159–160) gives the freeness behind it. Tests checked (|M_2(F_p)|=p^4, first row p^2)."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison",
+          "verdict": "corrected",
+          "note": "YZ Propositions 4.2–4.3, p.563, read on the page image. X^0 and X′^0 are the identity components over F̄, not over K; only the O^1_{B,p}-quotients X^0_1, X′^0_1 are defined over K = F_℘^ur. Statement corrected. E39 confirmed."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/finite-pel-comparison",
+          "verdict": "verified",
+          "note": "YZ Proposition 4.4, p.563, read on the page image: it compares the connected components X^0_{n,U^p} ≅ X′^0_{n,U′^p} over K, with U^p small depending on n and n prime to d_B, as stated."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/carayol-split-model",
+          "verdict": "verified",
+          "note": "Carayol §0.1–0.5, pp.151–153, read: d=[F:Q]>1, reduction at a finite place where B splits, smooth proper model for small H with étale transitions (Morita for F=Q). The higher-level regularity scope follows §§6–9."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/regular-model-tower",
+          "verdict": "verified",
+          "note": "YZ Theorem 4.5, pp.564–565, read (n prime to d_B, U^p⊂U^p(N), N≥3 prime to p; smooth at split ℘∤n, relative Mumford at ℘|d_B). Its division-place case uses R18.5/totally-real-uniformisation, a forward reference between layers; recorded as a restructure proposal."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/coarse-model",
+          "verdict": "verified",
+          "note": "YZ p.565 and Corollary 4.6 read: the quotient X_{U′}/(Ū/Ū′) is normal, projective and flat over O_F, independent of p, and π is flat only in codimension one, as stated."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/hecke-integral-extension",
+          "verdict": "verified",
+          "note": "Follows from the projective system of Theorem 4.5/Corollary 4.6 and the B^×-action on the tower (p.564); the target-level proof sketch is sound."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/qfactorial-model",
+          "verdict": "verified",
+          "note": "YZ Corollary 4.6(2), p.566, read with its exact unramified base-change hypothesis; E37 confirmed."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/arithmetic-hodge-line",
+          "verdict": "corrected",
+          "note": "YZ Theorem 4.7, pp.567–568, read. Theorem 4.7 is a uniqueness statement; added the API item QuaternionHodgeLine.unique. Metric |dz|=2y and the branch correction formula checked (E27 does not affect |dz|)."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/integral-pdiv",
+          "verdict": "verified",
+          "note": "YZ Theorem 4.9, pp.568–569, read: H^℘ étale, H_℘ special formal O_{B,℘}-module, deformation space, level classification for n prime to d_B. Heights checked. Uses R18.5/drinfeld-representability (forward reference, restructure proposal). E33 confirmed."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/integral-kodaira-spencer",
+          "verdict": "verified",
+          "note": "YZ Theorem 4.10, pp.569–570, read. The corrected determinant line (E8), the double-point failure and codimension-two extension (E9), and the absolute versus relative crystal (E30) are carried correctly; the ramified case is an honest gap."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-tate-comparison",
+          "verdict": "verified",
+          "note": "YZ §5.1, Proposition 5.1, pp.571–573, read: Δ(z)=(z,z^{-1}), action x·(b,e)=exb, T(H″)≅T(H)⊗_{O_{E,p}}T(I). The torus Y and the morphism to X″ are imported from R18.1 (request recorded)."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-integral-model",
+          "verdict": "verified",
+          "note": "YZ §5.2, p.573, read on the page image: smooth if ℘∤d_B, stable Mumford if ℘|d_B, not regular if ℘ is ramified in F′. E36 confirmed."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-point-extension",
+          "verdict": "verified",
+          "note": "YZ Proposition 5.2, p.574, read; the p=2 coverage and componentwise weight check (E34–E35) are carried correctly."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-filtered-crystal",
+          "verdict": "verified",
+          "note": "YZ Proposition 5.3 and p.575 read; the ramified τ-quotient failure (E31) is checked by the Q_p(√p) computation and kept as a gap."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-determinant",
+          "verdict": "verified",
+          "note": "YZ Proposition 5.4–Corollary 5.5, pp.575–576, read. The false identity (3) (E32) is not used; the unramified determinant cancellation is sound; the ramified case is an honest gap."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-class-set",
+          "verdict": "corrected",
+          "note": "KW §7 opening and display (5), pp.57–59, and §7.2, pp.61–62, read. Locator corrected (the set-up is §7’s opening, not §7.1; §7.2 is pp.61–62), and the excerpt replaced by KW’s literal isotropy group. Statement verified."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-weight",
+          "verdict": "corrected",
+          "note": "KW pp.58–59 and Taylor §1, pp.741–742, read. Locators and excerpts corrected: the cited Taylor formula is not printed; the literal weight range for perfection is quoted instead. Test factorialObstruction reworded: ⟨X²,Y²⟩=±2 is an antidiagonal entry, and the Gram determinant is ±4. The rank (k−1)^d and the central action N^{k−2} were checked."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation",
+          "verdict": "corrected",
+          "note": "KW display (5), p.59, read; locator corrected. AF.5’s discrete-centre hypothesis was confirmed in AutomorphicFormsOnReductiveGroups AF.5/algebraic-modular-forms, so the fixed-central-character request is justified."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/neatness-base-change",
+          "verdict": "corrected",
+          "note": "Taylor Lemma 1.1 and Corollary 1.2, pp.737–738, and KW pp.73, 77 read. The excerpts were not literal and are replaced. Khare Lemma 2.2 remains an honest gap: the arXiv version math/0504080v1 has Propositions 2.1–2.2 and no Lemma 2.2."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/integral-pairing",
+          "verdict": "verified",
+          "note": "Taylor pp.741–742 read: the pairing is perfect for 2≤k≤l+1, weighted by ψ(det x)^{-1}#Γ_x^{-1}, with the adjoint formula ([U′gU]f1,f2)=ψ(det g)(f1,[Ug^{-1}U′]f2)."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/split-hecke-normalisation",
+          "verdict": "corrected",
+          "note": "KW p.59 (T_v, S_v=ψ(π_v)) and p.65 (X²−T_vX+N(v)ψ(π_v)) read; locator and excerpt corrected. It agrees with R17.3/split-hecke."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/norm-branch",
+          "verdict": "corrected",
+          "note": "KW pp.59–60 read. Added KW’s definition of Eisenstein maximal ideals to the statement, which had only a vague description; locator and excerpt corrected."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-degeneracy",
+          "verdict": "corrected",
+          "note": "KW Lemma 7.1, p.60, read. KW takes w ∉ Σ and puts w in S for the Hecke algebra; the statement said w ∉ S and is corrected. The excerpt was from p.66 and is replaced by the lemma’s own wording."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-jl",
+          "verdict": "corrected",
+          "note": "KW pp.59–60 read; locator corrected. The R17.3 global-jl, definite-infinity and rational-models statements were read and supply what is used."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/isotropy-exponent",
+          "verdict": "corrected",
+          "note": "KW §7.2, displays (6)–(7), pp.61–62, read; locator and non-literal excerpt corrected. The 2N_w/4N_w bounds and the non-surjectivity caveat are right."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/base-change-annihilator",
+          "verdict": "corrected",
+          "note": "KW Lemma 7.3 and its proof, pp.62–63, read; locator corrected. χ=χ′^{4N_w} has order the p-part of 2p (4 for p=2), as stated."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-level",
+          "verdict": "corrected",
+          "note": "KW §7.4, p.63, read; locator and non-literal excerpt corrected. The tests (C_8 modulo its 2-torsion is C_4, while C_8/C_8² has order 2) were checked."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-stabilisers",
+          "verdict": "corrected",
+          "note": "KW proof of Lemma 7.4, display (8), pp.64–65, read; locator and non-literal excerpt corrected."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-freeness",
+          "verdict": "corrected",
+          "note": "KW Lemma 7.4(2), p.64, read; locator corrected. The planet is renamed from KW’s §7.4 title, since the source does not name a “Diamond freeness theorem”."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-localised-control",
+          "verdict": "corrected",
+          "note": "KW Corollary 7.5 and the construction of ξ_v, pp.65–66, read; locator and excerpt corrected. The use of R19.2 local–global compatibility (Steinberg exclusion) is genuine; it closes a loop of layers, recorded as a restructure proposal."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-norm-twist",
+          "verdict": "corrected",
+          "note": "KW §7.5, p.66, read; excerpt corrected to the printed f_χ(g):=f(g)χ(Nm(g)). Checked that 2^n>N makes det u_v a square in k_v^×, as the statement uses."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-hecke-twist",
+          "verdict": "corrected",
+          "note": "KW Proposition 7.6, pp.66–67, read; the excerpt “χ(Nv)” does not occur and is replaced. Formulas verified."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-sign-extension",
+          "verdict": "corrected",
+          "note": "KW pp.58–59 read ([U_v:(O_D)^×_v F_v^×]=2; 2^{|Σ₀|} extensions of W₂, unique extension of W̄₂); locator and excerpt corrected."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/residual-hecke-ideal",
+          "verdict": "corrected",
+          "note": "CDN23 §4.1.3, p.49, read: S_v ↦ N(v)^{-1}det ρ̄(Frob_v), with uniformisers sent to geometric Frobenius. Excerpt corrected; tests checked (3^{-1}·6=2 in F_7)."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-local-systems",
+          "verdict": "corrected",
+          "note": "Carayol §1.4, pp.159–160, read; the excerpt is replaced by the section title. The Tau Ceti LocalCoefficientSystem citation was read at f790474 and is correctly scoped to the fundamental-groupoid functor."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/finite-cohomology",
+          "verdict": "corrected",
+          "note": "CDN20 §5.2.1, pp.41–42, read; the excerpt “Hét” is replaced by the sentence on the commuting G_E × Ǧ(A_f) actions. The generic machinery is correctly requested from H0, H3, H5 and ALS.3, ALS.5."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/integral-cohomology-control",
+          "verdict": "corrected",
+          "note": "The criterion is the routine argument given in the proof steps: the coefficient long exact sequence, then duality, giving H²_m = 0 by Nakayama. The match now says that CDN20 states only the rational realization. The H⁰-vanishing gap is honest."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomology-pairing",
+          "verdict": "corrected",
+          "note": "Match corrected: CDN20 supplies only the finite-level H¹; duality is the generic proper-curve Poincaré duality requested from H3."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-eigenspaces",
+          "verdict": "corrected",
+          "note": "CDN20 §5.2.1, p.41, read (definition of SD2 and Proposition 5.2); the excerpt is replaced."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/definite-indefinite-comparison",
+          "verdict": "verified",
+          "note": "CDN20 §5.2.1 (Π^p_f=Π̌^p_f) and R17.3/invariant-exchange read; only matching eigenspaces are compared, as stated."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-degeneracy",
+          "verdict": "corrected",
+          "note": "The cited Carayol §§9.2–9.4 (pp.206–209) study the p-level morphism v : M_{n,H} → M_{n,v(H)}, not the degeneracy maps at w. Replaced by KW Lemma 7.1 (p.60) as the definite model, with a match saying that the indefinite construction is standard. The degree q_w+1 was checked. The integral Ihara gap is honest."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-purity",
+          "verdict": "corrected",
+          "note": "YZ does not state purity; the source is now the PEL moduli problem it applies to (YZ pp.553–554), with a match naming Weil II via R34.5. The R34.5 parabolic-cohomology-weight-comparison statement was read: it is elliptic-only, so the extension request is justified."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/finite-level-descent",
+          "verdict": "corrected",
+          "note": "The one-word excerpt is replaced by YZ p.565; the match states that the invariants/trace statement is generic Hochschild–Serre (H0)."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-half-plane",
+          "verdict": "verified",
+          "note": "CDN20 §1.2, p.12, and BC Part I read: Ω=P¹_F−P¹(F) as a rigid space with the homography action. Tests checked."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/affinoid-reduction",
+          "verdict": "verified",
+          "note": "CDN20 §1.2, pp.12–13, read: P_n=P¹(O_F/ϖ^n), U_n=P¹−∪B^−(x,n v_p(ϖ)), and U_n=r^{-1}(tree ball of radius n). Valence q+1 and the radius-one ball of q+2 vertices were checked."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-formal-model",
+          "verdict": "verified",
+          "note": "CDN20 §1.2, pp.12–13, read: iterated blow-ups of smooth k-points, formal opens Ũ_n with Ũ_n⊂Ũ_{n+1}, increasing union a semistable model, and the extremal components having smaller valence."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/special-formal-moduli",
+          "verdict": "corrected",
+          "note": "BC Definition 8.1, p.107, read on the page image: the framing is ρ : Φ_{B/πB} → X_{B/πB} of height zero, the inverse of BZ’s arrow, as the statement says. The excerpt is replaced by the literal framing clause."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-representability",
+          "verdict": "corrected",
+          "note": "BC Theorems 8.2 and 8.4, pp.107–108, read on the page images; the excerpt is replaced by the literal statement of Theorem 8.2."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/height-and-descent",
+          "verdict": "verified",
+          "note": "BZ Proposition 5.9, p.39 (δ(ω,m)=(pr(δ)ω, ord det δ+m), pr(δ)=h(Π)^{−ord det δ}δ) and Theorem 6.7, p.49 (id×|Π^{-1}×τ_c) read."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient",
+          "verdict": "corrected",
+          "note": "BZ §1, p.2 (Γ_g, its discrete cocompact image Γ̄_g, algebraizability by Mumford) and BC III §5.3, p.142, read; the excerpt “Γg” is replaced by the literal definition."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation",
+          "verdict": "verified",
+          "note": "BZ (6.29)–(6.31), Theorem 6.7 and Corollary 6.8, pp.45–50, read: maximal level at the division place, the other p-adic factors arbitrary, Hecke compatibility, the descent diagram, and the stable semistable model for small K^p."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/rational-uniformisation",
+          "verdict": "verified",
+          "note": "BC III Théorème (5.2), p.140, read; the rational-field scope is right."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/tower-uniformisation",
+          "verdict": "corrected",
+          "note": "CDN20 Proposition 5.4, p.43, read. BZ treats only maximal level at the division place, so the all-level step needs the Rapoport–Zink uniformisation with p-level structures and the identification of p-divisible groups. Proof step rewritten; added the prerequisites PELModuli:M2 (request extended) and R18.2/quaternion-pdiv-tower, and the citation BC III Théorème (5.5), p.146, for F=Q."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/tree-dual-graph",
+          "verdict": "corrected",
+          "note": "BC III §5.4, pp.144–146, read (Kurihara’s theorem: dual graph with lengths). The YZ citation was §8.2 with a French excerpt in an English paper; corrected to §8.3, pp.619–620, with the literal indexing of components."
+        },
+        {
+          "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.5/character-monodromy",
+          "verdict": "verified",
+          "note": "BC III §5.4 graph identification read; the monodromy pairing is correctly imported from R11.4, and the test values (cycle of r edges gives r; a tree gives zero toric rank) were checked."
+        }
+      ]
+    }
+  ]
 }

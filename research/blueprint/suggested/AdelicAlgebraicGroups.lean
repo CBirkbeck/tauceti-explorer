@@ -35,6 +35,7 @@ import Mathlib.Algebra.DirectSum.Module
 import Mathlib.Analysis.InnerProductSpace.Basic
 import Mathlib.RingTheory.DedekindDomain.SInteger
 import Mathlib.RingTheory.FinitePresentation
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.FunctorOfPoints
 
 /-!
 # Adelic algebraic groups and arithmetic quotients: suggested Lean forms
@@ -2235,15 +2236,21 @@ example (H : Type) [CommRing H] [HopfAlgebra ℚ H] (eGm : H ≃ₐ[ℚ] MonoidA
     ¬ HasStrongApproximation ℚ H := by
   sorry
 
-/-- `AA.4/strong-approximation-sufficiency` (Kneser–Platonov): stated for `G` absolutely almost
-simple and simply connected with `G(F_∞)` noncompact; the simple-connectedness and absolute
-simplicity hypotheses are carried by the coordinate ring (Tau Ceti
-`simplyConnectedSemisimpleCommHopfAlgProperty`), recorded here as hypotheses on `H`. -/
-theorem strongApproximation_of_simplyConnected
-    (hsc : ∀ (K : Type) [CommRing K] [HopfAlgebra F K] (f : H →ₐc[F] K), Function.Surjective f → Function.Injective f)
-    (hnc : ¬ CompactSpace (AdelicPoints.InfinitePoints F H)) :
-    HasStrongApproximation F H := by
-  sorry
+/-
+OMITTED SIGNATURE: Approximation.strongApproximation_of_simplyConnected.
+For a connected absolutely almost simple, simply connected group over a number field F,
+and finite S containing the archimedean places, noncompact ∏_{v∈S} G(F_v) implies density
+of G(F) in G(A_F^S). The existing HasStrongApproximation carrier only represents the
+specialization S = S∞. The signature must use the actual semisimple coordinate carrier,
+TauCeti.simplyConnectedSemisimpleCommHopfAlgProperty, absolute almost simplicity, and the
+off-S adelic topology. Simple connectedness tests central isogenies from semisimple groups:
+in Hopf coordinates, central-isogeny maps H→K must be isomorphisms. It is not the assertion
+that every surjective Hopf map is injective.
+
+The source-read Rapinchuk §2.6 proof treats F=Q and a single isotropic p-adic place. RG2.4
+supplies the requested local Kneser–Tits finite-index consequence; the native-field,
+several-place and anisotropic-local closure steps remain the packet's explicit proof inputs.
+-/
 
 end Approximation
 
@@ -2257,7 +2264,35 @@ def IsNeatAut {n : ℕ} (α : GL (Fin n) ℂ) : Prop :=
 
 variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
 
-/-- A rational point is neat if its image under a faithful representation is neat. -/
+/-- Evaluate an actual algebraic representation in Hopf coordinates on rational points,
+then extend entries along the specified embedding into C. The map on coordinate rings is
+contravariant: O(GL_n)→O(G). The imported points equivalence uses ordinary matrix order. -/
+def algebraicPointMap (τ : F →+* ℂ) (n : ℕ)
+    (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F n →ₐc[F] H) :
+    WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ where
+  toFun g := Matrix.GeneralLinearGroup.map τ
+    (TauCeti.GeneralLinear.pointsMulEquiv (R := F) n
+      (WithConv.toConv (g.ofConv.comp
+        (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F n →ₐ[F] H))))
+  map_one' := sorry
+  map_mul' := sorry
+
+/-- The point action comes from an algebraic representation, not an arbitrary abstract
+homomorphism of G(F). This predicate spells out its existing coordinate-ring carrier. -/
+def IsAlgebraicPointHom (τ : F →+* ℂ) (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) : Prop :=
+  ∃ r : TauCeti.GeneralLinear.coordinateHopfAlgebra F n →ₐc[F] H,
+    ρ = algebraicPointMap τ n r
+
+/-- Faithful algebraic means a closed immersion, hence a surjection on coordinate rings.
+Injectivity on F-rational points alone is not the algebraicity/faithfulness hypothesis. -/
+def IsFaithfulAlgebraicPointHom (τ : F →+* ℂ) (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) : Prop :=
+  ∃ r : TauCeti.GeneralLinear.coordinateHopfAlgebra F n →ₐc[F] H,
+    Function.Surjective r ∧ ρ = algebraicPointMap τ n r
+
+/-- Neatness relative to the supplied matrix action. The algebraic-group notion chooses a
+faithful algebraic action; its independence is the theorem below with those hypotheses. -/
 def IsNeat (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (g : WithConv (H →ₐ[F] F)) : Prop :=
   IsNeatAut (ρ g)
 
@@ -2273,9 +2308,12 @@ theorem IsNeat.torsion_eq_one (hρ : Function.Injective ρ) {g : WithConv (H →
     (hg : IsOfFinOrder g) : g = 1 := by
   sorry
 
-/-- `AA.4/neat-representation-independence`. -/
+/-- `AA.4/neat-representation-independence`: this direction permits nonfaithful σ,
+but both representations must be algebraic over the same embedded coefficient field. -/
 theorem isNeat_iff_of_faithful (m : ℕ) (σ : WithConv (H →ₐ[F] F) →* GL (Fin m) ℂ)
-    (hρ : Function.Injective ρ) (g : WithConv (H →ₐ[F] F)) (h : IsNeat n ρ g) : IsNeat m σ g := by
+    (τ : F →+* ℂ) (hρ : IsFaithfulAlgebraicPointHom τ n ρ)
+    (hσ : IsAlgebraicPointHom τ m σ)
+    (g : WithConv (H →ₐ[F] F)) (h : IsNeat n ρ g) : IsNeat m σ g := by
   sorry
 
 -- Test Neat.isNeat_diag
@@ -2325,7 +2363,9 @@ example (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H)) (g : WithConv (H �
   sorry
 
 /-- `AA.4/neat-level-exists`. -/
-theorem exists_neat_normal (hρ : Function.Injective ρ) (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
+theorem exists_neat_normal [Algebra.FiniteType F H]
+    (τ : F →+* ℂ) (hρ : IsFaithfulAlgebraicPointHom τ n ρ)
+    (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
     (hU : IsOpen (U : Set (AdelicPoints.FiniteAdelicPoints F H))) (hUc : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
     ∃ U' ≤ U, (U'.subgroupOf U).Normal ∧ (U'.subgroupOf U).FiniteIndex ∧
       IsOpen (U' : Set (AdelicPoints.FiniteAdelicPoints F H)) ∧ IsNeatLevel n ρ U' := by
