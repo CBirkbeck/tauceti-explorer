@@ -116,7 +116,7 @@ def unlawful(documents: dict, reg: dict) -> list:
     read. A hit is a failure, not a warning -- replace the citation with the work
     itself, and re-read the passage in a copy that may be read.
     """
-    hosts = [host.lower() for host in reg.get("pirateHosts", [])]
+    hosts = [host.lower() for host in reg.get("blockedHosts", [])]
     found = []
     for name in sorted(documents):
         for url in URL.findall(documents[name]):

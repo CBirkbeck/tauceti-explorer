@@ -2953,7 +2953,7 @@
     }
   ],
   "hostsNote": "ams.org, msp.org, numdam.org, annals.math.princeton.edu and e-periodica are not checked: their cited pages are open. Add a host here the moment a link to it needs a subscription.",
-  "pirateHosts": [
+  "blockedHosts": [
     "dokumen.pub",
     "vdoc.pub",
     "epdf.pub",
@@ -2972,5 +2972,5 @@
     "bookfi.net",
     "scribd.com"
   ],
-  "pirateNote": "Sites that post copies without permission. A citation to one fails the check: it is not a free source, and the claim it supports has to be re-read in a copy that may legally be read. A copy on an author's page, a publisher's open-access page or an institutional repository is fine; a copy of a copyrighted book on an unrelated course page is not."
+  "blockedNote": "Sites that post copies without permission. A citation to one fails the check: it is not a free source, and the claim it supports has to be re-read in a copy that may legally be read. A copy on an author's page, a publisher's open-access page or an institutional repository is fine; a copy of a copyrighted book on an unrelated course page is not."
 }

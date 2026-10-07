@@ -166,11 +166,11 @@ Every node cites its source passages with a locator and a literal excerpt. The p
 
 ### Bloch, *Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves* (CRM Monograph Series 11, AMS 2000)
 
-The parent packet read Lectures 8–11 from the programme's supplied scan (page images). The ER.4 and ER.5 parts were read from copies of the book posted without the publisher's permission (cited as `Bloch.CRM11.public`). Such copies may not be used: what those parts take from them must be checked again against a legitimate copy. Both lose overlines, so the parts check the barred quantities algebraically and claim no page-image collation.
+The parent packet read Lectures 8–11 from the programme's supplied scan (page images). The ER.4 and ER.5 parts cite the same book for Lectures 10 and 11, and check the barred quantities algebraically.
 
 - `Bloch.CRM11` (parent packet); CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.; https://bookstore.ams.org/crmm-11; SHA-256 `9715a312ec4ebb9535daa24f3308bb5b97152211d747d55bf9f6c06bb221bd60`. Read: Lecture 8, §8.1 and Lemmas 8.2.1–8.2.4, printed pp. 61–67: R_q = J_q + iD_q, the unregularised J_q (8.1.4) with (8.1.5), Lemma 8.1.4 (independence of permitted lifts).; Lecture 9, printed pp. 69–74 (skimmed): the Steinberg relations for J_q and D_q by truncation.; Lecture 10 in full, printed pp. 75–85: Proposition 10.1.1, (10.1.2), (10.2.1), Theorem 10.2.1, Lemmas 10.2.2–10.2.3, (10.3.1), Propositions 10.3.1 and 10.3.3, Lemmas 10.3.2, 10.3.4, 10.3.5.; Lecture 11 in full, printed pp. 87–93: Lemmas 11.1.1–11.1.4, Corollaries 11.1.5–11.1.6, Lemma 11.1.7, (11.2.1)–(11.2.4), Theorem 11.2.1, Remark 11.2.2, Corollary 11.2.3, Conjecture 11.2.4.; Contents (printed p. vii).; Lecture 8, printed pp. 61–67 (PDF 73–79): (8.1.1)–(8.1.6), Lemma 8.1.1, Theorems 8.1.2 and 8.1.5, Lemmas 8.1.3 and 8.1.4, §8.2 with Lemmas 8.2.1–8.2.4.; Lecture 9, printed pp. 69–74 (PDF 81–86): Theorem 9.1.1 with Lemmas 9.1.2, 9.1.3, 9.1.5 and Sublemma 9.1.4; Theorem 9.2.1 with Lemmas 9.2.2 and 9.2.3.; Lecture 10, printed pp. 77–80 (PDF 89–92): Theorem 10.2.1, Lemmas 10.2.2 and 10.2.3, (10.3.1) and the opening of §10.3.; Read from page images rendered at 110 dpi with pdftoppm; no OCR.; 2026-09-30 REV-FIX-RT-AREA-combinatorics~2: selectively re-read printed pp.76,87,89,91 (PDF pp.88,99,101,103) in the supplied 110-page scan; SHA-256 unchanged. Checked both Fourier normalizations, pairing orientation and the input-only coordinate swap. Corrected a missing factor C in E7’s explanatory reason, without changing its source-error verdict..
-- `Bloch.CRM11.public` (ER.4 part); CRM Monograph Series 11, AMS, 2000; public digitization text layer. Publisher PDF retrieval returned HTTP 403. No page-image verification or access to the parent worker’s private scan is claimed.; https://bookstore.ams.org/crmm-11 Read: Lecture 10 §§10.2–10.3, printed pp.77–85: Lemmas 10.2.2–10.2.3, Propositions 10.3.1 and 10.3.3, Lemmas 10.3.2, 10.3.4–10.3.5.; Text layer loses overlines. The barred denominator and signs are independently reconstructed by the pointwise algebra and numerical checks in the reader..
-- `Bloch.CRM11.public` (ER.5 part); CRM Monograph Series 11, AMS 2000; public HTML text-layer transcription containing AMS reprint page labels. Overlines and some glyphs are lost; no publisher PDF, page-image, licence or private-scan verification is claimed.; https://bookstore.ams.org/crmm-11; SHA-256 `f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75`. Read: Lecture11 §§11.1–11.2, printed pp.87–93, all lemmas, corollaries, construction and Theorem11.2.1.; The corrected overlines and kernel are inherited from the accepted parent and independently checked through exact coordinate algebra; OCR is not used to certify them..
+- `Bloch.CRM11` (ER.4 part); CRM Monograph Series 11, AMS, 2000; https://bookstore.ams.org/crmm-11. Read: Lecture 10 §§10.2–10.3, printed pp.77–85: Lemmas 10.2.2–10.2.3, Propositions 10.3.1 and 10.3.3, Lemmas 10.3.2, 10.3.4–10.3.5.; the barred denominator and signs are reconstructed by the pointwise algebra and numerical checks in the reader.
+- `Bloch.CRM11` (ER.5 part); CRM Monograph Series 11, AMS, 2000; https://bookstore.ams.org/crmm-11. Read: Lecture11 §§11.1–11.2, printed pp.87–93, all lemmas, corollaries, construction and Theorem11.2.1.; the corrected overlines and kernel are inherited from the accepted parent and checked through exact coordinate algebra.
 
 ### Brunault, *Étude de la valeur en s = 2 de la fonction L d'une courbe elliptique* (thesis, arXiv:math/0602186v1, 155 pp., appendix by Loïc Merel)
 
@@ -2612,7 +2612,7 @@ For every u∈T_C, the forward and backward raw logarithmic orbit series are abs
 
 **Sources.**
 
-- `Bloch.CRM11.public`, §10.3, pp.80–85, sum rearrangements underlying (10.3.2) and Propositions 10.3.1,10.3.3: “10.3.” — The source rearranges the logarithmic double series in (10.3.3) on p.81 and the Li₂ double series in the proof of Proposition 10.3.3 on pp.82–84. These are the supporting calculations, not a separately printed convergence theorem. The packet supplies the required orbit, double-series and lattice estimates independently, including the unit-circle exception.
+- `Bloch.CRM11`, §10.3, pp.80–85, sum rearrangements underlying (10.3.2) and Propositions 10.3.1,10.3.3: “10.3.” — The source rearranges the logarithmic double series in (10.3.3) on p.81 and the Li₂ double series in the proof of Proposition 10.3.3 on pp.82–84. These are the supporting calculations, not a separately printed convergence theorem. The packet supplies the required orbit, double-series and lattice estimates independently, including the unit-circle exception.
 
 ### Bloch’s logarithmic term L
 
@@ -2668,7 +2668,7 @@ Define blochLogTerm(C,τ,f)=L=Σ_{u∈T_C}f̂(u)A_τ(x_u), where W(z)=log|z| log
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (10.3.2), p.80: “L” — In (10.3.2), L weights R′_q, the forward-minus-backward principal-complex-log expression immediately above it. The real logarithmic factor multiplies the full complex logarithm; it includes the argument term.
+- `Bloch.CRM11`, (10.3.2), p.80: “L” — In (10.3.2), L weights R′_q, the forward-minus-backward principal-complex-log expression immediately above it. The real logarithmic factor multiplies the full complex logarithm; it includes the argument term.
 
 ### Bloch’s dilogarithmic term M
 
@@ -2723,7 +2723,7 @@ Define blochDilogTerm(C,τ,f)=M=i Σ_{u∈T_C}f̂(u)V_τ(x_u), where V_τ(x)=Σ_
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (10.3.2), p.80; proof of Proposition 10.3.3, pp.82–83: “M” — In (10.3.2), M=−iΣ f̂ R″_q; the integral defining R″_q is the negative of the principal Li₂ value. Thus the packet has +i times the forward-minus-backward imaginary Li₂ sums. Projection occurs before the Fourier coefficient.
+- `Bloch.CRM11`, (10.3.2), p.80; proof of Proposition 10.3.3, pp.82–83: “M” — In (10.3.2), M=−iΣ f̂ R″_q; the integral defining R″_q is the negative of the principal Li₂ value. Thus the packet has +i times the forward-minus-backward imaginary Li₂ sums. Projection occurs before the Fourier coefficient.
 
 ### Splitting the dilogarithmic orbit sum
 
@@ -2757,7 +2757,7 @@ blochDilogTerm_split: for odd f, M=M₁+M₂, where M₁=2iΣ_u f̂(u)Im Σ_{n�
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (10.3.2) and decomposition in proof of Proposition 10.3.3, pp.80,82–83: “M” — The proof of Proposition 10.3.3 consolidates the backward sum by negating the torsion index, then splits M into M₁+M₂. The ℓ=0, n=0 endpoint occurs once with coefficient −i.
+- `Bloch.CRM11`, (10.3.2) and decomposition in proof of Proposition 10.3.3, pp.80,82–83: “M” — The proof of Proposition 10.3.3 consolidates the backward sum by negating the torsion index, then splits M into M₁+M₂. The ℓ=0, n=0 endpoint occurs once with coefficient −i.
 
 ### The Bernoulli horizontal term
 
@@ -2792,7 +2792,7 @@ Let b_τ(u)=4π²y²(t³/3−t²/2+t/6), t=ℓ/C. Then B=Σ_u f̂(u)b_τ(u)=(iy�
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Lemma 10.2.3, pp.79–80: “10.2.3.” — Lemma 10.2.3 states the horizontal n^(−3) identity. Its proof uses the cubic Bernoulli Fourier series, inverse transform at (0,−n), and oddness to obtain the positive iy²/π factor. Capital C follows inherited E11.
+- `Bloch.CRM11`, Lemma 10.2.3, pp.79–80: “10.2.3.” — Lemma 10.2.3 states the horizontal n^(−3) identity. Its proof uses the cubic Bernoulli Fourier series, inverse transform at (0,−n), and oddness to obtain the positive iy²/π factor. Capital C follows inherited E11.
 
 ### Evaluation of Bloch’s logarithmic term
 
@@ -2828,7 +2828,7 @@ L=−y/(2π) Σ_{m≠0,n∈ℤ} f(m,n)/(m(mτ+n)²). All indices are signed inte
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Proposition 10.3.1 and Lemma 10.3.2, pp.80–82: “10.3.1.” — Proposition 10.3.1 has −y/(2π), m≠0, and denominator m(mτ+n)². Its proof passes through (10.3.3) and the weighted geometric identity in Lemma 10.3.2; the latter is already supplied by the pinned Mathlib baseline.
+- `Bloch.CRM11`, Proposition 10.3.1 and Lemma 10.3.2, pp.80–82: “10.3.1.” — Proposition 10.3.1 has −y/(2π), m≠0, and denominator m(mτ+n)². Its proof passes through (10.3.3) and the weighted geometric identity in Lemma 10.3.2; the latter is already supplied by the pinned Mathlib baseline.
 
 ### Evaluation of the forward dilogarithmic sum
 
@@ -2864,7 +2864,7 @@ For odd f define H=(1/C)Σ_{m≥1}Σ_{b mod C}f(m,b)/m² and M₁=2iΣ_u f̂(u)I
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Lemma 10.3.4, pp.83–84: “10.3.4.” — Lemma 10.3.4 evaluates M₁ with a positive H term and −1/(2π) times the projected reciprocal kernel. The proof uses oddness to remove the cosine phase, the geometric/cotangent identity, and paired cotangent partial fractions.
+- `Bloch.CRM11`, Lemma 10.3.4, pp.83–84: “10.3.4.” — Lemma 10.3.4 evaluates M₁ with a positive H term and −1/(2π) times the projected reciprocal kernel. The proof uses oddness to remove the cosine phase, the geometric/cotangent identity, and paired cotangent partial fractions.
 
 ### Cancellation of the unit-circle boundary
 
@@ -2899,7 +2899,7 @@ For odd f, M₂=−iΣ_{k mod C}f̂(k,0)Im Li₂(exp(2πik/C))=−H, with H=(1/C
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Lemma 10.3.5, p.84: “10.3.5.” — Lemma 10.3.5 evaluates the unit-circle endpoint M₂ as −H by expanding Li₂ and summing the torsion character. This is the term cancelling the forward evaluation’s H.
+- `Bloch.CRM11`, Lemma 10.3.5, p.84: “10.3.5.” — Lemma 10.3.5 evaluates the unit-circle endpoint M₂ as −H by expanding Li₂ and summing the torsion character. This is the term cancelling the forward evaluation’s H.
 
 ### Evaluation of Bloch’s dilogarithmic term
 
@@ -2934,7 +2934,7 @@ M=−(1/(2π))Σ_{m≠0,n∈ℤ} f(m,n)Im(1/(m²(mτ+n))). The real imaginary-pa
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Proposition 10.3.3, pp.82–85: “10.3.3.” — Proposition 10.3.3 states the negative projected-kernel evaluation of M. Lemmas 10.3.4 and 10.3.5 give its two summands; Im acts on the reciprocal kernel, before multiplication by f.
+- `Bloch.CRM11`, Proposition 10.3.3, pp.82–85: “10.3.3.” — Proposition 10.3.3 states the negative projected-kernel evaluation of M. Lemmas 10.3.4 and 10.3.5 give its two summands; Im acts on the reciprocal kernel, before multiplication by f.
 
 ### The direct raw Fourier identity
 
@@ -2969,7 +2969,7 @@ M=−(1/(2π))Σ_{m≠0,n∈ℤ} f(m,n)Im(1/(m²(mτ+n))). The real imaginary-pa
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (10.3.1) and concluding algebra, pp.80,85: “(10.3.1)” — Equation (10.3.1) omits the m=0 row. The concluding algebra on p.85 combines Propositions 10.3.1 and 10.3.3. The public text loses the denominator’s conjugation; w−conj(w)=2imy independently determines the barred denominator recorded here.
+- `Bloch.CRM11`, (10.3.1) and concluding algebra, pp.80,85: “(10.3.1)” — Equation (10.3.1) omits the m=0 row. The concluding algebra on p.85 combines Propositions 10.3.1 and 10.3.3. The public text loses the denominator’s conjugation; w−conj(w)=2imy independently determines the barred denominator recorded here.
 
 ### The direct regularized torsion Fourier identity
 
@@ -3006,7 +3006,7 @@ M=−(1/(2π))Σ_{m≠0,n∈ℤ} f(m,n)Im(1/(m²(mτ+n))). The real imaginary-pa
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Lemma 10.2.3 and end of §10.3, pp.79–80,85: “10.2.3.” — The beginning of §10.3 reduces the regularized class formula using Lemmas 10.2.2 and 10.2.3; the conclusion proves the raw identity. Adding the explicitly evaluated Bernoulli horizontal row gives this unscaled analytic version; the class formula subsequently supplies C³.
+- `Bloch.CRM11`, Lemma 10.2.3 and end of §10.3, pp.79–80,85: “10.2.3.” — The beginning of §10.3 reduces the regularized class formula using Lemmas 10.2.2 and 10.2.3; the conclusion proves the raw identity. Adding the explicitly evaluated Bernoulli horizontal row gives this unscaled analytic version; the class formula subsequently supplies C³.
 
 ## ER.5 — The complete CM example of Bloch
 
@@ -3474,7 +3474,7 @@ With B(a+bτ,k+ℓτ)=exp(2πi(−aℓ+bk)/C), use H_F(x)=C⁻¹Σ_y F(y)B(x,y).
 
 **Sources.**
 
-- `Bloch.CRM11.public`, §11.1, (11.1.1)–(11.1.2), pp.87–88; proof of Lemma 11.1.7, p.91: “(11.1.1)” — The printed transform and the dual-first transform in the proof disagree. This comparison implements the accepted parent correction EllipticRegulators/E7; the C⁴ is independently reconstructed from the reviewed direct ER.4 proof.
+- `Bloch.CRM11`, §11.1, (11.1.1)–(11.1.2), pp.87–88; proof of Lemma 11.1.7, p.91: “(11.1.1)” — The printed transform and the dual-first transform in the proof disagree. This comparison implements the accepted parent correction EllipticRegulators/E7; the C⁴ is independently reconstructed from the reviewed direct ER.4 proof.
 
 ### The CM Gauss coefficient
 
@@ -3534,7 +3534,7 @@ Define Γ_C(F,g)=g H_F(ḡ mod C), with H the imported dual-first, C⁻¹ transf
 
 **Sources.**
 
-- `Bloch.CRM11.public`, §11.2, (11.2.1)–(11.2.4), pp.91–92: “(11.2.4)” — Γ names the product g·H_χ(ḡ) occurring in the displayed formulas, rather than another CM datum. Parent E7/E8 fixes its convention and final scalar.
+- `Bloch.CRM11`, §11.2, (11.2.1)–(11.2.4), pp.91–92: “(11.2.4)” — Γ names the product g·H_χ(ḡ) occurring in the displayed formulas, rather than another CM datum. Parent E7/E8 fixes its convention and final scalar.
 
 ### Primitive CM Gauss sum normalization
 
@@ -3569,7 +3569,7 @@ For the primitive CM character, H_χ is supported exactly on ḡ·(O/f̄O)× in 
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Lemma 11.1.7 and proof, pp.90–91; §11.2, pp.91–92: “Lemma 11.1.7.” — The support/covariance are Lemma 11.1.7. The norm, reality and generator independence are derived consequences using the imported Fourier API and the E/ℚ conjugation hypothesis, not separately numbered source theorems.
+- `Bloch.CRM11`, Lemma 11.1.7 and proof, pp.90–91; §11.2, pp.91–92: “Lemma 11.1.7.” — The support/covariance are Lemma 11.1.7. The norm, reality and generator independence are derived consequences using the imported Fourier API and the E/ℚ conjugation hypothesis, not separately numbered source theorems.
 
 ### Conductor fibers in the weighted regulator sum
 
@@ -3605,7 +3605,7 @@ Let A_C=Σ_{w∈O/CO}H_χ(w)R_C(w). Then A_C=Γ_C(χ,g)Σ_{x∈W}χ(x)R_C(x), wh
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Corollary 11.1.6, p.90; (11.2.1), pp.91–92: “Corollary 11.1.6.” — The distribution proof partitions full conductor fibers. The printed last step of (11.2.1) incorrectly replaces them by units modulo C without an extra prime-support assumption; accepted parent E9 supplies the correction.
+- `Bloch.CRM11`, Corollary 11.1.6, p.90; (11.2.1), pp.91–92: “Corollary 11.1.6.” — The distribution proof partitions full conductor fibers. The printed last step of (11.2.1) incorrectly replaces them by units modulo C without an extra prime-support assumption; accepted parent E9 supplies the correction.
 
 ### Root-of-unity orbits in Bloch’s class
 
@@ -3641,7 +3641,7 @@ The μ-action on W is free. The map x↦xχ̄(x) identifies W/μ with its image 
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (11.2.2)–(11.2.3), p.92: “(11.2.3)” — This is the orbit step in Bloch’s construction, with W replacing the insufficient unit index set as recorded in parent E9. Its precise factor |μ| must be compared with the generator multiplicity on the L-series side.
+- `Bloch.CRM11`, (11.2.2)–(11.2.3), p.92: “(11.2.3)” — This is the orbit step in Bloch’s construction, with W replacing the insufficient unit index set as recorded in parent E9. Its precise factor |μ| must be compared with the generator multiplicity on the L-series side.
 
 ### Ideal and generator normalizations of the Hecke series
 
@@ -3677,7 +3677,7 @@ With ψ supplied by CM.4, at s=2 the absolutely convergent element sum T_C=Σ_{a
 
 **Sources.**
 
-- `Bloch.CRM11.public`, §11.2 preceding (11.2.1), p.91; Theorem 11.2.1, p.92: “(11.2.1)” — Bloch moves from the lattice sum to an ideal Hecke L-function without dividing by the number of generators. This explicit comparison implements accepted parent E8. The generator’s bar is recovered from the parent’s reviewed CM convention, since the public text loses overlines.
+- `Bloch.CRM11`, §11.2 preceding (11.2.1), p.91; Theorem 11.2.1, p.92: “(11.2.1)” — Bloch moves from the lattice sum to an ideal Hecke L-function without dividing by the number of generators. This explicit comparison implements accepted parent E8. The generator’s bar is recovered from the parent’s reviewed CM convention, since the public text loses overlines.
 
 ### Absolute convergence and nonvanishing at two
 
@@ -3713,7 +3713,7 @@ For the imported CM weight ψ, Summable(idealTerm κ ψ.toIdealArithmeticFunctio
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Remark 11.2.2 and Corollary 11.2.3, p.93: “Corollary 11.2.3.” — The source nonzero argument lies entirely in the absolutely convergent region. The reviewed library audit identifies the pinned Tau Ceti declaration that already supplies it.
+- `Bloch.CRM11`, Remark 11.2.2 and Corollary 11.2.3, p.93: “Corollary 11.2.3.” — The source nonzero argument lies entirely in the absolutely convergent region. The reviewed library audit identifies the pinned Tau Ceti declaration that already supplies it.
 
 ### Normalization certificate for Bloch’s CM formula
 
@@ -3750,7 +3750,7 @@ The same weighted sum satisfies A_C=|μ|Γ_C(χ,g)R_q(U) and A_C=(iy²C⁴/π)|�
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (11.2.1)–(11.2.4), pp.91–92; Corollary 11.2.3, p.93: “Theorem 11.2.1.” — This is an independent scalar certificate for the parent corrected theorem, using accepted E7/E8/E9, rather than a new identifier for that theorem. The printed final formula and the printed kernel cannot be combined unchanged.
+- `Bloch.CRM11`, (11.2.1)–(11.2.4), pp.91–92; Corollary 11.2.3, p.93: “Theorem 11.2.1.” — This is an independent scalar certificate for the parent corrected theorem, using accepted E7/E8/E9, rather than a new identifier for that theorem. The printed final formula and the printed kernel cannot be combined unchanged.
 - `Brunault.These.2005.public`, Remarque 20, p.22; Proposition 26 and its proof, pp.26–27, (1.64): “(1.64)” — The selected real-period uniformization transports conjugation to the natural coordinate action. The orientation-reversing substitution then makes the real-point regulator pure imaginary. Its conversion to Bloch’s R_q is imported from ER.4; no factor of two is inferred from this excerpt alone.
 
 ### The Gaussian, Eisenstein and √−7 examples
@@ -3786,7 +3786,7 @@ For E:y²=x³−x, τ=i,C=4,f=2+2i,g=1−i, Γ=2 and U=S_{1/4}+S_{(3+2i)/4}; R_q
 
 **Sources.**
 
-- `Bloch.CRM11.public`, Theorem 11.2.1, p.92, specialized to the parent accepted examples: “(11.2.4)” — The source gives the general construction; the finite tables and numerical diagnostics are explicit specializations, independently recalculated here. The curve labels and character conventions are inherited from the accepted parent, not taken from OCR.
+- `Bloch.CRM11`, Theorem 11.2.1, p.92, specialized to the parent accepted examples: “(11.2.4)” — The source gives the general construction; the finite tables and numerical diagnostics are explicit specializations, independently recalculated here. The curve labels and character conventions are inherited from the accepted parent, not taken from OCR.
 
 ### The enlarged conductor index set at level fourteen
 
@@ -3819,7 +3819,7 @@ For κ=ℚ(√−7),τ=(1+√−7)/2,f=√−7,C=14,g=−2√−7,χ(a+bτ)=Lege
 
 **Sources.**
 
-- `Bloch.CRM11.public`, (11.2.1)–(11.2.3), pp.91–92; parent E9 counterexample: “(11.2.3)” — This is the accepted parent E9 counterexample, recalculated at45 digits; it is not an example asserted in the published book.
+- `Bloch.CRM11`, (11.2.1)–(11.2.3), pp.91–92; parent E9 counterexample: “(11.2.3)” — This is the accepted parent E9 counterexample, recalculated at45 digits; it is not an example asserted in the published book.
 
 ## ER.6 — Integral parts and the Beilinson statement
 
@@ -7178,11 +7178,11 @@ These are recorded under PROTOCOL.md section 18, and every node above uses the c
 
 ### EllipticRegulators/ER4-E1 — error (affects the proof)
 
-- **Source:** `Bloch.CRM11.public`, Public digitization of CRM 11, §10.3, p.80, parenthesis preceding (10.3.2).
+- **Source:** `Bloch.CRM11`, §10.3, p.80, parenthesis preceding (10.3.2).
 - **Printed:** |xqⁿ| < 1 for n ≥ 0
 - **Correction:** For canonical torsion lifts, |xqⁿ|≤1 for n≥0; equality occurs precisely when ℓ=n=0. Treat that logarithmic weighted term as zero, and retain the absolutely convergent unit-circle Li₂ series.
 - **Reason:** Take k=1,ℓ=0,C=3,n=0. Then x=exp(2πi/3), so |x|=1. Log’s open-disc expansion cannot be applied to that term. The factor log|x| is zero; the Li₂ series is absolutely summable at |x|=1. The source’s M₂ calculation already retains that boundary. This correction changes a convergence justification, not the final identity.
-- **Known:** new. Searched: Bloch author publications page https://math.uchicago.edu/~bloch/publications.html, opened 2026-10-06: no correction for this passage found.; Search on 2026-10-06 for Bloch Higher Regulators elliptic curves errata Lecture 10; no matching published correction found.; Parent accepted sourceIssues: E11 supplies the capital-C typo; none covers this strict-boundary assertion.; AMS PDF endpoints returned HTTP 403; finding scoped to the accessible public digitization text, without claiming original-page collation.
+- **Known:** new. Searched: Bloch author publications page https://math.uchicago.edu/~bloch/publications.html, opened 2026-10-06: no correction for this passage found.; Search on 2026-10-06 for Bloch Higher Regulators elliptic curves errata Lecture 10; no matching published correction found.; Parent accepted sourceIssues: E11 supplies the capital-C typo; none covers this strict-boundary assertion..
 - **Review:** confirmed by REV-EllipticRegulators--ER.4. Independently located the strict forward-boundary assertion in the accessible CRM 11 digitization immediately before (10.3.2), p.80. For ℓ=n=0 the canonical lift has norm one, so the assertion is false. The weighted logarithmic term vanishes, whereas the closed-disc Li₂ series remains absolutely summable and must be retained in M₂. Confirmation is scoped to that text layer; unavailable AMS page images are not certified. Author-publications and errata searches found no matching correction.
 - **Recorded in:** the ER.4 part.
 
@@ -7778,7 +7778,7 @@ The packets record 18 proposals: 12 in the parent packet and 6 in the parts. Eac
 
 **Proposal.** Keep Brunault as a permitted second source for ER.2–ER.4 (Propositions 17, 26, 67 are the bridge between Bloch's R_q and the Deligne regulator) and decompose ER.3–ER.5 from Bloch's Lectures 8–11. Name Brunault §§1.1–1.2 in the ER.4 stage text as the source of the comparison between Bloch's R_q and the regulator of ER.2.
 
-**Status.** A note; applied. The ER.3–ER.5 parts read the public transcriptions of Bloch and the thesis.
+**Status.** A note; applied. The ER.3–ER.5 parts read Bloch's book and the thesis.
 
 ### ER.5's stage text pins a false formula
 

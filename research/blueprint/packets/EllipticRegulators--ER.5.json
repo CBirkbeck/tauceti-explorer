@@ -71,13 +71,11 @@
   },
   "sources": [
     {
-      "id": "Bloch.CRM11.public",
+      "id": "Bloch.CRM11",
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer J. Bloch",
-      "edition": "CRM Monograph Series 11, AMS 2000; public HTML text-layer transcription containing AMS reprint page labels. Overlines and some glyphs are lost; no publisher PDF, page-image, licence or private-scan verification is claimed.",
+      "edition": "CRM Monograph Series 11, American Mathematical Society, 2000.",
       "url": "https://bookstore.ams.org/crmm-11",
-      "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75",
-      "accessed": "2026-10-06",
       "readSections": [
         "Lecture11 §§11.1–11.2, printed pp.87–93, all lemmas, corollaries, construction and Theorem11.2.1.",
         "The corrected overlines and kernel are inherited from the accepted parent and independently checked through exact coordinate algebra; OCR is not used to certify them."
@@ -125,7 +123,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "§11.1, (11.1.1)–(11.1.2), pp.87–88; proof of Lemma 11.1.7, p.91",
           "match": "The printed transform and the dual-first transform in the proof disagree. This comparison implements the accepted parent correction EllipticRegulators/E7; the C⁴ is independently reconstructed from the reviewed direct ER.4 proof."
         }
@@ -167,7 +165,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "§11.2, (11.2.1)–(11.2.4), pp.91–92",
           "match": "Γ names the product g·H_χ(ḡ) occurring in the displayed formulas, rather than another CM datum. Parent E7/E8 fixes its convention and final scalar."
         }
@@ -312,7 +310,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "Lemma 11.1.7 and proof, pp.90–91; §11.2, pp.91–92",
           "match": "The support/covariance are Lemma 11.1.7. The norm, reality and generator independence are derived consequences using the imported Fourier API and the E/ℚ conjugation hypothesis, not separately numbered source theorems."
         }
@@ -361,7 +359,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "Corollary 11.1.6, p.90; (11.2.1), pp.91–92",
           "match": "The distribution proof partitions full conductor fibers. The printed last step of (11.2.1) incorrectly replaces them by units modulo C without an extra prime-support assumption; accepted parent E9 supplies the correction."
         }
@@ -407,7 +405,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "(11.2.2)–(11.2.3), p.92",
           "match": "This is the orbit step in Bloch’s construction, with W replacing the insufficient unit index set as recorded in parent E9. Its precise factor |μ| must be compared with the generator multiplicity on the L-series side."
         }
@@ -453,7 +451,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "§11.2 preceding (11.2.1), p.91; Theorem 11.2.1, p.92",
           "match": "Bloch moves from the lattice sum to an ideal Hecke L-function without dividing by the number of generators. This explicit comparison implements accepted parent E8. The generator’s bar is recovered from the parent’s reviewed CM convention, since the public text loses overlines."
         }
@@ -503,7 +501,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "Remark 11.2.2 and Corollary 11.2.3, p.93",
           "match": "The source nonzero argument lies entirely in the absolutely convergent region. The reviewed library audit identifies the pinned Tau Ceti declaration that already supplies it."
         }
@@ -553,7 +551,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "(11.2.1)–(11.2.4), pp.91–92; Corollary 11.2.3, p.93",
           "match": "This is an independent scalar certificate for the parent corrected theorem, using accepted E7/E8/E9, rather than a new identifier for that theorem. The printed final formula and the printed kernel cannot be combined unchanged."
         },
@@ -608,7 +606,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "Theorem 11.2.1, p.92, specialized to the parent accepted examples",
           "match": "The source gives the general construction; the finite tables and numerical diagnostics are explicit specializations, independently recalculated here. The curve labels and character conventions are inherited from the accepted parent, not taken from OCR."
         }
@@ -652,7 +650,7 @@
       ],
       "sources": [
         {
-          "sourceId": "Bloch.CRM11.public",
+          "sourceId": "Bloch.CRM11",
           "locator": "(11.2.1)–(11.2.3), pp.91–92; parent E9 counterexample",
           "match": "This is the accepted parent E9 counterexample, recalculated at45 digits; it is not an example asserted in the published book."
         }
@@ -830,7 +828,7 @@
     {
       "kind": "published",
       "url": "https://bookstore.ams.org/crmm-11",
-      "citation": "Bloch CRM11, public HTML text-layer transcription; independent source collation is limited to this public transcription, not the publisher page images.",
+      "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, AMS, 2000",
       "read": "2026-10-06",
       "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75"
     },
