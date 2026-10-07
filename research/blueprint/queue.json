@@ -28678,9 +28678,10 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #985"
+   "note": "deliverables arrived from an external worker on issue #985",
+   "finishedAt": "2026-10-07T07:39:47Z"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF0",
@@ -31027,7 +31028,8 @@
    ],
    "avoidAccountOf": "BP-EffectiveDiophantineMethods",
    "prompt": "research/blueprint/prompts/REV-EffectiveDiophantineMethods.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #535"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums",
