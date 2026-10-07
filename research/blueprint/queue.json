@@ -24755,8 +24755,9 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES5",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #404"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #404",
+   "finishedAt": "2026-10-07T07:54:51Z"
   },
   {
    "id": "BP-ExcursionOperatorsAndSpectralAction--ES7",
@@ -28703,7 +28704,8 @@
    ],
    "avoidAccountOf": "BP-RelativeFarguesFontaine--RF0",
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #482"
   },
   {
    "id": "BP-RelativeFarguesFontaine--RF4",
