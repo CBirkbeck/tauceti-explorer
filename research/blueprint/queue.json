@@ -27968,7 +27968,8 @@
    ],
    "avoidAccountOf": "BP-PerfectoidShimuraVarieties",
    "prompt": "research/blueprint/prompts/REV-PerfectoidShimuraVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #469"
   },
   {
    "id": "BP-PerfectoidSpaces--P0",
@@ -37143,7 +37144,8 @@
     "REV-EulerSystemsAndKolyvaginSystems--ES.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-EulerSystemsAndKolyvaginSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #229"
   },
   {
    "id": "ASM-ExcursionOperatorsAndSpectralAction",
@@ -37204,8 +37206,9 @@
     "REV-GL2ModularityLifting--R32.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-GL2ModularityLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #232"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #232",
+   "finishedAt": "2026-10-07T00:42:19Z"
   },
   {
    "id": "ASM-GeneralAlgebraicKTheory",
