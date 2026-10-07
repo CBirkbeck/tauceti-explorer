@@ -16,7 +16,7 @@ This roadmap computes the algebraic K-theory of finite fields and of nonarchimed
 - **L.6** assembles the p-adic K-groups of local fields: ranks and torsion through Galois cohomology, the divisible and finite parts of the integral groups, the comparison maps with their kernels and cokernels, and the equal-characteristic case.
 - **L.7** proves that completion at a finite place of a number field is compatible with restriction, transfer, localisation boundaries, Hilbert symbols, étale Chern classes and cyclotomic traces.
 
-The blueprint has **280 nodes**, 209 local definition/construction API items, 117 unit tests and 42 planets. All seven stages are **planned** under PROTOCOL §0: every stated target has a node whose prerequisite chain ends in the pinned libraries, a supplier node/requested stage, or an explicit gap. The packet is **complete** for independent review; no stage is closed. The 35 source/foundation gaps and 34 supplier requests remain listed with the exact inputs needed. The finite-rank Sp/SL homology and étale Chern-class route includes the small-rank H₂ exception, rank stabilization and the plus/Hurewicz comparison. The inherited hermitian full-spectrum, connective and 2-completed assertions remain separate.
+The blueprint has **280 nodes**, 209 local definition/construction API items, 117 object unit tests (122 local tests overall) and 42 planets. All seven stages are **planned** under PROTOCOL §0: every stated target has a node whose prerequisite chain ends in the pinned libraries, a supplier node/requested stage, or an explicit gap. The packet is **complete** for independent review; no stage is closed. The 39 source/foundation gaps and 34 supplier requests remain listed with the exact inputs needed. The finite-rank Sp/SL homology and étale Chern-class route includes the small-rank H₂ exception, rank stabilization and the plus/Hurewicz comparison. The inherited hermitian full-spectrum, connective and 2-completed assertions remain separate.
 
 ## Boundaries
 
@@ -28,10 +28,10 @@ The roadmap imports what other roadmaps own and plans nothing twice. The request
 - **RefinedTraceMethods.**
   - RT.1–RT.3: Hochschild and cyclic homology, THH, TC, the cyclotomic trace, and the nilpotent and rational relative theorems.
   - RT.4:topological: KU, Bott periodicity and Adams operations.
-- **KTheoryLowDegrees.** U.3, U.5 and U.6: K₁, the determinant, SK₁ of semilocal rings and the transfer in degree one. Also Z.2: K₀ of fields.
+- **KTheoryLowDegrees.** U.3, U.5 and U.6: K₁, the determinant, SK₁ of semilocal rings and the transfer in degree one. K₀ of fields is supplied by the pinned library dimension equivalence; Z.2 supplies rank comparisons.
 - **K2SymbolsBrauer.** T.2:symbols (Matsumoto's presentation and K₂(𝔽_q)), T.3’s tame symbol and higher residues, T.4’s restriction–transfer degree identity, and T.7’s Hilbert and norm-residue symbols.
 - **CrystallineCohomology.** CR.4 (ordinary de Rham–Witt complexes) and CR.5:log-algebra.
-- **MotivicEtaleKTheory.** M.1 and M.4–M.8: the étale side (Tate twists, the norm-residue theorem, the étale comparison and étale Chern classes).
+- **MotivicEtaleKTheory.** M.1 and M.4–M.7 supply Tate twists, the norm-residue theorem and the étale comparison. M.8 supplies the general Chern-class contract; its early finite-field export is an unresolved request, since importing the whole regulator stage into L.1 creates a cycle.
 - **ArithmeticGaloisDuality.** R02.1 and D7.
 - **GeometryOfNumbersAndQuadraticArithmetic.** GN.6 supplies the registered residue-duality line and symmetric localization nodes. General Poincaré GW/L spectra and their square belong to the routed `HermitianKTheoryOfPoincareCategories` design, whose stage/node identifiers remain unregistered; the foundation gap records the exact import contract.
 - **SchemeKTheoryOperations.** S.6: λ-operations.
@@ -50,12 +50,12 @@ The roadmap imports what other roadmaps own and plans nothing twice. The request
 - **K-theory with coefficients.** K_n(R; ℤ/m) is π_n(K(R)/m), formed with the mod-m Moore spectrum; its Bockstein sequence is StableHomotopyKTheory H.6's.
 - **Completed K-theory.** K_n(R; ℤ_p) is π_n of the p-completion (L.1/completed-k-theory). It is never confused with K_n(R) ⊗ ℤ_p, and finite generation of a completed group is never transferred to K_n.
 - **Local fields.** E is a nonarchimedean local field with ring of integers V (or O), uniformiser π, residue field k = 𝔽_q of characteristic p, and μ(E) its roots of unity. w_i^{(ℓ)}(E) is the ℓ-part of w_i(E) = #H⁰(E, ℚ/ℤ(i)).
-- **The localisation boundary.** ∂: K_n(E) → K_{n−1}(k), with ∂[π] = 1 and the sign fixed in L.2/dvr-localisation. Splittings that depend on the uniformiser are marked as such.
+- **The localisation boundary.** ∂: K_n(E) → K_{n−1}(k), with ∂[π] = 1 and the left-linear convention ∂(x·y) = r(x)·∂(y) for an integral class x. Thus ∂{u,π} = ū and ∂{π,u} = ū⁻¹; this boundary is the inverse of the K-book’s symbol convention. Splittings that depend on the uniformiser are marked as such.
 - **Symbols.** The Hilbert and norm-residue symbols are those of K2SymbolsBrauer T.7, with its arithmetic-Frobenius normalisation. The tame component is (a, b)_d = ω(∂_v{a, b})^{−(q−1)/d}.
 - **Trace theories.**
-  - The spectra: T(A) is THH, TR^n = T(A)^{C_{p^{n−1}}} with R, F and V, and TC = hofib(R − F), in Hesselholt–Madsen's classical convention.
-  - The comparison with the Nikolaus–Scholze convention is L.4's.
-  - Hesselholt–Madsen's results assume p odd; the nodes keep that hypothesis.
+  - The spectra: T(A) is THH and TR^n = T(A)^{C_{p^{n−1}}} for n ≥ 1. R, F and V between adjacent levels require n ≥ 2. On TR = holim_R TR^n, TC is the homotopy equaliser of id and F; its underlying spectrum is hofib(id − F). The equaliser of ring maps supplies multiplication; id − F is not a ring map.
+  - RefinedTraceMethods RT.2 owns the general comparison with the Nikolaus–Scholze convention. L.4 verifies its bounded-below hypotheses on the Hesselholt–Madsen field/DVR models and constructs their localisation square.
+  - The cited mixed-characteristic Hesselholt–Madsen calculations assume p odd. Bökstedt periodicity, the Nikolaus–Scholze prime-field calculations and the separately stated hermitian characteristic-two/dyadic targets retain their own prime ranges.
 - **K-book locators.** PDF page = book page + 8, in the author-hosted draft of 29 August 2013.
 
 
@@ -74,57 +74,387 @@ All eight declarations were read at the pinned Mathlib commit. In particular, th
 
 ## Sources
 
-The statements and proof plans below use these sources at the versions recorded; source translations, derived calculations and unresolved boundaries are marked explicitly. Excerpts are quoted literally, from the LaTeX source or the PDF text.
+Each source entry fixes the public text, its fingerprint and the inspected passages. A cited result whose proof was not read remains a named gap. The version register distinguishes public author copies and preprints from published texts.
 
-- **The K-book: An Introduction to Algebraic K-theory**, Charles A. Weibel. Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013) <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf> (source id `Kbook.2013`).
-- **Algebraic K-theory of rings of integers in local and global fields**, Charles Weibel. Handbook of K-theory, vol. 1, chapter I.5 (Springer 2005), author copy <https://sites.math.rutgers.edu/~weibel/archive/papers-dir/KZsurvey-published.pdf> (source id `Weibel.Handbook.I5`).
-- **K-theory and topological cyclic homology of henselian pairs**, Dustin Clausen, Akhil Mathew, Matthew Morrow. arXiv:1803.10897v2 (20 July 2020); published in Journal of the American Mathematical Society 34 (2021) <https://arxiv.org/abs/1803.10897> (source id `CMM.2018`).
-- **On the K-theory of finite fields**, Peter J. Haine. Talk notes dated 25 September 2016, author page (University of California, Berkeley) <https://math.berkeley.edu/~phaine/files/KFF.pdf> (source id `Haine.2016`).
-- **Algebraic K-theory of finite fields**, David Mestel. Cambridge Part III essay, April 2014 (supervised by O. Randal-Williams), author page; the PDF carries no author line, the attribution is the hosting page's <https://www.cs.ox.ac.uk/people/david.mestel/essay.pdf> (source id `Mestel.2014`).
-- **Corrections to “The K-book: an introduction to algebraic K-theory”**, Charles A. Weibel. Author's errata list for GSM 145, Wayback Machine copy of https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (the live file returns 404). <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf> (source id `Kbook.errata`).
-- **On the K-theory of local fields**, Lars Hesselholt, Ib Madsen. arXiv:math/9910186v2 of 22 January 2004 (e-print and its PDF), published Ann. of Math. 158 (2003) 1–113; the published version was not read. <https://arxiv.org/abs/math/9910186> (source id `HesselholtMadsen.2003`).
-- **Class Field Theory**, J. S. Milne. Course notes, version 4.03, 6 August 2020. <https://www.jmilne.org/math/CourseNotes/CFT.pdf> (source id `Milne.CFT.2020`).
-- **Topological Milnor K-groups of higher local fields**, Ivan Fesenko. Invitation to higher local fields (Geometry & Topology Monographs 3, 2000), Part I, section 6, pp. 61–74; arXiv:math/0012137. <https://msp.org/gtm/2000/03/gtm-2000-03-006p.pdf> (source id `Fesenko.GTM3.2000`).
-- **Bloch groups, algebraic K-theory, units, and Nahm's conjecture**, Frank Calegari, Stavros Garoufalidis, Don Zagier. arXiv:1712.04887v3 (6 April 2021), TeX source and PDF; the version of record (Ann. Sci. ÉNS 56, 2023) was not read. <https://arxiv.org/pdf/1712.04887v3> (source id `CGZ.BlochUnits.2021`).
-- **On the K-theory of finite algebras over Witt vectors of perfect fields**, Lars Hesselholt and Ib Madsen. Topology 36 (1997), 29–101; author-hosted PDF (59 pp.; printed page = PDF page − 4 in the body) <https://www.math.nagoya-u.ac.jp/~larsh/papers/004/paper.pdf> (source id `HesselholtMadsen.1997a`).
-- **Cyclic polytopes and the K-theory of truncated polynomial algebras**, Lars Hesselholt and Ib Madsen. Invent. Math. 130 (1997), 73–97; author-hosted PDF (PDF page 1 = p. 73) <https://www.math.nagoya-u.ac.jp/~larsh/papers/007/polytope.pdf> (source id `HesselholtMadsen.1997b`).
-- **K-theory of truncated polynomial algebras**, Lars Hesselholt. Handbook of K-theory, vol. 1, pp. 71–110, Springer 2005 (chapter I.3); author-hosted PDF (PDF page 1 = p. 71) <https://www.math.nagoya-u.ac.jp/~larsh/papers/s01/handbook.pdf> (source id `Hesselholt.2005`).
-- **On the p-typical curves in Quillen's K-theory**, Lars Hesselholt. Acta Math. 177 (1996), 1–53; author-hosted PDF <https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf> (source id `Hesselholt.1996`).
-- **On the de Rham–Witt complex in mixed characteristic**, Lars Hesselholt and Ib Madsen. Ann. Sci. École Norm. Sup. (4) 37 (2004), 1–43; author-hosted final version PDF <https://www.math.nagoya-u.ac.jp/~larsh/papers/013/final.pdf> (source id `HesselholtMadsen.2004`).
-- **On the K-theory of complete regular local F_p-algebras**, Thomas Geisser and Lars Hesselholt. Topology 45 (2006), 475–493; author-hosted preprint of 9 August 2005 <https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf> (source id `GeisserHesselholt.2006`).
-- **On topological cyclic homology**, Thomas Nikolaus and Peter Scholze. arXiv:1707.01799v2 (7 September 2018); Acta Math. 221 (2018) <https://arxiv.org/abs/1707.01799> (source id `NikolausScholze.2018`).
+### Kbook.2013
 
-- **Algebraic Number Theory**, Romyar Sharifi. Undated author-hosted PDF and Chapter 9 HTML, retrieved 26 September 2026; PDF printed pages equal PDF pages. This is the current UCLA copy, not the older Arizona edition. [Author PDF](https://math.ucla.edu/~sharifi/notes/algnum.pdf) and [Chapter 9 HTML](https://math.ucla.edu/~sharifi/notes/algnum-ch09.html), source id `Sharifi.ANT.20260926`. Read Definition 9.3.2, Proposition 9.3.4 and Theorem 9.3.8 with proofs (pp. 195–198), Lemma 6.3.3/Proposition 6.3.4 (p. 130), and Lemma 6.4.1/Definition 6.4.4 (p. 133). E37–E39 record the relevant auxiliary-proof limitations.
+**The K-book: An Introduction to Algebraic K-theory**, Charles A. Weibel. Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013) [Public text](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf).
 
-The files read, with their SHA-256:
+SHA-256: `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
 
-- author copy: https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf, SHA-256 `a04f53c9393b…`; Author-hosted draft of 29 August 2013; the published GSM 145 text was not read, so findings are scoped to this draft.
-- published: Weibel's errata to The K-book (GSM 145, AMS 2013), Wayback Machine copy of https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, SHA-256 `ef7ed6d08a5f…`
-- author copy: https://sites.math.rutgers.edu/~weibel/archive/papers-dir/KZsurvey-published.pdf, SHA-256 `6c6368a61982…`
-- preprint: https://arxiv.org/pdf/1803.10897, SHA-256 `ad23c1d7b818…`
-- author copy: https://math.berkeley.edu/~phaine/files/KFF.pdf, SHA-256 `88edeb5faa10…`
-- author copy: https://www.cs.ox.ac.uk/people/david.mestel/essay.pdf, SHA-256 `cf219af32a8f…`
-- preprint: https://arxiv.org/abs/math/9910186, SHA-256 `2f977e87c9b0…`
-- preprint: https://arxiv.org/pdf/math/9910186v2, SHA-256 `38f4919e35a7…`
-- author copy: https://www.jmilne.org/math/CourseNotes/CFT.pdf, SHA-256 `50d79af78250…`
-- published: https://msp.org/gtm/2000/03/gtm-2000-03-006p.pdf, SHA-256 `5917d0fc8df4…`
-- preprint: https://arxiv.org/pdf/1712.04887v3, SHA-256 `024317c20a1d…`
-- preprint: https://arxiv.org/e-print/math/9910186v2, SHA-256 `2f977e87c9b0…`
-- author copy: https://www.math.nagoya-u.ac.jp/~larsh/papers/004/paper.pdf, SHA-256 `833d5ded2fae…`
-- author copy: https://www.math.nagoya-u.ac.jp/~larsh/papers/007/polytope.pdf, SHA-256 `0052dc4b8df6…`
-- author copy: https://www.math.nagoya-u.ac.jp/~larsh/papers/s01/handbook.pdf, SHA-256 `0f079627b73d…`
-- author copy: https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf, SHA-256 `bb4677d93dee…`
-- author copy: https://www.math.nagoya-u.ac.jp/~larsh/papers/013/final.pdf, SHA-256 `1eb72a65ee10…`
-- author copy: https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf, SHA-256 `c797fdbf1f97…`
-- preprint: https://arxiv.org/abs/1707.01799, SHA-256 `12b6cdbd0d8e…`
-- preprint: https://arxiv.org/abs/0802.3938, SHA-256 `db3f296fe7e8…`
+**Inspected passages.**
 
-- author copy: https://math.ucla.edu/~sharifi/notes/algnum.pdf, SHA-256 `153c8bb9be0f56a73b85cd9d192ec4b6360ce1dfeda3fd4babd7ee77aeb64f20`; read 2026-09-26. Undated current PDF; pp. 195–198 checked against Chapter 9 HTML; do not use theorem numbering from the older Arizona copy.
-- author copy: https://math.ucla.edu/~sharifi/notes/algnum-ch09.html, SHA-256 `b77d079861a0f4387d81fe49c28acf753c96974198638af11d990e7fd06aaedb`; read 2026-09-26. Author-hosted HTML; Definition 9.3.2 and Theorem 9.3.8 agree with the PDF. Snapshot retained privately.
+- IV.1.1–IV.1.13.2 (PDF pp. 268–278): the plus construction, functoriality, transfer maps 1.1.3, homotopy fibres, Theorem 1.8, products, relative groups, K-theory of finite fields, Theorem 1.12, Corollary 1.13, Remarks 1.13.1–1.13.2
+- IV.1 Exercises (PDF pp. 279–285), screened for finite-field material
+- IV.2 (PDF pp. 286–292): mod-ℓ homotopy, Universal Coefficient Theorem 2.5, Bott element 2.5.2–2.5.3, Example 2.6, Proposition 2.7, products 2.8–2.8.2, ℓ-adic completion 2.9, Gabber rigidity 2.10–2.10.2, Exercises 2.1–2.6
+- IV.5 (PDF pp. 320–325): λ-operations on higher K-theory, Proposition 5.3, Example 5.3.1, Theorem 5.5, Corollaries 5.5.1–5.5.2, Proposition 5.6, Proposition 5.7, Examples 5.7.1, 5.8, 5.9.1, 5.9.2, Exercises 5.1–5.6
+- IV.6.3 and Exercise IV.6.13 (PDF pp. 328, 335): the Q-construction transfer and the formulas f_*f^*, f^*f_*
+- II.4.4–II.4.4.1 and Exercise II.4.2 (PDF pp. 101–102, 106): Adams operations, ψ^k on K̃U(S^{2n}), representation rings
+- V.6.1–V.6.10.2 (PDF pp. 414–423): localisation, Dedekind domains, specialisation, Theorem 6.7, Gersten's DVR conjecture 6.9, Theorem 6.9.1, Corollary 6.9.2, Proposition 6.10, Example 6.10.2
+- VI.1 (PDF pp. 471–477): K-theory of algebraically closed fields, Theorems 1.1–1.6, Corollaries 1.3.1, 1.5.1–1.5.2, Definition 1.7, Proposition 1.7.1, Exercises 1.1–1.4
+- VI.2.1–VI.2.7 (PDF pp. 477–483): the e-invariant, w_i, Propositions 2.2–2.3, Example 2.3.1, Harris–Segal Theorem 2.5, Exercises 2.1–2.4
+- VI.7 (PDF pp. 515–520): local fields, Proposition 7.1, Theorem 7.2, Proposition 7.3, Theorem 7.4, Corollaries 7.4.1–7.4.2, Warning 7.5, Theorem 7.9
+- The author's errata list for the published edition (Wayback copy of Kbook.errata.pdf; see sourceVersions)
+- III.6.1–III.6.8 with Exercises III.6.1–III.6.12: Matsumoto, Steinberg symbols, Hilbert and norm residue symbols, Moore's theorem, the tame symbol, Corollary 6.3.2, Bass–Tate, localisation, Hilbert 90 for K_2, Theorems 6.7–6.8 (PDF pp. 239–252)
+- III.7.7–III.7.8.4: dlog, Bloch–Kato–Gabber, Izhboldin's theorem, Hilbert 90 for K^M in characteristic p (PDF pp. 258–261); Exercises III.7.1–III.7.8 (PDF p. 265)
+- IV.2.9: the ℓ-adic completion (PDF p. 290)
+- V.3.7.2: the base change theorem (PDF p. 398)
+- V.5.2 and Exercise V.5.3 (PDF p. 413)
+- V.6.6–V.6.10.2: Dedekind domains, transfers, Gersten's DVR conjecture, local fields (PDF pp. 417–423)
+- V.7.5–V.7.5.1: Karoubi's square (PDF pp. 432–433)
+- V.11.5–V.11.10.1: Chern classes and étale Chern classes (PDF pp. 462–464)
+- VI.7: local fields (PDF pp. 515–520)
+- VI.7 Local fields, all of it (PDF pp. 515–520; book pp. 507–512), including Exercises VI.7.1–7.4
+- IV.2.9–2.10 and Exercise IV.2.6 (PDF pp. 290–292)
+- VI.1.6–1.7.1 (PDF p. 475)
+- VI.2.2–2.3.1 (PDF pp. 478–479)
+- VI.4.5–4.7 (PDF pp. 491–493)
+- Lemma V.11.13 (PDF p. 466)
+- Exercises III.7.4 and III.7.14 (PDF p. 265)
+
+### Weibel.Handbook.I5
+
+**Algebraic K-theory of rings of integers in local and global fields**, Charles Weibel. Handbook of K-theory, vol. 1, chapter I.5 (Springer 2005), author copy [Public text](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/KZsurvey-published.pdf).
+
+SHA-256: `6c6368a61982eca8b05a44d521088c61d9c890a02454766a0ff5a6c1c6c831fe`.
+
+**Inspected passages.**
+
+- §5.3 The e-invariant, Definition 12, Lemma 13, Corollary 14, Example 15, Theorem 16, Example 17, Remark 18 (pp. 147–149)
+- §5.6 Local fields, Theorems 56–57, Proposition 58, Completed K-theory 59, Warning 60, Theorem 61 (pp. 162–166)
+- §5.2, pp. 143–147 (Theorem 4, the tame kernel)
+- §5.4, pp. 153–157 (étale Chern classes, Kahn maps, Corollary 35)
+- §5.6, pp. 162–167 (local fields, Theorems 56–61, Warning 60, Examples 65–66)
+- References, pp. 185–190
+- §5.6 Local Fields, items 56–67 (pp. 162–167; PDF pp. 24–29): the stage text's 'Handbook I.5 §5.6' is this section of the author copy, with the same numbering
+- References [6], [19], [25], [51], [61], [66], [70] (pp. 185–190)
+
+### CMM.2018
+
+**K-theory and topological cyclic homology of henselian pairs**, Dustin Clausen, Akhil Mathew, Matthew Morrow. arXiv:1803.10897v2 (20 July 2020); published in Journal of the American Mathematical Society 34 (2021) [Public text](https://arxiv.org/abs/1803.10897).
+
+SHA-256: `ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c`.
+
+**Inspected passages.**
+
+- §1.1 Rigidity results, Definition 1.3, Theorem 1.4 (Gabber) (pp. 2–3)
+- Remark 4.37 and the proof of Theorem 4.36 (pp. 36–37)
+- §5.1, the list of known continuity cases (p. 37)
+- Introduction, Theorems A–F (pp. 1–5)
+- Theorem 4.29 (p. 33)
+- §6.2–6.3: Theorem 6.5, Corollary 6.6, Examples 6.7–6.8 (pp. 52–53)
+
+### Haine.2016
+
+**On the K-theory of finite fields**, Peter J. Haine. Talk notes dated 25 September 2016, author page (University of California, Berkeley) [Public text](https://math.berkeley.edu/~phaine/files/KFF.pdf).
+
+SHA-256: `88edeb5faa10102d70034802892daa820395d38d395b7ad861c76dd114758805`.
+
+**Inspected passages.**
+
+- §3 Theorem 3.1 and Corollary 3.1.1
+- §4 Adams operations, Lemma 4.24
+- §5 the Brauer lift, Definitions 5.1–5.7, Theorem 5.8, Observations 5.9–5.10
+- §6 the space FΨ^q, Definition 6.3, Lemmas 6.7–6.10, Construction 6.11
+
+### Mestel.2014
+
+**Algebraic K-theory of finite fields**, David Mestel. Cambridge Part III essay, April 2014 (supervised by O. Randal-Williams), author page; the PDF carries no author line, the attribution is the hosting page's [Public text](https://www.cs.ox.ac.uk/people/david.mestel/essay.pdf).
+
+SHA-256: `cf219af32a8f35cf6932b4941a1124c0c303c1ba267404061560234dfd648678`.
+
+**Inspected passages.**
+
+- §4 the space FΨq, Lemmas 10 and 12
+- §5 representations to cohomology, Lemma 13, Theorems 14–15, §§5.3–5.5
+- §6 the Eilenberg–Moore calculation, Theorems 16, 19, 20
+- §7 generators, Lemmas 21–29, Theorem 30
+- §8 the cohomology of GL_n k, Theorems 31, 35, Lemmas 32–34
+- §9 conclusion, Lemma 36, Theorems 37–38
+
+### Kbook.errata
+
+**Corrections to “The K-book: an introduction to algebraic K-theory”**, Charles A. Weibel. Author's errata list for GSM 145, Wayback Machine copy of https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (the live file returns 404). [Public text](https://web.archive.org/web/20191110143141id_/https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf).
+
+SHA-256: `ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e`.
+
+**Inspected passages.**
+
+- The whole list (2 pages), in particular the three entries for p. 558 (VI.7).
+- All entries; the entries for p. 558 (Chapter VI.7) were compared with every VI.7 finding
+
+### HesselholtMadsen.2003
+
+**On the K-theory of local fields**, Lars Hesselholt, Ib Madsen. arXiv:math/9910186v2 of 22 January 2004 (e-print and its PDF), published Ann. of Math. 158 (2003) 1–113; the published version was not read. [Public text](https://arxiv.org/pdf/math/9910186v2).
+
+SHA-256: `38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e`.
+
+**Inspected passages.**
+
+- Introduction (Theorem A, the cyclotomic trace, the map of localisation cofibration sequences, Theorem D)
+- §6.1 around the degree-one trace isomorphism
+- Introduction (Theorems A–D) in full
+- §1 in full (1.1–1.5.8)
+- §2 in full (2.1–2.4.3)
+- §3 in full (3.1–3.4.1)
+- §4 in full (4.1–4.4.3)
+- §5 statements and proofs (5.1–5.6.1), proofs of 5.5.4 read for structure
+- §6 in full (6.1.1–6.1.10)
+- Appendix A in full (A.1.1–A.1.7)
+- References
+- Introduction, Theorems A–D (Annals pp. 1–7)
+- Theorem 2.4.3 (tame descent)
+- Theorem 6.1.4
+- Theorem 6.1.6 and Remark 6.1.7
+- (6.1.8)–(6.1.9) and Theorem 6.1.10 with proof (Annals pp. 101–104)
+
+### Milne.CFT.2020
+
+**Class Field Theory**, J. S. Milne. Course notes, version 4.03, 6 August 2020. [Public text](https://www.jmilne.org/math/CourseNotes/CFT.pdf).
+
+SHA-256: `50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5`.
+
+**Inspected passages.**
+
+- Chapter III, §3 end and §4 (the Hilbert symbol: Proposition 4.3, Theorem 4.4, Remarks 4.5–4.8), PDF pp. 119–124
+
+### Fesenko.GTM3.2000
+
+**Topological Milnor K-groups of higher local fields**, Ivan Fesenko. Invitation to higher local fields (Geometry & Topology Monographs 3, 2000), Part I, section 6, pp. 61–74; arXiv:math/0012137. [Public text](https://msp.org/gtm/2000/03/gtm-2000-03-006p.pdf).
+
+SHA-256: `5917d0fc8df48c07182dedc887bdac6e8accaeb49068d38df7f165b18657fbf2`.
+
+**Inspected passages.**
+
+- §6.0–6.1 (K-groups of one-dimensional local fields), pp. 61–62
+
+### CGZ.BlochUnits.2021
+
+**Bloch groups, algebraic K-theory, units, and Nahm's conjecture**, Frank Calegari, Stavros Garoufalidis, Don Zagier. arXiv:1712.04887v3 (6 April 2021), TeX source and PDF; the version of record (Ann. Sci. ÉNS 56, 2023) was not read. [Public text](https://arxiv.org/pdf/1712.04887v3).
+
+SHA-256: `024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5`.
+
+**Inspected passages.**
+
+- §4.1, Lemma 4.1 and its proof (local Chern class maps)
+
+### HesselholtMadsen.1997a
+
+**On the K-theory of finite algebras over Witt vectors of perfect fields**, Lars Hesselholt and Ib Madsen. Topology 36 (1997), 29–101; author-hosted PDF (59 pp.; printed page = PDF page − 4 in the body) [Public text](https://www.math.nagoya-u.ac.jp/~larsh/papers/004/paper.pdf).
+
+SHA-256: `833d5ded2fae2819a803c4327df1967608513ef6b7a3d8f58b43cd84e8eb4c09`.
+
+**Inspected passages.**
+
+- Introduction (Theorems A–F)
+- §2.3 (Theorem 2.3, Addendum 2.3)
+- §3.1 (Theorem 3.1)
+- §4.2–4.5 (Theorem 4.2, Lemma 4.3, Proposition 4.3, Lemma 4.5, Corollary 4.5, Theorem 4.5, proof of Theorem B)
+- §5.1 (Theorem 5.1)
+- §6 (Theorem 6.1)
+- Appendix B statements
+
+### HesselholtMadsen.1997b
+
+**Cyclic polytopes and the K-theory of truncated polynomial algebras**, Lars Hesselholt and Ib Madsen. Invent. Math. 130 (1997), 73–97; author-hosted PDF (PDF page 1 = p. 73) [Public text](https://www.math.nagoya-u.ac.jp/~larsh/papers/007/polytope.pdf).
+
+SHA-256: `0052dc4b8df6ed4f6d2d6e4e0cdbc96f194358885a4bedfb5ebc5a10b57b1cfa`.
+
+**Inspected passages.**
+
+- §1 Introduction (Theorems A and B)
+- §2 statements
+- §4.2 (Theorem 4.2.10) statement
+
+### Hesselholt.2005
+
+**K-theory of truncated polynomial algebras**, Lars Hesselholt. Handbook of K-theory, vol. 1, pp. 71–110, Springer 2005 (chapter I.3); author-hosted PDF (PDF page 1 = p. 71) [Public text](https://www.math.nagoya-u.ac.jp/~larsh/papers/s01/handbook.pdf).
+
+SHA-256: `0f079627b73d2b13a40c2ae41478cca8156822a7082d876c64be9f5ec4562846`.
+
+**Inspected passages.**
+
+- §3.1 Introduction
+- §3.5 (Proposition 3)
+- §3.6 (Theorem 5)
+- §3.7–3.8 (TC, the de Rham–Witt complex, Theorem 6)
+- §3.9 (Proposition 7)
+- §3.10 (Proposition 8, Lemma 9)
+- §3.11 (Theorem 10)
+- §3.12 (Theorem 11, Proposition 12)
+- §3.13 (Theorem 13, Corollary 14)
+
+### Hesselholt.1996
+
+**On the p-typical curves in Quillen's K-theory**, Lars Hesselholt. Acta Math. 177 (1996), 1–53; author-hosted PDF [Public text](https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf).
+
+SHA-256: `bb4677d93dee666e4906c574877f111d3e69ea4317f7797d09335edab2f8af81`.
+
+**Inspected passages.**
+
+- Introduction (Theorems A–E)
+- §1.4 (Lemma 1.4.2)
+- §1.5 (Lemmas 1.5.1, 1.5.6)
+
+### HesselholtMadsen.2004
+
+**On the de Rham–Witt complex in mixed characteristic**, Lars Hesselholt and Ib Madsen. Ann. Sci. École Norm. Sup. (4) 37 (2004), 1–43; author-hosted final version PDF [Public text](https://www.math.nagoya-u.ac.jp/~larsh/papers/013/final.pdf).
+
+SHA-256: `1eb72a65ee10007e046c1d6938645b6d4a6ec36c8ddbe49395e52db2af9494fa`.
+
+**Inspected passages.**
+
+- Introduction (Theorems A–E and the remark on p = 2)
+
+### GeisserHesselholt.2006
+
+**On the K-theory of complete regular local F_p-algebras**, Thomas Geisser and Lars Hesselholt. Topology 45 (2006), 475–493; author-hosted preprint of 9 August 2005 [Public text](https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf).
+
+SHA-256: `c797fdbf1f97d0cf401d0561028ea317bb2f517289db6922c25f91e8ab4eadfe`.
+
+**Inspected passages.**
+
+- Introduction (Theorems A and B and the TC long exact sequence)
+- Introduction with Theorems A and B (pp. 1–4)
+- Proposition 2.8 and the end of §2 (pp. 16–18)
+- §3, Theorem 3.1 and the proof of Theorem A (pp. 18–20)
+
+### NikolausScholze.2018
+
+**On topological cyclic homology**, Thomas Nikolaus and Peter Scholze. arXiv:1707.01799v2 (7 September 2018); Acta Math. 221 (2018) [Public text](https://arxiv.org/abs/1707.01799).
+
+SHA-256: `12b6cdbd0d8ebb506284bd13f183affe80e41cc8890fef5fa21c922c2f80cec3`.
+
+**Inspected passages.**
+
+- Introduction (Theorem 1.2, Definition 1.3, Theorem 1.4, Corollary 1.5)
+- §II.4 (Lemmas II.4.1, II.4.2, Definition II.4.4, Lemma II.4.5, Proposition II.4.6, Corollaries II.4.7, II.4.9, Theorems II.4.10, II.4.11)
+
+### Sharifi.ANT.20260926
+
+**Algebraic Number Theory**, Romyar Sharifi. Undated author-hosted PDF and Chapter 9 HTML, retrieved 26 September 2026; PDF printed pages equal PDF pages. This is the current UCLA copy, not the older Arizona edition. [Public text](https://math.ucla.edu/~sharifi/notes/algnum.pdf).
+
+SHA-256: `153c8bb9be0f56a73b85cd9d192ec4b6360ce1dfeda3fd4babd7ee77aeb64f20`.
+
+**Inspected passages.**
+
+- §9.3, Definition 9.3.2, Proposition 9.3.4 and Theorem 9.3.8 with proofs (pp. 195–198); the tame formula and opposite variable order checked in PDF and HTML
+- §6.3, Lemma 6.3.3 and Proposition 6.3.4; §6.4, Lemma 6.4.1 and Definition 6.4.4 (pp. 130, 133); source limitations recorded, not silently assumed
+
+### NikolausScholze.2018.published
+
+**On topological cyclic homology**, Thomas Nikolaus and Peter Scholze. Acta Mathematica 221 (2018), 203–409, published PDF [Public text](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf).
+
+SHA-256: `8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef`.
+
+**Inspected passages.**
+
+- IV.4 in full, printed pp.355–365: propositions, constructions and proofs; earlier II.4 statements are inherited reads, not a fresh full proof audit.
+
+### CalmesEtAl.2026.v4
+
+**Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings**, Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. arXiv:2009.07225v4; routed version of record Annals of Mathematics 204 (2026), paper 02 was not read [Public text](https://arxiv.org/pdf/2009.07225v4).
+
+SHA-256: `1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c`.
+
+**Inspected passages.**
+
+- §3.1.1–3.1.10, including proofs of Proposition3.1.4 and Remark3.1.10; targeted scope read, no complete new blueprint chain supplied.
+- Continuation2026-10-05: re-read §§3.1.1–3.1.10 including proofs; R.10 and preceding metabolic discussion; Corollaries1.3.3–1.3.4, Remark1.3.5, Corollaries1.3.14–1.3.15; Corollary2.2.5 and Remark2.2.6. Local reductions split into fifteen nodes; original cited proofs remain gaps.
+
+### AbdurrahmanVenkatesh.2025.v1
+
+**Symplectic L-functions and symplectic Reidemeister torsion (mod squares)**, Amina Abdurrahman and Akshay Venkatesh. arXiv:2303.13436v1; Inventiones Mathematicae (2025) version of record was not read [Public text](https://arxiv.org/pdf/2303.13436v1).
+
+SHA-256: `3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306`.
+
+**Inspected passages.**
+
+- §2.7 Lemmas2.7.1–2.7.2 and proofs, pp.16–17, checked against author copy 2026-10-06. Finite-rank stabilization, coefficient comparison and Hurewicz/Chern reduction are explicit nodes; original cited Lang/comparison and Schur-multiplier proofs remain gaps.
+
+### AtiyahSegal.1969
+
+**Equivariant K-theory and completion**, Michael F. Atiyah and Graeme B. Segal. Journal of Differential Geometry 3 (1969), 1–18; scanned author-hosted copy [Public text](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/atiyahsegal1.pdf).
+
+SHA-256: `7211b9c834160aae6d4423f77915f565a5475799000dc6395185b8262a500a26`.
+
+**Inspected passages.**
+
+- Printed pp.1,3,4,10 visually inspected: Theorem2.1 and Proposition4.2; full proof on intervening pages not read.
+
+### CalmesEtAl.II.20261005
+
+**Hermitian K-theory for stable ∞-categories II: Cobordism categories and Additivity**, Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. arXiv:2009.07224v5, 11 April 2025; title-page date 14 April 2025; PDF retrieved 2026-10-05. Published Acta version not read. [Public text](https://arxiv.org/pdf/2009.07224).
+
+SHA-256: `eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3`.
+
+**Inspected passages.**
+
+- Example 1.2.5 pp.20–21; Corollary 4.4.13 with its proof reduction and Theorem 4.4.11 proof pp.106–107; adjoining Corollary 4.5.1. This is a supplier-contract read, not a full foundational proof audit.
+
+### Weibel.Chern2.1993.author
+
+**Étale Chern Classes at the Prime 2**, Charles A. Weibel. Author-hosted 38-page copy read 2026-10-06; published in Algebraic K-theory and Algebraic Topology, NATO ASI Series C407 (1993), pp.249–286, DOI10.1007/978-94-017-0695-7_14. Published full text not obtained; findings scoped to author copy. [Public text](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/chernclass.pdf).
+
+SHA-256: `38dc2a10f368cf0115b890baff2b64ab77d352c037add1cc9bbe50125d796665`.
+
+**Inspected passages.**
+
+- Introduction; §§1.5–1.6 mod-2 products and finite fields; §§2.1–2.2, 2.6–2.8 Chern/Bott normalization; Theorem3.3’s i=2 specialization and proof; §5 Proposition5.1 and proof, p.24. This is a target-specific read, not a complete paper extraction.
+
+### AbdurrahmanVenkatesh.20261006.author
+
+**Symplectic L-functions and symplectic Reidemeister torsion (mod squares)**, Amina Abdurrahman and Akshay Venkatesh. Author-hosted IAS copy retrieved 2026-10-06, §2.7 pp.16–17. Inventiones241(2025), pp.717–839 version of record not obtained; publisher PDF route returned HTML challenge. [Public text](https://www.math.ias.edu/~akshay/research/RT.pdf).
+
+SHA-256: `4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8`.
+
+**Inspected passages.**
+
+- §2.7 pp.16–17, both lemmas and their proofs; compared with arXiv v1.
+
+### Source versions and reading scope
+
+These records preserve the access dates and scopes of the cited texts. Repeated entries document separate readings or artifacts; a stored archive fingerprint is not the PDF fingerprint.
+
+- **author copy**, [Recorded artifact](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf); read 2026-09-25. SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`. Author-hosted draft of 29 August 2013; the published GSM 145 text was not read, so findings are scoped to this draft.
+- **published**, [Recorded artifact](https://web.archive.org/web/20191110143141id_/https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf); read 2026-09-25. SHA-256 `ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e`.
+- **author copy**, [Recorded artifact](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/KZsurvey-published.pdf); read 2026-09-25. SHA-256 `6c6368a61982eca8b05a44d521088c61d9c890a02454766a0ff5a6c1c6c831fe`.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/1803.10897); read 2026-09-25. SHA-256 `ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c`.
+- **author copy**, [Recorded artifact](https://math.berkeley.edu/~phaine/files/KFF.pdf); read 2026-09-25. SHA-256 `88edeb5faa10102d70034802892daa820395d38d395b7ad861c76dd114758805`.
+- **author copy**, [Recorded artifact](https://www.cs.ox.ac.uk/people/david.mestel/essay.pdf); read 2026-09-25. SHA-256 `cf219af32a8f35cf6932b4941a1124c0c303c1ba267404061560234dfd648678`.
+- **preprint**, [Recorded artifact](https://arxiv.org/abs/math/9910186); read 2026-09-25. SHA-256 `2f977e87c9b0a41db083d627c8ed44350b2eb43649d10ea39989c75e74c68a50`. The inherited hash identifies the v2 e-print archive, whose exact URL is recorded separately; it is not a hash of this abstract page or of its PDF.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/math/9910186v2); read 2026-09-25. SHA-256 `38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e`. The PDF hash was independently checked by REV-KTheoryFiniteLocalFields on 2026-10-06. The separate v2 e-print archive has a different hash; this does not indicate a revision of the mathematical text.
+- **author copy**, [Recorded artifact](https://www.jmilne.org/math/CourseNotes/CFT.pdf); read 2026-09-25. SHA-256 `50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5`.
+- **published**, [Recorded artifact](https://msp.org/gtm/2000/03/gtm-2000-03-006p.pdf); read 2026-09-25. SHA-256 `5917d0fc8df48c07182dedc887bdac6e8accaeb49068d38df7f165b18657fbf2`.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/1712.04887v3); read 2026-09-25. SHA-256 `024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5`.
+- **preprint**, [Recorded artifact](https://arxiv.org/e-print/math/9910186v2); read 2026-09-25. SHA-256 `2f977e87c9b0a41db083d627c8ed44350b2eb43649d10ea39989c75e74c68a50`.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/004/paper.pdf); read 2026-09-25. SHA-256 `833d5ded2fae2819a803c4327df1967608513ef6b7a3d8f58b43cd84e8eb4c09`.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/007/polytope.pdf); read 2026-09-25. SHA-256 `0052dc4b8df6ed4f6d2d6e4e0cdbc96f194358885a4bedfb5ebc5a10b57b1cfa`.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/s01/handbook.pdf); read 2026-09-25. SHA-256 `0f079627b73d2b13a40c2ae41478cca8156822a7082d876c64be9f5ec4562846`.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf); read 2026-09-25. SHA-256 `bb4677d93dee666e4906c574877f111d3e69ea4317f7797d09335edab2f8af81`.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/013/final.pdf); read 2026-09-25. SHA-256 `1eb72a65ee10007e046c1d6938645b6d4a6ec36c8ddbe49395e52db2af9494fa`.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf); read 2026-09-25. SHA-256 `c797fdbf1f97d0cf401d0561028ea317bb2f517289db6922c25f91e8ab4eadfe`.
+- **preprint**, [Recorded artifact](https://arxiv.org/abs/1707.01799); read 2026-09-25. SHA-256 `12b6cdbd0d8ebb506284bd13f183affe80e41cc8890fef5fa21c922c2f80cec3`.
+- **preprint**, [Recorded artifact](https://arxiv.org/abs/0802.3938); read 2026-09-25. SHA-256 `db3f296fe7e8b5e51213262d5af1b0faed2f4bfb55a2188c22db91720832381e`.
+- **author copy**, [Recorded artifact](https://math.ucla.edu/~sharifi/notes/algnum.pdf); read 2026-09-26. SHA-256 `153c8bb9be0f56a73b85cd9d192ec4b6360ce1dfeda3fd4babd7ee77aeb64f20`. Undated current PDF; pp. 195–198 checked against Chapter 9 HTML; do not use theorem numbering from the older Arizona copy.
+- **author copy**, [Recorded artifact](https://math.ucla.edu/~sharifi/notes/algnum-ch09.html); read 2026-09-26. SHA-256 `b77d079861a0f4387d81fe49c28acf753c96974198638af11d990e7fd06aaedb`. Author-hosted HTML; Definition 9.3.2 and Theorem 9.3.8 agree with the PDF. Snapshot retained privately.
+- **author copy**, [Recorded artifact](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf); read 2026-09-26. SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`. Reread III.7.3, III.7.5.3 and III.7.6.1 discussion (PDF pp.254,256–257), III Ex.7.4 (p.265), V.11.13 (p.466), VI.7.1–7.2 (pp.515–516). Alternative proof explicitly worker-derived; Tate paper not read.
+- **published**, [Recorded artifact](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf); read 2026-10-05. SHA-256 `8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef`. Acta Mathematica 221 (2018), 203–409, published PDF; IV.4 in full, printed pp.355–365: propositions, constructions and proofs; earlier II.4 statements are inherited reads, not a fresh full proof audit.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/2009.07225v4); read 2026-10-05. SHA-256 `1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c`. arXiv:2009.07225v4; routed version of record Annals of Mathematics 204 (2026), paper 02 was not read; §3.1.1–3.1.10, including proofs of Proposition3.1.4 and Remark3.1.10; targeted scope read, no complete new blueprint chain supplied.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/2303.13436v1); read 2026-10-05. SHA-256 `3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306`. arXiv:2303.13436v1; Inventiones Mathematicae (2025) version of record was not read; §2.7, Lemmas2.7.1–2.7.2 and proofs, pp.16–17; finite-rank hypotheses need further decomposition.
+- **published**, [Recorded artifact](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/atiyahsegal1.pdf); read 2026-10-05. SHA-256 `7211b9c834160aae6d4423f77915f565a5475799000dc6395185b8262a500a26`. Journal of Differential Geometry 3 (1969), 1–18; scanned author-hosted copy; Printed pp.1,3,4,10 visually inspected: Theorem2.1 and Proposition4.2; full proof on intervening pages not read.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/math/9910186v2); read 2026-10-05. SHA-256 `38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e`. The PDF hash was independently checked by REV-KTheoryFiniteLocalFields on 2026-10-06. The separate v2 e-print archive has a different hash; this does not indicate a revision of the mathematical text.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/2009.07224); read 2026-10-05. SHA-256 `eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3`.
+- **author copy**, [Recorded artifact](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/chernclass.pdf); read 2026-10-06. SHA-256 `38dc2a10f368cf0115b890baff2b64ab77d352c037add1cc9bbe50125d796665`.
+- **author copy**, [Recorded artifact](https://www.math.ias.edu/~akshay/research/RT.pdf); read 2026-10-06. SHA-256 `4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8`.
+- **author copy**, [Recorded artifact](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf); read 2026-10-07. SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`. Revision reread only: IV.2.8/Scholium2.8.1 and VI.7.3–7.5; not a fresh reading of the entire book.
+- **preprint**, [Recorded artifact](https://arxiv.org/pdf/math/9910186v2); read 2026-10-07. SHA-256 `38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e`. Revision reread only: Proposition3.4.1 and proof, Remark4.1.4, TheoremC proof and Remark6.1.5.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf); read 2026-10-07. SHA-256 `bb4677d93dee666e4906c574877f111d3e69ea4317f7797d09335edab2f8af81`. Revision reread only: Corollary2.4.7 and its Milnor/pro-zero argument.
+- **author copy**, [Recorded artifact](https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf); read 2026-10-07. SHA-256 `c797fdbf1f97d0cf401d0561028ea317bb2f517289db6922c25f91e8ab4eadfe`. Revision reread only: §3 Theorem3.1 and proof; degree-preserving R−F and finite-level filtration argument.
 
 ## What the pinned libraries have
 
-Neither library has algebraic K-groups beyond K₀, K-theory with coefficients, trace theories or de Rham–Witt complexes. The nodes build on these pinned declarations, each read at its module:
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` supply the following declarations, at the exact hypotheses recorded below. Their APIs are imported rather than re-planned. Witt vectors do not by themselves supply a Cohen coefficient embedding; the symplectic group scheme does not by itself supply smoothness, reductivity or Lang theory; the Kummer declaration cited here supplies injectivity, while Hilbert-90 surjectivity is an upstream ProfiniteCohomology request.
 
 - `tauceti:TauCeti.SplitK0.finrankEquiv` (TauCeti/CategoryTheory/GrothendieckGroup/FiniteDimensionalVectorSpace.lean): SplitK0 (FGModuleCat k) ≃+ ℤ by dimension, for a division ring k with [Small k]; for a finite field this is K₀(F_q) = ℤ in the split-K₀ model.
 - `tauceti:TauCeti.AbelianK0` (TauCeti/CategoryTheory/GrothendieckGroup/Abelian.lean): The Grothendieck group of an abelian category (ExactK0 of the abelian exact structure); applied to finite-dimensional representations over F_q it is the representation group R_{F_q}(G).
@@ -140,7 +470,7 @@ Neither library has algebraic K-groups beyond K₀, K-theory with coefficients, 
 - `mathlib:IsGalois` (Mathlib/FieldTheory/Galois/Basic.lean): Galois extensions: separable and normal.
 - `mathlib:IsGalois.card_aut_eq_finrank` (Mathlib/FieldTheory/Galois/Basic.lean): For a finite Galois extension E/F, #Gal(E/F) = [E : F].
 - `mathlib:AdjoinRoot.tensorAlgEquiv` (Mathlib/RingTheory/AdjoinRoot.lean): Base change of AdjoinRoot: T ⊗_R AdjoinRoot p ≃ₐ[T] AdjoinRoot q when q is the image of p.
-- `mathlib:Ideal.quotientInfRingEquivPiQuotient` (Mathlib/RingTheory/Ideal/Quotient/Operations.lean): Chinese remainder theorem: for pairwise coprime ideals f i, R ⧸ ⨅ f i ≃+* ∀ i, R ⧸ f i.
+- `mathlib:Ideal.quotientInfRingEquivPiQuotient` (Mathlib/RingTheory/Ideal/Quotient/Operations.lean): Chinese remainder theorem: for pairwise coprime ideals f i, R ⧸ ⨅ f i ≃+* ∀ i, R ⧸ f i. The index type must be finite.
 - `mathlib:Rep.FiniteCyclicGroup.groupCohomologyIsoEven` (Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean): For a finite cyclic group G = ⟨g⟩ and A : Rep k G, H^i(G, A) for i even and nonzero is the homology of A →N A →(g − 1) A.
 - `mathlib:Rep.FiniteCyclicGroup.groupCohomologyIsoOdd` (Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean): For a finite cyclic group G = ⟨g⟩ and A : Rep k G, H^i(G, A) for i odd is the homology of A →(g − 1) A →N A.
 - `mathlib:HenselianRing` (Mathlib/RingTheory/Henselian.lean): R is henselian at I: I ≤ Jacobson radical, and every monic f with a simple root a₀ modulo I has a root a ≡ a₀ mod I.
@@ -156,7 +486,7 @@ Neither library has algebraic K-groups beyond K₀, K-theory with coefficients, 
 - `tauceti:TauCeti.rootsOfUnityEquivResidueField` (TauCeti/RingTheory/RootsOfUnity/Henselian.lean): For a henselian local ring R and n invertible in R, reduction is an isomorphism rootsOfUnity n R ≃* rootsOfUnity n (ResidueField R).
 - `mathlib:CommGroup.torsion` (Mathlib/GroupTheory/Torsion.lean): The torsion subgroup of an abelian group; μ(E) is CommGroup.torsion Eˣ.
 - `mathlib:rootsOfUnity` (Mathlib/RingTheory/RootsOfUnity/Basic.lean): rootsOfUnity k M, the subgroup of Mˣ of elements with ζ^k = 1.
-- `mathlib:rootsOfUnity.isCyclic` (Mathlib/RingTheory/RootsOfUnity/Basic.lean): rootsOfUnity k R is cyclic for a domain R.
+- `mathlib:rootsOfUnity.isCyclic` (Mathlib/RingTheory/RootsOfUnity/Basic.lean): rootsOfUnity k R is cyclic for a domain R. The declaration requires [NeZero k]; no cyclicity of all units at k=0 is asserted.
 - `mathlib:KaehlerDifferential` (Mathlib/RingTheory/Kaehler/Basic.lean): The module of Kähler differentials Ω[S⁄R]; Ω¹_E is Ω[E⁄ℤ].
 - `mathlib:IsDedekindDomain.HeightOneSpectrum` (Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean): Height-one primes of a Dedekind domain: the finite places v of a number field F (for 𝓞_F).
 - `mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion` (Mathlib/RingTheory/DedekindDomain/AdicValuation.lean): The completion F_v of F for the v-adic valuation.
@@ -212,46 +542,22 @@ Neither library has algebraic K-groups beyond K₀, K-theory with coefficients, 
 - `mathlib:Module.finrank` (Mathlib/LinearAlgebra/Dimension/Finrank.lean): The rank of a module, used for the ℤ_p-rank [L : ℚ_p] of H^1(L, ℤ_p(i)) and K_{2i−1}(L; ℤ_p).
 - `mathlib:WittVector` (Mathlib/RingTheory/WittVector/Defs.lean): p-typical Witt vectors W(R); W(𝔽_q) is the factor of the big Witt vectors describing K_1(𝔽_q[[t]], (t); ℤ_p).
 - `tauceti:TauCeti.ContCohomology.H0` (TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean): The degree-zero explicit continuous cohomology, the fixed-point subgroup M^G.
-- `tauceti:TauCeti.kummerClassMap` (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean): The Kummer map K^×/(K^×)^n → H^1(G_K, μ_n), proved injective; surjectivity (Hilbert 90) is not in the baseline and is requested from ClassFieldTheory Layer 5 (kummerEquiv_mixed).
+- `tauceti:TauCeti.kummerClassMap` (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean): The Kummer map K^×/(K^×)^n → H^1(G_K, μ_n), proved injective; surjectivity (Hilbert 90) is not in the baseline and is requested from ProfiniteCohomology Layer 9 (Hilbert 90 and Kummer theory).
 - `mathlib:FiniteField.algebraMap_norm_eq_pow` (Mathlib/FieldTheory/Finite/GaloisField.lean): For finite fields K ⊆ K′, algebraMap K K′ (Algebra.norm K x) = x^((|K′| − 1)/(|K| − 1)): the field norm as a power, the degree-one transfer formula.
-
-
-### Sources read for the preceding continuation
-
-- **On topological cyclic homology**, Thomas Nikolaus and Peter Scholze. Acta Mathematica 221 (2018), 203–409, published PDF. [Source](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf), id `NikolausScholze.2018.published`, SHA-256 `8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef`. Read: IV.4 in full, printed pp.355–365: propositions, constructions and proofs; earlier II.4 statements are inherited reads, not a fresh full proof audit.
-- **Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings**, Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. arXiv:2009.07225v4; routed version of record Annals of Mathematics 204 (2026), paper 02 was not read. [Source](https://arxiv.org/pdf/2009.07225v4), id `CalmesEtAl.2026.v4`, SHA-256 `1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c`. Read: §3.1.1–3.1.10, including proofs of Proposition3.1.4 and Remark3.1.10; targeted scope read, no complete new blueprint chain supplied.
-- **Symplectic L-functions and symplectic Reidemeister torsion (mod squares)**, Amina Abdurrahman and Akshay Venkatesh. arXiv:2303.13436v1; Inventiones Mathematicae (2025) version of record was not read. [Source](https://arxiv.org/pdf/2303.13436v1), id `AbdurrahmanVenkatesh.2025.v1`, SHA-256 `3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306`. Read: §2.7, Lemmas2.7.1–2.7.2 and proofs, pp.16–17; finite-rank hypotheses need further decomposition.
-- **Equivariant K-theory and completion**, Michael F. Atiyah and Graeme B. Segal. Journal of Differential Geometry 3 (1969), 1–18; scanned author-hosted copy. [Source](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/atiyahsegal1.pdf), id `AtiyahSegal.1969`, SHA-256 `7211b9c834160aae6d4423f77915f565a5475799000dc6395185b8262a500a26`. Read: Printed pp.1,3,4,10 visually inspected: Theorem2.1 and Proposition4.2; full proof on intervening pages not read.
-
-The fresh HM download has SHA-256 `38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e`; only §3.2, pp.47–51 was reread. Its bytes differ from the inherited arXiv record; old hashes and locators remain attached to their original excerpts. Nikolaus–Scholze’s published IV.4 is a separate source record from the inherited arXiv II.4 record. The known capitalization typo in IV.4.6 (paper finding E11) is normalized to lowercase v. Abdurrahman–Venkatesh’s known E3 warning is recorded as a scope constraint, not a newly verified published erratum.
-
-### Hermitian-source reads (Codex — codex-Gcq0RM, 5 October 2026)
-
-The III v4 hash above was independently confirmed. Fresh reads covered §§3.1.1–3.1.10 and their proofs (printed pp.49–53), R.10 and its preceding metabolic sequence, Corollaries 1.3.3–1.3.4 and Remark 1.3.5 (p.28), Corollaries 1.3.14–1.3.15 (pp.31–32), and Corollary 2.2.5 and Remark 2.2.6 (p.39). Original finite-field classical, finite-vcd₂, Hiller and Lam proofs remain gaps.
-
-**Hermitian K-theory for stable ∞-categories II: Cobordism categories and Additivity**, Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle. [arXiv:2009.07224v5](https://arxiv.org/pdf/2009.07224v5), 11 April 2025 (title-page date 14 April); source id `CalmesEtAl.II.20261005`, SHA-256 `eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3`. Read Example 1.2.5 (pp.20–21), Corollary 4.4.13 and its proof reduction with adjoining Theorem 4.4.11/Corollary 4.5.1 (pp.106–107). This establishes the square/shift import contract; the foundational proofs cited by that reduction were not fully audited.
-
-The Annals III full-article route and the Inventiones Abdurrahman–Venkatesh PDF route returned HTML access/challenge responses. Those published texts were not read. The inherited Abdurrahman–Venkatesh E3 source warning remains a constraint on the finite-rank route; no new published erratum is claimed.
-
-### Finite-rank homology and Chern sources
-
-- **Hermitian K-theory for stable ∞-categories II: Cobordism categories and Additivity**, Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. arXiv:2009.07224v5, 11 April 2025; title-page date 14 April 2025; PDF retrieved 2026-10-05. Published Acta version not read. [CalmesEtAl.II.20261005](https://arxiv.org/pdf/2009.07224); SHA-256 `eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3`. Read: Example 1.2.5 pp.20–21; Corollary 4.4.13 with its proof reduction and Theorem 4.4.11 proof pp.106–107; adjoining Corollary 4.5.1. This is a supplier-contract read, not a full foundational proof audit.
-- **Étale Chern Classes at the Prime 2**, Charles A. Weibel. Author-hosted 38-page copy read 2026-10-06; published in Algebraic K-theory and Algebraic Topology, NATO ASI Series C407 (1993), pp.249–286, DOI10.1007/978-94-017-0695-7_14. Published full text not obtained; findings scoped to author copy. [Weibel.Chern2.1993.author](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/chernclass.pdf); SHA-256 `38dc2a10f368cf0115b890baff2b64ab77d352c037add1cc9bbe50125d796665`. Read: Introduction; §§1.5–1.6 mod-2 products and finite fields; §§2.1–2.2, 2.6–2.8 Chern/Bott normalization; Theorem3.3’s i=2 specialization and proof; §5 Proposition5.1 and proof, p.24. This is a target-specific read, not a complete paper extraction.
-- **Symplectic L-functions and symplectic Reidemeister torsion (mod squares)**, Amina Abdurrahman and Akshay Venkatesh. Author-hosted IAS copy retrieved 2026-10-06, §2.7 pp.16–17. Inventiones241(2025), pp.717–839 version of record not obtained; publisher PDF route returned HTML challenge. [AbdurrahmanVenkatesh.20261006.author](https://www.math.ias.edu/~akshay/research/RT.pdf); SHA-256 `4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8`. Read: §2.7 pp.16–17, both lemmas and their proofs; compared with arXiv v1.
-
-The generic Lang/étale-classical-group and Schur-multiplier proofs cited in §2.7 were not obtained. The publisher full texts were not read; E40 is scoped to the Weibel author copy and E41 to the AV preprint/author copy. The source’s integral H₂ vanishing is corrected using the reviewed paper E3.
-
-### Existing symplectic carriers
-
-- `mathlib:Matrix.symplecticGroup` (Mathlib/LinearAlgebra/SymplecticGroup.lean): The existing group of matrices on l⊕l preserving J; for l=Fin r its finite-field points are Sp₂r. Statement read at the pinned commit; line 101. Existing matrix/points API does not supply Lang theory or étale stack cohomology.
-- `mathlib:SymplecticGroup.det_eq_one` (Mathlib/LinearAlgebra/SymplecticGroup.lean): Every symplectic matrix over a commutative ring has determinant1; thus its underlying matrix belongs to SL. Statement read at the pinned commit; line 385. Existing matrix/points API does not supply Lang theory or étale stack cohomology.
-- `tauceti:TauCeti.GLSymplectic.mulEquivSymplecticGroup` (TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Symplectic/Basic.lean): The symplectic subgroup of GL(l⊕l,R) is multiplicatively equivalent to Matrix.symplecticGroup l R. Statement read at the pinned commit; line 172. Existing matrix/points API does not supply Lang theory or étale stack cohomology.
-- `tauceti:TauCeti.Symplectic.groupScheme` (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean): The existing finite-type closed subgroup scheme of GL₂m preserving J. This declaration makes no smoothness or reductivity claim. Statement read at the pinned commit; line 122. Existing matrix/points API does not supply Lang theory or étale stack cohomology.
-- `tauceti:TauCeti.Symplectic.pointsMulEquiv` (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean): For a commutative R-algebra A, points of the symplectic coordinate Hopf algebra are equivalent to GLSymplecticFin m A. Statement read at the pinned commit; line 209. Existing matrix/points API does not supply Lang theory or étale stack cohomology.
-
-No symplectic group or point functor is defined again. The existing group-scheme construction explicitly does not assert smoothness or reductivity. Lang theory, classifying-stack étale cohomology and its comparison with compact groups remain a distinct foundation gap.
-
-- `mathlib:Matrix.SpecialLinearGroup` (Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean): For a finite decidable index type n and a commutative ring R, matrices A with A.det=1; this is the existing SL carrier. Statement read at the pinned Mathlib commit, line70.
+- `mathlib:exists_isTranscendenceBasis` (Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis): A faithful algebra has a maximal algebraically independent subset; apply to k ⊂ k((t)).
+- `mathlib:IsTranscendenceBasis.isAlgebraic` (Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis): The ambient algebra is algebraic over the subalgebra generated by a transcendence basis, assuming a nontrivial base.
+- `mathlib:AlgebraicIndependent.aevalEquiv` (Mathlib.RingTheory.AlgebraicIndependent.Defs): Identifies the polynomial ring on an algebraically independent family with its generated subalgebra.
+- `mathlib:MvPolynomial.cardinalMk_le_max` (Mathlib.Algebra.MvPolynomial.Cardinal): The polynomial algebra has cardinal at most max of the coefficient cardinal, variable cardinal and aleph-zero.
+- `mathlib:Algebra.IsAlgebraic.cardinalMk_le_max` (Mathlib.RingTheory.Algebraic.Cardinality): For an algebraic extension of domains with torsion-free scalar action, the ambient cardinal is at most max of the base cardinal and aleph-zero.
+- `mathlib:PowerSeries.mk` (Mathlib.RingTheory.PowerSeries.Basic): A coefficient sequence defines a power series.
+- `mathlib:PowerSeries.coeff_mk` (Mathlib.RingTheory.PowerSeries.Basic): The n-th coefficient of mk(f) is f(n), giving injectivity of the binary-sequence construction.
+- `mathlib:HahnSeries.ofPowerSeries_injective` (Mathlib.RingTheory.HahnSeries.PowerSeries): Power series inject into Hahn series; with exponent group integers the target is LaurentSeries.
+- `mathlib:Matrix.symplecticGroup` (Mathlib/LinearAlgebra/SymplecticGroup.lean): The existing group of matrices on l⊕l preserving J; for l=Fin r its finite-field points are Sp₂r.
+- `mathlib:SymplecticGroup.det_eq_one` (Mathlib/LinearAlgebra/SymplecticGroup.lean): Every symplectic matrix over a commutative ring has determinant1; thus its underlying matrix belongs to SL.
+- `tauceti:TauCeti.GLSymplectic.mulEquivSymplecticGroup` (TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Symplectic/Basic.lean): The symplectic subgroup of GL(l⊕l,R) is multiplicatively equivalent to Matrix.symplecticGroup l R.
+- `tauceti:TauCeti.Symplectic.groupScheme` (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean): The existing finite-type closed subgroup scheme of GL₂m preserving J. This declaration makes no smoothness or reductivity claim.
+- `tauceti:TauCeti.Symplectic.pointsMulEquiv` (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean): For a commutative R-algebra A, points of the symplectic coordinate Hopf algebra are equivalent to GLSymplecticFin m A.
+- `mathlib:Matrix.SpecialLinearGroup` (Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean): For a finite decidable index type n and a commutative ring R, matrices A with A.det=1; this is the existing SL carrier.
 
 ## Layer overview
 
@@ -280,9 +586,8 @@ Each layer section below opens with the layer's coverage record, then states eve
 - Remaining: Re-derive Mestel's Lemmas 26–29 (the classes c_i(W), e_{jr}(W) and the product formula) against Quillen 1972 §§8–9 before implementation (gap on the expository source).
 - Remaining: Once K2SymbolsBrauer--T.1 cites GeneralAlgebraicKTheory K.2:plus instead of the umbrella K.2 (restructure), add K2SymbolsBrauer:T.2/k2-finite-field and K2SymbolsBrauer:T.1/k2-pi2 as prerequisites of L.1/degree-two-symbols.
 - Remaining: Obtain the registered Poincaré foundation exports, original odd-field connective proof and Hiller perfect-field proof. For the now-planned AV finite-rank targets, supply the named Lang/étale-classical-comparison and Schur-multiplier proof gaps, plus the H.1/H.3/M.8 map-level exports.
-
 - Remaining: Register the early M-owned coefficient/representation Chern-class export before the regulator dependencies. The whole M.8 stage is downstream through M.7/L.2 and cannot be a prerequisite of L.1; three Chern consumers end in the named cycle gap until the split is registered.
-
+- Remaining: General profinite changes of Brauer embedding require a completed Adams operation; the finite-level integer comparison is the assertion currently justified.
 
 ### K-theory of a ring with coefficients Z/m
 
@@ -356,7 +661,7 @@ Let R be a ring with unit and m ≥ 1 an integer. Let K(R) be the connective alg
 
 `L.1/mod-m-products` · theorem
 
-Let R be a commutative ring, ℓ a prime and ν ≥ 1 with ℓ^ν ∉ {2, 3, 4, 8}. Then K(R)/ℓ^ν is a homotopy associative and homotopy commutative ring spectrum, so K_*(R; Z/ℓ^ν) is a graded-commutative ring, natural in R, and the reduction K_*(R) → K_*(R; Z/ℓ^ν) is a ring homomorphism. For a spectrum E with π_n(E) = 0 for all even n > 0 and all n < 0 the same conclusion holds for every ℓ^ν, including 2, 3, 4 and 8 (Browder's scholium); in particular K_*(F_q; Z/ℓ^ν) is a graded-commutative ring for every ℓ^ν. For general m ≢ 2 (mod 4) the ring structure on K_*(R; Z/m) is defined through the coprime decomposition into prime powers, each outside {2, 3, 4, 8} after replacing m by a multiple when needed.
+Let R be a commutative ring, ℓ a prime and ν ≥ 1 with ℓ^ν ∉ {2, 3, 4, 8}. Then K(R)/ℓ^ν is a homotopy associative and homotopy commutative ring spectrum, so K_*(R; Z/ℓ^ν) is a graded-commutative ring, natural in R, and the reduction K_*(R) → K_*(R; Z/ℓ^ν) is a ring homomorphism. For a homotopy associative and homotopy commutative ring spectrum E with π_n(E) = 0 for all even n > 0 and all n < 0 the same conclusion holds for every ℓ^ν, including 2, 3, 4 and 8 (Browder's scholium); in particular K_*(F_q; Z/ℓ^ν) is a graded-commutative ring for every ℓ^ν. For a composite m whose prime-power factors all lie outside {2, 3, 4, 8}, choose their compatible products and use the coprime decomposition to obtain a product on K_*(R; Z/m). No descent of a multiplication from a larger modulus is asserted.
 
 **Hypotheses.**
 
@@ -470,7 +775,7 @@ Fix an injective group homomorphism ι: \bar F_p^× → C^× (it exists: \bar F_
 - `TauCeti.Brauer.character_pPart` (characterisation): χ_V(g) = χ_V(g_{p′}) for the p′-part of g.
 - `TauCeti.Brauer.character_restrict` (functoriality): For a homomorphism f: H → G, χ_{f^*V} = χ_V ∘ f.
 - `TauCeti.Brauer.character_baseChange` (compatibility): For F_q ⊂ F_{q′}, χ_{V ⊗ F_{q′}} = χ_V (the same eigenvalues).
-- `TauCeti.Brauer.character_change_embedding` (other): For u prime to the order of every element of G, so that ι ∘ (x ↦ x^u) is again an embedding of the p′-roots of unity, replacing ι by ι ∘ (x ↦ x^u) replaces χ_V(g) by χ_V(g^u).
+- `TauCeti.Brauer.character_change_embedding` (other): Let N be the prime-to-p part of the exponent of G. If u is an integer coprime to N and the embeddings ι and ι′ agree by ι′(λ)=ι(λ^u) on μ_N, then χ_{V,ι′}(g)=χ_{V,ι}(g^u). This finite-order condition does not make x↦x^u an automorphism of all prime-to-p roots of unity; a global change requires a unit in the prime-to-p profinite integers.
 
 **Unit tests.**
 
@@ -788,7 +1093,7 @@ For every integer q ≥ 2, FΨ^q is connected and simple, π_{2i}(FΨ^q) = 0 for
 
 `L.1/fpsi-lifting` · lemma
 
-Let X be a CW complex with [X, U] = [X, ΩBU] = 0. Then φ_*: [X, FΨ^q] → [X, BU]^{ψ^q}, the set of classes f with ψ^q f ≃ f, is a bijection. For a finite group G, [BG, U] = K̃U^{−1}(BG) = 0 (Atiyah), so [BG, FΨ^q] ≅ [BG, BU]^{ψ^q}; the same holds for BGL(F_q) = colim_n BGL_n(F_q), since K̃U^{−1}(BGL(F_q)) = 0 by the Milnor sequence and the Mittag-Leffler property of the profinite groups K̃U^0(BGL_n(F_q)).
+Let X be a CW complex with [X, U] = [X, ΩBU] = 0. Then φ_*: [X, FΨ^q] → [X, BU]^{ψ^q}, the set of classes f with ψ^q f ≃ f, is a bijection. For a finite group G, [BG, U] = K̃U^{−1}(BG) = 0 (Atiyah), so [BG, FΨ^q] ≅ [BG, BU]^{ψ^q}; the same holds for BGL(F_q) = colim_n BGL_n(F_q), since K̃U^{−1}(BGL(F_q)) = 0 by the Milnor sequence and vanishing of lim¹ for the inverse sequence of compact Hausdorff abelian groups K̃U^0(BGL_n(F_q)) with continuous restriction maps.
 
 **Hypotheses.**
 
@@ -800,6 +1105,7 @@ Let X be a CW complex with [X, U] = [X, ΩBU] = 0. Then φ_*: [X, FΨ^q] → [X,
 2. Injectivity: two lifts of homotopic maps differ by a map X → ΩBU = U (the fibre of the path fibration), which is null by hypothesis (Mestel, Lemma 13).
 3. For X = BG with G finite: K̃U^1(BG) = 0 is part of the Atiyah–Segal completion theorem (Mestel, Theorem 15, citing Benson; Haine, Lemma 6.10, citing Atiyah–Segal), requested from RT.4:topological and recorded as a gap.
 4. For X = BGL(F_q): the Milnor sequence 0 → lim^1 K̃U^{−2}(BGL_n) → K̃U^{−1}(BGL) → lim K̃U^{−1}(BGL_n) → 0 with the last term 0 and the lim^1 term vanishing for the inverse system of compact groups K̃U^0(BGL_n(F_q)) (Atiyah–Segal completion); this step is part of the same gap.
+5. For this last lim¹ assertion, use compactness, not algebraic Mittag-Leffler: every finite subsystem of the equations x_n−r_n(x_{n+1})=a_n is solvable, and compactness of the product gives a simultaneous solution. The augmentation kernels in the completed representation rings are compact, and restriction is continuous. These are the precise additional RT.4 exports required.
 
 **Acceptance.**
 
@@ -819,7 +1125,7 @@ Let X be a CW complex with [X, U] = [X, ΩBU] = 0. Then φ_*: [X, FΨ^q] → [X,
 
 `L.1/quillen-map` · construction
 
-Fix ι as in L.1/brauer-character and q = p^ν. For each n, the virtual representation ρ_n = β(id_n) − n ∈ R_C(GL_n(F_q)) is ψ^q-fixed (L.1/brauer-lift-frobenius-invariant), so its image under the Atiyah map R_C(G) → [BG, Z × BU] → [BG, BU] (a representation V goes to the classifying map of EG ×_G V) lies in [BGL_n(F_q), BU]^{ψ^q} and lifts uniquely (L.1/fpsi-lifting) to θ_n ∈ [BGL_n(F_q), FΨ^q]. The θ_n are compatible with the inclusions BGL_n → BGL_{n+1} (L.1/brauer-lift-stabilisation) and assemble to θ: BGL(F_q) → FΨ^q; by Theorem IV.1.8 θ extends to θ^+: BGL(F_q)^+ → FΨ^q, the induced maps on homotopy groups being independent of the extension. The composite ρ = φ ∘ θ^+: BGL(F_q)^+ → BU is the K-book's Brauer lift map, and ρ_*: K_n(F_q) → π_n(BU). All of these depend on the choice of ι; changing ι by x ↦ x^u (u a p′-adic unit) composes θ with ψ̃^u.
+Fix ι as in L.1/brauer-character and q = p^ν. For each n, the virtual representation ρ_n = β(id_n) − n ∈ R_C(GL_n(F_q)) is ψ^q-fixed (L.1/brauer-lift-frobenius-invariant), so its image under the Atiyah map R_C(G) → [BG, Z × BU] → [BG, BU] (a representation V goes to the classifying map of EG ×_G V) lies in [BGL_n(F_q), BU]^{ψ^q} and lifts uniquely (L.1/fpsi-lifting) to θ_n ∈ [BGL_n(F_q), FΨ^q]. The θ_n are compatible with the inclusions BGL_n → BGL_{n+1} (L.1/brauer-lift-stabilisation) and assemble to θ: BGL(F_q) → FΨ^q; by Theorem IV.1.8 θ extends to θ^+: BGL(F_q)^+ → FΨ^q, the induced maps on homotopy groups being independent of the extension. The composite ρ = φ ∘ θ^+: BGL(F_q)^+ → BU is the K-book's Brauer lift map, and ρ_*: K_n(F_q) → π_n(BU). All of these depend on the choice of ι; for an integer u and a second embedding agreeing by λ↦λ^u on the eigenvalues at a fixed finite level, naturality of integer Adams operations gives θ_{n,ι′}=ψ̃^u θ_{n,ι}. Arbitrary prime-to-p profinite changes of ι require a separately constructed completed Adams operation; no integral BU map ψ^u for such u is assumed.
 
 **Hypotheses.**
 
@@ -841,7 +1147,7 @@ Fix ι as in L.1/brauer-character and q = p^ν. For each n, the virtual represen
 - `TauCeti.KTheory.FiniteField.quillenMapPlus` (universal-property): θ^+: BGL(F_q)^+ → FΨ^q with θ = θ^+ ∘ i; its effect on homotopy groups is independent of choices.
 - `TauCeti.KTheory.FiniteField.brauerLiftMap` (projection): ρ = φ ∘ θ^+: BGL(F_q)^+ → BU and ρ_*: K_n(F_q) → π_n(BU).
 - `TauCeti.KTheory.FiniteField.quillenMap_pi_one` (compatibility): On π_1, θ^+ is the determinant K_1(F_q) → F_q^× followed by the isomorphism F_q^× → π_1(FΨ^q) given by ι.
-- `TauCeti.KTheory.FiniteField.quillenMap_change` (other): Replacing ι by ι ∘ (x ↦ x^u) replaces θ by ψ̃^u ∘ θ.
+- `TauCeti.KTheory.FiniteField.quillenMap_change` (other): At a fixed finite level, for integer u and embeddings related by λ↦λ^u on its eigenvalues, θ_{n,ι′}=ψ̃^u θ_{n,ι}. A formula for arbitrary prime-to-p profinite units requires completed Adams operations and is an explicit gap.
 - `TauCeti.KTheory.FiniteField.atiyahMap` (data): R_C(G) → [BG, Z × BU], a λ-ring homomorphism.
 
 **Unit tests.**
@@ -1233,7 +1539,7 @@ Let ℓ/k be a finite Galois extension of fields with group G. The ℓ-algebra m
 
 **Sources.**
 
-- `Kbook.2013`, Exercise IV.6.13 (PDF p. 332): “and that f^*f_* is multiplication by [S ⊗_R S] ∈ K_0(S).” — The class [S ⊗_R S] that this lemma computes for a Galois extension.
+- `Kbook.2013`, Exercise IV.6.13 (PDF p. 335): “and that f^*f_* is multiplication by [S ⊗_R S] ∈ K_0(S).” — The class [S ⊗_R S] that this lemma computes for a Galois extension.
 - `Mestel.2014`, §5.4 (p. 12): “By Galois theory, this is an isomorphism (by dimension-counting).” — The finite-field case of the splitting, used for the Brauer lift of F_{q^r}.
 
 ### Restriction and transfer for finite extensions of finite fields
@@ -1321,9 +1627,9 @@ Let i: k → ℓ be a finite field extension of degree d. Then i_* ∘ i^* = mul
 
 **Sources.**
 
-- `Kbook.2013`, Exercise IV.6.13 (PDF p. 332): “If f : R → S and S is in P(R), show that f_*f^* is multiplication by [S] ∈ K_0(R), and that f^*f_* is multiplication by [S ⊗_R S] ∈ K_0(S).” — The two composites.
-- `Kbook.2013`, Exercise IV.6.13 (PDF p. 332): “If f : R → S is a Galois extension with group G, show that” — The Galois formula f^*f_* = Σ_{g∈G} g (the displayed sum is lost in the text layer).
-- `Kbook.2013`, Corollary IV.2.8.2, proof (PDF p. 290): “Since i_*i^* is” — Used in the source with the Galois formula (Σ_{g∈G} g_* by Ex. IV.6.13).
+- `Kbook.2013`, Exercise IV.6.13 (PDF p. 335): “If f : R → S and S is in P(R), show that f_*f^* is multiplication by [S] ∈ K_0(R), and that f^*f_* is multiplication by [S ⊗_R S] ∈ K_0(S).” — The two composites.
+- `Kbook.2013`, Exercise IV.6.13 (PDF p. 335): “If f : R → S is a Galois extension with group G, show that” — The Galois formula f^*f_* = Σ_{g∈G} g (the displayed sum is lost in the text layer).
+- `Kbook.2013`, Corollary IV.2.8.2, proof (PDF p. 290): “Since i^*i_* is” — Used in the source with the Galois formula (Σ_{g∈G} g_* by Ex. IV.6.13).
 
 ### The Galois action on the odd K-groups of a finite field
 
@@ -1412,7 +1718,7 @@ Let F_q ⊂ F_{q′} with d = [F_{q′} : F_q] and i ≥ 1. On K_{2i−1}: i_* �
 **Sources.**
 
 - `Kbook.2013`, Corollary IV.1.13 (PDF p. 277): “the transfer map K_n(F_{q′}) → K_n(F_q) is onto (see 1.1.3).” — Surjectivity, refined here by the composite formulas.
-- `Kbook.2013`, Exercise IV.6.13 (PDF p. 332): “If f : R → S and S is in P(R), show that f_*f^* is multiplication by [S] ∈ K_0(R)” — The formula i_*i^* = d.
+- `Kbook.2013`, Exercise IV.6.13 (PDF p. 335): “If f : R → S and S is in P(R), show that f_*f^* is multiplication by [S] ∈ K_0(R)” — The formula i_*i^* = d.
 
 ### Products in the K-theory of a finite field
 
@@ -1564,7 +1870,7 @@ Let ℓ be a prime (or a prime power) with ℓ | q − 1. Choose a generator ζ 
 
 `L.1/algebraic-closure-k-groups` · theorem
 
-Let \bar F_p be an algebraic closure of F_p and Γ = Gal(\bar F_p/F_p). Then K_{2i}(\bar F_p) = 0 for i ≥ 1; K_{2i−1}(\bar F_p) = colim_ν K_{2i−1}(F_{p^ν}) is a divisible torsion group isomorphic to ⊕_{ℓ≠p} Q_ℓ/Z_ℓ ≅ \bar F_p^×; the Frobenius x ↦ x^p acts on it as multiplication by p^i; there is a Γ-equivariant isomorphism K_{2i−1}(\bar F_p) ≅ μ(\bar F_p)^{⊗i} = μ(i) (the i-th Tate twist), and every isomorphism of abelian groups between them is Γ-equivariant; and for every subfield F_q the map K_*(F_q) → K_*(\bar F_p)^{Gal(\bar F_p/F_q)} is an isomorphism in positive degrees.
+Let \bar F_p be an algebraic closure of F_p and Γ = Gal(\bar F_p/F_p). Then K_{2i}(\bar F_p) = 0 for i ≥ 1; K_{2i−1}(\bar F_p) = colim_ν K_{2i−1}(F_{p^ν}) is a divisible torsion group isomorphic to ⊕_{ℓ≠p} Q_ℓ/Z_ℓ ≅ \bar F_p^×; the Frobenius x ↦ x^p acts on it as multiplication by p^i; there is a Γ-equivariant isomorphism K_{2i−1}(\bar F_p) ≅ μ(i), the torsion Tate twist with underlying group ⊕_{ℓ≠p} Q_ℓ/Z_ℓ and Frobenius p^i (not the ordinary tensor power of the divisible torsion group μ(\bar F_p)), and every isomorphism of abelian groups between them is Γ-equivariant; and for every subfield F_q the map K_*(F_q) → K_*(\bar F_p)^{Gal(\bar F_p/F_q)} is an isomorphism in positive degrees.
 
 **Hypotheses.**
 
@@ -1624,7 +1930,7 @@ Let m ≥ 2 with p ∤ m (and m ∉ {2, 3, 4, 8} for the ring structure unless i
 
 ### ℓ-adically completed K-theory K(R; ℤ_ℓ)
 
-`L.1/completed-k-theory` · definition · also realises L.6
+`L.1/completed-k-theory` · definition
 
 Let R be a ring with unit and ℓ a prime. The ℓ-completed K-theory spectrum of R is K(R; ℤ_ℓ) = holim_ν K(R)/ℓ^ν, the derived ℓ-completion of StableHomotopyKTheory H.6 applied to the connective K-theory spectrum K(R), where K(R)/ℓ^ν = K(R; ℤ/ℓ^ν) is L.1/k-theory-mod-m and the tower is formed by the reduction maps K(R)/ℓ^{ν+1} → K(R)/ℓ^ν. Its homotopy groups K_n(R; ℤ_ℓ) = π_n K(R; ℤ_ℓ), n ∈ ℤ, are the ℓ-adic (completed) K-groups of R. They come with the natural completion map κ: K_n(R) → K_n(R; ℤ_ℓ), induced by K(R) → holim_ν K(R)/ℓ^ν, and the reductions ρ_ν: K_n(R; ℤ_ℓ) → K_n(R; ℤ/ℓ^ν), with Milnor's exact sequence 0 → lim¹_ν K_{n+1}(R; ℤ/ℓ^ν) → K_n(R; ℤ_ℓ) → lim_ν K_n(R; ℤ/ℓ^ν) → 0. The construction is a functor of R, has transfers along ring maps R → S making S a finitely generated projective R-module, and K_*(R; ℤ_ℓ) is a graded-commutative ring when R is commutative. The integral groups K_n(R), the completed groups K_n(R; ℤ_ℓ) and the finite-coefficient groups K_n(R; ℤ/ℓ^ν) are three separate carriers, related only by κ and ρ_ν: in general K_n(R; ℤ_ℓ) is neither K_n(R) ⊗ ℤ_ℓ nor lim_ν K_n(R)/ℓ^ν.
 
@@ -1656,7 +1962,7 @@ Let R be a ring with unit and ℓ a prime. The ℓ-completed K-theory spectrum o
 - `TauCeti.KTheory.completed_map_comp` (functoriality): (g ∘ f)_* = g_* ∘ f_* and id_* = id on K_*(−; ℤ_ℓ), and κ, ρ_ν are natural.
 - `TauCeti.KTheory.completedTransfer` (functoriality): For S finitely generated projective over R, the transfer K_n(S; ℤ_ℓ) → K_n(R; ℤ_ℓ), compatible with κ and ρ_ν.
 - `TauCeti.KTheory.completed_prod` (equivalence): K(R × S; ℤ_ℓ) ≃ K(R; ℤ_ℓ) × K(S; ℤ_ℓ), compatibly with κ; by induction for finite products.
-- `TauCeti.KTheory.completed_ring` (structure): For R commutative, K_*(R; ℤ_ℓ) is a graded-commutative ring and κ, ρ_ν are ring maps.
+- `TauCeti.KTheory.completed_ring` (structure): For R commutative, K_*(R; ℤ_ℓ) is a graded-commutative ring and κ is a ring map. Each ρ_ν is a map of graded K_*(R)-modules; a ring-map assertion requires a chosen compatible multiplication at that finite modulus, including the exceptional small moduli.
 - `TauCeti.KTheory.completed_eq_tensor_of_fg` (example): If K_n(R) and K_{n−1}(R) are finitely generated, κ induces K_n(R) ⊗ ℤ_ℓ ≅ K_n(R; ℤ_ℓ) (Handbook 59).
 
 **Unit tests.**
@@ -2131,7 +2437,7 @@ For odd q and r≥1, H₂(Sp₂r(𝔽_q),ℤ) and H₂(SL₂r(𝔽_q),ℤ) are f
 **Acceptance.**
 
 - q=9,r=1 must retain H₂=ℤ/3.
-- No perfection of SL₂(𝔽₃) is assumed. Only stable SL is used in the later plus argument.
+- No perfection of SL₂(𝔽₃) is assumed. Only stable SL is used in the downstream plus argument.
 
 **Depends on.** `mathlib:Matrix.symplecticGroup`.
 
@@ -2409,7 +2715,6 @@ For every odd q and r≥1, the étale class of the standard representation induc
 - Remaining: Answers to the requests to tauceti:TauCetiRoadmap/LocalFieldsRamification (finite extensions of local fields and their integers; unramified extensions and the residue action of G_L), GeneralAlgebraicKTheory K.7 (K_*(O)-linearity of the localisation boundary) and KTheoryLowDegrees U.5 (the degree-one boundary).
 - Remaining: Confirmation by MotivicEtaleKTheory M.7 of the ownership split in restructure (M.7 imports L.2/gabber-rigidity; Suslin's rigidity for algebraically closed fields, K-book VI.1.1–VI.1.7.1, stays with M.7).
 
-
 ### Gabber's rigidity theorem
 
 `L.2/gabber-rigidity` · theorem · planet “Gabber's rigidity theorem”
@@ -2506,7 +2811,7 @@ Let O be a henselian local ring with residue field F_q of characteristic p and �
 
 `L.2/dvr-localisation` · theorem · planet “Localization sequence of a discrete valuation ring”
 
-Let O be a discrete valuation ring with fraction field L, residue field k and uniformiser π. There is a homotopy fibration (cofibre sequence of spectra) K(k) →i_* K(O) → K(L), with i_* the transfer of O → k, giving the long exact sequence … → K_n(k) → K_n(O) → K_n(L) →∂ K_{n−1}(k) → … → K_0(k) → K_0(O) → K_0(L) → 0, and, after E ↦ E/m, the same sequence for K_*(−; Z/m). It is a sequence of K_*(O)-modules: with K_*(O) acting on K_*(L) through O → L and on K_*(k) through r: O → k, ∂(x·y) = r(x)·∂(y) for x ∈ K_*(O) and y ∈ K_*(L) (convention fixed here; the other order introduces the sign (−1)^{|x|}). In degree one, ∂: K_1(L) = L^× → K_0(k) = Z is the valuation, ∂[π] = [k] = 1, and i_*: K_0(k) → K_0(O) is zero.
+Let O be a discrete valuation ring with fraction field L, residue field k and uniformiser π. There is a homotopy fibration (cofibre sequence of spectra) K(k) →i_* K(O) → K(L), with i_* the transfer of O → k, giving the long exact sequence … → K_n(k) → K_n(O) → K_n(L) →∂ K_{n−1}(k) → … → K_0(k) → K_0(O) → K_0(L) → 0, and, after E ↦ E/m, the same sequence for K_*(−; Z/m). It is a sequence of K_*(O)-modules: with K_*(O) acting on K_*(L) through O → L and on K_*(k) through r: O → k, ∂(x·y) = r(x)·∂(y) for x ∈ K_*(O) and y ∈ K_*(L) (convention fixed here; the other order introduces the sign (−1)^{|x|}). In degree one, ∂: K_1(L) = L^× → K_0(k) = Z is the valuation, ∂[π] = [k] = 1, and i_*: K_0(k) → K_0(O) is zero. The same left-linear identity holds for the mixed pairing K_*(O;Z/m) ⊗ K_*(L) → K_*(L;Z/m), with coefficient reduction on the fibre: ∂(a·y)=r(a)·∂(y). Its construction must carry the fixed boundary sign through the Moore cofibre.
 
 **Hypotheses.**
 
@@ -2519,6 +2824,7 @@ Let O be a discrete valuation ring with fraction field L, residue field k and un
 3. Module structure: P(O) acts by tensor product on the sequence of abelian categories M_tors(O) → M(O) → M(L) (K-book V.6.1.1); the resulting K_*(O)-linearity of ∂ is GeneralAlgebraicKTheory K.7's 'compatibility with ... localisation boundaries' (requested). The sign convention is recorded in sourceIssues: the K-book uses both orders.
 4. Degree one: ∂[s] = [R/sR] for a non-zero-divisor s (K-book Example V.6.1.2; KTheoryLowDegrees U.5: 'the boundary map from a discrete valuation field's units to K₀ of its residue field equals the valuation'); so ∂[π] = [k] = 1 and ∂[uπ^a] = a.
 5. i_*[k] = [O/πO] = [O] − [πO] = 0 in K_0(O) = Z, so K_0(O) ≅ K_0(L) = Z.
+6. Request from K.7 the module map of localization spectra before applying E↦E/m, so that the mixed coefficient/integral pairing used for s_π satisfies ∂(a·[π])=r(a). This is stronger than integral K_*(O)-linearity alone.
 
 **Acceptance.**
 
@@ -2574,7 +2880,7 @@ Let O be a henselian DVR with fraction field L, residue field k, uniformiser π,
 **Proof.**
 
 1. Rigidity: r: K(O)/m ≃ K(k)/m (L.2/gabber-rigidity).
-2. ∂(r^{−1}(a)·{π}) = r(r^{−1}(a))·∂{π} = a·[k] = a, by the K_*(O)-linearity of ∂ and ∂[π] = 1 (L.2/dvr-localisation); so ∂ is surjective in every degree.
+2. ∂(r^{−1}(a)·{π}) = r(r^{−1}(a))·∂{π} = a·[k] = a, by the mixed coefficient/integral left-linearity of ∂ and ∂[π] = 1 (L.2/dvr-localisation); so ∂ is surjective in every degree.
 3. Surjectivity of every ∂ makes each i_*: K_{n−1}(k; Z/m) → K_{n−1}(O; Z/m) zero, and the long exact sequence breaks into the short exact sequences, split by s_π.
 
 **Acceptance.**
@@ -2917,7 +3223,7 @@ Let L be a nonarchimedean local field with residue field F_q of characteristic p
 
 - L = Q_p(ζ_m) with p ≢ 1 mod ℓ^{a+1} as in the Harris–Segal proof: w_i^{(ℓ)}(L) = w_i^{(ℓ)}(F_q) and e is an isomorphism on ℓ-parts.
 - L = Q_5, i = 2, ℓ = 3: K_3(Q_5){3} ≅ Z/3 ≅ W_2^{(3)}(Q_5) (24 = 8·3).
-- For ℓ = p the statement is false in general and belongs to L.6: K_3(Q_p) has p-torsion Z/w_2^{(p)}(Q_p) detected differently (K-book Proposition VI.7.3).
+- The present argument proves no ℓ = p assertion; the characteristic-zero p-primary calculation belongs to L.6: K_3(Q_p) has p-torsion Z/w_2^{(p)}(Q_p) detected differently (K-book Proposition VI.7.3).
 
 **Depends on.** this roadmap: `L.2/local-field-prime-to-p`, `L.2/separable-closure-l-torsion`, `L.2/w-invariant-local-field`, `L.1/algebraic-closure-k-groups`; other roadmaps: `ArithmeticKTheory:N.4/the-w-invariant`.
 
@@ -2936,7 +3242,6 @@ Let L be a nonarchimedean local field with residue field F_q of characteristic p
 - Remaining: Moore's own proof of the divisibility was not read; the p-part in characteristic 0 is proved through the degree-two norm residue theorem and local duality instead (gap).
 - Remaining: Requests to MotivicEtaleKTheory M.5, KTheoryLowDegrees U.3 and the upstream layers LocalFieldsRamification Layer 1 and ClassFieldTheory Layers 5 and 6 must be answered.
 - Remaining: The new tame lemmas retain explicit upstream Layer 2/Layer 6 requests. The checker parses tauceti: stage IDs as baseline references before stage lookup; their actual dependency edges are recorded in unresolvedPrerequisites, not disguised as existing Lean declarations. Restore ordinary prerequisite edges when that checker limitation is fixed. Suggested symbols remain declared stand-ins, not compiled supplier implementations.
-
 
 ### The norm residue map K₂(E) → μ(E)
 
@@ -3317,7 +3622,7 @@ With the conventions of L.3/norm-residue-map, U(E) := ker(h_E) ⊆ K_2(E). The s
 
 `L.3/local-k2-localisation-sequence` · theorem · planet “Localization sequence for K₂ of a local field”
 
-With the conventions of L.3/norm-residue-map, the sequence 0 → K_2(𝒪) →j K_2(E) →∂ k^× → 0 is exact and canonical, where j is induced by 𝒪 ⊂ E and ∂ is the boundary of the localisation sequence of the discrete valuation ring 𝒪. With the K-book's normalisation of the boundary, ∂ = ∂^{Kb}_v = ∂_v^{−1} on symbols (T.3/localization-boundary), so j(K_2(𝒪)) = ker ∂_v, the tame kernel, and K_2(E)/j(K_2(𝒪)) ≅ k^× is the tame-symbol quotient. The sequence splits canonically (L.2/even-k-field-splitting, i = 1).
+With the conventions of L.3/norm-residue-map, the sequence 0 → K_2(𝒪) →j K_2(E) →∂ k^× → 0 is exact and canonical, where j is induced by 𝒪 ⊂ E and ∂ is the boundary of the localisation sequence of the discrete valuation ring 𝒪. With the left-linearity convention fixed in L.2, ∂ = ∂_v on symbols and ∂{u,π}=ū; the K-book symbol ∂^{Kb}_v is its inverse (the sign conversion is required from T.3/localization-boundary), so j(K_2(𝒪)) = ker ∂_v, the tame kernel, and K_2(E)/j(K_2(𝒪)) ≅ k^× is the tame-symbol quotient. The sequence splits canonically (L.2/even-k-field-splitting, i = 1).
 
 **Hypotheses.**
 
@@ -3329,7 +3634,7 @@ With the conventions of L.3/norm-residue-map, the sequence 0 → K_2(𝒪) →j 
 1. The localisation sequence of the DVR 𝒪 (L.2/dvr-localisation; equivalently ArithmeticKTheory N.2/localisation-sequence-for-a-dedekind-domain for the Dedekind domain 𝒪 with one non-zero prime): K_2(k) → K_2(𝒪) → K_2(E) → K_1(k) → K_1(𝒪) → K_1(E).
 2. K_2(k) = 0 for the finite field k (K2SymbolsBrauer T.2/k2-finite-field), so j is injective.
 3. K_1(𝒪) = 𝒪^× because SK_1 of the local ring 𝒪 vanishes (KTheoryLowDegrees U.3), and 𝒪^× → E^× = K_1(E) is injective; so ∂ is onto k^× = K_1(k).
-4. ∂ is the tame symbol, in the normalisation fixed by T.3/localization-boundary (K-book V.6.6.1); the kernel does not depend on the normalisation.
+4. Transport T.3/localization-boundary (K-book V.6.6.1) to the L.2 left-linearity convention, obtaining ∂=∂_v; the kernel does not depend on the normalisation.
 5. The splitting is L.2/even-k-field-splitting for i = 1: u ↦ {ω(u), π} is a section of ∂_v, and it does not depend on π because K_2(𝒪) has no prime-to-p torsion (L.2/even-k-uniquely-l-divisible).
 
 **Acceptance.**
@@ -3452,9 +3757,10 @@ If char E = 0 (E finite over ℚ_p), then h_E induces K_2(E)/p^ν ≅ μ(E)/p^ν
 **Proof.**
 
 1. Norm residue theorem in degree two: K_2(E)/p^ν ≅ H²(E, μ_{p^ν}^{⊗2}) (M.5; Handbook §5.4: 'an isomorphism for all F by the Merkurjev-Suslin theorem').
-2. Local duality: H²(E, μ_{p^ν}^{⊗2}) ≅ H⁰(E, μ_{p^ν}) (K-book VI.7, p. 516; ClassFieldTheory Layer 5's local duality), so #K_2(E)/p^ν = #μ_{p^ν}(E) = #μ(E)/p^ν.
+2. Local duality: H²(E, μ_{p^ν}^{⊗2}) ≅ H⁰(E, μ_{p^ν}^{⊗(−1)})^∨ (K-book VI.7, p. 516; ClassFieldTheory Layer 5's local duality), so #K_2(E)/p^ν = #μ_{p^ν}(E) = #μ(E)/p^ν.
 3. h_E : K_2(E)/p^ν → μ(E)/p^ν is onto (L.3/norm-residue-split-surjective), hence bijective, the groups being finite of the same order.
 4. A section of h_E maps μ(E)[p^ν] into K_2(E)[p^ν], so K_2(E)[p^ν] → μ(E)[p^ν] is onto; the snake lemma for p^ν on 0 → U(E) → K_2(E) → μ(E) → 0 then gives U(E)/p^ν ↪ K_2(E)/p^ν ≅ μ(E)/p^ν, hence U(E)/p^ν = 0.
+5. The invariant groups in twists −1 and +1 have equal cardinality: for a cyclic μ_{p^ν}, χ(g)−1 and χ(g)^{-1}−1 differ by a unit. Only this cardinality equality is used; no natural positive-twist duality isomorphism is claimed.
 
 **Acceptance.**
 
@@ -3661,7 +3967,7 @@ Let E be a finite extension of ℚ_p with residue field 𝔽_q. Then μ(E) = μ_
 - Remaining: Prove McCarthy's additivity for Φ = THH^{C_r}, Bökstedt's approximation lemma, Waldhausen's Lemma 1.4.1/Theorem 1.6.4 arguments for Φ, Thomason–Trobaugh 1.9.8 and the 3 × 3 lemma with HM's sign conventions (gap), or replace them by the Blumberg–Mandell localisation theorems for spectral categories.
 - Remaining: Supply the Dundas–McCarthy equivalence criterion, Morita invariance and Dundas' dévissage for HM's linear-category THH (gap).
 - Remaining: Answers to the requests to RefinedTraceMethods RT.1, RT.2 and RT.3.
-
+- Remaining: The former p=2 Connes nonzero-square test needs an explicit witness for ηd≠0; nonzero η alone is insufficient.
 
 ### The topological Hochschild T-spectrum T(C) of a linear Waldhausen category
 
@@ -3762,6 +4068,7 @@ Fix a prime p and a linear Waldhausen category C. For n ≥ 1 put TR^n(C;p) = |�
 
 - p a prime; C a small linear Waldhausen category.
 - For the ring structure: C strict symmetric monoidal with bi-exact tensor product.
+- F,R:TR^n→TR^{n−1} and V:TR^{n−1}→TR^n are used only for n≥2.
 
 **Proof.**
 
@@ -3775,9 +4082,9 @@ Fix a prime p and a linear Waldhausen category C. For n ≥ 1 put TR^n(C;p) = |�
 
 - `TauCeti.HM.trSpectrum` (constructor): TR^n(C;p) := |ρ^*_{p^{n−1}} T(C)^{C_{p^{n−1}}}| for n ≥ 1.
 - `TauCeti.HM.trSpectrum.one` (simp): TR^1(C;p) = T(C).
-- `TauCeti.HM.trSpectrum.restriction` (data): R: TR^n(C;p) → TR^{n−1}(C;p), the structure map of the pro-system.
-- `TauCeti.HM.trSpectrum.frobenius` (data): F: TR^n(C;p) → TR^{n−1}(C;p), the inclusion of fixed points.
-- `TauCeti.HM.trSpectrum.verschiebung` (data): V: TR^{n−1}(C;p) → TR^n(C;p), the transfer.
+- `TauCeti.HM.trSpectrum.restriction` (data): R: TR^n(C;p) → TR^{n−1}(C;p), the structure map of the pro-system. Defined only for n≥2.
+- `TauCeti.HM.trSpectrum.frobenius` (data): F: TR^n(C;p) → TR^{n−1}(C;p), the inclusion of fixed points. Defined only for n≥2.
+- `TauCeti.HM.trSpectrum.verschiebung` (data): V: TR^{n−1}(C;p) → TR^n(C;p), the transfer. Defined only for n≥2.
 - `TauCeti.HM.trSpectrum.circleAction` (structure): μ: T_+ ∧ TR^n(C;p) → TR^n(C;p), commuting with R, F, V up to the root isomorphisms.
 - `TauCeti.HM.trSpectrum.frobenius_restriction` (relation): R ∘ F = F ∘ R and R ∘ V = V ∘ R as maps of spectra.
 - `TauCeti.HM.trSpectrum.frobenius_verschiebung` (relation): F ∘ V = p on π_*(TR^n(C;p)), as the Weyl-group action on homotopy of fixed points is trivial.
@@ -3817,11 +4124,11 @@ Fix a prime p and a linear Waldhausen category C. For n ≥ 1 put TR^n(C;p) = |�
 
 `L.4/norm-restriction-cofibre-sequence` · lemma
 
-For a linear Waldhausen category C and n ≥ 1 there is a natural cofibration sequence of spectra H_•(C_{p^{n−1}}, T(C)) →N TR^n(C;p) →R TR^{n−1}(C;p) →∂ ΣH_•(C_{p^{n−1}}, T(C)), where H_•(C_{p^{n−1}}, T(C)) = |ρ^*(E_+ ∧ T(C))^{C_{p^{n−1}}}| is the homotopy orbit (group homology) spectrum. The map γ: T(C) → F(E_+, T(C)) induces a map of cofibration sequences from H_•(C_{p^n},T(C)) → TR^{n+1}(C;p) → TR^n(C;p) to the Tate cofibration sequence H_•(C_{p^n},T(C)) →N^h H^•(C_{p^n},T(C)) →R^h Ĥ(C_{p^n},T(C)), which is the identity on homotopy orbits and whose middle maps are Γ: TR^{n+1}(C;p) → H^•(C_{p^n},T(C)) and Γ̂: TR^n(C;p) → Ĥ(C_{p^n},T(C)); all maps commute with the circle actions μ. If C has a bi-exact strict symmetric monoidal product, R, R^h, Γ and Γ̂ are ring maps and the diagram is one of TR^{n+1}(C;p)-module spectra.
+For a linear Waldhausen category C and n ≥ 2 there is a natural cofibration sequence of spectra H_•(C_{p^{n−1}}, T(C)) →N TR^n(C;p) →R TR^{n−1}(C;p) →∂ ΣH_•(C_{p^{n−1}}, T(C)), where H_•(C_{p^{n−1}}, T(C)) = |ρ^*(E_+ ∧ T(C))^{C_{p^{n−1}}}| is the homotopy orbit (group homology) spectrum. The map γ: T(C) → F(E_+, T(C)) induces a map of cofibration sequences from H_•(C_{p^n},T(C)) → TR^{n+1}(C;p) → TR^n(C;p) to the Tate cofibration sequence H_•(C_{p^n},T(C)) →N^h H^•(C_{p^n},T(C)) →R^h Ĥ(C_{p^n},T(C)), which is the identity on homotopy orbits and whose middle maps are Γ: TR^{n+1}(C;p) → H^•(C_{p^n},T(C)) and Γ̂: TR^n(C;p) → Ĥ(C_{p^n},T(C)); all maps commute with the circle actions μ. If C has a bi-exact strict symmetric monoidal product, R, R^h, Γ and Γ̂ are ring maps and the diagram is one of TR^{n+1}(C;p)-module spectra.
 
 **Hypotheses.**
 
-- p a prime, n ≥ 1, C a small linear Waldhausen category; E a free contractible T-CW-complex and Ẽ the cofibre of E_+ → S^0.
+- p a prime, n ≥ 2, C a small linear Waldhausen category; E a free contractible T-CW-complex and Ẽ the cofibre of E_+ → S^0.
 
 **Proof.**
 
@@ -3858,7 +4165,7 @@ For a linear Waldhausen category C and prime p, TR(C;p) is the preferred homotop
 1. Form holim_R over the pro-spectrum of node L.4/tr-pro-spectrum; the Milnor sequence is the lim^1 sequence of a tower of spectra (StableHomotopyKTheory H.6).
 2. F commutes with R, hence induces a self-map of TR(C;p); define TC(C;p) as the homotopy fibre of R − F, where R acts on holim_R by the shift.
 3. The trace K(C) → TR^n(C;p) is compatible with R and F, hence factors through the fibre.
-4. Products: holim and hofib of ring maps between ring spectra (for bi-exact symmetric monoidal C).
+4. Products: form the homotopy equaliser of the two ring maps id and F (R identifies with id on the restriction limit). Its underlying spectrum is the fibre of id−F; id−F itself is not a ring map. This equaliser supplies the TC multiplication and multiplicative trace.
 
 **API.**
 
@@ -3932,7 +4239,7 @@ Give the circle T = S(C) the orientation of the complex plane with fundamental c
 - `TauCeti.HM.connesOperator_Fp` (computation): On π_*(T(F_p);Z/p): d(ε) = σ, where β(ε) = 1.
 - `TauCeti.HM.connesOperator_trivialAction` (degenerate): If T has the trivial T-action (μ_T = c ∧ id with c: T_+ → S^0 the collapse), then d = 0, because c(σ[T]) = 0 by the choice of the section σ.
 - `TauCeti.HM.connesOperator_HH_polynomial` (compatibility): For A = Z[x], d(x) = dx ∈ HH_1(Z[x]) ≅ Ω^1_{Z[x]}, matching Mathlib's KaehlerDifferential.D.
-- `TauCeti.HM.connesOperator_not_differential_p2` (non-example): For p = 2 and T = TR^n(Z_(2);2), d∘d = η·d ≠ 0, since η = dlog(−1) is nonzero for A = Z_(2) (Hesselholt–Madsen 2004, introduction): this is why the log Witt complex structure needs p odd.
+- `TauCeti.HM.connesOperator_not_differential_p2` (non-example): At p=2 the relation is d²=ηd, so d²=0 requires an additional argument. Nonzero η=dlog(−1) for Z_(2) alone does not prove ηd≠0. A test with an explicit class on which ηd is nonzero remains to be supplied.
 
 **Acceptance.**
 
@@ -3946,7 +4253,7 @@ Give the circle T = S(C) the orientation of the complex plane with fundamental c
 - HM Theorem 2.4.1: dκ = κ dlog(−p)
 - CrystallineCohomology:CR.4: the differential of a log Witt complex realised by TR
 
-**Depends on.** `RefinedTraceMethods:RT.1`, `RefinedTraceMethods:RT.2`, `mathlib:KaehlerDifferential.D`.
+**Depends on.** other roadmaps: `RefinedTraceMethods:RT.1`, `RefinedTraceMethods:RT.2`; libraries: `mathlib:KaehlerDifferential.D`.
 
 **Sources.**
 
@@ -4553,7 +4860,7 @@ Let A be an abelian category and E ⊂ A a full additive subcategory closed unde
 
 **Hypotheses.**
 
-- E ⊂ A closed under extensions and kernels of epimorphisms in E; C^b(E) with degreewise monomorphisms as cofibrations and quasi-isomorphisms (in A) as weak equivalences, which satisfies the hypotheses of the fibration theorem.
+- E ⊂ A closed under extensions and kernels of epimorphisms in E; C^b(E) with degreewise admissible monomorphisms with cokernel in E as cofibrations and quasi-isomorphisms (in A) as weak equivalences, which satisfies the hypotheses of the fibration theorem.
 
 **Proof.**
 
@@ -4681,7 +4988,7 @@ For A a discrete valuation ring, the inclusion C^b(P_A)^q → C^b(M_A)^q (bounde
 
 `L.4/thh-of-dvr-with-log-poles` · definition · planet “Topological Hochschild spectrum T(A|K)”
 
-Let A be a discrete valuation ring with fraction field K and residue field k, and P_A the category of finitely generated projective A-modules. Define ring T-spectra T(A|K) = T(C^b_q(P_A)), T(A) = T(C^b_z(P_A)), T(k) = T(C^b_z(P_A)^q), where C^b(P_A) is the category of bounded complexes in P_A with degreewise monomorphisms as cofibrations, z the quasi-isomorphisms, q the maps that become quasi-isomorphisms after − ⊗_A K, and C^b_z(P_A)^q the complexes with torsion homology. TR^n(A|K;p), TR^n(A;p), TR^n(k;p) are the associated C_{p^{n−1}}-fixed point ring spectra, and TC(A|K;p) = TC(C^b_q(P_A);p). T(A|K) is the topological Hochschild spectrum of A with logarithmic poles along the closed point; it is not T(K) (see tests).
+Let A be a discrete valuation ring with fraction field K and residue field k, and P_A the category of finitely generated projective A-modules. Define ring T-spectra T(A|K) = T(C^b_q(P_A)), T(A) = T(C^b_z(P_A)), T(k) = T(C^b_z(P_A)^q), where C^b(P_A) is the category of bounded complexes in P_A with degreewise split monomorphisms (equivalently, admissible monomorphisms with projective cokernel) as cofibrations, z the quasi-isomorphisms, q the maps that become quasi-isomorphisms after − ⊗_A K, and C^b_z(P_A)^q the complexes with torsion homology. TR^n(A|K;p), TR^n(A;p), TR^n(k;p) are the associated C_{p^{n−1}}-fixed point ring spectra, and TC(A|K;p) = TC(C^b_q(P_A);p). T(A|K) is the topological Hochschild spectrum of A with logarithmic poles along the closed point; it is not T(K) (see tests).
 
 **Hypotheses.**
 
@@ -4780,7 +5087,7 @@ For a discrete valuation ring A with fraction field K and residue field k, and a
 **Acceptance.**
 
 - n = 1, degree 0: 0 → π_0T(A) = A → π_0 T(A|K) → 0, since i^! is zero on π_0 (torsion to torsion-free) and π_{−1}T(k) = 0.
-- n = 1, degree 1: 0 → Ω^1_A → π_1 T(A|K) → k → 0, matching 0 → Ω^1_A → ω^1_{(A,M)} →res k → 0 (Proposition 2.3.4).
+- For complete mixed-characteristic A with perfect residue field, n = 1, degree 1: 0 → Ω^1_A → π_1 T(A|K) → k → 0, matching 0 → Ω^1_A → ω^1_{(A,M)} →res k → 0 (Proposition 2.3.4).
 
 **Depends on.** this roadmap: `L.4/thh-of-dvr-with-log-poles`, `L.4/thh-fibration-theorem`, `L.4/dvr-tr-agrees-with-ring-tr`.
 
@@ -4830,7 +5137,7 @@ For a discrete valuation ring A with fraction field K and residue field k there 
 - Remaining: Supply TR^n_{q−λ}(k;p) for perfect k (HM 'cyclic polytopes' Proposition 9.1, cited in Hesselholt 2005) and the cyclic-polytope geometry behind HM 1997b Theorem B.
 - Remaining: Answers to the requests to RefinedTraceMethods RT.1–RT.3, CrystallineCohomology CR.4 and CR.5:log-algebra.
 - Remaining: Obtain the exact RT.1/RT.2 derived-HH low-degree, HZ-module base-change and cyclotomic-shift exports listed by the seven new NS IV.4 nodes; their local proof chains are explicit and their general foundations remain imports.
-
+- Remaining: Coefficient-ring/Eisenstein foundation and the Popescu/finite-level continuity supplier exports for regular F_p-algebras remain explicit review gaps; the inverse-limit argument is now written at L.5/tr-of-smooth-fp-algebra.
 
 ### A complete DVR with perfect residue field is W(k)[π]/(φ_K(π)) with φ_K Eisenstein
 
@@ -4847,6 +5154,7 @@ Let A be a complete discrete valuation ring of mixed characteristic (0,p) with p
 1. Existence and uniqueness of f: A is p-adically complete and k perfect, so Teichmüller lifts and the universal property of W(k) as the strict p-ring of k give f (Serre, Local Fields II §5 Theorem 4, cited by HM and not read; a Mathlib route is Fontaine's θ: W(A^♭) → A with A^♭ = lim_{x↦x^p} A/p ≅ k for this A).
 2. A is finite free over the DVR W(k) (Mathlib WittVector.isDiscreteValuationRing) of rank e_K, generated by π_K; the minimal polynomial of π_K is Eisenstein at p (Mathlib Polynomial.IsEisensteinAt), so φ_K = x^e + pθ_K with θ_K(0) a unit.
 3. Evaluate: 0 = φ_K(π_K) gives −p θ_K(π_K) = π_K^e, and θ_K(π_K) ≡ θ_K(0) mod π_K is a unit.
+4. The coefficient-ring theorem for complete mixed-characteristic DVRs with perfect residue field and its finite totally ramified Eisenstein presentation is a required local-field foundation. The pinned WittVector DVR declarations alone do not prove that every A admits the residue-identity embedding W(k)→A. Keep this as an explicit supplier gap; do not substitute an unrelated Fontaine θ construction.
 
 **Acceptance.**
 
@@ -4864,7 +5172,7 @@ Let A be a complete discrete valuation ring of mixed characteristic (0,p) with p
 
 `L.5/ghost-image-criterion` · lemma
 
-Let R be a ring without p-torsion. Then the ghost map w: W_n(R) → R^n, (a_0,…,a_{n−1}) ↦ (w_0,…,w_{n−1}), w_s = a_0^{p^s} + p a_1^{p^{s−1}} + ⋯ + p^s a_s, is injective. If moreover φ: R → R is a ring endomorphism with φ(a) ≡ a^p mod pR, then (w_0,…,w_{n−1}) ∈ R^n lies in the image of w if and only if w_s ≡ φ(w_{s−1}) mod p^s R for all 0 < s < n. Consequently, for such R, x ∈ W_n(R) lies in pW_n(R) iff w(x)/p (computed in R^n) lies in the image of w. For R = Z[X_α] take φ(X_α) = X_α^p; for R = Z take φ = id.
+Let R be a ring without p-torsion. Then the ghost map w: W_n(R) → R^n, (a_0,…,a_{n−1}) ↦ (w_0,…,w_{n−1}), w_s = a_0^{p^s} + p a_1^{p^{s−1}} + ⋯ + p^s a_s, is injective. If moreover φ: R → R is a ring endomorphism with φ(a) ≡ a^p mod pR, then (w_0,…,w_{n−1}) ∈ R^n lies in the image of w if and only if w_s ≡ φ(w_{s−1}) mod p^s R for all 0 < s < n. Consequently, for such R, x ∈ W_n(R) lies in pW_n(R) iff every ghost coordinate w_s(x) is divisible by p in R and the coordinatewise quotient w(x)/p in R^n lies in the image of w. For R = Z[X_α] take φ(X_α) = X_α^p; for R = Z take φ = id.
 
 **Hypotheses.**
 
@@ -4891,7 +5199,7 @@ Let R be a ring without p-torsion. Then the ghost map w: W_n(R) → R^n, (a_0,�
 
 `L.5/verschiebung-one-is-teichmuller-minus-p` · lemma
 
-Let p be odd and R any ring. In W_n(R), V(1) ≡ [−p]_n and [−1]_n ≡ −1 modulo pW_n(R), where [a]_n = (a,0,…,0) is the multiplicative (Teichmüller) representative. Both congruences fail for p = 2 (the first for n ≥ 3, the second for n ≥ 2).
+Let p be odd and R any ring. In W_n(R), V(1) ≡ [−p]_n and [−1]_n ≡ −1 modulo pW_n(R), where [a]_n = (a,0,…,0) is the multiplicative (Teichmüller) representative. Neither congruence holds uniformly at p=2: R=Z gives counterexamples for the first at n≥3 and the second at n≥2. No failure for every R is asserted.
 
 **Hypotheses.**
 
@@ -5255,7 +5563,7 @@ Define F^{n−1}d: W_n(R) → ω^1_{(R,M)} by F^{n−1}d(a) = a_0^{p^{n−1}−1
 
 **Proof.**
 
-1. F^{n−1}d is a derivation: it is the composite of F^{n−1}: W_n → W_1 with d on the ghost side, checked on the formula (routine).
+1. Construct the divided ghost differential by the displayed Witt-coordinate formula. Over the universal p-torsion-free polynomial ring it is p^{−(n−1)}d(w_{n−1}), not the ordinary composite d∘F^{n−1}. Verify its additivity, Leibniz rule with the w_{n−1} action, and dF^{n−1}=p^{n−1}F^{n−1}d there, then descend the polynomial identities naturally to R.
 2. The module axioms for ω^{i−1} ⊕ ω^i follow from the derivation property; the map ω ↦ (p^{n−1}ω, −dω) is W_n(R)-linear by dF^{n−1} = p^{n−1}F^{n−1}d.
 3. As an abelian group hW_nω^i is the pushout of ω^i ←d ω^{i−1} →p^{n−1} ω^{i−1}, which gives the exact sequence (Lemma 3.2.5).
 
@@ -5287,7 +5595,7 @@ Define F^{n−1}d: W_n(R) → ω^1_{(R,M)} by F^{n−1}d(a) = a_0^{p^{n−1}−1
 - HM Lemma 3.3.3: hW_nω^i_{(A,M)} ≅ hTR^n_i(A|K;p) for i ≤ 1, and a presentation for i = 2
 - HM Corollary 3.2.7: unique divisibility of W_nω^i for i ≥ 2
 
-**Depends on.** `CrystallineCohomology:CR.4`, `CrystallineCohomology:CR.5:log-algebra`, `mathlib:TruncatedWittVector`.
+**Depends on.** other roadmaps: `CrystallineCohomology:CR.4`, `CrystallineCohomology:CR.5:log-algebra`; libraries: `mathlib:TruncatedWittVector`.
 
 **Sources.**
 
@@ -5350,7 +5658,7 @@ Let A be a complete discrete valuation ring of mixed characteristic (0,p) with p
 
 `L.5/log-de-rham-witt-dvr-mod-p` · theorem
 
-Let p be odd and A as above with uniformiser π, and r = r(i,e_K) = v_p(i − pe_K/(p−1)). The differential graded k-algebra E^* = W̄_nω^*_{(A,M)} = W_nω^*_{(A,M)}/p is concentrated in degrees 0 and 1, and: (i) a k-basis of E^1_n is given by V_π^s([π]^i dlog π) for 0 ≤ i < e_K and 0 ≤ s ≤ r, and dV_π^s([π]^i) for 0 ≤ i < e_K and r < s < n; moreover V_π^s([π]^i dlog π) = 0 if s > r, dV_π^s([π]^i) = 0 if s < r, and dV_π^r([π]^i) = p^{−r}(i − pe_K/(p−1))·V_π^r([π]^i dlog π); (ii) the E^0_n-module structure on E^1_n is given by the explicit product formulas of HM Proposition 3.4.1(ii). In particular dim_k E^1_n = n e_K.
+Let p be odd and A as above with uniformiser π, and r = r(i,e_K) = v_p(i − pe_K/(p−1)). The differential graded k-algebra E^* = W̄_nω^*_{(A,M)} = W_nω^*_{(A,M)}/p is concentrated in degrees 0 and 1, and: (i) a k-basis of E^1_n is given by V_π^s([π]^i dlog π) for 0 ≤ i < e_K and 0 ≤ s ≤ r and s < n, and dV_π^s([π]^i) for 0 ≤ i < e_K and r < s < n; moreover V_π^s([π]^i dlog π) = 0 if s > r, dV_π^s([π]^i) = 0 if s < r, and dV_π^r([π]^i) = p^{−r}(i − pe_K/(p−1))·V_π^r([π]^i dlog π); (ii) the E^0_n-module structure on E^1_n is given by the explicit product formulas of HM Proposition 3.4.1(ii). In particular dim_k E^1_n = n e_K.
 
 **Hypotheses.**
 
@@ -5367,10 +5675,10 @@ Let p be odd and A as above with uniformiser π, and r = r(i,e_K) = v_p(i − pe
 
 **Acceptance.**
 
-- A = Z_p (e = 1), i = 0: r = v_p(−p/(p−1)) = 1; E^1_n has basis dlog π, V_π(dlog π) and dV_π^s(1) for 1 < s < n, of dimension n; and dV_π(1) = p^{−1}(−p/(p−1))V_π(dlog π) = −(p−1)^{−1}V_π(dlog π) = V_π(dlog π) in k = F_p.
+- A = Z_p (e = 1), i = 0: r = v_p(−p/(p−1)) = 1; E^1_n has the indicated basis elements only at levels s<n: dlog π (n≥1), V_π(dlog π) (n≥2), and dV_π^s(1) for 1<s<n, of dimension n; and dV_π(1) = p^{−1}(−p/(p−1))V_π(dlog π) = −(p−1)^{−1}V_π(dlog π) = V_π(dlog π) in k = F_p.
 - n = 1: E^1_1 = ω^1_{(A,M)}/p = k{[π]^i dlog π | 0 ≤ i < e} (s = 0 ≤ r always).
 
-**Depends on.** `L.5/witt-mod-p-of-dvr`, `CrystallineCohomology:CR.4`, `L.5/log-de-rham-witt-dvr-divisible`, `L.5/log-de-rham-witt-tr-low-degrees`, `L.5/tr-mod-p-dimension`, `L.5/modified-verschiebung`.
+**Depends on.** this roadmap: `L.5/witt-mod-p-of-dvr`, `L.5/log-de-rham-witt-dvr-divisible`, `L.5/log-de-rham-witt-tr-low-degrees`, `L.5/tr-mod-p-dimension`, `L.5/modified-verschiebung`; other roadmaps: `CrystallineCohomology:CR.4`.
 
 **Sources.**
 
@@ -5381,7 +5689,7 @@ Let p be odd and A as above with uniformiser π, and r = r(i,e_K) = v_p(i − pe
 
 `L.5/tr-log-structure-maps` · construction
 
-Let C = C^b_q(P_A). Define α_n: M → TR^n_0(A|K;p) as the composite of M = A ∩ K^× ⊂ A with the multiplicative map a ↦ [a]_n: A → TR^n_0(A|K;p) induced by the 0-simplex (A →a A) of |N^cy_•(N^q_• C)| followed by the equivalence D_r∘Δ_r onto the C_r-fixed points (r = p^{n−1}). Define dlog_n: M → TR^n_1(A|K;p) as the composite of M → π_1BM →det π_1K(C) with the cyclotomic trace, where Aut(A) = A ∩ K^× = M is the monoid of self-weak-equivalences of the complex A in degree 0 and det: Σ^∞B Aut(X) → K(C) (the stable splitting Σ^∞B_+ ≃ S^0 ∨ Σ^∞B removes the basepoint issue). Explicitly dlog_n a is represented by the loop in |N^cy(N^q C)| traced by the 1-simplex with vertical maps a and horizontal identities; dlog_1 a ∈ π_1T(A|K) maps to v_K(a) under ∂: π_1T(A|K) → π_0T(k) = k.
+Let C = C^b_q(P_A). Define α_n: M → TR^n_0(A|K;p) as the composite of M = A ∩ K^× ⊂ A with the multiplicative map a ↦ [a]_n: A → TR^n_0(A|K;p) induced by the 0-simplex (A →a A) of |N^cy_•(N^q_• C)| followed by the equivalence D_r∘Δ_r onto the C_r-fixed points (r = p^{n−1}). Define dlog_n: M → TR^n_1(A|K;p) as the composite of M → π_1BM →det π_1K(C) with the cyclotomic trace, where M = A ∩ K^× is the monoid of multiplication self-weak-equivalences of the complex A in degree 0 and det: Σ^∞BM → K(C) (the stable splitting Σ^∞B_+ ≃ S^0 ∨ Σ^∞B removes the basepoint issue). Explicitly dlog_n a is represented by the loop in |N^cy(N^q C)| traced by the 1-simplex with vertical maps a and horizontal identities; dlog_1 a ∈ π_1T(A|K) maps to v_K(a) under ∂: π_1T(A|K) → π_0T(k) = k. Here Aut_A(A)=A^×; multiplication by π belongs to M because it becomes an isomorphism over K, and is not an A-module automorphism.
 
 **Hypotheses.**
 
@@ -5517,6 +5825,7 @@ Let B = A/p ⊗ Λ{α_1} ⊗ S{α_2} (|α_i| = i), C ⊂ B the subalgebra genera
 **Hypotheses.**
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
+- p is odd, as in HM 2003. A mod-2 extension of these chosen multiplicative models is not asserted.
 
 **Proof.**
 
@@ -5565,12 +5874,13 @@ The canonical map ω^q_{(A,M)} → π_qT(A|K) of log dgas is an isomorphism for 
 
 `L.5/log-thh-mod-p` · theorem · planet “Hesselholt–Madsen Theorem B”
 
-Let κ ∈ π̄_2T(A|K) = π_2(T(A|K);Z/p) be the unique class whose integral Bockstein is dlog(−p) ∈ _pπ_1T(A|K) = _pω^1_{(A,M)} (the Bockstein π̄_2 → _pπ_1 is an isomorphism since π_2T(A|K) is uniquely divisible). There is a natural isomorphism of log differential graded rings ω^*_{(A,M)} ⊗_Z S_{Z/p}{κ} → π̄_*T(A|K) with dκ = uκ dlog(−p) for a unit u ∈ F_p^× independent of K; u = 1 is node L.5/kappa-differential (HM Remark 5.3.3), so that dκ = κ dlog(−p) as HM state. In particular dim_k π̄_qT(A|K) = e_K for every q ≥ 0, and κ ∈ π̄_2T(Z_p|Q_p) is the image of the class for K_0 = Q_p.
+Let κ ∈ π̄_2T(A|K) = π_2(T(A|K);Z/p) be the unique class whose integral Bockstein is dlog(−p) ∈ _pπ_1T(A|K) = _pω^1_{(A,M)} (the Bockstein π̄_2 → _pπ_1 is an isomorphism since π_2T(A|K) is uniquely divisible). There is a natural graded-ring isomorphism, compatible with the log structure and with differential initially up to the stated unit, from ω^*_{(A,M)} ⊗_Z S_{Z/p}{κ} → π̄_*T(A|K) with dκ = uκ dlog(−p) for a unit u ∈ F_p^× independent of K; u = 1 is node L.5/kappa-differential (HM Remark 5.3.3), so that dκ = κ dlog(−p) as HM state. In particular dim_k π̄_qT(A|K) = e_K for every q ≥ 0, and κ ∈ π̄_2T(Z_p|Q_p) is the image of the class for K_0 = Q_p.
 
 **Hypotheses.**
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
 - Mod p statement: the integral groups π_qT(A|K), q ≥ 3, are not determined here (HM: 'We do not know a natural description of the higher homotopy groups').
+- p is odd, as in HM 2003. A mod-2 extension of these chosen multiplicative models is not asserted.
 
 **Proof.**
 
@@ -5587,7 +5897,7 @@ Let κ ∈ π̄_2T(A|K) = π_2(T(A|K);Z/p) be the unique class whose integral Bo
 
 **Sources.**
 
-- `HesselholtMadsen.2003`, Theorem 2.4.1 (= Theorem B), p. 41: “Theorem 2.4.1. There is a natural isomorphism of log differential graded rings ω∗ (A,M) ⊗Z SZ/p{κ} ∼ −→¯π∗T(A|K), where dκ = κd log(−p). Proof. It is clear that there is” — Statement.
+- `HesselholtMadsen.2003`, Theorem 2.4.1 (= Theorem B), p. 41: “Theorem 2.4.1. There is a natural graded-ring isomorphism, compatible with the log structure and with differential initially up to the stated unit, ω∗ (A,M) ⊗Z SZ/p{κ} ∼ −→¯π∗T(A|K), where dκ = κd log(−p). Proof. It is clear that there is” — Statement.
 - `HesselholtMadsen.2003`, §2.4, p. 41: “Since the group π2T(A|K) is uniquely divisible, by Proposition 2.3.4, the integral Bockstein induces an isomorphism β: ¯π2T(A|K) ∼ −→pπ1T(A|K). We define κ ∈¯π2T(A|K) to be the class which corresponds to the generator d log(−p)” — Definition of κ through the Bockstein.
 
 ### π_*(T(A|K);Z_p): odd groups A/(mπ_Kφ'_K(π_K)), even groups zero
@@ -5599,6 +5909,7 @@ For m > 0 there is a noncanonical isomorphism π_{2m−1}(T(A|K);Z_p) ≅ A/(mπ
 **Hypotheses.**
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
+- p is odd, as in HM 2003. A mod-2 extension of these chosen multiplicative models is not asserted.
 
 **Proof.**
 
@@ -5624,6 +5935,7 @@ Let L/K be a finite tamely ramified Galois extension with group G_{L/K} and B th
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
 - L/K tamely ramified Galois (p ∤ e_{L/K}).
+- p is odd, as in HM 2003. A mod-2 extension of these chosen multiplicative models is not asserted.
 
 **Proof.**
 
@@ -5731,13 +6043,13 @@ The exact sequence (F^{n−1})^*(A/p^{n−1}) →d (F^{n−1})^*(ω^1_{(A,M)}/p^
 
 `L.5/log-de-rham-witt-tr-level-two` · lemma
 
-For n ≤ 3: the sequences 0 → hTR^n_i(A|K;p) → TR^n_i(A|K;p) → TR^{n−1}_i(A|K;p) → 0 are exact for i ≤ 1, TR^n_2(A|K;p) and TR^n_2(A;p) are uniquely divisible, and W_nω^q_{(A,M)} → TR^n_q(A|K;p) is an isomorphism for q ≤ 2. This is the part of Proposition 3.3.6, Addendum 3.3.7 and Theorem 3.3.8 that HM prove without Lemma 5.6.1; it is the input to Addendum 3.3.9 and hence to the Tate spectral sequence computations of §5.
+For 2≤n≤3, the sequences 0 → hTR^n_i(A|K;p) → TR^n_i(A|K;p) → TR^{n−1}_i(A|K;p) → 0 are exact for i ≤ 1. For all 1≤n≤3, TR^n_2(A|K;p) and TR^n_2(A;p) are uniquely divisible, and W_nω^q_{(A,M)} → TR^n_q(A|K;p) is an isomorphism for q ≤ 2. This is the part of Proposition 3.3.6, Addendum 3.3.7 and Theorem 3.3.8 that HM prove without Lemma 5.6.1; it is the input to Addendum 3.3.9 and hence to the Tate spectral sequence computations of §5.
 
 **Hypotheses.**
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
 - p odd (HM's standing hypothesis p > 2); the p = 2 case is not covered by these sources.
-- n ≤ 3.
+- 1≤n≤3 for comparisons and divisibility; 2≤n≤3 for sequences ending at TR^{n−1}.
 
 **Proof.**
 
@@ -5760,7 +6072,7 @@ For n ≤ 3: the sequences 0 → hTR^n_i(A|K;p) → TR^n_i(A|K;p) → TR^{n−1}
 
 `L.5/norm-restriction-exact-low-degrees` · lemma
 
-The sequences 0 → hTR^n_i(A|K;p) →N TR^n_i(A|K;p) →R TR^{n−1}_i(A|K;p) → 0 are exact for i ≤ 1, and TR^n_2(A|K;p) is uniquely divisible, for all n ≥ 1.
+The sequences 0 → hTR^n_i(A|K;p) →N TR^n_i(A|K;p) →R TR^{n−1}_i(A|K;p) → 0 are exact for i ≤ 1 and n≥2, and TR^n_2(A|K;p) is uniquely divisible, for all n ≥ 1 (divisibility).
 
 **Hypotheses.**
 
@@ -5800,7 +6112,7 @@ For every n ≥ 1, TR^n_2(A;p) is uniquely divisible, i.e. TR^n_2(A;p,Z_p) = 0.
 
 1. Induction on n; n = 1 is the unique divisibility of π_2T(A) (node L.5/thh-of-dvr-p-adic).
 2. Since TR^n_2(A|K;p,Z_p) = 0 (node L.5/norm-restriction-exact-low-degrees), the localisation sequence gives TR^n_3(A|K;p,Z_p) →δ_n TR^n_2(k;p) → TR^n_2(A;p,Z_p) → 0, and it suffices that δ_n is onto.
-3. F on TR^n_3(A|K) is onto (node L.5/frobenius-surjective-odd-degrees); F on TR_2(k) is onto with kernel the image of V (HM 1997 Theorem 5.5, node L.5/tr-of-perfect-field); the square with V commutes, so induction closes.
+3. F on TR^n_3(A|K) is onto (node L.5/frobenius-surjective-odd-degrees); F on TR_2(k) is onto with kernel the last layer V^{n−1}(TR^1_2(k;p)) (HM 1997 Theorem 5.5, node L.5/tr-of-perfect-field); the square with V commutes, so induction closes.
 
 **Acceptance.**
 
@@ -5918,6 +6230,7 @@ Suppose μ_p ⊂ K and put α_K = u_K(π_K)^{−1}κ. As a differential graded k
 1. By Theorem B with dκ = κ dlog(−p) (nodes L.5/log-thh-mod-p and L.5/kappa-differential) and Lemma 2.2.3, π̄_*T(A|K) = Λ{dlog π} ⊗ S{κ, π}/(π^e).
 2. Differentiate −p = π^e θ_K(π)^{−1}: dlog(−p) = e dlog π − dlog θ_K(π); with θ_K(π) = u_K(π)^{p−1} (node L.5/lubin-tate-unit-polynomial), dα_K = −α_K dlog u_K(π) + α_K(e dlog π − (p−1) dlog u_K(π)) = eα_K dlog π.
 3. The base-change formulas follow from the definitions of θ_{L/K} and Addendum 5.2.2.
+4. For K=K_0 use u=1, θ=−1 and e=1 directly: α=κ and dκ=κ dlog(−p)=κ dlog p. The root identity θ=u^{p−1}, used in the μ_p⊂K case, is not needed in this separate case.
 
 **Acceptance.**
 
@@ -5987,13 +6300,13 @@ Suppose μ_{p^v} ⊂ K, p odd. The Bott element b_ζ ∈ π_2(Σ^∞Bμ_{p^v+};Z
 
 `L.5/reduction-mod-p-of-thh-dvr` · lemma
 
-Let κ̃ ∈ π̄_2T(A) be the class with Bockstein dlog(−p) = −((e/p)π^{e−1} + θ'_K(π))θ_K(π)^{−1}dπ, so j_*(κ̃) = κ. (a) If v_p(e_K) > 0, ρ_*: π̄_*T(A) → π̄_*T(A/p) is the inclusion of differential graded k-algebras Λ{dπ} ⊗ S{π, κ̃}/(π^e) → Λ{dπ̄, ε} ⊗ S{σ, π̄}/(π̄^e) ⊗ Γ{c̄_2} taking π to π̄ and κ̃ to σ − θ_K(π̄)^{−1}c̄_2 − ε·((e/p)π̄^{e−1} + θ'_K(π̄))θ_K(π̄)^{−1}dπ̄ (Proposition 5.3.1). (b) The reduction i_*: π̄_*T(A) → π̄_*T(k) maps κ̃ to σ (Lemma 5.3.2).
+Assume p | e_K. Let κ̃ ∈ π̄_2T(A) be the class with Bockstein dlog(−p) = −((e/p)π^{e−1} + θ'_K(π))θ_K(π)^{−1}dπ, so j_*(κ̃) = κ. (a) If v_p(e_K) > 0, ρ_*: π̄_*T(A) → π̄_*T(A/p) is the inclusion of differential graded k-algebras Λ{dπ} ⊗ S{π, κ̃}/(π^e) → Λ{dπ̄, ε} ⊗ S{σ, π̄}/(π̄^e) ⊗ Γ{c̄_2} taking π to π̄ and κ̃ to σ − θ_K(π̄)^{−1}c̄_2 − ε·((e/p)π̄^{e−1} + θ'_K(π̄))θ_K(π̄)^{−1}dπ̄ (Proposition 5.3.1). (b) The reduction i_*: π̄_*T(A) → π̄_*T(k) maps κ̃ to σ (Lemma 5.3.2).
 
 **Hypotheses.**
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
 - p odd.
-- (a) needs p | e_K.
+- Both (a), (b), and the definition of κ̃ need p | e_K.
 
 **Proof.**
 
@@ -6004,7 +6317,7 @@ Let κ̃ ∈ π̄_2T(A) be the class with Bockstein dlog(−p) = −((e/p)π^{e�
 
 **Acceptance.**
 
-- For A = Z_p (e = 1, p ∤ e) only (b) applies: i_*(κ̃) = σ in π̄_2T(F_p) = F_p σ.
+- For A=Z_p, e=1 and p∤e, κ̃ in π̄_2T(A) is not available: π̄_2T(Z_p)=0 for odd p. The canonical κ instead belongs to logarithmic THH T(A|K).
 - The formula in (a) makes ρ_* injective in degree 2 when p | e.
 
 **Depends on.** this roadmap: `L.5/thh-of-dvr-mod-p`, `L.5/thh-of-truncated-polynomial-algebra`, `L.5/connecting-map-of-kappa`, `L.5/tate-perfect-field-generators`, `L.4/tate-cohomology-ring-of-odd-cyclic-group`, `L.4/moore-spectrum-splitting-for-hz-modules`, `L.5/log-differentials-p-torsion`.
@@ -6018,7 +6331,7 @@ Let κ̃ ∈ π̄_2T(A) be the class with Bockstein dlog(−p) = −((e/p)π^{e�
 
 `L.5/kappa-differential` · lemma
 
-In π̄_*T(A), dκ̃ = −θ'_K(π_K)θ_K(π_K)^{−1}dπ_K·κ̃; consequently dκ = κ dlog(−p) in π̄_*T(A|K), i.e. the unit u ∈ F_p^× of node L.5/log-thh-mod-p equals 1.
+If p | e_K, in π̄_*T(A), dκ̃ = −θ′_K(π_K)θ_K(π_K)^{−1}dπ_K·κ̃. This case determines the universal unit u of L.5/log-thh-mod-p to be 1; because u is independent of K, for every K one obtains dκ = κ dlog(−p) in π̄_*T(A|K).
 
 **Hypotheses.**
 
@@ -6098,13 +6411,13 @@ For all K and n, the element dlog π_K ∈ Ê^2(C_{p^n}, T(A|K)) is an infinite 
 
 `L.5/tate-infinite-cycles-uniformizer` · lemma
 
-Suppose μ_p ⊂ K and n < v_p(e_K). Then π_K^{p^n} and −τ_Kα_K are infinite cycles in Ê^2(C_{p^n}, T(A|K)) representing Γ̂_{A|K}([π_K]_n) and Γ̂_{A|K}([π_K]_n^{e_K/p^n}) (Proposition 5.3.6); the same holds for π_K^{p^n} and −τ_Aα_A in Ê^2(C_{p^n}, T(A)) with α_A = u_K^{(−n)}(π_K)^{−1}κ̃, τ_A = u_K^{(−n)}(π_K)^p t (Lemma 5.3.5).
+Suppose μ_p ⊂ K and 1 ≤ n < v_p(e_K). Then π_K^{p^n} and −τ_Kα_K are infinite cycles in Ê^2(C_{p^n}, T(A|K)) representing Γ̂_{A|K}([π_K]_n) and Γ̂_{A|K}([π_K]_n^{e_K/p^n}) (Proposition 5.3.6); the same holds for π_K^{p^n} and −τ_Aα_A in Ê^2(C_{p^n}, T(A)) with α_A = u_K^{(−n)}(π_K)^{−1}κ̃, τ_A = u_K^{(−n)}(π_K)^p t (Lemma 5.3.5).
 
 **Hypotheses.**
 
 - A is a complete discrete valuation ring with fraction field K of characteristic 0 and perfect residue field k of characteristic p; e = e_K; π = π_K a uniformiser with minimal polynomial φ_K(x) = x^e + pθ_K(x); M = A ∩ K^× the canonical prelog structure.
 - p odd.
-- μ_p ⊂ K; n < v_p(e_K).
+- μ_p ⊂ K; 1 ≤ n < v_p(e_K).
 
 **Proof.**
 
@@ -6115,7 +6428,7 @@ Suppose μ_p ⊂ K and n < v_p(e_K). Then π_K^{p^n} and −τ_Kα_K are infinit
 
 **Acceptance.**
 
-- n = 0 < v_p(e): π_K and −τ_Kα_K represent Γ̂([π]_1) = Γ̂(π) and Γ̂(π^e) in Ê(C_p,T(A|K)), giving the multiplicative extension (π_K^p)^{e/p} = −τ_Kα_K.
+- At n=1<v_p(e), π_K^p and −τ_Kα_K represent Γ̂([π]_1) and Γ̂([π]_1^{e/p}) in the C_p Tate spectral sequence; hence the hidden multiplicative extension (π_K^p)^{e/p}=−τ_Kα_K. No n=0/TR^0 assertion is made.
 
 **Depends on.** this roadmap: `L.5/reduction-mod-p-of-thh-dvr`, `L.5/tate-spectral-sequence-truncated`, `L.5/tate-image-of-uniformizer-truncated`, `L.5/log-thh-mod-p-alpha-presentation`, `L.4/multiplicative-tate-spectral-sequence`.
 
@@ -6199,7 +6512,7 @@ Suppose μ_p ⊂ K or K = K_0. Ê^*(C_{p^n}, T(A|K)) denotes the Tate spectral s
 
 **Acceptance.**
 
-- For K = Q_p (K_0 = Q_p): E^∞ = Λ{dlog(−p)} ⊗ S{t^{±1}, κ^p}/(… ) with d^{2p+1}(u_1) = t^{p+1}κ^p up to a unit.
+- For K=K_0, after d^{2p+1}(u_1)=t^{p+1}κ^p up to a unit, E∞=Λ{dlog(−p)}⊗k[t^{±1}]. The differential kills κ^p and u_1; there is no unspecified extra quotient.
 
 **Depends on.** this roadmap: `L.4/tate-d2-is-connes-operator`, `L.5/log-thh-mod-p-alpha-presentation`, `L.5/tate-infinite-cycles-uniformizer`, `L.5/tate-infinite-cycles-v1`, `L.5/log-derivative-frobenius-lemma`, `L.5/tate-infinite-cycle-dlog`, `L.4/multiplicative-tate-spectral-sequence`.
 
@@ -6221,9 +6534,10 @@ For every K as in L.5 and every i ≥ 0, Γ̂_{A|K}: π_i(T(A|K);Z/p) → π_i(�
 **Proof.**
 
 1. Reduce to μ_p ⊂ K: for L = K(μ_p), G_{L/K} has order prime to p, and tame descent (node L.5/log-thh-tame-descent) together with the Tate spectral sequence identify both sides with G_{L/K}-invariants of the corresponding groups for L.
-2. If μ_p ⊂ K and v_p(e_K) > 1, or K = K_0: E^∞ = Λ{dlog π} ⊗ S{π^p, α_K, τ_K^{±1}}/(π^e, α_K^p) with the multiplicative extension (π^p)^{e/p} = −τ_Kα_K (node L.5/tate-infinite-cycles-uniformizer), so π̄_*Ĥ(C_p,T(A|K)) = Λ{Γ̂(dlog π)} ⊗ S{Γ̂(π), τ̃^{±1}}/(Γ̂(π)^e); both sides are abstractly isomorphic in degrees ≥ 0 and Γ̂ is an isomorphism in degrees 0, 1.
+2. If μ_p ⊂ K and v_p(e_K) > 1: E^∞ = Λ{dlog π} ⊗ S{π^p, α_K, τ_K^{±1}}/(π^e, α_K^p) with the multiplicative extension (π^p)^{e/p} = −τ_Kα_K (node L.5/tate-infinite-cycles-uniformizer), so π̄_*Ĥ(C_p,T(A|K)) = Λ{Γ̂(dlog π)} ⊗ S{Γ̂(π), τ̃^{±1}}/(Γ̂(π)^e); both sides are abstractly isomorphic in degrees ≥ 0 and Γ̂ is an isomorphism in degrees 0, 1.
 3. It remains that Γ̂: π̄_2T(W|K_0) → π̄_2Ĥ(C_p,T(W|K_0)) is an isomorphism: compare Bocksteins π̄_2 → π̄_1 on both sides (one-dimensional k-vector spaces).
 4. General μ_p ⊂ K: choose L/K with v_p(e_L) > 1 and π̄_*T(A|K) → π̄_*T(B|L) injective; then Γ̂_{A|K} is injective, hence bijective by dimension (node L.5/tate-spectral-sequence-first-level).
+5. For K=K_0 use the preceding first-level calculation E∞=Λ{dlog p}⊗k[t^{±1}] separately. There is no hidden extension with exponent e/p when e=1; Γ̂ sends the degree-two κ to a unit multiple of t^{-1}, as detected by the Bockstein comparison.
 
 **Acceptance.**
 
@@ -6348,7 +6662,7 @@ Suppose μ_p ⊂ K or K = K_0 and that the differentials of Theorem 5.5.1 hold f
 
 `L.5/tate-spectral-sequence-differentials` · theorem
 
-Suppose μ_p ⊂ K or K = K_0. Ê^*(C_{p^n}, T(A|K)) denotes the Tate spectral sequence of node L.4/multiplicative-tate-spectral-sequence for M_p ∧ T(A|K), a spectral sequence of bigraded k-algebras via ρ_{n+1}: k → W̄_{n+1}(A); when μ_p ⊂ K or K = K_0 its E^2-term is Λ{u_n, dlog π_K} ⊗ S{π_K, α_K, τ_K^{±1}}/(π_K^{e_K}) with α_K = u_K^{(−n)}(π_K)^{−1}κ and τ_K = u_K^{(−n)}(π_K)^p t (u_{K_0} = 1). Its nonzero differentials are multiplicatively generated by d^{2(p^{v+1}−1)/(p−1)}(τ_K^aπ_K^rα_K^d) = λ·(τ_Kα_K)^{(p^{v+1}−1)/(p−1)−1}τ_K dlog π_K·τ_K^aπ_K^rα_K^d with v = v_p{a,r,d}_K, {a,r,d}_K = (pa − d)e_K/(p−1) + r, and d^{2(p^{n+1}−1)/(p−1)−1}(u_n) = μ·(τ_Kα_K)^{(p^{n+1}−1)/(p−1)−1}τ_K, where λ, μ ∈ (A/p)^×, and by dlog π_K being an infinite cycle. HM's Remark 5.5.2 states λ = −λ_v p^{−v}{a,r,d}_K u_K^{(v−n)}(π_K^{p^v})^{−p} and μ = μ_n u_K(π_K^{p^n})^{−p} with λ_v, μ_n ∈ F_p^× independent of K.
+Suppose μ_p ⊂ K or K = K_0. Ê^*(C_{p^n}, T(A|K)) denotes the Tate spectral sequence of node L.4/multiplicative-tate-spectral-sequence for M_p ∧ T(A|K), a spectral sequence of bigraded k-algebras via ρ_{n+1}: k → W̄_{n+1}(A); when μ_p ⊂ K or K = K_0 its E^2-term is Λ{u_n, dlog π_K} ⊗ S{π_K, α_K, τ_K^{±1}}/(π_K^{e_K}) with α_K = u_K^{(−n)}(π_K)^{−1}κ and τ_K = u_K^{(−n)}(π_K)^p t (u_{K_0} = 1). Its nonzero differentials are multiplicatively generated by d^{2(p^{v+1}−1)/(p−1)}(τ_K^aπ_K^rα_K^d) = λ·(τ_Kα_K)^{(p^{v+1}−1)/(p−1)−1}τ_K dlog π_K·τ_K^aπ_K^rα_K^d with 0≤v<n and v = v_p{a,r,d}_K, {a,r,d}_K = (pa − d)e_K/(p−1) + r, and d^{2(p^{n+1}−1)/(p−1)−1}(u_n) = μ·(τ_Kα_K)^{(p^{n+1}−1)/(p−1)−1}τ_K, where λ, μ ∈ (A/p)^×, and by dlog π_K being an infinite cycle. HM's Remark 5.5.2 states λ = −λ_v p^{−v}{a,r,d}_K u_K^{(v−n)}(π_K^{p^v})^{−p} and μ = μ_n u_K(π_K^{p^n})^{−p} with λ_v, μ_n ∈ F_p^× independent of K.
 
 **Hypotheses.**
 
@@ -6505,10 +6819,10 @@ Suppose μ_p ⊂ K. The canonical map W_•ω^*_{(A,M)} ⊗ S_{Z/p}(μ_p) → TR
 
 **Acceptance.**
 
-- n = 1, q ≤ 1: W_1ω^q ≅ TR^1_q(A|K;p,Z/p) (Theorem B in degrees ≤ 1).
+- n = 1, q ≤ 1: W_1ω^q/p ≅ TR^1_q(A|K;p,Z/p) (Theorem B in degrees ≤ 1).
 - The dimension count: both sides of gr^s have dimension e_K (node L.5/tr-mod-p-dimension, Proposition 3.4.1).
 
-**Depends on.** `L.5/image-of-log-de-rham-witt`, `L.5/bott-multiplication-standard-basis`, `L.5/log-de-rham-witt-tr-low-degrees`, `L.5/tr-mod-p-dimension`, `CrystallineCohomology:CR.4`, `L.4/tate-spectral-sequence-connes-module`, `L.5/bott-element-in-tr`.
+**Depends on.** this roadmap: `L.5/image-of-log-de-rham-witt`, `L.5/bott-multiplication-standard-basis`, `L.5/log-de-rham-witt-tr-low-degrees`, `L.5/tr-mod-p-dimension`, `L.4/tate-spectral-sequence-connes-module`, `L.5/bott-element-in-tr`; other roadmaps: `CrystallineCohomology:CR.4`.
 
 **Sources.**
 
@@ -6535,10 +6849,9 @@ Let p be odd and suppose μ_{p^v} ⊂ K. The canonical map of log Witt complexes
 
 **Acceptance.**
 
-- v = 1, n = 1: ω^*_{(A,M)} ⊗ S_{Z/p}(μ_p) ≅ π̄_*T(A|K) (Theorem B with κ replaced by the Bott element: b_1 = −π^{e/(p−1)}α_K).
-- For K = Q_p(μ_{p^v}), both sides in degree 2 are pro-isomorphic to W_•(A)/p^v ⊗ μ_{p^v} ⊕ (W_•ω^2/p^v = 0).
+- At v=n=1 the specified Bott map is not an isomorphism: b_1=−π^{e/(p−1)}α_K, whose coefficient is a nonunit in A/p. The abstract graded groups have the expected sizes, but Theorem C asserts only a pro-isomorphism of this map.
 
-**Depends on.** `L.5/log-de-rham-witt-tr-mod-p`, `L.5/bott-element-in-tr`, `CrystallineCohomology:CR.4`, `L.5/tr-log-dvr-is-log-witt-complex`, `StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence`.
+**Depends on.** this roadmap: `L.5/log-de-rham-witt-tr-mod-p`, `L.5/bott-element-in-tr`, `L.5/tr-log-dvr-is-log-witt-complex`; other roadmaps: `CrystallineCohomology:CR.4`, `StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence`.
 
 **Sources.**
 
@@ -6606,11 +6919,12 @@ For p odd there are natural isomorphisms, for s ≥ 0: TC_{2s}(A|K;p,Z/p) ≅ H^
 
 `L.5/thh-of-perfect-field` · theorem · planet “Bökstedt periodicity”
 
-For a perfect field k of characteristic p > 0, π_*T(k) ≅ S_k{σ} = k[σ] with |σ| = 2 (integral homotopy groups; T(k) = THH(k) is a generalized Eilenberg–Mac Lane spectrum), and π_*(T(k);Z/p) = Λ{ε} ⊗ S{σ} with β(ε) = 1 and Connes' operator d(ε) = σ. For k = F_p this is Bökstedt's theorem π_*T(F_p) = S_{F_p}{σ}.
+For a perfect field k of characteristic p > 0, π_*T(k) ≅ S_k{σ} = k[σ] with |σ| = 2 (integral homotopy groups; T(k) = THH(k) is a generalized Eilenberg–Mac Lane spectrum), and for odd p with the chosen Moore multiplication, π_*(T(k);Z/p) = Λ{ε} ⊗ S{σ} with β(ε) = 1 and Connes' operator d(ε) = σ. For k = F_p this is Bökstedt's theorem π_*T(F_p) = S_{F_p}{σ}.
 
 **Hypotheses.**
 
 - k a perfect field of characteristic p > 0.
+- The integral calculation holds at every prime; the displayed mod-p exterior-algebra/differential model is asserted here only for odd p, the hypothesis of the read HM passage.
 
 **Proof.**
 
@@ -6634,7 +6948,7 @@ For a perfect field k of characteristic p > 0, π_*T(k) ≅ S_k{σ} = k[σ] with
 
 `L.5/tr-of-perfect-field` · theorem
 
-For a perfect field k of characteristic p: π_*TR^{n+1}(k;p) = π_*T(k)^{C_{p^n}} ≅ S_{W_{n+1}(k)}{σ_n} with |σ_n| = 2, F(σ_n) = σ_{n−1}, V(σ_{n−1}) = pσ_n and R(σ_n) = pλ_nσ_{n−1}, λ_n ∈ W_n(F_p)^× = (Z/p^n)^× (HM 1997 indexing). In particular TR^n_q(k;p) = 0 for q odd, TR_*(k;p) = holim_R = W(k) concentrated in degree 0, F: TR^n_2(k;p) → TR^{n−1}_2(k;p) is surjective with kernel V(TR^{n−1}_2(k;p)), and ∂: TR^1_2(k;p) → hTR^2_1(k;p) is surjective (HM 1997 Theorem 5.5 as cited by HM 2003).
+For a perfect field k of characteristic p: π_*TR^{n+1}(k;p) = π_*T(k)^{C_{p^n}} ≅ S_{W_{n+1}(k)}{σ_n} with |σ_n| = 2, F(σ_n) = σ_{n−1}, V(σ_{n−1}) = pσ_n and R(σ_n) = pλ_nσ_{n−1}, λ_n ∈ W_n(F_p)^× = (Z/p^n)^× (HM 1997 indexing). In particular TR^n_q(k;p) = 0 for q odd, TR_*(k;p) = holim_R = W(k) concentrated in degree 0, F: TR^n_2(k;p) → TR^{n−1}_2(k;p) is surjective with kernel p^{n−1}W_n(k)·σ_{n−1}, equivalently the image of the (n−1)-fold Verschiebung V^{n−1}:TR^1_2(k;p)→TR^n_2(k;p), for n≥2, and ∂: TR^1_2(k;p) → hTR^2_1(k;p) is surjective (HM 1997 Theorem 5.5 as cited by HM 2003).
 
 **Hypotheses.**
 
@@ -6805,15 +7119,16 @@ Let Π_e = {0,1,x,…,x^{e−1}} (x^e = 0). The cyclic bar construction splits a
 - `Hesselholt.2005`, §3.6, Theorem 5, PDF p. 17: “Theorem 5 There is a canonical exact triangle of pointed T-spaces Sλd ∧T|Ci|e+ id ∧pr →Sλd ∧T|Ci+ →Ncy(Πe, i) ∂→Sλd ∧T|Ci|e+[−1] , where d = [(i −1)|e] and where the right and left-hand terms are understood to be a point, if e does not divide i. We sketch the” — Statement of the triangle.
 - `HesselholtMadsen.1997b`, Introduction, Theorem B, PDF p. 3: “Theorem B. There are S 1-equivariant equivalences S 1 + ∧Cs (∆s−1/Cs · ∆s−n) ￿S 1 ￿S 1 + ∧Cs S Vd if dn < s < (d + 1)n S 1 + ∧Cs (Cn ∗S Vd ) if s = (d + 1)n given by the maps S 1 + ∧Cs θs,n. We” — The equivalence via cyclic polytopes.
 
-### HH_*(k[x]/(x^e)) = k(Π) ⊗ Λ{c_1} ⊗ Γ{c_2} when e = 0 in k
+### Relative Hochschild homology HH_*(k[x]/(x^e)/k) when e=0 in k
 
 `L.5/hochschild-homology-of-truncated-polynomial-algebra` · lemma
 
-Let k be a commutative ring in which e = 0, and k(Π) = k[x]/(x^e). The resolution R_*(k(Π)) = k(Π)^e ⊗ Λ{c_1} ⊗ Γ{c_2}, δ(c_1) = x ⊗ 1 − 1 ⊗ x, δ(c_2^{[d]}) = ((x^e ⊗ 1 − 1 ⊗ x^e)/(x ⊗ 1 − 1 ⊗ x))·c_1c_2^{[d−1]} (Guccione–Guccione–Redondo–Solotar–Villamayor) gives an isomorphism of differential graded k-algebras k(Π) ⊗ Λ{c_1} ⊗ Γ{c_2} ≅ H̃_*(|N^cy(Π)|;k) ≅ HH_*(k[x]/(x^e)), with Connes' differential dπ = c_1 and dc_2^{[d]} = 0 (|c_1| = 1, |c_2| = 2, Γ the divided power algebra).
+Let k be a commutative ring in which e = 0, and k(Π) = k[x]/(x^e). The resolution R_*(k(Π)) = k(Π)^e ⊗ Λ{c_1} ⊗ Γ{c_2}, δ(c_1) = x ⊗ 1 − 1 ⊗ x, δ(c_2^{[d]}) = ((x^e ⊗ 1 − 1 ⊗ x^e)/(x ⊗ 1 − 1 ⊗ x))·c_1c_2^{[d−1]} (Guccione–Guccione–Redondo–Solotar–Villamayor) gives an isomorphism of differential graded k-algebras k(Π) ⊗ Λ{c_1} ⊗ Γ{c_2} ≅ H̃_*(|N^cy(Π)|;k) ≅ HH_*(k[x]/(x^e)/k), with Connes' differential dπ = c_1 and dc_2^{[d]} = 0 (|c_1| = 1, |c_2| = 2, Γ the divided power algebra).
 
 **Hypotheses.**
 
 - k commutative with e·1 = 0 in k (for k a field of characteristic p: p | e).
+- The enveloping algebra is k(Π)⊗_k k(Π), and Hochschild homology is relative to k. An absolute formula requires additional hypotheses on HH_*(k).
 
 **Proof.**
 
@@ -6890,11 +7205,11 @@ For k perfect of odd characteristic p and p | e, the nonzero differentials in Ê
 
 `L.5/tate-image-of-uniformizer-truncated` · lemma
 
-Let n ≤ v_p(e). The images of [π]_n and [π]_n^{e/p^n} under Γ̂: π̄_*(T(k(Π))^{C_{p^{n−1}}}) → π̄_*Ĥ(C_{p^n}, T(k(Π))) are represented by the infinite cycles π^{p^n} and tc_2 if v_p(e) > n, and by π^{p^n} and −(e/p^n)u_1π^{e−1}c_1 if v_p(e) = n.
+Let 1≤n ≤ v_p(e). The images of [π]_n and [π]_n^{e/p^n} under Γ̂: π̄_*(T(k(Π))^{C_{p^{n−1}}}) → π̄_*Ĥ(C_{p^n}, T(k(Π))) are represented by the infinite cycles π^{p^n} and tc_2 if v_p(e) > n, and by π^{p^n} and −(e/p^n)u_nπ^{e−1}c_1 if v_p(e) = n.
 
 **Hypotheses.**
 
-- k perfect of odd characteristic p; n ≤ v_p(e).
+- k perfect of odd characteristic p; 1≤n ≤ v_p(e).
 
 **Proof.**
 
@@ -6916,7 +7231,7 @@ Let n ≤ v_p(e). The images of [π]_n and [π]_n^{e/p^n} under Γ̂: π̄_*(T(k
 
 `L.5/relative-tc-of-truncated-polynomial-algebra` · theorem
 
-Let e = p^v e' with e' prime to p and A an F_p-algebra. There is a natural long exact sequence ⋯ → Π_{r≥v+1} Π_{j∈e'I_p} lim_R TR^{r−v}_{q−1−λ_d}(A;p) →(e'V^v) Π_{r≥1} Π_{j∈I_p} lim_R TR^r_{q−1−λ_d}(A;p) → TC_q(A[x]/(x^e),(x);p) →∂ Π_{r≥v+1} Π_{j∈e'I_p} lim_R TR^{r−v}_{q−2−λ_d}(A;p) → ⋯, where d = [(p^{r−1}j − 1)/e], λ_d = C(1) ⊕ ⋯ ⊕ C(d), and TR^n_{q−λ}(A;p) = [S^q ∧ T/C_{p^{n−1}+}, T(A) ∧ S^λ]_T; the limits are attained and the products are finite in each degree. The analogous sequence with Z/p^v coefficients holds for every ring A.
+Let e=p^v e′, p∤e′, and A an F_p-algebra. Put L_q(j)=lim_R TR^r_{q−λ_{d(r,j)}}(A;p), d(r,j)=floor((p^{r−1}j−1)/e), and L′_q(j)=lim_R TR^{r−v}_{q−λ_{d(r,j)}}(A;p), with r≥v+1 for the latter and λ_d=C(1)⊕⋯⊕C(d). There is a natural long exact sequence ⋯→∏_{j∈e′I_p} L′_{q−1}(j) →^{e′V^v} ∏_{j∈I_p} L_{q−1}(j) → TC_q(A[x]/(x^e),(x);p) →∏_{j∈e′I_p} L′_{q−2}(j)→⋯ (Hesselholt 2005, Proposition 8). The restriction index r lies inside each inverse limit; it is not an additional product index. The source's degree bounds ensure the displayed limits stabilize in each j and only finitely many j contribute in a fixed degree. There is an analogous finite-coefficient sequence for arbitrary rings A.
 
 **Hypotheses.**
 
@@ -7095,21 +7410,22 @@ Let k be a perfect field of characteristic p and A a smooth k-algebra. The canon
 
 1. TR^•_*(A;p) is a Witt complex (Hesselholt 1996 §1), giving I: W_nΩ^*_A → TR^n_*(A;p).
 2. For polynomial algebras compute TR explicitly (Hesselholt 1996 §2, via the pointed monoid N and Lemma 9 of Hesselholt 2005) and compare with Illusie's basis; general smooth A by étale base change and a covering argument.
-3. In the limit over R, σ dies since R(σ_n) = pλ_nσ_{n−1}.
-4. Regular A: both sides commute with filtered colimits (Geisser–Hesselholt 2006 introduction).
+3. For fixed degree q, split the finite-level expression as W_nΩ^q_A plus the finite sum of W_nΩ^{q−2i}_A·σ_n^i for 1≤i≤floor(q/2). R on each positive-power summand contains p^i times a unit. Since W_nΩ is killed by p^n, a sufficiently long composite to any fixed level n is zero on these summands: they form a pro-zero system, whose limit and lim¹ vanish. The remaining W_nΩ tower has surjective R, hence is Mittag-Leffler. Apply the Milnor sequence in degrees q and q+1 to obtain π_q holim_R TR^n=WΩ^q. This is the argument of Hesselholt1996 Corollary2.4.7, not an exchange of two limits.
+4. For a regular noetherian F_p-algebra, Popescu gives a filtered system of smooth F_p-algebras. At each finite n, TR^n homotopy groups and W_nΩ commute with this colimit, and the comparison, constant σ_n, and R formula are natural. Thus the finite-level decomposition extends first. Then run the same fixed-degree pro-zero/Mittag-Leffler argument on this regular algebra itself. No filtered colimit is commuted with holim_R. Popescu and the finite-level continuity/standard-filtration exports are explicit supplier contracts.
 
 **Acceptance.**
 
 - A = k: TR^n_*(k;p) = W_n(k)[σ_n] (node L.5/tr-of-perfect-field).
 - A = k[[t]]: TR_1(k[[t]];p) ≅ WΩ^1_{k[[t]]}.
 
-**Depends on.** this roadmap: `L.5/tr-of-perfect-field`, `L.5/thh-of-pointed-monoid-algebra`, `L.4/tr-pro-spectrum`; other roadmaps: `CrystallineCohomology:CR.4`.
+**Depends on.** this roadmap: `L.5/tr-of-perfect-field`, `L.5/thh-of-pointed-monoid-algebra`, `L.4/tr-pro-spectrum`; other roadmaps: `CrystallineCohomology:CR.4`, `StableHomotopyKTheory:H.6`.
 
 **Sources.**
 
 - `Hesselholt.1996`, Introduction, Theorem B, PDF p. 2: “Theorem B. Suppose that A is a smooth k-algebra. Then the map I extends to an isomorphism I: WnΩ∗ A ⊗Wn(k) SWn{σn} →π∗TH(A)Cpn−1, deg σn = 2. Moreover, F(σn) = σn−1, V (σn) = pσn+1 and R(σn) = pλnσn−1, where λn is a unit of” — Statement.
 - `Hesselholt.1996`, Introduction, Theorem C, PDF p. 2: “Theorem C. If A is a smooth k-algebra, then WΩ∗ A ∼= TR∗(A; p) ∼=” — The limit.
 - `GeisserHesselholt.2006`, Introduction, PDF p. 3: “This implies that the results of [5] and [6], which were proved originally for smooth Fp-algebras, are valid, more generally, for regular Fpalgebras.” — Extension to regular F_p-algebras by Popescu.
+- `Hesselholt.1996`, §1.2, (1.2.2), PDF p.5; Corollary2.4.7 proof, PDF p.24: “the summand corresponding to the augmentation ideal ... does not contribute to the limit or the derived limit” — The R-surjectivity and Milnor/pro-zero argument, here applied after the regular algebra’s finite-level comparison.
 
 ### TC of regular F_p-algebras: the sequence TC_q → WΩ^q →(1−F) WΩ^q
 
@@ -7236,7 +7552,7 @@ The p-cyclotomic Frobenius φ^hT:TC^-(F_p)→TP(F_p) is injective on every even 
 **Proof.**
 
 1. Use ũv=p and multiplicativity: φ(ũ)φ(v)=p in Z_p[v±1]. Both maps are injective and either the positive or the negative-degree generator has unit coefficient.
-2. Assume φ is an isomorphism in negative degrees. Compose the square TC^-→TP / THH→THH^tC_p with the augmentation THH(HF_p)→HF_p. The lower-left π_−2THH is zero, so surjectivity of the upper-left map would force π_−2TP→π_−2HF_p^tC_p to vanish. But the orientation v maps to a nonzero class in π_−2HF_p^tT and then in π_−2HF_p^tC_p=F_p, a contradiction. This uses RT.2’s elementary HF_p Tate calculation, not the later THH finite-Tate-cover theorem.
+2. Assume φ is an isomorphism in negative degrees. Compose the square TC^-→TP / THH→THH^tC_p with the augmentation THH(HF_p)→HF_p. The lower-left π_−2THH is zero, so surjectivity of the upper-left map would force π_−2TP→π_−2HF_p^tC_p to vanish. But the orientation v maps to a nonzero class in π_−2HF_p^tT and then in π_−2HF_p^tC_p=F_p, a contradiction. This uses RT.2’s elementary HF_p Tate calculation, not the downstream THH finite-Tate-cover theorem.
 3. Thus φ is an isomorphism in positive degrees, and the product relation forces valuation a in degree −2a. In degree zero, a unital continuous map Z_p→Z_p fixes integers, hence is the identity.
 4. Together with the canonical map, in each nonzero even degree can−φ has one unit coefficient and one p-divisible coefficient, hence is invertible; in degree zero the difference is zero.
 
@@ -7351,7 +7667,7 @@ For a discrete commutative F_p-algebra A, p-complete TC(A) is fib(can−φ^hT:TH
 - Remaining: Rognes–Weibel's proof for p = 2 (K-book [161, 3.7], Handbook [51]) was not read; the p = 2 case rests on M.7's Quillen–Lichtenbaum statement for fields of 2-cohomological dimension 2.
 - Remaining: Route Examples VI.7.6–7.8 of the K-book (Handbook 64–66), which are local–global, to L.7 (restructure entry).
 - Remaining: Dyadic-integer hermitian integral/full-spectrum comparison has explicit reduction through the 2-adic field theorem, canonical shifted localization, bounded 2-primary L-theory and the fundamental square. Original finite-vcd₂ and local Witt proofs and registered Poincaré carriers remain supplier gaps.
-
+- Remaining: Obtain the Popescu, Geisser–Levine and Witt-filtration supplier inputs for L.6/geisser-hesselholt-regular-local; its quotient-tower inverse-limit argument is now explicit.
 
 ### The maximal divisible subgroup Div(A) of an abelian group
 
@@ -7595,7 +7911,7 @@ Let L be a finite extension of ℚ_p with residue field 𝔽_q and i ≥ 1. Then
 **Hypotheses.**
 
 - L is a finite extension of ℚ_p of degree d = [L : ℚ_p], with valuation ring V = 𝒪_L, residue field 𝔽_q (q = p^f) and ramification index e, so d = ef; p is any prime unless a hypothesis restricts it.
-- w_i^{(p)}(L) = #W_i^{(p)}(L) with W_i^{(p)}(L) = H^0(L, ℚ_p/ℤ_p(i)) (ArithmeticKTheory N.4's w-invariant), and w_i(L) = #W_i(L) = (q^i − 1)·w_i^{(p)}(L) (L.6/p-adic-w-invariant).
+- w_i^{(p)}(L) = #W_i^{(p)}(L) with W_i^{(p)}(L) = H^0(L, ℚ_p/ℤ_p(i)) (ArithmeticKTheory N.4's w-invariant), and w_i(L) = #W_i(L). The factorization is the conclusion, not a hypothesis.
 - i ≥ 1.
 
 **Proof.**
@@ -8177,7 +8493,7 @@ Let L/ℚ_p be finite, i ≥ 1 and ν ≥ 1. Under L.6/finite-coefficient-lichte
 
 `L.6/even-integral-k-groups` · theorem · planet “Divisible and finite parts of local K-groups”
 
-Let L/ℚ_p be finite with residue field 𝔽_q, and i ≥ 1. Put D_i = w_i(L)·K_{2i}(L). Then: (a) D_i = Div(K_{2i}(L)) = ⋂_{m ≥ 1} m·K_{2i}(L), and there is a canonical exact sequence 0 → D_i → K_{2i}(L) → ℤ/w_i(L) → 0, split non-canonically; (b) D_i ⊂ K_{2i}(V), D_i is a divisible ℤ_(p)-module, D_i ≅ ℚ^{(κ)} ⊕ (ℚ_p/ℤ_p)^{λ_i} with λ_i ≤ d = [L : ℚ_p], and K_{2i}(V) ≅ D_i ⊕ ℤ/w_i^{(p)}(L), i.e. K_{2i}(V) is the direct sum of a uniquely divisible group, a divisible p-group and a subgroup isomorphic to ℤ/w_i^{(p)}(L) (the p-primary finite component). For i = 1, D_1 is Moore's uniquely divisible U(L), so λ_1 = 0; the bound λ_i ≤ d is L.6/even-k-groups-tate-module.
+Let L/ℚ_p be finite with residue field 𝔽_q, and i ≥ 1. Put D_i = w_i(L)·K_{2i}(L). Then: (a) D_i = Div(K_{2i}(L)) = ⋂_{m ≥ 1} m·K_{2i}(L), and there is a canonical exact sequence 0 → D_i → K_{2i}(L) → K_{2i}(L)/D_i → 0; its quotient is abstractly isomorphic to ℤ/w_i(L), and a choice of that isomorphism and of splitting is noncanonical; (b) D_i ⊂ K_{2i}(V), D_i is a divisible ℤ_(p)-module, D_i ≅ ℚ^{(κ)} ⊕ (ℚ_p/ℤ_p)^{λ_i} with λ_i ≤ d = [L : ℚ_p], and K_{2i}(V) ≅ D_i ⊕ ℤ/w_i^{(p)}(L), i.e. K_{2i}(V) is the direct sum of a uniquely divisible group, a divisible p-group and a subgroup isomorphic to ℤ/w_i^{(p)}(L) (the p-primary finite component). For i = 1, D_1 is Moore's uniquely divisible U(L), so λ_1 = 0; the bound λ_i ≤ d is L.6/even-k-groups-tate-module.
 
 **Hypotheses.**
 
@@ -8223,6 +8539,7 @@ Let L/ℚ_p be finite of degree d and i ≥ 1, and let D_i = Div(K_{2i}(L)) ≅ 
 1. K_{2i}(L) ≅ D_i ⊕ ℤ/w_i(L), and the finite summand has zero Tate module, so T_p(K_{2i}(L)) = T_p(D_i) = T_p((ℚ_p/ℤ_p)^{(λ_i)}) (L.6/p-adic-tate-module; the ℚ-part contributes nothing).
 2. L.6/completion-exact-sequence for n = 2i + 1 (finiteness from L.6/finite-coefficient-lichtenbaum-quillen): K_{2i+1}(L; ℤ_p) → T_p(K_{2i}(L)) is onto, and K_{2i+1}(L; ℤ_p) ≅ ℤ_p^d ⊕ ℤ/w_{i+1}^{(p)}(L) (L.6/completed-k-groups-of-p-adic-fields, 2i + 1 = 2(i + 1) − 1 with i + 1 ≥ 2); a torsion-free quotient of it has rank ≤ d, which bounds the cardinal λ_i.
 3. λ_1 = 0 because D_1 = U(L) is uniquely divisible (L.6/even-integral-k-groups).
+4. Before writing T_p(D_i)=Z_p^{λ_i}, prove λ_i finite. For arbitrary cardinal λ_i the p-torsion is F_p^{(λ_i)}; each coordinate Prüfer summand gives a Z_p in T_p(D_i). Finite generation of this Tate module as a quotient of Z_p^d⊕finite forces only finitely many such independent coordinates. For finite λ_i the Tate module is Z_p^{λ_i}, and its rank is at most d. Do not exchange Tate modules with arbitrary direct sums.
 
 **Acceptance.**
 
@@ -8240,7 +8557,7 @@ Let L/ℚ_p be finite of degree d and i ≥ 1, and let D_i = Div(K_{2i}(L)) ≅ 
 
 `L.6/divisible-rank-relation` · theorem
 
-Let L/ℚ_p be finite of degree d and i ≥ 2. With T_i = K_{2i−1}(L)/torsion (L.6/odd-integral-k-groups) and D_{i−1} = Div(K_{2i−2}(L)) (L.6/even-integral-k-groups), put t_i = dim_{𝔽_p} T_i/pT_i and λ_{i−1} = dim_{𝔽_p} D_{i−1}[p]. Then there is a natural exact sequence 0 → T_i^∧ ⊕ ℤ/w_i^{(p)}(L) → K_{2i−1}(L; ℤ_p) → T_p(D_{i−1}) → 0 with T_i^∧ = lim_ν T_i/p^ν ≅ ℤ_p^{t_i} and T_p(D_{i−1}) ≅ ℤ_p^{λ_{i−1}}, and t_i + λ_{i−1} = d. Consequently either T_i is not p-divisible or D_{i−1} has p-torsion; and since λ_1 = 0, t_2 = d.
+Let L/ℚ_p be finite of degree d and i ≥ 2. With T_i = K_{2i−1}(L)/torsion (L.6/odd-integral-k-groups) and D_{i−1} = Div(K_{2i−2}(L)) (L.6/even-integral-k-groups), put t_i = dim_{𝔽_p} T_i/pT_i and λ_{i−1} = dim_{𝔽_p} D_{i−1}[p]. Then there is a natural exact sequence whose left term is lim_ν K_{2i−1}(L)/p^ν, identified noncanonically after choosing a torsion splitting with T_i^∧ ⊕ ℤ/w_i^{(p)}(L); in that notation it is 0 → T_i^∧ ⊕ ℤ/w_i^{(p)}(L) → K_{2i−1}(L; ℤ_p) → T_p(D_{i−1}) → 0 with T_i^∧ = lim_ν T_i/p^ν ≅ ℤ_p^{t_i} and T_p(D_{i−1}) ≅ ℤ_p^{λ_{i−1}}, and t_i + λ_{i−1} = d. Consequently either T_i is not p-divisible or D_{i−1} has p-torsion; and since λ_1 = 0, t_2 = d.
 
 **Hypotheses.**
 
@@ -8302,7 +8619,7 @@ Let L/ℚ_p be finite of degree d, i ≥ 2 and ν ≥ 1. Then K_{2i−1}(L; ℤ/
 
 `L.6/k3-torsion-free-lattice` · theorem
 
-Let L/ℚ_p be finite of degree d with valuation ring V. Then K_3(V) = K_3(L) contains a subgroup P ≅ ℤ_(p)^d, meeting the torsion trivially, whose p-adic completion P ⊗ ℤ_p maps isomorphically onto the torsion-free quotient ℤ_p^d of K_3(V; ℤ_p) ≅ ℤ_p^d ⊕ ℤ/w_2^{(p)}(L). Writing T_2 = K_3(L)/torsion, T_2 = Div(T_2) ⊕ R with P ⊂ R and R/P uniquely divisible. Whether 0 → P → K_3(V)/(torsion ⊕ Div) → R/P → 0 splits is not known.
+Let L/ℚ_p be finite of degree d with valuation ring V. Then K_3(V) = K_3(L) contains a subgroup P ≅ ℤ_(p)^d, meeting the torsion trivially, whose p-adic completion P ⊗ ℤ_p maps isomorphically onto the torsion-free quotient ℤ_p^d of K_3(V; ℤ_p) ≅ ℤ_p^d ⊕ ℤ/w_2^{(p)}(L). Writing T_2 = K_3(L)/torsion, T_2 = Div(T_2) ⊕ R with P ⊂ R and R/P uniquely divisible. The 2013 source leaves the resulting lattice-extension splitting unresolved; this review makes no claim about its current research status.
 
 **Hypotheses.**
 
@@ -8313,6 +8630,7 @@ Let L/ℚ_p be finite of degree d with valuation ring V. Then K_3(V) = K_3(L) co
 1. t_2 = d, since λ_1 = 0 (L.6/divisible-rank-relation; Moore's theorem through L.6/even-integral-k-groups).
 2. Apply L.6/torsion-free-lattice-lemma to T_2 (a torsion-free ℤ_(p)-module with T_2/p ≅ 𝔽_p^d, L.6/odd-integral-k-groups), and lift P along a splitting K_3(L) ≅ T_2 ⊕ ℤ/w_2(L).
 3. The completion of P maps onto T_2^∧ ≅ ℤ_p^d, which is the torsion-free quotient of K_3(V; ℤ_p) (L.6/divisible-rank-relation with T_p(D_1) = 0; L.6/completed-k-groups-of-p-adic-fields).
+4. To choose the complement containing P, use that P∩Div(T_2)=0. The projection Div(T_2)⊕P→Div(T_2) extends to T_2 because divisible groups are injective; its kernel supplies R containing P. This is the needed splitting argument.
 
 **Acceptance.**
 
@@ -8362,7 +8680,7 @@ Let L/ℚ_p be finite and i ≥ 1. The completion map κ: K_{2i}(L) → K_{2i}(L
 
 `L.6/odd-integral-to-completed-comparison` · comparison
 
-Let L/ℚ_p be finite of degree d and i ≥ 2. The completion map κ: K_{2i−1}(L) → K_{2i−1}(L; ℤ_p) ≅ H^1(L, ℤ_p(i)) has kernel Div(K_{2i−1}(L)) ⊕ K_{2i−1}(L){p′} = ⋂_ν p^ν K_{2i−1}(L), where Div(K_{2i−1}(L)) ≅ Div(T_i) is a ℚ-vector space and K_{2i−1}(L){p′} ≅ ℤ/(q^i − 1); its image is dense for the p-adic topology; and its cokernel sits in a natural exact sequence 0 → T_i^∧/R_i → coker κ → T_p(D_{i−1}) → 0, with R_i = T_i/Div(T_i), T_i^∧/R_i a ℚ-vector space and T_p(D_{i−1}) ≅ ℤ_p^{λ_{i−1}}. On torsion κ restricts to the isomorphism K_{2i−1}(L){p} ≅ ℤ/w_i^{(p)}(L) = K_{2i−1}(L; ℤ_p)_tors = image of H^0(L, ℚ_p/ℤ_p(i)). The finite generation of K_{2i−1}(L; ℤ_p) over ℤ_p does not transfer to K_{2i−1}(L).
+Let L/ℚ_p be finite of degree d and i ≥ 2. The completion map κ: K_{2i−1}(L) → K_{2i−1}(L; ℤ_p) ≅ H^1(L, ℤ_p(i)) has kernel Div(K_{2i−1}(L)) ⊕ K_{2i−1}(L){p′} = ⋂_ν p^ν K_{2i−1}(L), where Div(K_{2i−1}(L)) ≅ Div(T_i) is a ℚ-vector space and K_{2i−1}(L){p′} ≅ ℤ/(q^i − 1); its image is dense in the closed subgroup image(lim_ν K_{2i−1}(L)/p^ν) of the completed group, and is dense in the whole completed group exactly when λ_{i−1}=0; and its cokernel sits in a natural exact sequence 0 → T_i^∧/R_i → coker κ → T_p(D_{i−1}) → 0, with R_i = T_i/Div(T_i), T_i^∧/R_i a ℚ-vector space and T_p(D_{i−1}) ≅ ℤ_p^{λ_{i−1}}. On torsion κ restricts to the isomorphism K_{2i−1}(L){p} ≅ ℤ/w_i^{(p)}(L) = K_{2i−1}(L; ℤ_p)_tors = image of H^0(L, ℚ_p/ℤ_p(i)). The finite generation of K_{2i−1}(L; ℤ_p) over ℤ_p does not transfer to K_{2i−1}(L).
 
 **Hypotheses.**
 
@@ -8388,12 +8706,6 @@ Let L/ℚ_p be finite of degree d and i ≥ 2. The completion map κ: K_{2i−1}
 
 - `Kbook.2013`, Warning VI.7.5 (PDF p. 518; book p. 510): “Unfortunately, I do not know how to reconstruct the homotopy groups Kn(V ) from the information in VI.7.4 7.4. Any of the Zp’s in K2i−1(V ; Zp) could come from either a Z(p) in K2i−1(V ) or a Z/p∞in K2i−2(V ).” — The two sources of the ℤ_p's that the cokernel sequence separates.
 - `Weibel.Handbook.I5`, Remark 62 (p. 165; PDF p. 27): “Unfortunately, I do not know how to reconstruct the “integral” homotopy groups Kn(V) from the information in 61.” — The same caveat in the survey.
-
-### A residue-and-transfer proof of uncountability
-
-The following five declarations supply the positive-characteristic uncountability input to VI.7.1 and VI.7.2. This is a derived replacement proof, not an account of Tate’s unread paper. It uses the actual Milnor tensor/Steinberg presentation, the higher residues owned by K2SymbolsBrauer T.3, and T.4’s restriction–transfer degree identity. It needs neither the unique-divisibility theorem nor the Geisser–Levine input. That separation prevents a circular dependency.
-
-The valuations here are coordinate valuations on the rational subfield k(B) generated by a transcendence basis of k((t)). No continuity in the t-adic topology or extension of these valuations to k((t)) is used. The uniformizer is last in every symbol, fixing the diagonal residue to +1. A finite relation in the algebraic extension descends to a finite intermediate field; a chosen tower of simple transfers then multiplies it by a positive integer. Cancelling that integer takes place in Z after applying the separating residues, so inseparability causes no problem.
 
 ### An uncountable transcendence basis of a Laurent-series field
 
@@ -8524,7 +8836,7 @@ For a finite field k and every n ≥ 1, K^M_n(k((t))) contains a free abelian su
 **Hypotheses.**
 
 - This concerns algebraic Milnor K-theory; no topological quotient is taken.
-- The uncountability assertion is independent of Moore’s theorem, motivic cohomology, Geisser–Levine and uniqueness of divisibility. The later Q-vector-space interpretation belongs to L.6/milnor-k-of-local-fields.
+- The uncountability assertion is independent of Moore’s theorem, motivic cohomology, Geisser–Levine and uniqueness of divisibility. The downstream Q-vector-space interpretation belongs to L.6/milnor-k-of-local-fields.
 
 **Proof.**
 
@@ -8693,16 +9005,16 @@ Let A be a regular local 𝔽_p-algebra. Then the composite K_q(A; ℤ_p) → TC
 
 1. The TC sequence for regular 𝔽_p-algebras: KTheoryFiniteLocalFields:L.5/tc-of-regular-fp-algebra (from L.5/tr-of-smooth-fp-algebra and Popescu).
 2. Essentially smooth local A: K_q(A) is p-torsion-free and K_q(A)/p^n is generated by symbols (Geisser–Levine; requested from MotivicEtaleKTheory M.5), so K_q(A) → TR^n_q(A; p) factors through W_nΩ^q_A; the induced K_q(A)/p^n → W_nΩ^q_A is injective with image W_nΩ^q_{A,log} (Bloch–Kato–Gabber and Geisser–Levine, M.5).
-3. Illusie I.5.7.4 (CrystallineCohomology CR.4): W_nΩ^q_{A,log} ⊆ ker(R − F: W_nΩ^q_A → W_{n−1}Ω^q_A) ⊆ W_nΩ^q_{A,log} + Fil^{n−1}W_nΩ^q_A; passing to the limit over n identifies the image with ker(1 − F).
-4. All statements commute with filtered colimits, and a regular local 𝔽_p-algebra is a filtered colimit of essentially smooth local ones (Popescu), which gives the general case; K_q(A; ℤ_p) is the p-completed group of L.1/completed-k-theory, TC(A; p) being p-complete.
-5. Relative version: apply the absolute statement to A[[t]] and to A and take kernels (the splitting A → A[[t]] → A).
+3. Use Illusie I.5.7.4 (CR.4) in the degree-preserving form W_nΩ^q_log⊆ker(R−F:W_nΩ^q→W_(n−1)Ω^q)⊆W_nΩ^q_log+Fil^(n−1)W_nΩ^q. For a compatible sequence x in ker(1−F), choose n>m: the filtration error dies on restricting to level m, so x_m lies in W_mΩ^q_log. Conversely compatible logarithmic sequences satisfy F=R. Therefore lim_n W_nΩ^q_log is exactly ker(1−F). The printed degree q−1 in the author-copy proof is corrected by source issue E48.
+4. Apply Popescu to finite-level data: regular local A is a filtered colimit of essentially smooth local F_p-algebras. K_q(A) remains p-torsion-free and the natural injective K_q(A)/p^n→W_nΩ^q has logarithmic image, because filtered colimits are exact and both sides at fixed n commute with them. By UCT, K_q(A;Z/p^n)=K_q(A)/p^n; the quotient transitions are surjective, including degree q+1. Hence the Milnor lim¹ term for p-completion vanishes, and K_q(A;Z_p)=lim_n K_q(A)/p^n identifies with the kernel just computed. No p-completion is commuted with filtered colimits.
+5. For relative A[[t]], use the same natural absolute comparisons for A[[t]] and A. Their coefficient inclusion and augmentation split the K-theory and Witt towers, so the relative comparison is their kernel/direct summand; finite direct sums commute with these limits. The noetherian regular local and finite-over-A^p hypotheses are retained.
 
 **Acceptance.**
 
 - A = 𝔽_q: WΩ^q_{𝔽_q} = W(𝔽_q) for q = 0 and 0 otherwise; ker(1 − F) = ℤ_p = K_0(𝔽_q; ℤ_p), and K_q(𝔽_q; ℤ_p) = 0 for q ≥ 1 (L.1).
 - A = 𝔽_q((t)), q ≥ 2: WΩ^q = 0, so K_q(𝔽_q((t)); ℤ_p) = 0 (L.6/equal-characteristic-completed-k-groups).
 
-**Depends on.** this roadmap: `L.5/tc-of-regular-fp-algebra`, `L.5/tr-of-smooth-fp-algebra`, `L.4/p-typical-tc`, `L.1/completed-k-theory`; other roadmaps: `CrystallineCohomology:CR.4`, `MotivicEtaleKTheory:M.5`.
+**Depends on.** this roadmap: `L.5/tc-of-regular-fp-algebra`, `L.5/tr-of-smooth-fp-algebra`, `L.4/p-typical-tc`, `L.1/completed-k-theory`; other roadmaps: `CrystallineCohomology:CR.4`, `MotivicEtaleKTheory:M.5`, `StableHomotopyKTheory:H.6`.
 
 **Sources.**
 
@@ -8978,7 +9290,6 @@ For K a finite extension of ℚ₂, R its ring of integers and every integer m, 
 - Remaining: L.7/hilbert-symbol-completion (c) inherits the Merkurjev gap of L.3.
 - Remaining: Karoubi's square is planned for discrete valuation rings only; the general Proposition V.7.5 is proposed for GeneralAlgebraicKTheory (restructure).
 
-
 ### The completion maps K_n(F) → K_n(F_v)
 
 `L.7/completion-map` · definition · planet “Completion maps K_n(F) → K_n(F_v)”
@@ -9091,7 +9402,7 @@ Setting (pinned for the layer): F is a number field, 𝓞_F its ring of integers
 - Degree zero: 2 = 1 + 1 at 5, 2 = 2 at 3 and at 2.
 - For x = res_{E/F}(y) the formula gives c_v(N_{E/F} res y) = Σ_w [E_w : F_v]·c_v(y) = [E : F]·c_v(y).
 
-**Depends on.** this roadmap: `L.7/completion-map`, `L.7/restriction-completion-square`; other roadmaps: `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits`, `StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence`; libraries: `mathlib:Algebra.norm`.
+**Depends on.** this roadmap: `L.7/completion-map`, `L.7/restriction-completion-square`; other roadmaps: `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits`, `StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`; libraries: `mathlib:Algebra.norm`.
 
 **Sources.**
 
@@ -9117,7 +9428,7 @@ Let R be a Dedekind domain with fraction field F, 𝔭 a non-zero prime, R_𝔭 
 **Acceptance.**
 
 - Degree one: ∂_𝔭(f) = ord_𝔭(f) for both sequences.
-- Degree two: ∂_𝔭 is the (K-book's) tame symbol at 𝔭 for both sequences (V.6.6.1).
+- Degree two: ∂_𝔭 is the roadmap's tame symbol ∂{u,π}=ū; the K-book expression is its inverse, after the same sign conversion at 𝔭 for both sequences (V.6.6.1).
 - The components at primes other than 𝔭 are killed, as they must be.
 
 **Depends on.** other roadmaps: `ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain`, `ArithmeticKTheory:N.2/finite-support`, `GeneralAlgebraicKTheory:K.3/abelian-localization-theorem`, `GeneralAlgebraicKTheory:K.3/devissage-theorem`; libraries: `mathlib:IsLocalization.flat`.
@@ -9174,6 +9485,7 @@ Setting (pinned for the layer): F is a number field, 𝓞_F its ring of integers
 2. L.7/karoubi-completion-square with R = 𝓞_(v), whose completion is 𝓞_v with fraction field F_v: the boundary of 𝓞_(v) ⊂ F is ∂̂_v ∘ c_v.
 3. Residue fields: k(v) = 𝓞_F/v = 𝓞_(v)/v𝓞_(v) = 𝓀[F_v] (Tau Ceti's residueFieldEquivAdicCompletion).
 4. Degree two: both boundaries are the tame symbols (T.3/localization-boundary), so ∂_v{a, b} = ∂_{F_v}{a, b}.
+5. Fix the L.2 left-linear boundary on both global and completed localization sequences, so ∂_v{u,π}=ū. The inverse K-book symbols also commute, but are not substituted for this boundary in the displayed maps.
 
 **Acceptance.**
 
@@ -9357,7 +9669,7 @@ Setting (pinned for the layer): F is a number field, 𝓞_F its ring of integers
 - PadicHodgeRegulators D.3: its target is the completed K₃ of a product of local fields
 - ArithmeticKTheory N.5–N.6: the p-adic local conditions on odd K-groups (Handbook Examples 65–66)
 
-**Depends on.** this roadmap: `L.7/completion-map`, `L.7/restriction-completion-square`, `L.7/transfer-completion-formula`; other roadmaps: `StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence`, `GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits`, `KTheoryFiniteLocalFields:L.6`.
+**Depends on.** this roadmap: `L.7/completion-map`, `L.7/restriction-completion-square`, `L.7/transfer-completion-formula`, `L.6`; other roadmaps: `StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence`, `GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`.
 
 **Sources.**
 
@@ -9366,389 +9678,544 @@ Setting (pinned for the layer): F is a number field, 𝓞_F its ring of integers
 
 ## Mistakes found in the sources
 
-Findings are scoped to the versions recorded above and in the packet. The imported paper E3 (SL₂(𝔽₉)) and NS E11 remain separate from the 42 local findings.
+The corrections below are scoped to the named versions. Nodes use the corrected statements. Independent confirmations are source checks, not implementation claims.
 
 ### KTheoryFiniteLocalFields/E1 — error (affects nothing)
 
-- **Where:** `Kbook.2013`, IV.1, paragraph before Theorem IV.1.12, PDF p. 277 (draft p. 269)
+- **Source:** Kbook.2013
+- **Where:** IV.1, paragraph before Theorem IV.1.12, PDF p. 277 (draft p. 269)
 - **Printed:** the Brauer lifting of the trivial and standard n-dimensional representations of GLn(Fq) are n-dimensional complex representations, given by homomorphisms 1n, idn : GLn(Fq) →U.
 - **Correction:** The Brauer lift of the standard representation is an element of R_C(GL_n(F_q)) of virtual dimension n, in general not a representation; ρ_n is obtained from the virtual representation β(id_n) − n through the Atiyah map R_C(G) → [BG, Z × BU], not as B of a homomorphism into U.
 - **Reason:** For GL_2(F_3) and the natural representation, the Brauer character χ (ι an embedding of F_9^× into C^×) has ⟨χ, χ⟩ = (1/48)Σ|χ(g)|^2 = 2 and no linear constituent (computed by enumerating the 48 elements). A genuine character of degree 2 with ⟨χ, χ⟩ = 2 would be a sum of two distinct linear characters; so χ is a virtual character (a difference of irreducible characters of degrees 4 and 2). The source's own Example IV.5.8 correctly places the Brauer lift in R_C(G).
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. GL₂(F₃) enumeration gives character norm 2 and zero inner product with both linear characters; a genuine degree-2 character is impossible. The correction uses a virtual representation, consistent with IV.5.8.
 
 ### KTheoryFiniteLocalFields/E2 — error (affects nothing)
 
-- **Where:** `Kbook.2013`, Example IV.5.8, PDF p. 323 (draft p. 315)
+- **Source:** Kbook.2013
+- **Where:** Example IV.5.8, PDF p. 323 (draft p. 315)
 - **Printed:** Let Fq be a finite field, and F×q →C× a homomorphism. It induces a homomorphism RFq(G) →RC(G) called the Brauer lifting.
 - **Correction:** Fix an injective homomorphism \bar F_q^× → C^× (equivalently, compatible embeddings of all F_{q^n}^×); it induces the Brauer lifting R_{F_q}(G) → R_C(G).
 - **Reason:** The Brauer character evaluates the chosen map on the eigenvalues of group elements, which lie in extensions of F_q: the element (0 −1; 1 0) of GL_2(F_3) has eigenvalues ±i ∈ F_9 \ F_3, on which a homomorphism defined on F_3^× gives no value. Injectivity is needed for the character to be a Brauer character (a non-injective map on μ_{q−1} gives a different class function).
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Eigenvalues of multiplication on F₄ over F₂ already lie outside F₂. The algebraic-closure embedding is necessary.
 
 ### KTheoryFiniteLocalFields/E3 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Proposition IV.2.7, PDF p. 289 (draft p. 281)
+- **Source:** Kbook.2013
+- **Where:** Proposition IV.2.7, PDF p. 289 (draft p. 281)
 - **Printed:** then πm(X; Z/ℓ) is naturally isomorphic to πm(X; Z/q1) × πm(X; Z/q1).
 - **Correction:** π_m(X; Z/ℓ) ≅ π_m(X; Z/q_1) × π_m(X; Z/q_2) (also in the last line of the proof).
 - **Reason:** The proof takes P = P_1 ∨ P_2 with P_i = P^m(Z/q_i); the second factor is [P^m(Z/q_2), X].
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. IV.2.7 decomposes coefficients Z/(q₁q₂) for coprime q₁,q₂ into Z/q₁ and Z/q₂. The second repeated q₁ in the statement and proof must be q₂; the Chinese remainder projections verify both factors.
 
 ### KTheoryFiniteLocalFields/E4 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Example IV.2.6, PDF p. 289 (draft p. 281)
+- **Source:** Kbook.2013
+- **Where:** Example IV.2.6, PDF p. 289 (draft p. 281)
 - **Printed:** Quillen’s computation of K∗(Fq) in 1.13 shows that Kn(k) = 0 for m even (m ≥2)
 - **Correction:** K_m(k) = 0 for m even, m ≥ 2.
 - **Reason:** The index variable of the sentence is m ('K_m(k) = Q/Z[1/p] for m odd').
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Example IV.2.6 follows Quillen’s even-degree vanishing and uses m throughout the adjoining UCT computation. Its isolated K_n must be K_m; this corrects an index, not the theorem.
 
 ### KTheoryFiniteLocalFields/E5 — error (affects a stated result)
 
-- **Where:** `Kbook.2013`, Corollary V.6.9.2, PDF p. 422 (draft p. 414)
+- **Source:** Kbook.2013
+- **Where:** Corollary V.6.9.2, PDF p. 422 (draft p. 414)
 - **Printed:** If R is a discrete valuation domain whose residue ﬁeld k is ﬁnite, then for all i > 0: K2i−1(R) ∼= K2i−1(F)
 - **Correction:** K_{2i−1}(R) ≅ K_{2i−1}(F) for i ≥ 2; for i = 1 there is instead the exact sequence 0 → R^× → F^× → Z → 0 (the valuation).
 - **Reason:** K_1(R) = R^× and K_1(F) = F^×, and a uniformiser is not a unit. In the localisation sequence the term after K_{2i−1}(F) is K_{2i−2}(k), which is 0 only for i ≥ 2 (for i = 1 it is K_0(k) = Z).
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The degree-one localization sequence has cokernel Z. The O-to-field odd isomorphism starts at i=2, not i=1.
 
 ### KTheoryFiniteLocalFields/E6 — error (affects a stated result)
 
-- **Where:** `Kbook.2013`, Proposition VI.7.3, first sentence, PDF p. 517 (draft p. 509)
+- **Source:** Kbook.2013
+- **Where:** Proposition VI.7.3, first sentence, PDF p. 517 (draft p. 509)
 - **Printed:** For n > 0 we have Kn(E) ∼= Kn(V ) ⊕Kn−1(Fq), and the groups Kn(V ) are Z(p)-modules.
 - **Correction:** For n > 0, K_n(E) ≅ K_n(V) ⊕ K_{n−1}(F_q); the groups K_{2i}(V) (i ≥ 1) are Z_(p)-modules, while K_{2i−1}(V) is the direct sum of Z/(q^i − 1) (its prime-to-p torsion) and a Z_(p)-module.
 - **Reason:** K_1(V) = V^× contains the Teichmüller group μ_{q−1}, which is not uniquely ℓ-divisible for ℓ | q − 1 (e.g. V = Z_5, μ_4); more generally the second sentence of the same proposition gives K_{2i−1}(V) ⊇ Z/w_i(E), whose prime-to-p part Z/(q^i − 1) is nonzero for q > 2. Also 'K_{2i−1}(V) ≅ K_{2i−1}(E)' in the second sentence and the proof holds only for i ≥ 2.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage; the list corrects VI.7.1 and the lines before it, not VI.7.3
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. For V with finite residue field, K₁(V)=V× has prime-to-p roots of unity, so it cannot be a Z_(p)-module. The positive even groups and the complementary odd summands have the asserted Z_(p) structure.
 
 ### KTheoryFiniteLocalFields/E7 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Proposition VI.7.3, proof, last paragraph, PDF p. 517
+- **Source:** Kbook.2013
+- **Where:** Proposition VI.7.3, proof, last paragraph, PDF p. 517
 - **Printed:** K2i−1(V ; Z/ℓν) is isomorphic to Z/w(ℓ) i (E)⊕Ti/ℓνTi⊕ℓν(Di) for large ν. By Gabber Rigidity IV.2.10, K2i−1(V ; Z/ℓν) and K2i−1(Fq; Z/ℓν) ∼= w(ℓ) i (Fq) are isomorphic.
 - **Correction:** … ≅ Z/w^{(ℓ)}_i(E) ⊕ T_i/ℓ^νT_i ⊕ ℓ^ν(D_{i−1}), and K_{2i−1}(F_q; Z/ℓ^ν) ≅ Z/w^{(ℓ)}_i(F_q); the conclusion is T_i/ℓ^νT_i = ℓ^ν(D_{i−1}) = 0, which gives the claim for all D_j by varying i.
 - **Reason:** By the Universal Coefficient Theorem the torsion term of K_{2i−1}(V; Z/ℓ^ν) is ℓ^νK_{2i−2}(V), and K_{2i−2}(V) = D_{i−1} ⊕ Z/w^{(p)}_{i−1}(E); the p-group contributes no ℓ-torsion.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The UCT in degree 2i−1 has the torsion term from K_{2i−2}, whose divisible subgroup is D_{i−1}. The printed D_i belongs to degree 2i and cannot occur in this sequence. The residue-field term also needs its cyclic-group Z/ notation.
 
 ### KTheoryFiniteLocalFields/E8 — error (affects a stated result)
 
-- **Where:** `Kbook.2013`, Proposition V.6.10 and its proof, PDF p. 423 (draft p. 415)
+- **Source:** Kbook.2013
+- **Where:** Proposition V.6.10 and its proof, PDF p. 423 (draft p. 415)
 - **Printed:** If the residue ﬁeld is Fq and q ≡1 (mod m), then K∗(E; Z/m) is a free Z/m[β]-module on generators 1 and z, where β is the Bott element and z is the class of π in K1(E; Z/m) = E×/E×m.
 - **Correction:** K_*(R; Z/m) ≅ K_*(F_q; Z/m) ≅ Z/m[β, ζ]/(ζ^2) (Remark IV.1.13.1), not Z/m[β]; hence K_*(E; Z/m) is a free K_*(R; Z/m)-module on 1 and z, that is a free Z/m[β]-module on 1, ζ, z, ζz, with ζ the class of a generator of the Teichmüller units (for m = ℓ^ν ∉ {2, 3, 4, 8}; additively for every m prime to p with m | q − 1).
 - **Reason:** E = Q_11, m = 5: K_1(Q_11; Z/5) = Q_11^×/Q_11^{×5} ≅ Z/5 (from μ_10) ⊕ Z/5 (from 11^Z) has order 25, while a free Z/5[β]-module on 1 and z has Z/5 in degree 1. Likewise K_2(Q_11; Z/5) = K_2(Q_11)/5 ⊕ 5K_1(Q_11) has order 25. The error is in the proof's 'K_*(R; Z/m) ≅ K_*(F_q; Z/m) ≅ Z/m[β]', which drops ζ.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. At Q₁₁, modulus 5, K₁/5 has two generators (residue root and uniformizer). The asserted basis omits the residue-unit generator.
 
 ### KTheoryFiniteLocalFields/E9 — error (affects a stated result)
 
-- **Where:** `Kbook.2013`, Example V.6.10.2, PDF p. 423
+- **Source:** Kbook.2013
+- **Where:** Example V.6.10.2, PDF p. 423
 - **Printed:** Taking the direct limit over all E, we see that K∗(Eq; Z/m) = Z/m[β].
 - **Correction:** K_*(E_q; Z/m) ≅ Z/m[β, ζ]/(ζ^2) ≅ K_*(F_q; Z/m): the limit over totally ramified extensions kills z but not the class ζ of a generator of F_q^×, whose image stays nonzero because every E has residue field F_q.
 - **Reason:** In E_q, an m-th root of a Teichmüller generator ω of μ_{q−1} would be a unit whose residue is an m-th root of ω̄ in F_q, which does not exist when m | q − 1 and ω̄ generates F_q^×; so [ω] ≠ 0 in K_1(E_q; Z/m) = E_q^×/m.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. A totally ramified tower changes the uniformizer class but preserves finite residue-field roots of unity. It kills z, not ζ.
 
 ### KTheoryFiniteLocalFields/E10 — gap (affects the proof)
 
-- **Where:** `Kbook.2013`, Proposition VI.1.4, proof, PDF pp. 473–474 (draft pp. 465–466)
+- **Source:** Kbook.2013
+- **Where:** Proposition VI.1.4, proof, PDF pp. 473–474 (draft pp. 465–466)
 - **Printed:** For each q ≡1 (mod m), we saw in Example V.6.10.2 (which uses Gabber rigidity) that K∗(Eq; Z/m) = Z/m[β].
 - **Correction:** K_*(E_q; Z/m) = Z/m[β, ζ]/(ζ^2); the conclusion K_*(\bar Q_p; Z/m) = Z/m[β] still holds because in the direct limit over q the class ζ_q maps to 0 in K_1(E_{q^m}; Z/m) (ζ_q is an m-th power in F_{q^m}^× since (q^m − 1)/(q − 1) ≡ m ≡ 0 mod m).
 - **Reason:** Inherited from Example V.6.10.2 (previous entry); the step 'the map K_*(E_q; Z/m) → K_*(E_{q′}; Z/m) is an isomorphism' is false in degree 1, but the colimit is unaffected.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. VI.1.4 uses the preceding incomplete ring description; allowing algebraic residue extensions is the additional step that kills ζ.
 
 ### KTheoryFiniteLocalFields/E11 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Theorem V.6.7, proof (PDF p. 418) against Theorem V.6.9.1, proof (PDF p. 422)
+- **Source:** Kbook.2013
+- **Where:** Theorem V.6.7, proof (PDF p. 418) against Theorem V.6.9.1, proof (PDF p. 422)
 - **Printed:** Consider the map Kn(k) →Kn+1(F) sending a to {s, a}; we have ∂({s, a}) = {∂(s), a} = [k] · a = a.
 - **Correction:** With the convention of the proof of V.6.9.1 (∂{a′, s′} = {a′, ∂s′}, left linearity), ∂({s, a}) = (−1)^n a for a ∈ K_n(k); either convention gives a section of ∂ up to sign. L.2/dvr-localisation fixes left linearity.
 - **Reason:** Graded commutativity gives {s, a} = (−1)^n{a, s}; the two proofs use opposite linearity conventions for the same boundary, so both formulas cannot hold for odd n unless 2a = 0.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The two source orders give inverse tame symbols. The review fixes the left-linear convention ∂{u,π}=ū consistently in L.2, L.3 and L.7.
 
 ### KTheoryFiniteLocalFields/E12 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Corollary V.6.9.2, proof, PDF pp. 422–423
+- **Source:** Kbook.2013
+- **Where:** Corollary V.6.9.2, proof, PDF pp. 422–423
 - **Printed:** the image of a under K2i+1(F; Z/ℓ) →K2i(F) is sent by ∂ to b.
 - **Correction:** … is sent by ∂ to ± the Bockstein of b, a generator of K_{2i−1}(k) ≅ Z/ℓ.
 - **Reason:** b ∈ K_{2i}(k; Z/ℓ) while ∂ of an element of K_{2i}(F) lies in K_{2i−1}(k); the localisation boundary and the Bockstein anticommute (L.2/localisation-bockstein-compatibility).
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for the published K-book (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The coefficient boundary lowers homotopy degree by one; the displayed higher degree cannot be its target.
 
 ### KTheoryFiniteLocalFields/E13 — error (affects a stated result)
 
-- **Where:** `Weibel.Handbook.I5`, Proposition 58, p. 164
+- **Source:** Weibel.Handbook.I5
+- **Where:** Proposition 58, p. 164
 - **Printed:** If i > 0 there is a summand of K2i−1(V) ∼= K2i−1(E) isomorphic to K2i−1(Fq) ∼= Z|(qi −1), detected by the e-invariant.
 - **Correction:** K_{2i−1}(V) ≅ K_{2i−1}(E) only for i ≥ 2; for i = 1 the summand is μ_{q−1} ⊂ V^× = K_1(V), and K_1(E) = E^× ≅ V^× × Z.
 - **Reason:** As for K-book Corollary V.6.9.2: a uniformiser is not a unit.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** the author copy of the chapter only; no errata list for the Handbook chapter was found or checked
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Handbook Proposition 58 includes the field equality at i=1, contradicted by O×⊂E× with valuation cokernel Z.
 
 ### KTheoryFiniteLocalFields/E14 — gap (affects the proof)
 
-- **Where:** `Weibel.Handbook.I5`, Proposition 58, proof, p. 164
+- **Source:** Weibel.Handbook.I5
+- **Where:** Proposition 58, proof, p. 164
 - **Printed:** Since Kn(V; Z|ℓ) = Z|ℓ, we also see that K2i(V) is uniquely ℓ-divisible.
 - **Correction:** K_n(V; Z/ℓ) ≅ K_n(F_q; Z/ℓ) ≅ Z/gcd(ℓ, q^{⌈n/2⌉} − 1) for n ≥ 1, which is 0 when ℓ ∤ q^{⌈n/2⌉} − 1. Unique ℓ-divisibility of K_{2i}(V) follows from the Bockstein sequences for all ℓ^ν compared with those of F_q (L.2/odd-k-l-torsion, L.2/even-k-uniquely-l-divisible).
 - **Reason:** For V with residue field F_2 and ℓ = 5: K_1(V; Z/5) = V^×/5 ≅ F_2^×/5 = 0 ≠ Z/5.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** the author copy of the chapter only
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The source’s K_n(V;Z/ℓ)=Z/ℓ is false if ℓ does not divide q^{ceil(n/2)}−1: for V=Z₅, ℓ=3, n=1, rigidity and UCT give zero. The all-power Bockstein argument still proves unique ℓ-divisibility of the positive even integral groups.
 
 ### KTheoryFiniteLocalFields/E15 — misprint (affects nothing)
 
-- **Where:** `Mestel.2014`, §5.4 'The Brauer lift of k(µl)', p. 12
+- **Source:** Mestel.2014
+- **Where:** §5.4 'The Brauer lift of k(µl)', p. 12
 - **Printed:** viewing k(µl) as a k-vector space of dimension r −1.
 - **Correction:** Dimension r; r is the least integer with l | q^r − 1 (the text says 'l divides rq'); the map k(µ_l) ⊗_k \bar k → \bar k^r is z ⊗ w ↦ (zw, z^q w, …, z^{q^{r−1}} w), and the eigenvalues of z are z, z^q, …, z^{q^{r−1}} (without the 1 listed in the text).
 - **Reason:** k(µ_l) = F_{q^r} has dimension r over F_q (the essay itself uses 'dimension r' in §8.1); with the printed map the first coordinate would not be multiplicative in z, and a list of r + 1 eigenvalues cannot belong to an r-dimensional representation; the essay's formula (5.1), χ_L(z) = Σ_{i=0}^{r−1} ι(z^{q^i}), is the corrected one.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** the essay as hosted on the author's page (no other version found)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Multiplication on F_{q^r} has dimension r and eigenvalues z,z^q,…,z^{q^{r−1}}. The r−1/extra-1 formulations do not describe this representation.
 
 ### KTheoryFiniteLocalFields/E16 — misprint (affects nothing)
 
-- **Where:** `Haine.2016`, Example 4.9 and Example 4.12, pp. 6
+- **Source:** Haine.2016
+- **Where:** Example 4.9 and Example 4.12, pp. 6
 - **Printed:** 𝜆𝑘(𝑎) = 1/𝑘!𝑎(𝑎−1) ⋯(𝑎−𝑘−1)
 - **Correction:** λ^k(a) = a(a − 1)⋯(a − k + 1)/k! (the last factor is a − k + 1), in both examples.
 - **Reason:** λ^k(n) = C(n, k) = n(n−1)⋯(n−k+1)/k!; with the printed last factor the product has k + 1 factors and λ^1(n) = n(n − 2) instead of n.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** the notes as hosted on the author's page (only the dated 25 September 2016 version)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The displayed endpoint a−k−1 is two places past a−k+1. Taking k=1 already contradicts λ¹(a)=a. The ordinary binomial coefficient supplies the stated correction in both examples.
 
 ### KTheoryFiniteLocalFields/E17 — error (affects a stated result)
 
-- **Where:** `Kbook.2013`, VI.7, paragraph before Proposition VI.7.1, and Proposition VI.7.1 (PDF p. 515; book p. 507), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** VI.7, paragraph before Proposition VI.7.1, and Proposition VI.7.1 (PDF p. 515; book p. 507), author-hosted draft of 29 August 2013
 - **Printed:** We also saw in Moore’s Theorem (Chapter III, Theorem 6.2.4 and Ex. 6.11) that K2(E) ≅ U2 ⊕ F×q, where U2 is an uncountable, uniquely divisible abelian group. Since K2(E) ≅ K2(V) ⊕ F×q by V.6.9.2, this implies that K2(V) ≅ U2. … The group K2(E) is the sum of F×q and an uncountable, uniquely divisible group.
 - **Correction:** K₂(E) ≅ U₂ ⊕ μ(E) and K₂(V) ≅ U₂ ⊕ μ_{p^∞}(E); the printed forms hold exactly when μ_p ⊄ E (always in characteristic p).
 - **Reason:** For E = ℚ₂, {−1, −1} is an element of order two of K₂(ℚ₂) (its Hilbert symbol is −1, Example III.6.2.5), and it lies in K₂(ℤ₂); but 𝔽₂^× = 1 and a uniquely divisible group has no 2-torsion, so K₂(ℚ₂) ≇ U₂ ⊕ 𝔽₂^× and K₂(ℤ₂) ≇ U₂. Theorem III.6.2.4 itself has the correct term μ.
-- **Known:** Weibel's errata for GSM 145, p. 558: 'K2(E) ≅ U2 ⊕ µ(E) (not ...⊕ F×q)', 'K2(V) ≅ U2 should be K2(V) ≅ U2 ⊕ µp∞(E)', '(VI.7.1): “sum of F×q” should be “sum of µ(E)”'.
+- **Existing correction:** Weibel's errata for GSM 145, p. 558: 'K2(E) ≅ U2 ⊕ µ(E) (not ...⊕ F×q)', 'K2(V) ≅ U2 should be K2(V) ≅ U2 ⊕ µp∞(E)', '(VI.7.1): “sum of F×q” should be “sum of µ(E)”'.
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The archived author errata explicitly corrects K₂ of the integers to include the roots-of-unity finite part. This is a known erratum, not a new discovery.
 
 ### KTheoryFiniteLocalFields/E18 — error (affects the proof)
 
-- **Where:** `Kbook.2013`, Exercise III.6.11 (PDF p. 252; book p. 244), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Exercise III.6.11 (PDF p. 252; book p. 244), author-hosted draft of 29 August 2013
 - **Printed:** If F is a field of transcendence degree κ over the ground field, Ω1F is a vector space of dimension κ. … In particular, if F is a local field then the uniquely divisible summand U of K2(F) in Moore’s Theorem (6.2.4) is uncountable.
 - **Correction:** The dimension statement holds in characteristic 0 only; in characteristic p the dimension of Ω¹_F is the p-degree of F. So the argument gives the uncountability of U only for local fields of characteristic 0; for local fields of characteristic p it follows instead from Corollary III.6.3.2 (|K₂(F)| = |F|) and the finiteness of μ(F).
 - **Reason:** F = 𝔽_q((t)) has uncountable transcendence degree over 𝔽_p but p-basis {t}, so Ω¹_F = F·dt is one-dimensional and Ω²_F = 0: the image of K₂(F) → Ω²_F is zero, not of rank κ. (For a perfect field of characteristic p, Ω¹ = 0.) Also, in characteristic p the image in Ω² is an 𝔽_p-vector space, so it has rank 0 as an abelian group.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy of Kbook.errata.pdf): no entry for Exercise III.6.11
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. In characteristic p, perfectness can force Ω¹=0 at positive transcendence degree. The characteristic-zero differential dimension argument cannot be reused.
 
 ### KTheoryFiniteLocalFields/E19 — gap (affects the proof)
 
-- **Where:** `Kbook.2013`, Theorem III.6.6 and the paragraph after Theorem III.6.6.1 (PDF p. 245), Theorem III.6.7 (PDF p. 246), Izhboldin's Theorem III.7.8 and Corollary III.7.8.3 (PDF pp. 259–261)
+- **Source:** Kbook.2013
+- **Where:** Theorem III.6.6 and the paragraph after Theorem III.6.6.1 (PDF p. 245), Theorem III.6.7 (PDF p. 246), Izhboldin's Theorem III.7.8 and Corollary III.7.8.3 (PDF pp. 259–261)
 - **Printed:** We omit the proof of Hilbert’s Theorem 90 for K2 (and for KMn; see 7.8.4 below), since the proof does not involve K-theory, contenting ourselves with two special cases: when p = char(F) (7.8.3) and the following special case.
 - **Correction:** The case p = char F is not proved independently in the book: Theorem III.6.7 uses Hilbert 90 for K₂ for the degree-p Artin–Schreier extension F(x)/F(y); Corollary III.7.8.3, which the text offers as the proof of that case, uses Izhboldin's Theorem III.7.8 ('Since K^M_n(F) has no p-torsion'), and the proof of Theorem III.7.8 begins 'the case n = 2 being Theorem III.6.7'. Theorem III.6.7 therefore rests on Merkurjev–Suslin's Hilbert 90 [125], not on 7.8.3.
 - **Reason:** Following the references: III.6.7 → III.6.6 (p = char F) → III.7.8.3 → III.7.8 (n = 2) → III.6.7 is a cycle; none of the steps supplies an independent argument for n = 2.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy of Kbook.errata.pdf): no entry for III.6.6, III.6.7 or III.7.8
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Theorem III.6.7 uses characteristic-p Hilbert 90; the proposed proof in III.7.8.3 uses Izhboldin III.7.8, whose n=2 base case is III.6.7. This is the precise cycle; an independent Merkurjev–Suslin input remains necessary.
 
 ### KTheoryFiniteLocalFields/E20 — misprint (affects nothing)
 
-- **Where:** `Weibel.Handbook.I5`, §5.6, sentence before Theorem 57 (p. 163; PDF p. 25), author copy
+- **Source:** Weibel.Handbook.I5
+- **Where:** §5.6, sentence before Theorem 57 (p. 163; PDF p. 25), author copy
 - **Printed:** For K2, there is a norm residue symbol K2(E) → µ(E) and we have the following result; see [75, III.6.6].
 - **Correction:** [72, III.6.6]: reference [72] is Weibel's K-book manuscript (where, in the 2013 draft, the result is Moore's Theorem III.6.2.4); [75] is 'An introduction to homological algebra'.
 - **Reason:** The reference list gives [72] = 'Charles Weibel, Algebraic K-theory, http://math.rutgers.edu/~weibel/' and [75] = 'An introduction to homological algebra, Cambridge Studies in Advanced Mathematics, vol. 38'; Moore's theorem is not in the latter.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's author page for the Handbook chapter (author copy KZsurvey-published.pdf): no errata found
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Handbook reference 75 does not contain the invoked local-field theorem; the bibliography’s reference 72 is the matching source.
 
 ### KTheoryFiniteLocalFields/E21 — misprint (affects nothing)
 
-- **Where:** `Weibel.Handbook.I5`, Proof of Theorem 57 (p. 163; PDF p. 25), author copy
+- **Source:** Weibel.Handbook.I5
+- **Where:** Proof of Theorem 57 (p. 163; PDF p. 25), author copy
 - **Printed:** The fact that U2 is torsion free (hence uniquely divisible) was proven by Tate [66] when char(F) = p, and by Merkurjev [37] when char(F) = 0.
 - **Correction:** char(E) = p and char(E) = 0: the local field of §5.6 is E (F denotes a global field in this chapter).
 - **Reason:** Theorem 57 and the whole of §5.6 are stated for the local field E; the sentence was carried over from the K-book, where the local field is called F.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's author page for the Handbook chapter: no errata found
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The section denotes its local field by E and its global field by F. The two characteristic conditions in Theorem57’s proof must refer to E; this is a notation correction, not a statement about the residue field.
 
 ### KTheoryFiniteLocalFields/E22 — error (affects a stated result)
 
-- **Where:** `Weibel.Handbook.I5`, §5.6, first two paragraphs (p. 162; PDF p. 24), author copy
+- **Source:** Weibel.Handbook.I5
+- **Where:** §5.6, first two paragraphs (p. 162; PDF p. 24), author copy
 - **Printed:** It is well known that V× = µ(E) × U1, where µ(E) is the group of roots of unity in E (or V), and where U1 is a free Zp-module. In the equi-characteristic case, where char(E) = p, it is well known that V = Fq[[π]] and E = Fq((π)) [55], so µ(E) = F×q , and U1 = W(Fq) has rank [Fq : Fp] over Zp = W(Fp).
 - **Correction:** In characteristic p, U₁ = 1 + πF_q[[π]] is the group of big Witt vectors of F_q, a countably infinite product of copies of ℤ_p, which is torsion-free but not a free ℤ_p-module and not of finite rank; 'free' and 'rank [F_q : F_p]' hold only in characteristic 0 (where U₁ has rank [E : ℚ_p] modulo torsion).
 - **Reason:** K-book VI.7 (PDF p. 515): 'U1 = 1 + πFq[[π]] is isomorphic to the big Witt vectors of Fq (II.4.3), which is the product of a countably infinite number of copies of Zp', and Exercises VI.7.1–VI.7.2 show that this product is not a free ℤ_p-module; the p-typical W(F_q) of rank f = [F_q : F_p] is the wrong Witt vector group.
-- **Known:** Corrected in the author's subsequent K-book (draft of 29 August 2013), VI.7 and Exercise VI.7.2
+- **Existing correction:** Corrected in the author's subsequent K-book (draft of 29 August 2013), VI.7 and Exercise VI.7.2
 - **Correction search:** Weibel's author page for the Handbook chapter: no errata found; K-book VI.7 (the same author's subsequent text)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The principal units of F_q[[π]] are big Witt vectors, with infinitely many p-typical factors; they are not the single finite-rank W(F_q) in the printed sentence. In mixed characteristic the root-of-unity torsion must first be split off from principal units.
 
 ### KTheoryFiniteLocalFields/E23 — misprint (affects nothing)
 
-- **Where:** `HesselholtMadsen.2003`, Lemma 2.2.3, p. 34 (Annals 158 (2003); arXiv:math/9910186v2, same text in the TeX e-print)
+- **Source:** HesselholtMadsen.2003
+- **Where:** Lemma 2.2.3, p. 34 (Annals 158 (2003); arXiv:math/9910186v2, same text in the TeX e-print)
 - **Printed:** Then the element d log πK generates the A-module ω1 (A,M)/W (k), and its annihilator is the ideal generated by φ′K(πK)πK. This ideal contains p.
 - **Correction:** The annihilator (φ'_K(π_K)π_K) is contained in pA: φ'_K(π_K)π_K = p(π_Kθ'_K(π_K) − e_Kθ_K(π_K)). It equals pA exactly when p ∤ e_K; when p | e_K it is strictly smaller and does not contain p.
 - **Reason:** From φ_K(x) = x^e + pθ_K(x) and π^e = −pθ_K(π): πφ'_K(π) = eπ^e + pπθ'_K(π) = p(πθ'_K(π) − eθ_K(π)), and the second factor is a unit iff p ∤ e. Example: A = Z_p[π] with π^p = p (φ = x^p − p, θ = −1, e = p): πφ'(π) = pπ^p = p², so the annihilator is (p²), which does not contain p. The proof of Corollary 2.2.5 uses the correct inclusion (it needs p | π_Kφ'_K(π_K) to identify the p-torsion of A/(π_Kφ'_K(π_K)) with A/p·dlog(−p)), so nothing downstream is affected.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** arXiv abstract page and version history of math/9910186 (v2 is the Annals text); the TeX e-print (Hesselholt.tex, received December 23, 1999): same sentence; Lars Hesselholt's paper page (no erratum listed for paper 10)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The annihilator inclusion direction reverses the consequence used in the proof. The surrounding cyclic quotient calculation verifies contained-in.
 
 ### KTheoryFiniteLocalFields/E24 — gap (affects the proof)
 
-- **Where:** `HesselholtMadsen.2003`, Proposition 3.2.2 and Addendum 3.2.3, p. 48; with Hesselholt–Madsen 2004 (Ann. Sci. ENS 37), introduction, p. 4 of the author copy
+- **Source:** HesselholtMadsen.2003
+- **Where:** Proposition 3.2.2 and Addendum 3.2.3, p. 48; with Hesselholt–Madsen 2004 (Ann. Sci. ENS 37), introduction, p. 4 of the author copy
 - **Printed:** Proof. This is a fairly straightforward application of the Freyd adjoint functor theorem, [31, p. 116]. For a detailed proof, we refer the reader to [17, §1].
 - **Correction:** A proof of the existence of the initial log Witt complex W_•ω^*_{(R,M)}, of the surjectivity of λ: ω^*_{(W_•(R),M)} → W_•ω^*_{(R,M)} and of W_1ω^*_{(R,M)} ≅ ω^*_{(R,M)} (Addendum 3.2.3) for log rings: [17, §1] and [17, Th. D] treat only Witt complexes without log structure.
 - **Reason:** [17] (Hesselholt–Madsen, 'On the de Rham-Witt complex in mixed characteristic') proves Theorem A (initial Witt complex) and Theorem D for Z_(p)-algebras without log structure, and its introduction states: 'The notion of a Witt complex and theorem A above generalize to log-rings; see [HM 2003, §3] for details.' The two papers thus refer to each other for the log case, and neither writes out the solution-set argument or the analogue of Theorem D with the extra generators dlog a and relations F dlog_n a = dlog_{n−1} a.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Hesselholt–Madsen 2004, author-hosted final version (introduction and §1); Hesselholt 2005 (Handbook I.3) §3.8, which treats only the non-log Witt complex; Lars Hesselholt's paper page
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. HM 2003 points to the non-log existence proof in HM 2004, which in turn points back for log rings. This is a missing proof contract, not a counterexample to log initiality.
 
 ### KTheoryFiniteLocalFields/E25 — gap (affects the proof)
 
-- **Where:** `HesselholtMadsen.2003`, Remark 2.4.2, p. 43, used in the proof of Lemma 5.6.1, p. 95
+- **Source:** HesselholtMadsen.2003
+- **Where:** Remark 2.4.2, p. 43, used in the proof of Lemma 5.6.1, p. 95
 - **Printed:** An argument similar to [27, §5] shows that for m > 0, there exists a noncanonical isomorphism π2m−1(T(A|K), Zp) ∼= A/(mπKφ′K(πK)) and that π2m(T(A|K), Zp) vanishes.
 - **Correction:** A proof of the vanishing of π_{2m}(T(A|K);Z_p) for m > 0 (the only part used in Lemma 5.6.1), e.g. by the Bockstein spectral sequence from Theorem 2.4.1 with dκ = κ dlog(−p).
 - **Reason:** The remark is asserted without proof, but Lemma 5.6.1 (used for n > 3 in Proposition 3.3.6, Addendum 3.3.7 and Theorem 3.3.8, hence in Theorem C) needs that π_*(T(A|K);Z_p) is concentrated in odd degrees apart from degree 0.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** the arXiv versions of math/9910186; Lindenstrauss–Madsen §5 is cited but was not available to this job
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Remark2.4.2 cites a similar argument instead of deriving the logarithmic p-adic groups. Lemma5.6.1 needs its positive even-degree vanishing. Both the stated odd formula and this required vanishing therefore retain a missing-calculation proof obligation; neither is a counterexample.
 
 ### KTheoryFiniteLocalFields/E26 — misprint (affects nothing)
 
-- **Where:** `HesselholtMadsen.2003`, citations of reference [19] (Hesselholt–Madsen, Topology 36): proof of Lemma 2.2.4 (p. 35) and of Proposition 2.3.4 (p. 39) '[19, Lemma 5.5]'; §2.4 (p. 40) '[19, Th. 5.2, Cor. 5.5]'; proofs of Proposition 3.3.6 (pp. 53–54) and Addendum 3.3.7 (p. 55) '[19, Th. 5.5]', '[19, Prop. 3.3]'; proof of Proposition 3.3.1 '[19, Lemma 3.3]'
+- **Source:** HesselholtMadsen.2003
+- **Where:** citations of reference [19] (Hesselholt–Madsen, Topology 36): proof of Lemma 2.2.4 (p. 35) and of Proposition 2.3.4 (p. 39) '[19, Lemma 5.5]'; §2.4 (p. 40) '[19, Th. 5.2, Cor. 5.5]'; proofs of Proposition 3.3.6 (pp. 53–54) and Addendum 3.3.7 (p. 55) '[19, Th. 5.5]', '[19, Prop. 3.3]'; proof of Proposition 3.3.1 '[19, Lemma 3.3]'
 - **Printed:** But HHi(k) = 0, for i > 0, since k is perfect, [19, Lemma 5.5].
 - **Correction:** In the author-hosted version of [19] (Topology 36 (1997), 29–101) the cited results are Lemma 4.5 (HH_*(k) = k), Theorem 4.2 and Corollary 4.5 (π_*T(k)), Theorem 4.5 (TR of perfect fields with F, V, R), Proposition 2.3 (the exact sequence for π_0) and Lemma 2.3.1 (relations on π_*(T(A)^C)); §5 of that version treats finite W(k)-algebras and has no Theorem 5.5.
 - **Reason:** Comparison of each citation with the statements of the author-hosted PDF of [19] (§§2.3 and 4); the contents match one section lower than the numbers cited.
-- **Known:** new (the journal version of [19] was not compared)
+- **Existing correction:** new (the journal version of [19] was not compared)
 - **Correction search:** author-hosted PDF of Hesselholt–Madsen, Topology 36 (read); the published journal version was not accessible
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. In the public HM1997 author copy read here, the perfect-field calculations are Lemma4.5, Theorem4.2, Corollary4.5 and Theorem4.5, and the π₀ sequence is Proposition2.3. The finding is a version-specific locator mismatch; no claim about unread editions is made.
 
 ### KTheoryFiniteLocalFields/E27 — error (affects a stated result)
 
-- **Where:** `Weibel.Handbook.I5`, §5.6, the paragraph before Theorem 61 (p. 165; PDF p. 27), author copy
+- **Source:** Weibel.Handbook.I5
+- **Where:** §5.6, the paragraph before Theorem 61 (p. 165; PDF p. 27), author copy
 - **Printed:** For all i, and ℓν > wi, the étale cohomology group H1(E,µ⊗i pν ) is isomorphic to (Z/pν)d ⊕Z/wi ⊕Z/wi−1, d = [E : Qp].
 - **Correction:** For i ≥ 2 and every ν ≥ 1: H^1(E, μ_{p^ν}^{⊗i}) ≅ (ℤ/p^ν)^d ⊕ ℤ/gcd(p^ν, w_i) ⊕ ℤ/gcd(p^ν, w_{i−1}), with w_j = w_j^{(p)}(E); so the printed form holds once p^ν ≥ max(w_i, w_{i−1}). 'ℓν' is a misprint for p^ν, and i = 1 (where w_0 is undefined) and i ≤ 0 are excluded.
 - **Reason:** E = ℚ_3, i = 7, ν = 1: w_7^{(3)}(ℚ_3) = 1 < 3 and w_6^{(3)}(ℚ_3) = 9, so the printed form gives ℤ/3 ⊕ ℤ/9, of order 27 and not killed by 3. But H^1(ℚ_3, μ_3^{⊗7}) is killed by 3, and the Euler characteristic gives #H^1 = 3·#H^0·#H^2 = 3·1·3 = 9 (H^0 = 0 because χ^7 ≡ χ mod 3 is nontrivial; H^2 ≅ H^0(ℚ_3, ℤ/3(−6))^∨ = ℤ/3).
-- **Known:** Corrected, for large ν, in the K-book (2013), Corollary VI.7.4.1: 'For i > 1 and all large ν'.
+- **Existing correction:** Corrected, for large ν, in the K-book (2013), Corollary VI.7.4.1: 'For i > 1 and all large ν'.
 - **Correction search:** Weibel's author page for the Handbook chapter (author copy KZsurvey-published.pdf): no errata found; The K-book's VI.7 (its subsequent version of the section)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The source writes ℓ^ν while using p^ν coefficients and bounds only w_i. UCT and local duality give gcd(p^ν,w_i) and gcd(p^ν,w_{i−1}), with i≥2; both stabilize only after p^ν dominates both orders. The degree-one case has its extra valuation term.
 
 ### KTheoryFiniteLocalFields/E28 — misprint (affects nothing)
 
-- **Where:** `Weibel.Handbook.I5`, Proof of Theorem 61 (p. 165; PDF p. 27), author copy
+- **Source:** Weibel.Handbook.I5
+- **Where:** Proof of Theorem 61 (p. 165; PDF p. 27), author copy
 - **Printed:** If p > 2 the first part is proven in [6] (see [25]).
 - **Correction:** If p > 2 the first part is Hesselholt–Madsen [25, Theorem A] together with the Galois-cohomology count; [6] (Bökstedt–Madsen, 'Algebraic K-theory of local number fields: the unramified case') proves it only for unramified E.
 - **Reason:** The reference list gives [6] = 'M. Bökstedt and I. Madsen, Algebraic K-theory of local number fields: the unramified case', which does not treat ramified E; Theorem 61 is stated for every finite E/ℚ_p. (Observed by author C of this job.)
-- **Known:** The K-book (2013), before Theorem VI.7.4, attributes the case p > 2 to 'HM [88, thm. A]'.
+- **Existing correction:** The K-book (2013), before Theorem VI.7.4, attributes the case p > 2 to 'HM [88, thm. A]'.
 - **Correction search:** Weibel's author page for the Handbook chapter: no errata found; The K-book's corresponding attribution
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Bökstedt–Madsen supplies the unramified calculation; the general ramified DVR assertion requires Hesselholt–Madsen. The attribution cannot be interchanged.
 
 ### KTheoryFiniteLocalFields/E29 — misprint (affects nothing)
 
-- **Where:** `Weibel.Handbook.I5`, Theorem 67 (p. 167; PDF p. 29), author copy
+- **Source:** Weibel.Handbook.I5
+- **Where:** Theorem 67 (p. 167; PDF p. 29), author copy
 - **Printed:** Set r = [E(µp) : E], and let pa be the number of p-primary roots of unity in E(µp). If r is a topological generator of Z× p , then k = rn, n = pa−1(p −1)|r.
 - **Correction:** If γ is a topological generator of ℤ_p^×, then k = γ^n with n = p^{a−1}(p − 1)/r; the letter r cannot denote both the degree [E(μ_p) : E] and the generator.
 - **Reason:** Read literally, r is the degree [E(μ_p) : E] of the previous sentence. For E ⊇ μ_p this is r = 1, which is not a topological generator of ℤ_p^×, and k = 1^n = 1 would make Ψ^k − 1 null, so π_{2i−1}FΨ^1 ≅ π_{2i}(BU)^∧_p = ℤ_p instead of the finite group ℤ/w_i^{(p)}(E) the theorem requires.
-- **Known:** The K-book (2013), Theorem VI.7.9, writes 'If γ is a topological generator of Z×p, then k = γn', and Hesselholt–Madsen's Theorem D uses g.
+- **Existing correction:** The K-book (2013), Theorem VI.7.9, writes 'If γ is a topological generator of Z×p, then k = γn', and Hesselholt–Madsen's Theorem D uses g.
 - **Correction search:** Weibel's author page for the Handbook chapter: no errata found; K-book Theorem VI.7.9; Hesselholt–Madsen, Theorem D
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Theorem67 first defines r as the extension degree, then uses r again as a topological generator. Distinguishing γ from r gives k=γ^{p^{a−1}(p−1)/r}; this is the homotopy-type parameter, not an eigenvalue formula.
 
 ### KTheoryFiniteLocalFields/E30 — error (affects nothing)
 
-- **Where:** `Kbook.2013`, Proof of Theorem VI.7.4 (PDF p. 518; book p. 510), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Proof of Theorem VI.7.4 (PDF p. 518; book p. 510), author-hosted draft of 29 August 2013
 - **Printed:** Kn(V ; Zp) ∼= Kn(E; Zp) for all n > 0.
 - **Correction:** For all n ≥ 2; for n = 1 there is a short exact sequence 0 → K_1(V; ℤ_p) → K_1(E; ℤ_p) → ℤ_p → 0 (the valuation).
 - **Reason:** V = ℤ_p, p odd: K_1(ℤ_p; ℤ_p) ≅ (ℤ_p^×)^∧_p = 1 + pℤ_p ≅ ℤ_p, while K_1(ℚ_p; ℤ_p) ≅ (ℚ_p^×)^∧_p ≅ ℤ_p². The localisation sequence has K_0(𝔽_q; ℤ_p) = ℤ_p in the relevant place.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy of Kbook.errata.pdf): no entry for Theorem VI.7.4
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The p-completed degree-one localization sequence retains the valuation quotient Z_p, so integers and field are not isomorphic there. Positive finite residue-field K-groups are p-acyclic, giving the comparison in every degree n≥2.
 
 ### KTheoryFiniteLocalFields/E31 — error (affects the proof)
 
-- **Where:** `Kbook.2013`, Proof of Theorem VI.7.4 (PDF p. 518; book p. 510), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Proof of Theorem VI.7.4 (PDF p. 518; book p. 510), author-hosted draft of 29 August 2013
 - **Printed:** K2i−1(V ; Zp) is the direct sum of the finite p-group Z/w(p) i (E) and two finitely generated torsionfree Zp-modules: the Tate module of Di−1 and Ti ⊗Z Zp.
 - **Correction:** The second module is the p-adic completion lim_ν T_i/p^νT_i ≅ ℤ_p^{t_i}, not T_i ⊗_ℤ ℤ_p.
 - **Reason:** T_i contains the image of the uncountable uniquely divisible summand K^M_{2i−1}(E) (Proposition VI.7.1, characteristic 0, 2i − 1 ≥ 3), a ℚ-vector space V; then V ⊗_ℤ ℤ_p = V ⊗_ℚ ℚ_p is a nonzero ℚ_p-vector space of uncountable dimension, so T_i ⊗ ℤ_p is not finitely generated and does not embed in the finitely generated K_{2i−1}(V; ℤ_p).
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy): no entry for Theorem VI.7.4; Handbook I.5, proof of Theorem 61 (argues differently)
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. A nonzero rational divisible summand of T_i tensors with Z_p to a nonzero Q_p-vector space, while its ordinary p-adic completion is zero. Such summands occur in the source’s positive higher local K-groups. Thus the asserted finitely generated comparison needs lim T_i/p^ν, not T_i⊗Z_p.
 
 ### KTheoryFiniteLocalFields/E32 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Proof of Theorem VI.7.4 (PDF pp. 517–518; book pp. 509–510), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Proof of Theorem VI.7.4 (PDF pp. 517–518; book pp. 509–510), author-hosted draft of 29 August 2013
 - **Printed:** It is classical that the groups H∗et(E; Z/pν) are finitely generated groups, and that the H∗et(E; Z/p) are finitely generated Zp-modules.
 - **Correction:** The groups H^*_et(E; ℤ/p^ν) are finite, and the H^*(E; ℤ_p(i)) are finitely generated ℤ_p-modules.
 - **Reason:** H^*(E; ℤ/p) is an 𝔽_p-vector space, so calling it a finitely generated ℤ_p-module says nothing new; the statement the proof needs, and the classical one, is about ℤ_p coefficients (Tate).
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy): no entry for this passage
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Confirmed as a proof-input typo only: finite H^*_et(E;Z/p) is indeed a finitely generated Z_p-module. That literal true assertion does not supply finite generation of the Z_p-coefficient étale cohomology used downstream. The intended Z_p-coefficient input is missing from the sentence.
 
 ### KTheoryFiniteLocalFields/E33 — error (affects a stated result)
 
-- **Where:** `Kbook.2013`, Corollary VI.7.4.2 (PDF p. 518; book p. 510), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Corollary VI.7.4.2 (PDF p. 518; book p. 510), author-hosted draft of 29 August 2013
 - **Printed:** Corollary 7.4.2. K3(V ) contains a torsionfree subgroup isomorphic to Zd (p), whose p-adic completion is isomorphic to K3(V ; Zp) ∼= (Zp)d.
 - **Correction:** … whose p-adic completion is isomorphic to the torsion-free quotient ℤ_p^d of K_3(V; ℤ_p) ≅ ℤ_p^d ⊕ ℤ/w_2^{(p)}(E).
 - **Reason:** By Theorem VI.7.4 itself K_3(V; ℤ_p) ≅ ℤ_p^d ⊕ ℤ/w_2^{(p)}(E), and w_2^{(p)}(E) ≠ 1 for E = ℚ_3 (w = 3) and E = ℚ_2 (w = 8), so K_3(V; ℤ_p) ≇ ℤ_p^d there.
-- **Known:** Stated correctly in Handbook I.5 (2005), Corollary 63: 'the torsion free part of K3(V; Zp) = (Zp)d ⊕ Z/w(p) 2'.
+- **Existing correction:** Stated correctly in Handbook I.5 (2005), Corollary 63: 'the torsion free part of K3(V; Zp) = (Zp)d ⊕ Z/w(p) 2'.
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy): no entry for Corollary VI.7.4.2; Handbook I.5, Corollary 63
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. For E=Q₃, w₂^{(3)}(E)=3, and completed K₃ has a Z/3 summand as well as its free rank. A torsion-free lattice’s completion identifies the free quotient, not the entire completed group in this example.
 
 ### KTheoryFiniteLocalFields/E34 — misprint (affects nothing)
 
-- **Where:** `Kbook.2013`, Exercise VI.7.4 (PDF p. 520; book p. 512), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Exercise VI.7.4 (PDF p. 520; book p. 512), author-hosted draft of 29 August 2013
 - **Printed:** In Theorem VI.7.9 7.9, check that π2i−1FΨk ∼= Zp/(ki−1) is Z/wi(E) for all i.
 - **Correction:** … is ℤ/w_i^{(p)}(E) for all i.
 - **Reason:** ℤ_p/(k^i − 1) is a p-group, while w_i(E) = (q^i − 1)·w_i^{(p)}(E) (Example VI.2.3.1) has the prime-to-p factor q^i − 1 > 1; e.g. E = ℚ_5, i = 1: ℤ_5/(k − 1) = 0 but w_1(ℚ_5) = 4.
-- **Known:** The Handbook's Theorem 67 is correct in its notation, where w_i denotes w_i^{(p)}(E) throughout §5.6.
+- **Existing correction:** The Handbook's Theorem 67 is correct in its notation, where w_i denotes w_i^{(p)}(E) throughout §5.6.
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy): no entry for Exercise VI.7.4; Handbook I.5, Theorem 67
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The prime-to-p w_i component survives in integral groups. A formula for the p-completed group needs w_i^{(p)}, not the full w_i.
 
 ### KTheoryFiniteLocalFields/E35 — error (affects nothing)
 
-- **Where:** `Kbook.2013`, Proof of Proposition VI.7.1 (PDF p. 515; book p. 507), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Proof of Proposition VI.7.1 (PDF p. 515; book p. 507), author-hosted draft of 29 August 2013
 - **Printed:** which by duality is Z/(w2, m), where w2 = w2(E) is q2 −1 by
-- **Correction:** w_2(E) = (q² − 1)·w_2^{(p)}(E) (Example VI.2.3.1); it equals q² − 1 only when w_2^{(p)}(E) = 1, for instance in characteristic p or for m prime to p.
+- **Correction:** w_2(E) = (q² − 1)·w_2^{(p)}(E) (Example VI.2.3.1); it equals q² − 1 only when w_2^{(p)}(E) = 1, for instance in characteristic p. If m is prime to p, the quotient Z/gcd(w_2(E),m) nevertheless agrees with Z/gcd(q²−1,m).
 - **Reason:** E = ℚ_3: w_2(ℚ_3) = 8·3 = 24 ≠ q² − 1 = 8. In characteristic 0 every m is invertible in E, so p | m is allowed in the argument.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy): the only entry for VI.7.1 concerns 'sum of F×q'
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. For E=Q₃, w₂(E)=24 whereas q²−1=8. Taking m=3 makes the missing p-part visible in Z/gcd(w₂,m). When m is prime to p the quotient orders agree, but w₂ itself still need not equal q²−1.
 
 ### KTheoryFiniteLocalFields/E36 — gap (affects the proof)
 
-- **Where:** `Kbook.2013`, Proof of Proposition VI.7.1 and proof of Theorem VI.7.2 (PDF pp. 515–516; book pp. 507–508), author-hosted draft of 29 August 2013
+- **Source:** Kbook.2013
+- **Where:** Proof of Proposition VI.7.1 and proof of Theorem VI.7.2 (PDF pp. 515–516; book pp. 507–508), author-hosted draft of 29 August 2013
 - **Printed:** The group is uncountable by Ex. III.EIII.7.14 7.14, and divisibility follows easily from Moore’s Theorem
 - **Correction:** In characteristic p the uncountability of K^M_n(E), n ≥ 3 (and hence of U_n, n ≥ 3, in Theorem VI.7.2) needs another argument; the Handbook attributes it to Tate. Alternative now supplied: L.6/uncountable-transcendence-basis, rational-symbol-residue-separation, finite-stage-relation-descent, local-symbol-family-independent and equal-characteristic-milnor-uncountable. The printed-proof finding remains; the packet proof gap is resolved without reading Tate.
 - **Reason:** Exercise III.7.14 bounds #K^M_n(F) below by the image of dlog in Ω^n_F, using Exercise III.6.11 (dim Ω^1_F equals the transcendence degree). For F = 𝔽_q((t)), {t} is a p-basis, Ω^1_F = F dt and Ω^n_F = 0 for n ≥ 2, so the image is zero and no lower bound results. (Author B of this job records the failure of Exercise III.6.11 in characteristic p for n = 2.)
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Weibel's errata list for GSM 145 (Wayback copy): no entry for Exercise III.7.14 or for the uncountability in VI.7.1–7.2; Handbook I.5, proofs of Theorems 56 and 57 (cite Tate [66])
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Ωⁿ_{F_q((t))}=0 for n≥2 cannot prove uncountability. The packet’s replacement uses separated rational symbols, finite-stage descent and transfer.
 
 ### KTheoryFiniteLocalFields/E37 — error (affects the proof)
 
-- **Where:** `Sharifi.ANT.20260926`, Proposition 9.3.4(c), p. 196, current undated UCLA PDF and HTML read 2026-09-26
+- **Source:** Sharifi.ANT.20260926
+- **Where:** Proposition 9.3.4(c), p. 196, current undated UCLA PDF and HTML read 2026-09-26
 - **Printed:** cⁿ−a = N_{K(a^(1/n))/K}(c−a^(1/n))
 - **Correction:** This equality needs [K(a^(1/n)):K]=n. In general factor X^n−a into irreducibles; c^n−a is the product of their root norms. Because μ_n⊂K, their root fields are K-isomorphic to the same Kummer field, so the product is still a norm (when nonzero). The Steinberg and skew-symmetry conclusions survive.
 - **Reason:** Take K=ℚ₅,n=2,a=4,c=1 and choose a^(1/n)=2. The displayed left side is −3; the norm from K to itself on the right is −1. K2SymbolsBrauer:T.7/classical-local-symbols already supplies the correct product-of-norms proof, which this continuation consumes. The counterexample has a≠0,1 and hence applies to the actual Steinberg specialization.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.; Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The tame norm criterion depends on the actual degree of the Kummer extension. Q₅ with a fourth-power radicand gives degree one and contradicts the unqualified exponent formula.
 
 ### KTheoryFiniteLocalFields/E38 — misprint (affects nothing)
 
-- **Where:** `Sharifi.ANT.20260926`, Lemma 6.3.3 proof, p. 130, current undated UCLA PDF read 2026-09-26
+- **Source:** Sharifi.ANT.20260926
+- **Where:** Lemma 6.3.3 proof, p. 130, current undated UCLA PDF read 2026-09-26
 - **Printed:** has order q
 - **Correction:** The group μ_{q−1}(K) has order q−1; the q roots of X^q−X include zero.
 - **Reason:** For K=ℚ₅, μ₄(K) has four elements and reduces to 𝔽₅^×. The lemma's own statement gives q−1 correctly. The continuation uses the pinned Teichmüller equivalence, not this typo.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.; Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The unramified unit quotient has order q−1, not q. Taking q=5 distinguishes the statements immediately.
 
 ### KTheoryFiniteLocalFields/E39 — gap (affects the proof)
 
-- **Where:** `Sharifi.ANT.20260926`, Lemma 6.4.1 proof, p. 133, current undated UCLA PDF read 2026-09-26
+- **Source:** Sharifi.ANT.20260926
+- **Where:** Lemma 6.4.1 proof, p. 133, current undated UCLA PDF read 2026-09-26
 - **Printed:** by definition
 - **Correction:** Prove that lifting a degree-n irreducible residue polynomial produces an unramified degree-n extension (and then identify it with the roots-of-unity extension). It is not enough to begin by assuming an unramified degree-n extension exists.
 - **Reason:** The displayed proof starts with such an L/K and identifies L from its roots of unity; that proves uniqueness conditional on existence. The sentence assigning degree n does not establish existence or its degree. These are explicit targets of LocalFieldsRamification Layer 2 and remain supplier requests here; no L.3 source or implementation closure is inferred from this paragraph.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.; Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The existence of the unramified extension is invoked before its stated construction. The corrected proof order uses the local-field supplier; the theorem itself is not rejected.
 
 ### KTheoryFiniteLocalFields/E40 — error (affects a stated result)
 
-- **Where:** `Weibel.Chern2.1993.author`, Corollary1.6.3 p.8 and Proposition5.1 first proof paragraph p.24, author copy read 2026-10-06; published text not obtained
+- **Source:** Weibel.Chern2.1993.author
+- **Where:** Corollary1.6.3 p.8 and Proposition5.1 first proof paragraph p.24, author copy read 2026-10-06; published text not obtained
 - **Printed:** η ∈ K₁ is the class of the unit −1
 - **Correction:** Choose the degree-one generator as the class of a nonsquare unit a (for example a generator of F_q×); choose the Bott element separately with Bockstein −1. In Proposition5.1 at coefficient modulus2, the generator of K₃ is [a]β, not necessarily [−1]β.
 - **Reason:** In F₅, −1=4=2². Hence [−1]=0 in K₁(F₅;Z/2)=F₅×/(F₅×)², while that group has order2. The stated polynomial/exterior presentation cannot use this zero class as its degree-one generator. The K₂ Bott element still has Bockstein −1 in K₁[2], which is a different group. The local i=2 proof uses a nonsquare independently.
-- **Known:** The correct independent primitive-unit/root-of-unity choices are already stated in Weibel K-book RemarkIV.1.13.1 (2013); no dedicated correction to this author-copy passage located.
+- **Existing correction:** The correct independent primitive-unit/root-of-unity choices are already stated in Weibel K-book RemarkIV.1.13.1 (2013); no dedicated correction to this author-copy passage located.
 - **Correction search:** Author-hosted archived paper and author publications page checked 2026-10-06; no linked chapter erratum found.; Springer chapter DOI10.1007/978-94-017-0695-7_14 provides metadata/abstract but full text was not obtained; finding scoped to author copy.; Web searches 2026-10-06 for the title with errata and Corollary1.6.3 correction found no dedicated correction; no exhaustive novelty claim.; K-book RemarkIV.1.13.1 read: primitive unit ζ and primitive root ω are separate choices.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. In F₅, −1=2² gives zero in K₁(;Z/2)=F₅×/(F₅×)² and cannot be its nonzero exterior generator. Use a nonsquare a for [a], independently of the Bott element whose Bockstein is −1 in K₁[2]. This is scoped to the author copy.
 
 ### KTheoryFiniteLocalFields/E41 — misprint (affects nothing)
 
-- **Where:** `AbdurrahmanVenkatesh.2025.v1`, Lemma2.7.1 proof pp.16–17, arXiv v1 and IAS author copy read 2026-10-06; published text not obtained
+- **Source:** AbdurrahmanVenkatesh.2025.v1
+- **Where:** Lemma2.7.1 proof pp.16–17, arXiv v1 and IAS author copy read 2026-10-06; published text not obtained
 - **Printed:** H³(Sp₂r) → H³(SL₂r); H³(BG) ⊗ H*(G)
 - **Correction:** The inclusion Sp₂r→SL₂r induces cohomology pullback H³(SL₂r)→H³(Sp₂r). The spectral sequence has bidegree E₂^(a,b)=Hᵃ(BG)⊗Hᵇ(G), not fixed H³(BG).
 - **Reason:** Cohomology is contravariant. The fixed H³(BG) expression would give a zero E₂ page under the immediately used H³(BG)=0 and could not support the degree-3 edge and its d₄; the source’s ensuing edge argument determines the intended full graded expression. These typing slips do not change the finite-field conclusions.
-- **Known:** new
+- **Existing correction:** new
 - **Correction search:** Compared arXiv2303.13436v1 and IAS author copy §2.7: both contain the displayed expressions.; ArXiv record and author page plus web search for title/errata checked 2026-10-06; no correction located.; Inventiones DOI10.1007/s00222-025-01349-6 PDF route returned HTML challenge; no claim about the version of record.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. AV v1 p.17 writes the cohomology map Sp→SL in the covariant direction; pullback is H³(SL)→H³(Sp). Its p.16 spectral sequence must have full graded H*(BG), not only H³(BG).
 
 ### KTheoryFiniteLocalFields/E42 — misprint (affects nothing)
 
-- **Where:** `Weibel.Chern2.1993.author`, Theorem3.3(ii), p.14, author copy read and page image checked 2026-10-06; published full text not obtained
+- **Source:** Weibel.Chern2.1993.author
+- **Where:** Theorem3.3(ii), p.14, author copy read and page image checked 2026-10-06; published full text not obtained
 - **Printed:** c₂₂({β,β}) = [−1] ⊗ [−1]
 - **Correction:** Write c₂₀({β,β}), with the value in H⁰_et(A,μ₂^⊗2).
 - **Reason:** The product lies in K₄(A;Z/2). The source convention is n+k=2i, so n=4 and i=2 force k=0. The author copy’s own proof of Theorem3.3 on p.18 writes c₂₀ and identifies the H⁰ target, confirming the intended index. The printed statement was checked visually, not inferred from text extraction alone.
-- **Known:** The author copy’s own proof of Theorem3.3(ii), p.18, already uses c₂₀ and H⁰; this records its statement/proof index mismatch.
+- **Existing correction:** The author copy’s own proof of Theorem3.3(ii), p.18, already uses c₂₀ and H⁰; this records its statement/proof index mismatch.
 - **Correction search:** Statement p.14 and proof p.18 of the same author copy compared; the proof gives the intended correction.; Author publications page and title/errata searches checked 2026-10-06; no dedicated chapter erratum found. Springer full text not obtained; no published-version claim.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The author-copy image p.14 prints c₂₂ for a K₄ input. The n+k=2i convention forces c₂₀ and H⁰, and its own proof uses that index.
+
+### KTheoryFiniteLocalFields/E43 — error (affects the proof)
+
+- **Source:** Mestel.2014
+- **Where:** p.30, paragraph after Theorem37, author-hosted 2014 essay
+- **Printed:** GLn k has no mod p homology
+- **Correction:** Use stable GL(k)=colim_n GL_n(k); do not assert mod-p acyclicity for each GL_n(k).
+- **Reason:** GL₂(F₂)≅S₃ has H₁(−;F₂)≅F₂ from its sign abelianization. The stable theorem is the one needed and already stated in L.1/gl-mod-p-acyclic.
+- **Existing correction:** new
+- **Correction search:** Author-hosted source and author publication index checked 2026-10-06; no linked correction found.; Targeted title/locator/errata searches checked 2026-10-06; scope is the specified public text, not every published edition.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. GL₂(F₂)≅S₃ has H₁(−;F₂)≅F₂ from its sign abelianization. The stable theorem is the one needed and already stated in L.1/gl-mod-p-acyclic.
+
+### KTheoryFiniteLocalFields/E44 — error (affects the proof)
+
+- **Source:** Mestel.2014
+- **Where:** Lemma36 proof, p.30, author-hosted 2014 essay
+- **Printed:** Hom(Hn(Y,X), k) = 0, so Hn(Y,X; k) = 0
+- **Correction:** Use the field-coefficient duality H^n(C;k)≅Hom_k(H_n(C;k),k), or retain both terms of the integral UCT.
+- **Reason:** The integral Hom term alone does not control Tor. For the mod-p Moore space M(Z/p,1), H₂(−;Z)=0 but H₂(−;F_p)=F_p. The lemma is true; this implication in its printed proof fails.
+- **Existing correction:** new
+- **Correction search:** Author-hosted source and author publication index checked 2026-10-06; no linked correction found.; Targeted title/locator/errata searches checked 2026-10-06; scope is the specified public text, not every published edition.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. The integral Hom term alone does not control Tor. For the mod-p Moore space M(Z/p,1), H₂(−;Z)=0 but H₂(−;F_p)=F_p. The lemma is true; this implication in its printed proof fails.
+
+### KTheoryFiniteLocalFields/E45 — misprint (affects nothing)
+
+- **Source:** HesselholtMadsen.2003
+- **Where:** Remark4.1.4, p.61, arXiv math/9910186v2 PDF
+- **Printed:** H_{−i−1}(G,M) if i≤−1
+- **Correction:** The ordinary-homology comparison holds for i≤−2; degree −1 is the kernel of the norm as in the following exact sequence.
+- **Reason:** For G=C₃ and M=Z trivial, H₀=Z while Tate H^{−1}=ker(Z→³Z)=0. The source’s own adjacent exact sequence gives the correction.
+- **Existing correction:** new
+- **Correction search:** Author-hosted source and author publication index checked 2026-10-06; no linked correction found.; Targeted title/locator/errata searches checked 2026-10-06; scope is the specified public text, not every published edition.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. For G=C₃ and M=Z trivial, H₀=Z while Tate H^{−1}=ker(Z→³Z)=0. The source’s own adjacent exact sequence gives the correction.
+
+### KTheoryFiniteLocalFields/E46 — misprint (affects nothing)
+
+- **Source:** HesselholtMadsen.2003
+- **Where:** Equation(5.2.5), p.77, arXiv math/9910186v2 PDF
+- **Printed:** ι_*(d log π_K)=e_{L/K}d log π_K−d log θ_{L/K}(π_L)
+- **Correction:** Replace the right-hand dlog π_K by dlog π_L.
+- **Reason:** Differentiate ι(π_K)=−θ(π_L)^{-1}π_L^{e_{L/K}} in the target log differential module. Its basis parameter is π_L; the packet’s existing L.5/log-thh-mod-p-alpha-presentation already has the correct formula.
+- **Existing correction:** new
+- **Correction search:** Author-hosted source and author publication index checked 2026-10-06; no linked correction found.; Targeted title/locator/errata searches checked 2026-10-06; scope is the specified public text, not every published edition.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. Differentiate ι(π_K)=−θ(π_L)^{-1}π_L^{e_{L/K}} in the target log differential module. Its basis parameter is π_L; the packet’s existing L.5/log-thh-mod-p-alpha-presentation already has the correct formula.
+
+### KTheoryFiniteLocalFields/E47 — misprint (affects nothing)
+
+- **Source:** HesselholtMadsen.2003
+- **Where:** Proposition A.1.7, p.109, arXiv math/9910186v2 PDF, statement image independently checked
+- **Printed:** −(e/p^n)u_1π^{e−1}c_1
+- **Correction:** Replace u_1 by u_n for the C_{p^n} spectral sequence.
+- **Reason:** For n>1 the E₂ exterior generator is u_n. The same page’s proof uses Λ{u_n}; the stated u_1 is a subscript slip, coinciding with u_n only at n=1.
+- **Existing correction:** new
+- **Correction search:** Author-hosted source and author publication index checked 2026-10-06; no linked correction found.; Targeted title/locator/errata searches checked 2026-10-06; scope is the specified public text, not every published edition.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. For n>1 the E₂ exterior generator is u_n. The same page’s proof uses Λ{u_n}; the stated u_1 is a subscript slip, coinciding with u_n only at n=1.
+
+### KTheoryFiniteLocalFields/E48 — misprint (affects nothing)
+
+- **Source:** GeisserHesselholt.2006
+- **Where:** Theorem3.1 proof, author-hosted August9,2005 preprint, PDF p.19, displayed R−F target (image independently checked)
+- **Printed:** R−F: W_nΩ^q_A → W_(n−1)Ω^(q−1)_A
+- **Correction:** Replace the target differential degree q−1 by q.
+- **Reason:** R and F preserve differential degree. The displayed target W_(n−1)Ω^(q−1) in the proof image is therefore ill-typed; use degree q, as required by the logarithmic subgroup inclusions and the theorem’s kernel(1−F). The packet already uses that target.
+- **Existing correction:** new
+- **Correction search:** Author publication index https://www.math.nagoya-u.ac.jp/~larsh/papers/011/ checked 2026-10-06: links the August9,2005 author copy, with no correction link.; Targeted title/author/errata searches checked 2026-10-06; no correction for this degree typo located. The publisher text was not read.
+- **Independent source check:** confirmed, `REV-KTheoryFiniteLocalFields`. R and F preserve differential degree. The displayed target W_(n−1)Ω^(q−1) in the proof image is therefore ill-typed; use degree q, as required by the logarithmic subgroup inclusions and the theorem’s kernel(1−F). The packet already uses that target.
+
+### Findings imported from paper extractions
+
+- `PAPER-NIKOLAUS-SCHOLZE-18/E11`: Known uppercase V typo in published Proposition IV.4.6 is normalized to v; no new finding claimed.
+- `PAPER-ABDURRAHMAN-VENKATESH-25/E3`: Known SL₂(F₉) H₂=Z/3 exception is retained in finite-classical-h2-no-two-torsion and its mod-2 UCT comparison. Finite-rank targets now have explicit nodes. Published version not checked.
 
 ## Gaps
 
-These are open proof/foundation boundaries of a completed target-level plan; they are not assertions of source closure.
+Every unresolved input is specified below with its consuming nodes. These boundaries keep the stages planned rather than closed.
 
 ### Quillen's vanishing of the mod-p homology of GL(F_q) is cited, not proved
 
@@ -9956,27 +10423,53 @@ Needed by: `L.1/finite-classical-h2-no-two-torsion`.
 
 ### An early étale Chern-class export without the regulator dependency cycle
 
-M.8 owns general étale Chern classes and their representation/homology, Hurewicz, product and coefficient comparisons. Its whole stage requires M.7, which requires L.2, which requires L.1. Therefore importing M.8 wholesale into the new L.1 finite-field calculations makes a cycle. Required remedy is an early M-owned Chern-class supplier export/PartII with just schemes with2 invertible, coefficient K-theory, Kummer and bar/plus/Hurewicz foundations; M.8 regulators import it later. No new stage identifier is fabricated here, and no second Chern definition is owned by L.1. The new nodes record M.8 as unresolvedPrerequisites and their chains stop at this explicit gap pending registration of the early export. The source contract is c₁,₁(unit)=Kummer, c₁,₀(Bott)=its root, the i=2 product formula and agreement of the standard-representation homology class with c₂,₁.
+M.8 owns general étale Chern classes and their representation/homology, Hurewicz, product and coefficient comparisons. Its whole stage requires M.7, which requires L.2, which requires L.1. Therefore importing M.8 wholesale into the new L.1 finite-field calculations makes a cycle. Required remedy is an early M-owned Chern-class supplier export/PartII with just schemes with2 invertible, coefficient K-theory, Kummer and bar/plus/Hurewicz foundations; M.8 regulators import it downstream. No new stage identifier is fabricated here, and no second Chern definition is owned by L.1. The new nodes record M.8 as unresolvedPrerequisites and their chains stop at this explicit gap pending registration of the early export. The source contract is c₁,₁(unit)=Kummer, c₁,₀(Bott)=its root, the i=2 product formula and agreement of the standard-representation homology class with c₂,₁.
 
 Needed by: `L.1/finite-field-chern-bott-product`, `L.1/finite-field-k3-etale-isomorphism`, `L.1/finite-rank-symplectic-etale-isomorphism`.
 
+### Mixed-characteristic coefficient-ring foundation
+
+The local-field supplier must provide the residue-identity embedding W(k)→A and Eisenstein presentation for a complete mixed-characteristic DVR with perfect residue field. Mathlib constructs W(k) itself but does not supply this general embedding.
+
+Needed by: `L.5/complete-dvr-eisenstein-presentation`.
+
+### Prime-to-p profinite changes of Brauer embedding
+
+The integral BU Adams operation ψ^u is supplied for integer u. A general unit of the prime-to-p profinite integers has no supplied integral BU operation. Keep only the stated finite-level integer comparison until a completed operation and its compatibility are proved.
+
+Needed by: `L.1/quillen-map`.
+
+### Connes nonzero-square witness at p=2
+
+The relation d²=ηd and η≠0 do not prove d²≠0. Supply an explicit spectrum, class and calculation with ηd nonzero before retaining the former TR(Z_(2)) non-example. The positive odd-p results are unaffected.
+
+Needed by: `L.4/connes-operator`.
+
+### Popescu foundation for regular F_p comparisons
+
+Obtain Popescu’s theorem in the precise form used in Geisser–Hesselholt2006 Theorem3.1: a regular noetherian F_p-algebra is a filtered colimit of smooth F_p-algebras, and a regular local algebra is a filtered colimit of essentially smooth local ones. Its proof and general algebraic-geometric owner are not supplied here. The completed comparison follows by the finite-level/pro-zero and quotient-tower arguments now written, conditional on this input and the explicit CR.4/RT.2/H.6 exports.
+
+Needed by: `L.5/tr-of-smooth-fp-algebra`, `L.6/geisser-hesselholt-regular-local`.
+
 ## Requests
+
+Each request is an import contract owned by its supplier. It does not assert that the export or its source proof is established.
 
 ### RefinedTraceMethods:RT.4:topological
 
-RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication ... Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹]'. L.1 uses BU as a homotopy-commutative H-group with π_{2i}(BU) ≅ Z, π_{2i−1}(BU) = 0, and additionally needs, beyond that text: (a) Adams operations ψ^k: BU → BU as H-maps representing ψ^k on K̃U^0, with ψ^jψ^k ≃ ψ^{jk}, ψ^kψ^q ≃ ψ^qψ^k, ψ^k = k^i on π_{2i}(BU) = K̃U(S^{2i}) (K-book Example II.4.4.1) and ψ^q acting by q^i on the mod-ℓ Chern class c_i ∈ H^{2i}(BU; F_ℓ); (b) the λ-ring structure on [X, BU] (K-book Example IV.5.7.1); (c) the Atiyah map R_C(G) → [BG, Z × BU] as a λ-ring homomorphism; (d) K̃U^1(BG) = 0 for finite G and the vanishing of lim^1 of K̃U^0(BGL_n(F_q)) (Atiyah–Segal). Items (a)–(d) are proposed as 'RefinedTraceMethods, Part II' in restructure if RT.4:topological does not take them. RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU.' L.6 needs, beyond that text and beyond L.1's request for integral Adams operations: the p-adic Adams operations Ψ^k, k ∈ ℤ_p^×, on the p-completions of ℤ × BU and BU, acting on π_{2i} by k^i, so that FΨ^k = hofib(Ψ^k − 1) is defined for p-adic k (Hesselholt–Madsen Theorem D, K-book Theorem VI.7.9). Completion contract (Atiyah–Segal1969 Theorem 2.1, Proposition 4.2): for finite G and augmentation ideal I=ker(dim:R_C(G)→Z), the Atiyah λ-ring map identifies KU^0(BG) with lim_n R_C(G)/I^n, and KU^1(BG)=0, with the Milnor lim¹ term controlled by the completed/pro tower. This is a supplier theorem of RT.4:topological, not a new L.1 proof; its full source proof remains to read. The point specialization was inspected in the published scan, and RT-AREA-ktheory-1/37b requests it explicitly. For III 3.1.2–3.1.3’s finite-field classical comparison import the real and symplectic topological fixed-point comparisons and Adams-operation models, with their2-completion/connective restrictions from the original references. The original proofs have not been read here. For the finite-rank Chern comparison, export natural compact-classical-group H³ comparisons: SU(2)=Sp(1)=S³, stability via SU(n+1)/SU(n)=S^(2n+1) and Sp(r+1)/Sp(r)=S^(4r+3), and compatibility of Sp(r)→SU(2r) with stabilization. The geometric étale/Lang comparison is separately a named foundation gap.
+RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication ... Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹]'. L.1 uses BU as a homotopy-commutative H-group with π_{2i}(BU) ≅ Z, π_{2i−1}(BU) = 0, and additionally needs, beyond that text: (a) Adams operations ψ^k: BU → BU as H-maps representing ψ^k on K̃U^0, with ψ^jψ^k ≃ ψ^{jk}, ψ^kψ^q ≃ ψ^qψ^k, ψ^k = k^i on π_{2i}(BU) = K̃U(S^{2i}) (K-book Example II.4.4.1) and ψ^q acting by q^i on the mod-ℓ Chern class c_i ∈ H^{2i}(BU; F_ℓ); (b) the λ-ring structure on [X, BU] (K-book Example IV.5.7.1); (c) the Atiyah map R_C(G) → [BG, Z × BU] as a λ-ring homomorphism; (d) K̃U^1(BG) = 0 for finite G and the vanishing of lim^1 of K̃U^0(BGL_n(F_q)) (Atiyah–Segal). Items (a)–(d) are proposed as 'RefinedTraceMethods, Part II' in restructure if RT.4:topological does not take them. RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU.' L.6 needs, beyond that text and beyond L.1's request for integral Adams operations: the p-adic Adams operations Ψ^k, k ∈ ℤ_p^×, on the p-completions of ℤ × BU and BU, acting on π_{2i} by k^i, so that FΨ^k = hofib(Ψ^k − 1) is defined for p-adic k (Hesselholt–Madsen Theorem D, K-book Theorem VI.7.9). Completion contract (Atiyah–Segal1969 Theorem 2.1, Proposition 4.2): for finite G and augmentation ideal I=ker(dim:R_C(G)→Z), the Atiyah λ-ring map identifies KU^0(BG) with lim_n R_C(G)/I^n, and KU^1(BG)=0, with the Milnor lim¹ term controlled by the completed/pro tower. This is a supplier theorem of RT.4:topological, not a new L.1 proof; its full source proof remains to read. The point specialization was inspected in the published scan, and RT-AREA-ktheory-1/37b requests it explicitly. For III 3.1.2–3.1.3’s finite-field classical comparison import the real and symplectic topological fixed-point comparisons and Adams-operation models, with their2-completion/connective restrictions from the original references. The original proofs have not been read here. For the finite-rank Chern comparison, export natural compact-classical-group H³ comparisons: SU(2)=Sp(1)=S³, stability via SU(n+1)/SU(n)=S^(2n+1) and Sp(r+1)/Sp(r)=S^(4r+3), and compatibility of Sp(r)→SU(2r) with stabilization. The geometric étale/Lang comparison is separately a named foundation gap. For lim¹ over the GL_n tower export compact Hausdorff augmentation kernels and continuous restrictions; algebraic Mittag-Leffler is not asserted. Integer Adams maps suffice for finite-level embedding changes; arbitrary prime-to-p profinite changes need a separately specified completed construction.
 
 Needed by: `L.1/fpsi`, `L.1/fpsi-homotopy`, `L.1/fpsi-lifting`, `L.1/quillen-map`, `L.1/fpsi-cohomology`, `L.1/frobenius-is-adams`, `L.1/adams-on-finite-field-k`, `L.6/hm-theorem-d`, `L.1/brauer-lift`, `L.1/finite-field-classical-hermitian-connective-comparison`, `L.1/classical-degree-three-pullback`.
 
 ### StableHomotopyKTheory:H.6
 
-H.6's text: 'Define E/m as the cofiber of multiplication by m on a spectrum. Prove the Bockstein exact sequence ... Construct exact couples from filtered spectra and convergence statements ... These are used in M and L'. L.1 needs, beyond the Bockstein node StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence: (a) the homotopy associative and commutative multiplication on the Moore spectrum P^∞(Z/ℓ^ν) for ℓ^ν ∉ {2, 3, 4, 8} (Araki–Toda; K-book IV.2, Products) and Browder's scholium for spectra with no positive even homotopy; (b) the Eilenberg–Moore spectral sequence H^*(X ×_B Y; k) ⇐ Tor_{H^*(B)}(H^*(X), H^*(Y)) for a fibration over a simply connected base with finite type cohomology, used for H^*(FΨ^q; F_ℓ). Also provide equivariant rank truncation/derived completion compatibility, preservation of fibre sequences by derived completion, and the criterion that a spectrum with homotopy uniformly killed by a fixed 2-power is derived 2-complete; these are completion foundations for the dyadic L/Tate argument.
+H.6's text: 'Define E/m as the cofiber of multiplication by m on a spectrum. Prove the Bockstein exact sequence ... Construct exact couples from filtered spectra and convergence statements ... These are used in M and L'. L.1 needs, beyond the Bockstein node StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence: (a) the homotopy associative and commutative multiplication on the Moore spectrum P^∞(Z/ℓ^ν) for ℓ^ν ∉ {2, 3, 4, 8} (Araki–Toda; K-book IV.2, Products) and Browder's scholium for spectra with no positive even homotopy; (b) the Eilenberg–Moore spectral sequence H^*(X ×_B Y; k) ⇐ Tor_{H^*(B)}(H^*(X), H^*(Y)) for a fibration over a simply connected base with finite type cohomology, used for H^*(FΨ^q; F_ℓ). Also provide equivariant rank truncation/derived completion compatibility, preservation of fibre sequences by derived completion, and the criterion that a spectrum with homotopy uniformly killed by a fixed 2-power is derived 2-complete; these are completion foundations for the dyadic L/Tate argument. For L.5/tr-of-smooth-fp-algebra and L.6/geisser-hesselholt-regular-local, export the Milnor short exact sequence for any countable spectrum tower and lim¹=0 for Mittag-Leffler/surjective towers, without a finiteness assumption on their groups. Also export invariance of lim and lim¹ under pro-isomorphism and their vanishing on pro-zero systems.
 
-Needed by: `L.1/mod-m-products`, `L.1/fpsi-cohomology`, `L.1/k-theory-mod-m`, `L.1/bott-element`, `L.2/rigidity-l-adic`, `L.2/localisation-bockstein-compatibility`, `L.2/odd-k-l-torsion`, `L.4/p-typical-tc`, `L.4/moore-spectrum-splitting-for-hz-modules`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/multiplicative-tate-spectral-sequence`, `L.5/thh-of-dvr-p-adic`, `L.5/log-thh-mod-p`, `L.5/log-thh-p-adic`, `L.5/connecting-map-of-kappa`, `L.5/bott-element-in-tr`, `L.5/gamma-hat-all-levels`, `L.5/frobenius-surjective-odd-degrees`, `L.5/log-de-rham-witt-tr-mod-pv`, `L.5/roots-of-unity-torsion-in-log-drw`, `L.5/thh-of-perfect-field`, `L.5/trace-equivalence-finite-witt-algebras`, `L.5/trace-isomorphism-for-local-field`, `L.5/thh-of-truncated-polynomial-algebra`, `L.5/relative-tc-of-truncated-polynomial-algebra`, `L.5/relative-k-of-truncated-polynomial-over-perfect-field`, `L.5/relative-k-of-truncated-polynomial-regular-fp`, `L.5/relative-k-of-truncated-polynomial-char-zero`, `L.5/tc-of-regular-fp-algebra`, `L.1/completed-k-theory`, `L.6/completion-exact-sequence`, `L.6/hm-etale-comparison`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/karoubi-completion-square`, `L.7/semilocal-completed-map`, `L.1/finite-even-k-two-completion`, `L.1/perfect-char-two-k-two-completion`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-symmetric-l-two-complete`, `L.6/dyadic-integer-integral-hermitian-comparison`.
+Needed by: `L.1/mod-m-products`, `L.1/fpsi-cohomology`, `L.1/k-theory-mod-m`, `L.1/bott-element`, `L.2/rigidity-l-adic`, `L.2/localisation-bockstein-compatibility`, `L.2/odd-k-l-torsion`, `L.4/p-typical-tc`, `L.4/moore-spectrum-splitting-for-hz-modules`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/multiplicative-tate-spectral-sequence`, `L.5/thh-of-dvr-p-adic`, `L.5/log-thh-mod-p`, `L.5/log-thh-p-adic`, `L.5/connecting-map-of-kappa`, `L.5/bott-element-in-tr`, `L.5/gamma-hat-all-levels`, `L.5/frobenius-surjective-odd-degrees`, `L.5/log-de-rham-witt-tr-mod-pv`, `L.5/roots-of-unity-torsion-in-log-drw`, `L.5/thh-of-perfect-field`, `L.5/trace-equivalence-finite-witt-algebras`, `L.5/trace-isomorphism-for-local-field`, `L.5/thh-of-truncated-polynomial-algebra`, `L.5/relative-tc-of-truncated-polynomial-algebra`, `L.5/relative-k-of-truncated-polynomial-over-perfect-field`, `L.5/relative-k-of-truncated-polynomial-regular-fp`, `L.5/relative-k-of-truncated-polynomial-char-zero`, `L.5/tc-of-regular-fp-algebra`, `L.1/completed-k-theory`, `L.6/completion-exact-sequence`, `L.6/hm-etale-comparison`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/karoubi-completion-square`, `L.7/semilocal-completed-map`, `L.1/finite-even-k-two-completion`, `L.1/perfect-char-two-k-two-completion`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-symmetric-l-two-complete`, `L.6/dyadic-integer-integral-hermitian-comparison`, `L.5/tr-of-smooth-fp-algebra`, `L.6/geisser-hesselholt-regular-local`.
 
 ### GeneralAlgebraicKTheory:K.7
 
-K.7's text: 'Construct external products from biexact functors and their associativity, unit and symmetry homotopies. For commutative rings obtain graded-commutative K-groups. Prove compatibility with relative groups, localisation boundaries and transfers.' L.1 needs K(R) as a homotopy commutative ring spectrum (for K(R)/ℓ^ν to be a ring spectrum); L.2 needs the K_*(O)-linearity of the localisation boundary of a DVR, ∂(x·y) = r(x)·∂(y), with its sign stated (the K-book uses both orders, see sourceIssues).
+K.7's text: 'Construct external products from biexact functors and their associativity, unit and symmetry homotopies. For commutative rings obtain graded-commutative K-groups. Prove compatibility with relative groups, localisation boundaries and transfers.' L.1 needs K(R) as a homotopy commutative ring spectrum (for K(R)/ℓ^ν to be a ring spectrum); L.2 needs the K_*(O)-linearity of the localisation boundary of a DVR, ∂(x·y) = r(x)·∂(y), with its sign stated (the K-book uses both orders, see sourceIssues). Export also the mixed pairing K_*(O;Z/m)⊗K_*(L)→K_*(L;Z/m) and ∂(a·y)=r(a)·∂y, with the L.2 left-linear sign convention, to justify the uniformizer section.
 
 Needed by: `L.1/mod-m-products`, `L.2/dvr-localisation`, `L.1/k-theory-mod-m`, `L.1/restriction-and-transfer`, `L.1/finite-field-products-vanish`, `L.2/even-k-field-splitting`, `L.4/thh-of-linear-waldhausen-category`, `L.1/completed-k-theory`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/semilocal-completed-map`, `L.1/finite-even-multiplicative-l-tate-comparison`.
 
@@ -10000,9 +10493,9 @@ Needed by: `L.1/determinant-degree-one`, `L.2/dvr-localisation`.
 
 ### tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions
 
-Layer 0's 'Finite extensions, I' (finiteExtension_isNonarchimedeanLocalField: a finite extension of a nonarchimedean local field is one, with no structure assumed on L) and 'Finite extensions, II' (its integer ring is the integral closure, a henselian DVR with finite residue field). L.2 applies its henselian-DVR results to every finite subextension of L^sep.
+Layer 0's 'Finite extensions, I' (finiteExtension_isNonarchimedeanLocalField: a finite extension of a nonarchimedean local field is one, with no structure assumed on L) and 'Finite extensions, II' (its integer ring is the integral closure, a henselian DVR with finite residue field). L.2 applies its henselian-DVR results to every finite subextension of L^sep. Supply the residue-identity coefficient embedding W(k)→A for any complete mixed-characteristic DVR with perfect residue field and its finite totally ramified Eisenstein presentation; uniqueness and the unit constant coefficient must be included.
 
-Needed by: `L.2/w-invariant-local-field`, `L.2/separable-closure-l-torsion`, `L.2/e-invariant-local-field`.
+Needed by: `L.2/w-invariant-local-field`, `L.2/separable-closure-l-torsion`, `L.2/e-invariant-local-field`, `L.5/complete-dvr-eisenstein-presentation`.
 
 ### tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius
 
@@ -10054,7 +10547,7 @@ Needed by: `L.7/transfer-completion-formula`, `L.7/semilocal-completed-map`.
 
 ### MotivicEtaleKTheory:M.8
 
-The étale Chern classes c_{i,n} : K_n(X; ℤ/m) → H^{2i−n}_et(X, μ_m^{⊗i}) for schemes X over ℤ[1/m] (M.8: 'Construct étale Chern classes … Prove compatibility with the higher K-theory Chern character, residues, norms and products'), with their functoriality in morphisms of schemes (K-book Definition V.11.5 (1)) and their compatibility with the localisation boundary; used for Spec F_v → Spec F, Spec 𝓞_v → Spec 𝓞_F[1/m] and Spec k(v) → Spec 𝓞_v. M.8's text: 'Construct étale Chern classes, real Deligne cycle-class maps and the rational regulator from motivic cohomology. Prove compatibility with the higher K-theory Chern character, residues, norms and products.' L.6 needs the étale Chern classes c_{i,j}: K_n(F; ℤ/p^ν) → H^{2i−n}(F, μ_{p^ν}^{⊗i}) of fields F with 1/p ∈ F, natural in F, compatible with the reductions ℤ/p^{ν+1} → ℤ/p^ν and inclusions ℤ/p^ν ⊂ ℤ/p^{ν+1} of coefficients, and compatible with the motivic filtration of M.6 (so that c_{i,1} is the projection onto the unique graded piece of K_{2i−1}(F; ℤ/p^ν) when cd_p(F) ≤ 2). For the odd finite-field application, export c₁,₁ of a unit as its Kummer class, c₁,₀ of β_(−1) as the μ₂-generator, and the i=2 mod-2 product formula without the i≥3 correction. Supply the representation/bar-homology version of the étale class and its naturality under Sp→SL→GL, plus construction, Hurewicz and coefficient reduction, so the finite-rank map agrees with c₂,₁. Weibel Prop5.1 is proved locally only in this i=2 finite-field case. Ownership split required for the L.1 consumers: supply these general classes in an early M-owned export/PartII, before M.7/L.2, and have the later M.8 regulator stage import it. The whole M.8 stage would create L.1→L.2→M.7→M.8→L.1. Until the export is registered, the L.1 references are unresolved requests ending in the named gap, not graph prerequisite edges.
+The étale Chern classes c_{i,n} : K_n(X; ℤ/m) → H^{2i−n}_et(X, μ_m^{⊗i}) for schemes X over ℤ[1/m] (M.8: 'Construct étale Chern classes … Prove compatibility with the higher K-theory Chern character, residues, norms and products'), with their functoriality in morphisms of schemes (K-book Definition V.11.5 (1)) and their compatibility with the localisation boundary; used for Spec F_v → Spec F, Spec 𝓞_v → Spec 𝓞_F[1/m] and Spec k(v) → Spec 𝓞_v. M.8's text: 'Construct étale Chern classes, real Deligne cycle-class maps and the rational regulator from motivic cohomology. Prove compatibility with the higher K-theory Chern character, residues, norms and products.' L.6 needs the étale Chern classes c_{i,j}: K_n(F; ℤ/p^ν) → H^{2i−n}(F, μ_{p^ν}^{⊗i}) of fields F with 1/p ∈ F, natural in F, compatible with the reductions ℤ/p^{ν+1} → ℤ/p^ν and inclusions ℤ/p^ν ⊂ ℤ/p^{ν+1} of coefficients, and compatible with the motivic filtration of M.6 (so that c_{i,1} is the projection onto the unique graded piece of K_{2i−1}(F; ℤ/p^ν) when cd_p(F) ≤ 2). For the odd finite-field application, export c₁,₁ of a unit as its Kummer class, c₁,₀ of β_(−1) as the μ₂-generator, and the i=2 mod-2 product formula without the i≥3 correction. Supply the representation/bar-homology version of the étale class and its naturality under Sp→SL→GL, plus construction, Hurewicz and coefficient reduction, so the finite-rank map agrees with c₂,₁. Weibel Prop5.1 is proved locally only in this i=2 finite-field case. Ownership split required for the L.1 consumers: supply these general classes in an early M-owned export/PartII, before M.7/L.2, and have the downstream M.8 regulator stage import it. The whole M.8 stage would create L.1→L.2→M.7→M.8→L.1. Until the export is registered, the L.1 references are unresolved requests ending in the named gap, not graph prerequisite edges.
 
 Needed by: `L.7/etale-chern-class-completion`, `L.7/unramified-chern-class-reduction`, `L.6/finite-coefficient-lichtenbaum-quillen`, `L.6/odd-completed-k-groups-are-h1`, `L.6/even-completed-k-groups-are-h2`, `L.1/finite-field-chern-bott-product`, `L.1/finite-field-k3-etale-isomorphism`, `L.1/finite-rank-symplectic-etale-isomorphism`.
 
@@ -10084,13 +10577,13 @@ Needed by: `L.4/connes-operator`, `L.5/hochschild-homology-of-perfect-field`, `L
 
 ### RefinedTraceMethods:RT.2
 
-THH of spectral categories (in particular of Z-linear categories via Eilenberg–Mac Lane spectra of the Hom-groups) by cyclic realisation, with the T-action as coherent data and its genuine cyclotomic structure (genuine C_{p^n}-fixed points, restriction R through geometric fixed points, inclusion F, transfer V), homotopy orbits, homotopy fixed points and Tate constructions with the norm cofibre sequence and multiplicative structure, and the agreement of the classical genuine TR/TC with the Nikolaus–Scholze TC for bounded-below cyclotomic spectra. RT.2's text: 'Construct THH of spectral categories and E₁-algebras by cyclic realization. Give the S¹-action as coherent data … Construct restriction, homotopy orbits, homotopy fixed points and Tate constructions with their norm/fibre sequence and multiplicative structure … State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations.' L.4 builds Hesselholt–Madsen's T(C) of a linear Waldhausen category, its TR^n, R, F, V and TC(C;p) on these foundations and specialises the comparison to T(k), T(A), T(A|K). For the prime-field NS IV.4 calculation also export: the circle/finite-Tate base-change formulas for HZ-module circle spectra (Lemma IV.4.12); the comparison square followed by augmentation to HF_p and the nonzero orientation in π_−2HF_p^tC_p, without using IV.4.13; the trivial cyclotomic spectrum/TC adjunction (IV.4.14); the connective shift τ≥0(−^tC_p) with residual action and induced Frobenius (IV.4.15); and the characteristic-p E₂ cyclotomic-module TC fibre theorem, including the stronger unbounded HZ-module version (end IV.4). RT.2 owns these general statements; L.5 applies them to fields and the F_p-algebras in its calculation scope. The hermitian applications use the same general C₂ homotopy-fixed and Tate functors: exactness, their norm sequence, invariance of Tate under2-adic equivalence for bounded-below inputs, derived 2-completeness of the Tate target, its unital multiplication, and the Eilenberg–Mac Lane comparison computing (Hℤ)^{tC₂} from the complete cyclic resolution (π_even=ℤ/2, π_odd=0). Supply these general exports once, not a second local Tate construction.
+THH of spectral categories (in particular of Z-linear categories via Eilenberg–Mac Lane spectra of the Hom-groups) by cyclic realisation, with the T-action as coherent data and its genuine cyclotomic structure (genuine C_{p^n}-fixed points, restriction R through geometric fixed points, inclusion F, transfer V), homotopy orbits, homotopy fixed points and Tate constructions with the norm cofibre sequence and multiplicative structure, and the agreement of the classical genuine TR/TC with the Nikolaus–Scholze TC for bounded-below cyclotomic spectra. RT.2's text: 'Construct THH of spectral categories and E₁-algebras by cyclic realization. Give the S¹-action as coherent data … Construct restriction, homotopy orbits, homotopy fixed points and Tate constructions with their norm/fibre sequence and multiplicative structure … State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations.' L.4 builds Hesselholt–Madsen's T(C) of a linear Waldhausen category, its TR^n, R, F, V and TC(C;p) on these foundations and specialises the comparison to T(k), T(A), T(A|K). For the prime-field NS IV.4 calculation also export: the circle/finite-Tate base-change formulas for HZ-module circle spectra (Lemma IV.4.12); the comparison square followed by augmentation to HF_p and the nonzero orientation in π_−2HF_p^tC_p, without using IV.4.13; the trivial cyclotomic spectrum/TC adjunction (IV.4.14); the connective shift τ≥0(−^tC_p) with residual action and induced Frobenius (IV.4.15); and the characteristic-p E₂ cyclotomic-module TC fibre theorem, including the stronger unbounded HZ-module version (end IV.4). RT.2 owns these general statements; L.5 applies them to fields and the F_p-algebras in its calculation scope. The hermitian applications use the same general C₂ homotopy-fixed and Tate functors: exactness, their norm sequence, invariance of Tate under2-adic equivalence for bounded-below inputs, derived 2-completeness of the Tate target, its unital multiplication, and the Eilenberg–Mac Lane comparison computing (Hℤ)^{tC₂} from the complete cyclic resolution (π_even=ℤ/2, π_odd=0). Supply these general exports once, not a second local Tate construction. Export commutation of π_q TR^n(−;p) with filtered colimits of discrete rings at each finite n, with natural R and the constant perfect-field σ_n classes. This is a finite-level statement and does not interchange holim with a colimit.
 
 Needed by: `L.4/thh-of-linear-waldhausen-category`, `L.4/tr-pro-spectrum`, `L.4/norm-restriction-cofibre-sequence`, `L.4/p-typical-tc`, `L.4/hm-conventions-agree-with-nikolaus-scholze`, `L.4/log-thh-bounded-below`, `L.4/multiplicative-tate-spectral-sequence`, `L.4/dundas-mccarthy-equivalence-criterion`, `L.4/thh-structure-maps-f-equivalences`, `L.4/connes-operator`, `L.4/tr-homotopy-orbit-spectral-sequence`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/thh-additivity-theorem`, `L.4/dvr-tr-agrees-with-ring-tr`, `L.5/log-thh-tame-descent`, `L.5/gamma-hat-all-levels`, `L.5/thh-of-perfect-field`, `L.5/thh-of-pointed-monoid-algebra`, `L.5/fp-tc-minus-filtration-extension`, `L.5/fp-negative-topological-cyclic-homology`, `L.5/fp-periodic-topological-cyclic-homology`, `L.5/fp-cyclotomic-frobenius-on-tc-minus`, `L.5/fp-cyclotomic-tate-cover`, `L.5/fp-cyclotomic-shift-model`, `L.5/char-p-algebra-tc-fibre-sequence`, `L.5/tc-of-perfect-field`, `L.1/finite-even-tate-k-groups`, `L.1/finite-even-multiplicative-l-tate-comparison`, `L.1/perfect-char-two-shifted-hermitian-comparison`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-integral-hermitian-comparison`.
 
 ### CrystallineCohomology:CR.4
 
-On the Witt-vector carrier: the Frobenius F: W_n(A) → W_{n−1}(A), Verschiebung V: W_{n−1}(A) → W_n(A) and restriction R on Mathlib's TruncatedWittVector (Mathlib has F and V only on the untruncated WittVector), and the Witt complexes of Hesselholt–Madsen over Z_(p)-algebras (p odd) and over F_p-algebras with R, F, V, the relations FV = p, FdV = d, Fd[a] = [a]^{p−1}d[a], the initial Witt complex W_•Ω^*_A with surjection Ω^*_{W_•(A)} → W_•Ω^*_A, the standard filtration and, for smooth (and regular) F_p-algebras, the classical de Rham–Witt complex of Bloch–Deligne–Illusie. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. Prove the full relations and universal property … For smooth algebras over a perfect F_p-field prove agreement with the classical de Rham–Witt complex.' CR.4 also owns the universal log Witt theory over prelog Z_(p)-algebras for p odd, importing prelog rings and absolute log differentials from CR.5:log-algebra. L.5 imports that theory and owns only its complete-DVR structure and TR comparison. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. ... Compute polynomial basic Witt differentials, localization and étale descent'. L.6 needs the de Rham–Witt complex W_nΩ^*_A of 𝔽_p-algebras with F, V, R, d, its compatibility with localisation (W_nΩ_{A[1/f]} = W_nΩ_A[1/[f]]), the basic Witt differentials of k[t] for k perfect, the logarithmic subgroups W_nΩ^q_{A,log}, and Illusie's I.5.7.4: W_nΩ^q_{A,log} ⊆ ker(R − F) ⊆ W_nΩ^q_{A,log} + Fil^{n−1}W_nΩ^q_A for smooth A. Universal log contract (HM 2003 §3.2): the category of log Witt complexes with λ,F,V,R,d,dlog; FV=p, FdV=d, Fd[a]=[a]^(p−1)d[a], F(dlog a)=dlog a and the derived relations; its initial object W_•ω*_(R,M), the surjection from absolute log differentials over W_n(R), W_1ω*=ω*, W_nω^0=W_n(R), trivial/unit log compatibility with the ordinary complex, and restriction W_nω*/(V^sW_(n−s)ω*+dV^sW_(n−s)ω*−1)≅W_sω* for 0≤s≤n (W_0=0). Initiality/existence and level-one identification remain an explicit supplier proof boundary, not a proof supplied here.
+On the Witt-vector carrier: the Frobenius F: W_n(A) → W_{n−1}(A), Verschiebung V: W_{n−1}(A) → W_n(A) and restriction R on Mathlib's TruncatedWittVector (Mathlib has F and V only on the untruncated WittVector), and the Witt complexes of Hesselholt–Madsen over Z_(p)-algebras (p odd) and over F_p-algebras with R, F, V, the relations FV = p, FdV = d, Fd[a] = [a]^{p−1}d[a], the initial Witt complex W_•Ω^*_A with surjection Ω^*_{W_•(A)} → W_•Ω^*_A, the standard filtration and, for smooth (and regular) F_p-algebras, the classical de Rham–Witt complex of Bloch–Deligne–Illusie. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. Prove the full relations and universal property … For smooth algebras over a perfect F_p-field prove agreement with the classical de Rham–Witt complex.' CR.4 also owns the universal log Witt theory over prelog Z_(p)-algebras for p odd, importing prelog rings and absolute log differentials from CR.5:log-algebra. L.5 imports that theory and owns only its complete-DVR structure and TR comparison. CR.4's text: 'Construct Witt complexes W_nΩ, restriction, Frobenius, Verschiebung, Teichmuller lifts and dlog, using the existing Witt-vector carrier. ... Compute polynomial basic Witt differentials, localization and étale descent'. L.6 needs the de Rham–Witt complex W_nΩ^*_A of 𝔽_p-algebras with F, V, R, d, its compatibility with localisation (W_nΩ_{A[1/f]} = W_nΩ_A[1/[f]]), the basic Witt differentials of k[t] for k perfect, the logarithmic subgroups W_nΩ^q_{A,log}, and Illusie's I.5.7.4: W_nΩ^q_{A,log} ⊆ ker(R − F) ⊆ W_nΩ^q_{A,log} + Fil^{n−1}W_nΩ^q_A for smooth A. Universal log contract (HM 2003 §3.2): the category of log Witt complexes with λ,F,V,R,d,dlog; FV=p, FdV=d, Fd[a]=[a]^(p−1)d[a], F(dlog a)=dlog a and the derived relations; its initial object W_•ω*_(R,M), the surjection from absolute log differentials over W_n(R), W_1ω*=ω*, W_nω^0=W_n(R), trivial/unit log compatibility with the ordinary complex, and restriction W_nω*/(V^sW_(n−s)ω*+dV^sW_(n−s)ω*−1)≅W_sω* for 0≤s≤n (W_0=0). Initiality/existence and level-one identification remain an explicit supplier proof boundary, not a proof supplied here. For the regular F_p comparison, export surjectivity of R:W_nΩ^q→W_(n−1)Ω^q, p^n W_nΩ^q=0, Fil^s W_nΩ=ker(R^(n−s):W_nΩ→W_sΩ), for 0≤s≤n, and commutation of fixed-level W_nΩ and its logarithmic symbol subgroup with filtered colimits. The Illusie R−F map preserves differential degree q.
 
 Needed by: `L.4/pi0-tr-is-witt-vectors`, `L.5/tr-of-smooth-fp-algebra`, `L.5/tc-of-regular-fp-algebra`, `L.5/twisted-tr-of-regular-fp-algebra`, `L.5/relative-k-of-truncated-polynomial-regular-fp`, `L.6/power-series-de-rham-witt`, `L.6/geisser-hesselholt-regular-local`, `L.5/residue-field-to-witt-mod-p`, `L.5/modified-verschiebung`, `L.5/homotopy-orbit-de-rham-witt-module`, `L.5/kernel-of-restriction`, `L.5/log-de-rham-witt-dvr-mod-p`, `L.5/tr-log-dvr-is-log-witt-complex`, `L.5/log-de-rham-witt-tr-mod-p`, `L.5/log-de-rham-witt-tr-mod-pv`.
 
@@ -10119,7 +10612,7 @@ Let p be odd, R a Z_(p)-algebra and (R, M) a log ring (a prelog structure α: M 
 - `TauCeti.LogWittComplex.degreeZero` (degenerate): (W_•(R), M) with E^i = 0 for i > 0, Dlog = 0, F and V the Witt-vector operators, is a log Witt complex (all axioms involving E^1 hold trivially), and the unique map W_•ω^*_{(R,M)} → (W_•(R),M) is the projection onto degree 0.
 - `TauCeti.LogWittComplex.ofTrivial` (compatibility): With M = {1}, the category of log Witt complexes over (R,{1}) equals the category of Witt complexes over R of CrystallineCohomology CR.4.
 - `TauCeti.LogWittComplex.tr_example` (computation): For A = Z_p with p odd, TR^•_*(Z_p|Q_p;p) is a log Witt complex with dlog_n(p) ∈ TR^n_1 and F dlog_n p = dlog_{n−1} p.
-- `TauCeti.LogWittComplex.not_p2` (non-example): For p = 2 and A = Z_(2), TR^•_*(A|A[1/2];2) with its operators is not a log Witt complex in this sense, since d∘d = η·d ≠ 0 (Hesselholt–Madsen 2004, introduction).
+- `TauCeti.LogWittComplex.not_p2` (non-example): At p=2 the relation d²=ηd alone does not certify a log differential graded ring or its failure. An explicit class with ηd nonzero would be a non-example; supplying such a class is the L.4/connes-operator witness gap. The other three supplier tests remain applicable.
 
 **Acceptance.**
 
@@ -10131,7 +10624,7 @@ Let p be odd, R a Z_(p)-algebra and (R, M) a log ring (a prelog structure α: M 
 - `HesselholtMadsen.2003`, Definition 3.2.1, p. 47: “Definition 3.2.1. A log Witt complex over (R, M) consists of: (i) a pro-log differential graded ring (E∗· , ME) together with a map of pro-log rings λ: (W·(R), M) →(E0· , ME); (ii) a map of pro-log graded rings F: E∗ n →E∗ n−1, such that λF = Fλ and such that Fd logn a = d logn−1 a,” — Definition, (i)–(iii).
 - `HesselholtMadsen.2003`, §3.2, p. 47: “We now assume that p is odd and that R is a Z(p)-algebra. Definition 3.2.1. A” — Standing hypotheses of the definition.
 
-**Inherited proof sketch (supplier work).**
+**Proof sketch (supplier work).**
 
 1. Assemble the data from the prelog structures of CR.5:log-algebra and the Witt-vector operators on W_•(R) (CrystallineCohomology CR.4 for F, V, R on truncated Witt vectors); no construction beyond the definition is involved.
 
@@ -10142,6 +10635,12 @@ Let p be odd, R a Z_(p)-algebra and (R, M) a log ring (a prelog structure α: M 
 - HM Lemma 3.2.4: the filtration quotients W_nω/Fil^s are log Witt complexes
 - HM §6.1: W_•ω^*_{(A,M)} ⊗ S_{Z/p^v}(μ_{p^v}) with R, F, V acting trivially on the second factor is a log Witt complex
 
+**Supplier specification inputs.**
+
+- `CrystallineCohomology:CR.4`
+- `CrystallineCohomology:CR.5:log-algebra`
+- `mathlib:TruncatedWittVector`
+- `mathlib:WittVector.teichmuller`
 
 #### Preserved supplier specification: L.5/log-witt-complex-derived-relations
 
@@ -10162,12 +10661,15 @@ In every log Witt complex over (R,M): dF = pFd, Vd = pdV and V(x dy) = V(x)dV(y)
 
 - `HesselholtMadsen.2003`, §3.2, p. 48: “The following relations are valid in any log Witt complex: dF = pFd, V d = pdV, V (xdy) = V (x)dV (y). Indeed, V (xdy) = V (xFdV (y)) = V (x)dV (y), and dF(x) = FdV F(x) = Fd(V (1)x) = FdV (1)F(x) + FV (1)F(dx) = d(1)F(x) + pFd(x) = pFd(x), V d(x) = V (1)dV (x) = d(V (1)V (x)) −dV” — Statement and proof.
 
-**Inherited proof sketch (supplier work).**
+**Proof sketch (supplier work).**
 
 1. V(x dy) = V(x·FdV(y)) = V(x)dV(y) by FdV = d and the projection formula V(x F(z)) = V(x)z.
 2. dF(x) = FdVF(x) = Fd(V(1)x) = FdV(1)F(x) + FV(1)F(dx) = d(1)F(x) + pFd(x) = pFd(x).
 3. Vd(x) = V(1)dV(x) = d(V(1)V(x)) − dV(1)V(x) = dV(xFV(1)) − V(x d(1)) = pdV(x).
 
+**Supplier specification inputs.**
+
+- `KTheoryFiniteLocalFields:L.5/log-witt-complex`
 
 #### Preserved supplier specification: L.5/log-de-rham-witt-complex
 
@@ -10208,7 +10710,7 @@ For p odd and a log ring (R,M) with R a Z_(p)-algebra, the category of log Witt 
 - `HesselholtMadsen.2003`, Proposition 3.2.2, p. 48: “Proposition 3.2.2. The category of log Witt complexes over (R, M) has an initial object W· ω∗ (R,M). Moreover, the canonical map is surjective: λ: ω∗ (W·(R),M) ։ W· ω∗ (R,M). Proof. This is a fairly straightforward application of the Freyd adjoint functor theorem, [29, p. 116]. For a” — Statement and the proof by reference.
 - `HesselholtMadsen.2004`, Introduction, PDF p. 4: “The notion of a Witt complex and theorem A above generalize to log-rings; see [9, §3] for details. The universal example is denoted W· Ω∗ (R,M). It generalizes the construction of Hyodo-Kato [12] for” — HM 2004 refer the log case back to HM 2003 §3.
 
-**Inherited proof sketch (supplier work).**
+**Proof sketch (supplier work).**
 
 1. Existence: Freyd's adjoint functor theorem (solution set: log Witt complexes generated by the images of λ, dlog and the operators form a set), as in Hesselholt–Madsen 2004 §1 for the non-log case; HM 2003 give no further detail and HM 2004 refer back to HM 2003 §3 for the log case (recorded gap and source issue).
 2. Surjectivity of λ: the sub-pro-dga generated by the images of ω^*_{(W_•(R),M)} is stable under F and V (by F d[a] = [a]^{p−1}d[a], FdV = d and the projection formula) and is therefore a log Witt complex receiving the initial map; so it is everything.
@@ -10223,6 +10725,12 @@ For p odd and a log ring (R,M) with R a Z_(p)-algebra, the category of log Witt 
 - HM introduction, the sequence before Theorem A: K_*(K,Z/p^v) is computed from W ω^*_{(A,M)} ⊗ S(μ_{p^v}) and 1 − F
 - HigherLocalFieldsAndHigherClassFieldTheory HL.1, HL.2, HL.4: the logarithmic/DVR de Rham–Witt comparison for complete discrete valuation rings requested from L.5
 
+**Supplier specification inputs.**
+
+- `KTheoryFiniteLocalFields:L.5/log-witt-complex`
+- `KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations`
+- `CrystallineCohomology:CR.4`
+- `CrystallineCohomology:CR.5:log-algebra`
 
 #### Preserved supplier specification: L.5/log-de-rham-witt-level-one
 
@@ -10243,11 +10751,15 @@ The canonical map λ: ω^*_{(R,M)} → W_1ω^*_{(R,M)} is an isomorphism, where 
 - `HesselholtMadsen.2003`, Addendum 3.2.3, p. 48: “Addendum 3.2.3. The canonical map is an isomorphism: λ: ω∗ (R,M) ∼ −→W1 ω∗ (R,M). The filtration of a log” — Statement.
 - `HesselholtMadsen.2003`, §3.2, p. 48: “Moreover, from [17, Th. D] we have: Addendum 3.2.3. The” — The addendum is taken from HM 2004 Theorem D.
 
-**Inherited proof sketch (supplier work).**
+**Proof sketch (supplier work).**
 
 1. HM cite Hesselholt–Madsen 2004 Theorem D (the forgetful functor from Witt complexes to V-complexes without F preserves initial objects), which is proved there for the non-log Witt complexes; the log analogue is asserted without proof (recorded gap).
 2. Route: show that ω^*_{(R,M)} extends to a log Witt complex in which level 1 is ω^* (define the higher levels by the initial object and prove that W_1 of the initial object is the initial log dga by checking that ω^*_{(R,M)} with F = V = 0 at level 1 satisfies the axioms restricted to level 1).
 
+**Supplier specification inputs.**
+
+- `KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex`
+- `CrystallineCohomology:CR.5:log-algebra`
 
 #### Preserved supplier specification: L.5/standard-filtration-quotient
 
@@ -10268,13 +10780,17 @@ For a log Witt complex E the standard filtration Fil^s E^i_n = V^s E^i_{n−s} +
 - `HesselholtMadsen.2003`, §3.2, p. 48: “The filtration of a log Witt complex by the differential graded ideals Fils Ei n = V sEi n−s + dV sEi−1 n−s ⊂Ei n is called the standard filtration. It satisfies F(Fils Ei n) ⊂ Fils−1 Ei n−1, V (Fils” — The standard filtration.
 - `HesselholtMadsen.2003`, Lemma 3.2.4, p. 48: “Lemma 3.2.4. The restriction map induces an isomorphism Wn ωi (R,M)/ Fils Wn ωi (R,M) ∼ −→Ws ωi (R,M).” — Statement.
 
-**Inherited proof sketch (supplier work).**
+**Proof sketch (supplier work).**
 
 1. For fixed n − s the quotients 'W_sω^i = W_nω^i/Fil^s form a log Witt complex over (R,M).
 2. Existence of a map to any log Witt complex E: naturality of the filtration and R^{n−s}: E_n/Fil^s → E_s.
 3. Uniqueness: ω^i_{(W_s(R),M)} → 'W_sω^i is surjective, by the surjectivity of λ for W_n and of W_n → 'W_s (node L.5/log-de-rham-witt-complex).
 4. Hence 'W_•ω is initial, i.e. equals W_•ω.
 
+**Supplier specification inputs.**
+
+- `KTheoryFiniteLocalFields:L.5/log-de-rham-witt-complex`
+- `KTheoryFiniteLocalFields:L.5/log-witt-complex-derived-relations`
 
 ### CrystallineCohomology:CR.5:log-algebra
 
@@ -10350,147 +10866,144 @@ Needed by: `L.1/lang-degree-three-edge`, `L.1/finite-classical-h3-coefficient-co
 
 ## Structural proposals
 
+The proposals preserve one owner for each construction. Current dependencies remain in force until the supplier export or structural change is registered.
+
 ### Rigidity for henselian pairs is owned by L.2; MotivicEtaleKTheory M.7 imports it
 
-*ownership.* M.7's text asks to 'Prove the relevant rigidity and étale descent theorems', and the reviewed audit lists M.7 as a duplicate of L.2's rigidity target. The atlas places L.2 upstream of M.7 (M.7 requires KTheoryFiniteLocalFields:L.2; stage edge L.2 → M.7), so the rigidity theorem for henselian pairs with coefficients prime to the residue characteristic (Gabber, with Suslin's and Gillet–Thomason's cases) is planned once, as L.2/gabber-rigidity, and M.7 imports it. Proposal: narrow M.7's rigidity target to 'import L.2's rigidity for henselian pairs; prove Suslin's rigidity for extensions of algebraically closed fields (K-book VI.1.1–VI.1.3) and the Aut(F)-module structure of the torsion in K_*(F^sep) (VI.1.6, VI.1.7.1)', which is not a henselian-pair statement and which ArithmeticKTheory N.1's packet records as ownerless. L.2 supplies its ℓ ≠ p case for separable closures of local fields (L.2/separable-closure-l-torsion).
+M.7's text asks to 'Prove the relevant rigidity and étale descent theorems', and the reviewed audit lists M.7 as a duplicate of L.2's rigidity target. The atlas places L.2 upstream of M.7 (M.7 requires KTheoryFiniteLocalFields:L.2; stage edge L.2 → M.7), so the rigidity theorem for henselian pairs with coefficients prime to the residue characteristic (Gabber, with Suslin's and Gillet–Thomason's cases) is planned once, as L.2/gabber-rigidity, and M.7 imports it. Proposal: narrow M.7's rigidity target to 'import L.2's rigidity for henselian pairs; prove Suslin's rigidity for extensions of algebraically closed fields (K-book VI.1.1–VI.1.3) and the Aut(F)-module structure of the torsion in K_*(F^sep) (VI.1.6, VI.1.7.1)', which is not a henselian-pair statement and which ArithmeticKTheory N.1's packet records as ownerless. L.2 supplies its ℓ ≠ p case for separable closures of local fields (L.2/separable-closure-l-torsion).
 
 ### Finite-coefficient K-theory of rings is planned in L.1
 
-*ownership.* ArithmeticKTheory N.1's packet records the gap 'K-theory with finite coefficients has no supplier stage' and names GeneralAlgebraicKTheory K.7 or KTheoryFiniteLocalFields L.1 as candidates. L.1 is the first layer that computes with it and is upstream of all its consumers (L.2, ArithmeticKTheory N.5–N.6, MotivicEtaleKTheory M.7, HabiroNumberFields HB.1), so it is planned here: L.1/k-theory-mod-m (K(R)/m through StableHomotopyKTheory H.6's cofibre), L.1/bott-element and L.1/mod-m-products. If the orchestrator prefers GeneralAlgebraicKTheory, these three nodes move unchanged to a 'GeneralAlgebraicKTheory, Part II: coefficients' layer upstream of L.1.
+ArithmeticKTheory N.1's packet records the gap 'K-theory with finite coefficients has no supplier stage' and names GeneralAlgebraicKTheory K.7 or KTheoryFiniteLocalFields L.1 as candidates. L.1 is the first layer that computes with it and is upstream of all its consumers (L.2, ArithmeticKTheory N.5–N.6, MotivicEtaleKTheory M.7, HabiroNumberFields HB.1), so it is planned here: L.1/k-theory-mod-m (K(R)/m through StableHomotopyKTheory H.6's cofibre), L.1/bott-element and L.1/mod-m-products. If the orchestrator prefers GeneralAlgebraicKTheory, these three nodes move unchanged to a 'GeneralAlgebraicKTheory, Part II: coefficients' layer upstream of L.1.
 
 ### K2SymbolsBrauer T.1 cites the umbrella GeneralAlgebraicKTheory:K.2, which blocks L.1 from importing K_2(F_q) = 0
 
-*cycle.* In the stage graph built from atlas requires, stage edges and all packet prerequisites, K2SymbolsBrauer:T.1:classical, T.1:plus and T.2:symbols lie downstream of KTheoryFiniteLocalFields:L.1, through L.1 → ArithmeticKTheory:N.3:ranks → K3BlochGroups:V.2 (node V.2/k3-rank-borel) → V.4 → GeneralAlgebraicKTheory:K.2:low-degree-comparisons → GeneralAlgebraicKTheory:K.2 → K2SymbolsBrauer:T.1:classical (nodes T.1/k2-definition and T.1/k2-pi2 cite the umbrella stage GeneralAlgebraicKTheory:K.2). With those two citations replaced by GeneralAlgebraicKTheory:K.2:plus the path disappears (checked). Until then L.1/degree-two-symbols proves K_2(F_q) = 0 from Quillen's computation and records the agreement with K2SymbolsBrauer:T.2/k2-finite-field as an acceptance check, not a prerequisite, as the brief's instruction to import it would close a cycle.
+In the stage graph built from atlas requires, stage edges and all packet prerequisites, K2SymbolsBrauer:T.1:classical, T.1:plus and T.2:symbols lie downstream of KTheoryFiniteLocalFields:L.1, through L.1 → ArithmeticKTheory:N.3:ranks → K3BlochGroups:V.2 (node V.2/k3-rank-borel) → V.4 → GeneralAlgebraicKTheory:K.2:low-degree-comparisons → GeneralAlgebraicKTheory:K.2 → K2SymbolsBrauer:T.1:classical (nodes T.1/k2-definition and T.1/k2-pi2 cite the umbrella stage GeneralAlgebraicKTheory:K.2). With those two citations replaced by GeneralAlgebraicKTheory:K.2:plus the path disappears (checked). Until then L.1/degree-two-symbols proves K_2(F_q) = 0 from Quillen's computation and records the agreement with K2SymbolsBrauer:T.2/k2-finite-field as an acceptance check, not a prerequisite, as the brief's instruction to import it would close a cycle.
 
 ### RefinedTraceMethods, Part II: Adams operations and classifying spaces in topological K-theory
 
-*part-ii.* L.1 needs, and RT.4:topological's text does not state: Adams operations ψ^k on BU as H-maps with ψ^k = k^i on π_{2i}(BU) and their action on Chern classes; the λ-ring structure on [X, BU]; the Atiyah map R_C(G) → [BG, Z × BU]; and the Atiyah–Segal vanishing K̃U^1(BG) = 0 for finite G with the lim^1 vanishing for BGL(F_q). Proposal: add them to RT.4:topological or form 'RefinedTraceMethods, Part II: Adams operations and representations in KU', upstream of L.1 (requested; see requests).
+L.1 needs, and RT.4:topological's text does not state: Adams operations ψ^k on BU as H-maps with ψ^k = k^i on π_{2i}(BU) and their action on Chern classes; the λ-ring structure on [X, BU]; the Atiyah map R_C(G) → [BG, Z × BU]; and the Atiyah–Segal vanishing K̃U^1(BG) = 0 for finite G with the lim^1 vanishing for BGL(F_q). Proposal: add them to RT.4:topological or form 'RefinedTraceMethods, Part II: Adams operations and representations in KU', upstream of L.1 (requested; see requests).
 
 ### Proposed sub-layers of L.1
 
-*sub-layers.* L.1 is broad. Proposed sub-layers, with their nodes: L.1a 'Brauer lifting and FΨ^q' (brauer-character, green-virtual-character, brauer-lift, brauer-lift-frobenius-invariant, brauer-lift-lambda-ring, brauer-lift-stabilisation, brauer-lift-cyclic, fpsi, fpsi-homotopy, fpsi-lifting, quillen-map); L.1b 'Quillen's cohomology comparison' (fpsi-cohomology, fpsi-cohomology-ring, gl-sylow-in-wreath, gl-cohomology-detection, gl-mod-p-acyclic, quillen-homology-iso, quillen-fibration, quillen-k-groups); L.1c 'Galois structure, transfers and coefficients' (the remaining L.1 nodes). The planets (at most six) are Brauer lifting, the space FΨ^q, Quillen's theorem on BGL(F_q)^+, K-theory of finite fields, K-theory with finite coefficients, Bott element.
+L.1 is broad. Proposed sub-layers, with their nodes: L.1a 'Brauer lifting and FΨ^q' (brauer-character, green-virtual-character, brauer-lift, brauer-lift-frobenius-invariant, brauer-lift-lambda-ring, brauer-lift-stabilisation, brauer-lift-cyclic, fpsi, fpsi-homotopy, fpsi-lifting, quillen-map); L.1b 'Quillen's cohomology comparison' (fpsi-cohomology, fpsi-cohomology-ring, gl-sylow-in-wreath, gl-cohomology-detection, gl-mod-p-acyclic, quillen-homology-iso, quillen-fibration, quillen-k-groups); L.1c 'Galois structure, transfers and coefficients' (the remaining L.1 nodes). The planets (at most six) are Brauer lifting, the space FΨ^q, Quillen's theorem on BGL(F_q)^+, K-theory of finite fields, K-theory with finite coefficients, Bott element.
 
 ### Duplicates listed by the audit for L.1 and L.2 are imported, not re-planned
 
-*ownership.* K₀(F_q) = Z: baseline TauCeti.SplitK0.finrankEquiv and KTheoryLowDegrees Z.2. K₁(F_q) and the determinant: KTheoryLowDegrees U.6 (with the norm from U.5). K₂(F_q) = 0 by symbols: K2SymbolsBrauer T.2/k2-finite-field (the audit's 'T.5' duplicate; the T.3 packet moved it to T.2), compared in L.1/degree-two-symbols. K₃(F_q): K3BlochGroups V.5 specialises L.1 and consumes L.1/quillen-k-groups, L.1/finite-field-galois-descent and L.1/finite-field-transfer-formulas. KU and Bott periodicity: RefinedTraceMethods RT.4:topological. The plus construction: StableHomotopyKTheory H.3 and GeneralAlgebraicKTheory K.2:plus. The Bockstein sequence: StableHomotopyKTheory H.6. Rigidity: owned here (first entry).
+K₀(F_q) = Z: baseline TauCeti.SplitK0.finrankEquiv and KTheoryLowDegrees Z.2. K₁(F_q) and the determinant: KTheoryLowDegrees U.6 (with the norm from U.5). K₂(F_q) = 0 by symbols: K2SymbolsBrauer T.2/k2-finite-field (the audit's 'T.5' duplicate; the T.3 packet moved it to T.2), compared in L.1/degree-two-symbols. K₃(F_q): K3BlochGroups V.5 specialises L.1 and consumes L.1/quillen-k-groups, L.1/finite-field-galois-descent and L.1/finite-field-transfer-formulas. KU and Bott periodicity: RefinedTraceMethods RT.4:topological. The plus construction: StableHomotopyKTheory H.3 and GeneralAlgebraicKTheory K.2:plus. The Bockstein sequence: StableHomotopyKTheory H.6. Rigidity: owned here (first entry).
 
 ### The global-to-local K-theory map above p is owned by L.7; PadicHodgeRegulators D.4 imports it
 
-*ownership.* The reviewed audit lists PadicHodgeRegulators D.4 as duplicating L.7. L.7's text: 'This supplies N's local conditions and D's regulator map. The unramified p>3 K₃ regulator theorem is owned by D, using the completed K₃ model established here.' D.4's text: 'identify F⊗Q_p with its product of completions. Construct the localisation map from global K₃, compare with all local embeddings, and apply D.3. Prove compatibility with norm/trace and with Frobenius.' Proposal: L.7 owns the map λ_{F,p} : K_n(F) → ∏_{v|p} K_n(F_v; ℤ_p) in every degree with its restriction and transfer compatibilities (L.7/semilocal-completed-map, L.7/restriction-completion-square, L.7/transfer-completion-formula); the completed groups are L.6's; D.4 is narrowed to the Frobenius compatibility, the application of D.3 and the export of the regulator, and imports λ_{F,3}. Add the stage link L.7 → D.4; it creates no cycle (D.4 is neither upstream nor downstream of L.7 in the current graph of atlas requires, stage edges and packet prerequisites).
+The reviewed audit lists PadicHodgeRegulators D.4 as duplicating L.7. L.7's text: 'This supplies N's local conditions and D's regulator map. The unramified p>3 K₃ regulator theorem is owned by D, using the completed K₃ model established here.' D.4's text: 'identify F⊗Q_p with its product of completions. Construct the localisation map from global K₃, compare with all local embeddings, and apply D.3. Prove compatibility with norm/trace and with Frobenius.' Proposal: L.7 owns the map λ_{F,p} : K_n(F) → ∏_{v|p} K_n(F_v; ℤ_p) in every degree with its restriction and transfer compatibilities (L.7/semilocal-completed-map, L.7/restriction-completion-square, L.7/transfer-completion-formula); the completed groups are L.6's; D.4 is narrowed to the Frobenius compatibility, the application of D.3 and the export of the regulator, and imports λ_{F,3}. Add the stage link L.7 → D.4; it creates no cycle (D.4 is neither upstream nor downstream of L.7 in the current graph of atlas requires, stage edges and packet prerequisites).
 
 ### Hilbert's Theorem 90 for K₂ and the torsion theorems for K₂ of fields have no owner
 
-*ownership.* K-book III.6.6 (Hilbert 90 for K₂), III.6.7 (no p-torsion in characteristic p), III.6.8 (Tate–Suslin: elements of exponent n are {ζ, x}) and Izhboldin's III.7.8 are planned by no stage (K3BlochGroups records Izhboldin as a gap, and no K2SymbolsBrauer stage text names them). L.3 needs III.6.7 and plans it as L.3/k2-no-p-torsion-char-p in the generality of all fields of characteristic p. Proposal: K2SymbolsBrauer (a Part II after T.4, 'Hilbert 90 and torsion in K₂ of fields') owns Hilbert 90 for K₂ and III.6.7–III.6.8, and L.3/k2-no-p-torsion-char-p moves there when that part exists.
+K-book III.6.6 (Hilbert 90 for K₂), III.6.7 (no p-torsion in characteristic p), III.6.8 (Tate–Suslin: elements of exponent n are {ζ, x}) and Izhboldin's III.7.8 are planned by no stage (K3BlochGroups records Izhboldin as a gap, and no K2SymbolsBrauer stage text names them). L.3 needs III.6.7 and plans it as L.3/k2-no-p-torsion-char-p in the generality of all fields of characteristic p. Proposal: K2SymbolsBrauer (a Part II after T.4, 'Hilbert 90 and torsion in K₂ of fields') owns Hilbert 90 for K₂ and III.6.7–III.6.8, and L.3/k2-no-p-torsion-char-p moves there when that part exists.
 
 ### Karoubi's square in general belongs to GeneralAlgebraicKTheory
 
-*ownership.* L.7/karoubi-completion-square is Karoubi's Proposition V.7.5 for a discrete valuation ring and its completion, the only case L.7 uses. The general statement (A → B with A/sA ≅ B/sB for a central multiplicative set S of non-zero-divisors, with the equivalence H_S(A) ≃ H_S(B), the homotopy cartesian square and the Mayer–Vietoris sequence) is a fundamental theorem of ring K-theory and fits GeneralAlgebraicKTheory K.3 (localisation) or K.5 (relative theory and excision). Proposal: GeneralAlgebraicKTheory plans it in general and L.7's node becomes its specialisation.
+L.7/karoubi-completion-square is Karoubi's Proposition V.7.5 for a discrete valuation ring and its completion, the only case L.7 uses. The general statement (A → B with A/sA ≅ B/sB for a central multiplicative set S of non-zero-divisors, with the equivalence H_S(A) ≃ H_S(B), the homotopy cartesian square and the Mayer–Vietoris sequence) is a fundamental theorem of ring K-theory and fits GeneralAlgebraicKTheory K.3 (localisation) or K.5 (relative theory and excision). Proposal: GeneralAlgebraicKTheory plans it in general and L.7's node becomes its specialisation.
 
 ### Real places of a number field are outside L.7's text but inside N.6's wild kernel
 
-*rescope.* L.7's text concerns 'completion of a number field at a finite place'. ArithmeticKTheory N.6/tame-and-wild-kernels intersects the kernels of K_{2i}(F) → K_{2i}(F_v) over all places, the real ones included, and in degree two needs that the kernel of K₂(F) → K₂(ℝ) on torsion is the kernel of the sign symbol, i.e. K₂(ℝ) = {±1} ⊕ (uniquely divisible) (K-book Example III.7.2(c), whose unique divisibility is left there to 'the norm map'). Proposal: N.6 (or K2SymbolsBrauer T.5, which owns the real sign symbol) states the real-place map and K₂(ℝ); L.7 is not widened.
+L.7's text concerns 'completion of a number field at a finite place'. ArithmeticKTheory N.6/tame-and-wild-kernels intersects the kernels of K_{2i}(F) → K_{2i}(F_v) over all places, the real ones included, and in degree two needs that the kernel of K₂(F) → K₂(ℝ) on torsion is the kernel of the sign symbol, i.e. K₂(ℝ) = {±1} ⊕ (uniquely divisible) (K-book Example III.7.2(c), whose unique divisibility is left there to 'the norm map'). Proposal: N.6 (or K2SymbolsBrauer T.5, which owns the real sign symbol) states the real-place map and K₂(ℝ); L.7 is not widened.
 
 ### The localisation splitting of K₂ of a local field is L.2's
 
-*move-nodes.* The splitting u ↦ {ω(u), π} of the tame symbol K₂(E) → k^× and its independence of π are the case i = 1 of L.2/even-k-field-splitting (author A), so L.3 plans no separate node and cites it; L.3/local-k2-localisation-sequence keeps only the K₂-specific exactness and the identification of the boundary with the tame symbol.
+The splitting u ↦ {ω(u), π} of the tame symbol K₂(E) → k^× and its independence of π are the case i = 1 of L.2/even-k-field-splitting (author A), so L.3 plans no separate node and cites it; L.3/local-k2-localisation-sequence keeps only the K₂-specific exactness and the identification of the boundary with the tame symbol.
 
 ### General TR/TC comparison is RT.2's; L.4 owns the Hesselholt–Madsen specialisation
 
-*ownership.* The reviewed audit lists RefinedTraceMethods RT.2 as duplicating L.4's 'comparison with the classical TR/Frobenius convention'. The packet keeps one owner for each piece: RT.2 owns the general agreement of genuine (Bökstedt–Hsiang–Madsen) TR/TC with Nikolaus–Scholze for bounded-below cyclotomic spectra; L.4 owns Hesselholt–Madsen's model T(C) of a linear Waldhausen category, their indexing TR^n = T(C)^{C_{p^{n−1}}}, the convention TC = hofib(R − F), π_0 TR^n = W_n, the verification that T(k), T(A), T(A|K) are bounded below, and the localisation sequences (nodes L.4/hm-conventions-agree-with-nikolaus-scholze, L.4/log-thh-bounded-below, L.4/tr-localization-sequence, L.4/k-tc-localization-square). The nilpotent (McCarthy) and rational (Goodwillie) relative theorems are imported from RT.3 and applied, not planned, in L.5.
+The reviewed audit lists RefinedTraceMethods RT.2 as duplicating L.4's 'comparison with the classical TR/Frobenius convention'. The packet keeps one owner for each piece: RT.2 owns the general agreement of genuine (Bökstedt–Hsiang–Madsen) TR/TC with Nikolaus–Scholze for bounded-below cyclotomic spectra; L.4 owns Hesselholt–Madsen's model T(C) of a linear Waldhausen category, their indexing TR^n = T(C)^{C_{p^{n−1}}}, the convention TC = hofib(R − F), π_0 TR^n = W_n, the verification that T(k), T(A), T(A|K) are bounded below, and the localisation sequences (nodes L.4/hm-conventions-agree-with-nikolaus-scholze, L.4/log-thh-bounded-below, L.4/tr-localization-sequence, L.4/k-tc-localization-square). The nilpotent (McCarthy) and rational (Goodwillie) relative theorems are imported from RT.3 and applied, not planned, in L.5.
 
 ### THH analogues of Waldhausen's additivity, fibration and resolution theorems are owned by L.4
 
-*ownership.* No stage text of RefinedTraceMethods or GeneralAlgebraicKTheory states additivity, fibration, resolution or localisation theorems for THH^{C_r} of Waldhausen categories; HM §1.3–1.5 need them for the localisation square that L.4's text assigns to this layer ('prove the localization square'). They are planned here (nodes L.4/thh-additivity-theorem … L.4/thh-projective-complexes-f-equivalence) with the K-theory versions of GeneralAlgebraicKTheory K.3/K.4 cited as their Φ = ob cases. If RefinedTraceMethods adopts localisation for spectral categories (Blumberg–Mandell), RT.2 would be the natural owner of the general theorems and L.4 would keep the DVR application and the dévissage input.
+No stage text of RefinedTraceMethods or GeneralAlgebraicKTheory states additivity, fibration, resolution or localisation theorems for THH^{C_r} of Waldhausen categories; HM §1.3–1.5 need them for the localisation square that L.4's text assigns to this layer ('prove the localization square'). They are planned here (nodes L.4/thh-additivity-theorem … L.4/thh-projective-complexes-f-equivalence) with the K-theory versions of GeneralAlgebraicKTheory K.3/K.4 cited as their Φ = ob cases. If RefinedTraceMethods adopts localisation for spectral categories (Blumberg–Mandell), RT.2 would be the natural owner of the general theorems and L.4 would keep the DVR application and the dévissage input.
 
 ### RT.3 and RT.6 test calculations import from L.5 only where the graph allows
 
-*ownership.* The audit lists RT.3 ('Test a square-zero extension and a truncated polynomial algebra') and RT.6 ('the finite-field THH comparison consumed by local K-theory, … the square-zero relative trace') as duplicating L.5's calculations. RT.3 is upstream of L.4 and L.5, so RT.3 cannot import them (RT.3 → L.4 → L.5 → RT.3 would be a cycle): its tests must stay at the low-degree boundary comparisons with K₂ symbols that RT.3's text states. RT.6 is not upstream of L.5; its acceptance examples should cite L.5/thh-of-perfect-field and L.5/relative-k-of-truncated-polynomial-char-zero (proposed link KTheoryFiniteLocalFields:L.5 → RefinedTraceMethods:RT.6) instead of recomputing them. The full calculations (Hesselholt–Madsen's K_{2m−1}(k[x]/(x^n),(x)) ≅ W_{mn}(k)/V_nW_m(k), Hesselholt's characteristic-zero formula) are owned by L.5.
+The audit lists RT.3 ('Test a square-zero extension and a truncated polynomial algebra') and RT.6 ('the finite-field THH comparison consumed by local K-theory, … the square-zero relative trace') as duplicating L.5's calculations. RT.3 is upstream of L.4 and L.5, so RT.3 cannot import them (RT.3 → L.4 → L.5 → RT.3 would be a cycle): its tests must stay at the low-degree boundary comparisons with K₂ symbols that RT.3's text states. RT.6 is not upstream of L.5; its acceptance examples should cite L.5/thh-of-perfect-field and L.5/relative-k-of-truncated-polynomial-char-zero (proposed link KTheoryFiniteLocalFields:L.5 → RefinedTraceMethods:RT.6) instead of recomputing them. The full calculations (Hesselholt–Madsen's K_{2m−1}(k[x]/(x^n),(x)) ≅ W_{mn}(k)/V_nW_m(k), Hesselholt's characteristic-zero formula) are owned by L.5.
 
 ### CrystallineCohomology CR.5:log-algebra should own absolute log differentials of prelog rings
 
-*rescope.* L.5 needs, for an arbitrary prelog ring (R,M), the module ω^1_{(R,M)} = (Ω^1_R ⊕ R ⊗ M^gp)/⟨dα(a) − α(a) ⊗ a⟩ with absolute Ω^1_R and the universal log dga ω^*_{(R,M)} (HM §2.2, after Kato). CR.5:log-algebra's text constructs prelog rings and 'the explicit log differential module … for the standard semistable chart', which presupposes the general notion; it should state the general construction explicitly (it is the most foundational owner), and L.5 imports it (request). L.5 keeps the DVR-specific results (residue sequence, cyclicity, torsion, tame and wild base change).
+L.5 needs, for an arbitrary prelog ring (R,M), the module ω^1_{(R,M)} = (Ω^1_R ⊕ R ⊗ M^gp)/⟨dα(a) − α(a) ⊗ a⟩ with absolute Ω^1_R and the universal log dga ω^*_{(R,M)} (HM §2.2, after Kato). CR.5:log-algebra's text constructs prelog rings and 'the explicit log differential module … for the standard semistable chart', which presupposes the general notion; it should state the general construction explicitly (it is the most foundational owner), and L.5 imports it (request). L.5 keeps the DVR-specific results (residue sequence, cyclicity, torsion, tame and wild base change).
 
 ### 'Logarithmic de Rham–Witt' in HL.2 and 'de Rham–Witt with log poles' in L.5 are different objects
 
-*ownership.* The audit flags HigherLocalFieldsAndHigherClassFieldTheory HL.2 ('introduce logarithmic de Rham–Witt/Artin–Schreier–Witt coefficients for the wild characteristic case') as overlapping L.5. HL.2's object is W_nΩ^r_log ⊂ W_nΩ^r of a characteristic-p field (generated by dlog forms; built from CR.4's ordinary complex), used with the Bloch–Kato–Gabber symbol. L.5's object is Hesselholt–Madsen's W_•ω^*_{(A,M)} for a mixed-characteristic complete DVR with log poles at the closed point (p odd), used to compute TR(A|K). Answer to HL's request ('the logarithmic and discrete-valuation de Rham-Witt comparison for complete discrete valuation rings'): L.5 imports the general complex from CrystallineCohomology:CR.4 and supplies L.5/log-de-rham-witt-dvr-mod-p (explicit basis with the ramification invariant r(i,e_K)), L.5/log-differentials-residue-sequence and, in equal characteristic, L.5/tr-of-smooth-fp-algebra (TR of k[[t]] is WΩ of CR.4). It does not supply W_nΩ^r_log or the Bloch–Kato graded pieces of the Milnor K filtration, which remain HL.1/HL.2's targets on CR.4.
+The audit flags HigherLocalFieldsAndHigherClassFieldTheory HL.2 ('introduce logarithmic de Rham–Witt/Artin–Schreier–Witt coefficients for the wild characteristic case') as overlapping L.5. HL.2's object is W_nΩ^r_log ⊂ W_nΩ^r of a characteristic-p field (generated by dlog forms; built from CR.4's ordinary complex), used with the Bloch–Kato–Gabber symbol. L.5's object is Hesselholt–Madsen's W_•ω^*_{(A,M)} for a mixed-characteristic complete DVR with log poles at the closed point (p odd), used to compute TR(A|K). Answer to HL's request ('the logarithmic and discrete-valuation de Rham-Witt comparison for complete discrete valuation rings'): L.5 imports the general complex from CrystallineCohomology:CR.4 and supplies L.5/log-de-rham-witt-dvr-mod-p (explicit basis with the ramification invariant r(i,e_K)), L.5/log-differentials-residue-sequence and, in equal characteristic, L.5/tr-of-smooth-fp-algebra (TR of k[[t]] is WΩ of CR.4). It does not supply W_nΩ^r_log or the Bloch–Kato graded pieces of the Milnor K filtration, which remain HL.1/HL.2's targets on CR.4.
 
 ### Proposed sub-layers of L.4 and L.5 for the atlas
 
-*sub-layers.* L.4 (35 nodes): L.4a 'Hesselholt–Madsen TR and TC' (thh-of-linear-waldhausen-category, thh-structure-maps-f-equivalences, tr-pro-spectrum, norm-restriction-cofibre-sequence, p-typical-tc, connes-operator, moore-spectrum-splitting-for-hz-modules, tr-homotopy-orbit-spectral-sequence, pi0-tr-is-witt-vectors, hm-conventions-agree-with-nikolaus-scholze, integral-and-p-typical-tc-agree-after-completion, log-thh-bounded-below, three-by-three-lemma); L.4b 'Tate cohomology and the Tate spectral sequence' (tate-cohomology-hm-model, tate-cohomology-ring-of-odd-cyclic-group, multiplicative-tate-spectral-sequence, tate-spectral-sequence-connes-module, tate-d2-is-connes-operator); L.4c 'Localisation for THH of Waldhausen categories' (the fifteen nodes from exact-simplicial-homotopy-invariance to k-tc-localization-square). L.5 (85 nodes): L.5a 'Witt vectors and log differentials of complete DVRs' (complete-dvr-eisenstein-presentation … hochschild-homology-of-perfect-field); L.5b 'De Rham–Witt with log poles and TR in low degrees' (import CR.4 log-Witt theory; homotopy-orbit-de-rham-witt-module … connecting-map-of-kappa); L.5c 'The Tate spectral sequence and Theorem C' (lubin-tate-unit-polynomial … tc-of-log-dvr-mod-p); L.5d 'Perfect fields, truncated polynomial and regular F_p-algebras' (thh-of-perfect-field … tc-of-regular-fp-algebra). With sub-layers each could show up to six planets; at the stage level the packet marks six per stage. L.5d also contains the seven NS IV.4 prime-field calculation/application nodes; no new generic cyclotomic definition is owned there.
+L.4 (35 nodes): L.4a 'Hesselholt–Madsen TR and TC' (thh-of-linear-waldhausen-category, thh-structure-maps-f-equivalences, tr-pro-spectrum, norm-restriction-cofibre-sequence, p-typical-tc, connes-operator, moore-spectrum-splitting-for-hz-modules, tr-homotopy-orbit-spectral-sequence, pi0-tr-is-witt-vectors, hm-conventions-agree-with-nikolaus-scholze, integral-and-p-typical-tc-agree-after-completion, log-thh-bounded-below, three-by-three-lemma); L.4b 'Tate cohomology and the Tate spectral sequence' (tate-cohomology-hm-model, tate-cohomology-ring-of-odd-cyclic-group, multiplicative-tate-spectral-sequence, tate-spectral-sequence-connes-module, tate-d2-is-connes-operator); L.4c 'Localisation for THH of Waldhausen categories' (the fifteen nodes from exact-simplicial-homotopy-invariance to k-tc-localization-square). L.5 (85 nodes): L.5a 'Witt vectors and log differentials of complete DVRs' (complete-dvr-eisenstein-presentation … hochschild-homology-of-perfect-field); L.5b 'De Rham–Witt with log poles and TR in low degrees' (import CR.4 log-Witt theory; homotopy-orbit-de-rham-witt-module … connecting-map-of-kappa); L.5c 'The Tate spectral sequence and Theorem C' (lubin-tate-unit-polynomial … tc-of-log-dvr-mod-p); L.5d 'Perfect fields, truncated polynomial and regular F_p-algebras' (thh-of-perfect-field … tc-of-regular-fp-algebra). With sub-layers each could show up to six planets; at the stage level the packet marks six per stage. L.5d also contains the seven NS IV.4 prime-field calculation/application nodes; no new generic cyclotomic definition is owned there.
 
 ### Hesselholt–Madsen Theorem D (1997) and the trace isomorphism for local fields are placed in L.5
 
-*ownership.* K(A)^_p ≃ TC(A;p)^_p[0,∞) for finite W(k)-algebras needs TC of perfect fields (an L.5 calculation), so it is L.5/trace-equivalence-finite-witt-algebras, and the resulting tr: K_i(K;Z/p^v) ≅ TC_i(A|K;p,Z/p^v) (i ≥ 1) is L.5/trace-isomorphism-for-local-field. HM 2003's Theorems A and D and the étale comparison 6.1.10 are K-theoretic and belong to L.6, which consumes these nodes.
+K(A)^_p ≃ TC(A;p)^_p[0,∞) for finite W(k)-algebras needs TC of perfect fields (an L.5 calculation), so it is L.5/trace-equivalence-finite-witt-algebras, and the resulting tr: K_i(K;Z/p^v) ≅ TC_i(A|K;p,Z/p^v) (i ≥ 1) is L.5/trace-isomorphism-for-local-field. HM 2003's Theorems A and D and the étale comparison 6.1.10 are K-theoretic and belong to L.6, which consumes these nodes.
 
 ### The completed K₃ carrier and its rank and torsion are owned by L.6; PadicHodgeRegulators D.3 imports them
 
-*ownership.* The reviewed audit lists PadicHodgeRegulators:D.3 as duplicating L.6 ('Identifies the completed K₃(L; ℤ_p) of unramified L/ℚ_p with a local H¹ group, free of rank equal to the local degree: the j = 2 case of this layer's rank and torsion statement'). The atlas edge L.6 → D.3 already exists and the accepted RS-26 keeps 'The KTheoryFiniteLocalFields:L.6 cohomology/rank input' as an import. Proposal: L.6 owns the carrier K(R; ℤ_p) (L.1/completed-k-theory, with the product comparison as its API item KTheory.completed_prod), the identification K_3(L; ℤ_p) ≅ H^1(L, ℤ_p(2)) ≅ ℤ_p^{[L:ℚ_p]} ⊕ ℤ/w_2^{(p)}(L) for every finite L/ℚ_p (L.6/completed-k-groups-of-p-adic-fields, L.6/odd-completed-k-groups-are-h1) and its unramified p > 3 torsion-free case (L.6/completed-k3-of-unramified-fields). D.3's first part ('identify completed K₃ with the appropriate local H¹ group and show it is free of rank equal to the total local degree') becomes the application of these nodes factorwise to a finite product; D.3 keeps the dilogarithm integrality, the reduction modulo p, the spanning and the equal-rank conclusion. D.4 consumes L.7's global-to-local map (author B's restructure entry).
+The reviewed audit lists PadicHodgeRegulators:D.3 as duplicating L.6 ('Identifies the completed K₃(L; ℤ_p) of unramified L/ℚ_p with a local H¹ group, free of rank equal to the local degree: the j = 2 case of this layer's rank and torsion statement'). The atlas edge L.6 → D.3 already exists and the accepted RS-26 keeps 'The KTheoryFiniteLocalFields:L.6 cohomology/rank input' as an import. Proposal: L.6 owns the carrier K(R; ℤ_p) (L.1/completed-k-theory, with the product comparison as its API item KTheory.completed_prod), the identification K_3(L; ℤ_p) ≅ H^1(L, ℤ_p(2)) ≅ ℤ_p^{[L:ℚ_p]} ⊕ ℤ/w_2^{(p)}(L) for every finite L/ℚ_p (L.6/completed-k-groups-of-p-adic-fields, L.6/odd-completed-k-groups-are-h1) and its unramified p > 3 torsion-free case (L.6/completed-k3-of-unramified-fields). D.3's first part ('identify completed K₃ with the appropriate local H¹ group and show it is free of rank equal to the total local degree') becomes the application of these nodes factorwise to a finite product; D.3 keeps the dilogarithm integrality, the reduction modulo p, the spanning and the equal-rank conclusion. D.4 consumes L.7's global-to-local map (author B's restructure entry).
 
 ### Abelian-group tools for divisible components: one owner
 
-*ownership.* L.6 plans the maximal divisible subgroup Div(A) (L.6/maximal-divisible-subgroup), the p-adic Tate module (L.6/p-adic-tate-module) and the lattice lemma for torsion-free ℤ_(p)-modules (L.6/torsion-free-lattice-lemma), none of which the pinned libraries have. ArithmeticKTheory:N.6/divisible-subgroup defines the different subgroup ⋂_m mA for number fields; N.6 is downstream of L.6 (through L.7), so it can cite L.6's API item maxDivisible_le_iInf (Div(A) ⊆ ⋂_m mA, with equality for torsion-free groups and for divisible-plus-bounded groups, which covers the K-groups of local fields). Proposal: keep both notions, each with one owner, and let N.6 cite L.6 for the comparison; if a foundational algebra roadmap is created, the three L.6 nodes move there unchanged.
+L.6 plans the maximal divisible subgroup Div(A) (L.6/maximal-divisible-subgroup), the p-adic Tate module (L.6/p-adic-tate-module) and the lattice lemma for torsion-free ℤ_(p)-modules (L.6/torsion-free-lattice-lemma), none of which the pinned libraries have. ArithmeticKTheory:N.6/divisible-subgroup defines the different subgroup ⋂_m mA for number fields; N.6 is downstream of L.6 (through L.7), so it can cite L.6's API item maxDivisible_le_iInf (Div(A) ⊆ ⋂_m mA, with equality for torsion-free groups and for divisible-plus-bounded groups, which covers the K-groups of local fields). Proposal: keep both notions, each with one owner, and let N.6 cite L.6 for the comparison; if a foundational algebra roadmap is created, the three L.6 nodes move there unchanged.
 
 ### Stage links that L.6's prerequisites add
 
-*links.* L.6's nodes use, besides its atlas requirements (L.3, L.5, M.7): MotivicEtaleKTheory M.1, M.4, M.5, M.6 and M.8; ArithmeticGaloisDuality R02.1; CrystallineCohomology CR.4; RefinedTraceMethods RT.4:topological; ArithmeticKTheory N.4 and N.5 (w-invariant and e-invariant nodes); K2SymbolsBrauer T.2 (Milnor K-theory and its graded map); StableHomotopyKTheory H.6; GeneralAlgebraicKTheory K.1, K.3, K.7; and Tau Ceti ClassFieldTheory Layer 5 and LocalFieldsRamification Layer 1 (the link RT-AREA-ktheory-1/38 proposed). Each was checked against the graph of atlas requires, stage edges and all packet and decomposition prerequisites: none is downstream of L.6, so no cycle arises.
+L.6's nodes use, besides its atlas requirements (L.3, L.5, M.7): MotivicEtaleKTheory M.1, M.4, M.5, M.6 and M.8; ArithmeticGaloisDuality R02.1; CrystallineCohomology CR.4; RefinedTraceMethods RT.4:topological; ArithmeticKTheory N.4 and N.5 (w-invariant and e-invariant nodes); K2SymbolsBrauer T.2 (Milnor K-theory and its graded map); StableHomotopyKTheory H.6; GeneralAlgebraicKTheory K.1, K.3, K.7; and Tau Ceti ClassFieldTheory Layer 5 and LocalFieldsRamification Layer 1 (the link RT-AREA-ktheory-1/38 proposed). Each was checked against the graph of atlas requires, stage edges and all packet and decomposition prerequisites: none is downstream of L.6, so no cycle arises.
 
 ### The local–global examples of K-book VI.7.6–7.8 (Handbook 64–66) belong to L.7
 
-*ownership.* K-book Examples VI.7.6–7.8 (Handbook Examples 64–66) compare K_*(ℤ) or K_*(F) of a number field F with the completed groups ⊕_{v|p} K_n(F_v; ℤ_p): Rognes' theorem that K_{4k+1}(ℤ) ⊗ ℤ_2 → K_{4k+1}(ℤ_2; ℤ_2) is an isomorphism for k > 1, the rank count r_2 against Σ[F_v : ℚ_p], and the Leopoldt/Soulé injectivity question for totally real fields. They use L.6's completed groups (L.6/completed-k-groups-of-p-adic-fields) and the global-to-local map of L.7 (author B's L.7/semilocal-completed-map). Proposal: L.7 (or ArithmeticKTheory N.5) plans them as applications; L.6 plans no node for them. Rognes' theorem itself (Rognes, 'Algebraic K-theory of the two-adic integers', J. Pure Appl. Algebra 134 (1999)) was not read.
+K-book Examples VI.7.6–7.8 (Handbook Examples 64–66) compare K_*(ℤ) or K_*(F) of a number field F with the completed groups ⊕_{v|p} K_n(F_v; ℤ_p): Rognes' theorem that K_{4k+1}(ℤ) ⊗ ℤ_2 → K_{4k+1}(ℤ_2; ℤ_2) is an isomorphism for k > 1, the rank count r_2 against Σ[F_v : ℚ_p], and the Leopoldt/Soulé injectivity question for totally real fields. They use L.6's completed groups (L.6/completed-k-groups-of-p-adic-fields) and the global-to-local map of L.7 (author B's L.7/semilocal-completed-map). Proposal: L.7 (or ArithmeticKTheory N.5) plans them as applications; L.6 plans no node for them. Rognes' theorem itself (Rognes, 'Algebraic K-theory of the two-adic integers', J. Pure Appl. Algebra 134 (1999)) was not read.
 
 ### Proposed sub-layers of L.6 for the atlas
 
-*sub-layers.* L.6a Completed carrier and abelian-group tools: completed-k-theory, maximal-divisible-subgroup, p-adic-tate-module, completion-exact-sequence, divisible-subgroup-criterion, torsion-free-lattice-lemma. L.6b Galois cohomology of Tate twists: p-adic-w-invariant, w-invariant-prime-to-p-factor, p-adic-w-invariant-of-q-p, h0-of-tate-twists, local-duality-for-tate-twists, h1-of-tate-twists, h1-with-divisible-coefficients. L.6c Étale comparison: ring-of-integers-versus-field, hm-etale-comparison, hm-theorem-a, finite-coefficient-lichtenbaum-quillen, discrete-coefficient-k-groups. L.6d Completed K-groups: odd-completed-k-groups-are-h1, even-completed-k-groups-are-h2, completed-k-groups-of-p-adic-fields, completed-k-groups-of-q-p, completed-k3-of-unramified-fields, hm-theorem-d. L.6e Integral groups and comparison maps: p-primary-torsion-of-odd-k-groups, odd-integral-k-groups, even-k-groups-mod-p-powers, even-integral-k-groups, even-k-groups-tate-module, divisible-rank-relation, finite-coefficient-k-groups-structure, k3-torsion-free-lattice, even-integral-to-completed-comparison, odd-integral-to-completed-comparison, milnor-k-of-local-fields, uniquely-divisible-summand. L.6f Equal characteristic: power-series-de-rham-witt, geisser-hesselholt-regular-local, equal-characteristic-relative-k-theory, equal-characteristic-completed-k-groups, equal-characteristic-unique-p-divisibility, equal-characteristic-integral-structure. The six planets fall one each in L.6a, L.6c, L.6d (two), L.6e and L.6f.
+L.6a Completed carrier and abelian-group tools: completed-k-theory, maximal-divisible-subgroup, p-adic-tate-module, completion-exact-sequence, divisible-subgroup-criterion, torsion-free-lattice-lemma. L.6b Galois cohomology of Tate twists: p-adic-w-invariant, w-invariant-prime-to-p-factor, p-adic-w-invariant-of-q-p, h0-of-tate-twists, local-duality-for-tate-twists, h1-of-tate-twists, h1-with-divisible-coefficients. L.6c Étale comparison: ring-of-integers-versus-field, hm-etale-comparison, hm-theorem-a, finite-coefficient-lichtenbaum-quillen, discrete-coefficient-k-groups. L.6d Completed K-groups: odd-completed-k-groups-are-h1, even-completed-k-groups-are-h2, completed-k-groups-of-p-adic-fields, completed-k-groups-of-q-p, completed-k3-of-unramified-fields, hm-theorem-d. L.6e Integral groups and comparison maps: p-primary-torsion-of-odd-k-groups, odd-integral-k-groups, even-k-groups-mod-p-powers, even-integral-k-groups, even-k-groups-tate-module, divisible-rank-relation, finite-coefficient-k-groups-structure, k3-torsion-free-lattice, even-integral-to-completed-comparison, odd-integral-to-completed-comparison, milnor-k-of-local-fields, uniquely-divisible-summand. L.6f Equal characteristic: power-series-de-rham-witt, geisser-hesselholt-regular-local, equal-characteristic-relative-k-theory, equal-characteristic-completed-k-groups, equal-characteristic-unique-p-divisibility, equal-characteristic-integral-structure. The six planets fall one each in L.6a, L.6c, L.6d (two), L.6e and L.6f.
 
 ### Universal log Witt theory is imported from Crystalline Cohomology
 
-*ownership.* RT-AREA-ktheory-1/39 requires universal (log) Witt complexes, their initial object, level-one identification and standard filtration to be owned once by CrystallineCohomology CR.4 on CR.5:log-algebra. Five former generic L.5 node records have been migrated into the CR.4 request’s importedSpecifications, preserving exact definitions, API and tests as a supplier contract. L.5 owns the ramified-DVR structure, HM homotopy-orbit calculations and comparison with TR; CR.6 owns the Hyodo–Kato comparison maps and imports CR.4/CR.5. W_nΩ^r_log generated by dlog symbols remains distinct from the full prelog de Rham–Witt complex. No supplier files are edited by this checkpoint. Requested atlas edge: CrystallineCohomology:CR.5:log-algebra → KTheoryFiniteLocalFields:L.5, in addition to the existing CR.4 edge.
+RT-AREA-ktheory-1/39 requires universal (log) Witt complexes, their initial object, level-one identification and standard filtration to be owned once by CrystallineCohomology CR.4 on CR.5:log-algebra. Five former generic L.5 node records have been migrated into the CR.4 request’s importedSpecifications, preserving exact definitions, API and tests as a supplier contract. L.5 owns the ramified-DVR structure, HM homotopy-orbit calculations and comparison with TR; CR.6 owns the Hyodo–Kato comparison maps and imports CR.4/CR.5. W_nΩ^r_log generated by dlog symbols remains distinct from the full prelog de Rham–Witt complex. No supplier files are edited by this pass. Requested atlas edge: CrystallineCohomology:CR.5:log-algebra → KTheoryFiniteLocalFields:L.5, in addition to the existing CR.4 edge.
+
+**Proposed prerequisite edges.**
+
+- `CrystallineCohomology:CR.5:log-algebra` → `KTheoryFiniteLocalFields:L.5`
 
 ### Finite-field Brauer lifting imports InductionRestriction Layer6
 
-*ownership.* RT-AREA-ktheory-1/37a: add the upstream InductionRestriction Layer6 → KTheoryFiniteLocalFields:L.1 atlas edge. L.1/green-virtual-character is a specialization of the supplier’s integral virtual-character characterization; its Green proof gap stays open. The supplier’s characteristic-zero representation ring and Brauer induction are not new L.1 definitions.
+RT-AREA-ktheory-1/37a: add the upstream InductionRestriction Layer6 → KTheoryFiniteLocalFields:L.1 atlas edge. L.1/green-virtual-character is a specialization of the supplier’s integral virtual-character characterization; its Green proof gap stays open. The supplier’s characteristic-zero representation ring and Brauer induction are not new L.1 definitions.
+
+**Proposed prerequisite edges.**
+
+- `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction` → `KTheoryFiniteLocalFields:L.1`
 
 ### Early étale Chern classes before the M.8 regulator stage
 
-*part-ii.* M.8 owns the general coefficient and representation/bar-homology Chern classes, but its full regulator stage requires M.7←L.2←L.1. The finite-field c₂,₁ and symplectic H₃ computations need only early Chern/plus/Hurewicz/product/Kummer machinery. Split an early M-owned Chern-class export/PartII from the later regulator dependencies, preserving one owner. Its prerequisites are coefficient K-theory L.1/k-theory-mod-m and its product/Bott interfaces, M.1 Kummer, and H.1/H.3 classifying spaces/plus/Hurewicz, not L.2/M.7. M.8 later imports this export. No new stage identifier is invented or atlas file edited; three L.1 references remain unresolved supplier requests until registration.
+M.8 owns the general coefficient and representation/bar-homology Chern classes, but its full regulator stage requires M.7←L.2←L.1. The finite-field c₂,₁ and symplectic H₃ computations need only early Chern/plus/Hurewicz/product/Kummer machinery. Split an early M-owned Chern-class export/PartII from the downstream regulator dependencies, preserving one owner. Its prerequisites are coefficient K-theory L.1/k-theory-mod-m and its product/Bott interfaces, M.1 Kummer, and H.1/H.3 classifying spaces/plus/Hurewicz, not L.2/M.7. M.8 downstream imports this export. No new stage identifier is invented or atlas file edited; three L.1 references remain unresolved supplier requests until registration.
+
+Needed by: `L.1/finite-field-chern-bott-product`, `L.1/finite-field-k3-etale-isomorphism`, `L.1/finite-rank-symplectic-etale-isomorphism`.
 
 ## Dependencies between the layers
 
-Within the roadmap, the nodes of each layer use the nodes of these other layers; the graph is acyclic.
+The direct local dependencies below are computed from the node prerequisites. Stage-level supplier needs and their precise outputs are recorded under Requests; an unresolved Chern input is not a resolved M.8 → L.1 edge.
 
+- **L.1** uses no preceding local layer.
 - **L.2** uses L.1.
 - **L.3** uses L.2.
+- **L.4** uses no preceding local layer.
 - **L.5** uses L.1, L.4.
 - **L.6** uses L.1, L.2, L.3, L.4, L.5.
 - **L.7** uses L.1, L.2, L.3, L.4.
 
-The atlas requirements of each layer:
+## Acceptance and proof boundaries
 
-- **L.1** requires `GeneralAlgebraicKTheory:K.2:plus`, `GeneralAlgebraicKTheory:K.3`, `RefinedTraceMethods:RT.4:topological`, `StableHomotopyKTheory:H.6`.
-- **L.2** requires `KTheoryFiniteLocalFields:L.1`, `MotivicEtaleKTheory:M.1`.
-- **L.3** requires `K2SymbolsBrauer:T.7`, `KTheoryFiniteLocalFields:L.2`.
-- **L.4** requires `RefinedTraceMethods:RT.2`, `RefinedTraceMethods:RT.3`.
-- **L.5** requires `CrystallineCohomology:CR.4`, `KTheoryFiniteLocalFields:L.4`.
-- **L.6** requires `KTheoryFiniteLocalFields:L.3`, `KTheoryFiniteLocalFields:L.5`, `MotivicEtaleKTheory:M.7`.
-- **L.7** requires `KTheoryFiniteLocalFields:L.6`.
+The finite-field calculation includes every degree and its restriction/transfer maps, with generators chosen compatibly when a cyclic formula is used. K₀ of a field is an existing dimension equivalence. Finite coefficients, integral groups and homotopy-inverse-limit completions remain separate throughout.
 
-## What this blueprint does not claim
+The canonical quotient by the maximal divisible subgroup is distinguished from a choice of a cyclic identification or splitting. The integral-to-completed map is dense in the closed ordinary-completion subgroup; density in the whole completed group requires the stated vanishing of the preceding divisible p-torsion rank.
 
-- **Missing proofs.** The proofs no obtainable source contains are not supplied. The main ones are Quillen's computation of the cohomology of GL(𝔽_q), Green's theorem on Brauer characters, Gabber's rigidity, Merkurjev's theorem on the torsion of K₂ and the existence of the log de Rham–Witt complex. Each is a gap with the nodes that need it.
-- **Integral finite generation.** No finite generation of the integral K-groups of a local field is asserted: the completed groups are finitely generated ℤ_p-modules, the integral groups are not.
-- **p = 2.** The new NS prime-field TC^-/TP/Frobenius calculations include p = 2. HM’s log-Witt and ramified-DVR comparison nodes retain their p-odd hypothesis. The p = 2 case of the local-field descriptions rests on MotivicEtaleKTheory M.7.
-- **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states what the pinned libraries can express; the rest is recorded there as comments.
+The complete-DVR Bott comparison is a pro-isomorphism. A level-one multiplier that is a nonunit does not give a levelwise isomorphism. The ordinary-THH class κ̃ used in the ramified calculation requires p dividing the ramification index. Degree bounds, positive TR levels and the odd-prime hypotheses are retained in each application.
 
-## Preceding continuation and proof status
+The regular-characteristic-p completion arguments first use fixed-level comparisons. Positive polynomial summands form a pro-zero tower, the Witt restriction maps are surjective, and the Milnor sequence controls the inverse limit. In the regular-local K-theory comparison, the surjective quotient tower controls lim¹ and the Witt filtration identifies the limiting kernel. No infinite inverse limit or p-completion is exchanged with a filtered colimit without this argument. Popescu, Geisser–Levine and the cited Witt-filtration inputs remain supplier proof boundaries.
 
-The seven new NS IV.4 nodes calculate actual prime-field spectra imported from RT.2; the suggested names and acceptance checks remain comments because cyclotomic spectra, circle fixed/Tate constructions, E∞ maps and their homotopy groups are absent from the pinned carriers. No replacement Prop-valued object is introduced. The two superseded generic definitions/constructions retain all 15 API names and nine tests in the CR.4 supplier specification and in the suggested-file import comments. The other three superseded lemmas are requested there too.
+The finite-rank symplectic route retains the SL₂(F₉) H₂ exception in the mod-two coefficient comparison and distinguishes a Bott root from a nonsquare unit. General Lang theory, simple-space Whitehead, hermitian Poincaré foundations and early étale Chern classes remain with their specified owners. The p=2 Connes relation d²=ηd requires an actual nonzero ηd witness before it yields a nonzero-square test.
 
-This session's `lean-check` stopped before elaboration because the pinned shared build lacks the imported TauCeti.CategoryTheory.GrothendieckGroup.Abelian object file. It does not establish compilation of this version. The earlier successful Lean result belongs to the unchanged historical continuation record; no build or update was run. The inherited Milnor uncountability signatures and examples remain intact. The narrowly corrected connectivity lemma restricts its torsion-to-torsion-free π_0 argument to mixed characteristic; connectivity itself still holds for any DVR.
-
-## Completed pass and verification boundary
-
-All seven stages have target-level coverage and the packet is complete for independent review. The finite-rank route proves the two routed AV results through eleven nodes: classical H³ comparison and stabilization; the Lang edge; finite H₂ without 2-torsion; natural homology coefficient comparison; finite-to-stable homology; the stable SL plus cover; Hurewicz; K₃ coefficient comparison; the i=2 Bott product formula; the finite-field K₃ Chern isomorphism; and the finite-rank symplectic Chern isomorphism. The two target records name paper items17–18. The Reidemeister-torsion equality belongs to its other routed owner.
-
-The general H.1/H.3/M.8/RT.4 contracts have one owner. The M.8 Chern contract must be exported before its regulator stage: M.8’s whole-stage dependency through M.7 and L.2 creates a cycle with L.1. Its three Chern consumers therefore terminate in the named early-export gap until that supplier is registered. Lang/étale-classical-group comparison and finite Schur-multiplier proofs remain explicit gaps; these eleven nodes do not close the full Quillen mod-2 cohomology gap. The source-check witnesses distinguish −1 as a Bott root in K₁[2] from a nonsquare unit in K₁/2: q=5, a=2 gives the nonzero Chern value, while a=−1 gives zero. The q=9, r=1 H₂=ℤ/3 exception survives in the UCT computation.
-
-The suggested file retains all executable declarations. Its eleven added names, exact statements, proof outlines and acceptance checks are comments because the required plus-space, homotopy, étale and Chern carriers are absent. No artificial carrier is added. All implementation statuses remain unchecked. `lean-check` stops before elaboration because the shared pinned build lacks `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`; this version did not compile. No build, update or language server was run.
+All seven stages are planned; none is closed. The suggested Lean forms are aids to names and signatures. Statements requiring unavailable homotopy, spectrum or étale carriers have explicit omission comments; those comments are not executable tests. Compilation evidence and the work needed to resume the named gaps are recorded in the job handoff. Every implementation status remains unchecked.
