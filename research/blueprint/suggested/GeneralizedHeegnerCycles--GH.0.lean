@@ -9,9 +9,12 @@ on names and signatures. Proofs use sorry; no implementation is claimed.
 
 Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The imported Tau Ceti modules and their transitive Tau Ceti imports have
-identical source bytes at the pinned commit and in the supplied shared build.
-The shared build's full Tau Ceti HEAD is newer; its Mathlib commit equals the pin.
+Independent review on 2026-10-07 confirmed all nine baseline declarations by
+reading their sources at the pins. The available shared Lean build lacks the
+imported AbelianVariety.Isogeny object file; lean-check stopped at that import
+before checking this body. This review therefore does not claim elaboration.
+The review report lists the remaining interface and test obligations; the reader
+document still requires synchronization in its separately authorized revision.
 
 Carrier convention: D, DQ, Chow, Coh and DualQ below are parameters supplied by
 other owners, with their genuine Mathlib module structures. They do not define
@@ -81,8 +84,12 @@ theorem CMCurve.h01 (u : Module.End F D) (αbar : F) (η : D) (h : u η = αbar 
 theorem CMCurve.hodgeSplitting (u : Module.End F D) (α αbar : F) (h : α ≠ αbar) (hu : (u-α • LinearMap.id).comp (u-αbar • LinearMap.id) = 0) : LinearMap.ker (u-α • LinearMap.id) ⊔ LinearMap.ker (u-αbar • LinearMap.id) = ⊤ ∧ Disjoint (LinearMap.ker (u-α • LinearMap.id)) (LinearMap.ker (u-αbar • LinearMap.id)) := by
   sorry
 
-/-- Normalize a nonzero conjugate eigenvector η by dividing by ⟨ω,η⟩, giving cup product 1; the one-dimensional eigenline gives uniqueness. -/
-theorem CMCurve.etaOfOmega (b : D →ₗ[F] D →ₗ[F] F) (ω η : D) (h : b ω η ≠ 0) : b ω ((b ω η)⁻¹ • η) = 1 := by
+/-- Dividing η by ⟨ω,η⟩ gives cup product 1. It is the unique scalar multiple aη with cup product 1; on the one-dimensional conjugate eigenline this gives the unique normalized vector. -/
+theorem CMCurve.etaOfOmega (b : D →ₗ[F] D →ₗ[F] F) (ω η : D) (h : b ω η ≠ 0) : b ω ((b ω η)⁻¹ • η) = 1 ∧ ∀ a : F, b ω (a • η) = 1 → a = (b ω η)⁻¹ := by
+  sorry
+
+/-- A linear realization map commuting with the CM action transports a character eigenvector to an eigenvector with the same character value. -/
+theorem CMCurve.map_eigenvector (f : D →ₗ[F] D') (u : Module.End F D) (u' : Module.End F D') (hc : f.comp u = u'.comp f) (α : F) (ω : D) (hω : u ω = α • ω) : u' (f ω) = α • f ω := by
   sorry
 
 /-- Planned test `TauCeti.GeneralizedHeegner.cmCurve_i_action` (computation): For the ordered CM eigenbasis at K=Q(i), [i]* acts diagonally by i and −i. -/
@@ -127,6 +134,10 @@ theorem epsA_image {G : Type*} [Group G] [Fintype G] (χ : G →* ℚˣ) (ρ : G
 theorem epsA_transpose {G : Type*} [Group G] [Fintype G] (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) : (Fintype.card G : ℚ)⁻¹ • ∑ g, (χ g : ℚ) • ρ (g⁻¹) = epsA χ ρ := by
   sorry
 
+/-- An equivariant linear map intertwines the signed character average with the same average on the target realization. -/
+theorem epsA_natural {G : Type*} [Group G] [Fintype G] (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) (ρ' : G →* Module.End ℚ Coh) (f : DQ →ₗ[ℚ] Coh) (hf : ∀ g, f.comp (ρ g) = (ρ' g).comp f) : f.comp (epsA χ ρ) = (epsA χ ρ').comp f := by
+  sorry
+
 /-- Planned test `TauCeti.GeneralizedHeegner.epsA_order` (computation): For m=2 the character average has denominator 8. -/
 theorem epsA_order : 2^2 * Nat.factorial 2 = 8 := by
   sorry
@@ -167,8 +178,8 @@ those of the document; absent owner types are omitted in this prototype. -/
 
 noncomputable def epsX (eW eA : Module.End F D) : Module.End F D := eW.comp eA
 
-/-- The two factor correspondences commute. -/
-theorem epsX_commute (eW eA : Module.End F D) : eW.comp eA = eA.comp eW := by
+/-- For commuting factor realizations, interchanging ε_W and ε_A leaves ε_X unchanged. The geometric factor-commutation input comes from their separate factor actions. -/
+theorem epsX_commute (eW eA : Module.End F D) (h : eW.comp eA = eA.comp eW) : epsX eW eA = epsX eA eW := by
   sorry
 
 /-- The commuting product of the two idempotents is idempotent. -/
@@ -255,7 +266,7 @@ theorem coefficientProjector_twist (r : ℕ) (hr : 1 ≤ r) : (2*r-2)+2 = 2*r :=
 theorem coefficientProjector_lattice [Module O D] (L : Submodule O D) (ef eχ : Module.End F D) (hf : ∀ z ∈ L, ef z ∈ L) (hχ : ∀ z ∈ L, eχ z ∈ L) (z : D) (hz : z ∈ L) : coefficientProjector ef eχ z ∈ L := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.coefficientProjector_identity` (degenerate): Trivial CM character with its identity projector leaves the f summand. -/
+/-- Planned test `TauCeti.GeneralizedHeegner.coefficientProjector_identity` (degenerate): After restricting the coefficient space to the trivial CM character summand, its identity projector leaves the f summand. The trivial-character projector on the whole symmetric power need not be the identity. -/
 theorem coefficientProjector_identity (ef : Module.End F D) : coefficientProjector ef LinearMap.id = ef := by
   sorry
 
@@ -286,9 +297,9 @@ those of the document; absent owner types are omitted in this prototype. -/
 theorem cmProductGoodModel {X Y S : Scheme} (f : X ⟶ S) (g : Y ⟶ S) [Smooth f] [Smooth g] [IsProper f] [IsProper g] : Smooth (CategoryTheory.Limits.pullback.fst f g ≫ f) ∧ IsProper (CategoryTheory.Limits.pullback.fst f g ≫ f) := by
   sorry
 
-/-! GeneralizedHeegnerCycles:GH.1 — The sets Isog_c^N(A) of CM isogenies of conductor c with kernel prime to A[N]
+/-! GeneralizedHeegnerCycles:GH.1 — The sets Isog_c^𝔑(A) of CM isogenies of conductor c with kernel prime to A[𝔑]
 Node: GeneralizedHeegnerCycles:GH.1/isogenies-of-conductor-c-prime-to-n
-Assume the Heegner hypothesis: there is an ideal 𝔑 ⊂ O_K with O_K/𝔑 ≅ ℤ/Nℤ. Fix A with End(A) = O_K and a Γ₁(N)-level structure t_A ∈ A[𝔑] over the field H̃ ⊇ H over which A[𝔑] becomes constant. Isog(A) is the set of isomorphism classes of pairs (φ, A′) with φ : A → A′ an isogeny over K̄. (φ, A′) has conductor c if End(A′) = O_c = ℤ + cO_K. Isog^N(A) consists of the pairs with ker φ ∩ A[N] = 0, and Isog_c^N(A) = Isog_c(A) ∩ Isog^N(A). For (φ, A′) ∈ Isog^N(A), (A′, φ(t_A)) is a Γ₁(N)-structure and determines a point P_{A′} of C = X₁(N). The semigroup P(O_c) of invertible O_c-ideals prime to cN acts on Isog_c^N(A) by 𝔞 ⋆ (φ, A′) = (φ_𝔞φ, A′/A′[𝔞]).
+Assume the Heegner hypothesis: there is an ideal 𝔑 ⊂ O_K with O_K/𝔑 ≅ ℤ/Nℤ. Fix A with End(A) = O_K and a Γ₁(N)-level structure t_A ∈ A[𝔑] over the field H̃ ⊇ H over which A[𝔑] becomes constant. Isog(A) is the set of isomorphism classes of pairs (φ, A′) with φ : A → A′ an isogeny over K̄. (φ, A′) has conductor c if End(A′) = O_c = ℤ + cO_K. Isog^𝔑(A) consists of the pairs with ker φ ∩ A[𝔑] = 0, and Isog_c^𝔑(A) = Isog_c(A) ∩ Isog^𝔑(A). For (φ, A′) ∈ Isog^𝔑(A), (A′, φ(t_A)) is a Γ₁(N)-structure and determines a point P_{A′} of C = X₁(N). The semigroup P(O_c) of invertible integral O_c-ideals relatively prime to 𝔑_c=𝔑∩O_c acts on Isog_c^𝔑(A) by 𝔞 ⋆ (φ, A′) = (φ_𝔞φ, A′/A′[𝔞]).
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -303,7 +314,7 @@ structure IsogPair (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) where
 theorem IsogPair.conductor (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) (P Q : IsogPair H O A) (e : P.target ≅ Q.target) (c : {B : TauCeti.AlgebraicGeometry.AbelianVariety H // B.dim = 1} → ℕ) : c ⟨P.target,P.dimension_one⟩ = c ⟨Q.target,Q.dimension_one⟩ := by
   sorry
 
-/-- The prime-to-N kernel condition transports a point of exact order N to one of exact order N. -/
+/-- The kernel condition ker φ∩A[𝔑]=0 transports the marked point of exact order N to a point of exact order N. -/
 theorem IsogPair.level {G G' : Type*} [AddGroup G] [AddGroup G'] (φ : G →+ G') (t : G) (N : ℕ) (h : ∀ n : ℕ, n • φ t = 0 ↔ n • t = 0) : N • φ t = 0 ↔ N • t = 0 := by
   sorry
 
@@ -334,7 +345,7 @@ example (H : Type*) [Field H] (A B C : TauCeti.AlgebraicGeometry.AbelianVariety 
 
 /-! GeneralizedHeegnerCycles:GH.1 — The generalized Heegner cycle Δ_φ = ε_X Υ_φ
 Node: GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycle
-For (φ, A′) ∈ Isog^N(A), the pair (A′, φ(t_A)) gives an embedding ι_{A′} : (A′)^m → W_m onto the fibre of W_m over P_{A′}. Let Υ_φ be the image of Graph(φ)^m ⊂ (A × A′)^m ≅ (A′)^m × A^m in X_m = W_m × A^m under ι_{A′} × id. It is a codimension-(m + 1) cycle. The generalized Heegner cycle is Δ_φ := ε_X Υ_φ ∈ CH^{m+1}(X_m)_ℚ, supported on the fibre π_m^{−1}(P_{A′}) ≅ (A′)^m × A^m. For m = 0, Δ_φ is the CM point P_{A′} of C, and it is replaced by P_{A′} − ∞ for a cusp ∞.
+For (φ, A′) ∈ Isog^𝔑(A), the pair (A′, φ(t_A)) gives an embedding ι_{A′} : (A′)^m → W_m onto the fibre of W_m over P_{A′}. Let Υ_φ be the image of Graph(φ)^m ⊂ (A × A′)^m ≅ (A′)^m × A^m in X_m = W_m × A^m under ι_{A′} × id. It is a codimension-(m + 1) cycle. The generalized Heegner cycle is Δ_φ := ε_X Υ_φ ∈ CH^{m+1}(X_m)_ℚ, supported on the fibre π_m^{−1}(P_{A′}) ≅ (A′)^m × A^m. For m = 0, Δ_φ is the CM point P_{A′} of C, and it is replaced by P_{A′} − ∞ for a cusp ∞.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -371,16 +382,16 @@ theorem gHC_weight_zero (degree : Chow →ₗ[ℚ] ℚ) (point cusp : Chow) (hp 
 example (degree : Chow →ₗ[ℚ] ℚ) (point cusp : Chow) (hp : degree point = 1) (hc : degree cusp = 1) : degree (point-cusp) = 0 := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.gHC_projected_test` (characterisation): An idempotent projector fixes the projected graph, whereas an unprojected graph need not be fixed. -/
-theorem gHC_projected_test (ε : Module.End ℚ Chow) (hε : ε.comp ε = ε) (g : Chow) : ε (gHC ε g) = gHC ε g := by
+/-- Planned test `TauCeti.GeneralizedHeegner.gHC_projected_test` (characterisation): An idempotent ε fixes gHC(ε,graph), and gHC(id,graph)=graph. Together these exclude both an unprojected graph and the identically zero construction (take a nonzero graph for the identity fixture). -/
+theorem gHC_projected_test (ε : Module.End ℚ Chow) (hε : ε.comp ε = ε) (g : Chow) : ε (gHC ε g) = gHC ε g ∧ gHC (LinearMap.id : Module.End ℚ Chow) g = g := by
   sorry
 
-example (ε : Module.End ℚ Chow) (hε : ε.comp ε = ε) (g : Chow) : ε (gHC ε g) = gHC ε g := by
+example (ε : Module.End ℚ Chow) (hε : ε.comp ε = ε) (g : Chow) : ε (gHC ε g) = gHC ε g ∧ gHC (LinearMap.id : Module.End ℚ Chow) g = g := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.1 — BDP Remark 2.6: the field of definition of Δ_φ
 Node: GeneralizedHeegnerCycles:GH.1/field-of-definition-of-generalized-heegner-cycles
-If (φ, A′) ∈ Isog_c^N(A), then Δ_φ is defined over the compositum H̃·H_c of the abelian extension H̃/K over which (A, t_A) is defined with the ring class field H_c of conductor c. So the Δ_φ are defined over abelian extensions of K.
+If (φ, A′) ∈ Isog_c^𝔑(A), then Δ_φ is defined over the compositum H̃·H_c of the abelian extension H̃/K over which (A, t_A) is defined with the ring class field H_c of conductor c. So the Δ_φ are defined over abelian extensions of K.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -390,7 +401,7 @@ theorem gHC_descent (descent : Chow →ₗ[ℚ] Chow') (σ : Module.End ℚ Chow
 
 /-! GeneralizedHeegnerCycles:GH.1 — BDP Proposition 2.7: Δ_φ is homologically trivial
 Node: GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles
-For m ≥ 1, the cycle class of Δ_φ in ε_X H^{2r+2}(X_m) vanishes in every cohomology theory (de Rham, étale, Betti), so Δ_φ ∈ CH^{m+1}(X_m)_{0,ℚ}. For m = 0, P_{A′} − ∞ is homologically trivial.
+For m ≥ 1, the cycle class of Δ_φ in ε_X H^{2m+2}(X_m) vanishes in every cohomology theory (de Rham, étale, Betti), so Δ_φ ∈ CH^{m+1}(X_m)_{0,ℚ}. For m = 0, P_{A′} − ∞ is homologically trivial.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -454,7 +465,7 @@ those of the document; absent owner types are omitted in this prototype. -/
 theorem filteredFrobeniusExtension (fil : Submodule F D) (hol frob : D) (b : D) (hb : b ∈ fil) : Submodule.Quotient.mk (hol+b-frob) = (Submodule.Quotient.mk (hol-frob) : D ⧸ fil) := by
   sorry
 
-/-! GeneralizedHeegnerCycles:GH.1 — The p-adic Abel–Jacobi map AJ_F : CH^{r+1}(X_r)_{0,ℚ}(F) → (S_{r+2}(Γ, F) ⊗ Sym^r H¹_dR(A/F))^∨
+/-! GeneralizedHeegnerCycles:GH.1 — The p-adic Abel–Jacobi map AJ_F on projected cycles in X_m
 Node: GeneralizedHeegnerCycles:GH.1/p-adic-abel-jacobi-map
 Under BDP §3’s finite unramified F/Q_p and supplied smooth proper models, AJ_et(Δ) lies in H¹_f(F,V). The crystalline extension gives the filtered Frobenius extension of the preceding node; its holomorphic-minus-Frobenius class lies in D_dR(V)/Fil⁰. Poincaré duality identifies this quotient with (S_{m+2}⊗Sym^mH¹_dR(A/F))∨, yielding AJ_F. This use of an unramified F records the selected presentation, not a claim that Bloch–Kato theory requires unramified F in general.
 
@@ -508,15 +519,15 @@ theorem integralAJComparison (integral : Chow →ₗ[ℚ] Coh) (rat : Coh →ₗ
 
 /-! GeneralizedHeegnerCycles:GH.1 — Character-projected Heegner class
 Node: GeneralizedHeegnerCycles:GH.1/character-projected-heegner-class
-For CH’s canonical CM A/H_K and B=Res_{H_K/K}A, let κ_A be its CM character and χ a locally algebraic anticyclotomic avatar of infinity type (j,−j), −r<j<r, with conductor c₀p^s, (c₀,Np)=1. After extending coefficients, choose the finite Hilbert class character χ_t so χ occurs in Sym^{2r−2}T_p(B)(1−r)⊗χ_t and use its eigenprojector e_χ. Twist the class by χ_t and apply e_χ, then corestrict with CH (4.7)’s χ ε_cyc^{1−r} weights to obtain z_{f,χ,c}∈H¹(K_c,T⊗χ). The Weil restriction and CM character are imported, not newly constructed here.
+For CH’s canonical CM A/H_K and B=Res_{H_K/K}A, use the literal full symmetric-power module S=Sym^{2r−2}T_p(B)(1−r)⊗O_F, after the required coefficient extension. For an anticyclotomic χ of type (j,−j), −r<j<r, conductor c₀p^s with (c₀,Np)=1, choose the finite-order anticyclotomic χ_t of the same conductor, unique up to a Hilbert class character, so χ is a coefficient summand of S⊗χ_t. Apply its G_K-equivariant projector to the twisted finite-level class to define z_{f,χ,c}∈H¹(K_c,T⊗χ), as in (4.6), for c divisible by the conductor. The separately weighted corestriction (4.7) defines z_{f,χ}∈H¹(K,T⊗χ). Do not identify S with Ind_{G_H_K}^{G_K}Sym^{2r−2}T_p(A)(1−r): the printed isomorphism has unequal ranks (source issue E7). Integral projectors and the inclusion of the original A-coefficient class require the recorded CM.1 adapter.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
 
 noncomputable def characterHeegnerClass (eχ : Module.End F D) (z : D) : D := eχ z
 
-/-- The projector places the class in the χ-isotypic coefficient line. -/
-theorem characterHeegnerClass_eigen (eχ : Module.End F D) (h : eχ.comp eχ = eχ) (z : D) : eχ (characterHeegnerClass eχ z) = characterHeegnerClass eχ z := by
+/-- With the character-projector law ρ(g)e_χ=χ(g)e_χ, the projected class satisfies ρ(g)z_χ=χ(g)z_χ. Idempotence alone asserts membership in the projector image and does not specify χ. -/
+theorem characterHeegnerClass_eigen {G : Type*} [Group G] (ρ : G →* Module.End F D) (χ : G →* Fˣ) (eχ : Module.End F D) (h : ∀ g, (ρ g).comp eχ = (χ g : F) • eχ) (z : D) (g : G) : ρ g (characterHeegnerClass eχ z) = (χ g : F) • characterHeegnerClass eχ z := by
   sorry
 
 /-- Corestriction commutes with the character projector after coefficient descent. -/
@@ -527,7 +538,7 @@ theorem characterHeegnerClass_cores (eχ : Module.End F D) (cor : Module.End F D
 theorem characterHeegnerClass_sum (eχ : Module.End F D) (z w : D) : characterHeegnerClass eχ (z+w) = characterHeegnerClass eχ z + characterHeegnerClass eχ w := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.characterHeegnerClass_trivial` (degenerate): The trivial CM component uses its identity projection. -/
+/-- Planned test `TauCeti.GeneralizedHeegner.characterHeegnerClass_trivial` (degenerate): On the already selected trivial CM character component its projector is the identity. This does not assert identity on the entire symmetric-power coefficient module. -/
 theorem characterHeegnerClass_trivial (z : D) : characterHeegnerClass (LinearMap.id : Module.End F D) z = z := by
   sorry
 
@@ -827,7 +838,7 @@ theorem tracePolynomial_zero (ap q : F) (n : ℕ) : tracePolynomial ap q 0 0 n =
 example (ap q : F) (n : ℕ) : tracePolynomial ap q 0 0 n = 0 := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.tracePolynomial_error_power` (non-example): At k=4,m=2 the LV error is divisible by p², not p⁴. -/
+/-- Planned test `TauCeti.GeneralizedHeegner.tracePolynomial_error_power` (non-example): At k=4,m=2 the displayed LV remainder exponent is 2. No p⁴ divisibility follows from that displayed exponent alone; a particular remainder may have additional divisibility. -/
 theorem tracePolynomial_error_power : ((2-1)*4/2 : ℕ) = 2 := by
   sorry
 
@@ -960,7 +971,7 @@ def admissibleTriple (p N k phiN cf hK : ℕ) (ap : O) (image required : Set (Ma
 theorem admissibleTriple_exceptional (p N k phiN cf hK : ℕ) (ap : O) (image required : Set (Matrix (Fin 2) (Fin 2) O)) (h : admissibleTriple p N k phiN cf hK ap image required) : ¬p ∣ 6*N*Nat.factorial (k-2)*phiN*cf := by
   sorry
 
-/-- Admissibility implies p∤h_K, so the finite ring-class quotient has prime-to-p order. -/
+/-- Admissibility implies p∤h_K, so the bottom Hilbert class quotient has prime-to-p order; it does not assert that every auxiliary-conductor ring class quotient does. -/
 theorem admissibleTriple_classNumber (p N k phiN cf hK : ℕ) (ap : O) (image required : Set (Matrix (Fin 2) (Fin 2) O)) (h : admissibleTriple p N k phiN cf hK ap image required) : ¬p ∣ hK := by
   sorry
 
@@ -1162,8 +1173,8 @@ def criticalTwist {G : Type*} [Group G] (Θ ξ : G →* Oˣ) : G →* Oˣ := Θ�
 theorem criticalTwist_apply {G : Type*} [Group G] (Θ ξ : G →* Oˣ) (g : G) : criticalTwist Θ ξ g = (Θ g)⁻¹*(ξ g)⁻¹ := by
   sorry
 
-/-- The square of the critical half-weight character restores the determinant cyclotomic factor. -/
-theorem criticalTwist_selfDual {G : Type*} [Group G] (Θ ξ : G →* Oˣ) (g : G) : (criticalTwist Θ ξ g)^2 = (Θ g)^(-2 : ℤ)*(ξ g)^(-2 : ℤ) := by
+/-- If the untwisted determinant character δ=Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_cyc ξ⁻². This records the actual determinant relation, not just the square of an arbitrary inverse character. -/
+theorem criticalTwist_selfDual {G : Type*} [Group G] (δ εcyc Θ ξ : G →* Oˣ) (hdet : δ = Θ^2 * εcyc) : δ * (criticalTwist Θ ξ)^2 = εcyc * ξ^(-2 : ℤ) := by
   sorry
 
 /-- Specialization of the coefficient ring commutes with both inverse character factors. -/
@@ -1245,7 +1256,7 @@ theorem familyRepresentationSpecialization (specialized fixedWeight : D) : speci
 
 /-! GeneralizedHeegnerCycles:GH.7 — Family square-root measure specialization checkpoint
 Node: GeneralizedHeegnerCycles:GH.7/family-measure-specialization
-Import L_{p,ξ}(f)∈I_W[[Γ̃]] from L3h. Castella Theorem 2.11 gives for ν of weight (kν,1), kν≥1, and φ type (ℓ,−ℓ), ℓ≥0, conductor c₀p^n: ν(L_{p,ξ}(f))(φ̂)²/Ω_p^{2kν+4ℓ}=L_alg(fν/K,χνξνφ,kν−1)E_p²φ(𝔑^{-1})8c₀ε(fν)w_K²√D_K. For n=0 E_p=(1−ν(a_p)(χνψ)_p(p)p^{-kν/2})(1−(χνψ)_p(p)p^{kν/2−1}ν(a_p)^{-1}); for n≥1 E_p=ε((χνψ)_p^{-1})p^{-n}. The χν norm factor converts kν−1 to the central kν/2 convention (Remark 2.12). The measure is square-root normalized; the displayed interpolation squares it.
+Import L_{p,ξ}(f)∈I_W[[Γ̃]] from L3h. Castella Theorem 2.11 gives for ν of weight (kν,1), kν≥1, and φ type (ℓ,−ℓ), ℓ≥0, conductor c₀p^n: ν(L_{p,ξ}(f))(φ̂)²/Ω_p^{2kν+4ℓ}=L_alg(fν/K,χνξνφ,kν−1)E_p²φ(𝔑^{-1})8c₀ε(fν)w_K²√D_K. Here ψ=ξνφ. For n=0 E_p=(1−ν(a_p)(χνψ)_p(p)p^{-kν/2})(1−(χνψ)_p(p)p^{kν/2−1}ν(a_p)^{-1}); for n≥1 E_p=ε((χνψ)_p^{-1})p^{-n}. The χν norm factor converts kν−1 to the central kν/2 convention (Remark 2.12). The measure is square-root normalized; the displayed interpolation squares it.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
