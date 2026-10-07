@@ -11615,8 +11615,9 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3548"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3548",
+   "finishedAt": "2026-10-07T02:51:00Z"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
@@ -21932,9 +21933,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #676"
+   "note": "deliverables arrived from an external worker on issue #676",
+   "finishedAt": "2026-10-07T02:51:02Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations",
@@ -23369,8 +23371,9 @@
    ],
    "avoidAccountOf": "BP-CrystallineCohomology--CR.0",
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology--CR.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #379"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #379",
+   "finishedAt": "2026-10-07T02:51:03Z"
   },
   {
    "id": "BP-CrystallineCohomology--CR.5",
@@ -26176,8 +26179,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T6.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #756"
   },
   {
    "id": "REV-HodgeTateAndCanonicalSubgroups--T6",
@@ -37268,7 +37272,8 @@
     "REV-GeneralizedHeegnerCycles--GH.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeneralizedHeegnerCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #234"
   },
   {
    "id": "ASM-GeometricSatakeAndFusion",
