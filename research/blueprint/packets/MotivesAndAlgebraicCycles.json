@@ -13,7 +13,7 @@
   "MotivesAndAlgebraicCycles:MC.6",
   "MotivesAndAlgebraicCycles:MC.7"
  ],
- "summary": "Algebraic cycles, pure and mixed motives, planned from four freely available sources read in full for the parts used: the Stacks Project's chapter on Weil cohomology theories for correspondences, Chow motives and the axiomatics of a realisation; Jannsen's 1992 paper, read from the author's institutional repository, for the semisimplicity of numerical motives; Huber and Mueller-Stach's paper on Nori motives and Kontsevich periods for the diagram construction and the formal period torsor; and Mazza, Voevodsky and Weibel's Clay lecture notes for the geometric mixed motives that survive the narrowing RS-08 imposes on MC.4. MC.0 builds the graded category of correspondences over Q and the equivalence relations; MC.1 builds the Chow motives with their tensor structure, twists, duality, Chow groups and the projective bundle formula; MC.2 owns what a realisation is, ending in the equivalence between classical Weil cohomology theories and Q-linear symmetric monoidal functors on motives; MC.3 is Jannsen's theorem with the trace formula, the Wedderburn lemma, the dual numbers non-example, the radical computation and the Tannakian conclusion after the sign change; MC.4 is left partial and plans only what RS-08 assigns it, importing the cycle complexes from MotivicEtaleKTheory:M.4 and the finite correspondences, the effective category and cancellation from M.5a; MC.5 and MC.6 build Nori's diagram categories, the motivic Galois group and the torsor of formal periods; MC.7 is left partial with the two conjectures the sources state precisely and the register of known cases, and with the Hodge and Tate conjectures named as remaining rather than written from memory. The Chow groups themselves, the intersection product and every cohomology theory are imported through six requests and are planned nowhere in this packet. FIX-RT-AREA-iwasawa-3~2: MC.5 exports the effective/localized Nori diagram/category and coefficient maps; MC.6 exports the single formal-period presentation P_eff, its Tate localization P and inverse, the effective-then-localized comparison and the period torsor/complex point. PS.2 imports them and owns the integration/evaluation application. The original partial status, gaps and requests remain.",
+ "summary": "Algebraic cycles, pure and mixed motives, planned from freely available sources read for the parts used, the four principal ones being the Stacks Project's chapter on Weil cohomology theories for correspondences, Chow motives and the axiomatics of a realisation; Jannsen's 1992 paper, read from the author's institutional repository, for the semisimplicity of numerical motives; Huber and Mueller-Stach's paper on Nori motives and Kontsevich periods for the diagram construction and the formal period torsor; and Mazza, Voevodsky and Weibel's Clay lecture notes for the geometric mixed motives that survive the narrowing RS-08 imposes on MC.4. MC.0 builds the graded category of correspondences over Q and the equivalence relations; MC.1 builds the Chow motives with their tensor structure, twists, duality, Chow groups and the projective bundle formula; MC.2 owns what a realisation is, ending in the equivalence between classical Weil cohomology theories and Q-linear symmetric monoidal functors on motives; MC.3 is Jannsen's theorem with the trace formula, the Wedderburn lemma, the dual numbers non-example, the radical computation and the Tannakian conclusion after the sign change; MC.4 is left partial and plans only what RS-08 assigns it, importing the cycle complexes from MotivicEtaleKTheory:M.4 and the finite correspondences, the effective category and cancellation from M.5a; MC.5 and MC.6 build Nori's diagram categories, the motivic Galois group and the torsor of formal periods; MC.7 is left partial with the two conjectures the sources state precisely and the register of known cases, and with the Hodge and Tate conjectures named as remaining rather than written from memory. The Chow groups themselves, the intersection product and every cohomology theory are imported through requests to their owners (sixteen at this revision) and are planned nowhere in this packet. FIX-RT-AREA-iwasawa-3~2: MC.5 exports the effective/localized Nori diagram/category and coefficient maps; MC.6 exports the single formal-period presentation P_eff, its Tate localization P and inverse, the effective-then-localized comparison and the period torsor/complex point. PS.2 imports them and owns the integration/evaluation application. The original partial status, gaps and requests remain. FIX-RT-AREA-iwasawa-3~3: the complex period point takes a typed unital multiplicative comparison compatible with every edge of the diagram of pairs.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -7155,7 +7155,7 @@
    "hypotheses": [
     "The base field is Q and D is the diagram of pairs of Definition 1.1, localised at (G_m, {1}, 1).",
     "The two representations are algebraic de Rham cohomology and singular cohomology of pairs, in the degree of the vertex; the comparison isomorphism plays no part in the identification.",
-    "On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37)."
+    "On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37), with the graded multiplicative structures of the exterior and cross products and the product of pairs (PairDiagram.ProductCompatible in the suggested file): for other structures the products of P_eff and of A_{1,2} need not agree on generators."
    ],
    "proofSteps": [
     "Effective case: identify the generators and the three families of relations of P^+ with those of P^eff_{1,2}, using that H_d(X(C), D(C), Q) is the dual of H^d(X(C), D(C), Q); relation (2) is change of variables along the functoriality edges and relation (3) along the coboundary edges.",
@@ -12843,21 +12843,25 @@
    ],
    "title": "The comparison isomorphism as a complex point of the period torsor",
    "kind": "construction",
-   "statement": "Let φ : H*_dR ⊗ C → H* ⊗ C be the comparison isomorphism between algebraic de Rham and singular cohomology of pairs of varieties over Q, natural in morphisms of pairs, compatible with connecting maps and with products (request ComplexComparisonPartII:C5). Then φ defines a complex point of X_{1,2} = Iso⊗(H*_dR, H*), that is, a Q-algebra homomorphism per : A_{1,2} → C sending the class of (p, ω, γ) to γ(φ_p(ω)). Composed with P = A_{1,2} (MC.6/formal-periods-equal-comparison-algebra) it is a ring homomorphism P → C. This is the coefficient embedding of the period torsor that the layer exports to PeriodsAndSpecialValues.",
+   "statement": "Let φ : H*_dR ⊗ C → H* ⊗ C be the comparison isomorphism between algebraic de Rham and singular cohomology of pairs of varieties over Q, natural in morphisms of pairs, compatible with connecting maps, unital and compatible with products (request ComplexComparisonPartII:C5). Then φ defines a complex point of X_{1,2} = Iso⊗(H*_dR, H*), that is, a Q-algebra homomorphism per : A_{1,2} → C sending the class of (p, ω, γ) to γ(φ_p(ω)). Composed with P = A_{1,2} (MC.6/formal-periods-equal-comparison-algebra) it is a ring homomorphism P → C, sending L^-1 to the inverse of the nonzero period of L. This is the coefficient embedding of the period torsor that the layer exports to PeriodsAndSpecialValues.",
    "hypotheses": [
-    "The comparison isomorphism is an isomorphism of graded multiplicative representations of the diagram of pairs after extension of scalars to C (request ComplexComparisonPartII:C5).",
+    "The comparison isomorphism is an isomorphism of unital graded multiplicative representations of the diagram of pairs after extension of scalars to C (request ComplexComparisonPartII:C5; finding E36): natural for morphisms of pairs, compatible with the connecting maps of triples, sending the period of (Spec Q, ∅, 1, [pt]) to 1, and multiplicative for the exterior product in de Rham cohomology and the cross product in singular homology. In the suggested file this is the typed contract PairDiagram.PeriodComparison. A family of complex-linear isomorphisms natural for pullbacks alone does not qualify.",
+    "On good pairs the graded multiplicative structures of de Rham and singular cohomology are those of the exterior and cross products, with the product of good pairs the product of pairs (finding E37; PairDiagram.ProductCompatible in the suggested file). For these structures the comparison is a tensor isomorphism, and the products of P_eff and of A_{1,2} agree on generators.",
     "No rational point of X_{1,2} is asserted."
    ],
    "proofSteps": [
-    "Read φ as a compatible family of complex linear maps T_1(p) ⊗ C → T_2(p) ⊗ C commuting with the edges and respecting products, that is, a tensor isomorphism T_1 ⊗ C → T_2 ⊗ C.",
+    "Read φ as a compatible family of complex linear maps T_1(p) ⊗ C → T_2(p) ⊗ C commuting with both kinds of edge, unital and respecting the exterior and cross products; on good pairs, with the multiplicative structures of the second hypothesis, it is a tensor isomorphism T_1 ⊗ C → T_2 ⊗ C (PairDiagram.PeriodComparison.toTensorIsoOver).",
     "By MC.6/tensor-iso-scheme this is a complex point of X_{1,2}, a Q-algebra map A_{1,2} → C, and its value on the class of (p, ω, γ) is γ(φ_p(ω)).",
-    "Compose with P = A_{1,2} to obtain a ring homomorphism P → C."
+    "Compose with P_eff = A^eff_{1,2} (MC.6/formal-periods-equal-comparison-algebra) to obtain a ring homomorphism on P_eff; on generators it is the period γ(φ_p(ω)), which respects relations (2) and (3) because φ commutes with both kinds of edge.",
+    "The period of L = (G_m, {1}, dX/X, S^1) is nonzero: φ is an isomorphism of one-dimensional spaces at (G_m, {1}, 1), and dX/X and [S^1] are nonzero. So the homomorphism extends uniquely to P = P_eff[L^-1] (IsLocalization.Away.lift), and its value on L^-1 is the inverse of the period of L."
    ],
    "acceptance": [
     "When the comparison is the integration pairing, the value on the class of (G_m, {1}, dX/X, S^1) is 2πi, as the source records; the identification with integration is proved in PeriodsAndSpecialValues:PS.2.",
     "The point is a point of the torsor: under the heap map it satisfies φ φ⁻¹ φ = φ.",
     "The injectivity of the resulting map P → C is the period conjecture and is not claimed.",
-    "The complex point is defined on the localized algebra. Conditional on PS.2 identifying its effective restriction with integration and sending L to 2πi, its value on the supplier Tate inverse is (2πi)^-1. Constructing/descent of the actual integration evaluation stays with PS.2, using the existing localization lift."
+    "The complex point is defined on the localized algebra. Conditional on PS.2 identifying its effective restriction with integration and sending L to 2πi, its value on the supplier Tate inverse is (2πi)^-1. Constructing/descent of the actual integration evaluation stays with PS.2, using the existing localization lift.",
+    "A family of complex-linear isomorphisms natural for pullbacks alone does not define the point: twice a genuine comparison has the same two properties, but its unit period is 2 and its product periods double while the products of periods quadruple. The typed contract rejects it (PeriodComparison.doubled_not_comparison).",
+    "The value on L^-1 is the inverse of the period of L with no normalisation assumed; with PS.2's normalisation of that period to 2πi it is (2πi)^-1, and periodPoint.formal is then an instance of periodPoint_tate_inverse."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
@@ -12885,32 +12889,57 @@
     {
      "name": "periodPoint",
      "role": "data",
-     "statement": "The Q-algebra map A_{1,2} → C given by the comparison isomorphism."
+     "statement": "For a typed comparison φ (PairDiagram.PeriodComparison) and graded multiplicative structures compatible with the products (PairDiagram.ProductCompatible), the Q-algebra map A_{1,2} → C corresponding to the tensor isomorphism φ.toTensorIsoOver under TensorIsoScheme.represents."
     },
     {
      "name": "periodPoint_gen",
      "role": "simp",
-     "statement": "On the class of (p, ω, γ) it is γ(φ_p(ω))."
+     "statement": "On the class of (p, ω, γ), for a good pair p, it is the period γ(φ_p(ω))."
     },
     {
      "name": "periodPoint_heap",
      "role": "characterisation",
-     "statement": "Composed with the heap map A_{1,2} → A_{1,2}^{⊗3} and taken with itself three times, it returns itself."
+     "statement": "For every typed comparison, composed with the heap map A_{1,2} → A_{1,2}^{⊗3} and taken with itself three times, it returns itself."
     },
     {
      "name": "periodPoint.formal",
      "role": "compatibility",
-     "statement": "Its composite with P = A_{1,2} is a ring homomorphism P → C, which PeriodsAndSpecialValues:PS.2 identifies with integration."
+     "statement": "For a typed comparison φ, the ring homomorphism P → C equal to γ(φ_p(ω)) on generators: the period point on P_eff = A^eff_{1,2}, extended through the localisation P = P_eff[L^-1] because the period of L is nonzero. PeriodsAndSpecialValues:PS.2 identifies it with integration."
     },
     {
      "name": "periodPoint_action",
      "role": "relation",
-     "statement": "Every complex point of X_{1,2} is the composite of this point with a unique complex point of G_1."
+     "statement": "Every complex point of X_{1,2} is the composite of the period point of a typed comparison with a unique complex point of G_1."
     },
     {
      "name": "periodPoint_tate_inverse",
      "role": "compatibility",
-     "statement": "For an explicitly supplied ring homomorphism per:P->C with per(ofEff(L))=2πi, per(tateInverse)=(2πi)^-1. Instantiating per with periodPoint.formal requires the unital multiplicative comparison compatible with connecting edges; this inverse lemma does not construct it. No injectivity is needed."
+     "statement": "For a ring homomorphism per:P->C with per(ofEff(L))=2πi, per(tateInverse)=(2πi)^-1. periodPoint.formal of a typed comparison is such a homomorphism once PS.2 shows that the period of L is 2πi. No injectivity is needed and nothing is constructed."
+    },
+    {
+     "name": "PairDiagram.PeriodComparison.toTensorIsoOver",
+     "role": "constructor",
+     "statement": "A typed comparison, restricted to good pairs whose multiplicative structures are those of the exterior and cross products, is a tensor isomorphism H*_dR ⊗ C ≅ H* ⊗ C of graded multiplicative representations: the complex point the torsor formalism needs (finding E36)."
+    },
+    {
+     "name": "periodPoint.formal_gen",
+     "role": "simp",
+     "statement": "periodPoint.formal(ofEff(X, D, ω, γ)) = γ(φ(ω)) for every effective pair."
+    },
+    {
+     "name": "periodPoint.formal_eq_periodPoint",
+     "role": "compatibility",
+     "statement": "On the generators of a good pair, periodPoint.formal agrees with periodPoint through P_eff = A^eff_{1,2}."
+    },
+    {
+     "name": "periodPoint.formal_tateInverse",
+     "role": "simp",
+     "statement": "periodPoint.formal(tateInverse) is the inverse of the period of L, with no normalisation assumed."
+    },
+    {
+     "name": "PairDiagram.PeriodComparison.period_tate_ne_zero",
+     "role": "characterisation",
+     "statement": "The period of L = (G_m, {1}, dX/X, S^1) under a typed comparison is nonzero, since the comparison is an isomorphism of one-dimensional spaces there and dX/X and [S^1] are nonzero."
     }
    ],
    "uses": [
@@ -12931,27 +12960,37 @@
     {
      "name": "periodPoint_unit",
      "kind": "degenerate",
-     "statement": "On the class of the unit vertex (Spec Q, ∅) in degree 0 with ω = 1 and γ the class of the point, the value is 1."
+     "statement": "For every typed comparison φ, the value of periodPoint.formal on the class of the unit vertex (Spec Q, ∅) in degree 0 with ω = 1 and γ the class of the point is 1."
     },
     {
      "name": "periodPoint_mul",
      "kind": "compatibility",
-     "statement": "periodPoint is multiplicative: the value on a product of two generators is the product of the values."
+     "statement": "For every typed comparison φ and compatible multiplicative structures, periodPoint is multiplicative on A_{1,2}: the value on a product is the product of the values."
     },
     {
      "name": "periodPoint_twist_not_rational",
      "kind": "non-example",
-     "statement": "When the comparison is the integration pairing, the value on the class of (G_m, {1}, dX/X, S^1) is 2πi, which is not real; so the point does not come from a rational point of X_{1,2}."
+     "statement": "For a typed comparison whose period of (G_m, {1}, dX/X, S^1) is 2πi, as for the integration pairing, the value is not real; so the point does not come from a rational point of X_{1,2}."
     },
     {
      "name": "periodPoint_heap_test",
      "kind": "characterisation",
-     "statement": "The heap operation applied to (φ, φ, φ) returns φ."
+     "statement": "For every typed comparison, the heap operation applied to (φ, φ, φ) returns φ."
     },
     {
      "name": "periodPoint_tate_inverse_test",
      "kind": "computation",
-     "statement": "Given a ring homomorphism per:P->C and the integration normalization per(ofEff(L))=2πi, per(tateInverse)=(2πi)^-1 and per(ofEff(L))*per(tateInverse)=1. Supplying per is required; bare PeriodData does not certify its construction."
+     "statement": "Given a ring homomorphism per:P->C and the integration normalization per(ofEff(L))=2πi, per(tateInverse)=(2πi)^-1 and per(ofEff(L))*per(tateInverse)=1. The test takes per as given; periodPoint.formal of a typed comparison is such a map once PS.2 normalises the period of L (periodPoint.formal_tateInverse_test)."
+    },
+    {
+     "name": "periodPoint.formal_tateInverse_test",
+     "kind": "computation",
+     "statement": "For a typed comparison whose period of L is 2πi, periodPoint.formal sends L^-1 to (2πi)^-1 and L*L^-1 to 1."
+    },
+    {
+     "name": "PeriodComparison.doubled_not_comparison",
+     "kind": "non-example",
+     "statement": "Twice a typed comparison is still a family of linear isomorphisms natural for pullbacks, but it is not a typed comparison: its unit period would be 2. The contract that the previous prototype stored accepted it."
     }
    ]
   },
@@ -13995,14 +14034,13 @@
   {
    "stageId": "MotivesAndAlgebraicCycles:MC.6",
    "status": "partial",
-   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand.",
+   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand. FIX-RT-AREA-iwasawa-3~3 encodes the typed comparison (PairDiagram.PeriodComparison: natural for both kinds of edge, unital, multiplicative) and its compatibility with the good-pair multiplicative structures (PairDiagram.ProductCompatible), threads them through the period point and its dependent statements, and so closes the prototype gap the algebraic-geometry review recorded. The comparison itself stays a request to C5 for pairs.",
    "remaining": [
     "The Artin and Tate subcategories of Nori motives and their tensor automorphism groups, which the stage's acceptance asks for, are computed in no source read (gap).",
     "The universal property of Nori's diagram category, used by MC.6/fibre-functor-extension, rests on von Wangenheim's work, not obtained (gap).",
     "The quotient theorem of SGA 3 behind MC.6/affine-torsor-groups was not obtained (gap; not on the path to the period torsor).",
     "The comparison of relative de Rham and singular cohomology of pairs over Q as graded multiplicative representations is requested from ComplexComparisonPartII:C5, which owns the comparison and plans only the smooth and smooth proper cases.",
-    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain.",
-    "Encode and pass the unital multiplicative comparison of PeriodData, compatible with connecting edges, required by the period-point and formal-period evaluation signatures (gap added in REV-FIX-RT-AREA-algebraicgeometry)."
+    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain."
    ]
   },
   {
@@ -14203,14 +14241,6 @@
     "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode"
    ],
    "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. Bridge the printed reflection convention to the preservation instance required by the pinned Beck theorem; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
-  },
-  {
-   "title": "The suggested period comparison does not yet encode its tensor compatibility",
-   "neededBy": [
-    "MotivesAndAlgebraicCycles:MC.6/period-point",
-    "MotivesAndAlgebraicCycles:MC.6/period-torsor"
-   ],
-   "detail": "The packet correctly requires comparison as an isomorphism of graded multiplicative representations, but PairDiagram.PeriodData in the suggested Lean file stores only a family of complex-linear isomorphisms and pullback naturality. It has no comparison equations for units, exterior/cross products or the connecting maps of triples. Thus periodPoint and periodPoint_gen cannot have their advertised algebra-map contract for arbitrary PeriodData: multiplying a genuine comparison by 2 preserves its current linear-isomorphism and pullback equations but changes the normalized unit period from 1 to 2 and breaks product compatibility. Supply a typed unital multiplicative comparison compatible with every diagram edge, and thread it through the period point, formal-period evaluation and dependent APIs before treating these signatures as correct. This is a prototype contract gap, not an erratum in the source. The required comparison for arbitrary relative pairs remains a requested extension of ComplexComparisonPartII:C5 or a named alternate owner, not an already available smooth/proper comparison."
   }
  ],
  "requests": [
@@ -14385,7 +14415,7 @@
   },
   {
    "supplier": "ComplexComparisonPartII:C5",
-   "need": "The comparison of algebraic de Rham and singular cohomology, which C5 owns (RT-AREA-algebraicgeometry/31: MC.2, SF.6 and PeriodsAndSpecialValues PS.0/PS.8 consume it; the atlas edge C5 -> MC.2 is requested from the maintainer). (a) For a smooth projective complex variety X, and after base change along each embedding into C for a variety over a subfield: the algebraic de Rham complex with its truncations Ω^{≥p}, and the natural isomorphism H_dR(X/C) ≅ H(X(C), C), compatible with cup products, pullback and trace, as C5 states. MC.7 defines the Hodge filtration on H^n(X(C), C) as the image of the hypercohomology of Ω^{≥p} under it, and uses the compatibility of the de Rham and Betti cycle classes under it. (b) For MC.6: for every pair (X, Y) of varieties over Q with Y closed in X, the comparison between relative algebraic de Rham cohomology H^i_dR(X, Y) ⊗ C and relative singular cohomology H^i(X(C), Y(C), Q) ⊗ C, natural for morphisms of pairs, compatible with the connecting maps of triples and with products (Künneth and cup product), so that it is an isomorphism of graded multiplicative representations of the diagram of pairs after extension of scalars; Huber and Mueller-Stach cite Huber's Mixed realizations, sections 7 and 8, for it. C5 plans the smooth and the smooth proper cases; the extension to pairs of arbitrary varieties is asked of C5 as the owner, or of the owner it names.",
+   "need": "The comparison of algebraic de Rham and singular cohomology, which C5 owns (RT-AREA-algebraicgeometry/31: MC.2, SF.6 and PeriodsAndSpecialValues PS.0/PS.8 consume it; the atlas edge C5 -> MC.2 is requested from the maintainer). (a) For a smooth projective complex variety X, and after base change along each embedding into C for a variety over a subfield: the algebraic de Rham complex with its truncations Ω^{≥p}, and the natural isomorphism H_dR(X/C) ≅ H(X(C), C), compatible with cup products, pullback and trace, as C5 states. MC.7 defines the Hodge filtration on H^n(X(C), C) as the image of the hypercohomology of Ω^{≥p} under it, and uses the compatibility of the de Rham and Betti cycle classes under it. (b) For MC.6: for every pair (X, Y) of varieties over Q with Y closed in X, the comparison between relative algebraic de Rham cohomology H^i_dR(X, Y) ⊗ C and relative singular cohomology H^i(X(C), Y(C), Q) ⊗ C, natural for morphisms of pairs, compatible with the connecting maps of triples and with products (Künneth and cup product), and unital, so that it is an isomorphism of unital graded multiplicative representations of the diagram of pairs after extension of scalars (the suggested file types this contract as PairDiagram.PeriodComparison); Huber and Mueller-Stach cite Huber's Mixed realizations, sections 7 and 8, for it. C5 plans the smooth and the smooth proper cases; the extension to pairs of arbitrary varieties is asked of C5 as the owner, or of the owner it names.",
    "neededBy": [
     "MotivesAndAlgebraicCycles:MC.6/period-point",
     "MotivesAndAlgebraicCycles:MC.6/period-torsor",
@@ -16458,17 +16488,17 @@
   }
  ],
  "fixes": {
-  "job": "FIX-RT-AREA-iwasawa-3~2",
-  "issue": 5138,
-  "worker": "Codex — codex-5ebb6f",
-  "date": "2026-09-30",
-  "inputRevision": "a49b81b9aee5e26f603d4b56500f5fff9ce6bdb5",
+  "job": "FIX-RT-AREA-iwasawa-3~3",
+  "issue": 5868,
+  "worker": "Claude — claude-kEZwtq",
+  "date": "2026-10-07",
+  "inputRevision": "d5d17b08ef42c3c39feec4777313896efda3dd8d",
   "findings": {
-   "RT-AREA-iwasawa-3/8": "Applied to the existing MC.5/MC.6 supplier boundary; PS.2 application handed to its blueprint jobs.",
-   "RT-AREA-iwasawa-3/1": "Handoff to BP-GeneralizedHeegnerCycles--GH.0 as the issue requires.",
-   "RT-AREA-iwasawa-3/2-7": "Handoff to BP-KatoEulerSystems as the issue requires."
+   "RT-AREA-iwasawa-3/8": "Round-2 review corrections applied: the typed comparison is encoded and threaded through MC.6/period-point (packet and suggested file), and the reader is regenerated from the current packet. PS.2's integration/evaluation application stays handed to BP-PeriodsAndSpecialValues--PS.0 and --PS.8.",
+   "RT-AREA-iwasawa-3/1": "Handoff to BP-GeneralizedHeegnerCycles--GH.0, unchanged.",
+   "RT-AREA-iwasawa-3/2-7": "Handoff to BP-KatoEulerSystems, unchanged."
   },
-  "scope": "Six existing nodes refined; no new nodes, stages or planet names, no generated/campaign/data edits. Independent REV-FIX pending; Lean signatures not compiled because no existing built checkout at the pins is available."
+  "scope": "One node rewritten in place (MC.6/period-point: hypotheses, proof steps, two acceptance items, five API items and two unit tests added), one hypothesis of MC.6/formal-periods-equal-comparison-algebra sharpened, the prototype gap of REV-FIX-RT-AREA-algebraicgeometry and its MC.6 remaining item removed as resolved, the C5 request and the summary updated. No node, stage, planet or source added or removed. The whole suggested file elaborates at Mathlib 082e2d3 with lake env lean; its only messages are the placeholder-proof warnings. Independent REV-FIX-RT-AREA-iwasawa-3~3 required."
  },
  "fixHistory": [
   {
@@ -16485,6 +16515,19 @@
     "PAPER-FARGUES-SCHOLZE-21/E108"
    ],
    "implementation": "Unchecked, not compiled; no existing built checkout at both pins."
+  },
+  {
+   "job": "FIX-RT-AREA-iwasawa-3~2",
+   "issue": 5138,
+   "worker": "Codex — codex-5ebb6f",
+   "date": "2026-09-30",
+   "inputRevision": "a49b81b9aee5e26f603d4b56500f5fff9ce6bdb5",
+   "findings": {
+    "RT-AREA-iwasawa-3/8": "Applied to the existing MC.5/MC.6 supplier boundary; PS.2 application handed to its blueprint jobs.",
+    "RT-AREA-iwasawa-3/1": "Handoff to BP-GeneralizedHeegnerCycles--GH.0 as the issue requires.",
+    "RT-AREA-iwasawa-3/2-7": "Handoff to BP-KatoEulerSystems as the issue requires."
+   },
+   "scope": "Six existing nodes refined; no new nodes, stages or planet names, no generated/campaign/data edits. Independent REV-FIX pending; Lean signatures not compiled because no existing built checkout at the pins is available."
   }
  ]
 }
