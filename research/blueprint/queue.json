@@ -12057,8 +12057,8 @@
    "avoidAccountOf": "DESIGN-ClassicalGroupsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ClassicalGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3507"
+   "state": "pending",
+   "note": "released on GitHub issue #3507"
   },
   {
    "id": "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
@@ -32588,8 +32588,8 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6323"
+   "state": "pending",
+   "note": "released on GitHub issue #6323"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.4",
@@ -35397,8 +35397,8 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6349"
+   "state": "pending",
+   "note": "released on GitHub issue #6349"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.2",
