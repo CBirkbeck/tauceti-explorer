@@ -2,7 +2,8 @@
 This file is not the roadmap and is not exhaustive. The roadmap document
 (research/blueprint/readmes/EffectiveDiophantineMethods.md) is definitive. These statements suggest
 Lean forms so that contributors and reviewers converge on names and signatures; they do not
-constitute an implementation, and every proof is `sorry`.
+constitute an implementation. General proofs use `sorry`; nine finite raw-checker
+regressions are proved by exact decision.
 
 Effective Diophantine methods and certified rational points, layers ED.0–ED.6. Each layer is a
 section of its own. Objects the pinned libraries have are used directly (number fields, p-adic
@@ -238,7 +239,7 @@ example [Fact (Nat.Prime 3)] : ∃ e : PadicEnclosure 3 (9 : ℚ_[3]), e.centre 
 -- realEnclosure_overlap: one interval encloses both 1 and 2.
 example : ∃ (e₁ : RealEnclosure 1) (e₂ : RealEnclosure 2), e₁.interval = e₂.interval := sorry
 
--- padicEnclosure_normalize_five: at p = 3 the balls (5, 1) and (2, 1) coincide
+-- Supporting ball equality for padicEnclosure_normalize_five (the CN.0 record test is omitted): at p = 3 the balls (5, 1) and (2, 1) coincide
 -- (the canonical CN.0 record of (5, 1) is (N, v, s) = (1, 0, 2)).
 example [Fact (Nat.Prime 3)] (x : ℚ_[3]) :
     (∃ e : PadicEnclosure 3 x, e.centre = 5 ∧ e.precision = 1) ↔
@@ -1034,7 +1035,8 @@ theorem sound (w : DistanceWitness A y) (hA : A.det ≠ 0) (x : Fin (n + 1) → 
     (w.bound : ℝ) ≤ ∑ i, (((A *ᵥ x - y) i : ℤ) : ℝ) ^ 2 := sorry
 
 /-- An LLL witness from GN.5's exact LLL output (the reduced basis `A U` and `U⁻¹ = V`). -/
-def ofLLL (U V : Matrix (Fin (n + 1)) (Fin (n + 1)) ℤ) (hUV : U * V = 1) (hVU : V * U = 1)
+def ofLLL (hA : A.det ≠ 0) (U V : Matrix (Fin (n + 1)) (Fin (n + 1)) ℤ)
+    (hUV : U * V = 1) (hVU : V * U = 1)
     (hgs : ∀ i, (2 : ℝ) ^ (-(n : ℤ)) * ‖columnVectors (A * U) 0‖ ^ 2 ≤
       ‖InnerProductSpace.gramSchmidt ℝ (columnVectors (A * U)) i‖ ^ 2)
     (hy : y ∉ Set.range (A *ᵥ ·)) : DistanceWitness A y := sorry
@@ -1125,24 +1127,24 @@ theorem ofEnclosures_check {k : ℕ} (C : ℚ) (W : Fin (k + 1) → ℤ)
 end RawRealExclusionCertificate
 
 -- raw_distance_one: the integer lattice has squared nonzero distance at least one.
-example : (RawDistanceCertificate.mk (n := 1) 1 0 1 1 1 1).check = true := sorry
+example : (RawDistanceCertificate.mk (n := 1) 1 0 1 1 1 1).check = true := by native_decide
 -- raw_distance_bad_inverse: a forged inverse is rejected.
-example : (RawDistanceCertificate.mk (n := 1) 1 0 0 1 1 1).check = false := sorry
+example : (RawDistanceCertificate.mk (n := 1) 1 0 0 1 1 1).check = false := by native_decide
 -- raw_distance_integral_target: no positive bound for an integral, nonzero target.
-example : (RawDistanceCertificate.mk (n := 1) 1 ![1] 1 1 1 2).check = false := sorry
+example : (RawDistanceCertificate.mk (n := 1) 1 ![1] 1 1 1 2).check = false := by native_decide
 
 -- raw_real_ten: a full rational check with θ=10 and homogeneous β=0.
 example : (RawRealExclusionCertificate.mk (k := 0) 1 ![1] ![10] 0 true
     ![10] ![10] 0 0 ![1] 1
-    (RawDistanceCertificate.mk ![![10]] 0 ![![1/10]] 2 4 1)).check = true := sorry
+    (RawDistanceCertificate.mk ![![10]] 0 ![![1/10]] 2 4 1)).check = true := by native_decide
 -- raw_real_bad_endpoint: an endpoint with excessive rounding error is rejected.
 example : (RawRealExclusionCertificate.mk (k := 0) 1 ![1] ![10] 0 true
     ![10] ![12] 0 0 ![1] 1
-    (RawDistanceCertificate.mk ![![10]] 0 ![![1/10]] 2 4 1)).check = false := sorry
+    (RawDistanceCertificate.mk ![![10]] 0 ![![1/10]] 2 4 1)).check = false := by native_decide
 -- raw_real_bad_distance: the enclosure check replays the inverse check too.
 example : (RawRealExclusionCertificate.mk (k := 0) 1 ![1] ![10] 0 true
     ![10] ![10] 0 0 ![1] 1
-    (RawDistanceCertificate.mk ![![10]] 0 0 2 4 1)).check = false := sorry
+    (RawDistanceCertificate.mk ![![10]] 0 0 2 4 1)).check = false := by native_decide
 
 attribute [local instance] Classical.propDecidable
 
@@ -1706,6 +1708,7 @@ such that `f₀(X − Yξ)` is `f₀μ` times a unit for every solution. -/
 structure ThueFactorCovering (g : ℤ[X]) (m : ℤ) (K : Type*) [Field K] [NumberField K]
     (ξ : K) where
   r : ℕ
+  rank_eq : r = Units.rank K
   ε : Fin r → (𝓞 K)ˣ
   M : Finset K
   representatives_ne_zero : ∀ μ ∈ M, μ ≠ 0
@@ -1723,11 +1726,15 @@ theorem exists_repr (cov : ThueFactorCovering g m K ξ) (hg : g.leadingCoeff ≠
     (h : thueForm g x y = m) : ∃ μ ∈ cov.M, ∃ a : Fin cov.r → ℤ, ∃ s : K, (s = 1 ∨ s = -1) ∧
       ((x : K) - y * ξ) = s * μ * ∏ i, (((cov.ε i : (𝓞 K)ˣ) : 𝓞 K) : K) ^ a i := sorry
 
+/-- Full generation by exactly rank(K) units gives independent logarithmic coordinates. -/
+theorem isMaxRank (cov : ThueFactorCovering g m K ξ) :
+    Units.IsMaxRank (fun i : Fin (Units.rank K) => cov.ε (Fin.cast cov.rank_eq.symm i)) := sorry
+
 /-- The covering from bounded divisor representatives (DT.4/divisors-up-to-units). -/
 def ofDivisorRepresentatives (hg : Irreducible (g.map (Int.castRingHom ℚ)))
     (hdegree : 3 ≤ g.natDegree) (hm : m ≠ 0) (hξ : aeval ξ g = 0)
     (hfield : Module.finrank ℚ K = g.natDegree)
-    (r : ℕ) (u : Fin r → (𝓞 K)ˣ)
+    (r : ℕ) (hr : r = Units.rank K) (u : Fin r → (𝓞 K)ˣ)
     (hu : ∀ v : (𝓞 K)ˣ, ∃ a : Fin r → ℤ, v = ∏ i, u i ^ a i ∨ v = -∏ i, u i ^ a i)
     (D : Finset (𝓞 K)) (hDzero : ∀ δ ∈ D, δ ≠ 0)
     (hD : ∀ z : 𝓞 K, z ∣ (g.leadingCoeff : 𝓞 K) ^ (g.natDegree - 1) * m →
@@ -1775,7 +1782,7 @@ open NumberField in
 -- covering_degenerate: for a monic g and m = 1 the list {1} covers once units generate.
 example (g : ℤ[X]) (hg : g.Monic) (K : Type*) [Field K] [NumberField K] (ξ : K)
     (hξ : aeval ξ g = 0) (hfield : Module.finrank ℚ K = g.natDegree)
-    (r : ℕ) (ε : Fin r → (𝓞 K)ˣ)
+    (r : ℕ) (hr : r = Units.rank K) (ε : Fin r → (𝓞 K)ˣ)
     (hU : ∀ u : (𝓞 K)ˣ, ∃ a : Fin r → ℤ, u = ∏ i, ε i ^ a i ∨ u = -∏ i, ε i ^ a i) :
     ∃ cov : ThueFactorCovering g 1 K ξ, cov.M = {1} ∨ cov.M = {1, -1} := sorry
 
@@ -1788,6 +1795,13 @@ example (g : ℤ[X]) (m : ℤ) (K : Type*) [Field K] [NumberField K] (ξ : K)
       (g.leadingCoeff : K) * (x - y * ξ) = g.leadingCoeff * μ * ((η : 𝓞 K) : K)) :
     ∃ cov : ThueFactorCovering g m K ξ, cov.r = Units.rank K ∧ cov.M = M ∧
       ∀ i, ∃ j, cov.ε i = Units.fundSystem K j := sorry
+
+open NumberField in
+-- covering_redundant_units: generation by a redundant family cannot support exponent bounds.
+example {g : ℤ[X]} {m : ℤ} {K : Type*} [Field K] [NumberField K] {ξ : K}
+    (hrank : Units.rank K = 1) (cov : ThueFactorCovering g m K ξ) : cov.r ≠ 2 := by
+  rw [cov.rank_eq, hrank]
+  decide
 
 /-! ### ED.2/thue-analytic-constants -/
 
@@ -2235,8 +2249,13 @@ product of the `εᵢ` (roots of unity other than `±1` are absorbed into the `�
 structure ThueMahlerCovering (E : ThueMahlerEquation) (K : Type*) [Field K] [NumberField K]
     (θ : K) where
   r : ℕ
+  rank_eq : r = Units.rank K
   ε : Fin r → (𝓞 K)ˣ
   cases : List (ThueMahlerCase K E.v)
+  α_ne_zero : ∀ cs ∈ cases, cs.α ≠ 0
+  π_ne_zero : ∀ cs ∈ cases, ∀ i, cs.π i ≠ 0
+  case_wellformed : ∀ cs ∈ cases, ∀ i,
+    (cs.h i = 0 ∧ cs.π i = 1 ∧ cs.s i = 0) ∨ (0 < cs.h i ∧ cs.s i < cs.h i)
   units_generate : ∀ u : (𝓞 K)ˣ, ∃ ζ ∈ Units.torsion K, ∃ a : Fin r → ℤ, u = ζ * ∏ i, ε i ^ a i
   covers : ∀ s ∈ thueMahlerSolutions E.g E.c E.p, ∃ cs ∈ cases, ∃ a : Fin r → ℤ,
     ∃ n : Fin E.v → ℕ, ∃ σ : K, (σ = 1 ∨ σ = -1) ∧
@@ -2259,6 +2278,7 @@ theorem exists_repr (cov : ThueMahlerCovering E K θ) (s : ℤ × ℤ × (Fin E.
 
 /-- The covering from ideal factorisations, principal generators and a unit certificate. -/
 def semanticCoveringOfUnits (hθ : aeval θ (integralNormalization E.g) = 0) (r : ℕ)
+    (hr : r = Units.rank K)
     (ε : Fin r → (𝓞 K)ˣ)
     (hU : ∀ u : (𝓞 K)ˣ, ∃ ζ ∈ Units.torsion K, ∃ a : Fin r → ℤ, u = ζ * ∏ i, ε i ^ a i) :
     ThueMahlerCovering E K θ := sorry
@@ -2305,6 +2325,9 @@ open NumberField in
 -- tmCovering_compat_units: (U) for fundSystem is Mathlib's Dirichlet unit theorem.
 example (E : ThueMahlerEquation) (K : Type*) [Field K] [NumberField K] (θ : K)
     (cases : List (ThueMahlerCase K E.v))
+    (hα : ∀ cs ∈ cases, cs.α ≠ 0) (hπ : ∀ cs ∈ cases, ∀ i, cs.π i ≠ 0)
+    (hcases : ∀ cs ∈ cases, ∀ i,
+      (cs.h i = 0 ∧ cs.π i = 1 ∧ cs.s i = 0) ∨ (0 < cs.h i ∧ cs.s i < cs.h i))
     (hcov : ∀ s ∈ thueMahlerSolutions E.g E.c E.p, ∃ cs ∈ cases,
       ∃ a : Fin (Units.rank K) → ℤ, ∃ n : Fin E.v → ℕ, ∃ σ : K, (σ = 1 ∨ σ = -1) ∧
         ((E.g.leadingCoeff * s.1 : ℤ) : K) - (s.2.1 : K) * θ =
@@ -2312,6 +2335,13 @@ example (E : ThueMahlerEquation) (K : Type*) [Field K] [NumberField K] (θ : K)
             ∏ i, cs.π i ^ n i ∧
         ∀ i, s.2.2 i = n i * cs.h i + cs.s i + cs.t i) :
     ∃ cov : ThueMahlerCovering E K θ, cov.cases = cases ∧ cov.r = Units.rank K := sorry
+
+open NumberField in
+-- tmCovering_redundant_units: no redundant unit coordinates in an exponent bound.
+example {E : ThueMahlerEquation} {K : Type*} [Field K] [NumberField K] {θ : K}
+    (hrank : Units.rank K = 1) (cov : ThueMahlerCovering E K θ) : cov.r ≠ 2 := by
+  rw [cov.rank_eq, hrank]
+  decide
 
 /-! ### ED.2/thue-mahler-initial-bounds, thue-mahler-reduced-bounds, auxiliary-prime-sieve -/
 
@@ -2860,6 +2890,9 @@ Places of `ℚ` are `Option ℕ`: `none` is `∞`, `some p` the prime `p`. -/
 
 section Quartic
 
+/-- A rational place is infinity or a prime, never a composite or 0/1. -/
+def IsRationalPlace (v : Option ℕ) : Prop := v = none ∨ ∃ p, v = some p ∧ p.Prime
+
 /-- The recursive `ℤ_p` test (Birch–Swinnerton-Dyer Lemmas 6 and 7) with explicit fuel. -/
 def zpSoluble (g : ℤ[X]) (p : ℕ) (xk : ℤ) (k fuel : ℕ) : Bool := sorry
 
@@ -2867,7 +2900,8 @@ def zpSoluble (g : ℤ[X]) (p : ℕ) (xk : ℤ) (k fuel : ℕ) : Bool := sorry
 def quarticLocallySoluble (g : ℤ[X]) (v : Option ℕ) : Bool := sorry
 
 /-- The reversed quartic `x⁴ g(1/x)`. -/
-def reverseQuartic (g : ℤ[X]) : ℤ[X] := Polynomial.reverse g
+def reverseQuartic (g : ℤ[X]) : ℤ[X] :=
+  ∑ i ∈ Finset.range 5, C (g.coeff (4 - i)) * X ^ i
 
 /-- ED.3/quartic-local-solubility-correct. -/
 theorem quarticLocallySoluble_iff (g : ℤ[X]) (hg : g.natDegree = 4) (hd : g.discr ≠ 0) :
@@ -2878,15 +2912,18 @@ theorem quarticLocallySoluble_iff (g : ℤ[X]) (hg : g.natDegree = 4) (hd : g.di
         IsSquare ((g.leadingCoeff : ℤ) : ℚ_[p]) := by
   sorry
 
-theorem quarticLocallySoluble_reverse (g : ℤ[X]) (v : Option ℕ) :
+theorem quarticLocallySoluble_reverse (g : ℤ[X]) (hg : g.natDegree = 4)
+    (hd : g.discr ≠ 0) (hzero : g.coeff 0 ≠ 0) (v : Option ℕ) (hv : IsRationalPlace v) :
     quarticLocallySoluble (reverseQuartic g) v = quarticLocallySoluble g v := by
   sorry
 
-theorem quarticLocallySoluble_scale (g : ℤ[X]) (u : ℤ) (hu : u ≠ 0) (v : Option ℕ) :
+theorem quarticLocallySoluble_scale (g : ℤ[X]) (hg : g.natDegree = 4) (hd : g.discr ≠ 0)
+    (u : ℤ) (hu : u ≠ 0) (v : Option ℕ) (hv : IsRationalPlace v) :
     quarticLocallySoluble (C (u ^ 2) * g) v = quarticLocallySoluble g v := by
   sorry
 
-theorem zpSoluble_fuel (g : ℤ[X]) (p : ℕ) (xk : ℤ) (k fuel : ℕ)
+theorem zpSoluble_fuel (g : ℤ[X]) (hg : g.natDegree = 4) (hd : g.discr ≠ 0)
+    (p : ℕ) [Fact p.Prime] (xk : ℤ) (k fuel : ℕ)
     (hfuel : padicValInt p g.discr + 2 ≤ fuel) :
     zpSoluble g p xk k fuel = zpSoluble g p xk k (fuel + 1) := by
   sorry
@@ -2901,18 +2938,24 @@ example : quarticLocallySoluble (C 2 * X ^ 4 - C 34) (some 2) = true ∧
     quarticLocallySoluble (C 2 * X ^ 4 - C 34) (some 17) = true := by
   sorry
 
--- quartic_negative_definite: −x⁴ − 1 is not soluble over ℝ, and is soluble at the odd prime 3.
+-- quartic_negative_definite: the complete real/good-odd-prime regression.
 example : quarticLocallySoluble (-(X ^ 4) - 1) none = false ∧
-    quarticLocallySoluble (-(X ^ 4) - 1) (some 3) = true := by
+    ∀ (p : ℕ) [Fact p.Prime], p ≠ 2 → ¬ (p : ℤ) ∣ (-(X ^ 4) - 1 : ℤ[X]).discr →
+      quarticLocallySoluble (-(X ^ 4) - 1) (some p) = true := by
   sorry
 
 -- quartic_square_leading: a nonzero square leading coefficient gives solubility everywhere.
 example (g : ℤ[X]) (hg : g.natDegree = 4) (a : ℤ) (ha : a ≠ 0) (hlead : g.leadingCoeff = a ^ 2)
-    (v : Option ℕ) : quarticLocallySoluble g v = true := by
+    (v : Option ℕ) (hv : IsRationalPlace v) : quarticLocallySoluble g v = true := by
   sorry
 
 -- quartic_not_mod_p_only: y² ≡ 3x⁴ + 3 (mod 3) is soluble but there is no ℚ₃-point.
 example : quarticLocallySoluble (C 3 * X ^ 4 + C 3) (some 3) = false := by
+  sorry
+
+-- quartic_reverse_zero_constant: reversal preserves the five coefficient positions.
+example : reverseQuartic (X ^ 4 + X : ℤ[X]) = X ^ 3 + 1 ∧
+    reverseQuartic (X ^ 3 + 1 : ℤ[X]) = X ^ 4 + X := by
   sorry
 
 end Quartic
@@ -3008,10 +3051,10 @@ section Heights
 
 variable {K : Type*} [Field K] [NumberField K]
 
--- General-number-field Silverman μ and comparison: omitted pending independent source access.
+-- General-number-field Silverman μ and comparison: source verified; weighted interface omitted below.
 
 /-- Accessible rational bound: half of Cremona III, Proposition 3.5.1, p.77.
-The general-number-field Silverman statement is omitted pending independent source access. -/
+The general-number-field Silverman statement is verified in the omission register; its weighted Lean interface remains omitted. -/
 def cremonaMu (W : WeierstrassCurve ℚ) : ℝ :=
   ((Real.log |(W.Δ : ℝ)| + Real.log (max 1 |(W.j : ℝ)|)) / 6 +
     Real.log (max 1 |((W.b₂ : ℝ) / 12)|) + Real.log (if W.b₂ = 0 then 1 else 2)) / 2
@@ -4969,13 +5012,13 @@ theorem sound {o n k : ℕ} (c : RawSieveStep o n k) (hc : c.check = true) :
 end RawSieveStep
 -- rawSieve_mod_four: both lifts of the surviving mod-two class must be listed.
 example : (RawSieveStep.mk (oldSize := 2) (newSize := 4) (places := 0)
-  (fun b => ⟨b.val % 2, by omega⟩) Fin.elim0 {1} {1, 3}).check = true := sorry
+  (fun b => ⟨b.val % 2, by omega⟩) Fin.elim0 {1} {1, 3}).check = true := by native_decide
 -- rawSieve_missing_lift: keeping only one lift is rejected.
 example : (RawSieveStep.mk (oldSize := 2) (newSize := 4) (places := 0)
-  (fun b => ⟨b.val % 2, by omega⟩) Fin.elim0 {1} {1}).check = false := sorry
+  (fun b => ⟨b.val % 2, by omega⟩) Fin.elim0 {1} {1}).check = false := by native_decide
 -- rawSieve_empty: a false local test rules out every class.
 example : (RawSieveStep.mk (oldSize := 1) (newSize := 1) (places := 1)
-  id (fun _ _ => false) {0} ∅).check = true := sorry
+  id (fun _ _ => false) {0} ∅).check = true := by native_decide
 
 -- ED.5/sieve-certificate: the final certificate.
 structure SieveCertificate (P M : Type*) [AddCommGroup M] {κ : Type*} (C J : κ → Type*)
@@ -6134,7 +6177,7 @@ Reason: The source output has not been replayed as raw finite covering/reduction
 Required mathematical signature: Construct an explicit Valid certificate from the named equation and certified number-field/root input, without receiving a cover or Valid output. For x³−2y³=1 produce its finite unit/norm cover, logarithm bounds, reductions and exhaustive residual solution list. For x³−2y³=5^z produce finite ideal cases and reductions including (3,1,2). Existing conditional soundness tests are supporting implications, not these factory tests.
 
 EffectiveDiophantineMethods:ED.3/local-descent-image
-Names: certifiedLocalImage_real_three_roots, certifiedLocalImage_odd_prime_two
+Names: certifiedLocalImage_real_three_roots, certifiedLocalImage_odd_good_prime
 Reason: The finite local-factor factory and actual point evaluations have not been constructed.
 Required mathematical signature: For W=y²=x³−x over R or Q_p, derive the decomposition of W.A, valuation parity and residue-unit square coordinates, construct W.M≃(Z/2)^n, lift each certified rational abscissa to a W.Point using real sign or p-adic Hensel certificates, evaluate actual W.μ, and prove the expected image cardinality using W.μ kernel and local quotient count. The abstract tests with hidx/hcard are only cardinality algebra.
 
@@ -6249,8 +6292,8 @@ Reason: The required concrete geometric/numerical input data have not been repla
 Required mathematical signature: Replay the ramified-extension Coleman integration and overconvergent precision for P0 using Balakrishnan–Tuitman, then derive the unique common-zero verdict. This source/precision gap remains.
 EffectiveDiophantineMethods:ED.3/explicit-height-difference-bound
 Names: TauCeti.EffectiveDiophantine.ED3.silvermanMu, canonicalHeight_sub_half_naiveHeight_mem.numberField
-Reason: The Silverman general-number-field primary statement and constants were independently unavailable; the rational Cremona bound cannot supply it.
-Required mathematical signature: For integral W over a number field K, read and state the exact primary height-comparison constants and all weighted local factors in relative versus absolute normalization, then convert to the pinned canonicalHeight. Do not extend the Q-only Cremona proposition by changing the ground-field parameter.
+Reason: The primary source is now independently verified; the weighted number-field height API has not yet been represented on the actual pinned carrier in Lean.
+Required mathematical signature: Let d=[K:Q] and h∞(t)=d⁻¹ Σ(v archimedean) n_v log max(1,|t|_v), with n_v=[K_v:R]. For an integral nonsingular standard Weierstrass equation W/K put μ_S=h_abs(Δ)/12+h∞(j)/12+h∞(b₂/12)/2+log(2*)/2, where 2*=1 if b₂=0 and 2 otherwise. Define silvermanMu on this W and prove, for P in W.toAffine.Point including O, −h_abs(j)/24−μ_S−973/1000 ≤ P.canonicalHeight/d−P.naiveHeight/(2*d) ≤ μ_S+107/100. Both pinned heights are relative logarithmic heights; d converts them to the absolute heights of Silverman Theorem1.1. Unit-test b₂=0, K=Q and field-extension compatibility (local weights sum correctly).
 
 EffectiveDiophantineMethods:ED.4/abelian-logarithm
 Names: TauCeti.EffectiveDiophantine.ED4.abelianLog.geometric, TauCeti.EffectiveDiophantine.ED4.integrationPairing.geometric
