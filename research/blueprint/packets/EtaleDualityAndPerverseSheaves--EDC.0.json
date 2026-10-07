@@ -1900,7 +1900,7 @@
    ],
    "acceptance": [
     "For g étale, (ii) is the localization isomorphism of EDC.1:adjoint/upper-shriek-pseudofunctor.",
-    "For g = i : {s} → S a closed point of a curve and f = id, (ii) is i^*Λ → i^!Λ, which is zero, not an isomorphism (i^!Λ = Λ(−1)[−2])."
+    "Over an algebraically closed field with nonzero prime-to-characteristic torsion Λ, take f = g = i : {0} → A¹ and f′ = g′ = id_{point}. In this cartesian self-pullback square, (ii) on Λ is i^!Λ = Λ(−1)[−2] → Λ, which is zero and not an isomorphism. For f = id and arbitrary g, (ii) is an isomorphism."
    ],
    "uses": [
     {
