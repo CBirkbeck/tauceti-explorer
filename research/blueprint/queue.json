@@ -22544,9 +22544,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #688"
+   "note": "claimed on GitHub issue #688"
   },
   {
    "id": "REV-AutomorphicLFunctionsAndLocalFactors",
@@ -26214,8 +26214,9 @@
    ],
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups--T6",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #433"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #433",
+   "finishedAt": "2026-10-07T04:46:19Z"
   },
   {
    "id": "BP-IgusaVarietiesAndTorsionConcentration",
@@ -26982,8 +26983,9 @@
    ],
    "avoidAccountOf": "BP-MetaplecticAutomorphicForms--MP.0",
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #448"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #448",
+   "finishedAt": "2026-10-07T04:46:23Z"
   },
   {
    "id": "BP-MetaplecticAutomorphicForms--MP.8",
@@ -36773,7 +36775,8 @@
     "REV-AInfCohomology--AI.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-AInfCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #211"
   },
   {
    "id": "ASM-AlgebraicModuliForArithmeticGeometry",
