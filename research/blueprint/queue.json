@@ -22950,11 +22950,12 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #686"
+   "note": "deliverables arrived from an external worker on issue #686",
+   "finishedAt": "2026-10-07T13:59:00Z"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -37818,7 +37819,8 @@
    ],
    "revisionOf": "BP-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/BP-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6922"
   },
   {
    "priority": 2,
@@ -58497,8 +58499,9 @@
     "FIX-RT-RS-05"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5708"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5708",
+   "finishedAt": "2026-10-07T13:59:02Z"
   },
   {
    "id": "RT-RS-06",
