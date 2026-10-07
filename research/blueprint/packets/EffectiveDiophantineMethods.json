@@ -2075,13 +2075,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed pp. 33–34",
-          "excerpt": "This can e.g. be done by using 'interval arithmetic', i.e. doing all computations twice with a few more digits than actually needed, rounding off in different directions at each step.",
-          "match": "The precision contract makes this two-sided rounding explicit: every approximate value is an enclosure whose endpoints are exact rationals. Quoted from the rendered page; the OCR text layer is garbled."
+          "match": "The precision contract makes this two-sided rounding explicit: every approximate value is an enclosure whose endpoints are exact rationals. The original source review checked the rendered page because the OCR text layer is garbled."
         },
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§4, before §4.1 (arXiv v4 p. 9)",
-          "excerpt": "we say that ~y = (y1, . . . , ym) ∈ R^m is a δ-approximation of ~x if |xi − yi| < δ for all 1 ≤ i ≤ m.",
           "match": "Doyle–Krumm's δ-approximations are real enclosures of width 2δ; the packet uses closed rational intervals."
         }
       ],
@@ -2241,13 +2239,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed p. 34",
-          "excerpt": "Then a sufficiently small interval is found in which the exact number lies (with mathematical certainty).",
-          "match": "The refinement produces such an interval of any requested width by exact bisection. Quoted from the rendered page."
+          "match": "The refinement produces such an interval of any requested width by exact bisection. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed pp. 32–33",
-          "excerpt": "One should make sure that the result obtained is correct to the desired precision, not (only) by substituting the found approximation of the root into the polynomial and checking that the result is 0 within the desired precision",
           "match": "Source of the rule that a root is certified by an error estimate (isolation or Hensel), never by a small residual."
         }
       ],
@@ -2416,19 +2412,16 @@
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§4.1 (arXiv v4 p. 10)",
-          "excerpt": "Since σ (y) is a complex root of the minimal polynomial of y, known methods (see [14], for instance) can be applied to approximate σ (y) with any given accuracy.",
           "match": "The certificate pins σ by an isolating box of σ(θ) and evaluates σ(α) in power-basis coordinates with an explicit error bound."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed pp. 32–33",
-          "excerpt": "One should make sure that the result obtained is correct to the desired precision, not (only) by substituting the found approximation of the root into the polynomial and checking that the result is 0 within the desired precision",
           "match": "Source of the rule that a root is certified by an error estimate (isolation or Hensel), never by a small residual."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, printed pp. 102–103",
-          "excerpt": "throughout this paper we suppose that the algebraic equation g(x) = 0 has at least one real root.",
           "match": "The Thue reduction works with all real and nonreal roots ξ^(i) of g, i.e. with all embeddings of K = Q(ξ); each is pinned by an isolating box. The surrounding formulas are garbled in the OCR layer; this sentence is legible."
         }
       ],
@@ -2472,13 +2465,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed pp. 32–33",
-          "excerpt": "One should make sure that the result obtained is correct to the desired precision, not (only) by substituting the found approximation of the root into the polynomial and checking that the result is 0 within the desired precision",
           "match": "Source of the rule that a root is certified by an error estimate (isolation or Hensel), never by a small residual."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15E, printed p. 263",
-          "excerpt": "These computations are straightforward but laborious (we used Hensel’s Lemma the p-adic Newton method, the power series expansion for the p-adic logarithm",
           "match": "The p-adic inputs of the reduction are roots computed by Hensel/Newton; the theorem gives the error of each Newton iterate exactly."
         }
       ],
@@ -2624,13 +2615,11 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§3, printed p. 226",
-          "excerpt": "The prime ideals in K dividing p are in one-to-one correspondence with gl(t),..., gm(t)",
           "match": "A factor g_i of degree one over ℚ_p is a root of g in ℚ_p, i.e. an embedding K → ℚ_p and a degree-one prime; the certificate pins that root. OCR fragment (g1 printed as gl)."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.13, printed p. 66",
-          "excerpt": "In our p-adic applications of solving diophantine equations via linear forms, we always have linear forms in logarithms of algebraic numbers",
           "match": "The p-adic linear forms are built from p-adic images of algebraic numbers; the certificate fixes which image is meant."
         }
       ],
@@ -2683,13 +2672,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed pp. 32–33",
-          "excerpt": "One should make sure that the result obtained is correct to the desired precision, not (only) by substituting the found approximation of the root into the polynomial and checking that the result is 0 within the desired precision",
           "match": "Source of the rule that a root is certified by an error estimate (isolation or Hensel), never by a small residual."
         },
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§4, opening paragraph (arXiv v4 p. 9)",
-          "excerpt": "However, it may happen that hK ( x ) ≤ D even though h̃ > D̃. To deal with this problem one must be able to find arbitrarily close rational approximations of hK ( x ).",
           "match": "A comparison read from approximations is valid only with an error bound; refinement until the comparison is decided is the mechanism of part (d)."
         }
       ],
@@ -2813,13 +2800,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.13, Lemma 3.17(i), printed p. 67",
-          "excerpt": "Let α1, ..., αn ∈ Qp be given numbers with ordp(αi) = 0 for all i, and ordp(logp(αi)) minimal for i = n.",
-          "match": "The p-adic orders ord_p of embedded algebraic numbers and of their logarithms are the inputs this construction certifies. Quoted from the rendered page."
+          "match": "The p-adic orders ord_p of embedded algebraic numbers and of their logarithms are the inputs this construction certifies. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§4, printed p. 227",
-          "excerpt": "Now, ordp (x) is defined as the exponent (a positive or negative integer, or 0) of pi in the decomposition of the principal (fractional) ideal (x).",
           "match": "For a prime 𝔭_i of degree one this order equals v_p of the image under the corresponding embedding, which is what the certificate reads. OCR fragment (𝔭_i printed as pi)."
         }
       ],
@@ -2956,13 +2941,11 @@
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§2 (arXiv v4 p. 2)",
-          "excerpt": "The relative height function HK : K → R ≥1 is defined by",
           "match": "This is Mathlib's Height.mulHeight₁ on a number field (NumberField.mulHeight₁_eq); the construction encloses it."
         },
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§4.1, Lemma 4.1 (arXiv v4 p. 9)",
-          "excerpt": "Fix λ > 0 and set δ = λ/(r + 2). Let α, β be nonzero elements of OK .",
           "match": "Doyle–Krumm approximate h_K through approximations of the archimedean absolute values; the construction uses the Mahler-measure form, which needs no ideal norms."
         }
       ],
@@ -3098,19 +3081,16 @@
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "Abstract (arXiv v4 p. 1)",
-          "excerpt": "We show that every element of K whose height is at most B must appear in one of the two lists.",
           "match": "The output contract (completeness for the union of the two lists, tolerance for the second list) is Doyle–Krumm's Algorithm 4 contract."
         },
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§5, Theorem 5.1 (Pethő–Schmitt) (arXiv v4 p. 15)",
-          "excerpt": "Then every element x ∈ K with HK ( x ) ≤ B can be written in the form",
           "match": "The candidate generator is of this denominator-and-box shape; the coordinate bound is obtained from certified root boxes in the power basis instead of an LLL-reduced integral basis."
         },
         {
           "sourceId": "doyle-krumm-2015",
           "locator": "§4.3, Algorithm 4 output (arXiv v4 p. 11)",
-          "excerpt": "If x ∈ K satisfies HK ( x ) ≤ B, then x is in either L or L′ .",
           "match": "Completeness clause of the construction."
         }
       ],
@@ -3263,20 +3243,17 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, printed p. 53",
-          "excerpt": "We define the approximation lattice Γ by the matrix",
-          "match": "Definition of the real approximation lattice; the packet allows a separate weight W_i in each coordinate. Quoted from the rendered page."
+          "match": "Definition of the real approximation lattice; the packet allows a separate weight W_i in each coordinate. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3(i), printed p. 112",
-          "excerpt": "Choose c0 somewhat larger than K3^q, so that c0 = σ1 · K3^q (σ1 > 1), and consider the lattice Γ associated with the matrix",
-          "match": "The same lattice with unit weights and C = c_0. Quoted from the rendered page."
+          "match": "The same lattice with unit weights and C = c_0. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§16, printed p. 264",
-          "excerpt": "In the real case, we again choose positive integers W1, . . . , Wv+r−1 as weights",
-          "match": "Weighted real lattice with rounding toward zero; the packet's contract |φ_i − Cθ_i| ≤ 1 covers it. Quoted from the rendered page."
+          "match": "Weighted real lattice with rounding toward zero; the packet's contract |φ_i − Cθ_i| ≤ 1 covers it. The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3325,19 +3302,16 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.4, Lemma 3.5, printed p. 43",
-          "excerpt": "Let c1, ..., cn be a reduced basis of the lattice Γ, and let y = Σ si·ci for s1, ..., sn ∈ R, with not all si in Z.",
-          "match": "Part (b), with de Weger's 1-based index shifted to GN.5's zero-based convention. Quoted from the rendered page."
+          "match": "Part (b), with de Weger's 1-based index shifted to GN.5's zero-based convention. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.4, Lemma 3.6, printed p. 44",
-          "excerpt": "Suppose that there is an index i0 and constants δ1, 0 < δ2 ≤ 1/2 such that",
-          "match": "Part (c); the count n − i_0 of indices above i_0 in the 1-based source is n − 1 − i_0 here. Quoted from the rendered page."
+          "match": "Part (c); the count n − i_0 of indices above i_0 in the 1-based source is n − 1 − i_0 here. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15, (35), printed p. 261",
-          "excerpt": "where j0 = max{j ∈ {1,...,v + r}|sj ∉ Z}, and ‖·‖ denotes the distance to the nearest integer.",
           "match": "The same bound used for the p-adic lattice Γ_m."
         }
       ],
@@ -3378,14 +3352,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, Lemma 3.7, printed p. 54",
-          "excerpt": "Let X1 be a positive number such that ℓ(Γ) ≥ √((n+1)²+(n−1)·γ²)·X1. Then (3.1) has no solutions with",
-          "match": "Special case W_i = γ, X_i = X_1, μ = X_1. Quoted from the rendered page."
+          "match": "Special case W_i = γ, X_i = X_1, μ = X_1. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, Proposition 3.1, printed p. 114",
-          "excerpt": "If |b1| > √((q²+q−1)·2^(q−1))·K3, then every solution of (3.1), in the case δ = 0, satisfies",
-          "match": "Special case W_i = 1, X_i = K_3 with the LLL lower bound for ℓ(Γ). Quoted from the rendered page."
+          "match": "Special case W_i = 1, X_i = K_3 with the LLL lower bound for ℓ(Γ). The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3425,19 +3397,16 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.8, Lemma 3.10, printed p. 58",
-          "excerpt": "Let X1 be a positive constant such that ℓ(Γ,y) ≥ √((n+2)²+(n−1)γ²)·X1.",
-          "match": "Special case W_i = γ, X_i = μ = X_1 ≥ 1. Quoted from the rendered page."
+          "match": "Special case W_i = γ, X_i = μ = X_1 ≥ 1. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, Proposition 3.2, printed p. 114",
-          "excerpt": "Let i* = max(i: 1 ≤ i ≤ q and si ∉ Z). If 2^(−(q−1)/2) · ‖si*‖ · |b1| > √(4·q²+3·q−3/4)·K3,",
-          "match": "Special case W_i = 1, X_i = K_3, μ = qK_3 with the distance bound of de Weger's Lemma 3.5. Quoted from the rendered page."
+          "match": "Special case W_i = 1, X_i = K_3, μ = qK_3 with the distance bound of de Weger's Lemma 3.5. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, proof of Proposition 3.2, printed p. 115",
-          "excerpt": "that if l(x, Γ) ≥ √(4·q² + 3·q − 3/4)·X0 (for some constant X0 ≥ 2), then the inequality",
           "match": "The proof uses the bound X_0 = K_3 ≥ 2, matching the condition K_3 ≥ 2 stated here."
         }
       ],
@@ -3559,19 +3528,16 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15, printed p. 260",
-          "excerpt": "For any x ∈ Zpi we denote by x(m) the unique rational integer in the interval [0, pi^m − 1] such that ordpi(x − x(m)) ≥ m. We consider the lattice Γm generated by the column-vectors of the matrix",
-          "match": "Definition of Γ_m with weights; Lemma 14 on the same page is the characterisation. Quoted from the rendered page."
+          "match": "Definition of Γ_m with weights; Lemma 14 on the same page is the characterisation. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.11, Lemma 3.13, printed p. 64",
-          "excerpt": "The lattice Γμ, associated to the above defined matrix Bμ, is equal to the set Γμ = { (x1,...,xn)^T ∈ Z^n | ordp(Λ') ≥ μ }.",
-          "match": "The homogeneous case with unit weights. Quoted from the rendered page."
+          "match": "The homogeneous case with unit weights. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.12, printed p. 65",
-          "excerpt": "y = ( 0, ..., 0, β'(μ) )^T",
           "match": "The inhomogeneous target; the printed sign is corrected to −β′^(μ) (sourceIssues EffectiveDiophantineMethods/E2), as in Tzanakis–de Weger 1992, §15."
         }
       ],
@@ -3614,19 +3580,16 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15, Proposition 15, printed p. 262",
-          "excerpt": "PROPOSITION 15. If l(Γm, y) > √Q then ni < (1/hi)(m − li).",
-          "match": "Q = vW²N_0² + rK_0² is Σ_j W_j²X_j² for the source's weights and bounds. Quoted from the rendered page."
+          "match": "Q = vW²N_0² + rK_0² is Σ_j W_j²X_j² for the source's weights and bounds. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.11, Lemma 3.14, printed p. 64",
-          "excerpt": "Let X1 be a constant such that ℓ(Γμ) > √n·X1. Then (3.3) has no solutions with",
-          "match": "Homogeneous case with unit weights. Quoted from the rendered page."
+          "match": "Homogeneous case with unit weights. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1993-correction",
           "locator": "pp.241–242, corrected initial bound and both repaired reduction routes",
-          "excerpt": "the gap in the proof has been fixed",
           "match": "The source supplies the missing multiplicative factor and the alternate Baker–Wüstholz route that justifies the9.844×10^49 initial example bound."
         }
       ],
@@ -3754,25 +3717,21 @@
         {
           "sourceId": "fincke-pohst-1985",
           "locator": "(2.8), printed p. 465",
-          "excerpt": "Algorithm for Solving Q(x) ≤ C. Input. Entries qij (1 ≤ i ≤ j ≤ m) of Q(x) of (2.2) and a positive constant C.",
           "match": "The construction is (2.8) with a centre t and without the sign restriction on the last nonzero coordinate. OCR of the scan, symbols restored."
         },
         {
           "sourceId": "fincke-pohst-1985",
           "locator": "§2, printed p. 464",
-          "excerpt": "We shall use Cholesky's method for transforming the positive-definite quadratic form",
           "match": "Quadratic completion (2.2)–(2.3)."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.6, printed p. 51",
-          "excerpt": "The output is a list of all lattice points x ∈ Γ with |x| ≤ C, apart from x = 0.",
           "match": "The accessible text gives homogeneous short-vector enumeration by Cholesky square completion and backtracking, then handles a target by translating about a lattice point and enlarging the radius. ED.1 adapts the identities to exact rational LDL and direct affine recentering; completeness includes the boundary, both signs and a zero translate. Independently read Fincke–Pohst (2.2)–(2.8), pp.464–465, confirms the quadratic-completion recursion and its boundary inclusion; the translated rational centre is an ED.1 adaptation."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.6, printed pp.51–53, Figure 2 and its affine-target extension",
-          "excerpt": "The output is a list of all lattice points",
           "match": "The accessible text gives homogeneous short-vector enumeration by Cholesky square completion and backtracking, then handles a target by translating about a lattice point and enlarging the radius. ED.1 adapts the identities to exact rational LDL and direct affine recentering; completeness includes the boundary, both signs and a zero translate. Independently read Fincke–Pohst (2.2)–(2.8), pp.464–465, confirms the quadratic-completion recursion and its boundary inclusion; the translated rational centre is an ED.1 adaptation."
         }
       ],
@@ -3814,19 +3773,16 @@
         {
           "sourceId": "fincke-pohst-1985",
           "locator": "§2, (2.6)–(2.7), printed p. 465",
-          "excerpt": "Clearly, |xm| is bounded by",
           "match": "The level-by-level bounds (2.6)–(2.7) are the completeness argument. OCR fragment."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.6, printed p. 51",
-          "excerpt": "It may be useful to know exactly all vectors x ∈ Γ such that |x| ≤ C or |x−y| ≤ C for a given constant C.",
           "match": "The accessible text gives homogeneous short-vector enumeration by Cholesky square completion and backtracking, then handles a target by translating about a lattice point and enlarging the radius. ED.1 adapts the identities to exact rational LDL and direct affine recentering; completeness includes the boundary, both signs and a zero translate. Independently read Fincke–Pohst (2.2)–(2.8), pp.464–465, confirms the quadratic-completion recursion and its boundary inclusion; the translated rational centre is an ED.1 adaptation."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.6, printed pp.51–53, Figure 2 and its affine-target extension",
-          "excerpt": "The output is a list of all lattice points",
           "match": "The accessible text gives homogeneous short-vector enumeration by Cholesky square completion and backtracking, then handles a target by translating about a lattice point and enlarging the radius. ED.1 adapts the identities to exact rational LDL and direct affine recentering; completeness includes the boundary, both signs and a zero translate. Independently read Fincke–Pohst (2.2)–(2.8), pp.464–465, confirms the quadratic-completion recursion and its boundary inclusion; the translated rational centre is an ED.1 adaptation."
         }
       ],
@@ -3865,8 +3821,7 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, Lemma 3.8 and following paragraph, printed p. 55",
-          "excerpt": "In case |Λ̃| ≤ C0 we have an upper bound for the length of the vector x. We compute all lattice points satisfying this bound by the algorithm of Fincke and Pohst, and check them for (3.1).",
-          "match": "The theorem is this case split, with K_0 = C_0. Quoted from the rendered page."
+          "match": "The theorem is this case split, with K_0 = C_0. The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4147,14 +4102,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, summary after Lemma 3.8, printed p. 55",
-          "excerpt": "Since we can actually prove by computations that such short vectors do not exist, it follows that such large solutions do not exist.",
-          "match": "The certificate is the data of that computation. Quoted from the rendered page."
+          "match": "The certificate is the data of that computation. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§III.2, printed p. 125",
-          "excerpt": "For each Γi we have applied the integral version of the L3-algorithm, and each time we have computed the integral 3 × 3-matrices",
-          "match": "The data of an LLL witness: the reduced basis and the unimodular transformation and its inverse. Quoted from the rendered page."
+          "match": "The data of an LLL witness: the reduced basis and the unimodular transformation and its inverse. The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4214,19 +4167,16 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.8, summary after Lemma 3.10, printed p. 59",
-          "excerpt": "We can actually prove by some computations that such lattice points do not exist, so that such extreme solutions do not exist.",
-          "match": "Statement of the exclusion principle in the inhomogeneous case. Quoted from the rendered page."
+          "match": "Statement of the exclusion principle in the inhomogeneous case. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§III.2, printed p. 126",
-          "excerpt": "It follows that A ≤ 10. We enumerated all remaining possibilities and found no other solutions of (2.1) and (2.2) than mentioned in the theorem.",
-          "match": "Two certificates followed by exhaustive enumeration of the box A ≤ 10. Quoted from the rendered page."
+          "match": "Two certificates followed by exhaustive enumeration of the box A ≤ 10. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1993-correction",
           "locator": "pp.241–242, corrected initial bound and both repaired reduction routes",
-          "excerpt": "the gap in the proof has been fixed",
           "match": "The source supplies the missing multiplicative factor and the alternate Baker–Wüstholz route that justifies the9.844×10^49 initial example bound."
         }
       ],
@@ -4351,13 +4301,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, (1.3)–(1.4), p. 107, and the definition of Λ, p. 105",
-          "excerpt": "denotes the principal value of the logarithm of z",
           "match": "TdW's linear forms have the coefficients log|·| (real case) and Arg(·) (complex case) of explicit algebraic numbers under complex embeddings; this node supplies their certified values. The surrounding display is garbled in the text layer and was read on the page image."
         },
         {
           "sourceId": "matveev-linear-forms-2000",
           "locator": "§2, (2.1), p. 1219",
-          "excerpt": "We consider the linear form (1.1) with b1 , . . . , bn ∈ Z and with the parameter B",
           "match": "Matveev's linear form (1.1) in fixed nonzero logarithms ln α_j, with hypothesis A_j ≥ |ln α_j| (2.1), needs a certified upper bound of |λ_j|; for the principal logarithm |λ| ≤ |Real.log ‖σα‖| + |Complex.arg σα| is bounded from these enclosures."
         }
       ],
@@ -4479,13 +4427,11 @@
         {
           "sourceId": "matveev-linear-forms-2000",
           "locator": "§2, Corollary 2.3 and (2.4), p. 1219",
-          "excerpt": "Corollary 2.3. Suppose that Λ = 0, Aj are given by (2.4), and B by (1.3). Then",
           "match": "Corollary 2.3 with C_1(n) = C_1(n, κ) = min{κ^{−1}(en/2)^κ 30^{n+3} n^{3.5}, 2^{6n+20}} and 'B may be replaced by B*'; the text layer drops the '≠' of 'Λ ≠ 0' and the formula layout, which were read on p. 1219 of the PDF. The certificate evaluates this constant in rational arithmetic."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.2, Lemma 2.3 and Appendix II, p. 110",
-          "excerpt": "Next we apply the following result of Waldschmidt [30] from the theory of linear forms in logarithms.",
           "match": "TdW use Waldschmidt's bound (Acta Arith. 37 (1980), their reference [30]) with constants C_7, C_8 computed in their Appendix II; this node replaces that input by Matveev's Corollary 2.3 (imported from DT.3) with C_7 := c and C_8 := 1."
         }
       ],
@@ -4525,7 +4471,6 @@
         {
           "sourceId": "matveev-linear-forms-2000",
           "locator": "§2, Corollary 2.3, p. 1219",
-          "excerpt": "where B may be replaced by B ∗ (see (1.4)).",
           "match": "The form with B* = max|b_j| is the one used here; the text-layer garbles the conclusion ln|Λ| > −C_1(n)D²Ω ln(eD) ln(eB), read on the page."
         }
       ],
@@ -4637,13 +4582,11 @@
         {
           "sourceId": "yu-p-adic-logarithms-1994",
           "locator": "§0.1, p. 242 (bound read on the page image; the text layer drops the displayed formulas)",
-          "excerpt": "Then as a simple consequence of our main result (see Section 0.2), we have",
           "match": "The display that follows is Ξ < Φ log(dB) with B = max(|b_1|, …, |b_n|, 3) and Φ = 22000(9.5(n+1)d/√log p)^{2(n+1)}(p^{f_𝔭} − 1)h_1⋯h_n log(10ndh′), h′ = max(h_n, 1) (Yu orders h_1 ≤ ⋯ ≤ h_n); Ξ = ord_𝔭(α_1^{b_1}⋯α_n^{b_n} − 1)."
         },
         {
           "sourceId": "yu-p-adic-logarithms-1994",
           "locator": "§0.1, p. 242",
-          "excerpt": "Observing pfp - 1 pd - 1 (since fp d), the factor p2 (in the case d 1)",
           "match": "Yu's own remark p^{f_𝔭} − 1 ≤ p^d − 1 (relation symbols lost in the text layer), used for the residue-degree bound."
         }
       ],
@@ -4683,7 +4626,6 @@
         {
           "sourceId": "yu-p-adic-logarithms-1994",
           "locator": "§0.1, p. 241",
-          "excerpt": "Denote by p a prime number and by p any prime ideal of the ring of integers in K, lying above p,",
           "match": "Yu's setting (the text layer prints 'p' for both p and 𝔭); the conclusion Ξ < Φ log(dB) is on p. 242."
         }
       ],
@@ -4820,19 +4762,16 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.3, p. 119 (text layer lines 8008–8048)",
-          "excerpt": "can be found from a basis of r . In practice this is very easy, especially",
           "match": "de Weger's lattice Γ*_μ of exponent vectors with |∏p_i^{x_i} ± 1|_p ≤ p^{−(μ+μ_0)}; 'r' is the OCR of Γ. The certificate defines the same kind of lattice through exact discrete logarithms."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.13, Lemma 3.17, p. 67 (text layer lines 4585–4671)",
-          "excerpt": "The equalities of the lattices for p ~ 2, 3 follow from the fact that ±1",
           "match": "de Weger compares the lattices defined by ord_p(log_p ξ), ord_p(ξ ± 1) and ord_p(ξ − 1); the index statements of Lemma 3.17(i) are not used here (see sourceIssues EffectiveDiophantineMethods/E6), because the certificate only needs the implication congruence ⇒ membership."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§12, Lemma 12, p. 249, and §14, (33), p. 258",
-          "excerpt": "This lemma is an easy consequence of the relation",
           "match": "TdW pass from ord_p(λ) to ord_p of the p-adic logarithmic form; for the norm-one elements of the quadratic case they use the automorphism property (33). The certificate replaces both by a cyclic discrete logarithm."
         }
       ],
@@ -4991,19 +4930,16 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, Proposition 3.1 and the remark after it, p. 114",
-          "excerpt": "If necessary we can repeat this process with the new upper bound in place of",
           "match": "The iteration of the reduction step; Proposition 3.2 (inhomogeneous case) is iterated in the same way (p. 115)."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.5, pp. 124–125 (text layer lines 8440–8442)",
-          "excerpt": "with length below this bound can be computed by the algorithm of Fincke and Pohst, as given in Section 3.6. Then all solutions of (6.2) corresponding to lattice points can be selected.",
           "match": "Step type (c): enumeration of the remaining lattice points with recorded candidates, followed by lowering the bound f(p)."
         },
         {
           "sourceId": "fincke-pohst-1985",
           "locator": "§2, after Algorithm (2.12), p. 466",
-          "excerpt": "The algorithm can easily be modified such that it computes all solutions x of",
           "match": "The Fincke–Pohst enumeration of all lattice points in an ellipsoid, certified in ED.1 (short-vector-enumeration-complete); the chain only consumes ED.1's completeness theorem."
         }
       ],
@@ -5126,13 +5062,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, (1.1), p. 102",
-          "excerpt": "be a binary form of degree n > 3 and let m be a nonzero integer. Consider the Thue equation",
           "match": "The text layer prints '>' for '≥'; Tzanakis–de Weger reduce to irreducible F of degree ≥ 3 and assume a real root, which this definition does not need (the case s = 0 is covered by ED.2/thue-root-approximation, whose argument is that of the proof of Lemma 1.1; Tzanakis–de Weger assume s ≥ 1 and refer to [6] for s = 0)."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, p. 102",
-          "excerpt": "Therefore we may assume from now on that F is irreducible over Q and of degree L 3.",
           "match": "Irreducibility and degree ≥ 3 are the hypotheses of the definition ('L 3' is the text layer's '≥ 3')."
         }
       ],
@@ -5269,13 +5203,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, p. 106",
-          "excerpt": "We simply assume that a system of fundamental units is known.",
           "match": "Tzanakis–de Weger take fundamental units and a complete set of non-associates as inputs; the covering states exactly which properties the certificate needs and how they are discharged."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, p. 106",
-          "excerpt": "known. On the other hand, there exist only finitely many nonassociates",
           "match": "TdW write 'finitely many nonassociates μ_i in K such that f_0·N(μ_i) = m'; read literally in K this is false (K has infinitely many non-associate elements of any norm), and the intended meaning is condition (M) for the integral elements f_0μ."
         }
       ],
@@ -5445,13 +5377,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, Lemma 1.1, p. 103; Lemma 1.2, p. 105; §II.2, Lemmas 2.1–2.2, pp. 107–110",
-          "excerpt": "follows from Lemma 1.1 below. This lemma shows that if 1YI is large enough then",
           "match": "The constants Y_0, Y_1, C_1, C_2 (Lemma 1.1), C_3, Y_1* (Lemma 1.2), μ_±, C_4, C_5 (Lemma 2.1), C_6, Y_2′ (Lemma 2.2); formulas read on the page images (the text layer garbles them, e.g. '1YI' for |Y|)."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.2, proof of Lemma 2.1, p. 109",
-          "excerpt": "and the fact that, as we have not put so far any restriction on I, this could be chosen so that",
           "match": "The choice of I in the proof of Lemma 2.1, which is why C_5 combines a minimum and a maximum over I."
         }
       ],
@@ -5510,13 +5440,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, Lemma 1.1 and its proof, pp. 103–104",
-          "excerpt": "from a well-known theorem on continued fractions (see, e.g., Hardy and",
           "match": "Lemma 1.1(ii) via Hardy–Wright Theorem 184; the statement (i), (ii) was read on the page image (the text layer garbles the formulas)."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, p. 103",
-          "excerpt": "They will be proved not to exist by the theory of linear forms in logarithms.",
           "match": "The class (IV) of 'very large' solutions; Lemma 1.1 is the entry to the classification into four classes."
         }
       ],
@@ -5563,19 +5491,16 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, (1.2) and Lemma 1.2, pp. 105–106",
-          "excerpt": "denotes the principal value of the logarithm of z",
           "match": "Definition of Λ in the real and complex cases and Lemma 1.2 |Λ| < 1.39·C_1C_3/C_2·|Y|^{−n} (formulas read on the page images)."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, (1.3)–(1.4), p. 107",
-          "excerpt": "is a linear form in (principal) logarithms",
           "match": "The linear forms (1.3) and (1.4); the coefficient a_0 of 2π in the complex case."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.2, proof of Lemma 2.4, p. 110",
-          "excerpt": "Therefore Lemmas 2.2 and 2.3 yield",
           "match": "Nonvanishing: 'Note that β^{(i_0)} ≠ 0. Hence (1.2) implies Λ ≠ 0' (read on the page image; this sentence is garbled in the text layer) precedes these words."
         }
       ],
@@ -5617,7 +5542,6 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.2, Lemmas 2.1–2.2 and proof, pp. 107–110",
-          "excerpt": "and the fact that, as we have not put so far any restriction on I, this could be chosen so that",
           "match": "Lemma 2.1 A < C_5 log(C_4|Y|) and Lemma 2.2 |Λ| < C_6 exp(−(n/C_5)A); the displayed formulas were read on the page images. The orientation of U_I follows (2.1), not the sentence after the definition of U_I (sourceIssues EffectiveDiophantineMethods/E5)."
         }
       ],
@@ -5669,13 +5593,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.2, Lemmas 2.3–2.4, p. 110",
-          "excerpt": "The result now follows from Petho and de Weger [20] (Lemma 2.3).",
           "match": "Lemma 2.4 A < C_9; TdW's Lemma 2.3 is Waldschmidt's bound, replaced here by the imported Matveev bound with certified constant."
         },
         {
           "sourceId": "matveev-linear-forms-2000",
           "locator": "§2, Corollary 2.3, p. 1219",
-          "excerpt": "where B may be replaced by B ∗ (see (1.4)).",
           "match": "The imported lower bound (DT.3/matveev-corollary-linear-form-bound) used with B* ≤ (r + 2)max(1, A)."
         }
       ],
@@ -5721,13 +5643,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, (3.1), p. 111",
-          "excerpt": "We are now left with a problem of the following type.",
           "match": "The reduction problem |Λ| < K_1 exp(−K_2A), A < K_3 (3.1) with K_1 = C_6, K_2 = n/C_5, K_3 = C_9; Propositions 3.1 (homogeneous) and 3.2 (inhomogeneous) on pp. 114–115 are the ED.1 reduction theorems."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, p. 118",
-          "excerpt": "corresponding A as follows (the idea is due to A. Petho; cf. also Section 1",
           "match": "The bound |Y| ≤ μ_+(E_{j_1}^A + E_{j_2}^A)/|ξ^{(j_1)} − ξ^{(j_2)}| relating A and |Y|, used here in the direction 'A small ⇒ |Y| small'."
         }
       ],
@@ -5773,13 +5693,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, (3.7)–(3.8), pp. 117–118",
-          "excerpt": "Pohst method, and to use continued fractions of the roots",
           "match": "The search with a rational approximation ξ̃ satisfying |ξ̃ − ξ^{(i_0)}| < 1/(6C²) (3.7); the bound 1/(2q_k²) for ξ̃ is derived on p. 117."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, p. 118",
-          "excerpt": "excludes in general most of the reducible quotients X/Y, and all of them if",
           "match": "The scaling X = Z·p_i, Y = Z·q_i with Z^n ∣ m."
         }
       ],
@@ -5881,7 +5799,6 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, p. 103",
-          "excerpt": "the “very small” solutions, with ) YI < Y,. They will be found by enumeration of all possibilities.",
           "match": "Class (I) of Tzanakis–de Weger (|Y| ≤ Y_1, 'Y,' and ') YI' are the text layer's Y_1 and |Y|); the Cauchy bound makes 'enumeration of all possibilities' a finite exhaustive search."
         }
       ],
@@ -6044,13 +5961,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, pp. 117–118",
-          "excerpt": "To sum up, we propose the following process for every real root",
           "match": "The final procedure: approximations of the real roots, continued fractions, tests F(p_i, q_i) = m; together with the reduction of §II.3 and the four classes of p. 103 it is the content of the certificate."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.1, p. 103",
-          "excerpt": "They will be proved not to exist by the theory of linear forms in logarithms.",
           "match": "Class (IV); classes (I)–(III) are described in the same list on p. 103."
         }
       ],
@@ -6126,13 +6041,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "Abstract, p. 99",
-          "excerpt": "This paper gives in detail a practical general method for the explicit deter-",
           "match": "The method made into a theorem: a valid certificate determines the solution set exactly."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.2, Remark after Lemma 2.4, p. 111",
-          "excerpt": "can be treated completely in a finite number of steps.",
           "match": "TdW's remark that the bound for A gives a finite search; the certificate realises the search with reduced bounds."
         }
       ],
@@ -6266,13 +6179,11 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§1, (1)–(2), p. 223",
-          "excerpt": "is a given irreducible binary form in Z[X, Y] of degree n &#x3E; 3, the other",
           "match": "The equation F(X, Y) = c·p_1^{z_1}⋯p_v^{z_v}; the text layer prints '&#x3E;' for '≥'. The normalisation (X, Y) = (Y, f_0) = 1 is TdW's (2)."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§2, pp. 225–226",
-          "excerpt": "Note that we do not need the class number of K.",
           "match": "The passage to x = f_0X, y = Y, θ = f_0ξ and the inputs (an order containing θ, its fundamental units)."
         }
       ],
@@ -6323,13 +6234,11 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§5, Lemma 1 and its corollaries, pp. 230–233",
-          "excerpt": "number of prime ideals to be considered is at most v. Therefore we may call the",
           "match": "Lemma 1 (i), (ii), the first, second and third corollaries and their proofs, read on the page images (the formulas (5)–(8) are lost in the text layer)."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§6, (9), p. 233",
-          "excerpt": "Lemma, (3) implies a finite number of ideal equations of the form",
           "match": "The ideal equation (x − yθ) = 𝔞𝔟𝔭_1^{u_1}⋯𝔭_v^{u_v} with N𝔞 = f_0^{n−1}c."
         }
       ],
@@ -6467,7 +6376,6 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§6, (10)–(11), p. 234",
-          "excerpt": "not essential. Note that the finite number of equations (9) leads to a finite",
           "match": "The passage from the ideal equations (9) to the element equations (11) x − yθ = α ε_1^{a_1}⋯ε_r^{a_r} π_1^{n_1}⋯π_v^{n_v} with z_i = n_ih_i + s_i + t_i (10)."
         }
       ],
@@ -6538,25 +6446,21 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§8, Theorem 5, pp. 237–238",
-          "excerpt": "adic units; hence 03B41 is a pl-adic unit as well. Applying Yu’s theorem (see",
           "match": "Theorem 5: n_l ≤ c_10(log H + c_11) from Yu's theorem applied to (12); '03B41' is the text layer's δ_1."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§9, Lemma 6, Cases 1–2 and Proposition 7, pp. 238–241",
-          "excerpt": "Our aim is to bound A from above by a linear function of H.",
           "match": "Cases 1 and 2 and Proposition 7 with the constants c′_17, c′′_17 read on the page images (see sourceIssues EffectiveDiophantineMethods/E9)."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§11, Theorem 10, p. 247",
-          "excerpt": "for fully explicit constants c’, c\" with c\" &#x3E; e2. Then apply Lemma 2.2 of [PW].",
           "match": "The final step from H < c′ + c″ log H to an explicit bound; replaced here by DT.4/log-linear-inequality-bound."
         },
         {
           "sourceId": "tzanakis-de-weger-1993-correction",
           "locator": "pp.241–242, corrected initial bound and both repaired reduction routes",
-          "excerpt": "the gap in the proof has been fixed",
           "match": "The source supplies the missing multiplicative factor and the alternate Baker–Wüstholz route that justifies the9.844×10^49 initial example bound."
         }
       ],
@@ -6602,19 +6506,16 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15, Lemma 14 and Proposition 15, pp. 260–262",
-          "excerpt": "an optimal balance between the various upper bounds for the different variables.",
           "match": "The p-adic lattice Γ_m with weights W_j and Proposition 15: if l(Γ_m, y) > √Q then n_i < (m − l_i)/h_i."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§16, Proposition 16, p. 265",
-          "excerpt": "Now we have the following result, which is the real analogue of Proposition 15.",
           "match": "The real reduction; the complex case raises the lattice dimension by one."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§17, pp. 267–271",
-          "excerpt": "tested, we can conclude that apart from a few explicitly known ones, the",
           "match": "Fincke–Pohst refinement with candidate tests: an enumeration step of the chain."
         }
       ],
@@ -6654,7 +6555,6 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§18, (38), pp. 275–276",
-          "excerpt": "then, and only then, this tuple is tested further, e.g. directly for (11), or by",
           "match": "The sieve with auxiliary primes q having three degree-one prime ideals; only tuples satisfying all congruences (38) are tested further."
         }
       ],
@@ -6821,7 +6721,6 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§17, p. 271",
-          "excerpt": "It is not guaranteed that all candidate solutions that pass this test are",
           "match": "Candidates passing the cheap tests are tested exactly; the certificate's acceptance test is the exact one."
         }
       ],
@@ -6893,13 +6792,11 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§17, p. 269",
-          "excerpt": "tested, we can conclude that apart from a few explicitly known ones, the",
           "match": "After the candidates found by the Fincke–Pohst step are tested, all solutions except explicitly known ones satisfy the reduced bound for n_i: the enumeration step with exceptional tuples that are tested exactly."
         },
         {
           "sourceId": "yu-p-adic-logarithms-1994",
           "locator": "§0.1, p. 242",
-          "excerpt": "Then as a simple consequence of our main result (see Section 0.2), we have",
           "match": "The p-adic source registered separately: its bound Ξ < Φ log(dB) supplies the initial bound only through the certified constant."
         }
       ],
@@ -7023,13 +6920,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.1, (6.1), p. 115",
-          "excerpt": "Without loss of generality we may assume that x, y, z are relatively prime.",
           "match": "de Weger's equation x + y = z in S-integers; the set of this node contains his solutions as (x/z, y/z)."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.1, p. 115",
-          "excerpt": "Let S be the set of all positive integers composed of primes from a fixed",
           "match": "de Weger's S is the multiplicative set of S-integers; here S denotes the set of primes and U_S the S-unit group."
         }
       ],
@@ -7073,13 +6968,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.2, p. 116",
-          "excerpt": "We give in this section an upper bound for the solutions of (6.1), based on",
           "match": "de Weger's Theorem 6.1 bounds m(xyz) ≤ C_8 using Yu's p-adic bound and Waldschmidt's archimedean bound; the node uses the purely p-adic route of DT.4/s-unit-equation-exponent-bound with Yu's 1994 constant certified here."
         },
         {
           "sourceId": "yu-p-adic-logarithms-1994",
           "locator": "§0.1, p. 242",
-          "excerpt": "Then as a simple consequence of our main result (see Section 0.2), we have",
           "match": "The p-adic source, registered separately: the bound Ξ < Φ log(dB) evaluated with d = 1."
         }
       ],
@@ -7124,13 +7017,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.3, (6.5)–(6.6), p. 119",
-          "excerpt": "then (6.2) has no solutions with",
           "match": "de Weger: if ℓ(Γ*_μ) > √(s − 1)·X_1 then (6.2) has no solutions with μ + μ_0 ≤ ord_p(z) ≤ m(xyz) ≤ X_1; the lattice here is the discrete-logarithm lattice, which contains every exponent vector with ord_p(z) ≥ t (t = M + 1 for odd p, t = M + 2 for p = 2) (formulas read on the page image)."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.5, p. 124",
-          "excerpt": "the above tab le , we followed the following procedure. Suppose that we are at",
           "match": "The iterated sieve with bounds f(p): choose p and μ, enumerate the lattice points, select the solutions, lower f(p)."
         }
       ],
@@ -7280,13 +7171,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.5, p. 125",
-          "excerpt": "can be found by hand.",
           "match": "de Weger finishes the search by hand once f(2) = 4 and f(p) = 1 otherwise; the certificate replaces this by the exhaustive enumeration of the residual box."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, §6.5, pp. 124–125",
-          "excerpt": "with length below this bound can be computed by the algorithm of Fincke and Pohst, as given in Section 3.6. Then all solutions of (6.2) corresponding to lattice points can be selected.",
           "match": "The enumeration steps, whose output is the exceptional list E."
         }
       ],
@@ -7356,13 +7245,11 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 6, Theorem 6.3, p. 123",
-          "excerpt": "has exactly 545 solutions. Of them, 514 satisfy",
           "match": "de Weger's result for S = {2, 3, 5, 7, 11, 13} (x + y = z, (x, y) = 1, x ≤ y): the type of statement this theorem certifies."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Chapter 7, proof of Lemma 7.3, p. 138",
-          "excerpt": "has exactly 63 solutions. They are easy to compute.",
           "match": "For S = {2, 3, 5, 7}: a + b = c, (a, b) = 1, a ≥ b has exactly 63 solutions, deduced from Theorem 6.3; the worked example belongs to ED.6."
         }
       ],
@@ -7430,13 +7317,11 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, proof of Lemma 3, p. 16 (arXiv v1)",
-          "excerpt": "The multiplication-by-2 map on J(Qp) is an n-to-1 map onto its image, where n = #J(Qp)[2], and locally it multiplies Haar measure",
           "match": "The genus-two (dimension 2) form of the count, giving |2|_p^{-2}; the node is the dimension-one case, proved through the finite-index subgroup ≅ ℤ_p instead of Haar measure."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.3, p. 69",
-          "excerpt": "Using the fact that E(R) is isomorphic either to the circle group S 1 (when ∆ < 0) or to",
           "match": "The sentence continues: or to S¹ × C₂ (when Δ > 0). This gives the real count #E(ℝ)/2E(ℝ) = 1 or 2; the node proves it by the explicit sign description instead."
         }
       ],
@@ -7496,13 +7381,11 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§5, diagram (6) and the sentence after it, p. 12 (arXiv v1)",
-          "excerpt": "into the image of J(Qp) under x − T. The latter is something that can be calculated, and this will give bounds on the size of J(Q)/ ker(x − T).",
           "match": "The same local images for the genus-two x − T map; the node is the elliptic instance with certified coordinates."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, Lemma 4 and proof, p. 17 (arXiv v1)",
-          "excerpt": "For p = 2, we have 881 ≡ 1 (mod 8), so Hensel’s Lemma implies that (2, √881) is in C(Q2).",
           "match": "A local point certified by a rational abscissa and a congruence modulo 8, as in (iii)."
         }
       ],
@@ -7638,13 +7521,11 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, proof of Lemma 4, p. 17 (arXiv v1)",
-          "excerpt": "(Fix a square root.) Thus it will suffice to show that 2 − T",
           "match": "The sentence ends: 2 − T ∉ L₂^{×2}ℚ₂^×. One nontrivial class suffices there because the target order 2 was computed first (Table 4); this is the size check."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, proof of Lemma 3, p. 16 (arXiv v1)",
-          "excerpt": "Hence the measure of 2J(Qp) is |2|2p /n times the measure of J(Qp), so #J(Qp)/2J(Qp) = |2|−2 p · #J(Qp)[2]",
           "match": "Extraction flattens the exponents |2|_p^2 and |2|_p^{-2}."
         }
       ],
@@ -7691,13 +7572,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, Checking local solubility, p. 80",
-          "excerpt": "if p is an odd prime not dividing the discriminant of g, then H certainly has points modulo p which are nonsingular and hence lift to p-adic points.",
           "match": "The quartic-model form of the statement; the node states it for the x − T local condition and proves it by counting."
         },
         {
           "sourceId": "aitken-lemmermeyer-2011",
           "locator": "Appendix B, Theorem 5, p. 17 (arXiv v1)",
-          "excerpt": "The system (12) is p-locally solvable for all primes p ∤ 2acd(b2 − 4ac).",
           "match": "The same automatic local solubility for the 2-isogeny quartics; extraction drops the superscript in b²."
         }
       ],
@@ -7745,25 +7624,21 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, Method 2, p. 90",
-          "excerpt": "The equivalence classes of everywhere locally soluble quartics with invariants I and J form a finite elementary abelian 2-group, isomorphic to the 2-Selmer group S (2) (E/Q).",
           "match": "Cremona computes the same group through quartics; the node computes it inside A^×/A^{×2} with Tau Ceti's x − T map."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§5, Proposition 3, p. 11 (arXiv v1)",
-          "excerpt": "The image of the map (x − T ) on J(Q) is contained in the subgroup H of L∗ /L∗2 Q∗ .",
           "match": "The genus-two analogue of A(S,2) ∩ ker N (with the extra quotient by ℚ^× needed for even degree)."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, Lemma 1 and proof, pp. 15–16 (arXiv v1)",
-          "excerpt": "The images of the 8 elements listed in Table 3 in L∗ /L∗2 are a basis for the F2 -vector space G.",
           "match": "The basis of the S-unramified classes, computed from the class number 1 and the unit group, which the CN.2 certificate supplies."
         },
         {
           "sourceId": "cremona-ecdata-571a1",
           "locator": "allcurves/allcurves.00000-09999, line2591, row571 a1",
-          "excerpt": "571 a 1 [0,-1,1,-929,-10595] 0 1",
           "match": "Identifies the actual model, rank0 and torsion order1; the Selmer order4 comes from Cremona III p.91, not this data row. The explicit characteristic-≠2 normal-form transport is checked algebraically in the revision."
         }
       ],
@@ -7933,7 +7808,6 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 91",
-          "excerpt": "As in the case of descent via 2-isogeny, Galois cohomology gives an exact sequence 0 → E(Q)/2E(Q) → S (2) (E/Q) → X(E/Q)[2] → 0.",
           "match": "The cohomological identification is EllipticCurves Layer 7's; the node proves the explicit equality with Tau Ceti's selmerGroup₂."
         }
       ],
@@ -7979,7 +7853,6 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 79",
-          "excerpt": "if this has order 2t then the rank of E(Q) is t, t − 1 or t − 2 according to whether the number of points of order 2 in E(Q) is 0, 1 or 3",
           "match": "Stated for the image of E(ℚ)/2E(ℚ); with the Selmer group in place of the image it becomes the upper bound of the node."
         }
       ],
@@ -8024,13 +7897,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, Checking local solubility, pp. 80–82",
-          "excerpt": "Given xk modulo pk , one tries to lift to a p-adic point (x, y) with x ≡ xk (mod pk ). In [3], conditions are given for this to be possible",
           "match": "The node transcribes the pseudocode on pp. 81–82 exactly (lemma6, lemma7)."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, footnote 6, p. 80",
-          "excerpt": "In fact, if k > ordp (disc(g)), and also k ≥ 2 when p = 2, then the third possibility cannot occur in algorithms lemma6 and lemma7.",
           "match": "Gives the fuel bound."
         }
       ],
@@ -8144,13 +8015,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 80",
-          "excerpt": "All this is an exercise in Hensel’s Lemma; the prime p = 2 needs to be considered separately.",
           "match": "Correctness of the transcribed routine."
         },
         {
           "sourceId": "aitken-lemmermeyer-2011",
           "locator": "Appendix B, Lemma 14, p. 17 (arXiv v1)",
-          "excerpt": "Let p be a prime not dividing 2ac(b2 − 4ac) where a, b, c ∈ Z. If f (T ) = aT 4 + bT 2 + c has a root modulo p, then f has a root in Zp .",
           "match": "The lifting step at good odd primes for even quartics."
         }
       ],
@@ -8191,13 +8060,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, Method 1, p. 84",
-          "excerpt": "Then it is not hard to show by rather explicit calculation (see below and the references given) that E(Q)/φ 0 (E 0 (Q)) is isomorphic to the subgroup of Q∗ /(Q∗ )2 generated by the factors d1",
           "match": "Defines E′, φ, φ′ and H(d₁, c, d₂); extraction loses primes and superscripts."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 85",
-          "excerpt": "The point P = (0, 0) maps to d modulo squares. Conversely, if (u, v) is a rational point on H(d1 , c, d2 ) then (x, y) = (d1 u2 , d1 uv) is a rational point on E.",
           "match": "The map α and its inverse on homogeneous spaces."
         }
       ],
@@ -8327,13 +8194,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 84",
-          "excerpt": "It then follows (see below) that (3.6.2) rank(E(Q)) = rank(E 0 (Q)) = e1 + e01 − 2.",
           "match": "Extraction renders E′ as 'E 0' and e₁′ as 'e01'."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 85",
-          "excerpt": "Local solubility of H(d1 , c, d2 ) is automatic for all primes p which do not divide 2dd0 ; for those p which do divide 2dd0 we may apply the general criteria of Birch and Swinnerton-Dyer.",
           "match": "Restricts the local tests to the places dividing 2dd′."
         }
       ],
@@ -8379,13 +8244,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Chapter III, Proposition 3.5.1, printed p.77 (PDF chapter page16), footnote3",
-          "excerpt": "our ĥ is double Silverman’s",
           "match": "Divide the displayed height difference, μ(E),1.922 and2.14 by two to use pinned Tau Ceti canonicalHeight; the 1.922 constant is the Bremner correction recorded in footnote3."
         },
         {
           "sourceId": "silverman-1990",
           "locator": "Theorem1.1 and Remark1.2, printed p.725; §3 local/global normalization, pp.727–728",
-          "excerpt": "The difference between the Weil height and the canonical height",
           "match": "The primary theorem supplies μ_S and constants0.973/1.07 in absolute normalization. This separately omitted interface uses pinned relative heights divided by [K:Q]."
         }
       ],
@@ -8453,13 +8316,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.4, p. 71",
-          "excerpt": "Now the canonical height may be defined as ĥ(P ) = limn→∞ 4−n h(2n P ), but this is not practical for computational purposes.",
           "match": "The node certifies the limit with an explicit error from the height-difference bound; Cremona's normalisation is twice Tau Ceti's and the node uses Tau Ceti's."
         },
         {
           "sourceId": "silverman-1990",
           "locator": "§7 (examples), and abstract, p. 723",
-          "excerpt": "We illustrate one use for our estimate by computing generators for the Mordell-Weil group in three examples.",
           "match": "The explicit bound is used exactly to turn heights into certified finite searches."
         }
       ],
@@ -8577,7 +8438,6 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.5, p. 76",
-          "excerpt": "If the determinant of this new matrix is non-zero, the new point is independent of the previous ones and we add it to the current list of generators",
           "match": "The certified version replaces 'non-zero' by a positive lower endpoint of an interval enclosure."
         }
       ],
@@ -8617,7 +8477,6 @@
         {
           "sourceId": "siksek-1995",
           "locator": "Author preprint, §5 Example5.1, p.19; §1 Theorem1.2, p.2",
-          "excerpt": "Example 5.1",
           "match": "The finite naive-height search excludes small nonzero canonical heights by the explicit difference bound. The source uses full x-height; ED.3 uses half, so halve the source canonical bound and error. Source decimals illustrate the route and are not replayed certificates."
         }
       ],
@@ -8697,7 +8556,6 @@
         {
           "sourceId": "siksek-1995",
           "locator": "Author preprint, §3 equation(27), pp.14–15; Lemmas3.1–3.2, pp.15–16; Theorem3.1, p.16",
-          "excerpt": "Theorem 3.1.",
           "match": "The source proves the full-rank index bound. Its same positive-definite lattice proof applies to the saturated rational span of r independent points, even when the ambient Mordell–Weil rank is larger. The printed strict lower bound may be weakened to ≥λ because the proof only uses λ≤height(Q). Under height scaling by1/2, R scales by2⁻ʳ and λ by1/2, leaving the index bound unchanged. Lemma3.1 allows the stated Minkowski constant in every positive dimension."
         }
       ],
@@ -8736,8 +8594,7 @@
         {
           "sourceId": "siksek-1995",
           "locator": "Author preprint, §4 opening, p.17, equation(39)",
-          "excerpt": "not divisible by p",
-          "match": "The source identifies absence of nontrivial p-division of a full-rank free sublattice with p not dividing its index. The node proves the general additive-group reformulation via p-torsion of A/G, and explicitly includes A[p]⊆G for groups with torsion; this generality is the displayed elementary proof, not an attributed verbatim source theorem."
+          "match": "The source identifies absence of nontrivial p-division of a full-rank free sublattice with p not dividing its index. The node proves the general additive-group reformulation via p-torsion of A/G, explicitly including A[p]⊆G when A has torsion; that additional generality is established by the packet’s elementary proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8853,13 +8710,11 @@
         {
           "sourceId": "siksek-1995",
           "locator": "Author preprint, §4.1, pp.17–18, V_p and equation(40)",
-          "excerpt": "good reduction",
           "match": "The source includes a basis of torsion modulo p and tests p-divisibility through finite-field reductions. Independent relations kill V_p. The initial cyclic p-Sylow restriction is removed on p.18 by computing the general p-Sylow group. ED.3 states only the sufficient injectivity criterion; it does not assert that reductions always certify saturation. No §4.2 floating-point lattice-membership heuristic is used."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8, proof of Lemma 6, p. 19 (arXiv v1)",
-          "excerpt": "Since J(F3 ) is a cyclic group of size 9 generated",
           "match": "The sentence continues (rendered page): by D̃, the reduction of D mod 3, we find that D̃ ∉ 3J(𝔽₃), from which it follows that D ∉ 3J(ℚ). An instance with one reduction map."
         }
       ],
@@ -8901,7 +8756,6 @@
         {
           "sourceId": "stoll-2008",
           "locator": "§3, proof of Lemma 4, p. 8 (arXiv v2)",
-          "excerpt": "looking at the image of ΦS , we see that the degree 0 subgroup of Z10 surjects onto (Z/3Z)3 . Since we know that there is no torsion in J(Q), this implies that the rank of the image",
           "match": "The node abstracts this argument."
         }
       ],
@@ -8942,19 +8796,16 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.3, Propositions 3.3.1–3.3.2, pp. 69–70",
-          "excerpt": "If P = (x1 , y1 ) has finite order in E(Q) then either y1 = 0 or y12 | ∆0 , where ∆0 = 27c2 + 4a3 c + 4b3 − a2 b2 − 18abc.",
           "match": "Extraction flattens the exponents (y₁², c², a³, b³, a²b²)."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, Proposition 6, p. 15 (arXiv v1)",
-          "excerpt": "For any prime p of good reduction for J, the reduction mod p map from J(Q) to J(Fp ) is injective on torsion.",
           "match": "As used there with p = 3, 5 (odd primes; at p = 2 only odd torsion injects)."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3, proof of Lemma 4, p. 8 (arXiv v2)",
-          "excerpt": "We know that the prime-to-p torsion in J(Q) injects into J(Fp ) for primes of good reduction",
           "match": "Form (a) of the node."
         }
       ],
@@ -9001,19 +8852,16 @@
         {
           "sourceId": "siksek-2010",
           "locator": "§5, p. 10 (arXiv:1010.2603v2)",
-          "excerpt": "Let L0 be a subgroup of J(K) of finite index containing the free subgroup L generated by D1 , . . . , Dr of the previous section.",
           "match": "The object consumed by Chabauty and the Mordell–Weil sieve when the index is known only to be prime to given primes."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§5, pp. 10–11 (arXiv:1010.2603v2)",
-          "excerpt": "The usual p-saturation method [48], [49], [33] shows how to enlarge L0 so that its index",
           "match": "The sentence continues: in J(K) is not divisible by any given small prime p. The coprimality field of the certificate."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§1, p. 2 (arXiv v2)",
-          "excerpt": "The methods used here should be applicable in other cases as well, provided • we can find a finite-index subgroup of the Mordell-Weil group,",
           "match": "The interface the certificate packages."
         }
       ],
@@ -9133,13 +8981,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.5, p. 75",
-          "excerpt": "Even when we know the rank r in advance, we do not stop as soon as we have a subgroup A of rank r, since A might still have finite index in E(Q)/T .",
           "match": "The node certifies the closing of that gap."
         },
         {
           "sourceId": "siksek-1995",
           "locator": "Author preprint, §4 opening, p.17, finite prime/index criterion",
-          "excerpt": "upper bound",
           "match": "The upper bound makes the prime checks finite. Eliminating every p≤bound proves index1 by elementary finite-index arithmetic. The node does not use §4.2 floating-point membership recognition or its projective enumeration. Rank0 needs complete torsion and rank0, without a positive-dimensional Hermite constant."
         }
       ],
@@ -9186,19 +9032,16 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§5, Proposition 2, p. 10 (arXiv v1)",
-          "excerpt": "The map (x − T ) is a well-defined map from J(K) to the kernel of the norm from",
           "match": "The target is the kernel of the norm from L_K^×/L_K^{×2}K^× to K^×/K^{×2}; the extraction garbles the groups."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§5, Proposition 5, p. 12 (arXiv v1)",
-          "excerpt": "Then the index of 2J(K) in ker(x − T ) is 1 if f (x) has a zero in K, or if there is some Gal(K sep /K)-stable partition of the six zeros into two indistiguished 3-element subsets",
-          "match": "Quoted with the source's spelling."
+          "match": "Gives the index-one criterion for 2J(K) inside ker(x−T), using either a K-rational root of f or a Galois-stable unordered partition of its six roots into two subsets of size three."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, proof of Lemma 3, p. 16 (arXiv v1)",
-          "excerpt": "locally it multiplies Haar measure by |2|2p since J(Qp ) is a 2-dimensional Lie group over Qp",
           "match": "Part (d); exponents flattened by extraction."
         }
       ],
@@ -9241,25 +9084,21 @@
         {
           "sourceId": "aitken-lemmermeyer-2011",
           "locator": "§6, Example 3, p. 12 (arXiv v1)",
-          "excerpt": "Lind and Reichardt’s example, the first known counterexample to the Hasse principle, is the following special case of Theorem 4: U 2 − 17W 2 = 2Z 2 , U W = V 2.",
           "match": "Theorem 4 gives local solubility everywhere and no global solution."
         },
         {
           "sourceId": "aitken-lemmermeyer-2011",
           "locator": "§7, Lemma 11, p. 14 (arXiv v1)",
-          "excerpt": "Then the system (11) has a nontrivial R-solution if and only if (10) has a nontrivial R-solution.",
           "match": "Transfers solubility between the system and the quartic X⁴ − 17Y⁴ = 2Z²."
         },
         {
           "sourceId": "aitken-lemmermeyer-2011",
           "locator": "Appendix B, pp. 16–17 (arXiv v1)",
-          "excerpt": "In that case, (12) represents an element of order 2 of the Tate–Shafarevich group XE of the elliptic curve E defined by the equation y 2 = x3 − 2bdx2 + (b2 − 4ac)d2 x.",
           "match": "With a = 1, b = 0, c = −17, d = 2 the formula gives y² = x³ + 272x; the printed specialisation 'y² = x³ − 2⁴17x' has the wrong sign (sourceIssue EffectiveDiophantineMethods/E10)."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 79",
-          "excerpt": "Quartics with no global rational point which are everywhere locally soluble arise from non-trivial elements in the Tate–Shafarevich group of E (or of E 0 )",
           "match": "The descent interpretation of the torsor."
         }
       ],
@@ -9299,13 +9138,11 @@
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 86",
-          "excerpt": "c = 36861504658225 and d = 1807580157674409809510400 = 215 · 34 · 52 · 72 · 17 · 23 · 29 · 41 · 103 · 113 · 127 · 809,",
           "match": "Exponents flattened by extraction (2¹⁵·3⁴·5²·7²)."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, p. 87",
-          "excerpt": "Working with the isogenous curve, we obtain n01 = n02 = 128 after only searching six homogeneous spaces for points. Thus e1 = 8, e01 = 7 and the rank is 13.",
           "match": "n₁′ = n₂′ = 128; the upper-bound half is certified by quartic-local-solubility, a transcription of Cremona's pseudocode."
         }
       ],
@@ -9346,19 +9183,16 @@
         {
           "sourceId": "poonen-1998",
           "locator": "§1, p. 4 (arXiv:math/9512217v1)",
-          "excerpt": "The conductor of each elliptic curve is small (never more than 40) and the rank is always zero (luckily), so there is no difficulty in listing the rational points in these cases.",
           "match": "Poonen cites Cremona's tables for rank zero; the node replaces the citation by certificates."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§3, pp. 10–11 (arXiv:math/9512217v1)",
-          "excerpt": "The elliptic curve E17 is curve 17A4 in [8] (17A in [1]), and E17 (Q) = {O, (0, 0), (1, −1), (0, −1)}.",
           "match": "Lists for E15, E17, E24, E40 and E11 are on pp. 9–12."
         },
         {
           "sourceId": "cremona-1997",
           "locator": "Ch. III, §3.6, pseudocode 'Algorithm for computing rank: rational 2-torsion case', p. 87",
-          "excerpt": "ELSE s2 = a1*a1+4*a2; s4 = 8*(a1*a3+2*a4); s6 = 16*(a3*a3+4*a6)",
           "match": "The model change used for E15 and E17."
         }
       ],
@@ -9400,19 +9234,16 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§7, Theorem 3 and proof, p. 18 (arXiv v1)",
-          "excerpt": "By Proposition 5, 2J(Q) has index 2 in ker(x − T ), so by Lemma 5, we have #J(Q)/2J(Q) = 2.",
           "match": "The rank computation."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8, Lemma 6, p. 19 (arXiv v1)",
-          "excerpt": "We have J(Q) = hEi, for some E ∈ J(Q) of infinite order, and D = k·E",
           "match": "The statement ends 'with 3 ∤ k' on the rendered page; the extraction prints '36 | k'."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§1, p. 3 (arXiv v1)",
-          "excerpt": "Version 1.39 of PARI assumes the Generalized Riemann Hypothesis for certain number field calculations, but Michel Olivier has kindly verified these particular calculations for us",
           "match": "The class-group and unit inputs are unconditional."
         }
       ],
@@ -9453,19 +9284,16 @@
         {
           "sourceId": "poonen-1998",
           "locator": "§4, proof of Proposition 1, p. 13 (arXiv:math/9512217v1)",
-          "excerpt": "We compute #J(F3 ) = 27 and #J(F5 ) = 43, so J(Q)tors is trivial. Thus the divisor class [∞+ − ∞− ] has infinite order, and J(Q) has rank at least 1.",
           "match": "Torsion and the lower bound."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4, proof of Proposition 2, p. 16 (arXiv:math/9512217v1)",
-          "excerpt": "Since #J(F3 ) = 27 and 9D e 6= O ∈ J(F3 ), J(F3 ) is cyclic of order 27 and D e is a generator.",
           "match": "Extraction renders D̃ as 'D e' and ≠ as '6='."
         },
         {
           "sourceId": "poonen-errata",
           "locator": "§2, first item on the 1995/1998 paper, p. 1",
-          "excerpt": "To complete the 2-descent correctly one must use also the 2-adic information. The end result of the computation is the same as before, so the main results of the paper still hold.",
           "match": "Recorded in the atlas as ArithmeticDynamics/E404; the corrected computation is not printed."
         }
       ],
@@ -9508,19 +9336,16 @@
         {
           "sourceId": "stoll-2008",
           "locator": "§3, Lemma 4, pp. 7–8 (arXiv v2)",
-          "excerpt": "The subgroup G of J(Q) generated by the classes of divisors supported in the 10 rational points listed above is isomorphic to Z3 .",
           "match": "Algebraic part."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§4, pp. 12–13 (arXiv v2)",
-          "excerpt": "Then we find that the L-series and its first two derivatives vanish at s = 1 to the given precision",
           "match": "Continues: L‴(C,1) = 0.83601… is clearly nonzero; assuming the weak Birch–Swinnerton-Dyer conjecture for J this implies rank J(ℚ) ≤ 3. Conditional part."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§1, p. 2 (arXiv v2)",
-          "excerpt": "requires knowledge of the class and unit groups of a number field of degree 119. The necessary computations are utterly infeasible with current technology, even when assuming GRH.",
           "match": "Why no algebraic rank upper bound is available."
         }
       ],
@@ -9660,19 +9485,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5 opening, author copy p.7",
-          "excerpt": "We will assume that X has good reduction, i.e., that X is the generic fiber of a smooth proper curve over Zp .",
           "match": "The datum is exactly this assumption, with the model recorded as data."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.2(1), author copy p.6",
-          "excerpt": "The function t maps the residue class bijectively to pZp . (This is related to Hensel’s lemma.)",
           "match": "Residue-disc parametrisation (iii)."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§3.4 Lemma 3.1(iii), p.6",
-          "excerpt": "Then tQ is regular and injective on Bυ (Q).",
           "match": "Number-field version of (iii); B_υ(Q) is Siksek's υ-unit ball."
         }
       ],
@@ -9912,37 +9734,31 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§4.1, author copy p.4",
-          "excerpt": "Since the coefficients in the power series expansion of ωJ grow at most geometrically, the formal antiderivative converges on a sufficiently small U .",
           "match": "Defines log on an open subgroup by formal antidifferentiation; ωJ is ω_J."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§4.1, author copy p.4",
-          "excerpt": "the derivative of log at 0 is the identity T → T . Thus log is also a local diffeomorphism.",
           "match": "Property (c)."
         },
         {
           "sourceId": "stoll-2019",
           "locator": "§3, p.6",
-          "excerpt": "On a sufficiently small subgroup neighborhood of O, it is given by evaluating the formal logarithm, and then extended to all of J(k) by linearity.",
           "match": "The construction by extension from a neighbourhood of 0."
         },
         {
           "sourceId": "stoll-2019",
           "locator": "§3, p.7",
-          "excerpt": "Its kernel on the left is trivial, and its kernel on the right is the torsion subgroup of J(k).",
           "match": "Property (e) for J over a p-adic field k."
         },
         {
           "sourceId": "krzb-2016",
           "locator": "§3.3 Definition 3.8, p.19",
-          "excerpt": "The abelian logarithm on A is the unique homomorphism of Cp -Lie groups logA(Cp ) : A(Cp ) → Lie(A) such that",
           "match": "The characterisation by the identity differential, over ℂ_p."
         },
         {
           "sourceId": "krzb-2016",
           "locator": "§3.3, p.20",
-          "excerpt": "The abelian logarithm and the abelian integral are functorial under homomorphisms of abelian varieties",
           "match": "Property (d)."
         }
       ],
@@ -10162,25 +9978,21 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.1, author copy p.5",
-          "excerpt": "is an isomorphism of Qp -vector spaces [Mil86, Proposition 2.2]. Suppose that ωJ restricts to ω.",
           "match": "The isomorphism ι_O* and the definition ∫_Q^{Q'} ω := ∫_0^{[Q'−Q]} ω_J that follows it."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§3.3, p.5",
-          "excerpt": "Moreover any two Abel–Jacobi maps differ by a translation on J.",
           "match": "Independence of the base point."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§3.1, p.4",
-          "excerpt": "The kernel on the left is 0 and on the right is the torsion subgroup of A(Kυ ); see [4, III.7.6].",
           "match": "Property (ii) for the pairing (3) of Siksek."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.3.1, p.5",
-          "excerpt": "we have a trace map Tr : ΩX/Qp (X) → ΩC/Qp (C).",
           "match": "The trace in (v)."
         }
       ],
@@ -10256,31 +10068,26 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.1(ii), author copy p.6",
-          "excerpt": "can be calculated by expanding in power series in a local parameter t on the curve X.",
           "match": "Property (ii) of integrals on X; statement (b)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.2(3), author copy p.6",
-          "excerpt": "The function η on the residue class is represented by a series I(t) ∈ Qp [[t]] (usually no longer in Zp [[t]]) whose derivative is w(t).",
           "match": "Statement (b)–(c)."
         },
         {
           "sourceId": "stoll-2019",
           "locator": "§6, p.12",
-          "excerpt": "Using Newton polygons, one then shows (see for example [Sto06, Section 6]) that the number of zeros of λω on ϕ(D0 (k))",
           "match": "The surrounding paragraph states that the abelian integral on a residue disc is ℓ(ξ₁) − ℓ(ξ₀) for a primitive ℓ of w."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§3.5 Lemma 3.2, p.6",
-          "excerpt": "Let p be an odd rational prime that does not ramify in K.",
           "match": "Hypothesis of (d)."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§3.5 proof of Lemma 3.2, p.7",
-          "excerpt": "Hence we need to show that ordp (j + 2) ≤ j for all j ≥ 0 and all odd primes p.",
           "match": "Integrality step of (d)."
         }
       ],
@@ -10335,13 +10142,11 @@
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.9",
-          "excerpt": "Then Q is represented by a divisor of the form (Q1 + Q2 + Q3 + Q4 ) − 4P ′, where the points Qj ∈ C(Q̄p ) all reduce to P ′",
           "match": "The representation for genus 4; the non-Weierstrass hypothesis making it valid is supplied here."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.10",
-          "excerpt": "Note that the power sums can be computed from the coefficients of the characteristic polynomial",
           "match": "Evaluation through power sums."
         }
       ],
@@ -10403,25 +10208,21 @@
         {
           "sourceId": "krzb-2016",
           "locator": "§3.5, p.24",
-          "excerpt": "By Corollary 3.18, the Berkovich–Coleman and abelian integrals coincide on X an when J has good reduction, and in particular when X has good reduction.",
           "match": "Same statement for Berkovich–Coleman integrals; the proof given here for the Frobenius-continuation integral of ColemanIntegration L1 (Dwork's principle applied to P_Y·P_J) is this blueprint's, along Coleman's lines."
         },
         {
           "sourceId": "krzb-2016",
           "locator": "§3.4 Corollary 3.18, p.23",
-          "excerpt": "The Berkovich–Coleman and abelian integrals coincide on abelian varieties of good reduction.",
           "match": "Abelian-variety form."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8 Remark 8.3(2), author copy p.12",
-          "excerpt": "Coleman’s theory of p-adic integration [Col85a] gives a method for setting the constant of integration directly in terms of calculations on X, through the notion of a Teichmüller point.",
           "match": "Use of the comparison: constants of integration computed by Coleman integration."
         },
         {
           "sourceId": "bbk-2010",
           "locator": "§1, p.2",
-          "excerpt": "To apply Chabauty’s method in a typical case, one needs the integral of ω at some point in a residue disc, with which one can find all zeroes of the integral in the residue disc.",
           "match": "Motivation for computing abelian integrals by Coleman integration."
         }
       ],
@@ -10486,13 +10287,11 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8 Remark 8.3(3), author copy p.12",
-          "excerpt": "For each of these residue classes, we compute an explicit divisor representing a point in J(Q) in the residue class, and use it to set the constant of integration. This idea is due to J. Wetherell.",
           "match": "Route (a)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8 Remark 8.3(1), author copy p.12",
-          "excerpt": "Inside each residue class of J corresponding to a point in J(Fp ) of order prime to p there is a Qp -rational torsion point T , which can be used to set the constant of integration",
           "match": "Route (b)."
         }
       ],
@@ -10534,19 +10333,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§4.2 Lemma 4.2, author copy p.4",
-          "excerpt": "Define r0 := dim J(Q) and r := rank J(Q). Then r0 ≤ r.",
           "match": "Statement (b); the overline denoting closure is lost in extraction."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§4.2 Remark 4.3, author copy p.5",
-          "excerpt": "The second ≤ in (3) is an equality since log has finite kernel.",
           "match": "Part of (b)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§6 Remark 6.1, author copy p.8",
-          "excerpt": "It would suffice to have explicit generators of a finite-index subgroup G ⊆ J(Q) having the same closure in J(Qp ). Any G of index prime to p · #J(Fp ) has this property.",
           "match": "Statement (c)."
         }
       ],
@@ -10703,25 +10499,21 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.4, author copy p.7",
-          "excerpt": "Hence ηJ vanishes on J(Q). It follows that our particular ω satisfies",
           "match": "Definition through vanishing of η_J on J(ℚ), property (iii) of McCallum–Poonen."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.2.2, p.4",
-          "excerpt": "Define V to be the annihilator of J(Q) with respect to the pairing (2)",
           "match": "The space Ann_p(J(ℚ)), its integral lattice and reduction Ṽ."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.1, p.3",
-          "excerpt": "We call such a differential a vanishing differential.",
           "match": "Terminology."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.9",
-          "excerpt": "If G ⊂ J(Qp ) is a subgroup of rank less than dim J = 4, then there must be a nonzero differential ω that kills G under this pairing.",
           "match": "Property (a) and (c) (saturation, next sentence of the source)."
         }
       ],
@@ -10765,19 +10557,16 @@
         {
           "sourceId": "siksek-2010",
           "locator": "§4 Remark (iii), p.9",
-          "excerpt": "In practice, we do not compute the matrix T exactly, merely an approximation to it.",
           "match": "The precision problem; the explicit bound k − 2δ is this blueprint's Cramer-rule estimate."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.10",
-          "excerpt": "We determine the kernel of the resulting matrix, which gives us the differential ω that kills our subgroup G.",
           "match": "Kernel computation from approximate integrals."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§7 (4), author copy p.9",
-          "excerpt": "it may be impossible with finite-precision calculations to prove that they intersect.",
           "match": "Why certified precision is part of the method."
         }
       ],
@@ -10828,25 +10617,21 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.3 Lemma 5.1, author copy p.6",
-          "excerpt": "If m < p − 2, then f has at most m + 1 zeros in pZp .",
           "match": "Statement (b)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.3 Remark 5.2, author copy p.6",
-          "excerpt": "then one need assume only m < 2p − 2 to obtain the same conclusion. The point is to get the Newton polygon under control.",
-          "match": "Statement (c); its hypothesis on the coefficient of t^{p−1} precedes the excerpt."
+          "match": "Supplies statement (c), including the preceding hypothesis on the coefficient of t^{p−1}."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8 Theorem 4, p.21",
-          "excerpt": "Then there are at most r values of x ∈ Zp such that θ(x) = 0.",
           "match": "Strassmann's theorem as used for exceptional discs (ED.4/strassmann-bound)."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.10",
-          "excerpt": "So λ has a single zero on this residue class, which is taken care of by P3 = (∞, 0).",
           "match": "An exceptional disc settled by the explicit expansion, statement (e)."
         }
       ],
@@ -10901,13 +10686,11 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§4.3 Theorem 4.4, author copy p.5",
-          "excerpt": "Suppose r0 < g (by Lemma 4.2 this is automatic if r < g). Then X(Qp ) ∩ J(Q) is finite (and hence so is X(Q)).",
           "match": "The theorem; the closure bar over J(ℚ) is lost in extraction."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8 Proposition 8, p.18",
-          "excerpt": "Let C be a curve of genus g defined over Q, whose Jacobian has Mordell-Weil rank ≤ g − 1. Then C has only finitely many Q-rational points.",
           "match": "The consequence for X(ℚ)."
         }
       ],
@@ -10962,19 +10745,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.5 Theorem 5.3(a), author copy p.7",
-          "excerpt": "If m < p − 2, then the number of points in X(Q) reducing to Q̃ is at most m + 1.",
           "match": "Statement (a)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.5 Theorem 5.3(b), author copy p.7",
-          "excerpt": "If p > 2g, then #X(Q) ≤ #X(Fp ) + (2g − 2).",
           "match": "Statement (b)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.1 Example 1, author copy p.9",
-          "excerpt": "A descent calculation (first carried out in [GG93]) shows that J(Q) has rank 1. Theorem 5.3(b) says #X(Q) ≤ 10. In fact, equality holds:",
           "match": "Acceptance instance."
         }
       ],
@@ -11032,19 +10812,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "Appendix A Theorem A.5, author copy p.15",
-          "excerpt": "let X over Zp be a minimal regular model for XQp , and let Xs over Fp be its special fiber.",
           "match": "Setting of the theorem."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "Appendix A Lemma A.3, author copy p.14",
-          "excerpt": "For every multiplicity-1 component C of Xs , we have nC ≤ H.C .",
           "match": "Step (2)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "Appendix A, author copy p.13",
-          "excerpt": "we define the residue classes on X to be the fibers of the reduction map",
           "match": "Residue classes on the smooth locus."
         }
       ],
@@ -11097,19 +10874,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.2 proof of Proposition 8.2, author copy p.10",
-          "excerpt": "Because X is a genus-2 curve given by an equation y 2 = f (x), ω̃ is an F3 -linear combination of",
           "match": "Statement (a) for g = 2, p = 3 (fractions dx/y, x dx/y garbled in extraction)."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4 proof of Proposition 2, p.17",
-          "excerpt": "Since t is also a uniformizing parameter on the the curve reduced modulo 3, ξ(t) ∈ Z3 [[t]]",
           "match": "Statement (b) at the Weierstrass point (1, 0) of C₁(3₂) with t = y + 3."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4 proof of Proposition 2, p.16",
-          "excerpt": "the difficulty seems to be that (1, 0) is a Weierstrass point of C over F3",
           "match": "Weierstrass discs as the exceptional discs, statement (c)."
         }
       ],
@@ -11337,19 +11111,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.2 proof of Proposition 8.2, author copy p.10",
-          "excerpt": "Theorem 5.3(a) now gives the correct bound (namely, 1) on the number of rational points in each residue class except for (0, ±1) ∈ X(F3 ),",
           "match": "Per-disc verdicts for C₀(5)."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4 proof of Proposition 2, p.17",
-          "excerpt": "At n = 1, P3 is a Weierstrass point W defined over Q3 and not Q, but ∆(1) = 0 nevertheless",
           "match": "A zero accounted for by a point certified non-rational: the role of Z_irr."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§7 (5), author copy p.9",
-          "excerpt": "some of the intersection points could be irrational points in X(Qp ).",
           "match": "Why non-rational zeros must be listed and certified."
         }
       ],
@@ -11523,19 +11294,16 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.2 Proposition 8.2, author copy p.10",
-          "excerpt": "Consider p = 3, however. The curve has good reduction at 3, and",
           "match": "The prime and the list X̃(𝔽_3) of a certificate."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§6 Remark 6.1, author copy p.8",
-          "excerpt": "It would suffice to have explicit generators of a finite-index subgroup G ⊆ J(Q) having the same closure in J(Qp ).",
           "match": "Only a finite-index subgroup is needed."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 Theorem 6, p.10",
-          "excerpt": "If rank J(Q) = 3, then X0dyn (6) has only the ten rational points listed above.",
           "match": "Conditional variant with a labelled rank hypothesis."
         }
       ],
@@ -11610,13 +11378,11 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.2 Proposition 8.2, author copy p.10",
-          "excerpt": "#X(Q) ≤ #X(F3 ) + (2g − 2) = 4 + (2 · 2 − 2) = 6.",
           "match": "Completeness for C₀(5) obtained by summing per-disc verdicts."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 Lemma 5, p.9",
-          "excerpt": "The ten points P0 , . . . , P9 are the only rational points whose images in PicC are in the saturation of the subgroup described in the previous lemma.",
           "match": "The unconditional saturation form of the conclusion."
         }
       ],
@@ -11661,19 +11427,16 @@
         {
           "sourceId": "siksek-2010",
           "locator": "§4, p.7",
-          "excerpt": "(p1) p is odd (p2) p is unramified in K, (p3) every prime υ of K above p is a prime of good reduction for the curve C.",
           "match": "The separately stated hypotheses."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§4 Theorem 2, p.8",
-          "excerpt": "If M̃p (Q) has rank d then C(K) ∩ Bp (Q) = {Q}.",
           "match": "Conclusion."
         },
         {
           "sourceId": "siksek-2010",
           "locator": "§4 Remark (iii), p.9",
-          "excerpt": "In practice, we do not compute the matrix T exactly, merely an approximation to it.",
           "match": "Precision caveat."
         }
       ],
@@ -11799,25 +11562,21 @@
         {
           "sourceId": "box-2021",
           "locator": "§2.2.1, p.3",
-          "excerpt": "Recall that the set X (2) (Q) consists of pairs {P, P } of a genuinely quadratic point P on X and its Galois conjugate, as well as pairs {P, Q} of rational points P, Q on X.",
           "match": "The points of X⁽²⁾; the bar over the conjugate is lost in extraction."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.2.2, p.4",
-          "excerpt": "Define V to be the annihilator of J(Q) with respect to the pairing (2)",
           "match": "Item (iii)."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.3.2, p.5",
-          "excerpt": "We assume that ρ extends to a morphism X → C, thus obtaining a corresponding reduced degree 2 map",
           "match": "Item (vi)."
         },
         {
           "sourceId": "siksek-symmetric-2009",
           "locator": "§3 pp.216–218, (6)–(9)",
-          "excerpt": "positive K-rational divisor",
           "match": "Symmetric-power points are effective divisors with multiplicities; the primitive coefficient block is indexed by those multiplicities."
         }
       ],
@@ -11881,19 +11640,16 @@
         {
           "sourceId": "box-2021",
           "locator": "§2.2.2 Theorem 2.1, p.4",
-          "excerpt": "then Q is the unique point of X (2) (Q) in its residue class modulo p.",
           "match": "Conclusion; the hypotheses p > 2 and p ≠ 3 for 𝔽_p-rational Q̃₁ were read on the rendered page."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.2.1, p.4",
-          "excerpt": "even when (1) is satisfied, X (2) (Q) may still be infinite due to the existence of a degree 2 map X → C to a curve C with infinitely many rational points.",
           "match": "Why the criterion can fail when r < g − 1."
         },
         {
           "sourceId": "siksek-symmetric-2009",
           "locator": "§3 Theorem3.2, pp.217–221; Lemmas3.3–3.4 p.222",
-          "excerpt": "the point Q is the unique element in its residue class",
           "match": "Original proof, specialized to degree2 with its multiplicity/ramification inequalities; published numbering differs from the preprint Theorem1 cited by Box."
         }
       ],
@@ -11949,25 +11705,21 @@
         {
           "sourceId": "box-2021",
           "locator": "§2.3.2 Theorem 2.4, p.6",
-          "excerpt": "then every point in X (2) (Q) belonging to the residue class of Q comes from a point in C(Q).",
           "match": "Statement (a); the hypothesis p > 2 when Q̃₁ is 𝔽_p-rational was read on the rendered page."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.3.1, p.5",
-          "excerpt": "we have a trace map Tr : ΩX/Qp (X) → ΩC/Qp (C).",
           "match": "Ṽ₀ is defined with the kernel of the trace."
         },
         {
           "sourceId": "caraiani-newton-2023",
           "locator": "§7.4, p.99",
-          "excerpt": "(which entails that every point in the residue class of x mod pi is pulled back from a point in C(Q))",
           "match": "Definition of L_i^good preceding Proposition 7.4.1."
         },
         {
           "sourceId": "caraiani-newton-2023",
           "locator": "§7.4, p.99",
-          "excerpt": "The following proposition is immediate from the definition.",
           "match": "Proposition 7.4.1 and its proof."
         }
       ],
@@ -12029,31 +11781,26 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.2 Proposition 8.2, author copy p.10",
-          "excerpt": "There are exactly six rational points on X:",
           "match": "Conclusion (the displayed set follows)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.2 proof of Proposition 8.2, author copy p.10",
-          "excerpt": "we are in the situation of Remark 5.2, where only m < 2p − 2 is required!",
           "match": "Verdict on the discs (0, ±1)."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§8.3, author copy p.11",
-          "excerpt": "Since (0, 1) and (−3, 1) are in the same residue class on X, we may compute integrals between them by expanding in power series in the uniformizing parameter x there",
           "match": "Annihilator from tiny integrals."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8 Theorem 6, p.23",
-          "excerpt": "The curve C of equation (3) has only the six Q-rational points (0, 1), (0, −1), (−3, 1), (−3, −1), ∞+ , and ∞− listed in Table 2.",
           "match": "The same conclusion, proved there by Flynn's formal-group method at p = 3."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8, p.18",
-          "excerpt": "the best bound that can be obtained from the results in [6] is that #C(Q) ≤ 9.",
           "match": "Why p = 3 and per-disc verdicts are needed."
         }
       ],
@@ -12119,25 +11866,21 @@
         {
           "sourceId": "poonen-1998",
           "locator": "§4 Proposition 2, p.16",
-          "excerpt": "Each point in C(F3 ) is the mod 3 reduction of exactly one point in C(Q) except (1, 0) which is the reduction of exactly two.",
           "match": "Same per-disc conclusion, proved there with Flynn's formal group and, on the disc of (1, 0), the embedding P ↦ [P + S⁺]."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4, p.13",
-          "excerpt": "We will eventually show that these eight points are the only rational points on C.",
           "match": "Conclusion."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4 proof of Proposition 1, p.13",
-          "excerpt": "We compute #J(F3 ) = 27 and #J(F5 ) = 43, so J(Q)tors is trivial.",
           "match": "Torsion input."
         },
         {
           "sourceId": "poonen-1998",
           "locator": "§4 proof of Proposition 2, p.17",
-          "excerpt": "At n = 1, P3 is a Weierstrass point W defined over Q3 and not Q, but ∆(1) = 0 nevertheless",
           "match": "The non-rational zero W of the exceptional disc."
         }
       ],
@@ -12201,31 +11944,26 @@
         {
           "sourceId": "stoll-2008",
           "locator": "§3 Lemma 4, p.8",
-          "excerpt": "The subgroup G of J(Q) generated by the classes of divisors supported in the 10 rational points listed above is isomorphic to Z3 .",
           "match": "Unconditional rank-3 subgroup."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.10",
-          "excerpt": "We find that reduced mod 5, this differential is ω̄ = ω̄2 .",
           "match": "Reduction of the annihilating differential."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 proof of Lemma 5, p.10",
-          "excerpt": "At the former, ω̄ vanishes to first order, which implies that there are at most two rational points in that residue class",
           "match": "Verdict at (∞, −1)."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§3 Theorem 6, p.10",
-          "excerpt": "If rank J(Q) = 3, then X0dyn (6) has only the ten rational points listed above.",
           "match": "Conditional conclusion."
         },
         {
           "sourceId": "stoll-2008",
           "locator": "§4 Theorem 7, p.13",
-          "excerpt": "If the L-series L(J, s) extends to an entire function and satisfies the standard functional equation, and if the weak Birch and Swinnerton-Dyer conjecture is valid for J",
           "match": "Source of the rank hypothesis."
         }
       ],
@@ -12291,13 +12029,11 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§8, Theorem 4, p.21 (arXiv:math/9508211)",
-          "excerpt": "Define r uniquely by: |cr |p ≥ |ci |p for all i ≥ 0, and |cr |p > |ci |p for all i > r. Then there are at most r values of x ∈ Zp such that θ(x) = 0.",
           "match": "Strassmann's theorem over ℤ_p as stated and used by FPS for the exceptional discs; the node states it for any complete nonarchimedean field so that ArithmeticDynamics DY.6 and MordellLawrenceVenkatesh LV.3 (finite extensions of ℚ_p) can import it."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.3, proof of Lemma 5.1, author copy p.6",
-          "excerpt": "The point is to get the Newton polygon under control.",
           "match": "McCallum–Poonen bound the zeros on a residue disc through the dominant coefficient of f(pT), which is Strassmann's index."
         }
       ],
@@ -12357,37 +12093,31 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Definition 3.1, published p.277",
-          "excerpt": "Let L ⊂ Γ be a subgroup of finite index. We set G_{L,i} = G_i/φ_i(L), write X_{L,i} for the image of X_i in G_{L,i}, and denote by φ_{L,i} the induced homomorphism Γ/L → G_{L,i}.",
           "match": "Definition 3.1 is the source of the construction: the quotient of each G_i by φ_i(L), the image of X_i, and the induced map. The node drops the source's standing surjectivity of φ_i and finiteness of G_i, which the proofs here do not use (a blueprint-side generalisation, justified by the proofs)."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Definition 3.1, published p.277",
-          "excerpt": "We let A(L) = {γ ∈ Γ/L : φ_{L,i}(γ) ∈ X_{L,i} for all i ∈ I}",
           "match": "The displayed definition of A(L); the node is its membership lemma, stated for the finite filter used in the construction."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Definition 3.1, published p.277",
-          "excerpt": "write X_{L,i} for the image of X_i in G_{L,i}, and denote by φ_{L,i} the induced homomorphism Γ/L → G_{L,i}",
           "match": "Unfolding membership of φ_{L,i}(γ) in the image of X_i in G_i/φ_i(L) for a representative γ gives the congruence φ_i(g) − x ∈ φ_i(L). The unfolding is a blueprint-side lemma; the source uses it implicitly when it tests lifts."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3, published p.274",
-          "excerpt": "denote by A(S, N) ⊂ J(Q)/NJ(Q) the subset of elements that map into the image of C(F_p) in J(F_p)/NJ(F_p) for all p ∈ S",
           "match": "A(S, N) is defined by a condition for all p ∈ S, so enlarging S can only shrink it. The monotonicity statement itself is blueprint-side; the source uses it when it enlarges S after an unsuccessful run (p.277)."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278; surjectivity convention §3.2, p.277",
-          "excerpt": "We start at k = 0 and initialize A(N_0Γ) = A(Γ) = {0} ⊂ Γ/Γ.",
           "match": "The source initialises with {0} under its convention that each φ_i is surjective and X_i ⊆ φ_i(Γ); the node states the exact condition (each selected X_i meets im φ_i) under which this initialisation is correct without that convention."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§2, published p.274",
-          "excerpt": "However, since the sets and groups involved are infinite, we are not able to compute this intersection. Therefore, we replace the groups by finite approximations.",
           "match": "The sieve replaces exact local data by computable finite data; soundness of that replacement for supersets of the local images is the content of this node. The superset formulation is blueprint-side and is what the bad and deep information of §§5–6 provides."
         }
       ],
@@ -12518,7 +12248,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§1, published p.272",
-          "excerpt": "using the global constraint that a rational point on the curve must map into the Mordell–Weil group",
           "match": "The global constraint is that a global element satisfies every local condition; the node is the abstract statement that its class then survives the sieve."
         }
       ],
@@ -12559,7 +12288,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.280",
-          "excerpt": "If we find that A(N_kΓ) = ∅ for some k ⩽ m, then we stop. In the context of our application, this means that we have proved C(Q) = ∅ as well.",
           "match": "The stopping criterion: an empty sieve set excludes every global element, hence every rational point. The node states the group-theoretic half; the curve half is certified-map-obstruction and curve-sieve-soundness."
         }
       ],
@@ -12602,8 +12330,7 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278",
-          "excerpt": "This is done iteratively, by successively computing A(N_kΓ) where N_k =",
-          "match": "The iteration over decreasing subgroups N_kΓ relies on surviving fine classes projecting to surviving coarse classes; the node states that projection lemma, which the source uses without stating it. The excerpt stops where the product formula breaks in the extracted text."
+          "match": "The iteration over decreasing subgroups N_kΓ relies on surviving fine classes projecting to surviving coarse classes; the node states that projection lemma, which the source uses without stating it."
         }
       ],
       "implementationStatus": "unchecked",
@@ -12670,37 +12397,31 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.279, Lift; author implementation LiftInformation, lines 2563–2600",
-          "excerpt": "a representative of a in Γ/L_j for l ∈ L_{j−1}/L_j do",
-          "match": "The inner loops of Lift: choose a representative of each coarse survivor in the finer quotient and run through the kernel L_{j−1}/L_j. The node is the corresponding finite construction with an explicit section; the quoted line omits the prime on the representative a′, which the extracted text renders as a0."
+          "match": "The inner loops of Lift choose a representative a′ of each coarse survivor in the finer quotient and enumerate the kernel L_{j−1}/L_j. The node gives this finite construction with an explicit section; the original extraction rendered a′ as a0."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278 (relevance) and p.279 (the sets I_j)",
-          "excerpt": "We first find the triples (G_i, φ_i, X_i) that can possibly provide new information.",
           "match": "The source keeps only the places that can give new information (and records them as I_j in PrepareLift). The node gives the exact criterion behind this: equality φ_i(K) = φ_i(L) makes the fine and coarse tests equivalent."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278",
-          "excerpt": "take each γ ∈ A(N_{k−1}Γ), run through its various lifts to Γ/N_kΓ and check whether each lift is mapped into X_{N_kΓ,i} under φ_{N_kΓ,i}",
           "match": "The one-step procedure: lifts of coarse survivors filtered by the fine tests. The node proves that the translated-kernel enumeration visits exactly these lifts (soundness and completeness), which the source does not state."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278",
-          "excerpt": "The complexity of this procedure is #A(N_{k−1}Γ) · q_k^r times the average number of tests we have to make",
           "match": "The source's cost count multiplies the number of coarse survivors by the number of lifts. The node is the deterministic bound |B|·|ker π| for one step, valid with torsion; the source's estimates that follow are heuristics and are not used."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.279, PrepareLift; author LiftInformation, lines 2480–2493",
-          "excerpt": "list the possible subgroups for the next step",
           "match": "PrepareLift lists candidate intermediate subgroups; the printed formula for them is corrected in source issue EffectiveDiophantineMethods/E1. The node is the containment invariant D ≤ L ∩ φ⁻¹(φ(D)) of the corrected step."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278",
-          "excerpt": "In order to improve on this, we split the inclusion N_kΓ ⊂ N_{k−1}Γ into several stages",
           "match": "The intermediate stages must be strictly decreasing for the split to make progress; the node states when a prepared step is a proper subgroup."
         }
       ],
@@ -12821,7 +12542,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.279",
-          "excerpt": "We then successively compute A(L_1), . . . , A(L_t) = A(N_kΓ) in the same way as described above for the one-step procedure",
           "match": "The claim that the lifting procedure computes A(L_j) at each step; the node is its exact statement for one step with a checked section."
         }
       ],
@@ -12864,7 +12584,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.280",
-          "excerpt": "As an additional benefit, we distribute the tests we have to make over the intermediate steps",
           "match": "Lift tests only the places in I_j at each intermediate step. The node proves that this computes the full sieve set when every omitted place has an unchanged image subgroup."
         }
       ],
@@ -12908,7 +12627,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§1, published p.272",
-          "excerpt": "It is sufficient to know generators of a finite-index subgroup whose index is coprime to a certain set of primes.",
           "match": "The source's remark that a subgroup of index prime to the relevant primes suffices; the node proves the group-theoretic core (surjectivity onto Γ/L when NΓ ⊆ L and the index is prime to N). The full transfer of the sieve is coprime-index-transfer."
         }
       ],
@@ -12948,7 +12666,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§2, published p.274",
-          "excerpt": "Under the assumptions made, now we can compute the images of α and β and check whether they are disjoint.",
           "match": "Disjointness of the two images in the commutative diagram is the obstruction; the node states it for an arbitrary type of points with value-level commuting maps."
         }
       ],
@@ -12988,7 +12705,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§1, published p.273",
-          "excerpt": "in each of the cosets or residue classes under consideration there can be at most one rational point, then this provides a way of determining the set of rational points on the curve",
           "match": "The source's completeness principle: uniqueness in each class plus a represented sieve set determines the points. The node states it with injectivity of P ↦ q_L(j(P)) as an explicit hypothesis."
         }
       ],
@@ -13125,13 +12841,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§2, published p.274",
-          "excerpt": "We assume that we know an embedding ι : C → J defined over Q (that is, we know a Q-rational divisor class of degree one on C) and that we know generators of the Mordell–Weil group J(Q).",
           "match": "The geometric input of the sieve: a rational degree-one class giving ι and the Mordell–Weil group. The construction makes ι, the reductions and the square explicit."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§7, published p.299",
-          "excerpt": "The latter is used to provide the embedding ι : C → J, which is given by sending a point P ∈ C to the class of P + W − D where W is a canonical divisor.",
           "match": "The degree-three divisor version of D₁ = D − W used by the authors' implementation for genus two."
         }
       ],
@@ -13174,13 +12888,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3, published p.274",
-          "excerpt": "Here, β_{N,p} : C(F_p) → J(F_p)/NJ(F_p) denotes the composition of ι : C(F_p) → J(F_p) and the canonical epimorphism J(F_p) → J(F_p)/NJ(F_p).",
           "match": "The local maps of A(S, N); the theorem is the soundness of the sieve built from them, for any certified supersets."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3, published p.274",
-          "excerpt": "denote by A(S, N) ⊂ J(Q)/NJ(Q) the subset of elements that map into the image of C(F_p) in J(F_p)/NJ(F_p) for all p ∈ S",
           "match": "The definition of A(S, N); the image of C(ℚ) lies in it by commutativity of the diagram."
         }
       ],
@@ -13302,25 +13014,21 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§5, published p.295",
-          "excerpt": "It is, however, better to find the image of C(Q_p) in J(Q_p)/J^1(Q_p) directly or, rather, to find the subset of J(Q)/(J(Q) ∩ J^1(Q_p)) which is in the image of C(Q_p).",
           "match": "Exactly the local datum G_U = Γ/(Γ ∩ U), X_U for U = J¹; the construction states it for any open U of finite index."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§5, published pp.286–287",
-          "excerpt": "we would like to make use of the top layers of the filtration given by the well-known exact sequences",
           "match": "The filtration J(ℚ_p) ⊇ J⁰(ℚ_p) ⊇ J¹(ℚ_p) ⊇ Jⁿ(ℚ_p) supplies the subgroups U."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.4, Remark 2.8, arXiv p.7",
-          "excerpt": "we work with cosets in Z^n rather than cosets of increasingly large finite quotients of Z^n",
           "match": "Box's sieve intersects unions of cosets of the kernels; the theorem shows this equals the finite sieve at the kernel level."
         },
         {
           "sourceId": "caraiani-newton-2023",
           "locator": "§7.4, proof of Theorem 7.4.2, arXiv p.99",
-          "excerpt": "will give us a union of cosets of ker(red_{p_i}) in G",
           "match": "Each local condition is a union of cosets of the kernel, which is the hypothesis L ≤ ker φ_i."
         }
       ],
@@ -13371,13 +13079,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.4, published p.284",
-          "excerpt": "If we only have a point P of infinite order, we also have to check that the index of Z · P + J(Q)_tors in J(Q) is prime to N.",
           "match": "The source's requirement on a known subgroup; the theorem shows why it suffices for the sieve modulo N."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.4, arXiv pp.6–7, input (ii)",
-          "excerpt": "a positive integer I such that I · J(Q) ⊂ G",
           "match": "Box replaces the index condition by multiplication by I into G; relative-symmetric-sieve uses that variant, this node the coprime-index one."
         }
       ],
@@ -13488,19 +13194,16 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.2, published p.277",
-          "excerpt": "we build up N multiplicatively in stages: we compute A(N_jΓ) successively for a sequence of values",
           "match": "The chain of moduli N_0 | N_1 | … | N_m = N; the construction iterates the lifting step along any such chain."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.279",
-          "excerpt": "In practice, PrepareLift and Lift together form one subroutine, whose input is (N, q, A) = (N_{k−1}, q_k, A(N_{k−1}Γ))",
           "match": "One step of the chain from N_{k−1}Γ to N_kΓ, itself split into the steps L_{j−1} ⊇ L_j."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278",
-          "excerpt": "The relevant condition is v_{q_k}(e_i) ⩾ v_{q_k}(N_k), where e_i is the exponent of the group G_i.",
           "match": "The source's relevance test; the lemma is its proof, and shows that the other places have unchanged image subgroups."
         }
       ],
@@ -13545,7 +13248,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.279",
-          "excerpt": "We then successively compute A(L_1), . . . , A(L_t) = A(N_kΓ) in the same way as described above for the one-step procedure",
           "match": "The iterated computation; the theorem is its correctness along an arbitrary checked chain."
         }
       ],
@@ -13646,13 +13348,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§5, published p.294",
-          "excerpt": "In the following, A is a finitely generated free abelian group and t is a test that determines whether a given element of A is in the subgroup.",
           "match": "The setting of GetSubgroup; the construction follows the displayed algorithm and adds its correctness proof, which the source does not give."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§5, published p.295",
-          "excerpt": "This algorithm allows us to find J(Q) ∩ J^0(Q_p) and hence the image of J(Q) in J(Q_p)/J^0(Q_p).",
           "match": "The use of the algorithm for bad information."
         }
       ],
@@ -13696,14 +13396,12 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.2, published p.281",
-          "excerpt": "we require N to be divisible by the exponent of the torsion group J(Q)_tors and to be such that",
           "match": "The two conditions on N; the second, N² > 4H′/m, breaks across a symbol in the extracted text and is restated in the node."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.2, published p.281",
-          "excerpt": "In other words, each coset of NJ(Q) in J(Q) contains at most one point of canonical height at most H",
-          "match": "The conclusion (the excerpt stops before the prime on H′, which the extracted text renders as H 0)."
+          "match": "Gives separation of bounded-height points within each coset; the node retains the primed height bound H′."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13748,13 +13446,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.2, published p.281",
-          "excerpt": "each element of A(S, N) corresponds to at most one point in C(Q) of height at most H",
           "match": "The conclusion of the finding-points application."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.2, published p.282",
-          "excerpt": "comes down to a ‘closest vector’ computation with respect to the lattice",
           "match": "The certified sets T_a are the output of this closest-vector computation in (NJ(ℚ), ĥ)."
         }
       ],
@@ -13802,13 +13498,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Lemma 4.1, published p.281",
-          "excerpt": "is such that the reduction of Q mod p_j is in ι(C(F_{p_j})) for all 1 ⩽ j ⩽ m, then Q ∈ ι(C(Q)).",
           "match": "The conclusion of Lemma 4.1; the hypothesis on the product of primes is corrected by the factor 3 (EffectiveDiophantineMethods/E12)."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Lemma 4.1, proof, published p.281",
-          "excerpt": "If Q mod p_j is on the image of the curve, then p_j divides k_1b^2 − k_2ab + k_3a^2.",
           "match": "The divisibility step; a and b are interchanged relative to the convention x(P₀) = (a : b) (EffectiveDiophantineMethods/E13), which does not affect the bound."
         }
       ],
@@ -13859,13 +13553,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.3, published p.282",
-          "excerpt": "We can now check for each w ∈ W and r ∈ R whether φ_q(w + r) ∉ ι(C(F_q)). If this is the case, then W will also represent the image of C(Q) in J(Q)/L",
-          "match": "The step and its conclusion (the excerpt stops before the prime on L′)."
+          "match": "Gives the lattice-refinement step and its survivor conclusion with the refined lattice L′."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.3, published p.283",
-          "excerpt": "The idea for this second sieving stage is due to Samir Siksek.",
           "match": "Attribution of the step."
         }
       ],
@@ -13914,13 +13606,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.3, published p.282",
-          "excerpt": "What the preceding application really gives us is a lower bound H for the logarithmic height of any rational point that we do not know",
           "match": "The sieve gives the lower bound; the theorem combines it with an upper bound."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.3, published p.282",
-          "excerpt": "then we can combine this information with upper bounds for integral points that can be deduced by using linear forms in logarithms",
           "match": "The combination; the upper bound is imported from DT.4 instead of the unread source [8]."
         }
       ],
@@ -13975,19 +13665,16 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.4, published p.283",
-          "excerpt": "if N is divisible by the exponent of J(F_p), then the rational points on C mapping via ι into a given coset of NJ(Q) in J(Q) will all reduce mod p to the same point in C(F_p)",
           "match": "Part (i) in the source's special case L = NJ(ℚ)."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.4, published p.283",
-          "excerpt": "the Chabauty approach is just used to supply us with a ‘separating’ number N such that C(Q) injects into J(Q)/NJ(Q)",
           "match": "Part (ii) and the role of the combination."
         },
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "Theorem 5.3(a), author copy p.7",
-          "excerpt": "If m < p − 2, then the number of points in X(Q) reducing to",
           "match": "The residue-disc bound with m = ord ω̄ = 0 gives at most one point per class; ED.4 owns it."
         }
       ],
@@ -14039,13 +13726,11 @@
         {
           "sourceId": "caraiani-newton-2023",
           "locator": "§7.4, arXiv p.99",
-          "excerpt": "It follows from Proposition 7.4.1 that if x is a rational point in X^(2)(Q) which is not in L ∪ π^*C(Q), then red_{p_i}(x)",
           "match": "The key step of the proof of Theorem 7.4.2: a point outside L ∪ π*C(ℚ) reduces into M_i^bad at every p_i."
         },
         {
           "sourceId": "box-2021",
           "locator": "§2.4, arXiv p.6",
-          "excerpt": "In particular, if they have empty common intersection, then our hypothetical point P cannot exist.",
           "match": "Box's form of the conclusion, stated as Theorem 2.6."
         }
       ],
@@ -14088,13 +13773,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Theorem 5.11, published p.291",
-          "excerpt": "The scheme J_F^0 is a commutative algebraic group in a natural way.",
           "match": "Part (a)."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Corollary 5.15, published p.294",
-          "excerpt": "Assume that C_F/O is regular and that F̄ is not a square. Then the following sequence is exact",
           "match": "Part (c)."
         }
       ],
@@ -14146,13 +13829,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "Lemma 6.2, published p.297",
-          "excerpt": "Let P_0 ∈ C(Q_p) and Q ∈ J^n(Q_p). Let (η_1 : η_2 : η_3 : η_4) be coordinates of the image of P_0 + Q on K∗, normalized so that the minimal p-adic valuation is zero.",
           "match": "Part (b); the valuation conclusions follow in the lemma."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§6, published p.296",
-          "excerpt": "we compute the finite-index subgroup K_n = J(Q) ∩ J^n(Q_p) of J(Q) as follows",
           "match": "Part (a)."
         }
       ],
@@ -14307,13 +13988,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§7, published p.299",
-          "excerpt": "generators of the Mordell–Weil group J(Q), where J is the Jacobian variety of the curve",
           "match": "One of the three inputs of the implementation; the certificate records it together with the index certificate that makes a subgroup sufficient."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.280",
-          "excerpt": "Otherwise, we can check whether the remaining elements in A(NΓ) actually come from rational points, by computing the element of J(Q) of smallest height that is in the corresponding coset.",
           "match": "A nonempty final set is a list of classes to be resolved, not a conclusion."
         }
       ],
@@ -14361,7 +14040,6 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§1, published p.273",
-          "excerpt": "However, the procedure itself is correct: if it terminates, and it has done so in all the examples we tried, then it gives the exact set of rational points on the curve.",
           "match": "Correctness on termination, without a termination claim; the theorem is this statement for a recorded certificate."
         }
       ],
@@ -14402,13 +14080,11 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.1, published p.280",
-          "excerpt": "We applied our algorithm to these curves and were able to prove for all of them that they do not have rational points.",
           "match": "The non-existence result."
         },
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.1, published p.280",
-          "excerpt": "For some curves, we needed to assume the Birch and Swinnerton-Dyer conjecture for the correctness of the rank",
           "match": "Its conditionality."
         }
       ],
@@ -14461,19 +14137,16 @@
         {
           "sourceId": "bdmtv-2021",
           "locator": "Algorithm 3.12, p.14 (arXiv v4)",
-          "excerpt": "Output: An approximation to a finite set containing the set of points X(Qp)2, computed to precision n′ ≤ n or FAIL.",
           "match": "The algorithm output is a candidate set or FAIL, not yet a solution set; the certificate records the further completeness proof. Stage acceptance: termination conditions and unresolved inputs are advertised through H."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Theorem 6.3, p.123",
-          "excerpt": "has exactly 545 solutions. Of them, 514 satisfy",
           "match": "A typical certified statement: an exact count and list with a completeness proof (OCR text layer checked against the rendered page)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "Remark 6.3, p.927",
-          "excerpt": "In [BPS16], this enables the authors to compute the rank assuming the Generalised Riemann Hypothesis.",
           "match": "Example of a conditional input that must be kept as an explicit hypothesis H with its label."
         }
       ],
@@ -14606,19 +14279,16 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6, p.926",
-          "excerpt": "by Lemma 1.5 we get two finite sets of 17-adic points that contain X(Q). Their intersection turns out to be exactly X(Q), which proves Theorem 1.1.",
           "match": "The comparison step of the X_s(13) proof; stated here in general with the simple-root uniqueness hypothesis made explicit."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "§3.5, p.15 (arXiv v4)",
-          "excerpt": "To further determine the subset of rational points X(Q) from the finite set of points produced by our algorithm, we carry out the Mordell–Weil sieve.",
           "match": "Exclusion of unmatched candidates by the sieve (ED.5)."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "§3.4, p.12 (arXiv v4)",
-          "excerpt": "To show that P is not rational, it suffices to show that the corresponding coset of pN J(Q) does not contain the image of such a point.",
           "match": "An exclusion certificate for a single candidate ball."
         }
       ],
@@ -14662,13 +14332,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4.1, p.933",
-          "excerpt": "All zeroes of det(T1(x)) and det(T2(x)) are simple, and the only simultaneous zeroes are P1, P2, P3 and P5.",
           "match": "The per-disc data the X_s(13) proof uses (zero tables in the authors' repository); covers B19 item 89 context."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Lemma 4.7, p.25 (arXiv v4)",
-          "excerpt": "Then the roots of F in the ball {ordp(x) ≥ 1} can be determined, with multiplicity, to precision (n − k)/d, by computing F0, . . . , Fm−1 modulo pn.",
           "match": "The root isolation that produces the centres and precision."
         }
       ],
@@ -14798,13 +14466,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§1.5, p.893",
-          "excerpt": "if we can carry out the following steps explicitly, we have an explicit method for computing a finite subset of X(Qp) containing X(Q)",
           "match": "The three explicit steps (local heights away from p, power series for h_p, global heights at known points)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "Lemma 1.5, p.891",
-          "excerpt": "If x ∈ X(Qp)α, then we have det(T(x)) = 0.",
           "match": "The determinant criterion consumed from NC.5 (B19 items 11–13 are NC.5's)."
         }
       ],
@@ -14860,19 +14526,16 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§4.1, pp.909–910",
-          "excerpt": "Let b be a rational point of Y that is integral at p.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/39 with the holomorphy of ω_0, …, ω_{g−1} added (E4)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§4.1, p.909",
-          "excerpt": "The differentials ω0, . . . , ω2g−1 are of the second kind on X and form a symplectic basis of H1dR(X/Q)",
           "match": "Printed hypothesis; the corrected set-up adds holomorphy of the first g differentials."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§4.4, p.913",
-          "excerpt": "Z maps to zero under the symmetrisation map",
           "match": "Condition (d); conditions (a)–(d) are NC.5's admissible Tate classes, the converse Lemma 4.7 is false (E5)."
         }
       ],
@@ -15012,13 +14675,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "(26)–(27), Remarks 4.8–4.9, pp.914–915",
-          "excerpt": "for some differential η of the third kind on X that is in the space spanned by ω2g, . . . , ω2g+d−2.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/49."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "Lemma 4.10 and (30), pp.915–916",
-          "excerpt": "The differential η appearing in (27) is the unique differential satisfying",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/51."
         }
       ],
@@ -15072,13 +14733,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "(28)–(29), p.915",
-          "excerpt": "The difference of bundle trivialisations defines a gauge transformation",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/50; the entrywise check of (28) is the proof step above."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "§4.1, p.18 (arXiv v4)",
-          "excerpt": "for all x ∈ (X−Y)(Q̄), where gx ∈ Q̄[[tx]] is defined to be the formal integral of dΩ⊺x ZdΩx−η",
           "match": "The 2021 restatement; it contains the misprints EffectiveDiophantineMethods/E15 and EffectiveDiophantineMethods/E16, and the 2019 convention (29) is the one used here."
         }
       ],
@@ -15192,13 +14851,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Theorem 4.11, p.917",
-          "excerpt": "A basis for Fil0 AZ with respect to the trivialisation (26) is given by",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/52."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§4.5, p.916",
-          "excerpt": "The existence and uniqueness of γFil and bFil subject to these requirements follow from a Riemann–Roch argument. We omit the proof",
           "match": "The omitted argument is supplied in the proof steps (uniqueness uses E4)."
         }
       ],
@@ -15250,13 +14907,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "end of §4.5, p.918",
-          "excerpt": "These quantities may be computed as follows:",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/53, with step (i) corrected to (30) (E2)."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "§4.1, p.18 (arXiv v4)",
-          "excerpt": "Hence given the above we may calculate η, γFil and bFil to precision pn−2ν",
           "match": "In the 2021 algorithm Z is known only modulo p^n; with exact Z (from exact Hecke matrices, xs13-tate-classes) the computation is exact."
         }
       ],
@@ -15383,13 +15038,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.3.1, (44), p.922",
-          "excerpt": "Given an element (a, b, c) of the algebra Qp ⊕ VdR ⊕ Qp(1), its action via left, respectively right, multiplication is given by",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/59 (the operators φ_Z(b, x), diagram (43), and the matrices (44))."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.2.1, (41), p.921",
-          "excerpt": "By Besser’s theory of Coleman integration on unipotent connections [Bes02], we have that for any b, b0, x, x0 ∈ Y(Qp), the same formula (41) describes the unique unipotent Frobenius-equivariant isomorphism",
           "match": "The transport formula; the orientation of its use in §5.3.2 is corrected as in E3."
         }
       ],
@@ -15510,19 +15163,16 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.3.2, (45), pp.922–923",
-          "excerpt": "To make the Frobenius structure explicit, we need to find an invertible (2g+2)×(2g+2)-matrix G",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/60. The general certified Tuitman data are imported from RD.7 (PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/95)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "Lemma 5.2, p.919",
-          "excerpt": "The Frobenius structure on UFp for Arig n (b) is the unique morphism",
           "match": "Uniqueness of the Frobenius structure (NC.2's, consumed)."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "§4.2,(4.5)–(4.7),p19(arXivv4)",
-          "excerpt": "Next, we define a vector of functions",
           "match": "The g0, ξ, c and H construction fixes the constant term in g by rigid-cohomology reduction."
         }
       ],
@@ -15579,13 +15229,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.3.2, p.923",
-          "excerpt": "From G, we obtain the Frobenius equivariant isomorphism sφ(b, x) as follows.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/61, with the orientation of the transport corrected (E3)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.3.2, p.923",
-          "excerpt": "Using the parallel transport formula from Section 5.3.1, we have that",
           "match": "The printed product whose limits E3 corrects."
         }
       ],
@@ -15638,7 +15286,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Lemma 5.5, p.924",
-          "excerpt": "For any x ∈ X(Qp)∩]U[, the local p-adic height of AZ(b, x) is given by",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/64; the height formula (17) and Lemma 5.4 are NC.5's."
         }
       ],
@@ -15693,13 +15340,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.5, Lemma 5.7, p.925",
-          "excerpt": "Let b′ ∈ X(Qp) lie in a residue disk where none of the basis differentials have poles.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/65 (with (48)–(49))."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§5.5, p.925",
-          "excerpt": "An alternative approach to deal with residue disks where the Frobenius lift is not defined is to change the base point.",
           "match": "Purpose of the lemma in the X_s(13) computation."
         }
       ],
@@ -15757,19 +15402,16 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4.1, pp.932–933",
-          "excerpt": "so that if we compute enough coefficients for the power series Fi, the slopes of the Newton polygon of G(t) beyond our precision are bounded below by −1",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/89 (the elementary estimate; residue-disc zero bounds in general are ED.4's)."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Proposition 4.6, p.25 (arXiv v4)",
-          "excerpt": "be the expansion of the quadratic Chabauty function ρ = h − hp on D. If i ≥ i0, then we have",
           "match": "The general bound with the constants c_1, c_2, c_3."
         },
         {
           "sourceId": "bdmtv-2023-published",
           "locator": "§4.4,pp1135–1136,Proposition4.6 and preceding i0 inequality",
-          "excerpt": "Then we have",
           "match": "Published branch φ(i)=−2 floor(log_p i) omits the erroneous extra c1 present in arXivv4; the final bound still has c1+min(c2,c3)."
         }
       ],
@@ -15828,13 +15470,11 @@
         {
           "sourceId": "bdmtv-2021",
           "locator": "Lemma 4.7, p.25 (arXiv v4)",
-          "excerpt": "Then the roots of F in the ball {ordp(x) ≥ 1} can be determined, with multiplicity, to precision (n − k)/d, by computing F0, . . . , Fm−1 modulo pn.",
           "match": "The statement used to produce disc certificates."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Remark 4.8, p.25 (arXiv v4)",
-          "excerpt": "In practice, we usually apply this with d = 1, by recentering and rescaling our power series so that there is only one root in the ball",
           "match": "Simple roots and isolation."
         }
       ],
@@ -15904,19 +15544,16 @@
         {
           "sourceId": "bdmtv-2021",
           "locator": "Algorithm 3.12, p.14 (arXiv v4)",
-          "excerpt": "(d) Check that the solutions are simple. If there is a non-simple solution corresponding to a point in X(Q)known, return FAIL.",
           "match": "The failure conditions of the algorithm."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Remark 3.14, p.14 (arXiv v4)",
-          "excerpt": "Note that if the algorithm fails due to a loss of precision, it may be possible to remedy this by increasing the starting precision.",
           "match": "Termination versus success: a FAIL is open, not a negative result."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Assumption 3.10, p.13 (arXiv v4)",
-          "excerpt": "The discriminant of r(x) is contained in Z×p.",
           "match": "Tuitman's Assumption 1, imported from RD.7 with the June 2020 correction."
         }
       ],
@@ -16045,19 +15682,16 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.3, pp.929–930",
-          "excerpt": "which we will use henceforth and which has good reduction away from 2 and 13.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/85 (model, substitution, seven points). Identity (ii), the seven points, smoothness mod 17 and #X(F_17) = 20 are exact finite computations (proof steps (ii)–(v))."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.3, p.930",
-          "excerpt": "With respect to this model, the seven known rational points are as follows:",
           "match": "The table P0, …, P6."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.3, p.929",
-          "excerpt": "It may be checked that the q-expansions of the Galois conjugates of f do not satisfy a quadratic relation, but do satisfy a quartic relation",
           "match": "The canonical-model derivation of Baran's equation."
         }
       ],
@@ -16133,13 +15767,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.1, pp.926–927",
-          "excerpt": "End(J) ⊗ Q ≃ K := Q(ζ7)+, and J is a simple abelian threefold. Therefore ρ(JQ) = 3.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/77."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§1.1, p.887",
-          "excerpt": "Mazur’s method applies whenever J0(ℓ) ≠ 0, which is the case for ℓ = 11 and ℓ ≥ 17.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/3 (Chen's decomposition, cited context only)."
         }
       ],
@@ -16206,7 +15838,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "proof of Proposition 6.2, p.927",
-          "excerpt": "We found that the number L′(f, 1) was always larger than 0.6 for any embedding Q(α) ↪ C and the error in these computations was smaller than 10−100.",
           "match": "The numerical input that CN.4 certifies (extraction gap G-numerics); part of PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/82."
         }
       ],
@@ -16271,13 +15902,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Proposition 6.2 and its proof, p.927",
-          "excerpt": "The work of Gross-Zagier [GZ86] and Kolyvagin-Logachev [KL89] proves that if the order of vanishing of the L-function L(f, s) of f at s = 1 is 1, then rk(Af / Q) = g = 3.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/82; PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/79, /94, /97 are GZ.8's and HE.7's."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "Remark 6.3, p.927",
-          "excerpt": "In [BPS16], this enables the authors to compute the rank assuming the Generalised Riemann Hypothesis.",
           "match": "The conditional descent route, kept with its label."
         }
       ],
@@ -16343,7 +15972,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4, pp.930–931",
-          "excerpt": "These matrices encode independent Tate classes Z1, Z2 ∈ H1dR(X) ⊗ H1dR(X) with respect to the basis ω, which satisfy the conditions (a)–(d) of Section 4.4.",
           "match": "Covers the Tate-class part of PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/86 (matrices checked on the rendered page 931); PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/83, /84 are R19.1's and NC.5's."
         }
       ],
@@ -16396,13 +16024,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4, p.931",
-          "excerpt": "We find that a basis of H0(X, O(2D)) is given by 1, x, y, x2, xy, y2, where D = X \\ Y.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/86 (basis, η, β_Fil, γ_Fil; values read on the rendered page 931)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4, p.930",
-          "excerpt": "Define Qy = ∂Q/∂y, then a set of differentials that satisfy all the properties in Section 4.1 is given by",
           "match": "The basis ω."
         }
       ],
@@ -16501,13 +16127,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4, p.931",
-          "excerpt": "We apply the methods of [Tui16] to define a lift Φ of Frobenius on a strict open neighbourhood of ]U1[ satisfying Φ(x) = xp.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/87; the general certified Tuitman provider is RD.7's (PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/95)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4, p.931",
-          "excerpt": "The base point b = P2 is a Teichmüller point with respect to our chosen Φ.",
           "match": "Teichmüller base point."
         }
       ],
@@ -16637,13 +16261,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4.1, p.932",
-          "excerpt": "This enables us to compute a K-equivariant splitting s of the Hodge filtration on H1dR(X)",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/88."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4.1, p.932",
-          "excerpt": "such that the locally analytic functions det(Ti(x)) : X(Qp) → Qp vanish on X(Qp)2.",
           "match": "The matrices T_i."
         }
       ],
@@ -16699,7 +16321,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.4.1, p.933",
-          "excerpt": "All zeroes of det(T1(x)) and det(T2(x)) are simple, and the only simultaneous zeroes are P1, P2, P3 and P5. Hence these are the only Q-rational points on ]U1[.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/90 (with Remark 6.9)."
         }
       ],
@@ -16756,7 +16377,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.5, p.933",
-          "excerpt": "All zeroes are simple, and the only points that are simultaneous zeroes are (0, 1) and (0, −1).",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/91, with E7 (det T_2'(u))."
         }
       ],
@@ -16812,7 +16432,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6.6, p.934",
-          "excerpt": "We find that for both choices of Z, the only roots of the resulting power series are at P0 = (1 : 1 : 1) (and are simple). This completes the proof of Theorem 1.1.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/92."
         }
       ],
@@ -16876,13 +16495,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Theorem 1.1, p.888",
-          "excerpt": "The rational points on Xs(13) consist of six CM points and one cusp.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/5."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§1.1, p.888",
-          "excerpt": "Galbraith [Gal02] and Baran [Bar14b] computed all rational points up to a large height bound; they found six CM points and one cusp.",
           "match": "The known points matched in the comparison."
         }
       ],
@@ -16936,13 +16553,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Theorem 1.2, p.888",
-          "excerpt": "The set of primes ℓ for which there exists an elliptic curve E/Q without CM such that ρE,ℓ is contained in the normaliser of a split Cartan subgroup is {2, 3, 5, 7}.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/96: the existence half, by the derived genus-zero argument (not written out in BDMTV)."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§6, p.926",
-          "excerpt": "there is a Q-isomorphism X0+(ℓ2) ≃ Xs(ℓ) coming from conjugation with",
           "match": "The identification used for the genus computation."
         }
       ],
@@ -16982,13 +16597,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Theorem 1.2, p.888",
-          "excerpt": "The set of primes ℓ for which there exists an elliptic curve E/Q without CM such that ρE,ℓ is contained in the normaliser of a split Cartan subgroup is {2, 3, 5, 7}.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/6."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§1.1, p.887",
-          "excerpt": "Bilu–Parent–Rebolledo [BPR13] who showed that the statement holds for all ℓ > 7, ℓ ≠ 13.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/2 (cited input; gap)."
         }
       ],
@@ -17032,13 +16645,11 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Corollary 1.3, p.888",
-          "excerpt": "We have |Xns(13)(Q)| = 7, and all points are CM.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/7."
         },
         {
           "sourceId": "bdmtv-2019",
           "locator": "§1.1, (1), p.888",
-          "excerpt": "by computing explicit smooth plane quartic equations for both curves and observing that they are isomorphic [Bar14b]",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/4 (Baran's isomorphism, cited; data gap)."
         }
       ],
@@ -17089,7 +16700,6 @@
         {
           "sourceId": "bdmtv-2019",
           "locator": "Remark 1.4, p.888",
-          "excerpt": "As was noted by Serre [Ser97] a complete determination of Xns(N)(Q) for some N leads to a proof of the class number one problem. Corollary 1.3 therefore gives a new proof of this theorem.",
           "match": "Covers PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/8; the inert-prime argument is the standard route (Serre)."
         }
       ],
@@ -17135,13 +16745,11 @@
         {
           "sourceId": "bdmtv-2021",
           "locator": "Theorem 1.1, p.2 (arXiv v4)",
-          "excerpt": "We have #XS4(13)(Q) = 4. One of these points is a CM point, corresponding to discriminant D = −3.",
           "match": "Main example theorem of BDMTV 2021."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "§5.1, p.26 (arXiv v4)",
-          "excerpt": "Hence we may construct suitable cycles Z1, Z2 from T11 and its square, respectively.",
           "match": "The certificate data (p = 11, two patches, two cycles)."
         }
       ],
@@ -17200,19 +16808,16 @@
         {
           "sourceId": "bdmtv-2021",
           "locator": "Theorem 5.6, p.30 (arXiv v4)",
-          "excerpt": "Let N be a prime such that X0+(N) has genus 3. Then the rational points on X0+(N) are as below.",
           "match": "The genus-three part of BDMTV 2021 Theorem 1.3."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Example 5.7, p.31 (arXiv v4)",
-          "excerpt": "Using our algorithm for p = 5, we find that the rational points are as follows:",
           "match": "X_0^+(97), the acceptance instance."
         },
         {
           "sourceId": "bdmtv-2021",
           "locator": "Examples5.7–5.15,pp31–32(arXivv4)",
-          "excerpt": "the rational points are as follows",
           "match": "Every actual genus-three quartic, ordered point list, prime and CM discriminant is retained in the application contract."
         }
       ],
@@ -17269,13 +16874,11 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "Theorem B, p.122",
-          "excerpt": "has only the solutions ±(X, Y) = (1, 0), (1, −1), (1, 3), (3, −1).",
           "match": "Statement read on the rendered page 122 (the text layer drops the equations); part (i) has only ±(1, 0)."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "proof of Theorem B, p.126",
-          "excerpt": "It follows that A ≤ 10. We enumerated all remaining possibilities and found no other solutions of (2.1) and (2.2) than mentioned in the theorem.",
           "match": "The reduction data c_0 = 10¹⁴⁰, 10¹², bounds 72 and 10 read on the rendered pages 124–126."
         }
       ],
@@ -17320,14 +16923,12 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "Theorem A, pp.118–119",
-          "excerpt": "has only the following 22 integral points:",
           "match": "The point list was checked by exact evaluation."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§III.1, p.119",
-          "excerpt": "From a table of Delone and Faddeev [10, p. 141] we see that the class number of L is 1, its ring of integers is Z[ψ], its discriminant is 229",
-          "match": "Cubic-field certificate inputs (OCR of ψ cleaned; quote checked against the rendered page)."
+          "match": "Supplies the cubic-field inputs for the certificate; the original source review checked the rendered page and corrected the OCR rendering of ψ."
         }
       ],
       "implementationStatus": "unchecked"
@@ -17371,19 +16972,16 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "Theorem 6.3, p.123",
-          "excerpt": "has exactly 545 solutions. Of them, 514 satisfy",
           "match": "Statement and parameters read on the rendered pages 123–124 (scanned thesis, OCR checked)."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "proof of Theorem 6.3, p.124",
-          "excerpt": "Hence m(x·y·z) ≤ 606. We repeated the procedure with X0 = 606 and μ as in the following table.",
           "match": "First reduction step; the second and third give 67 and 56."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "Theorem 6.3, p.123, and Table II, p.130",
-          "excerpt": "The remaining 31 solutions are given in Table II.",
           "match": "Table II (rendered page 130) lists the 31 large solutions, the last row being 91 + 1771470 = 1771561."
         }
       ],
@@ -17428,19 +17026,16 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§1Ex, p.225",
-          "excerpt": "(there are 72 solutions, when we count only the (x, y) with x ⩾ 0)",
           "match": "Read on the rendered page 225 (the text layer drops the equation); the table on pp.278–279 has 72 rows with x ≥ 0."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§18Ex, p.277",
-          "excerpt": "Finally we give the complete list of solutions of",
           "match": "The solution table, pp.278–279."
         },
         {
           "sourceId": "tzanakis-de-weger-1993-correction",
           "locator": "Compositio89(1993),pp241–242",
-          "excerpt": "the gap in the proof has been fixed",
           "match": "Corrected archimedean constant/initial bound and the same-lattice first reductions; alternatively sharper Baker–Wüstholz input restores the old initial bound."
         }
       ],
@@ -18357,8 +17952,8 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "misprint",
       "locator": "§II.3, proof of Proposition 3.2, printed p. 115",
-      "printed": "then the inequality |Λ| > K1 · exp(−K2 · A) has no solution in the range (1/K2) · log(c0 · K1/q · K3) ≤ A ≤ X0",
-      "correction": "then the inequality |Λ| < K1 · exp(−K2 · A) (the first inequality of (3.1)) has no solution in that range.",
+      "printed": "The proof assigns the no-solution conclusion to |Λ| > K1 · exp(−K2 · A) in the displayed range (1/K2) · log(c0 · K1/q · K3) ≤ A ≤ X0.",
+      "correction": "The excluded inequality is |Λ|<K₁ exp(−K₂A), the first inequality of (3.1), on the stated range of A.",
       "reason": "The argument shows c_0|Λ| ≥ qK_3 for every (a_i) with A ≤ X_0, which is incompatible with |Λ| < K_1 exp(−K_2A) when A ≥ (1/K_2)log(c_0K_1/(qK_3)); the inequality with '>' is the one that every such vector satisfies, not the one without solutions. Proposition 3.2 as stated is correct.",
       "affects": "nothing",
       "known": "new",
@@ -18376,7 +17971,7 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "misprint",
       "locator": "§II.2, Lemma 2.1, p. 107 (definition of U_I) with (2.1), p. 108",
-      "printed": "U_I = (log|ε_i^{(h_l)}|)_{1≤i≤r, 1≤l≤r} (where i indicates a row and l a column of the matrix), U_I^{−1} = (u_il), N[U_I^{−1}] = max_{1≤i≤r} Σ_{l=1}^r |u_il|",
+      "printed": "The matrix is U_I=(log|ε_i^{(h_l)}|)_{1≤i≤r,1≤l≤r}, with unit index i assigned to rows and embedding index l to columns; U_I^(−1)=(u_il), and the norm used is max_{1≤i≤r} Σ_{l=1}^r|u_il|.",
       "correction": "l indicates a row and i a column: (U_I)_{l,i} = log|ε_i^{(h_l)}|, so that (2.1) (log|β^{(h_l)}/μ^{(h_l)}|)_l = U_I·(a_1, …, a_r)^T holds and a = U_I^{−1}(…) gives max|a_i| ≤ N[U_I^{−1}]·max_l|log|β^{(h_l)}/μ^{(h_l)}||.",
       "reason": "With the printed orientation the l-th entry of U_I·a is Σ_i log|ε_l^{(h_i)}|·a_i, not log|β^{(h_l)}/μ^{(h_l)}| = Σ_i a_i log|ε_i^{(h_l)}|, so (2.1) would be false; the row-sum norm of the inverse of the transposed matrix differs in general (for U = ((2, 1), (0, 1)) the row-sum norms of U^{−1} and (U^T)^{−1} are 1 and 3/2). Tzanakis–de Weger's 1992 paper (Lemma 6, p. 239) displays U_I with rows indexed by the embeddings, as corrected here.",
       "affects": "nothing",
@@ -18396,7 +17991,7 @@
       "source": "de-weger-1989",
       "kind": "error",
       "locator": "§3.13, Lemma 3.17(i), p. 67",
-      "printed": "Then Γ#_μ ⊆ Γ*_μ ⊆ Γ_μ are lattices. If p = 2 they are all equal. If p = 3 then Γ*_μ = Γ_μ. If p ≥ 3 then #(Γ_μ/Γ*_μ) = (p−1)/2, #(Γ_μ/Γ#_μ) = p−1, #(Γ*_μ/Γ#_μ) = 2.",
+      "printed": "The stated lattice inclusions are Γ#_μ⊆Γ*_μ⊆Γ_μ. The source claims all three are equal for p=2, Γ*_μ=Γ_μ for p=3, and, for p≥3, the three indices #(Γ_μ/Γ*_μ), #(Γ_μ/Γ#_μ), #(Γ*_μ/Γ#_μ) equal (p−1)/2, p−1, 2 respectively.",
       "correction": "For p = 2 only Γ*_μ = Γ_μ holds in general; for p ≥ 3 the indices divide (p−1)/2, p−1 and 2 respectively, with equality when the residues of the α_i generate (ℤ/p)^× (as in Chapter 6, where p_0 is chosen to be a primitive root).",
       "reason": "p = 2, α = (3, 5), μ = 0: ord_2(log_2 3) = ord_2(log_2 5) = 2 = μ_0, so Γ_0 = ℤ², but Γ#_0 = {x : 3^{x_1}5^{x_2} ≡ 1 (mod 4)} = {x_1 even}. p = 5, α = (6, 11), μ = 0: μ_0 = 1, Γ_0 = ℤ² and ξ ≡ 1 (mod 5) always, so Γ#_0 = Γ_0 and #(Γ_0/Γ#_0) = 1 ≠ 4.",
       "affects": "a stated result",
@@ -18416,7 +18011,7 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "gap",
       "locator": "§II.3, (3.8) and the summary procedure, pp. 117–118",
-      "printed": "(2) Expand ξ̃ into its continued fraction with partial quotients b_0, b_1, b_2, …, b_{k+1} and convergents p_i/q_i for all i = 1, …, k with q_k ≤ C < q_{k+1}. (3) Test all these convergents for the conditions (3.8) and F(p_i, q_i) = m.",
+      "printed": "The procedure expands the approximation ξ̃, retaining partial quotients b₀,…,b_{k+1} and convergents p_i/q_i for 1≤i≤k with q_k≤C<q_{k+1}. It then tests those convergents using (3.8) as well as F(p_i,q_i)=m.",
       "correction": "Condition (3.8), a_{k+1} > |q_k|^{n−2}/C_1 − 2, is proved for the partial quotient a_{k+1} of ξ^{(i_0)}; applied to the computed partial quotients b_{k+1} of ξ̃ it is not justified. Either test every convergent p_i/q_i of ξ̃ with q_i ≤ C directly (F(Zp_i, Zq_i) = m with Z^n ∣ m), or compute ξ^{(i_0)} precisely enough to determine a_{k+1}.",
       "reason": "The proof shows that p_k/q_k is a convergent of both ξ^{(i_0)} and ξ̃, but the next partial quotients can differ: if |ξ̃ − ξ^{(i_0)}| is close to its allowed maximum 1/(6C²) and q_k is close to C, then |ξ̃ − p_k/q_k| ≈ 1/(6q_k²), which forces b_{k+1} ≤ 5, while a solution with Y = q_k makes a_{k+1} > q_k^{n−2}/C_1 − 2 large; a test of (3.8) with b_{k+1} would then discard that solution.",
       "affects": "the proof",
@@ -18436,9 +18031,9 @@
       "source": "tzanakis-de-weger-1992",
       "kind": "misprint",
       "locator": "§5, proof of the second corollary of Lemma 1, pp. 232–233",
-      "printed": "hence (8) implies (7), and the 1st Corollary (ii) can be applied to prove that at most one 𝔭_i dividing p satisfies (8).",
-      "correction": "the 1st Corollary (i) can be applied to prove that at most one 𝔭_i dividing p satisfies (8)",
-      "reason": "'At most one 𝔭_i' is part (i) of the first corollary; part (ii) concerns d_i > 1 or e_i > 1 and is used in the next sentence for d_i = e_i = 1.",
+      "printed": "After deducing (7) from (8), the proof cites part (ii) of the first corollary for the assertion that at most one prime ideal 𝔭_i above p satisfies (8).",
+      "correction": "Use part (i) of the first corollary to obtain uniqueness of a prime ideal 𝔭_i above p satisfying (8).",
+      "reason": "Uniqueness of the prime ideal is the conclusion of part (i). Part (ii) addresses d_i>1 or e_i>1; the following sentence uses that second part to obtain d_i=e_i=1.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -18474,7 +18069,7 @@
       "source": "aitken-lemmermeyer-2011",
       "kind": "misprint",
       "locator": "Appendix B, p. 17, first lines (arXiv:1108.6310v1; the same sentence in the author's six-page version on his web page)",
-      "printed": "represents an element of order 2 in Ш_E where E is defined by y² = x³ − 2⁴17x (which can be transformed into the form y² = x³ − 17x).",
+      "printed": "The source assigns the order-two Tate–Shafarevich class to y²=x³−2⁴·17x and identifies its scaled model as y²=x³−17x.",
       "correction": "E is y² = x³ + 2⁴·17x, which is isomorphic over ℚ to y² = x³ + 17x.",
       "reason": "The general formula four lines earlier, y² = x³ − 2bdx² + (b² − 4ac)d²x with (a, b, c, d) = (1, 0, −17, 2), gives (0 + 68)·4 = +272. Independently, the system is X⁴ − 17Y⁴ = 2Z², i.e. v² = 2u⁴ − 34, whose invariants I = −816, J = 0 give the Jacobian Y² = X³ + 22032X ≅ y² = x³ + 17x (22032 = 6⁴·17; Cremona (3.6.3)). y² = x³ − 17x is not isomorphic to it over ℚ, since −1 is not a fourth power.",
       "affects": "nothing",
@@ -18495,7 +18090,7 @@
       "source": "poonen-1998",
       "kind": "misprint",
       "locator": "§4, paragraph before Proposition 2, p. 15 of arXiv:math/9512217v1 (page rendered); the published Math. Z. version was not read",
-      "printed": "The mod 3 reductions of the eight known rational points Q+, Q−, R+, R−, S+, S−, ∞+, ∞− are distinct, except that R+ and R− both reduce to the Weierstrass point (1, 0) ∈ C(F3).",
+      "printed": "The reduction comparison singles out R⁺ and R⁻ as the only collision among Q⁺,Q⁻,R⁺,R⁻,S⁺,S⁻,∞⁺,∞⁻ modulo3, placing their common reduction at the Weierstrass point (1,0)∈C(𝔽₃).",
       "correction": "…except that S⁺ and S⁻ both reduce to the Weierstrass point (1, 0) ∈ C(𝔽_3).",
       "reason": "R^± = (0, ±1) reduce to (0, ±1) ∈ C(𝔽_3), which are distinct and not Weierstrass points; S^± = (1, ±3) reduce to (1, 0), and g(1) = 9 ≡ 0 (mod 3) with g'(1) ≡ 1 (mod 3), so (1, 0) is a Weierstrass point. The proof of Proposition 2 treats S^± as the two points over (1, 0), in agreement with the correction.",
       "affects": "nothing",
@@ -18515,7 +18110,7 @@
       "source": "bruin-stoll-2010",
       "kind": "error",
       "locator": "Lemma 4.1 and its proof, published p.281 (same in arXiv v2 and the author copy)",
-      "printed": "p1 p2 · · · pm > e^{H′+γ} max{|a|, |b|}^2 … This integer has absolute value at most e^{H′+γ} max{|a|, |b|}^2, so if it is divisible by p1, . . . , pm, it must be zero.",
+      "printed": "The proof uses p₁⋯p_m>e^{H′+γ}max{|a|,|b|}² and claims the integer under consideration has absolute value at most e^{H′+γ}max{|a|,|b|}²; divisibility by all p_j is then used to force it to vanish.",
       "correction": "|k1 b^2 − k2 ab + k3 a^2| ≤ (|k1| + |k2| + |k3|)·max{|a|,|b|}^2 ≤ 3e^{H′+γ}max{|a|,|b|}^2; the hypothesis should read p1 p2 · · · pm > 3e^{H′+γ} max{|a|, |b|}^2, under which the divisibility step gives k1 a^2 − k2 ab + k3 b^2 = 0 (the last step of the proof needs the further correction recorded as a separate gap).",
       "reason": "With coprime Kummer coordinates (k1, k2, k3) = (1, −1, 1) and a = b = 1 the integer is 3, while max|kj|·max{|a|,|b|}^2 = 1; the claimed estimate only bounds each of the three terms separately.",
       "affects": "the proof",
@@ -18535,7 +18130,7 @@
       "source": "bruin-stoll-2010",
       "kind": "misprint",
       "locator": "Proof of Lemma 4.1, published p.281 (same in arXiv v2 and the author copy)",
-      "printed": "then pj divides k1 b^2 − k2 ab + k3 a^2",
+      "printed": "p_j ∣ k₁b²−k₂ab+k₃a².",
       "correction": "With x(P0) = (a : b) the divisibility is pj | k1 a^2 − k2 ab + k3 b^2: the quadratic k1 X^2 − k2 XZ + k3 Z^2, whose roots are the x-coordinates of the divisor of Q, is evaluated at (X : Z) = (a : b).",
       "reason": "In the paper's own convention (Lemma 5.3, p.288) the Kummer point (x1 : x2 : x3 : x4) gives A(X, Z) = x1 X^2 − x2 XZ + x3 Z^2; vanishing at x(P0) = (a : b) is x1 a^2 − x2 ab + x3 b^2 = 0. The printed form evaluates at (b : a).",
       "affects": "nothing",
@@ -18555,9 +18150,9 @@
       "source": "bruin-stoll-2010",
       "kind": "misprint",
       "locator": "§3.2, FindQSequence, published p.278 (same in arXiv v2 and the author copy)",
-      "printed": "if n < ε: // success?",
+      "printed": "The stopping test accepts n<ε.",
       "correction": "if n < ε1: // success?",
-      "reason": "The text before the algorithm requires n((∏ qk)Γ) < ε1, and the sentence after it ('if we made sure in the first step that there is some M such that n(MΓ) < ε1, then FindQSequence will not fail') holds only for the test against ε1; §7 confirms that the q-sequence uses ε1 with ε < ε1 < 1.",
+      "reason": "Before the algorithm the required bound is n((∏q_k)Γ)<ε₁. The subsequent termination claim assumes an initial multiple M with n(MΓ)<ε₁, so it requires testing against ε₁ as well. The §7 choice of q-sequence confirms ε<ε₁<1.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -18575,7 +18170,7 @@
       "source": "bdmtv-2021",
       "kind": "misprint",
       "locator": "Version of record, Compositio159 (2023), p.1129, item(3) after(4.2); same in arXiv:2101.01862v4 p.18.",
-      "printed": "where gx ∈ Q̄[[tx]] is defined to be the formal integral of dΩ⊺x ZdΩx−η",
+      "printed": "The assigned carrier is g_x∈Q̄[[t_x]], with formal antiderivative equation dg_x=dΩ_xᵀ Z dΩ_x−η.",
       "correction": "g_x ∈ Q̄((t_x)) is a formal primitive of Ω_xᵀ Z dΩ_x − η, as in BDMTV 2019 (29).",
       "reason": "By (d) Z is antisymmetric, so dΩ_xᵀ Z dΩ_x = Σ Z_ij ω_i ω_j vanishes identically (as a product of coefficient functions in t_x it is a quadratic form in an antisymmetric matrix). As printed, g_x would be −∫η, and (4.2) would no longer involve the quadratic term that the gauge equation C_x^(−1)dC_x = Λ produces. g_x has poles at x (it is determined only through its principal part), so it lies in Q̄((t_x)), not Q̄[[t_x]].",
       "affects": "nothing",
@@ -18616,7 +18211,7 @@
       "source": "bruin-stoll-2010",
       "kind": "gap",
       "locator": "Lemma 4.1, last sentence of the proof, published p.281 (same in arXiv v2 and the author copy)",
-      "printed": "If P0 ≠ P̄0, these two cases can be distinguished mod p_{j0}.",
+      "printed": "The source claims that P₀≠P̄₀ allows the two possible curve-image cases to be separated at the single reduction prime p_{j₀}.",
       "correction": "Require that the primes p_j separating P0 from P̄0 have product greater than e^{H′+γ} (for instance that every p_j separates them). At each separating prime the test then forces Q ≡ 0, so these primes divide k1, k2, k3, which are not all zero since Q ≠ 0: a contradiction.",
       "reason": "For P ∈ C(ℚ) with P ≠ P̄0 and P ≡ P̄0 modulo p_{j0}, the class Q = [P − P̄0] = [P + P0 − W] reduces to 0 = ι(P̃0) modulo p_{j0}, so it passes the test there, and it passes at every p_j where P0 ≡ P̄0; yet Q ∉ ι(C(ℚ)), since P + P0 is the unique effective divisor in its class and Q = −ι(P̄). One separating prime does not distinguish the two cases.",
       "affects": "the proof",
@@ -18636,9 +18231,9 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "misprint",
       "locator": "§III.2, p.123",
-      "printed": "On the other hand, (2.1) and (2.2) are respectively equivalent to Norm_{K/Q}(X − Y·ϑ) = 1 and Norm_{K/Q}(X − Y·φ) = 1",
+      "printed": "The two norm-one equations are assigned in the order (2.1)↔Norm_{K/ℚ}(X−Yϑ)=1 and (2.2)↔Norm_{K/ℚ}(X−Yφ)=1.",
       "correction": "(2.2) is equivalent to Norm(X − Yϑ) = 1 and (2.1) to Norm(X − Yφ) = 1.",
-      "reason": "With ϑ⁴ − 12ϑ² − 8ϑ + 4 = 0 (printed on the same page), Norm(X − Yϑ) = X⁴ − 12X²Y² − 8XY³ + 4Y⁴, the form of (2.2); the next sentence ('as is obvious from the known solutions of (2.2), ε1 = 1 + ϑ, ε2 = 3 + ϑ are units') uses the corrected assignment.",
+      "reason": "Using ϑ⁴−12ϑ²−8ϑ+4=0 from the same page gives Norm(X−Yϑ)=X⁴−12X²Y²−8XY³+4Y⁴, which is form (2.2). The next sentence obtains the units ε₁=1+ϑ and ε₂=3+ϑ from known solutions of (2.2), agreeing with the corrected assignment.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -18656,7 +18251,7 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "error",
       "locator": "§II.1, proof of Lemma 1.2, p.106",
-      "printed": "Since |e^{iΛ} − 1| = 2·|sin Λ/2|, it follows that |sin Λ/2| < ¼, and therefore |Λ| ≤ 2·(¼/sin ¼)·|sin Λ/2| = (¼/sin ¼)·|e^{iΛ} − 1| ≤ 1.02·|e^{iΛ} − 1|",
+      "printed": "From |e^{iΛ}−1|=2|sin(Λ/2)| and |sin(Λ/2)|<1/4, the proof infers |Λ|≤2·((1/4)/sin(1/4))·|sin(Λ/2)|=((1/4)/sin(1/4))·|e^{iΛ}−1|≤1.02·|e^{iΛ}−1|.",
       "correction": "|Λ| ≤ 2·(arcsin ¼)/(¼)·|sin Λ/2| = 4·arcsin(¼)·|e^{iΛ} − 1| ≤ 1.02·|e^{iΛ} − 1|: the factor (¼)/sin(¼) ≈ 1.01049 becomes 4·arcsin(¼) ≈ 1.01072, and the stated constant 1.02 still holds.",
       "reason": "x/sin x increases on (0, π/2), so x ≤ (¼/sin ¼)·sin x holds only for 0 ≤ x ≤ ¼; the hypothesis |sin(Λ/2)| < ¼ allows |Λ/2| up to arcsin ¼ ≈ 0.2527, and at x = 0.2526 the printed inequality fails (x/sin x ≈ 1.01071 > 1.01049).",
       "affects": "nothing",
@@ -18676,7 +18271,7 @@
       "source": "flynn-poonen-schaefer-1997",
       "kind": "misprint",
       "locator": "End of the proof of Lemma 2, p.16 (arXiv:math/9508211)",
-      "printed": "subspace generated by u1 and u3 β1 β3 .",
+      "printed": "span(u₁,u₃β₁β₃).",
       "correction": "subspace generated by u1 and u3 β1 β2, as in the statement of Lemma 2 and in Lemma 5.",
       "reason": "The statement of Lemma 2 (same page) and the proof of Lemma 5 use u3β1β2; the norm of u3β1β3 is −3701⁴, not a square, so it cannot lie in the norm kernel described.",
       "affects": "nothing",
@@ -18697,7 +18292,7 @@
       "kind": "error",
       "locator": "Version of record, Compositio159 (2023), Lemma4.7, p.1136; same in arXiv:2101.01862v4 p.25.",
       "printed": "max{i ≥ 0 : ordp(Fi) + i = n} < m",
-      "correction": "ord_p(F_i) + i ≥ n for every i ≥ m, i.e. max{i ≥ 0 : ord_p(F_i) + i < n} < m; this is what the proof uses ('Since G(x + α) has degree ≤ m mod p^{n−k}').",
+      "correction": "Require ord_p(F_i)+i≥n for every i≥m, equivalently max{i≥0:ord_p(F_i)+i<n}<m. This is the coefficient condition needed for the degree bound on G(x+α) modulo p^(n−k) used in the proof.",
       "reason": "With G(x) = p^(−k)F(px), the coefficient G_i has valuation ord_p(F_i) + i − k, so G is a polynomial of degree < m modulo p^(n−k) exactly when ord_p(F_i) + i ≥ n for i ≥ m. The printed condition only restricts the indices with ord_p(F_i) + i = n. For F = p² − p·x and n = 5 the printed set is empty, so m = 1 is allowed, k = 2, and the lemma would determine the roots from F_0 = p² modulo p⁵; but F has the root x = p in the disc, which F_0 does not see.",
       "affects": "a stated result",
       "known": "new",
@@ -18717,7 +18312,7 @@
       "source": "siksek-2010",
       "kind": "misprint",
       "locator": "Algebra & Number Theory 7 (2013), version of record, p.770, immediately after pairing (4); also arXiv:1010.2603v2, §3.3, p.5.",
-      "printed": "whose kernel on the right is 0 and on the left is the torsion subgroup of J(K_v).",
+      "printed": "For pairing (4), the source assigns a trivial right kernel and identifies the left kernel with J(K_v)_tors.",
       "correction": "For the displayed order Ω × J(K_v), the left kernel is 0 and the right kernel is J(K_v)_tors.",
       "reason": "The right carrier is J(K_v), which contains its torsion, and the left carrier is a characteristic-zero vector space. Both the published p.770 and preprint p.5 reverse the kernels for pairing (4); the same paper correctly gives them for pairing (3) on published p.769/preprint p.4. Stoll arXiv:1307.1773v4 p.7 uses the correct Ω × J order.",
       "affects": "nothing",
@@ -18781,7 +18376,7 @@
       "source": "de-weger-1989",
       "kind": "misprint",
       "locator": "§3.6, Figure2, printed p.52, step(5), original CWI edition and author copy.",
-      "printed": "Print x, then stop when the scanned vector reaches zero.",
+      "printed": "The displayed enumeration emits x alone and terminates when the scanned vector is zero.",
       "correction": "Print both x and −x before zero termination, as Fincke–Pohst(2.8); an affine adaptation instead scans all signed bounds and includes zero separately.",
       "reason": "For n=1, B=(1), C=1, the printed scan outputs −1 and then stops at0, omitting +1. The paragraph on p.51 promises all short vectors. This is a missing sign in the displayed pseudocode; Fincke–Pohst itself prints both signs.",
       "affects": "the proof",
@@ -18821,7 +18416,7 @@
       "source": "flynn-poonen-schaefer-1997",
       "kind": "misprint",
       "locator": "arXiv:math/9508211v1, p.23, Theorem6 proof, θ₁ branch.",
-      "printed": "The linear coefficient has strictly larger 3-adic valuation than the others.",
+      "printed": "The valuation comparison places the coefficient of n strictly above the other coefficients.",
       "correction": "The linear coefficient has strictly smaller 3-adic valuation than the others (equivalently, larger 3-adic absolute value).",
       "reason": "The displayed congruence is θ₁≡27n modulo81. The coefficient of n has valuation3 while all other nonzero coefficients have valuation≥4; zero coefficients have valuation∞. Strassmann singles out the maximal absolute value, hence the minimal valuation. This is a reversed word in the proof, and does not change the intended one-root conclusion.",
       "affects": "the proof",
@@ -18876,7 +18471,7 @@
       "source": "bdmtv-2021",
       "kind": "misprint",
       "locator": "arXiv:2101.01862v4,p24,last sentence before Proposition4.6; already corrected in published Compositio159(2023),p1136",
-      "printed": "Then we have ϕ(i) = −2⌊log_p(i)⌋ + c_1 for all i ≥ i_0.",
+      "printed": "ϕ(i)=−2⌊log_p(i)⌋+c₁ for i≥i₀.",
       "correction": "Here ϕ(i)=−2⌊log_p(i)⌋, without+c1. The coefficient bound for λφ adds c1 separately; the final Proposition4.6 bound keeps its stated+c1.",
       "reason": "Equation(4.21) defines ϕ(i)=−floor(log_p i)+min(d_i(η),−floor(log_p i)); the i0 branch makes the second argument the minimum, so no c1 entersϕ. Publishedp1136 prints the corrected equality.",
       "affects": "nothing",
@@ -18891,7 +18486,7 @@
       "source": "siksek-symmetric-2009",
       "kind": "misprint",
       "locator": "Version of record, Algebra & Number Theory3(2009), p.223, Theorem4.3 after equation(15); repeated in its proof p.225 after equation(17). Author-linked November26,2008 preprint symmetric7.pdf has the same condition in Theorem2 p.14 and proof p.15.",
-      "printed": "Suppose ord_p(i+1)<i/N′ for all i≥0.",
+      "printed": "The quantified assumption is ord_p(i+1)<i/N′ for every i≥0.",
       "correction": "The strict inequality is required for positive integers i≥1; omit i=0 in both the hypothesis and the displayed strict higher-term norm consequence. This repairs the evident index slip; this entry does not certify every other step of the general relative theorem.",
       "reason": "At i=0 the printed hypothesis becomes v_p(1)=0<0/N′=0, impossible for the positive ramification bound N′. The proof likewise claims |z^0/1|<1, which reads1<1. Its actual use concerns higher-degree terms (z+z′)/2,(z²+zz′+z′²)/3,…, indexed by i≥1 after factoring the linear difference. Thus the published conditional theorem is vacuous as literally printed; the intended index correction is visible in the proof. No counterexample to the intended geometric conclusion is asserted.",
       "affects": "a stated result",
