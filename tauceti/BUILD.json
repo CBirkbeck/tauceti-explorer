@@ -134,8 +134,8 @@
     {
       "file": "ClassicalSerreModularity--R27.3",
       "roadmap": "ClassicalSerreModularity",
-      "nodes": 32,
-      "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
+      "nodes": 37,
+      "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R27.3"
     },
     {
       "file": "ClassicalSerreModularity--R33.5",
@@ -186,10 +186,22 @@
       "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.7"
     },
     {
+      "file": "DiamondEtaleCohomology--C0",
+      "roadmap": "DiamondEtaleCohomology",
+      "nodes": 119,
+      "reviewer": "independent-review-REV-DiamondEtaleCohomology--C0"
+    },
+    {
       "file": "DiamondEtaleCohomology--C8",
       "roadmap": "DiamondEtaleCohomology",
       "nodes": 65,
       "reviewer": "independent-review-REV-DiamondEtaleCohomology--C8"
+    },
+    {
+      "file": "DiamondsAndVStacks",
+      "roadmap": "DiamondsAndVStacks",
+      "nodes": 90,
+      "reviewer": "independent-review-REV-DiamondsAndVStacks"
     },
     {
       "file": "DirichletPadicLFunctions--L0",
@@ -224,8 +236,8 @@
     {
       "file": "EllipticCurveModularity",
       "roadmap": "EllipticCurveModularity",
-      "nodes": 21,
-      "reviewer": "independent-review-REV-EllipticCurveModularity"
+      "nodes": 23,
+      "reviewer": "independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2"
     },
     {
       "file": "EllipticKTheory--E.5",
@@ -727,8 +739,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 12036870,
-  "htmlSha256": "3842c996e5769ba6bb412e7950c678be28b44ed64347e78485542a4e24860a45",
+  "htmlBytes": 12037284,
+  "htmlSha256": "356d3d00a0e66ee269d18b3e3a03ab320224e7fd2c27777abf51eabcf48524ee",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -748,8 +760,8 @@
     "src/app.js": "d7c71df704e82afbfa6cddb2bf3eff67dd0a98ba68138895f0a5952af92566a8",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "c0f81f86842886b83554b987cd358c4664bbe8153e9bda798c2c00dc2f4ab4e5",
-    "data/tauceti-new-roadmaps.json": "c7f3f1944428628aaa2330ea78f3e6441b750599f57d107e4ccfdffaf048d1b2",
+    "data/tauceti-progress.json": "7485e4f8d763e536c0e950246a550a8571d9a40efb68f74e61d3a420065cb759",
+    "data/tauceti-new-roadmaps.json": "f26145effb53fea72d095c320145588ee24007df5502f545cd0875853a1d3f28",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -760,8 +772,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "c6679ae7288592d8c8dfc5760efcd41a792e9307b9d2b7106086ad7c6134a079",
-    "data/galaxy-layout.json": "95d22d0d152602a054dadfada90511f6b0fb8538a1e5530c4d93412c18a51e02",
+    "data/roadmap-distances.json": "016de2400ad902efdeb7037e4e696b9ecb794d016869ea12143a932933efd0d7",
+    "data/galaxy-layout.json": "932ee55b48af97dd9edcf3eae954717060ba0bf228420046e5fe56e53138a1f5",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -850,8 +862,8 @@
     "data/blueprints/AutomorphicBundles--B5.md": "0bfed27f079e9112d55bba1fc7cd761527e424c7a4236b51c0c15d7a3d763eec",
     "data/blueprints/ClassicalArithmeticCompletion.json": "2589a720bbb305491a1f319eaec20874d0f35ca786febe8625bdf7c8f960682e",
     "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
-    "data/blueprints/ClassicalSerreModularity--R27.3.json": "b248659c4698e9ad2c0adc3439f688f82e104297b69292fdd3ae1008544bb074",
-    "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
+    "data/blueprints/ClassicalSerreModularity--R27.3.json": "6df18b8cf988f62e164952ee0690b2a164e8f07d086df3adee3ee96df11de44f",
+    "data/blueprints/ClassicalSerreModularity--R27.3.md": "864dc2351c1de7f6765c8d8cc2b8d8d91c2fa7b55bf8131b92e059a1224239b4",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
     "data/blueprints/ColemanIntegration.json": "7365c824bd2e583603741ca94647250a4b41365a776b822aa58e196bfbe1eba5",
@@ -868,8 +880,12 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.json": "6cfde71a1c71c36ed5063e937131fd4a3db302c7a9adf980b980286795e53140",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md": "ae5f5743868613d9bfe9487219e4595591694b60ac985dac3756a61f9b2a1e90",
+    "data/blueprints/DiamondEtaleCohomology--C0.json": "abed59ec21738d12ab252903b1923d8e99ecb39fdf1ddbcf70c7d4fed0497c0f",
+    "data/blueprints/DiamondEtaleCohomology--C0.md": "7045ad4ad27a6124997adda21b34f8e931ae345d60bfe8eb728049ac6ea53760",
     "data/blueprints/DiamondEtaleCohomology--C8.json": "d996232364ba0d0ace9760ea92ace0a9dff3cf7493a9c732d2df793ad1327ede",
     "data/blueprints/DiamondEtaleCohomology--C8.md": "283cd6c3f9c75db4c08d0c53877e7522630f1501f5b73ba0b9dc698af3699c52",
+    "data/blueprints/DiamondsAndVStacks.json": "a8e9550f50c6ffd8d713eec483d322a1b6c6700357af2b1cea6d53ee599c6a23",
+    "data/blueprints/DiamondsAndVStacks.md": "b932a48cb629f7d75e56e415381ad7382debf1e0696790aa9cbf5020202e9f67",
     "data/blueprints/DirichletPadicLFunctions--L0.json": "f2445a2a9748de37d37916a1138dffa2d71c1c77e7cef8e643898bf87fd990f5",
     "data/blueprints/DirichletPadicLFunctions--L0.md": "f4b72a43a58c23643a880c6de3d4ace1819e28d4618955d8616bddb74d9ef25c",
     "data/blueprints/DirichletPadicLFunctions--L1.json": "d8af3bdf180b010dd961ecb66a26232856dfc4a083cbc1f2f4cd7b1a0036be54",
@@ -880,8 +896,8 @@
     "data/blueprints/DirichletPadicLFunctions--L3.md": "1fd3954edbb38f3928be95abd7bd80b2eb1a7ac8b680d84c8753a4422bd51bc5",
     "data/blueprints/DirichletPadicLFunctions--L4.json": "bcde7779be3dd8f1c55699ffb3f3c3df08884b454c2bb91a5d54e1f5a0d2a653",
     "data/blueprints/DirichletPadicLFunctions--L4.md": "d2d3ea088164a1c6a20422654cdfbd897560235ddbe5f361b4172bf6c712c950",
-    "data/blueprints/EllipticCurveModularity.json": "5eb2631efd9128f36e333420d4c67e10720b1e462134ada41b5dcc073d62364e",
-    "data/blueprints/EllipticCurveModularity.md": "5ecf52cec3c71eedbca1ba81c7d1342ac7b816d1eeb39ca32b6786835434109b",
+    "data/blueprints/EllipticCurveModularity.json": "5dae2f3dfaf2d8124bf1dcd9909375de1b1f6be610abdbd654eea6d5ea745484",
+    "data/blueprints/EllipticCurveModularity.md": "84a5d8f31e373320d80aa21421f9c1a1ffcd080f76da2c8ce97e4bf6041a832c",
     "data/blueprints/EllipticKTheory--E.5.json": "6526ed374864cacdf490512259f1dec1ec492383d181a065e4674f6c8c65b8e1",
     "data/blueprints/EllipticKTheory--E.5.md": "25ac3cc0649b3b9237db6f2ac85b0fb0d8498f472aee212b0398abf3ad988365",
     "data/blueprints/EllipticKTheory--E.6.json": "f2ee8a49aa585b0168b658d8ee883677dcf7eab96b1585ea952466b0136298e0",
@@ -1093,8 +1109,8 @@
     "data/restructure/RS-03.result.json": "0800a02bbb65e68be3241b089ab7fbbf03919473ccdae19c298a9a318165d608",
     "data/restructure/RS-04.md": "a04cb6dd9a07618397d87d09c58aa1903f632d91669f8e867c8c4537526e83cf",
     "data/restructure/RS-04.result.json": "437dea5769271ffca4f89bd86b141211c4cfb2cd1eed9b766c2a0c70022c4022",
-    "data/restructure/RS-05.md": "06b1d8bf4b38c041fd808432d660638a4ba3167b194f27726e86b4504c5e17c2",
-    "data/restructure/RS-05.result.json": "9870348ecccf53d79ee0a5a4afb4c00eeaaa8360f101670f721975df6932d150",
+    "data/restructure/RS-05.md": "4c752f4871a6a2d36d4aad9362d236b0c649fdda980f99634a068cfa6228e254",
+    "data/restructure/RS-05.result.json": "6aca28a6a082114cfd37572d08bc3c26b4a9963055453d4c5023d09e63aaebe6",
     "data/restructure/RS-06.md": "04a11c68e76534586b2171af090c298e7e04efd7ef403ed836019d09aff5b2d9",
     "data/restructure/RS-06.result.json": "25f4d1361797801655ac3845464e612250bb4d2fcfae2e5905fde2e2bcec71af",
     "data/restructure/RS-07.md": "52d6fb069903cd6e94bbc4b7988d5231eed260039c4de9eeb1a7b66603e62288",
@@ -1125,8 +1141,8 @@
     "data/restructure/RS-19.result.json": "4c4e23596364cf51e0629e6fb42e72043ca9e52bb8afb87210bace8b987ebb7a",
     "data/restructure/RS-20.md": "4168ea7a7b8e5b52e4286b180ed894405fcece672d346df3928d62ec3d0affa9",
     "data/restructure/RS-20.result.json": "f1e5ac5e417e100cfa2c8e4652ccee727d23a224211f3569fff2fde82fd24260",
-    "data/restructure/RS-21.md": "c4b4c13699b1507abfd052a0262281950f4f4e8ec5a82e01297c9c395e1336f8",
-    "data/restructure/RS-21.result.json": "7fea0b8ec706a954a77917a9648a2e07c43ceb52dca4263020167f87b7e38d6a",
+    "data/restructure/RS-21.md": "337ab05d1ffec3ded1f6efc10e0cb65f7d24e0ee836e7ec300ad61edd85084eb",
+    "data/restructure/RS-21.result.json": "a7f55931c9fe6c31d5c02fcb10d72f3d782ae2543b11a00089530ea4c272e101",
     "data/restructure/RS-22.md": "a71ec9e46134af1542271262b14da388e1bdb38e6ab0cf194eb7961a4cc2acca",
     "data/restructure/RS-22.result.json": "6ebb865c5d9a273d72af9564125e1b779d1250d830c8d32d226001d9551f72e9",
     "data/restructure/RS-23.md": "38df64d3d6364ba4685cbee8f20ebe9b7af0059c9a695e8279b062d2b8be7fad",
@@ -1153,7 +1169,7 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-07T06:21:20Z",
+    "exportedAt": "2026-10-07T13:50:04Z",
     "roadmaps": 70,
     "unplaced": 0,
     "layers": {

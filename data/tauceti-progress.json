@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-07T06:21:20Z",
- "exported_at": "2026-10-07T06:21:20Z",
+ "cutoff": "2026-10-07T13:50:04Z",
+ "exported_at": "2026-10-07T13:50:04Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 244,
-  "recent": 6050,
-  "total": 11275,
+  "open": 255,
+  "recent": 6134,
+  "total": 11375,
   "unattributed": {
-   "no_label": 1275,
+   "no_label": 1284,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,17 +28,17 @@
    1080,
    1649,
    2267,
-   416
+   516
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "25f159244c802e526729b84e6ac3c9e4bff2e1ca",
+ "roadmap_head": "0eb7e7da0299378821f13e9aa3a56f6aa0576285",
  "rows": [
   {
    "activity": {
     "last": "2026-10-07T03:16:06Z",
-    "open": 1,
+    "open": 3,
     "recent": 154,
     "since_report": 3,
     "total": 416,
@@ -257,11 +257,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T23:15:38Z",
-    "open": 3,
-    "recent": 106,
-    "since_report": 1,
-    "total": 161,
+    "last": "2026-10-07T07:32:18Z",
+    "open": 2,
+    "recent": 107,
+    "since_report": 2,
+    "total": 162,
     "weekly": [
      0,
      0,
@@ -278,7 +278,7 @@
      22,
      25,
      48,
-     1
+     2
     ]
    },
    "assessment": {
@@ -400,11 +400,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:59:29Z",
+    "last": "2026-10-07T07:21:02Z",
     "open": 3,
-    "recent": 86,
-    "since_report": 3,
-    "total": 86,
+    "recent": 87,
+    "since_report": 4,
+    "total": 87,
     "weekly": [
      0,
      0,
@@ -421,7 +421,7 @@
      18,
      22,
      39,
-     5
+     6
     ]
    },
    "assessment": {
@@ -523,11 +523,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:19:52Z",
+    "last": "2026-10-07T13:09:25Z",
     "open": 2,
-    "recent": 57,
-    "since_report": 4,
-    "total": 57,
+    "recent": 59,
+    "since_report": 6,
+    "total": 59,
     "weekly": [
      0,
      0,
@@ -544,7 +544,7 @@
      8,
      16,
      28,
-     5
+     7
     ]
    },
    "assessment": {
@@ -640,11 +640,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T03:40:50Z",
+    "last": "2026-10-07T13:37:46Z",
     "open": 2,
-    "recent": 74,
-    "since_report": 1,
-    "total": 76,
+    "recent": 75,
+    "since_report": 2,
+    "total": 77,
     "weekly": [
      0,
      0,
@@ -661,7 +661,7 @@
      14,
      21,
      29,
-     1
+     2
     ]
    },
    "assessment": {
@@ -883,11 +883,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T03:18:00Z",
+    "last": "2026-10-07T13:22:03Z",
     "open": 2,
-    "recent": 99,
-    "since_report": 5,
-    "total": 99,
+    "recent": 101,
+    "since_report": 7,
+    "total": 101,
     "weekly": [
      0,
      0,
@@ -904,7 +904,7 @@
      24,
      18,
      47,
-     5
+     7
     ]
    },
    "assessment": {
@@ -1033,11 +1033,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:42:42Z",
-    "open": 3,
+    "last": "2026-10-07T07:04:38Z",
+    "open": 2,
     "recent": 79,
-    "since_report": 7,
-    "total": 162,
+    "since_report": 8,
+    "total": 163,
     "weekly": [
      0,
      0,
@@ -1054,7 +1054,7 @@
      32,
      19,
      13,
-     5
+     6
     ]
    },
    "assessment": {
@@ -1150,7 +1150,7 @@
    "activity": {
     "last": "2026-10-05T09:28:43Z",
     "open": 0,
-    "recent": 83,
+    "recent": 82,
     "since_report": 3,
     "total": 98,
     "weekly": [
@@ -1281,11 +1281,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:58:55Z",
-    "open": 5,
-    "recent": 241,
-    "since_report": 5,
-    "total": 245,
+    "last": "2026-10-07T12:12:41Z",
+    "open": 9,
+    "recent": 249,
+    "since_report": 13,
+    "total": 253,
     "weekly": [
      0,
      0,
@@ -1302,13 +1302,13 @@
      23,
      84,
      104,
-     22
+     30
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the Tate-Nakayama tensor-product generalization of the cup-product criterion",
@@ -1340,21 +1340,21 @@
     "Layer 14"
    ],
    "layer_lines": [
-    634,
-    673,
-    741,
-    772,
-    804,
-    854,
-    1154,
-    1246,
-    1309,
-    1381,
-    1428,
-    1517,
-    1597,
-    1672,
-    1745
+    641,
+    731,
+    799,
+    830,
+    862,
+    912,
+    1212,
+    1304,
+    1425,
+    1497,
+    1544,
+    1675,
+    1716,
+    1791,
+    1864
    ],
    "layers": [
     "Layer 0: audit and complete the cohomology suppliers",
@@ -1378,7 +1378,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ClassFieldTheory/README.md",
-   "readme_sha": "f158bba211981f9bf72a840353411dc7806f074a702d622c8f1495ca585321de",
+   "readme_sha": "12cf224aac6d696902cb39266f0babe65496d6555b0de5a33dcc90e7011e0900",
    "retired": null,
    "states": [
     "partial",
@@ -1433,11 +1433,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T03:04:14Z",
-    "open": 4,
-    "recent": 122,
-    "since_report": 1,
-    "total": 214,
+    "last": "2026-10-07T11:58:03Z",
+    "open": 3,
+    "recent": 125,
+    "since_report": 4,
+    "total": 217,
     "weekly": [
      21,
      5,
@@ -1454,7 +1454,7 @@
      21,
      19,
      65,
-     12
+     15
     ]
    },
    "assessment": {
@@ -1545,8 +1545,8 @@
   {
    "activity": {
     "last": "2026-10-07T03:27:30Z",
-    "open": 1,
-    "recent": 92,
+    "open": 3,
+    "recent": 91,
     "since_report": 5,
     "total": 271,
     "weekly": [
@@ -1656,7 +1656,7 @@
   {
    "activity": {
     "last": "2026-10-07T05:33:17Z",
-    "open": 4,
+    "open": 5,
     "recent": 84,
     "since_report": 3,
     "total": 108,
@@ -1926,7 +1926,31 @@
    "topic": "Probability and combinatorics"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "assessment": {
     "detail": null,
     "notes": {},
@@ -2012,7 +2036,7 @@
    "activity": {
     "last": "2026-10-07T05:20:32Z",
     "open": 1,
-    "recent": 177,
+    "recent": 174,
     "since_report": 9,
     "total": 456,
     "weekly": [
@@ -2155,7 +2179,7 @@
   {
    "activity": {
     "last": "2026-10-07T03:40:50Z",
-    "open": 0,
+    "open": 1,
     "recent": 85,
     "since_report": 1,
     "total": 298,
@@ -2263,11 +2287,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T04:58:12Z",
-    "open": 2,
-    "recent": 94,
-    "since_report": 6,
-    "total": 94,
+    "last": "2026-10-07T06:56:43Z",
+    "open": 4,
+    "recent": 95,
+    "since_report": 7,
+    "total": 95,
     "weekly": [
      0,
      0,
@@ -2284,7 +2308,7 @@
      16,
      24,
      46,
-     6
+     7
     ]
    },
    "assessment": {
@@ -2382,11 +2406,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:33:16Z",
-    "open": 17,
-    "recent": 173,
-    "since_report": 5,
-    "total": 251,
+    "last": "2026-10-07T13:18:13Z",
+    "open": 13,
+    "recent": 185,
+    "since_report": 17,
+    "total": 263,
     "weekly": [
      11,
      5,
@@ -2403,7 +2427,7 @@
      24,
      19,
      80,
-     31
+     43
     ]
    },
    "assessment": {
@@ -2526,11 +2550,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:49:45Z",
-    "open": 1,
-    "recent": 105,
-    "since_report": 7,
-    "total": 108,
+    "last": "2026-10-07T13:01:52Z",
+    "open": 3,
+    "recent": 106,
+    "since_report": 8,
+    "total": 109,
     "weekly": [
      0,
      0,
@@ -2547,7 +2571,7 @@
      12,
      41,
      37,
-     7
+     8
     ]
    },
    "assessment": {
@@ -2799,11 +2823,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T04:28:09Z",
-    "open": 4,
-    "recent": 82,
-    "since_report": 6,
-    "total": 117,
+    "last": "2026-10-07T07:15:01Z",
+    "open": 6,
+    "recent": 83,
+    "since_report": 7,
+    "total": 118,
     "weekly": [
      0,
      0,
@@ -2820,7 +2844,7 @@
      19,
      20,
      32,
-     6
+     7
     ]
    },
    "assessment": {
@@ -2917,11 +2941,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:42:42Z",
-    "open": 5,
-    "recent": 87,
-    "since_report": 1,
-    "total": 208,
+    "last": "2026-10-07T12:54:40Z",
+    "open": 4,
+    "recent": 95,
+    "since_report": 9,
+    "total": 216,
     "weekly": [
      11,
      9,
@@ -2938,7 +2962,7 @@
      11,
      33,
      31,
-     6
+     14
     ]
    },
    "assessment": {
@@ -3130,11 +3154,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:46:04Z",
-    "open": 0,
-    "recent": 48,
-    "since_report": 3,
-    "total": 106,
+    "last": "2026-10-07T11:54:13Z",
+    "open": 2,
+    "recent": 49,
+    "since_report": 4,
+    "total": 107,
     "weekly": [
      0,
      0,
@@ -3151,7 +3175,7 @@
      1,
      0,
      40,
-     3
+     4
     ]
    },
    "assessment": {
@@ -3267,11 +3291,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T15:30:31Z",
-    "open": 6,
-    "recent": 86,
-    "since_report": 2,
-    "total": 164,
+    "last": "2026-10-07T12:09:58Z",
+    "open": 5,
+    "recent": 88,
+    "since_report": 4,
+    "total": 166,
     "weekly": [
      11,
      9,
@@ -3288,7 +3312,7 @@
      18,
      28,
      31,
-     2
+     4
     ]
    },
    "assessment": {
@@ -3382,11 +3406,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T19:17:13Z",
+    "last": "2026-10-07T11:53:38Z",
     "open": 1,
-    "recent": 121,
-    "since_report": 0,
-    "total": 121,
+    "recent": 123,
+    "since_report": 2,
+    "total": 123,
     "weekly": [
      0,
      0,
@@ -3403,7 +3427,7 @@
      19,
      33,
      60,
-     3
+     5
     ]
    },
    "assessment": {
@@ -3512,9 +3536,9 @@
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "named surjectivity of the Q_p cyclotomic character and the index bound range_localCyclotomicCharacter_le_ratPadic",
@@ -3540,15 +3564,15 @@
     "Layer 8"
    ],
    "layer_lines": [
-    230,
-    296,
-    364,
-    414,
-    429,
-    444,
-    566,
-    656,
-    1091
+    232,
+    298,
+    366,
+    416,
+    431,
+    446,
+    563,
+    653,
+    1094
    ],
    "layers": [
     "Layer 0: the arithmetic carrier and intrinsic invariants",
@@ -3566,7 +3590,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/LocalGaloisGroups/README.md",
-   "readme_sha": "016a3e87853f4918657da7291be3e7d13e3c2b9c651631a8eb66253eca851ffe",
+   "readme_sha": "6bbe3a6401365a5f92b75b210fba26fe8f70a06dda73fb617b3351319c91dc5e",
    "retired": null,
    "states": [
     "partial",
@@ -3615,11 +3639,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:20:33Z",
-    "open": 2,
-    "recent": 12,
-    "since_report": 7,
-    "total": 12,
+    "last": "2026-10-07T11:29:03Z",
+    "open": 3,
+    "recent": 14,
+    "since_report": 9,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -3636,7 +3660,7 @@
      0,
      0,
      5,
-     7
+     9
     ]
    },
    "assessment": {
@@ -3747,11 +3771,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T03:49:05Z",
-    "open": 3,
-    "recent": 202,
-    "since_report": 7,
-    "total": 514,
+    "last": "2026-10-07T12:30:53Z",
+    "open": 2,
+    "recent": 201,
+    "since_report": 9,
+    "total": 516,
     "weekly": [
      0,
      0,
@@ -3768,7 +3792,7 @@
      53,
      48,
      37,
-     7
+     9
     ]
    },
    "assessment": {
@@ -3988,7 +4012,7 @@
    "activity": {
     "last": "2026-10-04T18:02:22Z",
     "open": 0,
-    "recent": 122,
+    "recent": 119,
     "since_report": 0,
     "total": 132,
     "weekly": [
@@ -4095,11 +4119,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T09:16:13Z",
-    "open": 4,
-    "recent": 61,
-    "since_report": 2,
-    "total": 185,
+    "last": "2026-10-07T11:34:06Z",
+    "open": 3,
+    "recent": 62,
+    "since_report": 3,
+    "total": 186,
     "weekly": [
      19,
      10,
@@ -4116,7 +4140,7 @@
      18,
      16,
      20,
-     2
+     3
     ]
    },
    "assessment": {
@@ -4182,11 +4206,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T01:18:42Z",
-    "open": 2,
-    "recent": 70,
-    "since_report": 1,
-    "total": 105,
+    "last": "2026-10-07T06:23:41Z",
+    "open": 1,
+    "recent": 71,
+    "since_report": 2,
+    "total": 106,
     "weekly": [
      0,
      0,
@@ -4203,7 +4227,7 @@
      18,
      18,
      29,
-     1
+     2
     ]
    },
    "assessment": {
@@ -4343,11 +4367,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T06:09:04Z",
+    "last": "2026-10-07T11:21:47Z",
     "open": 3,
-    "recent": 85,
-    "since_report": 11,
-    "total": 85,
+    "recent": 86,
+    "since_report": 12,
+    "total": 86,
     "weekly": [
      0,
      0,
@@ -4364,7 +4388,7 @@
      0,
      33,
      41,
-     11
+     12
     ]
    },
    "assessment": {
@@ -4451,7 +4475,7 @@
     "last": "2026-10-07T05:33:16Z",
     "open": 4,
     "recent": 110,
-    "since_report": 11,
+    "since_report": 3,
     "total": 204,
     "weekly": [
      13,
@@ -4480,7 +4504,7 @@
     "remaining": {
      "Lane A": "trace and extension for Lipschitz boundary, the p = n embedding, Meyers-Serrin at higher order on a domain, W^{1,2} into H^{1,2} on the whole space",
      "Lane B": "Riesz-Thorin, the Calderon-Zygmund decomposition and singular integrals, Mihlin-Hormander, BMO and John-Nirenberg",
-     "Lane C": "Harnack for general elliptic L, Perron's method with barriers",
+     "Lane C": "boundary attainment of the Perron solution via barriers, Harnack for general elliptic L",
      "Lane E": "weak Harnack and Moser's Harnack, lower-order terms and n = 2 in De Giorgi, H^k bootstrapping, W^{2,p} and Schauder estimates",
      "Lane F": "Bochner spaces and the Gelfand triple, Galerkin existence, parabolic maximum principle, the heat semigroup and kernel"
     },
@@ -4530,33 +4554,33 @@
    "status": {
     "frontier": [
      {
-      "name": "De Giorgi-Nash-Moser in full.",
-      "text": "Hölder continuity is proved for the homogeneous principal-part equation. What remains: - the weak Harnack inequality and the elliptic Harnack inequality; - admitting lower-order terms and a right-hand side; - the case `n = 2`, where `2* = ∞` breaks the present Sobolev input."
+      "name": "Boundary behaviour of the Perron solution",
+      "text": "— show that it attains continuous boundary data at every point admitting a barrier, and supply barriers (for instance under an exterior-sphere condition). This completes the classical Dirichlet problem for `Δ`."
      },
      {
-      "name": "Perron's method.",
-      "text": "The ball Dirichlet problem, the converse mean-value property and the sub-mean-value maximum principles are all in place. Next come Perron's method and boundary attainment at regular points via barriers."
+      "name": "De Giorgi-Nash-Moser in full",
+      "text": "— the weak and elliptic Harnack inequalities, lower-order terms and a right-hand side, and the case `n = 2`, where the present Sobolev input fails."
      },
      {
-      "name": "Trace and extension.",
-      "text": "These need Lipschitz `∂Ω`. Alongside them sit Meyers-Serrin at order `k ≥ 2` on a domain, and the inclusion `W^{1,2}(ℝⁿ) ⊆ H^{1,2}(ℝⁿ)`."
+      "name": "Trace and extension",
+      "text": "— both need Lipschitz `∂Ω`; alongside them sit Meyers-Serrin at order `k ≥ 2` on a domain and the inclusion `W^{1,2}(ℝⁿ) ⊆ H^{1,2}(ℝⁿ)`."
      },
      {
-      "name": "Higher interior regularity.",
-      "text": "Two steps remain: `H²_loc` for variable Lipschitz coefficients, and the `Hᵏ` bootstrap to `C^∞`."
+      "name": "Higher interior regularity",
+      "text": "— `H²_loc` for variable Lipschitz coefficients, then the `Hᵏ` bootstrap to `C^∞`."
      },
      {
-      "name": "Calderón-Zygmund theory.",
-      "text": "The decomposition, singular integrals, Riesz-Thorin and BMO have not begun. They are prerequisites for the `W^{2,p}` and Schauder estimates."
+      "name": "Calderón-Zygmund theory",
+      "text": "— the decomposition, singular integrals, Riesz-Thorin and BMO have not begun; they are prerequisites for the `W^{2,p}` and Schauder estimates."
      }
     ],
-    "glance": "Lane D is complete, from the weak formulation through to the Dirichlet spectrum. De Giorgi's Hölder-continuity theorem is now proved for `n ≥ 3` without lower-order terms, but the rest of Lane E has not begun. Lanes A, B and C are substantially partial. Lane F has only the abstract Hille-Yosida theorem.",
+    "glance": "Lane D is complete, from the weak formulation through to the Dirichlet spectrum. De Giorgi's Hölder-continuity theorem is proved for `n ≥ 3` without lower-order terms, and Perron's method now gives a harmonic candidate solution on any bounded domain, but boundary attainment, the Moser and Harnack half of Lane E, and most of Lane B are still missing. Lane F has only the abstract Hille-Yosida theorem.",
     "inherited": false,
     "path": "TauCetiRoadmap/PDE/STATUS.md",
     "progress_path": "TauCetiRoadmap/PDE/PROGRESS.md",
-    "report_sha": "ac9eea6834890572606963aa9f51d077eda8d2e16ac927aa021bfd86881cb19d",
-    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
-    "ts": "2026-10-05T01:07:53Z"
+    "report_sha": "5815dc54eefe03bead6ff01f580bc08680d6d892eaaf2b84cff6842ab341e5ee",
+    "to_sha": "3b4873909972d02ee991b874e7283a2580e674ff",
+    "ts": "2026-10-07T01:31:50Z"
    },
    "title": "partial differential equations",
    "topic": "Analysis"
@@ -4860,11 +4884,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T06:07:13Z",
-    "open": 4,
-    "recent": 151,
-    "since_report": 3,
-    "total": 188,
+    "last": "2026-10-07T13:35:27Z",
+    "open": 5,
+    "recent": 153,
+    "since_report": 5,
+    "total": 190,
     "weekly": [
      0,
      0,
@@ -4881,7 +4905,7 @@
      17,
      51,
      65,
-     13
+     15
     ]
    },
    "assessment": {
@@ -5013,7 +5037,7 @@
   {
    "activity": {
     "last": "2026-10-07T03:04:13Z",
-    "open": 1,
+    "open": 2,
     "recent": 249,
     "since_report": 2,
     "total": 256,
@@ -5137,11 +5161,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T04:04:20Z",
-    "open": 3,
-    "recent": 120,
-    "since_report": 4,
-    "total": 121,
+    "last": "2026-10-07T11:57:27Z",
+    "open": 0,
+    "recent": 122,
+    "since_report": 6,
+    "total": 123,
     "weekly": [
      0,
      0,
@@ -5158,7 +5182,7 @@
      18,
      40,
      50,
-     4
+     6
     ]
    },
    "assessment": {
@@ -5272,11 +5296,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:11:33Z",
+    "last": "2026-10-07T12:23:32Z",
     "open": 9,
-    "recent": 89,
-    "since_report": 12,
-    "total": 89,
+    "recent": 93,
+    "since_report": 16,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -5293,7 +5317,7 @@
      0,
      5,
      53,
-     31
+     35
     ]
    },
    "assessment": {
@@ -5395,11 +5419,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:33:15Z",
-    "open": 15,
-    "recent": 370,
-    "since_report": 17,
-    "total": 1108,
+    "last": "2026-10-07T13:12:50Z",
+    "open": 18,
+    "recent": 377,
+    "since_report": 24,
+    "total": 1115,
     "weekly": [
      19,
      4,
@@ -5416,7 +5440,7 @@
      73,
      69,
      132,
-     33
+     40
     ]
    },
    "assessment": {
@@ -5526,11 +5550,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T05:44:20Z",
-    "open": 53,
-    "recent": 570,
-    "since_report": 13,
-    "total": 1308,
+    "last": "2026-10-07T13:37:46Z",
+    "open": 50,
+    "recent": 590,
+    "since_report": 33,
+    "total": 1328,
     "weekly": [
      0,
      0,
@@ -5547,7 +5571,7 @@
      62,
      150,
      247,
-     44
+     64
     ]
    },
    "assessment": {
@@ -7097,7 +7121,7 @@
   {
    "activity": {
     "last": "2026-10-07T03:43:30Z",
-    "open": 2,
+    "open": 4,
     "recent": 81,
     "since_report": 6,
     "total": 81,
@@ -7336,11 +7360,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-07T04:09:12Z",
-    "open": 4,
-    "recent": 85,
-    "since_report": 4,
-    "total": 114,
+    "last": "2026-10-07T13:11:01Z",
+    "open": 3,
+    "recent": 87,
+    "since_report": 6,
+    "total": 116,
     "weekly": [
      0,
      0,
@@ -7357,7 +7381,7 @@
      22,
      20,
      33,
-     4
+     6
     ]
    },
    "assessment": {
@@ -7761,11 +7785,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:46:04Z",
-    "open": 0,
-    "recent": 48,
-    "since_report": 19,
-    "total": 106,
+    "last": "2026-10-07T11:54:13Z",
+    "open": 2,
+    "recent": 49,
+    "since_report": 20,
+    "total": 107,
     "weekly": [
      0,
      0,
@@ -7782,7 +7806,7 @@
      1,
      0,
      40,
-     3
+     4
     ]
    },
    "assessment": {
