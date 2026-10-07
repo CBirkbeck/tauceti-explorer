@@ -21963,8 +21963,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #350"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #350",
+   "finishedAt": "2026-10-07T07:43:48Z"
   },
   {
    "id": "BP-ArithmeticKTheory--N.1",
@@ -25937,7 +25938,8 @@
    ],
    "avoidAccountOf": "BP-HeckeStacksAndLocalShtukas",
    "prompt": "research/blueprint/prompts/REV-HeckeStacksAndLocalShtukas.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #427"
   },
   {
    "id": "BP-HeegnerPointEulerSystems--HE.0",
