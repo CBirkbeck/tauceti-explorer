@@ -22400,7 +22400,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #360"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -36782,7 +36783,8 @@
     "REV-ArithmeticKTheory--N.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-ArithmeticKTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #214"
   },
   {
    "id": "ASM-AutomorphicBundles",
@@ -37384,8 +37386,9 @@
     "REV-HeegnerPointEulerSystems--HE.7s"
    ],
    "prompt": "research/blueprint/prompts/ASM-HeegnerPointEulerSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #238"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #238",
+   "finishedAt": "2026-10-07T00:49:34Z"
   },
   {
    "id": "ASM-HilbertModularVarietiesAndShimuraCurves",
