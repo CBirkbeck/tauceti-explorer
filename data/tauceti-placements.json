@@ -1,0 +1,15 @@
+{
+ "purpose": "Where a Tau Ceti roadmap accepted since the atlas's snapshot goes on the map, when its title names no area and the Tau Ceti roadmaps its README names do not settle it (scripts/tauceti_progress.py). Keyed by the roadmap's id on Tau Ceti's Progress page; `galaxy` is an area of data/galaxies.json. A choice here comes before the title and the README.",
+ "placements": {
+  "TauCetiRoadmap/PeripheralActions": {
+   "galaxy": "grouptheory",
+   "decided": "2026-10-07",
+   "reason": "the automorphisms of a free pro-p group that preserve its peripheral classes, proved by what its README calls a self-contained group-theoretic argument. The README names BelyiMaps and ProfiniteProPGroups, one in each of two areas."
+  },
+  "TauCetiRoadmap/ProfiniteArithmetic": {
+   "galaxy": "grouptheory",
+   "decided": "2026-10-07",
+   "reason": "the generic profinite calculus (profinite integers and powers, automorphism groups of profinite groups), which its README calls group theory about every profinite group that no arithmetic roadmap should own. The README names four roadmaps in four areas."
+  }
+ }
+}
