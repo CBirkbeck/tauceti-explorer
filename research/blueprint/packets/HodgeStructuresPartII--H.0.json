@@ -306,7 +306,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
-          "excerpt": "H is a tensor functor",
           "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
         }
       ],
@@ -452,7 +451,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
-          "excerpt": "H is a tensor functor",
           "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
         }
       ],
@@ -499,7 +497,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
-          "excerpt": "H is a tensor functor",
           "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
         }
       ],
@@ -544,7 +541,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
-          "excerpt": "H is a tensor functor",
           "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
         }
       ],
@@ -592,7 +588,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19",
-          "excerpt": "log γ is nilpotent",
           "match": "The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise."
         }
       ],
@@ -643,7 +638,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19",
-          "excerpt": "log γ is nilpotent",
           "match": "The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise."
         }
       ],
@@ -690,7 +684,6 @@
         {
           "sourceId": "LZ-H0",
           "locator": "Definitions 3.5–3.6, printed pp.21–22; Remark 3.2, printed p.24",
-          "excerpt": "t∇",
           "match": "The source forms a t-connection on a period lattice and identifies its zero fiber. The elementary module quotient construction here isolates the linear residue without claiming the period-sheaf, exterior-curvature or Tate identification. It is an authored affine deduction of the parameter Leibniz equation."
         }
       ],

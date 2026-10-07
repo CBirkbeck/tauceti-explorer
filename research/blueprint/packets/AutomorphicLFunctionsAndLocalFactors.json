@@ -921,7 +921,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
         }
       ],
@@ -1016,7 +1015,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1057,7 +1055,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1100,7 +1097,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "p.115, local constancy and compact support; p.122, Fourier transforms",
-          "excerpt": "Fourier transforms",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
         }
       ],
@@ -1141,7 +1137,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1183,7 +1178,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1232,7 +1226,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "the measure of the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
         }
       ],
@@ -1275,7 +1268,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1317,7 +1309,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1360,7 +1351,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
-          "excerpt": "this character is trivial on the subgroup",
           "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration. The displayed lattice-character calculation supports this step; the generic bilinear/additive-subgroup formulation is a routine extension, not Tate’s literal statement."
         }
       ],
@@ -1405,7 +1395,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "p.122, Fourier transforms of Schwartz–Bruhat functions",
-          "excerpt": "f̂(x)",
           "match": "One half of the nonarchimedean preservation assertion, conditional on an actual compact subgroup containing the support and a locally constant pairing."
         }
       ],
@@ -1448,7 +1437,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "p.122, Fourier transforms of Schwartz–Bruhat functions",
-          "excerpt": "S(F)",
           "match": "The compact-support half of preservation, with the dual compactness theorem displayed as an input instead of assumed."
         }
       ],
@@ -1496,7 +1484,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "p.122, self-dual measure and Fourier inversion",
-          "excerpt": "f̂̂(x) = f(−x)",
           "match": "A precise conditional specialization to subgroup indicators. The source’s full Schwartz-space inversion and self-dual measure theorem remain gaps."
         }
       ],
@@ -1540,7 +1527,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, printed p. 115 (physical p. 7)",
-          "excerpt": "the space of Schwartz-Bruhat functions on",
           "match": "The definition of S(F) and S(F)′ in both cases, and the action r, r′."
         }
       ],
@@ -1657,7 +1643,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"Fourier transforms\", printed p. 122 (physical p. 14)",
-          "excerpt": "the self-dual measure with respect to",
           "match": "Identification of F with its dual, the transform, the self-dual measure and f̂̂(x) = f(−x); ψ_β and |β|^{1/2}dx on p. 123."
         }
       ],
@@ -1699,13 +1684,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§4, printed p. 125 (physical p. 17)",
-          "excerpt": "of Schwartz-Bruhat functions on",
           "match": "S(𝔸), factorizable functions f = ⊗f_v with f_v = f_v^o almost everywhere."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§4.4, physical p. 49, conditions 𝔷1–𝔷3; §4.5, physical pp. 56 and 58",
-          "excerpt": "satisfying the three conditions",
           "match": "Tate's class 𝔷 of functions; the standard functions of §4.5 are checked to lie in it on pp. 56 and 58."
         }
       ],
@@ -1815,13 +1798,11 @@
         {
           "sourceId": "Tate1950",
           "locator": "§4.2, physical pp. 40–43, Lemmas 4.2.1–4.2.4 and Theorem 4.2.1",
-          "excerpt": "Riemann-Roch Theorem",
           "match": "Tate's Riemann–Roch theorem (1/|𝔞|)Σ f̂(ξ/𝔞) = Σ f(𝔞ξ), with Lemmas 4.2.1–4.2.4 (the Poisson formula)."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§4, printed p. 128 (physical p. 20)",
-          "excerpt": "Riemann's classic argument based on Poisson summation",
           "match": "Kudla reduces Theorem 4.3 to this Poisson argument, citing Tate pp. 339–341 of the reprint."
         }
       ],
@@ -1866,7 +1847,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Lemma 3.3 (ii)–(iii) and footnote 8, printed pp. 116–117 (physical pp. 8–9)",
-          "excerpt": "is obviously",
           "match": "Kudla uses the classification of F^×-finite distributions supported at 0 without proof, citing Friedlander [4] for the archimedean theory."
         }
       ],
@@ -1909,13 +1889,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"The ramified local theory\", printed p. 120 (physical p. 12)",
-          "excerpt": "is the smallest integer c such that",
           "match": "The conductor c(ω) of a ramified ω."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"The archimedean case\", printed p. 121 (physical p. 13)",
-          "excerpt": "any quasicharacter has the form",
           "match": "The archimedean normal forms (3.18) and (3.20)."
         }
       ],
@@ -2049,13 +2027,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"Zeta integrals\", printed p. 117 (physical p. 9)",
-          "excerpt": "is absolutely convergent for all",
           "match": "Definition (3.3), convergence for Re(s) > 0, and z(s, ω) ∈ S′(ωω_s)."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§2.4, physical pp. 16–17, Definition 2.4.1 and Lemma 2.4.1",
-          "excerpt": "is regular in the",
           "match": "Tate's ζ(f, c) and its regularity for exponent > 0."
         }
       ],
@@ -2183,7 +2159,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Definition 3.1, printed p. 115 (physical p. 7)",
-          "excerpt": "be the space of",
           "match": "Definition 3.1 of S′(ω), and the sequences (3.1)–(3.2) on p. 116."
         }
       ],
@@ -2281,7 +2256,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Lemma 3.2, printed p. 116 (physical p. 8)",
-          "excerpt": "is one dimensional and is spanned by the",
           "match": "Lemma 3.2."
         }
       ],
@@ -2320,7 +2294,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Lemma 3.3, printed pp. 116–117 (physical pp. 8–9)",
-          "excerpt": "is obviously",
           "match": "Lemma 3.3 (i)–(iii), with δ₀ F^×-invariant and supported at 0."
         }
       ],
@@ -2363,13 +2336,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"The unramified local theory\", printed pp. 118–119 (physical pp. 10–11), (3.4)–(3.9)",
-          "excerpt": "kill the support of an arbitrary",
           "match": "The group-algebra element τ, z₀, (3.6), (3.8) and the gcd remark (3.9)."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§3, printed p. 119 (physical p. 11)",
-          "excerpt": "gives precisely the poles of the family of zeta",
           "match": "The L-factor as greatest common denominator."
         }
       ],
@@ -2412,7 +2383,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Example, printed pp. 119–120 (physical pp. 11–12), (3.10)–(3.14)",
-          "excerpt": "the two-dimensional subspace",
           "match": "The distribution λ₀, the constant c = −1 and the representation ρ(x)."
         }
       ],
@@ -2454,7 +2424,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"The ramified local theory\", printed p. 120 (physical p. 12)",
-          "excerpt": "is independent of n for n sufficiently large",
           "match": "(3.15)–(3.17) and the gcd property in the ramified case."
         }
       ],
@@ -2507,13 +2476,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, \"The archimedean case\", Proposition 3.5 and (3.22), printed pp. 121–122 (physical pp. 13–14)",
-          "excerpt": "has an entire analytic continuation to the whole s plane",
           "match": "Proposition 3.5 (i)–(ii), (3.18)–(3.21), and the residue remark (3.22)."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, \"k real\" and \"k complex\", physical pp. 20–23",
-          "excerpt": "Explicit Expressions for",
           "match": "Tate's standard functions f, f_± and f_n, their Fourier transforms and ζ-values."
         }
       ],
@@ -2558,13 +2525,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Theorem 3.4, printed p. 117 (physical p. 9)",
-          "excerpt": "The fundamental local uniqueness result",
           "match": "Theorem 3.4 and the remarks after it."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§3, printed p. 120 (physical p. 12)",
-          "excerpt": "This finishes the proof of Theorem 3.4 in the ramified case",
           "match": "The ramified case of the proof."
         }
       ],
@@ -2608,7 +2573,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Lemma 3.6, printed p. 122 (physical p. 14)",
-          "excerpt": "By the uniqueness result, Theorem 3.4, it follows that",
           "match": "Lemma 3.6 (proof left as an exercise) and its consequence for ẑ₀(s, ω)."
         }
       ],
@@ -2654,13 +2618,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Corollary 3.7 and (3.23)–(3.29), printed p. 123 (physical p. 15)",
-          "excerpt": "is called the local gamma factor",
           "match": "ε by (3.23), γ by (3.26), and the identities (3.27)–(3.29)."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§2.4, Lemma2.4.3 and Corollary2.4.1, physical pp.18–19",
-          "excerpt": "given by a functional equation of the type",
           "match": "Tate's ρ(c), ρ(c)ρ(ĉ) = c(−1), ρ(c̄) = c(−1)·conj ρ(c), and |ρ(c)| = 1 at exponent 1/2."
         }
       ],
@@ -2787,13 +2749,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Corollary 3.7 and (3.24)–(3.25), printed p. 123 (physical p. 15)",
-          "excerpt": "the local functional equation",
           "match": "Corollary 3.7 with its two reformulations."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§2.4, Lemma 2.4.2 and Theorem 2.4.1, physical pp. 17–19",
-          "excerpt": "given by a functional equation of the type",
           "match": "Tate's local functional equation and its proof through Lemma 2.4.2."
         }
       ],
@@ -2839,13 +2799,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Proposition 3.8(ii) and (3.31)–(3.32), printed pp. 124–125 (physical pp. 16–17)",
-          "excerpt": "is the Gauss sum",
           "match": "The Gauss sum, the transform of f^o and 𝔤·conj 𝔤 = 1."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, \"k 𝔭-adic\", physical pp. 24–26",
-          "excerpt": "is a so-called root number and has absolute value",
           "match": "Tate's root number ρ₀(c) = N𝔣^{−1/2}Σ_ε c(ε)e^{2πiΛ(ε/π^{ord 𝔡𝔣})}, the same sum in Tate's normalisation."
         }
       ],
@@ -2951,13 +2909,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, Proposition 3.8 and its proof, printed pp. 124–125 (physical pp. 16–17)",
-          "excerpt": "The following result gives explicit values for the",
           "match": "Proposition 3.8 (i)–(iv), (3.30)–(3.34)."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§2.5, physical pp. 20–27",
-          "excerpt": "Explicit Expressions for",
           "match": "Tate's tables of ρ(c) at real, complex and 𝔭-adic places."
         }
       ],
@@ -3003,13 +2959,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§4, Lemma 4.1 and Theorem 4.2, printed p. 126 (physical p. 18)",
-          "excerpt": "Then there is a unique tempered distribution",
           "match": "Lemma 4.1 and Theorem 4.2."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§4, printed p. 126 (physical p. 18)",
-          "excerpt": "global uniqueness result",
           "match": "Theorem 4.2 as the global consequence of Theorem 3.4."
         }
       ],
@@ -3053,13 +3007,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§4, (4.1)–(4.5), printed pp. 126–127 (physical pp. 18–19)",
-          "excerpt": "in the half plane Re(s) > 1",
           "match": "The global zeta integral, its factorisation and z = Λz₀."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§4.4, Definition 4.4.1, physical p. 49",
-          "excerpt": "defined for all quasi-characters",
           "match": "Tate's global ζ-function ζ(f, c)."
         }
       ],
@@ -3162,13 +3114,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§4, (4.4), printed p. 127 (physical p. 19)",
-          "excerpt": "we define the complete L-function",
           "match": "The complete L-function (4.4) and L^S."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§5, printed p. 129 (physical p. 21)",
-          "excerpt": "Thus, a character w determines a character",
           "match": "The ideal character χ of I_𝔪 attached to ω."
         }
       ],
@@ -3277,13 +3227,11 @@
         {
           "sourceId": "Tate1950",
           "locator": "§4.3, Lemma 4.3.1, Definition 4.3.2, Theorem 4.3.2 and Corollary 4.3.1, physical pp. 44–48",
-          "excerpt": "is the regulator of k",
           "match": "The fundamental domain for J mod k^× and its volume κ."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§4.4, Main Theorem 4.4.1, physical p. 50",
-          "excerpt": "volume of the multiplicative fundamental domain",
           "match": "κ as it enters the residues."
         }
       ],
@@ -3323,7 +3271,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§4.4, Lemma A, physical pp. 50–51",
-          "excerpt": "Reversing the steps completes the proof",
           "match": "Lemma A and its proof."
         }
       ],
@@ -3360,7 +3307,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§4.4, Lemma B, physical p. 51",
-          "excerpt": "integral over the factor group",
           "match": "Lemma B and its proof."
         }
       ],
@@ -3407,13 +3353,11 @@
         {
           "sourceId": "Tate1950",
           "locator": "§4.4, Main Theorem 4.4.1 and its proof, physical pp. 50–52",
-          "excerpt": "simple poles with residues",
           "match": "Main Theorem 4.4.1: continuation, poles and residues −κf(0), κf̂(0), and ζ(f, c) = ζ(f̂, ĉ)."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§4, Theorem 4.3, printed p. 128 (physical p. 20)",
-          "excerpt": "has a meromorphic analytic continuation to the whole s plane and",
           "match": "Theorem 4.3 in distributional form."
         }
       ],
@@ -3457,13 +3401,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§4, (4.6)–(4.7), printed p. 128 (physical p. 20)",
-          "excerpt": "the product no longer depends on the choice made",
           "match": "The global ε-factor and its independence of ψ."
         },
         {
           "sourceId": "Kudla2004",
           "locator": "§4, printed p. 128 (physical p. 20)",
-          "excerpt": "global epsilon factor",
           "match": "Definition (4.6)."
         }
       ],
@@ -3569,13 +3511,11 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§4, Corollary 4.4 and (4.8)–(4.9), printed p. 128 (physical p. 20)",
-          "excerpt": "is nowhere zero by construction",
           "match": "Corollary 4.4 and its derivation."
         },
         {
           "sourceId": "Tate1950",
           "locator": "§4.5, physical pp. 53–59",
-          "excerpt": "Analytic Continuation and Functional Equation",
           "match": "Hecke's ζ(s, χ) as a Tate ζ-function and its functional equation."
         }
       ],
@@ -3620,7 +3560,6 @@
         {
           "sourceId": "Zhang2021",
           "locator": "§12.4, p.942, definition preceding Lemma12.3",
-          "excerpt": "the K-Bessel function is defined as",
           "match": "The integral defining K, with its c>0 domain."
         }
       ],
@@ -3717,7 +3656,6 @@
         {
           "sourceId": "Zhang2021",
           "locator": "§12.4, p.943, last display in proof of Lemma12.3",
-          "excerpt": "The assertion for the first derivative follows",
           "match": "The order derivative and its negative sign are explicit here."
         }
       ],
@@ -3760,7 +3698,6 @@
         {
           "sourceId": "HumphriesArch",
           "locator": "§2.3.2, (2.3), pp.5–6",
-          "excerpt": "Godement–Jacquet zeta integral",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -3852,7 +3789,6 @@
         {
           "sourceId": "HumphriesArch",
           "locator": "§2.3.2, after (2.3), p.6",
-          "excerpt": "converges absolutely",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -3895,7 +3831,6 @@
         {
           "sourceId": "HumphriesArch",
           "locator": "§2.4.1–2.4.3",
-          "excerpt": "The L-function",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -3993,7 +3928,6 @@
         {
           "sourceId": "HumphriesArch",
           "locator": "§2.4.4 (2.15)",
-          "excerpt": "local functional equation",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4038,7 +3972,6 @@
         {
           "sourceId": "HumphriesGJ",
           "locator": "Theorem1.2, §§4–5",
-          "excerpt": "Proof of Theorem 1.2",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4088,7 +4021,6 @@
         {
           "sourceId": "Borel1979",
           "locator": "§14, pp.52–53, standard representation case",
-          "excerpt": "are proved",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4133,7 +4065,6 @@
         {
           "sourceId": "JacquetArch",
           "locator": "§1.2–1.3",
-          "excerpt": "Whittaker functions",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -4222,7 +4153,6 @@
         {
           "sourceId": "JacquetArch",
           "locator": "§3 Lemma3.12 and Proposition3.2",
-          "excerpt": "coarse majorizations",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4264,7 +4194,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture6 §1, Lecture8 §1",
-          "excerpt": "local integrals",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -4357,7 +4286,6 @@
         {
           "sourceId": "JacquetArch",
           "locator": "Theorems2.1–2.3; §§3–5",
-          "excerpt": "continuous",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4401,7 +4329,6 @@
         {
           "sourceId": "JacquetArch",
           "locator": "§2 Theorems2.3–2.7; §12.1",
-          "excerpt": "holomorphic multiples",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -4491,7 +4418,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture6 §2, Lecture8 §1",
-          "excerpt": "functional equation",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4536,7 +4462,6 @@
         {
           "sourceId": "JacquetArch",
           "locator": "§2 definition of L(τ), pp.5–6; Theorems2.6–2.7 and Remark2.8, pp.9–10; §12.1",
-          "excerpt": "even more precise result",
           "match": "The strip-growth space is part of Theorem2.6. Theorem2.7 concerns irreducible adjacent/equal ranks; Remark2.8 explicitly distinguishes the reducible case."
         }
       ],
@@ -4577,7 +4502,6 @@
         {
           "sourceId": "HumphriesGJ",
           "locator": "§3 Theorems3.7,3.9 and formula(3.10)",
-          "excerpt": "Theorem 3.9",
           "match": "Spherical and essential-vector Rankin–Selberg evaluations quoted here; their original JPSS proof is a separate source refinement."
         }
       ],
@@ -4622,7 +4546,6 @@
         {
           "sourceId": "Borel1979",
           "locator": "§13.1 pp.49–50",
-          "excerpt": "Euler products",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -4720,7 +4643,6 @@
         {
           "sourceId": "Borel1979",
           "locator": "Theorem13.2 pp.50–51",
-          "excerpt": "converges absolutely",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4765,7 +4687,6 @@
         {
           "sourceId": "Borel1979",
           "locator": "§12.1–12.2, p.48 (conditional general parametrization; established GL_n cases distinguished)",
-          "excerpt": "Local factors",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4808,7 +4729,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture9 §7, finite-product comparison",
-          "excerpt": "finite product",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -4901,7 +4821,6 @@
         {
           "sourceId": "RodriguesJacintoWilliams2025",
           "locator": "AppendixB TheoremB.1 pp.207–209",
-          "excerpt": "Theorem B.1",
           "match": "Exact GL₂/Q period, Gauss sum, factorial, slope and p-level normalization; general number-field algebraicity remains an explicit supplier condition."
         }
       ],
@@ -4942,7 +4861,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture9 §4",
-          "excerpt": "global functional equation",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -4990,13 +4908,11 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture 4 §2, Theorem 4.1 and Corollaries 4.1.1–4.1.3, printed pp.31–33 (PDF pp.35–37)",
-          "excerpt": "local components",
           "match": "Global uniqueness, local/global genericity and the product formula follow from Fourier reconstruction, Flath factorization and continuous local uniqueness."
         },
         {
           "sourceId": "Yu2023",
           "locator": "§5.3.1 pp.36–38, equation (5.3.1)",
-          "excerpt": "produit des fonctions de Whittaker locales",
           "match": "Function-field spherical specialization, with the global scalar and conductor-shifted local normalization retained."
         }
       ],
@@ -5052,13 +4968,11 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture 4 §1–§2, printed pp.29–31 (PDF pp.33–35)",
-          "excerpt": "last column of N",
           "match": "Fourier reconstruction is proved before local/global uniqueness and factorization. Page 31 deduces injectivity from reconstruction."
         },
         {
           "sourceId": "Yu2023",
           "locator": "§5.3.1, Lemma 5.3.3 proof, p.36",
-          "excerpt": "Une fonction cuspidale peut être retrouvée par ses coefficients de Fourier",
           "match": "The function-field consumer explicitly uses Fourier reconstruction before the global Whittaker product."
         }
       ],
@@ -5112,7 +5026,6 @@
         {
           "sourceId": "CogdellIntegrals",
           "locator": "§1.1.3, pp.4–5",
-          "excerpt": "Mellin transform",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -5197,7 +5110,6 @@
         {
           "sourceId": "CogdellIntegrals",
           "locator": "§1.1.3, pp.4–5, Poisson summation and functional equation",
-          "excerpt": "Poisson summation",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5241,7 +5153,6 @@
         {
           "sourceId": "CogdellIntegrals",
           "locator": "§1.1.2–§1.1.3 pp.3–5",
-          "excerpt": "Eulerian",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5286,7 +5197,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture9 §3, pp.71–72",
-          "excerpt": "simple poles",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5330,7 +5240,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture9 §4, p.72",
-          "excerpt": "independent of ψ",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5372,7 +5281,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture9 §5, pp.72–73",
-          "excerpt": "not as simple",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5413,7 +5321,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Corollary7.1.2 and proof, pp.58–59",
-          "excerpt": "Satake parameters",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5457,7 +5364,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Theorem9.3 and proof, pp.74–75",
-          "excerpt": "Strong Multiplicity One",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5502,7 +5408,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Theorem9.4, pp.75–76",
-          "excerpt": "cuspidal support",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5542,7 +5447,6 @@
         {
           "sourceId": "Ramakrishnan2018",
           "locator": "TheoremA, pp.1–2; proof strategy pp.2–4",
-          "excerpt": "each Kj is a field normal",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5586,7 +5490,6 @@
         {
           "sourceId": "Leslie2025",
           "locator": "§8.2 pp.58–59, (8.3)",
-          "excerpt": "normalized distribution",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -5672,7 +5575,6 @@
         {
           "sourceId": "Leslie2025",
           "locator": "Proposition8.3 and Corollary8.4 pp.59–60",
-          "excerpt": "factorizable",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5719,7 +5621,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3 (3.30), §4 global character; Tate §2.2",
-          "excerpt": "global additive character",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -5809,7 +5710,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.2, Lemma2.2.3, physical p.10",
-          "excerpt": "different",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5852,7 +5752,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3 Fourier inversion, (3.29)–(3.30); Tate §2.2",
-          "excerpt": "self-dual measure",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -5945,7 +5844,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, p.115, finite Schwartz description",
-          "excerpt": "locally constant",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -5987,7 +5885,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3, p.122, Fourier inversion",
-          "excerpt": "Fourier inversion",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6028,7 +5925,6 @@
         {
           "sourceId": "JacquetArch",
           "locator": "§2 analytic families and §3 compact-parameter estimates",
-          "excerpt": "holomorphic",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6070,7 +5966,6 @@
         {
           "sourceId": "HumphriesArch",
           "locator": "§2.4.2–2.4.3 (2.7), (2.10), (2.13)",
-          "excerpt": "essentially discrete series",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -6165,7 +6060,6 @@
         {
           "sourceId": "ThornerZaman2017",
           "locator": "§2, printed p.1141 (physical p.9)",
-          "excerpt": "entire of order 1",
           "match": "The primitive Hecke completion and order-one assertion. The CM quadratic root number1 follows separately by taking the ratio of completed Dedekind zeta functional equations."
         }
       ],
@@ -6205,7 +6099,6 @@
         {
           "sourceId": "YuanZhang2018",
           "locator": "§7.1 p.590, displayed gamma correction",
-          "excerpt": "log 4π",
           "match": "Finite versus completed logarithmic derivative with the conductor convention fixed."
         }
       ],
@@ -6247,7 +6140,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "§5.1.2 p.30, §6.1",
-          "excerpt": "fonction L de paire",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -6333,7 +6225,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "Proposition6.1.1 and proof pp.42–43",
-          "excerpt": "polynômes premiers entre eux",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6374,7 +6265,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "Proposition6.1.1 proof p.43 and (6.2.5) p.46",
-          "excerpt": "produit q",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6415,7 +6305,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "Lemma6.1.3, pp.43–44",
-          "excerpt": "représentation discrète irréductible",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6454,7 +6343,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "(6.1.5), p.44",
-          "excerpt": "après simplification",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6497,7 +6385,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "Corollary6.1.2, p.43",
-          "excerpt": "nombre des zéros",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -6592,7 +6479,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "Corollary6.1.2 and proof pp.43–44",
-          "excerpt": "Π1 ∼ Π2",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6633,7 +6519,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "§5.1.2 (5.1.1)–(5.1.3) pp.29–30",
-          "excerpt": "fonction L de paire",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -6717,7 +6602,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "(6.2.5)–(6.2.6), p.46",
-          "excerpt": "polynôme en",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6757,7 +6641,6 @@
         {
           "sourceId": "Yu2023",
           "locator": "Lemma5.3.3 proof pp.37–38",
-          "excerpt": "conducteur 0",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6797,7 +6680,6 @@
         {
           "sourceId": "GrossZagier1986",
           "locator": "IV §6, proof of Proposition(6.2), unnumbered displayed integral, printed p.299 (physical p.76)",
-          "excerpt": "The integral is tabulated and equals",
           "match": "The displayed Bessel–Laplace evaluation has integer m≥1 in the source; extension to real m>0 follows by positive rescaling and absolute convergence."
         }
       ],
@@ -6838,7 +6720,6 @@
         {
           "sourceId": "Zhang2021",
           "locator": "§11.1, printed p.933 (physical p.71)",
-          "excerpt": "only applied to the second coordinate",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -6928,7 +6809,6 @@
         {
           "sourceId": "HumphriesGJ",
           "locator": "§1 (1.1), discussion preceding Theorem1.2",
-          "excerpt": "unramified",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -6969,7 +6849,6 @@
         {
           "sourceId": "YunZhang2017",
           "locator": "Appendix B LemmaB.3 and proof pp.904–905",
-          "excerpt": "unitary and self-dual",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7010,7 +6889,6 @@
         {
           "sourceId": "YunZhang2017",
           "locator": "TheoremB.2 proof p.904; RemarkB.4 p.905",
-          "excerpt": "entire of order one",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7052,7 +6930,6 @@
         {
           "sourceId": "YunZhang2017",
           "locator": "Appendix B corrected PropositionB.1, TheoremB.2, RemarkB.4 pp.902–906",
-          "excerpt": "Super-positivity",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7095,7 +6972,6 @@
         {
           "sourceId": "YunZhang2017",
           "locator": "RemarkB.5 p.906, corrected PAPER-YUN-ZHANG-17/E17",
-          "excerpt": "pole at s = 1",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7139,7 +7015,6 @@
         {
           "sourceId": "DukeImamogluToth2016",
           "locator": "§5.2 pp.962–963 (5.7)–(5.9)",
-          "excerpt": "L-function",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -7233,7 +7108,6 @@
         {
           "sourceId": "DukeImamogluToth2016",
           "locator": "§5.2 p.963 (5.9)",
-          "excerpt": "functional equation",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7276,7 +7150,6 @@
         {
           "sourceId": "HumphriesNordentoft",
           "locator": "§4.1.1 (4.2)–(4.6) pp.21–22",
-          "excerpt": "L2 -norm",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7317,7 +7190,6 @@
         {
           "sourceId": "Sarnak2004",
           "locator": "§1 p.3 (5), discussion of Shahidi",
-          "excerpt": "nonvanishing result",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7357,7 +7229,6 @@
         {
           "sourceId": "Liu2022",
           "locator": "§1.1 pp.109–112, Rankin–Selberg motive normalization",
-          "excerpt": "Rankin–Selberg",
           "match": "The motive has weight2n−1; the analytic comparison uses the unitary centre."
         }
       ],
@@ -7397,7 +7268,6 @@
         {
           "sourceId": "Borel1979",
           "locator": "§13.1 pp.49–50, local representation factor",
-          "excerpt": "representation",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7437,13 +7307,11 @@
         {
           "sourceId": "Borel1979",
           "locator": "§16.1, p.55, displayed L/epsilon-factor comparison",
-          "excerpt": "preserves",
           "match": "Conditional compatibility of local lifting with L/epsilon factors, not an existence theorem for every exterior-power transfer."
         },
         {
           "sourceId": "BCGP2025",
           "locator": "§1.8.25, p.16",
-          "excerpt": "known functorialities in small degrees",
           "match": "The specific available low-degree transfers and constituent shifts; the statement remains conditional on an established transfer."
         }
       ],
@@ -7484,7 +7352,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture9 finite-factor identities; analytic consequence",
-          "excerpt": "finite product",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7528,7 +7395,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.2 local self-duality",
-          "excerpt": "characters",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -7622,7 +7488,6 @@
         {
           "sourceId": "Tate1950",
           "locator": "§2.2, Theorem2.2.1, physical p.10",
-          "excerpt": "naturally its own character group",
           "match": "The local number-field character classification; topological inverse continuity still requires the finite-place proof refinement in G2."
         }
       ],
@@ -7666,7 +7531,6 @@
         {
           "sourceId": "Kudla2004",
           "locator": "§3 archimedean Fourier normalization",
-          "excerpt": "Fourier transform",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7707,7 +7571,6 @@
         {
           "sourceId": "Zhang2021",
           "locator": "§12.5 pp.946–947 (12.15)–(12.19)",
-          "excerpt": "Tate’s global zeta integrals",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7755,7 +7618,6 @@
         {
           "sourceId": "Raghuram2016",
           "locator": "§2.5.2 pp.24–25 (2.37)–(2.39)",
-          "excerpt": "well-defined up to multiplication",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7798,7 +7660,6 @@
         {
           "sourceId": "RodriguesJacintoWilliams2025",
           "locator": "Appendix B TheoremB.1 p.208, with supplier newform comparison",
-          "excerpt": "Theorem B.1",
           "match": "The defining integral or factor in this passage."
         }
       ],
@@ -7897,7 +7758,6 @@
         {
           "sourceId": "AtobeKondoYasuda2022",
           "locator": "Introduction pp.2–3 epsilon conductor; generic-newform application",
-          "excerpt": "conductor",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7938,7 +7798,6 @@
         {
           "sourceId": "ChenevierTaibi2020",
           "locator": "§2.1 p.274, footnote6 and epsilon formula",
-          "excerpt": "additivity property",
           "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
         }
       ],
@@ -7974,7 +7833,6 @@
         {
           "sourceId": "CogdellConverse",
           "locator": "§2; §3 Theorem3.1, pp.5–8",
-          "excerpt": "Then π is a cuspidal automorphic representation",
           "match": "The stated theorem and its outline; original proof decomposition remains G16."
         }
       ],
@@ -8032,7 +7890,6 @@
         {
           "sourceId": "CogdellConverse",
           "locator": "§2; §3 Theorem3.3, pp.5–6,9",
-          "excerpt": "If S = ∅ then π is cuspidal",
           "match": "The stated theorem and its outline; original proof decomposition remains G16."
         }
       ],
@@ -8102,7 +7959,6 @@
         {
           "sourceId": "CogdellFields",
           "locator": "Lecture 4 §3, Theorem 4.2 and proof, printed pp.33–34 (PDF pp.37–38)",
-          "excerpt": "multiplicity m(π)",
           "match": "The source proves the embedding comparison from Fourier reconstruction and uniqueness of the global Whittaker functional; this is distinct from strong multiplicity one."
         }
       ],

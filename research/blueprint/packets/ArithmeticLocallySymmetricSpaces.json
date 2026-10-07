@@ -470,13 +470,11 @@
         {
           "sourceId": "milne",
           "locator": "§1, Cartan involutions, definition (9), p. 15",
-          "excerpt": "An involution θ of G (as an algebraic group over R) is said to be Cartan if the group G^(θ)(R) = {g ∈ G(C) | g = θ(ḡ)} is compact.",
           "match": "The definition, verbatim up to notation; we apply it to (Res_{F/ℚ}G)_ℝ."
         },
         {
           "sourceId": "milne",
           "locator": "§1, Theorem 1.16, p. 15",
-          "excerpt": "There exists a Cartan involution of G if and only if G is reductive, in which case any two are conjugate by an element of G(R)",
           "match": "Existence and conjugacy, recorded as API items."
         }
       ],
@@ -591,19 +589,16 @@
         {
           "sourceId": "milne",
           "locator": "§1, Example 1.17(d), p. 15",
-          "excerpt": "Therefore θ is Cartan if and only if G^(θ) is compact. All compact real forms of G_C arise in this way from a Cartan involution of G.",
           "match": "The compact real form attached to θ; K_∞ is its intersection with G(ℝ)."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, after Definition 3.1, p. 40",
-          "excerpt": "It is connected, because a maximal compact subgroup K meets every connected component of G(R).",
           "match": "The component statement used for connectedness of X^G."
         },
         {
           "sourceId": "bs73",
           "locator": "§§1.4, 1.6–1.7",
-          "excerpt": "Let G be reductive",
           "match": "Cartan involution attached to a maximal compact, the K × p diffeomorphism, component and conjugacy statements. Milne Propositions 1.18/1.20 concern polarizations, not this decomposition."
         }
       ],
@@ -640,13 +635,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Definition 3.1, p. 40",
-          "excerpt": "The isotropy groups Gx = Stab_G(R)(x) are of the form Gx = K · S(R), where S ⊂ Rd G is a maximal torus and K ⊂ G(R) is a maximal compact subgroup normalizing S.",
           "match": "The S−Q condition; the homogeneous space is determined up to isomorphism. Here Rd denotes the ℚ-split part of the radical, as defined immediately before Definition 3.1; the excerpt uses that convention."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, pp. 909–910",
-          "excerpt": "if G = GLn,F , we can take X^G = GLn(F∞)/K∞R^× for K∞ ⊂ GLn(F∞) a maximal compact subgroup.",
           "match": "The GL_n instance with the split-centre factor."
         }
       ],
@@ -767,19 +760,16 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, after Definition 3.1, p. 40",
-          "excerpt": "The space X^G is orientable: in fact, it is diffeomorphic to Euclidean space ([BS73, Remark 2.4]).",
           "match": "The statement, attributed to Borel–Serre Remark 2.4."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "Note that the space X^G is diffeomorphic to Euclidean space.",
           "match": "Same statement in ACC+."
         },
         {
           "sourceId": "bs73",
           "locator": "§2.4",
-          "excerpt": "euclidean space",
           "match": "Type S spaces, including the split-radical quotient, are Euclidean; restriction to the reductive type S–Q space gives the stated contractibility."
         }
       ],
@@ -815,13 +805,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "If KG is a good subgroup, then we define X^G_KG := G(F)\\(X^G × G(A∞_F)/KG) and X_G := G(F)\\(X^G × G(A∞_F)), the latter with the discrete topology on G(A∞_F).",
           "match": "The definition of X_K and of the discrete-set-up space 𝔛_G."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "We write XG = G(F)\\[G(A∞_F) × X^G], where before forming the quotient G(A∞_F) is endowed with the discrete topology.",
           "match": "The same space in NT16's notation."
         }
       ],
@@ -937,13 +925,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Lemma 3.2(1), p. 42",
-          "excerpt": "The quotient G(F)\\G∞/U is finite. Writing g1, . . . , gs ∈ G∞ for a set of representatives and Γgi,U = G(F) ∩ gi U gi^{−1}, we have a homeomorphism X^U_G ≅ ⊔ Γgi,U\\X^G",
           "match": "The statement (NT16's further claim of orientability is corrected in sourceIssues E1)."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "The neatness condition on KG implies that X^G_KG can be identified with a finite disjoint union of quotients of X^G by the action of torsion-free arithmetic subgroups of G(F).",
           "match": "The neat-level form."
         }
       ],
@@ -986,19 +972,16 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "If U is neat, then for all g ∈ G(A∞_F), the group Γg,U = G(F) ∩ gUg^{−1} is neat as an arithmetic subgroup of G(F ⊗Q R). In particular, it is torsion-free and acts freely and properly discontinuously on X^G",
           "match": "Proper discontinuity and freeness at neat level; the arbitrary-level statement keeps finite stabilizers."
         },
         {
           "sourceId": "cg18",
           "locator": "§9, before §9.0.1 (arXiv v2)",
-          "excerpt": "We follow the convention that the cohomology of Y (K) is the orbifold cohomology in the sense of Remark 5.3.",
           "match": "Non-neat levels are treated as orbifolds/groupoids."
         },
         {
           "sourceId": "bs73",
           "locator": "§§9.1–9.3, Theorem 9.3",
-          "excerpt": "opérâtes properly",
           "match": "The theorem supplies both properness and compactness for arithmetic groups; 9.1 and the reduction-theoretic proof avoid the split-centre discreteness inference."
         }
       ],
@@ -1039,13 +1022,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "It follows that XG is isomorphic to an uncountable disjoint union of connected smooth manifolds, and for any neat open compact subgroup U ⊂ G(A∞_F), XG is a free U-space (in the sense of Definition 2.16).",
           "match": "Freeness at neat level in the discrete set-up."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "These topological spaces may be given the structure of smooth manifolds, and G(A∞_F) acts on X_G by right translation.",
           "match": "Manifold structure at good (neat) level."
         }
       ],
@@ -1083,13 +1064,11 @@
         {
           "sourceId": "acc23",
           "locator": "§6.5.1, Lemma 6.5.2, p. 1062",
-          "excerpt": "Suppose that K = ∏v Kv ⊂ GLn(ÔF) is an open compact subgroup and that there exist two places v, v′ of F such that v, v′ have distinct residue characteristics q, q′ and Kv = Iwv,1, Kv′ = Iwv′,1. Then K is neat.",
           "match": "The statement."
         },
         {
           "sourceId": "acc23",
           "locator": "§6.5.1, proof of Lemma 6.5.2, p. 1062",
-          "excerpt": "If α is an eigenvalue of gv in F̄v, then α − 1 is in the maximal ideal of OF̄v. The same is then true for ζ, thus q″ = q.",
           "match": "The proof step."
         }
       ],
@@ -1127,19 +1106,16 @@
         {
           "sourceId": "cg18",
           "locator": "§5.2.1 (arXiv v2)",
-          "excerpt": "Γ1(v^c) = { g ∈ PGL2(Ov) | g ≡ (1 ∗; 0 1) mod πv^c }",
           "match": "The Γ_0, Γ_1, Γ_p levels for PGL_2."
         },
         {
           "sourceId": "cg18",
           "locator": "§9.0.1 (published §9.1)",
-          "excerpt": "If v ∈ Q, LQ,v ⊂ KQ,v is the normal subgroup with quotient group kv^×.",
           "match": "The (1, n−1)-parahoric and its normal subgroup; CG18 calls them K_{Q,v} ⊃ L_{Q,v}."
         },
         {
           "sourceId": "cg20",
           "locator": "§3.1 (appendix §A.3.1)",
-          "excerpt": "where K is chosen to be maximal at all unramified primes for π and Iwahori level Iwv for all ramified primes.",
           "match": "The levels used for Y(K) in the appendix."
         }
       ],
@@ -1272,13 +1248,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, after Definition 3.1, p. 40",
-          "excerpt": "The space X^G is orientable: in fact, it is diffeomorphic to Euclidean space ([BS73, Remark 2.4]).",
           "match": "Orientability of X^G; the orientation character of the quotient is what this node adds."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "In particular, it is torsion-free and acts freely and properly discontinuously on X^G, preserving orientations.",
           "match": "The claim that neat groups preserve orientation, which fails for PGL_2 over ℚ (sourceIssues E1); this node keeps the character."
         }
       ],
@@ -1389,13 +1363,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "In particular, it is torsion-free and acts freely and properly discontinuously on X^G, preserving orientations.",
           "match": "The general claim that this example refutes (sourceIssues E1)."
         },
         {
           "sourceId": "milne",
           "locator": "§1, Example 1.17(b), p. 15",
-          "excerpt": "The choice of a basis for V determines a transpose operator M ↦ M^t , and M ↦ (M^t)^{−1} is obviously a Cartan involution.",
           "match": "The Cartan involution used to identify X^{PGL_2} with ℍ."
         }
       ],
@@ -1438,19 +1410,16 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, p. 910",
-          "excerpt": "Let R be a ring, and let V be an R[G(F) × KG,S]-module, finite free as R-module. We now explain how to obtain a local system of finite free R-modules, also denoted V, on X^G_KG",
           "match": "The construction, following NT16."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, pp. 910–911",
-          "excerpt": "The R[G(F) × KG,S]-module V determines (by pullback from a point) a G(F) × G^S × KG,S-equivariant sheaf, also denoted V, of finite free R-modules on X^G × G(A∞_F), hence (by descent under a free action, as in [NT16, Lem. 2.17]) a G^S × KG,S-equivariant sheaf V on XG.",
           "match": "The descent steps."
         },
         {
           "sourceId": "nt16",
           "locator": "§2.3, Lemma 2.17(2), p. 22",
-          "excerpt": "Suppose instead that X is a G-space on which K acts freely, and Y = X/K, endowed with its quotient topology. Then the two functors f∗K : ShG(X) → ShH(Y ), f∗ : ShH(Y ) → ShG(X), are mutually inverse equivalences of categories.",
           "match": "Equivariant descent along free actions (page of the published version approximate)."
         }
       ],
@@ -1580,25 +1549,21 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, p. 911",
-          "excerpt": "By taking derived global sections we obtain RΓ(X_G, V), which is an object of the derived category of R[G^S × KG,S]-modules. By taking derived invariants under KG we obtain RΓ(KG, RΓ(X_G, V_XG))",
           "match": "The equivariant model."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, Corollary 3.3, p. 42",
-          "excerpt": "There is a natural isomorphism for any Z[U S ]-module M: RΓ∼_U RΓXG M_G ≅ RΓ_{X^U_G} M^U_G.",
           "match": "Agreement with sheaf cohomology at neat level."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, p. 911",
-          "excerpt": "Then we write RΓKG/KG′(X^G_KG′, V) ∈ D(R[KG/KG′]) for the complex in this category computing the cohomology of H∗(X^G_KG′, V) with its natural KG/KG′ = KG,S/KG′,S-action.",
           "match": "The relative complex over R[K/K′]."
         },
         {
           "sourceId": "cn23",
           "locator": "§2.1.2, after Proposition 2.1.3, p. 11",
-          "excerpt": "precisely computes",
           "match": "The topological neat-level model computes compact supports using j_! on the compactification. The general-level finite-group adapter and enhancement are explicitly requested, not attributed to this neat statement."
         }
       ],
@@ -1723,13 +1688,11 @@
         {
           "sourceId": "sella",
           "locator": "Introduction, main Theorem",
-          "excerpt": "Theorem: Let X be a semi-locally contractible topological space. Then for any abelian group A and n ≥ 0, we have a natural isomorphism between singular cohomology H^n(X; A) and sheaf cohomology H^n(X; A).",
           "match": "The constant-coefficient comparison; the local-coefficient case follows Γ-equivariantly on the universal cover."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, proof of Lemma 2.1.7, p. 912",
-          "excerpt": "The lemma now follows on observing that RΓKG/KG′(X̄^G_KG′, V) is isomorphic in D(R[KG/KG′]) to the complex Hom_Z[G(F)×KG′](C•, V).",
           "match": "The cochain model through an invariant triangulation."
         }
       ],
@@ -1767,13 +1730,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, proof of Lemma 2.1.7, p. 912",
-          "excerpt": "this pulls back to a G(F)×KG-invariant triangulation of X̄^G×G(A∞_F). Let C• be the corresponding complex of simplicial chains. It is a bounded complex of finite free Z[G(F)×KG]-modules.",
           "match": "The free resolution through which RΓ becomes Hom over the group ring."
         },
         {
           "sourceId": "cg18",
           "locator": "§5.2, arithmetic quotients (arXiv v2)",
-          "excerpt": "Topologically, they are a finite disconnected union of finite volume arithmetic hyperbolic 3-orbifolds.",
           "match": "Non-neat levels are orbifolds; their cohomology is orbifold cohomology."
         }
       ],
@@ -1816,13 +1777,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, Lemma 2.1.7, p. 912",
-          "excerpt": "Then RΓKG/KG′(X^G_KG′, V) is a perfect object of D(R[KG/KG′]); in other words, it is isomorphic in this category to a bounded complex of projective R[KG/KG′]-modules.",
           "match": "The perfectness statement (the finite triangulation is supplied by ALS.2)."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, proof of Lemma 2.1.7, p. 912",
-          "excerpt": "It is a bounded complex of finite free Z[G(F)×KG]-modules. The lemma now follows on observing that RΓKG/KG′(X̄^G_KG′, V) is isomorphic in D(R[KG/KG′]) to the complex Hom_Z[G(F)×KG′](C•, V).",
           "match": "The proof."
         }
       ],
@@ -1863,13 +1822,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.7(2), p. 48",
-          "excerpt": "Let S be a Noetherian R-algebra and let A_S = A ⊗_R S, B_S = B ⊗_R S. Then there are natural isomorphisms RΓ_{X^U_G,c} A_S^U_G ≅ (RΓ_{X^U_G,c} A^U_G) ⊗^L_R S",
           "match": "Base change for compactly supported and ordinary cohomology (A finite free over R)."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, proof of Proposition 3.7, p. 49",
-          "excerpt": "The second part follows as in [Del77, Ch. 2, 4.12]; note that the functors Γ_{X^U_G} and Γ_{X^U_G,c} have finite cohomological dimension [KS94, Proposition 3.2.3].",
           "match": "The proof route."
         }
       ],
@@ -1908,13 +1865,11 @@
         {
           "sourceId": "nt16",
           "locator": "§2.3, after Proposition 2.18, p. 27",
-          "excerpt": "Let V = U ∩ αUα^{−1}, let p1 : X/V → X/U denote the natural projection, p2 : X/V → X/U the map X/V → X/α^{−1}Vα → X/U given by acting by α, then projecting. Both p1 and p2 are topological covering maps.",
           "match": "The two maps whose pullbacks are π^* and r_α^* ∘ π^* (page approximate)."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, p. 911",
-          "excerpt": "it is equivalent to a sheaf V on XKG (applying once again [NT16, Lem. 2.17]).",
           "match": "Descent used to identify the equivariant and sheaf pullbacks."
         }
       ],
@@ -2020,25 +1975,21 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "There is a canonical action of AP on XG, called the geodesic action, and given by the formula (for a ∈ AP, x ∈ XG) a • x = ax · x, where ax ∈ L′x(R) is any lifting of a ∈ AP, cf. [BS73, (3.2)].",
           "match": "The geodesic action."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 41",
-          "excerpt": "This action of AP commutes with the action of P(R) on XG, which therefore descends to the quotient XP = AP\\XG.",
           "match": "The quotient e(P) = X_P."
         },
         {
           "sourceId": "jm02",
           "locator": "§7.3, p. 483",
-          "excerpt": "Define the boundary component e(P) for P by e(P) = NP × XP.",
           "match": "The horospherical description of e(P)."
         },
         {
           "sourceId": "bs73",
           "locator": "§§3.2–3.9",
-          "excerpt": "géodésie action",
           "match": "The original construction supplies the analytic principal bundle for a type S–k space, including relative split radicals; no fixed-Levi left action is substituted."
         }
       ],
@@ -2151,25 +2102,21 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "We let X̄^G denote the partial Borel–Serre compactification of X^G (see [BS73, §7.1]).",
           "match": "The object, attributed to Borel–Serre §7.1."
         },
         {
           "sourceId": "jm02",
           "locator": "§7.3, p. 483",
-          "excerpt": "The Borel-Serre compactification is defined in [BS] using the geodesic action and the associated corners.",
           "match": "Corners from the geodesic action."
         },
         {
           "sourceId": "jm02",
           "locator": "§7.4, Proposition 7.4, p. 484",
-          "excerpt": "The action of G(Q) on X extends continuously to X^BS, and every arithmetic subgroup Γ ⊂ G(Q) acts properly discontinuously on X^BS.",
           "match": "G(ℚ)-action and proper discontinuity (quoting Borel–Serre Prop. 7.6, Thm. 9.3)."
         },
         {
           "sourceId": "bs73",
           "locator": "§§5.1–5.3, 7.1–7.6",
-          "excerpt": "manifold with corners",
           "match": "Associated analytic corners, nested-parabolic open embeddings, generated-parabolic intersections, closure order and rational action are read directly in the original construction."
         }
       ],
@@ -2294,19 +2241,16 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "For any good subgroup KG ⊂ G(A∞_F), the space X̄^G_KG, which can be identified with X_G/KG, is compact (see [BS73, Th. 9.3]). More precisely, X̄^G_KG is a compact smooth manifold with corners with interior X^G_KG; the inclusion X^G_KG ↪ X̄^G_KG is a homotopy equivalence.",
           "match": "The statement at good level."
         },
         {
           "sourceId": "jm02",
           "locator": "§7.4, Proposition 7.4, p. 484",
-          "excerpt": "The quotient Γ\\X^BS is a Hausdorff compactification of Γ\\X and denoted by Γ\\X̄^BS.",
           "match": "Compact Hausdorff quotient."
         },
         {
           "sourceId": "bs73",
           "locator": "Theorem 9.3 and §9.5",
-          "excerpt": "The quotient XjF is compact.",
           "match": "Proper compact quotient and the torsion-free criterion. Compactness is also explained by finite closed Siegel-set covers in the proof."
         }
       ],
@@ -2349,19 +2293,16 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, proof of Lemma 2.1.7, p. 912",
-          "excerpt": "As in [BS73, §11], we see that X̄^G_KG admits a finite triangulation; this pulls back to a G(F)×KG-invariant triangulation of X̄^G×G(A∞_F).",
           "match": "The triangulation."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, Lemma 2.1.4, p. 911",
-          "excerpt": "Let KG be a good subgroup, let R be a Noetherian ring, and let V be an R[G(F) × KG]-module, finite free as R-module. Then H∗(X^G_KG, V) is a finitely generated R-module.",
           "match": "Finite generation."
         },
         {
           "sourceId": "bs73",
           "locator": "§11.1",
-          "excerpt": "can be triangu-",
           "match": "Round the compact smooth corner quotient and triangulate it; pull back its finite triangulation. Both full and refined levels must be neat for group-ring perfectness."
         }
       ],
@@ -2399,19 +2340,16 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, before Lemma 3.10, p. 50",
-          "excerpt": "An important fact is that the boundary ∂XG admits a G∞-invariant stratification, with strata indexed by conjugacy classes of rational parabolic subgroups of G.",
           "match": "The stratification."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, Lemma 3.10(2), p. 51",
-          "excerpt": "for each U ∈ JG, the quotient maps j^U_Pi : (Ind^G∞_Pi∞ X_Pi)/U → ∂X̄^U_G are locally closed immersions, and the induced map ⊔i [Ind^G∞_Pi∞ X_Pi]/U → ∂X̄^U_G is a continuous bijection",
           "match": "The level-K statement."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4.1, p. 941",
-          "excerpt": "The stratum X̃^Q_K̃ can be written as X̃^Q_K̃ = Q(F+)\\(X^Q × G̃(A∞_F+)/K̃).",
           "match": "The stratum formula."
         }
       ],
@@ -2519,13 +2457,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, p. 43",
-          "excerpt": "The map πU,UH is a submersion with compact nilmanifold fibres.",
           "match": "The fibration for the projection to the Levi quotient (NT16's H = G/N)."
         },
         {
           "sourceId": "hr",
           "locator": "§4.1, before (4.2)",
-          "excerpt": "The corresponding Leray-Serre spectral sequence degenerates at E2-level.",
           "match": "The fibration over the Levi locally symmetric space and its Leray–Serre spectral sequence (characteristic zero)."
         }
       ],
@@ -2568,19 +2504,16 @@
         {
           "sourceId": "nt16",
           "locator": "§4, proof of Lemma 4.4, p. 56",
-          "excerpt": "By Lemma 3.10 and the long exact sequence in cohomology with compact supports associated to the inclusion of an open subspace, we deduce the corresponding result for the full boundary ∂X̄^U_G.",
           "match": "The filtration by unions of strata and the compact-support long exact sequences."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, Lemma 3.10(1), p. 51",
-          "excerpt": "the natural maps jPi : Ind^G∞_Pi∞ X_Pi → ∂XG are locally closed immersions, and the induced map ⊔i Ind^G∞_Pi∞ X_Pi → ∂XG is a continuous bijection",
           "match": "The strata used in the filtration."
         },
         {
           "sourceId": "hr",
           "locator": "§4.1, pp. 23–24, sign σ(P,Q) and d₁ formula",
-          "excerpt": "Mayer-Vietoris",
           "match": "The ordinary GL_N sequence uses alternating restrictions on compactified strata; this source is not the compact-support exact couple."
         }
       ],
@@ -2688,13 +2621,11 @@
         {
           "sourceId": "nt16",
           "locator": "§2.2.1, Lemma 2.3, p. 8 (arXiv v1 numbering of pages)",
-          "excerpt": "For any Z[G]-module M, the space M^U of U-invariants admits a canonical structure of H(G, U)-module. This defines a functor ΓU : Mod(G) → Mod(H(G, U )).",
           "match": "The functor Γ_U (published version §2.2.1)."
         },
         {
           "sourceId": "nt16",
           "locator": "§2.2.1, (2.5)",
-          "excerpt": "the action of [UαU] ∈ H(G, U) on M^U, M a Z[G]-module, can also be described as the composite M^U → M^{U∩αUα^{−1}} → M^U, where the first map is given by v ↦ α · v and the second by tr",
           "match": "The trace description."
         }
       ],
@@ -2809,25 +2740,21 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, (2.1.3), p. 911",
-          "excerpt": "In this way, we obtain a canonical homomorphism H(G^S, K^S_G) ⊗_Z R → End_D(R)(RΓ(X^G_KG, V)).",
           "match": "The Hecke homomorphism."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, p. 911",
-          "excerpt": "Even more generally, if Y is any right G^S × KG,S-space and C is any bounded-below complex of G^S × KG,S-equivariant sheaves of R-modules on Y, there is a homomorphism",
           "match": "The general form, including compact support via j_!."
         },
         {
           "sourceId": "nt16",
           "locator": "§2.3, Proposition 2.18",
-          "excerpt": "With notation as above, there is a canonical isomorphism in D(Z), for any F ∈ ShG(X): R(ΓU ◦ ΓX)(F)∼ ≅ RΓ_{X/U}(f^U_∗ F).",
           "match": "The forgetful image is the cohomology of the quotient."
         },
         {
           "sourceId": "cn23",
           "locator": "§2.1.2, Proposition 2.1.3, Lemma 2.1.5 and footnote 5, pp. 10–11",
-          "excerpt": "slightly weaker",
           "match": "The topological source uses an endomorphism action; the strict lift is not inferred from it."
         }
       ],
@@ -2950,13 +2877,11 @@
         {
           "sourceId": "nt16",
           "locator": "§2.3, after Proposition 2.18",
-          "excerpt": "We define an endomorphism θ(α) of RΓX/U(f^U_∗ F) as the composite RΓX/U(f^U_∗F) → RΓX/V(p_2^∗ f^U_∗ F) ≅ RΓX/V(p_1^∗ f^U_∗ F) ≅ RΓX/U(p1,∗ p_1^∗ f^U_∗ F) → RΓX/U(f^U_∗F)",
           "match": "The correspondence operator."
         },
         {
           "sourceId": "nt16",
           "locator": "§2.3, Lemma 2.19",
-          "excerpt": "For α ∈ G the image of [UαU] in End_D(Z)(RΓX/U f^U_∗ F) equals θ(α).",
           "match": "The comparison."
         }
       ],
@@ -2998,13 +2923,11 @@
         {
           "sourceId": "nt16",
           "locator": "§2.3, after Proposition 2.18",
-          "excerpt": "where the final map is the trace, defined by the adjunction (p1,∗ = p1,!, p_1^∗ = p_1^!).",
           "match": "The trace as the counit of the adjunction for a finite covering."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, (2.1.6), p. 912",
-          "excerpt": "given by the functor RΓ(KG/KG′, ?).",
           "match": "Descent along K/K′, whose composite with corestriction gives the trace."
         }
       ],
@@ -3118,13 +3041,11 @@
         {
           "sourceId": "nt16",
           "locator": "§2.2.1, Lemma 2.3(1)",
-          "excerpt": "The Z-module H(G, U) is in fact an associative Z-algebra under convolution, with unit element [U], the characteristic function of U.",
           "match": "The algebra structure that T_K respects."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, (2.1.5)–(2.1.6), pp. 911–912",
-          "excerpt": "that recovers (2.1.3) after composition with the map EndD(R[KG/KG′])(RΓKG/KG′(X^G_KG′, V)) → EndD(R)(RΓ(X^G_KG, V))",
           "match": "Compatibility of the Hecke actions under change of level."
         }
       ],
@@ -3163,13 +3084,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, before Proposition 3.7, p. 48",
-          "excerpt": "we can define for any Z[U^S]-module A a homomorphism H(G^S, U^S) → End_D(Z)(RΓ_{X^U_G,c} A^U_G) which is compatible with the natural morphism RΓ_{X^U_G,c} A^U_G → RΓ_{X^U_G} A^U_G.",
           "match": "Compatibility with forget-supports."
         },
         {
           "sourceId": "nt16",
           "locator": "§4, after Theorem 4.2, p. 55",
-          "excerpt": "of the existence of the boundary exact triangle, compatible with the action of Hecke operators",
           "match": "Compatibility of the boundary triangle with Hecke operators."
         }
       ],
@@ -3208,19 +3127,16 @@
         {
           "sourceId": "cn23",
           "locator": "§2.1.2, Proposition 2.1.3",
-          "excerpt": "Proof. This is a topological version of [NT16, Prop. 2.18]. The corresponding diagram of underived functors commutes up to natural isomorphism.",
           "match": "Part (i)."
         },
         {
           "sourceId": "cn23",
           "locator": "§2.1.2, Lemma 2.1.4",
-          "excerpt": "The functor RΓ(XG, ) : DSh+_{G^S×KG,S}(XG) → D+_sm(G^S × KG,S, R) has bounded cohomological dimension.",
           "match": "Part (ii)."
         },
         {
           "sourceId": "cn23",
           "locator": "§2.1.2, Lemma 2.1.5",
-          "excerpt": "We have a natural isomorphism of functors from DSh+_{G^S×KG,S}(XG) to D+(H(G^S, K^S) ⊗Z R): RΓ(KG, −) ◦ RΓ(XG, −) ≅ RΓ(K^dis_G, −) ◦ RΓ(X^dis_G, −) ◦ π^∗_dis.",
           "match": "Part (iii)."
         }
       ],
@@ -3262,19 +3178,16 @@
         {
           "sourceId": "nt16",
           "locator": "§3.2, p. 51",
-          "excerpt": "We write T^S = H(G^S, U^S) ⊗_Z O; then T^S is a commutative O-algebra, because U^S is a product of hyperspecial maximal compact subgroups.",
           "match": "Commutativity."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.2, p. 52",
-          "excerpt": "then we will write T^S(C•) for the quotient of T^S which injects into End_D(O)(C•). Thus T^S(C•) is a commutative finite O-algebra, equipped with a surjective map T^S(C•) → T^S(H∗(C•)) which has nilpotent kernel",
           "match": "Definition and finiteness."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.2, Lemma 3.12, p. 53",
-          "excerpt": "Then the natural map T∞ → lim_N T_N is an isomorphism.",
           "match": "Compatibility with reduction mod ϖ^N."
         }
       ],
@@ -3388,13 +3301,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, p. 933",
-          "excerpt": "We define an isomorphism of O-algebras fψ : H(G^S, K^S) ⊗Z O → H(G^S, K^S) ⊗Z O by the formula fψ(f)(g) = ψ(ArtF(det(g)))^{−1} f(g).",
           "match": "The definition."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, p. 933",
-          "excerpt": "then we have the formula fψ(Tv,i) = ψ(Frobv)^{−i} Tv,i for each finite place v ∉ S of F.",
           "match": "The effect on T_{v,i}."
         }
       ],
@@ -3499,19 +3410,16 @@
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, Proposition 2.2.23, p. 933",
-          "excerpt": "Then for any λ ∈ (Z^n_+)^Hom(F,E), there is an isomorphism RΓ(XK, Vλ) ≅ RΓ(XK, Vλ+µ) in D(O), which is equivariant for the action of H(G^S, K^S)⊗Z O when H(G^S, K^S) ⊗Z O acts in the usual way on the left-hand side and by fψ on the right-hand side.",
           "match": "The statement for V_λ."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, proof of Proposition 2.2.23, p. 934",
-          "excerpt": "The character ψ defines a class in H^0(XK, Vµ) = HomSh(XK)(O, Vµ). By tensor product this determines a morphism Vλ → Vλ ⊗O Vµ ≅ Vλ+µ of sheaves on XK",
           "match": "The proof."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, Corollary 2.2.24, pp. 934–935",
-          "excerpt": "Then for any λ ∈ (Z^n_+)^Hom(F,E), fψ descends to an isomorphism TS(K, λ) ≅ TS(K, λ + µ).",
           "match": "The Hecke algebra statement."
         }
       ],
@@ -3551,13 +3459,11 @@
         {
           "sourceId": "cg18",
           "locator": "§9, Lemma 9.6, proof (arXiv v2)",
-          "excerpt": "The two natural degeneracy maps induce maps: φ : H∗(Y, O/̟n)^2 → H∗(Y0(x), O/̟n), φ∨ : H∗(Y0(x), O/̟n) → H∗(Y, O/̟n)^2 such that the composition φ∨ ◦ φ is the matrix",
           "match": "The maps and the matrix (N(x)+1, T_x; T_x, N(x)+1)."
         },
         {
           "sourceId": "cg18",
           "locator": "§9, Lemma 9.6, proof (arXiv v2)",
-          "excerpt": "In particular, the maps φ and φ∨ induce a splitting H∗(Y0(x), O/̟n)m ≃ H∗(Y, O/̟n)^2_m ⊕ W",
           "match": "The splitting after localization."
         }
       ],
@@ -3596,13 +3502,11 @@
         {
           "sourceId": "nt16",
           "locator": "§4, after Theorem 4.2, p. 55",
-          "excerpt": "of the existence of the boundary exact triangle, compatible with the action of Hecke operators: RΓX^U_G,c A^U_G → RΓX^U_G A^U_G → RΓ∂X̄^U_G A^U_G → RΓX^U_G,c A^U_G[−1].",
           "match": "The triangle; the printed shift [−1] should be [1] (sourceIssues E2)."
         },
         {
           "sourceId": "nt16",
           "locator": "§4, after Theorem 4.2, p. 55",
-          "excerpt": "The existence of this triangle is a consequence of the fact that the natural open immersion X^U_G ↪ X̄^U_G is a homotopy equivalence.",
           "match": "Why the middle term is RΓ(X_K, V)."
         }
       ],
@@ -3645,19 +3549,16 @@
         {
           "sourceId": "nt16",
           "locator": "§2.2.3, Lemma 2.4(1)",
-          "excerpt": "The map rP : H(G(F), U) → H(P(F), UP) is an algebra homomorphism.",
           "match": "r_P."
         },
         {
           "sourceId": "nt16",
           "locator": "§2.2.4, Lemma 2.7(1)",
-          "excerpt": "Integration along fibers defines an algebra homomorphism rM : H(P(F), U) → H(M(F), UM).",
           "match": "r_M."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.9, after Lemma 2.1.11, p. 914",
-          "excerpt": "rP([UmU]) = [UPmUP] and rM ◦ rP([UmU]) = #(UN/mUNm^{−1})[UMmUM] = |δP(m)|_F^{−1}[UMmUM]",
           "match": "The formulas on basis elements."
         }
       ],
@@ -3776,19 +3677,16 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.8(2), p. 49",
-          "excerpt": "There are natural morphisms p : RΓ∼_UP RΓ∂XG jP,! BP → RΓ∼_U RΓ∂XG BG in D(Z) and q : RΓU RΓ∂XG BG → r∗_P RΓUP RΓXP BP in D(H(G^S, U^S)).",
           "match": "Part (i)."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.4",
-          "excerpt": "there are natural morphisms i : r∗_H RΓUH RΓXH AH → RΓU RΓXG π∗AH in D(H(G^S, U^S)) and s : RΓ∼_U RΓXG π∗AH → RΓ∼_UH RΓXH AH in D(Z), satisfying si∼ = 1.",
           "match": "Part (ii) for the projection to the Levi quotient."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.14, p. 916",
-          "excerpt": "Applying Lemma 2.1.14 (cf. [NT16, Cor. 2.6]), we see that there is a split morphism in D(R), RΓ([Ind^G∞_P∞ XP]/KG, R) → RΓ(X^P_KP, R)",
           "match": "Part (iv)."
         }
       ],
@@ -3829,7 +3727,6 @@
         {
           "sourceId": "hr",
           "locator": "§4.2.1, pp.25–26 (arXiv:1405.6513v2)",
-          "excerpt": "For the cohomology of the fiber, one uses a classical theorem due to van Est: if uP be the Lie algebra of UP then the cohomology of the fiber is the same as the unipotent Lie algebra cohomology group H•(uP, Mλ,E), which is naturally an algebraic representation of MP",
           "match": "The GL_n boundary application of the rational unipotent comparison. Its algebraic Levi action is on the coefficient module H*(𝔲_P,M_λ,E); geometry at a fixed lattice requires its normalizer. This passage invokes the comparison and is not a full proof of rational Nomizu."
         }
       ],
@@ -3872,19 +3769,16 @@
         {
           "sourceId": "hr",
           "locator": "§4.2.1, (4.2), p.26 (arXiv:1405.6513v2)",
-          "excerpt": "Putting all this together, we get: H•(∂P S^G_Kf, M̃λ,E) = ⊕_{ξf ∈ ΞKf} H•(S^MP_{Kf^MP(ξf)}, H•(uP, Mλ,E)~).",
           "match": "Part (i), summed over the strata components."
         },
         {
           "sourceId": "hr",
           "locator": "§4.2.3, (4.5), p.27 (arXiv:1405.6513v2)",
-          "excerpt": "Kostant’s theorem asserts that as MP × E-modules, one has a multiplicity-free decomposition: H^q(uP, Mλ,E) ≃ ⊕_{w∈W^P, l(w)=q} Mw·λ,E.",
           "match": "Part (ii)."
         },
         {
           "sourceId": "hr",
           "locator": "§4.2.1, Proposition 4.3, p.26 (arXiv:1405.6513v2)",
-          "excerpt": "The notation a Ind stands for algebraic, or un-normalized, induction.",
           "match": "Part (iii), algebraic induction."
         }
       ],
@@ -3927,13 +3821,11 @@
         {
           "sourceId": "nt16",
           "locator": "§4, Lemma 4.5, p. 56",
-          "excerpt": "Then the natural maps in (discrete) group cohomology H∗(UN,S, k) → H∗(Γ1,UN,S, k) → H∗(Γ1,UN, k) are all isomorphisms, while H^i(U^S_N, k) = 0 for i > 0.",
           "match": "The integral (mod p) comparison for the unipotent part."
         },
         {
           "sourceId": "hr",
           "locator": "§4.2.1, p.25, before (4.2) (arXiv:1405.6513v2)",
-          "excerpt": "The corresponding Leray-Serre spectral sequence degenerates at E2-level.",
           "match": "The characteristic-zero GL_n/ totally-real-field boundary fibration in the source. Its degeneration is not used to identify the integral sequence, and alone does not produce a canonical general reductive splitting."
         }
       ],
@@ -3973,13 +3865,11 @@
         {
           "sourceId": "nt16",
           "locator": "§4, proof of Lemma 4.4, p. 56",
-          "excerpt": "By Poincaré duality (that is by the same argument as in the proof of Lemma 4.1), the vanishing of RΓ[Ind^G∞_P∞ XP]/U k at non-Eisenstein maximal ideals implies that of the compactly supported cohomology",
           "match": "Duality on the strata, then gluing."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4, Theorem 2.4.2 proof, p. 942",
-          "excerpt": "Since P is a maximal parabolic of G̃, the inclusion X̃^P_K̃ ⊂ ∂X̃_K̃ is an open embedding, which induces a natural, T̃^S-equivariant map RΓc(X̃^P_K̃, Ṽλ̃)m̃ → RΓ(∂X̃_K̃, Ṽλ̃)m̃",
           "match": "The open-stratum map used when only one stratum survives."
         }
       ],
@@ -4021,13 +3911,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.2, p. 52",
-          "excerpt": "For each such maximal ideal there is a corresponding idempotent em ∈ T^S(C•) ⊂ EndD(O)(C•), which is the projector onto the factor T^S(C•)m. The derived category D(O) is idempotent complete, so we deduce the existence of a direct sum decomposition C• = C•m ⊕ D• in D(O).",
           "match": "The construction."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.2, p. 52",
-          "excerpt": "The summand C•m is defined uniquely up to unique isomorphism in D(O), and the composite map T^S(C•)m → T^S(C•m) is an isomorphism. Similarly, there is a canonical identification H∗(C•)m ≅ H∗(C•m).",
           "match": "The properties."
         }
       ],
@@ -4142,13 +4030,11 @@
         {
           "sourceId": "nt16",
           "locator": "§4, p. 54",
-          "excerpt": "If C• is of S-Galois type and a representation ρm is absolutely reducible, then we say that the maximal ideal m is Eisenstein.",
           "match": "The Galois-theoretic definition."
         },
         {
           "sourceId": "cg18",
           "locator": "§5.3, Definition 5.5 (arXiv v2)",
-          "excerpt": "We say that m is Eisenstein if Tλ − 2 ∈ m for all but finitely primes λ which split completely in some fixed abelian extension of F . We say that m is non-Eisenstein if it is not Eisenstein.",
           "match": "The Hecke-theoretic definition for PGL_2."
         }
       ],
@@ -4260,13 +4146,11 @@
         {
           "sourceId": "nt16",
           "locator": "§4, Lemma 4.4, p. 55",
-          "excerpt": "To prove Theorem 4.2, it is enough to show that for each proper standard parabolic subgroup P ⊂ G, the complex RΓ[Ind^G∞_P∞ XP]/U k is Eisenstein.",
           "match": "The reduction to strata."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4, p. 941",
-          "excerpt": "The important observation is usually that the cohomology of a certain stratum in the boundary can be observed to vanish after localization at a sufficiently nice (e.g., non-Eisenstein) maximal ideal of a suitable Hecke algebra.",
           "match": "The method."
         }
       ],
@@ -4308,19 +4192,16 @@
         {
           "sourceId": "nt16",
           "locator": "§4, Theorem 4.2, p. 55",
-          "excerpt": "For every U ∈ JG,US and for every smooth O[US]-module A, finite as O-module, the complex RΓ∂X̄^U_G(A^U_G) is Eisenstein. In particular, for every non-Eisenstein maximal ideal m ⊂ T^S(RΓX^U_G A^U_G), the natural morphism (RΓX^U_G,c A^U_G)m → (RΓX^U_G A^U_G)m in D(O) is a quasiisomorphism.",
           "match": "The boundary-vanishing target, with the explicit orientation-compatible input required by the corrected duality argument (source issue E1). The general real-place ♠-only formulation is not claimed here."
         },
         {
           "sourceId": "cg20",
           "locator": "§3.1, proof of Theorem 3.2 (appendix A.4)",
-          "excerpt": "We first note that the assumption (of absolute irreducibility) on r ensures that the cohomology of the boundary vanishes after localization at m.",
           "match": "Variant (a), with the absolute irreducibility hypothesis made explicit."
         },
         {
           "sourceId": "cg18",
           "locator": "Lemma 5.9(3) (arXiv v2)",
-          "excerpt": "For all i, we have an isomorphism Hi(Y0(Q), µ)m → H^BM_i(Y0(Q), µ)m.",
           "match": "Variant (b)."
         }
       ],
@@ -4367,13 +4248,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.4.1, Theorem 2.4.2, pp. 941–942",
-          "excerpt": "Let m ⊂ TS(K, λ) be a non-Eisenstein maximal ideal, and let m̃ = S∗(m) ⊂ T̃S. Let λ̃ ∈ (Z^2n_+)^Hom(F+,E). Then there is a natural T̃S-equivariant isomorphism RΓ(X̃^P_K̃, Ṽλ̃)m̃ → RΓ(∂X̃K̃, Ṽλ̃)m̃ in D(O).",
           "match": "The theorem."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4.1, proof of Theorem 2.4.2, p. 942",
-          "excerpt": "The proof is similar to the proof of [NT16, Th. 4.2], which applies to the case of ResF/Q GLn and which shows that the cohomology of the stratum labelled by any proper parabolic subgroup of ResF/Q GLn is Eisenstein.",
           "match": "The method."
         }
       ],
@@ -4411,19 +4290,16 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.1, p. 910",
-          "excerpt": "More precisely, X̄^G_KG is a compact smooth manifold with corners with interior X^G_KG; the inclusion X^G_KG ↪ X̄^G_KG is a homotopy equivalence.",
           "match": "The manifold-with-corners structure to which the bridge applies."
         },
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.7(1)",
-          "excerpt": "There is a natural Verdier duality isomorphism in D(R): RHomR(RΓX^U_G,c A^U_G, R) ≅ RΓX^U_G B^U_G.",
           "match": "The duality the bridge makes available (stated by NT16 without the orientation twist; see sourceIssues E1)."
         },
         {
           "sourceId": "dh73",
           "locator": "Propositions 4.2–4.3, Proposition 6.1, Theorem and Definition 6.2, pp. 487–489",
-          "excerpt": "ayant même espace topologique",
           "match": "Rounding leaves the topological pair unchanged and supplies a smooth full boundary; the collar establishes the orientation comparison."
         }
       ],
@@ -4469,13 +4345,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.7(1), p. 48",
-          "excerpt": "Let R be a Noetherian ring and let A ∈ Mod(U_S, R) be finite free as R-module; let B = HomR(A, R). (1) There is a natural Verdier duality isomorphism in D(R): RHomR(RΓX^U_G,c A^U_G, R) ≅ RΓX^U_G B^U_G.",
           "match": "Published Proposition 3.7(1) omits both the orientation twist (E1) and dimension shift (E3). The corrected formula here uses the usual cohomological convention, also explicit in ACC+ Proposition 2.2.21."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, Proposition 2.2.21, p. 932",
-          "excerpt": "Then there is an isomorphism R HomR(RΓc(XK, V), R) ≅ RΓ(XK, V^∨)[D] in D(R) that is equivariant for the action of H(G^S, K^S)",
           "match": "The GL_n-over-CM form with the shift D = dim X."
         }
       ],
@@ -4515,7 +4389,6 @@
         {
           "sourceId": "nt16",
           "locator": "§4, proof of Lemma 4.1, p. 54",
-          "excerpt": "By Proposition 3.7, there is a perfect Poincaré duality pairing of finite-dimensional k-vector spaces ⟨·, ·⟩U : H∗c(X^U_G, k) × H∗(X^U_G, k) → k satisfying the equation ⟨x, [UgU]y⟩U = ⟨[Ug^{−1}U]x, y⟩U for any g ∈ G^S.",
           "match": "The pairing and its Hecke property."
         }
       ],
@@ -4629,19 +4502,16 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.7(3), p. 48",
-          "excerpt": "For g ∈ G^S, the Verdier duality isomorphism (3.1) identifies the transpose of the operator [Ug^{−1}U] on the left hand side with the operator [UgU] on the right hand side.",
           "match": "The adjoint formula."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, Corollary 2.2.22, p. 932",
-          "excerpt": "Then ι (resp. ι) descends to an isomorphism T^S(RΓc(XK, V)) ≅ T^S(RΓ(XK, V^∨)) of R-algebras.",
           "match": "The descended isomorphism of Hecke algebras."
         },
         {
           "sourceId": "nt16",
           "locator": "§4, proof of Lemma 4.1, p. 54",
-          "excerpt": "this implies that the action of T^i_v on H∗(X^U_G, k) is dual to the action of T^{m−i}_v (T^m_v)^{−1} on H∗c(X^U_G, k).",
           "match": "The GL_n formula."
         }
       ],
@@ -4683,13 +4553,11 @@
         {
           "sourceId": "nt16",
           "locator": "§3.1, Proposition 3.7(2), p. 48",
-          "excerpt": "there are natural isomorphisms RΓX^U_G,c A_S^U_G ≅ (RΓX^U_G,c A^U_G) ⊗^L_R S and RΓX^U_G B_S^U_G ≅ (RΓX^U_G B^U_G) ⊗^L_R S.",
           "match": "Coefficient change on both sides of the duality."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, p. 932",
-          "excerpt": "The interaction between these involutions and Poincaré duality is described by the following proposition.",
           "match": "Duality interchanges 𝔪 and 𝔪^∨."
         }
       ],
@@ -4728,13 +4596,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, Lemma 2.1.7, p. 912",
-          "excerpt": "Then RΓKG/KG′(X^G_KG′, V) is a perfect object of D(R[KG/KG′]); in other words, it is isomorphic in this category to a bounded complex of projective R[KG/KG′]-modules.",
           "match": "ACC+ requires good full K and good K′ for group-ring perfectness. Only underlying R-perfectness is claimed when full K is not neat; averaging after inverting the quotient order yields duality."
         },
         {
           "sourceId": "cg20",
           "locator": "§3.1, proof of Lemma 3.1 (appendix)",
-          "excerpt": "Pick a neat finite index subgroup K′ ⊂ K, and a corresponding Galois cover Y′ = Y(K′) → Y = Y(K) where Y′ is now a manifold. It follows that H∗(Y′, Z) is finitely generated, and thus H∗(Y, Z[1/M]) is also finitely generated where M denotes the product of primes dividing [K : K′].",
           "match": "Passing to non-neat level after inverting the index."
         }
       ],
@@ -4770,13 +4636,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.2.20, Proposition 2.2.21, p. 932",
-          "excerpt": "Then there is an isomorphism R HomR(RΓc(XK, V), R) ≅ RΓ(XK, V^∨)[D] in D(R) that is equivariant for the action of H(G^S, K^S)",
           "match": "The integral duality which the characteristic-zero comparison must respect."
         },
         {
           "sourceId": "franke",
           "locator": "Abstract",
-          "excerpt": "the inclusion of the space of automorphic forms into the space of all C∞-functions induces an isomorphism on the cohomology with coefficients in a finite-dimensional representation",
           "match": "The comparisons to which the early structures are transported."
         }
       ],
@@ -4816,13 +4680,11 @@
         {
           "sourceId": "franke",
           "locator": "Introduction and §7.4",
-          "excerpt": "In this article, we prove a conjecture of Borel, which states that the inclusion of the space of automorphic forms into the space of all C∞-functions induces an isomorphism on the cohomology with coefficients in a finite-dimensional representation.",
           "match": "Franke's result presupposes the comparison H^*(X_K, V) = H^*(𝔤, K; C^∞ ⊗ V), which is this node."
         },
         {
           "sourceId": "cg20",
           "locator": "§3.1, proof of Lemma 3.1 (appendix)",
-          "excerpt": "Eigenclasses in cohomology may be realized by isobaric automorphic representations (see [FS98, Thm 2.3]).",
           "match": "The use of the comparison in the applications."
         }
       ],
@@ -4861,13 +4723,11 @@
         {
           "sourceId": "franke",
           "locator": "§7.4, Theorem 18",
-          "excerpt": "THEOREM 18. - The inclusions … define an isomorphism on the (m_G, K)-cohomology with coefficients in E.",
           "match": "Franke's Theorem 18; the elided display is the chain of inclusions of automorphic forms into functions of uniform moderate growth into smooth functions."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4.9, proof of Theorem 2.4.10, p. 949",
-          "excerpt": "Likewise, for the second part it suffices to show that the group H^j(XK, Vιλ)m := H^j(XK, Vλ)m ⊗O,ι C is non-zero only if j ∈ [q0, q0 + l0]",
           "match": "The use of the comparison after localization."
         }
       ],
@@ -4909,13 +4769,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.4.9, proof of Theorem 2.4.10, p. 949",
-          "excerpt": "As a consequence of Franke’s theorem [Fra98, Th. 18], as in [FS98, §2.2], we have a canonical decomposition H∗(XK, Vιλ) = (⊕{Q}∈C H∗(mG, K∞; AVιλ,{Q} ⊗C Vιλ)(χλ))^K. The summand E{G}^K is the cuspidal cohomology group",
           "match": "Cuspidal cohomology as the {G}-summand of Franke's decomposition, with its formula as a sum over cuspidal π."
         },
         {
           "sourceId": "franke",
           "locator": "§7.4, after Theorem 18",
-          "excerpt": "Using Theorem 14, we get the following spectral sequence of (g, K, G_f)-modules which, at least theoretically, computes the cohomology of C∞ in terms of the cohomology of automorphic representations of G and its Levi components.",
           "match": "The decomposition by Levi components."
         }
       ],
@@ -5025,13 +4883,11 @@
         {
           "sourceId": "sch15",
           "locator": "§V.4, proof of Corollary V.4.2 (Annals Corollary 5.4.2)",
-          "excerpt": "Note that π′ = π|·|^{(n+1)/2} is regular C-algebraic, i.e. cohomological (cf. [22, Theorem 3.13, Lemma 3.14]).",
           "match": "Clozel's result as used by Scholze."
         },
         {
           "sourceId": "sch15",
           "locator": "§V.4, proof of Corollary V.4.2",
-          "excerpt": "Thus, X̃K = XK if F is CM, and is a (Z/2Z)^[F:Q]-cover if F is totally real.",
           "match": "The comparison of X̃_K and X_K."
         }
       ],
@@ -5075,13 +4931,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.4.9, Theorem 2.4.10(2), p. 948",
-          "excerpt": "Let K ⊂ GLn(AF) be a good subgroup, and let m ⊂ TS(K, Vλ) be a maximal ideal such that ρm is absolutely irreducible. Then for each j ∈ Z, the group H^j(XK, Vλ)m[1/p] is non-zero only if j ∈ [q0, q0 + l0]; moreover if one of the groups in this range is non-zero, then they all are.",
           "match": "Part (2), first half."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4.9, Theorem 2.4.10(2), p. 948",
-          "excerpt": "If f : TS(K, Vλ)m → Qp is a homomorphism, then there exists a cuspidal, regular algebraic automorphic representation π of GLn(AF) of weight ιλ such that f is associated to the Hecke eigenvalues of (ι^{−1}π∞)^K.",
           "match": "Part (2), second half."
         }
       ],
@@ -5125,13 +4979,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.4.9, Theorem 2.4.11, p. 951",
-          "excerpt": "Let ρ ∈ X∗(ResF+/Q Tn) denote half the sum of the positive roots of ResF+/Q G̃.",
           "match": "The statement begins (ρ printed in X^*(Res T_n); read X^*(Res T), PAPER-ALLEN-ETAL-23/E21). The printed integral-lattice membership of ρ is corrected by PAPER-ALLEN-ETAL-23/E21 and RT-PAPER-ALLEN-ETAL-23/52: ρ belongs to X^*⊗ℚ."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.4.9, proof of Theorem 2.4.11, p. 951",
-          "excerpt": "The proof uses similar ingredients to the proof of Theorem 2.4.10",
           "match": "Method."
         }
       ],
@@ -5172,13 +5024,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, (2.1.5)–(2.1.6), pp. 911–912",
-          "excerpt": "there is a homomorphism H(G^S, K^S_G) ⊗Z R → EndD(R[KG/KG′])(RΓKG/KG′(X^G_KG′, V)) that recovers (2.1.3) after composition with the map EndD(R[KG/KG′])(RΓKG/KG′(X^G_KG′, V)) → EndD(R)(RΓ(X^G_KG, V)) given by the functor RΓ(KG/KG′, ?).",
           "match": "The descent statement with Hecke action."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, Lemma 2.1.7, p. 912",
-          "excerpt": "Let KG be a good subgroup, and let KG′ ⊂ KG be a normal subgroup that is also good.",
           "match": "Both full K and refined K′ are good in the source; full-level freeness is needed for group-ring perfectness."
         }
       ],
@@ -5219,13 +5069,11 @@
         {
           "sourceId": "cg20",
           "locator": "§3.1, proof of Theorem 3.2 (appendix A.4)",
-          "excerpt": "Let i be the smallest integer for which the inequality is violated. Then, by the Hochschild–Serre spectral sequence, we deduce that H^i(Y0(Q), k)mα ≠ 0.",
           "match": "The application to Y_1(Q) → Y_0(Q)."
         },
         {
           "sourceId": "cg18",
           "locator": "§9, Lemma 9.6, proof (arXiv v2)",
-          "excerpt": "Then, by Hochschild–Serre, there is an isomorphism H∗(Γ, O/̟n) ≃ H∗(Γ1, O/̟n)^Φ.",
           "match": "Degeneration for a quotient of order invertible in the coefficients (Φ an elementary 2-group, p odd)."
         }
       ],
@@ -5265,13 +5113,11 @@
         {
           "sourceId": "cg20",
           "locator": "§3.1, proof of Theorem 3.2 (appendix A.4)",
-          "excerpt": "By Poincaré duality (and the discussion above concerning the vanishing of the boundary cohomology localized at m), it suffices to prove the result for i < q0. Let i be the smallest integer for which the inequality is violated.",
           "match": "The argument this node abstracts."
         },
         {
           "sourceId": "cg20",
           "locator": "§3.1, Theorem 3.2 (appendix A.4)",
-          "excerpt": "Then H^i(Y1(Q), O/̟^n)mα = 0 for all i ∉ [q0, . . . , q0 + l0]",
           "match": "The application, whose proof needs the p-group subcover (E142)."
         }
       ],
@@ -5310,13 +5156,11 @@
         {
           "sourceId": "acc23",
           "locator": "§2.1.2, (2.1.6), p. 912",
-          "excerpt": "given by the functor RΓ(KG/KG′, ?).",
           "match": "Descent used in the tests."
         },
         {
           "sourceId": "nt16",
           "locator": "§1, p. 1 (Introduction)",
-          "excerpt": "If F = Q and n = 2, then X^U_GLn can be identified with the set of complex points of a classical modular curve.",
           "match": "The modular-curve test case."
         }
       ],

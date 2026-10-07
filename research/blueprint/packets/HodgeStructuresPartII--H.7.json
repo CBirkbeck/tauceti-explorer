@@ -191,7 +191,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§1, Theorem 1.5; §4.2, pp.920–921,929",
-          "excerpt": "|Re zi|",
           "match": "The two sector parameters are separated; the source’s C in the width inequality is corrected to R."
         }
       ],
@@ -273,7 +272,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.3 Definition 4.4, p.929; §4.5 opening, p.932",
-          "excerpt": "y1 ≥ · · · ≥ yn",
           "match": "This is the source Σ region with an explicit deep-height parameter."
         }
       ],
@@ -357,7 +355,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.2 uniformizing diagram and Lemma 4.2, p.929",
-          "excerpt": "exp(2πi · )",
           "match": "The image is a buffered punctured polydisc, not the full unit polydisc."
         }
       ],
@@ -452,7 +449,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.2 Lemma 4.2 and complete proof, p.929",
-          "excerpt": "Ψ",
           "match": "Uses its compact analytic buffer, polynomial nilpotent exponential and algebraic action."
         }
       ],
@@ -496,7 +492,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.4 first paragraph, p.930; formulas (4.2)–(4.5), pp.931–932",
-          "excerpt": "hz",
           "match": "The printed first formula omits conjugation in its second argument; the proof uses the corrected Hermitian form."
         }
       ],
@@ -585,7 +580,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.4 proof of Lemma 4.7, p.931",
-          "excerpt": "K j",
           "match": "Constructs the flag used for the indefinite Gram calculation; the splitting is imported from H.6."
         }
       ],
@@ -678,7 +672,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.4 equations (4.2)–(4.5), pp.931–932",
-          "excerpt": "B",
           "match": "Notation Δ is introduced here for the source’s exterior B-values; phases and complex conjugation are retained."
         }
       ],
@@ -721,13 +714,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.4 Lemma 4.7(1), Theorem 4.8, p.931",
-          "excerpt": "h(u)",
           "match": "Separates fraction-algebra membership from the H.6 norm estimate."
         },
         {
           "sourceId": "Ka85",
           "locator": "Theorems 3.4.1–3.4.2, p.870; Lemma 2.4.1, pp.863–864",
-          "excerpt": "splitting",
           "match": "The source estimates use compatible splittings and not a canonical rational-to-complex identification."
         }
       ],
@@ -770,7 +761,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.4 Lemma 4.7(2), Lemma 4.10 and final paragraph, pp.931–932",
-          "excerpt": "h(γu)",
           "match": "Keeps the deep-height hypothesis used by the exponential-decay comparison."
         }
       ],
@@ -812,7 +802,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.4 Proposition 4.6, Lemma 4.7(3) and proof, pp.930–932",
-          "excerpt": "h(u, v)",
           "match": "The source proof actually yields polynomial denominators with monomial size; this stronger representation makes the claimed ring laws valid."
         }
       ],
@@ -859,7 +848,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.5 paragraph following the Claim, p.933",
-          "excerpt": "centered",
           "match": "The determinant condition is independent of diagonal ordering and survives rational, rather than integral, basis choices."
         }
       ],
@@ -904,7 +892,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.5 final paragraph of the proof, p.933",
-          "excerpt": "Cτ",
           "match": "This is the one-variable input to the curve lemma; constants may depend on τ."
         }
       ],
@@ -949,7 +936,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.5 Claim and last paragraph, p.933",
-          "excerpt": "orderings",
           "match": "Corrects the source’s fixed-ordering assertion while preserving the finite-union conclusion."
         }
       ],
@@ -993,13 +979,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.5 first two paragraphs, pp.932–933",
-          "excerpt": "ι",
           "match": "Uses the corrected inverse-image result, not the printed Borel–Harish-Chandra citation."
         },
         {
           "sourceId": "BKT23",
           "locator": "§1.5, p.3",
-          "excerpt": "[1, 28.1]",
           "match": "The erratum identifies the rational inverse-Siegel supplier."
         }
       ],
@@ -1045,7 +1029,6 @@
         {
           "sourceId": "BKT20",
           "locator": "Theorem 1.5, p.921; §4.5, pp.932–933",
-          "excerpt": "η",
           "match": "The positive-height statement needs this partial-boundary continuation in addition to the printed deep-sector proof."
         }
       ],
@@ -1096,7 +1079,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§4.1–4.2 Theorem 4.1, Lemma 4.2 and proof, pp.928–929",
-          "excerpt": "Φ",
           "match": "This is the buffered form of the local statement, with the outer-boundary gap and angular seam repaired."
         }
       ],
@@ -1141,7 +1123,6 @@
         {
           "sourceId": "BKT20",
           "locator": "Theorem 1.3, p.920; §4.1 complete reduction, p.928",
-          "excerpt": "ΦS",
           "match": "Global definability follows from the finite buffered SNC cover, not from arbitrary analytic atlases."
         }
       ],
@@ -1184,13 +1165,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§5 first two paragraphs, pp.933–934",
-          "excerpt": "Y",
           "match": "Defines the image, with analytic and definable properties proved in separate nodes."
         },
         {
           "sourceId": "K17",
           "locator": "§3.4 Definition 3.12, p.12",
-          "excerpt": "image",
           "match": "Imports the Hodge morphism rather than constructing it again."
         }
       ],
@@ -1276,7 +1255,6 @@
         {
           "sourceId": "BKT23",
           "locator": "§1.4 Corollary 1.3 and proof, p.3",
-          "excerpt": "Corollary 1.3",
           "match": "Replaces the nonexistent Theorem 1.1(3) cited in the original §5."
         }
       ],
@@ -1320,13 +1298,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§5 final paragraph, p.934",
-          "excerpt": "analytic",
           "match": "The paper assumes this input; its proof is an explicit supplier gap rather than a claim obtained from definability."
         },
         {
           "sourceId": "PS09",
           "locator": "§6.1 Theorem 6.1 and remarks, draft p.16",
-          "excerpt": "closed",
           "match": "A stronger alternative image theorem also needs closedness and tame local geometry."
         }
       ],
@@ -1369,13 +1345,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§1.4 definition of Hodge locus, pp.921–922",
-          "excerpt": "(0, 0)",
           "match": "Uses exceptional type-zero tensors, with the native Tate convention pinned."
         },
         {
           "sourceId": "K17",
           "locator": "§2.4 tensor characterization and Lemma 2.5(a), p.8",
-          "excerpt": "T m,n",
           "match": "The rational full-torus invariant convention, rather than the restricted norm-one torus."
         }
       ],
@@ -1466,13 +1440,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§1.4 definition of HL(S,V), pp.921–922",
-          "excerpt": "generic",
           "match": "Excludes generically Hodge tensors."
         },
         {
           "sourceId": "K17",
           "locator": "§2.6 first paragraph, p.9",
-          "excerpt": "proper",
           "match": "The intended exceptional locus records strict drops from the generic group."
         }
       ],
@@ -1566,13 +1538,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§1.4 analytic locus sentence, p.921",
-          "excerpt": "analytic",
           "match": "This local proof supplies the fixed-tensor assertion without presupposing algebraicity."
         },
         {
           "sourceId": "K17",
           "locator": "§2.4 Hodge classes; §2.6, pp.8–9",
-          "excerpt": "F 0",
           "match": "For a real pure weight-zero tensor, membership in F⁰ implies membership in its conjugate."
         }
       ],
@@ -1614,13 +1584,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§5 second paragraph, p.934",
-          "excerpt": "Φ−1",
           "match": "Uses the corrected strict-special interpretation of the source’s preimage formula."
         },
         {
           "sourceId": "K17",
           "locator": "Lemma 2.5(a), §2.6 and Definition 3.13, pp.8–9,13",
-          "excerpt": "HL",
           "match": "The printed Definition 3.13 must exclude the identity when used for the exceptional locus."
         }
       ],
@@ -1663,7 +1631,6 @@
         {
           "sourceId": "BKT20",
           "locator": "§5 second paragraph, p.934",
-          "excerpt": "countable",
           "match": "The countable union is not a finite definable union."
         }
       ],
@@ -1711,13 +1678,11 @@
         {
           "sourceId": "BKT20",
           "locator": "§5 final paragraph, p.934; §4.6 Theorem 4.13, p.933",
-          "excerpt": "W",
           "match": "The proof uses analytic and definable inputs separately."
         },
         {
           "sourceId": "PS09",
           "locator": "Theorem 4.4 and Corollary 4.5, draft p.12",
-          "excerpt": "algebraic",
           "match": "The generic o-minimal Chow theorem is imported from LD.6."
         }
       ],
@@ -1761,7 +1726,6 @@
         {
           "sourceId": "BKT20",
           "locator": "Theorem 1.6, p.922; §5 complete proof, pp.933–934",
-          "excerpt": "HL",
           "match": "This is the BKT proof of the pure Hodge-locus theorem with corrected generic and definability conventions."
         }
       ],
@@ -1810,7 +1774,6 @@
         {
           "sourceId": "BKT20",
           "locator": "Remarks 1.4(1), p.921",
-          "excerpt": "compact",
           "match": "The stronger R_an special case; its extension input remains an H.6 request."
         }
       ],

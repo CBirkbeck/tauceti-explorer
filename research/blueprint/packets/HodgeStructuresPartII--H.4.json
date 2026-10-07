@@ -183,7 +183,6 @@
         {
           "sourceId": "LL22",
           "locator": "§2.1, Definition 2.1.1, pp.10–11",
-          "excerpt": "weights",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -282,7 +281,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definitions 2.1.1 and 3.3.1, pp.10–11 and 20",
-          "excerpt": "parabolic bundle",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -375,7 +373,6 @@
         {
           "sourceId": "LL22",
           "locator": "§2.3, pp.13–14",
-          "excerpt": "max",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -468,7 +465,6 @@
         {
           "sourceId": "LL22",
           "locator": "§2.3, pp.13–14",
-          "excerpt": "quotient",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -561,7 +557,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definition 2.1.2, p.11; Definition 2.2.9, p.13",
-          "excerpt": "degree",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -647,7 +642,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definitions 2.1.2 and 2.2.9, pp.11 and 13",
-          "excerpt": "slope",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -735,7 +729,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definitions 2.4.1–2.4.2, p.14",
-          "excerpt": "semistable",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -829,7 +822,6 @@
         {
           "sourceId": "LL24",
           "locator": "§5.2.1, p.30, formula for Ē₀",
-          "excerpt": "kernel",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -926,13 +918,11 @@
         {
           "sourceId": "LL22",
           "locator": "Definition 2.2.3, pp.11–12; Lemma 6.3.3, p.40; LL24 proof of Proposition 5.2.3",
-          "excerpt": "Hom",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         },
         {
           "sourceId": "LL24",
           "locator": "Proof of Proposition 5.2.3, p.31",
-          "excerpt": "parabolic bundle",
           "match": "The normalized dual and twist have the coparabolic zero lattice identified there; the local shifts are derived explicitly in this packet."
         }
       ],
@@ -1024,7 +1014,6 @@
         {
           "sourceId": "LL24",
           "locator": "§5.2, equation (5.5), p.29",
-          "excerpt": "trace",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1114,7 +1103,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proposition 5.2.3 and proof, p.31",
-          "excerpt": "rank",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1207,7 +1195,6 @@
         {
           "sourceId": "LL22",
           "locator": "Lemma 6.3.4 and proof, pp.40–41",
-          "excerpt": "quotient",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1248,7 +1235,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proof of Proposition 5.2.3, p.31, corrected semistability; LL22 Lemma 6.3.3",
-          "excerpt": "semistable",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1287,7 +1273,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proof of Proposition 5.2.3, p.31",
-          "excerpt": "coparabolic",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1334,7 +1319,6 @@
         {
           "sourceId": "LL22",
           "locator": "Proposition 6.3.6 and entire proof, pp.41–43; Lemmas 6.2.1–6.2.3, pp.36–39",
-          "excerpt": "δ",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1379,7 +1363,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proposition 5.2.3 and proof, p.31",
-          "excerpt": "nonzero",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1421,13 +1404,11 @@
         {
           "sourceId": "LL24",
           "locator": "Lemma 6.1.1 and proof, pp.33–34; author erratum, printed p.860",
-          "excerpt": "irreducible",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         },
         {
           "sourceId": "LL-ERRATA",
           "locator": "P04 author erratum, printed p.860, full replacement proof of Lemma 6.1.1",
-          "excerpt": "projection",
           "match": "The replacement applies fixed parts to cohomology after realifying the coefficient system and projects back to the complex summand."
         }
       ],
@@ -1473,7 +1454,6 @@
         {
           "sourceId": "LL24",
           "locator": "Theorem 1.7.1, p.6; full proof in §6.1, pp.32–34",
-          "excerpt": "2g",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1517,7 +1497,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proof of Theorem 6.2.1, p.34",
-          "excerpt": "rk",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1561,7 +1540,6 @@
         {
           "sourceId": "LL24",
           "locator": "Theorem 6.2.1 and proof, p.34; Lemma 2.4.2, pp.19–20",
-          "excerpt": "Artin",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1599,7 +1577,6 @@
         {
           "sourceId": "LL22",
           "locator": "§2.1, Definition 2.1.1, pp.10–11",
-          "excerpt": "weights",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1639,7 +1616,6 @@
         {
           "sourceId": "LL22",
           "locator": "§2.3, pp.13–14",
-          "excerpt": "quotient",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1676,7 +1652,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definition 2.1.2, p.11; Definition 2.2.9, p.13",
-          "excerpt": "degree",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1713,7 +1688,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definition 2.1.2, p.11; Definition 2.2.9, p.13",
-          "excerpt": "degree",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1752,7 +1726,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definitions 2.4.1–2.4.2, p.14",
-          "excerpt": "semistable",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1790,7 +1763,6 @@
         {
           "sourceId": "LL22",
           "locator": "Definition 2.2.3, pp.11–12; Lemma 6.3.3, p.40; LL24 proof of Proposition 5.2.3",
-          "excerpt": "Hom",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1827,7 +1799,6 @@
         {
           "sourceId": "LL24",
           "locator": "§5.2.1, p.30, formula for Ē₀",
-          "excerpt": "kernel",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1865,7 +1836,6 @@
         {
           "sourceId": "LL24",
           "locator": "§5.2, equation (5.5), p.29",
-          "excerpt": "trace",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],
@@ -1902,7 +1872,6 @@
         {
           "sourceId": "LL24",
           "locator": "Proposition 5.2.3 and proof, p.31",
-          "excerpt": "rank",
           "match": "The statement uses the indicated passage with the explicit conventions and corrections recorded in this packet."
         }
       ],

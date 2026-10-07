@@ -516,7 +516,6 @@
         {
           "sourceId": "deligne-bourbaki-355",
           "locator": "Proposition 4.8 and Theorem 4.9, printed pp. 166–167",
-          "excerpt": "T_p = F",
           "match": "Higher-coefficient application of the imported special-fibre correspondence; the printed full formula includes I_p^*. The false fibre count in Proposition 3.15 is recorded in E1."
         }
       ],
@@ -618,31 +617,26 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Theoreme 6.1, printed p. 520",
-          "excerpt": "On suppose que k ^ 2 et que f est fonction propre des Tp, p )( N, avec pour valeurs propres Op.",
           "match": "The weight hypothesis k >= 2 and the eigenform hypothesis away from N, exactly as the source states them."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Remarque 6.2, printed p. 521",
-          "excerpt": "Il est traité, par une autre méthode (inspirée de lhara) et dans un autre langage, par Langlands [11] (où est toutefois admise sans démonstration une « formule des traces » qui semble accessible mais que personne n'a démontrée).",
           "match": "The source itself flags that the general cuspidal case, as it cites it, rests on an unproved trace formula in Langlands' treatment - an unresolved boundary in the citation chain, not in the statement."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "footnote to section 4, printed p. 513",
-          "excerpt": "Nous adoptons ici les conventions d'Artin [1]. Notre « substitution de Frobenius » est donc l'élément noté (p dans [5]; son inverse est le « Frobenius géométrique ».",
           "match": "The Frobenius normalization convention which the roadmap requires to be carried through the comparison."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Introduction, printed p. 508",
-          "excerpt": "Signalons que nous avons utilise en un point essentiel (§ 6, th. 6.1) des resultats demontres par l'un",
           "match": "Theorem 6.1 is an admitted input of the source, not proved there. Added by the reviewer."
         },
         {
           "sourceId": "scholl90",
           "locator": "Theorem 1.2.4(i), p. 2",
-          "excerpt": "unramified",
           "match": "Geometric λ-adic realisation at every coefficient place, then arithmetic dualisation."
         }
       ],
@@ -741,7 +735,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "7.1, printed p. 523",
-          "excerpt": "Nous dirons que G est semi-simple si la représentation identique",
           "match": "The definition of a semisimple subgroup; C(η, M) is defined in the same paragraph."
         }
       ],
@@ -789,19 +782,16 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Théorème 6.7, printed pp. 521–522",
-          "excerpt": "THÉORÈME 6.7. — Avec les notations précédentes, soit f une forme modulaire de type",
           "match": "The mod-λ theorem for forms of any weight k ≥ 1 that are eigenvectors only modulo λ."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "6.9, printed p. 522",
-          "excerpt": "Si l'on choisit n divisible par /-1, le développement en série de E^ est /-entier, et E^ = 1 (mod /), cf. [25].",
           "match": "The Eisenstein weight shift to weight > 2 (OCR: ℓ prints as '/', E_n as 'E^')."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 6.13 and its proof, printed p. 523",
-          "excerpt": "cela provient de ce que le groupe de Brauer d'un corps fini est trivial, et qu'il n'y a donc pas « d'indice de Schur » à considérer.",
           "match": "The descent of the semisimplified reduction to the field k_f."
         }
       ],
@@ -846,13 +836,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "§5, Proposition 5.1, printed p. 518",
-          "excerpt": "§ 5. Exploitation d'un résultat de Rankin",
           "match": "Proposition 5.1 and its proof 5.2 open section 5."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Démonstration 5.2, printed p. 519",
-          "excerpt": "il résulte d'un lemme classique de Landau ([2l], p. 112) que g (s) converge",
           "match": "Landau's lemma for Dirichlet series with nonnegative coefficients, applied to log L(s)."
         }
       ],
@@ -893,13 +881,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Proposition 5.5, printed pp. 519–520",
-          "excerpt": "PROPOSITION 5.5. — On conserve les hypothèses de 5.1, et Von suppose en outre que",
           "match": "The weight-one hypothesis added to Proposition 5.1."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Remarque 5.6, printed p. 520",
-          "excerpt": "De toute façon, 5.5 n'a qu'un intérêt provisoire : une fois le théorème 4.1 démontré, on saura que l'ensemble des a? est fini.",
           "match": "The proposition is a provisional step, superseded by Théorème 4.1."
         }
       ],
@@ -943,13 +929,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Proposition 7.2 and its proof, printed p. 524",
-          "excerpt": "Nous allons, dans chaque cas, majorer l'ordre de G.",
           "match": "The case-by-case bound after Dickson's classification."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Proposition 7.2, case (d), printed p. 524",
-          "excerpt": "est donc d'ordre au plus 120, et il y a dans G au plus 120 éléments de déterminant donné,",
           "match": "The exceptional case: projective image of order at most 60."
         }
       ],
@@ -994,19 +978,16 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "8.2, printed p. 525",
-          "excerpt": "A partir de maintenant, on suppose que / est parabolique.",
           "match": "The cuspidal case, in which the residual representations ρ_ℓ are built."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 8.3 and its proof, printed p. 525",
-          "excerpt": "D'après le théorème de densité de Cebotarev, on a",
           "match": "Čebotarev converts the density bound on X_η into the proportion 1 − η of G_ℓ."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Lemme 8.4, printed p. 525",
-          "excerpt": "Cela résulte du lemme précédent, et de la proposition 7.2.",
           "match": "The uniform bound from Lemma 8.3 and Proposition 7.2."
         }
       ],
@@ -1047,7 +1028,6 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "8.6, printed p. 526",
-          "excerpt": "Il en résulte, par un argument standard, que la représentation identique",
           "match": "The source invokes this lifting for the residual image G_ℓ, whose order is prime to ℓ."
         }
       ],
@@ -1087,13 +1067,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "8.5, printed p. 525",
-          "excerpt": "Quitte à agrandir le corps K (ce qui diminue L), on peut supposer qu'il contient toutes les racines",
           "match": "The enlargement of K by the roots of unity of order ≤ A."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "8.6, printed p. 526",
-          "excerpt": "et a fortiori en tant que représentations complexes.",
           "match": "The independence of ℓ, by Lemme 3.2."
         }
       ],
@@ -1136,13 +1114,11 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "8.7, printed p. 526",
-          "excerpt": "Il reste à montrer que p est irréductible.",
           "match": "The irreducibility step (OCR: ρ prints as 'p')."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "8.7, printed p. 527",
-          "excerpt": "ce qui contredit la proposition 5.1, et achève la démonstration.",
           "match": "The contradiction with the Rankin bound."
         }
       ],
@@ -1191,25 +1167,21 @@
         {
           "sourceId": "deligne-serre74",
           "locator": "Theoreme 4.1, printed pp. 513-514",
-          "excerpt": "Cette représentation est irréductible si et seulement si f est parabolique. La démonstration sera donnée au § 8.",
           "match": "The irreducibility criterion, and the source's deferral of the proof to section 8, whose steps are the section 8 nodes of this stage."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Corollaire 4.2, printed p. 514",
-          "excerpt": "Les valeurs propres âp sont sommes de deux racines de l'unité', en particulier on a \\|âp\\| ^ 2 .",
           "match": "The weight-one Ramanujan bound, a consequence of finiteness of the image."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "Remarque 6.5, printed p. 521",
-          "excerpt": "Une fois le théorème 4.1 démontré, on voit facilement (2) que 6.1 et 6.3 restent valables en poids 1; toutefois, dans ce cas, l'image du groupe G est un groupe fini.",
           "match": "The precise logical order: the l-adic statement in weight one is deduced from Theorem 4.1, not the other way round."
         },
         {
           "sourceId": "deligne-serre74",
           "locator": "section 8, opening and 8.1, printed p. 525",
-          "excerpt": "On peut supposer que la forme modulaire/considérée est, soit une série d'Eisenstein, soit une forme parabolique.",
           "match": "The reduction to the Eisenstein and cuspidal cases; 8.1 treats the Eisenstein case."
         }
       ],
@@ -1251,19 +1223,16 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "Theorem 2.4, p. 24 (arXiv v2)",
-          "excerpt": "Theorem 2.4. Fix integers N ≥ 3 and k ≥ 2.",
           "match": "The premotivic structures M_N, M_{N,c}, M_{N,!} with their comparison isomorphisms, weight filtrations and perfect pairings."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§4.5, (28) and Lemma 4.12, p. 51 (arXiv v2)",
-          "excerpt": "C ⊗K Filk−1 M(N, ψ)M,dR ∼",
           "match": "The top filtration step of the de Rham realisation is the space of modular forms of weight k, level N, character ψ."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "Proposition 5.6, p. 56 (arXiv v2)",
-          "excerpt": "T acts on M(N, ψ)M,! as an object in PM",
           "match": "The Hecke algebra acts on the parabolic premotive."
         }
       ],
@@ -1368,19 +1337,16 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "Lemma 5.7, p. 58 (arXiv v2)",
-          "excerpt": "Mg is a premotivic structure of rank 2 over K and Filk−1 Mg,dR = Kg.",
           "match": "Rank two, the Hodge line and the perfect alternating pairing ∧²M_g ≅ M_ψ(1 − k)."
         },
         {
           "sourceId": "ddt",
           "locator": "Theorem 3.1(a)–(c), p. 86 (revision of 9 September 2007)",
-          "excerpt": "ρ is absolutely irreducible.",
           "match": "Weight two: Frobenius polynomial, determinant, oddness and absolute irreducibility."
         },
         {
           "sourceId": "scholl90",
           "locator": "Theorem 1.2.4(i), p. 2",
-          "excerpt": "unramified",
           "match": "Geometric coefficient realisations at every λ, including excluded integral-comparison primes."
         }
       ],
@@ -1425,25 +1391,21 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "§1.2, p. 9 (arXiv v2)",
-          "excerpt": "We also define a category PM SK of S-integral premotivic structures as follows",
           "match": "The S-integral category: lattices in every realisation and integral comparison isomorphisms."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§4.5, Lemma 4.12, p. 51 (arXiv v2)",
-          "excerpt": "with the set of forms in Mk (N, ψ)IK (respectively, Sk (N, ψ)IK ) having q-expansions in",
           "match": "The top Hodge step of the de Rham lattice is the forms with q-expansion in O_S[[q]]."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§5.3, Lemma 5.5, p. 56 (arXiv v2)",
-          "excerpt": "with a1 (T (f )) the first Fourier coefficient of T (f ), is an isomorphism",
           "match": "The integral duality between the Hecke algebra and the forms."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§5.4, p. 58 (arXiv v2)",
-          "excerpt": "Let Mg ⊂ M(N, ψ)M,! denote the intersection of",
           "match": "𝓜_g as the common kernel of I_g in the integral structure; M_g = 𝓜_g ⊗ K."
         }
       ],
@@ -1563,31 +1525,26 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.3 and Theoreme (A), printed pp. 409-410",
-          "excerpt": "Nous supposerons de plus toujours que, dans le cas où le degré d de F est pair, alors il existe au moins une place finie y de F telle que la composante locale îiy soit une représentation essentiellement de carré intégrable (= spéciale ou cuspidale) du groupe GL^ (F,).",
           "match": "The auxiliary-place hypothesis in the even-degree case, which R19.2 must carry explicitly."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "Theoreme (B), printed p. 411",
-          "excerpt": "Alors il existe une extension finie E de Q (71) et un système strictement compatible {c^} de représentations E^-adiques continues du groupe Gai (F/F), tel que la conclusion du théorème (A) soit vérifiée en chaque place finie p^v où n^ n'est pas cuspidale extraordinaire.",
           "match": "The two exclusions in the weakened theorem: the auxiliary place v and the extraordinary cuspidal case."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.11, printed p. 412",
-          "excerpt": "en considérant le système projectif des courbes de Shimura MK(G, X) associé au groupe G, en le munissant",
           "match": "The geometric realization, including the need for parabolic cohomology exactly when F = Q."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "12.3.1, p. 459",
-          "excerpt": "par application du lemme 12.1.3",
           "match": "The end of the extraordinary case."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "12.3.2, p. 459",
-          "excerpt": "que nous laissons au lecteur, permet de conclure",
           "match": "The case 𝔭 = v, left to the reader and written out here."
         }
       ],
@@ -1668,13 +1625,11 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "2.2.3, p. 420",
-          "excerpt": "l'espace des entrelacements",
           "match": "The definition of σ_λ(π)."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "2.2.4, p. 420",
-          "excerpt": "est de dimension 2 (d'où il résulte que cette représentation est indépendante du choix de K)",
           "match": "Dimension two and independence of K."
         }
       ],
@@ -1723,19 +1678,16 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "3.3, Proposition, p. 422",
-          "excerpt": "Cela va résulter des propriétés du cup-produit",
           "match": "The proof of (i) and (ii) up to order 2."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "5.5, p. 429",
-          "excerpt": "Le grôssencharakter a est donc en définitive trivial",
           "match": "The exact determinant."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "5.6.1, p. 429",
-          "excerpt": "RÉSUMÉ DES RÉSULTATS OBTENUS JUSQU'À PRÉSENT",
           "match": "The summary that records det σ(π)."
         }
       ],
@@ -1784,13 +1736,11 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "5.6, p. 429",
-          "excerpt": "RÉSUMÉ DES RÉSULTATS OBTENUS JUSQU'À PRÉSENT",
           "match": "5.6.1–5.6.3."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "11.1, p. 449",
-          "excerpt": "Combinant ces résultats, on trouve que",
           "match": "How 5.6.2–5.6.3 enter the proof of Theorem (B)."
         }
       ],
@@ -1834,19 +1784,16 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "6.7, Proposition, p. 432",
-          "excerpt": "est une représentation spéciale",
           "match": "ˢσ₁(π) ≠ 0 exactly at special places."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "6.7, Remarque, p. 432",
-          "excerpt": "Cela résultera de la formule de Picard-Lefschetz",
           "match": "Non-splitting postponed to Picard–Lefschetz."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "11.4, Proposition, p. 451",
-          "excerpt": "Le morphisme N envoie",
           "match": "The surjectivity of the monodromy."
         }
       ],
@@ -1889,7 +1836,6 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "10.6, Proposition, pp. 448–449",
-          "excerpt": "ne dépend que de la composante locale",
           "match": "σ₂(π) depends only on π_𝔭."
         }
       ],
@@ -1935,7 +1881,6 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "11.3, p. 450",
-          "excerpt": "Cela prouve le théorème (B) en une place",
           "match": "The conclusion at ordinary cuspidal places."
         }
       ],
@@ -1979,13 +1924,11 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "11.1, p. 449",
-          "excerpt": "Combinant ces résultats, on trouve que",
           "match": "The case split (a)–(c)."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "11.3, p. 450",
-          "excerpt": "Cela prouve le théorème (B) en une place",
           "match": "Case (c) for ordinary cuspidal π_𝔭."
         }
       ],
@@ -2025,7 +1968,6 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "12.1.3, p. 456",
-          "excerpt": "Le lemme suivant joue un rôle crucial dans notre démonstration du théorème (A)",
           "match": "The lemma."
         }
       ],
@@ -2070,13 +2012,11 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "12.2.2, Proposition, p. 457",
-          "excerpt": "Malheureusement, je ne connais pas de référence pour cette affirmation",
           "match": "Carayol's remark that the general principle lacks a reference."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "12.2.2, Proposition, p. 457",
-          "excerpt": "Le cas qui nous intéresse ici est le cas cuspidal extraordinaire",
           "match": "The case he proves."
         }
       ],
@@ -2120,19 +2060,16 @@
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Theorem 2, p. 13 of the arXiv version",
-          "excerpt": "Then the monodromy filtration of the representations",
           "match": "Both the ℓ-adic and the p-adic Weil–Deligne representations are pure of weight w − 1 in Saito's labelling."
         },
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Remark after Theorem 2, p. 13 of the arXiv version",
-          "excerpt": "The assertion for the case N 6= 0 is easy since we know the determinant",
           "match": "The substantive case is N = 0."
         },
         {
           "sourceId": "saito-wm-2000",
           "locator": "Theorem 1, printed p. 429 (page image)",
-          "excerpt": "Then the monodromy weight conjecture is satisfied for V.",
           "match": "The classical case: for a newform of weight k and p ≠ ℓ, weight k − 1, and k − 1 ± 1 on Gr_{±1} when N ≠ 0."
         }
       ],
@@ -2178,25 +2115,21 @@
         {
           "sourceId": "blasius06",
           "locator": "Theorem 1, p. 1 (arXiv v1)",
-          "excerpt": "having weights all congruent modulo 2 and at least 2 at each infinite place of F",
           "match": "The Ramanujan conjecture at all finite places for every paritious Hilbert eigenform."
         },
         {
           "sourceId": "blasius06",
           "locator": "§2.2, p. 15",
-          "excerpt": "Hence, the Ramanujan Conjecture amounts to the assertion that representations of this type (complementary series) don’t occur as local components of cusp forms.",
           "match": "Reduction of the conjecture to excluding complementary series, then to unramified places by a finite-order twist."
         },
         {
           "sourceId": "blasius06",
           "locator": "§4.2, p. 21",
-          "excerpt": "Applying this with V1 = ρTl , we conclude that ρTl |Du is pure of weight 1 at u",
           "match": "The geometric proof in parallel weight two through the quaternionic Shimura surface."
         },
         {
           "sourceId": "skinner09",
           "locator": "§2.4.1, Remark, p. 252",
-          "excerpt": "We can also use Sym2 π to show that the Ramanujan conjecture holds for π.",
           "match": "An alternative proof through the symmetric square; Skinner attributes the theorem to Blasius [B2]."
         }
       ],
@@ -2241,19 +2174,16 @@
         {
           "sourceId": "blasius06",
           "locator": "Corollary 7, p. 20",
-          "excerpt": "which satisfies the GLC satsifies WMC at all places v prime to l",
           "match": "Every ℓ-adic representation satisfying local–global compatibility for a type-MC Hilbert form is pure in the monodromy sense away from ℓ (the source prints 'satsifies')."
         },
         {
           "sourceId": "blasius06",
           "locator": "Proposition 5, p. 16",
-          "excerpt": "Suppose that the GLC holds for the motivic l-adic representation",
           "match": "Local–global compatibility plus the unitary classification forces weight–monodromy purity."
         },
         {
           "sourceId": "saito-wm-2000",
           "locator": "Theorem 1, printed p. 429 (page image)",
-          "excerpt": "Then the monodromy weight conjecture is satisfied for V.",
           "match": "Classical case F = Q at p ≠ ℓ, with the p-adic analogue in Theorem 3."
         }
       ],
@@ -2298,13 +2228,11 @@
         {
           "sourceId": "skinner09",
           "locator": "Remark, p. 256",
-          "excerpt": "We recall that there is a quick proof of the irreducibility of ρπ using that it is potentially semistable (really only that it is Hodge-Tate)",
           "match": "The Hodge–Tate argument, valid for every totally real field including Q."
         },
         {
           "sourceId": "ddt",
           "locator": "Theorem 3.1(a)–(c), p. 86 (revision of 9 September 2007)",
-          "excerpt": "ρ is absolutely irreducible.",
           "match": "Weight two, as a check of the statement."
         }
       ],
@@ -2355,31 +2283,26 @@
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Theorem 1, p. 12 of the arXiv version",
-          "excerpt": "Then, the representation ρf,µ,p of Gal(F̄p /Fp ) is potentially semi-stable and there is an isomorphism ′ ρF-ss f,µ,p ≃ σ̌h (πf,p ) of representations of the Weil-Deligne group ′ W (F̄p /Fp ).",
           "match": "The literal statement of compatibility at the coefficient prime, in the same Hecke normalization as the l-adic case."
         },
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Claim 1, p. 12 of the arXiv version",
-          "excerpt": "(1) For σ ∈ W + = {σ ∈ W (F̄p /Fp )|n(σ) ≥ 0}, we have an equality in some finite extension of L(f ) Tr ′ ρf,λ,p (σ) = Tr ′ ρf,µ,p (σ).",
           "match": "The trace comparison is only on W^+ and only in a finite extension of L(f); both restrictions must survive into any downstream statement."
         },
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Abstract, p. 1 of the arXiv version",
-          "excerpt": "We prove the compatibility by comparing the p-adic and ℓ-adic representations for it is already established for ℓ-adic representation [C2].",
           "match": "Records that R19.5 genuinely consumes R19.4 (Carayol's l-adic compatibility) and is not an independent construction."
         },
         {
           "sourceId": "saito-wm-2000",
           "locator": "Theorem 3, printed pp. 429–430 (page image)",
-          "excerpt": "We also have a p-adic analogue.",
           "match": "Classical p-adic weight–monodromy for D_pst of the representation attached to a newform, citing Saito 1997."
         },
         {
           "sourceId": "skinner09",
           "locator": "Introduction, p. 243",
-          "excerpt": "Saito proved that Theorem 1 holds when either d is odd or there exists a finite place w such that πw is square-integrable",
           "match": "With d = 1 this is the classical coefficient-prime theorem."
         }
       ],
@@ -2423,25 +2346,21 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.5, printed p. 410",
-          "excerpt": "L(chi . sigma-check(pi_p)) = L(chi . omega_p^{1/2} . pi_p), eps(chi . sigma-check(pi_p)) = eps(chi . omega_p^{1/2} . pi_p). ... sigma(pi_p) = xi_1^{-1} . omega_p^{-1/2} + xi_2^{-1} . omega_p^{-1/2}.",
           "match": "The characterization through the contragredient and the principal-series formula, transcribed from the page image by the reviewer; the drafter had omitted the contragredient and inverted the principal-series characters."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.5, printed p. 410",
-          "excerpt": "La correspondance « de Hecke » ainsi définie diffère de la correspondance de Langlands par torsion par le caractère œ^2 suivie du passage à la contragrédiente.",
           "match": "The exact relation between the two normalizations; the OCR renders omega_p^{1/2} as 'œ^2'. The roadmap requires this convention to be carried through the comparison."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.5(a), printed p. 410",
-          "excerpt": "Le déterminant de a(îCp) est lié au caractère central ^ de îip par la formule : deia(K^=^l.(ù;l.",
           "match": "The determinant formula in the Hecke normalization, from which conductor and bad Euler factor statements are read off."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.8 Corollaire, printed p. 411",
-          "excerpt": "Alors la fonction L de Ey est égale à L(/, s), et le conducteur géométrique de Ey est égal à N.",
           "match": "The conductor equality that R19.4 requires as a deduction from local-global compatibility, stated here for the elliptic curve attached to a rational weight-2 newform."
         }
       ],
@@ -2487,19 +2406,16 @@
         {
           "sourceId": "ddt",
           "locator": "Theorem 3.1(d), p. 86 (revision of 9 September 2007)",
-          "excerpt": "The conductor N (ρ) is the prime-to-`-part of N .",
           "match": "Statement (a) in weight two (ℓ is typeset as a backtick in the text layer)."
         },
         {
           "sourceId": "ddt",
           "locator": "Theorem 3.1(e), p. 86",
-          "excerpt": "then ρ|Gp is of the form",
           "match": "Statement (b); the page image shows (χε ∗; 0 χ) and χ^{−1}εψ′ ⊕ χ."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.8, Corollaire, p. 411 (transcribed from the page image)",
-          "excerpt": "Alors la fonction L de E_f est égale à L(f, s), et le conducteur géométrique de E_f est égal à N.",
           "match": "Statement (d)."
         }
       ],
@@ -2540,7 +2456,6 @@
         {
           "sourceId": "chenevier-determinants",
           "locator": "Theorem 2.22(i), printed p. 34; split residual determinant definitions in §2.18–2.22",
-          "excerpt": "split and absolutely irreducible",
           "match": "Apply the residually split theorem, not the algebraically closed introductory formulation."
         }
       ],
@@ -2581,13 +2496,11 @@
         {
           "sourceId": "ddt",
           "locator": "Lemma 1.48, p. 46 (revision of 9 September 2007)",
-          "excerpt": "The module T` (Af )⊗Q` is a free module of rank 2 over Kf ⊗Q` .",
           "match": "Freeness of rank two over K_f ⊗ Q_ℓ."
         },
         {
           "sourceId": "ddt",
           "locator": "§3.1, (3.1.1), p. 85",
-          "excerpt": "As Kf ⊗ Q` can be identified with the product of the completions of Kf at its",
           "match": "The λ-components of V_ℓ(A_f) are the λ-adic representations ρ_f."
         }
       ],
@@ -2628,7 +2541,6 @@
         {
           "sourceId": "ddt",
           "locator": "§3.1, \"Mod ℓ representations\", p. 87 (revision of 9 September 2007)",
-          "excerpt": "to be the semi-simplification of the reduction of ρf . (See the discussion fol-",
           "match": "Definition of ρ̄_f and the list of properties that survive reduction."
         }
       ],
@@ -2743,13 +2655,11 @@
         {
           "sourceId": "kw2-2009",
           "locator": "§9.1.1, p. 80 (authors' final version, 30 May 2009)",
-          "excerpt": "This together with Théorème 2 of [11], and the fact that the traces of the",
           "match": "The model ρ_m over T_ψ(U)_m, from the representation over T_m ⊗ E and Carayol's descent."
         },
         {
           "sourceId": "kw2-2009",
           "locator": "§9.1.1, p. 80",
-          "excerpt": "The representation ρm is characterised by the property that for v ∈",
           "match": "Characterisation by the Eichler–Shimura relation with arithmetic Frobenius."
         }
       ],
@@ -2793,25 +2703,21 @@
         {
           "sourceId": "ddt",
           "locator": "§4.1, p. 107 (revision of 9 September 2007)",
-          "excerpt": "We let TZ denote the subring of End (S2 (Γ)) generated by the operators Tn for all positive integers n",
           "match": "The full Hecke algebra 𝕋_ℤ, faithful and finite free after base change."
         },
         {
           "sourceId": "ddt",
           "locator": "§1.6, Lemma 1.39, p. 42",
-          "excerpt": "Lemma 1.39 The module V is free of rank 2 over",
           "match": "V = T_ℓ(J_Γ) ⊗ ℚ_ℓ is free of rank two over 𝕋_{ℚ_ℓ}."
         },
         {
           "sourceId": "ddt",
           "locator": "§4.1, \"Associated Galois representations\", p. 109",
-          "excerpt": "is defined over TO /m and we write ρm for its semisimplification",
           "match": "ρ_𝔭 over 𝕋_K/𝔭 and, for ℓ odd, the residual ρ_𝔪 with its Frobenius polynomial."
         },
         {
           "sourceId": "ddt",
           "locator": "§4.1, \"The structure of TK\", p. 110",
-          "excerpt": "denote the ideal in AK,f generated by the polynomials",
           "match": "The polynomial satisfied by T_p on the old space of f, which can have repeated roots."
         }
       ],
@@ -2931,25 +2837,21 @@
         {
           "sourceId": "ddt",
           "locator": "§3.3, p. 93",
-          "excerpt": "Let ρ̄ : GQ → GL2 (k) denote a continuous representation with the",
           "match": "The standing hypotheses (a)–(e) on ρ̄."
         },
         {
           "sourceId": "ddt",
           "locator": "§3.3, Lemma 3.26, p. 94",
-          "excerpt": "The set NΣ consists of newforms f such that",
           "match": "The description of 𝒩_Σ by residual representation, trivial character and level."
         },
         {
           "sourceId": "ddt",
           "locator": "§3.3, Lemma 3.27, p. 94",
-          "excerpt": "Lemma 3.27 There is a continuous representation",
           "match": "The representation over 𝕋_Σ and properties (a)–(c)."
         },
         {
           "sourceId": "ddt",
           "locator": "§3.3, proof of Lemma 3.27, p. 95",
-          "excerpt": "By irreducibility of ρ̄ we can find some σ ∈ GQ such that",
           "match": "The matrix-entry argument that moves ∏ρ_f into GL₂(𝕋_Σ)."
         }
       ],
@@ -3008,25 +2910,21 @@
         {
           "sourceId": "ddt",
           "locator": "§4.2, p. 112",
-          "excerpt": "reduced Hecke algebra TΣ can be identified with a localization Tm of the full Hecke algebra TO",
           "match": "Statement of purpose and the attribution to Wiles."
         },
         {
           "sourceId": "ddt",
           "locator": "§4.2, Lemma 4.6, p. 112",
-          "excerpt": "Lemma 4.6 For f and g as above, the reduction ḡ is the normalized eigenform",
           "match": "The eigenform ḡ and the maximal ideal 𝔪."
         },
         {
           "sourceId": "ddt",
           "locator": "§4.2, Proposition 4.7, p. 113",
-          "excerpt": "Proposition 4.7 There is an isomorphism TΣ −→ Tm of O-algebras such",
           "match": "The isomorphism 𝕋_Σ ≅ 𝕋_𝔪."
         },
         {
           "sourceId": "ddt",
           "locator": "§4.1, Lemma 4.4, p. 111",
-          "excerpt": "Lemma 4.4 There is an isomorphism of K-algebras:",
           "match": "The structure of 𝕋_K used in the proof."
         }
       ],
@@ -3075,13 +2973,11 @@
         {
           "sourceId": "kw2-2009",
           "locator": "Lemma 7.2 and its proof, pp. 60–61 (authors' final version)",
-          "excerpt": "Then for each v ∈ Σ there is a fixed unramified character",
           "match": "The statement."
         },
         {
           "sourceId": "kw2-2009",
           "locator": "Remark after Lemma 7.2, p. 61",
-          "excerpt": "We remark that γv (Frobv ) is the inverse of the eigenvalue of a",
           "match": "γ_v(Frob_v) and the uniformiser eigenvalue."
         }
       ],
@@ -3120,19 +3016,16 @@
         {
           "sourceId": "kw2-2009",
           "locator": "Lemma 7.7, p. 67 (authors' final version)",
-          "excerpt": "Then the association π → ρπ is compatible with the",
           "match": "Compatibility with the Langlands–Fontaine correspondence (after Kisin [39], extending Saito [53])."
         },
         {
           "sourceId": "kw2-2009",
           "locator": "Corollary 7.8(i), p. 67",
-          "excerpt": "If πv is unramified at v, then ρπ |Dv is crystalline of weight k.",
           "match": "Case (i)."
         },
         {
           "sourceId": "kw2-2009",
           "locator": "Corollary 7.8, Steinberg case, p. 68",
-          "excerpt": "is (unramified twist of ) Steinberg) then ρπ |Dv is semistable, non-crystalline",
           "match": "Case (iii)."
         }
       ],
@@ -3173,13 +3066,11 @@
         {
           "sourceId": "skinner-wiles-1999",
           "locator": "§3.3, (3.2), p. 38 (Numdam PDF page 35; printed page = PDF page + 3)",
-          "excerpt": "In [W2] it was shown that there exists a continuous, irreducible representation",
           "match": "The representation and its properties (3.2)."
         },
         {
           "sourceId": "skinner-wiles-1999",
           "locator": "§3.3, p. 39 (transcribed from the page image)",
-          "excerpt": "The representation ρ_π = (ρ_{π⊗ψ}) ⊗ ψ is independent of ψ, and by varying S one finds that (3.2) also holds for this ρ_π.",
           "match": "Extension to nearly ordinary π by twisting."
         }
       ],
@@ -3215,7 +3106,6 @@
         {
           "sourceId": "skinner-wiles-1999",
           "locator": "§3.3, (3.3), p. 39 (transcribed from the page image)",
-          "excerpt": "For any ordinary representation π ∈ Π^ord_k(U) it was shown in [W2, Theorem 2.1.3] that π_v(ρ_π) ≃ π_v.",
           "match": "The ordinary case; (3.3) extends it to all nearly ordinary π."
         }
       ],
@@ -3247,7 +3137,6 @@
         {
           "sourceId": "scholl90",
           "locator": "§1.0–1.3, Theorems 1.2.1 and 1.2.4, author-copy pp. 1–3",
-          "excerpt": "Grothendieck motive",
           "match": "The rational ε-projector, boundary argument and category restriction are explicit."
         }
       ],
@@ -3352,13 +3241,11 @@
         {
           "sourceId": "scholl90",
           "locator": "Theorem 1.2.4 and Remark 1.2.6, pp. 2–3",
-          "excerpt": "M (f )",
           "match": "Construction with coefficients; the homological versus Chow qualification matters."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§§1.2, 4.5, 5.3–5.4",
-          "excerpt": "lattices",
           "match": "Realisation and kernel construction used for the integral intersection."
         }
       ],
@@ -3477,25 +3364,21 @@
         {
           "sourceId": "kisin08-ams",
           "locator": "§4.1, p. 542",
-          "excerpt": "By a result of Carayol and Taylor [Ca], [Ta 1], there exists a continuous representation",
           "match": "Kisin's ρ_{π,λ}: geometric Frobenius polynomial X² − t_vX + N(v)s_v with T_v = U_v(ϖ_v 0; 0 1)U_v and S_v the scalar double coset."
         },
         {
           "sourceId": "kisin08-ams",
           "locator": "Proof of Theorem 4.3, p. 544",
-          "excerpt": "Taylor shows that for any s > 0 one can choose",
           "match": "Taylor's auxiliary μ-new congruences at every precision, used for the even-degree principal-series case."
         },
         {
           "sourceId": "skinner09",
           "locator": "Introduction, p. 242, after equation (1)",
-          "excerpt": "We choose Recv so that when n = 1, Recv is the inverse of the Artin map",
           "match": "Skinner's ρ_π is defined by WD(ρ_π|D_v)^{Fr-ss} ≅ ιRec_v(π_v ⊗ |·|_v^{−1/2}) with uniformisers corresponding to geometric Frobenius, the same object."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.5, printed p. 410 (checked on the page image)",
-          "excerpt": "La correspondance « de Hecke » ainsi définie diffère de la correspondance de Langlands",
           "match": "Carayol's σ(π_v) is the Langlands parameter of π_v ⊗ ω_v^{1/2}, dualised; this is the twist used in step 1."
         }
       ],
@@ -3646,31 +3529,26 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "0.4–0.5, printed pp. 409–410 (checked on the page images)",
-          "excerpt": "La correspondance « de Hecke » ainsi définie diffère de la correspondance de Langlands",
           "match": "Hecke correspondence: twist by ω_p^{1/2} followed by the contragredient; uniformisers correspond to geometric Frobenius; ω_p = |·|_p is the cyclotomic character."
         },
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "§2, p. 9 of the arXiv version",
-          "excerpt": "Among several ways to normalize the local Langlands correspondence, here we consider the so-called Hecke correspondence",
           "match": "Saito's σ_h uses the double cosets of diag(ϖ^{−1},1) and ϖ^{−1}; his Theorem 0 restates Carayol's theorem as ρ ≅ σ̌_h(π_f)."
         },
         {
           "sourceId": "kisin08-ams",
           "locator": "§4.1, p. 542",
-          "excerpt": "By a result of Carayol and Taylor [Ca], [Ta 1], there exists a continuous representation",
           "match": "Kisin's ρ_{π,λ} has geometric Frobenius polynomial X² − t_vX + N(v)s_v with positive-uniformiser operators."
         },
         {
           "sourceId": "skinner09",
           "locator": "Introduction, p. 242",
-          "excerpt": "We choose Recv so that when n = 1, Recv is the inverse of the Artin map",
           "match": "Skinner's equation (1) is the Rec_v(π_v ⊗ |·|_v^{−1/2}) normalisation; the Hodge–Tate degrees are discussed in sourceIssue E4."
         },
         {
           "sourceId": "skinner09",
           "locator": "§2.4.2, p. 255",
-          "excerpt": "Since for a place w ∤ np, Tx (frobw ) = x ◦ φ(char(GL2 (Ow )diag(̟w , 1)GL2 (Ow ))",
           "match": "The trace of Skinner's representation at a geometric Frobenius is the eigenvalue of the positive-uniformiser T_w."
         }
       ],
@@ -3718,19 +3596,16 @@
         {
           "sourceId": "skinner09",
           "locator": "Introduction, p. 243",
-          "excerpt": "It remains to deal with the cases where ρπ is not known to arise from a motive",
           "match": "Case split: Saito, Blasius–Rogawski and CM cover (a); the remaining case is all k_i = 2, principal series everywhere, not CM."
         },
         {
           "sourceId": "skinner09",
           "locator": "§2.4.1, p. 251",
-          "excerpt": "As π is not a CM representation, Π is cuspidal.",
           "match": "Π = Sym²π ⊗ |·|^{−1} on GL₃, realised in Picard modular surfaces."
         },
         {
           "sourceId": "skinner09",
           "locator": "§2.4.1, p. 252",
-          "excerpt": "From this it follows that ρv is isomorphic to a (possibly trivial) quadratic twist of ρ.",
           "match": "Wintenberger lifting gives a crystalline ρ with the same symmetric square; ρ_v is a quadratic twist of it."
         }
       ],
@@ -3774,19 +3649,16 @@
         {
           "sourceId": "carayol86-hilbert",
           "locator": "§3.1–3.3 and §5.5",
-          "excerpt": "déterminant",
           "match": "The determinant formula is in the cohomological Hecke convention."
         },
         {
           "sourceId": "skinner09",
           "locator": "Remark, p. 256",
-          "excerpt": "We recall that there is a quick proof of the irreducibility of ρπ using that it is potentially semistable (really only that it is Hodge-Tate)",
           "match": "Hodge–Tate characters come from algebraic Hecke characters, and a decomposition would give an uncancelled pole."
         },
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "§2, p. 9 of the arXiv version",
-          "excerpt": "be irreducible [Ta2] Proposition 3.1, Chebotarev density implies the uniqueness.",
           "match": "Irreducibility is due to Taylor (1995); uniqueness follows from Čebotarev."
         }
       ],
@@ -3825,13 +3697,11 @@
         {
           "sourceId": "dasgupta-kakde23",
           "locator": "§9.1, p. 66, CM definition",
-          "excerpt": "complex multiplication",
           "match": "Defines CM by induction from a CM quadratic field."
         },
         {
           "sourceId": "bgv13",
           "locator": "Introduction, p. 2, Remarks (i)–(ii)",
-          "excerpt": "CM",
           "match": "Identifies theta series and the regular-weight real-place obstruction."
         }
       ],
@@ -3933,19 +3803,16 @@
         {
           "sourceId": "ribet75",
           "locator": "Theorem 2.3 and proof, printed pp. 251–252",
-          "excerpt": "index",
           "match": "Compact semisimple matrix-group theorem requires infinite projective image."
         },
         {
           "sourceId": "bgv13",
           "locator": "Remark (ii), p. 2",
-          "excerpt": "principal series",
           "match": "Regular weight excludes a real place of the inducing field."
         },
         {
           "sourceId": "dasgupta-kakde23",
           "locator": "§9.1, p. 66",
-          "excerpt": "finite index subgroup",
           "match": "Routes the two arguments for the attached representation."
         }
       ],
@@ -3988,13 +3855,11 @@
         {
           "sourceId": "dimitrov05",
           "locator": "§3.1 Proposition 3.1; §3.3 Proposition 3.5; §3.4 Proposition 3.8",
-          "excerpt": "SL2",
           "match": "The three exclusions give the large residual subgroup."
         },
         {
           "sourceId": "newton-thorne26",
           "locator": "Proof of Lemma 5.7, printed p. 41",
-          "excerpt": "According to [Dim05, Proposition 3.8]",
           "match": "The actual consumer passage invokes Dimitrov for the two residual images and simultaneous prime choice; it is not the proof of Proposition 5.4."
         }
       ],
@@ -4036,13 +3901,11 @@
         {
           "sourceId": "ribet85",
           "locator": "Theorem 2.1 pp. 188–190; §3 and Theorem 3.1 pp. 190–192",
-          "excerpt": "Momose",
           "match": "Separates every-λ openness from almost-all residual image, with inner twists."
         },
         {
           "sourceId": "newton-thorne21b",
           "locator": "Proof of Theorem 3.1, printed p. 26",
-          "excerpt": "is conjugate either to PSL2",
           "match": "The actual prime-selection consumer asks for projective PSL₂ or PGL₂ image; Ribet 1985 is the primary large-image source."
         }
       ],
@@ -4087,13 +3950,11 @@
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Definition 1.10 and following paragraph, pp. 6–7",
-          "excerpt": "strictly compatible",
           "match": "Strict versus almost strict compatibility at the coefficient characteristic."
         },
         {
           "sourceId": "skinner09",
           "locator": "Theorem 1 and equation (1), p. 242",
-          "excerpt": "Theorem 1",
           "match": "Together the two local statements provide every finite place."
         }
       ],
@@ -4201,19 +4062,16 @@
         {
           "sourceId": "skinner09",
           "locator": "Introduction, p. 242",
-          "excerpt": "The existence of a ρπ satisfying (1) was established by Carayol [Ca2], Wiles [W], Blasius and Rogawski [BR], and Taylor [Tay1]",
           "match": "Full away-from-p compatibility (1) for every π of infinity type (k,w)."
         },
         {
           "sourceId": "blasius06",
           "locator": "§3, p. 18",
-          "excerpt": "As shown by Taylor ([T1], [T2]), there is an irreducible two-dimensional l-adic representation",
           "match": "Taylor's representation satisfies the Global Langlands Correspondence at every place prime to ℓ."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "Theorem (A), §12.2–12.3",
-          "excerpt": "représentations",
           "match": "The geometric proof, including the extraordinary places."
         }
       ],
@@ -4255,19 +4113,16 @@
         {
           "sourceId": "kisin08-ams",
           "locator": "Theorem 4.3 and proof, pp. 543–544",
-          "excerpt": "absolutely irreducible",
           "match": "Full arbitrary-totally-real theorem and congruence interpolation proof."
         },
         {
           "sourceId": "kisin08-ams",
           "locator": "Theorem 2.5.5; Theorem 2.7.6, pp. 531–534",
-          "excerpt": "finite",
           "match": "The quotient/period-family input is over arbitrary coefficient algebras."
         },
         {
           "sourceId": "kisin08-ams",
           "locator": "§4.1, p. 542",
-          "excerpt": "By a result of Carayol and Taylor [Ca], [Ta 1], there exists a continuous representation",
           "match": "Kisin's ρ_{π,λ} is the positive-uniformiser, geometric-Frobenius normalisation."
         }
       ],
@@ -4321,19 +4176,16 @@
         {
           "sourceId": "skinner09",
           "locator": "Theorem 1 and Hodge–Tate definition, p. 242; proof strategy pp. 243–244",
-          "excerpt": "Hodge-Tate type",
           "match": "The statement has no residual-irreducibility assumption."
         },
         {
           "sourceId": "skinner09",
           "locator": "§2.4, p. 251",
-          "excerpt": "we may also assume that w = 2",
           "match": "The remaining case: d even, all k_i = 2, π_v unramified above p, not CM; the twist to Skinner's w = 2 is this roadmap's w = 0 (sourceIssue E4)."
         },
         {
           "sourceId": "skinner09",
           "locator": "§2.4.2, p. 254",
-          "excerpt": "It then follows easily from [Ki2, (5.15)] that",
           "match": "Kisin's analytic continuation of crystalline periods in the quaternionic family."
         }
       ],
@@ -4375,13 +4227,11 @@
         {
           "sourceId": "skinner-wiles-1999",
           "locator": "§3.3 equation (3.2), pp. 38–39",
-          "excerpt": "ordinary",
           "match": "Supplies the generic local character shape; saturation is the arithmetic lattice intersection."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§§1.2, 4.5, 5.3–5.4",
-          "excerpt": "lattices",
           "match": "Provides the fixed realisation lattice, not an arbitrary integral-period assertion."
         }
       ],
@@ -4493,13 +4343,11 @@
         {
           "sourceId": "scholl90",
           "locator": "Theorem 1.2.4, p. 2",
-          "excerpt": "crystalline",
           "match": "Geometric good-prime realisation; the historic lower bound is not the general modern comparison."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§1.2 and §5.4, realisation comparisons",
-          "excerpt": "Frobenius",
           "match": "The projector factor carries crystalline Frobenius and Hodge filtration."
         }
       ],
@@ -4602,13 +4450,11 @@
         {
           "sourceId": "kw2-2009",
           "locator": "Corollary 7.8, pp. 67–68",
-          "excerpt": "weight",
           "match": "Separate characteristic-zero weight two and residual tame Serre weights."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§1.2 and §5.4",
-          "excerpt": "Fontaine",
           "match": "The integral small-weight range is an additional restriction."
         }
       ],
@@ -4645,13 +4491,11 @@
         {
           "sourceId": "hara-ochiai18",
           "locator": "Appendix A Proposition A.3 and proof, pp. 70–71; §2.1 (ord)",
-          "excerpt": "splits",
           "match": "Read with its CM and infinity-type context."
         },
         {
           "sourceId": "dasgupta-kakde23",
           "locator": "Lemma 9.2 proof, p. 67",
-          "excerpt": "splits",
           "match": "Uses necessity of splitting to identify the two CM character lines."
         }
       ],
@@ -4688,7 +4532,6 @@
         {
           "sourceId": "dasgupta-kakde23",
           "locator": "Lemma 9.2 and proof, p. 67",
-          "excerpt": "not stable",
           "match": "The conclusion concerns the actual ordinary line, not an arbitrary line."
         }
       ],
@@ -4732,7 +4575,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1 Proposition 5.2 and proof, pp. 43–45",
-          "excerpt": "multiplicité 1 fort",
           "match": "The Hom multiplicities follow from global Galois compatibility, comparison and strong multiplicity one."
         }
       ],
@@ -4776,13 +4618,11 @@
         {
           "sourceId": "skinner20-published",
           "locator": "§3, p. 350, first three paragraphs",
-          "excerpt": "density 1",
           "match": "The norm bound, Ribet irreducibility and level-lowering ramification argument are read in full."
         },
         {
           "sourceId": "ribet85",
           "locator": "Theorem 2.1, pp. 188–190",
-          "excerpt": "irreducible",
           "match": "Eventual residual irreducibility input."
         }
       ],
@@ -4824,19 +4664,16 @@
         {
           "sourceId": "ddt",
           "locator": "§4.1 and Lemmas 1.37–1.39; oldspace example at level 88",
-          "excerpt": "rank two",
           "match": "Supplies a generic rank-two Hecke module even when the old Hecke algebra is nonreduced."
         },
         {
           "sourceId": "kisin08-ams",
           "locator": "Theorem 4.3 proof, pp. 543–544",
-          "excerpt": "Hecke algebra",
           "match": "The integral Hecke family and its finite-precision quotients are used geometrically."
         },
         {
           "sourceId": "chenevier-determinants",
           "locator": "§1, determinants and characteristic polynomials",
-          "excerpt": "polynomial law",
           "match": "General law theory and coefficient descent are imported, not replanned."
         }
       ],
@@ -4945,13 +4782,11 @@
         {
           "sourceId": "ddt",
           "locator": "Lemma 3.27 and proof, pp. 94–95",
-          "excerpt": "exercise",
           "match": "Construction is proved, but the remaining type-Σ checks must not be silently declared solved."
         },
         {
           "sourceId": "kisin08-ams",
           "locator": "Theorem 2.5.5, 2.7.6 and §4.3",
-          "excerpt": "quotient",
           "match": "Use conditions on finite coefficient algebras, not just dense field points."
         }
       ],

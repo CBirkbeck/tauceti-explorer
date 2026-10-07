@@ -317,13 +317,11 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1, (1.15), p. 279",
-          "excerpt": "Ceci amène à définir le Frobenius géométrique",
           "match": "The geometric Frobenius is the inverse of the substitution x ↦ x^q."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.1, (1.1.13), p. 152",
-          "excerpt": "étant la puissance entière",
           "match": "The Frobenius at a point of degree d maps to the d-th power."
         }
       ],
@@ -472,13 +470,11 @@
         {
           "sourceId": "lawrence-venkatesh",
           "locator": "§2.3, Lemma 2.3, p. 9",
-          "excerpt": "ρ is pure of weight w, i.e. for every prime",
           "match": "Pure of weight w: all roots of the Frobenius polynomial are algebraic of absolute value q_℘^{w/2}."
         },
         {
           "sourceId": "lawrence-venkatesh",
           "locator": "§2.3, Lemma 2.3, p. 9",
-          "excerpt": "is unramiﬁed outside S, and",
           "match": "Unramified outside a finite set."
         }
       ],
@@ -522,19 +518,16 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(ii), p. 154",
-          "excerpt": "Le produit tensoriel de deux faisceaux ponctuellement purs de poids n et m est ponctuel-",
           "match": "Weights add under tensor product."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(ii), p. 154",
-          "excerpt": "faisceau lisse ponctuellement pur de poids n est ponctuellement",
           "match": "The dual of a pure object of weight n has weight −n."
         },
         {
           "sourceId": "lawrence-venkatesh",
           "locator": "§2.5, p. 13",
-          "excerpt": "purity passes to subrepresentations",
           "match": "Purity passes to subrepresentations."
         }
       ],
@@ -574,13 +567,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Stabilités (1.2.5)(i), p. 154",
-          "excerpt": "image directe par un morphisme fini.",
           "match": "Stability under inverse image and finite direct image: restriction and induction."
         },
         {
           "sourceId": "lawrence-venkatesh",
           "locator": "§2.5, proof of Lemma 2.10, p. 14",
-          "excerpt": "We apply Lemma 2.9 to",
           "match": "Purity used for an induced representation."
         }
       ],
@@ -618,13 +609,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.6), p. 154",
-          "excerpt": "est alors automatiquement algébrique, sans quoi",
           "match": "Algebraicity is a consequence of purity at every ι, and fails without it."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, Variante (1.2.3), p. 154",
-          "excerpt": "On leur transporte la terminologie (1.2.2).",
           "match": "The weight terminology for representations of Gal(k̄/k)."
         }
       ],
@@ -662,7 +651,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2, (1.2.6), p. 154",
-          "excerpt": "est alors automatiquement algébrique, sans quoi",
           "match": "Purity for every ι gives algebraicity and all-embeddings purity."
         }
       ],
@@ -708,19 +696,16 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, §1, p. 75",
-          "excerpt": "the Frobenius map",
           "match": "The source defines the q-power Frobenius morphism: identity on the space and q-th power on functions; on geometric points it is arithmetic Frobenius."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, §1, proof of Theorem 1.1, p. 76",
-          "excerpt": "can be interpreted as the eigenvalues of",
           "match": "The roots of P_π are the eigenvalues of π on T_ℓA."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter I, Remark 12.5, p. 56",
-          "excerpt": "is compatible with the natural actions of Gal",
           "match": "The comparison with H¹ is Galois-equivariant."
         }
       ],
@@ -772,19 +757,16 @@
         {
           "sourceId": "lawrence-venkatesh",
           "locator": "§3.1, (3.2), p. 16",
-          "excerpt": "we denote by ρy the representation of the",
           "match": "The Galois representation on the étale cohomology of a fibre."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter I, Theorem 12.1(b), p. 55; Remark 12.5, p. 56; Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78",
-          "excerpt": "The cup-product pairings define isomorphisms",
           "match": "The Galois-equivariant exterior-power description of H^i and the product eigenvalues of Frobenius supply the higher-degree weight calculation. The polynomial P_r(t) on p. 78 uses the reciprocal Euler-factor variable; distinguish it from det(X−F)."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter I, Remark 17.2, p. 70",
-          "excerpt": "called the Néron model of A.",
           "match": "Good reduction through the Néron model."
         }
       ],
@@ -823,7 +805,6 @@
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter II, proof of Theorem 1.1, p. 76",
-          "excerpt": "The Riemann hypothesis shows that each term",
           "match": "The bound on #A(𝔽_{q^m})."
         }
       ],
@@ -859,7 +840,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.1 (1.1.13), p. 152; §1.2 (1.2.2)–(1.2.3), pp. 153–154",
-          "excerpt": "On leur transporte la terminologie",
           "match": "The representation and sheaf weight terminology agrees under Frobenius stalks."
         }
       ],
@@ -903,7 +883,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§6.2 (6.2.1)–(6.2.5)(b), p. 247",
-          "excerpt": "est ponctuellement pur de poids",
           "match": "On smooth X, complexes with lisse cohomology are pure iff their H^i have pointwise weight w+i."
         }
       ],
@@ -944,7 +923,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§1 (1.5.1), p. 275; (1.13)–(1.15), pp. 278–279",
-          "excerpt": "Une formule analogue vaut pour les itérés de F",
           "match": "The fixed-point formula and the q-power Frobenius yield point counts over every finite extension."
         }
       ],
@@ -989,7 +967,6 @@
         {
           "sourceId": "carayol",
           "locator": "§4.1–§4.3, pp. 423–424",
-          "excerpt": "Cette suite exacte est W",
           "match": "The actual arithmetic-model vanishing-cycle sequence is Weil equivariant; §4.1 constructs compatible finite-level sheaves."
         }
       ],
@@ -1035,13 +1012,11 @@
         {
           "sourceId": "carayol",
           "locator": "§4.2–§4.5, pp. 423–425",
-          "excerpt": "aucune forme automorphe parabolique",
           "match": "The cuspidal residual term is absent; the normalized special fibre supplies the second filtration."
         },
         {
           "sourceId": "saito",
           "locator": "§8 Claim 5, pp. 37–38",
-          "excerpt": "the disjoint union",
           "match": "Normalization and intersections of the semistable curve give the graph incidence calculation; Claim 5 identifies its kernel and cokernel."
         }
       ],
@@ -1082,7 +1057,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§4 (4.2)–(4.3), pp. 288–289",
-          "excerpt": "est remplacé par le spectre",
           "match": "The source replaces the complex disk by a henselian trait and treats the odd and even formulas separately."
         }
       ],
@@ -1128,7 +1102,6 @@
         {
           "sourceId": "saito",
           "locator": "§7 Lemma 4, pp. 32–34; §8 Claim 4(1), pp. 35–36",
-          "excerpt": "extended uniquely",
           "match": "The abelian scheme and prime-to-p maps extend to the actual minimal semistable model; trace comparison uses its strata."
         }
       ],
@@ -1173,7 +1146,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5 (5.6)–(5.7), pp. 291–292; §6 (6.1), pp. 294–295",
-          "excerpt": "tout pinceau assez général est de",
           "match": "The Veronese reembedding gives a geometric Lefschetz pencil; §6.1 works with a finite-field-defined pencil. A closed point in the parameter open and finite presentation supply the extension used here."
         }
       ],
@@ -1218,7 +1190,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§5 (5.8)–(5.9), pp. 292–293",
-          "excerpt": "alternée pour n impair, et symétrique pour n pair.",
           "match": "The symplectic or symmetric representation is on the quotient by the radical, with a separate zero-cycle branch."
         }
       ],
@@ -1261,7 +1232,6 @@
         {
           "sourceId": "deligne-weil-i",
           "locator": "§3 (3.1)–(3.2), pp. 283–284; §5 (5.10), p. 293",
-          "excerpt": "est ouverte.",
           "match": "The estimate requires an open symplectic image and rational local factors; the pencil’s original Q_l-model supplies the open image."
         }
       ],
@@ -1304,13 +1274,11 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3 (3.3.6), p. 206; (3.7.1), p. 215",
-          "excerpt": "pur de poids k-{-ï.",
           "match": "The parabolic image for Sym^k R¹ of an elliptic family is pure of weight k+1."
         },
         {
           "sourceId": "deligne-modular",
           "locator": "§5 Theorem (5.1) and Lemma (5.3), pp. 168–169",
-          "excerpt": "Admettons les conjectures de Weil.",
           "match": "The modular parabolic realization has total degree r+1, conditional on the usual Weil conjecture in this 1969 reduction; Weil II (3.7.1) supplies the unconditional theorem."
         }
       ],
@@ -1356,13 +1324,11 @@
         {
           "sourceId": "deligne-modular",
           "locator": "§5 Lemmas (5.2)–(5.4), pp. 168–170",
-          "excerpt": "produit fibre itéré",
           "match": "The fibre product and its compactification realize the parabolic local-system image in total degree r+1."
         },
         {
           "sourceId": "saito",
           "locator": "§6 Lemma 3, p. 30",
-          "excerpt": "Put q0",
           "match": "The Hilbert Kuga–Sato projector has the stated total-degree shift and Hecke/Galois-compatible isomorphism."
         }
       ],
@@ -1404,13 +1370,11 @@
         {
           "sourceId": "dfg",
           "locator": "§5.4 Lemma 5.7, pp. 58–59",
-          "excerpt": "rank 2 over K",
           "match": "The rank-two eigensummand is over its coefficient field, rather than automatically over Q."
         },
         {
           "sourceId": "milne-abelian-varieties",
           "locator": "Chapter I Remark 12.5, p. 56",
-          "excerpt": "is compatible with the natural actions of Gal",
           "match": "H¹ is the Galois-equivariant dual of the Tate module."
         }
       ],
@@ -1454,7 +1418,6 @@
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§4.1 Theorem (4.1.1), p. 217",
-          "excerpt": "Ceci nous dispensera",
           "match": "The source suppresses twists after choosing Z_l≅Z_l(1) over the algebraic closure; the arithmetic map restores them."
         }
       ],
@@ -1501,13 +1464,11 @@
         {
           "sourceId": "deligne-modular",
           "locator": "§5 Theorems (5.1) and (5.6), pp. 168, 170–171",
-          "excerpt": "conjecture de Ramanujan",
           "match": "The geometric realization’s weight and congruence relation give the Fourier-coefficient bound."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§3 (3.7.1), p. 215",
-          "excerpt": "pur de poids k-{-ï.",
           "match": "Weil II supplies the unconditional parabolic purity used in this export."
         }
       ],
@@ -1558,7 +1519,6 @@
         {
           "sourceId": "dfg",
           "locator": "§1.1–§1.3, pp. 6–13; §5.4 Lemma 5.7 and §5.5, pp. 58–60",
-          "excerpt": "For each embedding",
           "match": "Rank-two parabolic realization and the character-twisted Hecke/Frobenius comparison; all-λ étale modules are distinguished from restricted integral crystalline data. The actual independent geometric comparison and coefficient descent remain required."
         }
       ],
@@ -1607,13 +1567,11 @@
         {
           "sourceId": "lawrence-venkatesh",
           "locator": "§2.3 Lemma 2.3, pp. 9–10",
-          "excerpt": "integer coeffi-",
           "match": "Faltings’ finiteness separately requires semisimplicity, purity and integer Frobenius coefficients."
         },
         {
           "sourceId": "deligne-weil-ii",
           "locator": "§1.2 (1.2.5)(i), p. 154",
-          "excerpt": "passage au quotient",
           "match": "Purity passes to subobjects and quotients under the specified comparison."
         }
       ],
@@ -1662,19 +1620,16 @@
         {
           "sourceId": "saito",
           "locator": "§2 Theorem 1, Claim 1 and Theorem 2, pp. 12–13",
-          "excerpt": "pure of weight w",
           "match": "The rank-two l-adic and p-adic WD graded pieces have weights w−1+i; the proof needs trace comparison and N agreement separately."
         },
         {
           "sourceId": "saito",
           "locator": "§8 Claims 4–5 and §9 Proposition 1′, pp. 35–39",
-          "excerpt": "monodromy filtration",
           "match": "The projected spectral sequence and constant/nonconstant coefficient calculations establish this restricted local theorem."
         },
         {
           "sourceId": "saito",
           "locator": "§6 Lemma 3 and auxiliary projector comparison, pp. 30–31",
-          "excerpt": "there is an isomorphism",
           "match": "The actual degree q₀ and the auxiliary (g−1)(w−2) Tate twist give the local eigensummand centre weight w−1."
         }
       ],
