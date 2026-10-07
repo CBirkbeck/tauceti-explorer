@@ -1,0 +1,2397 @@
+{
+  "roadmapId": "HodgeStructuresPartII",
+  "protocol": "blueprint-v1",
+  "part": "H.0",
+  "scope": [
+    "HodgeStructuresPartII:H.0"
+  ],
+  "status": "complete",
+  "summary": "A complete target-level H.0 planning pass extending the accepted design through seven new declaration targets: a genuine ordered tensor-valued shuffle with arbitrary coefficient modules, its integral nilpotence bound, field and reduced free rank bounds, and the linear residue of a parameter connection. Every intrinsic stage target is accounted for through exact parent IDs or precise supplier contracts and seven explicit gaps. H.0 is planned, not closed; source-specific sheaf, determinant and period/Tate adapters remain conditional. No implementation is claimed.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:TensorPower",
+        "module": "Mathlib/LinearAlgebra/TensorPower/Basic.lean",
+        "provides": "Finite ordered tensor powers are PiTensorProduct indexed by Fin n, including the empty tensor unit.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:TensorPower.algebraMap₀",
+        "module": "Mathlib/LinearAlgebra/TensorPower/Basic.lean",
+        "provides": "Canonical R-linear equivalence R to the degree-zero tensor power of any R-module.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.tmulEquiv",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Linear equivalence from the tensor product of two constant-family indexed tensor products to the tensor product indexed by their disjoint sum.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.tmulEquiv_apply",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "On pure tensors, tmulEquiv concatenates the two coefficient families by Sum.elim.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.reindex",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Reindexes an indexed tensor product by an equivalence; the target family uses its inverse.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.reindex_tprod",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Reindex sends a pure family a to the pure family a composed with the inverse index equivalence.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.map",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "The linear map of indexed tensor products induced by an indexed family of linear maps.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.map_tprod",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Indexed coefficient transport on pure tensors acts in each slot.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.ext",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Linear maps out of an indexed tensor product agree if their composites with its universal multilinear map agree.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.induction_on",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Induction by scaled pure indexed tensors and addition; there is no basis or flatness hypothesis.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Finset.orderIsoOfFin",
+        "module": "Mathlib/Data/Finset/Sort.lean",
+        "provides": "Increasing equivalence from Fin k to the subtype of a finite subset of a linear order with cardinality k.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Finset.orderEmbOfFin",
+        "module": "Mathlib/Data/Finset/Sort.lean",
+        "provides": "Increasing enumeration into the ambient linear order, obtained from orderIsoOfFin.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensor product of compatible semilinear maps; here specialized to R-linear maps.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map_tmul",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensor map evaluates on x tensor y as f(x) tensor g(y).",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:TensorProduct.induction_on",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "Binary tensors are generated additively by elementary tensors.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:TensorProduct.tensorTensorTensorComm",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
+        "provides": "Native linear equivalence (E tensor A) tensor (F tensor B) to (E tensor F) tensor (A tensor B).",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:TensorProduct.tensorTensorTensorComm_tmul",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
+        "provides": "Fourfold rearrangement sends (e tensor a) tensor (f tensor b) to (e tensor f) tensor (a tensor b).",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Module.Basis",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "A basis consists of the actual linear equivalence with finitely supported coordinates.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Module.Basis.coord",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "The basis-coordinate R-linear functional, defined by evaluation after the basis representation.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Module.Basis.forall_coord_eq_zero_iff",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "An element is zero exactly when all its basis coordinates vanish.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Module.finrank",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+        "provides": "Natural-number rank via Cardinal.toNat; used only for a finite-dimensional vector space over a field.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Module.Finite",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "Finite generation is finite generation of the top submodule; over a field this yields finite dimension.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:IsReduced",
+        "module": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+        "provides": "No nonzero nilpotent element; no characteristic-zero or domain assumption.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:nilpotent_iff_mem_prime",
+        "module": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+        "provides": "An element of a commutative semiring is nilpotent exactly when it lies in every prime ideal.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:nilradical_eq_zero",
+        "module": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+        "provides": "The nilradical of a reduced commutative semiring is zero.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Native linear projection from a module to its quotient by a submodule.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ_surjective",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "The native module quotient projection is surjective.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.eq",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Two classes are equal exactly when their difference belongs to the quotient submodule.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "A semilinear map vanishing on a submodule descends uniquely to its module quotient; applied after the parameter correction has died in the target quotient.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Matrix.toLin'",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Matrix/linear-map equivalence on finite coordinate modules; used by the sharp Jordan and characteristic-two acceptance instances.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "EG-author-H0",
+      "title": "Rigid connections and F-isocrystals",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Author-hosted 44-page preprint; selected definitions, not a collation with the Acta version",
+      "url": "https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf",
+      "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§2.1, printed pp.5–6: Higgs definition, scaling, determinant convention and Lemma 2.1",
+        "§4.2, printed pp.23–24: parameter Leibniz equation, zero/one fibers and Lemma 4.9"
+      ],
+      "readingExtent": "These passages only. The source allows a regular-function parameter; this roadmap specifies the relatively constant case. No complex correspondence or Hodge-moduli theorem is proved in this part."
+    },
+    {
+      "id": "LZ-H0",
+      "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+      "authors": "Ruochuan Liu and Xinwen Zhu",
+      "edition": "arXiv:1602.06282v3, 35 pages",
+      "url": "https://arxiv.org/pdf/1602.06282v3",
+      "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Theorem 2.1, printed pp.6–8: nilpotent twisted Higgs object, Galois action, tensor, dual and pullback formulas",
+        "Lemma 2.15 and complete printed proof, pp.18–19",
+        "Definitions 3.5–3.6 and relative forms, printed pp.21–22",
+        "Remark 3.2, printed p.24: the t-connection and its two fibers"
+      ],
+      "readingExtent": "Selected complete passages, not a full correspondence proof. The tensor shuffle and rank bounds below are authored algebraic deductions, not theorems printed at this generality in Liu–Zhu."
+    },
+    {
+      "id": "Heuer-H0",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "authors": "Ben Heuer",
+      "edition": "Inventiones mathematicae 240 (2025), 261–312, published PDF",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+      "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Definition 1.2(2), printed p.262",
+        "Definition 2.1 and following paragraph, printed pp.267–268",
+        "Definition 4.1 and Remark 4.2, printed pp.297–298"
+      ],
+      "readingExtent": "Higgs, Tate, symmetric-action and image-algebra definitions only; no spectral Picard construction, coherence proof or correspondence theorem is imported as proved."
+    },
+    {
+      "id": "StacksConnection-H0",
+      "title": "Connections",
+      "authors": "The Stacks Project authors",
+      "edition": "Live section 60.15, tag 07J5, read 2026-10-07",
+      "url": "https://stacks.math.columbia.edu/tag/07J5",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Opening definition of a connection, extension and integrability; Lemma 60.15.1 and displayed proof"
+      ],
+      "readingExtent": "The crystalline example is a specialization, not a general-site supplier contract."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Ordered tensor-valued shuffle summand",
+      "declaration": "orderedShuffleTerm",
+      "statement": "For n≥0 and a subset s of Fin n, let a=|s|, b=|sᶜ|. Define the increasing slot equivalence σ_s:Fin a ⊔ Fin b ≃ Fin n, with its two branches enumerating s and its complement in increasing order. The coefficient equivalence Sh_s:Q^a tensor Q^b ≃ Q^n is native disjoint-sum tensor multiplication followed by reindexing through σ_s. Define L_s=(id_{E tensor F} tensor Sh_s) ∘ fourfoldComm ∘ (I_a(θ) tensor I_b(ψ)), an actual R-linear map E tensor F → (E tensor F) tensor Q^n. Reassociation introduces no sign.",
+      "hypotheses": [
+        "R is a commutative ring; E,F,Q are arbitrary R-modules with additive commutative group structures.",
+        "I_n(θ) is the parent ordered iterate. Its newest coefficient is at slot 0; I_0 sends e to e tensor 1 in E tensor Q^0.",
+        "No integrability, finite generation, freeness, projectivity, flatness, reducedness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Construct σ_s using Finset.orderIsoOfFin for s and sᶜ; membership decides the inverse branch. The two increasing enumerations are disjoint, jointly exhaustive and preserve the relative order of each factor.",
+        "Compose PiTensorProduct.tmulEquiv with PiTensorProduct.reindex. Their generator equations determine Sh_s uniquely on the full tensor products by PiTensorProduct.ext; it is not merely a formula on dual contractions.",
+        "Tensor the two parent iterates and apply native tensorTensorTensorComm followed by id tensor Sh_s. This defines L_s on arbitrary elements using the native linear maps.",
+        "The empty coefficient powers use TensorPower.algebraMap₀. Native map/reindex equations prove coefficient naturality. Parent all-order horizontal naturality proves naturality in E and F without inserting a basis."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-natural",
+        "mathlib:TensorPower",
+        "mathlib:TensorPower.algebraMap₀",
+        "mathlib:Finset.orderIsoOfFin",
+        "mathlib:Finset.orderEmbOfFin",
+        "mathlib:PiTensorProduct.tmulEquiv",
+        "mathlib:PiTensorProduct.tmulEquiv_apply",
+        "mathlib:PiTensorProduct.reindex",
+        "mathlib:PiTensorProduct.reindex_tprod",
+        "mathlib:PiTensorProduct.ext",
+        "mathlib:PiTensorProduct.map",
+        "mathlib:PiTensorProduct.map_tprod",
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.tensorTensorTensorComm",
+        "mathlib:TensorProduct.tensorTensorTensorComm_tmul"
+      ],
+      "acceptance": [
+        "For s={0,2} in Fin 4, the second left slot is 2 and the first right slot is 1.",
+        "At n=0 the single summand is the tensor-unit identification, not zero.",
+        "For s={1} in Fin 2, the output coefficients are right then left. A sign or a reversal within a factor fails the tests.",
+        "An R-linear functional family may miss tensors: Hom_Z(Z/2,Z)=0, but Z tensor_Z Z/2 is nonzero."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/OrderedShuffle",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
+          "excerpt": "H is a tensor functor",
+          "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/tensor-nilpotence",
+          "how": "Supplies genuine tensor-valued expansion instead of relying on all dual or self-contractions."
+        },
+        {
+          "where": "LZ17 Theorem 2.1(iv); Heuer Definition 2.1",
+          "how": "Preserves arbitrary coefficient modules and the order of the Tate-twisted coefficient tensor factors."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0 intrinsic tensor and restriction targets",
+          "how": "Native horizontal and coefficient naturality are the affine equations to transport through the E1 sheaf tensor-power comparison."
+        }
+      ],
+      "api": [
+        {
+          "name": "shuffleSlots",
+          "role": "constructor",
+          "statement": "The slot equivalence from the increasing finite enumerations of s and sᶜ."
+        },
+        {
+          "name": "shuffleSlots_inl",
+          "role": "simp",
+          "statement": "σ_s(inl i) is s.orderEmbOfFin(i)."
+        },
+        {
+          "name": "shuffleSlots_inr",
+          "role": "simp",
+          "statement": "σ_s(inr i) is sᶜ.orderEmbOfFin(i)."
+        },
+        {
+          "name": "shuffleCoefficients",
+          "role": "constructor",
+          "statement": "The actual R-linear equivalence Sh_s from the disjoint coefficient powers to the ordered total power."
+        },
+        {
+          "name": "shuffleCoefficients_def",
+          "role": "compatibility",
+          "statement": "Sh_s equals PiTensorProduct.tmulEquiv followed by PiTensorProduct.reindex through σ_s."
+        },
+        {
+          "name": "shuffleCoefficients_tprod",
+          "role": "simp",
+          "statement": "Sh_s(tprod a tensor tprod b)=tprod(i↦Sum.elim(a,b)(σ_s⁻¹(i)))."
+        },
+        {
+          "name": "shuffleCoefficients_natural",
+          "role": "functoriality",
+          "statement": "For every R-linear u:Q→P, u^n ∘ Sh_s^Q=Sh_s^P ∘ (u^a tensor u^b); this equality is between full linear maps."
+        },
+        {
+          "name": "orderedShuffleTerm_def",
+          "role": "characterisation",
+          "statement": "L_s equals the displayed composition of the two parent iterates, native fourfold commutation and id tensor Sh_s."
+        },
+        {
+          "name": "orderedShuffleTerm_horizontal",
+          "role": "functoriality",
+          "statement": "Horizontal maps f:E→E′ and g:F→F′ with fixed Q satisfy L_s(θ′,ψ′) ∘ (f tensor g)=((f tensor g) tensor id_{Q^n}) ∘ L_s(θ,ψ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "H0.shuffle.test_stable_left",
+          "kind": "computation",
+          "statement": "σ_{0,2}(inl 1)=2 in Fin 4."
+        },
+        {
+          "name": "H0.shuffle.test_stable_right",
+          "kind": "computation",
+          "statement": "σ_{0,2}(inr 0)=1 in Fin 4."
+        },
+        {
+          "name": "H0.shuffle.test_empty_tensor_unit",
+          "kind": "degenerate",
+          "statement": "At n=0, Sh_∅(algebraMap₀(2) tensor algebraMap₀(3))=algebraMap₀(6)."
+        },
+        {
+          "name": "H0.shuffle.test_mixed_order",
+          "kind": "computation",
+          "statement": "For s={1}⊂Fin 2, singleton pure coefficient families q on the left and r on the right are sent to tprod [r,q]."
+        },
+        {
+          "name": "H0.shuffle.test_zero_length",
+          "kind": "degenerate",
+          "statement": "L_∅ at n=0 sends e tensor f to (e tensor f) tensor algebraMap₀(1), for all fields θ,ψ."
+        },
+        {
+          "name": "H0.shuffle.test_torsion_duals_miss_tensor",
+          "kind": "non-example",
+          "statement": "All Z-linear functionals Z/2→Z are zero, while e↦e tensor 1 from Z to Z tensor_Z Z/2 is nonzero."
+        },
+        {
+          "name": "H0.shuffle.test_zero_factor_bound",
+          "kind": "compatibility",
+          "statement": "If M>0 and I_M(ψ)=0, then I_M(T(0,ψ))=0 for arbitrary E,F,Q."
+        },
+        {
+          "name": "H0.shuffle.test_char_two_sharp",
+          "kind": "non-example",
+          "statement": "Over F₂, use the rank-two square-zero Jordan operator X on each factor, with independent coefficient vectors q₀ and q₁ in F₂². Both fields have bound 2, their tensor field has bound 3, and its degree-two ordered tensor is nonzero."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-shuffle-term-vanishing",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Shuffle summand vanishes at a factor bound",
+      "declaration": "orderedShuffleTerm_eq_zero",
+      "statement": "If I_N(θ)=0 and I_M(ψ)=0, and N≤|s| or M≤|sᶜ|, then L_s(θ,ψ)=0. This includes a zero exponent premise when the corresponding module is zero.",
+      "hypotheses": [
+        "R is a commutative ring; E,F,Q are arbitrary R-modules with additive commutative group structures.",
+        "I_n(θ) is the parent ordered iterate. Its newest coefficient is at slot 0; I_0 sends e to e tensor 1 in E tensor Q^0.",
+        "No integrability, finite generation, freeness, projectivity, flatness, reducedness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use the parent affineOrderedIterate_mono to increase the relevant exponent to |s| or |sᶜ|.",
+        "The corresponding factor in the defining tensor map is zero. Native tensor map evaluation on elementary tensors and additive generation imply that the entire factor map, hence its composite L_s, is zero."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-mono",
+        "mathlib:TensorProduct.map_tmul",
+        "mathlib:TensorProduct.induction_on"
+      ],
+      "acceptance": [
+        "No injectivity or detection by coefficient duals is needed.",
+        "Only one sufficiently large factor is required."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/OrderedShuffle",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
+          "excerpt": "H is a tensor functor",
+          "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-ordered-shuffle-expansion",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Integral ordered tensor shuffle expansion",
+      "declaration": "orderedShuffle_expansion",
+      "statement": "For every n≥0, I_n(T(θ,ψ))=Σ_{s⊆Fin n} L_s(θ,ψ) as R-linear maps E tensor F → (E tensor F) tensor Q^n. Each subset occurs exactly once, with coefficient 1 and no sign.",
+      "hypotheses": [
+        "R is a commutative ring; E,F,Q are arbitrary R-modules with additive commutative group structures.",
+        "I_n(θ) is the parent ordered iterate. Its newest coefficient is at slot 0; I_0 sends e to e tensor 1 in E tensor Q^0.",
+        "No integrability, finite generation, freeness, projectivity, flatness, reducedness or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "At n=0, the unique subset is empty, and the parent tensor-unit iterate gives the equality.",
+        "For n+1, apply the parent successor step to the n-fold expansion. Expand the next tensor-field action into its left and right actions using the exact parent affine-tensor-field formula.",
+        "Partition subsets of Fin(n+1) according to whether the newest position 0 belongs to s. Remove that position and shift the remaining positions down by one. This is a bijection with a left copy and a right copy of the subsets of Fin n.",
+        "The increasing slot equations identify the two resulting summands with L_s. Verify every rearrangement on elementary tensors using the native fourfold and indexed reindex equations, then extend by binary and indexed tensor induction. No commutation of coefficient slots or within-factor operators is invoked."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+        "HodgeStructuresPartII:H.0/affine-tensor-field",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-succ",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-unit",
+        "mathlib:TensorProduct.induction_on",
+        "mathlib:PiTensorProduct.induction_on"
+      ],
+      "acceptance": [
+        "At n=1 the two subsets give exactly the two terms in the parent tensor field.",
+        "At n=2 the mixed slots produce q tensor r and r tensor q separately. In characteristic two their sum need not vanish."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/OrderedShuffle",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
+          "excerpt": "H is a tensor functor",
+          "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-arbitrary-coefficient-tensor-bound",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Tensor nilpotence bound for arbitrary coefficients",
+      "declaration": "tensor_bound_arbitrary",
+      "statement": "For positive N,M, I_N(θ)=0 and I_M(ψ)=0 imply I_{N+M−1}(T(θ,ψ))=0 for arbitrary coefficient Q. This is the affine arbitrary-module input to the parent global tensor-nilpotence theorem, whose sheaf descent premise remains G2.",
+      "hypotheses": [
+        "R is a commutative ring; E,F,Q are arbitrary R-modules with additive commutative group structures.",
+        "I_n(θ) is the parent ordered iterate. Its newest coefficient is at slot 0; I_0 sends e to e tensor 1 in E tensor Q^0.",
+        "No integrability, finite generation, freeness, projectivity, flatness, reducedness or characteristic restriction is imposed.",
+        "N and M are positive natural numbers."
+      ],
+      "proofSteps": [
+        "Set n=N+M−1. For every subset s of Fin n, |s|+|sᶜ|=n. If both |s|<N and |sᶜ|<M, their sum is at most N+M−2, a contradiction.",
+        "Apply h0-shuffle-term-vanishing to each summand. The actual linear-map equality h0-ordered-shuffle-expansion is now a finite sum of zero maps.",
+        "Retain the same stated exponent. Bigger exponents follow from the parent monotonicity theorem; no conversion through exterior or symmetric powers is used."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/h0-ordered-shuffle-expansion",
+        "HodgeStructuresPartII:H.0/h0-shuffle-term-vanishing",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-mono"
+      ],
+      "acceptance": [
+        "Zero on one factor has bound 1 and leaves the other specified bound unchanged.",
+        "The rank-two characteristic-two test realizes degree two nonzero and degree three zero.",
+        "Neither factor needs to be an integrable Higgs field for this ordered-tensor conclusion."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/OrderedShuffle",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7",
+          "excerpt": "H is a tensor functor",
+          "match": "The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-field-rank-bound",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Ordered nilpotence bound by vector-space dimension",
+      "declaration": "field_rank_bound",
+      "statement": "Let K be a field, V and P finite-dimensional K-vector spaces, and θ:V→V tensor_K P. If I_N(θ)=0 for some positive N, then I_{max(1,dim_K V)}(θ)=0. No integrability or commuting-contraction hypothesis is required; an ordered nilpotence bound is the premise.",
+      "hypotheses": [
+        "K is a field; V,P are actual K-modules with Module.Finite K V and Module.Finite K P.",
+        "A positive ordered nilpotence bound exists. Individual nilpotence of chosen contractions is not substituted for it."
+      ],
+      "proofSteps": [
+        "Choose a finite basis of P and use the parent all-order coefficient criterion: I_N=0 says every coefficient word of length N is zero. This gives joint nilpotence of the finite coefficient family.",
+        "If V is nonzero, choose a nonzero vector and a coefficient word of maximal length whose action on it is nonzero. Lengths are bounded by N−1. Its resulting nonzero vector is killed by every coefficient operator; adding any operator on the left would contradict maximality. The resulting common-kernel line is invariant and killed, without a commutativity assumption.",
+        "Pass to V divided by that line. Every length-N word on the quotient is still zero. Induct on dim V, which drops by one. Words of length dim V−1 take V into the line, and one more operator kills them. The dimension-zero case is the zero module and has positive bound 1.",
+        "Apply the parent basis coefficient criterion in the reverse direction at exponent max(1,dim V). This proves the tensor-valued assertion, not merely powers of a single contraction."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing",
+        "mathlib:Module.Finite",
+        "mathlib:Module.Basis",
+        "mathlib:Module.Basis.coord",
+        "mathlib:Module.finrank",
+        "mathlib:Submodule.mkQ",
+        "mathlib:Submodule.mkQ_surjective"
+      ],
+      "acceptance": [
+        "A nilpotent field on a one-dimensional space is zero.",
+        "The size-three Jordan block with one coefficient has degree-three zero and degree-two nonzero, so the positive-rank bound is sharp.",
+        "No algebraic closure or characteristic-zero hypothesis occurs."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/OrderedShuffle",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19",
+          "excerpt": "log γ is nilpotent",
+          "match": "The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Ordered nilpotence bound over a reduced ring",
+      "declaration": "reduced_free_rank_bound",
+      "statement": "Let R be a reduced commutative ring and let b:Fin r→E and c:Fin d→Q be bases of R-modules. If θ:E→E tensor_R Q has some positive ordered nilpotence bound, then I_{max(1,r)}(θ)=0. The intrinsic application is chartwise on locally free E,Q; locally varying rank is preserved.",
+      "hypotheses": [
+        "R is commutative and IsReduced R; no domain or Noetherian premise is required.",
+        "E and Q have the displayed finite bases. The general locally free sheaf conclusion is conditioned on G2 and the finite-cover/uniformity gap G6.",
+        "A positive ordered nilpotence bound exists."
+      ],
+      "proofSteps": [
+        "For each prime ideal p, pass to the fraction field of the domain R/p. Parent scalar-extension transport preserves the given ordered exponent, without reflecting zero back to R. The base-changed bases have ranks r,d.",
+        "Apply h0-field-rank-bound over that field, so every length-max(1,r) coefficient-word matrix entry maps to zero. The injective map R/p into its fraction field shows each source entry belongs to p.",
+        "Each entry lies in every prime ideal, hence is nilpotent by nilpotent_iff_mem_prime. IsReduced makes it zero; equivalently use nilradical_eq_zero. The zero ring is handled by subsingleton modules.",
+        "Basis coordinates detect zero for the ordered tensor target, or equivalently invoke the parent coefficient criterion after all word matrices vanish. Do not claim that one arbitrary residue map reflects curvature or any other source tensor."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/h0-field-rank-bound",
+        "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary",
+        "HodgeStructuresPartII:H.0/affine-base-change-contraction",
+        "HodgeStructuresPartII:H.0/affine-base-change-word",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing",
+        "mathlib:IsReduced",
+        "mathlib:nilpotent_iff_mem_prime",
+        "mathlib:nilradical_eq_zero",
+        "mathlib:Module.Basis.forall_coord_eq_zero_iff"
+      ],
+      "acceptance": [
+        "Over Z/4 the rank-one scalar 2 has degree-two zero and degree-one nonzero, so reducedness cannot be removed.",
+        "A free rank-zero module has positive bound 1.",
+        "This local free theorem does not identify rank on disconnected sheaf components with one fixed integer."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/OrderedShuffle",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19",
+          "excerpt": "log γ is nilpotent",
+          "match": "The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/h0-parameter-residue",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Linear residue of a parameter connection",
+      "declaration": "parameterResidue",
+      "statement": "For t∈R, an additive d:R→Q and an additive D:E→E tensor_R Q satisfying D(ae)=aD(e)+t(e tensor d(a)), construct the unique R-linear map res_t(D):E/tE→(E tensor_R Q)/t(E tensor_R Q) sending [e] to [D(e)]. Here tM is the range of t times the identity linear map. Both quotient modules are naturally annihilated by t. When identified through the supplier tensor-quotient comparison, this is the linear zero-fiber field over R/(t).",
+      "hypotheses": [
+        "R is a commutative ring; E,Q are arbitrary R-modules.",
+        "Only the displayed additive Leibniz equation is required for descent. No regularity of t, flatness of Q, filtration bounds or integrability premise is imposed.",
+        "For a geometric relative parameter connection d is a derivation with d(t)=0. These additional conditions are needed by the flatness/exterior extension targets, not by the elementary linear residue map itself."
+      ],
+      "proofSteps": [
+        "Let T=E tensor Q and π:T→T/tT be the native module quotient. The composite πD is additive. Applying the Leibniz equation shows πD(ae)=aπD(e), because t(e tensor d(a)) is in tT; package πD as a genuine R-linear map.",
+        "Apply the same formula at a=t: D(te)=tD(e)+t(e tensor d(t)), so πD vanishes on tE even if d(t)≠0. Use Submodule.liftQ to descend the now-linear map.",
+        "The generator equation follows from liftQ. Surjectivity of mkQ gives uniqueness, and Submodule.Quotient.eq gives the comparison criterion for two D with the same parameter and differential.",
+        "The quotient field cannot be identified with a sheaf tensor of quotients by identifying global-section tensors. E1 supplies the actual quotient/base-change equivalence; exterior integrability requires its wedge compatibility and remains G5."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.mkQ",
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:Submodule.liftQ",
+        "mathlib:Submodule.Quotient.eq",
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection"
+      ],
+      "acceptance": [
+        "At t=0 it is the original linear field under the quotient-by-zero identification.",
+        "At t=1 both quotients are zero and the residue is zero; this is not the ordinary t=1 connection fiber.",
+        "For R=E=Q=Z, t=2 and D(e)=e tensor 1 with d=0, the residue is nonzero on the class of 1."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterResidue",
+        "namespace": "TauCeti.Hodge.ParameterConnection.H0"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ-H0",
+          "locator": "Definitions 3.5–3.6, printed pp.21–22; Remark 3.2, printed p.24",
+          "excerpt": "t∇",
+          "match": "The source forms a t-connection on a period lattice and identifies its zero fiber. The elementary module quotient construction here isolates the linear residue without claiming the period-sheaf, exterior-curvature or Tate identification. It is an authored affine deduction of the parameter Leibniz equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LZ17 Remark 3.2; routed PAPER-LIU-ZHU-17/H03",
+          "how": "Separates the actual zero-fiber linear map from the period lattice and Tate comparison."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/rees-specialization",
+          "how": "Provides the local quotient descent equation at the finite Rees zero fiber, while DD.1 owns the finite Rees carrier and its identifications."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/zero-fiber",
+          "how": "Relates specialization of a nonzero parameter to the zero-parameter field; the t=1 quotient is zero and must not be mistaken for evaluating the family at 1."
+        }
+      ],
+      "api": [
+        {
+          "name": "parameterResidue_mk",
+          "role": "simp",
+          "statement": "res_t(D)([e])=[D(e)] for the native module quotient projections."
+        },
+        {
+          "name": "parameterResidue_unique",
+          "role": "universal-property",
+          "statement": "Any R-linear map on E/tE satisfying the same generator equation is res_t(D)."
+        },
+        {
+          "name": "parameterResidue_eq_iff",
+          "role": "extensionality",
+          "statement": "For fixed t,d and D,D′ with the displayed Leibniz equations, res_t(D)=res_t(D′) iff D(e)−D′(e) lies in t(E tensor Q) for every e."
+        }
+      ],
+      "tests": [
+        {
+          "name": "H0.parameterResidue.test_zero_parameter",
+          "kind": "compatibility",
+          "statement": "At t=0, a native linear map D descends with exactly its generator values through the native zero-submodule quotients."
+        },
+        {
+          "name": "H0.parameterResidue.test_unit_parameter",
+          "kind": "degenerate",
+          "statement": "At t=1 the parameterResidue linear map is zero for every D satisfying the displayed equation."
+        },
+        {
+          "name": "H0.parameterResidue.test_nonzero_residue",
+          "kind": "computation",
+          "statement": "For Z, t=2, Q=E=Z, d=0 and D(e)=e tensor 1, the parameter residue is nonzero."
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "CrystallineCohomology:CR.1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/ordinary-fiber",
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection"
+      ],
+      "need": "Extend/export an ordinary integrable relative connection on any supplied commutative ringed differential site, with additive sheaf operator, exact section Leibniz equation, exterior extension and curvature; identify its lambda=1 maps with the parent carrier. The current CR.1/integrable-connection node covers affine differential quotients and the crystalline site, not this general site. Keep PD lifts and quasi-nilpotence only in crystal comparison theorems."
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0",
+        "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+        "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound",
+        "HodgeStructuresPartII:H.0/h0-parameter-residue"
+      ],
+      "need": "Supply underived tensor sheaves on the actual SheafOfModules carrier over a commutative ring sheaf, as sheafification of the presheaf tensor with its bilinear universal property; restriction-compatible tensor powers, dual/evaluation/coevaluation for finite locally free modules, symmetric/endomorphism/augmentation quotient sheaves, exterior powers and determinant lines with locally varying rank, pullback coherence, local equality detection and effective gluing. Include S tensor_R exteriorPower_R(n,Q) ≃ exteriorPower_S(n,S tensor_R Q), even for nonflat S and arbitrary Q, characterized on decomposable wedges; include the tensor-quotient comparison for res_t(D). Derived tensor is not substituted for these degree-zero operations."
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/griffiths-filtration",
+        "HodgeStructuresPartII:H.0/rees-parameter",
+        "HodgeStructuresPartII:H.0/rees-specialization",
+        "HodgeStructuresPartII:H.0/h0-parameter-residue"
+      ],
+      "need": "Export a bounded locally split subbundle filtration on an ordinary finite locally free sheaf, its finite Rees sheaf over O[t] and actual fibers at t=0, t=1 and t inverted, with tensor/quotient compatibility and local freeness. The enhanced filtered derived carrier and derived t-cofiber do not by themselves give this underived carrier. Also export the generic unbounded filtered-module/associated-graded change-of-base interfaces needed for the LZ period lattice, without asserting boundedness or local splitting there."
+    },
+    {
+      "supplier": "ShimuraData:D3",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/griffiths-filtration",
+        "HodgeStructuresPartII:H.0/graded-higgs"
+      ],
+      "need": "Export the ordinary underlying filtered flat bundle and Griffiths equation of the common variation carrier, with complex/real/integral distinctions explicit. H.0 owns only the algebraic filtered-to-Higgs operation; H.2 owns geometric variation comparisons, so no variation carrier is reconstructed in H.0."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HodgeStructuresPartII:H.0",
+      "status": "planned",
+      "remaining": [
+        "G1: CR.1/integrable-connection explicitly covers affine quotient differential modules and crystalline sheaves. An exact supplier identifying the additive operator and all exterior extensions on arbitrary supplied differential sites is still required. No crystalline quasi-nilpotence is inserted into LambdaBundle. The affine lambda=1 equations already in the parent do not discharge this global comparison.",
+        "G2: Transport the full linear-map shuffle equality and chartwise rank bounds through restriction-compatible sheaf tensor powers, their local bilinear generation and equality detection, then glue. Construct or import E1’s exact sheaf tensor/dual/exterior/determinant/symmetric-quotient interfaces and their pullback coherence. Presheaf tensorObj and the ordinary sheaf pullback are native, but a presheaf tensor object is not automatically a sheaf and tensoring global sections does not calculate sheaf tensor sections. All 36 parent omitted global signatures, their API and tests remain conditional on these actual carriers and G1/G3.",
+        "G3: DD.1 must give the finite locally split ordinary Rees module sheaf and the t=0, t=1 and t-inverted operator-compatible identifications, with finite locally free graded pieces and tensor/quotient coherence. Local weighted summands show the intended formulas, but the derived filtered/Rees equivalence does not alone supply those finite sheaf objects. res_t(D) isolates quotient linearity and does not supply any of these identifications.",
+        "G4: Use the E1 top exterior power on each constant-rank chart, construct its lambda-connection by the alternating sum of D, and glue via the determinant gauge theorem, using the exact ColemanPowerSeries:L1/derivation-determinant-unit node for integral Jacobi. Prove arbitrary ring-change exterior-power comparison on decomposable wedges and its horizontal operator/exterior compatibility; then compare with a specified determinant line L and its prescribed lambda-connection through a horizontal isomorphism det(E)≃L. Trace zero is a special fixed-trivial-determinant convention, never a generic Higgs field condition. The actual globally varying rank determinant and the specified-line horizontal isomorphism still lack native signatures.",
+        "G5: For the LZ ringed space X+ with O_X completed tensor B_dR+, its localized X with t inverted and a finite locally free lattice E+, retain the decreasing filtration in the localized bundle with t^i Fil^j=Fil^{i+j}, with negative i interpreted in the localized carrier. For a relative flat B_dR-linear Griffiths connection, t times the connection preserves the lattice and res_t(D) is its linear residue. Identify this actual quotient with the graded filtered symbol and Ω¹_X(-1), preserving semilinear Galois/Tate characters and exterior curvature. Generic filtered algebra is requested from DD.1 and actual sheaf quotient tensor from E1; period sheaves, t/Tate identification and the source RH functor are imported from the named p-adic consumer’s foundations, with no reverse dependency on its correspondence. Exact graded-base/Tate adapter signatures and integrability transport remain a gap, rather than an invented bounded filtration or a chosen trivial Tate character.",
+        "G6: On a cover with bounds N_i, local ordered iterates glue to one global exponent only when one uniform N dominates every N_i; a finite subcover gives max_i N_i. On an infinite disjoint union with Jordan blocks of sizes tending to infinity there is local nilpotence and no finite global bound. The new rank bound holds on each reduced free chart; a global max(1,r) requires a globally bounded rank. Nilpotence kernels are subsheaves, and without extra hypotheses are not subbundles. Nonflat base change need not commute with images of the symmetric action.",
+        "G7: The parent exact symmetric action imports the analytic instance of Heuer Definitions 1.2/2.1. Definition 4.1 additionally needs its actual coherent image algebra B_theta inside End(E), the canonical coefficient-valued section reconstructed using finite local duality, and restriction-compatible twisting by an invertible B_theta-module. Generic sheaf images and tensor operations stay E1 inputs; no coherence is deduced for an arbitrary ringed site. The p-adic spectral cover/Picard and twisting correspondence belong to PadicHodgeTheoryPartIIPadicSimpson, so H.0 exports the symmetric-action and coefficient-natural tensor data but does not depend on that consumer’s proof. Source-specific coherent/Tate comparison and nonflat image-change hypotheses remain explicit."
+      ],
+      "meaning": "All stage targets have a declaration plan, exact imported parent declaration or a named supplier/gap endpoint at target granularity. This does not assert an implemented carrier, an elaborated global signature, a closed proof or complete source correspondence."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "General-site ordinary-connection comparison",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/ordinary-fiber"
+      ],
+      "detail": "CR.1/integrable-connection explicitly covers affine quotient differential modules and crystalline sheaves. An exact supplier identifying the additive operator and all exterior extensions on arbitrary supplied differential sites is still required. No crystalline quasi-nilpotence is inserted into LambdaBundle. The affine lambda=1 equations already in the parent do not discharge this global comparison."
+    },
+    {
+      "id": "G2",
+      "title": "Native underived sheaf tensor, exterior and descent contract",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/local-descent",
+        "HodgeStructuresPartII:H.0/tensor-nilpotence",
+        "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+        "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound"
+      ],
+      "detail": "Transport the full linear-map shuffle equality and chartwise rank bounds through restriction-compatible sheaf tensor powers, their local bilinear generation and equality detection, then glue. Construct or import E1’s exact sheaf tensor/dual/exterior/determinant/symmetric-quotient interfaces and their pullback coherence. Presheaf tensorObj and the ordinary sheaf pullback are native, but a presheaf tensor object is not automatically a sheaf and tensoring global sections does not calculate sheaf tensor sections. All 36 parent omitted global signatures, their API and tests remain conditional on these actual carriers and G1/G3."
+    },
+    {
+      "id": "G3",
+      "title": "Finite split Griffiths–Rees sheaf contract",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/rees-parameter",
+        "HodgeStructuresPartII:H.0/rees-specialization"
+      ],
+      "detail": "DD.1 must give the finite locally split ordinary Rees module sheaf and the t=0, t=1 and t-inverted operator-compatible identifications, with finite locally free graded pieces and tensor/quotient coherence. Local weighted summands show the intended formulas, but the derived filtered/Rees equivalence does not alone supply those finite sheaf objects. res_t(D) isolates quotient linearity and does not supply any of these identifications."
+    },
+    {
+      "id": "G4",
+      "title": "Global determinant, specified determinant and universal wedge transport",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/determinant-coordinate",
+        "HodgeStructuresPartII:H.0/determinant-gauge",
+        "HodgeStructuresPartII:H.0/intrinsic-pullback"
+      ],
+      "detail": "Use the E1 top exterior power on each constant-rank chart, construct its lambda-connection by the alternating sum of D, and glue via the determinant gauge theorem, using the exact ColemanPowerSeries:L1/derivation-determinant-unit node for integral Jacobi. Prove arbitrary ring-change exterior-power comparison on decomposable wedges and its horizontal operator/exterior compatibility; then compare with a specified determinant line L and its prescribed lambda-connection through a horizontal isomorphism det(E)≃L. Trace zero is a special fixed-trivial-determinant convention, never a generic Higgs field condition. The actual globally varying rank determinant and the specified-line horizontal isomorphism still lack native signatures."
+    },
+    {
+      "id": "G5",
+      "title": "Unbounded period-lattice, graded-base and Tate identification",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/twisted-higgs",
+        "HodgeStructuresPartII:H.0/graded-higgs",
+        "HodgeStructuresPartII:H.0/h0-parameter-residue"
+      ],
+      "detail": "For the LZ ringed space X+ with O_X completed tensor B_dR+, its localized X with t inverted and a finite locally free lattice E+, retain the decreasing filtration in the localized bundle with t^i Fil^j=Fil^{i+j}, with negative i interpreted in the localized carrier. For a relative flat B_dR-linear Griffiths connection, t times the connection preserves the lattice and res_t(D) is its linear residue. Identify this actual quotient with the graded filtered symbol and Ω¹_X(-1), preserving semilinear Galois/Tate characters and exterior curvature. Generic filtered algebra is requested from DD.1 and actual sheaf quotient tensor from E1; period sheaves, t/Tate identification and the source RH functor are imported from the named p-adic consumer’s foundations, with no reverse dependency on its correspondence. Exact graded-base/Tate adapter signatures and integrability transport remain a gap, rather than an invented bounded filtration or a chosen trivial Tate character."
+    },
+    {
+      "id": "G6",
+      "title": "Sheaf nilpotence uniformity and locally varying rank",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/ordered-iterate",
+        "HodgeStructuresPartII:H.0/nilpotence-filtration",
+        "HodgeStructuresPartII:H.0/h0-field-rank-bound",
+        "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound"
+      ],
+      "detail": "On a cover with bounds N_i, local ordered iterates glue to one global exponent only when one uniform N dominates every N_i; a finite subcover gives max_i N_i. On an infinite disjoint union with Jordan blocks of sizes tending to infinity there is local nilpotence and no finite global bound. The new rank bound holds on each reduced free chart; a global max(1,r) requires a globally bounded rank. Nilpotence kernels are subsheaves, and without extra hypotheses are not subbundles. Nonflat base change need not commute with images of the symmetric action."
+    },
+    {
+      "id": "G7",
+      "title": "Spectral image and coefficient-equivariant consumer adapter",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/symmetric-action",
+        "HodgeStructuresPartII:H.0/twisted-higgs"
+      ],
+      "detail": "The parent exact symmetric action imports the analytic instance of Heuer Definitions 1.2/2.1. Definition 4.1 additionally needs its actual coherent image algebra B_theta inside End(E), the canonical coefficient-valued section reconstructed using finite local duality, and restriction-compatible twisting by an invertible B_theta-module. Generic sheaf images and tensor operations stay E1 inputs; no coherence is deduced for an arbitrary ringed site. The p-adic spectral cover/Picard and twisting correspondence belong to PadicHodgeTheoryPartIIPadicSimpson, so H.0 exports the symmetric-action and coefficient-natural tensor data but does not depend on that consumer’s proof. Source-specific coherent/Tate comparison and nonflat image-change hypotheses remain explicit."
+    }
+  ],
+  "sourceIssues": [],
+  "targetAccounting": [
+    {
+      "target": "Finite locally free lambda and Higgs carriers on a supplied differential site",
+      "nodes": [
+        "HodgeStructuresPartII:key/higgs-parameter-connections",
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:H.0/twisted-higgs"
+      ],
+      "gaps": [
+        "G1",
+        "G2"
+      ],
+      "note": "The accepted parent definitions, API and tests are imported, not repeated as new nodes."
+    },
+    {
+      "target": "Extended exterior differential, intrinsic curvature and integrability",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/extension-balancing",
+        "HodgeStructuresPartII:H.0/exterior-extension",
+        "HodgeStructuresPartII:H.0/intrinsic-curvature",
+        "HodgeStructuresPartII:H.0/curvature-linearity",
+        "HodgeStructuresPartII:H.0/flat-extension-square"
+      ],
+      "gaps": [
+        "G2"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Horizontal maps, unit, tensor, dual and pullback",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/connection-morphism",
+        "HodgeStructuresPartII:H.0/unit-connection",
+        "HodgeStructuresPartII:H.0/intrinsic-tensor",
+        "HodgeStructuresPartII:H.0/tensor-curvature",
+        "HodgeStructuresPartII:H.0/intrinsic-dual",
+        "HodgeStructuresPartII:H.0/dual-curvature",
+        "HodgeStructuresPartII:H.0/intrinsic-pullback",
+        "HodgeStructuresPartII:H.0/local-descent"
+      ],
+      "gaps": [
+        "G1",
+        "G2"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Coordinate, gauge, zero/one and invertible-parameter comparisons",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/coordinate-comparison",
+        "HodgeStructuresPartII:H.0/zero-fiber",
+        "HodgeStructuresPartII:H.0/ordinary-fiber",
+        "HodgeStructuresPartII:H.0/intrinsic-rescale",
+        "HodgeStructuresPartII:H.0/gauge-curvature"
+      ],
+      "gaps": [
+        "G1",
+        "G2"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Ordered tensors and nilpotence filtration; augmentation equivalence",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/ordered-iterate",
+        "HodgeStructuresPartII:H.0/nilpotence-filtration",
+        "HodgeStructuresPartII:H.0/nilpotence-equivalence",
+        "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
+        "HodgeStructuresPartII:H.0/truncated-symmetric-action"
+      ],
+      "gaps": [
+        "G2",
+        "G6"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Integral tensor bound with arbitrary coefficients",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+        "HodgeStructuresPartII:H.0/h0-ordered-shuffle-expansion",
+        "HodgeStructuresPartII:H.0/h0-shuffle-term-vanishing",
+        "HodgeStructuresPartII:H.0/h0-arbitrary-coefficient-tensor-bound",
+        "HodgeStructuresPartII:H.0/tensor-nilpotence"
+      ],
+      "gaps": [
+        "G2"
+      ],
+      "note": "All affine hypotheses and the genuine tensor-valued expansion are specified; global use retains sheaf comparison."
+    },
+    {
+      "target": "Dual and pullback specified nilpotence bounds",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/dual-nilpotence",
+        "HodgeStructuresPartII:H.0/pullback-nilpotence",
+        "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary",
+        "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful"
+      ],
+      "gaps": [
+        "G2"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Field/reduced finite-rank bounds and reduced line test",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/h0-field-rank-bound",
+        "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound",
+        "HodgeStructuresPartII:H.0/reduced-line-nilpotence"
+      ],
+      "gaps": [
+        "G2",
+        "G6"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Griffiths filtration, associated graded and finite Rees connection",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/griffiths-filtration",
+        "HodgeStructuresPartII:H.0/graded-higgs",
+        "HodgeStructuresPartII:H.0/graded-higgs-integrable",
+        "HodgeStructuresPartII:H.0/rees-parameter",
+        "HodgeStructuresPartII:H.0/rees-specialization",
+        "HodgeStructuresPartII:H.0/h0-parameter-residue"
+      ],
+      "gaps": [
+        "G2",
+        "G3"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Coordinate and global determinant, specified line and wedge pullback",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/determinant-coordinate",
+        "HodgeStructuresPartII:H.0/determinant-alternating-operator",
+        "HodgeStructuresPartII:H.0/determinant-gauge",
+        "HodgeStructuresPartII:H.0/determinant-flat",
+        "HodgeStructuresPartII:H.0/determinant-tensor"
+      ],
+      "gaps": [
+        "G2",
+        "G4"
+      ],
+      "note": ""
+    },
+    {
+      "target": "Universal cross-ring exterior-power comparison",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/intrinsic-pullback",
+        "HodgeStructuresPartII:H.0/affine-exterior-square"
+      ],
+      "gaps": [
+        "G2",
+        "G4"
+      ],
+      "note": "Generic carrier/comparison requested from E1; receiving-ring exterior transport in the parent does not supply this universal equivalence."
+    },
+    {
+      "target": "Tate twists, unbounded filtered period lattice and zero-fiber symbol",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/twisted-higgs",
+        "HodgeStructuresPartII:H.0/graded-higgs",
+        "HodgeStructuresPartII:H.0/h0-parameter-residue"
+      ],
+      "gaps": [
+        "G5"
+      ],
+      "note": "Exact period-lattice and graded-base adapter is a named gap with its formulas and supplier split, rather than an ordinary finite Rees identification."
+    },
+    {
+      "target": "Symmetric action and spectral image/coherence/twisting export",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/higgs-commuting",
+        "HodgeStructuresPartII:H.0/symmetric-action",
+        "HodgeStructuresPartII:H.0/affine-symmetric-action"
+      ],
+      "gaps": [
+        "G2",
+        "G7"
+      ],
+      "note": "Heuer’s analytic image algebra and Picard twist are source-specific consumer operations, not a generic finite locally free image theorem."
+    },
+    {
+      "target": "Native affine coordinate, scalar, tensor, monoidal pullback and dual coherence",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-ordered-base-change",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison",
+        "HodgeStructuresPartII:H.0/affine-tensor-base-change",
+        "HodgeStructuresPartII:H.0/monoidal-pullback-monoidal",
+        "HodgeStructuresPartII:H.0/affine-monoidal-comparison-braided",
+        "HodgeStructuresPartII:H.0/dual-coherence-comparison-tower",
+        "HodgeStructuresPartII:H.0/dual-three-step-tripleequiv-coherence"
+      ],
+      "gaps": [
+        "G2",
+        "G4"
+      ],
+      "note": "All other accepted affine API nodes remain available from the parent packet; no generic tensor or category is recreated."
+    }
+  ],
+  "routeAccounting": [
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/8",
+      "name": "Rank bound for sub-local systems of the first higher direct image of a unitary local system",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/29",
+      "name": "Polarizable complex variation of Hodge structure",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/30",
+      "name": "Admissible graded-polarizable variation of mixed Hodge structure",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/31",
+      "name": "Deligne canonical extension of a flat bundle with regular singularities",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/32",
+      "name": "The variation of mixed Hodge structure on the first cohomology of a unitary local system",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/33",
+      "name": "The three-piece bigrading on the cohomology of a unitary local system",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/34",
+      "name": "Theorem of the fixed part for admissible graded-polarizable variations",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/35",
+      "name": "The real form L̃ of a complex local system",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/36",
+      "name": "A variant of the theorem of the fixed part for irreducible local systems",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/37",
+      "name": "Mochizuki's deformation of a representation to a complex variation of Hodge structure",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/38",
+      "name": "Cohomologically rigid semisimple representations underlie complex variations of Hodge structure",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/39",
+      "name": "The analytic setting for the period map, and Hodge–de Rham degeneration for unitary coefficients",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/40",
+      "name": "The period map of the first cohomology of a unitary local system",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/41",
+      "name": "The derivative of the period map and the classifying map of the family",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/42",
+      "name": "The Gauss–Manin composite ∇ : F¹H → H/F¹H ⊗ Ω¹_B",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/43",
+      "name": "The derivative of the period map is multiplication of global sections followed by the trace",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/44",
+      "name": "The bilinear pairing B_E on a vector bundle over a pointed curve",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/45",
+      "name": "Parabolic bundles, parabolic degree, slope and semistability",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/46",
+      "name": "The Mehta–Seshadri correspondence",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/47",
+      "name": "Low rank of the pairing forces high rank of the bundle",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/48",
+      "name": "The parabolic Clifford-type estimate",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/49",
+      "name": "A low-rank sub-local system produces a vector with degenerate Gauss–Manin derivative",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/50",
+      "name": "Vanishing of global sections of the first higher direct image with Artinian coefficients",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/58",
+      "name": "Cohomological rigidity and strong cohomological rigidity",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/59",
+      "name": "Strong cohomological rigidity implies cohomological rigidity",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/60",
+      "name": "Low-rank local systems with irreducible unitary fibres are strongly cohomologically rigid",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/61",
+      "name": "Integral representations and local systems",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/63",
+      "name": "Integrality of cohomologically rigid local systems",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/72",
+      "name": "Low-rank complex variations of Hodge structure on a very general curve are unitary",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/73",
+      "name": "Representations into GL_r of a ring of integers that are unitary at every place have finite image",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/79",
+      "name": "Local systems of geometric origin",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/88",
+      "name": "The Gauss–Manin composite is the adjoint derivative of the period map",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/89",
+      "name": "Logarithmic Dolbeault complexes and the interior product",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/90",
+      "name": "A C^∞ formula for the Gauss–Manin connection",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/91",
+      "name": "The logarithmic Kodaira–Spencer map",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/92",
+      "name": "The derivative of the period map as a cup product with the Kodaira–Spencer class",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/93",
+      "name": "Serre-duality compatibility of the cup product with the multiplication map",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/118",
+      "name": "Semisimplicity and isotypic decomposition of polarizable variations of Hodge structure",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/119",
+      "name": "Mixed Hodge structures on cohomology of unitary local systems and admissibility of their variations",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/120",
+      "name": "Logarithmic de Rham comparison for the Deligne canonical extension",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/121",
+      "name": "Parabolic bundle of a logarithmic flat bundle; semistability for unitary local systems",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/122",
+      "name": "Parabolic dual and twist; computation of \\widehat{(E_⋆)^∨ ⊗ ω_C(D)}_0",
+      "stage": "HodgeStructuresPartII:H.4",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/123",
+      "name": "Kodaira–Spencer identification of the cotangent space of M_{g,n}",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/136",
+      "name": "Fibrewise holomorphic sections extend smoothly in families",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/137",
+      "name": "Integral PVHS of low rank on an analytically very general curve have finite monodromy",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LANDESMAN-LITT-24/138",
+      "name": "Local systems of geometric origin underlie integral polarizable variations of Hodge structure",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-GAO-HABEGGER-19/26",
+      "name": "Ehresmann trivialization with analytic fibres and holomorphic periods",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-GAO-HABEGGER-19/36",
+      "name": "Deligne: semisimplicity of monodromy and the Theorem of the Fixed Part",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-GAO-HABEGGER-19/42",
+      "name": "Extendable points and Lemma 5.7 (Zarhin)",
+      "stage": "HodgeStructuresPartII:H.2",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-HEUER-25/3",
+      "name": "Higgs bundles on a smooth rigid space",
+      "stage": "HodgeStructuresPartII:H.0",
+      "status": "conditional_h0_plan",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/twisted-higgs",
+        "HodgeStructuresPartII:H.0/higgs-commuting",
+        "HodgeStructuresPartII:H.0/symmetric-action"
+      ],
+      "note": "Published Higgs/Tate definitions read; parent generic carrier and symmetric action suffice conditionally on G2/G7. The spectral image and twisting paragraphs retain G7."
+    },
+    {
+      "item": "PAPER-QIAN-23/101",
+      "name": "Residue of the Gauss–Manin connection and monodromy for a log smooth degeneration over a disc",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-period-domain",
+      "name": "Complex period domain and compact dual",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-datum",
+      "name": "Connected Hodge datum and canonical compact",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-manifold",
+      "name": "Arithmetic Hodge manifold with canonical tame structure",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-map",
+      "name": "Period map of an integral variation",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-morphism-compatible",
+      "name": "Hodge morphisms preserve the canonical compact data",
+      "stage": "HodgeStructuresPartII:H.3",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/snc-buffered-cover",
+      "name": "Finite buffered charts near a normal-crossing boundary",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/quasi-unipotent-monodromy",
+      "name": "Quasi-unipotence of local monodromy",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-logarithms",
+      "name": "Commuting nilpotent logarithms",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-orbit",
+      "name": "Nilpotent orbit and untwisted period map",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-extension",
+      "name": "Holomorphic extension of the untwisted map",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/bounded-sector",
+      "name": "Bounded-real-part sector and ordered sector",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-lift-definable",
+      "name": "Definability of the lifted local period map",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-weight-filtration",
+      "name": "Centered monodromy weight filtration",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-cone-weights",
+      "name": "Constancy of monodromy weights on cone interiors",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/limiting-mixed-hodge",
+      "name": "Limiting mixed Hodge structure",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/simultaneous-splitting",
+      "name": "Splittings adapted to all monodromy faces",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/distributive-weight-family",
+      "name": "Distributivity needed for simultaneous splittings",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-norm-asymptotic",
+      "name": "Asymptotic norm of a nonzero split flat vector",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/twisted-norm-asymptotic",
+      "name": "Asymptotic norm of a nilpotently twisted vector",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/negative-lie-chart",
+      "name": "Holomorphic negative-Lie lift of the untwisted map",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/horizontal-perturbation",
+      "name": "Triangular form of the horizontal perturbation",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/perturbed-norm-comparison",
+      "name": "Comparison with the nilpotent-orbit frame",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-adapted-flag",
+      "name": "Flag adapted to the Hodge filtration",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/indefinite-gram-minors",
+      "name": "Nonvanishing of the adapted Gram minors",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/gram-determinant-ratios",
+      "name": "Gram determinant and projection identities",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-entry-rationality",
+      "name": "Rational expression for all Hodge matrix entries",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-flat-norm-rough-monomial",
+      "name": "Rough monomial norm on a simultaneous Hodge-weight piece",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-moving-norm-rough-monomial",
+      "name": "Rough monomial norm of the transported vector",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-entry-rough-polynomial",
+      "name": "Rough polynomial pairing of split vectors",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/all-entries-rough-polynomial",
+      "name": "Rough polynomial Hodge form",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-weight-bound",
+      "name": "Bounded product of adapted diagonal norms",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/one-variable-siegel",
+      "name": "One-variable period lift lies in a Siegel set",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/faithful-hodge-representation",
+      "name": "Faithful representation compatible with the Hodge compact",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/curvewise-reducedness",
+      "name": "Reducedness along each rational-slope curve",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/uniform-reducedness",
+      "name": "Uniform reducedness up to finitely many basis permutations",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-finite-siegel-cover",
+      "name": "Finite Siegel containment for a local period lift",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/local-period-definability",
+      "name": "Definability on a smaller punctured polydisk",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/global-period-definability",
+      "name": "Definability of the global period map",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-hodge-subvariety",
+      "name": "Proper special Hodge subvarieties",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-analytic",
+      "name": "Closed analytic images of Hodge morphisms",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-definable",
+      "name": "Definability of each special Hodge subvariety",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rational-hodge-countability",
+      "name": "Countable supply of exceptional Hodge subdata",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-pullback-algebraic",
+      "name": "Algebraicity of each special-locus pullback",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-algebraicity",
+      "name": "Algebraicity of the exceptional Hodge locus",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-target-analytic-definability",
+      "name": "Restricted-analytic definability for a compact Hodge target",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/generic-mumford-tate-group",
+      "name": "Generic Mumford–Tate group and Mumford–Tate domain of a variation",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus",
+      "name": "Exceptional Hodge tensors and the Hodge locus HL(S, V)",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-analytic",
+      "name": "The Hodge locus is a countable union of analytic subvarieties (special subvarieties of S)",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-strip-uniformization",
+      "name": "Uniformizing strip S_H and lifted period map",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-function",
+      "name": "Hodge-form functions h(u,v) on Σ_n",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/composite-quotient-definable",
+      "name": "Definability of π∘Φ̃ on S_H^n and of Φ on p(S_H^n)",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/kashiwara-splitting-independent-estimates",
+      "name": "Norm estimates are independent of the adapted splitting (Kashiwara)",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/finite-cover-descent",
+      "name": "Definability descends through the coordinate-power cover",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/holomorphic-map-to-arithmetic-variety-is-period-map",
+      "name": "Holomorphic maps to arithmetic varieties are period maps",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-variety-hodge-locus",
+      "name": "Hodge locus of a connected Hodge variety",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-preimage",
+      "name": "The Hodge locus of S is the preimage of the Hodge locus of the Hodge variety",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-map",
+      "name": "Hodge-form map to the space of positive definite forms",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/transversality-in-lift-coordinates",
+      "name": "Griffiths transversality for the lift γ = e^{z·N}e^{v(t)}",
+      "stage": "HodgeStructuresPartII:H.7",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-logarithms-type-minus-one",
+      "name": "Monodromy logarithms are (−1,−1)-morphisms of the limiting MHS",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/centralizer-preserves-weight-filtration",
+      "name": "Endomorphisms commuting with N preserve W(N)",
+      "stage": "HodgeStructuresPartII:H.6",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/37",
+      "name": "Voisin open-cone theorem for the kernel",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/38",
+      "name": "Lattice coset meets an open cone",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/70",
+      "name": "Kodaira–Spencer contraction map",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/88",
+      "name": "Real infinitesimal open-cone criterion",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/130",
+      "name": "Real structure and Noether–Lefschetz locus on a weight-two variation",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/131",
+      "name": "Kodaira–Spencer and normal-boundary factorization",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/132",
+      "name": "Real Green locus density",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/133",
+      "name": "Integral weak Lefschetz input",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/134",
+      "name": "Affine complex-surface vanishing input",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-BENOIST-19/193",
+      "name": "Griffiths derivative of a Hodge class",
+      "stage": "HodgeStructuresPartII:H.8",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/001",
+      "name": "Rigid stable connection with fixed determinant",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/002",
+      "name": "Cohomological rigidity",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/003",
+      "name": "Stable Betti, de Rham and Dolbeault moduli",
+      "stage": "HodgeStructuresPartII:H.1",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/004",
+      "name": "Integrable Higgs bundle",
+      "stage": "HodgeStructuresPartII:H.0",
+      "status": "conditional_h0_plan",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/zero-fiber",
+        "HodgeStructuresPartII:H.0/twisted-higgs"
+      ],
+      "note": "Author §2.1 Higgs definition read. Published-locator counterpart remains inherited provenance, not a fresh edition collation."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/006",
+      "name": "Simpson correspondence in the projective component",
+      "stage": "HodgeStructuresPartII:H.1",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/007",
+      "name": "Riemann–Hilbert comparison",
+      "stage": "HodgeStructuresPartII:H.1",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/008",
+      "name": "Rigid Higgs fields are nilpotent",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/048",
+      "name": "Smooth arithmetic model",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/049",
+      "name": "Relative rigid locus",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/050",
+      "name": "Simultaneous spreading of rigid objects",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/051",
+      "name": "Nilpotent and relatively rigid models",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/052",
+      "name": "Rigid loci exhausted by spread sections",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/061",
+      "name": "Integrable lambda-connection",
+      "stage": "HodgeStructuresPartII:H.0",
+      "status": "conditional_h0_plan",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:key/higgs-parameter-connections",
+        "HodgeStructuresPartII:H.0/zero-fiber",
+        "HodgeStructuresPartII:H.0/ordinary-fiber"
+      ],
+      "note": "Author §4.2 parameter equation read; relative constancy is this roadmap’s explicitly stronger hypothesis. Ordinary comparison keeps G1."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/062",
+      "name": "Hodge moduli and its rigid locus",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/063",
+      "name": "Rigid Hodge family splits over A1",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/064",
+      "name": "Rigid connections underlie complex variations",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/065",
+      "name": "Nice Hodge models for the determinant orbit",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/089",
+      "name": "Absolute irreducibility and projective rigidity",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/103",
+      "name": "Zero Kodaira–Spencer field means unitary monodromy",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/105",
+      "name": "Integral versus strongly integral monodromy",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/106",
+      "name": "Strong integrality plus unitarity gives finite image",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/107",
+      "name": "Integral unitary representation of infinite image",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/119",
+      "name": "Cohomologically rigid SL3 is motivic",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/121",
+      "name": "No symmetric differentials implies finite monodromy",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/135",
+      "name": "Integrality of cohomologically rigid connections",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-ESNAULT-GROECHENIG-20/136",
+      "name": "Geometric origin of a flat connection",
+      "stage": "HodgeStructuresPartII:H.5",
+      "status": "outside_scope",
+      "nodes": [],
+      "note": "Existing successor stage owns this source-specific geometry; H.0 supplies only its generic connection/Higgs algebra."
+    },
+    {
+      "item": "PAPER-LIU-ZHU-17/H02",
+      "name": "Twisted nilpotent Higgs bundles",
+      "stage": "HodgeStructuresPartII:H.0",
+      "status": "conditional_h0_plan",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/twisted-higgs",
+        "HodgeStructuresPartII:H.0/ordered-iterate",
+        "HodgeStructuresPartII:H.0/nilpotence-filtration",
+        "HodgeStructuresPartII:H.0/h0-arbitrary-coefficient-tensor-bound",
+        "HodgeStructuresPartII:H.0/h0-field-rank-bound",
+        "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound"
+      ],
+      "note": "Theorem2.1 motivates the shared twisted algebra; this route does not transfer the p-adic correspondence or the source proof of nilpotence to H.0."
+    },
+    {
+      "item": "PAPER-LIU-ZHU-17/H03",
+      "name": "Filtered and parameter connections",
+      "stage": "HodgeStructuresPartII:H.0",
+      "status": "conditional_h0_plan",
+      "nodes": [
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "HodgeStructuresPartII:H.0/intrinsic-rescale",
+        "HodgeStructuresPartII:H.0/griffiths-filtration",
+        "HodgeStructuresPartII:H.0/graded-higgs",
+        "HodgeStructuresPartII:H.0/rees-parameter",
+        "HodgeStructuresPartII:H.0/h0-parameter-residue"
+      ],
+      "note": "Definitions3.5–3.6 and Remark3.2 read; bounded Griffiths algebra and linear residue are planned, unbounded period/Tate adapter is G5."
+    }
+  ],
+  "libraryAudit": {
+    "read": "Fresh full reviewed HodgeStructures L0–L3 rows, E1 and D3 target/evidence/duplication rows in data/library-coverage.json; no dedicated HodgeStructuresPartII, CR.1 or DD.1 reviewed row exists.",
+    "reviews": [
+      "AUDIT-02",
+      "AUDIT-10",
+      "AUDIT-22"
+    ],
+    "supplierPackets": [
+      "CrystallineCohomology--CR.0.json: CR.1/integrable-connection, affine and crystalline statements; review needs_changes",
+      "EnhancedDerivedSheaves--E0.json: E1/presentability-and-derived-tensor; review needs_changes",
+      "DerivedDeRhamCohomology.json: DD.1 filtered-modules and rees-description; review needs_changes"
+    ],
+    "search": "Bounded exact-pin Tau Ceti Geometry/LinearAlgebra/RingTheory and Mathlib LinearAlgebra/ModuleCat searches found no Higgs, parameter-connection or ordered-shuffle implementation. Read TauCeti.Hodge.HodgeStructureOn at the Tau Ceti pin: the fibrewise Hodge carrier is existing work. Existing tensor, indexed tensor, basis, quotient and nilradical declarations are baseline, never new nodes. Open Mathlib PR search for Higgs returned no matches; an indexed Zulip search for Higgs tensor nilpotent shuffle returned no relevant result. These are bounded searches, not a universal absence proof.",
+    "upstreamDocuments": [
+      "content/tau-ceti/HodgeStructures/README.md",
+      "content/tau-ceti/AdicSpaces/README.md"
+    ],
+    "links": "All research/blueprint/links/*.json searched; none names HodgeStructuresPartII. Read the new roadmap stage requires and the accepted eight joining briefs. Do not add a reverse dependency on a p-adic correspondence consumer."
+  },
+  "importedPlan": {
+    "packet": "research/blueprint/packets/HodgeStructuresPartII.json",
+    "acceptedReview": "REV-DESIGN-HodgeStructuresPartII",
+    "nodesTotal": 569,
+    "omittedGlobalSignatures": [
+      "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+      "HodgeStructuresPartII:H.0/extension-balancing",
+      "HodgeStructuresPartII:H.0/exterior-extension",
+      "HodgeStructuresPartII:H.0/intrinsic-curvature",
+      "HodgeStructuresPartII:H.0/curvature-linearity",
+      "HodgeStructuresPartII:H.0/flat-extension-square",
+      "HodgeStructuresPartII:key/higgs-parameter-connections",
+      "HodgeStructuresPartII:H.0/connection-morphism",
+      "HodgeStructuresPartII:H.0/unit-connection",
+      "HodgeStructuresPartII:H.0/zero-fiber",
+      "HodgeStructuresPartII:H.0/ordinary-fiber",
+      "HodgeStructuresPartII:H.0/tensor-balancing",
+      "HodgeStructuresPartII:H.0/intrinsic-tensor",
+      "HodgeStructuresPartII:H.0/tensor-curvature",
+      "HodgeStructuresPartII:H.0/intrinsic-dual",
+      "HodgeStructuresPartII:H.0/dual-curvature",
+      "HodgeStructuresPartII:H.0/intrinsic-pullback",
+      "HodgeStructuresPartII:H.0/local-descent",
+      "HodgeStructuresPartII:H.0/coordinate-comparison",
+      "HodgeStructuresPartII:H.0/intrinsic-rescale",
+      "HodgeStructuresPartII:H.0/twisted-higgs",
+      "HodgeStructuresPartII:H.0/higgs-commuting",
+      "HodgeStructuresPartII:H.0/symmetric-action",
+      "HodgeStructuresPartII:H.0/ordered-iterate",
+      "HodgeStructuresPartII:H.0/nilpotence-filtration",
+      "HodgeStructuresPartII:H.0/nilpotence-equivalence",
+      "HodgeStructuresPartII:H.0/tensor-nilpotence",
+      "HodgeStructuresPartII:H.0/dual-nilpotence",
+      "HodgeStructuresPartII:H.0/pullback-nilpotence",
+      "HodgeStructuresPartII:H.0/reduced-line-nilpotence",
+      "HodgeStructuresPartII:H.0/griffiths-filtration",
+      "HodgeStructuresPartII:H.0/graded-higgs",
+      "HodgeStructuresPartII:H.0/graded-higgs-integrable",
+      "HodgeStructuresPartII:H.0/rees-parameter",
+      "HodgeStructuresPartII:H.0/rees-specialization",
+      "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence"
+    ],
+    "planets": [
+      {
+        "node": "HodgeStructuresPartII:H.0/joint-nilpotence",
+        "name": "Joint Higgs nilpotence"
+      },
+      {
+        "node": "HodgeStructuresPartII:key/higgs-parameter-connections",
+        "name": "Higgs and λ-connections"
+      },
+      {
+        "node": "HodgeStructuresPartII:H.0/twisted-higgs",
+        "name": "Twisted Higgs bundles"
+      },
+      {
+        "node": "HodgeStructuresPartII:H.0/griffiths-filtration",
+        "name": "Griffiths filtrations"
+      },
+      {
+        "node": "HodgeStructuresPartII:H.0/graded-higgs",
+        "name": "Graded Higgs field"
+      },
+      {
+        "node": "HodgeStructuresPartII:H.0/rees-parameter",
+        "name": "Rees parameter connection"
+      }
+    ],
+    "note": "All imported declarations retain their original IDs, statements, API and tests in the parent. This part adds no planet: the existing six H.0 planets already display its key source objects."
+  },
+  "upstreamNotes": [],
+  "restructure": [],
+  "verification": {
+    "worker": "Codex — codex-RILLLp",
+    "date": "2026-10-07",
+    "issue": 6937,
+    "planningPass": "Complete at target level under PROTOCOL sections 0 and 3; seven precise gaps are endpoints, not claims of proof closure.",
+    "compilation": "Final exact suggested file elaborated with lean-check at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: exit 0; 35 admission warnings, no other warnings or errors. SHA-256 30b6c6b8289a250a164f355203fe714ca33945c3f07496d76b5f7a22b309e4ca. Types and admitted examples only; no proof implementation or omitted global signature claim.",
+    "implementation": "Every node is unchecked. Only suggested native signatures and admitted acceptance examples are supplied.",
+    "sourceScope": "Five exact routed H.0 items examined at their relevant passages; all 149 accepted routed extraction items assigned a scope decision. No sibling H.1–H.8 theorem or whole-paper reading is claimed.",
+    "checks": "check_blueprint: zero errors, zero warnings. Integrity: seven unused parent IDs; all API/test names in reader and Lean; fourteen target groups resolve; 149 unique route dispositions (five H.0); 36 exact parent omissions; reachable imported/new declaration graph acyclic (34 nodes). Submission file and whitespace checks pass."
+  }
+}
