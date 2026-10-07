@@ -317,9 +317,9 @@ theorem idealEta_map (f : R) (C D : CochainComplex (ModuleCat.{u} R) ℤ)
 example (C : CochainComplex (ModuleCat.{u} R) ℤ)
     (hC : ∀ i : ℤ, Function.Injective (fun x : C.X i => (1 : R) • x)) :
     Nonempty (idealEta 1 C hC ≅ C) := by sorry
--- ideal_overlap: the degree -1 transition is u^(-1), with correct composition.
-example (u v : Rˣ) : ((u * v) ^ (-1 : ℤ)).val =
-    (v ^ (-1 : ℤ)).val * (u ^ (-1 : ℤ)).val := by sorry
+-- ideal_overlap: the degree i transition is u^(-i); at i=-1 it is u.
+example (u v : Rˣ) (i : ℤ) : ((u * v) ^ (-i)).val =
+    (v ^ (-i)).val * (u ^ (-i)).val := by sorry
 -- ideal_two_term
 example (f : R) (hf : Function.Injective (fun x : R => f * x)) :
     Nonempty (idealEta f (twoTermAt 0 (f^2))
@@ -501,6 +501,31 @@ example (f : R) (hf : Function.Injective (fun x : R => f*x)) :
 
 end TauCeti.Decalage
 
+namespace TauCeti.AInfPlan
+variable {A : Type u} [CommRing A]
+
+/-- Packet name for the affine normalized form of the ideal cohomology theorem.
+Omitted: ringed-topos descent and the I^tensor i line factors; the chosen
+principal generator trivializes them here. -/
+theorem decalage_cohomology (f : A) (C : CochainComplex (ModuleCat.{u} A) ℤ)
+    (hC : ∀ i : ℤ, Function.Injective (fun x : C.X i => f • x)) (i : ℤ) :
+    Nonempty ((TauCeti.Decalage.etaComplex f C hC).homology i ≅ ModuleCat.of A
+      ((C.homology i) ⧸ LinearMap.ker
+        (f • (LinearMap.id : (C.homology i) →ₗ[A] (C.homology i))))) := by sorry
+
+/-- BMS1 Proposition 6.12 on a termwise f-torsion-free representative.
+The two-term flat resolution of A/f computes derived reduction; no K-flatness
+of C is required. Omitted: ringed-topos descent and invertible-ideal line factors.
+The target retains its Bockstein differential. -/
+theorem bockstein_reduction (f : A) (C : CochainComplex (ModuleCat.{u} A) ℤ)
+    (hf : Function.Injective (fun x : A => f * x))
+    (hC : ∀ i : ℤ, Function.Injective (fun x : C.X i => f • x))
+    [HasDerivedCategory (ModuleCat.{u} A)] :
+    Nonempty (DerivedCategory.Q.obj
+      (TauCeti.Decalage.modComplex f (TauCeti.Decalage.etaComplex f C hC)) ≅
+      DerivedCategory.Q.obj (TauCeti.Decalage.bockstein f C)) := by sorry
+end TauCeti.AInfPlan
+
 namespace TauCeti.AInf
 variable {A O S k : Type u} [CommRing A] [CommRing O] [CommRing S] [CommRing k]
 
@@ -606,11 +631,21 @@ theorem thetaWitt_R (p r : ℕ) [Fact p.Prime] (theta : A →+* O) (phi : A ≃+
       TruncatedWittVector.truncate (Nat.le_succ r) (shiftedWitt p (r+1) theta phi x) =
         shiftedWitt p r theta phi (phi.symm x) := by sorry
 
+/-- BMS1 Lemma 3.4: lambda lifts V(1); p is not such a lift over O_C.
+Omitted: the shared perfectoid finite Witt maps and r ≥ 1. -/
 theorem thetaWitt_V (p r : ℕ) [Fact p.Prime] (theta : A →+* O) (phi : A ≃+* A)
-    (x : A) : finiteV p r (thetaWitt p r theta phi x) =
-      thetaWitt p (r+1) theta phi ((p : A) * phi.symm x) ∧
+    (lambda x : A)
+    (hLift : thetaWitt p (r+1) theta phi lambda = finiteV p r 1) :
+    finiteV p r (thetaWitt p r theta phi x) =
+      thetaWitt p (r+1) theta phi (lambda * phi.symm x) ∧
       finiteV p r (shiftedWitt p r theta phi x) =
-        shiftedWitt p (r+1) theta phi ((p : A) * x) := by sorry
+        shiftedWitt p (r+1) theta phi ((phi ^ (r+1)) lambda * x) := by sorry
+
+-- TauCeti.AInf.thetaWitt_test_VnotP: first Witt coordinate detects the error.
+example (p : ℕ) [Fact p.Prime] [CharZero O] :
+    (finiteV p 1 (1 : TruncatedWittVector p 1 O)).coeff ⟨0, by decide⟩ = 0 ∧
+      ((p : TruncatedWittVector p 2 O).coeff ⟨0, by decide⟩ = (p : O)) ∧
+      finiteV p 1 (1 : TruncatedWittVector p 1 O) ≠ (p : TruncatedWittVector p 2 O) := by sorry
 
 -- TauCeti.AInf.thetaWitt_test_r1
 example (p : ℕ) [Fact p.Prime] (theta : A →+* O) (phi : A ≃+* A) (x : A) :
@@ -635,6 +670,13 @@ theorem xiWitt_recursion (phi : A ≃+* A) (xi : A) (r : ℕ) :
 
 theorem xiWitt_tilde_recursion (phi : A ≃+* A) (xi : A) (r : ℕ) :
     shiftedXi phi xi (r+1) = shiftedXi phi xi r * (phi ^ (r+1)) xi := by sorry
+
+/-- Regularity here is algebraic; the primitive Fontaine kernel supplier
+provides hxi for every integral perfectoid base, not just O_C. -/
+theorem xiWitt_regular (phi : A ≃+* A) (xi : A) (r : ℕ)
+    (hxi : Function.Injective (fun x : A => xi * x)) :
+    Function.Injective (fun x : A => xiWitt phi xi r * x) ∧
+      Function.Injective (fun x : A => shiftedXi phi xi r * x) := by sorry
 
 /-- Omitted: the shared Fontaine kernel and perfectoid hypotheses. -/
 theorem xiWitt_ker_theta (p r : ℕ) [Fact p.Prime] (theta : A →+* O)
@@ -788,6 +830,20 @@ def twist (p : ℕ) (phi : A ≃+* A) (xi : A) (n : ℤ) : Module p phi xi := by
 theorem Module_twist (p : ℕ) (phi : A ≃+* A) (xi : A) (n : ℤ) :
     Nonempty ((twist p phi xi n).M ≅ TauCeti.AInf.bkTwist n) := by sorry
 
+/-- Coordinates induced by the conormal basis and its Frobenius pullback.
+Omitted: the intrinsic Fontaine line and compatible cyclotomic normalization. -/
+private def twistSourceCoord (p : ℕ) (phi : A ≃+* A) (xi : A) :
+    LocalizedModule (Submonoid.powers (phi xi)) (phiPull phi (twist p phi xi 1).M)
+      ≃ₗ[Localization.Away (phi xi)] Localization.Away (phi xi) := by sorry
+private def twistTargetCoord (p : ℕ) (phi : A ≃+* A) (xi : A) :
+    LocalizedModule (Submonoid.powers (phi xi)) (twist p phi xi 1).M
+      ≃ₗ[Localization.Away (phi xi)] Localization.Away (phi xi) := by sorry
+
+theorem Module_twist_frobenius (p : ℕ) (phi : A ≃+* A) (xi : A) :
+    twistTargetCoord p phi xi
+      ((twist p phi xi 1).frobenius ((twistSourceCoord p phi xi).symm 1)) =
+        IsLocalization.Away.invSelf (phi xi) := by sorry
+
 /-- Omitted: eligible perfectoid coefficient change, transported Frobenius,
 primitive kernel and the Tor/finite-free checks. -/
 theorem Module_base_change {A' : Type u} [CommRing A'] (p : ℕ)
@@ -795,13 +851,12 @@ theorem Module_base_change {A' : Type u} [CommRing A'] (p : ℕ)
     (M : Module p phi xi) : ∃ N : Module p phi' (f xi),
       Nonempty (N.M ≅ (ModuleCat.extendScalars f).obj M.M) := by sorry
 
--- TauCeti.BKF.Module_test_unit
-example (p : ℕ) (phi : A ≃+* A) (xi : A) :
-    _root_.Module.Free A (unit p phi xi).M := by sorry
 -- TauCeti.BKF.Module_test_twist: the Frobenius factor is tilde-xi^-1, not 1.
--- Omitted: semilinear localization of the basis and the continuous Tate action.
-example (p : ℕ) (phi : A ≃+* A) (xi : A) :
-    Nonempty ((twist p phi xi 1).M ≅ TauCeti.AInf.bkTwist 1) := by sorry
+-- Continuous Tate action is omitted; the available algebraic factor is tested.
+example (p : ℕ) (phi : A ≃+* A) (xi : A)
+    (h : IsLocalization.Away.invSelf (phi xi) ≠ (1 : Localization.Away (phi xi))) :
+    twistTargetCoord p phi xi
+      ((twist p phi xi 1).frobenius ((twistSourceCoord p phi xi).symm 1)) ≠ 1 := by sorry
 -- TauCeti.BKF.Module_test_torsion: allowed BKF torsion object, outside free class.
 -- Omitted: A is the mixed-characteristic A_inf base (p,xi regular).
 example (p : ℕ) (phi : A ≃+* A) (xi : A) :
@@ -876,8 +931,11 @@ theorem LatticePair_bounds (xi : Bp) (P : LatticePair (Z := Z) (Bp := Bp) (B := 
 example : ∃ P : LatticePair (Z := Z) (Bp := Bp) (B := B),
     Nonempty (P.T ≅ ModuleCat.of Z (Fin 0 → Z)) ∧ P.Xi = ⊥ := by sorry
 -- TauCeti.BKF.LatticePair_test_shift; omitted DVR/fraction-field hypotheses.
-example (xi : Bp) : ∃ P : LatticePair (Z := Z) (Bp := Bp) (B := B),
-    ∃ e : P.T ≅ ModuleCat.of Z Z, P.Xi ≠ standardLattice P.T := by sorry
+example (xi : Bp) (hxi : ¬ IsUnit xi) (hzero : algebraMap Bp B xi ≠ 0) :
+    ∃ P : LatticePair (Z := Z) (Bp := Bp) (B := B),
+    ∃ e : P.T ≅ ModuleCat.of Z Z,
+      P.Xi = scaleLattice P.T ((algebraMap Bp B xi)^(-1 : ℤ)) (standardLattice P.T) ∧
+        P.Xi ≠ standardLattice P.T := by sorry
 -- TauCeti.BKF.LatticePair_test_nospan
 example [Nontrivial Z] :
     Submodule.span B ((⊥ : Submodule Bp (TensorProduct Z B Z)).carrier) ≠ ⊤ := by sorry
@@ -903,6 +961,13 @@ theorem etale_finite (p : ℕ) (phi : A ≃+* A) (xi : A) (M : Module p phi xi) 
 theorem etale_descent (p : ℕ) (phi : A ≃+* A) (xi : A) (M : Module p phi xi) :
     Nonempty (TensorProduct Z W (etale (Z := Z) (W := W) p phi xi M) ≃ₗ[W]
       TensorProduct A W M.M) := by sorry
+
+/-- BMS1 Lemma 4.26, the mu-inverted equality in the common Witt extension.
+Omitted: the common A_inf/W(C^flat) embeddings and cyclotomic mu. -/
+theorem etale_mu_comparison [Algebra Z A] (p : ℕ) (phi : A ≃+* A) (xi mu : A)
+    (M : Module p phi xi) :
+    Nonempty (LocalizedModule (Submonoid.powers mu) M.M ≃ₗ[Localization.Away mu]
+      TensorProduct Z (Localization.Away mu) (etale (Z := Z) (W := W) p phi xi M)) := by sorry
 
 /-- Omitted: finite-free M and the common B_dR^+,B_dR extension maps. -/
 theorem etale_lattice {Bp B : Type u} [CommRing Bp] [Field B]
@@ -945,7 +1010,11 @@ private def realizationPair (p : ℕ) (phi : A ≃+* A) (xi : A) (M : Module p p
 
 theorem reconstruct_pair (p : ℕ) (phi : A ≃+* A) (xi : A)
     (P : LatticePair (Z := Z) (Bp := Bp) (B := B)) :
-    ∃ f : PairHom (realizationPair p phi xi (reconstruct p phi xi P)) P, IsIso f.map := by sorry
+    ∃ f : PairHom (realizationPair p phi xi (reconstruct p phi xi P)) P,
+      IsIso f.map ∧ ∀ x : TensorProduct Z B
+        (realizationPair p phi xi (reconstruct p phi xi P)).T,
+        x ∈ (realizationPair p phi xi (reconstruct p phi xi P)).Xi ↔
+          TensorProduct.map (LinearMap.id : B →ₗ[Z] B) f.map.hom x ∈ P.Xi := by sorry
 
 private def reconstructPairMap (p : ℕ) (phi : A ≃+* A) (xi : A)
     (P : LatticePair (Z := Z) (Bp := Bp) (B := B)) :
@@ -985,6 +1054,15 @@ example (p : ℕ) (phi : A ≃+* A) (xi : A) (xiDR : Bp)
 example (p : ℕ) (phi : A ≃+* A) (xi : A)
     (P : LatticePair (Z := Z) (Bp := Bp) (B := B)) (h : Limits.IsZero P.T) :
     Limits.IsZero (reconstruct p phi xi P).M := by sorry
+
+-- TauCeti.BKF.Module_test_unit: tests the realization and its actual lattice.
+-- Omitted: common period coefficients and normalized Fontaine maps.
+example {W : Type u} [CommRing W] [Algebra A W] [Algebra Z W]
+    (p : ℕ) (phi : A ≃+* A) (xi : A) :
+    Nonempty (etale (Z := Z) (W := W) p phi xi (unit p phi xi) ≅ ModuleCat.of Z Z) ∧
+      (realizationPair (Z := Z) (Bp := Bp) (B := B) p phi xi (unit p phi xi)).Xi =
+        standardLattice (realizationPair (Z := Z) (Bp := Bp) (B := B)
+          p phi xi (unit p phi xi)).T := by sorry
 end Reconstruction
 end TauCeti.BKF
 
@@ -1305,8 +1383,8 @@ example [Nontrivial A] (q : Aˣ) (h : q.val ≠ 1) :
 private def finiteXi (phi : A ≃+* A) (xi : A) (r : ℕ) :=
   (phi^r) (TauCeti.AInf.xiWitt phi xi r)
 
-/-- Underlying complex of the first F-V construction. Omitted: connective
-commutative enhanced D, invertible semilinear phi_D, the special normalized
+/-- Underlying complex of the first F-V construction. Omitted: both D and
+D/xi are connective, commutative enhanced D, invertible semilinear phi_D, the special normalized
 Fontaine generator, and multiplication on cohomology. Odd squares may persist. -/
 def wittPre (phi : A ≃+* A) (xi : A) (r : ℕ)
     (K : CochainComplex (ModuleCat.{u} A) ℤ) : CochainComplex (ModuleCat.{u} A) ℤ :=
@@ -1344,16 +1422,17 @@ theorem wittPre_FVR (p : ℕ) (phi : A ≃+* A) (xi : A) (r : ℕ)
       preF phi xi r K (i+1) (((wittPre phi xi (r+1) K).d i (i+1)).hom (preV phi xi r K i x)) =
         ((wittPre phi xi r K).d i (i+1)).hom x := by sorry
 
-/-- Omitted: multiplication on H0 and the coefficient-compatible lambda family;
-its underlying additive map is actual data on Mathlib's Witt carrier. -/
+/-- Omitted: the source multiplication on H0, represented here by a ring
+structure, and coefficient compatibility. Lambda is a unital ring map. -/
 private def preLambda {S : Type u} [CommRing S] (p : ℕ) [Fact p.Prime]
-    (phi : A ≃+* A) (xi : A) (r : ℕ) (K : CochainComplex (ModuleCat.{u} A) ℤ) :
-    TruncatedWittVector p r S →+ (wittPre phi xi r K).X 0 := by sorry
+    (phi : A ≃+* A) (xi : A) (r : ℕ) (K : CochainComplex (ModuleCat.{u} A) ℤ)
+    [CommRing ((wittPre phi xi r K).X 0)] :
+    TruncatedWittVector p r S →+* (wittPre phi xi r K).X 0 := by sorry
 
 theorem wittPre_lambda {S : Type u} [CommRing S] (p : ℕ) [Fact p.Prime]
     (phi : A ≃+* A) (xi : A) (r : ℕ) (K : CochainComplex (ModuleCat.{u} A) ℤ)
-    (one0 : (wittPre phi xi r K).X 0) :
-    preLambda (S := S) p phi xi r K 1 = one0 := by sorry
+    [CommRing ((wittPre phi xi r K).X 0)] :
+    preLambda (S := S) p phi xi r K 1 = 1 := by sorry
 
 -- TauCeti.AOmega.wittPre_test_degree_zero: at degree zero R=R', with no factor.
 example (phi : A ≃+* A) (xi : A) (r : ℕ)
@@ -1685,9 +1764,10 @@ theorem absolute_crystalline_comparison {Ac : Type u} [CommRing Ac] [Algebra A A
       (baseChangeComplex (B := Ac) (TauCeti.AOmega.local mu K hK))) ≅
         DerivedCategory.Q.obj Ccrys) := by sorry
 
-/-- Mu-inverted local etale comparison. Omitted: actual analytic generic fiber,
-etale Z_p cochains with coefficient extension (E below) and primitive almost
-comparison. Derived p-completion is kept for nonproper X. -/
+/-- BMS1 Theorem 14.1(iv), the local mu-inverted pro-etale sheaf comparison.
+Omitted: the analytic generic fiber and nu; E is the affine representative
+of (Rnu_* A_inf,X)[1/mu], retaining the derived p-completed period sheaf.
+The proper Z_p-cohomology comparison additionally requires Theorem 5.7. -/
 theorem mu_inverted_etale (p : ℕ) (mu : A) (K : CochainComplex (ModuleCat.{u} A) ℤ)
     (hK : ∀ i : ℤ, Function.Injective (fun x : K.X i => mu • x))
     (E : CochainComplex (ModuleCat.{u} (Localization.Away mu)) ℤ)

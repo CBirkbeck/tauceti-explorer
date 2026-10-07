@@ -22,163 +22,175 @@
         "ref": "mathlib:ModuleCat",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Bundled existing category of modules, not a new carrier.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:ModuleCat.of",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Bundles an existing R-module.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:ModuleCat.ofHom",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Converts a linear map to a categorical module morphism.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:ModuleCat.Hom.hom",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Extracts the linear map from a categorical module morphism.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:CochainComplex",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "The existing cochain complex indexed by Z with differential raising degree.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:CochainComplex.of",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Constructor for an arbitrary eligible index type, including Z, from adjacent maps and square-zero proofs.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:CochainComplex.ofHom",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Constructor for chain maps from adjacent commuting squares.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:HomologicalComplex.d_comp_d",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Every composable pair of differentials has zero composite.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Chosen derived-category localization under HasDerivedCategory; not a décalage or enhancement implementation.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:DerivedCategory.Q",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Existing localization functor on cochain complexes.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:Finsupp",
         "module": "Mathlib/Data/Finsupp/Defs.lean",
         "provides": "Finite-support sequences for the counterexample.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:PowerSeries",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Existing univariate formal power series.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:PowerSeries.coeff",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Coefficient maps specify the restricted-sequence condition.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:WittVector",
         "module": "Mathlib/RingTheory/WittVector/Defs.lean",
         "provides": "Existing p-typical Witt-vector ring; not new A_inf constants.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:WittVector.teichmuller",
         "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
         "provides": "Multiplicative Teichmuller lift, not additive.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:WittVector.frobeniusEquiv",
         "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
         "provides": "Witt Frobenius equivalence for a perfect characteristic-p ring.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:WittVector.map",
         "module": "Mathlib/RingTheory/WittVector/Basic.lean",
         "provides": "Functorial ring map on Witt vectors.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:WittVector.isAdicCompleteIdealSpanP",
         "module": "Mathlib/RingTheory/WittVector/Complete.lean",
         "provides": "p-adic completeness for Witt vectors of a perfect characteristic-p ring.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:TruncatedWittVector",
         "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
         "provides": "Existing finite Witt carrier and truncation APIs.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:PreTilt",
-        "module": "Mathlib/RingTheory/Perfectoid/Tilt.lean",
+        "module": "Mathlib/RingTheory/Perfection.lean",
         "provides": "The Frobenius-limit ring R/p; no perfectoid-field assertion by itself.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:WittVector.fontaineTheta",
         "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
         "provides": "Existing Fontaine ring map under explicit adic completeness and prime/nonunit instances.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:BDeRhamPlus",
         "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
         "provides": "Existing kernel-adic completion carrier after p-inversion; DVR proof absent.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:BDeRham",
         "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
         "provides": "Existing localization at generator images; principal-kernel proof needed for the familiar single-generator description.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:continuousCohomology",
         "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
         "provides": "Existing topological representation/group cohomology carrier; no automatic p-adic derived completion comparison.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:LocalizedModule",
         "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
         "provides": "Existing module localization, with scalar-extension comparison.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:HomologicalComplex.homology",
         "module": "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean",
         "provides": "Chosen homology object of an eligible homological complex.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
       },
       {
         "ref": "mathlib:KaehlerDifferential",
         "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
         "provides": "Existing ordinary cotangent module I/I² and universal derivation; not the full cotangent complex.",
-        "checked": "Statement read at the pinned Mathlib commit; inherited declarations rechecked on 2026-10-07."
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AInfCohomology--AI.0 on 2026-10-07; carrier and hypotheses confirmed."
+      },
+      {
+        "ref": "mathlib:WittVector.fontaineTheta_teichmuller",
+        "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+        "provides": "The Fontaine map on Teichmuller lifts equals PreTilt.untilt, under the same prime/nonunit/completeness hypotheses as fontaineTheta.",
+        "checked": "Independently read at the pinned Mathlib commit on 2026-10-07 by REV-AInfCohomology--AI.0."
+      },
+      {
+        "ref": "mathlib:surjective_fontaineTheta",
+        "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+        "provides": "Surjectivity of fontaineTheta additionally assumes surjectivity of Frobenius on O/p; it is not asserted for arbitrary complete rings.",
+        "checked": "Independently read at the pinned Mathlib commit on 2026-10-07 by REV-AInfCohomology--AI.0."
       }
     ]
   },
@@ -412,7 +424,12 @@
         "Published IHES article and its journal page https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z/",
         "arXiv:1602.03148 version3 and the source extraction PAPER-BHATT-MORROW-SCHOLZE-18 E1–E22",
         "Scholze author publication page and author PDF https://www.math.uni-bonn.de/people/scholze/integralpadicHodge.pdf; public search for Lemma6.9 corrections, 2026-10-07"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both the journal article and arXiv v3: the entire term quotient in the proof is false for C=Z concentrated in degree 0, I=(2), n=1. The corrected good-truncation boundary argument proves the unchanged theorem.",
+        "by": "REV-AInfCohomology--AI.0"
+      }
     },
     {
       "id": "AInfCohomology/E2",
@@ -429,7 +446,12 @@
         "Mathew author publication page https://math.uchicago.edu/~amathew/",
         "arXiv:1805.05501 metadata and SMF Asterisque424 publisher page https://smf.emath.fr/publications/revisiter-le-complexe-de-de-rham-witt?language=en; public excerpt omits §§7–8, complete interior purchase-gated",
         "No public separate erratum found in primary-source search on 2026-10-07; no assertion made about the published interior."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the December 2019 author copy: the boundary is B^n by definition of d:X^(n-1)→X^n. No claim about the unavailable published interior.",
+        "by": "REV-AInfCohomology--AI.0"
+      }
     },
     {
       "id": "AInfCohomology/E3",
@@ -446,7 +468,12 @@
         "Mathew author publication page https://math.uchicago.edu/~amathew/",
         "arXiv:1805.05501 metadata and SMF Asterisque424 publisher page https://smf.emath.fr/publications/revisiter-le-complexe-de-de-rham-witt?language=en; public excerpt omits §§7–8, complete interior purchase-gated",
         "No public separate erratum found in primary-source search on 2026-10-07; no assertion made about the published interior."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the December 2019 author copy: the completion premise must refer to M. The printed premise admits M=0,N=Z_p, contradicting the conclusion. No claim about the unavailable published interior.",
+        "by": "REV-AInfCohomology--AI.0"
+      }
     },
     {
       "id": "AInfCohomology/E4",
@@ -463,7 +490,12 @@
         "Mathew author publication page https://math.uchicago.edu/~amathew/",
         "arXiv:1805.05501 metadata and SMF Asterisque424 publisher page https://smf.emath.fr/publications/revisiter-le-complexe-de-de-rham-witt?language=en; public excerpt omits §§7–8, complete interior purchase-gated",
         "No public separate erratum found in primary-source search on 2026-10-07; no assertion made about the published interior."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the December 2019 author copy: the decreasing filtration transitions and localization example require colimit toward minus infinity. No claim about the unavailable published interior.",
+        "by": "REV-AInfCohomology--AI.0"
+      }
     },
     {
       "id": "AInfCohomology/E5",
@@ -480,7 +512,12 @@
         "Mathew author publication page https://math.uchicago.edu/~amathew/",
         "arXiv:1805.05501 metadata and SMF Asterisque424 publisher page https://smf.emath.fr/publications/revisiter-le-complexe-de-de-rham-witt?language=en; public excerpt omits §§7–8, complete interior purchase-gated",
         "No public separate erratum found in primary-source search on 2026-10-07; no assertion made about the published interior."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the December 2019 author copy by the displayed filtration formula: the quotient is F′k/F′(k+1), and good truncation applies to gr_F^k M. No claim about the unavailable published interior.",
+        "by": "REV-AInfCohomology--AI.0"
+      }
     }
   ],
   "coverage": [
@@ -516,7 +553,8 @@
       "stageId": "AInfCohomology:AI.2",
       "status": "planned",
       "remaining": [
-        "Resolve the exact SW13.2.1/SW14.2.1 analytic one-leg extension, the early RF0 crystalline bridge and the early minuscule-window dictionary; refine the continuous Galois action transport."
+        "Resolve the exact SW13.2.1/SW14.2.1 analytic one-leg extension, the early RF0 crystalline bridge and the early minuscule-window dictionary; refine the continuous Galois action transport.",
+        "Resolve the integral W(C^flat)/Z_p Frobenius-descent supplier refinement, including torsion and the mu-inverted equality."
       ]
     },
     {
@@ -537,7 +575,8 @@
       "stageId": "AInfCohomology:AI.5",
       "status": "planned",
       "remaining": [
-        "Resolve the early coefficient-free proper de Rham perfectness and primitive integral comparison supplier contracts; refine global tensor exchange and adjacent-degree Tor arguments."
+        "Resolve the early coefficient-free proper de Rham perfectness and primitive integral comparison supplier contracts; refine global tensor exchange and adjacent-degree Tor arguments.",
+        "Resolve the section-dependent non-Noetherian A_crys rational crystalline bridge of Proposition 13.21; the current CR.3 isogeny statement alone is insufficient."
       ]
     }
   ],
@@ -2058,7 +2097,8 @@
       ],
       "proofSteps": [
         "Identify the Frobenius limit of finite Witt vectors using inverse limits and untilting.",
-        "Check components on Teichmuller elements and prove surjectivity inductively."
+        "Check components on Teichmuller elements and prove surjectivity inductively.",
+        "For Verschiebung choose a lift of V(1) under theta_(r+1); transport it by phi^(r+1) for tilde-theta. Do not replace this lift by p."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -2099,7 +2139,7 @@
         {
           "name": "TauCeti.AInf.thetaWitt_V",
           "role": "compatibility",
-          "statement": "V∘theta_r=theta_(r+1)∘(p phi^(-1)); V∘tilde-theta_r=tilde-theta_(r+1)∘p."
+          "statement": "Choose lambda_(r+1) with theta_(r+1)(lambda_(r+1))=V(1). Then V theta_r(x)=theta_(r+1)(lambda_(r+1)*phi^(-1)(x)), and V tilde-theta_r(x)=tilde-theta_(r+1)(phi^(r+1)(lambda_(r+1))*x). In the cyclotomic normalization xi is such a lift; p is not a lift over a characteristic-zero untilt."
         }
       ],
       "tests": [
@@ -2117,6 +2157,11 @@
           "name": "TauCeti.AInf.thetaWitt_test_FnotR",
           "kind": "non-example",
           "statement": "For a non-Frobenius-fixed Teichmuller input, F and R compatibility differ by phi."
+        },
+        {
+          "name": "TauCeti.AInf.thetaWitt_test_VnotP",
+          "kind": "non-example",
+          "statement": "Over a characteristic-zero untilt, V(1) in W_2 has first Witt coordinate zero, whereas the first coordinate of p is p≠0; theta_2(p) cannot be used as V(1)."
         }
       ],
       "uses": [
@@ -2138,7 +2183,7 @@
       ],
       "title": "Finite Witt kernel generators",
       "kind": "construction",
-      "statement": "Set xi_r=product_{i=0}^{r-1}phi^(-i)(xi), and tilde-xi_r=phi^r(xi_r)=product_{i=1}^{r}phi^i(xi). Then ker(theta_r)=(xi_r), ker(tilde-theta_r)=(tilde-xi_r). Compatible unit choices are allowed for general perfectoid S.",
+      "statement": "Set xi_r=product_{i=0}^{r-1}phi^(-i)(xi), and tilde-xi_r=phi^r(xi_r)=product_{i=1}^{r}phi^i(xi). Then ker(theta_r)=(xi_r), ker(tilde-theta_r)=(tilde-xi_r). Compatible unit choices are allowed for general perfectoid S. Both generators are nonzerodivisors.",
       "hypotheses": [
         "S and r as in theta-witt-family; xi generates ker(theta)."
       ],
@@ -2148,7 +2193,8 @@
       ],
       "proofSteps": [
         "Induct using the finite Witt projection and kernel calculation.",
-        "Transport the product by phi^r to obtain the shifted formula."
+        "Transport the product by phi^r to obtain the shifted formula.",
+        "Use the primitive-kernel nonzerodivisor theorem and transport regularity along Frobenius; products of regular factors remain regular."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -2182,6 +2228,11 @@
           "name": "TauCeti.AInf.xiWitt_ker_tilde",
           "role": "characterisation",
           "statement": "tilde-theta_r induces A_inf/(tilde-xi_r)≅W_r(S)."
+        },
+        {
+          "name": "TauCeti.AInf.xiWitt_regular",
+          "role": "structure",
+          "statement": "xi_r and tilde-xi_r are nonzerodivisors for integral perfectoid S, as are the distinguished generators after perfectoid base change."
         }
       ],
       "tests": [
@@ -2369,8 +2420,7 @@
       ],
       "prerequisites": [
         "AInfCohomology:AI.0/theta-witt-family",
-        "AInfCohomology:AI.0/witt-kernel-generators",
-        "AInfCohomology:AI.0/period-regularity"
+        "AInfCohomology:AI.0/witt-kernel-generators"
       ],
       "proofSteps": [
         "A distinguished generator xi of ker(theta) remains distinguished after base change.",
@@ -2866,7 +2916,7 @@
       ],
       "proofSteps": [
         "Use a termwise-flat K-flat replacement, requested as a refinement of E1.",
-        "Use flatness against the locally split inclusion I→O to get termwise regularity."
+        "The inclusion I→O is injective. Tensor it with each flat term; in a local trivialization of I this proves injectivity of multiplication by its generator. No splitting of I→O is required."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -3305,17 +3355,18 @@
       ],
       "title": "Koszul products and integral cohomology",
       "kind": "theorem",
-      "statement": "The ordered commuting-operator Koszul complex carries the source tensor product maps and wedge signs; for scalar operators and the eligible regular/divisibility cases its cohomology is the exterior algebra/module formula of Lemmas 7.5 and 7.10. The twisted product arising from gamma_i actions need not be commutative on cochains.",
+      "statement": "For commuting A-algebra automorphisms gamma_i of a possibly noncommutative A-algebra R, K_R(gamma_i−1) has the source DGA product: x_i x_j=−x_j x_i, x_i²=0, x_i a=gamma_i(a)x_i, d(x_i)=0 and d(a)=sum_i(gamma_i(a)−a)x_i. It induces the group-cohomology cup product. If multiplication by g on a complex M is nullhomotopic, 0→H^(n−1)(M)→H^n(M tensor K_R(g))→H^n(M)→0 splits. If all scalar g_i are divisible by g and one is g times a unit, H^n(K_M(g_1,…,g_m))≅Ann_M(g)^(binom(m−1,n)) ⊕ (M/gM)^(binom(m−1,n−1)).",
       "hypotheses": [
-        "Keep ordering and commutativity of operators; use the exact annihilator hypotheses for each cohomology calculation."
+        "For the product: A commutative, R an A-algebra, and gamma_i commuting A-algebra automorphisms.",
+        "For the split sequence: a specified nullhomotopy of multiplication by g. For the scalar formula: m≥1, all g_i divisible by g and one g_i equal to g times a unit; binomial terms outside their range are zero."
       ],
       "prerequisites": [
         "DerivedDeRhamCohomology:DD.1/koszul-complex",
         "AInfCohomology:AI.1/koszul-decalage-calculation"
       ],
       "proofSteps": [
-        "Construct the tensor product by the source twisted Leibniz rule.",
-        "Check cohomology in one variable and tensor inductively with the annihilator/Tor hypotheses."
+        "Construct the twisted DGA by the displayed relations and verify the Leibniz rule and group-cohomology product.",
+        "Use the nullhomotopy to split the mapping-cone cohomology sequence. Reorder the unit-multiple scalar first and induct to get the annihilator/quotient formula."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -3338,9 +3389,9 @@
       ],
       "title": "Continuous cochains and Koszul complexes",
       "kind": "comparison",
-      "statement": "For Gamma=Z_p^d acting continuously on the eligible complete modules in §7, continuous group cochains compare to the cohomological Koszul complex of gamma_i−1. The integral comparison retains the topology and completed sums; abstract discrete cochains give a different functor.",
+      "statement": "Let Gamma_disc=Z^d with generators gamma_i and Gamma=Z_p^d. If N=lim_k N_k is a topological abelian group, each N_k a discrete continuous Gamma-module killed by p^k, then RΓ_cont(Gamma,N)→RΓ(Gamma_disc,N) is a quasi-isomorphism and both are computed by K_N(gamma_1−1,…,gamma_d−1). The topology on N is the limit topology; this does not identify cohomology for arbitrary discrete Gamma-modules.",
       "hypotheses": [
-        "Continuous action; the p-adic completeness and finite-reduction hypotheses in Lemma 7.3."
+        "N=lim_{k≥1} N_k with its inverse-limit topology; N_k discrete continuous Gamma-modules killed by p^k. Replace N_k by the images of N if needed to make the transitions surjective."
       ],
       "prerequisites": [
         "mathlib:continuousCohomology",
@@ -3348,8 +3399,8 @@
         "AInfCohomology:AI.1/completed-sum-cohomology"
       ],
       "proofSteps": [
-        "Import the general continuous cohomology carrier.",
-        "Use the completed standard resolution of Z_p over the Iwasawa algebra and compare finite reductions."
+        "For each finite reduction use the standard completed Iwasawa resolution; compare it with the ordinary resolution for Gamma_disc.",
+        "Pass to the inverse limit with surjective transitions and the controlled completed-sum comparison. The pinned continuousCohomology carrier still needs the recorded forgetful/derived-limit interface."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -3610,14 +3661,15 @@
       "kind": "lemma",
       "statement": "A finitely generated p-torsion-free M with M[1/p] finite projective defines a vector bundle on U. Consequently every finite projective A_inf[1/p]-module is finite free.",
       "hypotheses": [
-        "M not asserted finite free globally; use the x-local p-completed chart of Lemma 4.10."
+        "A_inf=W(O_C^flat) for C complete algebraically closed of characteristic zero; U is Spec(A_inf) minus its closed point. M is finitely generated and p-torsion-free, with M[1/p] finite projective."
       ],
       "prerequisites": [
         "AInfCohomology:AI.2/punctured-spectrum-triviality"
       ],
       "proofSteps": [
-        "Check local freeness on the source charts.",
-        "Extend the bundle across the closed point and invert p."
+        "On D(p), use the assumed projectivity. The only remaining prime of U containing p is (p).",
+        "Show A_inf,(p) is a DVR with uniformizer p: a nonzero Witt vector has a first nonzero p-adic coefficient, whose Teichmuller representative is a unit after localization at (p). A finite p-torsion-free module over this DVR is free.",
+        "Apply punctured-spectrum triviality; extend a finite projective A_inf[1/p]-module by a finitely generated p-torsion-free lattice to prove Corollary 4.12."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -3736,6 +3788,11 @@
           "name": "TauCeti.BKF.Module_base_change",
           "role": "compatibility",
           "statement": "Eligible perfectoid coefficient change preserves the linearized presentation."
+        },
+        {
+          "name": "TauCeti.BKF.Module_twist_frobenius",
+          "role": "compatibility",
+          "statement": "On the conormal basis of A_inf{1}, the linearized Frobenius coefficient is tilde-xi^(-1), not 1; use the Frobenius-pulled source basis."
         }
       ],
       "tests": [
@@ -3901,7 +3958,7 @@
       ],
       "title": "Étale realization of BKF modules",
       "kind": "construction",
-      "statement": "For any BKF module M, T(M)=(M⊗A_inf W(C^flat))^(phi=1) is finite over Z_p, and T(M)⊗Z_p W(C^flat)≅M⊗A_inf W(C^flat). For finite free M, T(M) is finite free; Xi(M)=M⊗A_inf B_dR^+ embeds as a lattice in T(M)⊗B_dR.",
+      "statement": "For any BKF module M, T(M)=(M⊗A_inf W(C^flat))^(phi=1) is finite over Z_p, and T(M)⊗Z_p W(C^flat)≅M⊗A_inf W(C^flat). For finite free M, T(M) is finite free; Xi(M)=M⊗A_inf B_dR^+ embeds as a lattice in T(M)⊗B_dR. Moreover M tensor A_inf[1/mu]=T(M) tensor A_inf[1/mu] as submodules of the common W(C^flat) extension.",
       "hypotheses": [
         "C algebraically closed; use the source completed Witt localization W(C^flat), not the fraction field of A_inf."
       ],
@@ -3912,8 +3969,9 @@
         "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block"
       ],
       "proofSteps": [
-        "Reduce torsion/general M via the structure theorem.",
-        "Use Lang-type Frobenius descent over W(C^flat) and the period comparison to embed the lattice."
+        "Use the requested integral Frobenius descent theorem for finite W(C^flat)-modules, separately from rational isocrystal classification.",
+        "Reduce the mu-inverted equality to finite free M via Proposition 4.13. Twist to make inverse Frobenius integral, use minimal valuations of Witt coefficients to put invariants in M, and apply the argument to the dual for the reverse inclusion.",
+        "Use the common map to B_dR to obtain the finite-free lattice."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -3947,6 +4005,11 @@
           "name": "TauCeti.BKF.etale_tensor",
           "role": "compatibility",
           "statement": "Étale realization preserves finite-free tensor products and twists."
+        },
+        {
+          "name": "TauCeti.BKF.etale_mu_comparison",
+          "role": "equivalence",
+          "statement": "M tensor A_inf[1/mu]≅T(M) tensor A_inf[1/mu] in the common W(C^flat) extension."
         }
       ],
       "tests": [
@@ -3987,7 +4050,8 @@
       ],
       "prerequisites": [
         "AInfCohomology:AI.2/bkf-etale-realization",
-        "AInfCohomology:AI.2/ainf-module-structure"
+        "AInfCohomology:AI.2/ainf-module-structure",
+        "AInfCohomology:AI.0/witt-limit-and-mu-kernel"
       ],
       "proofSteps": [
         "Identify a map after W(C^flat) extension by its map on T.",
@@ -3999,7 +4063,7 @@
       "sources": [
         {
           "sourceId": "bms1-v3",
-          "locator": "Theorem 4.28, full-faithfulness proof",
+          "locator": "Remark 4.29, using Lemmas 3.23 and 4.26 (Theorem 4.28 is the statement only)",
           "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
@@ -4016,7 +4080,7 @@
       "kind": "construction",
       "statement": "Reconstruct a finite free BKF module from a pair (T,Xi) by the one-leg shtuka/vector-bundle and patching construction. This uses the shared relative Fargues–Fontaine analytic carriers and the exact SW restriction/extension theorem; it does not construct a new curve.",
       "hypotheses": [
-        "C algebraically closed; pair as defined; one leg at the untilt point, convention phi versus phi^(-1) tracked."
+        "C algebraically closed; pair as defined; in SW the leg is at phi^(-1)(x_C). Translate this to linearization inverted at tilde-xi=phi(xi), retaining the direction of Frobenius."
       ],
       "prerequisites": [
         "AInfCohomology:AI.2/lattice-pair",
@@ -4038,7 +4102,7 @@
       "sources": [
         {
           "sourceId": "sw20",
-          "locator": "Theorem 4.28 essential-surjectivity proof; SW Theorems 11.4.5, 12.4.6, 13.2.1, 14.1.1, 14.2.1",
+          "locator": "Theorem 11.4.5; Theorem 12.3.4, Proposition 12.3.5, Proposition 12.4.6, Theorems 13.2.1,13.4.1,14.1.1,14.2.1",
           "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
@@ -4492,9 +4556,9 @@
       ],
       "title": "Integral period sections and profinite products",
       "kind": "theorem",
-      "statement": "On an affinoid perfectoid Uhat=Spa(R,R+), the completed integral, tilt and Witt period sections have the descriptions of Scholze Lemmas 4.10,5.10 and Theorem 6.5. For U×S, S profinite, sections are continuous S-valued maps in the specified inverse/direct-limit period topology. Higher integral cohomology is almost zero; rational B_dR acyclicity uses inversion of the almost parameter.",
+      "statement": "On an affinoid perfectoid Uhat=Spa(R,R+), the completed integral and tilt sections are R+ and R+flat, and H^0(Uhat,A_inf,X)=W(R+flat). Their higher integral cohomology is almost zero, not asserted zero. For Uhat×S with S profinite, the integral sections are continuous S-valued maps with the specified inverse-limit topology. Rational period-sheaf acyclicity is a subsequent P8:local-rational theorem.",
       "hypotheses": [
-        "X locally noetherian over the perfectoid field; affinoid perfectoid U; rational rings only after their supplier exists."
+        "X locally noetherian over a perfectoid field; Uhat affinoid perfectoid in the corrected pro-etale site; S profinite."
       ],
       "prerequisites": [
         "AInfCohomology:AI.3/derived-ainf-sheaf",
@@ -4502,8 +4566,8 @@
         "EnhancedDerivedSheaves:E2/surjective-system-derived-limit"
       ],
       "proofSteps": [
-        "Induct through finite Witt lengths and then take the controlled inverse limit.",
-        "Use the almost parameter becoming a unit in B_dR to get honest rational acyclicity."
+        "Use the completed integral and tilt descriptions on the perfectoid basis.",
+        "Induct through finite Witt lengths and use the controlled derived inverse limit for A_inf,X; retain the almost-zero higher cohomology."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -5247,7 +5311,7 @@
       ],
       "title": "Finite Witt specialization of AΩ",
       "kind": "comparison",
-      "statement": "For r≥1, AΩ tensor^L_(A_inf,tilde-theta_r) W_r(O_C)≃tilde-W_r-Omega:=Lη_([zeta_(p^r)]−1) Rnu_* W_r(hat O_X^+). The cohomology sheaves are W_r Omega^i_(mathfrak X/O_C),cont{−i}.",
+      "statement": "For r≥1, AΩ tensor^L_(A_inf,tilde-theta_r) W_r(O_C)≃tilde-W_r-Omega:=L_eta_([zeta_(p^r)]−1) Rnu_* W_r(hat O_X^+), compatibly on framed affines and after sheaf descent. The subsequent cohomology identification with relative de Rham–Witt is the separate relative-witt-comparison node; it is not used to prove this early finite reduction.",
       "hypotheses": [
         "Smooth formal scheme; r≥1; derived scalar extension and continuous relative de Rham–Witt."
       ],
@@ -5255,11 +5319,11 @@
         "AInfCohomology:AI.0/theta-witt-family",
         "AInfCohomology:AI.3/witt-toric-cohomology",
         "AInfCohomology:AI.3/framing-independence-and-descent",
-        "CrystallineCohomology:CR.4/continuous-relative-witt"
+        "AInfCohomology:AI.1/flat-and-nonflat-base-change"
       ],
       "proofSteps": [
-        "Prove the finite Witt reduction comparison on framed affines.",
-        "Use the improved Witt-complex realization and étale descent to identify cohomology."
+        "Prove the finite coefficient reduction comparison on framed affines by the special nonflat eta/base-change criterion and explicit toric injectivity estimates.",
+        "Descend the compatible canonical finite Witt maps via the common sheaf construction."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -5267,7 +5331,7 @@
       "sources": [
         {
           "sourceId": "bms1-v3",
-          "locator": "Theorems 9.2(ii–iii), 9.4(i–iv), 11.1",
+          "locator": "Theorem 9.2(ii); Theorem 9.4(i–iii). Theorem 9.4(iv)/11.1 is exported separately by relative-witt-comparison.",
           "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
@@ -5282,17 +5346,18 @@
       ],
       "title": "Witt Bockstein precomplex",
       "kind": "construction",
-      "statement": "For a connective commutative algebra object D over A_inf(S) with Frobenius automorphism, set W_r^n(D)_pre=H^n(D tensor^L A_inf/(tilde-xi_r)). The differential is the Bockstein, and F,V,R have the source coefficient-twisted definitions. This precomplex may contain nonintegral-weight torsion.",
+      "statement": "For a commutative algebra object D over A_inf(S), with D and D/xi connective and a Frobenius automorphism, set W_r^n(D)_pre=H^n(D tensor^L A_inf/(tilde-xi_r)). The differential is the Bockstein, and F,V,R have the source coefficient-twisted definitions. This precomplex may contain nonintegral-weight torsion.",
       "hypotheses": [
-        "D connective commutative algebra object over A_inf(S), with phi-semilinear automorphism.",
-        "Integral perfectoid S and the source chosen xi normalized so theta_r(xi)=V(1).",
+        "D is a commutative algebra object in D(A_inf(S)) with phi-semilinear automorphism and H^i(D)=H^i(D tensor^L A_inf/(xi))=0 for i<0; equivalently D and D/xi are connective.",
+        "Integral perfectoid S with the source chosen xi normalized so theta_r(xi)=V(1) for every r≥1.",
         "The initial precomplex is graded-anticommutative; odd squares need not vanish until the improvement hypotheses are imposed."
       ],
       "prerequisites": [
         "AInfCohomology:AI.0/witt-kernel-generators",
         "AInfCohomology:AI.1/bockstein-differential",
         "CrystallineCohomology:CR.4/relative-witt-complex",
-        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor"
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "AInfCohomology:AI.0/theta-witt-family"
       ],
       "proofSteps": [
         "Define finite coefficient cohomology and its Bockstein.",
@@ -5366,7 +5431,7 @@
       "kind": "construction",
       "statement": "Set W_r^n(D)=H^n((Lη_mu D) tensor^L A_inf/(tilde-xi_r)). Under Assumption 11.4 (p-torsion-free W_r^n(D) for every r≥1,n≥0; at p=2 this forces the odd squares to vanish), this is a relative F-V-procomplex with d,F,R,V and multiplication. The injection into the precomplex has the source scaled image; R is constructed using eta_(phi(mu)) and inverse Frobenius.",
       "hypotheses": [
-        "D connective enhanced commutative algebra over A_inf(S), with phi-semilinear automorphism and H^0(D) mu-torsion-free.",
+        "D and D/xi are connective; D is an enhanced commutative algebra over A_inf(S) with phi-semilinear automorphism and H^0(D) mu-torsion-free.",
         "S p-torsion-free integral perfectoid with the chosen compatible primitive roots.",
         "Assumption 11.4: W_r^n(D) is p-torsion-free for every r≥1,n≥0; for p=2 this also forces odd squares to vanish."
       ],
@@ -5487,7 +5552,7 @@
       ],
       "title": "Relative de Rham–Witt comparison",
       "kind": "theorem",
-      "statement": "The universal F-V-procomplex maps give W_r Omega^i_(R/O_C),cont≅H^i(tilde-W_r-Omega_R) with the BK twist normalization. For r≥1,s≥0, the Bockstein complex after the correct W_r(O_C)/p^s base change agrees with the relative Witt dga in Proposition 11.17. The relative Witt objects and their Cartier theory are imported from CR.4.",
+      "statement": "The universal F-V-procomplex maps give H^i(tilde-W_r-Omega_R)≅W_r Omega^i_(R/O_C),cont{−i} for i≥0. For r≥1,s≥0, the Bockstein complex after the correct W_r(O_C)/p^s base change agrees with the relative Witt dga in Proposition 11.17. The relative Witt objects and their Cartier theory are imported from CR.4.",
       "hypotheses": [
         "Small smooth p-complete R; r≥1; source finite-level Tor-independence and ordinary p-completion of the continuous relative Witt terms."
       ],
@@ -5565,17 +5630,18 @@
       ],
       "title": "Bounded divided-power coefficient subrings",
       "kind": "lemma",
-      "statement": "The p-complete bounded subrings A_crys^(m) generated by the divided powers through the source bound form the filtered coefficient system used in §12. For m≥p² they have the separation/regularity needed in the toric eta computation; A_crys/mu is not simply assumed separated.",
+      "statement": "Define A_crys^(m) as the p-adic completion of the A_inf-subalgebra of A_crys generated by xi^j/j! for 0≤j≤m. A_crys is the p-completion of colim_m A_crys^(m). For m≥p², tilde-xi_r=p^r times a unit and Lemma 12.2 holds in A_crys^(m); the filtrations ({a | mu*a belongs to p^s A_crys^(m)})_s and (p^s A_crys^(m))_s are intertwined, and intersection_r (mu/phi^(-r)(mu))A_crys^(m)=mu A_crys^(m). In particular the bounded quotient by mu is p-adically separated; the unbounded A_crys/mu is not assumed separated.",
       "hypotheses": [
-        "m≥p² for the stated comparison steps; completed integral coefficients."
+        "Cyclotomic A_inf over O_C, completed integral PD coefficients; m≥p² and r≥1."
       ],
       "prerequisites": [
         "CrystallineCohomology:CR.0/fontaine-envelope",
         "AInfCohomology:AI.0/period-regularity"
       ],
       "proofSteps": [
-        "Prove the separatedness estimates of Lemmas 12.2–12.4 from bounded divided powers.",
-        "Track the kernel and reduction generators before taking the colimit."
+        "Establish Lemma 12.2 in the bounded subring and the unit formula for tilde-xi_r.",
+        "Descend the topology estimate to the noetherian bounded PD algebra over A_0=Z_p[[T]], with T mapping to [epsilon]^(1/p); use Artin–Rees and topological freeness over A_0.",
+        "Reduce the intersection statement modulo (mu,p^s), then to the tilt valuation calculation, before taking the separated inverse limit."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -5583,7 +5649,7 @@
       "sources": [
         {
           "sourceId": "bms1-v3",
-          "locator": "Lemmas 12.2–12.4",
+          "locator": "Lemma 12.8(i–iii), using Lemma 12.2",
           "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
@@ -5609,7 +5675,8 @@
       ],
       "proofSteps": [
         "Recompute every weight with the bounded PD estimates.",
-        "Use the almost-comparison criterion and finite reduction injectivity."
+        "Use the almost-comparison criterion and finite reduction injectivity.",
+        "Use Lemma 12.8(iv) for each m≥p², and (v) for the all-coordinate comparison map before p-completing the filtered colimit."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -5617,7 +5684,7 @@
       "sources": [
         {
           "sourceId": "bms1-v3",
-          "locator": "Lemmas 12.4,12.6; Corollaries 12.5,12.7",
+          "locator": "Lemma 12.8(iv–v); Lemmas 12.4,12.6 and Corollaries 12.5,12.7",
           "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
@@ -5649,7 +5716,7 @@
       "sources": [
         {
           "sourceId": "bms1-v3",
-          "locator": "Corollary 12.7 (correction PAPER-BHATT-MORROW-SCHOLZE-18/E15)",
+          "locator": "Lemma 12.2(iii), Lemma 12.8(i), and Corollary 12.7 (correction PAPER-BHATT-MORROW-SCHOLZE-18/E15)",
           "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
@@ -5775,9 +5842,9 @@
       ],
       "title": "Mu-inverted étale specialization",
       "kind": "theorem",
-      "statement": "AΩ[1/mu]≃Rnu_* A_inf,X[1/mu]; after the source derived p-completion this yields the actual p-adic étale complex of X with the corresponding A_inf coefficients. On an affine or a nonproper X retain the completion in the statement; p-inversion alone is not this comparison.",
+      "statement": "For a smooth formal scheme mathfrak X over O_C, with analytic generic fiber X and nu:X_proet→mathfrak X_Zar, AΩ tensor A_inf[1/mu]≃(Rnu_* A_inf,X) tensor A_inf[1/mu], compatibly with multiplication. This is the local pro-etale A_inf-sheaf comparison of Theorem 14.1(iv). The comparison with RΓ_et(X,Z_p) is the separate proper theorem in AI.5/global-etale.",
       "hypotheses": [
-        "Generic-fiber pro-étale/p-adic étale cohomology; derived p-completion where specified by Theorem 1.10."
+        "C perfectoid of characteristic zero with compatible primitive p-power roots; mathfrak X smooth over O_C. A_inf,X is the derived p-completed Witt sheaf."
       ],
       "prerequisites": [
         "AInfCohomology:AI.3/aomega",
@@ -5786,8 +5853,8 @@
         "EnhancedDerivedSheaves:E4/derived-complete-sheaves"
       ],
       "proofSteps": [
-        "Invert mu in the defining local eta complex.",
-        "Use the common coefficient local-system comparison at finite p levels and reconstruct the p-complete object."
+        "Invert mu in the defining L_eta_mu complex; eta becomes the identity after its parameter is a unit.",
+        "Use the natural comparison map to Rnu_* A_inf,X and retain the source derived sheaf. No primitive proper comparison is used locally."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -6044,7 +6111,7 @@
       ],
       "title": "Proper mu-inverted étale comparison",
       "kind": "comparison",
-      "statement": "RΓ_Ainf[1/mu]≃RΓ_et(X,Z_p) tensor_Z_p A_inf[1/mu] for the analytic generic fiber X; proper finite étale cohomology allows the final source simplification of completion. The integral primitive A_inf comparison is imported from P8:local-rational, independent of its subsequent proper rational suffix.",
+      "statement": "RΓ_Ainf[1/mu]≃RΓ_et(X,Z_p) tensor_Z_p A_inf[1/mu] for the analytic generic fiber X; proper finite étale cohomology allows the final source simplification of completion. The integral primitive A_inf comparison is requested as an early primitive-comparison extension of P8:local-rational, independent of its subsequent proper rational suffix.",
       "hypotheses": [
         "Smooth proper formal scheme; actual generic-fiber p-adic étale cohomology; primitive comparison theorem as in BMS1 Theorem 5.7."
       ],
@@ -6078,18 +6145,20 @@
       ],
       "title": "Primitive rational crystalline Frobenius input",
       "kind": "lemma",
-      "statement": "The rational crystalline Frobenius-isogeny input used in BMS1 Proposition 13.21 and the A_crys comparison is supplied by CR.3:Frobenius-isogeny. It yields the finite-projective B_crys^+ realization needed for Corollary 4.20, without assuming p-local freeness of H_Ainf in advance.",
+      "statement": "Fix a section k→O_C/p. For Y=mathfrak X_(O_C/p) with mathfrak X proper smooth, there is a canonical phi-equivariant isomorphism H_crys^i(Y/A_crys)[1/p]≅H_crys^i(mathfrak X_k/W(k)) tensor_W(k) A_crys[1/p]. In particular the left side is finite free over A_crys[1/p], hence its B_crys^+ realization is free as required by Corollary 4.20. This is BMS1 Proposition 13.21, requested from CR.3 as an early Berthelot–Ogus bridge; it is not a consequence of the existing rational-frobenius node alone.",
       "hypotheses": [
-        "Proper smooth special fiber; rational crystalline isogeny with the specified scalar Frobenius."
+        "C complete algebraically closed of characteristic zero, residue field k, and a specified section k→O_C/p. mathfrak X proper smooth over O_C; use the specified section-induced W(k)→A_crys map."
       ],
       "prerequisites": [
         "AInfCohomology:AI.5/global-acrys",
+        "CrystallineCohomology:CR.3/derived-base-change",
         "CrystallineCohomology:CR.3:Frobenius-isogeny/rational-frobenius",
         "AInfCohomology:AI.0:period-comparison/common-rational-period-maps"
       ],
       "proofSteps": [
-        "Import the crystalline rational Frobenius theorem, not the entire subsequent proper comparison roadmap.",
-        "Extend it through the A_crys/B_crys maps and the primitive period comparison."
+        "Request the non-Noetherian A_crys version of rational Frobenius bijectivity for qcqs smooth O_C/p-schemes, using affine reduction and descent along p^(1/p^n) thickenings to the residue field.",
+        "Iterate Frobenius-twisted crystalline base change. Use finite presentation to descend Y to its special fiber modulo p^(1/p^n); after enlarging n the choices agree.",
+        "Apply proper crystalline finiteness over W(k) and extend to A_crys[1/p] and B_crys^+. Retain the fixed residue-field section and do not assume H_Ainf[1/p] free beforehand."
       ],
       "acceptance": [
         "Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export."
@@ -6394,7 +6463,7 @@
         "AInfCohomology:AI.5/global-bkf",
         "AInfCohomology:AI.5/specialization-rank-and-length",
         "AInfCohomology:AI.5/adjacent-degree-freeness",
-        "AInfCohomology:AI.2/fargues-classification"
+        "AInfCohomology:AI.2/fargues-full-faithfulness"
       ],
       "proofSteps": [
         "Apply the generic module estimates to the proper BKF cohomology.",
@@ -6563,7 +6632,10 @@
       "supplier": "DerivedDeRhamCohomology:DD.1",
       "need": "Extend the existing scalar Koszul node to Koszul complexes of commuting endomorphisms, with cohomological exterior signs and the continuous completed-cochain comparison; generic derived completion and Beilinson infrastructure are already imported by exact node ids.",
       "neededBy": [
-        "AInfCohomology:AI.1/koszul-decalage-calculation"
+        "AInfCohomology:AI.1/koszul-decalage-calculation",
+        "AInfCohomology:AI.1/koszul-products-and-cohomology",
+        "AInfCohomology:AI.1/continuous-cochains-koszul",
+        "AInfCohomology:AI.3/q-de-rham-model"
       ]
     },
     {
@@ -6583,7 +6655,7 @@
     },
     {
       "supplier": "PadicHodgeTheory:P8:local-rational",
-      "need": "Supply the primitive integral A_inf comparison for proper smooth analytic X as in BMS1 Theorem5.7, with finite p-level almost comparison and derived p-completion; keep this early input independent of the subsequent proper rational comparison/application suffix of P8.",
+      "need": "Supply an early primitive-comparison child, independent of the proper rational suffix: Scholze Theorem 4.9, Lemma 4.12 and Theorem 5.1 (finite etale F_p cohomology and the O^+/p almost comparison), then the derived A_inf version BMS1 Theorem 5.7 by finite p-level induction and derived completion. The current local rational period-sheaf statements alone do not supply it; use the corrected pro-etale covers.",
       "neededBy": [
         "AInfCohomology:AI.5/global-etale"
       ]
@@ -6605,7 +6677,7 @@
     },
     {
       "supplier": "RelativeFarguesFontaine:RF4:vector-bundles",
-      "need": "Supply the exact analytic one-leg extension/restriction theorem SW13.2.1 and SW14.2.1 on Y=Spa(A_inf) minus the closed point, compatible with the shared curve and lattice modifications. The existing fixed-reference modification/gluing nodes alone do not assert this theorem.",
+      "need": "Supply the exact analytic chain on the shared Y: SW12.3.4 integral Robba/W(C^flat)/Z_p Frobenius-module equivalences, Proposition12.3.5 no-leg shtukas, Proposition12.4.6 one-leg shtukas at phi^(-1)(x_C) versus pairs (T,Xi), Theorem13.4.1 classification of phi-modules on Y_[r,infinity) by isocrystals over a specified residue-field embedding, Theorem13.2.1 extension across infinity, and Theorem14.2.1 finite free A_inf-modules versus vector bundles on Y. Track linearization at tilde-xi. The inspected fixed-reference modification/gluing nodes and algebraic curve classification alone do not assert these analytic theorems.",
       "neededBy": [
         "AInfCohomology:AI.2/fargues-essential-surjectivity"
       ]
@@ -6651,6 +6723,21 @@
       "neededBy": [
         "AInfCohomology:AI.4/blm-crystalline-route"
       ]
+    },
+    {
+      "supplier": "VectorBundlesAndIsocrystals:VB0",
+      "need": "Early integral Frobenius-descent refinement, not just rational isocrystal blocks: for an algebraically closed perfect characteristic-p field F, finite W(F)-modules with semilinear Frobenius automorphism are equivalent to finite Z_p-modules, by invariants and scalar extension. Include finite free and p-power-torsion cases, tensor compatibility, and apply to F=C^flat as used in BMS1 Lemma 4.26.",
+      "neededBy": [
+        "AInfCohomology:AI.2/bkf-etale-realization"
+      ]
+    },
+    {
+      "supplier": "CrystallineCohomology:CR.3",
+      "need": "Early Berthelot–Ogus bridge BMS1 Proposition 13.21: after fixing k→O_C/p, rational crystalline base change from the proper smooth special fiber over W(k) to A_crys[1/p], with canonical phi-equivariant map. Include rational Frobenius bijectivity for qcqs smooth O_C/p-schemes over non-Noetherian A_crys and descent through p^(1/p^n) thickenings. The existing Noetherian-base Frobenius-isogeny theorem alone is insufficient; the bridge must not depend on AI.5 BKF freeness.",
+      "neededBy": [
+        "AInfCohomology:AI.5/rational-crystalline-frobenius",
+        "AInfCohomology:AI.5/global-bkf"
+      ]
     }
   ],
   "gaps": [
@@ -6683,7 +6770,7 @@
       "neededBy": [
         "AInfCohomology:AI.2/fargues-essential-surjectivity"
       ],
-      "detail": "The inspected RF4 modification node fixes a reference bundle and an effective divisor; it does not alone supply SW13.2.1 extension of Frobenius bundles from Y_[r,infinity) to Y_[r,infinity]. That exact analytic statement is requested, together with the RF0 crystalline-input bridge. The source theorem is known, not conjectural."
+      "detail": "The inspected RF4 fixed-reference modification/gluing and VB2 algebraic curve classification nodes do not alone supply the analytic equivalences SW12.3.4, Propositions12.3.5/12.4.6 or Theorems13.4.1/13.2.1/14.2.1 on the punctured adic Y. These exact theorems, with the leg at phi^-1(x_C), are now requested. The source chain is known, not conjectural; no claim of supplied proof closure is made."
     },
     {
       "title": "Agreement of the two crystalline comparison maps",
@@ -6700,6 +6787,132 @@
         "AInfCohomology:AI.5/global-bkf"
       ],
       "detail": "The packet gives the full smooth/proper/formal/site hypotheses. The compilable signature proposal leaves out those not yet expressible on pinned carriers and marks each affected block. It is a proposed API, never a theorem verified by the elaborator."
+    },
+    {
+      "title": "Integral Witt Frobenius descent",
+      "neededBy": [
+        "AInfCohomology:AI.2/bkf-etale-realization"
+      ],
+      "detail": "The inspected VB0 standard isocrystal node is rational and does not assert the finite W(C^flat)-module/Z_p-module equivalence needed by Lemma 4.26. An early integral descent extension is requested; it is not inferred from Dieudonne–Manin alone."
+    },
+    {
+      "title": "Primitive proper integral comparison",
+      "neededBy": [
+        "AInfCohomology:AI.5/global-etale"
+      ],
+      "detail": "P8:local-rational supplies local rational period sheaves, not Scholze Theorem 5.1 etale finiteness and primitive almost comparison. The request specifies an early primitive-comparison child and BMS1 Theorem 5.7. Until supplied, proper etale comparison is source-supported planning, not closed."
+    },
+    {
+      "title": "Non-Noetherian rational crystalline bridge",
+      "neededBy": [
+        "AInfCohomology:AI.5/rational-crystalline-frobenius",
+        "AInfCohomology:AI.5/global-bkf"
+      ],
+      "detail": "The inspected CR.3 rational Frobenius theorem assumes a Noetherian PD base (or W(k)). It does not by itself prove BMS1 Proposition 13.21 over A_crys. The section-dependent Berthelot–Ogus bridge and its qcqs Frobenius/descent inputs are requested from an early CR.3 extension."
+    },
+    {
+      "title": "Missing named theorem signatures in the suggested file",
+      "neededBy": [
+        "AInfCohomology:AI.1/decalage-filtered-colimits",
+        "AInfCohomology:AI.1/decalage-truncations",
+        "AInfCohomology:AI.1/preservation-derived-completeness",
+        "AInfCohomology:AI.1/completion-at-decalage-ideal",
+        "AInfCohomology:AI.1/completion-limit-model",
+        "AInfCohomology:AI.1/restricted-sequence-completion",
+        "AInfCohomology:AI.1/unrelated-completion-counterexample",
+        "AInfCohomology:AI.0/witt-limit-and-mu-kernel",
+        "AInfCohomology:AI.0/period-regularity",
+        "AInfCohomology:AI.0/witt-base-change",
+        "AInfCohomology:AI.0/witt-finite-presentation-devissage",
+        "AInfCohomology:AI.0/no-almost-zero-witt-sections",
+        "AInfCohomology:AI.0/witt-polynomial-calculation",
+        "AInfCohomology:AI.0/witt-almost-ideal",
+        "AInfCohomology:AI.0/witt-etale-base-change",
+        "AInfCohomology:AI.0:integral/completed-cotangent-twist",
+        "AInfCohomology:AI.0:integral/integral-crystalline-ring-interface",
+        "AInfCohomology:AI.1/strongly-k-flat-replacements",
+        "AInfCohomology:AI.1/valuation-monoidality",
+        "AInfCohomology:AI.1/truncation-comparison-maps",
+        "AInfCohomology:AI.1/connective-comparison",
+        "AInfCohomology:AI.1/decalage-composition",
+        "AInfCohomology:AI.1/bockstein-map-injectivity",
+        "AInfCohomology:AI.1/bockstein-map-surjectivity",
+        "AInfCohomology:AI.1/flat-and-nonflat-base-change",
+        "AInfCohomology:AI.1/completed-sum-cohomology",
+        "AInfCohomology:AI.1/koszul-products-and-cohomology",
+        "AInfCohomology:AI.1/continuous-cochains-koszul",
+        "AInfCohomology:AI.1/dieudonne-consumer-contract",
+        "AInfCohomology:AI.2/valuation-special-fiber-bound",
+        "AInfCohomology:AI.2/valuation-lattice-criterion",
+        "AInfCohomology:AI.2/ainf-module-perfectness",
+        "AInfCohomology:AI.2/ainf-bounded-torsion",
+        "AInfCohomology:AI.2/ainf-tor-bounds",
+        "AInfCohomology:AI.2/punctured-vector-bundle-criterion",
+        "AInfCohomology:AI.2/bkf-valid-operations",
+        "AInfCohomology:AI.2/fargues-full-faithfulness",
+        "AInfCohomology:AI.2/bkf-galois-descent",
+        "AInfCohomology:AI.2/minuscule-prismatic-dictionary",
+        "AInfCohomology:AI.3/perfectoid-period-sections",
+        "AInfCohomology:AI.3/toric-cohomology",
+        "AInfCohomology:AI.3/witt-toric-cohomology",
+        "AInfCohomology:AI.3/almost-to-honest",
+        "AInfCohomology:AI.3/ainf-almost-criterion",
+        "AInfCohomology:AI.3/toric-almost-purity-comparison",
+        "AInfCohomology:AI.3/framing-independence-and-descent",
+        "AInfCohomology:AI.3/aomega-frobenius",
+        "AInfCohomology:AI.3/enhanced-noncommutative-regression",
+        "AInfCohomology:AI.4/hodge-tate-cotangent",
+        "AInfCohomology:AI.4/eta-factorization-criterion",
+        "AInfCohomology:AI.4/hodge-tate-lifting-obstruction",
+        "AInfCohomology:AI.4/local-kunneth",
+        "AInfCohomology:AI.4/finite-witt-specialization",
+        "AInfCohomology:AI.4/torus-witt-realization",
+        "AInfCohomology:AI.4/bounded-pd-coefficients",
+        "AInfCohomology:AI.4/pd-toric-eta-comparison",
+        "AInfCohomology:AI.4/pd-logarithmic-coordinate",
+        "AInfCohomology:AI.4/crystalline-witt-special-fiber",
+        "AInfCohomology:AI.4/blm-crystalline-route",
+        "AInfCohomology:AI.5/global-de-rham",
+        "AInfCohomology:AI.5/global-acrys",
+        "AInfCohomology:AI.5/global-witt",
+        "AInfCohomology:AI.5/global-etale",
+        "AInfCohomology:AI.5/rational-crystalline-frobenius",
+        "AInfCohomology:AI.5/finite-level-length-bound",
+        "AInfCohomology:AI.5/specialization-rank-and-length",
+        "AInfCohomology:AI.5/derived-witt-cohomology-injection",
+        "AInfCohomology:AI.5/de-rham-crystalline-torsion-equivalence",
+        "AInfCohomology:AI.5/p-local-freeness-from-periods",
+        "AInfCohomology:AI.5/cohomology-finiteness-from-periods",
+        "AInfCohomology:AI.5/torsion-and-lattice-export",
+        "AInfCohomology:AI.0/coherent-quotient",
+        "AInfCohomology:AI.0/coherent-square-zero-extension",
+        "AInfCohomology:AI.0/coherence-artin-rees",
+        "AInfCohomology:AI.0/artin-rees-bounded-isogeny"
+      ],
+      "detail": "Independent review found 75 packet declaration names with no Lean signature. The review report lists every name by stage. Source statements and target-level plans were checked, but elaboration of the existing file cannot validate omitted statements. Add faithful signatures at the prescribed scope, documenting only unavailable geometric or enhanced hypotheses; do not replace assertions by opaque predicates."
+    },
+    {
+      "title": "Universal Witt and analytic reconstruction API agreement",
+      "neededBy": [
+        "AInfCohomology:AI.2/fargues-essential-surjectivity",
+        "AInfCohomology:AI.4/fv-precomplex",
+        "AInfCohomology:AI.4/fv-improved-complex"
+      ],
+      "detail": "wittPre_lambda now preserves the actual unit, but does not state the packet universal relative Witt-complex map or its Teichmuller/F-V compatibility. The supplied ring structure only models the omitted H^0 multiplication.; wittImproved_universal_map only extends an arbitrary degree-zero chain map; it omits uniqueness and F,V,R/lambda compatibility. An arbitrary lambda0 need not extend to a chain map. The CR.4 relative Witt structure is missing, so this statement cannot certify the packet universal property.; reconstruct_modification states only underlying module freeness, already a field of the reconstructed finite-free object, and never mentions the analytic modification or Xi. The corrected reconstruct_pair is stronger, but this separate API and the reconstruction shift example still need an actual Frobenius/lattice check."
+    },
+    {
+      "title": "Reader document still contradicts the corrected packet",
+      "neededBy": [
+        "AInfCohomology:AI.0/theta-witt-family",
+        "AInfCohomology:AI.2/punctured-vector-bundle-criterion",
+        "AInfCohomology:AI.3/perfectoid-period-sections",
+        "AInfCohomology:AI.4/fv-precomplex",
+        "AInfCohomology:AI.4/bounded-pd-coefficients",
+        "AInfCohomology:AI.4/mu-inverted-etale",
+        "AInfCohomology:AI.5/global-etale",
+        "AInfCohomology:AI.5/rational-crystalline-frobenius"
+      ],
+      "detail": "The reader is outside this review issue deliverables and was not edited. Refresh it from the corrected packet in the revision, especially the V(1) lift, localization at (p), integral-only AI.3 sections, D/xi connectivity, Lemma 12.8 bounded coefficients, local Rnu_* A_inf comparison, and explicit primitive/non-Noetherian crystalline supplier requests. See review report for anchors."
     }
   ],
   "provenance": {
@@ -6712,5 +6925,668 @@
     "audit": "Read data/library-coverage.json and accepted AUDIT-35/REV-AUDIT-35 AInf coverage. The generated file has no AInf entries; the reviewed audit supplies the missing/found classification. Actual declarations checked at both pinned commits.",
     "upstreamStyle": "Read AdicSpaces and DGAInfinity upstream documents in full; use explicit definitions, API/tests and local-to-global comparison order.",
     "stopRule": "All eight scoped stages are planned at target level below NODE_BUDGET. No further lemma-level refinement is attempted after target coverage is complete."
+  },
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-AInfCohomology--AI.0",
+    "date": "2026-10-07",
+    "notes": "Completed independent target-level review of all 131 nodes, 133 source excerpts, all 29 final pinned baseline entries, 58 external prerequisite references, 16 owner requests, sourceIssues E1–E5, and all eight assigned red-team findings. Corrected 27 node plans plus baseline and affine API/tests. Acceptance blocked by 75 absent promised theorem signatures, three incomplete/mismatched construction APIs, and an out-of-scope reader document contradicting the corrected packet. See review report and handoff. Complete pass and eight planned (not closed) stage statuses retained; explicit supplier gaps alone are not a reason to reject.",
+    "checked": [
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-term",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-differential",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-differential-spec",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-differential-square",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-complex",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-map",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-map-component",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-cycles",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-boundaries",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/principal-cohomology",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/ideal-decalage-complex",
+        "verdict": "corrected",
+        "note": "Corrected the overlap test to use u^(-i) in every integer degree; the old comment incorrectly said the factor was u^-1 at degree -1. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-cohomology",
+        "verdict": "corrected",
+        "note": "Restored the missing promised theorem name for the affine normalized cohomology quotient, explicitly omitting only ringed-topos descent and line factors. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/quasi-isomorphism-preservation",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/derived-decalage",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-filtered-colimits",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.decalage_filtered_colimits. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-truncations",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.decalage_truncations. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-products",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/bockstein-differential",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/bockstein-reduction",
+        "verdict": "corrected",
+        "note": "Restored the promised affine derived-reduction/Bockstein theorem name with ring and term regularity; the two-term flat quotient resolution suffices, without K-flatness of C. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/preservation-derived-completeness",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.preservation_derived_completeness. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.completion_at_decalage_ideal. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/completion-limit-model",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.completion_limit_model. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/finite-shift-injective",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/restricted-sequence-completion",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.restricted_sequence_completion. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/completed-shift-kernel",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/unrelated-completion-counterexample",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.unrelated_completion_counterexample. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/cyclotomic-coefficients",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/tilde-theta",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/theta-witt-family",
+        "verdict": "corrected",
+        "note": "Corrected the false p-lift in Verschiebung (Lemma 3.4) and added a characteristic-zero negative control. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-kernel-generators",
+        "verdict": "corrected",
+        "note": "Made the general-perfectoid nonzerodivisor input of Lemma 3.12 explicit. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-limit-and-mu-kernel",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_limit_and_mu_kernel. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/period-regularity",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.period_regularity. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0:integral/residue-map",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-base-change",
+        "verdict": "unverifiable",
+        "note": "Removed the O_C-only period-regularity prerequisite from the theorem for general integral perfectoid rings. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_base_change. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-coherence",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-finite-presentation-devissage",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_finite_presentation_devissage. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/no-almost-zero-witt-sections",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.no_almost_zero_witt_sections. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-polynomial-calculation",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_polynomial_calculation. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-almost-ideal",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_almost_ideal. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/witt-etale-base-change",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_etale_base_change. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0:integral/breuil-kisin-line",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0:integral/fontaine-dlog",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0:integral/completed-cotangent-twist",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.completed_cotangent_twist. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0:integral/integral-crystalline-ring-interface",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.integral_crystalline_ring_interface. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0:period-comparison/common-rational-period-maps",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/strongly-k-flat-replacements",
+        "verdict": "unverifiable",
+        "note": "Corrected the false claim that a Cartier inclusion is locally split; flat tensor preserves its injectivity. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.strongly_k_flat_replacements. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/valuation-monoidality",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.valuation_monoidality. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/truncation-comparison-maps",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.truncation_comparison_maps. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/connective-comparison",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.connective_comparison. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/decalage-composition",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.decalage_composition. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/bockstein-comparison-map",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/bockstein-map-injectivity",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.bockstein_map_injectivity. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/bockstein-map-surjectivity",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.bockstein_map_surjectivity. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/flat-and-nonflat-base-change",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.flat_and_nonflat_base_change. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/completed-sum-cohomology",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.completed_sum_cohomology. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/filtered-beilinson-description",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/koszul-decalage-calculation",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/koszul-products-and-cohomology",
+        "verdict": "unverifiable",
+        "note": "Replaced unspecified eligible cases by the twisted DGA relations and the precise homotopy/divisibility hypotheses of Lemmas 7.5 and 7.10. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.koszul_products_and_cohomology. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/continuous-cochains-koszul",
+        "verdict": "unverifiable",
+        "note": "Restored the exact inverse-limit hypotheses and the comparison with the discrete dense subgroup Z^d (Lemma 7.3). Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.continuous_cochains_koszul. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.1/dieudonne-consumer-contract",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.dieudonne_consumer_contract. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/valuation-special-fiber-bound",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.valuation_special_fiber_bound. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/valuation-lattice-criterion",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.valuation_lattice_criterion. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/punctured-spectrum-triviality",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/ainf-module-perfectness",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.ainf_module_perfectness. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/ainf-bounded-torsion",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.ainf_bounded_torsion. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/ainf-tor-bounds",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.ainf_tor_bounds. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/punctured-vector-bundle-criterion",
+        "verdict": "unverifiable",
+        "note": "Lemma 4.10 uses localization at the prime (p), not an x-local p-completed chart. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.punctured_vector_bundle_criterion. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/ainf-module-structure",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/bkf-module",
+        "verdict": "corrected",
+        "note": "Added the explicit Frobenius factor API/test and restored the unit test of etale realization and de Rham lattice instead of testing only underlying freeness. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/bkf-valid-operations",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.bkf_valid_operations. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/lattice-pair",
+        "verdict": "corrected",
+        "note": "Corrected the shifted-lattice Lean test, whose xi argument was previously unused; it now fixes the actual xi^-1 lattice and rejects the standard lattice. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/bkf-etale-realization",
+        "verdict": "corrected",
+        "note": "Made the integral Frobenius descent supplier refinement explicit and restored the mu-inverted lattice equality of Lemma 4.26. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/fargues-full-faithfulness",
+        "verdict": "unverifiable",
+        "note": "Corrected the source locator from a purported proof of Theorem 4.28 to Remark 4.29, and supplied the omitted intersection prerequisite. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.fargues_full_faithfulness. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/fargues-essential-surjectivity",
+        "verdict": "unverifiable",
+        "note": "Corrected the SW-only locator (12.4.6 is a Proposition; 4.28 belongs to BMS), fixed the leg to phi^-1(x_C), expanded the exact analytic supplier request, and strengthened reconstruct_pair to preserve the lattice in both directions. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. reconstruct_modification states only underlying module freeness, already a field of the reconstructed finite-free object, and never mentions the analytic modification or Xi. The corrected reconstruct_pair is stronger, but this separate API and the reconstruction shift example still need an actual Frobenius/lattice check."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/fargues-classification",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/bkf-galois-descent",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.bkf_galois_descent. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/minuscule-prismatic-dictionary",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.minuscule_prismatic_dictionary. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.2/minuscule-crystalline-triple",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/completed-integral-sheaf",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/tilt-sheaf",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/derived-ainf-sheaf",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/perfectoid-period-sections",
+        "verdict": "unverifiable",
+        "note": "Removed rational B_dR acyclicity from integral AI.3, resolving the residual RT-AREA-padic-2/10 ownership error. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.perfectoid_period_sections. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/aomega",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/toric-perfectoid-cover",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/toric-cohomology",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.toric_cohomology. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/witt-toric-cohomology",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.witt_toric_cohomology. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/almost-to-honest",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.almost_to_honest. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/ainf-almost-criterion",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.ainf_almost_criterion. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/toric-almost-purity-comparison",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.toric_almost_purity_comparison. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/q-de-rham-model",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/framing-independence-and-descent",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.framing_independence_and_descent. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/aomega-frobenius",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.aomega_frobenius. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.3/enhanced-noncommutative-regression",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.enhanced_noncommutative_regression. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/hodge-tate",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/hodge-tate-cotangent",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.hodge_tate_cotangent. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/eta-factorization-criterion",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.eta_factorization_criterion. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/hodge-tate-lifting-obstruction",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.hodge_tate_lifting_obstruction. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/local-kunneth",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.local_kunneth. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/finite-witt-specialization",
+        "verdict": "unverifiable",
+        "note": "Separated the early finite coefficient comparison from the later de Rham–Witt cohomology theorem, which consumes it; the previous proof silently used its own downstream consumer. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.finite_witt_specialization. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/fv-precomplex",
+        "verdict": "unverifiable",
+        "note": "Added the missing connectivity of D/xi from §11.1; mere connectivity of D does not ensure H^0(D) is xi-torsion-free. Corrected the false arbitrary-one0 identity: the affine coefficient prototype is now a unital ring map with lambda(1)=1. Its universal relative Witt map still needs the stated supplier structure. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. wittPre_lambda now preserves the actual unit, but does not state the packet universal relative Witt-complex map or its Teichmuller/F-V compatibility. The supplied ring structure only models the omitted H^0 multiplication."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/fv-improved-complex",
+        "verdict": "unverifiable",
+        "note": "Retained the source connectivity assumptions of the preceding precomplex. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. wittImproved_universal_map only extends an arbitrary degree-zero chain map; it omits uniqueness and F,V,R/lambda compatibility. An arbitrary lambda0 need not extend to a chain map. The CR.4 relative Witt structure is missing, so this statement cannot certify the packet universal property."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/torus-witt-realization",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.torus_witt_realization. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/relative-witt-comparison",
+        "verdict": "corrected",
+        "note": "Displayed the exact negative Breuil–Kisin twist of Theorem 11.1 instead of leaving the normalization implicit; retained the early finite reduction as a prerequisite. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/de-rham",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/bounded-pd-coefficients",
+        "verdict": "unverifiable",
+        "note": "Replaced the incorrect bounded-subring locator 12.2–12.4 by 12.8 and stated its actual regularity/topology/intersection estimates. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.bounded_pd_coefficients. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/pd-toric-eta-comparison",
+        "verdict": "unverifiable",
+        "note": "Added the actual bounded coefficient exchange and canonical factorization of Lemma 12.8(iv–v). Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.pd_toric_eta_comparison. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/pd-logarithmic-coordinate",
+        "verdict": "unverifiable",
+        "note": "Cited the actual unit calculation in Lemma 12.2(iii), transported to bounded subrings by 12.8(i). Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.pd_logarithmic_coordinate. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/absolute-crystalline-comparison",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/crystalline-witt-special-fiber",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.crystalline_witt_special_fiber. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/blm-crystalline-route",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.blm_crystalline_route. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.4/mu-inverted-etale",
+        "verdict": "corrected",
+        "note": "Removed the unjustified identification with actual etale cohomology for nonproper X: Theorem 14.1(iv) gives Rnu_* A_inf,X, and Theorem 5.7 is a separate proper input. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/proper-ainf-complex",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/proper-perfectness",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/global-de-rham",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.global_de_rham. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/global-acrys",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.global_acrys. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/global-witt",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.global_witt. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/global-etale",
+        "verdict": "unverifiable",
+        "note": "Distinguished the requested primitive comparison/etale finiteness from the existing local rational period-sheaf supplier. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.global_etale. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/rational-crystalline-frobenius",
+        "verdict": "unverifiable",
+        "note": "Replaced the unsupported claim that the existing Noetherian-base Frobenius isogeny supplies Proposition 13.21 by the precise residue-section bridge, an owner request and a gap. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.rational_crystalline_frobenius. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/finite-level-length-bound",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.finite_level_length_bound. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/specialization-rank-and-length",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.specialization_rank_and_length. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/derived-witt-cohomology-injection",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.derived_witt_cohomology_injection. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/adjacent-degree-freeness",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/de-rham-crystalline-torsion-equivalence",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.de_rham_crystalline_torsion_equivalence. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/p-local-freeness-from-periods",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.p_local_freeness_from_periods. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/cohomology-finiteness-from-periods",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.cohomology_finiteness_from_periods. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/global-bkf",
+        "verdict": "verified",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Present affine signatures/API and concrete examples checked against the packet; unavailable geometry/enhancement is an explicitly documented omission, not a formalization claim."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.5/torsion-and-lattice-export",
+        "verdict": "unverifiable",
+        "note": "Replaced the unnecessary full Fargues equivalence by early full faithfulness. Proper lattice recovery from an existing finite free cohomological BKF module does not require analytic essential surjectivity. Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.torsion_and_lattice_export. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/coherent-quotient",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.coherent_quotient. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/coherent-square-zero-extension",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.coherent_square_zero_extension. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/coherence-artin-rees",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.coherence_artin_rees. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      },
+      {
+        "nodeId": "AInfCohomology:AI.0/artin-rees-bounded-isogeny",
+        "verdict": "unverifiable",
+        "note": "Checked the cited primary-source locator/excerpt, stated hypotheses, direct prerequisites and target-level proof sketch. Suggested file omits promised signature TauCeti.AInfPlan.artin_rees_bounded_isogeny. This verdict concerns artifact agreement, not a disproof of the source theorem."
+      }
+    ]
   }
 }
