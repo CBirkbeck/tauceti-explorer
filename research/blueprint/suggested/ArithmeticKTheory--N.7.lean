@@ -8,9 +8,11 @@ BP-ArithmeticKTheory--N.7 (stages N.7 and N.8): prototype,
 implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The file imports Mathlib only. FIX-RT-BP-ArithmeticKTheory--N.7~2 elaborated it
-with `lake env lean` in an existing build at the Mathlib pin (6 October 2026):
-the only warnings are the declarations proved by `sorry`.
+The file imports Mathlib only. The round-two independent review (7 October 2026)
+corrects the expressible API signatures and tests. Its final elaboration result is
+recorded in REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md. The Gaussian span is verified;
+the cyclotomic representative-generation obligation supporting the real-quadratic
+upper bound remains a recorded gap. No certificate completion is asserted here.
 
 The reviewed audit AUDIT-27 records both layers as NOT BUILT. What the pinned
 libraries DO have is imported and never redefined:
@@ -30,7 +32,7 @@ libraries DO have is imported and never redefined:
 
 What is ABSENT from both libraries, and is therefore written out below: the word
 "regular" (a grep for "regular prime" over both trees returns nothing, and so
-does one for "Vandiver"), the invariant w_i, Kummer's criterion, the eigenspace
+does one for "Vandiver"), the Bernoulli API for N.4’s invariant w_i, Kummer's criterion, the eigenspace
 decomposition, and every K-group above the zeroth.
 
 Imported and never re-planned: the tame kernel and the computations of K₂ (from
@@ -77,14 +79,24 @@ namespace TauCeti.ArithKTheory
 which are NOT Mathlib's `bernoulli'` (that one differs from `bernoulli` only at index one).
 Reviewer's correction (REV-ArithmeticKTheory--N.7): every formula quoted from the source is
 re-indexed `k ↦ 2k`. -/
-theorem bernoulli_convention_one : bernoulli 1 = -1/2 := by sorry
+/- bernoulliArith is an alias of the imported convention, not a second Bernoulli definition. -/
+abbrev bernoulliArith : ℕ → ℚ := bernoulli
+
+theorem bernoulli_one_arith : bernoulli 1 = -1/2 := bernoulli_one
+
+/-- b_one -/
+example : bernoulli 1 = -1 / 2 ∧ bernoulli' 1 = 1 / 2 := by sorry
+
+/-- agree_away_from_one -/
+example (n : ℕ) (hn : n ≠ 1) : bernoulli n = bernoulli' n :=
+  bernoulli_eq_bernoulli'_of_ne_one hn
 
 theorem bernoulli_convert (n : ℕ) (hn : n ≠ 1) : bernoulli n = bernoulli' n := by sorry
 
 /-- The source's topologists' Bernoulli numbers, used only when quoting Weibel. -/
 def bernoulliTop (k : ℕ) : ℚ := (-1) ^ (k + 1) * bernoulli (2 * k)
 
-theorem bernoulliTop_eq_abs (k : ℕ) (hk : 1 ≤ k) : bernoulliTop k = |bernoulli (2 * k)| := by
+theorem bernoulliTop_eq_abs (k : ℕ) (hk : 1 ≤ k) : bernoulliTop k = |bernoulli (2 * k)| ∧ 0 < bernoulliTop k := by
   sorry
 
 /-- von Staudt–Clausen, in the pinned Mathlib (`Bernoulli.vonStaudt_clausen`,
@@ -99,17 +111,26 @@ theorem bernoulli_denominator_squarefree (k : ℕ) (hk : 1 ≤ k) :
   sorry
 
 /-- b_twelve_denominator: the source's `B_6 = 691/2730` is `bernoulli 12`. -/
-example : bernoulli 12 = -691 / 2730 ∧ bernoulli 6 = 1 / 42 := by sorry
+example : bernoulli 12 = -691 / 2730 ∧ (bernoulli 12).den = 2730 ∧
+    bernoulli 6 = 1 / 42 := by sorry
 
 /-- top_not_primed -/
 example : bernoulliTop 1 = 1 / 6 ∧ bernoulli' 1 = 1 / 2 := by sorry
 
 /-- five_divides_top_b_five: the source's `B_5 = 5/66` is `bernoulli 10`. -/
-example : bernoulliTop 5 = 5 / 66 ∧ bernoulli 5 = 0 := by sorry
+example : bernoulliTop 5 = 5 / 66 ∧ bernoulli 5 = 0 ∧
+    (5 : ℤ) ∣ (bernoulli 10).num ∧ ¬ (5 : ℤ) ∣ (bernoulli 10 / 5).num := by sorry
 
-/-- N.7/w-invariant: `w_i(F)` is the largest `m` on whose `i`-th twist of the roots
-of unity the Galois group acts trivially. -/
-def wInvariant (F : Type) [Field F] [NumberField F] (i : ℕ) : ℕ := by sorry
+/-- N.7/w-invariant imports ArithmeticKTheory N.4/the-w-invariant and its
+finiteness, whose twist supplier is MotivicEtaleKTheory M.1. The local prototype
+below stands for that unavailable imported declaration; it is not a second
+planned definition. For positive i, `w_i(F)` is the largest `m` on whose
+`i`-th twist of the roots of unity the Galois group acts trivially. The N.7 API
+adds the Bernoulli-denominator comparison. -/
+def wInvariant (F : Type*) [Field F] [NumberField F] (i : ℕ) : ℕ := by sorry
+
+theorem wInvariant_even (F : Type*) [Field F] [NumberField F] (i : ℕ) (hi : 0 < i) :
+    Even (wInvariant F i) := by sorry
 
 theorem wInvariant_odd_rat (i : ℕ) (hi : Odd i) : wInvariant ℚ i = 2 := by sorry
 
@@ -117,10 +138,22 @@ theorem wInvariant_odd_rat (i : ℕ) (hi : Odd i) : wInvariant ℚ i = 2 := by s
 theorem wInvariant_even_rat (k : ℕ) (hk : 1 ≤ k) :
     wInvariant ℚ (2 * k) = (bernoulli (2 * k) / (4 * k)).den := by sorry
 
-theorem wInvariant_prime_divides (i : ℕ) (hi : Even i) (hi0 : 0 < i) (l : ℕ) (hl : l.Prime) :
+theorem wInvariant_prime_divides (i : ℕ) (hi0 : 0 < i) (l : ℕ) (hl : l.Prime) :
     l ∣ wInvariant ℚ i ↔ (l - 1) ∣ i := by sorry
 
 theorem wInvariant_two_rat : wInvariant ℚ 2 = 24 := by sorry
+
+/-- w_two_rat -/
+example : wInvariant ℚ 2 = 24 ∧ (bernoulli 2 / 4).den = 24 := by sorry
+
+/-- w_odd -/
+example (i : ℕ) (hi : Odd i) : wInvariant ℚ i = 2 := by sorry
+
+/-- w_gaussian: the twisted invariant, not the four ordinary roots of unity. -/
+example : wInvariant (CyclotomicField 4 ℚ) 2 = 24 := by sorry
+
+/-- prime_divisibility -/
+example : wInvariant ℚ 6 = 504 ∧ 7 ∣ wInvariant ℚ 6 := by sorry
 
 /-- w_four_rat: `240`, where the unconverted formula would give `48`. -/
 example : wInvariant ℚ 4 = 240 := by sorry
@@ -130,18 +163,37 @@ example : wInvariant ℚ 4 = 240 := by sorry
 def IsRegularPrime (p : ℕ) : Prop :=
   ¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ)
 
-theorem isRegularPrime_iff_not_dvd_classNumber (p : ℕ) :
+theorem IsRegularPrime.iff_not_dvd_classNumber (p : ℕ) :
     IsRegularPrime p ↔ ¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ) := Iff.rfl
 
 /-- Iwasawa's form (as the source states it): the whole tower `ℚ(μ_{p^ν})`. -/
-theorem isRegularPrime_iwasawa (p : ℕ) (hp : p.Prime) :
+theorem IsRegularPrime.iwasawa (p : ℕ) (hp : p.Prime) :
     IsRegularPrime p ↔
       ∀ ν : ℕ, 1 ≤ ν → ¬ p ∣ NumberField.classNumber (CyclotomicField (p ^ ν) ℚ) := by
   sorry
 
+instance IsRegularPrime.decidable (p : ℕ) : Decidable (IsRegularPrime p) :=
+  inferInstanceAs (Decidable (¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ)))
+
 theorem not_isRegularPrime_37 : ¬ IsRegularPrime 37 := by sorry
 
 theorem isRegularPrime_of_lt_37 (p : ℕ) (hp : p.Prime) (h : p < 37) : IsRegularPrime p := by sorry
+
+/-- thirty_seven_irregular -/
+example : ¬ IsRegularPrime 37 := by sorry
+
+/-- small_primes_regular -/
+example (p : ℕ) (hp : p.Prime) (h : p < 37) : IsRegularPrime p := by sorry
+
+/-- not_vandiver: 37 distinguishes the full class-number condition from the real one.
+This uses the historical verification at 37 cited in the K-book; it does not
+introduce or assume the global Vandiver predicate owned by IntegralIwasawaTheory L3. -/
+example : ¬ IsRegularPrime 37 ∧
+    ¬ 37 ∣ NumberField.classNumber
+      (NumberField.maximalRealSubfield (CyclotomicField 37 ℚ)) := by sorry
+
+/-- decidable_instance -/
+example (p : ℕ) : Decidable (IsRegularPrime p) := inferInstance
 
 /-- N.7/kummer-criterion: an odd prime `p` is irregular exactly when it divides the
 numerator of one of `B_2, B_4, …, B_{p-3}` (the source's `B_k`, `k ≤ (p-3)/2`).
@@ -258,15 +310,35 @@ Revision for FIX-RT-BP-ArithmeticKTheory--N.7~2 (6 October 2026): the span proof
 Tate's method (`N.8/tate-norm-filtration`, `N.8/tate-criterion`) proves K₂(ℤ[i]) = 0
 (`N.8/gaussian-tame-kernel-vanishes`); restriction to ℚ(ζ₅), where the tame kernel vanishes
 (Zhang–Xu, `N.8/tame-kernel-of-q-zeta-five`), transfer, and Tate's description of two-torsion prove
-that {−1, −1} and {−1, ε} generate K₂(𝓞_{ℚ(√5)}) (`N.8/real-quadratic-upper-generation`). The
+that {−1, −1} and {−1, ε} generate K₂(𝓞_{ℚ(√5)}) (`N.8/real-quadratic-upper-generation`)
+once the recorded cyclotomic generation obligation is supplied. The
 arithmetic inputs of those proofs are stated below as genuine signatures; the K₂ statements are
 comments. -/
 
 /-! ### `ArithmeticKTheory:N.8/certified-example-format` (definition) -/
 
--- ArithmeticData: not stated here as a structure with fields; suggested fields: the degree
---   `Module.finrank ℚ F`, the signature `(nrRealPlaces F, nrComplexPlaces F)`, `NumberField.classNumber F`,
---   `NumberField.Units.rank F` and the invariants `w_i(F)` (ArithmeticKTheory N.4), each with its proof
+/-- ArithmeticData: concrete invariant values with equality proofs, without a K-group carrier.
+The equalities are actual proof obligations, not unnamed proposition fields. -/
+structure ArithmeticData (F : Type*) [Field F] [NumberField F] where
+  degree : ℕ
+  nrReal : ℕ
+  nrComplex : ℕ
+  classNumber : ℕ
+  unitRank : ℕ
+  w : ℕ → ℕ
+  degree_eq : degree = Module.finrank ℚ F
+  nrReal_eq : nrReal = NumberField.InfinitePlace.nrRealPlaces F
+  nrComplex_eq : nrComplex = NumberField.InfinitePlace.nrComplexPlaces F
+  classNumber_eq : classNumber = NumberField.classNumber F
+  unitRank_eq : unitRank = NumberField.Units.rank F
+  w_eq : ∀ i : ℕ, 0 < i → w i = wInvariant F i
+
+/-- data_from_libraries: the stored arithmetic values agree with their actual suppliers.
+This checks the arithmetic-data half; the certificate tests below still need K₂. -/
+example (F : Type*) [Field F] [NumberField F] (d : ArithmeticData F) :
+    d.degree = Module.finrank ℚ F ∧
+      d.classNumber = NumberField.classNumber F ∧ d.unitRank = NumberField.Units.rank F := by
+  sorry
 -- CertifiedExample: not stated here; needs ArithmeticData, an `OrderCertificate` (ArithmeticKTheory
 --   N.6/order-certificate) for the tame kernel K₂(𝓞_F) and the labelling (supplier: K2SymbolsBrauer T.1
 --   for K₂; ArithmeticKTheory N.6)
@@ -277,9 +349,6 @@ comments. -/
 -- test deduced_not_evidence (non-example): not stated here; needs CertifiedExample
 -- test upper_bound_only (degenerate): not stated here; needs OrderCertificate without its lower bound
 -- test rationals_admissible (computation): not stated here; needs K₂(ℤ) (K2SymbolsBrauer T.5)
--- test data_from_libraries (compatibility): not stated here; the arithmetic data of ℚ, ℚ(i) and
---   ℚ(√5) are to be discharged from Mathlib's `NumberField.classNumber` and `NumberField.Units.rank`
---   (for ℚ(√5) see `sqrtFive_isPrincipalIdealRing` and `sqrtFive_units` below)
 -- test gaussian_certified (computation): not stated here; needs CertifiedExample and K₂(ℤ[i]): no
 --   generators, span by `N.8/gaussian-tame-kernel-vanishes`, lower bound onto the trivial group
 -- test sqrt_five_certified (computation): not stated here; needs CertifiedExample and K₂(𝓞_{ℚ(√5)}):
@@ -399,7 +468,9 @@ T.5/k2-of-the-integers, T.5/k2-of-the-rationals). -/
 
 Zhang–Xu: `K₂(ℤ[ζ₅]) = 0`: not stated here; needs K₂ of a ring (supplier: K2SymbolsBrauer T.1,
 T.5/tame-kernel-sequence). Tate's criterion holds at every place (their Theorems 3.3–3.6, with
-Skalba's generalised Thue theorem a recorded gap), so K₂(ℤ[ζ₅]) is generated by the six symbols
+Skalba's generalised Thue theorem and the U_m-compatible representative selection recorded
+as gaps). This generation step remains unverified by the independent review; once supplied,
+K₂(ℤ[ζ₅]) is generated by the six symbols
 of −1, ζ and ξ = 1 + ζ + ζ²; Tate's Theorem (6.2) (MotivicEtaleKTheory M.3) leaves no element of
 order 2, and {ζ, ξ} = {ζ³, 1 − ζ³}² = 1. Arithmetic inputs: -/
 
@@ -478,28 +549,8 @@ end TauCeti.ArithKTheory
 
 /- Review REV-FIX-RT-AREA-ktheory-1 found that neither example supplied its span proof, and
 REV-FIX-RT-BP-ArithmeticKTheory--N.7 kept the packet open for that reason. FIX-RT-BP-
-ArithmeticKTheory--N.7~2 supplies both span proofs, independently of the Birch–Tate formula; the
+ArithmeticKTheory--N.7~2 proposes both span proofs independently of the Birch–Tate formula.
+REV-FIX-RT-BP-ArithmeticKTheory--N.7~2 verifies the Gaussian proof and the real-quadratic
+transfer/reduction, but the latter still needs the recorded cyclotomic representative-generation
+obligation. The
 lower bound 4 for ℚ(√5) is the pair of real sign characters, as before. -/
-
-/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
-claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
-unit test of the packet under the packet's name; these are listed with their packet
-statements so that the names agree, and a contributor gives each its signature (or an
-`example`) next to its node above.
-
-bernoulliArith (API, data; ArithmeticKTheory:N.7/bernoulli-conventions): The arithmetic Bernoulli numbers: Mathlib's bernoulli, used directly (no new definition).
-bernoulli_one_arith (API, simp; ArithmeticKTheory:N.7/bernoulli-conventions): bernoulli 1 = −1/2 (Mathlib's bernoulli_one).
-b_one (test, computation; ArithmeticKTheory:N.7/bernoulli-conventions): bernoulli 1 = −1/2 and bernoulli' 1 = +1/2.
-agree_away_from_one (test, compatibility; ArithmeticKTheory:N.7/bernoulli-conventions): For every index other than one, bernoulli and bernoulli' agree.
-w_two_rat (test, computation; ArithmeticKTheory:N.7/w-invariant): w_2(Q) = 24 = denominator of (1/6)/4.
-w_odd (test, computation; ArithmeticKTheory:N.7/w-invariant): For odd i, w_i(Q) = 2.
-w_gaussian (test, computation; ArithmeticKTheory:N.7/w-invariant): w_2(Q(i)) = 24.
-prime_divisibility (test, computation; ArithmeticKTheory:N.7/w-invariant): 7 divides w_6(Q) = 504, since 6 is divisible by 6.
-IsRegularPrime.iff_not_dvd_classNumber (API, characterisation; ArithmeticKTheory:N.7/regular-prime): The definition: the prime does not divide the class number of the cyclotomic field.
-IsRegularPrime.iwasawa (API, characterisation; ArithmeticKTheory:N.7/regular-prime): p is regular iff for all ν ≥ 1, p does not divide the class number of Q(μ_{p^ν}).
-IsRegularPrime.decidable (API, instance; ArithmeticKTheory:N.7/regular-prime): Decidability for a given prime, once the class number is known.
-thirty_seven_irregular (test, computation; ArithmeticKTheory:N.7/regular-prime): The prime 37 is irregular, so the predicate fails there.
-small_primes_regular (test, computation; ArithmeticKTheory:N.7/regular-prime): Every prime below 37 is regular.
-not_vandiver (test, non-example; ArithmeticKTheory:N.7/regular-prime): The predicate is about the full cyclotomic class number, not about the real subfield; a definition that used the real subfield would be Vandiver’s condition and is a different predicate.
-decidable_instance (test, degenerate; ArithmeticKTheory:N.7/regular-prime): For a given prime the predicate is decidable once the class number is computed.
--/
