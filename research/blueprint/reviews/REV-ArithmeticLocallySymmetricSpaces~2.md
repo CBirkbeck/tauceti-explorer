@@ -1,168 +1,210 @@
-# Independent review checkpoint: ArithmeticLocallySymmetricSpaces, revision 2
-
-Job: `REV-ArithmeticLocallySymmetricSpaces~2`, Refs #6908.
-Reviewer: ChatGPT Pro, session `chatgpt-20261007-c7a942`.
-Date: 2026-10-07.
-Status: **partial independent review checkpoint; not an acceptance and not a completed review**.
-
-The original plan was written by Claude (`claude-Ix7O34`), and revision 2 by Codex (`codex-xogHis`). This session wrote neither. The claim was confirmed by the issue bot before work began. This checkpoint records independently established corrections and a reproducible candidate patch. It does not replace the historical packet review object or claim that all 66 nodes and all baseline/source records have been independently verified.
-
-## Inputs and scope
-
-The reviewed packet, reader and suggested file have these Git blob identifiers:
-
-| Input | Git blob |
-|---|---|
-| `packets/ArithmeticLocallySymmetricSpaces.json` | `ab75ce510242e0b02a8c1cb360c003aea566f317` |
-| `readmes/ArithmeticLocallySymmetricSpaces.md` | `963431299fefba1e5cf39af9b56d1c2dcdec5366` |
-| `suggested/ArithmeticLocallySymmetricSpaces.lean` | `781e0a1a651b1f381200c2f9c8ece8271a349401` |
-
-They were checked against the claimed branch, not assumed to match a moving default branch. Local copies were byte-matched using Git's blob hashing convention. The deployment artifact used for local inspection was artifact 11494030563 of workflow run 37644222187, commit `04dbe845d373fb46411cce2656870f68b398ce6d`; its ZIP SHA-256 was independently checked as `b4b100cfd696f6e59af0c9634233459c536a848521122b888bffbd70b5312fa1`.
-
-The accepted RS-09 revision-2 boundary is retained: ALS.6 concerns finite-level descent and refinements. Completed systems, derived limits, completed chain complexes and completed boundary triangles remain with CompletedCohomologyPartII. The earlier review's contrary request is not a reason to reject this revision. Neither the 66-node count nor the presence of explicit, honestly stated interface gaps by itself prevents a completed *planning* pass.
-
-The two nearby upstream documents inspected were AlgebraicTopology and RepresentationTheory/LieGroups. Their generic local-coefficient, cellular, transfer, duality and Lie-group infrastructure must remain suppliers, not be duplicated in this packet.
-
-## 1. The norm argument needs neatness over the correct base field
-
-Affected nodes:
-
-- `ALS.0/nonorientable-neat-example`, final sentence and proof step 4;
-- the regression test `orientationSystem_GL_formula` in `ALS.0/orientation-local-system`.
-
-The existing PGL2/Q counterexample is correct. The problem is the subsequent inference for GL_m/F. The supplier `AdelicAlgebraicGroups:AA.4/neat-element` defines neatness using a faithful **F-representation**. Its `AA.4/neat-level` tests all rational intersections with conjugates of the compact level. The proof then treats a faithful representation of `Res_{F/Q} GL_m` over **Q** as if the same neatness hypothesis automatically applied. It does not.
-
-The parenthetical assertion for a Q-neat restriction-of-scalars group is valid; it should be qualified, not deleted as a false theorem. The failure is the unqualified transition from the supplier's F-neatness to that stronger hypothesis.
-
-### An explicit counterexample to that transition
-
-Put
-
-\[
-F=\mathbb Q(\sqrt5),\qquad
-u=682+305\sqrt5=377+610\frac{1+\sqrt5}{2},\qquad
-\gamma=\operatorname{diag}(u,1)\in\mathrm{GL}_2(O_F).
-\]
-
-Then
-
-\[
-N_{F/\mathbb Q}(u)=682^2-5\cdot305^2=-1.
-\]
-
-Take the two places
-
-\[
-v=(11,\sqrt5-7),\qquad w=(31,\sqrt5-6).
-\]
-
-They exist because `7^2 = 5 mod 11` and `6^2 = 5 mod 31`. Direct calculation gives
-
-\[
-u\equiv1\pmod v,\qquad u\equiv1\pmod w.
-\]
-
-Let K be principal congruence at v and w, and maximal integral level at every other finite place. Thus gamma lies in `GL_2(F) ∩ K`.
-
-For every element of K, the eigenvalues at v reduce to 1, so the finite-order elements in their multiplicative group have 11-power order. At w the corresponding orders are powers of 31. Their intersection is trivial. This is precisely the two-distinct-residue-characteristics argument already used by `neatness-iwahori-criterion`. It proves the stronger adelic/Pink F-neatness condition and hence also the supplier's rational-intersection F-neatness condition, including conjugated intersections because conjugation preserves eigenvalues.
-
-Nevertheless, the already stated GL2 orientation formula gives
-
-\[
-\varepsilon(\gamma)=\operatorname{sign}N_{F/\mathbb Q}(\det\gamma)=-1.
-\]
-
-At the two real embeddings, u has opposite signs. The quotient therefore has an orientation-reversing deck transformation despite its F-neat level.
-
-There is no contradiction with Q-neatness. In the faithful Q-representation obtained by forgetting the F-vector-space structure, gamma has eigenvalues `u, u', 1, 1`, where `u u' = -1`. Their multiplicative group contains the nontrivial root of unity -1. Equivalently, multiplication by u on the Q-basis `1, sqrt(5)` is
-
-\[
-\begin{pmatrix}682&1525\\305&682\end{pmatrix},
-\]
-
-of determinant -1. Gamma is **not** neat as an element of the restriction-of-scalars Q-group.
-
-### Correct replacement
-
-For GL_m/F, compactness of the finite level implies `det(gamma)` is an algebraic unit. If the arithmetic subgroup is neat in `Res_{F/Q} GL_m` over Q, the norm of that determinant is both a root of unity and a product of eigenvalues in its faithful Q-representation. It is therefore 1. This proves orientability. It applies to ordinary neatness for F=Q, but does not follow from F-neatness in general. For odd m, the displayed orientation character is already trivial independently of this norm argument.
-
-The candidate patch preserves the correct PGL2/Q example and the valid Q-neat GL_m conclusion. It makes the base-field hypothesis explicit and expands an existing orientation regression test, without adding duplicate definitions or changing node identifiers.
-
-### Source check
-
-Newton–Thorne's published PDF, printed page 41, defines the adelic neatness condition place by place for G/F. Milne, *Introduction to Shimura Varieties* (2017), printed page 34, states the subsequent algebraic-group neatness convention for a group over Q. Both pages were inspected as rendered PDFs. They must not silently be identified after restriction of scalars.
-
-This is a correction to the packet's inference and a further illustration of its already recorded orientation issue E1. **No new published-source error is being registered here.**
-
-## 2. The orientation repair has not reached the compact-support acceptance test
-
-Affected node: `ALS.1/sheaf-singular-comparison`, second acceptance criterion.
-
-The criterion currently assigns `H_c^2(Gamma\H,R)=R` to an unqualified punctured quotient surface. This needs orientability with constant coefficients. The roadmap deliberately permits nonorientable neat quotients, so orientability cannot be supplied by the standing neatness hypothesis.
-
-Use the existing PGL2/Q congruence example. Its orientation character is nontrivial. It is noncompact: the principal level also contains the class of the unipotent matrix with rows `(1,65)` and `(0,1)`. For a connected nonorientable surface M, duality gives
-
-\[
-H_c^2(M,\mathbb Q)\simeq H_0(M,o_{\mathbb Q})=0,
-\]
-
-since the orientation coinvariants impose `x=-x` over Q. With orientation coefficients instead, `H_c^2(M,o_R)=R` for a connected surface.
-
-The candidate patch states the original constant-coefficient calculation for a **connected orientable noncompact** surface, and explicitly gives the twisted-coefficient replacement and the nonorientable rational counterexample. This changes an acceptance criterion, not the sheaf/singular comparison theorem itself. The full proof of that comparison remains part of the unfinished audit.
-
-## 3. The new properness proof uses an unregistered geometric prerequisite
-
-Affected node: `ALS.0/proper-action-stabilizers`.
-
-Its revised proof step 1 applies Borel–Serre Theorem 9.3 to the **bordification** and restricts properness to the interior. Step 2 explicitly uses its corner neighborhoods and compactified Siegel sets. But the direct prerequisites do not include the node that constructs that space and its rational action:
-
-`ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification`.
-
-Add that precise prerequisite. Do **not** instead add `borel-serre-quotient-compact`: the latter depends on neatness, which already depends on this properness result and would introduce the wrong circular route.
-
-The candidate graph was tested using both local prerequisites and explicit local links. The new edge from the unquotiented bordification to properness creates **no local-node cycle**. The broad stage graph still needs the interleaving already acknowledged by revision 2; no claim is made that adding this edge resolves that separate stage-level issue.
-
-This finding follows from the packet's own proof and dependency lists. It is not a claim that I independently read Borel–Serre's original proof of Theorem 9.3: the primary scan was not accessible in this session. That source verification remains outstanding.
-
-## 4. Make finite index explicit in the relative perfectness statement
-
-Affected node: `ALS.1/finite-complex-model`.
-
-The statement and hypothesis list say only that K' is normal in K, while the proof immediately uses finite index and the finite group K/K'. In the standing setting of compact-open levels, this is the intended result; it should be stated explicitly as **K' open normal in K**. The candidate patch does so in the statement, hypotheses, reader and suggested omission catalogue.
-
-This is a hypothesis clarification, not a claim that the intended finite-level theorem is false. Without a finite-index assumption, its finite-projective coinduction argument does not establish the displayed conclusion.
-
-## Checks actually performed
-
-Both the original packet and the locally patched candidate were passed to:
-
-```text
-python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json --json
-```
-
-Both returned zero packet errors and zero packet warnings. **A separate stderr warning said that no declaration index was available, so baseline references were checked for form only.** This is not an independently verified 36-declaration baseline audit.
-
-For the candidate, 34 additional assertions passed. They included the exact unit norm, split roots, both congruences and both conjugate congruences; the rational restriction-of-scalars determinant; the original PGL2 determinant and scalar reduction modulo 65; a noncommuting 2-by-2 matrix check of inverse order; 66 unique preserved node identifiers; 132 API items, 88 tests and 31 planets; unchanged unchecked implementation flags; local acyclicity including explicit links; the added bordification prerequisite; and the presence of the corrected specifications in the reader and suggested catalogue. These are finite calculations and consistency tests, not Lean proofs.
-
-The local candidate preserves the historical review object verbatim, leaves every implementation status unchecked, and leaves all node/API/test/planet counts unchanged. Its sole added dependency changes the local prerequisite count from 179 to 180. It changes only the packet, reader and suggested file.
-
-Pinned Tau Ceti source was separately read for `TauCeti.LocalCoefficientSystem`, `pullback`, and `monodromyRepresentation` in `TauCeti/AlgebraicTopology/LocalCoefficient.lean` at `f790474821cf4256814db967cb154e7af3d0c369`. In particular, the multiplication proof applies functorial composition in the order `h, g`. The whole-inverse endpoint convention in the revision is consistent with that reading and the noncommuting regression; I have not reverted it to the previous erroneous single-factor inverse.
-
-The published Newton–Thorne PDF was also checked at printed pages 48 and 55. The unshifted display in Proposition 3.7(1) and the boundary triangle's negative shift are present in the version of record, not merely parsing artifacts. This corroborates the existing E3/E2 records. It is not a fresh erratum or a claim that all associated proof steps have now been audited.
-
-**Lean was not compiled.** No existing build at both required pins was available; no Lake project, library build, cache download or language server was started. The exact omission catalogue remains an omission catalogue, not a collection of elaborated signatures.
-
-## What is submitted, and what remains
-
-This PR submits this report and its [handoff](../handoff/REV-ArithmeticLocallySymmetricSpaces~2.md). The handoff contains a guarded, standard-library-only patcher reproducing the locally checked candidate. **The three live blueprint files are not changed by this checkpoint PR.** Applying the patch is an explicit next step, not something the report pretends has already happened on GitHub.
-
-The full independent review remains unfinished. In particular, it still needs a complete per-node source/proof/API audit beyond the early nodes, the full 36-declaration pinned baseline check, the roadmap's reviewed library-coverage audit, all remaining source locators and excerpt checks, and the cross-roadmap supplier/closure reconciliation. Borel–Serre and the Douady–Hérault primary scans were not obtained here. Previously recorded source accesses and checksums belong to the prior workers and must not be relabelled as this session's independent verification.
-
-After those tasks and any further corrections, replace the historical packet `review` object with the actual independent verdict naming `independent-review-REV-ArithmeticLocallySymmetricSpaces~2`. Do not mark this checkpoint accepted, mathematically closed, or formalised.
-
-## Primary sources inspected for the findings
-
-- Newton and Thorne, *Torsion Galois representations over CM fields and Hecke algebras in the derived category*, publisher PDF: [version of record](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/075F8ECD09F180B5AE3FF4A862A225BD/S2050509416000165a.pdf/torsion-galois-representations-over-cm-fields-and-hecke-algebras-in-the-derived-category.pdf), printed pages 41, 48, 55.
-- Milne, *Introduction to Shimura Varieties*, revised 2017: [author PDF](https://www.jmilne.org/math/xnotes/svi.pdf), printed pages 15 and 34.
-- [Pinned Tau Ceti local-coefficient source](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/LocalCoefficient.lean).
-- Supplier definitions were inspected in `research/blueprint/packets/AdelicAlgebraicGroups.json`, nodes `AA.4/neat-element` and `AA.4/neat-level`; these are planning suppliers, not claims of existing formalisation.
+# Independent revision-2 review: arithmetic locally symmetric spaces
+
+**Verdict: accepted. Finished review, 7 October 2026.** Job `REV-ArithmeticLocallySymmetricSpaces~2`, Refs #6908. Agent: Codex. Session: `codex-hcCPKh`. This session wrote neither blueprint planning round. It completed the earlier checkpoint's outstanding audit, independently checked its proposed corrections, applied the justified fixes, and replaced the historical packet review with `independent-review-REV-ArithmeticLocallySymmetricSpaces~2`.
+
+Acceptance concerns the corrected target-level planning pass. The packet remains `complete` in PROTOCOL §0's sense: a finished pass under the budget. Its eight stages are `planned`, none is `closed`, and all implementations are `unchecked`. Fifteen explicit gaps and nineteen supplier requests remain. In particular, neither a general reductive characteristic-zero splitting nor the printed ordinary-♠-only real-place GL_n boundary theorem is asserted without the missing input. The narrowed conditional statements and the recorded extension obligations are consistent. This is a completed review, not a checkpoint.
+
+| Measure | Revision-2 input | Reviewed result |
+|---|---:|---:|
+| Nodes: definitions / constructions / theorems | 66: 4 / 18 / 44 | 66: 4 / 18 / 44 |
+| API items / mathematical unit tests | 132 / 88 | 132 / 88 |
+| Planets / cited baseline declarations | 31 / 36 | 31 / 36 |
+| Public source texts / node citation records | 13 / 156 | 13 / 156 |
+| Requests / gaps | 22 / 15 | 19 / 15 |
+| Stages planned / closed | 8 / 0 | 8 / 0 |
+| Nodes verified / corrected / added / unverifiable | Historical first-review ledger | 46 / 20 / 0 / 0 |
+| Newton–Thorne source issues confirmed | 3, earlier verdicts | 3, independently rechecked |
+
+## Sources and source fidelity
+
+All 156 locator/excerpt/match records were checked against the relevant public passages, including the two original 1973 articles. The excerpts use normalized typography; a citation to a source specialization does not establish a broader generalization. Explicit requested interfaces and the E₂-versus-splitting distinction preserve that limit. No new source issue duplicates an existing extraction finding.
+
+| Source | Public text used and passages checked | Scope retained |
+|---|---|---|
+| ACC+ | [Published author copy](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf): §2.1 pp.909–916; §§2.2.20–2.2.24 pp.931–935; §2.4 pp.941–953; Lemma 6.5.2 p.1062 | Good levels, finite-free coefficients, Siegel localization and both characteristic-zero applications; E21–E23 retain rational rho, the correct Levi partition and the imaginary-quadratic-field condition. |
+| Newton–Thorne | [Published open-access paper](https://doi.org/10.1017/fms.2016.16): §2.2/§2.3, §3.1 through Lemma 3.13, §4 through Lemma 4.5. The relevant [arXiv v1](https://arxiv.org/abs/1511.04913v1) neatness, Proposition 3.7 and §4 passages were compared independently. | Discrete Hecke invariants, equivariant sheaves and finite-level arithmetic complexes; early duality must retain orientation and the dimension shift. |
+| Ji–MacPherson | [Numdam article](http://www.numdam.org/item/AIF_2002__52_2_457_0/): §7.1–7.4 pp.482–484 | Semisimple face description and compactification; the reductive type S–Q extension is supported separately by Borel–Serre. |
+| Calegari–Geraghty 2018 | [ArXiv v2](https://arxiv.org/abs/1207.4224v2): §5.2.1, Definition 5.5, Lemma 5.9, §9.0.1 and Lemma 9.6 | Non-Eisenstein and Taylor–Wiles hypotheses, the residual p-part quotient, and the additional localization needed to kill W. |
+| Calegari–Geraghty–Harris appendix | [Public preprint](https://arxiv.org/abs/1907.08694): §3.1, Lemma 3.1, Theorem 3.2 and proof | E140's absolute irreducibility and E142's p-group descent are explicit; no descent claim for the entire residue-unit quotient at p-torsion coefficients. |
+| Caraiani–Newton | [ArXiv v3](https://arxiv.org/abs/2301.10509v3): §2.1.1–2.1.2, Proposition 2.1.3 and Lemmas 2.1.4–2.1.5 | Exact good-level and action-category hypotheses; completed constructions belong to CC. |
+| Scholze | [Public preprint](https://arxiv.org/abs/1306.2070): Corollary V.4.2 and proof | The (n+1)/2 norm twist and the real-component cover/quadratic character are retained. |
+| Milne | [2017 notes](https://www.jmilne.org/math/xnotes/svi.pdf): definition (9), Theorem 1.16, Examples 1.15/1.17, Propositions 1.18/1.20 | Killing positivity characterizes the semisimple part; the reductive central torus is separate. |
+| Sella | [Public preprint](https://arxiv.org/abs/1602.06674): introduction and singular-cochain/sheaf resolution comparison | Constant coefficients support the model; the arithmetic local-coefficient, relative, supported and equivariant comparison is explicitly planned as an extension. |
+| Harder–Raghuram | [Public preprint](https://arxiv.org/abs/1405.6513): §§4.1–4.2, equation (4.2), Proposition 4.3 and Kostant formula (4.5) | Their GL_N setting has F totally real. Root splitting/highest-weight choices and component invariants remain explicit. |
+| Franke | [Numdam article](https://www.numdam.org/item/ASENS_1998_4_31_2_181_0/): introduction, §7.4 Theorem 18 and following decomposition | Z(g)-finite automorphic forms, split-centre quotient and coefficient central character; AS.5 supplies the generic comparison. |
+| Borel–Serre | [Public IIIF scan](https://www.e-periodica.ch/iiif/com-001:1973:48::32/manifest): §§1–3, §§5/7, §§8–9 and §11.1, read with [archive volume OCR](https://www.e-periodica.ch/digbib/download/ocr-fulltext/com-001:1973:48) | Actual analytic corner construction, geodesic action, intersections, proper arithmetic action (9.3), compact torsion-free quotients (9.5) and finite triangulation/local-coefficient comparison (11.1). |
+| Douady–Hérault | [Public IIIF scan](https://www.e-periodica.ch/iiif/com-001:1973:48::33/manifest): §§2–6, collar Propositions 4.1–4.3 and rounding 6.1/6.2, with the same archive OCR | Rounding preserves the underlying topological space and pair; cohomology naturality does not require functorial smoothing. |
+
+The independent scan check used the public IIIF route and archive OCR, with page-image inspection of the properness/compactness statements and the final rounding theorem. The archive's `cntmng` PDF endpoint returned a verification form. The packet's two PDF SHA-256 records are inherited from BP revision 2 and **were not independently rehashed here**; the source and version metadata now say this. This review makes no claim of image inspection of every page. The other public PDFs were available for the relevant source-text checks.
+
+Newton–Thorne E1, E2 and E3 were independently confirmed in the published text. E1 is the unsupported neat-orientation assertion and omitted orientation sheaf. The PGL₂ matrix with rows (57,455) and (455,3632) has determinant −1 and is scalar modulo 65; its projective principal levels at 5 and 13 force neatness but reverse orientation. E2 is the cohomological boundary triangle's final shift: it must be [1]. E3 is the missing [d] in Proposition 3.7(1): for a real-quadratic GL₁ circle, the dual of compactly supported cohomology has degrees −1,0, whereas unshifted ordinary cohomology has degrees 0,1. Each sourceIssues entry has this review's `confirmed` verdict. Existing CG18 E188/E191/E229, CG20 E140/E142 and ACC+ E21–E23 retain their original identifiers.
+
+A bounded correction search checked the [arXiv version history](https://arxiv.org/abs/1511.04913) and [Newton's publication entry](https://people.maths.ox.ac.uk/newton/publications.html), plus title/erratum searches. No linked correction was found in those checks. Publisher-attached notices were not exhaustively inspected; the packet's `known: new` field is not a claim of worldwide absence.
+
+## Corrections applied in this review
+
+Twenty existing nodes changed. No node was added or removed; target granularity does not require splitting these targets into proof lemmas. All node identifiers, API/test names and planets remain stable. The reader and suggested-file mathematical catalogue were synchronized with every changed statement, hypothesis, prerequisite and specification. No executable Lean declaration changed.
+
+1. **Properness and orientation:** registered unquotiented bordification as a direct prerequisite of arithmetic properness. Corrected F-neat versus Q-restriction-of-scalars neatness. For F=ℚ(√5), u=682+305√5 has norm −1 and reduces to 1 at (11,√5−7) and (31,√5−6); diag(u,1) is F-neat at the two-prime level and reverses GL₂ orientation. In the underlying Q-representation, u and its conjugate multiply to −1, so the Q-neat determinant argument does not apply. Corrected the H²_c noncompact-surface acceptance case to require orientability or orientation coefficients. Required K′ to be open normal when using the finite quotient K/K′.
+2. **Hecke scope:** replaced arbitrary monoids by submonoids of ambient groups containing U, as required by the pinned Hecke triple. Free U-orbits make ℤ[Δ] free over ℤ[U], providing the restriction-of-injectives argument. Hecke multiplication always composes in End_D(R); a D(H) object does not make noncentral multiplication H-linear. The left regular S₃ module detects this error. Central/commutative cases can also be stated in D(H).
+3. **Boundary supports:** the eigenvalue criterion now checks every transported Levi level and both ordinary and dual-orientation/inverse-ideal supports, or assumes direct compact-support vanishing. The cusp test excludes all occurring torus characters; the value 1+ℓ is used only in the stated trivial-character case. Early duality and Hecke adjointness are direct prerequisites. Ordinary vanishing alone is not silently used as H_c vanishing.
+4. **Characteristic-zero specialization:** added the splitting-field/root-datum and highest-weight Borel hypotheses, and restricted the HR splitting/ordinary-flag branches to totally real GL_N. Beyond that setting the general statement is Leray/Kostant E₂, with degeneration/splitting explicitly open. The unitary application uses Kostant constituents without importing the specialized split formula.
+5. **Real-place Galois input:** the GL_n boundary theorem explicitly assumes S-Galois type for the dual coefficient system B∨⊗o_U at each level used in the induction. Under this condition, early duality and the inverse-polynomial calculation give H_c Galois type, then proper-Levi reducibility and support induction give boundary vanishing. At orientable levels the ordinary finite-coefficient input suffices. Recovering the printed ♠-only real-place generality requires identifying the orientation character and proving its arithmetic Galois compatibility; this remains an explicit gap. This is a strengthened conditional planned variant, not a claim that Newton–Thorne's omitted orientation argument has already been supplied.
+6. **Precise suppliers:** derived Hecke image now imports IHG.2's `derived-hecke-image-finite`, `ghost-nilpotence`, `ghost-maximal-ideals`; localization imports `finite-hecke-local-factors`, `hecke-localized-complex`, `hecke-support`. Their source statements were read. AS.5 becomes `franke-comparison` and `franke-schwermer-support`, the discrete cuspidal input becomes AF.3/`cuspidal-spectrum-discrete`, and AF.4 imports its exact algebraic-weight, C/L-algebraic, cohomological and tempered-range nodes. The three redundant broad-stage requests were removed. Anisotropic acceptance now compares automorphic forms, retaining Z(g)-finiteness, rather than all K∞-finite smooth functions.
+7. **Finite-cover descent:** the ALS.6 spectral sequence uses the discrete finite-group Cartan–Leray supplier. Endomorphisms in D(R[Q]) give spectral-sequence naturality; they do not automatically produce a simultaneous strict D(H⊗R[Q]) lift. Invertible-order degeneration follows from averaging directly.
+
+## Previous review and assigned red-team findings
+
+Every correction requested by the first review was revisited. The revision implements the semisimple-versus-central Cartan criterion, the proper quotient by A∞, modular real-component conventions, p-primary/projective congruence subgroups, distinct coefficient/loop actions, supported arbitrary-level refinement model, full-level free-cell hypothesis, translation order, global P-space versus induced-stratum distinction, transported levels, actual corner intersections and early duality. The original geometry access gap is now resolved by the Borel–Serre/Douady–Hérault sources; the remaining typed geometric interfaces are still recorded.
+
+It also fixes the integral Satake coefficient order, normalizer versus commensurator equivariance, Levi modules versus one-dimensional weights, discrete versus continuous cohomology, the derived ghost example, finite-free inverse limits, character domain/twisting section, localized vertices/connecting maps and residual polynomial conventions. The old GL₁ general-number-field finite-set simplification is gone. The 114 omitted API signatures, 80 omitted executable examples and 44 omitted theorem signatures are named explicitly; no former `True` stand-in is being counted as a construction or theorem. The extra corrections above close the remaining false claims found in this independent pass.
+
+Accepted RS-09~2 supersedes the first review's completed-tower requests. ALS.6 owns finite-level descent and finite-cover comparison only. CC.0/CC.1 assemble systems, CC.2 owns limits, CC.4 completed chain models and CC.7 completed boundary. No CC prerequisite was reintroduced, and the legacy `tower-acceptance-tests` identifier now has finite-cover scope. Applying obsolete completed-tower requests would violate the accepted ownership split.
+
+The confirmed finding files and their verifier verdicts were read:
+
+- RT-AREA-automorphic-1/6: arithmetic lattice Nomizu is ALS.4, abstract Lie cochains and Kostant are AF.1; AF.1a's continuous/relative comparison does not replace the lattice theorem. No integral Kostant statement is inferred.
+- RT-AREA-automorphic-1/27: induction/modulus and normalized versus unnormalized Satake stay with SR.2/SR.4 and RG2.4. The GL₂ coefficients are p and 1 for the stated f(tn) convention, becoming symmetric after the chosen square-root normalization.
+- RT-AREA-combinatorics/13: AC.3 owns nilmanifold carriers/rational Mal'cev/filtered data; generic Lie geometry belongs to the LieGroups direction. ALS applies these inputs to transported Borel–Serre fibres and never replans their generic theory. LieGroups layers 0,2,3,5 and the needed Cartan layer 9 were checked; no upstream roadmap was edited.
+
+Remaining owner requests retain precise enhancements, coefficient hypotheses and maps: local-coefficient/relative cochain comparison, free equivariant cells, finite-cover trace/descent, orientation duality, corner triangulation, smooth/Hecke and Satake carriers, Iwahori structure, nilmanifold data, Lie cochains/Kostant, enhanced supports and the exact unitary AG2.2/AG2.3 systems. A stage request records an absent export rather than an existing formalized theorem. AG2.4 alone is not claimed to supply the unitary constituent contradiction.
+
+## Pinned baseline audit
+
+All 36 named declarations were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Every name exists and provides the primitive attributed to it. No citation was removed or replaced. The packet's descriptions already contain the first review's important scope repairs; their fresh `checked` records now document this session's source-level audit. The table links directly to each module at the pin.
+
+| Declaration | Pinned module | Reuse and limit |
+|---|---|---|
+| `mathlib:ProperlyDiscontinuousSMul` | [Mathlib/Topology/Algebra/ConstMulAction.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ConstMulAction.lean) | Properly discontinuous actions: for compact K, L only finitely many γ with γK ∩ L nonempty. |
+| `mathlib:ContractibleSpace` | [Mathlib/Topology/Homotopy/Contractible.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Homotopy/Contractible.lean) | Contractible topological spaces (homotopy equivalent to a point). |
+| `mathlib:Subgroup.Commensurable.commensurator` | [Mathlib/GroupTheory/Commensurable.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Commensurable.lean) | The commensurator of a subgroup. |
+| `mathlib:IsHeckeTriple` | [Mathlib/NumberTheory/HeckeRing/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/HeckeRing/Defs.lean) | Ambient group, submonoid and contained subgroups; not arbitrary monoids. |
+| `mathlib:HeckeCoset` | [Mathlib/NumberTheory/HeckeRing/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/HeckeRing/Defs.lean) | Double cosets H1\Δ/H2 as a quotient type. |
+| `mathlib:HeckeRing` | [Mathlib/NumberTheory/HeckeRing/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/HeckeRing/Defs.lean) | The Hecke ring 𝕋 Δ H Z of finitely supported functions on double cosets H\Δ/H. |
+| `tauceti:HeckeCosetModule.instRingHeckeRing` | [TauCeti/NumberTheory/HeckeRing/Associativity.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/HeckeRing/Associativity.lean) | The convolution product makes 𝕋 Δ H R a ring (associativity and unit proved). |
+| `tauceti:HeckeCoset.degree_eq_relIndex` | [TauCeti/NumberTheory/HeckeRing/Basic.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/HeckeRing/Basic.lean) | Degree/relative-index convention only; arithmetic trace needs its comparison. |
+| `mathlib:DerivedCategory` | [Mathlib/Algebra/Homology/DerivedCategory/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/DerivedCategory/Basic.lean) | The derived category of an abelian category, as complexes up to quasi-isomorphism, with its triangulated structure. |
+| `mathlib:HomotopyCategory` | [Mathlib/Algebra/Homology/HomotopyCategory.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomotopyCategory.lean) | The homotopy category of complexes. |
+| `mathlib:CochainComplex` | [Mathlib/Algebra/Homology/HomologicalComplex.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean) | Cochain complexes. |
+| `mathlib:ModelWithCorners` | [Mathlib/Geometry/Manifold/IsManifold/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/IsManifold/Basic.lean) | Models with corners for manifolds with boundary and corners. |
+| `mathlib:CategoryTheory.ActionCategory` | [Mathlib/CategoryTheory/Action.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Action.lean) | Action category for a monoid; its groupoid use requires a group. |
+| `mathlib:IsCoveringMap` | [Mathlib/Topology/Covering/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Basic.lean) | Covering maps. |
+| `mathlib:groupCohomology` | [Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean) | Inhomogeneous cochain homology; an Ext comparison is additional. |
+| `mathlib:AlgebraicTopology.singularChainComplexFunctor` | [Mathlib/AlgebraicTopology/SingularHomology/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/SingularHomology/Basic.lean) | The singular chain complex functor on TopCat with coefficients in an object of a preadditive category. |
+| `mathlib:CategoryTheory.Sheaf.H` | [Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean) | ExtAddCommGrp-valued sheaf cohomology, not an enhanced R-linear supported complex. |
+| `mathlib:CongruenceSubgroup.Gamma0` | [Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean) | The congruence subgroup Γ0(N) of SL(2, ℤ). |
+| `mathlib:CongruenceSubgroup.Gamma1` | [Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean) | The congruence subgroup Γ1(N) of SL(2, ℤ). |
+| `mathlib:UpperHalfPlane` | [Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean) | The complex upper half-plane. |
+| `mathlib:Module.Flat` | [Mathlib/RingTheory/Flat/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean) | Flat modules. |
+| `mathlib:Module.Projective` | [Mathlib/Algebra/Module/Projective.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/Projective.lean) | Projective modules. |
+| `mathlib:Matrix.GeneralLinearGroup` | [Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean) | GL_n(R) as the units of the matrix ring. |
+| `mathlib:Subgroup.relIndex` | [Mathlib/GroupTheory/Index.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Index.lean) | H.relIndex K is [K:H∩K]; subgroup order is significant. |
+| `mathlib:TopPair` | [Mathlib/Topology/Category/TopPair.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Category/TopPair.lean) | The category of pairs of topological spaces. |
+| `mathlib:Rep` | [Mathlib/RepresentationTheory/Rep/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Rep/Basic.lean) | The category of k-linear representations of a group. |
+| `mathlib:CategoryTheory.IsIdempotentComplete` | [Mathlib/CategoryTheory/Idempotents/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Idempotents/Basic.lean) | Splitting infrastructure; the actual finite Hecke spectral idempotents come from IHG.2. |
+| `tauceti:TauCeti.LocalCoefficientSystem` | [TauCeti/AlgebraicTopology/LocalCoefficient.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/LocalCoefficient.lean) | Local coefficient systems: functors from the fundamental groupoid of X to ModuleCat R. |
+| `tauceti:TauCeti.LocalCoefficientSystem.pullback` | [TauCeti/AlgebraicTopology/LocalCoefficient.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/LocalCoefficient.lean) | Pullback of local coefficient systems along continuous maps. |
+| `tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation` | [TauCeti/AlgebraicTopology/LocalCoefficient.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/LocalCoefficient.lean) | Based-loop action on a fibre; whole-inverse deck convention is an arithmetic comparison. |
+| `tauceti:TauCeti.LocalCoefficientSystem.constantFunctor` | [TauCeti/AlgebraicTopology/LocalCoefficient.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/LocalCoefficient.lean) | Constant local coefficient systems. |
+| `tauceti:TauCeti.CoveringSpace.monodromyEquivalence` | [TauCeti/AlgebraicTopology/UniversalCover/Classification/MonodromyEquivalence.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/MonodromyEquivalence.lean) | Type-valued covering classification with connectivity/local hypotheses, not linear sheaf descent. |
+| `tauceti:TopPair.singularChainComplexFunctor` | [TauCeti/AlgebraicTopology/Singular/Relative.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/Singular/Relative.lean) | The relative singular chain complex of a pair of spaces. |
+| `tauceti:TauCeti.card_fiber_orbitOfCosetTranslate_mul_cardStabilizerOnOrbit` | [TauCeti/GroupTheory/DoubleCoset/Orbits.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/DoubleCoset/Orbits.lean) | Weighted fibre/stabilizer cardinality; not a coarse covering degree at wild level. |
+| `tauceti:TauCeti.Cocharacter.parabolic` | [TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean) | Algebraic dynamic parabolic; real horospherical coordinates remain separate. |
+| `tauceti:TauCeti.Cocharacter.leviDecompositionMulEquiv` | [TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean) | Algebraic dynamic Levi equivalence; no assertion that an arithmetic lattice extension splits. |
+
+The reviewed library-coverage entries for all eight ALS stages were read. Existing group cohomology, derived categories, local coefficients, covering classification, relative singular chains and convolution are imported as primitives, not duplicated. Their existence alone does not establish the arithmetic comparison, support enhancement or analytic quotient. These stronger interfaces are the recorded gaps.
+
+## Coverage, API, suggested file and checks
+
+All 22 definitions/constructions have five to nine API items and four mathematical tests: 132 API items and 88 tests. The tests distinguish plausible wrong definitions, including real components, mod-8 common scalars, the p-primary quotient, nontrivial monodromy, supports versus ordinary cohomology, nonfree full-level group-ring models, Satake normalization and wild averaging. All 31 planets name central constructions or named theorems, remain within the per-stage budget, and none is a test or source locator.
+
+The local node graph is acyclic. Broad assigned stage labels still hide interleaving; the existing stage-order gap and proposed sublayers describe geometry before supports, finite cells before coefficient change, early duality before boundary applications and automorphic comparison before the AF.4-dependent applications. This review preserves accepted identifiers and scope, and edits no restructuring result or foreign roadmap.
+
+The suggested file uses the actual pinned quotient, representation and Hecke-ring types. Its 18 marked generic API forms and 8 full marked executable examples are distinguished from additional restricted adapters. The remaining 114 API signatures, 80 full executable examples and 44 theorem signatures appear only in the explicit omission catalogue, with their earlier missing interfaces; they are **not counted as Lean signatures or tests**. No false arithmetic properness theorem is asserted for arbitrary `Datum`. `sorry` remains a proof/construction obligation, not an invented Prop field or a replacement for an unstated condition. The issue allows acceptance with these honest gaps; it does not make a stage closed or implemented.
+
+Validation:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json` passed with zero errors and warnings.
+- The same checker with a bounded index of the 36 independently audited declarations passed with zero errors and warnings. This verifies name lookup for those entries; the actual statements and pin compatibility were checked by source reading, not inferred from the checker.
+- Additional consistency checks verified the 66-entry fresh ledger, all local prerequisites and acyclicity, exact reader/catalogue statement and API/test synchronization, stable identifiers/counts, no completed-cohomology prerequisite, the two orientation counterexamples, standard-level residue examples and noncommuting Hecke/monodromy regressions.
+- `git diff --check` passed. Only the issue's four deliverables and this job's handoff are changed.
+- `lean-check research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean` was attempted after the memory check. It stopped at the missing prebuilt `TauCeti.NumberTheory.HeckeRing.Associativity` object **before elaboration**. The file is uncompiled; this is no evidence of successful typechecking. No existing build at both pins was found. No Lake build/update/cache download or language server was started.
+
+## Node ledger
+
+The per-node verdicts below match the packet's fresh review object. Verification is of the stated conditional plan and source/ownership scope, with its explicit remaining gaps; it is not a formalization claim.
+
+| Node (within ArithmeticLocallySymmetricSpaces) | Verdict | Independent assessment |
+|---|---|---|
+| `ALS.0/cartan-involution` | verified | Cartan characterization is semisimple on the Killing form; the reductive central-torus condition is separate (Milne 1.16). |
+| `ALS.0/maximal-compact-subgroup` | verified | Compactness, maximality and conjugacy follow from the requested Cartan decomposition; Milne 1.18/1.20 have the appropriate central hypotheses. |
+| `ALS.0/symmetric-space` | verified | The rational split radical is divided out once; contractible Cartan coordinates and full-real-component convention are retained. |
+| `ALS.0/symmetric-space-contractible` | verified | Properness belongs to G(F∞)/A∞; projected discreteness and a finite central kernel are explicit, not consequences of arbitrary discreteness. |
+| `ALS.0/locally-symmetric-space` | verified | The adelic quotient, topology and full GL₂ real action match ACC §2.1; the generic Lean Datum is only a quotient adapter. |
+| `ALS.0/component-decomposition` | verified | The finite disjoint component decomposition uses AA finite class number and the actual Γ_{g,K} action. |
+| `ALS.0/proper-action-stabilizers` | corrected | Registered the unquotiented Borel–Serre bordification input used by the noncircular arithmetic properness proof (BS 9.3). |
+| `ALS.0/neat-level-manifold` | verified | Torsion-free arithmetic groups plus properness give manifolds and freeness; Pink all-adelic neatness is not equated with the AA predicate. |
+| `ALS.0/neatness-iwahori-criterion` | verified | Two distinct residue characteristics force eigenvalue torsion to be simultaneously two-primary; ACC 6.5.2 retains integral local hypotheses. |
+| `ALS.0/standard-level-subgroups` | verified | Γp/Γ1 uses only the p-primary residue-unit subgroup; projective Γ1 has a common scalar and the mod-8 exception is retained. |
+| `ALS.0/orientation-local-system` | corrected | Added the F-neat GL₂/ℚ(√5) orientation regression; Q-restriction-of-scalars neatness and odd matrix rank have distinct consequences. |
+| `ALS.0/nonorientable-neat-example` | corrected | The PGL₂/ℚ determinant −1 example remains valid; the GLm norm argument now explicitly assumes Q-restriction-of-scalars neatness. |
+| `ALS.1/arithmetic-local-system` | verified | The slice action uses both coefficient factors without a partial inverse; whole-inverse opposite-loop monodromy is tested noncommutatively. |
+| `ALS.1/betti-complexes` | verified | The neat-normal-refinement D(R[Q]) model specifies ordinary, j!-supported and boundary objects; refinement coherence remains an explicit enhancement obligation. |
+| `ALS.1/sheaf-singular-comparison` | corrected | Sella's constant-coefficient resolution is extended conditionally via local trivializations; corrected the noncompact surface test to include orientability. |
+| `ALS.1/group-cohomology-comparison` | verified | Arithmetic group comparison uses contractibility and local-cochain descent; tame invariant pushforward may be constructible rather than locally constant. |
+| `ALS.1/finite-complex-model` | corrected | K′ must be open normal for a finite quotient; R[Q]-perfectness uses full-level free cells, distinct from underlying R-perfectness. |
+| `ALS.1/coefficient-change` | verified | Derived coefficient change uses the finite projective cell model and the explicit triangulation prerequisite, not arbitrary non-neat averaging. |
+| `ALS.1/level-pullback` | verified | Translation and pullback orders are r_g after r_h = r_hg; S-coefficient transport and support properness are explicit. |
+| `ALS.2/geodesic-action-boundary-face` | verified | BS geodesic action and reductive type S–Q decomposition support the faces; the AA semisimple horospherical extension is separately requested. |
+| `ALS.2/borel-serre-bordification` | verified | BS corner charts and generated-parabolic intersections support the gluing; every coface chart contains the interior face. |
+| `ALS.2/borel-serre-quotient-compact` | verified | BS 9.3/9.5 supply arithmetic compactness and the torsion-free corner quotient; the open inclusion is a homotopy equivalence. |
+| `ALS.2/borel-serre-finite-triangulation` | verified | BS 11.1 plus DH rounding give finite triangulation; the free relative/equivariant model still requires the precisely requested topology interface. |
+| `ALS.2/boundary-stratification` | verified | The P-space has P(Af), its induced stratum G(Af); the finite-level bijection is used with its exact topological scope. |
+| `ALS.2/stratum-nilmanifold-fibration` | verified | Every double-coset component has its transported P-level and Levi base; the nilmanifold fibre does not require a split lattice extension. |
+| `ALS.2/stratification-spectral-sequence` | corrected | Separated compact-support exact-couple degrees from ordinary flag degrees; restricted the HR ordinary flag branch to totally real GLN. |
+| `ALS.3/hecke-action-on-invariants` | corrected | The monoid is now a submonoid of an ambient group containing U; this gives free U-orbits and the exact induction needed to preserve injectives. |
+| `ALS.3/derived-hecke-action` | verified | NT derived invariants supply the strict Hecke object in the stated category; arbitrary supported equivariant lifts are separately requested. |
+| `ALS.3/hecke-operator-formula` | verified | The pullback/trace correspondence retains both intersection levels and coefficient transport; no unnecessary normality assumption is introduced. |
+| `ALS.3/level-trace` | verified | Finite-cover trace has both composites and supports; weighted stabilizer cardinalities are not coarse-cover indices at wild level. |
+| `ALS.3/hecke-composition` | corrected | Noncentral operators compose in End_D(R), even for a D(H) object; the S₃ regular module disproves unconditional H-linearity. |
+| `ALS.3/hecke-support-boundary-compatibility` | verified | Boundary and support maps intertwine the Hecke action via the chosen equivariant support model; arbitrary-level coherence is explicit. |
+| `ALS.3/discrete-topological-comparison` | verified | CN 2.1.3/2.1.4/2.1.5 apply at their good levels and distinguish strict D(H) objects from actions in End_D. |
+| `ALS.3/derived-hecke-algebra` | corrected | Imported the exact IHG finite-image, ghost-nilpotence and maximal-ideal nodes; the Ext¹ ghost and finite-free inverse-limit restriction remain valid. |
+| `ALS.3/character-twist` | verified | The character is on G(Af) and trivial on G(F); ideals versus field-valued eigensystems are distinguished. |
+| `ALS.3/twisting-isomorphism` | verified | ACC's invertible global twisting section induces the complex isomorphism; it is not replaced by H⁰ of the universal arithmetic space. |
+| `ALS.3/degeneracy-old-forms` | verified | CG18 9.6 gives the localized degeneracy matrix; determinant sign and W after further localization retain existing E188/E191/E229. |
+| `ALS.4/boundary-triangle` | verified | The cohomological support triangle ends in [1], including the enhancement-dependent arbitrary-level version; E2 remains confirmed. |
+| `ALS.4/parabolic-hecke-maps` | verified | The integral Satake coefficient order is p,1 for f(tn); hyperspecial q-half normalization and positive-Iwahori single terms are separated. |
+| `ALS.4/boundary-stratum-hecke-comparison` | verified | Transported P-levels and good decompositions are propagated through induction and Hecke restriction, as required by NT/ACC. |
+| `ALS.4/nomizu-van-est` | verified | Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1 owns Lie cochains/Kostant. |
+| `ALS.4/boundary-stratum-cohomology-formula` | corrected | Added the splitting-field/root-datum hypothesis and restricted HR splitting to totally real GLN; general reductive groups retain only the E₂/Kostant statement. |
+| `ALS.4/levi-hochschild-serre` | verified | NT 4.5 is discrete arithmetic unipotent cohomology; the transported group extension precedes a separate continuous comparison. |
+| `ALS.4/boundary-gluing-convergence` | corrected | Compact-support induction uses dual coefficient vanishing at the inverse ideal; the ordinary flag branch now retains its totally-real hypothesis. |
+| `ALS.4/localization-at-maximal-ideal` | corrected | Imported the exact IHG local-factor, localized-complex and support nodes; strict tensor localization is allowed only with its specified lift. |
+| `ALS.4/eisenstein-maximal-ideal` | verified | The unnormalized GL₂ constant-function polynomial is (X−1)(X−q); Galois attachment and rank-one qualifications remain explicit. |
+| `ALS.4/boundary-eigenvalue-criterion` | corrected | Required all transported Levi supports and the dual/orientation inverse-ideal exclusion (or direct Hc vanishing); corrected the cusp acceptance criterion. |
+| `ALS.4/gln-boundary-eisenstein` | corrected | Added an explicit dual-orientation Galois-type hypothesis to the real-place argument; the original ♠-only generality is recorded as an open extension. |
+| `ALS.4/siegel-stratum-localization` | verified | ACC Siegel localization keeps good decomposed levels and the GL/CM Galois hypotheses; early duality supplies the support induction. |
+| `ALS.5:finite-level-duality/corner-boundary-bridge` | verified | DH collar/rounding preserves the underlying topological pair; pair/cohomology naturality does not require functorial smoothings. |
+| `ALS.5:finite-level-duality/verdier-poincare-duality` | verified | Duality is RHom(RΓc,R) ≅ RΓ(V∨⊗o)[d], with the manifold pair and finite-projective hypotheses; generic topology is imported. |
+| `ALS.5:finite-level-duality/duality-pairings` | verified | Pairings have complementary total degree d, orientation coefficients and finite-cover pullback/trace adjunction. |
+| `ALS.5:finite-level-duality/hecke-adjoint-duality` | verified | The Hecke adjoint inverts double cosets and transports ideals, with the exact coefficient dual and orientation system. |
+| `ALS.5:finite-level-duality/duality-triangle-compatibility` | verified | Dualizing reverses the triangle; comparison is the inverse rotation with the negative connecting arrow and boundary dimension d−1. |
+| `ALS.5:finite-level-duality/non-neat-duality` | verified | Non-neat duality retains the tame/wild distinction; a perfect underlying complex does not justify averaging at bad stabilizer primes. |
+| `ALS.5/early-duality-reexport` | verified | This reexports only the early duality prefix; it does not create a second proof or a cycle through later boundary applications. |
+| `ALS.5/de-rham-comparison` | verified | Local-system de Rham comparison uses the arithmetic monodromy and mG = gC/aG; generic relative cochains remain AF.1a's input. |
+| `ALS.5/automorphic-comparison` | corrected | Replaced AS.5 by exact Franke comparison/support nodes; corrected anisotropic acceptance to automorphic (Z-finite) cuspidal forms. |
+| `ALS.5/cuspidal-cohomology` | corrected | Replaced the broad spectral input by AF.3/cuspidal-spectrum-discrete and AS.5 nodes; the image comes from the actual automorphic comparison. |
+| `ALS.5/clozel-cohomological-gln` | corrected | Imported exact AF.4 weight/C–L-algebraic/cohomological nodes; Scholze's real-component cover and quadratic twist remain in the statement. |
+| `ALS.5/non-eisenstein-degree-range` | corrected | Imported the exact AF.4 tempered degree-range node; CM degrees and conditional residual Galois attachment agree with ACC 2.4.10. |
+| `ALS.5/unitary-middle-degree` | corrected | The Siegel argument uses Kostant constituents, not HR split GLN cohomology; retain half-integral rho, Levi partitions and AG2.2/2.3 unitary inputs. |
+| `ALS.6/finite-level-descent` | verified | Finite residual quotients descend through coherent derived invariants; no completed limit or profinite vanishing is implicit. |
+| `ALS.6/finite-cover-hochschild-serre` | corrected | Used the discrete finite-cover Cartan–Leray supplier; relative derived endomorphisms give SS naturality, not an automatic simultaneous strict lift. |
+| `ALS.6/lowest-degree-descent` | verified | At the actual lowest degree the finite-cover edge map uses absence of lower cohomology; free normal covers and coefficient transport remain required. |
+| `ALS.6/tower-acceptance-tests` | verified | The retained tower-named identifier tests only finite covers, compact boundary-free quotients and invertible-order degeneration under RS-09. |
+
+## Remaining work and orchestrator notes
+
+No unanswered question blocks this review. The orchestrator can take in the accepted complete planning pass. Keep all fifteen gaps visible and do not treat the eight planned stages as closed. Follow-up ownership work must supply the typed geometric/sheaf/cochain enhancements, precise requested owner exports and missing suggested signatures before implementation.
+
+The maintainer should apply the already proposed geometry/cohomological-tools and automorphic-application stage splits when ordering implementation. The general real-place ♠-only boundary theorem additionally needs the orientation-character/Galois compatibility argument; the general reductive splitting and ordinary flag-resolution extension need separate source-backed inputs. These extensions were left explicit, not silently generalized from the specialized sources. No promotion, label change, foreign edit or second claim was made in this run.
