@@ -1,0 +1,2038 @@
+{
+  "roadmapId": "EllipticCurveModularityPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "EllipticCurveModularityPartII:EC.1",
+    "EllipticCurveModularityPartII:EC.2",
+    "EllipticCurveModularityPartII:EC.3",
+    "EllipticCurveModularityPartII:EC.4",
+    "EllipticCurveModularityPartII:EC.5",
+    "EllipticCurveModularityPartII:EC.6"
+  ],
+  "status": "complete",
+  "summary": "A target-level plan of the effective residual comparison continuation: sharp newspace dimensions, removed-prime bounds, Kraus realization at the exact residual conductor, uniform two-torsion irreducibility and Lemos rational-isogeny uniformity. Every routed target in the first brief is planned; the other independent continuations have explicit split proposals. The plan is complete as a pass, not closed: recorded source and certificate gaps and supplier requests remain.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Algebra.norm_eq_prod_embeddings",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+        "provides": "Norm as the product over all embeddings into an algebraically closed extension.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_eq_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Basic.lean",
+        "provides": "Norm is zero exactly at zero for a finite free extension of domains.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "mathlib:Ideal.absNorm_dvd_norm_of_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+        "provides": "Ideal norm divides the integral element norm for an element belonging to that ideal.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "tauceti:HeckeRing.GL2.Newform",
+        "kind": "structure",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+        "provides": "Bundled normalized newform on Γ₁(N), with a nebentypus and newness.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "tauceti:TauCeti.cuspFormsNew",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/Basic.lean",
+        "provides": "Γ₁(N) newspace, Petersson orthogonal to the oldspace; trivial-character intersection supplies Γ₀ newspace.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "tauceti:cuspFormCharSpace",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+        "provides": "Joint diamond eigenspace for a specified nebentypus.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "tauceti:TauCeti.ModularForm.sturm_bound_finiteIndex_SL2Z",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/SturmBound.lean",
+        "provides": "Characteristic-zero equality bound; does not provide congruence modulo arbitrary ideals.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "mathlib:CongruenceSubgroup.Gamma0",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+        "provides": "Congruence subgroup used for μ(N) as its index.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.frobeniusTrace_eq_card_point",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "For an elliptic finite-field model the trace equals q+1 minus the actual point-group cardinality.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.j",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "j-invariant of an elliptic Weierstrass curve.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Irreducible.lean",
+        "provides": "Irreducibility via the simple lattice of subrepresentations.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "tauceti:TauCeti.Isogeny.Hom",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+        "provides": "Coordinate-pullback elliptic homomorphisms, including zero; the Add module supplies integer multiples of identity.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point.map",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "Actual additive point map along an algebra homomorphism; used for Galois stability.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BS",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), 355–392; published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§2, pp. 358–360; §3, pp. 361–364; §6, p. 373; references"
+      ]
+    },
+    {
+      "id": "Kraus",
+      "title": "Majorations effectives pour l’équation de Fermat généralisée",
+      "authors": "Alain Kraus",
+      "edition": "Canadian Journal of Mathematics 49 (1997), 1139–1161; published PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FEF2CCCEC964C8D0AAD3EE8F40875A4D/S0008414X00034258a.pdf/majorations-effectives-pour-l-equation-de-fermat-generalisee.pdf",
+      "sha256": "d235ed8bba1c21618ade20f3e4a387846c641e730c3e981936056b10cfdc4ab6",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§1 notation; §3.1–3.3, pp. 1142–1146; Appendix I dimension formula; Appendix II, pp. 1158–1160"
+      ]
+    },
+    {
+      "id": "Martin",
+      "title": "Dimensions of the spaces of cusp forms and newforms on Γ₀(N) and Γ₁(N)",
+      "authors": "Greg Martin",
+      "edition": "arXiv math/0306128v1, 6 June 2003; published J. Number Theory 112 (2005), 298–331; preprint read",
+      "url": "https://arxiv.org/pdf/math/0306128",
+      "sha256": "844017dec299d575ee49f731b7ae6ec27be03d76bf6463bc428b9e9b49c0a8d4",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Theorems 1–2 and definitions 1A–1F; §5, Lemmas 16–22 and proof of Theorem 2, pp. 14–16"
+      ]
+    },
+    {
+      "id": "Mazur",
+      "title": "Rational isogenies of prime degree",
+      "authors": "Barry Mazur; appendix by Dorian Goldfeld",
+      "edition": "Inventiones mathematicae 44 (1978), 129–162; published scan",
+      "url": "https://www.math.columbia.edu/~goldfeld/Mazur-Goldfeld1978.pdf",
+      "sha256": "f3da9ef0d3d184225c4799951897be7b90d8b25050c5d508b69aeff70fd2ead3",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Introduction, pp. 129–133; §7, pp. 153–155; proof inputs located in §§1,4–6"
+      ]
+    },
+    {
+      "id": "Lemos",
+      "title": "Serre’s uniformity conjecture for elliptic curves with rational cyclic isogenies",
+      "authors": "Pedro Lemos",
+      "edition": "arXiv:1702.01985v2, 8 March 2017; published Trans. AMS 371 (2019), 137–146, DOI 10.1090/tran/7198; preprint read",
+      "url": "https://arxiv.org/pdf/1702.01985v2",
+      "sha256": "ce889428aa4d6cbe1f30fcb504591063927fdaa96baa1bdf598596bbc02bd043",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Entire v2, pp. 1–11: Theorems 1.1–1.4; §2; §3; references"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticCurveModularityPartII:EC.1/krausF",
+      "parentStageId": "EllipticCurveModularityPartII:EC.1",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.1"
+      ],
+      "title": "Kraus rationality threshold",
+      "kind": "definition",
+      "statement": "For positive N, μ(N)=[SL₂(ℤ):Γ₀(N)] and g⁺(N)=dimℂ S₂(Γ₀(N))new, define krausF(N)=(√(μ(N)/6)+1)^(2g⁺(N)), as a real number.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Use the supplier’s index and trivial-character newspace dimension; real division by 6 precedes the square root."
+      ],
+      "acceptance": [
+        "At g⁺=0 the threshold is 1, not 0."
+      ],
+      "prerequisites": [
+        "mathlib:CongruenceSubgroup.Gamma0",
+        "tauceti:TauCeti.cuspFormsNew",
+        "tauceti:cuspFormCharSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.1, equation (7), p. 1143",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Kraus rationality threshold"
+      },
+      "api": [
+        {
+          "name": "krausF_eq",
+          "role": "characterisation",
+          "statement": "krausF(N)=(√(μ(N)/6)+1)^(2g⁺(N))."
+        },
+        {
+          "name": "one_le_krausF",
+          "role": "relation",
+          "statement": "1≤krausF(N)."
+        },
+        {
+          "name": "krausF_eq_one_of_dim_zero",
+          "role": "simp",
+          "statement": "g⁺(N)=0 implies krausF(N)=1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "krausF_one",
+          "kind": "degenerate",
+          "statement": "krausF(1)=1."
+        },
+        {
+          "name": "krausF_eleven",
+          "kind": "computation",
+          "statement": "krausF(11)=(√2+1)^2."
+        },
+        {
+          "name": "krausF_thirtyfive",
+          "kind": "computation",
+          "statement": "krausF(35)=(√8+1)^6."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kraus Theorems 3–4 and Bennett–Siksek Theorem 4",
+          "how": "Supplies the exact strict threshold for rationality and two-torsion preservation."
+        },
+        {
+          "where": "Bennett–Siksek modular-method applications",
+          "how": "Computable cutoff at a prescribed residual conductor; users compare against a real number, keeping equality excluded."
+        }
+      ]
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.1/krausG",
+      "parentStageId": "EllipticCurveModularityPartII:EC.1",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.1"
+      ],
+      "title": "Kraus two-torsion threshold",
+      "kind": "definition",
+      "statement": "For positive N define krausG(N)=(√(μ(lcm(4,N))/6)+1)^2, using the full level lcm(4,N), as a real number.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Use the same μ as krausF; lcm is taken before μ; the exponent is exactly 2."
+      ],
+      "acceptance": [
+        "For N=1 and N=2 the value is 4."
+      ],
+      "prerequisites": [
+        "mathlib:CongruenceSubgroup.Gamma0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.1, equation (8), p. 1144",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Kraus two-torsion threshold"
+      },
+      "api": [
+        {
+          "name": "krausG_eq",
+          "role": "characterisation",
+          "statement": "krausG(N)=(√(μ(lcm(4,N))/6)+1)^2."
+        },
+        {
+          "name": "one_le_krausG",
+          "role": "relation",
+          "statement": "1≤krausG(N)."
+        },
+        {
+          "name": "krausG_eq_of_lcm_eq",
+          "role": "compatibility",
+          "statement": "lcm(4,N)=lcm(4,M) implies krausG(N)=krausG(M)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "krausG_one",
+          "kind": "degenerate",
+          "statement": "krausG(1)=4."
+        },
+        {
+          "name": "krausG_two",
+          "kind": "computation",
+          "statement": "krausG(2)=4."
+        },
+        {
+          "name": "krausG_eleven",
+          "kind": "computation",
+          "statement": "krausG(11)=(√12+1)^2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kraus Theorems 3–4 and Bennett–Siksek Theorem 4",
+          "how": "Supplies the exact strict threshold for rationality and two-torsion preservation."
+        },
+        {
+          "where": "Bennett–Siksek modular-method applications",
+          "how": "Computable cutoff at a prescribed residual conductor; users compare against a real number, keeping equality excluded."
+        }
+      ]
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.1/krausH",
+      "parentStageId": "EllipticCurveModularityPartII:EC.1",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.1"
+      ],
+      "title": "Kraus comparison threshold",
+      "kind": "definition",
+      "statement": "For positive N define krausH(N)=max(krausF(N),krausG(N)).",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Take the real maximum; neither branch can be discarded uniformly."
+      ],
+      "acceptance": [
+        "ℓ>krausH(N) is equivalent to both strict inequalities."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.1/krausF",
+        "EllipticCurveModularityPartII:EC.1/krausG"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.1, equation (9), p. 1144",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Kraus comparison threshold"
+      },
+      "api": [
+        {
+          "name": "krausF_le_krausH",
+          "role": "relation",
+          "statement": "krausF(N)≤krausH(N)."
+        },
+        {
+          "name": "krausG_le_krausH",
+          "role": "relation",
+          "statement": "krausG(N)≤krausH(N)."
+        },
+        {
+          "name": "krausH_lt_iff",
+          "role": "characterisation",
+          "statement": "krausH(N)<x iff krausF(N)<x and krausG(N)<x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "krausH_one",
+          "kind": "degenerate",
+          "statement": "krausH(1)=4."
+        },
+        {
+          "name": "krausH_two",
+          "kind": "computation",
+          "statement": "krausH(2)=4."
+        },
+        {
+          "name": "krausH_not_F_eleven",
+          "kind": "non-example",
+          "statement": "krausF(11)<krausH(11)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kraus Theorems 3–4 and Bennett–Siksek Theorem 4",
+          "how": "Supplies the exact strict threshold for rationality and two-torsion preservation."
+        },
+        {
+          "where": "Bennett–Siksek modular-method applications",
+          "how": "Computable cutoff at a prescribed residual conductor; users compare against a real number, keeping equality excluded."
+        }
+      ]
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.1/martin-bound",
+      "parentStageId": "EllipticCurveModularityPartII:EC.1",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.1"
+      ],
+      "title": "Martin’s sharp weight-two dimension bound",
+      "kind": "theorem",
+      "statement": "For every positive N, 12g⁺(N)≤N+1. Equality holds exactly when N=35 or N is prime with N≡11 mod 12.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Import the general dimension formula and old/new decomposition from ModularForms 10C and Layer 3; obtain Martin’s multiplicative formula by Möbius convolution, rather than defining a second newspace.",
+        "Apply Martin Lemmas 16 and 19 for at most two prime factors. For at least three, use Lemmas 20–22 to reduce to 2^a3^b5^cp^d with 0≤a,b,c,d≤5 and 7≤p≤41.",
+        "Verify the 10,125 distinct remaining integers, and the finite checks below 1521 and 1548, by exact dimension formulas; derive the equality cases."
+      ],
+      "acceptance": [
+        "N=1 gives 0; N=11 gives 1; N=35 gives 3; N=23 gives 2 and equality."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.cuspFormsNew",
+        "tauceti:cuspFormCharSpace",
+        "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms"
+      ],
+      "sources": [
+        {
+          "sourceId": "Martin",
+          "locator": "Theorem 2; §5, Lemmas 16–22, pp. 14–16 (v1)",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Martin’s dimension bound"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.2/norm-bound",
+      "parentStageId": "EllipticCurveModularityPartII:EC.2",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.2"
+      ],
+      "title": "Effective congruence norm bound",
+      "kind": "theorem",
+      "statement": "Let K be a number field of degree d, x∈𝒪K nonzero, λ a prime above the rational prime ℓ, and x∈λ. If |σ(x)|≤B for every embedding σ:K→ℂ and B≥0, then ℓ≤|NormK/ℚ(x)|≤B^d.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "The residue characteristic ℓ divides the ideal norm of λ, which divides Normℤ(x) by the baseline ideal-norm result.",
+        "Use norm nonvanishing and the all-embeddings product formula, with the integral/field norm comparison; bound each factor, including conjugate embeddings with their multiplicities."
+      ],
+      "acceptance": [
+        "A bound at one distinguished embedding alone is insufficient; x=0 must be excluded."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.norm_eq_prod_embeddings",
+        "mathlib:Algebra.norm_eq_zero_iff",
+        "mathlib:Ideal.absNorm_dvd_norm_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Lemma 2.2 proof, p. 359",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Effective norm bound"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
+      "parentStageId": "EllipticCurveModularityPartII:EC.2",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.2"
+      ],
+      "title": "Removed-prime exponent bound",
+      "kind": "theorem",
+      "statement": "Let E/ℚ have conductor M and minimal discriminant Δ, ℓ≥3 prime with E[ℓ] irreducible, and M₀ the reduced level of R20.6. If p≠ℓ is prime, p∥M and ℓ divides ordp(Δ), then ℓ≤(√p+1)^((M₀+1)/6).",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Use the supplier’s weight-two newform f at M₀ and the removed-prime congruence p+1≡±c_p modulo λ.",
+        "Every conjugate satisfies |σ(c_p)|≤2√p. Hence p+1∓c_p≠0 since p+1>2√p; bound the norm by (√p+1)^(2d).",
+        "The orbit degree d≤g⁺(M₀) and Martin’s bound give 2d≤(M₀+1)/6. Use the real power and base √p+1>1."
+      ],
+      "acceptance": [
+        "The characteristic prime p=ℓ is excluded; additive primes are excluded; sign does not affect the bound."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.2/norm-bound",
+        "EllipticCurveModularityPartII:EC.1/martin-bound",
+        "SerreWeightAndLevelOptimisation:R20.6/weight-two-newform-at-reduced-level",
+        "SerreWeightAndLevelOptimisation:R20.6/removed-prime-trace-congruence",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+        "AutomorphicGaloisRepresentations:R19.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Lemma 2.2, p. 359",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Removed-prime exponent bound"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.3/finite-rationality",
+      "parentStageId": "EllipticCurveModularityPartII:EC.3",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.3"
+      ],
+      "title": "Finite-prime rationality recognition",
+      "kind": "theorem",
+      "statement": "For a normalized weight-two trivial-character newform f of level N, if c_q∈ℤ for every prime q≤μ(N)/6, then every coefficient c_n is in ℤ.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Galois conjugation preserves the normalized newform. Prime-power Hecke recurrences, including the bad-prime coefficients 0,±1, give equality of all coefficients n≤floor(μ(N)/6).",
+        "Apply characteristic-zero Sturm equality to f and each conjugate. Algebraic integrality then turns rational coefficients into integers."
+      ],
+      "acceptance": [
+        "Only checking good primes is valid after separately proving integrality at primes dividing N."
+      ],
+      "prerequisites": [
+        "tauceti:HeckeRing.GL2.Newform",
+        "tauceti:TauCeti.ModularForm.sturm_bound_finiteIndex_SL2Z",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+        "ComputationalNumberTheory:CN.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.2, Lemma 1, pp. 1144–1145",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Finite rationality recognition"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
+      "parentStageId": "EllipticCurveModularityPartII:EC.3",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.3"
+      ],
+      "title": "Small-prime integrality above the Kraus threshold",
+      "kind": "theorem",
+      "statement": "Let E/ℚ have irreducible E[ℓ], Serre weight 2, ℓ≥5 prime, and residual conductor N. For a weight-two trivial-character newform f realizing E[ℓ] at N, if ℓ>krausF(N), then c_q∈ℤ for all primes q≤μ(N)/6.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "If c_q is nonintegral, q∤N by the bad-prime formula. Since g⁺(N)≥1 and krausF(N)>μ(N)/6, q≠ℓ.",
+        "At good q use c_q≡a_q(E); at a removed multiplicative q use c_q≡±(q+1). The differences are nonzero because c_q is nonrational.",
+        "Hasse and purity bound every conjugate difference by (√q+1)^2; use the norm bound and degree≤g⁺(N) to obtain ℓ≤krausF(N), a contradiction."
+      ],
+      "acceptance": [
+        "The case g⁺(N)=0 cannot admit the required newform."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.1/krausF",
+        "EllipticCurveModularityPartII:EC.2/norm-bound",
+        "EllipticCurveModularityPartII:EC.3/finite-rationality",
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "SerreWeightAndLevelOptimisation:R20.4",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "AutomorphicGaloisRepresentations:R19.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.2, proof of Theorem 3, p. 1145",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Kraus coefficient rationality"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.3/rational-newform-curve",
+      "parentStageId": "EllipticCurveModularityPartII:EC.3",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.3"
+      ],
+      "title": "Rational newform comparison curve",
+      "kind": "theorem",
+      "statement": "For a normalized weight-two trivial-character newform f of exact level N with all coefficients in ℤ, there exists an elliptic curve F/ℚ of exact conductor N with a_q(F)=c_q at good primes. If f realizes irreducible E[ℓ], then F[ℓ]≅E[ℓ] over ℚ.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Use the supplier’s J₀(N) newform quotient, of dimension one because the full coefficient field is ℚ; identify it as an elliptic curve with its origin.",
+        "Local-global compatibility proves exact conductor N, rather than merely a divisor; compare residual characteristic polynomials via Chebotarev and semisimplicity."
+      ],
+      "acceptance": [
+        "The ℚℓ-dimension of the quotient Tate module is 2, not 2[N:ℚ]; reducible residuals require semisimplification."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform",
+        "ModularCurvesPartII:R14.5",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.1, p. 1143; Theorem 3",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Rational newform realization"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.3/kraus-rational",
+      "parentStageId": "EllipticCurveModularityPartII:EC.3",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.3"
+      ],
+      "title": "Kraus’s rational comparison theorem",
+      "kind": "theorem",
+      "statement": "For E/ℚ, prime ℓ≥5, irreducible E[ℓ] of Serre weight 2 and prime-to-ℓ conductor N, ℓ>krausF(N) implies there is F/ℚ of exact conductor N with F[ℓ]≅E[ℓ].",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Parent modularity supplies Kraus’s modularity assumption; take the exact-conductor residual newform.",
+        "Apply small-prime integrality, finite-prime rationality recognition and rational-newform realization."
+      ],
+      "acceptance": [
+        "No full rational 2-torsion conclusion follows from this threshold alone."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
+        "EllipticCurveModularityPartII:EC.3/finite-rationality",
+        "EllipticCurveModularityPartII:EC.3/rational-newform-curve"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "Theorem 3, p. 1144",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Kraus’s rational comparison theorem"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.4/finite-mod-four",
+      "parentStageId": "EllipticCurveModularityPartII:EC.4",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.4"
+      ],
+      "title": "Finite recognition of point counts modulo four",
+      "kind": "theorem",
+      "statement": "For E/ℚ of conductor N, 4 divides #E(𝔽q) at every prime q∤2N iff it does so for all such q≤μ(lcm(4,N))/6.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Import the ideal-valued Sturm congruence bound, not just analytic equality. Compare with the weight-two Γ₀(4) series Σ_{n odd}σ₁(n)q^n.",
+        "Deplete coefficients at primes dividing 2N using the source’s bad-prime conditions, transfer to lcm(4,N), and apply Kraus Appendix II Proposition 2 at the ideal 2ℤ squared.",
+        "Parent modularity identifies the elliptic L-series coefficients with the required newform."
+      ],
+      "acceptance": [
+        "The full level lcm(4,N) and modulus 4 are required, rather than rad(N) and modulus 2."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularity:R29.6/modularity-theorem",
+        "tauceti:WeierstrassCurve.frobeniusTrace_eq_card_point",
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "Appendix II, Proposition 2 and Corollary, pp. 1158–1160",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Finite mod-four recognition"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
+      "parentStageId": "EllipticCurveModularityPartII:EC.4",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.4"
+      ],
+      "title": "Small-prime point-count transfer",
+      "kind": "theorem",
+      "statement": "Under Kraus Theorem 3, assume E has full rational 2-torsion and ℓ>krausG(N). For each prime q∤2N with q≤μ(lcm(4,N))/6, E has good reduction at q, and a_q(E)=a_q(F), hence 4 divides #F(𝔽q).",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "If E were bad at q while F is good, residual conductor comparison gives multiplicative reduction and a_q(F)≡±(q+1) mod ℓ; the nonzero integer difference is bounded by (√q+1)^2≤krausG(N).",
+        "At good q the two traces differ by a multiple of ℓ and have absolute difference≤4√q≤(√q+1)^2, so they are equal.",
+        "Good reduction at odd q injects rational 2-torsion; its four points imply the required divisibility."
+      ],
+      "acceptance": [
+        "Strict ℓ>krausG(N) is necessary for these inequalities; q=ℓ cannot lie in the tested range."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.1/krausG",
+        "EllipticCurveModularityPartII:EC.3/kraus-rational",
+        "tauceti:WeierstrassCurve.frobeniusTrace_eq_card_point",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.3, p. 1146",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
+      "parentStageId": "EllipticCurveModularityPartII:EC.4",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.4"
+      ],
+      "title": "Two-isogeny repair of rational two-torsion",
+      "kind": "theorem",
+      "statement": "If E/ℚ satisfies 4|#E(𝔽q) for all but finitely many good odd q, then E is ℚ-isogenous by degree 1 or 2 to a curve F with full rational 2-torsion. For odd ℓ this isogeny preserves E[ℓ] and the conductor.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Chebotarev converts the congruence into constraints on each Galois element’s action on E[4]. Modulo 2 there is no order-3 image, so there is a fixed nonzero 2-torsion point P.",
+        "If the full 2-torsion is not rational, form E/⟨P⟩. The mod-4 constraints force both remaining 2-torsion directions of this quotient to be rational.",
+        "Use the dual isogeny to invert the degree-2 map on ℓ-torsion and the isogeny invariance of the ℓ-adic conductor."
+      ],
+      "acceptance": [
+        "Do not conclude E itself has full rational 2-torsion from the point-count condition."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "ArithmeticGaloisRepresentations:R01.5",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "§3.3 end, pp. 1146–1147",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Two-isogeny repair"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.4/kraus-full-two",
+      "parentStageId": "EllipticCurveModularityPartII:EC.4",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.4"
+      ],
+      "title": "Kraus’s full-two-torsion realization",
+      "kind": "theorem",
+      "statement": "If E/ℚ has full rational 2-torsion, ℓ≥5 is prime, E[ℓ] is irreducible of Serre weight 2 and prime-to-ℓ conductor N, and ℓ>krausH(N), then some F/ℚ has exact conductor N, full rational 2-torsion, and F[ℓ]≅E[ℓ].",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Use krausH’s two inequalities. Obtain F₀ from Kraus’s rational comparison theorem.",
+        "Transfer the tested point counts, propagate them by finite mod-four recognition, and apply two-isogeny repair to F₀.",
+        "The repair preserves the odd residual representation and exact conductor."
+      ],
+      "acceptance": [
+        "Both hypotheses “Serre weight 2” and “exact prime-to-ℓ conductor N” remain explicit."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.1/krausH",
+        "EllipticCurveModularityPartII:EC.3/kraus-rational",
+        "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
+        "EllipticCurveModularityPartII:EC.4/finite-mod-four",
+        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kraus",
+          "locator": "Theorem 4, p. 1144; §3.3",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Kraus’s two-torsion realization"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.4/quotient-conductor-adapter",
+      "parentStageId": "EllipticCurveModularityPartII:EC.4",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.4"
+      ],
+      "title": "Reduced-level adapter for Kraus’s theorem",
+      "kind": "theorem",
+      "statement": "In an application with reduced level M₀ from R20.6, Kraus’s full-two-torsion theorem applies at M₀ only after establishing Serre weight 2 and N(E[ℓ])=M₀. In particular, for ℓ≥5 and ℓ∤M, local conductor comparison gives N(E[ℓ])=M₀; weight 2 must still be checked (for example by finite flatness at ℓ).",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "At each q≠ℓ, additive exponents agree and multiplicative exponent 1 drops exactly when ℓ|ordq(Δ). At ℓ∤M there is no coefficient-prime factor left in M₀.",
+        "Use the supplier’s finite-flat weight recipe where it applies; substitute the proved equality into Kraus’s theorem, without identifying the carriers by definition."
+      ],
+      "acceptance": [
+        "If ℓ divides M and remains in M₀, then M₀ cannot be the prime-to-ℓ conductor."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.4/kraus-full-two",
+        "SerreWeightAndLevelOptimisation:R20.6/reduced-level-of-elliptic-curve",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "AlgebraicModularFormsAndSerreWeights:R15.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Theorem 4, p. 360; compare Kraus §3.1",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies",
+      "parentStageId": "EllipticCurveModularityPartII:EC.5",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.5"
+      ],
+      "title": "Mazur’s prime-isogeny theorem",
+      "kind": "theorem",
+      "statement": "If E/ℚ admits a cyclic rational isogeny of prime degree r, then r∈{2,3,5,7,11,13,17,19,37,43,67,163}. For non-CM E the possibilities are {2,3,5,7,11,13,17,37}.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Identify the isogeny with a noncuspidal rational point on X₀(r). Follow Mazur’s four-step route: cuspidal formal immersion into the Eisenstein quotient; finiteness of its rational points; potentially good reduction and the isogeny character; Frobenius congruences.",
+        "The character exponents 0,1/3,1/2 reduce the possibilities by the p=3 and p=5 calculations and the imaginary quadratic class-number-one theorem.",
+        "Use the complete rational-point lists in Theorem 7.1 to discard the CM-only degrees 19,43,67,163 for non-CM curves. This uses geometric CM, not Endℚ(E)."
+      ],
+      "acceptance": [
+        "A CM curve can have a rational 163-isogeny; it is excluded only from the non-CM list."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.j",
+        "ModularCurvesPartII:R12.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mazur",
+          "locator": "Theorem 1, pp. 129–130; proof outline pp. 132–133; Theorem 7.1, pp. 153–155",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Mazur’s prime-isogeny theorem"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions",
+      "parentStageId": "EllipticCurveModularityPartII:EC.5",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.5"
+      ],
+      "title": "Two-torsion isogeny exclusions",
+      "kind": "theorem",
+      "statement": "For every prime ℓ≥11, no elliptic curve over ℚ admits a cyclic rational 2ℓ-isogeny. For every prime ℓ≥7, none admits a cyclic rational 4ℓ-isogeny.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Use Mazur’s prime list to reduce the odd prime degrees to a finite set.",
+        "For ℓ≥11 the forbidden composite degrees 2ℓ follow from the rational cyclic-degree classification; the 4ℓ exclusions for ℓ≥7 follow from the same classification.",
+        "The required classification is the Mazur–Kenku list n≤19 or n∈{21,25,27,37,43,67,163}. The unresolved source verification is a recorded gap, not attributed to Mazur’s prime theorem."
+      ],
+      "acceptance": [
+        "2·7=14 is allowed; neither threshold can be extended just by dropping its inequality."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Proofs of Lemmas 3.3 and 3.5, pp. 362–363",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Two-torsion isogeny exclusions"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport",
+      "parentStageId": "EllipticCurveModularityPartII:EC.5",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.5"
+      ],
+      "title": "Two-torsion kernel transport",
+      "kind": "theorem",
+      "statement": "For odd prime ℓ, if E/ℚ has a rational cyclic ℓ-subgroup and a rational point of order 2, it admits a rational cyclic 2ℓ-isogeny. If all E[2] is rational, some curve isogenous to E admits a rational cyclic 4ℓ-isogeny.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "For one 2-point, take the sum of the coprime stable kernels; it is cyclic of order 2ℓ.",
+        "For full 2-torsion, choose distinct nonzero P,Q∈E[2](ℚ). On E′=E/⟨P⟩ compose the dual map E′→E with E→E/⟨Q⟩; its kernel is stable cyclic of order 4, since the preimages of Q double to the nonzero dual kernel point.",
+        "Transport the ℓ-kernel through the 2-isogeny, then sum it with the cyclic 4-kernel."
+      ],
+      "acceptance": [
+        "A full rational E[2] is itself noncyclic; directly adding it to an ℓ-kernel does not produce a cyclic 4ℓ-kernel."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Affine.Point.map",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Mazur input in Lemmas 3.3 and 3.5, pp. 362–363",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
+      "parentStageId": "EllipticCurveModularityPartII:EC.5",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.5"
+      ],
+      "title": "Irreducibility with full rational two-torsion",
+      "kind": "theorem",
+      "statement": "If E/ℚ has full rational 2-torsion and ℓ≥7 is prime, E[ℓ] is irreducible over 𝔽ℓ; since it is odd, it is absolutely irreducible.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "A proper nonzero invariant subspace is a line, hence a stable cyclic ℓ-subgroup.",
+        "Kernel transport gives a rational cyclic 4ℓ-isogeny on an isogenous curve; apply the exclusion theorem.",
+        "Use oddness and the distinct ±1 eigenvalues of complex conjugation to upgrade irreducibility for odd ℓ."
+      ],
+      "acceptance": [
+        "No non-CM hypothesis is used."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport",
+        "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions",
+        "mathlib:Representation.IsIrreducible",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Lemma 3.3 proof, p. 362",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Full-two-torsion irreducibility"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
+      "parentStageId": "EllipticCurveModularityPartII:EC.5",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.5"
+      ],
+      "title": "Irreducibility with a rational two-torsion point",
+      "kind": "theorem",
+      "statement": "If E/ℚ has a rational point of order 2 and ℓ≥11 is prime, E[ℓ] is irreducible over 𝔽ℓ and absolutely irreducible.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "An invariant line gives a cyclic ℓ-subgroup. Combine it with the rational 2-point and exclude the resulting cyclic 2ℓ-isogeny.",
+        "Upgrade by oddness as for the full-two-torsion case."
+      ],
+      "acceptance": [
+        "A curve with a 14-isogeny supplies a boundary counterexample at ℓ=7."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport",
+        "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions",
+        "mathlib:Representation.IsIrreducible",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Lemma 3.5 proof, p. 363",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "One-two-torsion irreducibility"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Potential good reduction in the nonsplit Cartan case",
+      "kind": "theorem",
+      "statement": "If p≥5 is prime and ρ̄E,p(Gℚ) is contained in the normalizer of a nonsplit Cartan, then E has potentially good reduction at each rational prime q with q≢±1 mod p, and also at q=p.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "If potentially multiplicative, write the local representation as a quadratic twist of a Tate-curve representation with eigencharacters ψχp,ψ.",
+        "Squaring sends each image element into the nonsplit Cartan; a split pair of eigenvalues there must coincide, forcing χp²=1.",
+        "At q=p the cyclotomic character is surjective, contradicting p≥5. At q≠p its unramified Frobenius value q forces q²≡1 mod p."
+      ],
+      "acceptance": [
+        "At q=p the congruence exception cannot excuse potentially multiplicative reduction."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Proposition 2.2, pp. 4–5",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Nonsplit Cartan reduction criterion"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/chen-correspondence",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Chen’s isogeny at rational-isogeny level",
+      "kind": "theorem",
+      "statement": "For r∈{1,2,3,5,7,13} and prime p∉{1,2,3,5,7,13}, the Jacobian of X₀(r)×X(1)Xns⁺(p) is ℚ-isogenous to the p-new quotient of Jac(X₀⁺(rp²)), by a correspondence commuting with T_n for gcd(n,p)=1.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Construct X′(p)=X(p)/(Nsp∩Nns) and the split/nonsplit projection correspondence.",
+        "Under Xsp⁺(p)≅X₀⁺(p²), the p-old divisors map to old divisors; the target’s r-level old Jacobian vanishes since X₀(r) has genus zero.",
+        "Apply Chen’s explicit-isogeny identification, retaining the away-from-p Hecke equivariance."
+      ],
+      "acceptance": [
+        "p-old means degeneracy from level rp, not the full oldspace at level rp²."
+      ],
+      "prerequisites": [
+        "ModularCurvesPartII:R14.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "§3, Theorem 3.3 and Lemma 3.2, pp. 8–9",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Chen’s isogeny"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/rank-zero-quotient",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Rank-zero winding quotient",
+      "kind": "theorem",
+      "statement": "For r∈{2,3,5,7,13} and prime p outside that set, J₀,ns⁺(r,p) has a nonzero optimal ℚ-quotient A with A(ℚ) finite and kernel stable under every T_n with gcd(n,p)=1.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Transfer the problem through Chen’s isogeny to the p-new quotient of Jac(X₀⁺(rp²)).",
+        "Project the rational winding element e to the full new quotient, form its Hecke annihilator Ie, and pass to the connected-kernel quotient.",
+        "Prove this quotient is nonzero and has finite rational points by Darmon–Merel’s winding argument; Lemos §3 explicitly refers these two claims to that paper."
+      ],
+      "acceptance": [
+        "Nonzero quotient and finite A(ℚ) are theorem conclusions, not fields in a certificate structure."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.6/chen-correspondence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Theorem 3.4 and sketch, p. 10",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Rank-zero winding quotient"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Cuspidal formal immersion at isogeny level",
+      "kind": "theorem",
+      "statement": "For r∈{2,3,5,7,13}, p outside that set and a prime q≠p with q≡±1 mod p, the Abel–Jacobi map to the rank-zero quotient A on X₀,ns⁺(r,p), after choosing a cusp and its local integral model, is a formal immersion at that cusp in characteristic q; a rational section specializing there has torsion image in A.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Compute the first q-expansion coefficient of differentials pulled back from the quotient; the Hecke-stable kernel detects the cotangent direction.",
+        "Control specialization of torsion, including residue characteristic 2, using the precise Darmon–Merel local hypotheses.",
+        "Use Darmon–Merel Lemma 8.3 for the torsion image. The local statement and characteristic-2 treatment are explicit source gaps until their proof is read."
+      ],
+      "acceptance": [
+        "A torsion image by itself does not force section equality; the local specialization lemma is essential."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.6/rank-zero-quotient"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "§3 final paragraph, p. 10",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Cuspidal formal immersion"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/j-prime-integrality",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Prime-integrality of the isogeny j-invariant",
+      "kind": "theorem",
+      "statement": "For r∈Σ={2,3,5,7,13}, prime p∉Σ, and E/ℚ admitting a cyclic rational r-isogeny with mod-p image in a nonsplit Cartan normalizer, j(E)∈ℤ[1/p].",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "The curve supplies a rational point on X₀,ns⁺(r,p). A denominator prime q≠p forces specialization at a cusp.",
+        "Cusps are defined over ℚ(ζp)⁺, so a rational section can meet them only when q≡±1 mod p.",
+        "Combine the finite quotient, torsion-image comparison and formal immersion with the verified local specialization input to rule out that specialization."
+      ],
+      "acceptance": [
+        "Theorem 1.4 gives ℤ[1/p]; removing the possible denominator p is a separate local argument."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.6/rank-zero-quotient",
+        "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Theorem 1.4, p. 3; proof sketch §3",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/j-integrality",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Integrality of the isogeny j-invariant",
+      "kind": "theorem",
+      "statement": "For r∈{2,3,5,7,13}, prime p∉{2,3,5,7,13}, and non-CM E/ℚ with an r-isogeny and mod-p image in a nonsplit Cartan normalizer, j(E) is an integer.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Apply prime-integrality.",
+        "Apply the nonsplit potential-good-reduction criterion at p≥5 and the j-integrality criterion locally at p. These eliminate the only remaining denominator."
+      ],
+      "acceptance": [
+        "CM exclusion can be retained to match Proposition 2.1; no global uniformity conjecture is needed."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.6/j-prime-integrality",
+        "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Proposition 2.1, pp. 4–5",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Integral j-values at genus-zero isogeny levels",
+      "kind": "theorem",
+      "statement": "For r∈{2,3,5,7,13}, choose t on X₀(r) so j=f_r(t)/t, where f₂=(t+16)^3, f₃=(t+27)(t+3)^3, f₅=(t²+10t+5)^3, f₇=(t²+5t+1)^3(t²+13t+49), f₁₃=(t⁴+7t³+20t²+19t+1)^3(t²+5t+13). Every noncuspidal rational point with integral j has nonzero integral t dividing f_r(0).",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Import the verified modular-curve models and j-map identity, rather than treat a rational function as a modular curve by definition.",
+        "Write t=a/b in lowest terms with b>0. Since f_r is monic, integrality forces b|a^(r+1), whence b=1; then integrality forces a|f_r(0).",
+        "Enumerate both signs of every nonzero divisor of the constant term and deduplicate j-values."
+      ],
+      "acceptance": [
+        "r=2 has constant term 4096; testing only positive divisors misses negative integral j-values."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.j",
+        "ComputationalNumberTheory:CN.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "§2 table and divisibility proof, pp. 6–7",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Integral isogeny j-values"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/large-proper-image",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Large proper images are nonsplit Cartan images",
+      "kind": "theorem",
+      "statement": "For non-CM E/ℚ and prime p>37, if ρ̄E,p is not surjective onto GL₂(𝔽p), its image is contained in a nonsplit Cartan normalizer.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Import the finite-subgroup classification and determinant surjectivity.",
+        "Mazur excludes Borel images above 37; Serre’s exceptional-image argument excludes the exceptional groups.",
+        "The Bilu–Parent–Rebolledo theorem excludes split Cartan normalizers in this range. Its source proof is a recorded gap; finite-subgroup classification alone does not exclude these arithmetic images."
+      ],
+      "acceptance": [
+        "The general non-CM statement is about the type of a proper image, not about its impossibility."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies",
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Theorem 2.3, p. 6",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/surjectivity-twist",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Surjectivity under quadratic twisting",
+      "kind": "theorem",
+      "statement": "For odd prime p and non-CM E/ℚ, quadratic twisting preserves surjectivity of the mod-p representation. Thus for a fixed non-CM rational j, surjectivity at p can be tested on one representative curve.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Curves with the same non-CM j are quadratic twists. Their residual representations differ by the central quadratic character.",
+        "If the original image is GL₂(𝔽p), restriction to the character kernel contains SL₂, and the twisted image still has full determinant. Exclude the possible index-two graph by the determinant character; it cannot twist a scalar −I to the identity.",
+        "Apply the argument in both directions."
+      ],
+      "acceptance": [
+        "The conclusion retains non-CM and odd p; arbitrary sextic/quartic twists at j=0,1728 are not included."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Proof of Theorem 1.1, pp. 5–6",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/finite-image-certificates",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Finite rational-j Galois-image certificates",
+      "kind": "theorem",
+      "statement": "For every non-CM j in the integral sets S₂∪S₃∪S₅∪S₇∪S₁₃ from the divisor enumeration, and every non-CM j in S₁₁={−11·131³,−2¹⁵,−11²}, S₁₇={−17²·101³/2,−17·373³/2¹⁷}, S₃₇={−7·137³·2083³,−7·11³}, an explicit curve with that j has surjective mod-p representation for every prime p>37.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Certify the seven higher-level rational j-values and the five integral-j lists from intrinsic modular-curve models.",
+        "Select Weierstrass representatives, prove non-CM for the retained entries, and pin complete finite exceptional-prime/image certificates using Sutherland’s algorithm or a proved equivalent arithmetic recognition method.",
+        "Verify all primes outside the certified exceptional set, rather than sample primes. The source uses LMFDB computations without shipping these proof certificates; their absence is recorded as a gap."
+      ],
+      "acceptance": [
+        "j=−2¹⁵ is CM and removed; the six other higher-level values remain. An LMFDB label alone does not discharge the theorem."
+      ],
+      "prerequisites": [
+        "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
+        "EllipticCurveModularityPartII:EC.6/surjectivity-twist",
+        "ComputationalNumberTheory:CN.3",
+        "ComputationalNumberTheory:CN.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Proof of Theorem 1.1, pp. 5–7",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      }
+    },
+    {
+      "id": "EllipticCurveModularityPartII:EC.6/lemos-surjectivity",
+      "parentStageId": "EllipticCurveModularityPartII:EC.6",
+      "realises": [
+        "EllipticCurveModularityPartII:EC.6"
+      ],
+      "title": "Lemos’s rational-isogeny uniformity theorem",
+      "kind": "theorem",
+      "statement": "If E/ℚ is non-CM, meaning Endℚ̄(E)=ℤ, and admits a nontrivial cyclic rational isogeny, then ρ̄E,p(Gℚ)=GL₂(𝔽p) for every prime p>37.",
+      "hypotheses": [
+        "All quantifiers and hypotheses are included explicitly in the statement."
+      ],
+      "proofSteps": [
+        "Choose a prime divisor r of the isogeny degree. Mazur restricts r to {2,3,5,7,11,13,17,37}.",
+        "For r=11,17,37, use the finite rational-j certificates and quadratic-twist invariance.",
+        "For r=2,3,5,7,13, a hypothetical proper mod-p image is nonsplit by the large-image theorem; j-integrality reduces to the finite divisor lists, whose certificates and twist invariance contradict the proper image."
+      ],
+      "acceptance": [
+        "p=37 is outside the conclusion; without the rational-isogeny hypothesis this is not the general Serre uniformity theorem."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Isogeny.Hom",
+        "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies",
+        "EllipticCurveModularityPartII:EC.6/large-proper-image",
+        "EllipticCurveModularityPartII:EC.6/j-integrality",
+        "EllipticCurveModularityPartII:EC.6/finite-image-certificates",
+        "EllipticCurveModularityPartII:EC.6/surjectivity-twist"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lemos",
+          "locator": "Theorem 1.1, p. 2; proof §2",
+          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/EffectiveModularity",
+        "namespace": "TauCeti.EllipticCurve.EffectiveModularity"
+      },
+      "planet": {
+        "name": "Lemos’s uniformity theorem"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+      "need": "General Γ₀ dimension formula, μ index/product formula, and the elliptic/cusp correction counts.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.1/martin-bound"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+      "need": "Old/new decomposition in each fixed character; compatibility of Γ₀ newspace with the trivial-character intersection inside Γ₁.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.1/martin-bound"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "need": "Finite coefficient field of a normalized newform; embeddings inject into its normalized newform orbit, so degree≤dimension. All Fourier coefficients are algebraic integers in the full coefficient field. Coefficient-field degree bounded by dimension of the trivial-character newspace.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
+        "EllipticCurveModularityPartII:EC.3/finite-rationality",
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+      "need": "Conjugate newforms of trivial character stay in the same newspace. Conjugate newforms and rationality from invariance under all embeddings.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
+        "EllipticCurveModularityPartII:EC.3/finite-rationality"
+      ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentations:R19.3",
+      "need": "Weight-two good-prime purity bound |σ(c_p)|≤2√p for every embedding at p∤M₀. All-embeddings purity bounds for f at q∤N.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+      "need": "Full prime-power coefficient recurrences and bad-prime coefficient values for weight-two trivial-character newforms. Hecke recurrences and depletion operators at bad primes, including the Γ₀(4) weight-two Eisenstein series used in Kraus Appendix II.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/finite-rationality",
+        "EllipticCurveModularityPartII:EC.4/finite-mod-four"
+      ]
+    },
+    {
+      "supplier": "ComputationalNumberTheory:CN.3",
+      "need": "Intrinsic q-expansion recognition using the finite-index Sturm bound, with prime-to-all-coefficient Hecke reconstruction. Exact model and j-map certificates for X₀(2),X₀(3),X₀(5),X₀(7),X₀(13); finite divisor enumeration linked to the intrinsic moduli curves. Exact rational-point and j-map certificates at levels 11,17,37, plus verified Galois-image recognition for each explicit elliptic curve.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/finite-rationality",
+        "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
+        "EllipticCurveModularityPartII:EC.6/finite-image-certificates"
+      ]
+    },
+    {
+      "supplier": "SerreWeightAndLevelOptimisation:R20.4",
+      "need": "For weight 2 residual elliptic representations in characteristic≥5: a normalized trivial-character newform at the exact prime-to-ℓ conductor, with a place above ℓ.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.6",
+      "need": "At q≠ℓ, conductor exponents cannot drop from additive elliptic reduction for ℓ≥5; good and removed-multiplicative trace congruences at the exact residual conductor. Exact-conductor removed-multiplicative trace formula and conductor invariance under prime-to-ℓ isogeny. Conductor invariant under rational isogeny. Local residual conductor exponents for ℓ≥5: multiplicative removal criterion and equality at additive primes. Invariant lines in E[ℓ] are exactly Galois-stable cyclic ℓ-subgroups; residual oddness from the Weil pairing. Tate-curve residual matrices and local cyclotomic character, including q=p.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
+        "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
+        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
+        "EllipticCurveModularityPartII:EC.4/quotient-conductor-adapter",
+        "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
+        "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
+        "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "need": "Hasse bound at every good reduction of E. Hasse bound for both good-reduction curves.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
+        "EllipticCurveModularityPartII:EC.4/small-trace-transfer"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R14.5",
+      "need": "Dimension-one quotient of J₀(N) for rational weight-two primitive f; the quotient is an elliptic curve.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/rational-newform-curve"
+      ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentations:R19.4",
+      "need": "Exact conductor of the quotient, including bad primes and monodromy.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/rational-newform-curve"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.5",
+      "need": "Recognition of semisimple residual representations by characteristic polynomials over a common residue field; descent to ℚ’s ℓ-torsion coefficient field. Chebotarev recognition of the determinant condition det(1−Frob)≡0 mod 4.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.3/rational-newform-curve",
+        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.2",
+      "need": "Ideal-valued Sturm congruence bound at general finite index for integral q-expansions, including characteristic 2 and ideals (2)^2.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/finite-mod-four"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Prime-to-residue-characteristic torsion reduction is injective at good reduction. Local potentially multiplicative curves as quadratic twists of Tate curves and the j-integrality criterion.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
+        "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "need": "Quotient by a rational point of order two, dual isogeny, and inverse on odd torsion. Quotient by a finite Galois-stable subgroup, dual 2-isogeny and kernel-composition properties.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
+        "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "need": "Compatible Galois actions on E[2] and E[4]. Actual pointwise torsion and its Galois action; coprime torsion decompositions.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
+        "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.4",
+      "need": "Finite-flat weight-two consequence for elliptic residual representations, retaining the coefficient-prime local hypotheses.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/quotient-conductor-adapter"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R12.2",
+      "need": "Rational noncuspidal points of Y₀(r) classify Galois-stable cyclic r-subgroups up to the appropriate twists.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.4",
+      "need": "An odd irreducible two-dimensional representation over 𝔽ℓ for odd ℓ is absolutely irreducible. Normalizer quotient of order two and eigenvalue test for elements of a nonsplit Cartan. Classification of proper GL₂(𝔽p) images with surjective determinant and the elliptic exceptional-image exclusions. Index-two subgroups and abelianization of GL₂(𝔽p), including determinant and central scalar −I.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
+        "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
+        "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good",
+        "EllipticCurveModularityPartII:EC.6/large-proper-image",
+        "EllipticCurveModularityPartII:EC.6/surjectivity-twist"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R14.2",
+      "need": "Jacobians, Picard pushforward/pullback and Hecke action for the compactified curves once their Cartan-level construction is supplied.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/chen-correspondence"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "need": "Quadratic-twist classification for non-CM rational j and the Galois point-action comparison.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/surjectivity-twist"
+      ]
+    },
+    {
+      "supplier": "ComputationalNumberTheory:CN.5",
+      "need": "Pinned input data and machine-checkable certificate format for the complete exceptional-prime lists; no database assertions as axioms.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/finite-image-certificates"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticCurveModularityPartII:EC.1",
+      "status": "planned",
+      "remaining": [
+        "Resolve the exact supplier contracts listed in requests."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartII:EC.2",
+      "status": "planned",
+      "remaining": [
+        "Norm comparison and residue characteristic divisibility",
+        "Resolve the exact supplier contracts listed in requests."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartII:EC.3",
+      "status": "planned",
+      "remaining": [
+        "Resolve the exact supplier contracts listed in requests."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartII:EC.4",
+      "status": "planned",
+      "remaining": [
+        "Mod-four image argument for the two-isogeny repair",
+        "Resolve the exact supplier contracts listed in requests."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartII:EC.5",
+      "status": "planned",
+      "remaining": [
+        "Mazur’s arithmetic prime-isogeny inputs",
+        "Composite cyclic-isogeny exclusions",
+        "Resolve the exact supplier contracts listed in requests."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartII:EC.6",
+      "status": "planned",
+      "remaining": [
+        "Cartan-level compactifications and Chen’s isogeny proof",
+        "Darmon–Merel winding and formal-immersion inputs",
+        "Arithmetic exclusions of split and exceptional Cartan images",
+        "Complete finite image certificates",
+        "Resolve the exact supplier contracts listed in requests."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Norm comparison and residue characteristic divisibility",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.2/norm-bound"
+      ],
+      "detail": "Confirm the precise integer-ring/field norm comparison and ℓ|Norm(λ) for λ above ℓ from pinned NumberField ideal norms; the three cited baseline lemmas alone do not establish this adapter."
+    },
+    {
+      "title": "Mod-four image argument for the two-isogeny repair",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair"
+      ],
+      "detail": "Kraus cites Serre [25], IV-6. Enumerate the subgroups of GL₂(ℤ/4) whose elements satisfy det(1−g)=0 mod 4, and prove a stable quotient with trivial mod-2 action; read the cited argument before proof execution. The source paragraph alone is not a supplied subgroup proof."
+    },
+    {
+      "title": "Mazur’s arithmetic prime-isogeny inputs",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies"
+      ],
+      "detail": "Read and decompose the formal immersion and finite Eisenstein quotient inputs in Mazur §§1,4–6, the isogeny-character analysis, the complete small-level rational-point lists, and the class-number-one theorem. Only the introduction and §7 proof have been read in this pass; no generic ModularCurves supplier is claimed to contain these arithmetic theorems."
+    },
+    {
+      "title": "Composite cyclic-isogeny exclusions",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions"
+      ],
+      "detail": "Obtain and read Kenku’s classification proof and its predecessor modular-curve papers. The publisher of Kenku 1982 returned 403. Needed here are the finite forbidden 2ℓ and 4ℓ degrees after Mazur’s prime restriction; do not use the prime theorem or rational torsion classification as a replacement."
+    },
+    {
+      "title": "Cartan-level compactifications and Chen’s isogeny proof",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/chen-correspondence"
+      ],
+      "detail": "The existing Γ₀/Γ₁ compactification scope does not supply Xns⁺(p) and the mixed fiber products. Assign their common compactified Cartan-level owner, and read Chen 1998/2000 and Darmon–Merel §6 for the explicit correspondence/isogeny. The imaginary-quadratic split proposes mixed level 3 and 5 models, so a shared general extension should supply both families."
+    },
+    {
+      "title": "Darmon–Merel winding and formal-immersion inputs",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/rank-zero-quotient",
+        "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
+        "EllipticCurveModularityPartII:EC.6/j-prime-integrality"
+      ],
+      "detail": "Read Darmon–Merel Propositions 7.1 and Theorem 8.1, Lemma 8.3 and the local specialization hypotheses, including residue characteristic 2, for r=2,3,5,7,13. Lemos supplies a sketch and refers the nonvanishing/rank-zero and local details to that paper. These are owned special arithmetic targets here, not established by the sketch."
+    },
+    {
+      "title": "Arithmetic exclusions of split and exceptional Cartan images",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/large-proper-image"
+      ],
+      "detail": "Read Bilu–Parent–Rebolledo Ann. Inst. Fourier 63 (2013), 957–984 and Serre’s exceptional-image local argument; verify p>37 and non-CM hypotheses. R01.4 supplies group classification, not the rational-point exclusion theorem."
+    },
+    {
+      "title": "Complete finite image certificates",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.6/finite-image-certificates"
+      ],
+      "detail": "Lemos checks LMFDB/Sutherland output but no certificate data was fetched or verified here. Reconstruct every representative in the five integral lists and six non-CM higher-level values, prove the modular j-map and high-level rational-point lists, and attach complete exceptional-prime certificates valid for all primes, with software/data versions. Reading the published Lemos version and checking it against v2 is also required before executing this route."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "EllipticCurveModularityPartII",
+        "EllipticCurveModularityImaginaryQuadratic",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+        "EllipticCurveModularityWild3Adic"
+      ],
+      "detail": "The queue combined four Part II routes with independent theorem endpoints. Issue #3397 explicitly permits planning the first direction here and proposing a restructure for the rest. Effective comparisons neither prove imaginary-CM modularity nor general GL₂-type abelian modularity nor wild 3-adic lifting. Combining them would obscure ownership and create a roadmap with unrelated carriers.",
+      "proposal": "Keep EllipticCurveModularityPartII as effective residual comparisons, EC.1–EC.6, covering all seven Bennett–Siksek items. Route all 27 Caraiani–Newton items to EllipticCurveModularityImaginaryQuadratic: switching and lifting (Theorem 6.1), density (Corollary 6.1.2), quadratic-field residual images (Theorem 7.1), modular-curve models/points and their modularity (Corollary 7.1.2). Route all three Khare–Wintenberger items to EllipticCurveModularityPartIIGL2TypeAbelianVarieties: modular abelian varieties; two-dimensional compatible systems/Ribet; modularity and exact conductor. It supplies the Q-curve step of the imaginary-quadratic route. Route all 62 BCDT items to EllipticCurveModularityWild3Adic: wild types/admittance; tangent-space bounds; explicit local fields; Breuil modules and descent computations; global switching and lifting. Parent R29 retains its strong-Serre proof; the wild route records a distinct proof of the same endpoint. R01.4 owns shared finite-group theory; local Tate/finite-flat and general modular-curve constructions stay in their existing owners. A single shared Cartan-level compactification extension supplies mixed curves for both EC.6 and the imaginary-quadratic branch. No downstream branch is a prerequisite of parent R29.1."
+    }
+  ],
+  "routeCoverage": [
+    {
+      "paper": "PAPER-BENNETT-SIKSEK-20",
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/08",
+        "PAPER-BENNETT-SIKSEK-20/09",
+        "PAPER-BENNETT-SIKSEK-20/10",
+        "PAPER-BENNETT-SIKSEK-20/57",
+        "PAPER-BENNETT-SIKSEK-20/59",
+        "PAPER-BENNETT-SIKSEK-20/60",
+        "PAPER-BENNETT-SIKSEK-20/82"
+      ],
+      "disposition": "planned here",
+      "destination": "EllipticCurveModularityPartII"
+    },
+    {
+      "paper": "PAPER-CARAIANI-NEWTON-23",
+      "items": [
+        "PAPER-CARAIANI-NEWTON-23/modular-elliptic-curve",
+        "PAPER-CARAIANI-NEWTON-23/thm-1-1",
+        "PAPER-CARAIANI-NEWTON-23/thm-1-2",
+        "PAPER-CARAIANI-NEWTON-23/thm-6-1",
+        "PAPER-CARAIANI-NEWTON-23/cor-6-1-1",
+        "PAPER-CARAIANI-NEWTON-23/cor-6-1-2",
+        "PAPER-CARAIANI-NEWTON-23/lem-6-1-3",
+        "PAPER-CARAIANI-NEWTON-23/prop-6-1-5",
+        "PAPER-CARAIANI-NEWTON-23/prop-6-1-6",
+        "PAPER-CARAIANI-NEWTON-23/lem-6-1-7",
+        "PAPER-CARAIANI-NEWTON-23/thm-7-1",
+        "PAPER-CARAIANI-NEWTON-23/modular-curves-X(H)",
+        "PAPER-CARAIANI-NEWTON-23/cor-7-1-2",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-1-3",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-2-1",
+        "PAPER-CARAIANI-NEWTON-23/points-C-Q(√−3)",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-2-2",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-2-4",
+        "PAPER-CARAIANI-NEWTON-23/cor-7-2-5",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-3-1",
+        "PAPER-CARAIANI-NEWTON-23/lem-7-3-2",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-3-3",
+        "PAPER-CARAIANI-NEWTON-23/cor-7-3-4",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-4-3",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-4-4",
+        "PAPER-CARAIANI-NEWTON-23/prop-7-4-5",
+        "PAPER-CARAIANI-NEWTON-23/cor-7-4-6"
+      ],
+      "disposition": "split proposal",
+      "destination": "EllipticCurveModularityImaginaryQuadratic"
+    },
+    {
+      "paper": "PAPER-KHARE-WINTENBERGER-09-I",
+      "items": [
+        "PAPER-KHARE-WINTENBERGER-09-I/68",
+        "PAPER-KHARE-WINTENBERGER-09-I/70",
+        "PAPER-KHARE-WINTENBERGER-09-I/71"
+      ],
+      "disposition": "split proposal",
+      "destination": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
+    },
+    {
+      "paper": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
+      "items": [
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/three-case-strategy",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/six-cases-f",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/wild-3-types",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-1-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-2-1-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-2-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-2-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-pm1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-pm3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/admittance-tau-prime-i",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/deformation-strategy",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-4-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-5-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/reduction-4-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-6-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-6-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/galois-cohomology-4-7",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-4-7-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-4-7-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/thm-4-7-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-data",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-F-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/local-field-Fi",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/rank-one-models-7-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-7-2-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-2-6",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-7-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-7-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/conclusion-7-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/prop-8-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/cor-8-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-8-3-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-1-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-1-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/prop-9-2-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-1",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-2",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-3",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/lem-9-3-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-4",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-5",
+        "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/completion-9-6"
+      ],
+      "disposition": "split proposal",
+      "destination": "EllipticCurveModularityWild3Adic"
+    }
+  ],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "read": "2026-10-07",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FEF2CCCEC964C8D0AAD3EE8F40875A4D/S0008414X00034258a.pdf/majorations-effectives-pour-l-equation-de-fermat-generalisee.pdf",
+      "read": "2026-10-07",
+      "sha256": "d235ed8bba1c21618ade20f3e4a387846c641e730c3e981936056b10cfdc4ab6"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0306128",
+      "read": "2026-10-07",
+      "sha256": "844017dec299d575ee49f731b7ae6ec27be03d76bf6463bc428b9e9b49c0a8d4"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.math.columbia.edu/~goldfeld/Mazur-Goldfeld1978.pdf",
+      "read": "2026-10-07",
+      "sha256": "f3da9ef0d3d184225c4799951897be7b90d8b25050c5d508b69aeff70fd2ead3"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1702.01985v2",
+      "read": "2026-10-07",
+      "sha256": "ce889428aa4d6cbe1f30fcb504591063927fdaa96baa1bdf598596bbc02bd043"
+    }
+  ],
+  "baselineAudit": {
+    "reviewed": [
+      "AUDIT-11 (EllipticCurves)",
+      "AUDIT-16 (ModularForms)",
+      "AUDIT-13 (algebraic modular forms)"
+    ],
+    "conclusions": "Point count and the newform/newspace carriers exist; Hasse, elliptic Tate representations and coefficient fields/ideal-valued Sturm are supplier outputs. The exact new roadmap has no reviewed audit; actual pin searches found no effective thresholds, sharp Martin bound, Kraus theorem, uniform two-torsion consequences or Lemos theorem. See reader for near misses."
+  },
+  "upstreamNotes": []
+}
