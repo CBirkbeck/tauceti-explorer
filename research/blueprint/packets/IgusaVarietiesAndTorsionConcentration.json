@@ -199,7 +199,7 @@
       "id": "lil21",
       "title": "Chow groups and L-derivatives of automorphic motives for unitary groups",
       "authors": "Chao Li, Yifeng Liu",
-      "edition": "Authors' final version AIPF.pdf (pdfTeX, created 16 Jan 2022, 67 pp.), accessed 2026-10-07; published Ann. of Math. 194 (2021) 817–901. The published version (NSF PAR https://par.nsf.gov/servlets/purl/10338690, sha256 91035a5233facbed975283e1d81871c91d35c3f19f46151c4b6af01c937dfd01, printed page = PDF page + 816) was consulted only to cross-check numbering (Lemma 7.3 on printed p. 859).",
+      "edition": "Authors' final version AIPF.pdf (pdfTeX, created 16 Jan 2022, 67 pp.), accessed 2026-10-07; published Ann. of Math. 194 (2021) 817–901. The published version (NSF PAR https://par.nsf.gov/servlets/purl/10338690, sha256 91035a5233facbed975283e1d81871c91d35c3f19f46151c4b6af01c937dfd01, printed page = PDF page + 816) was read at Lemma 7.3 on printed pp.859–860. The independent review confirmed E14 in the author copy and the published proof.",
       "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
       "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566",
       "readSections": [
@@ -520,9 +520,9 @@
         "G is the unitary similitude group of the quasi-split datum."
       ],
       "proofSteps": [
-        "The derived group G^der is simply connected, so H¹(ℚ, G^der) = 0 and it suffices to treat the torus D = G/G^der (CSnc, after Kottwitz [Kot92, §7]).",
-        "D is the subtorus of Res_{F/ℚ}𝔾_m × 𝔾_m of pairs (z, t) with Nm_{F/F⁺}(z) = t^n; (z, t) ↦ (z/t^n, t) identifies it with Res_{F⁺/ℚ}T × 𝔾_m for T = ker(Nm : Res_{F/F⁺}𝔾_m → 𝔾_m).",
-        "Both tori satisfy the Hasse principle (Hilbert 90 for 𝔾_m and the Hasse norm theorem for the cyclic extension F/F⁺)."
+        "Use the PEL Hasse-principle theorem of PELModuli M3 for this even-dimensional unitary similitude datum. The simply connected derived group has trivial Hasse kernel; H¹(ℚ,G^der) itself need not vanish (sourceIssues E11). A simply connected group alone does not justify the printed reduction.",
+        "For z = det_F(g) and t = c(g), the quotient torus D is defined by Nm_{F/F⁺}(z) = t^{2n}. The map (z,t) ↦ (z/t^n,t) identifies D with Res_{F⁺/ℚ} ker(Nm_{F/F⁺}) × 𝔾_m.",
+        "Hilbert 90 and the cyclic Hasse norm theorem give the torus Hasse principle; use the stated PEL theorem to handle the connecting maps and conclude the Hasse principle for G."
       ],
       "acceptance": [
         "ker¹(ℚ, G) = 1, so the PEL moduli space S_K(ℂ) is a single copy of X_K (used in IG.0/complex-uniformization) and Shin's Igusa trace formula carries no |ker¹(ℚ, G)| factor (CSnc §5.3).",
@@ -798,7 +798,7 @@
       ],
       "title": "Unramified local PEL data of type (A) or (C) and the p-divisible group X_b (CS17 §4.2)",
       "kind": "definition",
-      "statement": "An unramified local PEL datum D^int = (B, *, V, (·,·), O_B, Λ, μ, b) consists of: a finite-dimensional semisimple ℚ_p-algebra B with anti-involution *, which is a product of matrix algebras over unramified extensions of ℚ_p; a *-stable maximal ℤ_p-order O_B; a finite left B-module V with an alternating form (·,·) : V × V → ℚ_p such that (bv, w) = (v, b*w); an O_B-stable lattice Λ ⊂ V self-dual for (·,·), so that G(R) = {(g, c) ∈ GL_{B⊗R}(V ⊗ R) × R^× : (gv, gw) = c(v, w)} extends to a reductive group G over ℤ_p, assumed connected (type D excluded); a conjugacy class μ : 𝔾_m → G_{ℚ̄_p} of cocharacters with weights 0 and 1 on V, V_{ℚ̄_p} = V₀ ⊕ V₁ with both summands totally isotropic and c ∘ μ = id, with field of definition E; and b ∈ G(L), L = W(𝔽̄_p)[1/p], with [b] ∈ B(G, μ^{−1}). The slopes of b on V lie in [−1, 0] in the paper's (nonstandard) covariant normalization of the Dieudonné module, so there is a p-divisible group X_b over 𝔽̄_p with O_B-action and principal polarization, unique up to quasi-isogeny, whose rational covariant Dieudonné module is V ⊗ L with Frobenius b σ. Global PEL data of type (A) or (C) unramified at p with hyperspecial level give such a datum at every b ∈ B(G_{ℚ_p}, μ^{−1}).",
+      "statement": "An unramified local PEL datum D^int = (B, *, V, (·,·), O_B, Λ, μ, b) consists of: a finite-dimensional semisimple ℚ_p-algebra B with anti-involution *, which is a product of matrix algebras over unramified extensions of ℚ_p; a *-stable maximal ℤ_p-order O_B; a finite left B-module V with an alternating form (·,·) : V × V → ℚ_p such that (bv, w) = (v, b*w); an O_B-stable lattice Λ ⊂ V self-dual for (·,·), so that G(R) = {(g, c) ∈ GL_{B⊗R}(V ⊗ R) × R^× : (gv, gw) = c(v, w)} extends to a reductive group G over ℤ_p, assumed connected (type D excluded); a conjugacy class μ : 𝔾_m → G_{ℚ̄_p} of cocharacters with weights 0 and 1 on V, V_{ℚ̄_p} = V₀ ⊕ V₁ with both summands totally isotropic and c ∘ μ = id, with field of definition E; and b ∈ G(L), L = W(𝔽̄_p)[1/p], with [b] ∈ B(G, μ^{−1}). The slopes of b on V lie in [−1, 0] in the paper's (nonstandard) covariant normalization of the Dieudonné module, so there is a p-divisible group X_b over 𝔽̄_p with O_B-action and symmetric quasi-polarization, unique up to quasi-isogeny, whose rational covariant Dieudonné module is V ⊗ L with Frobenius b σ. Global PEL data of type (A) or (C) unramified at p with hyperspecial level give such a datum at every b ∈ B(G_{ℚ_p}, μ^{−1}).",
       "hypotheses": [
         "B is a product of matrix algebras over unramified extensions of ℚ_p (unramified datum).",
         "G connected: data of type D are excluded.",
@@ -807,7 +807,7 @@
       "proofSteps": [
         "Record the datum and the reductive model G_{ℤ_p} = Aut(Λ, (·,·) up to scalar).",
         "Import B(G), the Newton and Kottwitz maps and B(G, μ^{−1}) from BunGAndNewtonStrata BG0–BG1; do not redefine them.",
-        "Construct X_b by Dieudonné–Manin and the classification of isocrystals (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2): the isocrystal (V ⊗ L, bσ) has slopes in [0, 1], so it is the rational Dieudonné module of a p-divisible group; the O_B-action and the polarization come from the B-action on V and (·,·).",
+        "Construct a p-divisible representative of the rational isocrystal with O_B-action and symmetric quasi-polarization. CS17 uses covariant slopes [−1,0]; the R07.2 positive-slope convention requires an explicit dual/sign adapter. Dieudonné–Manin alone does not supply a self-dual integral lattice or a principal polarization.",
         "For the quasi-split unitary datum at p split in F, D^int is the product over places w | p of GL_{2n}(F_w) data together with the similitude factor (CSnc §5.1)."
       ],
       "acceptance": [
@@ -864,7 +864,8 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
-        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals"
+        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
       ],
       "api": [
         {
@@ -875,7 +876,7 @@
         {
           "name": "LocalPELDatum.pdivOfB",
           "role": "constructor",
-          "statement": "The p-divisible group X_b over 𝔽̄_p with O_B-action and principal polarization attached to b ∈ B(G, μ^{−1})."
+          "statement": "A representative X_b with O_B-action and symmetric quasi-polarization of b ∈ B(G,μ⁻¹); a principal-polarized representative requires the integral existence input recorded below."
         },
         {
           "name": "LocalPELDatum.pdivOfB_isocrystal",
@@ -996,7 +997,9 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
-        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals"
+        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
+        "IgusaVarietiesAndTorsionConcentration:IG.0/slope-filtration-existence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
       ],
       "api": [
         {
@@ -1182,7 +1185,7 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Lemma 4.1.5, p. 693",
-          "excerpt": "Lemma 4.1.5. The subgroup scheme H (m) n stabilizes for m \u001d 0; let H0 n = H (m) n for m sufficiently large. Then H0 n",
+          "excerpt": "Lemma 4.1.5. The subgroup scheme H (m) n stabilizes for m ≫ 0; let H0 n = H (m) n for m sufficiently large. Then H0 n",
           "match": "States the stabilisation of H_n^{(m)}."
         },
         {
@@ -1295,7 +1298,7 @@
       ],
       "acceptance": [
         "μ_{p^∞} and ℚ_p/ℤ_p are isoclinic slope divisible, of slopes 1 and 0 for the Frobenius normalization of this definition (in the covariant Dieudonné normalization of CS17 §4.1 their Dieudonné slopes are −1 and 0).",
-        "Over a connected regular base, complete slope divisibility at the geometric generic point implies it everywhere (CSnc Lemma 2.3.4, [Zin01, Thm 7])."
+        "Over a connected regular characteristic-p base with constant Newton polygon, complete slope divisibility at the geometric generic point implies it everywhere (CSnc Lemma 2.3.4 corrected by E12; Oort–Zink Proposition 2.3 and Zink Theorem 7)."
       ],
       "uses": [
         {
@@ -1320,7 +1323,7 @@
         {
           "name": "IsCompletelySlopeDivisible.isoclinic",
           "kind": "degenerate",
-          "statement": "An isoclinic slope divisible group is completely slope divisible with r = 1."
+          "statement": "A nonzero isoclinic slope divisible group is completely slope divisible with r=1; the zero group has the empty filtration r=0."
         },
         {
           "name": "IsCompletelySlopeDivisible.not_all",
@@ -1343,7 +1346,8 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
-        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals"
+        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
       ],
       "api": [
         {
@@ -1364,7 +1368,7 @@
         {
           "name": "IsCompletelySlopeDivisible.of_generic",
           "role": "other",
-          "statement": "Over a connected regular base, completely slope divisible at the geometric generic point implies completely slope divisible (Zink)."
+          "statement": "Over a connected regular characteristic-p base with constant Newton polygon, complete slope divisibility at the geometric generic point implies it everywhere (CSnc Lemma 2.3.4, corrected by E12)."
         },
         {
           "name": "IsCompletelySlopeDivisible.split_of_perfect",
@@ -1400,9 +1404,10 @@
       ],
       "title": "Completely slope divisible representatives and their behaviour over perfect bases and valuation rings (Oort–Zink)",
       "kind": "theorem",
-      "statement": "(1) Every p-divisible group over an algebraically closed field of characteristic p is isogenous to a completely slope divisible one, which is a direct sum of isoclinic slope divisible groups defined over a finite field, with decreasing slopes; this holds compatibly with O_F-actions and polarizations (choose X_b with G-structure). (2) Over a perfect base a completely slope divisible p-divisible group is the direct sum of its isoclinic graded pieces [OZ02, Prop. 1.3]. (3) If V is a valuation ring of characteristic p with fraction field K and G/V has constant Newton polygon with G_K completely slope divisible, then G is completely slope divisible [OZ02, Prop. 2.3]. (4) Over a connected regular base, complete slope divisibility at the geometric generic point implies it everywhere [Zin01, Thm 7].",
+      "statement": "(1) Every p-divisible group over an algebraically closed field of characteristic p is isogenous to a completely slope divisible one, which is a direct sum of isoclinic slope divisible groups defined over a finite field, with decreasing slopes; this holds compatibly with O_F-actions and polarizations (choose X_b with G-structure). (2) Over a perfect base a completely slope divisible p-divisible group is the direct sum of its isoclinic graded pieces [OZ02, Prop. 1.3]. (3) If V is a valuation ring of characteristic p with fraction field K and G/V has constant Newton polygon with G_K completely slope divisible, then G is completely slope divisible [OZ02, Prop. 2.3]. (4) Over a connected regular characteristic-p base with constant Newton polygon, complete slope divisibility at the geometric generic point implies it everywhere [Zin01, Thm 7].",
       "hypotheses": [
-        "Characteristic p bases; (3) needs constant Newton polygon."
+        "Characteristic p bases; (3) needs constant Newton polygon.",
+        "In (4), the Newton polygon is constant on the base (omitted in CSnc Lemma 2.3.4; sourceIssues E12)."
       ],
       "proofSteps": [
         "(1) Dieudonné–Manin over k̄ and descent of a lattice stable under the slope decomposition; for G-structure take a lattice stable under O_B and self-dual (Mantovan [Man05, §3]).",
@@ -1417,7 +1422,8 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
-        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals"
+        "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
       ],
       "sources": [
         {
@@ -1853,7 +1859,7 @@
       ],
       "proofSteps": [
         "Hamacher [Ham15, Cor. 7.8] computes the dimension of central leaves in the PEL case.",
-        "Alternatively (CS17 Corollary 4.3.9, sketch): Ig^b → C^b is a torsor under the non-reduced group Aut(X_b) of dimension 0 whose perfection has the fibres of IG.0/structure-of-automorphism-group; comparing cotangent complexes of the perfect torsor gives dim C^b = d."
+        "Pass from the leaf to its perfection and the pro-étale Igusa torsor, which preserve the underlying dimension. Do not compute dimensions from the vanishing cotangent complex of a perfect scheme."
       ],
       "acceptance": [
         "Ordinary b: d_b = dim S_{K,k} = [F⁺:ℚ]n².",
@@ -1865,7 +1871,8 @@
         "IgusaVarietiesAndTorsionConcentration:IG.0/structure-of-automorphism-group",
         "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
         "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
-        "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps"
+        "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps",
+        "IgusaVarietiesAndTorsionConcentration:IG.0/isomorphism-torsors"
       ],
       "sources": [
         {
@@ -1943,7 +1950,7 @@
         "The printed definition writes O_{Ĕ₀} for O_Ĕ (sourceIssues PAPER-CARAIANI-SCHOLZE-17/E5); the base is O_Ĕ."
       ],
       "acceptance": [
-        "For the Lubin–Tate datum (GL_n, μ = (1, 0, …, 0), b basic) 𝔐 is ⊔_{ℤ} Spf W[[x₁, …, x_{n−1}]].",
+        "For the PEL realization GL_n×𝔾_m of the Lubin–Tate datum with n≥1 and b basic, 𝔐 is ⊔_{ℤ×ℤ} Spf W[[x₁,…,x_{n−1}]]. The EL space for GL_n has the single ℤ index.",
         "J_b(ℚ_p) acts on 𝔐_{D^int} and the action is compatible with the period maps."
       ],
       "uses": [
@@ -1967,14 +1974,9 @@
           "statement": "For the unramified PEL datum GL_n × 𝔾_m (B = ℚ_p × ℚ_p with the exchange involution, V = ℚ_p^n ⊕ ℚ_p^n), μ = (1, 0, …, 0) and b basic, 𝔐 ≅ ⊔_{ℤ×ℤ} Spf W(𝔽̄_p)[[x₁, …, x_{n−1}]] (one ℤ for the height of ρ, one for the valuation of the similitude factor); the EL datum GL_n alone gives ⊔_ℤ, the Lubin–Tate case."
         },
         {
-          "name": "RZSpace.etale_points",
-          "kind": "degenerate",
-          "statement": "For X_b étale (μ trivial), 𝔐_{D^int} is the discrete set J_b(ℚ_p)/Aut(X_b)."
-        },
-        {
           "name": "RZSpace.not_isomorphisms",
           "kind": "non-example",
-          "statement": "ρ is only a quasi-isogeny: requiring ρ to be an isomorphism gives the Igusa-type locus, a proper subfunctor."
+          "statement": "For a framing group of positive height, requiring ρ to be an isomorphism gives a proper subfunctor: the quasi-isogeny [p] is an allowed point outside it."
         },
         {
           "name": "RZSpace.dim",
@@ -2427,7 +2429,7 @@
       ],
       "proofSteps": [
         "Representability and the Aut(X)-torsor structure: apply IG.0/isomorphism-torsors (2) to 𝒢 = A[p^∞] over the regular (smooth) leaf C^X (CSnc Corollary 2.3.2); the Γ_X-torsor over (C^X)_perf is IG.0/isomorphism-torsors (1).",
-        "Moduli up to isogeny (CS17 Lemma 4.3.4): given (A, ρ̃) there is a unique A′ with a p-power isogeny A′ → A such that the induced quasi-isogeny A′[p^∞] → X is an isomorphism; this uses Serre–Tate-free arguments over 𝔽_p-algebras (kernel of a quasi-isogeny), with the corrected statement of sourceIssues PAPER-CARAIANI-SCHOLZE-17/E49.",
+        "Moduli up to isogeny (CS17 Lemma 4.3.4) holds for every k-algebra R. Choose m so that p^mρ̃ is an isogeny, quotient A by its finite flat kernel, and use the resulting p-power quasi-isogeny A′ → A to obtain an isomorphism A′[p^∞] ≅ X. The reverse map need not be an isogeny (take ρ̃=p times an isomorphism); see inherited E49.",
         "Perfectness (CS17 Corollary 4.3.5): pullback along Frobenius is an equivalence on abelian varieties up to p-power isogeny (Verschiebung is an inverse up to p) and on p-divisible groups up to quasi-isogeny, so the moduli description up to isogeny is invariant under Frobenius.",
         "Actions: quasi-isogenies of X with extra structure act on ρ̃; prime-to-p isogenies of A act through the level structure, giving the G(𝔸_f^p)-Hecke correspondences."
       ],
@@ -2510,7 +2512,7 @@
         {
           "name": "Igusa.isoUpToIsogeny",
           "role": "equivalence",
-          "statement": "For a perfect k-algebra R, Ig^X(R) ≅ {(A, ρ̃)} with A up to p-power isogeny and ρ̃ a quasi-isogeny with extra structure (for non-perfect R, isogeny classes of A do not describe Ig^X(R))."
+          "statement": "For every k-algebra R, Ig^X(R) ≅ {(A,ρ̃)} with A up to p-power isogeny and ρ̃ a quasi-isogeny with extra structure (CS17 Lemma 4.3.4)."
         },
         {
           "name": "Igusa.jAction",
@@ -3132,14 +3134,13 @@
       ],
       "title": "Harris–Taylor Igusa varieties of the first kind and their relation to Mantovan's and the perfect Igusa varieties (Li–Liu, proof of Lemma 7.3)",
       "kind": "construction",
-      "statement": "In the Harris–Taylor type unitary setting of IG.0/drinfeld-level-newton-strata (signature (1, n−1) at one place, u split in F, A[u^{c,∞}] one-dimensional of height n), for 0 ≤ j ≤ n − 1 the Igusa variety of the first kind I_{m,j} → Y°_{0,j} parametrizes Drinfeld level structures of level m on the étale part of A[u^{c,∞}] together with an isomorphism of the formal part with the fixed one-dimensional formal O_{F_u}-module of height j + 1 up to level m (Harris–Taylor [HT01, §IV.1]); the I_{m,j} form a projective system with finite étale transition maps, and Y°_{m,j} is a finite disjoint union of copies of I_{m,j}. Mantovan's I^j_{Mant,m} (IG.1/mantovan-igusa-variety for this datum) are finite Galois covers of I_{m,j}, and the perfection Ig_j of lim_m I^j_{Mant,m} is the perfect Igusa variety of the stratum (IG.1/perfection-of-mantovan).",
+      "statement": "In the Harris–Taylor setting, I_{m,j} → Y°_{0,j} is the finite étale Igusa variety of the first kind trivializing the level-m étale part of A[u^{c,∞}], of étale height n−1−j. It does not trivialize the formal part. The stratum Y°_{m,j} is a finite disjoint union of copies of I_{m,j}; Mantovan’s cover I^j_{Mant,m} → I_{m,j} adds the trivialization of the formal part, and the perfect Igusa variety is the perfection of its inverse-limit tower.",
       "hypotheses": [
         "Harris–Taylor type unitary datum; Drinfeld level at u."
       ],
       "proofSteps": [
-        "Construct I_{m,j} as the moduli of Igusa structures of the first kind on the stratum Y°_{0,j} (finite étale by Drinfeld–Katz–Mazur level theory on the étale part and rigidity of the formal part).",
-        "Identify Y°_{m,j} with a disjoint union of copies of I_{m,j} indexed by the Drinfeld level structures on the formal part (Harris–Taylor).",
-        "Compare with Mantovan: trivializing the isoclinic pieces gives finite Galois covers I^j_{Mant,m} → I_{m,j}; take the perfection of the limit."
+        "Harris–Taylor §IV.1 and Li–Liu p.35 footnote 15: first-kind Igusa level trivializes the étale summand; the Drinfeld kernel indexes the copies of I_{m,j}.",
+        "Mantovan’s finite Galois cover adds formal-part level. Take the perfection of the inverse limit to compare with the perfect Igusa variety."
       ],
       "acceptance": [
         "For n = 2, j = 0: I_{m,0} is the ordinary Igusa curve of level m over the ordinary locus of the Shimura curve."
@@ -3220,13 +3221,13 @@
       ],
       "title": "Closures of refined Newton strata are smooth and the open strata are Igusa varieties of the first kind (Mantovan; Li–Liu II)",
       "kind": "theorem",
-      "statement": "For m ≥ 1, 0 ≤ h ≤ n − 1 and M ∈ 𝔖^h_m, the closure Y^[M]_m is smooth (and proper) over k of pure dimension h (Mantovan [Man08, Prop. 12]), and Y^(M)_m is isomorphic as a k-scheme (not over Y^(h)_0) to the Harris–Taylor Igusa variety of the first kind I^h_m.",
+      "statement": "For m ≥ 1, 0 ≤ h ≤ n − 1 and M ∈ 𝔖^h_m, the closure Y^[M]_m is smooth (and proper) over k of pure dimension h (Mantovan [Man08, Prop. 12]), and Y^(M)_m is isomorphic as a k-scheme (not over Y^(h)_0) to the Harris–Taylor Igusa variety of the first kind I^h_m. Here h is the étale height, while the first-kind index j in IG.1/harris-taylor-igusa-varieties is the formal height minus one: j=n−1−h. Thus I^h_m=I_{m,n−1−h}.",
       "hypotheses": [
         "Harris–Taylor type datum with Drinfeld level m ≥ 1 at u; the comparison of Mantovan's integral model with Li–Liu's X_m is part of the claim."
       ],
       "proofSteps": [
         "Mantovan, \"A compactification of Igusa varieties\" (Math. Ann. 340 (2008)), Proposition 12: the closures of the refined strata are smooth of the stated dimension.",
-        "Y^(M)_m ≅ I^h_m: the Drinfeld structure with kernel M is equivalent to a level structure on the étale part plus an Igusa structure of the first kind on the formal part (Harris–Taylor §IV.1)."
+        "The level with prescribed Drinfeld kernel determines the étale level, and the comparison with I^h_m uses the Frobenius twist from Harris–Taylor/Mantovan. It is an isomorphism of k-schemes, without identifying their structure maps to Y^(h)_0. In the j notation of IG.1, j=n−1−h."
       ],
       "acceptance": [
         "For n = 2 and h = 0, Y^[M]_m is a finite set of points."
@@ -4265,7 +4266,7 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, Lemma 3.3.3, p. 46",
-          "excerpt": "Lemma 3.3.3. Consider a diagram X0  _ \u000f\u000f C0  _ \u000f\u000f oo //",
+          "excerpt": "Lemma 3.3.3. Consider a diagram",
           "match": "States the affineness transfer lemma."
         },
         {
@@ -4335,7 +4336,7 @@
       ],
       "title": "The partial minimal compactification Ig^{X,*} of the perfect Igusa variety (CSnc Proposition 3.3.4)",
       "kind": "construction",
-      "statement": "Define Ig^{X,*} as the normalization of C^{X,*} in the perfect Igusa variety Ig^X. Then Ig^{X,*} → C^{X,*} is integral, so Ig^{X,*} is affine when C^{X,*} is; it agrees with the Stein factorization of Ig^{X,tor} → C^{X,*}, so Ig^{X,*} = Spec H⁰(Ig^{X,tor}, O). A G-quasi-isogeny φ : X → X′ as in IG.2/toroidal-isogeny-invariance induces Ig^{X,*} ≅ Ig^{X′,*}.",
+      "statement": "Define Ig^{X,*} as the normalization of C^{X,*} in the perfect Igusa variety Ig^X. Then Ig^{X,*} → C^{X,*} is integral, so Ig^{X,*} is affine when C^{X,*} is; it agrees with the Stein factorization of Ig^{X,tor} → C^{X,*}, so, when C^{X,*} is affine, Ig^{X,*} = Spec H⁰(Ig^{X,tor}, O). A G-quasi-isogeny φ : X → X′ as in IG.2/toroidal-isogeny-invariance induces Ig^{X,*} ≅ Ig^{X′,*}.",
       "hypotheses": [
         "Standing hypotheses of CSnc §§3–4: p unramified in F, N ≥ 3 prime to p, K = K(N), and Σ a compatible family of smooth projective cone decompositions with trivial stabilizers (CSnc Remark 2.5.6); S = S_K and S_k = S ×_ℤ k for k algebraically closed of characteristic p."
       ],
@@ -4429,7 +4430,7 @@
       ],
       "title": "Finite-level partial minimal compactifications Ig^{b,*}_m of Igusa varieties (CSnc Definition 3.3.7, Lemma 3.3.8, corrected)",
       "kind": "construction",
-      "statement": "Fix b ∈ B(G_{ℚ_p}, μ^{−1}) and a completely slope divisible X_b with G-structure in the class b; when possible take X_b = X_w minimal for a fundamental w (IG.2/fundamental-eo-stratum-in-newton-stratum), which is completely slope divisible. Let C^b = C^{X_b} and Ig^b_m = Ig^{X_b}_{Mant,m}. Define Ig^{b,*}_m as the normalization of C^{b,*} in Ig^b_m and Ig^{b,*} := lim_m Ig^{b,*}_m. Then: (1) h^{b,*}_m : Ig^{b,*}_m → C^{b,*} is finite and surjective, so Ig^{b,*}_m is affine whenever C^{b,*} is; (2) Ig^b_m ↪ Ig^{b,*}_m is a dense open immersion and Ig^{b,*}_m is normal; (3) Ig^{b,*} → C^{b,*} is integral (not finite) and Ig^{b,*} is affine; its perfection is Ig^{X_b,*} of IG.2/perfect-minimal-igusa. As printed, Lemma 3.3.8 calls Ig^{b,*} → C^{b,*} finite for the pro-Igusa variety (sourceIssues IgusaVarietiesAndTorsionConcentration/E2).",
+      "statement": "Fix b ∈ B(G_{ℚ_p}, μ^{−1}) and a completely slope divisible X_b with G-structure in the class b; when possible take X_b = X_w minimal for a fundamental w (IG.2/fundamental-eo-stratum-in-newton-stratum), which is completely slope divisible. Let C^b = C^{X_b} and Ig^b_m = Ig^{X_b}_{Mant,m}. Define Ig^{b,*}_m as the normalization of C^{b,*} in Ig^b_m and Ig^{b,*} := lim_m Ig^{b,*}_m. Then: (1) h^{b,*}_m : Ig^{b,*}_m → C^{b,*} is finite and surjective, so Ig^{b,*}_m is affine whenever C^{b,*} is; (2) Ig^b_m ↪ Ig^{b,*}_m is a dense open immersion and Ig^{b,*}_m is normal; (3) Ig^{b,*} → C^{b,*} is integral (not finite) and Ig^{b,*} is affine whenever C^{b,*} is; its perfection is Ig^{X_b,*} of IG.2/perfect-minimal-igusa. As printed, Lemma 3.3.8 calls Ig^{b,*} → C^{b,*} finite for the pro-Igusa variety (sourceIssues IgusaVarietiesAndTorsionConcentration/E2).",
       "hypotheses": [
         "Standing hypotheses of CSnc §§3–4: p unramified in F, N ≥ 3 prime to p, K = K(N), and Σ a compatible family of smooth projective cone decompositions with trivial stabilizers (CSnc Remark 2.5.6); S = S_K and S_k = S ×_ℤ k for k algebraically closed of characteristic p.",
         "X_b completely slope divisible."
@@ -4510,7 +4511,7 @@
         {
           "name": "MinimalIgusa.isAffine",
           "role": "instance",
-          "statement": "Ig^{b,*}_m and Ig^{b,*} = lim_m Ig^{b,*}_m are affine."
+          "statement": "If C^{b,*} is affine, every Ig^{b,*}_m and Ig^{b,*}=lim_m Ig^{b,*}_m is affine; deriving affineness for all representatives uses the explicitly recorded IG.2 gaps."
         },
         {
           "name": "MinimalIgusa.lim_integral",
@@ -4988,8 +4989,9 @@
         "BunGAndNewtonStrata:BG1",
         "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G",
         "DiamondEtaleCohomology:C8/partially-proper-dimension",
-        "AdicEtaleGeometry:A2/relative-dimension-rank-one-fibres",
-        "PerfectoidShimuraVarieties:S1/rational-flags-preimage"
+        "PerfectoidShimuraVarieties:S1/rational-flags-preimage",
+        "DiamondEtaleCohomology:C8/partially-proper-dimension",
+        "DiamondEtaleCohomology:C8/partially-proper-fibre-dimension"
       ],
       "sources": [
         {
@@ -5049,9 +5051,9 @@
       ],
       "tests": [
         {
-          "name": "localHodgeTate_etale",
-          "kind": "degenerate",
-          "statement": "For μ trivial (X_b étale, no deformations) Fℓ_{G,μ} is a point and π_HT is constant."
+          "name": "localHodgeTate_J_invariant",
+          "kind": "characterisation",
+          "statement": "Precomposing π_HT by the J_b-action leaves π_HT unchanged, whereas the G-action acts on the target flag; this distinguishes the two commuting actions."
         },
         {
           "name": "localHodgeTate_lubinTate",
@@ -5267,7 +5269,8 @@
         "IgusaVarietiesAndTorsionConcentration:IG.0/structure-of-automorphism-group",
         "IgusaVarietiesAndTorsionConcentration:IG.3/integral-extension-lemma",
         "DiamondEtaleCohomology:C8/partially-proper-dimension",
-        "AdicEtaleGeometry:A2/relative-dimension-rank-one-fibres"
+        "DiamondEtaleCohomology:C8/partially-proper-dimension",
+        "DiamondEtaleCohomology:C8/partially-proper-fibre-dimension"
       ],
       "sources": [
         {
@@ -5340,7 +5343,8 @@
         "AbelianSchemesAndArithmeticModuli:A4",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
-        "mathlib:WittVector"
+        "mathlib:WittVector",
+        "SchemeAndStackFoundations:SF.4"
       ],
       "api": [
         {
@@ -5383,7 +5387,7 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Lemma 4.3.12, p. 720",
-          "excerpt": "Lemma 4.3.12. The map constructed above induces an isomorphism and fits into a commutative diagram Igb OK ×OĔ Mb \u000f\u000f ∼",
+          "excerpt": "Lemma 4.3.12. The map constructed above induces an isomorphism and fits into a commutative diagram Igb OK ×OĔ Mb  ∼",
           "match": "The decomposition of 𝔛^b."
         },
         {
@@ -5593,7 +5597,8 @@
         "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycles-comparison",
         "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
         "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
-        "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt"
+        "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+        "SchemeAndStackFoundations:SF.4"
       ],
       "sources": [
         {
@@ -6130,7 +6135,7 @@
         "The PEL version is the closed subfunctor respecting O_B-action and polarization."
       ],
       "acceptance": [
-        "For H = μ_{p^∞} (h = d = 1), M_∞ is the profinite set ℤ_p^× × ℤ (as the moduli of trivialized deformations of μ_{p^∞} up to quasi-isogeny is discrete)."
+        "For H=μ_{p^∞}, after base change to a complete algebraically closed C containing all p-power roots of unity, the infinite-level space is the constant locally profinite GL₁(ℚ_p)=ℚ_p^× over C. Before this base change the Tate trivialization carries a cyclotomic Galois action."
       ],
       "uses": [
         {
@@ -6146,7 +6151,7 @@
         {
           "name": "SWInfiniteLevel.mu",
           "kind": "computation",
-          "statement": "For H = μ_{p^∞}, M_∞ is a profinite set (no positive-dimensional deformation, d = h)."
+          "statement": "For H=μ_{p^∞}, after base change to C as above, M_∞ is a constant locally profinite ℚ_p^× over C and has no positive-dimensional deformation."
         },
         {
           "name": "SWInfiniteLevel.etale",
@@ -6156,7 +6161,7 @@
         {
           "name": "SWInfiniteLevel.tower_not_stationary",
           "kind": "non-example",
-          "statement": "For H of height h ≥ 1, no transition map M_{n+1} → M_n is an isomorphism (it is a finite étale torsor under the nontrivial kernel of GL_h(ℤ/p^{n+1}) → GL_h(ℤ/p^n), resp. GL_h(𝔽_p) for n = 0), so M_∞ is not any finite-level M_n."
+          "statement": "For height h≥1 and n≥1, M_{n+1}→M_n is not an isomorphism: the kernel of GL_h(ℤ/p^{n+1})→GL_h(ℤ/p^n) is nontrivial. At n=0 there is the exception h=1,p=2."
         }
       ],
       "prerequisites": [
@@ -6279,7 +6284,7 @@
         "Extension of the K_p-action to small étale neighbourhoods [Sch15b, Cor. 2.5]; triviality on U_s by continuity; equivariant lifting of étale maps through the formal-scheme étale site (AdicSpacesPartII R2: the étale site of a formal scheme is that of its special fibre)."
       ],
       "acceptance": [
-        "For K_p acting trivially on Fℓ (e.g. the Hecke operators away from p), the equivariant site is the ordinary one."
+        "For the trivial group, the equivariant site is the ordinary site. A nontrivial group acting trivially still contributes its classifying topos; away-p Hecke correspondences are not a subgroup acting trivially on the flag variety."
       ],
       "uses": [
         {
@@ -6303,9 +6308,9 @@
           "statement": "For a finite group G acting freely on X, (X/G)_ét ≅ (X/G)_ét of the quotient space."
         },
         {
-          "name": "equivariantSite.not_quotient",
+          "name": "equivariantSite.trivial_action_retains_group",
           "kind": "non-example",
-          "statement": "For G(ℚ_p) acting on Fℓ, (Fℓ/G(ℚ_p))_ét is not the étale site of any adic space (the action has positive-dimensional orbits)."
+          "statement": "For a cyclic group C_ℓ acting trivially on a geometric point, H¹ of the equivariant site with constant 𝔽_ℓ coefficients is Hom(C_ℓ,𝔽_ℓ)=𝔽_ℓ, whereas H¹ of the geometric point is zero. Thus trivial action does not give the ordinary site."
         }
       ],
       "prerequisites": [
@@ -6316,7 +6321,6 @@
         "SchemeAndStackFoundations:SF.4",
         "AdicSpacesPartII:F0/locally-noetherian-formal-scheme",
         "AdicSpacesPartII:R2/admissible-formal-scheme",
-        "AdicSpacesPartII:R2/formal-etale-site-invariance",
         "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
         "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps"
       ],
@@ -6375,7 +6379,7 @@
         "X, Y affine of finite type over 𝔽_p."
       ],
       "proofSteps": [
-        "For finite type schemes over a field, the valuative criterion may be tested on discrete (in particular rank-one) valuation rings with algebraically closed fraction fields (EGA II 7.3.8 / Stacks 0CM2 restricted to rank one).",
+        "Test properness using DVRs for the finite-type affine map. Extend each DVR valuation to an algebraic closure of its fraction field; the extended valuation ring has rank one but is not discrete. Apply the assumed lifting there, then descend the integrality conclusion to the original DVR (intersection with its fraction field). Never posit a nontrivial DVR with algebraically closed fraction field.",
         "Existence part of the criterion gives universally closed; f is separated (affine), and of finite type; so f is proper (Mathlib IsProper.of_valuativeCriterion after reducing to the rank-one case).",
         "Proper and affine implies finite."
       ],
@@ -6405,17 +6409,17 @@
       ],
       "title": "Cofinal affinoid neighbourhoods of the flag variety with finite-level formal models of their preimages (CSnc proof of Theorem 4.6.1; CS17 Proposition 6.1.3)",
       "kind": "construction",
-      "statement": "Every geometric point x of Fℓ_C has a cofinal system of affinoid étale neighbourhoods U = Spa(A) → Fℓ_C such that: (1) S^*_{K(p^∞N),U} := S^*_{K(p^∞N),C} ×_{Fℓ_C} U is affinoid perfectoid, = Spa(R_{K(p^∞N),U}), and is the preimage of an affinoid U′ = S^*_{K(p^mN),U} étale over S^*_{K(p^mN),C} for m large; (2) with 𝔘 = Spf(A°), the reduction modulo p of Spf(R°_{K(p^∞N),U}) → 𝔘 factors over Spec(R°_{K(p^mN),U}/p) → Spec(A°/p) for m large, and this map of affine schemes is integral (finite at each finite level), so pushforward along it preserves the perverse lower bound ^pD^{≥d}; (3) the same holds with toroidal compactifications and with auxiliary ℓ-power tame level. These formal models, with the transition maps in p-level and ℓ-level and the boundary maps, are the finite-level geometry from which the semiperverse bound is deduced.",
+      "statement": "Every geometric point x of Fℓ_C has a cofinal system of affinoid étale neighbourhoods U = Spa(A) → Fℓ_C such that: (1) S^*_{K(p^∞N),U} := S^*_{K(p^∞N),C} ×_{Fℓ_C} U is affinoid perfectoid, = Spa(R_{K(p^∞N),U}), and is the preimage of an affinoid U′ = S^*_{K(p^mN),U} étale over S^*_{K(p^mN),C} for m large; (2) with 𝔘 = Spf(A°), the reduction modulo p of Spf(R°_{K(p^∞N),U}) → 𝔘 factors over Spec(R°_{K(p^mN),U}/p) → Spec(A°/p) for m large, and this map of affine schemes is integral (integrality is the asserted property; no finite-type claim over 𝔽_p is made here), so pushforward along it preserves the perverse lower bound ^pD^{≥d}; (3) the same holds with toroidal compactifications and with auxiliary ℓ-power tame level. These formal models, with the transition maps in p-level and ℓ-level and the boundary maps, are the finite-level geometry from which the semiperverse bound is deduced.",
       "hypotheses": [
         "p unramified in F, N ≥ 3 prime to p, Σ as in CSnc Remark 2.5.6; C complete algebraically closed over ℚ_p with residue field k; ℓ ≠ p; d = [F⁺:ℚ]n²."
       ],
       "proofSteps": [
         "(1) Scholze [Sch15, Thm 4.1.1] (PerfectoidShimuraVarieties S3 affinoid perfectoid basis of the flag variety) gives affinoid perfectoid preimages coming from finite level; refining by composites of finite étale maps and rational embeddings keeps the property and is cofinal.",
-        "(2) A°/p is of finite presentation over O_C/p, so the map factors through a finite level; it satisfies the rank-one valuative criterion because π^*_HT is partially proper (argument of CS17 Prop. 6.1.3), hence is integral by IG.4/finiteness-from-rank-one-valuative-criterion at each finite level.",
-        "Integral maps preserve ^pD^{≥d} under pushforward (finite pushforward is t-exact: EtaleDualityAndPerverseSheaves EDC.5)."
+        "Factor the mod-p map at sufficiently large level using finite presentation over O_C/p, then use the integral descent argument of CSnc p.62. The finite-type 𝔽_p lemma from CS17 cannot be applied directly to these nonnoetherian O_C/p models; the required descent is recorded as a gap.",
+        "Use an enlarged perverse lower-bound formalism for these possibly nonconstructible special-fibre complexes, continuity and integral pushforward. EDC.5’s constructible perverse t-structure and finite pushforward do not alone supply this statement (gap and supplier request below)."
       ],
       "acceptance": [
-        "For x a rational flag (ordinary point), U can be taken a small disc around x and S^*_{K(p^∞N),U} is the ordinary locus over U."
+        "Over a rational flag x the fibre has the ordinary Newton class. An étale neighbourhood U of x can contain other Newton classes; its entire preimage is not the ordinary locus."
       ],
       "uses": [
         {
@@ -6436,7 +6440,7 @@
         {
           "name": "FormalNeighbourhood.level_zero",
           "kind": "degenerate",
-          "statement": "At finite level m the map Spec(R°/p) → Spec(A°/p) is finite."
+          "statement": "At sufficiently large finite level m, the mod-p map Spec(R°/p)→Spec(A°/p) is integral; finite over a finite-type 𝔽_p model requires additional descent data."
         },
         {
           "name": "FormalNeighbourhood.not_proper_generic",
@@ -6453,7 +6457,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
         "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
         "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
-        "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps"
+        "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
       ],
       "api": [
         {
@@ -6469,7 +6474,7 @@
         {
           "name": "FormalNeighbourhood.integral",
           "role": "other",
-          "statement": "Spec(R°_{K(p^mN),U}/p) → Spec(A°/p) is integral (finite at each level)."
+          "statement": "Spec(R°_{K(p^mN),U}/p)→Spec(A°/p) is integral for sufficiently large m; the passage to the residue-field special fibre and infinite level is compatible with these integral maps."
         },
         {
           "name": "FormalNeighbourhood.pushforward_ge",
@@ -6535,7 +6540,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
         "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
         "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
-        "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps"
+        "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
       ],
       "sources": [
         {
@@ -6676,8 +6682,9 @@
         "EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure",
         "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
         "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
-        "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
-        "ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre"
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "SchemeAndStackFoundations:SF.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0"
       ],
       "sources": [
         {
@@ -7134,7 +7141,9 @@
         "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-cohomology",
         "IgusaVarietiesAndTorsionConcentration:IG.5/dual-hecke-ideal",
         "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi",
-        "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence"
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence",
+        "SchemeAndStackFoundations:SF.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0"
       ],
       "sources": [
         {
@@ -7204,7 +7213,7 @@
       "proofSteps": [
         "Existence: IG.5/concentrated-cohomology-gives-constituent gives j with ψ_j lifting 𝔪^∨ and ρ̄_{𝔪^∨}; set ρ̄_𝔪 := (ρ̄_{𝔪^∨})^∨ ⊗ |Art_F^{−1}|^{1−2n} and use IG.5/dual-hecke-ideal for the characteristic polynomials.",
         "Ordinarity: if b is not ordinary, J_b is a nontrivial inner form of a Levi of G_{ℚ_p}, so for some v | p, J_{b_v} is a nontrivial inner form of a Levi of GL_{2n}(F_v) = GL_{2n}(ℚ_p); no irreducible π_v of J_{b_v}(F_v) has semisimple parameter a sum of characters χ₁ ⊕ … ⊕ χ_{2n} with no χ_i/χ_j cyclotomic (generic principal series do not transfer to nontrivial inner forms: CS17 Lemma 5.4.3, EndoscopicTransferAndUnitaryTraceComparison ET.6).",
-        "By IG.5/galois-representations-for-igusa-constituents, the parameter of π_{j,v}|·|^{1/2−n} is that of ρ_j|_{Gal(F̄_v/F_v)}; ρ_j reduces to ρ̄_{𝔪^∨}, whose eigenvalues p^{2n−1}α_{i,v}^{−1} still satisfy the ratio condition (IG.5/dual-hecke-ideal), so by IG.5/generic-lift-splits ρ_j|_{G_{F_v}} is a sum of characters with no cyclotomic ratio (both cases p ≢ 1 and p ≡ 1 mod ℓ): contradiction."
+        "Local–global compatibility identifies the semisimple local Weil parameter of π_{j,v}|·|^{1/2−n} with that of ρ_j. Its residual eigenvalues p^{2n−1}α_i⁻¹ satisfy the same ratio condition. For p≠1 mod ℓ, the lift is unramified, so its semisimplified Weil parameter is a sum of unramified characters; Frobenius need not act semisimply on the actual lift. For p=1 mod ℓ, the stronger distinct-eigenvalue case of the ratio condition gives the character decomposition. In both cases the semisimple parameter is a generic principal-series parameter, contradicting relevance for the nontrivial inner form."
       ],
       "acceptance": [
         "For b basic and n = 1 (Shimura curve-type datum), generic ρ̄_𝔪 at p forces the basic Igusa cohomology to vanish after localization.",
@@ -7365,7 +7374,7 @@
       ],
       "proofSteps": [
         "The map is defined by sending a boundary point to the p-part and prime-to-p part of its Igusa cusp label (IG.2/igusa-cusp-labels); equivariance is clear.",
-        "Compactly supported cohomology of a space fibred equivariantly over the discrete homogeneous space J_b/P_b × G(𝔸_f^p)/P(𝔸_f^p) is the induced representation of the cohomology of the fibre."
+        "The homogeneous base J_b/P_b × G(𝔸_f^p)/P(𝔸_f^p) is compact locally profinite, not discrete. Equivariant compactly supported cohomology gives compact induction from the stabilizer; on this compact homogeneous quotient compact induction equals unnormalized smooth induction. Use the requested continuous/derived smooth-representation interface."
       ],
       "acceptance": [
         "For r = n and b not ordinary, the stratum is empty, so the induction is zero."
@@ -7406,7 +7415,7 @@
         "Cup product RΓ_c(Ig^{b,*}_{∞,P}, 𝔽_ℓ) ⊗ RΓ(Ig^{b,*}_{∞,P}, i^*_PRj_*𝔽_ℓ) → RΓ_c(Ig^{b,*}_{∞,P}, i^*_PRj_*𝔽_ℓ)."
       ],
       "acceptance": [
-        "For n = 1 and r = 1, (2) is the map from the cohomology of the finite set GL_1(F)\\GL_1(𝔸_{F,f})/K (times the contractible X_1 = point) to the cohomology of punctured discs around the cusps, i.e. the constant classes."
+        "For n=r=1 and F⁺=ℚ, X₁ is a point and the GL₁ factor consists of constant classes. For [F⁺:ℚ]>1, X₁≅ℝ^{[F⁺:ℚ]−1}; the arithmetic quotient has unit-group cohomology and need not be concentrated in degree zero."
       ],
       "uses": [
         {
@@ -7567,7 +7576,7 @@
         "Check it is an isomorphism Igusa cusp label by Igusa cusp label (IG.6/local-boundary-computation), using the bijection ⊔_X GL_{O_F}(X)\\GL_{O_F}(X ⊗ ℤ̂) ≅ GL_r(F)\\GL_r(𝔸_{F,f}) and the contractibility of X_r."
       ],
       "acceptance": [
-        "For n = 1, r = 1: the boundary of the Igusa curve with i^*Rj_* coefficients is induced from the Borel of J_b(ℚ_p) × G(𝔸_f^p) of the cohomology of GL_1(F)\\GL_1(𝔸_{F,f}) (a profinite set) tensored with the trivial b_P-Igusa factor.",
+        "For n=r=1 and F⁺=ℚ the GL₁ locally symmetric factor is concentrated in degree zero; for larger [F⁺:ℚ] include its unit-group cohomology. In both cases it is tensored with the lower-rank Igusa factor and induced from P_b×P.",
         "Euler-characteristic shadow: in the Grothendieck group the formula recovers the boundary term of the Igusa trace formula."
       ],
       "planet": {
@@ -7951,14 +7960,14 @@
       ],
       "title": "Descent from infinite level at p and to general neat level (CSnc proof of Theorem 1.1; RT-PAPER-CARAIANI-SCHOLZE-24/4)",
       "kind": "theorem",
-      "statement": "(1) If H^i(S°_{K(p^∞N),C}, 𝔽_ℓ)_𝔪 = 0 for i < d, then H^i(X_{K(N)}, 𝔽_ℓ)_𝔪 = 0 for i < d. (2) For the unitary group, H^i(X⁰_{K⁰}, 𝔽_ℓ)_{𝔪⁰} = 0 for i < d at K⁰ = K(N) ∩ G⁰(𝔸_f), 𝔪⁰ the image of 𝔪 under 𝕋^S → 𝕋^{0,S}. (3) For an arbitrary neat K⁰ = ∏K⁰_q ⊂ G⁰(𝔸_f) and S containing the primes where K⁰_q ≠ G⁰(ℤ_q): enlarge S to S′ = S ∪ {p, ℓ} ∪ {primes of N₀ and of the ramification of ϖ}, replace 𝔪 by its contraction to 𝕋^{S′} (the 𝔪-part is a direct summand); if K⁰_p = G⁰(ℤ_p), choose N as above with K(N) ∩ G⁰(𝔸_f) ⊂ K⁰ normal and apply Hochschild–Serre along the finite free cover; if K⁰_p ⊊ G⁰(ℤ_p), use Hochschild–Serre from infinite level at p and the good-reduction comparison at level p^mN (Lan–Stroh). The paper states Theorem 1.1 for general neat K but writes the descent only at level K(N) (sourceIssues IgusaVarietiesAndTorsionConcentration/E9; gap recorded).",
+      "statement": "(1) If H^i(S°_{K(p^∞N),C}, 𝔽_ℓ)_𝔪 = 0 for i < d, then H^i(X_{K(N)}, 𝔽_ℓ)_𝔪 = 0 for i < d. (2) For the unitary group, H^i(X⁰_{K⁰}, 𝔽_ℓ)_{𝔪⁰} = 0 for i < d at K⁰ = K(N) ∩ G⁰(𝔸_f), 𝔪⁰ the image of 𝔪 under 𝕋^S → 𝕋^{0,S}. (3) For arbitrary neat K⁰, rechoose a good generic auxiliary prime away from its bad level primes, then descend from a normal principal-level cover using continuous étale Cartan–Leray, compatibly with the Hecke localization. The paper states arbitrary neat level but spells out only the principal-level argument (E9); the geometric descent interface is requested explicitly.",
       "hypotheses": [
         "F = F⁺F₀ CM with F₀ imaginary quadratic and F⁺ ≠ ℚ; G⁰ the quasi-split unitary group of IG.0 with d = [F⁺:ℚ]n²; ℓ a prime; S a finite set of places containing ∞, ℓ, the primes ramified in F and those where K is not hyperspecial; 𝕋^S the unramified Hecke algebra over ℤ; 𝔪 ⊂ 𝕋^S a maximal ideal in the support of H^*(X_K, 𝔽_ℓ) with associated ρ̄_𝔪 : Gal(F̄/F) → GL_{2n}(𝔽̄_ℓ)."
       ],
       "proofSteps": [
-        "(1) Hochschild–Serre for the pro-p cover S°_{K(p^∞N)} → S°_{K(N)} (ArithmeticGaloisDuality R02.2 continuous Hochschild–Serre; ArithmeticLocallySymmetricSpaces ALS.6 lowest-degree descent along a p-group cover), Hecke-equivariant for 𝕋^S; then IG.3/good-reduction-locus-cohomology and IG.0/complex-uniformization (X_K = S_K(ℂ), comparison of étale and singular cohomology).",
+        "Apply the requested continuous étale Cartan–Leray spectral sequence. A vanishing bound on the infinite-level complex survives derived compact-open invariants in the same lower range; for pro-p compact opens and ℓ≠p invariants are exact. Then use the good-reduction and analytic/algebraic/Betti comparisons. Group-cohomology Hochschild–Serre alone is not the geometric tower comparison.",
         "(2) IG.0/unitary-subgroup-comparison: X⁰_{K⁰} is open and closed in X_K, Hecke-equivariantly for 𝕋^S → 𝕋^{0,S}.",
-        "(3) Contraction of Hecke algebras and Hochschild–Serre for finite covers (ALS.6 finite-cover Hochschild–Serre); for p-power level use (1) at level p^mN and Lan–Stroh for N divisible by p (IG.3/good-reduction-locus-cohomology states only p ∤ N; this case is part of the recorded gap)."
+        "For general neat K⁰, choose another CS-generic witness prime away from the finite set of bad level primes, using infinitely many witnesses (IG.7/cs-generic-maximal-ideal). At that good prime choose a normal principal-level cover and use geometric étale Cartan–Leray. This avoids forcing the fixed witness p into a bad-level comparison; supply the compatible Hecke localization and descent maps."
       ],
       "acceptance": [
         "For K⁰ already of the form K(N) ∩ G⁰ the statement is (2)."
@@ -7968,9 +7977,9 @@
         "IgusaVarietiesAndTorsionConcentration:IG.3/good-reduction-locus-cohomology",
         "IgusaVarietiesAndTorsionConcentration:IG.0/complex-uniformization",
         "IgusaVarietiesAndTorsionConcentration:IG.0/unitary-subgroup-comparison",
-        "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
-        "ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre",
-        "ArithmeticLocallySymmetricSpaces:ALS.6/lowest-degree-descent"
+        "IgusaVarietiesAndTorsionConcentration:IG.7/cs-generic-maximal-ideal",
+        "SchemeAndStackFoundations:SF.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0"
       ],
       "sources": [
         {
@@ -8158,8 +8167,8 @@
         "G a product of GL_{n_i}, hyperspecial K; ρ̄_𝔪 generic in Koshikawa's sense."
       ],
       "proofSteps": [
-        "Realize H^*_c(M_{(G,b,μ),K}) through the cohomology of Bun_G and Hecke operators (Fargues–Scholze), so that the spectral action and semisimple L-parameters act (ExcursionOperatorsAndSpectralAction ES5).",
-        "The Fargues–Scholze parameters of the J_b(F)-representations occurring agree with the semisimplified local Langlands parameters for GL_n and its inner forms (ES7 GL_n comparison; Hansen–Kaletha–Weinstein); a generic unramified parameter is not relevant for a non-quasi-split J_b, so its localized contribution vanishes.",
+        "Use the integral/mod-ℓ Fargues–Scholze spectral action and its compatibility with the unramified spherical Hecke/Satake character. ES5’s parameter assignment alone does not supply this action.",
+        "Koshikawa §3–4 uses mod-ℓ Fargues–Scholze parameters of irreducible smooth J_b-representations and the irrelevance of generic unramified parameters for nonsplit inner forms, plus the integral localization argument. ES7:GLn-comparison is stated in characteristic zero and cannot be substituted for this torsion input.",
         "The local Shimura varieties are those of HeckeStacksAndLocalShtukas HS2."
       ],
       "acceptance": [
@@ -8200,9 +8209,9 @@
         "p completely split in F; K_p hyperspecial; ρ̄_{𝔪_p} generic (α_{j′}/α_j ≠ q)."
       ],
       "proofSteps": [
-        "Mantovan's formula (IG.3/mantovan-formula) filters RΓ(S_{K^p}, 𝔽_ℓ) with graded pieces RΓ(Ig^b) ⊗^L_{J_b} RΓ_c(M_{(G,b,μ),∞}).",
-        "For non-ordinary b, J_b is not quasi-split and the localized local factor vanishes (IG.7/koshikawa-local-vanishing), so only b ordinary contributes.",
-        "For b ordinary, the Igusa variety is affine-type and its partial minimal compactification bound gives the degree estimates (IG.4/minimal-stratum-lower-bound, IG.4/artin-vanishing-upper-bound), with the boundary handled as in IG.6 (Koshikawa §9)."
+        "Use Koshikawa §9 and the Newton filtration. The Mantovan factor includes RΓ(Ig^b)^{op}⊗^L_{C_c(J_b)}RΓ_c(M_b,𝔽_ℓ(d_b))[2d_b]; retain its opposite action, twist and shift.",
+        "Local generic vanishing removes the nonordinary terms. At the ordinary stratum use the localized costalk–stalk isomorphism of Proposition 1.7 (proved using the support triangle of Lemma 8.3), not the away-p minimal-stratum theorem of IG.4.",
+        "The required lower costalk bound is Corollary 8.2. Its inputs include the ℓ-cohomological smoothness in Lemma 6.1 and Bun_G dualizing computation of Lemma 9.1, together with Lemma 3.1 spectral support. Pass to global cohomology and compact-open invariants; duality gives the compact-support upper bound. Stalk vanishing alone never implies a costalk bound."
       ],
       "acceptance": [
         "For F imaginary quadratic (F⁺ = ℚ), where the twisted trace formula of IG.5 has proper cuspidal subsets, this theorem still applies."
@@ -8213,10 +8222,9 @@
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing",
         "IgusaVarietiesAndTorsionConcentration:IG.3/mantovan-formula",
-        "IgusaVarietiesAndTorsionConcentration:IG.4/minimal-stratum-lower-bound",
-        "IgusaVarietiesAndTorsionConcentration:IG.4/artin-vanishing-upper-bound",
         "IgusaVarietiesAndTorsionConcentration:IG.6/igusa-pink-formula",
-        "IgusaVarietiesAndTorsionConcentration:IG.0/quasi-split-unitary-datum"
+        "IgusaVarietiesAndTorsionConcentration:IG.0/quasi-split-unitary-datum",
+        "BunGAndNewtonStrata:BG3"
       ],
       "sources": [
         {
@@ -8409,7 +8417,7 @@
     },
     {
       "supplier": "PadicHodgeTheory:P8",
-      "need": "Scholze's primitive comparison theorem and its relative form (Scholze 2013, Theorems 1.3, 3.13 and 5.1): for a proper (smooth) map of rigid spaces over C the map O⁺ᵃ/p^n → π_*O⁺ᵃ/p^n is an almost isomorphism when ℤ/p^n → π_*ℤ/p^n is (geometrically connected Stein fibres); intended owner the proposed sub-stage PadicHodgeTheory:P8:primitive (RT-AREA-padic-1/24, RT-AREA-padic-2/3).",
+      "need": "Scholze's primitive comparison theorem and its relative form (Scholze 2013, Theorems 1.3, 3.13 and 5.1): for the proper toroidal-to-minimal Stein-factorization maps of rigid spaces over C at finite level the map O⁺ᵃ/p^n → π_*O⁺ᵃ/p^n is an almost isomorphism when ℤ/p^n → π_*ℤ/p^n is (geometrically connected Stein fibres); intended owner the proposed sub-stage PadicHodgeTheory:P8:primitive (RT-AREA-padic-1/24, RT-AREA-padic-2/3).",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.3/minimal-fibre-theorem"
       ]
@@ -8481,6 +8489,72 @@
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.5/dual-hecke-ideal"
       ]
+    },
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "need": "Give the exact adapter from positive Dieudonné slopes to the CS17 covariant [−1,0] normalization, and the existence of O_B-stable self-dual lattices/compatible principal-polarized, completely slope divisible representatives in the PEL classes used here; separate rational quasi-polarization from integral principal polarization.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.0/unramified-local-pel-datum",
+        "IgusaVarietiesAndTorsionConcentration:IG.0/newton-map",
+        "IgusaVarietiesAndTorsionConcentration:IG.0/slope-filtration-existence"
+      ]
+    },
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+      "need": "Quotients of p-divisible groups by sub-p-divisible groups, with quotient maps and exactness, base change and height additivity; this is needed to make the graded pieces in SlopeFiltration actual quotients.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.0/completely-slope-divisible"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "need": "Extend the constructible perverse lower-bound interface to the nonconstructible complexes on special fibres of O_C formal models used in CSnc §4.6: integral pushforward preserves the lower bound, uniform costalk bounds and filtered continuity. State its domain and torsion coefficients explicitly.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/compact-perversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Formal étale-site invariance for henselian p-adically complete nonnoetherian rings W(R) with R perfect and their completed O_C base changes; compatible special-fibre, generic-fibre and equivariant comparison. AdicSpacesPartII R2 covers admissible/noetherian formal schemes and cannot be used without descent to that domain.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.3/canonical-lift-of-igusa",
+        "IgusaVarietiesAndTorsionConcentration:IG.3/perfect-scheme-lift-cohomology",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/equivariant-sites-and-nearby-cycles"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Hecke-equivariant continuous étale Cartan–Leray/Hochschild–Serre for the finite and profinite Shimura/Igusa towers, localized complexes and finite-level descent. Distinguish this geometric statement from group-cohomology Hochschild–Serre and Betti finite-cover statements.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.0",
+      "need": "Exactness of invariants of compact pro-p groups on smooth ℓ-torsion modules for p≠ℓ, and derived invariants for general compact opens. Apply to continuous étale Cartan–Leray for Shimura towers; the ALS ℓ-group lowest-degree lemma is not applicable to pro-p towers.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent"
+      ]
+    },
+    {
+      "supplier": "ExcursionOperatorsAndSpectralAction:ES5",
+      "need": "Integral and mod-ℓ spectral action on local-shtuka cohomology with spherical Hecke/Satake compatibility, mod-ℓ parameters for J_b and generic unramified irrelevance for non-quasi-split inner forms, as used in Koshikawa §§3–4. Specify how this follows from characteristic-zero GL_n/inner-form compatibility and reduction.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing"
+      ]
+    },
+    {
+      "supplier": "BunGAndNewtonStrata:BG3",
+      "need": "Koshikawa Proposition 1.7, Corollary 8.2 and Lemmas 6.1, 8.3, 9.1: localized ordinary costalk–stalk comparison, support triangle, ℓ-cohomologically smooth pullback and dualizing shift on Bun_G needed for the lower costalk bound; explain interfaces to the mod-ℓ spectral-support lemma 3.1.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-generic-vanishing"
+      ]
     }
   ],
   "coverage": [
@@ -8490,7 +8564,8 @@
       "remaining": [
         "Lemma-level refinement of the CS17 §4.1–4.2 local theory (Chai–Oort internal Hom, Proposition 4.2.11 case by case: EL, GSp, GU) once the roadmap reaches lemma level.",
         "Harris–Taylor integral models at Drinfeld level and Mantovan's [Man08] smoothness are cited, not planned (gaps \"Harris–Taylor Drinfeld-level models\" and \"Mantovan compactification of Igusa varieties\").",
-        "B(G, μ) and the algebraic B(G)/J_b data are imported from BunGAndNewtonStrata BG0–BG1 (requested); re-point to an algebraic substage if RT-AREA-geomlanglands/32 is applied."
+        "B(G, μ) and the algebraic B(G)/J_b data are imported from BunGAndNewtonStrata BG0–BG1 (requested); re-point to an algebraic substage if RT-AREA-geomlanglands/32 is applied.",
+        "Complete the LocalPELDatum cocharacter/unramified-order carrier and integral G-structured representative theorem; review marks the current carrier unverified."
       ]
     },
     {
@@ -8498,7 +8573,8 @@
       "status": "planned",
       "remaining": [
         "Igusa varieties of the first kind rest on the Harris–Taylor Drinfeld-level models (recorded gap).",
-        "Hilbert/Katz–Hida ordinary towers are not this layer's objects; the RS-14 links to Hilbert consumers are proposed for removal (restructure)."
+        "Hilbert/Katz–Hida ordinary towers are not this layer's objects; the RS-14 links to Hilbert consumers are proposed for removal (restructure).",
+        "Reconcile the first-kind étale-level definition, the h↔j index dictionary and the all-base quasi-isogeny moduli equivalence with the reader document."
       ]
     },
     {
@@ -8506,7 +8582,8 @@
       "status": "planned",
       "remaining": [
         "CSnc Corollary 3.2.14 (toroidal quasi-isogeny invariance) rests on a recorded gap; the main argument is routed through the minimal (fundamental) representative instead, which needs the gap \"minimal p-divisible groups are completely slope divisible\".",
-        "The Lan–Stroh erratum on separate powers of p (§3.6, Kottwitz–Rapoport strata) could not be obtained; it concerns parahoric level, not the good-reduction level used here."
+        "The Lan–Stroh erratum on separate powers of p (§3.6, Kottwitz–Rapoport strata) could not be obtained; it concerns parahoric level, not the good-reduction level used here.",
+        "Replace or prove the universal mixed-Newton EO non-example with an actual datum/label/witness."
       ]
     },
     {
@@ -8514,7 +8591,8 @@
       "status": "planned",
       "remaining": [
         "Scholze–Weinstein Theorem B (requested from HodgeTateAndCanonicalSubgroups T2) and Fargues' G-bundle classification (requested from VectorBundlesAndIsocrystals VB2) are imported, not planned.",
-        "The relative primitive comparison theorem is requested from PadicHodgeTheory P8 (proposed sub-stage P8:primitive)."
+        "The relative primitive comparison theorem is requested from PadicHodgeTheory P8 (proposed sub-stage P8:primitive).",
+        "Supply nonnoetherian formal étale invariance for perfect Witt lifts and completed O_C base changes."
       ]
     },
     {
@@ -8522,7 +8600,8 @@
       "status": "planned",
       "remaining": [
         "Torsion (𝔽_ℓ) left t-exactness of nearby cycles over O_C is requested from LefschetzPencilsAndVanishingCycles LPV.6 (its packet node is stated for rational coefficients).",
-        "The cycle with LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface is to be broken by citing IG.4/finite-level-formal-models (restructure proposal)."
+        "The cycle with LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface is to be broken by citing IG.4/finite-level-formal-models (restructure proposal).",
+        "Supply nonnoetherian integral-model descent and enlarged nonconstructible perverse lower bounds; finite-type/constructible contracts are insufficient."
       ]
     },
     {
@@ -8530,7 +8609,8 @@
       "status": "planned",
       "remaining": [
         "Li–Liu Lemma 7.3 / Remark 7.4 and Li–Liu II Lemmas 4.22–4.24, Proposition 4.25, Theorem 4.21 are applications in Li–Liu's setting; following RT-PAPER-LI-LIU-21/1 they are handed to the proposed UnitaryArithmeticInnerProductFormula (restructure proposal), and only their Igusa and Newton-stratum inputs are planned here (IG.0, IG.1, IG.4).",
-        "The rational Igusa trace comparison itself is requested from EndoscopicTransferAndUnitaryTraceComparison ET.4, ET.5, ET.7b."
+        "The rational Igusa trace comparison itself is requested from EndoscopicTransferAndUnitaryTraceComparison ET.4, ET.5, ET.7b.",
+        "Supply the continuous geometric étale tower descent and exact pro-p invariants interface used for constituents."
       ]
     },
     {
@@ -8547,7 +8627,7 @@
       "remaining": [
         "LTXZZ Proposition D.1.3 and Corollary D.1.4 (compact case) are handed to the proposed compact-unitary Part II (restructure proposal); only Definition D.1.1 is planned here.",
         "Koshikawa's local vanishing rests on Fargues–Scholze inputs requested from ExcursionOperatorsAndSpectralAction ES5 and ES7:GLn-comparison.",
-        "The descent of Theorem 1.1 to arbitrary neat level with p-power level uses the Lan–Stroh comparison for N divisible by p (recorded gap)."
+        "Supply mod-ℓ spectral action/Satake compatibility and the ordinary costalk–stalk/dualizing argument for Koshikawa; reconcile arbitrary-level descent at a reselected good witness prime."
       ]
     }
   ],
@@ -8641,6 +8721,51 @@
       "title": "Applications of Li–Liu and LTXZZ handed to roadmaps not yet in the atlas",
       "neededBy": [],
       "detail": "Li–Liu Lemma 7.3 and Remark 7.4, Li–Liu II Lemmas 4.22–4.24, Proposition 4.25 and Theorem 4.21 (owner: the proposed UnitaryArithmeticInnerProductFormula, route 1 of PAPER-LI-LIU-21/22, per RT-PAPER-LI-LIU-21/1), and LTXZZ Proposition D.1.3 with its auxiliary datum, honest-unitary Igusa trace formula and Corollary D.1.4 (owner: the proposed compact-unitary Part II of this roadmap, DESIGN pending) are not planned here; their owners are not in the atlas, so no request can be made."
+    },
+    {
+      "title": "Local PEL admissibility and integral representatives",
+      "detail": "The suggested LocalPELDatum now records nondegeneracy and a finite full lattice, but still lacks the unramified-centre/maximal-order and B-linear, isotropic, c∘μ=id cocharacter conditions. Its arbitrary idempotent is insufficient to define the stated PEL moduli problem. Supply these fields and the integral existence theorem before accepting this prototype contract.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.0/unramified-local-pel-datum"
+      ]
+    },
+    {
+      "title": "EO non-example needs an actual witness",
+      "detail": "The suggested ekedahlOortStratum_ne_leaf asserts a mixed-Newton EO stratum for every datum with n≥2. The cited sources establish general non-refinement, not that universal assertion. Provide an explicit PEL datum, p, EO label and two Newton classes, or justify the universal claim. Do not count a generic slogan as a checked negative test.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.2/ekedahl-oort-stratification"
+      ]
+    },
+    {
+      "title": "Nonnoetherian integral models and enlarged perversity",
+      "detail": "Give the finite-presentation descent from O_C/p models to finite-type residue-field models in CSnc p.62 and the enlarged perverse category for their pushforwards. The finite-type 𝔽_p finiteness lemma and constructible EDC.5 do not cover these contracts.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity"
+      ]
+    },
+    {
+      "title": "Perfect Witt and O_C formal étale invariance",
+      "detail": "Establish the stated nonnoetherian formal-site comparison or a compatible finite-level descent. Admissible formal-site invariance in AdicSpacesPartII R2 has stronger finiteness hypotheses.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.3/canonical-lift-of-igusa",
+        "IgusaVarietiesAndTorsionConcentration:IG.3/perfect-scheme-lift-cohomology",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/equivariant-sites-and-nearby-cycles"
+      ]
+    },
+    {
+      "title": "Mod-ℓ spectral action for Koshikawa",
+      "detail": "Supply the mod-ℓ/integral action, spherical Satake compatibility and irrelevance argument. Existing ES5 parameter assignment and characteristic-zero ES7 comparison do not close the stated torsion proof.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing"
+      ]
+    },
+    {
+      "title": "Koshikawa ordinary costalk closure",
+      "detail": "Supply the Proposition 1.7/Corollary 8.2 costalk argument and its smoothness, dualizing and support inputs. Away-p Hecke minimal-stratum bounds do not apply to the local spherical ideal 𝔪_p. The corrected target theorem is sourced correctly but its roadmap proof remains unclosed.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-generic-vanishing"
+      ]
     }
   ],
   "restructure": [
@@ -8708,7 +8833,7 @@
       "roadmaps": [
         "IgusaVarietiesAndTorsionConcentration"
       ],
-      "detail": "IG.0 (30 nodes) mixes the local theory of p-divisible groups with G-structure (internal Hom, Aut(X̃_b), Rapoport–Zink spaces, slope filtrations, quasi-isogeny torsors) and the global PEL geometry (datum, integral model, Newton stratification, central leaves); IG.3 (28 nodes) mixes the CS17 local period map and product formula with the CSnc compactified fibre theorem.",
+      "detail": "IG.0 (29 nodes) mixes the local theory of p-divisible groups with G-structure (internal Hom, Aut(X̃_b), Rapoport–Zink spaces, slope filtrations, quasi-isogeny torsors) and the global PEL geometry (datum, integral model, Newton stratification, central leaves); IG.3 (26 nodes) mixes the CS17 local period map and product formula with the CSnc compactified fibre theorem.",
       "proposal": "Sub-layers for the atlas: IG.0:local (internal-hom-p-divisible-group, internal-hom-dieudonne-module, internal-hom-slopes, completely-slope-divisible, slope-filtration-existence, automorphism-group-of-universal-cover, structure-of-automorphism-group, unramified-local-pel-datum, pel-rapoport-zink-space, berthelot-without-noetherian, constant-newton-polygon-over-perfect-rings, quasi-isogeny-torsor) before IG.0; IG.3:local (sw-infinite-level-rz-space, local-hodge-tate-period-map, local-period-fibres, integral-extension-lemma, local-period-surjective-on-stratum, automorphism-group-dimension, flag-newton-strata-dimension) before IG.3."
     },
     {
@@ -8737,7 +8862,12 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc pp.44–45: the outer isomorphisms force unit similitude for an integral G-isogeny, whereas the proof modifies only the middle factor. A quasi-isogeny extension still needs proof; the proposed replacement is not treated as established.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E2",
@@ -8753,7 +8883,12 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc p.47: the inverse-limit Igusa map is integral, generally not finite; finite-level maps are finite. Affineness also requires an affine base.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E3",
@@ -8769,7 +8904,12 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc p.66 against the dual-Hecke formula on p.36: the contragredient is required in addition to the Tate twist.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E4",
@@ -8785,7 +8925,12 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an omitted hypothesis in the invocation at CSnc pp.57–59: Lemma 4.4.2 requires properness. The closed compactified period fibre is indeed proper, so this fixes the reference without claiming an unproved counterexample for partial properness.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E5",
@@ -8800,7 +8945,12 @@
       "searched": [
         "Lan–Stroh, published Forum Math. Sigma version (Cambridge open access), §2.3",
         "arXiv 1909.01898 v2"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc p.38 and the public Lan–Stroh paper: the cited main theorem is Theorem 2.3.2; (2.3.3) is an equation number within it.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E6",
@@ -8816,7 +8966,12 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc pp.75–77: endoscopic algebraic coefficient systems need not be trivial and the Red normalization includes its twist. The fixed normalization is still an ET supplier requirement, not a claim of a proved trace comparison.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E7",
@@ -8832,7 +8987,12 @@
         "arXiv 2301.10509 v1, v2, v3 (v3 read)",
         "arXiv 2106.10602 (only v1 exists)",
         "PAPER-CARAIANI-NEWTON-23 sourceIssues (not recorded there)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Caraiani–Newton p.25: the quasi-split Koshikawa statement is Theorem 1.3, whereas Theorem 1.4 concerns Harris–Taylor type.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E8",
@@ -8848,7 +9008,12 @@
         "Lan–Stroh, Compositio 154 (2018) authors' compilation with errata (2022)",
         "Lan–Stroh, Forum Math. Sigma 6 (2018)",
         "arXiv 1909.01898 v2"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc p.32: Corollary 5.20 occurs in Lan–Stroh nearby cycles (ls18b), not the compactifications paper (ls18a).",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E9",
@@ -8856,7 +9021,7 @@
       "kind": "gap",
       "locator": "§1, Theorem 1.1 with the set-up on p. 4 (\"For any neat compact open subgroup K ⊂ G(A_f)\"); proof of Theorem 1.1, §2.8, p. 36 (arXiv v2)",
       "printed": "is concentrated in degrees ≥ d, which is what we wanted to prove (by Lemma 2.1.1 and Proposition 2.1.6).",
-      "correction": "Add the reduction from K(N) ∩ G⁰(𝔸_f) (N ≥ 3 prime to p, N₀ | N, S enlarged by p, ℓ and the ramification of ϖ) to a general neat K: contraction of the Hecke algebra to 𝕋^{S′}, Hochschild–Serre along K(N) ∩ G⁰ ⊂ K⁰ (normal, free action) and, if K⁰_p ≠ G⁰(ℤ_p), Hochschild–Serre from infinite level at p with the good-reduction comparison at level p^mN.",
+      "correction": "Add the principal-level-to-arbitrary-neat-level reduction with compatible Hecke localization and geometric continuous étale Cartan–Leray. Rechoose a good split generic witness prime away from the bad level support, using infinitely many generic witnesses; do not require the originally chosen p to remain hyperspecial.",
       "reason": "Lemma 2.1.1 and Proposition 2.1.6 are used at the auxiliary level K(N); the passage to the general neat level of the statement is not written. Reported by RT-PAPER-CARAIANI-SCHOLZE-24/4 (confirmed as a missing descent step, not a counterexample).",
       "affects": "the proof",
       "known": "new",
@@ -8864,7 +9029,12 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an omitted descent argument at CSnc Theorem 1.1 and pp.38–39, not as a counterexample to the theorem. Rechoosing a good auxiliary prime avoids the bad-p-level case; the geometric descent contract remains requested.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration/E10",
@@ -8880,7 +9050,96 @@
         "arXiv 1909.01898 versions v1 and v2 (v2 read)",
         "the Annals article page of Ann. of Math. 199 (2024), 483–590 (no erratum listed, 2026-10-07)",
         "Crossref record of doi:10.4007/annals.2024.199.2.1 (no update relations)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CSnc p.82: the identity-coset fibre is stabilized by P_b, so its comparison map is P_b×P equivariant, not equivariant under all of J_b×P.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration/E11",
+      "source": "csnc",
+      "kind": "error",
+      "locator": "§2.1, p.12, proof of Proposition 2.1.2 (arXiv v2)",
+      "printed": "The derived group G^der of G is simply connected, so H¹(ℚ,G^der)=0.",
+      "correction": "Replace full H¹-vanishing by the Hasse principle (trivial Hasse kernel) and justify the connecting-map reduction, e.g. by the PEL Hasse-principle theorem.",
+      "reason": "Simply connected semisimple groups can have nontrivial real torsors. For F=ℚ(i), determinant-one hermitian forms with signatures (2,2) and (4,0) give distinct real special-unitary torsors despite equal determinant. The simply connected Hasse principle asserts injectivity, not that H¹ is zero.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Public source version pinned in sourceVersions read at the locator",
+        "Targeted arXiv/paper-title erratum search, 2026-10-07; no matching correction found",
+        "Paper-title/author/lemma erratum queries on 2026-10-07; results included arXiv 1909.01898, arXiv 2106.10602, the Columbia AIPF author copy and the authors’ public pages; no matching correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Simply connected semisimple groups can have nontrivial real torsors. For F=ℚ(i), determinant-one hermitian forms with signatures (2,2) and (4,0) give distinct real special-unitary torsors despite equal determinant. The simply connected Hasse principle asserts injectivity, not that H¹ is zero.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration/E12",
+      "source": "csnc",
+      "kind": "error",
+      "locator": "§2.3, Lemma 2.3.4, p.19",
+      "printed": "Let T/Spec 𝔽_p be a connected regular scheme and G/T a p-divisible group. Let η be the generic point of T, and η̄ a geometric point above η. If G_η̄ is completely slope divisible, then so is G.",
+      "correction": "Add constant Newton polygon on T; use the corrected regular-base spreading criterion.",
+      "reason": "An elliptic family over a regular trait with ordinary generic fibre and supersingular closed fibre has a completely slope divisible geometric generic p-divisible group but cannot have a global complete slope filtration with constant slopes. Oort–Zink Proposition 2.3 explicitly assumes constant Newton polygon.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Public source version pinned in sourceVersions read at the locator",
+        "Targeted arXiv/paper-title erratum search, 2026-10-07; no matching correction found",
+        "Paper-title/author/lemma erratum queries on 2026-10-07; results included arXiv 1909.01898, arXiv 2106.10602, the Columbia AIPF author copy and the authors’ public pages; no matching correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An elliptic family over a regular trait with ordinary generic fibre and supersingular closed fibre has a completely slope divisible geometric generic p-divisible group but cannot have a global complete slope filtration with constant slopes. Oort–Zink Proposition 2.3 explicitly assumes constant Newton polygon.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration/E13",
+      "source": "kos21",
+      "kind": "misprint",
+      "locator": "§8, Lemma 8.3 and its proof, pp.13–14 (arXiv v1)",
+      "printed": "The functor i_* admits a left adjoint Ri!",
+      "correction": "Ri! is the right adjoint of i_*. Keep i^* as its left adjoint.",
+      "reason": "The displayed support triangle uses i_*Ri!→id, the counit of the right adjunction. Calling Ri! a left adjoint reverses the six-functor adjunction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Public source version pinned in sourceVersions read at the locator",
+        "Targeted arXiv/paper-title erratum search, 2026-10-07; no matching correction found",
+        "Paper-title/author/lemma erratum queries on 2026-10-07; results included arXiv 1909.01898, arXiv 2106.10602, the Columbia AIPF author copy and the authors’ public pages; no matching correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed support triangle uses i_*Ri!→id, the counit of the right adjunction. Calling Ri! a left adjoint reverses the six-functor adjunction.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration/E14",
+      "source": "lil21",
+      "kind": "misprint",
+      "locator": "§7, proof of Lemma 7.3, author copy p.35; published Ann. of Math. 194 (2021), p.860 (dimension given on p.859)",
+      "printed": "d=n−j=2r−1−j",
+      "correction": "d=n−1−j=2r−1−j (n=2r).",
+      "reason": "The preceding page states that the stratum has pure dimension n−1−j, and n=2r makes the rightmost expression correct. The first equality drops one.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Public source version pinned in sourceVersions read at the locator",
+        "Targeted arXiv/paper-title erratum search, 2026-10-07; no matching correction found",
+        "Paper-title/author/lemma erratum queries on 2026-10-07; results included arXiv 1909.01898, arXiv 2106.10602, the Columbia AIPF author copy and the authors’ public pages; no matching correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding page states that the stratum has pure dimension n−1−j, and n=2r makes the rightmost expression correct. The first equality drops one. Independently confirmed in the published version, pp.859–860, as well as the author copy.",
+        "by": "REV-IgusaVarietiesAndTorsionConcentration"
+      }
     }
   ],
   "inheritedSourceIssues": [
@@ -8912,7 +9171,10 @@
     "PAPER-CARAIANI-SCHOLZE-24/E9",
     "PAPER-CARAIANI-SCHOLZE-24/E10",
     "PAPER-CARAIANI-SCHOLZE-24/E11",
-    "PAPER-CARAIANI-SCHOLZE-24/E12"
+    "PAPER-CARAIANI-SCHOLZE-24/E12",
+    "PAPER-CARAIANI-SCHOLZE-17/E54",
+    "PAPER-CARAIANI-SCHOLZE-17/E57",
+    "PAPER-CARAIANI-SCHOLZE-17/E77"
   ],
   "sourceVersions": [
     {
@@ -8939,8 +9201,631 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2106.10602",
       "read": "2026-10-07",
-      "citation": "Koshikawa, arXiv v1 (only version)."
+      "citation": "Koshikawa, arXiv v1 (only version).",
+      "sha256": "622ba722641718431ac6c6750df44e1682506140733f61995551209d276be99d"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
+      "read": "2026-10-07",
+      "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566",
+      "citation": "Li–Liu author copy AIPF.pdf, proof of Lemma 7.3 p.35, E14."
+    },
+    {
+      "kind": "published",
+      "url": "https://par.nsf.gov/servlets/purl/10338690",
+      "read": "2026-10-07",
+      "sha256": "91035a5233facbed975283e1d81871c91d35c3f19f46151c4b6af01c937dfd01",
+      "citation": "Li–Liu, Ann. of Math. 194 (2021), pp.859–860, proof of Lemma 7.3; E14 independently confirmed in the version of record."
     }
   ],
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-IgusaVarietiesAndTorsionConcentration",
+    "date": "2026-10-07",
+    "notes": "Independent target-level review of all 120 nodes, 208 source records, 17 public source hashes, 17 pinned baseline declarations and 155 original distinct direct supplier contracts and the three new contracts introduced by this review (157 distinct suppliers remain). Clear errors corrected in packet and suggested Lean; four additional source mistakes (two errors and two misprints), including a published-version cross-check for Li–Liu confirmed. Local PEL carrier, universal EO negative test, nonnoetherian/enlarged perverse closure and Koshikawa mod-ℓ/costalk closure remain unverified. The reader document is outside this review issue’s edit allowlist and needs synchronization. Complete denotes one finished review pass, not formalization or closed mathematics.",
+    "checked": [
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/quasi-split-unitary-datum",
+        "verdict": "corrected",
+        "note": "Suggested datum now requires a finite full self-dual lattice, rather than merely an arbitrary submodule."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/unitary-subgroup-comparison",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/hasse-principle",
+        "verdict": "corrected",
+        "note": "Corrected false global H¹-vanishing and the determinant norm exponent; invoke the actual PEL Hasse-principle contract."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/g-structure",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/integral-model",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/complex-uniformization",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/unramified-local-pel-datum",
+        "verdict": "unverifiable",
+        "note": "Aligned covariant slopes and quasi-polarization with CS17; separated the unproved principal-polarized representative and incomplete cocharacter carrier. Local PEL admissibility and integral representatives: The suggested LocalPELDatum now records nondegeneracy and a finite full lattice, but still lacks the unramified-centre/maximal-order and B-linear, isotropic, c∘μ=id cocharacter conditions. Its arbitrary idempotent is insufficient to define the stated PEL moduli problem. Supply these fields and the integral existence theorem before accepting this prototype contract."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/newton-map",
+        "verdict": "corrected",
+        "note": "Added the slope-filtration theorem as a direct prerequisite for choosing X_b; requested the missing integral G-structure compatibility."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/splitting-symplectic-filtrations",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/internal-hom-p-divisible-group",
+        "verdict": "corrected",
+        "note": "Normalized unreadable PDF control glyphs in the source excerpt; locator and mathematical content checked against the PDF."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/internal-hom-dieudonne-module",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/internal-hom-slopes",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/completely-slope-divisible",
+        "verdict": "corrected",
+        "note": "Made graded pieces actual quotients by subgroup embeddings on every finite torsion level, with positive height; categorical Mono alone is insufficient. Restored constant Newton polygon in the generic spreading API and signature."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/slope-filtration-existence",
+        "verdict": "corrected",
+        "note": "Restored the missing constant-Newton-polygon hypothesis in the statement and suggested Lean theorem; G-structured integral existence remains a supplier request."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/automorphism-group-of-universal-cover",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/structure-of-automorphism-group",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/liftable-automorphisms",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/truncated-rz-isomorphism-locus",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/isomorphism-torsors",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/central-leaf",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/central-leaf-dimension",
+        "verdict": "corrected",
+        "note": "Removed the unsupported perfect-cotangent-complex dimension argument; retained Hamacher’s PEL dimension theorem."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/serre-tate-semi-abelian",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/pel-rapoport-zink-space",
+        "verdict": "corrected",
+        "note": "Removed the purely étale/trivial-μ example, which is an EL example incompatible with nonzero polarized PEL data; three meaningful tests remain."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/berthelot-without-noetherian",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/constant-newton-polygon-over-perfect-rings",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/quasi-isogeny-torsor",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/drinfeld-level-newton-strata",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/isomorphism-locus-constructible",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.0/refined-drinfeld-strata",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/perfect-igusa-variety",
+        "verdict": "corrected",
+        "note": "Removed the false perfect-base restriction and replaced the alleged reverse isogeny by a quasi-isogeny."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-isogeny-invariance",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/mantovan-igusa-variety",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/perfection-of-mantovan",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-faithfully-flat",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-group-actions",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-cohomology",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/alternating-igusa-cohomology",
+        "verdict": "corrected",
+        "note": "Changed invariant dimension in Lean from ℕ to Cardinal, so invariants under K^S×{1}, which is not compact open in the product, can be infinite."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/harris-taylor-igusa-varieties",
+        "verdict": "corrected",
+        "note": "Corrected first-kind level to the étale part; formal-part level belongs to Mantovan’s additional cover."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.1/refined-strata-closures-smooth",
+        "verdict": "corrected",
+        "note": "Recorded the two index conventions and corrected the Lean target from I_{m,h} to I_{m,n−1−h}."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/well-positioned-subscheme",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/partial-compactifications",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/lan-stroh-boundary-charts",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/partial-minimal-closed",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/leaves-are-well-positioned",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/connected-part-at-boundary",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/toroidal-igusa-finite-level",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/perfect-toroidal-igusa-variety",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/igusa-boundary-charts",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/unit-similitude-quasi-isogeny",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/toroidal-isogeny-invariance",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/ekedahl-oort-stratification",
+        "verdict": "unverifiable",
+        "note": "EO non-example needs an actual witness: The suggested ekedahlOortStratum_ne_leaf asserts a mixed-Newton EO stratum for every datum with n≥2. The cited sources establish general non-refinement, not that universal assertion. Provide an explicit PEL datum, p, EO label and two Newton classes, or justify the universal claim. Do not count a generic slogan as a checked negative test."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/eo-strata-minimal-affine",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/fundamental-eo-stratum-in-newton-stratum",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/affineness-transfer-lemma",
+        "verdict": "corrected",
+        "note": "Normalized unreadable PDF control glyphs in the source excerpt; locator and mathematical content checked against the PDF."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/leaf-minimal-compactification-affine",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/perfect-minimal-igusa",
+        "verdict": "corrected",
+        "note": "Qualified the absolute Spec H⁰ formula by affineness of C^{X,*}; the general construction is relative Stein factorization."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/minimal-igusa-compactification",
+        "verdict": "corrected",
+        "note": "Made the affineness conclusion conditional on the base leaf compactification, consistent with the API and existing gaps."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/igusa-cusp-labels",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/toroidal-igusa-boundary-strata",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.2/minimal-igusa-boundary-strata",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/good-reduction-locus",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/good-reduction-locus-cohomology",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/flag-points-and-p-divisible-groups",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/flag-newton-strata-dimension",
+        "verdict": "corrected",
+        "note": "Removed finite-type/noetherian A2 dimension contracts from perfectoid dimension arguments; use the C8 partially proper dimension formalism and local perfectoid coordinates."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/local-hodge-tate-period-map",
+        "verdict": "corrected",
+        "note": "Replaced the impossible trivial-μ polarized example by J_b-invariance; retained Lubin–Tate and non-surjectivity tests."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/local-period-fibres",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/integral-extension-lemma",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/local-period-surjective-on-stratum",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/automorphism-group-dimension",
+        "verdict": "corrected",
+        "note": "Removed finite-type/noetherian A2 dimension contracts from perfectoid dimension arguments; use the C8 partially proper dimension formalism and local perfectoid coordinates."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/canonical-lift-of-igusa",
+        "verdict": "corrected",
+        "note": "Separated nonnoetherian formal-site invariance from the admissible/noetherian supplier contract and requested the correct generalization. Normalized unreadable PDF control glyphs in the source excerpt; locator and mathematical content checked against the PDF."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/infinite-level-newton-space",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/product-formula",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/rank-one-cohomology-lemma",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/perfect-scheme-lift-cohomology",
+        "verdict": "corrected",
+        "note": "Separated nonnoetherian formal-site invariance from the admissible/noetherian supplier contract and requested the correct generalization."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/newton-strata-correspond",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/compact-fibre-theorem",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/open-fibre-theorem",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/period-map-on-boundary",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/pdiv-constant-mod-p-epsilon",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/compactified-igusa-to-shimura",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/canonical-compactification-criterion",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/toroidal-fibre-theorem",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/minimal-fibre-theorem",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/compactified-fibre-theorem",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/sw-infinite-level-rz-space",
+        "verdict": "corrected",
+        "note": "Corrected profinite to locally profinite, included geometric base change for the multiplicative tower, and excluded the stationary GL₁(𝔽₂) level-zero exception."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.3/mantovan-formula",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/equivariant-sites-and-nearby-cycles",
+        "verdict": "corrected",
+        "note": "Corrected trivial action versus trivial group and replaced the unsupported orbit argument by the cyclic classifying-topos cohomology test. Separated nonnoetherian formal-site invariance from the admissible/noetherian supplier contract and requested the correct generalization."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/finiteness-from-rank-one-valuative-criterion",
+        "verdict": "corrected",
+        "note": "Corrected the impossible algebraically-closed-fraction-field DVR argument; extend the valuation, then descend integrality."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models",
+        "verdict": "unverifiable",
+        "note": "Removed unjustified finite-at-each-level claim, fixed the ordinary-neighbourhood example and exposed the nonnoetherian descent/enlarged perversity requirements. Nonnoetherian integral models and enlarged perversity: Give the finite-presentation descent from O_C/p models to finite-type residue-field models in CSnc p.62 and the enlarged perverse category for their pushforwards. The finite-type 𝔽_p finiteness lemma and constructible EDC.5 do not cover these contracts."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/compact-perversity",
+        "verdict": "corrected",
+        "note": "Checked source and supplier contracts; added the explicit requested enlarged-perversity prerequisite. The finite-type constructible supplier does not itself cover the nonconstructible model application."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/compact-minimal-stratum-concentration",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/ell-power-boundary-killing",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "verdict": "unverifiable",
+        "note": "Removed mismatched Hochschild–Serre/lowest-degree supplier contracts; requested geometric continuous étale descent and pro-p exact invariants. Nonnoetherian integral models and enlarged perversity: Give the finite-presentation descent from O_C/p models to finite-type residue-field models in CSnc p.62 and the enlarged perverse category for their pushforwards. The finite-type 𝔽_p finiteness lemma and constructible EDC.5 do not cover these contracts."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/partial-support-cohomology",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/artin-vanishing-upper-bound",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.4/minimal-stratum-lower-bound",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.5/dual-hecke-ideal",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.5/igusa-poincare-duality",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.5/galois-representations-for-igusa-constituents",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
+        "verdict": "corrected",
+        "note": "Removed mismatched Hochschild–Serre/lowest-degree supplier contracts; requested geometric continuous étale descent and pro-p exact invariants."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.5/generic-lift-splits",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.5/genericity-forces-ordinary",
+        "verdict": "corrected",
+        "note": "Used the semisimple local Weil parameter rather than falsely asserting that every unramified ℓ-adic lift is a direct sum of characters."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-strata-by-parabolics",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-parabolic-induction",
+        "verdict": "corrected",
+        "note": "Corrected discrete homogeneous base to compact locally profinite and explained the equality of compact and smooth induction."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-comparison-map",
+        "verdict": "corrected",
+        "note": "Restricted the point/constant-class acceptance example to imaginary quadratic F; retained the real torus factor in general."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/local-boundary-computation",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/igusa-pink-formula",
+        "verdict": "corrected",
+        "note": "Corrected the degree-zero GL₁ specialization to require F⁺=ℚ."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/parabolic-induction-derived-invariants",
+        "verdict": "corrected",
+        "note": "Normalized unreadable PDF control glyphs in the source excerpt; locator and mathematical content checked against the PDF."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-length-obstruction",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/cs-generic-maximal-ideal",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/cohomologically-generic",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/only-ordinary-contributes",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent",
+        "verdict": "corrected",
+        "note": "Removed inapplicable group/Betti/ℓ-group descent suppliers and used a good auxiliary prime for arbitrary neat level."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/caraiani-scholze-vanishing",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/integral-and-local-system-versions",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/irreducible-specialization",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/acc-middle-degree-export",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing",
+        "verdict": "unverifiable",
+        "note": "Separated mod-ℓ spectral action and integral Satake compatibility from characteristic-zero local Langlands comparison. Mod-ℓ spectral action for Koshikawa: Supply the mod-ℓ/integral action, spherical Satake compatibility and irrelevance argument. Existing ES5 parameter assignment and characteristic-zero ES7 comparison do not close the stated torsion proof."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-generic-vanishing",
+        "verdict": "unverifiable",
+        "note": "Replaced the wrong away-p/Artin proof by the actual ordinary costalk argument and requested its missing direct interfaces. Koshikawa ordinary costalk closure: Supply the Proposition 1.7/Corollary 8.2 costalk argument and its smoothness, dualizing and support inputs. Away-p Hecke minimal-stratum bounds do not apply to the local spherical ideal 𝔪_p. The corrected target theorem is sourced correctly but its roadmap proof remains unclosed."
+      },
+      {
+        "nodeId": "IgusaVarietiesAndTorsionConcentration:IG.7/middle-degree-without-length-hypothesis",
+        "verdict": "verified",
+        "note": "Locator/excerpt, stated hypotheses, direct supplier statements, target-level proof sketch and (where applicable) API/examples checked. Existing explicitly recorded requests/gaps remain open; no formalization is claimed."
+      }
+    ]
+  }
 }
