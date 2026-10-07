@@ -1470,6 +1470,17 @@
     "data/blueprints/Polylogarithms.md"
    ]
   },
+  "research/blueprint/packets/PotentialAutomorphyInfrastructure.json": {
+   "promotedAt": "2026-10-07T15:50:53Z",
+   "review": "b6ef63daa5731bb5",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-PotentialAutomorphyInfrastructure~2",
+   "sha256": "719e062e69cc8309bb4e940c6235494d3938d146aad3b5df137aa7227b722e61",
+   "to": [
+    "data/blueprints/PotentialAutomorphyInfrastructure.json",
+    "data/blueprints/PotentialAutomorphyInfrastructure.md"
+   ]
+  },
   "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json": {
    "promotedAt": "2026-10-05T03:35:16Z",
    "review": "4d1e86197afc20e0",
