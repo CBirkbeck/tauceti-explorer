@@ -262,7 +262,13 @@ theorem nonsplit_potential_good (E : WeierstrassCurve ℚ) [E.IsElliptic]
 (rank_zero_quotient), EC.6/cuspidal-formal-immersion (cuspidal_formal_immersion)
 and EC.6/j-prime-integrality (j_prime_integrality) are not seeded: the Cartan-level
 compactification, the correct connected p-new quotient, and the integral local
-hypotheses are source gaps. No theorem is encoded as an arbitrary Prop field. -/
+hypotheses are source gaps. In Chen’s statement, the quotient is by w_{p²},
+retaining the r-level, and the fiber-product notation denotes its smooth
+projective normalization. The formal-immersion map is from the canonical smooth
+locus over ℤ[1/p,ζp]⁺ to the Néron model. Darmon–Merel prove the r=2,3
+case; the Lemos extension to r=5,7,13 remains a proof obligation. Since p≥11
+and q≡±1 mod p, q=2,3 cannot occur here. No theorem is encoded as an arbitrary
+Prop field. -/
 
 /-- EC.6/j-integrality. -/
 theorem j_integrality (E : WeierstrassCurve ℚ) [E.IsElliptic]

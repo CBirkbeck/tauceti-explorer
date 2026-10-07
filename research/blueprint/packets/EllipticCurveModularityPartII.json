@@ -21,91 +21,91 @@
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
         "provides": "Norm as the product over all embeddings into an algebraically closed extension.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "mathlib:Algebra.norm_eq_zero_iff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Basic.lean",
         "provides": "Norm is zero exactly at zero for a finite free extension of domains.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "mathlib:Ideal.absNorm_dvd_norm_of_mem",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
         "provides": "Ideal norm divides the integral element norm for an element belonging to that ideal.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform",
         "kind": "structure",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
         "provides": "Bundled normalized newform on Γ₁(N), with a nebentypus and newness.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.cuspFormsNew",
         "kind": "def",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/Basic.lean",
         "provides": "Γ₁(N) newspace, Petersson orthogonal to the oldspace; trivial-character intersection supplies Γ₀ newspace.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "tauceti:cuspFormCharSpace",
         "kind": "def",
         "module": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
         "provides": "Joint diamond eigenspace for a specified nebentypus.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.ModularForm.sturm_bound_finiteIndex_SL2Z",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/SturmBound.lean",
         "provides": "Characteristic-zero equality bound; does not provide congruence modulo arbitrary ideals.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "mathlib:CongruenceSubgroup.Gamma0",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
         "provides": "Congruence subgroup used for μ(N) as its index.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "tauceti:WeierstrassCurve.frobeniusTrace_eq_card_point",
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
         "provides": "For an elliptic finite-field model the trace equals q+1 minus the actual point-group cardinality.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "mathlib:WeierstrassCurve.j",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "j-invariant of an elliptic Weierstrass curve.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "mathlib:Representation.IsIrreducible",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Irreducible.lean",
         "provides": "Irreducibility via the simple lattice of subrepresentations.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.Isogeny.Hom",
         "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
         "provides": "Coordinate-pullback elliptic homomorphisms, including zero; the Add module supplies integer multiples of identity.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Affine.Point.map",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
         "provides": "Actual additive point map along an algebra homomorphism; used for Galois stability.",
-        "checked": "Statement read in the source tree at the recorded pinned commit; scope and limitations described in the reader."
+        "checked": "Independently read at the recorded pinned commit in REV-DESIGN-EllipticCurveModularityPartII; hypotheses and limitations recorded in the review report."
       }
     ]
   },
@@ -143,7 +143,7 @@
       "sha256": "844017dec299d575ee49f731b7ae6ec27be03d76bf6463bc428b9e9b49c0a8d4",
       "accessed": "2026-10-07",
       "readSections": [
-        "Theorems 1–2 and definitions 1A–1F; §5, Lemmas 16–22 and proof of Theorem 2, pp. 14–16"
+        "Theorems 1–2 and definitions 1A–1F; §4, Lemmas 16–22 and proof of Theorem 2, pp. 14–16 (v1)"
       ]
     },
     {
@@ -168,6 +168,18 @@
       "accessed": "2026-10-07",
       "readSections": [
         "Entire v2, pp. 1–11: Theorems 1.1–1.4; §2; §3; references"
+      ]
+    },
+    {
+      "id": "DarmonMerel",
+      "title": "Winding quotients and some variants of Fermat’s Last Theorem",
+      "authors": "Henri Darmon and Loïc Merel",
+      "edition": "Author copy dated 5 January 2001; published J. reine angew. Math. 490 (1997), 81–100; author-copy pagination",
+      "url": "https://perso.imj-prg.fr/loic-merel/wp-content/uploads/merel-pub/winding.pdf",
+      "sha256": "89c4a7a8563c35f6124279b883075c40b7aa8fcb485385098896e003d80e9aa7",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§6 notation/Theorem 6.1; §7, Propositions 7.1–7.2, pp. 18–21; §8, Theorem 8.1 and Lemmas 8.2–8.3, pp. 21–23"
       ]
     }
   ],
@@ -199,7 +211,12 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, equation (7), p. 1143",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Equation (7) defines the real square-root threshold with exponent twice the newspace dimension; the existing index and trivial-character newspace are used."
+        },
+        {
+          "sourceId": "BS",
+          "locator": "§2, definitions after equation (5), p. 360",
+          "match": "The displayed formulas agree with Kraus, including both square roots (checked on the PDF image; text extraction omits the radicals)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -280,7 +297,12 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, equation (8), p. 1144",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Equation (8) uses the index at lcm(4,N), followed by the square root and exponent two."
+        },
+        {
+          "sourceId": "BS",
+          "locator": "§2, definitions after equation (5), p. 360",
+          "match": "The displayed formulas agree with Kraus, including both square roots (checked on the PDF image; text extraction omits the radicals)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -362,7 +384,12 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, equation (9), p. 1144",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Equation (9) takes the maximum of the two preceding thresholds; neither branch is discarded."
+        },
+        {
+          "sourceId": "BS",
+          "locator": "§2, definitions after equation (5), p. 360",
+          "match": "The displayed formulas agree with Kraus, including both square roots (checked on the PDF image; text extraction omits the radicals)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -447,8 +474,8 @@
       "sources": [
         {
           "sourceId": "Martin",
-          "locator": "Theorem 2; §5, Lemmas 16–22, pp. 14–16 (v1)",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "locator": "Theorem 2, p. 3; §4, Lemmas 16–22 and proof of Theorem 2, pp. 14–16 (v1)",
+          "match": "Theorem 2 gives the bound and precisely the prime 11 mod 12 and N=35 equality cases; §4 proves it using Lemmas 16–22 and the finite calculation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -488,7 +515,7 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 2.2 proof, p. 359",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The norm step in Lemma 2.2 motivates this number-field adapter; the all-embeddings product and the separate integral/field-norm gap justify its stated generality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -533,7 +560,7 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 2.2, p. 359",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Lemma 2.2 retains p≠ℓ, p∥M and ℓ|ord_p(Δ); its proof combines the removed-prime congruence, all-embeddings norm and Martin bound."
         }
       ],
       "implementationStatus": "unchecked",
@@ -576,7 +603,7 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.2, Lemma 1, pp. 1144–1145",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Lemma 1 reconstructs the small composite coefficients from prime coefficients and then uses characteristic-zero Sturm equality and Galois conjugation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -617,13 +644,14 @@
         "ArithmeticGaloisRepresentations:R01.6",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
         "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
-        "AutomorphicGaloisRepresentations:R19.3"
+        "AutomorphicGaloisRepresentations:R19.3",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
       ],
       "sources": [
         {
           "sourceId": "Kraus",
           "locator": "§3.2, proof of Theorem 3, p. 1145",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 3 proof bounds the norm of a nonintegral coefficient difference, treating good and removed multiplicative primes separately; ℓ≥5, weight two and exact residual conductor remain explicit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -664,7 +692,7 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, p. 1143; Theorem 3",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The rational-coefficient paragraph identifies a curve of exact conductor, then invokes residual irreducibility to obtain an isomorphism; the quotient and Galois comparisons are supplied separately."
         }
       ],
       "implementationStatus": "unchecked",
@@ -705,7 +733,7 @@
         {
           "sourceId": "Kraus",
           "locator": "Theorem 3, p. 1144",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 3 requires modularity, irreducibility, weight two and ℓ≥5; unconditional parent modularity supplies its modularity hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -740,14 +768,14 @@
       "prerequisites": [
         "EllipticCurveModularity:R29.6/modularity-theorem",
         "tauceti:WeierstrassCurve.frobeniusTrace_eq_card_point",
-        "AlgebraicModularFormsAndSerreWeights:R15.2",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus"
       ],
       "sources": [
         {
           "sourceId": "Kraus",
           "locator": "Appendix II, Proposition 2 and Corollary, pp. 1158–1160",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The corollary is exactly finite recognition of good odd point counts modulo four at lcm(4,N); its bad-prime condition is automatic for elliptic multiplicative coefficients ±1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -767,7 +795,7 @@
       ],
       "title": "Small-prime point-count transfer",
       "kind": "theorem",
-      "statement": "Under Kraus Theorem 3, assume E has full rational 2-torsion and ℓ>krausG(N). For each prime q∤2N with q≤μ(lcm(4,N))/6, E has good reduction at q, and a_q(E)=a_q(F), hence 4 divides #F(𝔽q).",
+      "statement": "Let ℓ≥5 be prime, E/ℚ have full rational 2-torsion and irreducible E[ℓ] of Serre weight 2 and prime-to-ℓ conductor N. Let F/ℚ have exact conductor N and F[ℓ]≅E[ℓ] as Gℚ-representations. If ℓ>krausG(N), then for every prime q∤2N with q≤μ(lcm(4,N))/6, E has good reduction at q, a_q(E)=a_q(F), and 4 divides #F(𝔽q).",
       "hypotheses": [
         "All quantifiers and hypotheses are included explicitly in the statement."
       ],
@@ -791,7 +819,7 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.3, p. 1146",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "§3.3 proves good reduction at each tested odd prime and equality of the integral traces using the strict G threshold and Hasse bound."
         }
       ],
       "implementationStatus": "unchecked",
@@ -823,14 +851,13 @@
       "prerequisites": [
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
-        "ArithmeticGaloisRepresentations:R01.5",
         "ArithmeticGaloisRepresentations:R01.6"
       ],
       "sources": [
         {
           "sourceId": "Kraus",
           "locator": "§3.3 end, pp. 1146–1147",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The final §3.3 paragraph invokes Serre IV-6 to produce an isogeny of degree one or two; the subgroup argument and finite-torsion Chebotarev step remain a recorded gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -873,7 +900,7 @@
         {
           "sourceId": "Kraus",
           "locator": "Theorem 4, p. 1144; §3.3",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 4 combines the F and G bounds, retains irreducibility and Serre weight two, and repairs full rational two-torsion through a two-isogeny."
         }
       ],
       "implementationStatus": "unchecked",
@@ -914,7 +941,7 @@
         {
           "sourceId": "BS",
           "locator": "Theorem 4, p. 360; compare Kraus §3.1",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "This is an application adapter, not a verbatim Bennett–Siksek theorem: equality with the quotient level needs the local conductor theorem and ℓ∤M; the weight-two hypothesis remains separate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -945,13 +972,13 @@
       ],
       "prerequisites": [
         "mathlib:WeierstrassCurve.j",
-        "ModularCurvesPartII:R12.2"
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli"
       ],
       "sources": [
         {
           "sourceId": "Mazur",
           "locator": "Theorem 1, pp. 129–130; proof outline pp. 132–133; Theorem 7.1, pp. 153–155",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 1 gives the prime list; Theorem 7.1 identifies the CM-only degrees. The arithmetic proof inputs remain explicit gaps rather than consequences of moduli geometry."
         }
       ],
       "implementationStatus": "unchecked",
@@ -990,7 +1017,7 @@
         {
           "sourceId": "BS",
           "locator": "Proofs of Lemmas 3.3 and 3.5, pp. 362–363",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Bennett–Siksek state the irreducibility consequences. The stronger intermediate composite-degree exclusions require the separately recorded Mazur–Kenku classification input; they are not quoted as a theorem of this passage."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1031,7 +1058,7 @@
         {
           "sourceId": "BS",
           "locator": "Mazur input in Lemmas 3.3 and 3.5, pp. 362–363",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "This is the kernel argument explaining the two-torsion irreducibility applications, not a verbatim source lemma: coprime cyclic kernels give 2ℓ; distinct rational two-points and dual isogeny give cyclic 4ℓ on an isogenous curve."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1071,7 +1098,7 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 3.3 proof, p. 362",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Lemma 3.3 uses the full-two-torsion irreducibility threshold ℓ≥7. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1113,7 +1140,7 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 3.5 proof, p. 363",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Lemma 3.5 uses the one-two-point threshold ℓ≥11. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1154,7 +1181,7 @@
         {
           "sourceId": "Lemos",
           "locator": "Proposition 2.2, pp. 4–5",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Proposition 2.2 proves the criterion by squaring Tate eigencharacters; its proof includes q=p via surjectivity of the local cyclotomic character."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1174,7 +1201,7 @@
       ],
       "title": "Chen’s isogeny at rational-isogeny level",
       "kind": "theorem",
-      "statement": "For r∈{1,2,3,5,7,13} and prime p∉{1,2,3,5,7,13}, the Jacobian of X₀(r)×X(1)Xns⁺(p) is ℚ-isogenous to the p-new quotient of Jac(X₀⁺(rp²)), by a correspondence commuting with T_n for gcd(n,p)=1.",
+      "statement": "For r∈{1,2,3,5,7,13} and prime p∉{1,2,3,5,7,13}, the Jacobian of X₀(r)×X(1)Xns⁺(p) is ℚ-isogenous to the p-new quotient of Jac(X₀⁺(rp²)), by a correspondence commuting with T_n for gcd(n,p)=1. Here X₀⁺(rp²) denotes the smooth projective normalization of X₀(r)×X(1)(X₀(p²)/⟨w_{p²}⟩), equivalently X₀(rp²)/⟨w_{p²}⟩; it is not the quotient by w_{rp²}. The mixed nonsplit curve is the smooth compactification of its level-moduli fiber product.",
       "hypotheses": [
         "All quantifiers and hypotheses are included explicitly in the statement."
       ],
@@ -1184,7 +1211,8 @@
         "Apply Chen’s explicit-isogeny identification, retaining the away-from-p Hecke equivariance."
       ],
       "acceptance": [
-        "p-old means degeneracy from level rp, not the full oldspace at level rp²."
+        "p-old means degeneracy from level rp, not the full oldspace at level rp².",
+        "The Atkin–Lehner involution acts on the p²-level only and retains the r-level structure."
       ],
       "prerequisites": [
         "ModularCurvesPartII:R14.2"
@@ -1193,7 +1221,7 @@
         {
           "sourceId": "Lemos",
           "locator": "§3, Theorem 3.3 and Lemma 3.2, pp. 8–9",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 3.3 and Lemma 3.2 identify the p-new quotient and away-from-p Hecke equivariance. Lemos’s X₀⁺(rp²) means the quotient by w_{p²}, preserving the r-level."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1218,9 +1246,9 @@
         "All quantifiers and hypotheses are included explicitly in the statement."
       ],
       "proofSteps": [
-        "Transfer the problem through Chen’s isogeny to the p-new quotient of Jac(X₀⁺(rp²)).",
+        "Transfer the problem through Chen’s isogeny to the p-new quotient of Jac(X₀⁺(rp²)). Use the quotient by w_{p²}, with the convention fixed in chen-correspondence.",
         "Project the rational winding element e to the full new quotient, form its Hecke annihilator Ie, and pass to the connected-kernel quotient.",
-        "Prove this quotient is nonzero and has finite rational points by Darmon–Merel’s winding argument; Lemos §3 explicitly refers these two claims to that paper."
+        "Darmon–Merel §7 proves nonvanishing and finiteness for r=2,3 using Proposition 7.2 and the rank-zero theorem of Kolyvagin–Logachev. Lemos states the genus-zero extension to r=5,7,13; verify the extension of the nonvanishing calculation before proof execution (recorded gap)."
       ],
       "acceptance": [
         "Nonzero quotient and finite A(ℚ) are theorem conclusions, not fields in a certificate structure."
@@ -1232,7 +1260,12 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 3.4 and sketch, p. 10",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Lemos Theorem 3.4 states all five auxiliary levels. Darmon–Merel Proposition 7.1 verifies the original r=2,3 winding route; extending its nonvanishing calculation is a recorded gap."
+        },
+        {
+          "sourceId": "DarmonMerel",
+          "locator": "§7, Proposition 7.1 and proof, pp. 18–21",
+          "match": "Original r=2,3 proof; Lemos, rather than this proposition, supplies the extension target."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1252,17 +1285,19 @@
       ],
       "title": "Cuspidal formal immersion at isogeny level",
       "kind": "theorem",
-      "statement": "For r∈{2,3,5,7,13}, p outside that set and a prime q≠p with q≡±1 mod p, the Abel–Jacobi map to the rank-zero quotient A on X₀,ns⁺(r,p), after choosing a cusp and its local integral model, is a formal immersion at that cusp in characteristic q; a rational section specializing there has torsion image in A.",
+      "statement": "Let Σ={2,3,5,7,13}, r∈Σ, p∉Σ be prime, K=ℚ(ζp)⁺ and R=ℤ[1/p,ζp]⁺. Let X be the canonical mixed nonsplit modular curve X₀,ns⁺(r,p) over R, c an R-valued cusp, J its generic-fiber Jacobian, and π:J→A a nonzero optimal ℚ-quotient with A(ℚ) finite and kernel stable under T_n for gcd(n,p)=1. Let 𝒜 be the Néron model of A and φ:Xˢᵐ→𝒜 the extension of π∘[P↦(P)−(c)]. At a prime 𝔮|q of R, with q≠p prime and q≡±1 mod p, φ is a formal immersion at c_𝔮. For a noncuspidal P∈X(ℚ), φ(P) is torsion in A(K). These are the Lemos extension targets; the required canonical model and the extension of the proof beyond r=2,3 remain gaps.",
       "hypotheses": [
         "All quantifiers and hypotheses are included explicitly in the statement."
       ],
       "proofSteps": [
-        "Compute the first q-expansion coefficient of differentials pulled back from the quotient; the Hecke-stable kernel detects the cotangent direction.",
-        "Control specialization of torsion, including residue characteristic 2, using the precise Darmon–Merel local hypotheses.",
-        "Use Darmon–Merel Lemma 8.3 for the torsion image. The local statement and characteristic-2 treatment are explicit source gaps until their proof is read."
+        "Use the real-cyclotomic cusp field and the canonical smooth locus to extend the Abel–Jacobi map to the Néron model; formal immersion means surjectivity of the completed local ring map at the stated cusp.",
+        "Darmon–Merel Lemma 8.2 for r=2,3 uses the cotangent injection for the optimal semistable quotient away from 2 and p, Hecke operators and q-expansions, and vanishing of weight-two cusp forms at genus-zero auxiliary level. Verify that these steps extend to r=5,7,13.",
+        "Since p outside Σ is at least 11, q≡±1 mod p implies q>3 and q∤r. There is no residue-characteristic-2 case here. Use unramified torsion specialization at the denominator prime, with good reduction of A at q verified from the exact model.",
+        "For rational P, Galois differences of (P)−(c) are cuspidal divisors. Manin–Drinfeld makes them torsion, so a multiple of φ(P) is in finite A(ℚ): this is Lemma 8.3."
       ],
       "acceptance": [
-        "A torsion image by itself does not force section equality; the local specialization lemma is essential."
+        "A torsion image by itself does not force section equality; the local specialization lemma is essential.",
+        "Do not replace the smooth locus by an arbitrary integral model, or infer the r=5,7,13 extension solely from the r=2,3 statement of Darmon–Merel."
       ],
       "prerequisites": [
         "EllipticCurveModularityPartII:EC.6/rank-zero-quotient"
@@ -1271,7 +1306,12 @@
         {
           "sourceId": "Lemos",
           "locator": "§3 final paragraph, p. 10",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Lemos §3 states the formal-immersion step for all five levels. Darmon–Merel Lemmas 8.2–8.3 specify the real-cyclotomic base and smooth-locus-to-Néron-model map for r=2,3; the extension to r=5,7,13 is not independently verified."
+        },
+        {
+          "sourceId": "DarmonMerel",
+          "locator": "§8, Lemmas 8.2–8.3, pp. 21–23",
+          "match": "Specifies the smooth-locus/Néron-model map over the real-cyclotomic base for r=2,3; the larger-r extension remains unverified."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1311,7 +1351,12 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 1.4, p. 3; proof sketch §3",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 1.4 concludes membership in ℤ[1/p], with an r-isogeny for r in Σ and prime p outside Σ. Integrality at p is deliberately a different node."
+        },
+        {
+          "sourceId": "DarmonMerel",
+          "locator": "§8, Theorem 8.1, pp. 21–23",
+          "match": "The original auxiliary-level scope is 2,3. Lemos Theorem 1.4 is the stated all-five-level extension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1347,7 +1392,7 @@
         {
           "sourceId": "Lemos",
           "locator": "Proposition 2.1, pp. 4–5",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Proposition 2.1 upgrades to integral j using Proposition 2.2 at p. The retained non-CM assumption is stronger than the proposition needs and harmless for the final use."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1384,7 +1429,7 @@
         {
           "sourceId": "Lemos",
           "locator": "§2 table and divisibility proof, pp. 6–7",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The table gives the five monic j-map numerators. Its rational-root argument forces nonzero integral t dividing the constant term, conditional on the intrinsic j-map identification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1424,7 +1469,7 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 2.3, p. 6",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 2.3 is an arithmetic exclusion theorem for non-CM E and p>37. Finite-subgroup classification is only one input; Serre and Bilu–Parent–Rebolledo remain separate gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1461,7 +1506,7 @@
         {
           "sourceId": "Lemos",
           "locator": "Proof of Theorem 1.1, pp. 5–6",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The proof states j-invariance of surjectivity. For odd p a quadratic central twist preserves full determinant and SL₂; geometric non-CM excludes exceptional quartic/sextic twists."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1500,7 +1545,7 @@
         {
           "sourceId": "Lemos",
           "locator": "Proof of Theorem 1.1, pp. 5–7",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "The proof checks finite rational-j lists via LMFDB/Sutherland computations. It does not ship complete universal certificates; the node’s certificate route and this missing data are kept explicit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1541,7 +1586,7 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 1.1, p. 2; proof §2",
-          "match": "The statement and proof use this passage with the conventions and supplier boundaries in the reader."
+          "match": "Theorem 1.1 is exactly the non-CM, rational nontrivial cyclic-isogeny result for every prime p>37; it is not unrestricted Serre uniformity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1596,15 +1641,16 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-      "need": "Full prime-power coefficient recurrences and bad-prime coefficient values for weight-two trivial-character newforms. Hecke recurrences and depletion operators at bad primes, including the Γ₀(4) weight-two Eisenstein series used in Kraus Appendix II.",
+      "need": "Full prime-power coefficient recurrences and bad-prime values 0,±1 for weight-two trivial-character newforms; the source’s bad-prime Euler-factor comparisons.",
       "neededBy": [
         "EllipticCurveModularityPartII:EC.3/finite-rationality",
-        "EllipticCurveModularityPartII:EC.4/finite-mod-four"
+        "EllipticCurveModularityPartII:EC.4/finite-mod-four",
+        "EllipticCurveModularityPartII:EC.3/small-prime-integrality"
       ]
     },
     {
       "supplier": "ComputationalNumberTheory:CN.3",
-      "need": "Intrinsic q-expansion recognition using the finite-index Sturm bound, with prime-to-all-coefficient Hecke reconstruction. Exact model and j-map certificates for X₀(2),X₀(3),X₀(5),X₀(7),X₀(13); finite divisor enumeration linked to the intrinsic moduli curves. Exact rational-point and j-map certificates at levels 11,17,37, plus verified Galois-image recognition for each explicit elliptic curve.",
+      "need": "Intrinsic q-expansion recognition with Sturm truncation and Hecke reconstruction; exact model, modular-symbol, q-expansion, point-count and isogeny computations supporting the intrinsic j-map identities and finite divisor enumeration. This computation interface does not assert complete rational-point lists or a universal exceptional-prime theorem; those arithmetic inputs remain gaps.",
       "neededBy": [
         "EllipticCurveModularityPartII:EC.3/finite-rationality",
         "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
@@ -1655,17 +1701,9 @@
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.5",
-      "need": "Recognition of semisimple residual representations by characteristic polynomials over a common residue field; descent to ℚ’s ℓ-torsion coefficient field. Chebotarev recognition of the determinant condition det(1−Frob)≡0 mod 4.",
+      "need": "Recognition of semisimple residual representations by characteristic polynomials over a common residue field; coefficient descent with its obstruction vanishing verified for the elliptic comparison. Finite-ring mod-four torsion is not semisimple representation recognition.",
       "neededBy": [
-        "EllipticCurveModularityPartII:EC.3/rational-newform-curve",
-        "EllipticCurveModularityPartII:EC.4/two-isogeny-repair"
-      ]
-    },
-    {
-      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.2",
-      "need": "Ideal-valued Sturm congruence bound at general finite index for integral q-expansions, including characteristic 2 and ideals (2)^2.",
-      "neededBy": [
-        "EllipticCurveModularityPartII:EC.4/finite-mod-four"
+        "EllipticCurveModularityPartII:EC.3/rational-newform-curve"
       ]
     },
     {
@@ -1700,15 +1738,15 @@
       ]
     },
     {
-      "supplier": "ModularCurvesPartII:R12.2",
-      "need": "Rational noncuspidal points of Y₀(r) classify Galois-stable cyclic r-subgroups up to the appropriate twists.",
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
+      "need": "The coarse Γ₀(r) moduli curve and the map from an elliptic curve over ℚ with a Galois-stable cyclic r-subgroup to its noncuspidal ℚ-point; use the level-problem construction of upstream Layer 8. No classification of rational points is supplied.",
       "neededBy": [
         "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies"
       ]
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.4",
-      "need": "An odd irreducible two-dimensional representation over 𝔽ℓ for odd ℓ is absolutely irreducible. Normalizer quotient of order two and eigenvalue test for elements of a nonsplit Cartan. Classification of proper GL₂(𝔽p) images with surjective determinant and the elliptic exceptional-image exclusions. Index-two subgroups and abelianization of GL₂(𝔽p), including determinant and central scalar −I.",
+      "need": "An odd irreducible two-dimensional representation over 𝔽ℓ for odd ℓ is absolutely irreducible. Normalizer quotient of order two and eigenvalue test for elements of a nonsplit Cartan. Classification of proper GL₂(𝔽p) images with surjective determinant. Index-two subgroups and abelianization of GL₂(𝔽p), including determinant and central scalar −I.",
       "neededBy": [
         "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
         "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
@@ -1736,6 +1774,13 @@
       "need": "Pinned input data and machine-checkable certificate format for the complete exceptional-prime lists; no database assertions as axioms.",
       "neededBy": [
         "EllipticCurveModularityPartII:EC.6/finite-image-certificates"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "need": "The corrected weight-two Eisenstein combinations and q-expansion formulas yielding the Γ₀(4) series Σ_{n odd}σ₁(n)q^n; its odd-prime Euler factors are proved using that formula.",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/finite-mod-four"
       ]
     }
   ],
@@ -1766,6 +1811,7 @@
       "stageId": "EllipticCurveModularityPartII:EC.4",
       "status": "planned",
       "remaining": [
+        "Ideal-valued Sturm congruence bound",
         "Mod-four image argument for the two-isogeny repair",
         "Resolve the exact supplier contracts listed in requests."
       ]
@@ -1804,7 +1850,7 @@
       "neededBy": [
         "EllipticCurveModularityPartII:EC.4/two-isogeny-repair"
       ],
-      "detail": "Kraus cites Serre [25], IV-6. Enumerate the subgroups of GL₂(ℤ/4) whose elements satisfy det(1−g)=0 mod 4, and prove a stable quotient with trivial mod-2 action; read the cited argument before proof execution. The source paragraph alone is not a supplied subgroup proof."
+      "detail": "Kraus cites Serre [25], IV-6. Enumerate the subgroups of GL₂(ℤ/4) whose elements satisfy det(1−g)=0 mod 4, and prove a stable quotient with trivial mod-2 action; read the cited argument before proof execution. The source paragraph alone is not a supplied subgroup proof. The Chebotarev step needs density in the finite E[4] image and constancy of det(1−g), rather than semisimple recognition over a field; R01.5’s existing representation comparison is not this statement."
     },
     {
       "title": "Mazur’s arithmetic prime-isogeny inputs",
@@ -1834,7 +1880,7 @@
         "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
         "EllipticCurveModularityPartII:EC.6/j-prime-integrality"
       ],
-      "detail": "Read Darmon–Merel Propositions 7.1 and Theorem 8.1, Lemma 8.3 and the local specialization hypotheses, including residue characteristic 2, for r=2,3,5,7,13. Lemos supplies a sketch and refers the nonvanishing/rank-zero and local details to that paper. These are owned special arithmetic targets here, not established by the sketch."
+      "detail": "Darmon–Merel author copy §§7–8 has now been read: Proposition 7.1, Proposition 7.2, Theorem 8.1 and Lemmas 8.2–8.3 concern r=2,3, not all five auxiliary levels. Lemos states their genus-zero extension. Verify the extension of the nonvanishing calculation, the canonical mixed-level integral model, cotangent comparison, and good reduction of the quotient for r=5,7,13. Account for the Kolyvagin–Logachev rank-zero theorem and Manin–Drinfeld torsion input. Here p≥11 and q≡±1 mod p exclude q=2,3 automatically; no characteristic-2 proof is required for this target."
     },
     {
       "title": "Arithmetic exclusions of split and exceptional Cartan images",
@@ -1849,6 +1895,13 @@
         "EllipticCurveModularityPartII:EC.6/finite-image-certificates"
       ],
       "detail": "Lemos checks LMFDB/Sutherland output but no certificate data was fetched or verified here. Reconstruct every representative in the five integral lists and six non-CM higher-level values, prove the modular j-map and high-level rational-point lists, and attach complete exceptional-prime certificates valid for all primes, with software/data versions. Reading the published Lemos version and checking it against v2 is also required before executing this route."
+    },
+    {
+      "title": "Ideal-valued Sturm congruence bound",
+      "neededBy": [
+        "EllipticCurveModularityPartII:EC.4/finite-mod-four"
+      ],
+      "detail": "Kraus Appendix II Proposition 1 states the coefficient-ideal vanishing bound floor(kμ(N)/12), including ideal (2)^2. Neither pinned analytic Sturm equality nor the current R15.2 q-expansion/integral-Hecke scope states this bound. Assign a supplier extension and verify the proof for arbitrary coefficient ideals; the previous request claiming R15.2 supplied it has been removed."
     }
   ],
   "restructure": [
@@ -2024,6 +2077,12 @@
       "url": "https://arxiv.org/pdf/1702.01985v2",
       "read": "2026-10-07",
       "sha256": "ce889428aa4d6cbe1f30fcb504591063927fdaa96baa1bdf598596bbc02bd043"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://perso.imj-prg.fr/loic-merel/wp-content/uploads/merel-pub/winding.pdf",
+      "read": "2026-10-07",
+      "sha256": "89c4a7a8563c35f6124279b883075c40b7aa8fcb485385098896e003d80e9aa7"
     }
   ],
   "baselineAudit": {
@@ -2034,5 +2093,168 @@
     ],
     "conclusions": "Point count and the newform/newspace carriers exist; Hasse, elliptic Tate representations and coefficient fields/ideal-valued Sturm are supplier outputs. The exact new roadmap has no reviewed audit; actual pin searches found no effective thresholds, sharp Martin bound, Kraus theorem, uniform two-torsion consequences or Lemos theorem. See reader for near misses."
   },
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII",
+    "date": "2026-10-07",
+    "notes": "Completed independent target-level review of all 31 nodes, 13 pinned baseline citations, 37 source excerpts, supplier contracts, APIs/tests, suggested signatures and scope. Clear packet/roadmap fixes applied. The nine explicit gaps and six planned stages are legitimate open follow-up work, not reasons to reject the pass. A revision is required because the definitive reader still contradicts the corrected supplier boundaries and source scope; its path is not an allowed deliverable of this review. Synchronize the exact passages listed in the report before acceptance. Suggested Lean file was not compiled: lean-check stopped at an unavailable imported isogeny .olean.",
+    "checked": [
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.1/krausF",
+        "verdict": "corrected",
+        "note": "Equation (7) defines the real square-root threshold with exponent twice the newspace dimension; the existing index and trivial-character newspace are used."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.1/krausG",
+        "verdict": "corrected",
+        "note": "Equation (8) uses the index at lcm(4,N), followed by the square root and exponent two."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.1/krausH",
+        "verdict": "corrected",
+        "note": "Equation (9) takes the maximum of the two preceding thresholds; neither branch is discarded."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.1/martin-bound",
+        "verdict": "corrected",
+        "note": "Theorem 2 gives the bound and precisely the prime 11 mod 12 and N=35 equality cases; §4 proves it using Lemmas 16–22 and the finite calculation."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.2/norm-bound",
+        "verdict": "corrected",
+        "note": "The norm step in Lemma 2.2 motivates this number-field adapter; the all-embeddings product and the separate integral/field-norm gap justify its stated generality."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
+        "verdict": "corrected",
+        "note": "Lemma 2.2 retains p≠ℓ, p∥M and ℓ|ord_p(Δ); its proof combines the removed-prime congruence, all-embeddings norm and Martin bound."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.3/finite-rationality",
+        "verdict": "corrected",
+        "note": "Lemma 1 reconstructs the small composite coefficients from prime coefficients and then uses characteristic-zero Sturm equality and Galois conjugation."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
+        "verdict": "corrected",
+        "note": "Theorem 3 proof bounds the norm of a nonintegral coefficient difference, treating good and removed multiplicative primes separately; ℓ≥5, weight two and exact residual conductor remain explicit."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.3/rational-newform-curve",
+        "verdict": "corrected",
+        "note": "The rational-coefficient paragraph identifies a curve of exact conductor, then invokes residual irreducibility to obtain an isomorphism; the quotient and Galois comparisons are supplied separately."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.3/kraus-rational",
+        "verdict": "corrected",
+        "note": "Theorem 3 requires modularity, irreducibility, weight two and ℓ≥5; unconditional parent modularity supplies its modularity hypothesis."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.4/finite-mod-four",
+        "verdict": "corrected",
+        "note": "The corollary is exactly finite recognition of good odd point counts modulo four at lcm(4,N); its bad-prime condition is automatic for elliptic multiplicative coefficients ±1."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
+        "verdict": "corrected",
+        "note": "§3.3 proves good reduction at each tested odd prime and equality of the integral traces using the strict G threshold and Hasse bound."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
+        "verdict": "corrected",
+        "note": "The final §3.3 paragraph invokes Serre IV-6 to produce an isogeny of degree one or two; the subgroup argument and finite-torsion Chebotarev step remain a recorded gap."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.4/kraus-full-two",
+        "verdict": "corrected",
+        "note": "Theorem 4 combines the F and G bounds, retains irreducibility and Serre weight two, and repairs full rational two-torsion through a two-isogeny."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.4/quotient-conductor-adapter",
+        "verdict": "corrected",
+        "note": "This is an application adapter, not a verbatim Bennett–Siksek theorem: equality with the quotient level needs the local conductor theorem and ℓ∤M; the weight-two hypothesis remains separate."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies",
+        "verdict": "corrected",
+        "note": "Theorem 1 gives the prime list; Theorem 7.1 identifies the CM-only degrees. The arithmetic proof inputs remain explicit gaps rather than consequences of moduli geometry."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions",
+        "verdict": "corrected",
+        "note": "Bennett–Siksek state the irreducibility consequences. The stronger intermediate composite-degree exclusions require the separately recorded Mazur–Kenku classification input; they are not quoted as a theorem of this passage."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport",
+        "verdict": "corrected",
+        "note": "This is the kernel argument explaining the two-torsion irreducibility applications, not a verbatim source lemma: coprime cyclic kernels give 2ℓ; distinct rational two-points and dual isogeny give cyclic 4ℓ on an isogenous curve."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
+        "verdict": "corrected",
+        "note": "Lemma 3.3 uses the full-two-torsion irreducibility threshold ℓ≥7. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
+        "verdict": "corrected",
+        "note": "Lemma 3.5 uses the one-two-point threshold ℓ≥11. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good",
+        "verdict": "corrected",
+        "note": "Proposition 2.2 proves the criterion by squaring Tate eigencharacters; its proof includes q=p via surjectivity of the local cyclotomic character."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/chen-correspondence",
+        "verdict": "corrected",
+        "note": "Theorem 3.3 and Lemma 3.2 identify the p-new quotient and away-from-p Hecke equivariance. Lemos’s X₀⁺(rp²) means the quotient by w_{p²}, preserving the r-level."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/rank-zero-quotient",
+        "verdict": "corrected",
+        "note": "Lemos Theorem 3.4 states all five auxiliary levels. Darmon–Merel Proposition 7.1 verifies the original r=2,3 winding route; extending its nonvanishing calculation is a recorded gap."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
+        "verdict": "corrected",
+        "note": "Lemos §3 states the formal-immersion step for all five levels. Darmon–Merel Lemmas 8.2–8.3 specify the real-cyclotomic base and smooth-locus-to-Néron-model map for r=2,3; the extension to r=5,7,13 is not independently verified."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/j-prime-integrality",
+        "verdict": "corrected",
+        "note": "Theorem 1.4 concludes membership in ℤ[1/p], with an r-isogeny for r in Σ and prime p outside Σ. Integrality at p is deliberately a different node."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/j-integrality",
+        "verdict": "corrected",
+        "note": "Proposition 2.1 upgrades to integral j using Proposition 2.2 at p. The retained non-CM assumption is stronger than the proposition needs and harmless for the final use."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
+        "verdict": "corrected",
+        "note": "The table gives the five monic j-map numerators. Its rational-root argument forces nonzero integral t dividing the constant term, conditional on the intrinsic j-map identification."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/large-proper-image",
+        "verdict": "corrected",
+        "note": "Theorem 2.3 is an arithmetic exclusion theorem for non-CM E and p>37. Finite-subgroup classification is only one input; Serre and Bilu–Parent–Rebolledo remain separate gaps."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/surjectivity-twist",
+        "verdict": "corrected",
+        "note": "The proof states j-invariance of surjectivity. For odd p a quadratic central twist preserves full determinant and SL₂; geometric non-CM excludes exceptional quartic/sextic twists."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/finite-image-certificates",
+        "verdict": "corrected",
+        "note": "The proof checks finite rational-j lists via LMFDB/Sutherland computations. It does not ship complete universal certificates; the node’s certificate route and this missing data are kept explicit."
+      },
+      {
+        "nodeId": "EllipticCurveModularityPartII:EC.6/lemos-surjectivity",
+        "verdict": "corrected",
+        "note": "Theorem 1.1 is exactly the non-CM, rational nontrivial cyclic-isogeny result for every prime p>37; it is not unrestricted Serre uniformity."
+      }
+    ]
+  }
 }
