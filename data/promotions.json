@@ -1214,6 +1214,17 @@
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },
+  "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json": {
+   "promotedAt": "2026-10-07T17:20:54Z",
+   "review": "448d600f1c0552f1",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-IgusaVarietiesAndTorsionConcentration~2",
+   "sha256": "96389335d0999c792054b6c9041764766e3988364701616ec3f984410104a062",
+   "to": [
+    "data/blueprints/IgusaVarietiesAndTorsionConcentration.json",
+    "data/blueprints/IgusaVarietiesAndTorsionConcentration.md"
+   ]
+  },
   "research/blueprint/packets/InductionRestrictionPartII.json": {
    "promotedAt": "2026-10-05T00:34:50Z",
    "review": "0556afae03e4ed1a",
