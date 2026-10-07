@@ -32025,8 +32025,9 @@
    ],
    "avoidAccountOf": "BP-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/REV-ModularityAndLanglandsExtensions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #541"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #541",
+   "finishedAt": "2026-10-07T14:55:53Z"
   },
   {
    "id": "BP-PeriodsAndSpecialValues--PS.0",
@@ -41554,7 +41555,8 @@
     "BP-PotentialAutomorphyInfrastructure~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructure~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6913"
   },
   {
    "kind": "blueprint",
