@@ -375,7 +375,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "S = Resℂ/ℝ Gm",
           "match": "For real points of the deligne torus, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -416,7 +415,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, p.252",
-          "excerpt": "S(ℝ) = ℂ*",
           "match": "For analytic deligne torus comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -454,7 +452,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 5.24, pp.63–64; Example 9, p.94",
-          "excerpt": "totally real field",
           "match": "For real points of hilbert groups, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -492,7 +489,6 @@
         {
           "sourceId": "deligne79",
           "locator": "0.6–0.7, p.251; 2.1.2, p.265",
-          "excerpt": "A = ℝ × Af",
           "match": "For adelic hilbert point comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -535,7 +531,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 5.15(a), p.58; functorial point/topological comparisons imported from suppliers",
-          "excerpt": "homomorphism",
           "match": "For point maps of datum morphisms, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -572,7 +567,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "S = Resℂ/ℝ Gm",
           "match": "For deligne torus representation input, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -609,7 +603,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, p.251",
-          "excerpt": "h(z)v = z⁻ᵖ z̄⁻ᑫ v",
           "match": "For deligne character sign dictionary, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -646,7 +639,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, pp.25–27; §5, p.56",
-          "excerpt": "weight homomorphism",
           "match": "For diagonal, weight and norm signs, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -684,7 +676,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "Vⁿ = ⊕p+q=n Vᵖᑫ",
           "match": "Group the finite character decomposition by total bidegree and descend each conjugation-stable total-weight subspace. Pure summands are the pinned Hodge carrier."
         }
       ],
@@ -784,7 +775,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "Vℂ = ⊕ Vᵖᑫ",
           "match": "For hodge pieces of a representation, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -876,7 +866,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, p.251",
-          "excerpt": "Vᵖᑫ = V̄ᑫᵖ",
           "match": "The real-conjugation condition is exactly the swap of the two character coordinates."
         }
       ],
@@ -915,7 +904,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, pp.25–26",
-          "excerpt": "Hodge filtration",
           "match": "For pure weight part of a representation, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1002,7 +990,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "équivalence de catégories",
           "match": "The passage states the algebraic real S-action/Hodge-structure equivalence. The inverse construction needs the explicitly requested effective comodule descent."
         }
       ],
@@ -1084,7 +1071,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "équivalence de catégories",
           "match": "This expands the two inverse object constructions from the stated equivalence into equality after scalar extension."
         }
       ],
@@ -1122,7 +1108,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1, pp.251–252",
-          "excerpt": "équivalence de catégories",
           "match": "The real-linear morphisms preserving each character piece give the morphism dictionary; the real comodule descent request remains open."
         }
       ],
@@ -1163,7 +1148,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Hodge tensors, p.27",
-          "excerpt": "tensor products",
           "match": "For tensor comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1201,7 +1185,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Hodge tensors, p.27",
-          "excerpt": "dual",
           "match": "For dual comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1240,7 +1223,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 2.6, p.25; Example 2.9, p.26",
-          "excerpt": "underlying vector space",
           "match": "For tate twist comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1278,7 +1260,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.1 and 1.1.10, pp.251–253",
-          "excerpt": "h(z)v = z⁻ᵖz̄⁻ᑫv",
           "match": "Evaluating the displayed character at i gives i^(q−p). Deligne and Milne call h(i) the Weil operator; the pinned Tau Ceti declaration instead uses i^(p−q). This node is their explicit conversion."
         }
       ],
@@ -1317,7 +1298,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Homomorphisms S→GL(V), p.26",
-          "excerpt": "wh is defined over Q",
           "match": "The passage says a rational Hodge structure corresponds to an S-action whose weight map is rational. R4 supplies the rational Gm eigenspace dictionary."
         }
       ],
@@ -1354,7 +1334,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, p.26",
-          "excerpt": "Hodge structure on V",
           "match": "The representation/Hodge dictionary on p.26 specializes to character (0,0), giving the trivial line; this is a specialization rather than a quoted trivial-object example."
         }
       ],
@@ -1390,7 +1369,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 2.6, p.25; Example 2.9, p.26",
-          "excerpt": "underlying vector space",
           "match": "For tate comparison object, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1429,7 +1407,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Examples 2.4 and 2.8, pp.25–26",
-          "excerpt": "complex structure",
           "match": "For elliptic homology comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1468,7 +1445,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§6, SV1 verification, p.69, specialized to genus one",
-          "excerpt": "acts as",
           "match": "For adjoint gl₂ comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1505,7 +1481,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Aside following 2.16, p.31",
-          "excerpt": "the smallest algebraic subgroup",
           "match": "The aside defines MT and states its connectedness and polarizable reductivity. The noetherian intersection is an R0 request; the two structural assertions are separated below and import R3/H1/R6."
         }
       ],
@@ -1593,7 +1568,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Aside following 2.16, p.31",
-          "excerpt": "It is connected",
           "match": "The passage states this structural property; the proof route imports the exact supplier interfaces named in the prerequisites."
         }
       ],
@@ -1634,7 +1608,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Aside following 2.16, p.31",
-          "excerpt": "polarizable if and only if",
           "match": "The passage states this structural property; the proof route imports the exact supplier interfaces named in the prerequisites."
         }
       ],
@@ -1673,7 +1646,6 @@
         {
           "sourceId": "masser-zannier",
           "locator": "§1.2, p.637",
-          "excerpt": "being GSp2g",
           "match": "For hodge-generic abelian variety, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1759,7 +1731,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§1, Cartan involutions, pp.15–17",
-          "excerpt": "Cartan involution",
           "match": "For cartan involution criterion, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1802,7 +1773,6 @@
         {
           "sourceId": "deligne79",
           "locator": "2.1.1.2, p.265",
-          "excerpt": "int h(i)",
           "match": "For adjoint involution from h(i), the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1841,7 +1811,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 1.21 proof, pp.17–18",
-          "excerpt": "centralizer",
           "match": "This identifies the homogeneous stabilizer. R2 and LieGroups layer2 supply the closed subgroup and differentiated centralizer equations."
         }
       ],
@@ -1880,7 +1849,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 1.21, proof, p.18",
-          "excerpt": "isomorphism of real vector spaces",
           "match": "For tangent quotient of the h-orbit, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -1917,7 +1885,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 1.21, proof, p.18",
-          "excerpt": "complex structure",
           "match": "For hodge complex structure on the tangent, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2002,7 +1969,6 @@
         {
           "sourceId": "deligne79",
           "locator": "1.1.11 and Proposition 1.1.14(ii), pp.253–255",
-          "excerpt": "morphisme de G-modules",
           "match": "The Lie action and bracket are equivariant maps; the type-addition computation is an expansion of this representation argument using R2 bracket equivariance."
         }
       ],
@@ -2039,7 +2005,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Theorem 2.14 proof, pp.30–31",
-          "excerpt": "inclusion of Lie algebras",
           "match": "For hodge filtration lie subalgebra, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2077,7 +2042,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 1.21 proof, p.18 (Wolf 1984, 8.7.9); Theorem 2.14(a) proof, p.30",
-          "excerpt": "can be shown to be integrable",
           "match": "The cited complex quotient step is not reproduced in these notes. The exact holomorphic quotient/integrability input is requested and recorded as a gap, with the Hodge Lie-subalgebra calculation supplied here."
         }
       ],
@@ -2118,7 +2082,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§1, pp.10–12; §2, pp.30–31",
-          "excerpt": "homeomorphism",
           "match": "For separation of the h-orbit, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2156,7 +2119,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§5, p.54, footnote 39",
-          "excerpt": "finitely many connected components",
           "match": "The passage states this structural property; the proof route imports the exact supplier interfaces named in the prerequisites."
         }
       ],
@@ -2196,7 +2158,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Lemma 4.7 and Proposition 4.8, pp.44–45",
-          "excerpt": "H is compact",
           "match": "For compact real factors, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2238,13 +2199,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "Proposition 4.8 and Corollary 5.8, pp.45,55",
-          "excerpt": "hermitian symmetric domains",
           "match": "For hermitian domain theorem, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         },
         {
           "sourceId": "deligne79",
           "locator": "2.1.1, p.265",
-          "excerpt": "facteurs non compacts",
           "match": "For hermitian domain theorem, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2287,7 +2246,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Proposition 5.9 and proof, p.56",
-          "excerpt": "unique structure",
           "match": "For uniqueness of the domain complex structure, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2327,7 +2285,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Variations of Hodge structures, pp.28–29",
-          "excerpt": "Griffiths transversality",
           "match": "The notes explain general local systems before restricting to constant ones on simply connected Hermitian domains. This node retains general finite-rank monodromy, holomorphic subbundles and the −1 connection condition."
         }
       ],
@@ -2418,7 +2375,6 @@
         {
           "sourceId": "bkt",
           "locator": "§1.3, published p.920 (PDF p.4)",
-          "excerpt": "polarized variation",
           "match": "For polarized integral variation, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2502,7 +2458,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, pp.28–29",
-          "excerpt": "local system",
           "match": "For flat bundle local comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2540,7 +2495,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, equations (18)–(19), p.29",
-          "excerpt": "Griffiths transversality",
           "match": "For tangent criterion for transversality, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2581,7 +2535,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Proposition 5.9 and proof, p.56",
-          "excerpt": "variation of Hodge structures",
           "match": "The passage gives a holomorphic/transverse family for every real algebraic representation. The rational weight and polarizing-form qualifications are explicit; no arbitrary representation is declared polarized."
         }
       ],
@@ -2669,7 +2622,6 @@
         {
           "sourceId": "deligne79",
           "locator": "Proposition 1.1.14(ii) and proof, pp.254–255",
-          "excerpt": "Lℂ = F⁻¹Lℂ",
           "match": "The proof identifies the filtered tangent differential and relates its −1 bound to the three adjoint types; representation equivariance then gives the stated lowering rule."
         }
       ],
@@ -2707,7 +2659,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Flag varieties pp.23–24; Theorem 2.14 proof p.30; §12 p.111",
-          "excerpt": "complex subspace",
           "match": "The flag stabilizer has Lie algebra F⁰End, pulled back along a faithful representation. With μ acting as z^−p the dynamic parabolic uses μ inverse; R7 supplies its representability and Levi."
         }
       ],
@@ -2796,7 +2747,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§2, Flag varieties, pp.23–24",
-          "excerpt": "Flag varieties",
           "match": "For compact dual, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2887,7 +2837,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 2.14 proof, p.30",
-          "excerpt": "tangent space",
           "match": "For differential of the borel map, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2926,7 +2875,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 2.14 proof, p.30",
-          "excerpt": "is injective",
           "match": "For injectivity of the borel map, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -2965,7 +2913,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Theorem 2.14 and proof, pp.30–31",
-          "excerpt": "open",
           "match": "For borel embedding, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3006,7 +2953,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Lemma 12.1 and following paragraph, p.111",
-          "excerpt": "conjugacy classes",
           "match": "For hodge cocharacter conjugacy class, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3090,7 +3036,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 12.2, p.112",
-          "excerpt": "fixed field",
           "match": "For reflex field, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3184,7 +3129,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Remark 12.3(a), p.112",
-          "excerpt": "finite degree over Q",
           "match": "For open cocharacter-class stabilizer, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3222,7 +3166,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Remark 12.3(a)–(b), p.112",
-          "excerpt": "splitting G",
           "match": "For finiteness of the reflex field, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3262,7 +3205,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Lemma 12.1 and Definition 12.2, pp.111–112; parabolic-type representability/descent is an explicit supplier gap",
-          "excerpt": "field of definition",
           "match": "For compact dual over the reflex field, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3304,7 +3246,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "Definition 1.3.1, p.3; §3.1, p.34",
-          "excerpt": "minimal length representatives",
           "match": "For kostant representatives, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3392,7 +3333,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, p.34; root criterion corrected as E2",
-          "excerpt": "Kostant representatives",
           "match": "For kostant cone criterion, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3432,7 +3372,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§1.3.3, p.3",
-          "excerpt": "Combinatorial description",
           "match": "For levi dominant cone decomposition, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3469,7 +3408,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§1.3, p.5",
-          "excerpt": "w0,M",
           "match": "For kostant opposition involution, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3507,7 +3445,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, p.34",
-          "excerpt": "ℓ(w) = dim Cw",
           "match": "For integral bruhat stratification, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3544,13 +3481,11 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§6.1, p.60; corrected E116",
-          "excerpt": "Yw",
           "match": "For schubert and opposite schubert loci, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         },
         {
           "sourceId": "higher-coleman",
           "locator": "§3.1, pp.31–32",
-          "excerpt": "opposite Schubert variety",
           "match": "For schubert and opposite schubert loci, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3638,7 +3573,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, p.34",
-          "excerpt": "w′ ≤ w",
           "match": "For bruhat closure criterion, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3676,7 +3610,6 @@
         {
           "sourceId": "higher-coleman",
           "locator": "Lemma 3.1.2 proof, p.32; cited BL03 proof leaf not read",
-          "excerpt": "By [BL03], I, lemma 1",
           "match": "For opposite schubert intersection criterion, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3714,7 +3647,6 @@
         {
           "sourceId": "higher-coleman",
           "locator": "Lemma 3.1.2, p.32",
-          "excerpt": "We have an inclusion",
           "match": "For opposite schubert inclusion, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3754,13 +3686,11 @@
         {
           "sourceId": "deligne79",
           "locator": "2.1.1, p.265",
-          "excerpt": "donnée de Shimura",
           "match": "For shimura datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         },
         {
           "sourceId": "milne-svi",
           "locator": "Definition 5.5, pp.54–55",
-          "excerpt": "conjugacy class",
           "match": "For shimura datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3852,7 +3782,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Remark 4.6(a), p.44; Definition 5.5, p.54",
-          "excerpt": "any conjugate",
           "match": "For conjugation invariance of the axioms, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3891,7 +3820,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§5, p.56",
-          "excerpt": "denote its reciprocal by wX",
           "match": "For central weight of a datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -3928,7 +3856,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 5.15(a), p.58",
-          "excerpt": "algebraic groups sending",
           "match": "For morphism of shimura data, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4015,7 +3942,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 5.15(a), p.58",
-          "excerpt": "morphism of Shimura data",
           "match": "For category of shimura data, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4100,7 +4026,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§5, Definition 5.5, pp.54–55",
-          "excerpt": "Shimura datum",
           "match": "For product of shimura data, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4188,7 +4113,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Proposition 5.7(a) and Aside 5.10, pp.55–56",
-          "excerpt": "union of connected components",
           "match": "The projection of X is injective, with component image; the full adjoint orbit can be larger because of the real central obstruction. This node does not infer surjectivity."
         }
       ],
@@ -4277,7 +4201,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 5.5 and Proposition 5.7(a), pp.54–55; lifting is a separately stated hypothesis",
-          "excerpt": "Shimura datum",
           "match": "The adjoint comparison and axioms reduce a given algebraic lift along a central isogeny to the target datum. Existence of a lift is an explicit hypothesis, not a result imported from an unread covering construction."
         }
       ],
@@ -4314,7 +4237,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 12.5 and footnote 69, p.113",
-          "excerpt": "defined over Q",
           "match": "The footnote fixes the rational torus requirement; the definition describes its factorization and does not require maximality."
         }
       ],
@@ -4397,7 +4319,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Definition 12.5 and Example 12.7, p.113",
-          "excerpt": "special pair",
           "match": "This is the existence predicate, independent of a chosen torus. Example 12.7 supplies the GL₂ CM and non-CM discriminating cases."
         }
       ],
@@ -4485,7 +4406,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§12, Special points, p.113",
-          "excerpt": "torus",
           "match": "For preservation of special points, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4523,7 +4443,6 @@
         {
           "sourceId": "hansen-johansson",
           "locator": "§4.1, preceding Definition 4.1, published p.1980 (PDF p.27)",
-          "excerpt": "Hodge type",
           "match": "For hodge type, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4611,7 +4530,6 @@
         {
           "sourceId": "hansen-johansson",
           "locator": "§4.1, preceding Definition 4.1, published p.1980 (PDF p.27)",
-          "excerpt": "central isogeny",
           "match": "For abelian type, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4698,7 +4616,6 @@
         {
           "sourceId": "hansen-johansson",
           "locator": "Definition 4.1, §4.1, published p.1980 (PDF p.27)",
-          "excerpt": "preabelian type",
           "match": "For preabelian type, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4786,7 +4703,6 @@
         {
           "sourceId": "hansen-johansson",
           "locator": "§4.1 and Definition 4.1, published p.1980 (PDF p.27)",
-          "excerpt": "slightly more general definition",
           "match": "For hodge–abelian–preabelian implications, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4823,7 +4739,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§3, p.34",
-          "excerpt": "torsion-free subgroup",
           "match": "For neat rational element, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4915,7 +4830,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§3, p.34",
-          "excerpt": "every representation",
           "match": "For representation independence of neatness, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -4952,7 +4866,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§5, pp.57–58",
-          "excerpt": "neat",
           "match": "For neat compact open level, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5036,7 +4949,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Definition 3.2.1, pp.201–202",
-          "excerpt": "generated by the eigenvalues",
           "match": "For adelic torsion-intersection neatness, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5122,7 +5034,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Lemma 5.11 and Proposition 5.12, pp.56–57",
-          "excerpt": "connected component",
           "match": "The arithmetic subgroup is intersected with the component stabilizer, defined via the adjoint real identity component. The plus subscript is not redefined as the identity component of G(R)."
         }
       ],
@@ -5208,7 +5119,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 9, p.94; Aside 5.10, p.56",
-          "excerpt": "infinitely many units",
           "match": "For kernel of the arithmetic domain action, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5247,7 +5157,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Proposition 3.1, p.32; §5, pp.57–58",
-          "excerpt": "acts freely",
           "match": "For freeness at neat level, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5287,7 +5196,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 12.4(a), p.112",
-          "excerpt": "Let T be a torus",
           "match": "For torus shimura datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5375,7 +5283,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 12.4(b), p.112",
-          "excerpt": "reflex field",
           "match": "For cm-type torus datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5463,7 +5370,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 5.6, p.55",
-          "excerpt": "GL2",
           "match": "For gl₂ shimura datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5551,7 +5457,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 5.6, p.55; §6, p.69",
-          "excerpt": "ho",
           "match": "For gl₂ hodge and weight checks, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5594,7 +5499,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§6, pp.67–69",
-          "excerpt": "Siegel Shimura datum",
           "match": "For siegel shimura datum, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5691,7 +5595,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§6, SV1 verification, p.69",
-          "excerpt": "Lie algebra of G",
           "match": "For siegel adjoint hodge types, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5733,7 +5636,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§6, pp.68–69; §12, pp.111–112",
-          "excerpt": "symplectic basis",
           "match": "For siegel reflex and compact dual, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -5777,7 +5679,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Example 5.24, pp.63–64, split quaternion case B=M₂(F)",
-          "excerpt": "totally real field",
           "match": "All real places are noncompact in this specialization, giving independently signed GL₂ components. The standard cocharacter at every embedding makes the entire class Galois invariant."
         }
       ],
@@ -5870,7 +5771,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§6 pp.68–69 and PEL type C discussion §9 pp.94–95",
-          "excerpt": "symplectic similitudes",
           "match": "This specializes the scalar-similitude condition to F² and trace polarization. The determinant fiber product, common sign, and real-component computation are derived here using RG2.0a; it is distinct from full Res GL₂."
         }
       ],
@@ -5960,7 +5860,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Complements A, Lemmas A.5–A.6, p.155",
-          "excerpt": "trace pairing",
           "match": "The trace-form nondegeneracy argument applies to the alternating F-form on F². Separability and total reality are stated explicitly; the standard J has a negative ψ(u,Ju), and −ψ has the positive normalization."
         }
       ],
@@ -6000,7 +5899,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "Complements A, Lemmas A.5–A.6, p.155; §6, pp.68–69",
-          "excerpt": "trace pairing is nondegenerate",
           "match": "For hilbert trace symplectic embedding, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6093,7 +5991,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, pp.33–34",
-          "excerpt": "The dominant cone",
           "match": "For siegel borel and dominant cones, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6132,7 +6029,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, p.34 (corrected E53)",
-          "excerpt": "W identifies with the subgroup of permutations",
           "match": "For siegel weyl permutation comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6171,7 +6067,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, p.34",
-          "excerpt": "a sequence of numbers",
           "match": "For siegel kostant sequence, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6256,7 +6151,6 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§3.1, p.34",
-          "excerpt": "The sequence",
           "match": "For intersection meaning of kostant sequences, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6293,7 +6187,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.1, PDF pp.7–8",
-          "excerpt": "We identify",
           "match": "For genus-two cg coordinate comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6333,7 +6226,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.1.1, PDF p.8; corrections in sourceIssues: E6",
-          "excerpt": "Kostant representatives",
           "match": "For genus-two kostant actions, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6373,7 +6265,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.1, PDF p.8; Theorem 5.5 proof, PDF pp.28–29",
-          "excerpt": "Weyl chambers",
           "match": "For genus-two chamber reversal, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6411,7 +6302,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.2, PDF pp.8–9; corrections in sourceIssues: E7,E8",
-          "excerpt": "The centralizer",
           "match": "For genus-two real centralizer, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6452,7 +6342,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.2, PDF p.9",
-          "excerpt": "unitary group",
           "match": "For unitary identification of the centralizer, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6489,7 +6378,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.2, PDF pp.9–10; Theorem 5.5 proof, PDF p.28; source issues E9–E10 record the kernel/parity correction",
-          "excerpt": "diagonal compact torus",
           "match": "For genus-two compact cartan, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6581,7 +6469,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.2, PDF p.9",
-          "excerpt": "Thus its kernel",
           "match": "For compact cartan exponential kernel, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6621,7 +6508,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.2, PDF p.10",
-          "excerpt": "are a basis",
           "match": "For genus-two cayley basis, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6707,7 +6593,6 @@
         {
           "sourceId": "calegari-geraghty",
           "locator": "§2.2, PDF p.10",
-          "excerpt": "With respect to the basis",
           "match": "For centralizer action in the cayley basis, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6747,7 +6632,6 @@
         {
           "sourceId": "pilloni",
           "locator": "§5.1.1, author p.20; Remark 5.2.1.1, author p.23; corrected E11, scoped to the author copy",
-          "excerpt": "choice of positive roots",
           "match": "For pilloni genus-two convention comparison, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6793,7 +6677,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Lemma 7.8.3, published p.409",
-          "excerpt": "characteristic polynomial",
           "match": "For unipotent reduction eigenvalue bound, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6835,7 +6718,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Proof of Lemma 7.8.3, published p.409 (generated-group step expanded here)",
-          "excerpt": "neat",
           "match": "For eigenvalue products retain the bound, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6876,7 +6758,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Lemma 7.8.3, published p.409",
-          "excerpt": "root of unity",
           "match": "For torsion gap at large residue characteristic, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6918,7 +6799,6 @@
         {
           "sourceId": "bcgp",
           "locator": "Lemma 7.8.3, published p.409",
-          "excerpt": "Then K is neat.",
           "match": "For unipotent iwahori criterion for neatness, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source."
         }
       ],
@@ -6969,7 +6849,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "§3, neatness definition and Proposition 3.5, p.34; rank-two principal-level calculation given here",
-          "excerpt": "defined by congruence conditions",
           "match": "The source motivates the congruence/neat distinction. The explicit rank-two bound is derived from determinant divisibility and the source definition, rather than quoted as a general N≥3 theorem."
         }
       ],

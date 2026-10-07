@@ -361,7 +361,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 59, (298)–(300); §1.4, p. 7, naive coefficient extensions",
-          "excerpt": "Here, for each m, we use the local variable u",
           "match": "Equations (298)–(300) give the product, exponent shift and phi(m) coefficient coordinates. The packet makes explicit the universal coefficient extension that these ranks require for arbitrary R. The tensor-product quotient presentation is a formalisation convention justified by the listed AdjoinRoot basis, rather than a literal definition in the source. The naive coefficient extensions on p. 7 motivate this interpretation; an embedded compositum need not have rank phi(m)."
         }
       ],
@@ -465,7 +464,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (301)–(303)",
-          "excerpt": "an,k = 0 for n < N",
           "match": "Equation (301) describes the factorial tail and (303) identifies its finite quotient. The packet defines the ideal by its projection kernel; the principal ideal, digit and separatedness API claims now have individual proof nodes. It uses the imported HC.1 completion and the shifted HC.2 digits."
         }
       ],
@@ -567,7 +565,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (304)–(305)",
-          "excerpt": "Cℓ(ζm) = 0 for mℓ < N",
           "match": "Equation (304) uses vanishing below ceil(N/m)-1, equivalent to floor((N-1)/m), and its prose says C_l=0 at ml<N. The packet retains the strict inequality and supplies ideal structure by componentwise power-series multiplication. The decreasing direction corrects E23."
         }
       ],
@@ -662,7 +659,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (301)–(303)",
-          "excerpt": "HR,N := (q; q)N−1 HR",
           "match": "Equation (301) identifies the tail with the principal ideal; its kernel interpretation follows from (303) and the imported HC.1 quotient theorem."
         }
       ],
@@ -699,7 +695,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, pp. 59–60, (299)–(300), (304)–(305)",
-          "excerpt": "Cℓ(ζm) = 0 for mℓ < N",
           "match": "The power-basis coefficients in (299) vanish exactly when C_l does; (304) specifies the retained strict weights. This is the coordinate-kernel corollary, separate from filtration separation."
         }
       ],
@@ -737,7 +732,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (308)",
-          "excerpt": "HR,N /HR,N+1",
           "match": "The second equivalence in (308) is multiplication by P_(N-1) from the polynomial quotient. The packet treats it as a linear equivalence of nested-ideal module quotients; normalized digits prove the kernel and avoid incorrectly imposing a unital algebra structure."
         }
       ],
@@ -778,7 +772,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (308)–(309)",
-          "excerpt": "ϕ(m) = N",
           "match": "The first equivalence in (308) extracts exactly the coefficients of weight N. Equation (309) gives the totient rank count. The inverse inserts one coefficient in each indicated component; positivity of the divisor and l=N/m is required."
         }
       ],
@@ -814,7 +807,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (303); p. 61, paragraph before (312)",
-          "excerpt": "where the first isomorphism is induced",
           "match": "The finite summands in (303) give the imported HC.2 digit basis in shifted indexing. The printed index typo before (312) is corrected to 0<=k<n. No infinite algebraic tensor product or Hamel basis is inferred."
         }
       ],
@@ -853,7 +845,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 59, (298)",
-          "excerpt": "q = ζm(1 − u)",
           "match": "Equation (298) expands q=zeta_m(1-u); the next paragraph gives x=-zeta_m*u relative to the introduction. The HC.3 supplier explicitly permits an arbitrary coefficient algebra with Phi_m(zeta)=0, so it supplies the universal AdjoinRoot component. The Hasse coefficient formula uses integral derivatives."
         }
       ],
@@ -943,7 +934,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, before (304)",
-          "excerpt": "vanishes at a primitive m-th root",
           "match": "The paragraph before (304) states the vanishing order for P_(N-1). This node isolates its elementary arbitrary-n form: indices divisible by m contribute the floor(n/m) factors of u. Exact order need not persist after coefficient reduction."
         }
       ],
@@ -976,7 +966,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (310)",
-          "excerpt": "Dm,ℓ := m2ℓ−1(ℓ − 1)!",
           "match": "Equation (310) defines D_(m,l)=m^(2l-1)*(l-1)!. The exponent-plus-one convention explains the factorial l-1. The definition and recurrence are natural-integer arithmetic, independent of torsion properties of R."
         }
       ],
@@ -1060,7 +1049,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, calculation following (310)",
-          "excerpt": "a simple calculation",
           "match": "The source leaves the calculation after (310) to the reader; it does not separately state this primitive-root product identity. The node supplies that intermediate calculation in the universal integral quotient, extending the cited Mathlib domain statement by injective passage through Q and coefficient change. Its m=1 boundary is the empty product."
         }
       ],
@@ -1099,7 +1087,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (310)",
-          "excerpt": "Dm,ℓ uℓ−1",
           "match": "Equation (310) states both the vanishing of lower coefficients and the first coefficient D_(m,l) in one expansion modulo u^l. The proof separates multiples of m from nonzero residues and uses root-product-identity; this is one coefficient-expansion assertion."
         }
       ],
@@ -1138,7 +1125,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (311)",
-          "excerpt": "P(ζm)",
           "match": "Equation (311) applies the expansion (310) to P_(N-1)*g for m dividing N. Only g(z_m) enters the surviving coefficient. The packet supplies the two graded identifications and the filtered-map prerequisite directly."
         }
       ],
@@ -1177,7 +1163,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, after (311)",
-          "excerpt": "P(ζm) = 0 for all m|N",
           "match": "The parenthesis after (311) identifies simultaneous root vanishing with divisibility by 1-q^N over Z. The packet proves the stronger coefficient-ring version by the integral matrix and torsion-free cancellation, rather than relying on integral CRT. Its separate rational node supplies the finite rational isomorphism."
         }
       ],
@@ -1214,7 +1199,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, after (311)",
-          "excerpt": "an injection on these quotients",
           "match": "The paragraph after (311) says the map is injective on graded quotients because D_(m,l) is nonzero. The packet makes the missing simultaneous-remainder input explicit and uses torsion-freeness in the cyclotomic basis. The rational bijectivity claim has its own node."
         }
       ],
@@ -1255,7 +1239,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, pp. 60–61, (306)",
-          "excerpt": "well-defined maps",
           "match": "Equation (306) descends the filtered comparison to the finite quotients. The node specifies the polynomial formula, coefficient naturality, forgetting-precision compatibility and agreement with the global map on completed elements. It uses the filtered containment and factorial finite quotient explicitly."
         }
       ],
@@ -1338,7 +1321,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, after (306)",
-          "excerpt": "injective map between free R-modules",
           "match": "The paragraph after (306) asserts finite injectivity and rational invertibility. This node now states only injectivity, proved by induction through the two graded pieces with precise torsion-free hypotheses; rational bijectivity is independently isolated."
         }
       ],
@@ -1376,7 +1358,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, immediately before (307)",
-          "excerpt": "ι is an injection over R",
           "match": "The source derives joint injectivity from the filtered finite maps. This node uses finite injectivity and the separated factorial kernels; it does not assert injectivity of a chosen embedded component."
         }
       ],
@@ -1420,7 +1401,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (307) and its preceding paragraph",
-          "excerpt": "an isomorphism over R ⊗ Q",
           "match": "Here the coefficient ring itself is a Q-algebra. Compatible finite inverses reconstruct H_R and P_R; the source explicitly warns on p. 59 that H_Q differs from H_Z tensor Q."
         }
       ],
@@ -1462,7 +1442,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, pp. 61–62, before (312) and (312)",
-          "excerpt": "integers entries and is independent",
           "match": "The paragraph before (312) specifies integral entries independent of R, and (312) pins the first ten rows. The packet explicitly orders every finite digit and jet basis and defines each integer entry by monic remainder. Its finite-level coefficient independence does not use the erroneous infinite tensor-product claim."
         }
       ],
@@ -1561,7 +1540,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, pp. 61–62, before (312) and (312)",
-          "excerpt": "matrix MN",
           "match": "The paragraph before (312) says M_N represents iota_N in the displayed coordinates. The corrected node is the actual toMatrix equality in specified bases; the digit-action and triangular-zero corollaries have separate nodes. Finite monic remainder commutes with coefficient change."
         }
       ],
@@ -1601,7 +1579,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 62, Proposition 5.1, (315)",
-          "excerpt": "D2(n)",
           "match": "The source supplies the cyclotomic determinant target (315), not a proof of this general auxiliary lemma. The lemma is independently derived using two unit-triangular changes of monomial bases and the pinned Sylvester-map statement; neither separability nor integral comaximality is required."
         }
       ],
@@ -1641,7 +1618,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 62, Proposition 5.1, (315)",
-          "excerpt": "D2(n) is an integer",
           "match": "Equation (315) gives the positive simultaneous-remainder determinant using discriminants. The packet gives its equivalent pairwise-resultant expression: successive two-factor remainder maps and resultant multiplicativity, then the inherited cyclotomic resultant formula, give the same integer without square-root choices."
         }
       ],
@@ -1679,7 +1655,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 62, (314)–(315)",
-          "excerpt": "Dm,ℓ",
           "match": "Equations (314)–(315) are the two factors of the graded determinant. Equation (311) represents its map as simultaneous remainders followed by scalar multiplication, so each D_(m,N/m) contributes phi(m) powers. Positivity follows in the same product computation."
         }
       ],
@@ -1720,7 +1695,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 62, Proposition 5.1, (313) (corrected indexing)",
-          "excerpt": "D(N) := |det(MN)|",
           "match": "Proposition 5.1 gives the block determinant argument, but (313) has the precision shift confirmed in E19. With the source definition of M_N and rows of weight below N, the product stops at N-1. The empty determinant and independently computed delta_3=4 pin the convention."
         }
       ],
@@ -1761,7 +1735,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, Proposition 5.2, (319)",
-          "excerpt": "M∗N := D(N) M−1N",
           "match": "Proposition 5.2 defines M_N^*=D(N) M_N^(-1). The packet uses sign(det M_N)*adj(M_N), giving that exact positive-determinant inverse scaling over Q and an integral constructor. The two product identities are proved by their separate pinned adjugate identities."
         }
       ],
@@ -1844,7 +1817,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, after (319)",
-          "excerpt": "D(N) M−1N",
           "match": "The inverse scaling after (319) gives the right inverse identity after multiplying by M_N. The integral proof applies Matrix.mul_adjugate and the determinant sign; it is separated from the reversed product, which needs Matrix.adjugate_mul."
         }
       ],
@@ -1883,7 +1855,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, (317)–(319)",
-          "excerpt": "≡ 0 (mod D(N))",
           "match": "Equations (317)–(319) identify finite membership with integrality of the inverse image. The packet states it as coordinate divisibility in R, justified by both signed-adjugate products and cancellation of the explicitly positive integer delta_N. It does not use division inside R."
         }
       ],
@@ -1926,7 +1897,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, Proposition 5.2, (319)",
-          "excerpt": "H ∈ ι(HR) if and only if",
           "match": "Proposition 5.2 states exactly these congruences at every finite precision. The packet adds the compatibility proof for unique finite preimages, factorial cofinal reconstruction, and separatedness of weighted Taylor coefficients to justify the global sufficiency step."
         }
       ],
@@ -1975,7 +1945,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, (318)–(319); §5.2, p. 65, (332)",
-          "excerpt": "for all N ∈ Z>0",
           "match": "The cited local/global image conditions motivate the scalar arithmetic input; they do not state this standalone lemma. Its proof is the explicit numerator and prime-exponent argument from the listed pinned localization and p-adic declarations, with zero handled separately."
         }
       ],
@@ -2015,7 +1984,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, (318)–(319); §5.2, p. 65, (332)",
-          "excerpt": "for all N ∈ Z>0",
           "match": "This is the untwisted local/global consequence of the finite congruences: coordinatewise coefficient maps commute with gamma and the integral matrices. Section 5.2 applies the related argument after its own Frobenius twist, owned by HB.6."
         }
       ],
@@ -2052,7 +2020,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.3, p. 66, Example 5.6, (334)–(337)",
-          "excerpt": "changing the number γ1,1,0 from 1 to 2",
           "match": "Example 5.6 gives the ten jet coordinates in (335) and normalized all-one digit vector in (336). The packet now isolates that computation; (337) and its failed perturbation have a separate application node."
         }
       ],
@@ -2093,7 +2060,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.3, p. 66, Example 5.7, (338)–(341)",
-          "excerpt": "if m is odd",
           "match": "Example 5.7 gives the constant odd-order indicator in (338), its membership over Z[1/2] and failure over Z. Rational reconstruction transfers the component projector into an idempotent, and the HC.5 decomposition justifies the entire localization lift, not merely its first four denominators. The digit and companion calculations are separate nodes."
         }
       ],
@@ -2137,7 +2103,6 @@
         {
           "sourceId": "Habiro.2004",
           "locator": "Habiro, proof of Theorem 5.2, p. 1138, first reduction",
-          "excerpt": "Hence we may assume ζ ∈ R",
           "match": "Habiro passes to R[zeta] but does not prove this standalone general finite-domain embedding. The reviewer checked the denominator-clearing proof from the pinned fraction-field, finite-span and common-denominator statements; no Noetherian or free-extension assumption is added."
         }
       ],
@@ -2177,7 +2142,6 @@
         {
           "sourceId": "Habiro.2004",
           "locator": "Habiro, proof of Theorem 5.2, p. 1138, first reduction",
-          "excerpt": "Hence we may assume ζ ∈ R",
           "match": "The source first uses injective coefficient change into R[zeta]. Its later p-adic separation argument also needs separation of that embedded finite domain; the coordinatewise transfer lemma supplies this implicit input without assuming Noetherianity."
         }
       ],
@@ -2199,7 +2163,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (301)–(303)",
-          "excerpt": "an,k = 0 for n < N",
           "match": "This node isolates the the digit description of a factorial kernel from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2236,7 +2199,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (301)–(303)",
-          "excerpt": "an,k = 0 for n < N",
           "match": "This node isolates the monotonicity of factorial kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2273,7 +2235,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (301)–(303)",
-          "excerpt": "or equivalently",
           "match": "This node isolates the separation of factorial kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2311,7 +2272,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (301)–(303)",
-          "excerpt": "an,k = 0 for n < N",
           "match": "This node isolates the the finite factorial quotient from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2348,7 +2308,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (304)–(305)",
-          "excerpt": "Cℓ(ζm) = 0 for mℓ < N",
           "match": "This node isolates the monotonicity of weighted taylor kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2384,7 +2343,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, (304)–(305)",
-          "excerpt": "or equivalently",
           "match": "This node isolates the separation of weighted taylor kernels from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2421,7 +2379,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, pp. 59–60, (299)–(300), (305)",
-          "excerpt": "where the isomorphisms are of R-modules",
           "match": "This node isolates the the ordered finite taylor basis from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2460,7 +2417,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, (309) and paragraph after (306)",
-          "excerpt": "equal N (N − 1)/2",
           "match": "This node isolates the the common finite precision rank from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2498,7 +2454,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, paragraph following (305)",
-          "excerpt": "canonical isomorphism",
           "match": "The finite/infinite comparison in (305)–(307) and Proposition 5.2 uses this compatibility or reconstruction step. The node spells it out as a separate declaration, with the exact finite transition and separatedness inputs."
         }
       ],
@@ -2536,7 +2491,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 60, before (304)",
-          "excerpt": "vanishes at a primitive m-th root",
           "match": "This node isolates the the taylor comparison respects precision from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2575,7 +2529,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, paragraph after (311)",
-          "excerpt": "an isomorphism after tensoring with Q",
           "match": "The source asserts rational graded bijectivity after (311). This node makes its rational simultaneous remainder input explicit using the pinned distinct-cyclotomic coprimality theorem and finite ideal CRT, then the imported finite quotient base change. It does not infer a finite theorem from the weaker conclusion of an infinite product decomposition."
         }
       ],
@@ -2617,7 +2570,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, paragraph after (311)",
-          "excerpt": "an isomorphism after tensoring with Q",
           "match": "This node isolates the rational bijectivity on taylor graded pieces from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2655,7 +2607,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, paragraph after (306)",
-          "excerpt": "invertible after tensoring with Q",
           "match": "This node isolates the rational bijectivity of the finite taylor comparison from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2696,7 +2647,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, pp. 61–62, before (312) and (312)",
-          "excerpt": "matrix MN",
           "match": "This node isolates the the taylor matrix acts on normalized digits from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2735,7 +2685,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 61, paragraph before (312)",
-          "excerpt": "block lower triangular form",
           "match": "This node isolates the the taylor matrix vanishes above weight from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2772,7 +2721,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 62, Proposition 5.1, (313) (corrected indexing)",
-          "excerpt": "D(N) := |det(MN)|",
           "match": "This node isolates the nonvanishing of the finite taylor determinant from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2809,7 +2757,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, after (319)",
-          "excerpt": "D(N) M−1N",
           "match": "This node isolates the the left signed adjugate identity from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2846,7 +2793,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, Proposition 5.2, (319)",
-          "excerpt": "H ∈ ι(HR) if and only if",
           "match": "The finite/infinite comparison in (305)–(307) and Proposition 5.2 uses this compatibility or reconstruction step. The node spells it out as a separate declaration, with the exact finite transition and separatedness inputs."
         }
       ],
@@ -2883,7 +2829,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.1, p. 63, local condition (318) used in Proposition 5.2; §5.2, p. 65, (332)",
-          "excerpt": "for all N ∈ Z>0",
           "match": "Auxiliary integer arithmetic for the cited local image criterion, independently proved from away-localization denominator clearing and prime factorization. It is not claimed as a separately stated result in GSWZ."
         }
       ],
@@ -2922,7 +2867,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.3, p. 66, Example 5.6, (336)–(337)",
-          "excerpt": "changing the number γ1,1,0 from 1 to 2",
           "match": "This node isolates the a failed perturbation of the kontsevich jets from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2960,7 +2904,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.3, p. 66, Example 5.7, paragraph after (338) and (339)",
-          "excerpt": "does not belong to HZ",
           "match": "This node isolates the the first odd-projector digits from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -2998,7 +2941,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.3, p. 66, Example 5.7, (340)",
-          "excerpt": "Similarly, the element G(q)",
           "match": "This node isolates the the companion order projector from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],
@@ -3037,7 +2979,6 @@
         {
           "sourceId": "GSWZ.v2",
           "locator": "§5.3, p. 66, Example 5.7, (341)",
-          "excerpt": "is also an element",
           "match": "This node isolates the the first companion-projector digits from the cited passage. Its proof and direct prerequisites above specify the extracted finite-precision assertion; coordinate computations use the pinned row order and l-1 exponent."
         }
       ],

@@ -103,7 +103,7 @@
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer J. Bloch",
       "edition": "CRM Monograph Series 11, AMS, 2000; public digitization text layer. Publisher PDF retrieval returned HTTP 403. No page-image verification or access to the parent worker’s private scan is claimed.",
-      "url": "https://www.scribd.com/document/750143417/CRM-Monograph-Series-11-Spencer-J-Bloch-Higher-Regulators-Algebraic-K-Theory-and-Zeta-Functions-of-Elliptic-Curves-AMS-2000",
+      "url": "https://bookstore.ams.org/crmm-11",
       "accessed": "2026-10-06",
       "readSections": [
         "Lecture 10 §§10.2–10.3, printed pp.77–85: Lemmas 10.2.2–10.2.3, Propositions 10.3.1 and 10.3.3, Lemmas 10.3.2, 10.3.4–10.3.5.",
@@ -157,7 +157,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "§10.3, pp.80–85, sum rearrangements underlying (10.3.2) and Propositions 10.3.1,10.3.3",
-          "excerpt": "10.3.",
           "match": "The source rearranges the logarithmic double series in (10.3.3) on p.81 and the Li₂ double series in the proof of Proposition 10.3.3 on pp.82–84. These are the supporting calculations, not a separately printed convergence theorem. The packet supplies the required orbit, double-series and lattice estimates independently, including the unit-circle exception."
         }
       ],
@@ -203,7 +202,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(10.3.2), p.80",
-          "excerpt": "L",
           "match": "In (10.3.2), L weights R′_q, the forward-minus-backward principal-complex-log expression immediately above it. The real logarithmic factor multiplies the full complex logarithm; it includes the argument term."
         }
       ],
@@ -317,7 +315,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(10.3.2), p.80; proof of Proposition 10.3.3, pp.82–83",
-          "excerpt": "M",
           "match": "In (10.3.2), M=−iΣ f̂ R″_q; the integral defining R″_q is the negative of the principal Li₂ value. Thus the packet has +i times the forward-minus-backward imaginary Li₂ sums. Projection occurs before the Fourier coefficient."
         }
       ],
@@ -425,7 +422,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(10.3.2) and decomposition in proof of Proposition 10.3.3, pp.80,82–83",
-          "excerpt": "M",
           "match": "The proof of Proposition 10.3.3 consolidates the backward sum by negating the torsion index, then splits M into M₁+M₂. The ℓ=0, n=0 endpoint occurs once with coefficient −i."
         }
       ],
@@ -470,7 +466,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Lemma 10.2.3, pp.79–80",
-          "excerpt": "10.2.3.",
           "match": "Lemma 10.2.3 states the horizontal n^(−3) identity. Its proof uses the cubic Bernoulli Fourier series, inverse transform at (0,−n), and oddness to obtain the positive iy²/π factor. Capital C follows inherited E11."
         }
       ],
@@ -522,7 +517,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Proposition 10.3.1 and Lemma 10.3.2, pp.80–82",
-          "excerpt": "10.3.1.",
           "match": "Proposition 10.3.1 has −y/(2π), m≠0, and denominator m(mτ+n)². Its proof passes through (10.3.3) and the weighted geometric identity in Lemma 10.3.2; the latter is already supplied by the pinned Mathlib baseline."
         }
       ],
@@ -573,7 +567,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Lemma 10.3.4, pp.83–84",
-          "excerpt": "10.3.4.",
           "match": "Lemma 10.3.4 evaluates M₁ with a positive H term and −1/(2π) times the projected reciprocal kernel. The proof uses oddness to remove the cosine phase, the geometric/cotangent identity, and paired cotangent partial fractions."
         }
       ],
@@ -619,7 +612,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Lemma 10.3.5, p.84",
-          "excerpt": "10.3.5.",
           "match": "Lemma 10.3.5 evaluates the unit-circle endpoint M₂ as −H by expanding Li₂ and summing the torsion character. This is the term cancelling the forward evaluation’s H."
         }
       ],
@@ -664,7 +656,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Proposition 10.3.3, pp.82–85",
-          "excerpt": "10.3.3.",
           "match": "Proposition 10.3.3 states the negative projected-kernel evaluation of M. Lemmas 10.3.4 and 10.3.5 give its two summands; Im acts on the reciprocal kernel, before multiplication by f."
         }
       ],
@@ -715,7 +706,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(10.3.1) and concluding algebra, pp.80,85",
-          "excerpt": "(10.3.1)",
           "match": "Equation (10.3.1) omits the m=0 row. The concluding algebra on p.85 combines Propositions 10.3.1 and 10.3.3. The public text loses the denominator’s conjugation; w−conj(w)=2imy independently determines the barred denominator recorded here."
         }
       ],
@@ -761,7 +751,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Lemma 10.2.3 and end of §10.3, pp.79–80,85",
-          "excerpt": "10.2.3.",
           "match": "The beginning of §10.3 reduces the regularized class formula using Lemmas 10.2.2 and 10.2.3; the conclusion proves the raw identity. Adding the explicitly evaluated Bernoulli horizontal row gives this unscaled analytic version; the class formula subsequently supplies C³."
         }
       ],
@@ -813,7 +802,7 @@
   "sourceVersions": [
     {
       "kind": "published",
-      "url": "https://www.scribd.com/document/750143417/CRM-Monograph-Series-11-Spencer-J-Bloch-Higher-Regulators-Algebraic-K-Theory-and-Zeta-Functions-of-Elliptic-Curves-AMS-2000",
+      "url": "https://bookstore.ams.org/crmm-11",
       "citation": "Bloch, CRM 11 (2000), public digitization text layer only; source finding is scoped to this accessible text. AMS original PDF refused retrieval.",
       "read": "2026-10-06"
     },

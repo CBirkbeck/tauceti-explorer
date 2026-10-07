@@ -387,7 +387,6 @@
     {
      "sourceId": "FAR10",
      "locator": "§2, before Définition 3, PDF p. 7",
-     "excerpt": "où ωG désigne le faisceau conormal associé à la section unité de G.",
      "match": "Fargues fixes ω_G as the conormal sheaf of the unit section; the node takes the same definition and computes it as the augmentation cotangent space."
     }
    ],
@@ -509,19 +508,16 @@
     {
      "sourceId": "FAR10",
      "locator": "§9.2, Définition 17, PDF p. 25",
-     "excerpt": "ωGD ⊗ OK son application de Hodge-Tate. On appelle polygone de Hodge-Tate de G le polygone",
      "match": "Fargues's Hodge–Tate map α_G: G(O_K̄) → ω_{G^D} ⊗ O_K̄, with the direction pinned here."
     },
     {
      "sourceId": "SW13",
      "locator": "§5.1, Proposition 5.1.6 and its proof (arXiv:1211.6357v2), PDF p. 50",
-     "excerpt": "αG : T ⊗ C → (Lie G∨ ⊗ C)∨ ⊂ M(G) ⊗ C .",
      "match": "The map T_pG → ω_{G^∨} sends a point, viewed as a map from the dual to μ_{p^∞}, to the pullback of dt/t."
     },
     {
      "sourceId": "AIP15",
      "locator": "§3.2, the Hodge–Tate map (arXiv:1212.3812), PDF p. 12",
-     "excerpt": "x : Hn,S → µpn ,S , to the pull–back x∗ (dt/t) ∈ ωHn (S) of the invariant differential dt/t of",
      "match": "AIP's definition x ↦ x*(dt/t) of the Hodge–Tate map of a finite flat group scheme."
     }
    ],
@@ -636,7 +632,6 @@
     {
      "sourceId": "FAR10",
      "locator": "§9.2, Définition 17, PDF p. 25",
-     "excerpt": "ωGD ⊗ OK son application de Hodge-Tate. On appelle polygone de Hodge-Tate de G le polygone",
      "match": "Fargues uses the functoriality of α_G in G throughout §9 (the Hodge–Tate triple is functorial)."
     }
    ],
@@ -678,7 +673,6 @@
     {
      "sourceId": "SW13",
      "locator": "§5.1, Proposition 5.1.6 and its proof (arXiv:1211.6357v2), PDF p. 50",
-     "excerpt": "αG : T ⊗ C → (Lie G∨ ⊗ C)∨ ⊂ M(G) ⊗ C .",
      "match": "Scholze–Weinstein define the Hodge–Tate map of a p-divisible group over O_C as the limit of the finite-level maps."
     }
    ],
@@ -785,25 +779,21 @@
     {
      "sourceId": "FAR10",
      "locator": "§9.2, Théorème 7, PDF p. 26",
-     "excerpt": "Théorème 7. Supposons p 6= 2. Soit G un schéma en groupes plat fini sur OK . Le conoyau de",
      "match": "The statement of (1) under p ≠ 2."
     },
     {
      "sourceId": "FAR10",
      "locator": "§9.2, Théorème 7, PDF p. 26",
-     "excerpt": "l’application αG ⊗ 1 : G(OK ) ⊗ OK −→ ωGD ⊗ OK est annulé par tout élément de valuation",
      "match": "The cokernel bound, valuation ≥ 1/(p−1)."
     },
     {
      "sourceId": "FAR11",
      "locator": "§5.4, Théorème 3 (author copy), PDF p. 25",
-     "excerpt": "Théorème 3 ([16]). Soit G un schéma en groupes fini et plat sur OK . Le conoyau de l’application",
      "match": "Restatement without hypothesis on p."
     },
     {
      "sourceId": "FAR11",
      "locator": "§5.3, Théorème 2 (author copy), PDF p. 24",
-     "excerpt": "Théorème 2 ([15]). Soit H un groupe p-divisible sur OK . La cohomologie de la suite de Hodge-",
      "match": "The integral Hodge–Tate sequence of a p-divisible group, cohomology killed by elements of valuation ≥ 1/(p−1)."
     }
    ],
@@ -845,19 +835,16 @@
     {
      "sourceId": "FAR10",
      "locator": "§2, Définition 3, PDF p. 7",
-     "excerpt": "Définition 3. On note δG = Div(lG/S ), un diviseur de Cartier sur S, de fibré en droites sous-",
      "match": "Definition of the discriminant divisor δ_G."
     },
     {
      "sourceId": "FAR10",
      "locator": "§3, Définition 4, PDF p. 9",
-     "excerpt": "Définition 4. On note deg G = v(δG ).",
      "match": "Definition of the degree."
     },
     {
      "sourceId": "FAR10",
      "locator": "Introduction, PDF p. 2",
-     "excerpt": "deg(G) = v(det f ∗ ) où f ∗ : ωB −→ ωA .",
      "match": "For a kernel of an isogeny f: A → B, deg is the valuation of det f* on ω; used as a test."
     }
    ],
@@ -974,25 +961,21 @@
     {
      "sourceId": "FAR10",
      "locator": "§2, Lemme 1, PDF p. 7",
-     "excerpt": "δG 2 = δG 1 + δG 3 .",
      "match": "Additivity of δ on exact sequences."
     },
     {
      "sourceId": "FAR10",
      "locator": "§3, Lemme 4, PDF p. 9",
-     "excerpt": "deg G + deg GD = ht G.",
      "match": "Duality."
     },
     {
      "sourceId": "FAR10",
      "locator": "§3, Exemple 2, PDF p. 9",
-     "excerpt": "Le groupe G est étale si et seulement si deg G = 0. Il est de type multiplicatif",
      "match": "Extreme values."
     },
     {
      "sourceId": "FAR10",
      "locator": "§3, Exemple 2, PDF p. 9",
-     "excerpt": "Si G est un groupe de Barsotti-Tate tronqué d’échelon n et dimension d alors, deg G = nd.",
      "match": "Degree of a BT_n."
     }
    ],
@@ -1027,19 +1010,16 @@
     {
      "sourceId": "FAR10",
      "locator": "§2, Proposition 2, PDF p. 8",
-     "excerpt": "|G1 |.δG2 = |G1 |.δG1 + 2.Div[p2∗ OG2 −−→ p1∗ OG1 ].",
      "match": "The precise change of δ along a generic isomorphism."
     },
     {
      "sourceId": "FAR10",
      "locator": "§3, Corollaire 3, PDF p. 10",
-     "excerpt": "C’est de plus un isomorphisme si et seulement si deg G = deg G′ .",
      "match": "Equality iff isomorphism."
     },
     {
      "sourceId": "BP26",
      "locator": "§4.2.8, proof of Proposition 4.2.8 (author copy), PDF p. 45",
-     "excerpt": "cor. 3. Assume that i + s = h, and deg H ′ = deg H, so that H ≃ H ′ . Let H + L be the subgroup of",
      "match": "Boxer–Pilloni use the equality case in the proof of Proposition 4.2.8."
     }
    ],
@@ -1079,7 +1059,6 @@
     {
      "sourceId": "BP26",
      "locator": "§4.1.8 (author copy), PDF p. 41",
-     "excerpt": "complement of Di is the locus where Gri is étale. We have Di + D2g+1−i = V (pn ) ([Far10], sect.",
      "match": "Boxer–Pilloni §4.1.8: the divisor D_H, its complement and D_H + D_{H^D} = V(p^h)."
     }
    ],
@@ -1176,19 +1155,16 @@
     {
      "sourceId": "PIL20",
      "locator": "§14.1 (author copy), PDF p. 92",
-     "excerpt": "with associated valuation vx normalized by vx (p) = 1, we have vx (δH ) = deg Hx ∈ [0, 1]",
      "match": "Pilloni define the divisor of an isogeny of semi-abelian schemes by det Lie(f)."
     },
     {
      "sourceId": "BCGP21",
      "locator": "§6.5.1 (arXiv:1812.09269v3), PDF p. 154",
-     "excerpt": "group scheme on a formal model Gx of Gx over Spec k(x)+ , then vx (δH ) = deg Hx .",
      "match": "BCGP §6.5.1: the section δ_H and v_x(δ_H) = deg H_x."
     },
     {
      "sourceId": "PIL20",
      "locator": "§14.3 (author copy), PDF p. 93",
-     "excerpt": "yields a section δLn ∈ det(Ω1G/Cn )+ ⊗ det−1 (Ω1Gn /Cn )+ .",
      "match": "Pilloni's section δ from the determinant of the differential of an isogeny."
     }
    ],
@@ -1279,7 +1255,6 @@
     {
      "sourceId": "PIL20",
      "locator": "§9.4 (author copy), PDF p. 56",
-     "excerpt": "the Hodge-Tate map provides an isomorphism :",
      "match": "Pilloni: HT ⊗ O is an isomorphism for H_n étale-locally μ_{p^n}."
     }
    ],
@@ -1314,7 +1289,6 @@
     {
      "sourceId": "PIL20",
      "locator": "§6.3.4, Lemma 6.3.4.1 (author copy), PDF p. 34",
-     "excerpt": "Lemma 6.3.4.1. — Assume that G and G0 are Barsotti-Tate groups of multiplicative",
      "match": "Pilloni, Lemma 6.3.4.1."
     }
    ],
@@ -1355,13 +1329,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.3, Proposition 3.3.1 (arXiv v2, III.3.1), PDF p. 54",
-     "excerpt": "Proposition III.3.1. Let C be an algebraically closed and complete extension of Qp with",
      "match": "Scholze, Proposition 3.3.1: the Hodge–Tate filtration through the Raynaud extension of the connected Néron model."
     },
     {
      "sourceId": "PIL20",
      "locator": "§12.2.1 (author copy), PDF p. 74",
-     "excerpt": "In [63], prop. 1.2 we show that the Hodge-Tate period map can be extended over",
      "match": "Pilloni: HT over the toroidal boundary of 𝔛(p^n)."
     }
    ],
@@ -1467,13 +1439,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, before Lemma 3.2.5, p. 33 (arXiv v2)",
-     "excerpt": "S. The Verschiebung isogeny V : A(p) → A induces a map V ∗ : ωA/S → ωA(p) /S ∼",
      "match": "Scholze's definition of Ha(A/S) from Verschiebung."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, before Lemma 3.2.5, p. 33 (arXiv v2)",
-     "excerpt": ", called the Hasse invariant. We recall the following well-known",
      "match": "The name and the section of ω^{⊗(p−1)}."
     }
    ],
@@ -1587,13 +1557,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Lemma 3.2.5, p. 33 (arXiv v2)",
-     "excerpt": "i.e. for all geometric points x̄ of S, A[p](x̄) has pg elements.",
      "match": "Lemma 3.2.5: invertible iff ordinary."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, proof of Lemma 3.2.5, p. 33",
-     "excerpt": "V F = p : A → A, and F is purely inseparable, so A[p](x̄) = (ker V )(x̄).",
      "match": "The key step of the proof."
     }
    ],
@@ -1631,13 +1599,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, p. 37 (arXiv v2)",
-     "excerpt": "codimension g. For g = 1, the Hasse invariant extends by direct inspection.",
      "match": "Extension to the minimal compactification."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.3, Lemma 3.3.2 (arXiv v2, III.3.2), PDF p. 54",
-     "excerpt": "Lemma III.3.2. In the situation of Proposition III.3.1, assume that A comes from a point",
      "match": "Lemma 3.3.2: the Hasse invariant at a boundary point."
     }
    ],
@@ -1675,13 +1641,11 @@
     {
      "sourceId": "PS16",
      "locator": "§1.4, Proposition 1.5 (author copy; published Proposition 1.2), PDF p. 4",
-     "excerpt": "Proposition 1.5. — Les sections HT (e1 ), ..., HT (e2g ) se prolongent en des sections de",
      "match": "Pilloni–Stroh Proposition 1.2: the Hodge–Tate map extends over the toroidal compactification."
     },
     {
      "sourceId": "BCGP21",
      "locator": "§6.1.4 (arXiv:1812.09269v3), PDF p. 141",
-     "excerpt": "over XK(pn ) . When F = Q, this is the content of [PS16a, Prop. 1.2]. For a general",
      "match": "BCGP §6.1.4: extension for F ≠ ℚ by the Koecher principle."
     }
    ],
@@ -1719,7 +1683,6 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.3, Proposition 3.3.1 (arXiv v2, III.3.1), PDF p. 54",
-     "excerpt": "Proposition III.3.1. Let C be an algebraically closed and complete extension of Qp with",
      "match": "Proposition 3.3.1."
     }
    ],
@@ -1755,19 +1718,16 @@
     {
      "sourceId": "FAR10",
      "locator": "§4.6, Théorème 2, PDF p. 13",
-     "excerpt": "Théorème 2. Soit G un groupe plat fini sur OK non nul. Il possède alors une unique filtration",
      "match": "Existence and uniqueness of the HN filtration."
     },
     {
      "sourceId": "FAR10",
      "locator": "§4.9, Définition 9, PDF p. 14",
-     "excerpt": "Définition 9. On appelle polygone de Harder-Narasimhan de G l’unique polygone concave débutant",
      "match": "The HN polygon."
     },
     {
      "sourceId": "FAR10",
      "locator": "§4.9, Proposition 7, PDF p. 14",
-     "excerpt": "Proposition 7. Soit G plat fini. Pour tout sous-groupe G′ de G, deg G′ ≤ HN(G) ht(G′ ) , en",
      "match": "Degrees of subgroups lie under the polygon."
     }
    ],
@@ -1866,19 +1826,16 @@
     {
      "sourceId": "FAR10",
      "locator": "§1.4, Proposition 1, PDF p. 5",
-     "excerpt": "DB/A = ∆B/A .",
      "match": "Different equals discriminant."
     },
     {
      "sourceId": "FAR10",
      "locator": "§2, PDF p. 7",
-     "excerpt": "∆G/S = f ∗ δG .",
      "match": "Discriminant of the group algebra is the pullback of δ_G."
     },
     {
      "sourceId": "PIL20",
      "locator": "§14.9, before Lemma 14.9.2.1, PDF p. 105",
-     "excerpt": "for the unit section e : OH D → O(XKli (p))≥1 is canonically isomorphic to I −1 .",
      "match": "Pilloni's use of the inverse different as the conormal sheaf."
     }
    ],
@@ -1917,7 +1874,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.2, Theorem 2.2.2 (arXiv:1511.02418v1), PDF p. 14",
-     "excerpt": "Theorem 2.2.2 ([Sch13c, Theorem 8.8]). Assume that Ri π∗ Fp is locally free on",
      "match": "Caraiani–Scholze apply the relative comparison to the universal abelian variety."
     }
    ],
@@ -1952,13 +1908,11 @@
     {
      "sourceId": "CS17",
      "locator": "§4.2, Remark 4.2.8 (arXiv:1511.02418v1), PDF p. 47",
-     "excerpt": "Remark 4.2.8. We have defined the Hodge-Tate filtration in Section 2 in terms of",
      "match": "Remark 4.2.8: local and global Hodge–Tate maps agree."
     },
     {
      "sourceId": "CS17",
      "locator": "§4.2, Remark 4.2.8 (arXiv:1511.02418v1), PDF p. 47",
-     "excerpt": "Section 2, so the local and global Hodge-Tate period maps are compatible.",
      "match": "Local and global Hodge–Tate period maps are compatible."
     }
    ],
@@ -1993,7 +1947,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.3, after Lemma 2.3.6 (arXiv:1511.02418v1), PDF p. 20",
-     "excerpt": "The fact that sα,p can be identified with sα under the Hodge-Tate isomorphism",
      "match": "Caraiani–Scholze §2.2: Blasius's theorem on Hodge tensors under the comparison."
     }
    ],
@@ -2035,13 +1988,11 @@
     {
      "sourceId": "SW13",
      "locator": "Introduction, the Hodge–Tate sequence (arXiv:1211.6357v2), PDF p. 4",
-     "excerpt": "0 → Lie G ⊗ C(1) → T (G) ⊗ C → (Lie G∨ )∨ ⊗ C → 0 ,",
      "match": "Scholze–Weinstein: the Hodge–Tate sequence of a p-divisible group over O_C."
     },
     {
      "sourceId": "SW13",
      "locator": "§4.3, Proposition 4.3.6 (arXiv:1211.6357v2), PDF p. 39",
-     "excerpt": "Proposition 4.3.6. The cokernel of T G(T + ) ⊗Zp T + → (Lie G∨ )∨ is killed by p1/(p−1)+ǫ for",
      "match": "The integral bound on the cokernel."
     }
    ],
@@ -2083,13 +2034,11 @@
     {
      "sourceId": "BHW",
      "locator": "§5.3, Remark 5.15 (arXiv:1902.03985v4), PDF p. 23",
-     "excerpt": "filtration is a short exact sequence of C ⊗Zp Op -modules",
      "match": "BHW's convention for the Hodge–Tate sequence of an abelian variety."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.3, Lemma 3.3.4 (arXiv v2, III.3.4), PDF p. 55",
-     "excerpt": "Lemma III.3.4. There is a GSp2g (Qp )-equivariant continuous map",
      "match": "Scholze's Lemma 3.3.4 uses the filtration on points."
     }
    ],
@@ -2129,7 +2078,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.2, the relative Hodge–Tate filtration (arXiv:1511.02418v1), PDF p. 15",
-     "excerpt": "Here, Fil−1 = 0, and Fili is everything. We call this filtration the relative Hodge-",
      "match": "Caraiani–Scholze: the relative Hodge–Tate filtration on the pro-étale site."
     }
    ],
@@ -2167,13 +2115,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.3, the affinoids Fℓ_J (arXiv v2), PDF p. 58",
-     "excerpt": "denote the open affinoid subset where |sJ ′ | ≤ |sJ | for all J ′ . The action of GSp2g (Zp ) per-",
      "match": "Scholze's definition of Fl, ω_Fl and the affinoids Fl_J."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.3, Lemma 3.3.4 (arXiv v2, III.3.4), PDF p. 55",
-     "excerpt": "Lemma III.3.4. There is a GSp2g (Qp )-equivariant continuous map",
      "match": "Lemma 3.3.4: the Hodge–Tate period map on points."
     }
    ],
@@ -2292,7 +2238,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.3, Lemma 2.3.6 (arXiv:1511.02418v1), PDF p. 19",
-     "excerpt": "Lemma 2.3.6. The object Pp over SK is a Pµ -torsor.",
      "match": "Caraiani–Scholze Lemmas 2.3.6–2.3.7."
     }
    ],
@@ -2333,7 +2278,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.3, before Lemma 2.3.6 (arXiv:1511.02418v1), PDF p. 19",
-     "excerpt": "this definition. We can now define a Pµ -quasitorsor Pp on the pro-étale site of SK",
      "match": "Caraiani–Scholze: the Hodge–Tate torsor P_p."
     }
    ],
@@ -2437,7 +2381,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.3, Proposition 2.3.9 (arXiv:1511.02418v1), PDF p. 21",
-     "excerpt": "Proposition 2.3.9. There is a canonical isomorphism MdR ∼       = Mp of Mµ -torsors",
      "match": "Lemma 2.3.8 / Proposition 2.3.9: M_dR ≅ M_p."
     }
    ],
@@ -2477,7 +2420,6 @@
     {
      "sourceId": "CS17",
      "locator": "§2.3, before Lemma 2.3.6 (arXiv:1511.02418v1), PDF p. 19",
-     "excerpt": "where Fil• on Vp ⊗ ÔSK is the relative Hodge-Tate filtration and Fil• (µ) is the",
      "match": "Caraiani–Scholze: the relative Hodge–Tate filtration compared with the filtration Fil^•(μ) determined by μ."
     }
    ],
@@ -2580,19 +2522,16 @@
     {
      "sourceId": "FAR11",
      "locator": "§2.2.1, PDF p. 7",
-     "excerpt": "De façon équivalente, après avoir fixé une base de ωGD , prenant la valuation du déterminant de",
      "match": "Fargues's Hasse valuation of a BT₁ over O_K."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, Definition 3.2.12, p. 38 (arXiv v2)",
-     "excerpt": "Definition III.2.12. Let 0 ≤ ǫ < 1 such that there exists an element pǫ ∈ Zcycl",
      "match": "The Hasse neighbourhood functor."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, after Lemma 3.2.13, p. 38",
-     "excerpt": "abelian scheme. Note that on generic fibres, X (ǫ) ⊂ X is the open subset where |Ha| ≥ |p|ǫ ;",
      "match": "Generic fibre {|Ha| ≥ |p|^ε}."
     }
    ],
@@ -2701,13 +2640,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Corollary 3.2.2, p. 32 (arXiv v2)",
-     "excerpt": "is homotopic to 0, where 0 ≤ ǫ < 21 . Then there is a finite locally free subgroup C ⊂ G over",
      "match": "The hypothesis ε < 1/2 and the conclusion."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Corollary 3.2.2, p. 32",
-     "excerpt": "R such that C ⊗R R/p1−ǫ = C1 ⊗R/p R/p1−ǫ .",
      "match": "The explicit error p^{1−ε}."
     }
    ],
@@ -2740,7 +2677,6 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Lemma 3.2.4, p. 32 (arXiv v2)",
-     "excerpt": "s̄ = t̄ ∈ X(R/pδ ) for some δ > ǫ. Then s = t.",
      "match": "Lemma 3.2.4."
     }
    ],
@@ -2775,13 +2711,11 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Definition 3.2.7, p. 34 (arXiv v2)",
-     "excerpt": "level m, where Cm is the unique closed subgroup such that Cm = ker F m mod p1−ǫ .",
      "match": "Definition 3.2.7 (weak)."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Definition 3.2.7, p. 34",
-     "excerpt": "If moreover Ha(A1 / Spec(R/p))p divides pǫ , then we say that Cm is a canonical sub-",
      "match": "Definition 3.2.7 (strong)."
     }
    ],
@@ -2909,31 +2843,26 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Corollary 3.2.6, p. 33 (arXiv v2)",
-     "excerpt": "divides pǫ for some ǫ < 12 . Then there is a unique closed subgroup Cm ⊂ A[pm ] (flat over R)",
      "match": "Corollary 3.2.6: existence and uniqueness."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, proof of Corollary 3.2.6, p. 33",
-     "excerpt": "existence of Cm follows from Corollary III.2.2, with G = A[pm ].",
      "match": "Existence through the lifting corollary."
     },
     {
      "sourceId": "FAR11",
      "locator": "§7.5, Théorème 6, PDF p. 38",
-     "excerpt": "Théorème 6. Supposons p 6= 2. Soient 0 ≤ d < h des entiers. Soit G un groupe de Barsotti-Tate",
      "match": "Fargues's main theorem, p ≠ 2."
     },
     {
      "sourceId": "FAR11",
      "locator": "§7.5, Théorème 6 (7), PDF p. 38",
-     "excerpt": "le noyau de l’application de Hodge-Tate αG,n− pn −1 Ha(G) .",
      "match": "Hodge–Tate characterisation."
     },
     {
      "sourceId": "FAR11",
      "locator": "§6.5, Théorème 4, PDF p. 32",
-     "excerpt": "deg(C D ) = deg(G/C) = Ha(G).",
      "match": "Degree of the quotient at level 1."
     }
    ],
@@ -2974,19 +2903,16 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Proposition 3.2.8(i), p. 34 (arXiv v2)",
-     "excerpt": "(i) If A has a canonical subgroup Cm ⊂ A[pm ] of level m, then it has a canonical subgroup",
      "match": "Proposition 3.2.8(i)."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Proposition 3.2.8(ii), p. 34",
-     "excerpt": "canonical subgroups Cm ⊂ A[pm ], Dm ⊂ B[pm ] of level m. Then Cm maps into Dm .",
      "match": "Proposition 3.2.8(ii)."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, Proposition 3.2.8(iv), p. 34",
-     "excerpt": "(iv) Assume that A has a canonical subgroup Cm ⊂ A[pm ] of level m, and let x̄ be a geometric",
      "match": "Proposition 3.2.8(iv)."
     }
    ],
@@ -3023,25 +2949,21 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.1, proof of Proposition 3.2.8(iii), p. 34 (arXiv v2)",
-     "excerpt": "Ha(B1−ǫ / Spec(R/p1−ǫ )) = Ha(A1−ǫ / Spec(R/p1−ǫ ))p 1 .",
      "match": "Hasse invariant of the quotient by the canonical subgroup."
     },
     {
      "sourceId": "FAR11",
      "locator": "§7.4, Théorème 5, PDF p. 37",
-     "excerpt": "Ha(p−1 C/C) = pHa(G).",
      "match": "Fargues's Théorème 5."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, Theorem 3.2.15(iii), p. 40 (arXiv v2)",
-     "excerpt": "parametrizing those D ⊂ A(ǫ)[p] with D ∩ C = {0}.",
      "match": "Anticanonical subgroups and the radius change."
     },
     {
      "sourceId": "AIP15",
      "locator": "Appendix, quotient by an anticanonical subgroup (arXiv:1212.3812), PDF p. 29",
-     "excerpt": "Then Hdg(G/L) = 1p Hdg(G), and G[p]/L is the canonical sub-group of level 1 of G/L.",
      "match": "Dividing by an anticanonical subgroup divides the Hodge height by p."
     }
    ],
@@ -3079,13 +3001,11 @@
     {
      "sourceId": "FAR11",
      "locator": "§7.5, Théorème 6 (7), PDF p. 38",
-     "excerpt": "le noyau de l’application de Hodge-Tate αG,n− pn −1 Ha(G) .",
      "match": "Canonical subgroup as kernel of the truncated Hodge–Tate map."
     },
     {
      "sourceId": "AIP15",
      "locator": "§3.2, Proposition 3.2.1 (arXiv:1212.3812), PDF p. 12",
-     "excerpt": "Proposition 3.2.1.          1. The differential of the inclusion Hn ֒→ G[pn ] induces an iso-",
      "match": "AIP: the Hodge–Tate map of the dual canonical subgroup and its cokernel."
     }
    ],
@@ -3128,7 +3048,6 @@
     {
      "sourceId": "BHW",
      "locator": "§7.1, Definition 7.1(1) (arXiv:1902.03985v4), PDF p. 28",
-     "excerpt": "canonical subgroup Hm ⊆ A of order pm , étale locally isomorphic to OF /pm OF .",
      "match": "BHW's Hilbert canonical subgroup statement."
     }
    ],
@@ -3168,13 +3087,11 @@
     {
      "sourceId": "BHW",
      "locator": "§5.2 (arXiv:1902.03985v4), PDF p. 21",
-     "excerpt": "XΓ∗∗ (pn ) (ǫ)a denote the anticanonical locus, parametrising subgroups that intersect the canonical",
      "match": "BHW: the anticanonical locus parametrises subgroups meeting the canonical subgroup trivially."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, Theorem 3.2.15(iii), p. 40 (arXiv v2)",
-     "excerpt": "parametrizing those D ⊂ A(ǫ)[p] with D ∩ C = {0}.",
      "match": "Scholze's anticanonical locus at level Γ₀(p)."
     }
    ],
@@ -3273,7 +3190,6 @@
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, Theorem 3.2.15(ii), p. 39 (arXiv v2)",
-     "excerpt": "(ii) For any m ≥ 0, the abelian variety A(p−m ǫ) → X(p−m ǫ) admits a canonical subgroup",
      "match": "The canonical subgroup gives maps to Γ₀(p^m)-level."
     }
    ],
@@ -3310,13 +3226,11 @@
     {
      "sourceId": "BHW",
      "locator": "§5.2, proof of Theorem 5.11 (arXiv:1902.03985v4), PDF p. 22",
-     "excerpt": "is a perfectoid tilde-limit X (p−∞ ǫ) ∼ limφ X (p−n ǫ). Since the Atkin–Lehner isomorphisms ALn",
      "match": "BHW: Atkin–Lehner isomorphisms identify the anticanonical tower with the Frobenius tower."
     },
     {
      "sourceId": "SCH15",
      "locator": "§3.2.2, after the proof of Theorem 3.2.15, p. 41 (arXiv v2)",
-     "excerpt": "For m ≥ 1, we define XΓ0 (pm ) (ǫ)a ⊂ XΓ0 (pm ) as the image of X (p−m ǫ), and similarly for",
      "match": "Scholze's description of the anticanonical locus as the image of X(p^{-m}ε)."
     }
    ],
@@ -3356,13 +3270,11 @@
     {
      "sourceId": "BHW",
      "locator": "§2, Definition 2.3 (arXiv:1902.03985v4), PDF p. 8",
-     "excerpt": "Definition 2.3. Let z be the parameter on P1 at 0 arising from the canonical isomorphism of",
      "match": "BHW: the parameter z on ℙ¹."
     },
     {
      "sourceId": "BHW",
      "locator": "§3.3, Lemma 3.19 (arXiv:1902.03985v4), PDF p. 13",
-     "excerpt": "Lemma 3.19. Let γ = ( ac db ) ∈ Γ0 (p), then γ ∗ s = (cz+d)γ, i.e. the following diagram commutes:",
      "match": "BHW Lemma 3.19: the factor cz + d."
     }
    ],
@@ -3468,7 +3380,6 @@
     {
      "sourceId": "BHW",
      "locator": "§5.3, Definition 5.17, PDF p. 24 (arXiv:1902.03985v4)",
-     "excerpt": "make analogous definitions for open subspaces Br (Op× : 1) and Br (1 : pOp ) of ResOF |Z P1 .",
      "match": "The balls B_r(𝒪_p^× : 1) and B_r(1 : p𝒪_p)."
     }
    ],
@@ -3566,13 +3477,11 @@
     {
      "sourceId": "BHW",
      "locator": "§5.3, Proposition 5.18, PDF p. 24 (arXiv:1902.03985v4)",
-     "excerpt": "Proposition 5.18. Let 1 > r ≥ 0. Then for any m ∈ Z≥1 with 1/pm ≤ r and any 0 ≤ ǫ ≤",
      "match": "The statement and its hypotheses."
     },
     {
      "sourceId": "BHW",
      "locator": "§5.3, Proposition 5.18, PDF p. 24",
-     "excerpt": "1/2pm , or ǫ ≤ 1/3pm if p = 3, or ǫ ≤ 1/4pm if p = 2, we have:",
      "match": "The constants c_p."
     }
    ],
@@ -3611,7 +3520,6 @@
     {
      "sourceId": "BHW",
      "locator": "§5.3, proof of Proposition 5.18 (arXiv:1902.03985v4), PDF p. 24",
-     "excerpt": "OC ) ∼= P1 (OC )Σ with a = (av )v , b = (bv )v ∈ OCΣ , which is the image of z under πHT .",
      "match": "BHW's proof uses the identification ℙ¹(𝒪_p ⊗ O_C) ≅ ℙ¹(O_C)^Σ, which fails for ramified p; the node replaces that step."
     }
    ],
@@ -3648,13 +3556,11 @@
     {
      "sourceId": "BHW",
      "locator": "§7.1, Definition 7.1(2), PDF p. 28 (arXiv:1902.03985v4)",
-     "excerpt": "(2) We denote by XIg(pm ) (ǫ) → X (ǫ) the finite étale (OF /pm OF )× -torsor which relatively",
      "match": "The Hilbert Igusa torsor."
     },
     {
      "sourceId": "BHW",
      "locator": "§3.4, PDF p. 14",
-     "excerpt": "where t is given by using the canonical isomorphism Hn∨ = E[pn ]/Hn and sending a trivialisation",
      "match": "The elliptic ordinary Igusa tower and the map t."
     }
    ],
@@ -3756,7 +3662,6 @@
     {
      "sourceId": "BHW",
      "locator": "§7.2, Proposition 7.11 (arXiv:1902.03985v4), PDF p. 30",
-     "excerpt": "m . Then s : XΓ∗ (p∞ ) (ǫ)a → T (ǫ) factors through the subspace",
      "match": "BHW Proposition 7.11 and its proof: the map ϕ to the Igusa tower."
     }
    ],
@@ -3797,19 +3702,16 @@
     {
      "sourceId": "BHW",
      "locator": "§7.1, Definition 7.3 (arXiv:1902.03985v4), PDF p. 29",
-     "excerpt": "age of the OF -submodule of ωIg(pm ) /Im generated by ψ(1).",
      "match": "BHW Definition 7.3 / Proposition 7.4: the lattice ω^int."
     },
     {
      "sourceId": "BHW",
      "locator": "§7.1, PDF p. 29 (arXiv:1902.03985v4)",
-     "excerpt": "The sheaf ωIg(p m ) gives a second integral structure on ωIg(pm ) . If p is ramified in OF , it is",
      "match": "ω^int as a second integral structure, better behaved at ramified p."
     },
     {
      "sourceId": "AIPH",
      "locator": "§4.1, Proposition 4.1 (author copy), PDF p. 15",
-     "excerpt": "Proposition 4.1. Let F be the inverse image in ωG of the OIGn,r,I -submodule of ωG /pn Hdg− p−1 ωG",
      "match": "AIP (Hilbert), Proposition 4.1."
     }
    ],
@@ -3915,13 +3817,11 @@
     {
      "sourceId": "BHW",
      "locator": "§7.1, Proposition 7.4 (arXiv:1902.03985v4), PDF p. 29",
-     "excerpt": "Proposition 7.4 ([AIP16a, Prop. 4.1]).",
      "match": "BHW Proposition 7.4."
     },
     {
      "sourceId": "BHW",
      "locator": "§7.1, Corollary 7.6, PDF p. 29 (arXiv:1902.03985v4)",
-     "excerpt": "Corollary 7.6. Let w ∈ ωIg(pm ) be any lift of ψ(1) ∈ ωHm under ωIg(pm ) → ωHm . Then w ∈ Fm .",
      "match": "Lifts of ψ(1) lie in the AIP torsor."
     }
    ],
@@ -3963,25 +3863,21 @@
     {
      "sourceId": "BCGP21",
      "locator": "§6.1.4, p. 141 (arXiv:1812.09269v3)",
-     "excerpt": "the normalization of the blow-up of the ideal which is the product at all places v",
      "match": "BCGP's blow-up of the minor ideals."
     },
     {
      "sourceId": "BCGP21",
      "locator": "§6.1.4, p. 141",
-     "excerpt": "dividing p of the ideal locally generated by the 2 × 2-minors of the matrix at v.",
      "match": "The 2 × 2 minors at each v | p."
     },
     {
      "sourceId": "PS16",
      "locator": "§1.8, construction before Proposition 1.13 (author copy; published Proposition 1.10), PDF p. 6",
-     "excerpt": "relèvements des déterminants des mineurs de taille g, ..., 1 de l’application",
      "match": "Pilloni–Stroh: blow-up along the minors of sizes g, …, 1."
     },
     {
      "sourceId": "PIL20",
      "locator": "§12.2.1, PDF p. 74",
-     "excerpt": "Following [63], prop. 1.10, there is a formal scheme X(pn )mod → X(pn ) which is the",
      "match": "Pilloni's restatement for Siegel threefolds."
     }
    ],
@@ -4089,25 +3985,21 @@
     {
      "sourceId": "BCGP21",
      "locator": "§6.2.1, p. 143 (arXiv:1812.09269v3)",
-     "excerpt": "We let X∗K(pn ) be the Stein factorization of the morphism: XK(pn ) → X∗K . This",
      "match": "The Stein factorisation at level p^n."
     },
     {
      "sourceId": "BCGP21",
      "locator": "§6.2.1, Remark 6.2.2, p. 144",
-     "excerpt": "But using the action of OF , it is easy to see that it factors through the direct factor",
      "match": "Remark 6.2.2."
     },
     {
      "sourceId": "PS16",
      "locator": "§1.4, Corollaire 1.7 (author copy; published Corollaire 1.4), PDF p. 5",
-     "excerpt": "Corollaire 1.7. — Les sections s1 , ..., sr proviennent par image inverse de sections no-",
      "match": "Pilloni–Stroh Corollaire 1.7: descent of the Hodge–Tate sections."
     },
     {
      "sourceId": "PIL20",
      "locator": "§12.9.1, PDF p. 80",
-     "excerpt": "descends from X(pn ) to X(pn )? .",
      "match": "Pilloni's restatement."
     }
    ],
@@ -4203,19 +4095,16 @@
     {
      "sourceId": "PIL20",
      "locator": "§12.7.1, PDF p. 77",
-     "excerpt": "subsheaf of the sheaf ωG of integral differential forms at the origin of G, generated by the",
      "match": "Pilloni's definition."
     },
     {
      "sourceId": "PIL20",
      "locator": "§12.7.1, PDF p. 77",
-     "excerpt": "image of the Hodge-Tate period map (compare with section 12.2.1).",
      "match": "Generated by Hodge–Tate images."
     },
     {
      "sourceId": "PIL20",
      "locator": "§12.7.1, PDF p. 77",
-     "excerpt": "come from the analytic site. Nevertheless, its pullback to X (pn ) for n ≥ 1 (or n ≥ 2 for",
      "match": "Not from the analytic site; pullback to finite level."
     }
    ],
@@ -4307,19 +4196,16 @@
     {
      "sourceId": "BHW",
      "locator": "§7.1, Definition 7.5, PDF p. 29 (arXiv:1902.03985v4)",
-     "excerpt": "Fm := {w ∈ ωIg(pm ) |w ≡ HT (1) mod Im }.",
      "match": "The AIP torsor."
     },
     {
      "sourceId": "BHW",
      "locator": "§7.1, Definition 7.5, PDF p. 29",
-     "excerpt": "immersion. Finally, we note that since pǫ ∈ Hdg, we have for x := m − ǫpm /(p − 1) that",
      "match": "The (corrected) comparison with 𝒪_p^×(1 + p^x Res 𝔾̂_a)."
     },
     {
      "sourceId": "AIPH",
      "locator": "§4.2, the torsor F_{n,r,I} (author copy), PDF p. 16",
-     "excerpt": "Fn,r,I (R) := ω ∈ F, ω = HT0 (1) in F/pn Hdg− p−1 F .",
      "match": "AIP (Hilbert): the torsor 𝔉."
     }
    ],
@@ -4426,19 +4312,16 @@
     {
      "sourceId": "BHW",
      "locator": "§7.2, Theorem 7.14, PDF p. 31 (arXiv:1902.03985v4)",
-     "excerpt": "Theorem 7.14. Let κ : U → W ∗ be a bounded smooth weight. Let 0 ≤ ǫ ≤ ǫκ . Then for any",
      "match": "The main comparison."
     },
     {
      "sourceId": "BHW",
      "locator": "§5.3, PDF p. 26",
-     "excerpt": "s(x) = HTA (α(1, 0)) ∈ ωA .",
      "match": "The Hodge–Tate trivialisation s."
     },
     {
      "sourceId": "BHW",
      "locator": "§3.3, Lemma 3.19, PDF p. 13",
-     "excerpt": "Lemma 3.19. Let γ = ( ac db ) ∈ Γ0 (p), then γ ∗ s = (cz+d)γ, i.e. the following diagram commutes:",
      "match": "Equivariance through cz + d."
     }
    ],

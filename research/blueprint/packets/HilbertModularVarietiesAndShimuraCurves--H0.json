@@ -269,7 +269,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H0, first paragraph; RS-23 H0 keeps",
-          "excerpt": "derived-group and centre descriptions",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -312,7 +311,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H0, domain comparison",
-          "excerpt": "common-sign components",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -351,7 +349,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Notation 5.1(3) and Definition 5.2(1), pp.1740–1741",
-          "excerpt": "Definition 5.2.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -444,7 +441,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Notation 5.1(3), p.1740; compare DP§2.12",
-          "excerpt": "trace pairing",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -542,7 +538,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Notation 5.1(3) and Definition 5.2(1), pp.1740–1741",
-          "excerpt": "Definition 5.2.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -587,7 +582,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Notation 5.1, continuation p.1741",
-          "excerpt": "of abelian type",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -627,7 +621,6 @@
         {
           "sourceId": "TAYLOR02",
           "locator": "§1, p.9, ordered invertible OM-module",
-          "excerpt": "ordered invertible",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -719,7 +712,6 @@
         {
           "sourceId": "DP94",
           "locator": "§§1.1–1.5 and 2.1, pp.60–63",
-          "excerpt": "polarisation",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -813,7 +805,6 @@
         {
           "sourceId": "DP94",
           "locator": "§§1.1–1.5 and 2.1, pp.60–63",
-          "excerpt": "polarisation",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -907,7 +898,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Notation 5.1 and Definition 5.3, pp.1740–1741",
-          "excerpt": "Definition 5.3.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -999,7 +989,6 @@
         {
           "sourceId": "DP94",
           "locator": "Proposition 2.7 and Corollary 2.9, pp.65–66",
-          "excerpt": "PROPOSITION 2.7.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1039,7 +1028,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definitions 5.2 and 5.4(1), pp.1741–1742",
-          "excerpt": "Definition 5.4",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1132,7 +1120,6 @@
         {
           "sourceId": "BHW23",
           "locator": "§5.1.2, pp.1744–1745",
-          "excerpt": "represented by the Hilbert moduli scheme",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1173,7 +1160,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.6 and equation(5.1), p.1743",
-          "excerpt": "Definition 5.6.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1264,7 +1250,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.6, equation(5.2), footnote(2), pp.1743–1744; Lemma 8.9, p.1769",
-          "excerpt": "Lemma 8.9.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1305,7 +1290,6 @@
         {
           "sourceId": "BHW23",
           "locator": "§5.1.2, pp.1744–1745",
-          "excerpt": "OF",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1343,7 +1327,6 @@
         {
           "sourceId": "DP94",
           "locator": "§3.2, p.68, and§4.1, pp.70–71",
-          "excerpt": "3.2",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1434,7 +1417,6 @@
         {
           "sourceId": "DP94",
           "locator": "§2.1, p.64; BHW§5.1.2, p.1744",
-          "excerpt": "2.1",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1527,7 +1509,6 @@
         {
           "sourceId": "DP94",
           "locator": "Theorem 2.2, Corollary 2.3, Theorem 3.3, Proposition 4.4 and§4.5, pp.64–73",
-          "excerpt": "THÉORÈME 3.3.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1570,7 +1551,6 @@
         {
           "sourceId": "DP94",
           "locator": "Proposition 2.7, p.65, and Theorem 2.2, p.64",
-          "excerpt": "PROPOSITION 2.7.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1610,7 +1590,6 @@
         {
           "sourceId": "AIP16",
           "locator": "§3.1, paragraph defining the Rapoport locus",
-          "excerpt": "Rapoport",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1701,7 +1680,6 @@
         {
           "sourceId": "AIP16",
           "locator": "§5.2.4, ordinary/Rapoport inclusion",
-          "excerpt": "ordinary locus",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1742,7 +1720,6 @@
         {
           "sourceId": "AIP16",
           "locator": "§3.1, Hasse invariant and formal-model paragraphs",
-          "excerpt": "Hasse",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1834,7 +1811,6 @@
         {
           "sourceId": "AIP16",
           "locator": "§3.2, formal thickenings; compare §3.1",
-          "excerpt": "3.2",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1925,7 +1901,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.2 and footnote(2), pp.1741,1744",
-          "excerpt": "choices",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -1963,7 +1938,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Proposition 8.4 and Lemma 8.12, pp.1766,1771",
-          "excerpt": "Proposition 8.4",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2047,7 +2021,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Proposition 8.4 and Lemma 8.12, pp.1766,1771",
-          "excerpt": "Proposition 8.4",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2131,7 +2104,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.2, Definition 8.3 and Proposition 8.4, pp.1765–1766",
-          "excerpt": "Definition 8.3.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2220,7 +2192,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Proposition 8.4, p.1766",
-          "excerpt": "∆(N )",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2316,7 +2287,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Proposition 8.4, p.1766",
-          "excerpt": "finite group",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2360,7 +2330,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Proposition 8.4, p.1766",
-          "excerpt": "finite étale",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2403,7 +2372,6 @@
         {
           "sourceId": "BHW23",
           "locator": "§8.4.1, pp.1777–1778, ideal dependence before Lemma 8.22",
-          "excerpt": "polarisation ideals",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2443,7 +2411,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.22 and diagram(8.7), pp.1777–1778",
-          "excerpt": "Lemma 8.22.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2484,7 +2451,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.4(4), Remark 5.5 and§8.2, pp.1742,1768",
-          "excerpt": "Remark 5.5.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2572,7 +2538,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.6, equation(5.2), p.1743; equation(8.4), p.1769",
-          "excerpt": "(8.4)",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2659,7 +2624,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.7, p.1743; Lemma 8.10, p.1770",
-          "excerpt": "Lemma 8.10.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2753,7 +2717,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Remark 5.8 and Lemma 8.9, pp.1744,1769–1770",
-          "excerpt": "Lemma 8.9.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2795,7 +2758,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.12, p.1771",
-          "excerpt": "Lemma 8.12.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2836,7 +2798,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.16(1), p.1772",
-          "excerpt": "Lemma 8.16.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2924,7 +2885,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Corollary 8.11, p.1771",
-          "excerpt": "Corollary 8.11.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -2964,7 +2924,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 5.4(2–3), p.1742; integral refinement required by roadmap H4",
-          "excerpt": "Definition 5.4",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3052,7 +3011,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.5, p.1766",
-          "excerpt": "Lemma 8.5.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3091,7 +3049,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 8.14 and Lemma 8.16, pp.1771–1773",
-          "excerpt": "Definition 8.14.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3176,7 +3133,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 8.14 and Lemma 8.16, pp.1771–1773",
-          "excerpt": "Definition 8.14.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3269,7 +3225,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemmas 8.15–8.16, pp.1771–1773",
-          "excerpt": "Lemma 8.15.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3309,7 +3264,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 8.17 and§8.3.1, pp.1773–1775",
-          "excerpt": "Definition 8.17.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3393,7 +3347,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 8.17 and§8.3.1, pp.1773–1775",
-          "excerpt": "Definition 8.17.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3481,7 +3434,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 8.17 and§8.3.1, pp.1773–1775",
-          "excerpt": "Definition 8.17.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3566,7 +3518,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Definition 8.17 and§8.3.1, pp.1773–1775",
-          "excerpt": "Definition 8.17.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3651,7 +3602,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Proposition 8.18, diagram(8.6), Lemma 8.19, pp.1773–1775",
-          "excerpt": "Lemma 8.19.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3694,7 +3644,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.20, p.1775, corrected statement; source Issues E1–E2",
-          "excerpt": "Lemma 8.20.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3738,7 +3687,6 @@
         {
           "sourceId": "BHW23",
           "locator": "Lemma 8.20 proof, p.1775; explicit countercalculation",
-          "excerpt": "injective map",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3784,7 +3732,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H5, first paragraph",
-          "excerpt": "For `F=ℚ`",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3823,7 +3770,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H5, quadratic comparison",
-          "excerpt": "zero-dimensional rational boundary components",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3866,7 +3812,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H5, Hodge bundle paragraph",
-          "excerpt": "splitting coefficient field",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3907,7 +3852,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H5, weight and central-unit comparison",
-          "excerpt": "central-unit conditions",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3951,7 +3895,6 @@
         {
           "sourceId": "ROADMAP",
           "locator": "H5, final sentence",
-          "excerpt": "nontrivial polarization ideal class",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -3990,7 +3933,6 @@
         {
           "sourceId": "TAYLOR02",
           "locator": "§1, p.13, simultaneous torsion moduli",
-          "excerpt": "moduli",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4091,7 +4033,6 @@
         {
           "sourceId": "TAYLOR02",
           "locator": "§1, p.13, moduli quintuple and smoothness",
-          "excerpt": "smooth",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4185,13 +4126,11 @@
         {
           "sourceId": "DP94",
           "locator": "Corollary 2.4, p.64; Taylor§1, p.13",
-          "excerpt": "2.4",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         },
         {
           "sourceId": "TAYLOR02",
           "locator": "§1, p.13, fine simultaneous torsion moduli and complex connectedness",
-          "excerpt": "geometrically",
           "match": "Taylor gives the complex connected-domain argument for the chosen paired torsion component. DP Corollary 2.4 alone does not construct the twist or its component descent."
         }
       ],
@@ -4235,7 +4174,6 @@
         {
           "sourceId": "TAYLOR02",
           "locator": "Lemma 1.4, p.12, real HBAV construction",
-          "excerpt": "Lemma 1.4",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4278,7 +4216,6 @@
         {
           "sourceId": "TAYLOR02",
           "locator": "Lemmas 1.2–1.3, pp.9–12",
-          "excerpt": "Lemma 1.2",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4318,7 +4255,6 @@
         {
           "sourceId": "ALLEN23",
           "locator": "§7.2.5, published pp.1103–1106",
-          "excerpt": "Let Yi",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4406,7 +4342,6 @@
         {
           "sourceId": "ALLEN23",
           "locator": "§7.2.5, published pp.1103–1106",
-          "excerpt": "Let Yi",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4498,7 +4433,6 @@
         {
           "sourceId": "ALLEN23",
           "locator": "§7.2.5, published pp.1104–1105; Lemma 7.2.2, published pp.1098–1099",
-          "excerpt": "Lemma 7.2.2",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4538,7 +4472,6 @@
         {
           "sourceId": "ALLEN23",
           "locator": "§7.2.5, published pp.1103–1106",
-          "excerpt": "It follows",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4580,7 +4513,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§4.1, p.561, displayedh and uniformization",
-          "excerpt": "4.1. Shimura curve X.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4672,7 +4604,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§4.1, p.561, canonical curves over F; compare Proposition 3.1, p.551",
-          "excerpt": "over F",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4720,7 +4651,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§4.1, p.561, complex uniformization and compactness",
-          "excerpt": "uniformization",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4813,7 +4743,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§4.1, pp.561–562 and Proposition 4.1",
-          "excerpt": "Proposition 4.1.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4855,7 +4784,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§3.1, pp.550–551, defining G″,ν and G′",
-          "excerpt": "3.1. Moduli interpretations.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4946,7 +4874,6 @@
         {
           "sourceId": "YZ18",
           "locator": "Proposition 3.1, p.551; special case§3.2, p.552; §5.1, p.571",
-          "excerpt": "Proposition 3.1.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4989,7 +4916,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§3.1, p.552, equations(3.1.1)–(3.1.2) and four moduli conditions",
-          "excerpt": "(3.1.1)",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -5079,7 +5005,6 @@
         {
           "sourceId": "YZ18",
           "locator": "Propositions 4.2 and 4.4, p.563",
-          "excerpt": "Proposition 4.4.",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -5121,7 +5046,6 @@
         {
           "sourceId": "YZ18",
           "locator": "§5.1, pp.571–572, product map and twisted diagonal quotient",
-          "excerpt": "twisted diagonal",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],

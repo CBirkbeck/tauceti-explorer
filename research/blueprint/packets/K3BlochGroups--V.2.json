@@ -162,7 +162,6 @@
         {
           "sourceId": "BT1973",
           "locator": "Chapter II §2, Theorem (2.1)(3), printed p.396; final proof paragraph, printed p.402 (volume PDF pp.406,412).",
-          "excerpt": "negative",
           "match": "The sign-isolating generators and their order-two section in the final proof paragraph give the imported signature coordinates. This node canonically transports those coordinates through the supplier isomorphism."
         }
       ],
@@ -269,7 +268,6 @@
         {
           "sourceId": "BT1973",
           "locator": "Chapter II §2, Theorem (2.1)(3), printed p.396; final proof paragraph, printed p.402 (volume PDF pp.406,412).",
-          "excerpt": "negative",
           "match": "The proof chooses a unit negative at exactly one real place and rewrites its third power as the ordered symbol {−1,−1,u_v}. Weak approximation and signature injectivity give the stated representative and choice independence."
         }
       ],
@@ -311,7 +309,6 @@
         {
           "sourceId": "BT1973",
           "locator": "Chapter II §2, Theorem (2.1)(3), printed p.396; final proof paragraph, printed p.402 (volume PDF pp.406,412).",
-          "excerpt": "negative",
           "match": "Each real coordinate is represented by {−1,−1,u_v}, hence lifts from {−1,u_v} in Milnor K₂. Surjectivity and the Quillen image identity are consumer consequences using Matsumoto and the graded supplier, rather than additional assertions of Bass–Tate."
         }
       ],
@@ -356,13 +353,11 @@
         {
           "sourceId": "KVI",
           "locator": "VI.4.3.2, chapter PDF p.18.",
-          "excerpt": "Proposition 4.3.2.",
           "match": "The integral degree-three Milnor-to-Quillen map is injective. Transport through its corestriction to the image combines this theorem with the independent Bass–Tate signature; no identification with all torsion is made."
         },
         {
           "sourceId": "BT1973",
           "locator": "Chapter II §2, Theorem (2.1)(3), printed p.396; final proof paragraph, printed p.402 (volume PDF pp.406,412).",
-          "excerpt": "negative",
           "match": "The imported Bass–Tate signature identifies Milnor K₃ with the finite real-coordinate product; integral injectivity then transports it to the actual image subgroup."
         }
       ],
@@ -467,13 +462,11 @@
         {
           "sourceId": "BT1973",
           "locator": "Chapter II §2, Theorem (2.1)(3), printed p.396; final proof paragraph, printed p.402 (volume PDF pp.406,412).",
-          "excerpt": "negative",
           "match": "The real-coordinate product is zero when r₁=0, so Milnor K₃ and its image vanish. The equivalence of the quotient map is the resulting elementary quotient consequence."
         },
         {
           "sourceId": "KVI",
           "locator": "VI.5 opening, chapter PDF p.23 (definition of the cokernel).",
-          "excerpt": "The focus of this section",
           "match": "K₃^ind is defined as the cokernel of the Milnor comparison. With the Bass–Tate zero source for r₁=0, the quotient map itself is an equivalence; its construction requires no numerical torsion computation."
         }
       ],
@@ -564,13 +557,11 @@
         {
           "sourceId": "BT1973",
           "locator": "Chapter II §2, Theorem (2.1)(3), printed p.396; final proof paragraph, printed p.402 (volume PDF pp.406,412).",
-          "excerpt": "negative",
           "match": "The sign-isolating representatives yield the preceding product-surjectivity theorem. Combining that theorem with the stable Hurewicz kernel gives this quotient consequence."
         },
         {
           "sourceId": "KVI",
           "locator": "VI.5 opening paragraph, chapter PDF p.23.",
-          "excerpt": "its kernel",
           "match": "The stable Hurewicz map is surjective with kernel the image of {−1}·K₂ᴹ. The preceding number-field product-surjectivity theorem turns that image into D(F), so the quotient universal property gives the equivalence."
         }
       ],
@@ -678,13 +669,11 @@
         {
           "sourceId": "KVI",
           "locator": "VI.4.3.1–4.3.2, chapter PDF pp.17–18; for the corrected K₄-divisibility citation, VI.1.3.1(i), p.3, and VI.1.6(i), pp.4–5.",
-          "excerpt": "Proposition 4.3.2.",
           "match": "Read the low-degree row and the characteristic-not-two proof of integral injectivity. The new node isolates the H⁰(Z(2))/2 vanishing step, with natural restriction, the exponent-two bound, and both characteristic cases of K₄ divisibility; it does not assume the final injectivity theorem."
         },
         {
           "sourceId": "KV",
           "locator": "V.11.3, V.11.11, Lemma 11.13, chapter PDF pp.81–82,85–87",
-          "excerpt": "Lemma 11.13.",
           "match": "With the diagonal Milnor identification the Chern composite in degree three is multiplication by +2. Construction of the integral Chern classes is a supplier extension, not a new object of V.2."
         }
       ],
@@ -725,7 +714,6 @@
         {
           "sourceId": "KVI",
           "locator": "VI.4.3.1, chapter PDF p.17.",
-          "excerpt": "Low degree terms",
           "match": "The integral low-degree sequence is right exact at K₃ and H¹(Z(2)). Surjectivity and equality of the edge kernel with the actual Milnor image suffice for the quotient equivalence, independently of injectivity of m₃."
         }
       ],

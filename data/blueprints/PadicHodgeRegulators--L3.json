@@ -296,7 +296,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6 and proof, pp. 1126-1127",
-          "excerpt": "Lemma 5.6.",
           "match": "Isolates the first explicit polynomial inverse used in the displayed Euler expression."
         }
       ],
@@ -329,7 +328,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6, proof",
-          "excerpt": "Lemma 5.6.",
           "match": "The inverse assertion requires the explicit nonzero scalar denominator."
         }
       ],
@@ -399,7 +397,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6 and proof, pp. 1126-1127",
-          "excerpt": "Lemma 5.6.",
           "match": "Isolates the inverse of I-Phi in the source's calculation."
         }
       ],
@@ -432,7 +429,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6, proof",
-          "excerpt": "Lemma 5.6.",
           "match": "The source calculation becomes a typed two-sided inverse identity with its denominator hypothesis."
         }
       ],
@@ -470,7 +466,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6, p. 1126",
-          "excerpt": "Lemma 5.6.",
           "match": "The displayed operator formula is retained with every denominator made explicit."
         }
       ],
@@ -544,7 +539,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.1 and Proposition 4.2, p. 1118",
-          "excerpt": "Proposition 4.2.",
           "match": "The source module is expressed as a submodule using the actual evaluation maps."
         }
       ],
@@ -578,7 +572,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3, first inclusion, pp. 1118-1119",
-          "excerpt": "Lemma 4.3.",
           "match": "Makes explicit the distinct-factor divisibility used in the first image inclusion."
         }
       ],
@@ -615,7 +608,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.1, p. 1118",
-          "excerpt": "Lemma 4.1.",
           "match": "Expands the adapted-basis and division argument of the source."
         }
       ],
@@ -649,7 +641,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, induction step, p. 1118",
-          "excerpt": "Proposition 4.2.",
           "match": "This is the source's evaluated basis matrix at the new node."
         }
       ],
@@ -723,7 +714,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, definition of S double-prime, p. 1118",
-          "excerpt": "Proposition 4.2.",
           "match": "The source transports by the inverse of its evaluated matrix."
         }
       ],
@@ -755,7 +745,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, induction step",
-          "excerpt": "Proposition 4.2.",
           "match": "Justifies preservation of the exponent in the new determinant factor."
         }
       ],
@@ -833,7 +822,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2 and proof, p. 1118",
-          "excerpt": "Proposition 4.2.",
           "match": "Source induction expanded to declaration granularity, with correct inverse transport and matrix order."
         }
       ],
@@ -867,7 +855,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, p. 1118",
-          "excerpt": "Proposition 4.2.",
           "match": "Pins the meaning of the source's determinant expression to a principal ideal."
         }
       ],
@@ -937,7 +924,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3 and proof, pp. 1118-1119",
-          "excerpt": "Lemma 4.3.",
           "match": "Uses the source's forced-zero set and not just an unspecified subset of factors."
         }
       ],
@@ -1014,7 +1000,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3, interpolation step, p. 1119",
-          "excerpt": "Lemma 4.3.",
           "match": "Expands the source's interpolating-polynomial construction using the pinned Lagrange API."
         }
       ],
@@ -1048,7 +1033,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3, pp. 1118-1119",
-          "excerpt": "Lemma 4.3.",
           "match": "Both directions of the source image description are explicit."
         }
       ],
@@ -1127,7 +1111,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3A, displayed definition Col=J composed with (1-phi), Remark 3.1 and Lemma 3.3, pp.1116-1117",
-          "excerpt": "Lemma 3.3.",
           "match": "Separates coordinate algebra from construction of the arithmetic source and target."
         }
       ],
@@ -1159,7 +1142,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3A, Lemma 3.3 and its proof, p.1117",
-          "excerpt": "Lemma 3.3.",
           "match": "This reconstruction is the first equality in the source proof."
         }
       ],
@@ -1233,7 +1215,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, equation (1), pp. 1116-1117",
-          "excerpt": "matrix M with entries in H(0)",
           "match": "Defines the comparison matrix from basis images with the correct coefficient ring."
         }
       ],
@@ -1268,7 +1249,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, equation (1) and Lemma 3.3",
-          "excerpt": "Lemma 3.3.",
           "match": "The finite basis expansion in the source becomes a map-level identity."
         }
       ],
@@ -1302,7 +1282,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, Lemma 3.3, Definition 3.4 and equation (2), p. 1117",
-          "excerpt": "Lemma 3.3.",
           "match": "Separates the coordinate identity from the genuinely arithmetic comparison inputs."
         }
       ],
@@ -1339,7 +1318,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, equation (1); section 5C, Remark 5.12, p. 1129",
-          "excerpt": "Remark 5.12.",
           "match": "Extends the stated fixed-crystalline-basis transformation to explicit two-basis covariance."
         }
       ],
@@ -1409,7 +1387,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11, proof, p. 1129",
-          "excerpt": "Proposition 5.11.",
           "match": "The integral ring makes the distinction between nonzero and unit determinant necessary."
         }
       ],
@@ -1442,7 +1419,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11, proof, p. 1129",
-          "excerpt": "Proposition 5.11.",
           "match": "Preserves all three cases of the source's change-of-lines argument."
         }
       ],
@@ -1479,7 +1455,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11, p.1129; compare arXiv1006.5163v2 Section 5.3, Proposition 5.11 and Remark 5.12, p.25",
-          "excerpt": "Proposition 5.11.",
           "match": "The maximal-ideal strengthening is already present in the preprint's integral remark and is used to make the published proof valid."
         }
       ],
@@ -1516,7 +1491,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11 and Remark 5.12, pp. 1128-1129; section 4A, Lemma 4.3",
-          "excerpt": "Proposition 5.11.",
           "match": "The algebra proves the rational conclusion; Theorems 5.10 and 5.13 supply additional integral content, not silently assumed here."
         }
       ],
@@ -1546,7 +1520,6 @@
         {
           "sourceId": "LZ2014",
           "locator": "Appendix B before Proposition B.1, PDF p.37",
-          "excerpt": "leading term",
           "match": "Fixes both the sign and factorial at negative integers."
         }
       ],
@@ -1619,7 +1592,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 1C2, definitions of ell_i, delta_i and n_k and Proposition 1.6, pp.1101-1102; Section 2A, p.1107; Theorem 4.16, p.1124",
-          "excerpt": "These factors are mutually coprime",
           "match": "Reconciles n_k with lambda_k and the normalized delta_i, up to the displayed nonzero constant."
         }
       ],
@@ -1706,7 +1678,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3A, Definition 3.4, pp.1116-1117",
-          "excerpt": "Definition 3.4.",
           "match": "The intrinsic map precedes all scalar and basis choices."
         }
       ],
@@ -1793,7 +1764,6 @@
         {
           "sourceId": "Berger2003",
           "locator": "Section II.5, exact sequence and Definition II.12, p.120",
-          "excerpt": "∆(f )",
           "match": "Records the obstruction that prevents inverses at singular eigenvalues."
         }
       ],
@@ -1873,7 +1843,6 @@
         {
           "sourceId": "Berger2003",
           "locator": "Definition II.12, Theorem II.13 and Remark II.14, pp.120-121",
-          "excerpt": "well-defined",
           "match": "The invariant quotient is essential in the exceptional case."
         }
       ],
@@ -1962,13 +1931,11 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Theorem4.6, p.1120",
-          "excerpt": "Theorem 4.6.",
           "match": "Its inverse notation is interpreted only after analytic localization."
         },
         {
           "sourceId": "Berger2003",
           "locator": "RemarkII.15, p.121",
-          "excerpt": "Remark II.15.",
           "match": "Provides the admitted h and twist identities."
         }
       ],
@@ -2004,7 +1971,6 @@
         {
           "sourceId": "LZ2014",
           "locator": "Section4.4 and AppendixB equation(10), pp.21,39",
-          "excerpt": "fraction field",
           "match": "The printed arbitrary-weight extension explicitly has a fractional target."
         }
       ],
@@ -2086,7 +2052,6 @@
         {
           "sourceId": "LZ2014",
           "locator": "AppendixB PropositionsB.1-B.2, LemmaB.4 and TheoremB.5, pp.36-39",
-          "excerpt": "Theorem B.5.",
           "match": "Covers every integral twist for ramified finite characters in the crystalline range."
         }
       ],
@@ -2122,7 +2087,6 @@
         {
           "sourceId": "LZ2014",
           "locator": "AppendixB TheoremB.5 and the parenthesis immediately following it, pp.39-40",
-          "excerpt": "invertible",
           "match": "The excluded operator is B_j; A_j can have a kernel."
         }
       ],
@@ -2160,13 +2124,11 @@
         {
           "sourceId": "LZ2014",
           "locator": "AppendixB PropositionsB.1-B.2, pp.37-38",
-          "excerpt": "(1 − ϕ)",
           "match": "A denominator-free consequence of the two source equalities, not an invented inverse."
         },
         {
           "sourceId": "Berger2003",
           "locator": "SectionII.5 exact sequence, p.120",
-          "excerpt": "kernel",
           "match": "Keeps the obstruction and invariant data in the general inverse problem."
         }
       ],
@@ -2202,7 +2164,6 @@
         {
           "sourceId": "LZ2014",
           "locator": "Proposition4.8 and AppendixC, pp.17,41-43",
-          "excerpt": "valuation ≥ −h",
           "match": "Specializes the cyclotomic growth bound from the stated Frobenius quotient."
         }
       ],
@@ -2240,13 +2201,11 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section3A, pp.1116-1117",
-          "excerpt": "no quotient isomorphic to the trivial representation",
           "match": "Identifies the precise integral source and target lattice."
         },
         {
           "sourceId": "LZ2014",
           "locator": "Remark4.16, p.20",
-          "excerpt": "roots of unity",
           "match": "Fixes the inverse group element in the root-change law."
         }
       ],
@@ -2285,13 +2244,11 @@
         {
           "sourceId": "LZ2014",
           "locator": "AppendixB equation(10) and TheoremB.6, pp.39-40",
-          "excerpt": "−σ−1",
           "match": "Provides the exact regulator pairing normalization."
         },
         {
           "sourceId": "Berger2003",
           "locator": "TheoremII.16 and RemarkII.17, pp.122-123",
-          "excerpt": "(−1)h",
           "match": "Cross-checks the sign against the actual big-exponential pairing."
         }
       ],
@@ -2333,7 +2290,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Corollary4.7 and proof, p.1120",
-          "excerpt": "Corollary 4.7.",
           "match": "Gives the exponent and identifies the additional determinant theorem used."
         }
       ],
@@ -2372,7 +2328,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section3 equation(2), p.1117; Section1C6 modular bases",
-          "excerpt": "Lemma 3.3.",
           "match": "Source coordinates become scalar only in an explicitly chosen basis; the functional formulation is the invariant deduction."
         }
       ],
@@ -2461,7 +2416,6 @@
         {
           "sourceId": "LZ2014",
           "locator": "Section6.4.2 diagram and text, pp.28-29",
-          "excerpt": "6.4.2. Coleman series.",
           "match": "States the actual multiplier in the rank-one regulator/Coleman square."
         }
       ],
@@ -2497,7 +2451,6 @@
         {
           "sourceId": "RubinES",
           "locator": "III Section5.8, Proposition5.14, printed p.52",
-          "excerpt": "Proposition 5.14.",
           "match": "The supplied URL is Rubin’s book, not Kolyvagin1990; it states containment rather than equality in the split case."
         }
       ],
@@ -2579,13 +2532,11 @@
         {
           "sourceId": "LLZWach2010",
           "locator": "Theorem3.5, Lemmas3.7-3.10, Proposition3.11, Lemma3.15, pp.10-13",
-          "excerpt": "ni ≡",
           "match": "Gives the integral iterative proof and rational basis transport."
         },
         {
           "sourceId": "LLZ2011",
           "locator": "Proposition2.11, Theorem2.12, Corollary2.13, Remark2.14, pp.1115-1116",
-          "excerpt": "We conjecture",
           "match": "Specifies analytic extension and the precise unproved arbitrary-basis claim."
         }
       ],
@@ -2618,7 +2569,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section1C5, pp.1104-1105; Section2C before Proposition2.7, p.1112",
-          "excerpt": "non-critical",
           "match": "The flag condition is exactly the input to the elementary-divisor proof."
         }
       ],
@@ -2699,7 +2649,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Propositions2.4-2.5, Lemma2.6, Proposition2.7, Lemma2.9, pp.1110-1114",
-          "excerpt": "saturation",
           "match": "The complete flag chain replaces a bare assertion of a determinant."
         }
       ],
@@ -2738,7 +2687,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Corollary1.12, Theorem2.10 and Corollary3.2, pp.1103,1114,1117",
-          "excerpt": "Theorem 2.10 (Theorem A).",
           "match": "States the actual analytic elementary divisors."
         }
       ],
@@ -2777,7 +2725,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Proposition4.8, Corollaries4.9-4.10 and Proposition4.11, pp.1120-1123",
-          "excerpt": "Proposition 4.11.",
           "match": "Identifies the period subspace and then the matrix transport."
         }
       ],
@@ -2865,7 +2812,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Theorem4.12, Corollaries4.13-4.15, pp.1123-1124",
-          "excerpt": "Equality holds",
           "match": "Target statement and determinant route, with the missing descent interface made explicit."
         }
       ],
@@ -2906,7 +2852,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Theorem4.16 and proof, p.1124",
-          "excerpt": "Theorem 4.16.",
           "match": "Computes the unbounded vector-regulator cokernel."
         }
       ],
@@ -2943,7 +2888,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Lemma5.6, Corollary5.7, text before Proposition5.9 and Proposition5.9, pp.1126-1127",
-          "excerpt": "(2 − a p )",
           "match": "The preceding relation fixes the ordered-coordinate normalization."
         }
       ],
@@ -2981,19 +2925,16 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Theorems 5.10 and 5.13, Proposition 5.11 and the published basis-change Remark 5.12, pp.1128-1129; the maximal-ideal selection is in arXiv1006.5163v2 Remark 5.12, p.25",
-          "excerpt": "pseudo-null",
           "match": "Finite cokernel is the integral conclusion."
         },
         {
           "sourceId": "LLZWach2010",
           "locator": "Proposition4.11 and proof, pp.26-27",
-          "excerpt": "assumptions (C) and (D)",
           "match": "Precisely marks the integral proof input still needed beyond its printed scope."
         },
         {
           "sourceId": "LLZ2010v2",
           "locator": "Section 5.3, Remark 5.12, p.25",
-          "excerpt": "maximal ideal",
           "match": "The preprint supplies the integral maximal-ideal choice; distinguish it from the published basis-change Remark 5.12."
         }
       ],
@@ -3034,7 +2975,6 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section3A and Section1A applications, pp.1096-1097,1116",
-          "excerpt": "Coleman",
           "match": "The signed consumers require kernels of the actual normalized maps."
         }
       ],
@@ -3109,7 +3049,6 @@
         {
           "sourceId": "RJ2018",
           "locator": "Section 0E3 and IA, Theorem I.1; Sections IC4-IC5, equation(3), Theorem I.15 and Lemma I.17, pp.896-898,910-915",
-          "excerpt": "B(η, N ) =",
           "match": "Records the precise strict inequality and high-conductor union."
         }
       ],
@@ -3193,7 +3132,6 @@
         {
           "sourceId": "RJ2018",
           "locator": "SectionIC2, PropositionI.13 and proof, pp.911-913",
-          "excerpt": "Proposition I.13.",
           "match": "The analytic differential calculus is a substantive construction, not a formal exponent."
         }
       ],
@@ -3276,7 +3214,6 @@
         {
           "sourceId": "RJ2018",
           "locator": "Equation(3), TheoremI.15, LemmaI.17 and proofs, pp.914-916",
-          "excerpt": "un caractère de Dirichlet de conducteur",
           "match": "Constructs the vector function and proves its admitted-domain analyticity."
         }
       ],
@@ -3372,7 +3309,6 @@
         {
           "sourceId": "RJ2018",
           "locator": "LemmaI.17, PropositionsI.22-I.26, TheoremI.27 and footnotes10,25, pp.914-920",
-          "excerpt": "Théorème I.27.",
           "match": "Exact integer ranges, period bases and convergence estimates."
         }
       ],
@@ -3411,7 +3347,6 @@
         {
           "sourceId": "RJ2018",
           "locator": "TheoremI.15, p.914; SectionIC9, PropositionI.28, CorollaryI.29, p.920",
-          "excerpt": "fonction définie sur tout l’espace des poids",
           "match": "Precisely states the crystalline subrange in which a global extension is proved."
         }
       ],
@@ -3444,7 +3379,6 @@
         {
           "sourceId": "RubinES",
           "locator": "III Section5.8, Proposition5.14(b), printed p.52",
-          "excerpt": "augmentation ideal",
           "match": "The supplied review-added noncrystalline property, with its exact weaker image assertion."
         }
       ],

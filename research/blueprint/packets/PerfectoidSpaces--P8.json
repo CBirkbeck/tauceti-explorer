@@ -821,19 +821,16 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 3.1, Step 3, p. 6 (PDF p. 6)",
-     "excerpt": "Step 3: The natural G-equivariant map Spa(A, A+) →Cont(A) ×Cont(AG) Spa(AG, A+G) is a homeomorphism.",
      "match": "Step 3 proves A⁺ = (A^{+G})^{icl}, part (v)."
     },
     {
      "sourceId": "kl16",
      "locator": "Theorem 3.3.26, p. 68 (PDF p. 68)",
-     "excerpt": "Theorem 3.3.26. Let A be a Fontaine perfectoid ring on which the finite group G acts (on the right). Then the invariant subring AG is again Fontaine perfectoid.",
      "match": "The proof uses the norm of a topologically nilpotent unit as a G-invariant pseudouniformizer, part (i)."
     },
     {
      "sourceId": "chj17",
      "locator": "Proposition 2.22, p. 19 (PDF p. 19)",
-     "excerpt": "Proposition 2.22. A is a closed subalgebra of A∞, hence carries an induced structure of a uniform Qp-Banach algebra, and A◦= (A◦∞)G.",
      "match": "The closed-subalgebra and A° = (A_∞°)^G facts, part (ii), for a profinite group acting on a uniform Banach algebra."
     }
    ],
@@ -870,13 +867,11 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 3.1, Step 1, p. 4 (PDF p. 4) (continues on p. 5, PDF p. 5)",
-     "excerpt": "Step 1: Cont(A) →Cont(AG) is surjective, and the fibers are G-orbits. Fix a choice of G-invariant pseudouniformizer ϖ ∈ AG (so it also does the job for A).",
      "match": "Step 1 of the proof of Theorem 3.1 cites [ZS75, Corollary VI.7.3] for the transitivity."
     },
     {
      "sourceId": "chj17",
      "locator": "Proposition 6.24, p. 54 (PDF p. 54)",
-     "excerpt": "We wish to show that Y := Spa(A, A◦) is the quotient of X := Spa(B, B◦) in V by verifying the conditions of Lemma 6.23. Proposition 6.24. Y = X/G as topological spaces.",
      "match": "The proof of Proposition 6.24 cites Bourbaki V.2.2 Theorem 2 and Zariski–Samuel VI.7 Corollary 3 for the same step."
     }
    ],
@@ -920,13 +915,11 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 3.1, Step 1, p. 4 (PDF p. 4) (continues on p. 5, PDF p. 5)",
-     "excerpt": "Step 1: Cont(A) →Cont(AG) is surjective, and the fibers are G-orbits. Fix a choice of G-invariant pseudouniformizer ϖ ∈ AG (so it also does the job for A).",
      "match": "Step 1 of the proof of Theorem 3.1, including the continuity criterion it quotes."
     },
     {
      "sourceId": "chj17",
      "locator": "Proposition 6.24, p. 54 (PDF p. 54)",
-     "excerpt": "We wish to show that Y := Spa(A, A◦) is the quotient of X := Spa(B, B◦) in V by verifying the conditions of Lemma 6.23. Proposition 6.24. Y = X/G as topological spaces.",
      "match": "The same fibre argument for classical affinoid algebras (Bourbaki V.2.2 Theorem 2, Zariski–Samuel VI.7 Corollary 3)."
     }
    ],
@@ -969,19 +962,16 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 3.1, p. 4 (PDF p. 4)",
-     "excerpt": "Theorem 3.1. Let (A, A+) be a Tate-Huber pair with an action of a finite group G. Then the map Spa(A, A+) →Spa(AG, A+G) induces a natural homeomorphism Spa(A, A+)/G ∼= Spa(AG, A+G) where we give the left-hand side the quotient topology.",
      "match": "Theorem 3.1 with Steps 2–4 of its proof."
     },
     {
      "sourceId": "han16",
      "locator": "Lemma 3.2, p. 6 (PDF p. 6)",
-     "excerpt": "Lemma 3.2. Let f : Y →X be a surjective generalizing spectral map of spectral spaces. Then f is a quotient map.",
      "match": "Lemma 3.2, the quotient criterion used in Step 2."
     },
     {
      "sourceId": "ecd",
      "locator": "Lemma 2.5 with proof, p. 11 (PDF p. 11)",
-     "excerpt": "Lemma 2.5. Let f : Y →X be a surjective and generalizing spectral map of spectral spaces. Then f is a quotient map.",
      "match": "The same quotient criterion, as ECD Lemma 2.5."
     }
    ],
@@ -1025,13 +1015,11 @@
     {
      "sourceId": "cgj19",
      "locator": "Proposition 2.1.1, p. 4 (PDF p. 4)",
-     "excerpt": "Proposition 2.1.1. Let A be a complete Tate Zp-algebra with a continuous left action of a finite group G, and let A+ be an open and integrally closed subring of A that is preserved by G. Let X = Spd(A, A+), XG = Spd(AG, A+G).",
      "match": "Proposition 2.1.1 and its proof."
     },
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.3 (with the following paragraph on the auxiliary conditions), p. 28 (PDF p. 28)",
-     "excerpt": "Theorem 5.3. Let X be a rigid analytic space over some nonarchimedean field K with an action of a finite group G. Assume that X is separated, and that for every rank one point x ∈X, the closure {x} ⊆X is contained in some open affinoid subspace",
      "match": "The last paragraph of the proof of Theorem 5.3 states the same claim for Tate ℤ_p-algebras and sketches it via CGJ."
     }
    ],
@@ -1068,7 +1056,6 @@
     {
      "sourceId": "kl16",
      "locator": "Theorem 3.3.26, p. 68 (PDF p. 68)",
-     "excerpt": "Theorem 3.3.26. Let A be a Fontaine perfectoid ring on which the finite group G acts (on the right). Then the invariant subring AG is again Fontaine perfectoid.",
      "match": "The p-group paragraph of the proof of Theorem 3.3.26."
     }
    ],
@@ -1112,19 +1099,16 @@
     {
      "sourceId": "kl16",
      "locator": "Theorem 3.3.26, p. 68 (PDF p. 68)",
-     "excerpt": "Theorem 3.3.26. Let A be a Fontaine perfectoid ring on which the finite group G acts (on the right). Then the invariant subring AG is again Fontaine perfectoid.",
      "match": "Theorem 3.3.26 (the general statement and the Sylow reduction)."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 3.5, p. 9 (PDF p. 9)",
-     "excerpt": "Theorem 3.5. Let A be a perfectoid K-algebra for some perfectoid field K, with a K-linear action of a finite group G. Then AG is a perfectoid K-algebra.",
      "match": "Theorem 3.5, the case of a K-linear action over a perfectoid field K, proved by tilting."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 3.6 (Kedlaya-Liu [KL16, Theorem 3.3.24]), p. 9 (PDF p. 9)",
-     "excerpt": "Theorem 3.6 (Kedlaya-Liu [KL16, Theorem 3.3.24]). If A is any perfectoid Tate ring over Zp with an action of a finite group G, the Tate ring AG is perfectoid.",
      "match": "Theorem 3.6 quotes the general statement from Kedlaya–Liu."
     }
    ],
@@ -1163,7 +1147,6 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 3.3, p. 7 (PDF p. 7)",
-     "excerpt": "Let (A, A+) be a sheafy Tate-Huber pair with an action of a finite group G. Set X = Spa(A, A+) and Y = Spa(AG, A+G), and let q : X →Y be the natural map of affinoid pre-adic spaces. If |G| is invertible in A, then OY = (q∗OX)G.",
      "match": "Theorem 3.3 and its proof."
     }
    ],
@@ -1202,7 +1185,6 @@
     {
      "sourceId": "cgj19",
      "locator": "Remark 2.1.4, p. 5 (PDF p. 5)",
-     "excerpt": "Remark 2.1.4. The above argument seems to indicate that for general A, the map AG ⟨T/s⟩→A ⟨T/s⟩G must be “totally inseparable” (since v-sheafifying generally loses information about nilpotents and totally inseparable field extensions)",
      "match": "The remark after Proposition 2.1.3, which sketches this direct proof."
     }
    ],
@@ -1243,19 +1225,16 @@
     {
      "sourceId": "cgj19",
      "locator": "Proposition 2.1.3, p. 5 (PDF p. 5)",
-     "excerpt": "Proposition 2.1.3. Let (A, A+) be a perfectoid Tate-Huber pair with a continuous left action of a finite group G. Let X = Spa(A, A+), and let XG = Spa(AG, A+G).",
      "match": "Proposition 2.1.3(2): the rational-localisation identity for perfectoid pairs, via v-sheaves."
     },
     {
      "sourceId": "cgj19",
      "locator": "Remark 2.1.4, p. 5 (PDF p. 5)",
-     "excerpt": "Remark 2.1.4. The above argument seems to indicate that for general A, the map AG ⟨T/s⟩→A ⟨T/s⟩G must be “totally inseparable” (since v-sheafifying generally loses information about nilpotents and totally inseparable field extensions)",
      "match": "The remark after it: reduction to characteristic p by tilting."
     },
     {
      "sourceId": "han16",
      "locator": "Proof of Theorem 1.4 (case char K = p > 0, p | |G|), with footnote 3, p. 9 (PDF p. 9)",
-     "excerpt": "Let (K♯, ι) be any fixed choice of an untilt of K, i.e. K♯ is a perfectoid field over Qp and ι is an isomorphism ι : K ∼→K♯♭. Let X♯ be the corresponding untilt of X over Spa(K♯, K♯+).",
      "match": "Hansen's own tilting argument for K-linear actions in characteristic p, footnote 3 bypassing Theorem 3.3."
     }
    ],
@@ -1292,13 +1271,11 @@
     {
      "sourceId": "chj17",
      "locator": "§6.4, opening paragraph, p. 53 (PDF p. 53)",
-     "excerpt": "If X = Spa(A, A◦) is affinoid, then the quotient X/G := Spa(AG, (AG)◦) exists in the category of affinoid rigid spaces by [BGR, §6.3.3 Proposition 2].",
      "match": "CHJ quote Bosch–Güntzer–Remmert §6.3.3 for exactly this statement (Hansen quotes the same result as BGR Prop. 6.3.3/3; the book is not public, so the numbering was not checked)."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 3.4, p. 8 (PDF p. 8)",
-     "excerpt": "Let A be a (classical) affinoid K-algebra over some nonarchimedean field K, with a K-linear action of a finite group G. Set X = Spa(A, A◦) and Y = Spa(AG, A◦G), and let q : X →Y be the natural map of affinoid adic spaces.",
      "match": "The proof of Theorem 3.4 quotes [BGR84, Prop. 6.3.3/3]."
     }
    ],
@@ -1333,13 +1310,11 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 3.4, p. 8 (PDF p. 8)",
-     "excerpt": "Let A be a (classical) affinoid K-algebra over some nonarchimedean field K, with a K-linear action of a finite group G. Set X = Spa(A, A◦) and Y = Spa(AG, A◦G), and let q : X →Y be the natural map of affinoid adic spaces.",
      "match": "Theorem 3.4 and its proof (suggested by Johansson)."
     },
     {
      "sourceId": "chj17",
      "locator": "Corollary 6.25, p. 54 (PDF p. 54); proof p. 55 (PDF p. 55)",
-     "excerpt": "Corollary 6.25. Y = (X/G, (π∗OX)G, (vxG)) and is therefore the quotient of Spa(B, B◦) by G in V .",
      "match": "Corollary 6.25 (affinoid quotient) with the same exact-sequence proof."
     }
    ],
@@ -1463,19 +1438,16 @@
     {
      "sourceId": "han16",
      "locator": "Definition 2.2, p. 3 (PDF p. 3)",
-     "excerpt": "Let X = (|X|, OX, {vx}x∈|X|) be an adic space with a right action of a finite group G. Then we define an object X/G = (|X/G|, OX/G, {vy}y∈|X/G|) in the category V as follows: • |X/G| := |X|/G with the quotient topology.",
      "match": "Definition 2.2 and Proposition 2.3 (categorical in V)."
     },
     {
      "sourceId": "chj17",
      "locator": "Lemma 6.23, p. 54 (PDF p. 54)",
-     "excerpt": "Lemma 6.23. With notation as above, the sheaf OY := (π∗OX)G is a sheaf of complete topological rings on Y and (Y, OY , (vy)y∈Y ) is in V and is the categorical quotient of X by G in V .",
      "match": "Lemma 6.23 (abstract quotient in V) with its proof of completeness of invariants."
     },
     {
      "sourceId": "cgj19",
      "locator": "Theorem 2.1.2, p. 5 (PDF p. 5)",
-     "excerpt": "Theorem 2.1.2. Let X be a perfectoid space with a right action of a finite group G. Suppose that X has a covering by G-stable open subspaces of the form Spa(A, A+) with A perfectoid Tate.",
      "match": "Theorem 2.1.2 uses the coequalizer in locally v-ringed spaces."
     }
    ],
@@ -1519,25 +1491,21 @@
     {
      "sourceId": "cgj19",
      "locator": "Proposition 2.1.3, p. 5 (PDF p. 5)",
-     "excerpt": "Proposition 2.1.3. Let (A, A+) be a perfectoid Tate-Huber pair with a continuous left action of a finite group G. Let X = Spa(A, A+), and let XG = Spa(AG, A+G).",
      "match": "Proposition 2.1.3 (1) and (2)."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 1.2, p. 2 (PDF p. 2)",
-     "excerpt": "Let (A, A+) be a Tate-Huber pair with an action of a finite group G. Then the map |Spa(A, A+)| →|Spa(AG, A+G)| induces a natural homeomorphism |Spa(A, A+)|/G ∼= |Spa(AG, A+G)|",
      "match": "Theorem 1.2 for |G| invertible."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 1.4, p. 2 (PDF p. 2)",
-     "excerpt": "Theorem 1.4. Let X be a perfectoid space with an action of a finite group G. Suppose that X has a covering by G-stable open affinoid perfectoid subspaces, and that one of the following conditions holds: i. |G| is invertible in OX(X).",
      "match": "Theorem 1.4 (i)/(ii)."
     },
     {
      "sourceId": "cgj19",
      "locator": "Theorem 2.1.2, p. 5 (PDF p. 5)",
-     "excerpt": "Theorem 2.1.2. Let X be a perfectoid space with a right action of a finite group G. Suppose that X has a covering by G-stable open subspaces of the form Spa(A, A+) with A perfectoid Tate.",
      "match": "Theorem 2.1.2 is the global consequence."
     }
    ],
@@ -1577,19 +1545,16 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.23(2), pp. 19–20 (PDF pp. 19–20)",
-     "excerpt": "(2) Let V be a Banach space over Qp",
      "match": "The rational trivial-coefficient statement, proved by orthonormal coordinates. The general-K scalar-extension assertion includes an explicit topological orthonormalisability hypothesis; its plus-ring transfer is the separate saturation argument here."
     },
     {
      "sourceId": "bhw21",
      "locator": "Proposition 3.8, p. 10 (PDF p. 10)",
-     "excerpt": "Proposition 3.8. Let U be a smooth adic space over a perfectoid field extension L′ of L. For any n ≥1 denote by h : X ∗U,Γ(p∞)(ǫ)a →X ∗U,Γ0(pn)(ǫ)a the natural map.",
      "match": "The proof of Proposition 3.8 begins 'After base-change to L′, we may without loss of generality assume that L = L′'."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 1.4, p. 2 (PDF p. 2)",
-     "excerpt": "Theorem 1.4. Let X be a perfectoid space with an action of a finite group G. Suppose that X has a covering by G-stable open affinoid perfectoid subspaces, and that one of the following conditions holds: i. |G| is invertible in OX(X).",
      "match": "Theorem 1.4(ii), for K-linear actions over a perfectoid field K."
     }
    ],
@@ -1622,19 +1587,16 @@
     {
      "sourceId": "cgj19",
      "locator": "Theorem 2.1.2, p. 5 (PDF p. 5)",
-     "excerpt": "Theorem 2.1.2. Let X be a perfectoid space with a right action of a finite group G. Suppose that X has a covering by G-stable open subspaces of the form Spa(A, A+) with A perfectoid Tate.",
      "match": "Theorem 2.1.2, generalising Hansen's Theorem 1.4."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 1.4, p. 2 (PDF p. 2)",
-     "excerpt": "Theorem 1.4. Let X be a perfectoid space with an action of a finite group G. Suppose that X has a covering by G-stable open affinoid perfectoid subspaces, and that one of the following conditions holds: i. |G| is invertible in OX(X).",
      "match": "Theorem 1.4 with its hypotheses (i) or (ii)."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 1.1, p. 1 (PDF p. 1)",
-     "excerpt": "Let X be an analytic adic space with an action of a finite group G. Suppose that X has a covering by G-stable open affinoid subspaces, and that |G| is invertible in OX(X). Then X/G is an adic space with underlying topological space |X|/G.",
      "match": "The proof of Theorem 1.1, which glues the affinoid quotients."
     }
    ],
@@ -1669,7 +1631,6 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 1.1, p. 1 (PDF p. 1)",
-     "excerpt": "Let X be an analytic adic space with an action of a finite group G. Suppose that X has a covering by G-stable open affinoid subspaces, and that |G| is invertible in OX(X). Then X/G is an adic space with underlying topological space |X|/G.",
      "match": "Theorem 1.1 and its proof in §2."
     }
    ],
@@ -1704,13 +1665,11 @@
     {
      "sourceId": "han16",
      "locator": "Theorem 1.3, p. 2 (PDF p. 2)",
-     "excerpt": "Let X be a rigid analytic space over a nonarchimedean field K, with a K-linear action of a finite group G. Suppose one of the following conditions holds: i. X has an admissible covering by G-stable open affinoid subspaces.",
      "match": "Theorem 1.3(i) and the optimality remark after it."
     },
     {
      "sourceId": "chj17",
      "locator": "Corollary 6.26, p. 55 (PDF p. 55)",
-     "excerpt": "Corollary 6.26. Let X be a rigid space over K with a right action of a finite group G and assume that there is a cover of X by G-stable affinoids. Then the quotient X/G of X by G exists in V and is a rigid space.",
      "match": "Corollary 6.26 of §6.4."
     }
    ],
@@ -1746,13 +1705,11 @@
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.3 (with the following paragraph on the auxiliary conditions), p. 28 (PDF p. 28)",
-     "excerpt": "Theorem 5.3. Let X be a rigid analytic space over some nonarchimedean field K with an action of a finite group G. Assume that X is separated, and that for every rank one point x ∈X, the closure {x} ⊆X is contained in some open affinoid subspace",
      "match": "The final assertion of Theorem 5.3 and its proof."
     },
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.8, p. 30 (PDF p. 30)",
-     "excerpt": "Theorem 5.8. Let X be a perfectoid space over a nonarchimedean field, with an action of a finite group G. Assume that X is analytically separated, and that for every rank one point x ∈X, the closure {x} ⊆X",
      "match": "The final assertion of Theorem 5.8, proved 'exactly as in the proof of Theorem 5.3'."
     }
    ],
@@ -1794,13 +1751,11 @@
     {
      "sourceId": "ecd",
      "locator": "Definition 10.12, p. 53 (PDF p. 53)",
-     "excerpt": "Definition 10.12. Let G be a locally profinite group. A G-torsor is map f : X̃ → X of v-stacks with an action of G on X̃ over X, such that v-locally on X, there is a G-equivariant isomorphism X̃ ≅ G × X. (from TeX; G is underlined G)",
      "match": "Definition 10.12 (G-torsors) and Lemma 10.13 (torsors over perfectoid spaces are representable and pro-étale; pushout along G/K is separated étale)."
     },
     {
      "sourceId": "sga1",
      "locator": "Exposé V, Proposition 2.6, PDF p. 111",
-     "excerpt": "Proposition 2.6. — Soient Y un préschéma localement noethérien, X un Y-préschéma à groupe fini G d'opérateurs opérant à droite. Les conditions suivantes sont équivalentes : (i) X est fini sur Y, Y = X/G, les groupes d'inertie des points de X sont réduits à l'unité.",
      "match": "Exposé V, Proposition 2.6: finite with Y = X/G and trivial inertia is equivalent to being a principal homogeneous G-bundle, locally noetherian case."
     }
    ],
@@ -1900,7 +1855,6 @@
     {
      "sourceId": "hj20",
      "locator": "Definition (G-clean neighbourhood), unnumbered, in the paragraph before Lemma 5.2, p. 27 (PDF p. 27)",
-     "excerpt": "Let x ∈X be any point, with stabilizer Hx ⊆G. We say an open neighborhood U of x is G-clean if Uh = U for all h ∈Hx and moreover U ∩Ug = ∅for all g ∈G ∖Hx.",
      "match": "The definition before Lemma 5.2 and the remark that U ×^{H_x} G → X is an open embedding."
     }
    ],
@@ -1935,7 +1889,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.2, p. 28 (PDF p. 28)",
-     "excerpt": "Lemma 5.2. Let X be a Hausdorff topological space with a G-action. Then every point x ∈X admits a G-clean open neighborhood.",
      "match": "Lemma 5.2 and its proof."
     }
    ],
@@ -1972,7 +1925,6 @@
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.3 (with the following paragraph on the auxiliary conditions), p. 28 (PDF p. 28)",
-     "excerpt": "Theorem 5.3. Let X be a rigid analytic space over some nonarchimedean field K with an action of a finite group G. Assume that X is separated, and that for every rank one point x ∈X, the closure {x} ⊆X is contained in some open affinoid subspace",
      "match": "The first two paragraphs of the proof of Theorem 5.3, repeated in the proof of Theorem 5.8."
     }
    ],
@@ -2085,19 +2037,16 @@
     {
      "sourceId": "hj20",
      "locator": "Definition 5.4 (1),(2) (with the caution paragraph after it), p. 29 (PDF p. 29)",
-     "excerpt": "(1) A map of perfectoid spaces Z →X is a Zariski-closed embedding if for any open affinoid perfectoid subset U ⊆X, the map Z ×X U →U is a Zariski-closed embedding of affinoid perfectoid spaces in the sense of [Sch15, §2.2].",
      "match": "Definition 5.4(1) and the caution after it."
     },
     {
      "sourceId": "sch15",
      "locator": "Definition II.2.1, p. 13 (PDF p. 13)",
-     "excerpt": "Definition II.2.1. A subset Z ⊂|X | is Zariski closed if there is an ideal I ⊂R such that Z = {x ∈X | |f(x)| = 0 for all f ∈I} .",
      "match": "Definition II.2.1 (affinoid Zariski-closed subsets)."
     },
     {
      "sourceId": "ecd",
      "locator": "Definition 5.7, p. 24 (PDF p. 24)",
-     "excerpt": "Definition 5.7 ([Sch15, Definition II.2.1, Definition II.2.6]). Let f : Z →X be a map of perfectoid spaces, where X = Spa(R, R+) is affinoid. (i) The map f is Zariski closed if f is a closed immersion and there is an ideal I ⊂R such that",
      "match": "Definition 5.7 of Zariski closed and strongly Zariski closed immersions."
     }
    ],
@@ -2197,13 +2146,11 @@
     {
      "sourceId": "hj20",
      "locator": "Definition 5.4 (1),(2) (with the caution paragraph after it), p. 29 (PDF p. 29)",
-     "excerpt": "(1) A map of perfectoid spaces Z →X is a Zariski-closed embedding if for any open affinoid perfectoid subset U ⊆X, the map Z ×X U →U is a Zariski-closed embedding of affinoid perfectoid spaces in the sense of [Sch15, §2.2].",
      "match": "Definition 5.4(2) and the paragraph before it."
     },
     {
      "sourceId": "kl15",
      "locator": "Corollary 3.6.18, p. 96 (PDF p. 96)",
-     "excerpt": "Corollary 3.6.18. Let ψ1 : C →A, ψ2 : C →B be bounded homomorphisms of uniform Banach Qp-algebras, and let D = (Ab⊗CB)u denote the uniform completion of A ⊗C B. If A and B are perfectoid, then so is D.",
      "match": "Corollary 3.6.18, the fibre product over a non-perfectoid base."
     }
    ],
@@ -2236,7 +2183,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.5, pp. 29–30 (PDF pp. 29–30; part (2) is on p. 30)",
-     "excerpt": "(2) If X is analytically separated, then for any two open affinoid perfectoid subsets U, V ⊆X, the intersection U ∩V is affinoid perfectoid.",
      "match": "Lemma 5.5(1), whose proof the source leaves to the reader."
     }
    ],
@@ -2268,7 +2214,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.5, pp. 29–30 (PDF pp. 29–30; part (2) is on p. 30)",
-     "excerpt": "(2) If X is analytically separated, then for any two open affinoid perfectoid subsets U, V ⊆X, the intersection U ∩V is affinoid perfectoid.",
      "match": "Lemma 5.5(2) and its one-line proof."
     }
    ],
@@ -2300,13 +2245,11 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.6, p. 30 (PDF p. 30)",
-     "excerpt": "Lemma 5.6. Let (Xi)i∈I be a cofiltered inverse system of separated rigid analytic spaces over some Spa(K, K◦), and suppose there is some perfectoid space X∞such that X∞= lim ←−i X♢ i as diamonds.",
      "match": "The last sentence of the proof of Lemma 5.6 asserts this."
     },
     {
      "sourceId": "sch15",
      "locator": "Lemma II.2.2, p. 13 (PDF p. 13)",
-     "excerpt": "Lemma II.2.2. Assume that Z ⊂X is Zariski closed. There is a universal perfectoid space Z over K with a map Z →X for which |Z| →|X | factors over Z. The space Z = Spa(S, S+) is affinoid perfectoid, the map R →S has dense image",
      "match": "Lemma II.2.2 and Remark II.2.3, the universal property."
     }
    ],
@@ -2345,7 +2288,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.7, p. 30 (PDF p. 30)",
-     "excerpt": "let Z be any perfectoid space equipped with a map f : Z →Xan. Then the diamond W = Z ×Xan Y an is a perfectoid space, and the natural map W →Z is a Zariski-closed embedding.",
      "match": "Lemma 5.7 and its proof."
     }
    ],
@@ -2378,7 +2320,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.6, p. 30 (PDF p. 30)",
-     "excerpt": "Lemma 5.6. Let (Xi)i∈I be a cofiltered inverse system of separated rigid analytic spaces over some Spa(K, K◦), and suppose there is some perfectoid space X∞such that X∞= lim ←−i X♢ i as diamonds.",
      "match": "Lemma 5.6 and its proof."
     }
    ],
@@ -2422,13 +2363,11 @@
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.3 (with the following paragraph on the auxiliary conditions), p. 28 (PDF p. 28)",
-     "excerpt": "Theorem 5.3. Let X be a rigid analytic space over some nonarchimedean field K with an action of a finite group G. Assume that X is separated, and that for every rank one point x ∈X, the closure {x} ⊆X is contained in some open affinoid subspace",
      "match": "Theorem 5.3, the paragraph after it and its proof."
     },
     {
      "sourceId": "han16",
      "locator": "Theorem 1.3, p. 2 (PDF p. 2)",
-     "excerpt": "Let X be a rigid analytic space over a nonarchimedean field K, with a K-linear action of a finite group G. Suppose one of the following conditions holds: i. X has an admissible covering by G-stable open affinoid subspaces.",
      "match": "Theorem 1.3(ii) and its proof from condition ii to condition i."
     }
    ],
@@ -2470,13 +2409,11 @@
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.8, p. 30 (PDF p. 30)",
-     "excerpt": "Theorem 5.8. Let X be a perfectoid space over a nonarchimedean field, with an action of a finite group G. Assume that X is analytically separated, and that for every rank one point x ∈X, the closure {x} ⊆X",
      "match": "Theorem 5.8 and its proof."
     },
     {
      "sourceId": "cgj19",
      "locator": "Proposition 2.1.3, p. 5 (PDF p. 5)",
-     "excerpt": "Proposition 2.1.3. Let (A, A+) be a perfectoid Tate-Huber pair with a continuous left action of a finite group G. Let X = Spa(A, A+), and let XG = Spa(AG, A+G).",
      "match": "The affinoid quotient for arbitrary finite groups, which the proof needs in place of Hansen 1.4."
     }
    ],
@@ -2508,7 +2445,6 @@
     {
      "sourceId": "hj20",
      "locator": "Theorem 5.8, p. 30 (PDF p. 30)",
-     "excerpt": "Theorem 5.8. Let X be a perfectoid space over a nonarchimedean field, with an action of a finite group G. Assume that X is analytically separated, and that for every rank one point x ∈X, the closure {x} ⊆X",
      "match": "The second assertion of Theorem 5.8 and the paragraph 'To see that q is affinoid' of its proof."
     }
    ],
@@ -2542,7 +2478,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.1, p. 27 (PDF p. 27)",
-     "excerpt": "Lemma 5.1. Let X be a spatial diamond with a G-action for some profinite group G. Suppose that G acts with finitely many orbits on π0X, and that each connected component of X is a perfectoid space. Then X is a perfectoid space.",
      "match": "Lemma 5.1 and its proof."
     }
    ],
@@ -2577,13 +2512,11 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.10, p. 32 (PDF p. 32)",
-     "excerpt": "Lemma 5.10. Let (R, R+) →(S, S+) be a map of Tate-Huber pairs such that R is a perfectoid Tate ring and the ring map R+ →S+ is integral. Then the diamond Spd(S, S+) is an affinoid perfectoid space.",
      "match": "Lemma 5.10 and its proof."
     },
     {
      "sourceId": "bs22",
      "locator": "Theorem 1.17, p. 9 (PDF p. 9)",
-     "excerpt": "Theorem 1.17. Let R be a perfectoid ring and let S be an integral R-algebra. (1) Perfectoidizing integral algebras (Theorem 10.11): There is a perfectoid ring Sperfd with a map S →Sperfd such that any map from S to a perfectoid ring factors uniquely",
      "match": "Theorem 1.17(1): perfectoidizing integral algebras (Theorem 10.11)."
     }
    ],
@@ -2619,7 +2552,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.9 (with the remark after it), p. 31 (PDF p. 31)",
-     "excerpt": "Lemma 5.9. Let (Xi)i∈I fi −→(Yi)i∈I be a morphism of cofiltered inverse systems of locally Noetherian adic spaces. Assume moreover that the maps fi and the transition maps in the inverse systems are all finite maps",
      "match": "Lemma 5.9 and its proof, and the remark after it."
     }
    ],
@@ -2653,7 +2585,6 @@
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.11, p. 32 (PDF p. 32)",
-     "excerpt": "Lemma 5.11. Let (Xi)i∈I be a cofiltered inverse system of locally Noetherian adic spaces with finite transition maps. Assume that X = lim ←−X♢ i is a perfectoid space. Then X has a neighborhood basis of open affinoid perfectoid subsets W ⊂X",
      "match": "Lemma 5.11 and its proof."
     }
    ],
@@ -2766,7 +2697,6 @@
     {
      "sourceId": "hj20",
      "locator": "Definition 5.12, p. 32 (PDF p. 32)",
-     "excerpt": "Definition 5.12. Fix a nonarchimedean field K. A good tower is a cofiltered inverse system of locally Noetherian adic spaces (Xi)i∈I over Spa K with the following properties.",
      "match": "Definition 5.12 and the note after Proposition 5.13."
     }
    ],
@@ -2798,7 +2728,6 @@
     {
      "sourceId": "hj20",
      "locator": "Proposition 5.13 (with the note after it), p. 33 (PDF p. 33)",
-     "excerpt": "(2) If (Xi)i∈I is a good tower with an action of a finite group G, then the categorical quotient X/G is a perfectoid space and X/G ∼= lim ←−i Xi/G.",
      "match": "Proposition 5.13(1) and its proof."
     }
    ],
@@ -2838,7 +2767,6 @@
     {
      "sourceId": "hj20",
      "locator": "Proposition 5.13 (with the note after it), p. 33 (PDF p. 33)",
-     "excerpt": "(2) If (Xi)i∈I is a good tower with an action of a finite group G, then the categorical quotient X/G is a perfectoid space and X/G ∼= lim ←−i Xi/G.",
      "match": "Proposition 5.13(2), its proof and footnote."
     }
    ],
@@ -2883,19 +2811,16 @@
     {
      "sourceId": "sch15",
      "locator": "Theorem IV.1.1, p. 67 (PDF p. 67)",
-     "excerpt": "Theorem IV.1.1. For any tame level Kp ⊂G(Ap f) contained in the level-N-subgroup {γ ∈G′(ˆZp) | γ ≡1 mod N} of G′ for some N ≥3 prime to p, there exists a perfectoid space X ∗ Kp over C such that X ∗ Kp ∼lim ←− Kp X ∗ KpKp .",
      "match": "Theorem IV.1.1 and the existence part of its proof."
     },
     {
      "sourceId": "ecd",
      "locator": "Theorem 5.8, p. 25 (PDF p. 25)",
-     "excerpt": "Theorem 5.8. Let f : Z →X = Spa(R, R+) be a Zariski closed immersion. Then f is strongly Zariski closed. ... We note that [BS22, Theorem 7.4] also implies that S+ →R+ is almost surjective, independent of [KL15].",
      "match": "Theorem 5.8, with the sentence after it on almost surjectivity."
     },
     {
      "sourceId": "hj20",
      "locator": "Lemma 5.7, p. 30 (PDF p. 30)",
-     "excerpt": "let Z be any perfectoid space equipped with a map f : Z →Xan. Then the diamond W = Z ×Xan Y an is a perfectoid space, and the natural map W →Z is a Zariski-closed embedding.",
      "match": "Lemma 5.7 for the closed subvarieties."
     }
    ],
@@ -3020,25 +2945,21 @@
     {
      "sourceId": "chj17",
      "locator": "unnumbered setup paragraph of §4.1 ('A handy lemma'), p. 28 (PDF p. 28)",
-     "excerpt": "Let X be a rigid analytic variety over Spa(Qp, Zp), G a profinite group, and X∞a perfectoid space with X∞→X a pro-´etale G-covering of X, i.e. X∞∼lim←−j Xj where (Xj)j∈J is an inverse system of rigid analytic varieties finite ´etale over X",
      "match": "The setup of §4.1: X_∞ ~ lim X_j, X_j → X finite étale G/G_j-coverings."
     },
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.24, p. 20 (PDF p. 20)",
-     "excerpt": "Lemma 2.24. Let Y be a rigid analytic variety, let G be a profinite group and assume that Y∞∈Ypro´et is a Galois G-cover of Y . Let U ∈Ypro´et be quasicompact and quasiseparated and set U∞:= U ×Y Y∞; this is a Galois G-cover of U.",
      "match": "Lemma 2.24: a Galois G-cover Y_∞ ∈ Y_proet and its pullbacks U_∞ = U ×_Y Y_∞."
     },
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
-     "excerpt": "Lemma 3.7. Let Y be an affinoid adic space over L that is either a smooth rigid space or a perfectoid space. Let Γ be a profinite group. Let X ∈Ypro´et be an affinoid perfectoid pro-´etale Γ-torsor.",
      "match": "Lemma 3.7: an affinoid perfectoid pro-étale Γ-torsor X ∈ Y_proet."
     },
     {
      "sourceId": "ecd",
      "locator": "Definition 10.12, p. 53 (PDF p. 53)",
-     "excerpt": "Definition 10.12. Let G be a locally profinite group. A G-torsor is map f : X̃ → X of v-stacks with an action of G on X̃ over X, such that v-locally on X, there is a G-equivariant isomorphism X̃ ≅ G × X. (from TeX; G is underlined G)",
      "match": "Definition 10.12 of \\underline{G}-torsors of v-stacks."
     }
    ],
@@ -3142,13 +3063,11 @@
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
-     "excerpt": "Lemma 3.7. Let Y be an affinoid adic space over L that is either a smooth rigid space or a perfectoid space. Let Γ be a profinite group. Let X ∈Ypro´et be an affinoid perfectoid pro-´etale Γ-torsor.",
      "match": "The proof of Lemma 3.7: 'The Cartesian diagram expressing X → Y as a pro-étale Γ-torsor then shows …'."
     },
     {
      "sourceId": "chj17",
      "locator": "Remark 2.25, p. 20 (PDF p. 20)",
-     "excerpt": "Remark 2.25. An elaboration of this argument allows one to deduce the full “Cartan–Leray spectral sequence” Epq2 = Hpcts(G, Hq(U∞, F)) =⇒Hp+q(U, F) from the ˇCech-to-derived functor spectral sequence, under the same assumptions on U and F",
      "match": "Remark 2.25: the Čech-to-derived spectral sequence becomes H^p_cts(G, H^q(U_∞, F)) ⇒ H^{p+q}(U, F)."
     }
    ],
@@ -3182,7 +3101,6 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.24, p. 20 (PDF p. 20)",
-     "excerpt": "Lemma 2.24. Let Y be a rigid analytic variety, let G be a profinite group and assume that Y∞∈Ypro´et is a Galois G-cover of Y . Let U ∈Ypro´et be quasicompact and quasiseparated and set U∞:= U ×Y Y∞; this is a Galois G-cover of U.",
      "match": "The proof of Lemma 2.24: 'direct limits commute with taking invariants if the maps in the direct system are eventually injective'."
     }
    ],
@@ -3216,7 +3134,6 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.24, p. 20 (PDF p. 20)",
-     "excerpt": "Lemma 2.24. Let Y be a rigid analytic variety, let G be a profinite group and assume that Y∞∈Ypro´et is a Galois G-cover of Y . Let U ∈Ypro´et be quasicompact and quasiseparated and set U∞:= U ×Y Y∞; this is a Galois G-cover of U.",
      "match": "Lemma 2.24 and its proof, and the parenthetical that some assumption on F is needed."
     }
    ],
@@ -3258,13 +3175,11 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.26, p. 20 (PDF p. 20)",
-     "excerpt": "Lemma 2.26. Let Kp ⊆GL2(Zp) be an open compact subgroup and let U ⊆XKp be an open subset. Put U∞= q−1Kp(U) ⊆X∞. Then O+XKp(U) = O+X∞(U∞)Kp, and hence OXKp(U) = OX∞(U∞)Kp.",
      "match": "Lemma 2.26 and its proof."
     },
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
-     "excerpt": "Lemma 3.7. Let Y be an affinoid adic space over L that is either a smooth rigid space or a perfectoid space. Let Γ be a profinite group. Let X ∈Ypro´et be an affinoid perfectoid pro-´etale Γ-torsor.",
      "match": "Lemma 3.7, smooth rigid case of the proof."
     }
    ],
@@ -3296,7 +3211,6 @@
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
-     "excerpt": "Lemma 3.7. Let Y be an affinoid adic space over L that is either a smooth rigid space or a perfectoid space. Let Γ be a profinite group. Let X ∈Ypro´et be an affinoid perfectoid pro-´etale Γ-torsor.",
      "match": "Lemma 3.7, last sentence: 'If Y is a perfectoid space, the same argument works in the pro-étale site of [ECD]'."
     }
    ],
@@ -3333,13 +3247,11 @@
     {
      "sourceId": "chj17",
      "locator": "Remark 2.25, p. 20 (PDF p. 20)",
-     "excerpt": "Remark 2.25. An elaboration of this argument allows one to deduce the full “Cartan–Leray spectral sequence” Epq2 = Hpcts(G, Hq(U∞, F)) =⇒Hp+q(U, F) from the ˇCech-to-derived functor spectral sequence, under the same assumptions on U and F",
      "match": "Remark 2.25."
     },
     {
      "sourceId": "chj17",
      "locator": "Lemma 6.11 with proof, pp. 48–49 (PDF pp. 48–49)",
-     "excerpt": "Lemma 6.11. Let U ∈ X_ét and assume that there is a map U → T^n which is a composition of rational embeddings and finite étale maps. … (1) There is a canonical injection H^i_cts(Z_p^n, O⁺_X(U)) → H^i(U_proét, Ô⁺_X) with cokernel killed by p.",
      "match": "Lemma 6.11(1) and its proof, which carries this out for the toric tower."
     }
    ],
@@ -3373,7 +3285,6 @@
     {
      "sourceId": "chj17",
      "locator": "Proposition 2.22, p. 19 (PDF p. 19)",
-     "excerpt": "Proposition 2.22. A is a closed subalgebra of A∞, hence carries an induced structure of a uniform Qp-Banach algebra, and A◦= (A◦∞)G.",
      "match": "Proposition 2.22, stated as 'easy facts'."
     }
    ],
@@ -3411,7 +3322,6 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.23, p. 19 (PDF p. 19)",
-     "excerpt": "(1) Let M be any profinite flat Zp-module (in particular M could be a small Zp-algebra). We equip M with the trivial G-action. Then (A∞⊗̂M)G = A⊗̂M. (⊗̂ from TeX; PDF 'b⊗')",
      "match": "Lemma 2.23(1) and its proof, using Proposition 6.4 of the appendix."
     }
    ],
@@ -3452,7 +3362,6 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.23(2), pp. 19–20 (PDF pp. 19–20)",
-     "excerpt": "(2) Let V be a Banach space over Qp",
      "match": "CHJ’s rational, trivial-coefficient Banach statement; general K is the weighted-coordinate extension proved here, not a quotation from CHJ."
     }
    ],
@@ -3498,13 +3407,11 @@
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
-     "excerpt": "Lemma 3.7. Let Y be an affinoid adic space over L that is either a smooth rigid space or a perfectoid space. Let Γ be a profinite group. Let X ∈Ypro´et be an affinoid perfectoid pro-´etale Γ-torsor.",
      "match": "Lemma 3.7 and its proof."
     },
     {
      "sourceId": "bhw21",
      "locator": "Proposition 3.8, p. 10 (PDF p. 10)",
-     "excerpt": "Proposition 3.8. Let U be a smooth adic space over a perfectoid field extension L′ of L. For any n ≥1 denote by h : X ∗U,Γ(p∞)(ǫ)a →X ∗U,Γ0(pn)(ǫ)a the natural map.",
      "match": "Proposition 3.8, first step (away from the cusps)."
     }
    ],
@@ -3543,13 +3450,11 @@
     {
      "sourceId": "chj17",
      "locator": "Proposition 2.19, p. 18 (PDF p. 18)",
-     "excerpt": "(1) For any g ∈G(Ap f) with g : Xw,Kp ∼→Xw,g−1Kpg the associated isomorphism of Shimura curves, there is a canonical isomorphism g∗ω†U,w,g−1Kpg ∼= ω†U,w,Kp.",
      "match": "The proof of Proposition 2.19(2): base change of finite projective Banach modules commutes with the completed tensor and with invariants."
     },
     {
      "sourceId": "chj17",
      "locator": "Theorem 2.28, p. 22 (PDF p. 22)",
-     "excerpt": "Theorem 2.28. We have ω†U,w = Loc(ω†U,w(Xw)) and ω†U,w(Xw) is a finite projective OX(Xw)⊗̂AU-module of rank 1. Moreover, ω†U,w is étale locally free. (⊗̂ from TeX; PDF 'b⊗')",
      "match": "Theorem 2.28: local freeness is proved through a finite-level Galois descent datum, not from degree-zero descent."
     }
    ],
@@ -3589,13 +3494,11 @@
     {
      "sourceId": "chj17",
      "locator": "Theorem 2.28, p. 22 (PDF p. 22)",
-     "excerpt": "Theorem 2.28. We have ω†U,w = Loc(ω†U,w(Xw)) and ω†U,w(Xw) is a finite projective OX(Xw)⊗̂AU-module of rank 1. Moreover, ω†U,w is étale locally free. (⊗̂ from TeX; PDF 'b⊗')",
      "match": "The proof of Theorem 2.28: 'the twisted action whose invariants give ω(U) is a Galois descent datum, so ω(U) is the descent of a rank 1 free module'."
     },
     {
      "sourceId": "sga1",
      "locator": "Exposé VIII, Théorème 1.1, PDF p. 169",
-     "excerpt": "Soit g: S′ → S un morphisme de préschémas, fidèlement plat et quasi-compact. Alors g est un morphisme de F-descente effective.",
      "match": "Exposé VIII, faithfully flat descent of quasi-coherent modules, applied to the Galois cover."
     }
    ],
@@ -3722,13 +3625,11 @@
     {
      "sourceId": "chj17",
      "locator": "Definition 2.18, p. 17 (PDF p. 17)",
-     "excerpt": "Definition 2.18. Let U be a weight and let w ∈Q>0 be such that w ≥1 + sU. We define a sheaf ω†U,w on Xw by ω†U,w(U) = {f ∈OX∞,w(q−1(U))⊗̂AU | γ∗f = χU(bz + d)−1f ∀γ ∈K0(p)} where U ⊆Xw is a qcqs open subset. (display from TeX)",
      "match": "Definition 2.18 of ω^†_{𝒰,w} by twisted invariants, and the Δ₀(p)-equivariant structure on O ⊗̂ A_𝒰."
     },
     {
      "sourceId": "bhw21",
      "locator": "Definition 3.15, p. 12 (PDF p. 12)",
-     "excerpt": "For κ : U → W a bounded smooth weight, n ∈ Z≥1 ∪ {∞} and 0 ≤ ǫ ≤ ǫ^def_κ, we define a sheaf ω^κ_n on X*_{U,Γ0(p^n)}(ǫ)_a by (from TeX; PDF text: \"0 ≤ǫ ≤ǫdef κ , we deﬁne a sheaf ωκ n on X ∗ U,Γ0(pn)(ǫ)a by\")",
      "match": "Definition 3.15 of ω^κ_n and ω^{κ,+}_n by the same formula with O and O⁺."
     }
    ],
@@ -3760,7 +3661,6 @@
     {
      "sourceId": "chj17",
      "locator": "Proposition 2.27, p. 21 (PDF p. 21)",
-     "excerpt": "Proposition 2.27. We have γ∗tU = (bz + d)tU for any γ ∈K0(p), and tU is a unit. Furthermore, for any m ∈Z≥1 we may choose some large n = n(m) and elements t(n)U ∈1 + pmO+X∞(U∞), sU,n ∈OXK(pn)(Un)×, such that tU = t(n)U sU,n.",
      "match": "Proposition 2.27 and its proof."
     }
    ],
@@ -3809,19 +3709,16 @@
     {
      "sourceId": "chj17",
      "locator": "unnumbered paragraph after Proposition 2.27 (cocycle j_{U,n}, idempotent e_n), p. 21 (PDF p. 21); j_{U,n} and e_n are displayed on p. 22 (PDF p. 22)",
-     "excerpt": "where jU,n is the cocycle jU,n(γ) : Gn → Z×p·(1 + p^min(w,m) OXK(pn)(Un)◦), γ ↦ γ∗sU,n/sU,n. … Since Gn is a finite group, the usual idempotent en = 1/|Gn| Σγ∈Gn χU(jU,n(γ))−1γ (from TeX; PDF layout garbled)",
      "match": "The paragraph after Proposition 2.27: the cocycle j_{U,n}, the map f ↦ f·χ(t^{(n)}) and the idempotent e_n."
     },
     {
      "sourceId": "chj17",
      "locator": "Theorem 2.28, p. 22 (PDF p. 22)",
-     "excerpt": "Theorem 2.28. We have ω†U,w = Loc(ω†U,w(Xw)) and ω†U,w(Xw) is a finite projective OX(Xw)⊗̂AU-module of rank 1. Moreover, ω†U,w is étale locally free. (⊗̂ from TeX; PDF 'b⊗')",
      "match": "Theorem 2.28 and its proof."
     },
     {
      "sourceId": "chj17",
      "locator": "Theorem 6.20, p. 53 (PDF p. 53)",
-     "excerpt": "Theorem 6.20 (Kiehl’s Theorem). Assume that K is discretely valued and let F be a coherent R-module on X. Then there exists a finitely generated R(X)-module M such that F ∼= Loc(M).",
      "match": "Theorem 6.20, Kiehl for R-modules."
     }
    ],
@@ -3857,7 +3754,6 @@
     {
      "sourceId": "bhw21",
      "locator": "Theorem 4.8, proof (sentence \"It now follows from Prop. 3.8 …\"), p. 18 (PDF p. 18)",
-     "excerpt": "It now follows from Prop. 3.8 that we have ωκ,+|V = ˜s∗fO+ V . Thus ˜s∗is an isomorphism locally over U. [i.e. ω^{κ,+}|_V = s̃^*f·O⁺_V]",
      "match": "The proof of Theorem 4.8: 'It now follows from Prop. 3.8 that we have ω^{κ,+}|_V = s̃^*f O⁺_V'."
     }
    ],
@@ -3896,13 +3792,11 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.29, p. 22 (PDF p. 22)",
-     "excerpt": "Lemma 2.29. Let U = (AU, χU) be a weight, and let i : AU →AZ be a surjection such that Z = (AZ, χZ = i ◦χU) is also a weight and such that ker(i) is generated by a regular element x ∈AU.",
      "match": "Lemma 2.29 and its proof."
     },
     {
      "sourceId": "chj17",
      "locator": "Lemma 6.13, p. 50 (PDF p. 50)",
-     "excerpt": "Lemma 6.13. Let X be affinoid and assume that K is discretely valued. (1) For every rational U ⊆X, R(U) is Noetherian. (2) If V ⊆U ⊆X are rational, then the map R(U) →R(V ) is flat.",
      "match": "Lemma 6.13(2), flatness used in the proof."
     }
    ],
@@ -3941,13 +3835,11 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.29, p. 22 (PDF p. 22)",
-     "excerpt": "Lemma 2.29. Let U = (AU, χU) be a weight, and let i : AU →AZ be a surjection such that Z = (AZ, χZ = i ◦χU) is also a weight and such that ker(i) is generated by a regular element x ∈AU.",
      "match": "Lemma 2.29: the regular-element case; its proof supplies the flatness and the finite-level description."
     },
     {
      "sourceId": "chj17",
      "locator": "Lemma 6.13, p. 50 (PDF p. 50)",
-     "excerpt": "Lemma 6.13. Let X be affinoid and assume that K is discretely valued. (1) For every rational U ⊆X, R(U) is Noetherian. (2) If V ⊆U ⊆X are rational, then the map R(U) →R(V ) is flat.",
      "match": "Lemma 6.13(1),(2)."
     }
    ],
@@ -3986,13 +3878,11 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 4.1, p. 28 (PDF p. 28)",
-     "excerpt": "Lemma 4.1. Given any presentation M = lim←i Mi, Mi = M/Ii as in Definition 6.3 with each Ii preserved by G, the sheaf M ⊗̂OX coincides with the sheaf Q̂p ⊗Ẑp lim←i (ν∗M̃i ⊗Zp O+X) (from TeX; PDF renders hats/tildes as 'b', 'f')",
      "match": "Lemma 4.1 and its proof."
     },
     {
      "sourceId": "chj17",
      "locator": "Lemma 4.5, p. 30 (PDF p. 30)",
-     "excerpt": "Lemma 4.5. Let U be a small weight. The sheaf ODsU admits the following explicit description on qcqs V ∈Xproét: ODsU(V) = (Ds,◦U ⊗̂ ÔX(V∞))^K0(p). (display from TeX; PDF 'b⊗bOX')",
      "match": "Lemma 4.5, the explicit description it gives."
     }
    ],
@@ -4027,13 +3917,11 @@
     {
      "sourceId": "chj17",
      "locator": "Proposition 4.4 (proof), p. 29 (PDF p. 29) for the statement; the proof is on p. 30 (PDF p. 30)",
-     "excerpt": "the higher inverse limit Ri lim←−k ((Ds,◦U /FilkDs,◦U ) ⊗Zp O+X) vanishes for i > 0. This follows from [Sch3, Lemma 3.18] upon noting that (in the notation of Lemma 4.1, with X = XCp, X∞= X∞,Cp and G = K0(p)) objects of the form V∞give a basis",
      "match": "The proof of Proposition 4.4: Mittag-Leffler and the vanishing of R^i lim via [Scholze, Lemma 3.18]."
     },
     {
      "sourceId": "chj17",
      "locator": "Proposition 4.3 with proof, p. 29 (PDF p. 29)",
-     "excerpt": "For this to do the job we need to be able to commute the inverse limit and the H^1 on the right hand side. But we may do this since the relevant higher inverse limits vanish",
      "match": "The proof of Proposition 4.3: higher inverse limits vanish by finiteness."
     }
    ],
@@ -4077,7 +3965,6 @@
     {
      "sourceId": "chj17",
      "locator": "Lemma 2.23(2), pp. 19–20; rational statement only",
-     "excerpt": "using an orthonormal basis instead of a pseudobasis",
      "match": "Motivation for rational fixed points. The integral transfer is the explicit saturation argument in this plan, not a theorem quoted from CHJ."
     }
    ],
@@ -4116,7 +4003,6 @@
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
-     "excerpt": "As the statement is local on YU",
      "match": "The full source target. A proof on product opens does not yet establish it on arbitrary rational subdomains; the gap is retained."
     }
    ],
@@ -4151,13 +4037,11 @@
     {
      "sourceId": "kl16",
      "locator": "Theorem 8.2.3 and proof, pp. 162–163 (PDF pp. 162–163)",
-     "excerpt": "The space X is seminormal if and only if the map OX",
      "match": "The exact missing general-base comparison, not the smooth discretely valued special case."
     },
     {
      "sourceId": "bhw21",
      "locator": "Lemma 3.6, pp. 9–10",
-     "excerpt": "Let Y be a seminormal adic space",
      "match": "Rational comparison plus pointwise bounds gives the integral form."
     }
    ],
@@ -4198,7 +4082,6 @@
     {
      "sourceId": "bhw21",
      "locator": "Theorem 4.8, proof, p. 18 (PDF p. 18)",
-     "excerpt": "It now follows from Prop. 3.8",
      "match": "The source uses the rank-one integral eigenunit argument. This node gives its explicit matrix generalization and gluing proof; it does not claim general integral essential surjectivity."
     }
    ],

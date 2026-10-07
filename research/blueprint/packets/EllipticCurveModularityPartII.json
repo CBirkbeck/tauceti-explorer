@@ -211,13 +211,11 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, equation (7), p. 1143",
-          "excerpt": "Nous obtenons le résultat suivant :",
           "match": "Equation (7) defines the real square-root threshold with exponent twice the newspace dimension; the existing index and trivial-character newspace are used."
         },
         {
           "sourceId": "BS",
           "locator": "§2, definitions after equation (5), p. 360",
-          "excerpt": "H(n) = max(F (n), G(n)).",
           "match": "The displayed formulas agree with Kraus, including both square roots (checked on the PDF image; text extraction omits the radicals)."
         }
       ],
@@ -299,13 +297,11 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, equation (8), p. 1144",
-          "excerpt": "Énonçons maintenant un résultat qui précise le théorème 3",
           "match": "Equation (8) uses the index at lcm(4,N), followed by the square root and exponent two."
         },
         {
           "sourceId": "BS",
           "locator": "§2, definitions after equation (5), p. 360",
-          "excerpt": "H(n) = max(F (n), G(n)).",
           "match": "The displayed formulas agree with Kraus, including both square roots (checked on the PDF image; text extraction omits the radicals)."
         }
       ],
@@ -388,13 +384,11 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, equation (9), p. 1144",
-          "excerpt": "Conservons les hypothèses du théorème 3.",
           "match": "Equation (9) takes the maximum of the two preceding thresholds; neither branch is discarded."
         },
         {
           "sourceId": "BS",
           "locator": "§2, definitions after equation (5), p. 360",
-          "excerpt": "H(n) = max(F (n), G(n)).",
           "match": "The displayed formulas agree with Kraus, including both square roots (checked on the PDF image; text extraction omits the radicals)."
         }
       ],
@@ -481,7 +475,6 @@
         {
           "sourceId": "Martin",
           "locator": "Theorem 2, p. 3; §4, Lemmas 16–22 and proof of Theorem 2, pp. 14–16 (v1)",
-          "excerpt": "There are 10,125 integers of this form",
           "match": "Theorem 2 gives the bound and precisely the prime 11 mod 12 and N=35 equality cases; §4 proves it using Lemmas 16–22 and the finite calculation."
         }
       ],
@@ -522,7 +515,6 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 2.2 proof, p. 359",
-          "excerpt": "Thus by Lemma 2.1 we have",
           "match": "The norm step in Lemma 2.2 motivates this number-field adapter; the all-embeddings product and the separate integral/field-norm gap justify its stated generality."
         }
       ],
@@ -568,7 +560,6 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 2.2, p. 359",
-          "excerpt": "With notation as above",
           "match": "Lemma 2.2 retains p≠ℓ, p∥M and ℓ|ord_p(Δ); its proof combines the removed-prime congruence, all-embeddings norm and Martin bound."
         }
       ],
@@ -612,7 +603,6 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.2, Lemma 1, pp. 1144–1145",
-          "excerpt": "Supposons que pour tout nombre premier",
           "match": "Lemma 1 reconstructs the small composite coefficients from prime coefficients and then uses characteristic-zero Sturm equality and Galois conjugation."
         }
       ],
@@ -661,7 +651,6 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.2, proof of Theorem 3, p. 1145",
-          "excerpt": "Puisque al n’est pas dans Z",
           "match": "Theorem 3 proof bounds the norm of a nonintegral coefficient difference, treating good and removed multiplicative primes separately; ℓ≥5, weight two and exact residual conductor remain explicit."
         }
       ],
@@ -703,7 +692,6 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.1, p. 1143; Theorem 3",
-          "excerpt": "cela signifie qu’il existe une courbe elliptique modulaire",
           "match": "The rational-coefficient paragraph identifies a curve of exact conductor, then invokes residual irreducibility to obtain an isomorphism; the quotient and Galois comparisons are supplied separately."
         }
       ],
@@ -745,7 +733,6 @@
         {
           "sourceId": "Kraus",
           "locator": "Theorem 3, p. 1144",
-          "excerpt": "les sous-groupes des points de p-torsion",
           "match": "Theorem 3 requires modularity, irreducibility, weight two and ℓ≥5; unconditional parent modularity supplies its modularity hypothesis."
         }
       ],
@@ -788,7 +775,6 @@
         {
           "sourceId": "Kraus",
           "locator": "Appendix II, Proposition 2 and Corollary, pp. 1158–1160",
-          "excerpt": "Les conditions suivantes sont équivalentes",
           "match": "The corollary is exactly finite recognition of good odd point counts modulo four at lcm(4,N); its bad-prime condition is automatic for elliptic multiplicative coefficients ±1."
         }
       ],
@@ -833,7 +819,6 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.3, p. 1146",
-          "excerpt": "Prouvons que E a bonne réduction en l.",
           "match": "§3.3 proves good reduction at each tested odd prime and equality of the integral traces using the strict G threshold and Hasse bound."
         }
       ],
@@ -872,7 +857,6 @@
         {
           "sourceId": "Kraus",
           "locator": "§3.3 end, pp. 1146–1147",
-          "excerpt": "une isogénie définie sur Q de degré",
           "match": "The final §3.3 paragraph invokes Serre IV-6 to produce an isogeny of degree one or two; the subgroup argument and finite-torsion Chebotarev step remain a recorded gap."
         }
       ],
@@ -916,7 +900,6 @@
         {
           "sourceId": "Kraus",
           "locator": "Theorem 4, p. 1144; §3.3",
-          "excerpt": "ayant tous ses points d’ordre 2 rationnels sur Q",
           "match": "Theorem 4 combines the F and G bounds, retains irreducibility and Serre weight two, and repairs full rational two-torsion through a two-isogeny."
         }
       ],
@@ -958,7 +941,6 @@
         {
           "sourceId": "BS",
           "locator": "Theorem 4, p. 360; compare Kraus §3.1",
-          "excerpt": "With notation as in Theorem 3",
           "match": "This is an application adapter, not a verbatim Bennett–Siksek theorem: equality with the quotient level needs the local conductor theorem and ℓ∤M; the weight-two hypothesis remains separate."
         }
       ],
@@ -996,7 +978,6 @@
         {
           "sourceId": "Mazur",
           "locator": "Theorem 1, pp. 129–130; proof outline pp. 132–133; Theorem 7.1, pp. 153–155",
-          "excerpt": "The object of this paper is to show",
           "match": "Theorem 1 gives the prime list; Theorem 7.1 identifies the CM-only degrees. The arithmetic proof inputs remain explicit gaps rather than consequences of moduli geometry."
         }
       ],
@@ -1036,7 +1017,6 @@
         {
           "sourceId": "BS",
           "locator": "Proofs of Lemmas 3.3 and 3.5, pp. 362–363",
-          "excerpt": "work of Mazur",
           "match": "Bennett–Siksek state the irreducibility consequences. The stronger intermediate composite-degree exclusions require the separately recorded Mazur–Kenku classification input; they are not quoted as a theorem of this passage."
         }
       ],
@@ -1078,7 +1058,6 @@
         {
           "sourceId": "BS",
           "locator": "Mazur input in Lemmas 3.3 and 3.5, pp. 362–363",
-          "excerpt": "we know from the work of Mazur",
           "match": "This is the kernel argument explaining the two-torsion irreducibility applications, not a verbatim source lemma: coprime cyclic kernels give 2ℓ; distinct rational two-points and dual isogeny give cyclic 4ℓ on an isogenous curve."
         }
       ],
@@ -1119,7 +1098,6 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 3.3 proof, p. 362",
-          "excerpt": "has full 2-torsion",
           "match": "Lemma 3.3 uses the full-two-torsion irreducibility threshold ℓ≥7. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
         }
       ],
@@ -1162,7 +1140,6 @@
         {
           "sourceId": "BS",
           "locator": "Lemma 3.5 proof, p. 363",
-          "excerpt": "a rational point of order 2",
           "match": "Lemma 3.5 uses the one-two-point threshold ℓ≥11. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
         }
       ],
@@ -1204,7 +1181,6 @@
         {
           "sourceId": "Lemos",
           "locator": "Proposition 2.2, pp. 4–5",
-          "excerpt": "If ℓ = p, then we know that χp surjects",
           "match": "Proposition 2.2 proves the criterion by squaring Tate eigencharacters; its proof includes q=p via surjectivity of the local cyclotomic character."
         }
       ],
@@ -1245,7 +1221,6 @@
         {
           "sourceId": "Lemos",
           "locator": "§3, Theorem 3.3 and Lemma 3.2, pp. 8–9",
-          "excerpt": "Chen’s isogeny commutes with",
           "match": "Theorem 3.3 and Lemma 3.2 identify the p-new quotient and away-from-p Hecke equivariance. Lemos’s X₀⁺(rp²) means the quotient by w_{p²}, preserving the r-level."
         }
       ],
@@ -1285,13 +1260,11 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 3.4 and sketch, p. 10",
-          "excerpt": "It remains to prove that A is non-trivial",
           "match": "Lemos Theorem 3.4 states all five auxiliary levels. Darmon–Merel Proposition 7.1 verifies the original r=2,3 winding route; extending its nonvanishing calculation is a recorded gap."
         },
         {
           "sourceId": "DarmonMerel",
           "locator": "§7, Proposition 7.1 and proof, pp. 18–21",
-          "excerpt": "a crucial use of a theorem of Kolyvagin and Logachev",
           "match": "Original r=2,3 proof; Lemos, rather than this proposition, supplies the extension target."
         }
       ],
@@ -1333,13 +1306,11 @@
         {
           "sourceId": "Lemos",
           "locator": "§3 final paragraph, p. 10",
-          "excerpt": "is a formal immersion at",
           "match": "Lemos §3 states the formal-immersion step for all five levels. Darmon–Merel Lemmas 8.2–8.3 specify the real-cyclotomic base and smooth-locus-to-Néron-model map for r=2,3; the extension to r=5,7,13 is not independently verified."
         },
         {
           "sourceId": "DarmonMerel",
           "locator": "§8, Lemmas 8.2–8.3, pp. 21–23",
-          "excerpt": "from the smooth part of the canonical model",
           "match": "Specifies the smooth-locus/Néron-model map over the real-cyclotomic base for r=2,3; the larger-r extension remains unverified."
         }
       ],
@@ -1380,13 +1351,11 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 1.4, p. 3; proof sketch §3",
-          "excerpt": "Set Σ := {2, 3, 5, 7, 13}.",
           "match": "Theorem 1.4 concludes membership in ℤ[1/p], with an r-isogeny for r in Σ and prime p outside Σ. Integrality at p is deliberately a different node."
         },
         {
           "sourceId": "DarmonMerel",
           "locator": "§8, Theorem 8.1, pp. 21–23",
-          "excerpt": "with r = 2 or 3",
           "match": "The original auxiliary-level scope is 2,3. Lemos Theorem 1.4 is the stated all-five-level extension."
         }
       ],
@@ -1423,7 +1392,6 @@
         {
           "sourceId": "Lemos",
           "locator": "Proposition 2.1, pp. 4–5",
-          "excerpt": "j(E) ∈ Z",
           "match": "Proposition 2.1 upgrades to integral j using Proposition 2.2 at p. The retained non-CM assumption is stronger than the proposition needs and harmless for the final use."
         }
       ],
@@ -1461,7 +1429,6 @@
         {
           "sourceId": "Lemos",
           "locator": "§2 table and divisibility proof, pp. 6–7",
-          "excerpt": "Hence, t ∈ Z",
           "match": "The table gives the five monic j-map numerators. Its rational-root argument forces nonzero integral t dividing the constant term, conditional on the intrinsic j-map identification."
         }
       ],
@@ -1502,7 +1469,6 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 2.3, p. 6",
-          "excerpt": "then the image of ρ̄E,p is contained",
           "match": "Theorem 2.3 is an arithmetic exclusion theorem for non-CM E and p>37. Finite-subgroup classification is only one input; Serre and Bilu–Parent–Rebolledo remain separate gaps."
         }
       ],
@@ -1540,7 +1506,6 @@
         {
           "sourceId": "Lemos",
           "locator": "Proof of Theorem 1.1, pp. 5–6",
-          "excerpt": "the surjectivity of ρ̄E,p only depends on the j-invariant",
           "match": "The proof states j-invariance of surjectivity. For odd p a quadratic central twist preserves full determinant and SL₂; geometric non-CM excludes exceptional quartic/sextic twists."
         }
       ],
@@ -1580,7 +1545,6 @@
         {
           "sourceId": "Lemos",
           "locator": "Proof of Theorem 1.1, pp. 5–7",
-          "excerpt": "the largest non-surjective prime",
           "match": "The proof checks finite rational-j lists via LMFDB/Sutherland computations. It does not ship complete universal certificates; the node’s certificate route and this missing data are kept explicit."
         }
       ],
@@ -1622,7 +1586,6 @@
         {
           "sourceId": "Lemos",
           "locator": "Theorem 1.1, p. 2; proof §2",
-          "excerpt": "admits a non-trivial cyclic Q-isogeny",
           "match": "Theorem 1.1 is exactly the non-CM, rational nontrivial cyclic-isogeny result for every prime p>37; it is not unrestricted Serre uniformity."
         }
       ],

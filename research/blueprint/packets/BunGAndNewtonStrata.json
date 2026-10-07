@@ -383,7 +383,6 @@
     {
      "sourceId": "FS",
      "locator": "After III.1.1 p.88",
-     "excerpt": "A G-bundle on X is an exact",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -485,13 +484,11 @@
     {
      "sourceId": "FS",
      "locator": "III.1.1 p.88",
-     "excerpt": "The following categories are naturally equivalent",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "SW",
      "locator": "Theorems19.5.1 and19.5.2, printed178-180",
-     "excerpt": "Theorem 19.5.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -535,13 +532,11 @@
     {
      "sourceId": "SW",
      "locator": "Proof19.5.2 printed179-180",
-     "excerpt": "Theorem 19.5.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "LZ17",
      "locator": "Corollary4.9 printed33",
-     "excerpt": "Corollary 4.9.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -587,13 +582,11 @@
     {
      "sourceId": "FS",
      "locator": "III.2.1 p.89",
-     "excerpt": "Definition III.2.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "SW",
      "locator": "Definition22.4.1 printed210 (PDF220)",
-     "excerpt": "Definition 22.4.1.",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -687,7 +680,6 @@
     {
      "sourceId": "He21",
      "locator": "Section2.1 p.4",
-     "excerpt": "Let 𝐵(G) be the set of 𝜎-conjugacy",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -792,13 +784,11 @@
     {
      "sourceId": "Kot97",
      "locator": "Sections4.3-4.4 pp.267-268",
-     "excerpt": "4.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Kisin17",
      "locator": "1.2.12 printed14",
-     "excerpt": "Jb̄ (A",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -894,7 +884,6 @@
     {
      "sourceId": "KMPS",
      "locator": "Section1.1.2 p.6",
-     "excerpt": "1.1.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -934,13 +923,11 @@
     {
      "sourceId": "GLX",
      "locator": "Definition2.3 p.819",
-     "excerpt": "Deﬁnition 2.3",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KMPS",
      "locator": "Section1.1.2 equations and decency p.6",
-     "excerpt": "1.1.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1034,13 +1021,11 @@
     {
      "sourceId": "GLX",
      "locator": "Paragraph4 after Definition2.3 p.819",
-     "excerpt": "every b has a decent representative.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Kot85",
      "locator": "Section4.3 printed213-214",
-     "excerpt": "4.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1080,7 +1065,6 @@
     {
      "sourceId": "He21",
      "locator": "Section2.2 p.5",
-     "excerpt": "The defect of b is",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1165,7 +1149,6 @@
     {
      "sourceId": "FS",
      "locator": "III.4.1 p.100",
-     "excerpt": "Proposition III.4.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1208,7 +1191,6 @@
     {
      "sourceId": "FS",
      "locator": "III.4.2 andIII.4.3 pp.100-101",
-     "excerpt": "Corollary III.4.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1252,7 +1234,6 @@
     {
      "sourceId": "FS",
      "locator": "ExampleIII.4.4 pp.101-102",
-     "excerpt": "Example III.4.4.",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -1294,13 +1275,11 @@
     {
      "sourceId": "KMPS",
      "locator": "Lemma1.1.12 p.10",
-     "excerpt": "Lemma 1.1.12.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "He21",
      "locator": "Section6.2 p.13",
-     "excerpt": "6.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1345,13 +1324,11 @@
     {
      "sourceId": "KMPS",
      "locator": "Proposition1.1.13 and Corollary1.1.15 pp.10-12",
-     "excerpt": "Proposition 1.1.13.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KMPS",
      "locator": "Corollary1.1.15 p.11",
-     "excerpt": "Corollary 1.1.15.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1392,7 +1369,6 @@
     {
      "sourceId": "KMPS",
      "locator": "Definition1.1.7 p.8",
-     "excerpt": "Definition 1.1.7.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1486,13 +1462,11 @@
     {
      "sourceId": "Kot85",
      "locator": "Proposition5.3 printed215",
-     "excerpt": "5.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KMPS",
      "locator": "Lemma1.1.8 p.8",
-     "excerpt": "Lemma 1.1.8.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1538,7 +1512,6 @@
     {
      "sourceId": "KMPS",
      "locator": "Section1.1.16 and Corollary1.1.17 pp.12-13",
-     "excerpt": "Corollary 1.1.17.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1580,13 +1553,11 @@
     {
      "sourceId": "KZ",
      "locator": "Definition2.2.4 and Remark2.2.5 p.10",
-     "excerpt": "Definition 2.2.4.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KMPS",
      "locator": "Section1.3.15 p.20",
-     "excerpt": "1.3.15.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1683,13 +1654,11 @@
     {
      "sourceId": "HN18",
      "locator": "Theorem0.1 pp.1-2",
-     "excerpt": "Theorem 0.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KZ",
      "locator": "Remark2.2.5 p.10",
-     "excerpt": "Remark 2.2.5.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1731,7 +1700,6 @@
     {
      "sourceId": "KZ",
      "locator": "Section2.2.2 p.10, with the σ-straight definitions in Sections2.1.3-2.1.4 pp.7-8",
-     "excerpt": "2.1.4.",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -1777,7 +1745,6 @@
     {
      "sourceId": "KZ",
      "locator": "Lemma2.2.6 p.10, using Lemmas2.1.7 and2.1.9 p.9",
-     "excerpt": "Lemma 2.2.6.",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -1819,7 +1786,6 @@
     {
      "sourceId": "KZ",
      "locator": "Lemma2.2.8 p.10",
-     "excerpt": "Lemma 2.2.8.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1861,7 +1827,6 @@
     {
      "sourceId": "KZ",
      "locator": "Proposition2.3.3 pp.11-12",
-     "excerpt": "Proposition 2.3.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1903,13 +1868,11 @@
     {
      "sourceId": "Zhu17",
      "locator": "Remark3.6 and Lemma3.7 p.459",
-     "excerpt": "Remark 3.6.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Kot97",
      "locator": "Section6.5 equations6.5.2-6.5.3 p.288",
-     "excerpt": "(6.5.3)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1951,7 +1914,6 @@
     {
      "sourceId": "He21",
      "locator": "Theorem6.3 footnote and Section6.2 pp.13-14",
-     "excerpt": "6.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -1993,7 +1955,6 @@
     {
      "sourceId": "FS",
      "locator": "I.2 pp.10-11",
-     "excerpt": "These are also known as families of G-isocrystals",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2088,7 +2049,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremI.2.1 p.11",
-     "excerpt": "The prestack G-Isoc is a stack for the v-topology",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2131,13 +2091,11 @@
     {
      "sourceId": "FS",
      "locator": "CorollaryIII.2.8 pp.92-93",
-     "excerpt": "Corollary III.2.8",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "SW",
      "locator": "Proposition18.3.1 §18.3",
-     "excerpt": "Proposition 18.3.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2178,7 +2136,6 @@
     {
      "sourceId": "FS",
      "locator": "III.2.4.2 pp.93-94",
-     "excerpt": "the abelianized Kottwitz set",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2270,7 +2227,6 @@
     {
      "sourceId": "FS",
      "locator": "LemmaIII.2.11 p.94",
-     "excerpt": "There is an identification",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2314,7 +2270,6 @@
     {
      "sourceId": "FS",
      "locator": "III.2.4.2 p.94",
-     "excerpt": "there is a morphism of sites",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2407,7 +2362,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.2.12(i) pp.94-95",
-     "excerpt": "Let F be a locally constant sheaf of finite abelian groups",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2452,7 +2406,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.2.12(ii), comparison morphism and RemarkIII.2.14 pp.94-97",
-     "excerpt": "If D is a diagonalizable algebraic group over E",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2495,7 +2448,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.2.13 p.96",
-     "excerpt": "is the constant sheaf with value Bab (G).",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2541,7 +2493,6 @@
     {
      "sourceId": "FS",
      "locator": "DefinitionIII.1.2 p.88",
-     "excerpt": "Let BunG be the v-stack taking a perfectoid space",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2654,7 +2605,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.1.3 pp.88-89",
-     "excerpt": "The v-stack BunG is small.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2703,13 +2653,11 @@
     {
      "sourceId": "FS",
      "locator": "TheoremIII.2.2 pp.89-90",
-     "excerpt": "the construction above defines a bijection",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Ans19",
      "locator": "Theorem3.11 and proof pp.14-16",
-     "excerpt": "Theorem 3.11.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2756,7 +2704,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremIII.2.3 and preceding paragraph p.91",
-     "excerpt": "is upper semicontinuous.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2801,7 +2748,6 @@
     {
      "sourceId": "FS",
      "locator": "RemarkIII.2.5 and LemmaIII.2.6 p.92",
-     "excerpt": "Then any pro-étale H-torsor on S is trivial.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2848,7 +2794,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremIII.2.4 pp.91-92",
-     "excerpt": "The substack Bun1G ⊂ BunG is open",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2898,7 +2843,6 @@
     {
      "sourceId": "FS",
      "locator": "LemmaIII.3.2 p.98",
-     "excerpt": "the map GrG (R) → GrG (K(s)) is surjective.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2945,13 +2889,11 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.3.1 p.98",
-     "excerpt": "is a surjective map of v-stacks; in fact, of pro-étale stacks.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Ans19",
      "locator": "Theorem6.5 p.30",
-     "excerpt": "Theorem 6.5.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -2998,7 +2940,6 @@
     {
      "sourceId": "FS",
      "locator": "LemmaIII.3.5 p.99",
-     "excerpt": "is a surjective map of v-sheaves.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3041,7 +2982,6 @@
     {
      "sourceId": "FS",
      "locator": "LemmaIII.2.10 and proof afterIII.3.5 pp.93,99",
-     "excerpt": "is a surjective map of v-stacks.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3085,7 +3025,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremIII.2.7 and first proof pp.92-93",
-     "excerpt": "is locally constant.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3133,13 +3072,11 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.3.6(ii)-(iii) pp.99-100",
-     "excerpt": "is the opposite of the preceding map.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Zhu17",
      "locator": "Proposition1.21 p.427",
-     "excerpt": "Proposition 1.21.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3182,13 +3119,11 @@
     {
      "sourceId": "Vie21",
      "locator": "Theorem1.1 and preceding topology convention p.2",
-     "excerpt": "Theorem 1.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "FS",
      "locator": "ConjectureIII.2.15 p.97",
-     "excerpt": "The map | BunG | → B(G) is a homeomorphism.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3233,7 +3168,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.4.7 pp.102-103",
-     "excerpt": "moduli problem, parametrizing G-bundles with a splitting",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3330,7 +3264,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.4.7 pp.102-103",
-     "excerpt": "and this is an isomorphism.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3376,7 +3309,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.5.2 p.105",
-     "excerpt": "they are smooth group schemes",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3477,7 +3409,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.5.1 pp.104-105",
-     "excerpt": "a successive extension of positive Banach–Colmez spaces",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3580,7 +3511,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.5.1 pp.104-105",
-     "excerpt": "of dimension ⟨2ρ, νb ⟩",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3623,7 +3553,6 @@
     {
      "sourceId": "FS",
      "locator": "III.5.1.1 pp.105-106",
-     "excerpt": "The quasi-split case.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3666,7 +3595,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremIII.4.5 p.102",
-     "excerpt": "is open, and there is a canonical decomposition",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3761,7 +3689,6 @@
     {
      "sourceId": "FS",
      "locator": "ExampleIII.4.6 p.102",
-     "excerpt": "there is an exact sequence of Picard stacks",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3857,7 +3784,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIII.5.3 p.106",
-     "excerpt": "is the classifying stack",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3904,7 +3830,6 @@
     {
      "sourceId": "FS",
      "locator": "RemarkIII.5.4 p.106",
-     "excerpt": "Remark III.5.4",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3945,7 +3870,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionIV.1.22 p.113",
-     "excerpt": "of ℓ-dimension −⟨2ρ, νb ⟩.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -3995,7 +3919,6 @@
     {
      "sourceId": "FS",
      "locator": "LemmaIV.1.20 and proof ofIV.1.19 pp.112-113",
-     "excerpt": "is representable by an open subdiamond",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4044,7 +3967,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremIV.1.19 pp.112-113",
-     "excerpt": "a separated cohomologically smooth cover",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4094,7 +4016,6 @@
     {
      "sourceId": "FS",
      "locator": "CorollaryIV.1.23 and LemmaIV.1.24 pp.113-114",
-     "excerpt": "The Kottwitz map induces a bijection",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4140,7 +4061,6 @@
     {
      "sourceId": "FS",
      "locator": "DefinitionV.3.2 and ExampleV.3.3 pp.173-174",
-     "excerpt": "an increasing separated and exhaustive Q-filtration",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4241,7 +4161,6 @@
     {
      "sourceId": "FS",
      "locator": "ExampleV.3.4 p.174",
-     "excerpt": "Suppose G is quasisplit.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4284,7 +4203,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionV.3.5 p.174",
-     "excerpt": "a successive torsor under negative Banach–Colmez spaces.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4334,7 +4252,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionV.3.6 pp.175-176",
-     "excerpt": "is a spatial diamond.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4384,7 +4301,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionV.3.6 pp.175-176",
-     "excerpt": "is proper.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4431,7 +4347,6 @@
     {
      "sourceId": "FS",
      "locator": "Proof ofTheoremV.3.7 p.177",
-     "excerpt": "these are semistable of slope λ > 0",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4478,7 +4393,6 @@
     {
      "sourceId": "FS",
      "locator": "TheoremV.3.7 p.177",
-     "excerpt": "The image of πb is open",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4526,7 +4440,6 @@
     {
      "sourceId": "FS",
      "locator": "ExampleV.3.1 p.173",
-     "excerpt": "the first interesting case",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4569,7 +4482,6 @@
     {
      "sourceId": "Kisin17",
      "locator": "Section2.1.2 printed29",
-     "excerpt": "(2.1.2)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4615,7 +4527,6 @@
     {
      "sourceId": "CS17",
      "locator": "Proposition3.5.3 and Lemma3.5.4 pp.687-689",
-     "excerpt": "not necessarily minuscule",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4657,7 +4568,6 @@
     {
      "sourceId": "CS17",
      "locator": "Remark3.5.8 p.689",
-     "excerpt": "all of B(G, µ−1 ).",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4700,7 +4610,6 @@
     {
      "sourceId": "CS17",
      "locator": "Definition3.5.6 pp.689-690",
-     "excerpt": "Definition 3.5.6.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4800,7 +4709,6 @@
     {
      "sourceId": "CS17",
      "locator": "Proposition3.5.7 and Corollary3.5.9 pp.689-690",
-     "excerpt": "The strata F`bG,µ are locally closed",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4843,7 +4751,6 @@
     {
      "sourceId": "CS24",
      "locator": "Section2.1 pp.11-12 and Theorem2.7.3 p.33",
-     "excerpt": "The dimension of Fℓb",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4887,7 +4794,6 @@
     {
      "sourceId": "CS24",
      "locator": "AfterTheorem2.7.3 p.33",
-     "excerpt": "We have Fℓord = Fℓ(Qp )",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4932,7 +4838,6 @@
     {
      "sourceId": "CS17",
      "locator": "Lemma5.5.8 and preceding footnote p.748",
-     "excerpt": "Lemma 5.5.8.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -4972,7 +4877,6 @@
     {
      "sourceId": "KMPS",
      "locator": "Notational conventions and1.1.1 p.5",
-     "excerpt": "1.1.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5061,13 +4965,11 @@
     {
      "sourceId": "KMPS",
      "locator": "Notational conventions p.5",
-     "excerpt": "π1 (G)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "GLX",
      "locator": "Section2.2 p.818",
-     "excerpt": "π1 (G)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5160,13 +5062,11 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.1 pp.5-6",
-     "excerpt": "N (G",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "RR96",
      "locator": "Section2.1 pp.165-166 (PDF14-15)",
-     "excerpt": "2. A partial ordering on the set of Newton points",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -5257,7 +5157,6 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.5 pp.7-8",
-     "excerpt": "1.1.5.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5351,13 +5250,11 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.2 equations1.1.2.1 and1.1.2.3 pp.6-7",
-     "excerpt": "1.1.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "RR96",
      "locator": "Theorem1.15 p.163",
-     "excerpt": "THEOREM 1.15",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5455,13 +5352,11 @@
     {
      "sourceId": "Kot97",
      "locator": "Section4.13 pp.274-275 (injectivity), Section4.4 pp.268-269 (basic bijection), and Section5.1 pp.278-280",
-     "excerpt": "is injective (the first component",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     },
     {
      "sourceId": "KMPS",
      "locator": "1.1.2.3 pp.6-7",
-     "excerpt": "(1.1.2.3)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5501,7 +5396,6 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.2 p.6",
-     "excerpt": "basic",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5590,13 +5484,11 @@
     {
      "sourceId": "FS",
      "locator": "III.2.2 p.89",
-     "excerpt": "partial order",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "He21",
      "locator": "Section4.1 p.7",
-     "excerpt": "partial order",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5689,7 +5581,6 @@
     {
      "sourceId": "RR96",
      "locator": "Lemma2.2 and Proposition2.4 pp.165-166",
-     "excerpt": "LEMMA 2.2",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5730,13 +5621,11 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.5 conditions1.1.5.1-2 p.8",
-     "excerpt": "(1.1.5.1)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KZ",
      "locator": "Definition2.2.3 p.10",
-     "excerpt": "2.2.3.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5844,13 +5733,11 @@
     {
      "sourceId": "Kot97",
      "locator": "Section6.4 and6.6 pp.287-288",
-     "excerpt": "6.4.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "KMPS",
      "locator": "Lemma1.1.6 p.8",
-     "excerpt": "Lemma 1.1.6.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5891,7 +5778,6 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.3 condition1.1.3.1 p.7",
-     "excerpt": "(1.1.3.1)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -5985,13 +5871,11 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.2.4 p.7",
-     "excerpt": "(1.1.2.4)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Kot85",
      "locator": "Sections2.4-2.8 pp.208-210",
-     "excerpt": "2.4.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -6034,19 +5918,16 @@
     {
      "sourceId": "Kot97",
      "locator": "Section7.7 pp.300-301",
-     "excerpt": "We claim that (7.7.1) is surjective.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Kisin17",
      "locator": "Lemma4.6.4 printed93",
-     "excerpt": "Lemma (4.6.4).",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "vH24",
      "locator": "Corollary3.4.6 proof printed37",
-     "excerpt": "Corollary 3.4.6.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -6086,7 +5967,6 @@
     {
      "sourceId": "GLX",
      "locator": "Section1.1 equations(1.3)-(1.4) p.807; Section2.2 p.818",
-     "excerpt": "a unique coset element",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -6186,13 +6066,11 @@
     {
      "sourceId": "GLX",
      "locator": "Lemma3.16 p.829",
-     "excerpt": "Lemma 3.16.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
      "sourceId": "Kot97",
      "locator": "Section6.5 equation6.5.1 p.287",
-     "excerpt": "(6.5.1)",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -6234,7 +6112,6 @@
     {
      "sourceId": "Kot14",
      "locator": "Proposition10.4 printed50-51",
-     "excerpt": "Proposition 10.4.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -6276,7 +6153,6 @@
     {
      "sourceId": "FS",
      "locator": "PropositionV.3.6 p.175",
-     "excerpt": "well-defined cocharacter",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -6362,7 +6238,6 @@
     {
      "sourceId": "He21",
      "locator": "Section6.2 p.13",
-     "excerpt": "6.2.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],
@@ -6406,7 +6281,6 @@
     {
      "sourceId": "LZ17",
      "locator": "Corollary4.9 and Remark4.1(iii) pp.33-34",
-     "excerpt": "Remark 4.1.",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     }
    ],

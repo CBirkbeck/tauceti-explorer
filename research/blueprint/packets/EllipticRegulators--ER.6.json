@@ -270,13 +270,11 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Conjecture 3.11(2), p. 6; Remark 3.14, p. 7",
-          "excerpt": "the determinant",
           "match": "Specialise the source’s regulator pairing matrix to genus one over all embeddings. Signed coordinates are a derived implementation choice; Q× absorbs the sign and any rational lattice index."
         },
         {
           "sourceId": "SchappacherScholl.1988",
           "locator": "§1.1.0 and Theorem 1.1.2(ii), PDF pp. 2–3",
-          "excerpt": "a Q-structure",
           "match": "Fix the rational structure before comparing the determinant to the L-value."
         }
       ],
@@ -389,13 +387,11 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Remark 3.13, pp. 6–7",
-          "excerpt": "finding enough elements",
           "match": "The finite tuple is a constructed subspace, with no claim it generates the integral group."
         },
         {
           "sourceId": "SchappacherScholl.1988",
           "locator": "§1.1.0, PDF p. 3",
-          "excerpt": "a subspace",
           "match": "The source gives integral classes with the desired regulator; the witness isolates that conclusion."
         }
       ],
@@ -515,7 +511,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Conjecture 3.11(1–2), p. 6; rational-rank qualification in footnote 3, p. 5",
-          "excerpt": "non-degenerate",
           "match": "The full conjecture has both rank and nondegeneracy. This equivalence is a derived linear-algebra formulation; it does not assert finite generation of an integral lattice."
         }
       ],
@@ -560,13 +555,11 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Theorem 8.3(2) and its proof, p. 23",
-          "excerpt": "no non-zero multiple",
           "match": "The displayed elliptic example is a direct substitution into the theorem, not an example transcribed from its tables."
         },
         {
           "sourceId": "SchappacherScholl.1988",
           "locator": "§1.1.3(iii), PDF p. 3",
-          "excerpt": "evidence for this conjecture",
           "match": "The integral constructed subspace does not by itself establish the regulator injectivity conjecture."
         }
       ],
@@ -613,7 +606,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "§2, the display following Conjecture 2.1, p. 3",
-          "excerpt": "residue 1",
           "match": "The source calculation gives the exact conductor/gamma scalar; modularity supplies its conjectural analytic inputs for elliptic curves over Q."
         }
       ],
@@ -664,7 +656,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Remark 3.12, p. 6; Remark 3.14, p. 7",
-          "excerpt": "expected functional equation",
           "match": "The at-two formulation needs no continuation to be meaningful; the equivalence does. The rational coefficient transformation is derived explicitly here."
         }
       ],
@@ -714,13 +705,11 @@
         {
           "sourceId": "Scholl.Integral.I",
           "locator": "§1.3.3, Corollary 1.3.4, Proposition 1.3.6; PDF pp. 8–9",
-          "excerpt": "generic degree",
           "match": "Degree-normalised alteration transfer reflects integral membership; localisation identifies global membership with membership over all completions. Their potentially-good application is derived here."
         },
         {
           "sourceId": "Scholl.Integral.II",
           "locator": "§2, PDF p. 5, equations preceding diagram (3)",
-          "excerpt": "stable under",
           "match": "The source explicitly recalls reflection of integral membership under finite field extensions. This is not a statement about horizontal tame unramifiedness."
         }
       ],
@@ -769,7 +758,6 @@
         {
           "sourceId": "Scholl.Integral.II",
           "locator": "§2, PDF p. 5: integral membership after finite extension",
-          "excerpt": "the integrality",
           "match": "Supports the new arithmetic-membership step; the Bloch class and nonzero regulator are imported parent declarations, not results claimed to be stated in this paper."
         }
       ],
@@ -802,7 +790,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Conjecture 3.11(2), p. 6; Remark 3.14, p. 7",
-          "excerpt": "the determinant",
           "match": "The cited determinant formulation motivates this derived linear-algebra API lemma, rather than printing it under the proposed name."
         }
       ],
@@ -835,7 +822,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Remark 3.13, pp. 6–7",
-          "excerpt": "finding enough elements",
           "match": "The cited determinant formulation motivates this derived linear-algebra API lemma, rather than printing it under the proposed name."
         }
       ],
@@ -867,7 +853,6 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Remark 3.13, pp. 6–7",
-          "excerpt": "finding enough elements",
           "match": "The cited determinant formulation motivates this derived linear-algebra API lemma, rather than printing it under the proposed name."
         }
       ],

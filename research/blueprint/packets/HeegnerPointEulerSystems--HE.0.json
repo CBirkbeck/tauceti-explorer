@@ -592,7 +592,6 @@
         {
           "sourceId": "khayutin",
           "locator": "§2.4.4, Definition2.1 and Proposition2.2 p.165; Lemma2.3 p.166.",
-          "excerpt": "Λv is stable under the Galois action",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -638,7 +637,6 @@
         {
           "sourceId": "khayutin",
           "locator": "§2.4.4, Definition2.6 p.166 and its following paragraph p.167.",
-          "excerpt": "it is an order in E(Q)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -682,7 +680,6 @@
         {
           "sourceId": "khayutin",
           "locator": "§2.4.3 p.165; §2.4.4, Remark2.7 and Definition2.8 p.167 (unit-stabilizer correction E4).",
-          "excerpt": "invertible proper",
           "match": "The finite idele quotient and invertible proper ideal carrier yield Pic(Λ); E4 corrects the printed unit stabilizer."
         }
       ],
@@ -730,7 +727,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "§2.3 p.24 (successive local unit quotient); Appendix6.1 pp.61–63 (quadratic local orders).",
-          "excerpt": "The reciprocity map induces an isomorphism",
           "match": "Cornut–Vatsal supplies the local conductor quotients and global unit stabilization. The first-step quadratic kernel formula is derived from the requested GN11 order-Picard exact sequence; it is not a quoted numbered theorem here."
         }
       ],
@@ -776,7 +772,6 @@
         {
           "sourceId": "gross",
           "locator": "§3 pp.238–240; Cornut–Vatsal §2 pp.20–23",
-          "excerpt": "ring class field",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -825,7 +820,6 @@
         {
           "sourceId": "gross",
           "locator": "§3, printed p.238 (conjugation action); Lemma4.3 proof p.242 (dihedral quotient).",
-          "excerpt": "complex conjugation",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -872,7 +866,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "§2 pp.20–23, Lemmas2.1–2.9; §1.1 p.4",
-          "excerpt": "G(∞)/G0",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -919,7 +912,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "§1.7 p.19, §2.1 pp.20–21, §3.8 p.35",
-          "excerpt": "geometric Frobenius",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -963,7 +955,6 @@
         {
           "sourceId": "khayutin",
           "locator": "§5.2, Definition5.7 and Lemma5.8, printed p.184; normalization corrected in E5.",
-          "excerpt": "inverse different",
           "match": "The trace-dual and principal-invertible assertions are the source statements. The discriminant comparison is an ideal norm/valuation equality; the printed exact field-norm equality requires E5."
         }
       ],
@@ -1006,7 +997,6 @@
         {
           "sourceId": "gross",
           "locator": "§3, printed p.238 (the order and cyclic N-isogeny defining x_n).",
-          "excerpt": "cyclic N-isogeny",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1054,7 +1044,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "§3.8 pp.34–35; Zhang §3.2 pp.205–206",
-          "excerpt": "K splits B",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1103,7 +1092,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "§3.8 p.35; Howard §1.7 p.19",
-          "excerpt": "the CM points are algebraic",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1151,7 +1139,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "§3.5 pp.29–32; Zhang Remark6 pp.205–206",
-          "excerpt": "deg(δH) = 1",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1200,7 +1187,6 @@
         {
           "sourceId": "howard",
           "locator": "§1.7 p.19; Gross §1 p.236; Zhang §3.7 p.213",
-          "excerpt": "P[m]",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1301,7 +1287,6 @@
         {
           "sourceId": "gross",
           "locator": "§1 pp.236–237; §5 pp.243–244; Zhang Remarks6–7",
-          "excerpt": "I/c",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1345,7 +1330,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "Appendix6.1–6.2 pp.62–64",
-          "excerpt": "remaining lower neighbors",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1394,7 +1378,6 @@
         {
           "sourceId": "gross",
           "locator": "Proposition3.7(i), pp.240–241; Howard §1.7 p.19",
-          "excerpt": "aℓ",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1441,7 +1424,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "Corollary6.6, p.64",
-          "excerpt": "(σϵP + σϵP∗)x′",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1488,7 +1470,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "Corollary6.6, p.64",
-          "excerpt": "Tr(x) = T",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1535,7 +1516,6 @@
         {
           "sourceId": "cornut-vatsal",
           "locator": "Appendix6.3–6.4 pp.65–67",
-          "excerpt": "Tr(x) = −pr(x)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1580,7 +1560,6 @@
         {
           "sourceId": "gross",
           "locator": "Proposition3.7(ii) and proof, pp.240–241",
-          "excerpt": "Frob",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1630,7 +1609,6 @@
         {
           "sourceId": "zhang",
           "locator": "§§3.4–3.6, pp.207–211, Theorem3.1",
-          "excerpt": "Redq(xm(n)) = xmq(n)",
           "match": "Zhang3.5 says the prime (q)⊂O_K splits over K in the CM fields. Theorem3.1 supplies both formulas; q itself is an inert rational prime, and the residue field is F_q²."
         }
       ],
@@ -1675,7 +1653,6 @@
         {
           "sourceId": "howard",
           "locator": "§§1.1,1.7 pp.5–8,19–21; Gross §4 pp.241–243",
-          "excerpt": "Kummer",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1721,7 +1698,6 @@
         {
           "sourceId": "gross",
           "locator": "§7 pp.247–249",
-          "excerpt": "unramified",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1768,7 +1744,6 @@
         {
           "sourceId": "gross",
           "locator": "Proposition6.2 and proof, pp.244–247",
-          "excerpt": "component group",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1819,7 +1794,6 @@
         {
           "sourceId": "howard",
           "locator": "§1.6, Theorem1.6.5 proof, pp.18–19",
-          "excerpt": "v | p",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1870,7 +1844,6 @@
         {
           "sourceId": "howard",
           "locator": "Introduction pp.1–3; §1.6 pp.18–19",
-          "excerpt": "M ⊕ M",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1912,7 +1885,6 @@
         {
           "sourceId": "gross",
           "locator": "Proposition6.2, p.245; §8 p.249",
-          "excerpt": "complex conjugation",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -1957,7 +1929,6 @@
         {
           "sourceId": "howard",
           "locator": "§1.7 pp.19–20; Zhang §1 p.194 and Notations p.202",
-          "excerpt": "Iℓ",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2054,7 +2025,6 @@
         {
           "sourceId": "howard",
           "locator": "Lemma1.7.1 pp.19–20; Gross §4 pp.241–243",
-          "excerpt": "G(n)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2097,7 +2067,6 @@
         {
           "sourceId": "gross",
           "locator": "Lemma4.3, statement p.241 and proof p.242; Howard Lemma1.7.1 proof p.20.",
-          "excerpt": "p-torsion rational",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2146,7 +2115,6 @@
         {
           "sourceId": "gross",
           "locator": "§4 pp.242–243; Howard Lemmas1.7.1–1.7.2 p.20; Zhang(3.21) p.213",
-          "excerpt": "restriction",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2242,7 +2210,6 @@
         {
           "sourceId": "gross",
           "locator": "Explicit cocycle (4.6) and Proposition4.7, printed p.242; Howard Lemma1.7.2 p.20.",
-          "excerpt": "1-cocycle",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2285,7 +2252,6 @@
         {
           "sourceId": "gross",
           "locator": "Definition(4.1), printed p.241, and note after Proposition4.7 p.242; Howard §1.7 p.20; Zhang(3.22) p.213.",
-          "excerpt": "P1 = yK",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2332,7 +2298,6 @@
         {
           "sourceId": "howard",
           "locator": "Theorem1.7.5 pp.20–21; Gross §4 p.242",
-          "excerpt": "pairwise commute",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2379,7 +2344,6 @@
         {
           "sourceId": "zhang",
           "locator": "§3.7 pp.211–213; Howard §1.7 pp.19–21",
-          "excerpt": "M ≤ M(n)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2424,7 +2388,6 @@
         {
           "sourceId": "gross",
           "locator": "Proposition5.4 pp.243–244; Zhang(3.24) p.213",
-          "excerpt": "ϵ · (−1)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2472,7 +2435,6 @@
         {
           "sourceId": "howard",
           "locator": "Lemma1.7.3 and proof, pp.20–21",
-          "excerpt": "transverse",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2520,7 +2482,6 @@
         {
           "sourceId": "howard",
           "locator": "Proposition1.7.4, preprint p.21; published pp.1457–1458.",
-          "excerpt": "χℓ",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2568,7 +2529,6 @@
         {
           "sourceId": "howard",
           "locator": "Theorem1.7.5 pp.20–21 and published p.1458",
-          "excerpt": "Only a slight modification is needed",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2665,7 +2625,6 @@
         {
           "sourceId": "howard",
           "locator": "H.0–H.2 pp.8–9, Theorem1.6.5 proof pp.18–19",
-          "excerpt": "H.2",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2717,7 +2676,6 @@
         {
           "sourceId": "howard",
           "locator": "H.3–H.5 pp.8–9, Theorem1.6.5 proof pp.18–19",
-          "excerpt": "(s, t) = e(s, τt)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2764,7 +2722,6 @@
         {
           "sourceId": "gross",
           "locator": "§9 pp.250–252, Lemma9.1 and Proposition9.3",
-          "excerpt": "Hom(S, E[p])",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2811,7 +2768,6 @@
         {
           "sourceId": "gross",
           "locator": "Propositions9.5–9.6 and Claims10.1/10.3, pp.251–254",
-          "excerpt": "Chebotarev",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2859,7 +2815,6 @@
         {
           "sourceId": "howard",
           "locator": "§1.1 pp.5–8; Gross Proposition6.2 pp.244–247",
-          "excerpt": "local conditions",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2903,7 +2858,6 @@
         {
           "sourceId": "zhang",
           "locator": "§6.3 pp.228–229, local monodromy/Tamagawa description",
-          "excerpt": "the maximal integer t",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -2949,7 +2903,6 @@
         {
           "sourceId": "howard",
           "locator": "TheoremA pp.1–2, Theorem1.6.5 pp.18–19",
-          "excerpt": "M ⊕ M",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3000,7 +2953,6 @@
         {
           "sourceId": "gross",
           "locator": "Propositions2.1/2.3 pp.237–238, Claims10.1/10.3 pp.252–254",
-          "excerpt": "Selp",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3051,7 +3003,6 @@
         {
           "sourceId": "gross",
           "locator": "Proposition8.2 pp.249–250; Claim10.1 pp.252–253",
-          "excerpt": "Claim 10.1",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3099,7 +3050,6 @@
         {
           "sourceId": "gross",
           "locator": "Claim10.3 and proof, pp.253–254",
-          "excerpt": "Claim 10.3",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3143,7 +3093,6 @@
         {
           "sourceId": "howard",
           "locator": "Introduction, finite/p-adic Kummer exact sequences and TheoremA, PDF pp.1–2.",
-          "excerpt": "length(M)",
           "match": "TheoremA bounds length(M); the introduction identifies the finite Sha quotient by the Kummer sequences. Inequality(1) on p.3 is an Iwasawa statement and is not this finite-level bound."
         }
       ],
@@ -3192,19 +3141,16 @@
         {
           "sourceId": "howard",
           "locator": "TheoremA, PDF pp.1–2 (upper bound, not a primitivity equality).",
-          "excerpt": "length(M)",
           "match": "Howard supplies only the upper bound. The requested ES.5 primitivity theorem supplies conditional sharpness, while Zhang’s separately cited theorem supplies arithmetic indivisibility."
         },
         {
           "sourceId": "zhang",
           "locator": "Theorem9.3 p.243; §10 pp.245–246.",
-          "excerpt": "M∞ = 0",
           "match": "Zhang proves this stronger indivisibility under his enumerated hypotheses; the excerpt belongs to Zhang, not Howard."
         },
         {
           "sourceId": "zanarella",
           "locator": "Theorem2.3.6, with Definition2.3.2 and Proposition2.3.3, arXiv v1 pp.19–20",
-          "excerpt": "with equality if and only if κ is primitive",
           "match": "Under H.0–H.5 for (T,F) and its dual, p>4 and 𝓛⊇𝓛_s(T), Zanarella refines Howard’s inequality to length M=length(H¹_F(K,T)/Rκ_1)−d(κ), with d(κ)=0 exactly for a primitive system."
         }
       ],
@@ -3252,13 +3198,11 @@
         {
           "sourceId": "zhang",
           "locator": "Theorem4.3 and proof, pp.218–221; Lemma3.3 p.215",
-          "excerpt": "up to a unit",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         },
         {
           "sourceId": "zhang",
           "locator": "§2, Theorem2.1 and proof, pp.203–204; (4.7)–(4.9), pp.218–219",
-          "excerpt": "recall the level-raising of Ribet, following Diamond–Taylor",
           "match": "Theorem2.1 is the imported level-raising statement: exact level Nq, trivial nebentypus, the same residual representation. (4.8) and (4.9) are the multiplicity-one and eigenfunction/Kummer inputs of the congruence."
         }
       ],
@@ -3307,7 +3251,6 @@
         {
           "sourceId": "zhang",
           "locator": "Lemma5.1, Theorem5.2, Proposition5.4, pp.222–225",
-          "excerpt": "dim",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3358,13 +3301,11 @@
         {
           "sourceId": "zhang",
           "locator": "Theorem7.1 and proof, pp.231–232",
-          "excerpt": "Selp∞(Ag/K)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         },
         {
           "sourceId": "skinner",
           "locator": "Introduction, TheoremB, arXiv v1 p.2; §2.5, discussion after Theorem2.5.2, pp.15–16; §3.2, pp.20–21",
-          "excerpt": "a closer reading of the proof of loc. cit. shows that all that is necessary is that (a) ρ̄f be irreducible",
           "match": "TheoremB is the rank-zero formula over Q for a weight-two newform with coefficients O, for p≥3, under residual irreducibility and a prime q||N at which ρ̄_f is ramified. §2.5 shows that integrality in the Skinner–Urban main conjecture needs only those conditions. This replaces the SL₂(Z_p) step in the proof of Zhang’s Theorem7.1."
         }
       ],
@@ -3411,7 +3352,6 @@
         {
           "sourceId": "zhang",
           "locator": "§6.1–6.4, pp.226–231, Corollary6.2 and Theorem6.5",
-          "excerpt": "Lalg(g′/K, 1)",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3458,13 +3398,11 @@
         {
           "sourceId": "zhang",
           "locator": "Theorem6.4 and proof, pp.229–230; §7.2 p.233",
-          "excerpt": "vp(ηg",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         },
         {
           "sourceId": "pollack-weston",
           "locator": "§§6.2–6.5, preprint pp.18–21: Theorem6.2, Propositions6.3–6.7 and Theorem6.8.",
-          "excerpt": "Theorem 6.8",
           "match": "The squarefree identity is derived from the character group and modular-degree comparison; Zhang6.4 supplies the precise nonsquarefree variant through its additional cited degree/multiplicity-one results."
         }
       ],
@@ -3517,7 +3455,6 @@
         {
           "sourceId": "zhang",
           "locator": "Lemma8.4 and proof, pp.236–239",
-          "excerpt": "upper triangular",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application. The final opposite-sign detector in the published proof uses ℓ_(2ν+1); the subscript misprint is recorded in E8."
         }
       ],
@@ -3564,7 +3501,6 @@
         {
           "sourceId": "zhang",
           "locator": "Theorems1.1,9.1–9.3 and proofs, pp.195,240–243",
-          "excerpt": "M∞= 0",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3610,7 +3546,6 @@
         {
           "sourceId": "gross",
           "locator": "§2 pp.237–238; §1 pp.236–237",
-          "excerpt": "not infinitely divisible",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3657,7 +3592,6 @@
         {
           "sourceId": "gross",
           "locator": "§2 p.237; §12 pp.254–256",
-          "excerpt": "all but a finite number",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         }
       ],
@@ -3707,13 +3641,11 @@
         {
           "sourceId": "gross",
           "locator": "§2 pp.237–238 and Proposition2.1",
-          "excerpt": "X(E, K)[p]",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
         },
         {
           "sourceId": "nekovar",
           "locator": "§3.5.2 p.19; §§6.1–6.2 pp.35–37; §7.4 p.45; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "zero for all but finitely many",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -3770,7 +3702,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§1.19 pp.14–15; §§4.8–4.13 pp.25–27; §§5.8–5.12 pp.29–30; §§5.15–5.18 pp.31–33; §7.2.1 p.44; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "unique 1-cocycle",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -3822,7 +3753,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§5.19 pp.33–34; Proposition7.2.3 pp.44–45; §§7.4–7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "Proof of Theorem 7.3",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -3874,7 +3804,6 @@
         {
           "sourceId": "nekovar",
           "locator": "Theorem3.2 pp.18–19; §§6.1–6.2 pp.35–37; Theorem7.3 and §7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "does not acquire complex multiplication",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -3920,7 +3849,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§3.5 p.19; §7.1.2 p.43; Theorem7.3 and proof pp.45–47; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "equal to zero for all but finitely many",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -3968,13 +3896,11 @@
         {
           "sourceId": "nekovar",
           "locator": "Theorem3.2 pp.18–19; §7.4 p.45; §7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "implies Theorem 3.2",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         },
         {
           "sourceId": "gross",
           "locator": "Theorem1.3 pp.236–237 (quoted classical endpoint)",
-          "excerpt": "Theorem 1.3",
           "match": "Gross states the classical endpoint; the integral proof route used here is Nekovář’s specialization, including exceptional and dyadic primes."
         }
       ],
@@ -4030,7 +3956,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§§3.1–3.2 pp.18–19; §7.1 pp.43–44; §§7.3–7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "totally imaginary quadratic extension",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -4120,7 +4045,6 @@
         {
           "sourceId": "zhang",
           "locator": "Definition8.3, published p.236, PDF46; Lemma8.4 and proof pp.236–239.",
-          "excerpt": "vanishing order",
           "match": "The two support definitions are explicitly stated and used in the triangular basis and nonvanishing proofs."
         }
       ],
@@ -4213,7 +4137,6 @@
         {
           "sourceId": "zhang",
           "locator": "Definition8.3, published p.236, PDF46; Lemma8.4 and proof pp.236–239.",
-          "excerpt": "base locus",
           "match": "The two support definitions are explicitly stated and used in the triangular basis and nonvanishing proofs."
         }
       ],
@@ -4254,7 +4177,6 @@
         {
           "sourceId": "zhang",
           "locator": "§8.1 pp.234–235; Notations §1.4 pp.199–203; §5 pp.222–225",
-          "excerpt": "maximal isotropic",
           "match": "These are the actual V/k₀ local carriers and pairings used in Lemma8.4, rather than the classical E[p]/F_p hypotheses."
         }
       ],
@@ -4301,7 +4223,6 @@
         {
           "sourceId": "zhang",
           "locator": "§8.1, equation(8.1), printed p.235; equation(3.24), printed p.213.",
-          "excerpt": "finite/singular homomorphism",
           "match": "The finite/transverse relation and parity are explicitly imposed on the actual rational Heegner family."
         }
       ],
@@ -4347,7 +4268,6 @@
         {
           "sourceId": "zhang",
           "locator": "Lemma8.1, p.235; proof refers to McCallum Proposition3.1",
-          "excerpt": "positive density",
           "match": "The arithmetic hypotheses are Zhang’s surjective residual V/k₀ representation; the general evaluation/selection argument is requested from ES.1."
         }
       ],
@@ -4392,7 +4312,6 @@
         {
           "sourceId": "zhang",
           "locator": "Lemma8.2 and proof, p.235; Lemma8.4 pp.236–239",
-          "excerpt": "prescribed",
           "match": "The conclusion permits an unrestricted local condition at the distinguished prime; the one-term reciprocity argument supplies nonzero singular localization."
         }
       ],
@@ -4439,7 +4358,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§§6.1–6.2, pp.35–37, Propositions6.1.2,6.2.1–6.2.2; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "a theorem of Burnside",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -4486,7 +4404,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§§5.1–5.2 pp.27–28; §§6.3–6.5 pp.37–41; locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "evaluation map",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -4533,7 +4450,6 @@
         {
           "sourceId": "nekovar",
           "locator": "§3.2 pp.18–19; Proposition6.2.1 pp.35–36 (CM/self-twist/irreducibility dictionary); locators use the 53-page author preprint, not published pagination.",
-          "excerpt": "totally imaginary quadratic extension",
           "match": "The cited proof supplies the integral arithmetic construction and uniform estimates; reusable representation, linear algebra and descent results are imported through their owners."
         }
       ],
@@ -4580,13 +4496,11 @@
         {
           "sourceId": "gross",
           "locator": "Theorem1.3, p.236",
-          "excerpt": "tE/K",
           "match": "This source quotes the classical square-index bound and describes its exceptional support; its clean proof does not establish the exceptional size theorem."
         },
         {
           "sourceId": "kolyvagin-structure",
           "locator": "TheoremA, p.95; introduction pp.94–97",
-          "excerpt": "Theorem A",
           "match": "The author quotes the stronger d C_K² order theorem from his Euler Systems paper, with d depending on E and C_K including torsion. It is not derived from Nekovář’s annihilator theorem."
         }
       ],

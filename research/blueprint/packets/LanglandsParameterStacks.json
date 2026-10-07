@@ -296,7 +296,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.1, p.278",
-          "excerpt": "Equivalently, an L-parameter for G with coefficients in Λ is a (condensed) 1-cocycle\n\n                                             φ : WE → b\n                                                      G(Λ)\n\nfor the given WE -action on G.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -419,7 +418,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.1, p.278",
-          "excerpt": "Definition VIII.1.1. An L-parameter for G, with coefficients in Λ, is a section\n                                         φ : WE → G(Λ)\n                                                  b    ⋊ WE\nof the natural map of condensed groups",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -536,7 +534,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1, p.278",
-          "excerpt": "Theorem VIII.1.3. There is a scheme Z 1 (WE , G)  b over Zℓ parametrizing L-parameters for G,\nwhich is a disjoint union of affine schemes of finite type over Zℓ . It is flat and a relative complete\nintersection of dimension dim G =",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -627,7 +624,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of VIII.1.3, pp.279–280",
-          "excerpt": "Theorem VIII.1.3. There is a scheme Z 1 (WE , G)  b over Zℓ parametrizing L-parameters for G,\nwhich is a disjoint union of affine schemes of finite type over Zℓ . It is flat and a relative complete\nintersection of dimension dim G =",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -662,7 +658,6 @@
         {
           "sourceId": "DHKM-parameters",
           "locator": "§4.1, Corollary4.2, pp.30–31",
-          "excerpt": "Corollary 4.2. For any prime ℓ 6= p, the base change Z 1 (WF0 /PFe , Ĝ)Zℓ is indepen-\ndent of the choices made to define the subgroup WF0 , up to canonical isomorphism.\n                 ′\nNamely, let WF0 be another choice of",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -696,7 +691,6 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.20–§1.21, pp.8–9",
-          "excerpt": "1.21. Let ρ be a wild inertial parameter for Go , that is a homomorphism ρ : PFo Ñ LGo which\n                                      1\nextends to a Langlands parameter ̺ : WF o\n                                          Ñ LGo . Set",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -784,7 +778,6 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.21, p.8",
-          "excerpt": "C LGo pρq “ tpg, wq P LGo | pg, wqρpw´1 pwqpg, wq´1 “ ρppq, for all p P PFo u.\nAs in [18], we notice that C LGo pρq » CGxo pρq ¸Ad̺ WFo which implies that\n\n(1.1)                   xo qWFo ď ZpC LGo pρqq » ZpC xo pρqq̺pWFo q ď C xo",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -870,7 +863,6 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.21, equation(1.1), p.8",
-          "excerpt": "(1.1)                   xo qWFo ď ZpC LGo pρqq » ZpC xo pρqq̺pWFo q ď C xo p̺pWF\n                      ZpG                                                      1",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -952,7 +944,6 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.21, pp.8–9",
-          "excerpt": "An extended wild inertial parameter for Go is a pair pρ, χρ q such that ρ : PFo Ñ LGo is a homomor-\nphism and χρ is a representation of Sρ such that there is an extended Langlands parameter p̺, χ̺",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1040,7 +1031,6 @@
         {
           "sourceId": "DHKM-parameters",
           "locator": "§1 and §4.1, pp.4–7,29–31; FS proof VIII.1.3, p.280",
-          "excerpt": "Theorem 4.1. i) The scheme Z 1 (WF0 /PFe , Ĝ) is syntomic (flat and local complete\nintersection) over Z[ p1 ] and generically smooth, of pure absolute dimension dim(Ĝ).\n   ii) For any prime ℓ 6= p, the ring ReLG is ℓ-adically",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1143,7 +1133,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof VIII.1.3, pp.279–280",
-          "excerpt": "Theorem VIII.1.3. There is a scheme Z 1 (WE , G)  b over Zℓ parametrizing L-parameters for G,\nwhich is a disjoint union of affine schemes of finite type over Zℓ . It is flat and a relative complete\nintersection of dimension dim G =",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1181,7 +1170,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.3 dimension argument and VIII.2.2, pp.280–282",
-          "excerpt": "Proposition VIII.2.2. Let M be a free Λ-module of finite rank equipped with a condensed action\nof WE . Then RΓ(WE , M ) is a perfect complex of Λ-modules and there is a canonical isomorphism\n                              RΓ(WE , M )∗",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1218,7 +1206,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.4 and end of VIII.1.3, p.281",
-          "excerpt": "Lemma VIII.1.4. Let H be a smooth group scheme over Fℓ whose identity component is reduc-\ntive. Then the affine scheme parametrizing maps of groups\n                                           Z/ℓm Z ⋊ σ Z →",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1258,7 +1245,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.3, pp.279–281; DHKM Theorem4.1, pp.29–30",
-          "excerpt": "Theorem VIII.1.3. There is a scheme Z 1 (WE , G)  b over Zℓ parametrizing L-parameters for G,\nwhich is a disjoint union of affine schemes of finite type over Zℓ . It is flat and a relative complete\nintersection of dimension dim G =",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1297,7 +1283,6 @@
         {
           "sourceId": "DHKM-parameters",
           "locator": "DHKM §4.1 pp.29–31; FS VIII.1.3 p.280",
-          "excerpt": "Corollary 4.2. For any prime ℓ 6= p, the base change Z 1 (WF0 /PFe , Ĝ)Zℓ is indepen-\ndent of the choices made to define the subgroup WF0 , up to canonical isomorphism.\n                 ′\nNamely, let WF0 be another choice of",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1335,7 +1320,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.1, pp.281–282; Zhu §3.1, Proposition3.7",
-          "excerpt": "Proposition VIII.2.1. For any parameter φ : WE → G(Λ)⋊Q\n                                                          b         corresponding to x : Spec(Λ) →\n  1\n[Z (WE , G)/G],\n         b  b\n                           x∗ L∨",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1428,7 +1412,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.1, pp.281–282; Zhu Proposition3.7 and Lemma3.9, pp.32–35",
-          "excerpt": "Proposition VIII.2.1. For any parameter φ : WE → G(Λ)⋊Q\n                                                          b         corresponding to x : Spec(Λ) →\n  1\n[Z (WE , G)/G],\n         b  b\n                           x∗ L∨",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1464,7 +1447,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.2, p.282",
-          "excerpt": "Proposition VIII.2.2. Let M be a free Λ-module of finite rank equipped with a condensed action\nof WE . Then RΓ(WE , M ) is a perfect complex of Λ-modules and there is a canonical isomorphism\n                              RΓ(WE , M )∗",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1502,7 +1484,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.1–VIII.2.3, pp.281–282",
-          "excerpt": "Corollary VIII.2.3. For any parameter φ : WE → G(Λ)⋊W\n                                                        b        E corresponding to x : Spec(Λ) →\n[Z 1 (W\n      E , G)/\n          b   G],\n              b\n                        x∗",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1539,7 +1520,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.4, p.282",
-          "excerpt": "Definition VIII.2.4. For Λ a Qℓ -algebra one defines ParWD\n                                                           b (Λ) to be the set of pairs (φ0 , N )\n                                                           G\nwhere\n(i) φ0 :",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1641,13 +1621,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.1, pp.281–282; Zhu Lemma3.10 (formerly3.1.8), pp.35–36",
-          "excerpt": "Proposition VIII.2.5 ([Zhu20, Lemma 3.1.8]). There is a G-equivariant\n                                                              b             isomorphism\n                                                         ∼",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         },
         {
           "sourceId": "Zhu-arithmetic-parameters",
           "locator": "§3.1 Lemma3.10, pp.35–36",
-          "excerpt": "Lemma 3.10. The map ΓF,ι → WF induces a natural isomorphism\n                                              ∼\n                                              =\n                           ϕι,Q : LocWD,□",
           "match": "This revised numbering is FS Zhu20 Lemma3.1.8. The finite logarithm/exponential formula gives the inverse comparison."
         }
       ],
@@ -1687,7 +1665,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.2, pp.283–285",
-          "excerpt": "Definition VIII.2.6. The scheme\n                                           SingX/S −→ X\nrepresents the functor T /X 7→ H −1 (LX/S ⊗LOX OT ).\n\n   In fact, locally on X, LX/S is isomorphic to a complex of vector bundles [E −1 → E 0 ]",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1794,7 +1771,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.6–VIII.2.10, pp.283–284",
-          "excerpt": "Theorem VIII.2.9 ([AG15, Theorem 4.2.6]). The following are equivalent:\n(i) N is a perfect complex,\n(ii) SingSupp(N ) is contained in the zero section of SingX/S .\n\n     Proof. We have to prove that if ExtiB (N, N ) = 0 for i ≫ 0 then",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1830,7 +1806,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.11–VIII.2.13, pp.284–285",
-          "excerpt": "Proposition VIII.2.11. For a Zℓ -field L and a point x : Spec(L) → [Z 1 (WE , G)/\n                                                                                    b G]b we have\n\n                                     x∗ Sing[Z 1 (WE",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1868,7 +1843,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.1–VIII.3.2, pp.285–287; BHKT3.2 and3.10",
-          "excerpt": "VIII.3.1. Geometric points. For any algebraically closed field L over Zℓ , the L-valued points\nof Z 1 (WE , b\n             G)L G                                     G-orbits in Z 1 (WE , b\n                    b are in bijection with",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -1994,7 +1968,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Proposition3.2 pp.11–12; §3.2 Proposition3.10 pp.15–16",
-          "excerpt": "Proposition 3.10. Let notation be as above.\n    (i) The space X//G is an integral O-scheme of finite type, and the quotient map\n    !\nπ: X X//G is G-equivariant. If X is normal, then X//G is normal.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2029,7 +2002,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Definitions3.3,3.5 pp.11–12",
-          "excerpt": "Definition 3.3. Let G be a reductive group over k, and let H ⊂G be a closed linear\nalgebraic subgroup. Suppose that k is algebraically closed.\n     (i) We say that H is G-completely reducible if, for any parabolic subgroup P",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2139,7 +2111,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Theorem3.4, Proposition3.6, Proposition3.7 pp.12–13",
-          "excerpt": "Theorem 3.4. Let G be a reductive group over k, and suppose that k is algebraically\nclosed. Let x=(g1 , ..., gn ) be a tuple in Gn (k), and let H ⊂G be the smallest closed\nsubgroup containing each of g1 , ..., gn .\n     (i) The",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2173,7 +2144,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.1, pp.286–287",
-          "excerpt": "Definition VIII.3.1. Let L be an algebraically closed field over Zℓ . An L-parameter φ : WE →\nG(L)⋊W\n b         E is semisimple if whenever the image of φ is contained in a parabolic subgroup of G⋊WE",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2261,7 +2231,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.2–VIII.3.3, pp.286–287",
-          "excerpt": "Proposition VIII.3.2 ([DHKM20, Proposition 4.13]). Let L be an algebraically closed field\nover Zℓ and φ : WE → G(L)\n                     b     ⋊ WE a parameter. The following are equivalent:\n(i) The G-orbit\n        b       of φ in Z 1",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2294,7 +2263,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.2, p.287",
-          "excerpt": "consisting of maps from finite free groups to W , with maps given\nby commutative diagrams Fn → Fm → W ; this is a sifted index category (as it admits coproducts).\nThe map\n                           colim(n,Fn →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2385,7 +2353,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.4, p.287",
-          "excerpt": "Definition VIII.3.4. The algebra of excursion operators (for Z 1 (W, G))\n                                                                        b is\n\n                                   b = colim(n,F →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2480,7 +2447,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.2, p.287",
-          "excerpt": "By Haboush’s theorem on geometric\n                                           b\nreductivity [Hab75] it follows that the map\n\n                          colim(n,Fn →W ) O(Z 1 (Fn , G))              b Gb",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2518,7 +2484,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.7 and proof, pp.288–289",
-          "excerpt": "Proposition VIII.3.7. The algebra of excursion operators Exc(W, G)\n                                                                    b is the universal Zℓ -\nalgebra A equipped with maps\n                                     b ⋊ Q)n",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2556,7 +2521,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.3 after VIII.3.7, pp.289–290",
-          "excerpt": "The second description is a priori stronger as Map((WE /P )n , A′ ) injects into Map(W n , A′ ) as\nW ⊂ WE /P is dense. The ℓ-torsion free quotient of Exc(W, G)   b injects into O(Z 1 (WE /P, G)) b Gb\n(as we have an isomorphism after",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2592,7 +2556,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4 setup, pp.290–291",
-          "excerpt": "VIII.4. Excursion operators                        290\n  VIII.5. Modular representation theory              293\n\nChapter IX. The Hecke action                         315\n  IX.1. Condensed ∞-categories                       318\n  IX.2.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2683,7 +2646,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.2, p.291",
-          "excerpt": "Definition VIII.4.2. An excursion datum is a tuple D = (I, V, α, β, (γi )i∈I ) consisting of a\n                                    b ⋊ Q)I ) with maps α : 1 → V |\nfinite set I, an object V ∈ RepZℓ ((G",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2770,7 +2732,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof VIII.4.1, pp.291–292",
-          "excerpt": "Conversely, given f we can look at the (G⋊Q) I -representation V = V ⊂ O((G⋊Q)     I /G)\n                                                                                      b generated",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2864,7 +2825,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.1–VIII.4.2 pp.290–293; Lafforgue Lemma10.1 and Proposition10.8",
-          "excerpt": "Theorem VIII.4.1. Given the above categorical data, there is a natural map of algebras\n                               b = colim(n,F →W ) O(Z 1 (Fn , G))\n                        Exc(W, G)                             b Gb → End(idC )",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -2904,7 +2864,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§4.1–§4.6, pp.19–24",
-          "excerpt": "Definition 4.1. Let A be a ring, and let Γ be a group. A G-pseudocharacter   Θ of Γ\n                                                               !\n                                                                b",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3010,7 +2969,6 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Proposition11.7, Lemmas11.9–11.10, pp.143–147",
-          "excerpt": "Lemme 11.10. Pour tout γ ∈ Γ, il existe un unique g ∈ G tel que (g1 , ..., gn , g)\n               ss\nappartienne à ξn+1 (γ1 , ..., γn , γ). De plus C(g1 , ..., gn , g) = C(g1 , ..., gn ) et g ap-\npartiennent à D(g1 , ..., gn",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3047,7 +3005,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "Theorem4.5 and proof, pp.20–23",
-          "excerpt": "Theorem 4.5. Let Γ be a group, and let k be an algebraically closed field. Then the\n               !\nassignment %7 Θ=tr % induces a bijection between the following two sets:\n     (i) The set of bG(k)-conjugacy classes of b",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3086,7 +3043,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof VIII.3.8 p.290; Lafforgue11.7–11.10; BHKT4.5",
-          "excerpt": "Proposition VIII.3.8. Let L be an algebraically closed field over Zℓ . Then the following are\nin canonical bijection.\n(i) Semisimple L-parameters φ : WE → G(L)\n                                       b  ⋊ WE , up to G(L)-conjugation.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3127,7 +3083,6 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Proposition11.7 proof, especially end, pp.143–147; BHKT4.7(ii)",
-          "excerpt": "Proposition 11.7. Soit Γ un groupe profini et H un groupe réductif sur E non\nnécessairement connexe tel que H 0 est déployé. On se donne pour tout n ∈ N∗ un\nmorphisme d’algèbres\n                             Ξn : O((H)n //H 0) → C(Γn ,",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3164,7 +3119,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "Proposition4.7(iii) and proof, pp.23–24",
-          "excerpt": "Proposition 4.7. Suppose that Γ a profinite group, that k is an algebraically closed\ntopological field, and that %: Γ G(k)\n                                   b !  is a G-completely\n                                              b",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3203,7 +3157,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.8 and proof, p.290",
-          "excerpt": "Proposition VIII.3.8. Let L be an algebraically closed field over Zℓ . Then the following are\nin canonical bijection.\n(i) Semisimple L-parameters φ : WE → G(L)\n                                       b  ⋊ WE , up to G(L)-conjugation.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3242,7 +3195,6 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Remark11.8, pp.144–145",
-          "excerpt": "Remarque 11.8. Dans le cas où H = GLr la proposition précédente est bien\nconnue grâce aux résultats de [Tay91] sur les pseudo-caractères. Plus précisément\non note St la représentation standard de GLr . Alors il résulte de [Pro76]",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3335,7 +3287,6 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Remark11.8 pp.144–145 (Procesi/Taylor inputs)",
-          "excerpt": "Remarque 11.8. Dans le cas où H = GLr la proposition précédente est bien\nconnue grâce aux résultats de [Tay91] sur les pseudo-caractères. Plus précisément\non note St la représentation standard de GLr . Alors il résulte de [Pro76]",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3368,7 +3319,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.3, p.293",
-          "excerpt": "Corollary VIII.4.3. Assume that Λ = L is an algebraically closed field and X ∈ C is an object\nwith End(X) = L. Then there is, up to G(L)-conjugation,\n                                      b                 a unique semisimple",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3404,7 +3354,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1, Definition VIII.5.4, pp.294–295",
-          "excerpt": "Definition VIII.5.4. Consider the stable ∞-category Ind Perf(∗/G) compactly generated by\nbounded complexes of G-representations. The good filtration t-structure is defined as",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3504,7 +3453,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.5 and proof, p.295",
-          "excerpt": "Proposition VIII.5.5. The good filtration t-structure on Ind Perf(∗/G) is separated.\n\n    We note that the standard t-structure on Ind Perf(∗/G) is far from separated, due to issues of\ninfinite cohomological dimension (which is the",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3540,7 +3488,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.6–VIII.5.7, p.296",
-          "excerpt": "Corollary VIII.5.7. For any map Fn → Aut(G), the G-representation O(Z 1 (Fn , G)) admits\na good filtration.\n\n    Proof. Note that Z 1 (Fn , G) = Gn , where the G-action is that of simultaneous twisted conju-\ngation (by the n given",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3576,7 +3523,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.2, pp.296–297",
-          "excerpt": "full subcategory generated under cones and retracts by the image of",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3679,7 +3625,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.8–VIII.5.9, pp.296–297",
-          "excerpt": "Proposition VIII.5.8. Let M ∈ Perf(X/G), with dual M ∗ and internal endomorphisms M ⊗A\nM ∗ ∈ Perf(X/G). Then M ∈ Perf ind (X/G) if and only if the natural map\n                      colim[. . . → M ⊗L A ⊗L M ∗ → M ⊗L M ∗ ] → M ⊗A M",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3716,7 +3661,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.10 and proof, p.297",
-          "excerpt": "Proposition VIII.5.10. Assume that G◦ is reductive and π0 G of order prime to ℓ, and G acts\non X = Spec(A) such that A admits a good G◦ -filtration. Let M ∈ Perf(X/G) and assume that\nM , without its A-action, has good G◦ -filtration",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3754,7 +3698,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.11 and proof, pp.297–299",
-          "excerpt": "Proposition VIII.5.11. Assume that G◦ is reductive and π0 G is of order prime to ℓ. Let G\nact on itself via conjugation. Let i : ∗ → G be the inclusion of the unit element. The following are\nequivalent.\n      (i) The order of π1 (G◦",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3793,7 +3736,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.12 and proof, p.299",
-          "excerpt": "Proposition VIII.5.12. Assume that G◦ is reductive and the orders of π0 G and π1 (G◦ )tor are\nnot divisible by ℓ. Let Θ1 , . . . , Θn be automorphisms of G, and let G act on Gn via\n                             g · (g1 , . . . , gn ) =",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3833,7 +3775,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.13 and proof, pp.299–301",
-          "excerpt": "Proposition VIII.5.13. Consider a derived fibre product of affine schemes of finite type with\nG-action as above. Assume that G◦ is reductive, and π0 G and π1 (G◦ )tor are of order prime to ℓ.\n\n      (i) The map L ⊗O(G) A    e → A is",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3868,7 +3809,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "End VIII.5.2, p.301, and tame reduction p.312",
-          "excerpt": "These results are already sufficient to handle the case of the space of L-parameters of a compact\nRiemann surface. Indeed, this is a certain fibre product\n\n                                            X       / G2g",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3905,7 +3845,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.14 and proof, pp.301–302",
-          "excerpt": "Proposition VIII.5.14. Let L be an algebraically closed field of characteristic ℓ > 0, and let G\nbe a linear algebraic group over L such that G◦ is reductive and π0 G is of order prime to ℓ. Assume\nthat P is a finite group of order",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3947,7 +3886,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.16 and proof, pp.304–307",
-          "excerpt": "Lemma VIII.5.16. Let G be a linear algebraic group over an algebraically closed field L of\ncharacteristic ℓ such that G◦ is reductive and π0 G is of order prime to ℓ. Let Θ be an automorphism\nof G of prime order p ̸= ℓ. Let",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -3984,7 +3922,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.15 and proof, pp.302–304",
-          "excerpt": "Theorem VIII.5.15. The subgroup H ◦ ⊂ G◦ is a Donkin subgroup. In other words, for any\nrepresentation V of G◦ that admits a good G◦ -filtration, also V |H ◦ admits a good H ◦ -filtration.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4025,7 +3962,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.17(i)–(iv) and proof, pp.307–310",
-          "excerpt": "Proposition VIII.5.17. In the situation of Theorem VIII.5.15, the following results hold true.\n      (i) Let W be a representation of H ◦ . Then W admits a good H ◦ -filtration if and only if\n             G◦                      ◦",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4063,7 +3999,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.17(v)–(vi), pp.307–310",
-          "excerpt": "Proposition VIII.5.17. In the situation of Theorem VIII.5.15, the following results hold true.\n      (i) Let W be a representation of H ◦ . Then W admits a good H ◦ -filtration if and only if\n             G◦                      ◦",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4098,7 +4033,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.18, p.308",
-          "excerpt": "Remark VIII.5.18. The following example shows that the hypothesis that P is of order prime\nto ℓ is important, and cannot be weakened to “quasi-semisimple” automorphisms (preserving a\nBorel and a torus) or even automorphisms fixing a",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4132,7 +4066,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.19 and proof, pp.310–311",
-          "excerpt": "Proposition VIII.5.19. Assume that G◦ is reductive and that P is a finite solvable group of\norder prime to ℓ acting on G with fixed points H = GP . If π1 (G◦ )tor is of order prime to ℓ, then\nalso π1 (H ◦ )tor is of order prime to",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4169,7 +4102,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.4 pp.311–312; X.3 setup pp.348–349",
-          "excerpt": "VIII.5.4. Consider the stable ∞-category Ind Perf(∗/G) compactly generated by\nbounded complexes of G-representations. The good filtration t-structure is defined as",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4262,7 +4194,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.20 and proof, p.312",
-          "excerpt": "Proposition VIII.5.20. In this situation, the functor\n                     Ind Perf(MapΣ\n                                 ∗/W (∗/Fn , G)) → Ind Perf(Map∗/W (∗/Fn , G))\n\nis fully faithful and the essential image is Q",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4301,7 +4232,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.21 and proof, pp.313–315",
-          "excerpt": "Proposition VIII.5.21. Let P be a finite solvable group of order prime to ℓ with a map P → W .\nAssume that G is a stack over ∗/W such that G ×∗/W ∗ is a finite disjoint union of classifying stacks\nof linear-algebraic groups G with G◦",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4339,7 +4269,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.2 and concluding proof, pp.294,312–315",
-          "excerpt": "Theorem VIII.5.2. Assume that ℓ does not divide the order of π1 (G)  b tor , and let L = Fℓ . Then\nthe map\n                        colim(n,Fn →W ) O(Z 1 (Fn , G)\n                                                    b L ) → O(Z 1 (W,",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4375,7 +4304,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Theorem3.8, table and Lemma3.9, pp.13–14",
-          "excerpt": "Theorem 3.8. Suppose that one of the following holds:\n     (i) The characteristic of k is very good for G.\n     (ii) G admits a faithful representation V such that (GL(V ), G) is a reductive pair,\ni.e. g⊂gl(V ) admits a G-invariant",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4411,7 +4339,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.2 Lemmas3.11–3.12, pp.16–17",
-          "excerpt": "Lemma 3.11. Let X and Y be normal affine integral O-schemes, flat of finite type,\n                             !\non which G acts. Let φ: Y X be a finite G-equivariant morphism, and let y∈Y (k) be\na point satisfying the following",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4448,7 +4375,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.2 Proposition3.13 and proof, pp.17–19",
-          "excerpt": "Proposition 3.13. Suppose that X is an integral affine smooth O-scheme on which\nG acts. Let x∈X(k) be a point with Gk ·x closed, and ZGk (x) scheme-theoretically trivial.\nThen, the following statements hold :",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4484,7 +4410,6 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "Proposition8.3 and proof, p.53",
-          "excerpt": "Proposition 8.3. Let M be a standard Levi subgroup of G. Then, the natural\n                  b ]M\nrestriction map Z[M\n                     c\n                         !\n                       Z[Tb]W (M ,T ) is an isomorphism.",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4523,7 +4448,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.5 and proof, p.288",
-          "excerpt": "Proposition VIII.3.5. Working in the derived ∞-category D(Zℓ ), the map\n                          colim(n,F →W ) O(Z 1 (Fn , G))\n                                          n\n                                                     b → O(Z",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4562,7 +4486,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.6 p.288; VIII.5.1–VIII.5.2 pp.293–294,315",
-          "excerpt": "Theorem VIII.3.6. Assume that ℓ does not divide the order of π1 ( b\n                                                                     G)tor . Then the map\n                                colim(n,Fn →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4605,7 +4528,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1–VIII.5.2 and proof, pp.293–294",
-          "excerpt": "Theorem VIII.5.1. Assume that ℓ does not divide the order of π1 ( b\n                                                                    G)tor . Then the map\n                            colim(n,Fn →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4639,7 +4561,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.2–VIII.3.8, pp.287–290",
-          "excerpt": "Theorem VIII.3.6. Assume that ℓ does not divide the order of π1 ( b\n                                                                     G)tor . Then the map\n                                colim(n,Fn →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4676,7 +4597,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X introduction, p.340",
-          "excerpt": "corresponding to the universal G\n                               b ⋊ Q-torsor, with the universal WE -equivariance as parametrized\n     1\nby Z (WE , G)/G.\n           b",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4779,7 +4699,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1 and reduction proof, pp.293–294",
-          "excerpt": "Theorem VIII.5.1. Assume that ℓ does not divide the order of π1 ( b\n                                                                    G)tor . Then the map\n                            colim(n,Fn →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4819,7 +4738,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1 and proof, p.293",
-          "excerpt": "Theorem VIII.5.1. Assume that ℓ does not divide the order of π1 ( b\n                                                                    G)tor . Then the map\n                            colim(n,Fn →W ) O(Z 1 (Fn , G))",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4858,7 +4776,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.2 and complete proof, pp.342–343",
-          "excerpt": "Lemma X.1.2. The functor taking an anima S over ∗/Q to Perf(Map∗/Q (S, ∗/(H ⋊ Q))), re-\ngarded as an idempotent-complete stable ∞-category, commutes with sifted colimits. More precisely,\nas a functor into L-linear symmetric monoidal",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4900,7 +4817,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.1 and proof, pp.340–342",
-          "excerpt": "Theorem X.1.1. Let C be an idempotent-complete small stable L-linear ∞-category. Giving,\nfunctorially in finite sets I, an exact RepL (QI )-linear monoidal functor",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4941,7 +4857,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.1 and proof, pp.348–349",
-          "excerpt": "Proposition X.3.1. Let C be an R-linear idempotent-complete small stable ∞-category. Giving,\nfunctorially in finite sets I, an exact RepR (QI )-linear monoidal functor",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -4980,7 +4895,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.2 and proof, p.349",
-          "excerpt": "Proposition X.3.2. The functor S 7→ Perf(MapΣ   ∗/Q (S, ∗/(H ⋊ Q))) from anima over ∗/Q to\nsymmetric monoidal idempotent-complete stable R-linear ∞-categories commutes with all colimits.\n\n   Proof. As the functor commutes with sifted",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -5018,7 +4932,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.3 and proof, pp.349–350",
-          "excerpt": "Proposition X.3.3. Assume that S = ∗/Fn is the classifying space of a free group. Then the\nfunctor\n                Perf(MapΣ∗/Q (S, ∗/(H ⋊ Q))) → Perf(Map∗/Q (S, ∗/(H ⋊ Q)))\nis fully faithful, and the essential image is the",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -5055,7 +4968,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.4 and proof, p.350",
-          "excerpt": "Proposition X.3.4. Let S = ∗/Γ, where Γ is any discrete group, and lift the map S → ∗/Q to\na map Γ → Q. One can write\n                                ∗/Γ = colim(n,Fn →Γ) ∗/Fn\nas a sifted colimit (in anima). Then Perf(MapΣ",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -5093,7 +5005,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.0.2 p.340 and final combination p.350",
-          "excerpt": "Theorem X.0.2. Assume that ℓ does not divide the order of π1 ( b   G)tor . Let C be a small\nidempotent-complete Λ-linear stable ∞-category. Then giving, functorially in the finite set I, an\nexact RepΛ (QI )-linear monoidal functor",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],
@@ -5128,7 +5039,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X introduction, pp.339–340",
-          "excerpt": "compactly supported cohomology              151\n  IV.6. Hyperbolic localization                             155\n  IV.7. Drinfeld’s lemma                                    164\n\nChapter V.   Dét (BunG )",
           "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
         }
       ],

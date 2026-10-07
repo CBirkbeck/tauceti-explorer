@@ -141,13 +141,11 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, Definition 2.1.2, p. 4",
-          "excerpt": "A Deligne–Rapoport (DR) semistable genus-1 curve over S is a proper curve f : C →S such that the geometric ﬁbers are connected and semistable with trivial dualizing sheaf.",
           "match": "The definition."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, p. 5",
-          "excerpt": "The map t 7→(t2 + 1, t(t2 + 1)) from P1 to the nodal plane curve y2z = x3 −x2z factorizes through C1 and induces an isomorphism between C1 and this nodal cubic.",
           "match": "The 1-gon as the nodal cubic."
         }
       ],
@@ -259,13 +257,11 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, Definition 2.1.4, p. 5",
-          "excerpt": "A generalized elliptic curve over S is a triple (E, +, e) where E is a DR semistable genus-1 curve, + : Esm ×S E →E is an S-morphism, and e ∈Esm(S) is a section such that",
           "match": "The definition, with the two conditions after it."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, Example 2.1.5, p. 5",
-          "excerpt": "the automorphism functor of the standard n-gon Cn as a generalized elliptic curve is ⟨inv⟩⋉µn",
           "match": "The automorphisms of C_n."
         }
       ],
@@ -302,13 +298,11 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, Theorem 2.1.12, p. 6",
-          "excerpt": "The formation of the closed subscheme S∞,f ,→S is compatible with base change on S.",
           "match": "The base change theorem."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, Lemma 2.1.10, p. 6",
-          "excerpt": "is a locally ﬁnite (in S) disjoint union of open subschemes S∞,f n such that the generalized elliptic curve E is isomorphic to the standard n-gon fppf-locally over S∞,f n .",
           "match": "The local polygon structure."
         }
       ],
@@ -405,13 +399,11 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, p. 7",
-          "excerpt": "that contracts all geometric ﬁbral irreducible components that are disjoint from D. This “contraction away from D” is unique up to unique isomorphism",
           "match": "Existence and uniqueness of the contraction."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.1, p. 7",
-          "excerpt": "In particular, if C is a generalized elliptic curve and D is a subgroup of Csm then C has a unique structure of generalized elliptic curve",
           "match": "The induced generalized elliptic structure on the contraction."
         }
       ],
@@ -447,13 +439,11 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.2, Theorem 2.2.2, p. 8",
-          "excerpt": "There exists a unique generalized elliptic curve structure on C with identity section e such that each g ∈G(T) acts on C/T via translation by g(e) ∈Csm(T) for all S-schemes T.",
           "match": "The criterion."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.2, Corollary 2.2.3, p. 8",
-          "excerpt": "This extends to a generalized elliptic curve structure on C if and only if the natural induced action of D on the algebraic space Pic0 C/S is trivial",
           "match": "The divisor form used for moduli."
         }
       ],
@@ -558,19 +548,16 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.3, Definition 2.3.4, p. 12",
-          "excerpt": "A ﬁnite locally free closed subgroup scheme G ⊆Esm with constant order N is cyclic if it admits a Z/NZ-generator fppf-locally on S.",
           "match": "Cyclic subgroups."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.3, Theorem 2.3.7, p. 13",
-          "excerpt": "The subgroup G is cyclic if and only if its scheme G× of Z/NZ-generators is ﬁnite locally free over S with rank φ(N).",
           "match": "The cyclicity criterion."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.3, Corollary 2.3.8, p. 14",
-          "excerpt": "If the order of G is squarefree then G is cyclic.",
           "match": "Squarefree order."
         }
       ],
@@ -679,19 +666,16 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.4, Definition 2.4.1, p. 14",
-          "excerpt": "A Γ1(N)-structure on E/S is an ample Drinfeld Z/NZ-structure on the smooth separated group scheme Esm",
           "match": "Γ₁(N)-structures."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.4, Definition 2.4.3, p. 14",
-          "excerpt": "A Γ1(N; n)-structure on E/S is a pair (P, C) where",
           "match": "Γ₁(N; n)-structures; the conditions follow."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§2.4, Theorem 2.4.5, p. 15",
-          "excerpt": "If (E; P, C) is a Γ1(N; n)-structure over a scheme S, then the relative eﬀective Cartier divisor D = P j∈Z/NZ(jP + C) is a subgroup scheme in Esm.",
           "match": "The divisor is a subgroup."
         }
       ],
@@ -734,19 +718,16 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§1.2, Theorem 1.2.1, p. 2",
-          "excerpt": "The moduli stack M Γ1(N;n) classifying Γ1(N; n)-structures on generalized elliptic curves is a proper ﬂat Artin stack over Z",
           "match": "The headline theorem."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§3.2, Theorem 3.2.7, p. 26",
-          "excerpt": "In particular, M Γ1(N;n) is Deligne–Mumford if and only if n is squarefree.",
           "match": "The Deligne–Mumford criterion."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§3.3, Theorem 3.3.1, p. 26",
-          "excerpt": "The proper morphism M Γ →Spec(Z) is ﬂat and CM with pure relative dimension 1.",
           "match": "Flatness."
         }
       ],
@@ -785,13 +766,11 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§4.2, Theorem 4.2.1, p. 35",
-          "excerpt": "There exists an open subscheme M sch whose geometric points are exactly those of M with trivial automorphism group.",
           "match": "The schematic locus."
         },
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§4.2, Remark 4.2.2, p. 36",
-          "excerpt": "so these are ﬁne moduli schemes for Drinfeld structures on generalized elliptic curves.",
           "match": "Fine moduli schemes for large level, agreeing with Katz–Mazur."
         }
       ],
@@ -829,7 +808,6 @@
         {
           "sourceId": "conrad-generalized-elliptic",
           "locator": "§4.2, Lemma 4.2.3, p. 36",
-          "excerpt": "Each of the following “contraction maps” is ﬁnite, ﬂat, and surjective with constant rank:",
           "match": "The four contraction maps."
         }
       ],

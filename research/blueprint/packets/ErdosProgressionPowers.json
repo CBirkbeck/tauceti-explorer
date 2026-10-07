@@ -259,7 +259,6 @@
         {
           "sourceId": "BS20",
           "locator": "Sections 1 and 3, equation (2), pp. 356, 360",
-          "excerpt": "(2)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -353,7 +352,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 3.1(i), p. 360",
-          "excerpt": "Lemma 3.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -395,7 +393,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 3.1(ii), p. 360",
-          "excerpt": "Lemma 3.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -437,7 +434,6 @@
         {
           "sourceId": "BS20",
           "locator": "Equation (6), p. 360",
-          "excerpt": "(6)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -528,7 +524,6 @@
         {
           "sourceId": "BS20",
           "locator": "Section 3.1, equations (7)-(8), p. 361",
-          "excerpt": "A =",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -618,7 +613,6 @@
         {
           "sourceId": "BS20",
           "locator": "Section 3.2, equations (11)-(13), p. 362",
-          "excerpt": "(12)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -699,7 +693,6 @@
         {
           "sourceId": "BS20",
           "locator": "§9 before Proposition 9.1, p. 381; Proof of Proposition 12.3, pp.387–388",
-          "excerpt": "Ip =",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -788,7 +781,6 @@
         {
           "sourceId": "BS20",
           "locator": "§9 before Proposition 9.1, p. 381; Proof of Proposition 12.3, pp.387–388",
-          "excerpt": "|θp | < 1",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -833,7 +825,6 @@
         {
           "sourceId": "BS20",
           "locator": "Section 3.1, equations (7)-(8), p. 361; Section 3.1, display before equation (7), p. 361",
-          "excerpt": "(8)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -925,7 +916,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 3.2 discriminant display, p. 361; corrected normalization; Lemma 3.2, p. 361; Lemma 3.2 last conclusion, p.361",
-          "excerpt": "Lemma 3.2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -968,7 +958,6 @@
         {
           "sourceId": "BS20",
           "locator": "Section 3.1, display before equation (7), p. 361; §3.1 opening, p. 361",
-          "excerpt": "signature",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1011,7 +1000,6 @@
         {
           "sourceId": "BS20",
           "locator": "Section 3.2, equations (11)-(13), p. 362; Equation (11), p. 362",
-          "excerpt": "(12)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1098,7 +1086,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 3.4, p. 362; Lemma 3.4 last conclusion, p.362; §4 second case, p.364",
-          "excerpt": "Lemma 3.4.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1146,7 +1133,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 3.3, equation (9), and proof, pp. 361-362; Lemma 3.3 and proof, pp. 361-362; Proof of Lemma 3.3, p.362",
-          "excerpt": "Lemma 3.3.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1196,7 +1182,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 3.5 and proof, p. 363; Proof of Lemma 3.5, p.363",
-          "excerpt": "Lemma 3.5.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1243,7 +1228,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 4.1, p. 364",
-          "excerpt": "Lemma 4.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1289,7 +1273,6 @@
         {
           "sourceId": "BS20",
           "locator": "Adapter between Theorem 4 and Lemma 5.1, §§2–5",
-          "excerpt": "Theorem 4",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1333,7 +1316,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proof of Lemma 5.1, p. 365 (Tenenbaum Theorem 9 and following remark)",
-          "excerpt": "Lemma 5.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1375,7 +1357,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 5.1, p. 365",
-          "excerpt": "Lemma 5.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1423,7 +1404,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 5.2, first conclusion, pp. 365-366; Lemma 5.2, second conclusion, pp. 365-366",
-          "excerpt": "Lemma 5.2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1465,7 +1445,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6, p. 367",
-          "excerpt": "A(I)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1551,7 +1530,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 6.4, p. 368; §6, Case I, equations (19)–(21), p. 369; Equation (21), p.369",
-          "excerpt": "(21)",
           "match": "The publisher page image at p.369 explicitly includes absolute-value bars in (21); p.367 does so in (16). This plan follows those printed statements. The alleged positive-sum gap E23 is rejected."
         }
       ],
@@ -1597,7 +1575,6 @@
         {
           "sourceId": "BS20",
           "locator": "Lemma 6.6, pp. 371-372; §6 before (22), p. 370",
-          "excerpt": "Lemma 6.6.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1645,7 +1622,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6 final Case-II proof, p. 373",
-          "excerpt": "j is integral",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1695,7 +1671,6 @@
         {
           "sourceId": "BS20",
           "locator": "§6 Case II, pp. 372–373; §6 Case II first paragraph, p.372",
-          "excerpt": "Proof of Proposition 6.1",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1748,7 +1723,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 6.1 and its two-case construction, pp. 366-373; Proposition 6.1, p. 367; Proposition 6.1, p. 367; Case II exclusion, pp. 372–373",
-          "excerpt": "Proposition 6.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1846,7 +1820,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 7.2, pp. 374-375; §7 proof, p.375; corrected exponent for general c1; §7 proof, pp.375–376",
-          "excerpt": "Proposition 7.2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1895,7 +1868,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 8.1, p. 376; Equations (32)–(35), pp. 379–380",
-          "excerpt": "Proposition 8.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -1941,7 +1913,6 @@
         {
           "sourceId": "BS20",
           "locator": "§9 proof, p. 382",
-          "excerpt": "p∈S∪T ∪U",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2027,7 +1998,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proof of Proposition 9.1, p. 384",
-          "excerpt": "Erdős",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2125,7 +2095,6 @@
         {
           "sourceId": "BS20",
           "locator": "§9 proof, pp. 382–383; §9 proof, pp. 383–384; §9 proof, p. 384; §9 end of proof, p. 384; §9 p.384, reference [43]",
-          "excerpt": "#J2 > 0.00001k",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2177,7 +2146,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 9.1, pp. 381-384; §9 end of proof, p. 384; Proposition 9.1(I), p. 382; Proposition 9.1(II), p. 382; Proposition 9.1(III), p. 382; Proposition 9.1(IV), p. 382; Proposition 9.1, pp.381–384; repaired Roth-threshold calculation",
-          "excerpt": "Proposition 9.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2266,7 +2234,6 @@
         {
           "sourceId": "BS20",
           "locator": "§10, pp. 384–385; endpoint correction",
-          "excerpt": "maximal nonempty subset",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2351,7 +2318,6 @@
         {
           "sourceId": "BS20",
           "locator": "§10 proof of Theorem 2, p. 385; corrected endpoint dispatch",
-          "excerpt": "Proof of Theorem 2",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2396,7 +2362,6 @@
         {
           "sourceId": "BS20",
           "locator": "Section 12, equations (40)-(41), p. 386",
-          "excerpt": "(40)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2485,7 +2450,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 12.1 first conclusion, p.386; Proposition 12.1 second conclusion, pp.386–387; Proposition 12.1 third conclusion, pp.386–387",
-          "excerpt": "Proposition 12.1.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2531,7 +2495,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 12.2, p.387; repaired hypothesis and zero-sum estimate",
-          "excerpt": "Proposition 12.2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2575,7 +2538,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 12.3, pp.387–388",
-          "excerpt": "Proposition 12.3.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2661,7 +2623,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proposition 12.3, pp.387–388",
-          "excerpt": "Proposition 12.3.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2707,7 +2668,6 @@
         {
           "sourceId": "BS20",
           "locator": "§12 final paragraph, p.388; explicit simultaneous-witness repair",
-          "excerpt": "Na ≤ 8Ai Aj A2j−i",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2792,7 +2752,6 @@
         {
           "sourceId": "BS20",
           "locator": "§12 final paragraph, p.388; corrected divisibility",
-          "excerpt": "gcd(Na , Ai )",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2835,7 +2794,6 @@
         {
           "sourceId": "BS20",
           "locator": "§12 end, p.388",
-          "excerpt": "contradicts Proposition 6.1",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2880,7 +2838,6 @@
         {
           "sourceId": "BS20",
           "locator": "Theorem 2, p. 357",
-          "excerpt": "Theorem 2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -2927,13 +2884,11 @@
         {
           "sourceId": "DG95",
           "locator": "§2.1, Corollary 2.1 and its full proof, pp.520–521",
-          "excerpt": "COROLLARY 2.1.",
           "match": "The full positive-domain proof and genus formula were checked against text and images. The elimination formula (2.2) requires the index correction E24. Signed coefficient patterns and primitive lifts remain explicit adapter obligations."
         },
         {
           "sourceId": "BS20",
           "locator": "§1, p.357, discussion of Darmon–Granville Corollary 2.1",
-          "excerpt": "Corollary 2.1",
           "match": "Explains the fixed-length/fixed-exponent finiteness input to the main endpoint."
         }
       ],
@@ -2977,7 +2932,6 @@
         {
           "sourceId": "BS20",
           "locator": "§1 finiteness consequence of Theorem 2, p.357",
-          "excerpt": "Theorem 2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -3019,7 +2973,6 @@
         {
           "sourceId": "BS20",
           "locator": "Abstract and §1 after Theorem 2, p. 357",
-          "excerpt": "Theorem 2.",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -3063,7 +3016,6 @@
         {
           "sourceId": "BS20",
           "locator": "§1, Conjecture, p. 356",
-          "excerpt": "Conjecture",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -3147,7 +3099,6 @@
         {
           "sourceId": "BS20",
           "locator": "§11, pp. 385–386",
-          "excerpt": "(39)",
           "match": "The short fragment identifies the read passage. The mathematical contract and proof steps explicitly distinguish the printed assertion, a local specialization or adapter, and any recorded correction."
         }
       ],
@@ -3235,7 +3186,6 @@
         {
           "sourceId": "BS20",
           "locator": "Proof of Proposition9.1, printed p.384, first displayed factorial bound and reference[43]",
-          "excerpt": "Stirling’s formula",
           "match": "The printed finite-m upper bound is recovered from the actual pinned Robbins stepwise bound and Stirling limit; the original Robbins paper has not been independently read in this review."
         }
       ],

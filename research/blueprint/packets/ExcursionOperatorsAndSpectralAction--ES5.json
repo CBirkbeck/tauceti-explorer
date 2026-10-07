@@ -254,13 +254,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.4.1, p. 327",
-          "excerpt": "End(A) = L as condensed algebras.",
           "match": "The printed Schur condition; the scalar-unit formulation fixes its canonical algebra structure."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.1.2, pp. 320–321",
-          "excerpt": "it is simply the relatively discrete condensed structure.",
           "match": "Specifies the compact-source enhancement; it does not say every irreducible representation is compact."
         }
       ],
@@ -364,7 +362,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.4.1 and IX.7.1, pp. 327, 334",
-          "excerpt": "All these maps will induce the same map to the Bernstein center.",
           "match": "Motivates application to representations; the fixed-vector proof is a refinement outlined here, with the foundational admissibility theorem requested separately."
         }
       ],
@@ -409,13 +406,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.7, pp. 288–289",
-          "excerpt": "ordered by virtue of their ordering as a subset of {1, . . . , m}",
           "match": "The ordered multiplication relation."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.8 proof, p. 290",
-          "excerpt": "if the data in (iii) are maps of condensed sets",
           "match": "The continuity required by the reconstruction theorem, supplied here by the Schur inverse."
         }
       ],
@@ -522,7 +517,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.3, pp. 292–293",
-          "excerpt": "the endomorphism SD (X) ∈ End(X) = L,",
           "match": "The scalar matrix-coefficient characterization in the discrete categorical setting."
         }
       ],
@@ -567,19 +561,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.4.1, p. 327",
-          "excerpt": "By the arguments of Section VIII.4, we can build excursion data as required for Propo-\nsition VIII.3.8.",
           "match": "Its complete one-line proof, expanded through the existing supplier."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.8 proof, p. 290",
-          "excerpt": "the choice of finitely many\nelements",
           "match": "The finite-anchor continuity input; the full proposition was recovered and read."
         },
         {
           "sourceId": "Lafforgue-2018",
           "locator": "Proposition 11.7 and Lemma 11.10, pp. 143–147",
-          "excerpt": "σ est continue.",
           "match": "Characteristic-zero source for the finite-anchor continuity argument, not a blanket proof in characteristic ell."
         }
       ],
@@ -627,13 +618,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VII.7.2, pp. 272–273",
-          "excerpt": "admits a left adjoint",
           "match": "The source’s relative-homology left adjoint and unit; not an ordinary shriek pushforward."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.7.1, p. 334",
-          "excerpt": "determined for example by the left adjoint to ib∗",
           "match": "The representation parameter is obtained by this stratum extension."
         }
       ],
@@ -732,7 +721,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.7.1, p. 334",
-          "excerpt": "All these maps will induce the same map to the Bernstein center.",
           "match": "The assertion is expanded as a formal adjunction/naturality argument; supplier existence is kept separate."
         }
       ],
@@ -773,7 +761,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.4.1, p. 327",
-          "excerpt": "is given by the scalar",
           "match": "The characterization forces these transport consequences when operators and scalar units are compatible."
         }
       ],
@@ -811,7 +798,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6 introduction, p. 330",
-          "excerpt": "the claims about L-parameters of Schur-irreducible objects work in any characteristic",
           "match": "The centre hypothesis is distinct from the unrestricted excursion/field conclusion."
         }
       ],
@@ -856,7 +842,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.1 proof, pp. 330–331",
-          "excerpt": "This identification is functorial in V ′ and I",
           "match": "The relative-homology kernel calculation precedes the equality of excursion operators."
         }
       ],
@@ -904,7 +889,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.2 proof, p. 331",
-          "excerpt": "noting that everything decomposes into products.",
           "match": "Expanded through the owned kernel and exterior-Hom interfaces; the display correction is recorded separately."
         }
       ],
@@ -957,13 +941,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.3 proof, p. 332",
-          "excerpt": "a subgroup of finite index, and thus itself a finitely generated free group.",
           "match": "Exactly the baseline input; its rank is irrelevant."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.3 proof, p. 332",
-          "excerpt": "One way to understand this is to use the presentation",
           "match": "The nonabelian finite-free-source excursion-colimit argument."
         }
       ],
@@ -1015,7 +997,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.4 proof, p. 333",
-          "excerpt": "One can resolve T by products of induced tori",
           "match": "The reduction uses separate reductive-group and reciprocity suppliers."
         }
       ],
@@ -1061,13 +1042,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.5 proof, p. 333",
-          "excerpt": "It is then an easy consequence of Section II.2.1.",
           "match": "The missing displayed calculation is planned explicitly, rather than treated as a baseline fact."
         },
         {
           "sourceId": "Fargues-AbelJacobi",
           "locator": "Proposition 3.3 proof, p. 13",
-          "excerpt": "Art−1 (σ)                = π.",
           "match": "Arithmetic normalization and the associated-sheaf inversion are read from the proof."
         }
       ],
@@ -1110,7 +1089,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6.5, p. 333",
-          "excerpt": "is the diagonal embedding.",
           "match": "The centre statement is stronger than a scalar pointwise test."
         }
       ],
@@ -1157,7 +1135,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6 closing paragraph, p. 333",
-          "excerpt": "by\napplying Theorem IX.6.1 to the maps Z × G → G and G → G × D",
           "match": "Pins the two actual maps, correcting the checkpoint’s Z to G error."
         }
       ],
@@ -1202,7 +1179,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6 closing paragraph, p. 333",
-          "excerpt": "where Z ⊂ G is the center and\nG → D is the quotient by the derived group.",
           "match": "The graph map and the central dual twisting cocycle."
         }
       ],
@@ -1246,13 +1222,11 @@
         {
           "sourceId": "Kaletha-2018",
           "locator": "Definition 5.1 and Proposition 5.2, p. 17",
-          "excerpt": "If moreover Z(Gz ) is connected and Gz /G is an induced torus we will call this a\nz-embedding.",
           "match": "The full definition includes all preceding pseudo-z conditions."
         },
         {
           "sourceId": "Kaletha-2018",
           "locator": "Fact 5.5, p. 19",
-          "excerpt": "The injectivity of H 1 (F, Z(G)) → H 1 (F, Z(Gz )) implies the first point.",
           "match": "The exact cohomological reason for central rational-point surjectivity."
         }
       ],
@@ -1354,13 +1328,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6 closing paragraph, p. 333",
-          "excerpt": "one can reduce to the case of connected center using z-extensions [Kal18, Section 5].",
           "match": "The cited Kaletha section supplies injective p-adic z-embeddings, not a connected-centre surjective cover. The source terminology is recorded in E5; no all-field conclusion is inferred."
         },
         {
           "sourceId": "Kaletha-2018",
           "locator": "Fact 5.5 and following paragraph, p. 19",
-          "excerpt": "extensions of π to a representation of Gz (F ) is a torsor",
           "match": "The paragraph compares representation extensions by quotient characters; the full passage, not this short fragment, was read."
         }
       ],
@@ -1406,13 +1378,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.3 proof, p. 330",
-          "excerpt": "The commutation follows easily from the construction of excursion operators and\nProposition VI.12.1.",
           "match": "The centre involutions and parameter consequence."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.12.1 proof, p. 241",
-          "excerpt": "The determinant pairing is alternating",
           "match": "The rank-one sign calculation explains the inner rho(-1) correction."
         }
       ],
@@ -1460,7 +1430,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.3 proof, p. 330",
-          "excerpt": "In general, the claim for smooth duals follows from the compatibility\nwith parabolic induction proved below.",
           "match": "The source explicitly requires the ES7 induction theorem."
         }
       ],

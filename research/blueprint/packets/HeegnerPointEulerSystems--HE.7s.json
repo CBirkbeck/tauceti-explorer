@@ -260,7 +260,6 @@
         {
           "sourceId": "howard",
           "locator": "§2.3, before Lemma 2.3.2",
-          "excerpt": "Define γk , Φ ∈ Zp [G(n)] by the formulas (p + 1)2 − a2p inert case Φ = 2 ∗ ∗2 (p − ap σ + σ )(p − ap σ + σ ) split case ap inert case γ0 = ap − σ − σ ∗ split",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -352,7 +351,6 @@
         {
           "sourceId": "cgls",
           "locator": "Remark 4.1.3",
-          "excerpt": "define the α-stabilized Heegner point P [pk ]α ∈ E(K[pk ]) ⊗ Zp by k −1 k−1  P [p ] − α P [p ]  if k ⩾ 1, k −1 −1 −1 ∗ (4.3) P [p ]α := uK 1 − α σ 1 − α σ P",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -441,7 +439,6 @@
         {
           "sourceId": "cgls",
           "locator": "Remark 4.1.3 and proof of Theorem 4.1.1",
-          "excerpt": "Using the Heegner point norm relations, a straightforward calculation shows that the points",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -483,13 +480,11 @@
         {
           "sourceId": "howard",
           "locator": "Lemmas2.3.2–2.3.3",
-          "excerpt": "such that Q0 [n] = ΦP [n], and for any nℓ ∈ N NormK∞ [nℓ]/K∞ [n] Q[nℓ] = aℓ Q[n]. Proof. Fix an n ∈ N and let H̃k be the free Zp [Gal(Kk [n]/K)]-module on",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
-          "excerpt": "In the following paragraphs, we explain how to adapt Howard’s arguments to our situation.",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -581,7 +576,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1 and Remark 4.1.3",
-          "excerpt": "The inclusion κ∞ ∈ H1FΛ (K, T) follows immediately from the construction.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -672,7 +666,6 @@
         {
           "sourceId": "cv",
           "locator": "§1.1, equations(3)–(4), and Lemma 2.8",
-          "excerpt": "character χ : G(n) → C× is primitive if it does not factor through G(n − 1).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -759,7 +752,6 @@
         {
           "sourceId": "cv",
           "locator": "§1.1, Lemma 1.1 and definitions of S,Sχ",
-          "excerpt": "Moreover, S(χ) = S if either P does not divide N , or P splits in K, or n is sufficiently large.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -801,7 +793,6 @@
         {
           "sourceId": "cv-dynamics",
           "locator": "Theorem 2.9; §§2.5 and2.7",
-          "excerpt": "Then for every continuous function f : X (S, R) → C, Z Z Z x 7→ f ◦ Red(g · x)dg − dg f dµg·x̄ G G C −1 (g·x̄) goes to 0 as x goes to infinity in H. 2.2.3",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -839,7 +830,6 @@
         {
           "sourceId": "cv-dynamics",
           "locator": "Corollary 2.10",
-          "excerpt": "Corollary 2.10 For all but finitely many x in H, Red(G · x) = C −1 (G · x̄) in XH (S, R) where x̄ = C ◦ Red(x) ∈ ZH (S, R). 2.2.4 Equidistribution When H = R b",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -881,7 +871,6 @@
         {
           "sourceId": "cv",
           "locator": "Theorem 4.1; Theorem 4.10; Lemmas4.12–4.15 and Proposition 4.17",
-          "excerpt": "Theorem 4.1 Suppose that π : J A is a surjective, Pic(OF )-equivariant and P -new morphism. Fix a character χ0 of G0 such that A{ω} 6= 0 where ω = Res(χ).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -924,7 +913,6 @@
         {
           "sourceId": "cv",
           "locator": "Proposition 5.6; Corollary 5.7; Proposition 5.8; Lemma 5.9; Theorem 5.10",
-          "excerpt": "Theorem 5.10 Suppose that θ is a nonzero function in S2 (π 0 )H . Suppose moreover that θ is P -new, and let ψ be the induced function on CMH . Let 58 χ0 be",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -962,7 +950,6 @@
         {
           "sourceId": "cv",
           "locator": "Theorem 1.4 and §5",
-          "excerpt": "exists a character χ ∈ P (n, χ0 ) for which L(π, χ, 1/2) 6= 0.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1002,7 +989,6 @@
         {
           "sourceId": "cv",
           "locator": "Theorem 1.5 and §4",
-          "excerpt": "exists a character χ ∈ P (n, χ0 ) for which L0 (π, χ, 1/2) 6= 0.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1045,13 +1031,11 @@
         {
           "sourceId": "cornut",
           "locator": "Introduction main theorem",
-          "excerpt": "Theorem. There exists n ≥ 0 such that: TrK[p ]/H (yp ) ∈/ E(H∞ )tors . ∞ ∞ n Let us quote some known consequences. Besides extra technical conditions see the",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "howard",
           "locator": "Theorem 2.3.7, initial invocation of Cornut",
-          "excerpt": "one of the points NormKk [1]/Kk Pk [1] has infinite order",
           "match": "The clean Howard proof invokes Cornut at this point; its p∤h_K/image hypotheses are not silently imposed on CGLS’s weaker class construction."
         }
       ],
@@ -1093,7 +1077,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1 and Remark 4.1.3",
-          "excerpt": "Finally, that κHg1 is nonzero follows from the works of Cornut and Vatsal",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1138,13 +1121,11 @@
         {
           "sourceId": "howard",
           "locator": "§2.3, construction following Lemma 2.3.3",
-          "excerpt": "and we define κn to be the unique preimage of δ(n)(κ̃n ) under the isomorphism → H 1 (K[n], T/In T)G(n) H 1 (K, T/In T) − (the bijectivity being a consequence",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
-          "excerpt": "In the following paragraphs, we explain how to adapt Howard’s arguments to our situation.",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -1240,13 +1221,11 @@
         {
           "sourceId": "howard",
           "locator": "Lemma 2.3.4",
-          "excerpt": "The proof that the localization of κn at primes of K dividing n lies in the transverse subspace",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
-          "excerpt": "In the following paragraphs, we explain how to adapt Howard’s arguments to our situation.",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -1287,13 +1266,11 @@
         {
           "sourceId": "howard",
           "locator": "Lemmas2.3.5–2.3.6",
-          "excerpt": "where pMnℓ Zp = Inℓ , and the right hand side is interpreted as the image of the unique pMnℓ -divisor of −(σℓ −1)κ̃nℓ in H[nℓ] under the map (18) (uniqueness",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
-          "excerpt": "In the following paragraphs, we explain how to adapt Howard’s arguments to our situation.",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -1336,7 +1313,6 @@
         {
           "sourceId": "cgls",
           "locator": "Remark 4.1.3",
-          "excerpt": "generate the same Λ-submodule of HFΛ (K, T). 4.2. Proof of the Iwasawa main conjectures. Let κ∞ ∈ H1FΛ (K, T) be the Λ-adic Heegner class introduced in Remark",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1382,7 +1358,6 @@
         {
           "sourceId": "howard",
           "locator": "TheoremB; Proposition 2.1.3; Lemma 2.2.7–Theorem 2.2.10",
-          "excerpt": "(c) char(M ) divides char HF1 Λ (K, T)/H where char denotes characteristic ideal. THE HEEGNER POINT KOLYVAGIN SYSTEM 3 We remark that parts (a) and (b) are",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1427,7 +1402,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorems4.1.1–4.1.2",
-          "excerpt": "in Λ[1/p, 1/(γ − 1)].",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1470,7 +1444,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Definition 1.2.2",
-          "excerpt": "Then αm ≡ 1 (mod pm ).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1566,13 +1539,11 @@
         {
           "sourceId": "bcgs",
           "locator": "Lemma 1.1.5 (split-prime branch)",
-          "excerpt": "For all n ∈ NHeeg with M (n) ≥ m we have the congruence ( Heeg (αp − 1)2 (βp − 1)2 κHeeg n p splits in K κn (α) ≡ (mod pm ), ((p + 1)2 − a2p )κHeeg n p inert",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cs",
           "locator": "Lemma 3.1.1 and equation (3.5), both unramified splitting types",
-          "excerpt": "A similar computation directly from the construction yields the following result, where we let",
           "match": "The paragraph immediately before Lemma 3.1.1 introduces the specialized system; the lemma gives both split and inert congruences. Correct its printed ideal containment as source issue E2 records."
         }
       ],
@@ -1614,7 +1585,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Theorem 1.1.6",
-          "excerpt": "Theorem 1.1.6 (Cornut–Vatsal). For m ≫ 0 and any α ≡ 1 (mod pm ) with α ̸= 1, the class κHeeg 1 (α) is non-zero. Proof. This is immediate from the main result",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1655,7 +1625,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Introduction definitions of M_r,M∞; §2.2",
-          "excerpt": "otherwise. Put Mr = min{M (n) : ν(n) = r}.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1746,13 +1715,11 @@
         {
           "sourceId": "bcgs",
           "locator": "§1.2.2 and Lemma 1.2.5",
-          "excerpt": "By construction, there is an étale isogeny ϕ0• : E0 → E• such that the induced injective map ϕ0• : H1Ford (K, T0α ) → H1Ford (K, T•α ) (1.9) satisfies ϕ0•",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "wuthrich",
           "locator": "Theorem 4, published p.385, proof pp.386–387",
-          "excerpt": "Moreover the cyclic isogeny from E1 to E• is étale.",
           "match": "Distinguished modular-symbol lattice at odd semistable primes only. E₀→E_• at odd p is used in BCGS Lemma 1.2.5; arbitrary-isogeny or dyadic equality is not supplied."
         }
       ],
@@ -1796,7 +1763,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Lemma 1.2.3",
-          "excerpt": "Lemma 1.2.3. Let α : Γ → Z×p be a character as in Theorem 1.2.1 with n ≥ 0 and such that Lp BDP (f /K)(α−1 ) ̸= 0. Then κHeeg 1 m 1• (α) ̸= 0 and HFord (K, T•α",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1840,7 +1806,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Theorem 1.2.7 (JSW control theorem as used there)",
-          "excerpt": "Theorem 1.2.7 (Anticyclotomic control theorem). Let α : Γ → Z× p be a character as in Theorem 1.2.1 such −1 that LBDP p (f /K)(α ) ̸ = 0 and α ≡ 1 (mod p m ).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1881,7 +1846,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Lemma 1.2.8",
-          "excerpt": "Lemma 1.2.8. Let w ∤ p be a finite prime of K. If α : Γ → Z× m p satisfies α ≡ 1 (mod p ), then cw (α) ≡ cw m (mod p ). Proof. By definition, we have H1ur (Kw",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1925,7 +1889,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Theorem 1.3.1 and its cited CGS proof",
-          "excerpt": "Then there exist non-negative integers M and E, depending only on",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -1969,7 +1932,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Proposition 2.2.1; Theorem 2.2.2; Lemma 2.2.4",
-          "excerpt": "Theorem 2.2.2. In the setting of Proposition 2.2.1, if κ1 ̸= 0 then lengthR W(Wα−1 /K) = 2 M0 (κ) − M∞ (κ) , where M0 (κ) = ind(κ1 ). Remark 2.2.3. Note that",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2014,7 +1976,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Corollary 1.2.12; Remark 1.2.11",
-          "excerpt": "If Conjecture 1.2.10 holds, then for m ≫ 0 we have Y #(H1Ford (K, Tα )/Zp · κHeeg 2 01 (α)) = #W(Wα−1 /K) · c(p) w (α −1 ) · #H0 (Qp , E0 [p∞ ])4 . w|N 0 ∞",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2063,7 +2024,6 @@
         {
           "sourceId": "bcgs",
           "locator": "TheoremA and §2.1",
-          "excerpt": "Assume that the rational anticyclotomic Main Conjecture 1.2.10 holds.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2113,7 +2073,6 @@
         {
           "sourceId": "bcgs",
           "locator": "TheoremB and §2.2",
-          "excerpt": "Assume that the integral anticyclotomic Main Conjecture 1.2.10 holds.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2161,7 +2120,6 @@
         {
           "sourceId": "cs",
           "locator": "§3.2, equations (3.6)–(3.8), Theorem 3.2.1",
-          "excerpt": "Theorem 3.2.1. The module SelGr (T) is torsion-free and of Λac -rank one. Proof. This is shown in [How04, Thm. B] under a certain big image hypothesis on T ;",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2204,7 +2162,6 @@
         {
           "sourceId": "cs",
           "locator": "Conjecture 3.2.2 and preceding determinant isomorphism",
-          "excerpt": "be the element mapping to y∞ ⊗ y∞ under (3.8).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2298,7 +2255,6 @@
         {
           "sourceId": "cs",
           "locator": "Proposition 3.2.3",
-          "excerpt": "Proposition 3.2.3. Conjecture 3.2.2 holds if and only if ι charΛac SelGr (T)/Λac · y∞ · charΛac SelGr (T)/Λac · y∞ = charΛac XGr (A)tors (3.9) ac ac as ideals",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2341,7 +2297,6 @@
         {
           "sourceId": "cs",
           "locator": "Lemma 3.3.3 and proof of TheoremC",
-          "excerpt": "The second equality is immediate from the fact that A(α±1 )[pm ] ∼ = ±1 ∼ − ∼ e ∞ A[pm ] as GK -modules, and so H0 (Kv , A−v (α )) = H 0 (K v , Av ) = E(F v",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2390,7 +2345,6 @@
         {
           "sourceId": "cs",
           "locator": "Proposition 3.3.2",
-          "excerpt": "Then H1Fα (K, T (α)) and H1F −1 (K, T (α−1 )) are both Zp -free of rank 1, and there is a canonical isomorphism",
           "match": "Actual proposition statement in §3.3, PDF pp.14–15, rather than the introductory mention. Its character need not be crystalline or split-prime; nonzero specialization gives both rank-one lattices."
         }
       ],
@@ -2433,7 +2387,6 @@
         {
           "sourceId": "cs",
           "locator": "Corollary 3.3.4",
-          "excerpt": "Conjecture 3.2.2 holds, then up to a p-adic unit: !2 2 Y 2 # H1Fα (K, T (α))/Zp · κHeeg 1,Λ (α) = #e E(Fv ) · TamE · #XBK (T (α)∗ /K) v|p for m ≫ 0. Proof.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2481,7 +2434,6 @@
         {
           "sourceId": "cs",
           "locator": "TheoremC; §3.3 proof",
-          "excerpt": "(ii) The anticyclotomic Iwasawa Main Conjecture 3.2.2 holds.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2521,13 +2473,11 @@
         {
           "sourceId": "bcgs",
           "locator": "Theorem 1.2.1 and Conjecture 1.2.10",
-          "excerpt": "There exists an element LBDP p (f /K) ∈ Λur characterised by the following interpolation property: For every character ξ of Γ crystalline at both v and v̄ and",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "bcs",
           "locator": "Conjecture 1.2.1, following Remark 1.2.3, and Theorem 1.2.4",
-          "excerpt": "In light of the Λ− K -adic analogue of the p-adic Waldspurger formula",
           "match": "BCS uses the squared BDP distribution as its single-power function; 1.2.3 is a remark, not a conjecture. Compare ideals only after the GZ.9 normalization gap is discharged."
         }
       ],
@@ -2575,13 +2525,11 @@
         {
           "sourceId": "cgls",
           "locator": "Proposition 4.2.1 (rational comparison)",
-          "excerpt": "Moreover, the same result holds for the opposite divisibilities.",
           "match": "Both opposite divisibilities, only in Λ⊗ℚ_p. This is not the BCS two-variable comparison and does not by itself certify the integral statement."
         },
         {
           "sourceId": "bck",
           "locator": "Theorem 5.2 and proof, published pp.1646–1647; standing p>3 and §5 split-prime hypotheses",
-          "excerpt": "Theorem 5.2. Assume that H0 (G K , ρ 0 ) = 0. Then the following are equivalent:",
           "match": "Integral Heegner/BDP comparison in both directions; use N⁻=1, the exact strict/unrestricted dictionary and H⁰=0. Non-anomalous, surjectivity and Hypothesis ♥ belong to Theorem 5.1, not Theorem 5.2."
         }
       ],
@@ -2624,7 +2572,6 @@
         {
           "sourceId": "bcs",
           "locator": "Proposition 5.2.1; Lemma 5.2.3",
-          "excerpt": "(iii) Every prime ℓ|N is inert in F if ℓ ≡ −1 (mod p), and is split in F otherwise.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2668,7 +2615,6 @@
         {
           "sourceId": "bcs",
           "locator": "Theorem 4.2.1 (using CGS Theorem 5.5.2)",
-          "excerpt": "Theorem 4.2.1. Let g ∈ S2 (Γ0 (N )) be an elliptic newform and p an odd prime of good ordinary reduction for g. Let K be an imaginary quadratic field",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2717,7 +2663,6 @@
         {
           "sourceId": "bcs",
           "locator": "§5.1–§5.3; Proposition 5.2.1; proof of Theorems1.2.2/1.2.4",
-          "excerpt": "Together with Theorem 4.2.1, this concludes the proof.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2761,7 +2706,6 @@
         {
           "sourceId": "bcs",
           "locator": "Theorem 1.2.2(a)",
-          "excerpt": "(a) If p > 3 satisfies (irrQ ), then both Xord (E/K∞− ) and H1FΛ (K, T) have Λ− K -rank one, and 2 − )tor = chΛ− H1FΛ (K, T)/(κHeeg chΛ− Xord (E/K∞ 1 ) K K in",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2808,7 +2752,6 @@
         {
           "sourceId": "bcs",
           "locator": "Theorem 1.2.2(b)",
-          "excerpt": "(b) If further p > 3 satisfies (sur), then the equality holds",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2853,7 +2796,6 @@
         {
           "sourceId": "bcs",
           "locator": "Theorem 1.2.4(a)",
-          "excerpt": "Theorem 1.2.4. Let (E, p, K) be as in Theorem 1.2.2. (a) If p > 3 satisfies (irrQ ), then XGr (E/K∞− ) is Λ−K -torsion, and − ) = LBDP chΛ− XGr (E/K∞ p (E/K) K",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2898,7 +2840,6 @@
         {
           "sourceId": "bcs",
           "locator": "Theorem 1.2.4(b)",
-          "excerpt": "(b) If further p > 3 satisfies (sur), then the equality of characteristic ideals holds",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -2945,13 +2886,11 @@
         {
           "sourceId": "bcgs",
           "locator": "Theorem 1.2.13(i), citing CGS TheoremsA/C",
-          "excerpt": "Proof. This is shown in [CGS25] in situation (i), and in [BCS25] in situations (ii) and (iii).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgs",
           "locator": "Theorem C and ensuing Greenberg reformulation, author copy pp.3–4",
-          "excerpt": "Suppose that φ|Gp 6= 1, ω. Then Conjecture B holds.",
           "match": "Integral anticyclotomic equality without the older (Sel) condition. Theorem A is the cyclotomic consequence; Theorem C is the early supplier needed here."
         }
       ],
@@ -2997,7 +2936,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Theorem 1.2.13 and TheoremA",
-          "excerpt": "(ii) If p > 3 satisfies (irr), then the rational anticyclotomic Main Conjecture holds.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -3038,7 +2976,6 @@
         {
           "sourceId": "bcgs",
           "locator": "TheoremB and Theorem 1.2.13(iii)",
-          "excerpt": "(iii) If p > 3 satisfies (sur), then Conjecture 1.2.10 holds.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -3081,7 +3018,6 @@
         {
           "sourceId": "cs",
           "locator": "TheoremC; Proposition 3.2.3",
-          "excerpt": "In particular, if p splits in K, then Conjecture C holds.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -3119,13 +3055,11 @@
         {
           "sourceId": "howard",
           "locator": "Lemmas2.3.2–2.3.3",
-          "excerpt": "such that Q0 [n] = ΦP [n], and for any nℓ ∈ N NormK∞ [nℓ]/K∞ [n] Q[nℓ] = aℓ Q[n]. Proof. Fix an n ∈ N and let H̃k be the free Zp [Gal(Kk [n]/K)]-module on",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
-          "excerpt": "In the following paragraphs, we explain how to adapt Howard’s arguments to our situation.",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -3164,7 +3098,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1 and Remark 4.1.3",
-          "excerpt": "The inclusion κ∞ ∈ H1FΛ (K, T) follows immediately from the construction.",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -3203,13 +3136,11 @@
         {
           "sourceId": "howard",
           "locator": "§2.3, construction following Lemma 2.3.3",
-          "excerpt": "and we define κn to be the unique preimage of δ(n)(κ̃n ) under the isomorphism → H 1 (K[n], T/In T)G(n) H 1 (K, T/In T) − (the bijectivity being a consequence",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         },
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
-          "excerpt": "In the following paragraphs, we explain how to adapt Howard’s arguments to our situation.",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -3249,7 +3180,6 @@
         {
           "sourceId": "bcgs",
           "locator": "Definition 1.2.2",
-          "excerpt": "Then αm ≡ 1 (mod pm ).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -3289,7 +3219,6 @@
         {
           "sourceId": "cs",
           "locator": "Conjecture 3.2.2 and preceding determinant isomorphism",
-          "excerpt": "be the element mapping to y∞ ⊗ y∞ under (3.8).",
           "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
         }
       ],
@@ -3332,7 +3261,6 @@
         {
           "sourceId": "cv",
           "locator": "Lemma 2.7 and proof of Proposition 4.4, PDF pp.22,38; used again before Corollary 4.18",
-          "excerpt": "Then the decomposition subgroup of Q in G(∞) is finite.",
           "match": "Lemma 2.7 is the finite-local-degree input; Proposition 4.4 explicitly deduces finiteness of tower torsion. The two-good-place reduction argument supplies the arithmetic explanation."
         }
       ],

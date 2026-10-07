@@ -214,13 +214,11 @@
         {
           "sourceId": "zagier-2007",
           "locator": "II.3A, (3.3), p. 43",
-          "excerpt": "1 − Q = Qᴬ",
           "match": "The root polynomial is an explicit refinement of the rational-power convention, allowing negative integral entries."
         },
         {
           "sourceId": "gswz-v2",
           "locator": "§1.7, (41), p. 14",
-          "excerpt": "1 − zⱼ = (−1)ᴬʲʲ ∏ᵢ zⱼᴬⁱʲ",
           "match": "Taking d=1 and ε_j=(−1)^M_jj supplies the signed formal system, without positivity assumptions. The excerpt retains the printed z_j inside the product; the node uses the corrected z_i as in the already confirmed HabiroNahmSeries/E36, carried below."
         }
       ],
@@ -332,13 +330,11 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§1.7, (36), p. 13",
-          "excerpt": "det(diag(1 − z(t))A + diag(z(t)))",
           "match": "The d=1 logarithmic Jacobian underlying δ; the displayed factorization extends it to root variables and cleared monomials."
         },
         {
           "sourceId": "zagier-2007",
           "locator": "II.3A, (3.3), p. 43",
-          "excerpt": "1 − Q = Qᴬ",
           "match": "The polynomial differentiation is derived here, not a quoted general algebraicity theorem."
         }
       ],
@@ -391,13 +387,11 @@
         {
           "sourceId": "stacks-unramified",
           "locator": "Lemma 10.148.3, tag 00UO",
-          "excerpt": "the module of differentials Ω_{S/R} is zero",
           "match": "The equivalence with formal unramifiedness; the finite conclusion follows the pinned Mathlib theorem whose hypotheses are verified above."
         },
         {
           "sourceId": "cgz-v3",
           "locator": "§7.1, observation (i), p. 35",
-          "excerpt": "generically defines a 0-dimensional variety",
           "match": "Motivates the finite coordinate field. The nonsingular-zero theorem is established by the differential argument, not by the source’s generic dimension heuristic."
         }
       ],
@@ -448,13 +442,11 @@
         {
           "sourceId": "zagier-2007",
           "locator": "II.3A, p. 43, rational A paragraph",
-          "excerpt": "choice of determinations",
           "match": "The survey requires coherent rational powers; positive roots supply the canonical coherent lift on the distinguished real component."
         },
         {
           "sourceId": "cgz-v3",
           "locator": "§7.1, after (42), p. 36",
-          "excerpt": "positive nth roots xᵢ of the Xᵢ",
           "match": "CGZ explicitly distinguishes the coordinate field from a field containing chosen roots; denominator roots use the same field discipline."
         }
       ],
@@ -579,13 +571,11 @@
         {
           "sourceId": "zagier-2007",
           "locator": "II.3A, p. 43, boundary calculation after (3.3)",
-          "excerpt": "∑ᵢⱼ aᵢⱼ (Qᵢ) ∧ (Qⱼ)",
           "match": "The symmetric boundary cancellation is valid integrally in the coherent root field; the display here uses integral M before any rationalization."
         },
         {
           "sourceId": "cgz-v3",
           "locator": "§7.1, observation (i), p. 35",
-          "excerpt": "tensor everything with Q",
           "match": "The coordinate-field assertion is rationalized; no division in the integral exterior square is made."
         }
       ],
@@ -631,7 +621,6 @@
         {
           "sourceId": "gswz-v2",
           "locator": "§1.7, (41) and the following class assertion, p. 14",
-          "excerpt": "1 − zⱼ = (−1)ᴬʲʲ ∏ᵢ zⱼᴬⁱʲ",
           "match": "The source’s signed equation is retained exactly. The obstruction is a derived boundary calculation, and its integral interpretation is requested rather than silently identified with CGZ. The excerpt retains the printed z_j inside the product; the node uses the corrected z_i as in the already confirmed HabiroNahmSeries/E36, carried below."
         }
       ],
@@ -688,19 +677,16 @@
         {
           "sourceId": "cgz-v3",
           "locator": "§7.1, (42), p. 36",
-          "excerpt": "π²/6 − Li₂(x) − ½ log(x) log(1 − x)",
           "match": "Pins the normalization on the positive interval and the immediately following projective extension and period."
         },
         {
           "sourceId": "zagier-2007",
           "locator": "II.1A, pp. 23–24",
-          "excerpt": "L(x) = Li₂(x) + ½ log(x) log(1 − x)",
           "match": "The standard normalization; its difference from CGZ is reflected in the corrected rank-one examples."
         },
         {
           "sourceId": "cgz-v3",
           "locator": "§1.3, p. 6; §7.1(i), p. 35",
-          "excerpt": "B(Q̄) and B(C) are uniquely divisible",
           "match": "The algebraic-closure criterion is imported with an exact supplier request, not assumed built."
         }
       ],

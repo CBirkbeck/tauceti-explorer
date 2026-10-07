@@ -1,5 +1,5 @@
 {
-  "note": "Which works the roadmaps cite and whether a reader can get them. `access` is `free` when anyone can read the work without paying: arXiv, an author's page, an open archive. `substitute` names a free work that covers the cited material, and is filled only where the free source really does cover it. A work with `access: restricted` and no substitute is one somebody has to buy or borrow. Written and checked by scripts/sources.py.",
+  "note": "Which works the roadmaps cite and whether a reader can get them. `access` is `free` when anyone can read the work without paying: arXiv, an author's page, an open archive. `substitute` names a free work that covers the cited material, and is filled only where the free source really does cover it. A work with `access: restricted` and no substitute is one somebody has to buy or borrow. Written and checked by scripts/sources.py. `provided` marks a work that is not free but that the maintainer has cleared for the workers to read privately; it is no longer a book to provide.",
   "checkHosts": [
     "doi.org",
     "dx.doi.org",
@@ -266,14 +266,15 @@
     },
     {
       "id": "BORELJACQUET-AUTOMORPHIC-FORMS-AUTOMORPHIC-REPRESENTATIONS",
-      "kind": "book",
+      "kind": "article",
       "title": "Borel–Jacquet, Automorphic forms and automorphic representations",
       "match": [
         "\\*Automorphic\\ forms\\ and\\ automorphic\\ representations\\*"
       ],
       "access": "restricted",
       "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+      "note": "In Automorphic Forms, Representations and L-functions (Corvallis 1977), Proc. Sympos. Pure Math. 33, Part 1, AMS 1979, pp. 189–207. The maintainer has a copy of Part 1 cleared for the workers' use (2026-10-07); the server workers read it privately. Cite it by statement and page; quote nothing.",
+      "provided": true
     },
     {
       "id": "BOURBAKI-LIE-GROUPS-LIE-ALGEBRAS",
@@ -806,7 +807,8 @@
         "Faltings[-–—]Chai"
       ],
       "substitute": null,
-      "kind": "book"
+      "kind": "book",
+      "note": "The maintainer has found copies but is checking the publisher's terms (2026-10-07): do not use them until that is settled."
     },
     {
       "id": "FARB-NONCOMMUTATIVE-ALGEBRA",
@@ -1154,7 +1156,7 @@
         "Huber.{0,60}[EÉ]tale Cohomology of Rigid"
       ],
       "substitute": null,
-      "note": "Out of print and not online. Wedhorn's Adic Spaces (arXiv, free) covers the foundations, but not the etale cohomology results these roadmaps cite, so this book is still needed.",
+      "note": "Out of print and not online. Wedhorn's Adic Spaces (arXiv, free) covers the foundations, but not the etale cohomology results these roadmaps cite, so this book is still needed. The maintainer has found copies but is checking the publisher's terms (2026-10-07): do not use them until that is settled.",
       "kind": "book"
     },
     {
@@ -2937,14 +2939,17 @@
     },
     {
       "id": "ZHANG-SELMER-GROUPS-INDIVISIBILITY-HEEGNER",
-      "kind": "book",
+      "kind": "article",
       "title": "Zhang, Selmer groups and the indivisibility of Heegner points",
       "match": [
         "\\*Selmer\\ groups\\ and\\ the\\ indivisibility\\ of\\ Heegner\\ points\\*"
       ],
-      "access": "restricted",
+      "access": "free",
       "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+      "note": "Cambridge Journal of Mathematics 2 (2014), 191–253. The version of record is free from International Press. HeegnerPointEulerSystems HE.0 was planned from it.",
+      "urls": [
+        "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf"
+      ]
     }
   ],
   "hostsNote": "ams.org, msp.org, numdam.org, annals.math.princeton.edu and e-periodica are not checked: their cited pages are open. Add a host here the moment a link to it needs a subscription.",

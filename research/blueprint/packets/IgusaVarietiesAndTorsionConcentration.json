@@ -495,13 +495,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, p. 11",
-          "excerpt": "Fix any self-dual OF -lattice L ⊂ V , and deﬁne the group G over Z by G(R) = {(g,c) ∈ GLOF (L)(R) × Gm(R) | (gv,gw) = c(v,w) ∀v,w ∈ L} , which is a unitary similitude group. We let X = Y τ:F+֒→R Xτ,+ ⊔ Y τ:F+֒→R Xτ,− be",
           "match": "Defines the unitary similitude group G over ℤ as the stabiliser of the alternating form up to a scalar."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, p. 11",
-          "excerpt": "which is a unitary similitude group. We let X = Y τ:F+֒→R Xτ,+ ⊔ Y τ:F+֒→R Xτ,− be the symmetric space for G(R), where Xτ,+ (resp. Xτ,−) is the space of positive (resp. negative) deﬁnite",
           "match": "The symmetric space X as a disjoint union of products of the spaces X_{τ,±}."
         }
       ],
@@ -535,7 +533,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, Lemma 2.1.1, p. 12",
-          "excerpt": "Lemma 2.1.1. Assume that K0 = K ∩ G0(Af ). The inclusion G0 ֒→ G induces a natural map X0 K0 → XK, which is an open and closed immersion. The induced map on cohomology and compactly supported cohomology is Hecke-equivariant for the restriction map TS → T0,S .",
           "match": "States the open and closed immersion and the Hecke equivariance."
         }
       ],
@@ -571,7 +568,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, Proposition 2.1.2, p. 12",
-          "excerpt": "Proposition 2.1.2. The group G satisfies the Hasse principle, i.e. the map H1 (Q,G) → Y v H1 (Qv,G) is injective, where",
           "match": "States the Hasse principle for G; the corrected index set is the places of ℚ."
         }
       ],
@@ -673,7 +669,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, Definition 2.1.3(2), p. 13",
-          "excerpt": "Let p be a prime that is unramified in F and let S be a scheme on which p is locally nilpotent. A p-divisible group with G-structure over S is a triple (X,ι,λ) where X is a p-divisible group of height 2[F : Q]n and dimension [F : Q]n, ι : OF → End(X) is an OF",
           "match": "Defines p-divisible groups with G-structure; (1) is the analogous definition for abelian varieties."
         }
       ],
@@ -787,13 +782,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, Definition 2.1.4, p. 13",
-          "excerpt": "Let Spre K over SpecZ[ 1 ∆F ] parametrize over a test scheme S an abelian variety with G-structure A = (A,ι,λ) together with an OF -linear map L/N → A[N] and a primitive N-th root of unity ζN ∈",
           "match": "Defines the moduli problem S^pre_K with its level structure and lifting condition."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, Definition 2.1.5, p. 13",
-          "excerpt": "Let SK be the normalization of Spre K in Spre K × Z[ 1 ∆F N ]. The reason for",
           "match": "Defines S_K as a normalization."
         }
       ],
@@ -828,7 +821,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.1, Proposition 2.1.6, p. 13",
-          "excerpt": "Proposition 2.1.6. There is a natural isomorphism of manifolds XK ∼ = SK(C).",
           "match": "States X_K ≅ S_K(ℂ)."
         }
       ],
@@ -958,13 +950,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, p. 697",
-          "excerpt": "weights of µ on V imply that the slopes of b on V are in [−1,0]. In particular, in our (nonstandard) normalization of the covariant Dieudonné module, there is a p-divisible group Xb over F̄p whose",
           "match": "States that the slopes of b lie in the allowed range, so that the p-divisible group X_b exists."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, p. 696",
-          "excerpt": "Fix a finite-dimensional, semisimple algebra B over Qp, endowed with an antiinvolution ∗, and a finite left B-module V equipped with an alternating bilinear form (·,·) : V ⊗Qp V → Qp such that (bv,w)",
           "match": "Opens the definition of the local PEL data."
         }
       ],
@@ -1092,7 +1082,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, p. 714",
-          "excerpt": "admits a Newton stratification by locally closed strata Sb KpKp indexed by b ∈ B(G,µ−1); cf. [RR96]: A point x ∈ SKpKp ×OE,p Fq gives rise to a p-divisible group with extra",
           "match": "Defines the Newton stratification of the special fibre by locally closed strata indexed by B(G, μ^{−1})."
         }
       ],
@@ -1129,7 +1118,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, Proposition 2.2.1, p. 14",
-          "excerpt": "Proposition 2.2.1. Assume that Z−2 ⊂ Z−1 ⊂ X is an OF -stable filtration by sub-p-divisible groups such that Z−2 is multiplicative, X/Z−1 is étale, and the polarization identifies Z−2 with X/Z−1. Then there is an OF -linear splitting X ∼ = Z−2 ⊕",
           "match": "States the symplectic splitting of filtrations with multiplicative sub and étale quotient."
         }
       ],
@@ -1236,13 +1224,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Lemma 4.1.5, p. 693",
-          "excerpt": "Lemma 4.1.5. The subgroup scheme H (m) n stabilizes for m ≫ 0; let H0 n = H (m) n for m sufficiently large. Then H0 n",
           "match": "States the stabilisation of H_n^{(m)}."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Lemma 4.1.6, p. 694",
-          "excerpt": "Lemma 4.1.6. The maps ιn : Hn → Hn+1 send H0 n into H0 n+1. The colimit H = HG,G0 = lim − → ιn H0 n is a p-divisible group over k with H[pn] = H0 n.",
           "match": "States that the stable images form a p-divisible group H_{G,G′}."
         }
       ],
@@ -1280,13 +1266,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Lemma 4.1.7, p. 695",
-          "excerpt": "Lemma 4.1.7. The Tate module TpHG,G0 can be identified with the sheaf Hom(G,G0). Proof. The Tate module",
           "match": "Identifies the Tate module of H_{G,G′} with 𝓗om(G, G′)."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Lemma 4.1.8, p. 695",
-          "excerpt": "Lemma 4.1.8. The Dieudonné module D(HG,G0)[1/p] is equal to Hom(D(G)[1/p],D(G0 )[1/p])≤0 , where",
           "match": "Computes the rational Dieudonné module of H_{G,G′}."
         }
       ],
@@ -1318,13 +1302,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Corollary 4.1.10, p. 696",
-          "excerpt": "Corollary 4.1.10. Assume that G and G0 are isoclinic. (1) If the slope of G is strictly greater than the slope of G0, then HG,G0 vanishes. (2) If the slopes of G and G0 are equal, then HG,G0 is an",
           "match": "States the trichotomy according to the slopes."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.1, Corollary 4.1.11, p. 696",
-          "excerpt": "Corollary 4.1.11. If G and G0 are isoclinic and the slope of G is strictly less than the slope of G0 and HG,G0 has dimension r, then the sheaf Hom(G,G0) is representable by the scheme Spec k[[x 1/p∞",
           "match": "States the representability of 𝓗om(G, G′) by a perfected formal scheme."
         }
       ],
@@ -1435,13 +1417,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, Definition 2.3.3, p. 18",
-          "excerpt": "Let T /SpecFp be a scheme and G/T a p-divisible group. Let FrobG denote the Frobenius morphism relative to T . (1) G is isoclinic and slope divisible of slope λ ∈ Q≥0 if one can write λ = r s so that",
           "match": "Opens the definition of slope divisibility."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, Lemma 2.3.4, p. 19",
-          "excerpt": "Lemma 2.3.4. Let T /SpecFp be a connected regular scheme and G/T a p-divisible group. Let η be the generic point of T , and η a geometric point above η. If Gη is completely slope divisible, then so is G. Proof. This is shown in",
           "match": "Spreading out complete slope divisibility from the generic point."
         }
       ],
@@ -1480,19 +1460,16 @@
         {
           "sourceId": "oz02",
           "locator": "Proposition 1.3, p. 186",
-          "excerpt": "1.3 Proposition. Let Y be a completely slope divisible p-divisible group over a perfect scheme S. Then Y is isomorphic to a direct sum of isoclinic and completely slope divisible p-divisible groups.",
           "match": "Oort–Zink Proposition 1.3: splitting over a perfect base."
         },
         {
           "sourceId": "oz02",
           "locator": "Proposition 2.3, p. 189",
-          "excerpt": "2.3 Proposition. Let S be an integral scheme with function field K = κ(S). Let X be a p-divisible group over S with constant Newton polygon, such that XK is completely slope divisible with respect to the integers s ≥ r1 > r2 > . . . > rm ≥ 0.",
           "match": "Oort–Zink Proposition 2.3: extension over a valuation ring with constant Newton polygon."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, p. 714",
-          "excerpt": "choose a completely slope divisible p-divisible group Xb over F̄q with extra structures giving rise to the σ-conjugacy class b, as in [Man05, §3]. Let Dint,b",
           "match": "Fixes a completely slope divisible X_b in each isogeny class b, after Mantovan."
         }
       ],
@@ -1602,13 +1579,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Lemma 4.2.10, p. 703",
-          "excerpt": "Lemma 4.2.10. The sheaf AutG(‹ Xb) is representable by a formal scheme over Spf W(F̄p), locally of the form Spf W(R) for a perfect ring R.",
           "match": "Representability of Aut_G(X̃_b) by a formal scheme locally of the form Spf W(R), R perfect."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Definition 4.2.9, p. 703",
-          "excerpt": "Define the sheaf AutG(‹ Xb) on Nilpop W(F̄p) by AutG(‹ Xb)(R) = {α ∈ AutB(‹ Xb,R),β ∈",
           "match": "Defines Aut_G(X̃_b) on Nilp^{op}_{W(𝔽̄_p)}."
         }
       ],
@@ -1647,7 +1622,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.11, p. 704",
-          "excerpt": "There is a natural map AutG(‹ Xb) → Jb(Qp) all of whose fibres are isomorphic to SpfW(F̄p)[[x 1/p∞ 1 ,...,x 1/p∞ d ]], where d = h2ρ,νbi. Remark 4.2.12. Let us",
           "match": "States the map to J_b(ℚ_p) and the shape of its fibres."
         }
       ],
@@ -1682,13 +1656,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, Proposition 2.2.3, p. 15",
-          "excerpt": "Proposition 2.2.3. The finite étale group scheme Γm,k represents the functor FΓm : Speck − Schemes → Sets for which FΓm (T ) is the set of T -automorphisms of XT [pm ] which commute with the extra",
           "match": "Representability of liftable automorphisms by the finite étale Γ_{m,k}."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, Theorem 2.2.4, p. 15",
-          "excerpt": "Theorem 2.2.4. Let m ∈ Z≥1. Consider the functor from X-schemes to sets which sends a scheme T /X to the set of isomorphisms ρm : G[pm ] ×X T ∼ → X[pm ] ×k T compatible with the",
           "match": "Opens the statement on Igusa torsors J_m(𝒢/𝒳) over seminormal bases."
         }
       ],
@@ -1737,7 +1709,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, Lemma 2.2.5, p. 16",
-          "excerpt": "Lemma 2.2.5. Let H be the universal p-divisible group over M 0,d Y . The subset Z := {x ∈ M 0,d Y | H × k(x̄) ∼ = Y ×k k(x̄)} ⊆ M 0,d Y consists of finitely",
           "match": "States finiteness of the locus where the universal group is isomorphic to Y."
         }
       ],
@@ -1772,13 +1743,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, Proposition 2.2.6, p. 17",
-          "excerpt": "Proposition 2.2.6. The functor on perfect X-schemes T parametrizing isomorphisms G ×X T ∼ = X ×k T is representable by a Γ-torsor J(G/X) → X. Proof.",
           "match": "The Γ-torsor of isomorphisms over perfect bases."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, Proposition 2.2.7, p. 17",
-          "excerpt": "Proposition 2.2.7. The functor on all X-schemes T parametrizing isomorphisms G ×X T ∼ = X ×k T is representable by an Aut(X)-torsor over X. Proof. It",
           "match": "The Aut(X)-torsor over regular bases."
         }
       ],
@@ -1896,13 +1865,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, Definition 2.3.1, p. 17",
-          "excerpt": "The central leaf8 corresponding to X is the subset of SK,k := SK ×Fp k where the fibers of the p-divisible group A[p∞ ] at all geometric points are 8In [Oor04], Oort calls these objects central",
           "match": "Defines the central leaf as the locus where the p-divisible group is geometrically isomorphic to X."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Definition 4.3.6, p. 716",
-          "excerpt": "The (pro-)Igusa variety is the map Ib Mant → Cb that over a Cb-scheme S parametrizes tuples (ρi)r i=1 of isomorphisms",
           "match": "Mantovan's Igusa variety lives over the central leaf C^b in the Newton stratum."
         }
       ],
@@ -1941,13 +1908,11 @@
         {
           "sourceId": "ham15",
           "locator": "Corollary 7.8 (2), p. 30 (arXiv:1312.0490v2)",
-          "excerpt": "(2) Any central leaf in A0b has dimension h2ρ, νG (b)i. (3) We have dim A0b = dim MG (b, µ) + h2ρ, νG (b)i.",
           "match": "Hamacher's computation of the dimension of central leaves."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Remark 4.2.13, p. 708",
-          "excerpt": "Remark 4.2.13. In view of the theory developed in Section 4.3 and Corollary 4.3.9 in particular, the dimension of AutG(‹ Xb) should match the dimension of central leaves inside the Newton stratum",
           "match": "Relates the dimension of Aut_G(X̃_b) to the dimension of central leaves."
         }
       ],
@@ -1983,13 +1948,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.4, Theorem 2.4.1, p. 20",
-          "excerpt": "Theorem 2.4.1. Let S′ ։ S be a surjection of rings in which p is nilpotent, with nilpotent kernel I ⊂ S′ . (1) The functor GS′ 7→ GS := GS′ ×S′ S from p-divisible groups up to",
           "match": "Opens the Serre–Tate equivalence for p-divisible groups up to isogeny."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.4, Theorem 2.4.2, p. 21",
-          "excerpt": "Theorem 2.4.2. Let S′ ։ S be a surjection of rings in which p is nilpotent, with nilpotent kernel I ⊂ S′ . (1) Consider the category of triples (AS,GS′,ρ), where AS is an abelian",
           "match": "Opens the equivalence with triples for abelian schemes and semi-abelian extensions."
         }
       ],
@@ -2104,13 +2067,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Definition 4.2.1, p. 697",
-          "excerpt": "The Rapoport-Zink space MDint of PEL type associated to Dint is the functor on Nilpop OĔ sending an OĔ0 -algebra R to the set of isomorphism",
           "match": "Defines the PEL Rapoport–Zink functor."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Theorem 4.2.2, p. 698",
-          "excerpt": "Theorem 4.2.2. The functor MDint is representable by a formal scheme that locally admits a finitely generated ideal of definition. Moreover, MDint is formally smooth. We",
           "match": "Representability and formal smoothness."
         }
       ],
@@ -2149,13 +2110,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Lemma 4.2.16, p. 710",
-          "excerpt": "Lemma 4.2.16. Let V be a valuation ring of characteristic p with quotient field K. Let G, H be p-divisible groups over V with constant Newton polygon. Then the map Hom(G,H) → Hom(GK,HK) is a",
           "match": "States the bijection over valuation rings of characteristic p."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Remark 4.2.17, p. 710",
-          "excerpt": "Remark 4.2.17. Using this lemma, one can remove the noetherian hypothesis from the main result of [Ber80]; i.e., the same fully faithfulness result holds true for any integral",
           "match": "Removes the noetherian hypothesis from Berthelot's result."
         }
       ],
@@ -2194,13 +2153,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Lemma 4.3.15, p. 721",
-          "excerpt": "Lemma 4.3.15. Let R be a strictly henselian perfect ring with residue field k. Then the functor G 7→ Gk from the category of p-divisible groups over R with constant Newton polygon, up to isogeny, to p-divisible groups over k up",
           "match": "States the equivalence up to isogeny."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Remark 4.3.16, p. 721",
-          "excerpt": "Remark 4.3.16. In fact, the proof will show that if G and H are p-divisible groups with constant Newton polygon over R, then there is a constant c",
           "match": "Bounded lifting constant."
         }
       ],
@@ -2235,7 +2192,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Proposition 4.3.13, p. 720",
-          "excerpt": "Proposition 4.3.13. Let S be a scheme over F̄p, and let X be a p-divisible group with extra structure over S. Assume that there is some b ∈ B(G) such that all fibres of X are quasi-isogenous to Xb (compatibly with extra",
           "match": "States the hypotheses of the J_b(ℚ_p)-torsor."
         }
       ],
@@ -2329,7 +2285,6 @@
         {
           "sourceId": "lil21",
           "locator": "Proof of Lemma 7.3 and footnote 14, p. 34",
-          "excerpt": "denote by Ym,j the Zariski closed subset of Ym on which the formal part of A[uc,∞ ] has height at least j + 1. By the similar argument of [HT01, Corollary III.4.4], we know that",
           "match": "Li–Liu, proof of Lemma 7.3 and footnote 14: the strata Y_{m,j}, Y°_{m,j}, smooth of pure dimension n − 1 − j."
         }
       ],
@@ -2368,13 +2323,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.2, proof of Lemma 2.2.5, p. 17",
-          "excerpt": "We know that the subset Z is constructible by [Oor04, Corollary 2.5]. To show",
           "match": "Cites Oort for the constructibility of the isomorphism locus."
         },
         {
           "sourceId": "man05",
           "locator": "Proposition 1, §3, p. 7 of the Caltech preprint (proof p. 8)",
-          "excerpt": "We define CΣ = {x ∈ X̄|Gx̄ ≃ Σk(x) } ⊂ X̄ (b) ×k F̄p . This is closed subset of the stratum X̄ (b) and as a subscheme of X̄ (b) ×k F¯p endowed with the induced reduced structure is smooth.",
           "match": "Mantovan Proposition 1: central leaves are closed in the Newton stratum and smooth with the reduced structure."
         }
       ],
@@ -2465,13 +2418,11 @@
         {
           "sourceId": "lil22",
           "locator": "§4.3, after Theorem 4.21, p. 58",
-          "excerpt": "height n and we let 0 ⩽ ℎ(𝑥) ⩽ 𝑛 − 1 be the height of its étale part. For 0 ⩽ ℎ ⩽ 𝑛 − 1, let 𝑌𝑚[ℎ] be the",
           "match": "Li–Liu II §4.3: the strata Y^[h]_m, Y^(h)_m, 𝔖^h_m, Y^(M)_m."
         },
         {
           "sourceId": "lil22",
           "locator": "§4.3, display (4.1), p. 58",
-          "excerpt": "Let 𝑌𝑚[𝑀 ] be the scheme-theoretic closure of 𝑌𝑚( 𝑀 ) inside 𝑌𝑚 . Then we have",
           "match": "Li–Liu II display (4.1)."
         }
       ],
@@ -2601,19 +2552,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, Corollary 2.3.2, p. 18",
-          "excerpt": "Corollary 2.3.2. The scheme IgX → CX ⊂ SK,k parametrizing isomorphisms A[p∞ ] ∼ = X of p-divisible groups with G-structure is representable by an Aut(X)-torsor over CX .",
           "match": "Representability of Ig^X as an Aut(X)-torsor over the leaf."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Corollary 4.3.5, p. 715",
-          "excerpt": "Corollary 4.3.5. The formal group scheme AutG(‹ Xb) acts canonically on Igb . Moreover, Igb is perfect; i.e., the Frobenius map is an automorphism.",
           "match": "Aut_G(X̃_b) acts on Ig^b and Ig^b is perfect."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Lemma 4.3.4, p. 715",
-          "excerpt": "Lemma 4.3.4. For an F̄q-algebra R, Igb (R) can be identified with the set of isomorphism classes of pairs (A,ρ̃), where A ∈ SKpKp(R) is an abelian variety considered up to p-power isogeny (respecting",
           "match": "The moduli description up to p-power isogeny."
         }
       ],
@@ -2645,7 +2593,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, after Corollary 2.3.2, p. 18",
-          "excerpt": "Moreover, IgX can be reinterpreted in terms of a moduli space of abelian varieties with G-structures up to p-power isogeny, and isomorphisms of A[p∞ ] with G-action up to p-power isogeny, cf. [CS17, Lemma 4.3.4]. This shows in particular that IgX is perfect,",
           "match": "Perfectness and isogeny invariance of Ig^X, with the correspondences between leaves."
         }
       ],
@@ -2776,31 +2723,26 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, Definition 2.3.5, p. 19",
-          "excerpt": "The (pro-)Igusa variety is the map IgX → CX which over a CX -scheme T parametrizes tuples (ρi)r i=1 of isomorphisms ρi : Gi ×CX T ∼ → Xi ×k T which are compatible with the OF ⊗Z Zp-actions on Gi and Xi and commute with the",
           "match": "Defines Mantovan's pro-Igusa variety via isomorphisms of the graded pieces."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Remark 4.3.7, p. 716",
-          "excerpt": "Rather than trivializing the whole isoclinic p-divisible group Gi b, one trivializes",
           "match": "Explains the difference with trivializing the whole p-divisible group."
         },
         {
           "sourceId": "shi09",
           "locator": "Definition 5.3, §5, p. 16 of the Berkeley preprint",
-          "excerpt": "Definition 5.3. Let m be a positive integer. The Igusa variety Igb,U p ,m is defined to be the moduli space of the set of the following isomorphisms of finite flat group schemes over Cb,U p ∼ univ jm,i : Σi [pm ] ×Fp Cb,U p → gri G [pm ], 1≤i≤r",
           "match": "Shin's finite-level Igusa varieties Ig_{b,U^p,m}, the objects of his point-counting formula."
         },
         {
           "sourceId": "man05",
           "locator": "Proposition 4, §4, p. 11 of the Caltech preprint",
-          "excerpt": "Proposition 4. For any m ≥ 1, the Igusa variety Jb,m → Cb is finite étale and Galois, with Galois group Γb,m . In particular, the Igusa varieties are smooth.",
           "match": "Mantovan: the finite-level Igusa varieties are finite étale Galois over the leaf."
         },
         {
           "sourceId": "man05",
           "locator": "§4, definition of S_b on author-copy pp.11–12; Lemma 5 and following paragraph p.12; Lemma 6 p.13",
-          "excerpt": "this action naturally extends to a sub-monoid",
           "match": "The inequalities define the source monoid. Its level-m quotient morphisms land at m−e_1(δ); the source uses X_i→𝒢^i trivializations and a right action, which becomes δ^{-1} on the inverse trivializations of this roadmap."
         }
       ],
@@ -2836,19 +2778,16 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Proposition 4.3.8, p. 717",
-          "excerpt": "Proposition 4.3.8. The perfect scheme Igb is the perfection of Ib Mant, via the natural map Igb → Ib Mant. Proof. Let (Ib",
           "match": "Ig^b is the perfection of Mantovan's Igusa variety."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.3, Remark 2.3.7, p. 20",
-          "excerpt": "Remark 2.3.7. The scheme IgX maps naturally to IgX (as is evident from the moduli description), and then even to its perfection. The resulting map",
           "match": "The natural map from the perfect Igusa variety to the perfection of the inverse limit of Mantovan’s Igusa varieties is an isomorphism."
         },
         {
           "sourceId": "man05",
           "locator": "§4, Lemma 5 p.12 and the cohomology action on pp.13–14 of the author copy",
-          "excerpt": "their cohomology groups naturally form a direct system",
           "match": "Pullback along the source right monoid action gives the left action on cohomology; its extension to the full quasi-isogeny group is Proposition 7. Together with CS17 Definition 4.3.1, this fixes the inverse-trivialization convention."
         }
       ],
@@ -2890,7 +2829,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Corollary 4.3.9, p. 718",
-          "excerpt": "Corollary 4.3.9. The map Igb → Cb is faithfully flat. As the map is obviously a quasitorsor under the automorphisms of Xb respecting the extra structure, this implies that it is in fact a torsor",
           "match": "Faithful flatness and the torsor structure."
         }
       ],
@@ -2991,19 +2929,16 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, after Proposition 4.3.8, p. 718",
-          "excerpt": "However, only a certain submonoid of Jb(Qp) acts on Ib Mant; Mantovan, [Man05], does however construct a canonical action of Jb(Qp) on the étale cohomology of Ib Mant. From Proposition 4.3.8, it",
           "match": "The J_b(ℚ_p)-action on the cohomology of the Igusa varieties."
         },
         {
           "sourceId": "cs17",
           "locator": "Definition 4.3.1 and Lemma 4.3.4, published pp.715–716",
-          "excerpt": "ρ : A[p∞ ] → Xb",
           "match": "The Igusa trivialization points from the abelian p-divisible group to the fixed framing, fixing which inverse is needed when comparing the source level actions."
         },
         {
           "sourceId": "man05",
           "locator": "§4, prime-to-p Hecke action on author-copy p.13",
-          "excerpt": "µp ◦ g",
           "match": "The source finite Hecke correspondence is right composition on the prime-to-p level structure. The roadmap’s left tower action is obtained by substituting g=h^{-1}."
         }
       ],
@@ -3127,13 +3062,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, Proposition 2.8.2, p. 34",
-          "excerpt": "Proposition 2.8.2. For any ℓ 6= p, the cohomology group Hi c−∂(Igb ,Fℓ) is nonzero only for i ≤ db = dim Igb . Proof. This is a direct",
           "match": "The cohomology groups of Igusa varieties with their Hecke action are the objects of the degree bounds."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, after Proposition 4.3.8, p. 718",
-          "excerpt": "From Proposition 4.3.8, it follows that the étale cohomology of Ib Mant is also the étale cohomology of Igb , on",
           "match": "The cohomology of Ig^b is the colimit of the cohomology of Mantovan's finite levels."
         }
       ],
@@ -3231,7 +3164,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §5.2, p. 731",
-          "excerpt": "we think of [Hc(Ib Mant,Q̄`)] as a virtual representation in Groth(G(Ap f) × Jb(Qp)). Often, we will fix a finite set S",
           "match": "Defines the alternating cohomology of the Igusa variety as a virtual representation."
         }
       ],
@@ -3318,7 +3250,6 @@
         {
           "sourceId": "lil21",
           "locator": "Proof of Lemma 7.3 and footnote 15, p. 35",
-          "excerpt": "15The Galois cover comes from the fact that in the definition of I j Mant,m , there is also a level structure on the formal part of A[uc,∞ ].",
           "match": "Li–Liu, proof of Lemma 7.3 and footnote 15: Igusa varieties of the first kind, Mantovan's covers and the perfection Ig_j."
         }
       ],
@@ -3351,19 +3282,16 @@
         {
           "sourceId": "lil22",
           "locator": "Li–Liu II §4.3, p.60 for the isomorphism with I^h_m as a k-scheme; proof of Proposition4.25, p.62 for smoothness; proof of Theorem4.21, p.63; introduction p.7",
-          "excerpt": "Finally, by [Man08, Proposition 12], we know that 𝑌𝑚[𝑀 ] is smooth over k of pure dimension h.",
           "match": "Li–Liu II cite Mantovan [Man08, Proposition 12] for the smoothness of Y^[M]_m."
         },
         {
           "sourceId": "man08",
           "locator": "Proposition 12, author-copy p.12",
-          "excerpt": "Then, the scheme Xm,M is a smooth k-scheme.",
           "match": "Smoothness of the closure under the stated bounded-p-rank versality condition; the proof preceding Proposition 12 identifies its completed local rings."
         },
         {
           "sourceId": "man08",
           "locator": "§4.2.4, author-copy p.22",
-          "excerpt": "Let XU denote the Shimura variety of level U associated with G.",
           "match": "The Harris–Taylor specialization supplies the Drinfeld-level integral-model and deformation interpretation used in Li–Liu II."
         }
       ],
@@ -3487,13 +3415,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, Definition 3.1.1, p. 37",
-          "excerpt": "A locally closed subset Y ⊆ Sk = S ×k is well-positioned if there exists a family Y ♮ = {Y ♮ Z} indexed by the cusp labels Z at level K such that (1) Y ♮ Z is a locally closed subset of SZ,k. (2) For any C over k and x =",
           "match": "Defines well-positioned subsets through the abelian part of the Raynaud extension."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, Remark 3.1.2, p. 38",
-          "excerpt": "In particular, the deﬁnition is independent of the choice of Σ, cf. also [LS18a, Lemma 2.2.2]. Remark 2.3.8 of [LS18a] shows that this notion is consistent (in our particular case, when there exist good integral models) with",
           "match": "Independence of Σ and agreement with Boxer's definition."
         }
       ],
@@ -3610,19 +3536,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, p. 38",
-          "excerpt": "A well-positioned subset admits partial toroidal and minimal compactiﬁcations that satisfy many nice properties. Let Y ⊂ Sk be a well-positioned subset. Let e Y be the closure of Y in Sk, with",
           "match": "Defines the partial compactifications Y^* = Ỹ^* ∖ Y^*₀ and Y^tor."
         },
         {
           "sourceId": "ls18a-author",
           "locator": "Theorem 2.3.2 with display (2.3.3), author-copy pp.17–19; Definition 2.3.1, pp.16–17",
-          "excerpt": "Theorem 2.3.2 (cf. [45, Prop. 2.2] or Proposition 2.1.2).",
           "match": "The numbered theorem in the current 84-page author copy supplies the properties of the partial compactifications. Its actual page locators are used; the published 105-page PDF was not obtained."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, p. 38",
-          "excerpt": "See [LS18a, Theorem 2.3.3] for the ﬁrst basic properties of these partial compactiﬁcations. We have an identiﬁcation Y ∗ ×S∗ k SZ,k = Y ♮ Z as subsets of SZ,k. We need the following basic",
           "match": "Basic properties from Lan–Stroh and the identification of boundary strata with Y^♮_Z."
         }
       ],
@@ -3664,7 +3587,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2, p. 41 (citing [LS18a, Thm 2.3.2(5)])",
-          "excerpt": "Because CX is well-positioned, we can identify b CX,tor Z with the quotient by ΓZ of the formal completion of CX Z,ΣZ := ΞZ,ΣZ ×SZ CX Z along ∂Z,ΣZ ×SZ CX Z , cf. [LS18a, Theorem 2.3.2 (5)]. We would like to give a similar",
           "match": "Identifies the completion of the partial toroidal compactification of a leaf with the Γ_Z-quotient of the boundary chart."
         }
       ],
@@ -3697,7 +3619,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, Proposition 3.1.3, p. 38",
-          "excerpt": "Proposition 3.1.3. Let Y ⊂ Y ′ ⊂ Sk be well-positioned locally closed subsets such that Y is closed in Y ′ . Then Y ∗ is a closed subset of Y ′∗ . Proof. The",
           "match": "States that closed well-positioned subsets have closed partial minimal compactifications."
         }
       ],
@@ -3738,13 +3659,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, Proposition 3.1.4, p. 38",
-          "excerpt": "Proposition 3.1.4. For any p-divisible group X with extra structure over k, the associated Oort central leaf CX ⊂ Sk is well-positioned. For a cusp label Z = (ZN′,X), the subset (CX )♮ Z is either the central leaf CXZ Z on SZ,k",
           "match": "Central leaves are well-positioned with boundary data the leaves of the smaller Shimura varieties."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.1, Lemma 3.1.5, p. 39",
-          "excerpt": "Lemma 3.1.5. The partial toroidal compactification CX,tor is a smooth variety. Proof. Since we are working",
           "match": "Smoothness of C^{X,tor}."
         }
       ],
@@ -3785,13 +3704,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2, Proposition 3.2.1, p. 39",
-          "excerpt": "Proposition 3.2.1. The connected part A[p∞ ]◦ of A[p∞ ] is a p-divisible group over CX,tor . Proof. We can check this on the",
           "match": "The connected part of A[p^∞] over C^{X,tor} is a p-divisible group."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2, Proposition 3.2.2, p. 40",
-          "excerpt": "Proposition 3.2.2. There exists a polarization on A[p∞ ](0,1) extending the polarization that exists after restriction to CX .",
           "match": "Polarization on the biconnected part."
         }
       ],
@@ -3903,13 +3820,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.3, Theorem 3.2.4, p. 40",
-          "excerpt": "Theorem 3.2.4. The finite étale cover IgX m → CX extends uniquely to a finite étale cover IgX,tor m → CX,tor , Galois with group Γm,X. In fact, we can be more precise,",
           "match": "Finite étale extension of the finite-level Igusa cover over the partial toroidal compactification."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.3, Theorem 3.2.6, p. 41",
-          "excerpt": "Theorem 3.2.6. With the same choice of a splitting of the filtration ZN as in Theorem 2.5.9 (3), there is a canonical isomorphism of formal schemes b Ig X,tor m,Z ∼ →",
           "match": "Boundary charts of the finite-level toroidal Igusa varieties."
         }
       ],
@@ -4012,13 +3927,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.7, Theorem 3.2.8, p. 42",
-          "excerpt": "Theorem 3.2.8. The pro-finite étale cover IgX → CX perf extends uniquely to a profinite étale cover IgX,tor → CX,tor perf , Galois with group ΓX. We remark that if X is",
           "match": "Unique extension of the perfect Igusa variety over the perfected partial toroidal compactification."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.7, Remark 3.2.10, p. 42",
-          "excerpt": "Remark 3.2.10. By Corollary 2.3.2, IgX is an fpqc Aut(X)-torsor over CX (before perfection). However, this no longer holds true over the boundary strata of the partial toroidal compactiﬁcation. This",
           "match": "The torsor property under the non-reduced Aut(X) fails at the boundary."
         }
       ],
@@ -4057,13 +3970,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.7, Proposition 3.2.11, p. 43",
-          "excerpt": "Proposition 3.2.11. The perfect scheme CIg,X Z parametrizes points (B,ι,λ,η) ∈ SZ together with an extension 0 → T → G → B → 0 by the split torus T with cocharacter group X, and an OF -linear",
           "match": "Moduli description of C^{Ig,X}_Z via embeddings G[p^∞] ↪ X."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.7, Theorem 3.2.13, p. 44",
-          "excerpt": "Theorem 3.2.13. With the same choice of a splitting of the filtration ZN as in Theorem 2.5.9 (3), there is a canonical isomorphism of formal schemes c Ig X,tor Z ∼ →",
           "match": "Boundary charts of Ig^{X,tor}."
         }
       ],
@@ -4098,7 +4009,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, footnote 15, p. 45",
-          "excerpt": "Indeed, X and X′ decompose into the sum of their biconnected part, and their étale and multiplicative part, and one can choose the quasi-isogeny on these parts individually. The étale and multiplicative parts are given by OF ⊗",
           "match": "Choosing the quasi-isogeny separately on biconnected, étale and multiplicative parts."
         }
       ],
@@ -4136,13 +4046,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.7, before Corollary 3.2.14, p. 44",
-          "excerpt": "A corollary of this description is that IgX,tor Z only depends on X up to quasi-isogenies inducing an isomorphism on étale and multiplicative parts. Corollary 3.2.14. Let φ : X → X′ be an isogeny",
           "match": "States the dependence of the toroidal Igusa variety on X only up to quasi-isogenies inducing isomorphisms on étale and multiplicative parts."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.2.7, Corollary 3.2.14, p. 44",
-          "excerpt": "Corollary 3.2.14. Let φ : X → X′ be an isogeny between p-divisible groups with Gstructure over k. Assume that φ induces an isomorphism on étale and multiplicative parts. Then the isomorphism IgX ∼ =",
           "match": "The printed statement for isogenies."
         }
       ],
@@ -4263,19 +4171,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, proof of Theorem 3.3.2, p. 45",
-          "excerpt": "there is an Ekedahl–Oort stratum that is completely contained in the given Newton stratum. Taking X so that X[p] deﬁnes such an Ekedahl–Oort stratum, the leaf CX is a closed subset of the",
           "match": "The Ekedahl–Oort strata used in the affineness argument."
         },
         {
           "sourceId": "box15",
           "locator": "Theorem C, p. 17 (§1.5 of the Introduction; with Theorem B, p. 17); in the text Theorem 6.2.3 and Corollary 6.2.4, p. 190",
-          "excerpt": "Theorem C. The open Ekedahl-Oort strata of the minimal compactification Xwmin are affine.",
           "match": "Boxer Theorem C: affineness of partial minimal compactifications of Ekedahl–Oort strata, via Hasse sections."
         },
         {
           "sourceId": "ls18a-author",
           "locator": "Proposition3.5.1(3)–(4), p.41; Proposition3.5.5 and Corollary3.5.8, pp.41–42 (84-page current author copy)",
-          "excerpt": "When H = H0, the morphism ζ is smooth",
           "match": "Smooth zip morphism, smooth EO strata, well-positionedness, and extension of ζ to the toroidal compactification through étale Raynaud charts."
         }
       ],
@@ -4310,13 +4215,11 @@
         {
           "sourceId": "box15",
           "locator": "Theorem C, p. 17 (§1.5 of the Introduction; with Theorem B, p. 17); in the text Theorem 6.2.3 and Corollary 6.2.4, p. 190",
-          "excerpt": "Theorem C. The open Ekedahl-Oort strata of the minimal compactification Xwmin are affine.",
           "match": "Boxer Theorem C."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, proof of Theorem 3.3.2, p. 45",
-          "excerpt": "By [Box15, Theorem C], the partial minimal compactiﬁcations of Ekedahl-Oort strata are aﬃne. As mentioned above, the deﬁnitions of partial minimal",
           "match": "Cites Boxer Theorem C."
         }
       ],
@@ -4353,19 +4256,16 @@
         {
           "sourceId": "nie15",
           "locator": "Proposition 1.5, p. 3 (arXiv:1310.2229v2; proof on p. 12)",
-          "excerpt": "Proposition 1.5. Let µ be a minuscule cocharacter. Then each σ- conjugacy class intersecting with Kµ(ǫ)K contains a fundamental el- ement in W µ(ǫ)W . Here W = NG T (L)/T (L) denotes the (absolute) Weyl group of G.",
           "match": "Nie Proposition 1.5."
         },
         {
           "sourceId": "nie15",
           "locator": "Corollary 1.6, p. 4 (arXiv:1310.2229v2)",
-          "excerpt": "Corollary 1.6. Let A0 be the reduction (modulo p) of a Shimura va- riety defined in [VW]. Then each Newton stratum of A0 contains a fundamental Ekedahl-Oort stratum. In particular, all Newton strata of A0 are non-empty.",
           "match": "Nie Corollary 1.6."
         },
         {
           "sourceId": "nie15",
           "locator": "Theorem1.4, p.3 (arXiv:1310.2229v2), with Corollary1.6 p.4",
-          "excerpt": "Theorem 1.4. An element",
           "match": "Fundamental affine Weyl representatives are minimal; combined with the PEL EO dictionary this gives the central-leaf conclusion."
         }
       ],
@@ -4401,13 +4301,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, Lemma 3.3.3, p. 46",
-          "excerpt": "Lemma 3.3.3. Consider a diagram",
           "match": "States the affineness transfer lemma."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, Lemma 3.3.3, p. 46",
-          "excerpt": "of schemes, where the vertical arrows are closed immersions and C0 ⊂ C is topologically the preimage both of X0 ⊂ X and of Y0 ⊂ Y . Assume that X, X0 and Y0 are affine, and that π1 and π2 are proper and surjective and finite away",
           "match": "Hypotheses and conclusion of the lemma."
         }
       ],
@@ -4451,13 +4349,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, Theorem 3.3.2, p. 45",
-          "excerpt": "Theorem 3.3.2. The partial minimal compactification CX,∗ is affine. Proof. First, we",
           "match": "Affineness of C^{X,*}."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, proof of Theorem 3.3.2, p. 45",
-          "excerpt": "First, we prove that there exists some X in the given isogeny class for which the result is true. By a result of Nie, [Nie15, Proposition 1.5, Corollary 1.6], there is an Ekedahl–Oort stratum that is",
           "match": "The proof first treats a leaf inside an Ekedahl–Oort stratum."
         }
       ],
@@ -4551,7 +4447,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.1, Proposition 3.3.4, p. 46",
-          "excerpt": "Proposition 3.3.4. The map IgX,∗ → CX,∗ is integral, and in particular IgX,∗ is affine. It agrees with the Stein factorization of IgX,tor → CX,∗ . In particular, IgX,∗ = H0 (IgX,tor ,OIgX,tor ), and a G-isogeny φ : X → X′",
           "match": "Integrality, affineness and the Stein factorization description of Ig^{X,*}."
         }
       ],
@@ -4667,19 +4562,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.6, Definition 3.3.7, p. 46",
-          "excerpt": "Definition 3.3.7. Define the partial minimal compactification Igb,∗ of Igb to be the normalization of Cb,∗ in Igb .",
           "match": "Defines Ig^{b,*} by normalization."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.6, Lemma 3.3.8, p. 47",
-          "excerpt": "(1) The morphism hb,∗ : Igb,∗ → Cb,∗ is finite and surjective. In particular, Igb,∗ is affine. (2) The morphism Igb ֒→",
           "match": "The printed finiteness statement, valid at finite level."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, Theorem 2.8.1, p. 33",
-          "excerpt": "Theorem 2.8.1. The partial minimal compactification Igb,∗ is affine.",
           "match": "Affineness of Ig^{b,*}, used for Artin vanishing."
         }
       ],
@@ -4779,13 +4671,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.9, Definition 3.3.10, p. 47",
-          "excerpt": "Definition 3.3.10. An Igusa cusp label is a triple Z̃ = (Zb,Zp ,X) where (1) Zb is an OF -stable filtration of Xb of the form Zb,−2 ⊂ Zb,−1 ⊂ Xb such that GrZb −2 = Zb,−2 is multiplicative, GrZb 0 =",
           "match": "Defines Igusa cusp labels."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.9, p. 47",
-          "excerpt": "There is an action of Jb(Qp) × G(Ap f) on Igusa cusp labels. If K ⊂ Jb(Qp) × G(Ap f) is a compact open subgroup, then an Igusa cusp label at level K",
           "match": "The group action and levels."
         }
       ],
@@ -4828,13 +4718,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.11, Theorem 3.3.12, p. 48",
-          "excerpt": "(1) There exists a decomposition into open and closed formal subschemes b Ig b,tor m,Z = G Z̃ b Ig b,tor m,Z̃ where Z̃",
           "match": "Decomposition of the boundary completion over Igusa cusp labels."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.11, proof of Theorem 3.3.12, p. 50",
-          "excerpt": "This means that CZ̃ → Igb Z,m is given by HomOF ( 1 N X,(B/B[pm ]µ )∨ ), which is an abelian scheme. (We note that this explicit description also",
           "match": "Identification of the abelian scheme C_Z̃."
         }
       ],
@@ -4872,7 +4760,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §3.3.14, Theorem 3.3.15, p. 50",
-          "excerpt": "Theorem 3.3.15. We have a decomposition into locally closed strata Igb,∗ m = G Z̃ Igb Z̃ , where Z̃ runs over Igusa",
           "match": "States the boundary stratification of Ig^{b,*}_m."
         }
       ],
@@ -4977,13 +4864,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.6, p. 31",
-          "excerpt": "where the universal abelian variety has good reduction. This is a Hecke-equivariant quasicompact open subspace. If p is a prime of good reduction, this can also be deﬁned as the adic generic ﬁbre of the p-adic completion SK(N),Zp",
           "match": "Defines the good-reduction locus and its infinite-level tower."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.6, Theorem 2.6.2, p. 30",
-          "excerpt": "Theorem 2.6.2. The diamonds S∗ K(p∞N) and, for a cofinal choice of cone decompositions Σ, Stor K(p∞N) are representable by perfectoid spaces. Proof. In [Sch15,",
           "match": "Perfectoidness of the infinite-level compactified Shimura varieties."
         }
       ],
@@ -5024,19 +4909,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.6, Proposition 2.6.4, p. 31",
-          "excerpt": "Proposition 2.6.4. Let C be a complete algebraically closed extension of Qp. For any N ≥ 3 (not necessarily prime to p), the natural Hecke-equivariant map Hi (SK(N),Q,Fℓ) → Hi (S◦ K(N),C,Fℓ) 11We",
           "match": "Statement of the good-reduction comparison."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.6, proof of Proposition 2.6.4, p. 32",
-          "excerpt": "by the comparison of nearby cycles in the algebraic and adic setting, [Hub96, Theorem 3.5.13]. We conclude by",
           "match": "Uses Huber's Theorem 3.5.13."
         },
         {
           "sourceId": "ls18b",
           "locator": "Corollary 5.20, p. 25 of the authors' compilation",
-          "excerpt": "Corollary 5.20. We have canonical isomorphisms ∼ (5.21) RΓ((XH )η̄ , V) → RΓ((XH )s̄ , RΨXH (V)) and ∼ (5.22) RΓc ((XH )s̄ , RΨXH (V)) → RΓc ((XH )η̄ , V), which are compatible with their natural continuous Gal(K̄/K)-actions.",
           "match": "Lan–Stroh Corollary 5.20: cohomology of the generic fibre through nearby cycles on the (possibly non-proper) integral model."
         }
       ],
@@ -5072,13 +4954,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.1, p. 51",
-          "excerpt": "which by [SW13, Theorem B] gives rise to a p-divisible group XOC with G-structure over OC, equipped with an isomorphism α : Tp(XOC ) ∼ = L⊗Z Zp compatible with G-structures. Associated to the special ﬁbre Xk, we get the perfect",
           "match": "Points of the flag variety give p-divisible groups with G-structure and a trivialized Tate module."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.7, p. 33",
-          "excerpt": "In particular, the special ﬁber Xk deﬁnes a p-divisible group with G-structure, and this is classiﬁed up to isogeny by an element b = b(x) ∈ B(GQp ,µ−1 ). The following theorem asserts that this",
           "match": "The Newton point b(x) of a flag point."
         }
       ],
@@ -5127,19 +5007,16 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.23, p. 713",
-          "excerpt": "Proposition 4.2.23.The dimension of F`b G,µ is equal to h2ρ,µi−h2ρ,νbi. Proof. Both F`G,µ and MD,∞ are",
           "match": "The dimension formula for the Newton strata of the flag variety."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.7, Theorem 2.7.3, p. 33",
-          "excerpt": "The dimension of Fℓb (i.e., the Krull dimension of the locally spectral space |Fℓb |) is given by d − db. Moreover, the",
           "match": "The dimension d − d_b in the non-compact paper, quoted from CS17."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.7, p. 33",
-          "excerpt": "Since the reﬂex ﬁeld of the Shimura datum is Q, the largest element of B(GQp ,µ−1 ) is the ordinary one, cf. [Wed99, Theorem 1.6.3]. We have Fℓord = Fℓ(Qp) (see, for example, [CGH+ 20, Proposition 3.3.8]) and in",
           "match": "The ordinary stratum is the rational flags, of dimension 0."
         }
       ],
@@ -5251,19 +5128,16 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Theorem 4.2.4, p. 699",
-          "excerpt": "Theorem 4.2.4. The functor MDint,∞ is representable by an adic space over Spa(Ĕ(ζp∞),OĔ(ζp∞)). The space MDint,∞ is preperfectoid, and MDint,∞ ∼ lim ← − n MDint,n. Moreover, there is the following",
           "match": "Representability and preperfectoidness of the infinite-level Rapoport–Zink space."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.5, p. 702",
-          "excerpt": "Proposition 4.2.5. There is a local Hodge-Tate period map πHT : MD,∞ → F`G,µ, sending an (R,R+)-valued point",
           "match": "The local Hodge–Tate period map."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.6, p. 702",
-          "excerpt": "Proposition 4.2.6. The local Hodge-Tate period map factors through πb HT : MD,∞ → F`b G,µ. Proof.",
           "match": "Factorisation through the b-stratum."
         }
       ],
@@ -5302,7 +5176,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.14, p. 709",
-          "excerpt": "Proposition 4.2.14. The action map ” MD,∞ ×Spa(L,OL) AutG(‹ Xb)ad η → (MD,∞ ×F`G,µ MD,∞)∧ is an isomorphism of perfectoid spaces. Proof. Let (R,R+) be a perfectoid affinoid algebra over Ĕ.20 We have",
           "match": "The action map is an isomorphism onto the fibre product over the flag variety."
         }
       ],
@@ -5335,7 +5208,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Lemma 4.2.15, p. 709",
-          "excerpt": "Lemma 4.2.15. Let R+ be a Zp-algebra that is integrally closed in R = R+[1/p]. Let G, H be p-divisible groups over R+. Assume that the Newton polygon of Gs is independent of s ∈ Spec(R+/p) and that",
           "match": "States the extension criterion."
         }
       ],
@@ -5370,7 +5242,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Lemma 4.2.18, p. 711",
-          "excerpt": "Lemma 4.2.18. Let C/Ĕ(ζp∞) be a complete algebraically closed extension with ring of integers OC. Then the map πb HT : MD,∞(C,OC) → F`b G,µ(C,OC) is",
           "match": "Surjectivity on (C, O_C)-points."
         }
       ],
@@ -5406,7 +5277,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.22, p. 712",
-          "excerpt": "Proposition 4.2.22. For any complete nonarchimedean field K/OĔ, the space AutG(‹ Xb)ad ×Spa(OĔ,OĔ) Spa(K,OK) is partially proper over Spa(K,OK), of",
           "match": "Partial properness and dimension of the automorphism group."
         }
       ],
@@ -5511,19 +5381,16 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Lemma 4.3.10, p. 719",
-          "excerpt": "Lemma 4.3.10. The points of the formal scheme Igb OK = Igb OĔ ×OĔ OK over R ∈ Nilpop OK are given by the pairs (A,ρ), where A ∈ SKpKp(R) is an",
           "match": "Moduli description of the canonical lift of Ig^b."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Lemma 4.3.12, p. 720",
-          "excerpt": "Lemma 4.3.12. The map constructed above induces an isomorphism and fits into a commutative diagram Igb OK ×OĔ Mb  ∼",
           "match": "The decomposition of 𝔛^b."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.3, p. 54",
-          "excerpt": "where W(IgX,tor ) is the p-adic formal scheme over Spf W(k) obtained by taking an aﬃne cover of IgX,tor , applying Witt vectors, and gluing. This is",
           "match": "The flat formal lift W(Ig^{X,tor}) ×_{W(k)} O_C."
         }
       ],
@@ -5605,13 +5472,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Definition 4.3.17, p. 724",
-          "excerpt": "Definition 4.3.17. Let Xb ∞ be the functor that sends a complete affinoid (Ĕ(ζp∞),OĔ(ζp∞))-algebra (R,R+) to the set of triples (A,ρ,α), where",
           "match": "Defines X^b_∞."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Corollary 4.3.19, p. 724",
-          "excerpt": "Corollary 4.3.19. We have an isomorphism (Igb OK )ad η ×Spa(Ĕ,OĔ) Mb ∞ ∼ → Xb",
           "match": "Product decomposition of X^b_∞."
         }
       ],
@@ -5653,7 +5518,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.3, Lemma 4.3.20, p. 725",
-          "excerpt": "Lemma 4.3.20. The perfectoid space “ Xb maps to Sb Kp by forgetting the quasi-isogeny ρ and to Mb ∞ by sending (A,ρ) to (A[p∞],ρ). The induced map “ Xb ∞ → (Mb ∞ ×F`G,µ Sb Kp)∧ is an isomorphism of",
           "match": "States the product formula."
         }
       ],
@@ -5690,13 +5554,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.4, Lemma 4.4.2, p. 727",
-          "excerpt": "Lemma 4.4.2. Let X be a quasicompact and quasiseparated analytic adic space, and for definiteness, assume that X is a perfectoid space.26 Let U ⊂ X be a quasicompact open subset that contains all rank 1 points of X. Then, for any",
           "match": "Cohomology is unchanged by passing to a quasicompact open containing the rank-one points."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.4, Lemma 4.4.1, p. 726",
-          "excerpt": "Lemma 4.4.1. Let f : Y → X be a quasicompact and quasiseparated map of analytic adic spaces, and for definiteness, assume that X is either a locally strongly",
           "match": "Stalks as cohomology of fibres."
         }
       ],
@@ -5734,7 +5596,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.4, Lemma 4.4.3, p. 728",
-          "excerpt": "Lemma 4.4.3. Let X/F̄p be a perfect scheme, and let C be a complete algebraically closed nonarchimedean field whose residue field contains F̄p. Let XOC be the flat formal scheme over Spf OC that is the unique lifting of X ×F̄p",
           "match": "States the comparison of cohomology."
         }
       ],
@@ -5773,13 +5634,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Proposition 4.2.6, p. 702 (with Remark 4.2.8, p. 703)",
-          "excerpt": "Proposition 4.2.6. The local Hodge-Tate period map factors through πb HT : MD,∞ → F`b G,µ. Proof.",
           "match": "The period of a point of the b-stratum lies in Fℓ^b."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, Remark 4.2.8, p. 703",
-          "excerpt": "Remark 4.2.8. We have defined the Hodge-Tate filtration in Section 2 in terms of the p-adic étale cohomology of a universal family of abelian varieties. If A/OC is an abelian variety and G = A[p∞],",
           "match": "The global Hodge–Tate filtration of A[p^∞] is the local one."
         }
       ],
@@ -5821,7 +5680,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.4, Theorem 4.4.4, p. 729",
-          "excerpt": "Theorem 4.4.4. For any geometric point x̄ of F`G,µ contained in F`b G,µ, there is an isomorphism (Ri πHT∗Z/`n Z)x̄ = Hi (Igb ,Z/`n Z) = lim − → m Hi",
           "match": "States the stalk computation."
         }
       ],
@@ -5861,7 +5719,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.7, Theorem 2.7.2, p. 33",
-          "excerpt": "Theorem 2.7.2. There is a canonical open immersion IgXk C ֒→ (π◦ HT)−1 (x) whose image contains all points of rank 1. In particular, for a prime ℓ 6= p, there is a canonical Hecke-equivariant isomorphism (R(π◦ HT)∗Fℓ)x ∼ =",
           "match": "Open Igusa varieties as fibres of π°_HT."
         }
       ],
@@ -5905,13 +5762,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.2, Theorem 4.2.1, p. 53",
-          "excerpt": "Theorem 4.2.1. The map πHT,Z constructed above agrees with the composite ( c Stor K(p∞N),Z,Qp )♦ → (Stor K(p∞N),Qp )♦",
           "match": "Explicit description of π^tor_HT on boundary charts."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.2, Corollary 4.2.2, p. 53",
-          "excerpt": "Corollary 4.2.2. The restriction of π∗ HT : S∗ K(p∞N) → Fℓ to SK(p∞N),b Z agrees with the composition SK(p∞N),b Z → Fℓb Z ֒→ Fℓ, where the first",
           "match": "π^*_HT on minimal boundary strata."
         }
       ],
@@ -5947,7 +5802,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.3, Proposition 4.3.1, p. 54",
-          "excerpt": "Proposition 4.3.1. There exists ǫ ∈ Q, 1 ≥ ǫ > 0 such that there exists an isomorphism ρ : X ×k OC/pǫ ∼ = XOC ×OC OC/pǫ of p-divisible groups with G-structures, lifting the identity. Moreover, we can",
           "match": "Constancy of the p-divisible group modulo p^ε."
         }
       ],
@@ -6049,13 +5903,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.3, Theorem 4.3.2, p. 55",
-          "excerpt": "Theorem 4.3.2. The morphism g constructed above extends to a morphism of p-adic formal schemes gtor : IgX,tor OC → Stor K(p∞N),OC . Proof. By",
           "match": "Extension of g over the toroidal compactification."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.3, proof of Theorem 4.3.2, p. 57",
-          "excerpt": "As thus the cotangent complex vanishes, it suﬃces to see that these maps agree over OC/pǫ . But in that case,",
           "match": "Gluing via the vanishing cotangent complex of relatively perfect lifts."
         }
       ],
@@ -6089,7 +5941,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.4, Lemma 4.4.2, p. 59",
-          "excerpt": "Lemma 4.4.2. Let f : X → Y be a map from a quasicompact separated perfectoid space X to a proper diamond Y over Spd C for some complete algebraically closed extension C of Qp. Assume that for all complete algebraically closed C′",
           "match": "States the canonical compactification criterion."
         }
       ],
@@ -6130,7 +5981,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.4, Theorem 4.4.1, p. 57",
-          "excerpt": "Theorem 4.4.1. The morphism gtor constructed in Theorem 4.3.2 induces a map of diamonds Igb,tor C → (πtor HT)−1 (x) that is an open immersion with the same rank 1 points. As the target is partially proper over Spa(C,OC), this",
           "match": "The toroidal fibre theorem."
         }
       ],
@@ -6181,13 +6031,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.5, Theorem 4.5.1, p. 59",
-          "excerpt": "Theorem 4.5.1. The morphism ftor induces an open immersion f∗ : Igb,∗ C → (π∗ HT)−1 (x). of affinoid perfectoid spaces with the same rank 1 points.",
           "match": "The minimal fibre theorem."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.5, proof of Lemma 4.5.2, p. 60",
-          "excerpt": "apply the relative primitive comparison isomorphism in the form of [Sch13, Theorem 3.13]; this gives an almost",
           "match": "Uses the relative primitive comparison theorem."
         }
       ],
@@ -6229,19 +6077,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.1, Theorem 4.1.1, p. 51",
-          "excerpt": "Theorem 4.1.1. There are natural maps IgX,∗ C → (π∗ HT)−1",
           "match": "Statement of the fibre theorem."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.1, Theorem 4.1.1, p. 51",
-          "excerpt": "They are open immersions of perfectoid spaces with the same rank-1-points; in fact, the target is the canonical compactification of the source. In particular,",
           "match": "Open immersions with the same rank-one points, targets the canonical compactifications."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.1, Corollary 4.1.2, p. 51",
-          "excerpt": "Corollary 4.1.2. There are natural Hecke-equivariant isomorphisms RΓ(IgX,∗ ,Fℓ) ∼ = (R(π∗ HT)∗Fℓ)x,",
           "match": "Cohomological consequence."
         }
       ],
@@ -6338,25 +6183,21 @@
         {
           "sourceId": "sw13",
           "locator": "Theorem 6.3.4, p. 59 (§6.3; Definition 6.3.3 of M_∞); proof pp. 59–62",
-          "excerpt": "Theorem 6.3.4. The functor M∞ is representable by an adic space over Spa(W (k)[ 1p ], W (k)). Moreover, M∞ is preperfectoid, and",
           "match": "Scholze–Weinstein Theorem 6.3.4: representability and preperfectoidness of M_∞."
         },
         {
           "sourceId": "sw13",
           "locator": "Definition 6.3.5 and Lemma 6.3.6, p. 60; proof pp. 60–62",
-          "excerpt": "Lemma 6.3.6. There is a natural isomorphism of functors M∞ ∼",
           "match": "Definition 6.3.5 has the rational kernel ℚ_p^h; Lemma 6.3.6 gives the isomorphism over W(k)[1/p] and says the tuple functor is locally closed in the preperfectoid universal cover."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §4.2, proof of Theorem 4.2.4, p. 701",
-          "excerpt": "Lemma 6.3.6 of [SW13] shows that M∞ ∼ → M0 ∞, and we have a commutative diagram",
           "match": "CS17 uses the Scholze–Weinstein description of M_∞."
         },
         {
           "sourceId": "sw13",
           "locator": "Definition 2.3.9, p. 18; Proposition 2.3.11, p. 19; §6.3, p. 60",
-          "excerpt": "Then X is preperfectoid if for any perfectoid field K",
           "match": "Preperfectoidness is defined using perfectoid base change; it is preserved by locally closed subspaces. In §6.3 the universal cover is called preperfectoid."
         }
       ],
@@ -6409,7 +6250,6 @@
         {
           "sourceId": "kos21",
           "locator": "§7, Theorem 7.1 and Remark 7.2, p. 10; Lemmas 7.3–7.6 and their proofs, pp. 10–12 (arXiv:2106.10602v1)",
-          "excerpt": "we regard Fℓ (db ) as a Jb (Qp )-equivariant sheaf",
           "match": "Theorem 7.1 supplies the filtration and graded formula. Lemmas 7.3–7.5 prove it through the connected and locally profinite quotients. Lemmas 7.4 and 7.6 specify the equivariant dualizing twist."
         }
       ],
@@ -6503,13 +6343,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §6.1, p. 751",
-          "excerpt": "Thus, we work with the equivariant sites introduced in [Sch15b, §2]. First, note that RπHT∗F` is a canonically a",
           "match": "Introduces the equivariant sites."
         },
         {
           "sourceId": "cs17",
           "locator": "CS17 §6.1, p. 751",
-          "excerpt": "It follows that any étale map to Us lifts to a Kp-equivariant étale map to UOC (where C = Cp), giving a natural morphism of sites λU/Kp : (Uη̄/Kp)ét →",
           "match": "Construction of the nearby-cycle morphism λ_{U/K_p}."
         }
       ],
@@ -6544,7 +6382,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §6.1, proof of Proposition 6.1.3, p. 753",
-          "excerpt": "Thus, πHT,Kp,Us is a map of affine schemes of finite type over Fp that satisfies the valuative criterion of properness; i.e., it is finite.32 Now consider the following",
           "match": "The valuative criterion gives finiteness."
         }
       ],
@@ -6639,13 +6476,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.6, proof of Theorem 4.6.1, p. 62",
-          "excerpt": "satisﬁes the valuative criterion of properness (cf. proof of [CS17, Proposition 6.1.3]), so is an integral map. In particular, pushforward preserves",
           "match": "The mod-p map is integral, so pushforward preserves the perverse lower bound."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.6, proof of Theorem 4.6.1, p. 61",
-          "excerpt": "By [Sch15, Theorem 4.1.1], for a coﬁnal collection of U, the ﬁbre product S ∗ K(p∞N),U := S ∗ K(p∞N),C ×FℓC U is aﬃnoid perfectoid; moreover, it arises via base change from some",
           "match": "Affinoid perfectoid preimages from finite level."
         }
       ],
@@ -6691,7 +6526,6 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §6.1, Proposition 6.1.3, p. 751",
-          "excerpt": "Proposition 6.1.3. Let πHT : SKp → F`G,µ be the Hodge-Tate period map for a compact Shimura variety of Hodge type and any sufficiently small compact open subgroup Kp ⊂ G(Ap f). Let x̄ ∈ F`G,µ be a geometric point. Then there",
           "match": "States the perversity of nearby cycles in the compact Hodge-type case."
         }
       ],
@@ -6730,13 +6564,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §6.1, Corollary 6.1.4, p. 753",
-          "excerpt": "Corollary 6.1.4. Fix a maximal ideal m ⊂ TS, and among all b ∈ B(G,µ−1) with the property that the m-torsion Hi (Igb ,F`)[m] 6= 0 for some i ∈ Z, take some b with d = h2ρ,νbi minimal. Then Hi(Igb ,F`)[m] is nonzero only for i =",
           "match": "Concentration at the minimal stratum in the compact case."
         },
         {
           "sourceId": "lil21",
           "locator": "Proof of Lemma 7.3 and footnote 16, p. 35",
-          "excerpt": "16Strictly speaking, the authors assumed that the level at p is hyperspecial maximal. In our case, we only require that Lu is hyperspecial. However, by our special signature condition, the argument of [CS17] works in our case verbatim.",
           "match": "Li–Liu footnote 16: the use of CS17 Corollary 6.1.4 with ℚ̄_ℓ coefficients and the relaxed level at p."
         }
       ],
@@ -6776,13 +6608,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.6, Lemma 4.6.2, p. 61",
-          "excerpt": "Lemma 4.6.2. The natural map Fℓ → RjNℓ∞,∗Fℓ is an isomorphism. Proof. This is a standard",
           "match": "Boundary-killing at ℓ^∞ level."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.6, Lemma 4.6.3, p. 61",
-          "excerpt": "Lemma 4.6.3. For any Igusa variety IgX , the restriction map Hi (IgX,tor K(Nℓ∞),Fℓ) → Hi (IgX K(Nℓ∞),Fℓ) is an isomorphism. Proof. One can assume",
           "match": "The Igusa version."
         }
       ],
@@ -6836,13 +6666,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.6, Theorem 4.6.1, p. 60",
-          "excerpt": "Theorem 4.6.1. Consider Rπ◦ HT∗Fℓ ∈ D(FℓC,Fℓ). Any geometric point x of FℓC has a cofinal system of affinoid étale neighborhoods U = Spa(A) → FℓC such that, denoting U = Spf(A◦ ), the nearby cycles Rψ(Rπ◦ HT∗Fℓ)|U ∈ p D≥d (Uk,Fℓ)",
           "match": "Semiperversity statement in local form."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §4.6, end of proof of Theorem 4.6.1, p. 63",
-          "excerpt": "Now the result follows from t-exactness of nearby cycles for the perverse t-structure, cf. [Ill94] (and compatibility of nearby cycles between",
           "match": "Uses t-exactness of nearby cycles and Huber's comparison."
         }
       ],
@@ -6956,7 +6784,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, p. 33",
-          "excerpt": "In Section 3, we deﬁne a partial minimal compactiﬁcation j : Igb ֒→ Igb,∗ , and set Hi c−∂(Igb ,Fℓ) = Hi (Igb,∗ ,j!Fℓ). The ﬁrst result we need is",
           "match": "Defines H^i_{c−∂}(Ig^b, 𝔽_ℓ) := H^i(Ig^{b,*}, j_!𝔽_ℓ)."
         }
       ],
@@ -6994,7 +6821,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, Proposition 2.8.2, p. 34",
-          "excerpt": "Proposition 2.8.2. For any ℓ 6= p, the cohomology group Hi c−∂(Igb ,Fℓ) is nonzero only for i ≤ db = dim Igb . Proof. This is a direct",
           "match": "The upper bound from Artin vanishing."
         }
       ],
@@ -7041,13 +6867,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, Lemma 2.8.4, p. 34",
-          "excerpt": "Lemma 2.8.4. If Hi (Igb ,Fℓ)m 6= 0 then i ≥ db. Remark 2.8.5. One could prove a",
           "match": "The lower bound at a minimal stratum."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, proof of Lemma 2.8.4, p. 34",
-          "excerpt": "the authors wanted their perverse sheaves to be constructible, not realizing that the theory works well without constructibility. This explains the",
           "match": "No constructibility is needed."
         }
       ],
@@ -7169,13 +6993,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, proof of Corollary 5.1.3, p. 66",
-          "excerpt": "Recall the involution ι : TS → TS , as in [ACC+ 23, §2.2.11] and set m∨ := ι(m). By the assumption of",
           "match": "The involution of the Hecke algebra and the dual ideal."
         },
         {
           "sourceId": "acc23",
           "locator": "§2.2.19 'Duality and twisting', pp. 35–37: anti-involutions ι, ι̃ (p. 35), m^∨ := ι(m) (p. 36), Proposition 2.2.20 and Corollary 2.2.21 (pp. 36–37)",
-          "excerpt": "is a maximal ideal with residue field a finite exten- sion of k, then we define m e ∨ = ιe(m) (resp. m∨ = ι(m)).",
           "match": "ACC+ §2.2.19: the anti-involutions ι and m^∨ := ι(m), Proposition 2.2.20, Corollary 2.2.21."
         }
       ],
@@ -7212,7 +7034,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, proof of Corollary 5.1.3, p. 66",
-          "excerpt": "By the assumption of concentration in one degree and Poincaré duality, it follows that Hi c(Igb K(N),Zℓ)m∨ is also concentrated in one degree and torsion-free, so there must be some j ∈ J such that ψj : TS → Qℓ reduces to m∨ .",
           "match": "Poincaré duality with the dual ideal gives concentration and torsion-freeness of compactly supported cohomology."
         }
       ],
@@ -7261,13 +7082,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, Theorem 5.1.2, p. 65",
-          "excerpt": "Theorem 5.1.2. Assume that the level N is divisible by some N0 ≥ 3 as in Remark 5.4.5; in particular, N0 is only divisible by primes in Sp f := Sfin \\ {p}. For each j ∈ J, there is a continuous",
           "match": "Galois representations for the constituents of Igusa cohomology."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, p. 64",
-          "excerpt": "In this section, we make the following further assumptions: (1) The CM ﬁeld F contains an imaginary quadratic ﬁeld F0 in which p is split; (2) The totally real subﬁeld F+ is not equal to Q. We also",
           "match": "The standing assumptions of §5."
         }
       ],
@@ -7309,7 +7128,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, proof of Corollary 5.1.3, p. 66",
-          "excerpt": "so there must be some j ∈ J such that ψj : TS → Qℓ reduces to m∨ . Then we can apply Theorem 5.1.2, deﬁne ρm∨ as the semisimpliﬁcation of the",
           "match": "The constituent with eigencharacter reducing to the dual ideal."
         }
       ],
@@ -7346,13 +7164,11 @@
         {
           "sourceId": "cs17",
           "locator": "CS17 §6.2, Lemma 6.2.2, p. 756",
-          "excerpt": "Lemma 6.2.2. Assume that ρ : Gal(L̄/L) → GLn(Q̄`) is a continuous representation such that the reduction ρ is decomposed generic. Then ρ decomposes as a sum ρ = Ln i=1 χi of characters, and χa/χb is",
           "match": "Lifts of decomposed generic residual representations split into characters."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, proof of Corollary 5.1.3 and footnote 17, pp.66–67 (arXiv v2)",
-          "excerpt": "Now we distinguish two cases. If p 6≡ 1 mod ℓ, then we claim that ρj must be unramiﬁed at v; necessarily no two Frobenius eigenvalues can have ratio",
           "match": "The two cases p ≢ 1 and p ≡ 1 mod ℓ."
         }
       ],
@@ -7400,13 +7216,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §5.1, Corollary 5.1.3, p. 66",
-          "excerpt": "Corollary 5.1.3. Let N be divisible by N0 as above. Assume that m ⊂ TS is a maximal ideal such that Hi (Igb K(N),Fℓ)m 6= 0 in exactly one degree. Then there exists a continuous semisimple Galois",
           "match": "Statement of the genericity obstruction."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, Theorem 2.8.6, p. 35",
-          "excerpt": "Theorem 2.8.6. Assume that F+ 6= Q, that p is split in the imaginary quadratic field F0 ⊂ F, and that b ∈ B(GQp ,µ−1 ) is such that Hi (Igb ,Fℓ)m is nonzero for exactly one i. Then there exists a",
           "match": "The same statement as used in the main argument."
         }
       ],
@@ -7509,13 +7323,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.1, p. 79",
-          "excerpt": "It admits a natural stratiﬁcation in terms of conjugacy classes [P] of maximal rational parabolic subgroups P ( GQ: Note that a set of representatives for these are given by the",
           "match": "Stratification of the boundary by rational parabolics."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.1, p. 80",
-          "excerpt": "This induces a parabolic subgroup Pb(Qp) ⊂ Jb(Qp) of the self-quasi-isogenies preserving this ﬁltration, and a p-divisible group XP = Zb,−2/Zb,−1 with G2(n−r)-structure; we denote",
           "match": "The parabolic P_b(ℚ_p) and the lower-rank group X_P."
         }
       ],
@@ -7551,7 +7363,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.2.1, p. 80",
-          "excerpt": "More precisely, we note that there is a natural Jb(Qp) × G(Ap f )-equivariant map Igb,∗ ∞,[P] → Jb(Qp)/Pb(Qp) × G(Ap f)/P(Ap f) induced by cusp labels, as Jb(Qp)/Pb(Qp)×G(Ap f )/P(Ap f) parametrizes",
           "match": "The map to the homogeneous space and the induced structure."
         }
       ],
@@ -7656,13 +7467,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.2.2, p. 81",
-          "excerpt": "It remains to construct a map RΓ(GLr(F)\\(Xr × GLr(AF,f)),Fℓ) ⊗ RΓc(IgbP ∞ ,Fℓ) → RΓc(Igb,∗ ∞,P ,i∗ P Rj∗Fℓ) as a",
           "match": "The two maps whose cup product is the comparison map."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.2.3, p. 83",
-          "excerpt": "Then it follows from [Hub96, Corollary 3.5.14] applied at each of these ﬁnite levels, plus passage to the limit on the left-hand side, that RΓ(Igb,∗ ∞,P ,i∗ P",
           "match": "The colimit description through punctured formal neighbourhoods."
         }
       ],
@@ -7702,19 +7511,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.3, Proposition 6.3.1, p. 84",
-          "excerpt": "Proposition 6.3.1. The map RΓc(IgbP ∞ ,Fℓ) ⊗ lim − → Γ⊂GLOF",
           "match": "The local isomorphism on Igusa cusp labels."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.3, proof of Proposition 6.3.1, p. 84",
-          "excerpt": "this is a by now standard computation due to Pink, [Pin92, Theorem 4.2.1], see also [LS18a, Theorem 4.3.10]. The key",
           "match": "Pink's computation via the axiomatics of Lan–Stroh."
         },
         {
           "sourceId": "ls18a-author",
           "locator": "§4.3, Assumption 4.3.1 and Lemma 4.3.2, author-copy p.61; Definition 4.3.8 and Theorem 4.3.10, pp.63–64",
-          "excerpt": "(Pink). Let Vξ be an algebraic representation of G ⊗Z Q on a finite-dimensional vector space over Q̄` , which defines Vξ , and so on, as in Definition 4.3.8.",
           "match": "The author-copy Pink formula is for algebraic Q̄_ℓ coefficients; CSnc Proposition 6.3.1 carries out the separate torsion tower computation. Numbered results correspond to the published edition, whose PDF was not read in this review."
         }
       ],
@@ -7754,13 +7560,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.1, Theorem 6.1.1, p. 80",
-          "excerpt": "Theorem 6.1.1. There is a natural Jb(Qp) × G(Ap f )-equivariant isomorphism RΓc(Igb,∗",
           "match": "Pink's formula for Igusa varieties."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.1, Theorem 6.1.1, p. 80",
-          "excerpt": "The action of Pb(Qp) × P(Ap f) on RΓ(GLr(F)\\(Xr × GLr(AF,f)),Fℓ) ⊗ RΓc(IgbP ∞ ,Fℓ) is through its Levi quotient. We will prove this result in several",
           "match": "The Levi quotient acts."
         }
       ],
@@ -7796,13 +7600,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.4, Lemma 6.4.2, p. 85",
-          "excerpt": "Lemma 6.4.2. There is a natural isomorphism of functors",
           "match": "Derived invariants of parabolic induction."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.4, Lemma 6.4.3, p. 86",
-          "excerpt": "Lemma 6.4.3. There is a natural isomorphism of functors r∗",
           "match": "Derived invariants of inflation."
         }
       ],
@@ -7856,19 +7658,16 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.4, Theorem 6.4.1, p. 84",
-          "excerpt": "Theorem 6.4.1. Assume that for some b ∈ B(GQp ,µ−1 ) one of the cohomology groups Hi c−∂(Igb ,Fℓ)m,Hi (Igb ,Fℓ)m is nonzero. Then there exists a continuous semisimple Galois representation ρm :",
           "match": "Both assertions of the theorem."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.4, proof of Theorem 6.4.1, p. 86",
-          "excerpt": "We argue by induction on n, so we may assume that the analogous result is known for Igusa varieties on smaller unitary groups. Assume ﬁrst that the",
           "match": "The proof is an induction on n."
         },
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, Theorem 2.8.7, p. 35",
-          "excerpt": "Theorem 2.8.7. Assume that F+ 6= Q, that p is split in the imaginary quadratic field F0 ⊂ F, and that the map Hi c−∂(Igb ,Fℓ)m → Hi (Igb ,Fℓ)m is not an isomorphism for some i.",
           "match": "The form used in the main argument."
         }
       ],
@@ -7976,13 +7775,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, proof of Theorem 1.1, p. 36",
-          "excerpt": "Now assume all of our hypotheses: that F = F0 · F+ with F+ 6= Q, that p is totally split in F, and that m is so that ρm is unramiﬁed and generic at all places dividing p, and of length at most 2.",
           "match": "The hypotheses of Theorem 1.1."
         },
         {
           "sourceId": "acc23",
           "locator": "Definition 4.3.1, pp. 76–77 (recalled from [CS17, Defn. 1.9] with p and l swapped)",
-          "excerpt": "We say that a prime l 6= p is decomposed generic for r if l splits completely in L and for all places v|l of L, r|GLv is generic.",
           "match": "ACC+ Definition 4.3.1: generic and decomposed generic, with p and l swapped."
         }
       ],
@@ -8069,13 +7866,11 @@
         {
           "sourceId": "ltxzz",
           "locator": "Appendix D, §D.1 'Vanishing of cohomology off middle degree', Definition D.1.1, p. 365",
-          "excerpt": "κ with κ a field. We say that φ is cohomologically generic if",
           "match": "LTXZZ Definition D.1.1."
         },
         {
           "sourceId": "ltxzz",
           "locator": "Published Appendix D, Proposition D.1.3 p.365 and Corollary D.1.4 p.368",
-          "excerpt": "there are infinitely many nonarchimedean places",
           "match": "The all-enlargements definition requires an avoiding family of generic places, supplied by the Galois/Chebotarev argument in CorollaryD.1.4."
         }
       ],
@@ -8115,7 +7910,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, proof of Theorem 1.1, p. 36",
-          "excerpt": "It follows that Hi (Igb ,Fℓ)m can be nonzero only if b is ordinary. By Lemma 2.8.4, this shows that also in this case Hi (Igb ,Fℓ)m 6= 0 only for i ≥ d = db. By Theorem 2.7.2, this shows that (R(π◦",
           "match": "Only the ordinary b contributes, in degrees ≥ d."
         }
       ],
@@ -8155,7 +7949,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §2.8, proof of Theorem 1.1, p. 36",
-          "excerpt": "By a Hochschild-Serre spectral sequence, this implies that Hi (S◦ K(N),C,Fℓ)m is concentrated in",
           "match": "Hochschild–Serre descent from infinite level."
         }
       ],
@@ -8197,7 +7990,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §1, Theorem 1.1, p. 5",
-          "excerpt": "Theorem 1.1. Assume the following conditions. (i) F+ 6= Q; (ii) ρm is of length at most 2; (iii) there is a prime p 6= ℓ that splits completely in F and such that for all primes v|p of F, the representation ρm is unramified at v",
           "match": "Statement of the main theorem."
         }
       ],
@@ -8235,7 +8027,6 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §1, Remark 1.5, pp. 5–6",
-          "excerpt": "Remark 1.5. The theorem implies formally that the same conclusion holds for Hi (XK,Zℓ)m and Hi c(XK,Zℓ)m, and in addition that Hd (XK,Zℓ)m is",
           "match": "Integral and local-system consequences."
         }
       ],
@@ -8273,13 +8064,11 @@
         {
           "sourceId": "csnc",
           "locator": "CSnc §1, Remark 1.6, p. 6",
-          "excerpt": "Remark 1.6. If m is non-Eisenstein, i.e. if ρm is absolutely irreducible, the theorem and the excision long exact sequence with Fℓ-coeﬃcients imply",
           "match": "The absolutely irreducible specialization."
         },
         {
           "sourceId": "acc23",
           "locator": "Theorem 2.4.2, p. 46 (§2.4); proof pp. 46–49",
-          "excerpt": "Theorem 2.4.2. Let m ⊂ TS (K, λ) be a non-Eisenstein maximal ideal",
           "match": "ACC+ Theorem 2.4.2: the localized boundary is the Siegel stratum; its proof gives the vanishing for non-Eisenstein ideals."
         }
       ],
@@ -8318,7 +8107,6 @@
         {
           "sourceId": "acc23",
           "locator": "Theorem 4.3.3, p. 77 (§4.3 'Cohomology in the middle degree'); proof pp. 77–78",
-          "excerpt": "Suppose that ρ em is decomposed generic, in the sense of Definition 4.3.1. Then we have",
           "match": "ACC+ Theorem 4.3.3."
         }
       ],
@@ -8354,13 +8142,11 @@
         {
           "sourceId": "kos21",
           "locator": "§§2–3, Theorem 2.1 and Lemma 3.1, pp.4–5",
-          "excerpt": "admits a lift to a supercuspidal irreducible",
           "match": "The theorem is applied to supercuspidal support, with inner-form analogue in Remark 3.28 as recorded in the proof of Lemma 3.1."
         },
         {
           "sourceId": "kos21",
           "locator": "§3, Lemma 3.1, p.5",
-          "excerpt": "Lemma 3.1. Suppose Jb is not quasi-split.",
           "match": "The lemma excludes generic unramified FS parameters for irreducible mod-ℓ representations of J_b; its proof lifts supercuspidal support."
         }
       ],
@@ -8407,19 +8193,16 @@
         {
           "sourceId": "kos21",
           "locator": "Theorem 1.1, p. 1 (§1.1 'Local vanishing'); proof §4",
-          "excerpt": "Theorem 1.1. If ρm is generic and Jb is not quasi-split, then the localized coho- mology Hci (M(G,b,µ),K , Zℓ )m vanishes for every integer i.",
           "match": "Koshikawa Theorem 1.1."
         },
         {
           "sourceId": "kos21",
           "locator": "§1.1, p. 1 (definition of 'generic' for the unramified L-parameter ρ_m); used globally in Conjecture 1.2, p. 2",
-          "excerpt": "Let us say that ρm is generic if, for every i ∈ I, the eigenvalues α1 , . . . , αni of ρm (FrobF ) regarded as an element of GLni (Fℓ ) satisfy αj ′ /αj 6= q for all j 6= j ′ .",
           "match": "Koshikawa's definition of generic."
         },
         {
           "sourceId": "kos21",
           "locator": "§4, pp.5–6",
-          "excerpt": "as ib∗, Trµ, and i1! commute with colimits.",
           "match": "Coefficient reduction, the central action, Hecke inversion and finite generation are used in §4; read the entire argument."
         }
       ],
@@ -8471,7 +8254,6 @@
         {
           "sourceId": "kos21",
           "locator": "Corollary 8.2 and Lemma 8.3, pp.13–14",
-          "excerpt": "belongs to D≥d(Fℓ).",
           "match": "The lower bound comes from ordinary support, finite closed specialization sets and derived inverse limits."
         }
       ],
@@ -8525,7 +8307,6 @@
         {
           "sourceId": "kos21",
           "locator": "Proposition 1.7, p.3; proof §9, pp.14–16; Lemma 9.1, p.15",
-          "excerpt": "is an isomorphism.",
           "match": "The comparison is derived using smooth base change, ordinary dualizing shift, smooth duality and spectral support, not by stalk vanishing alone."
         }
       ],
@@ -8573,13 +8354,11 @@
         {
           "sourceId": "kos21",
           "locator": "Theorem 1.3, p. 2; proof §9, pp. 14–16",
-          "excerpt": "Theorem 1.3. Assume B = F , V = F 2n , and G is a quasi-split similitude unitary group. Then, Conjecture 1.2 holds true.",
           "match": "Koshikawa Theorem 1.3 (quasi-split case of Conjecture 1.2)."
         },
         {
           "sourceId": "cn23",
           "locator": "Proof of Theorem 2.1.28, p. 25",
-          "excerpt": "Moreover, we can remove the technical hypotheses that [F + : Q] > 1 and ρ̄ em has length at most two by appealing to Koshikawa’s work [Kos21, Theorem 1.4].",
           "match": "Caraiani–Newton use Koshikawa to remove the hypotheses [F⁺:ℚ] > 1 and length at most two."
         }
       ],
@@ -8613,13 +8392,11 @@
         {
           "sourceId": "cn23",
           "locator": "Theorem 2.1.28 and its proof, p. 25 (§2.1)",
-          "excerpt": "Theorem 2.1.28. Keep the same assumptions on F as in Theorem 2.1.26. Let",
           "match": "Caraiani–Newton Theorem 2.1.28."
         },
         {
           "sourceId": "cn23",
           "locator": "Theorem 2.1.26, p. 24 (same hypotheses on F as Theorem 2.1.20, p. 22); setup §2.1.11, p. 15",
-          "excerpt": "λ̃) be a maximal ideal. Suppose F contains an imaginary quadratic field, the finite set of finite places T of F is stable under complex conjugation, and the following condition is satisfied:",
           "match": "The hypotheses on F and T referred to."
         }
       ],

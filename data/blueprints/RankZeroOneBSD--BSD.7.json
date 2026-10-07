@@ -417,7 +417,6 @@
         {
           "sourceId": "mathlib-prime-fin",
           "locator": "primeFactors; mem_primeFactors; primeFactors_zero",
-          "excerpt": "The prime factors of a natural number as a finset.",
           "match": "Compose the existing natural-number construction; do not reimplement factorization."
         }
       ],
@@ -520,7 +519,6 @@
         {
           "sourceId": "mathlib-prime-fin",
           "locator": "mem_primeFactors",
-          "excerpt": "p.Prime ∧ p ∣ n ∧ n ≠ 0",
           "match": "Apply the exact membership theorem to both canonical integers."
         }
       ],
@@ -559,7 +557,6 @@
         {
           "sourceId": "mathlib-padic",
           "locator": "Rat.num_or_den_zero_padicVal; padicValRat",
-          "excerpt": "The numerator or denominator of a rational number has zero `p`-adic valuation.",
           "match": "Reducedness prevents cancellation between two positive numerator and denominator valuations."
         }
       ],
@@ -600,13 +597,11 @@
         {
           "sourceId": "mathlib-padic",
           "locator": "dvd_iff_padicValNat_ne_zero",
-          "excerpt": "p ∣ n ↔ padicValNat p n ≠ 0",
           "match": "Both uses retain the nonzero natural-argument hypothesis."
         },
         {
           "sourceId": "mathlib-prime-fin",
           "locator": "mem_primeFactors",
-          "excerpt": "p.Prime ∧ p ∣ n ∧ n ≠ 0",
           "match": "Identifies the two possible supports."
         }
       ],
@@ -643,7 +638,6 @@
         {
           "sourceId": "mathlib-prime-fin",
           "locator": "primeFactors_eq_empty",
-          "excerpt": "n.primeFactors = ∅ ↔ n = 0 ∨ n = 1",
           "match": "Apply twice, retaining nonzero q to eliminate the zero numerator."
         }
       ],
@@ -683,13 +677,11 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "positive nonzero rational BSD defect",
           "match": "This is only the rational reconstruction step, not a theorem establishing positivity or rationality of the BSD quotient."
         },
         {
           "sourceId": "mathlib-prime-fin",
           "locator": "primeFactors_eq_empty",
-          "excerpt": "n.primeFactors = ∅ ↔ n = 0 ∨ n = 1",
           "match": "The proof reduces reconstruction to prime-factor uniqueness at one."
         }
       ],
@@ -726,7 +718,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "finite-support certificate",
           "match": "The data consist of finite support coverage and checked local valuations; positivity is a separate hypothesis of reconstruction."
         }
       ],
@@ -840,13 +831,11 @@
         {
           "sourceId": "mathlib-prime-fin",
           "locator": "mem_primeFactors",
-          "excerpt": "p.Prime ∧ p ∣ n ∧ n ≠ 0",
           "match": "Primality of each member is unconditional."
         },
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "equality of every prime valuation to zero",
           "match": "Packages genuine all-prime input, not a new proof of it."
         }
       ],
@@ -925,7 +914,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "a theorem excluding all p∉S",
           "match": "This theorem proves that exclusion from the actual coverage field, rather than assuming that the displayed finite list is exhaustive."
         }
       ],
@@ -962,7 +950,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "Then derive the full formula",
           "match": "This supplies the algebraic identity only after the positive rational defect has been identified by its owner."
         }
       ],
@@ -1003,7 +990,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "a proof of the p-part at every p∈S",
           "match": "The inside and outside proofs remain distinct inputs; deriving support coverage does not manufacture any missing prime-part theorem."
         }
       ],
@@ -1082,7 +1068,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "positive nonzero rational BSD defect",
           "match": "An exact rational-to-real identification is indispensable; numerical recognition of a quotient is not this hypothesis."
         }
       ],
@@ -1120,7 +1105,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8",
-          "excerpt": "for the individual curve or explicitly specified family",
           "match": "The theorem is conditional on a complete certificate for the actual curve defect; it is not unrestricted rank-zero/one BSD."
         }
       ],
@@ -1159,13 +1143,11 @@
         {
           "sourceId": "mathlib-prime-basic",
           "locator": "Nat.Prime.dvd_iff_eq",
-          "excerpt": "a ∣ p ↔ p = a",
           "match": "Different primes cannot divide one another."
         },
         {
           "sourceId": "mathlib-padic",
           "locator": "padicValRat.of_nat",
-          "excerpt": "padicValRat p n = padicValNat p n",
           "match": "Move the divisibility calculation to the rational valuation."
         }
       ],
@@ -1200,7 +1182,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.9 acceptance tests",
-          "excerpt": "an unproved residual 2-part",
           "match": "A rational countermodel tests the logical gate; it is not an elliptic curve or a claim about its Sha."
         }
       ],
@@ -1238,7 +1219,6 @@
         {
           "sourceId": "mathlib-prime-basic",
           "locator": "forall_prime_iff_two_and_odd",
-          "excerpt": "A property holds for every prime iff it holds for `2` and for every odd prime.",
           "match": "Instantiate the existing prime split with vanishing of the rational valuation."
         }
       ],
@@ -1277,7 +1257,6 @@
         {
           "sourceId": "cgs",
           "locator": "§1 Introduction and §3.4, before Lemma 3.4.1",
-          "excerpt": "E(K)[p] = 0",
           "match": "The residual local exclusions justify precisely the no-invariants hypotheses used in CGS; KY removes them by a different lattice argument."
         }
       ],
@@ -1319,7 +1298,6 @@
         {
           "sourceId": "ky",
           "locator": "§1.3 Lemmas 1.3.3–1.3.6; §3.0.8; §4.2",
-          "excerpt": "kerpresMf q is finite by Lemma 1.3.6",
           "match": "Finite differences disappear from characteristic ideals only at height one and still enter control."
         }
       ],
@@ -1361,13 +1339,11 @@
         {
           "sourceId": "cgls",
           "locator": "Published §1.5, pp.537–538; Theorem 1.5.1",
-          "excerpt": "S = \\ {v, v̄, ∞}",
           "match": "Only the finite S-indexed sum is used; the extraction’s E18 correction is retained."
         },
         {
           "sourceId": "cgs",
           "locator": "Definition 2.5.2, p.11; Proposition 3.3.2 and Corollary 3.3.3, pp.14–15",
-          "excerpt": "Proposition 3.3.2. Assume that E(K)[p] = 0",
           "match": "The cyclotomic Euler comparison has actual cotorsion and residual-invariant hypotheses; Definition 2.5.2 fixes the coinvariant/Frobenius convention."
         }
       ],
@@ -1408,7 +1384,6 @@
         {
           "sourceId": "cgls",
           "locator": "§1.4 Propositions 1.4.1–1.4.2, Corollary 1.4.3; Theorem 1.5.1, p.538",
-          "excerpt": "Then the module X E is",
           "match": "The theorem asserts cotorsion, μ=0 and the finite corrected λ formula."
         }
       ],
@@ -1450,7 +1425,6 @@
         {
           "sourceId": "ky",
           "locator": "§2.2 Theorems 2.2.1–2.2.2; compare CGLS §2.2",
-          "excerpt": "the p-depletion of G does not see the constant",
           "match": "The congruence is for actual forms and CM values, including the broader character case."
         }
       ],
@@ -1489,7 +1463,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 2.2.3, p.545",
-          "excerpt": "Theorem 2.2.3",
           "match": "This invariant equality is independent of the Heegner-system divisibility."
         }
       ],
@@ -1532,7 +1505,6 @@
         {
           "sourceId": "cgs",
           "locator": "Theorem 6.1.1 and §§6.2–6.4, pp.21–28",
-          "excerpt": "The ‘error term’ E in this theorem is independent of m",
           "match": "Uniformity is the reason specialization can approach augmentation."
         }
       ],
@@ -1577,7 +1549,6 @@
         {
           "sourceId": "cgs",
           "locator": "Theorems 6.5.1–6.5.2, p.28",
-          "excerpt": "charΛ (M ) divides",
           "match": "The new argument includes augmentation but the theorem still states Λ[1/p]."
         }
       ],
@@ -1620,7 +1591,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem 3.0.8 proof, pp.39–40; CGLS Proposition 4.2.1",
-          "excerpt": "involving a fixed p-power",
           "match": "Comparison cannot silently normalize away the p-power from changing lattices."
         }
       ],
@@ -1660,7 +1630,6 @@
         {
           "sourceId": "cgs",
           "locator": "Theorem 6.5.3, p.29; compare CGLS Theorem 4.2.2",
-          "excerpt": "Then XGr",
           "match": "The improved proof removes (Sel), not the residual local exclusion."
         }
       ],
@@ -1701,7 +1670,6 @@
         {
           "sourceId": "cgs",
           "locator": "Corollary 6.5.4, p.29",
-          "excerpt": "the ambiguity by powers of p",
           "match": "This is an output of BSD.7a for HE.8b and MIMC L6, never an input from them."
         }
       ],
@@ -1742,7 +1710,6 @@
         {
           "sourceId": "ky",
           "locator": "Proposition 1.1.3; Lemma 1.2.4 and Theorem 1.2.5",
-          "excerpt": "Proposition 1.1.3.",
           "match": "These are the separate trivial and cyclotomic local cases absent from the CGS branch."
         }
       ],
@@ -1784,7 +1751,6 @@
         {
           "sourceId": "ky",
           "locator": "Proposition 1.3.1; beginning of §1.4; Remark 3.0.9",
-          "excerpt": "H0 pK, ρf q “ 0",
           "match": "Vanishing is obtained on a chosen nonsplit lattice, not assumed for every isogenous curve."
         }
       ],
@@ -1824,7 +1790,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem 1.2.2; proof of Theorem 2.2.3 and Remark 2.2.4",
-          "excerpt": "CharpU8 {C¯8 q1 “ CharpL1 ¨ T q",
           "match": "The extra augmentation accounts for the global trivial-character λ correction."
         }
       ],
@@ -1866,7 +1831,6 @@
         {
           "sourceId": "ky",
           "locator": "§1.4, Theorem 1.4.1 and its proof, pp.23–31; Lemmas 1.4.3–1.4.4",
-          "excerpt": "Theorem 1.4.1.",
           "match": "Separates the imprimitive residual-extension theorem from primitive Euler removal and retains the globally trivial +1."
         }
       ],
@@ -1911,7 +1875,6 @@
         {
           "sourceId": "ky",
           "locator": "Lemma 1.1.1; Remark 1.2.3(ii), pp.14–15; Remark 1.4.2, p.25; §1.5 and Theorem 1.5.1, p.31",
-          "excerpt": "With our Theorem 1.4.1 and Remark 1.4.2, the proof is the same as that",
           "match": "The broader primitive comparison is justified by KY’s own cotorsion and global-to-local surjectivity, rather than by importing the locally excluded CGS branch."
         }
       ],
@@ -1952,7 +1915,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorems 1.4.1 and 1.5.1; Appendix A finite terms",
-          "excerpt": "λpXSf q ` 1 “ λpXSϕ q ` λpXSψ q",
           "match": "The +1 is not suppressed by the fact that finite modules have unit characteristic ideal."
         }
       ],
@@ -1993,7 +1955,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem 2.2.3 and Remark 2.2.4",
-          "excerpt": "λpLf q “ λpXf q",
           "match": "The equality uses the exceptional character formula, not only the CGLS argument."
         }
       ],
@@ -2037,7 +1998,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorems 3.0.1–3.0.2, Lemma 3.0.3, Theorems 3.0.5–3.0.6",
-          "excerpt": "Theorem 3.0.6.",
           "match": "This includes the integral height-one length and compares the actual lattices."
         }
       ],
@@ -2078,7 +2038,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem 3.0.8 (IMC2) and Remark 3.0.9, pp.39–40",
-          "excerpt": "(IMC2)",
           "match": "The result is the integral BDP/Greenberg equality in completed unramified coefficients."
         }
       ],
@@ -2119,7 +2078,6 @@
         {
           "sourceId": "ky",
           "locator": "Introduction Theorem B, p.5; Theorem 3.0.8 (IMC1), p.40",
-          "excerpt": "(IMC1)",
           "match": "This is a BSD.7a output for the downstream HE.8b application."
         }
       ],
@@ -2160,7 +2118,6 @@
         {
           "sourceId": "wuthrich",
           "locator": "Theorems 4,13,16; Proposition 8; Lemma 17; Corollary 18",
-          "excerpt": "Then charΛ X(E) divides the ideal generated",
           "match": "The required containment is integral at the coefficient prime, including reducible representations."
         }
       ],
@@ -2206,7 +2163,6 @@
         {
           "sourceId": "cgs",
           "locator": "§§2.2–2.4, Definitions 2.2.2/2.4.3, Lemma 2.4.4, Propositions 2.2.4/2.4.5",
-          "excerpt": "the congruence ideal of g",
           "match": "The Katz/CM congruence input removes a genuine integral denominator, not just a rational scalar."
         }
       ],
@@ -2251,7 +2207,6 @@
         {
           "sourceId": "cgs",
           "locator": "Theorem 4.1.1, Lemma 4.1.2, Corollary 4.1.3, pp.17–18",
-          "excerpt": "injective ΛK -linear maps with pseudo-null cokernel",
           "match": "Both maps and their actual common class carry the integral normalization used by the main-conjecture comparison."
         }
       ],
@@ -2352,7 +2307,6 @@
         {
           "sourceId": "cgs",
           "locator": "Proposition 4.2.1, pp.18–19",
-          "excerpt": "Poitou–Tate duality and the reciprocity laws",
           "match": "This is an equivalence of proved containments, not an assumed main conjecture."
         }
       ],
@@ -2394,7 +2348,6 @@
         {
           "sourceId": "cgs",
           "locator": "Theorem 4.3.1 and its proof, pp.19–20",
-          "excerpt": "in Λ+",
           "match": "The theorem supplies only the rational bound at this point."
         }
       ],
@@ -2437,7 +2390,6 @@
         {
           "sourceId": "cgs",
           "locator": "Lemma 2.5.1; Propositions 3.4.3–3.4.4",
-          "excerpt": "the same Iwasawa λ- and µ-invariants",
           "match": "Large-power congruence controls μ and λ only after integral characteristic generators have been justified."
         }
       ],
@@ -2481,7 +2433,6 @@
         {
           "sourceId": "cgs",
           "locator": "Lemma 3.4.1; Proposition 3.4.2; §7.2 Step 2",
-          "excerpt": "Proposition 3.4.2",
           "match": "These are the precise specialization hypotheses needed for the unit-quotient argument."
         }
       ],
@@ -2526,7 +2477,6 @@
         {
           "sourceId": "cgs",
           "locator": "§7.2 Lemmas 7.2.1–7.2.2 and (7.10)–(7.11)",
-          "excerpt": "h is divisible by ϖ",
           "match": "The μ inequality repairs integrality; anticyclotomic μ=0 is not reused as a cyclotomic μ=0 claim."
         }
       ],
@@ -2569,7 +2519,6 @@
         {
           "sourceId": "cgs",
           "locator": "Theorems 7.2.3 and 7.1.1, pp.30–31",
-          "excerpt": "Mazur’s main conjecture for E holds.",
           "match": "Both integral individual containments are essential to descend product equality."
         }
       ],
@@ -2614,7 +2563,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem 3.0.10, p.41",
-          "excerpt": "Their technical assumption",
           "match": "KY substitutes its anticyclotomic theorem and lattice transfer into CGS, rather than deleting a hypothesis from CGS’s statement."
         }
       ],
@@ -2658,7 +2606,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 4.2.2 and Corollary 4.2.3, pp.569–570",
-          "excerpt": "(Sel)",
           "match": "The routed Theorem C/Corollary D prototype has an extra corank condition."
         }
       ],
@@ -2699,7 +2646,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 5.1.1, p.571",
-          "excerpt": "E(Q p )[ p] = 0",
           "match": "The control formula uses the full index and depends on local torsion vanishing."
         }
       ],
@@ -2743,7 +2689,6 @@
         {
           "sourceId": "ky",
           "locator": "Appendix B Proposition B.0.1 and Theorem B.0.2, (B.1)–(B.2); §4.2, p.42",
-          "excerpt": "we would need to work with a similar commutative",
           "match": "The localization-image diagram replaces the earlier assumed surjectivity and retains torsion corrections."
         }
       ],
@@ -2788,7 +2733,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 5.1.4, p.573",
-          "excerpt": "ramified at p and even, or unramified at p and odd",
           "match": "This is the routed prototype; it is not a universal good Eisenstein theorem."
         }
       ],
@@ -2831,7 +2775,6 @@
         {
           "sourceId": "cgs",
           "locator": "§1.2 proof of Theorem D; §2.1 Proposition 2.1.1",
-          "excerpt": "replacing the appeal to",
           "match": "The rank-zero argument of CGLS §5.1 is upgraded using the new integral cyclotomic equality."
         }
       ],
@@ -2877,7 +2820,6 @@
         {
           "sourceId": "ky",
           "locator": "§4.2 pp.42–43; corrected CGLS §5.3 (5.5)–(5.7)",
-          "excerpt": "the right-hand side vanishes",
           "match": "KY explicitly gives the negative twist-defect relation and the torsion terms."
         }
       ],
@@ -2918,7 +2860,6 @@
         {
           "sourceId": "cgls",
           "locator": "Theorem 5.3.1, pp.576–577",
-          "excerpt": "ramified at p and odd, or unramified at p and even",
           "match": "The prototype keeps its parity restriction; CGS replaces the rank-zero input."
         }
       ],
@@ -2962,7 +2903,6 @@
         {
           "sourceId": "cgs",
           "locator": "Introduction Theorem D and §1.2 proof, pp.4–5",
-          "excerpt": "Theorem D.",
           "match": "This is the exact CGS branch, with its actual local character hypothesis."
         }
       ],
@@ -3009,7 +2949,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem C, p.4; Theorem 4.2.1 and proof, pp.41–43",
-          "excerpt": "equivalently, Erps is reducible",
           "match": "The elliptic endpoint applies to every odd good Eisenstein prime with analytic rank at most one."
         }
       ],
@@ -3050,7 +2989,6 @@
         {
           "sourceId": "mathlib-padic",
           "locator": "padicValRat.mul; padicValRat.pow; padicValRat.div",
-          "excerpt": "padicValRat p (q / r)",
           "match": "The pinned valuation algebra keeps denominator valuations and the square."
         }
       ],
@@ -3089,7 +3027,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.6 2-descent, exact sequence following the quartic Selmer description",
-          "excerpt": "isomorphic to the 2-Selmer group",
           "match": "The generic Kummer cardinality is the consumer adapter; finite descent is not confused with full Sha."
         }
       ],
@@ -3131,7 +3068,6 @@
         {
           "sourceId": "gross",
           "locator": "Theorem 1.3, printed p.236; exceptional factor discussed on pp.236–239",
-          "excerpt": "Theorem 1.3",
           "match": "The bound has exceptional constants, particularly powers of 2; the conjectural exact Sha index formula is not used."
         }
       ],
@@ -3173,7 +3109,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.5, Proposition 3.5.1 and rank-one generator criterion",
-          "excerpt": "If P is not a generator",
           "match": "A rank-one point is not certified as a generator from its nonzero height alone."
         }
       ],
@@ -3212,7 +3147,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.2 Tate algorithm and local information",
-          "excerpt": "Tate’s algorithm",
           "match": "The adapter consumes an exact local trace with small-characteristic branches."
         }
       ],
@@ -3252,7 +3186,6 @@
         {
           "sourceId": "wuthrich",
           "locator": "Lemma 17, p.398; Theorem 4 lattice construction",
-          "excerpt": "invariant under isogenies",
           "match": "The arithmetic and analytic period changes must match integrally."
         }
       ],
@@ -3296,7 +3229,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8 exceptional-prime contract",
-          "excerpt": "including 2 and 3",
           "match": "Exact arithmetic producers discharge primes outside the named theorem ranges."
         }
       ],
@@ -3337,7 +3269,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.6–BSD.8 named branches",
-          "excerpt": "a proof of the p-part at every p∈S",
           "match": "Every fixed-prime certificate has an identified proof range."
         }
       ],
@@ -3376,7 +3307,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8 full-formula assembly",
-          "excerpt": "Then derive the full formula",
           "match": "The complete finite certificate is the final logical gate."
         }
       ],
@@ -3416,7 +3346,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8 individual/family boundary",
-          "excerpt": "individual curve or explicitly specified family",
           "match": "The quantified certificate is part of the family proof, not a predicted global BSD theorem."
         }
       ],
@@ -3454,7 +3383,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 11a3",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         }
       ],
@@ -3530,7 +3458,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 11a3",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         }
       ],
@@ -3566,7 +3493,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 11a3",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         }
       ],
@@ -3604,13 +3530,11 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 37a1",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         },
         {
           "sourceId": "gross",
           "locator": "Printed p.236, equation and point of X₀(37)/w₃₇",
-          "excerpt": "y² + y = x³ − x",
           "match": "The printed example gives the same actual curve and point."
         }
       ],
@@ -3686,13 +3610,11 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 37a1",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         },
         {
           "sourceId": "gross",
           "locator": "Printed p.236, equation and point of X₀(37)/w₃₇",
-          "excerpt": "y² + y = x³ − x",
           "match": "The printed example gives the same actual curve and point."
         }
       ],
@@ -3728,13 +3650,11 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 37a1",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         },
         {
           "sourceId": "gross",
           "locator": "Printed p.236, equation and point of X₀(37)/w₃₇",
-          "excerpt": "y² + y = x³ − x",
           "match": "The printed example gives the same actual curve and point."
         }
       ],
@@ -3772,7 +3692,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 32a2",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         }
       ],
@@ -3853,7 +3772,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 32a2",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         }
       ],
@@ -3889,7 +3807,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, printed pp.109–112, row 32a2",
-          "excerpt": "a1 a2 a3",
           "match": "The model coefficients, not the database label, define the fixture."
         }
       ],
@@ -3927,7 +3844,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.3 torsion tests and §3.5 generators",
-          "excerpt": "torsion",
           "match": "Explicit addition, reduction and integral-coordinate tests are proofs, unlike a table of predicted orders."
         }
       ],
@@ -4000,7 +3916,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.3 torsion tests and §3.5 generators",
-          "excerpt": "torsion",
           "match": "Explicit addition, reduction and integral-coordinate tests are proofs, unlike a table of predicted orders."
         }
       ],
@@ -4039,13 +3954,11 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.3 torsion tests and §3.5 generators",
-          "excerpt": "torsion",
           "match": "Explicit addition, reduction and integral-coordinate tests are proofs, unlike a table of predicted orders."
         },
         {
           "sourceId": "gross",
           "locator": "Printed p.236, E(ℚ)=ℤP and P=(0,0)",
-          "excerpt": "P = (0, 0)",
           "match": "The example identifies a free generator; the blueprint also requires replayable saturation."
         }
       ],
@@ -4119,13 +4032,11 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.3 torsion tests and §3.5 generators",
-          "excerpt": "torsion",
           "match": "Explicit addition, reduction and integral-coordinate tests are proofs, unlike a table of predicted orders."
         },
         {
           "sourceId": "gross",
           "locator": "Printed p.236, E(ℚ)=ℤP and P=(0,0)",
-          "excerpt": "P = (0, 0)",
           "match": "The example identifies a free generator; the blueprint also requires replayable saturation."
         }
       ],
@@ -4163,7 +4074,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.3 torsion tests and §3.5 generators",
-          "excerpt": "torsion",
           "match": "Explicit addition, reduction and integral-coordinate tests are proofs, unlike a table of predicted orders."
         }
       ],
@@ -4236,7 +4146,6 @@
         {
           "sourceId": "cremona3",
           "locator": "§3.3 torsion tests and §3.5 generators",
-          "excerpt": "torsion",
           "match": "Explicit addition, reduction and integral-coordinate tests are proofs, unlike a table of predicted orders."
         }
       ],
@@ -4276,7 +4185,6 @@
         {
           "sourceId": "ky",
           "locator": "§0.3, p.5, example 11a3; Theorem C",
-          "excerpt": "has torsion subgroup Z{5 and rank 0",
           "match": "A rational p-torsion example is in KY’s range and out of CGS’s local range."
         }
       ],
@@ -4319,7 +4227,6 @@
         {
           "sourceId": "cremona-table1",
           "locator": "Table 1, p.111, row 32A2",
-          "excerpt": "III",
           "match": "The additive dyadic trace and full torsion calculation must be certified separately from the table."
         }
       ],
@@ -4365,7 +4272,6 @@
         {
           "sourceId": "gross",
           "locator": "Printed p.236, infinite cyclic rational group and free generator of the 37 curve",
-          "excerpt": "infinite cyclic and generated by P = (0, 0)",
           "match": "The convention dictionary, not a numerical height, supplies the factor in the BSD regulator."
         }
       ],
@@ -4405,7 +4311,6 @@
         {
           "sourceId": "cremona2",
           "locator": "§§2.8,2.12 and Proposition 2.13.1, pp.41–45",
-          "excerpt": "Proposition 2.13.1.",
           "match": "The exponential-integral formula and explicit tails turn truncation into a proof obligation."
         }
       ],
@@ -4447,7 +4352,6 @@
         {
           "sourceId": "cremona-examples",
           "locator": "N=11 and N=37 worked computations; compare Chapter 2 §2.13",
-          "excerpt": "0.2538418608559",
           "match": "Published decimal output selects broad target intervals but does not certify nonvanishing."
         }
       ],
@@ -4496,7 +4400,6 @@
         {
           "sourceId": "gross",
           "locator": "Printed pp.235–239, Conjecture 1.2 versus Theorem 1.3",
-          "excerpt": "Theorem 1.3.",
           "match": "The power-of-two qualification must survive into the whole-Sha certificate."
         }
       ],
@@ -4537,7 +4440,6 @@
         {
           "sourceId": "cremona-examples",
           "locator": "N=11 worked example, period and L-value",
-          "excerpt": "1/5",
           "match": "The optimal curve’s ratio must be transferred to the specific isogenous fixture."
         }
       ],
@@ -4573,7 +4475,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.9 distinct comparison endpoints",
-          "excerpt": "rank equality",
           "match": "Rank, whole-Sha finiteness, one prime part and the full formula are separate outputs."
         }
       ],
@@ -4609,7 +4510,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.9 distinct comparison endpoints",
-          "excerpt": "rank equality",
           "match": "Rank, whole-Sha finiteness, one prime part and the full formula are separate outputs."
         }
       ],
@@ -4645,7 +4545,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.9 distinct comparison endpoints",
-          "excerpt": "rank equality",
           "match": "Rank, whole-Sha finiteness, one prime part and the full formula are separate outputs."
         }
       ],
@@ -4686,7 +4585,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.9 distinct comparison endpoints",
-          "excerpt": "rank equality",
           "match": "Rank, whole-Sha finiteness, one prime part and the full formula are separate outputs."
         }
       ],
@@ -4722,7 +4620,6 @@
         {
           "sourceId": "roadmap",
           "locator": "BSD.8–BSD.9 missing-prime acceptance",
-          "excerpt": "including 2 and 3",
           "match": "The finite support certificate has no exception-erasing constructor."
         }
       ],
@@ -4769,7 +4666,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorem 3.0.10 proof, p.41; §1.4 lattice independence; Remark 3.0.9",
-          "excerpt": "one replaces the appeal to",
           "match": "This records the adaptation obligation; the narrower CGS-hypothesis lemmas are not theorem inputs for an exceptional local character."
         }
       ],
@@ -4812,7 +4708,6 @@
         {
           "sourceId": "ky",
           "locator": "Theorems 3.0.1–3.0.2, Lemma 3.0.3 and Remark 3.0.4, pp.35–36",
-          "excerpt": "the ‘error term’ E is independent of m",
           "match": "This is the KY version; the narrower CGS-hypothesis theorem is not used on an exceptional local character."
         }
       ],
@@ -4851,7 +4746,6 @@
         {
           "sourceId": "cgs",
           "locator": "Corollary 4.1.3, p.18",
-          "excerpt": "injective ΛK -linear maps with pseudo-null cokernel",
           "match": "The actual localization/map compatibility is used by the characteristic-ideal comparison."
         }
       ],
@@ -4890,7 +4784,6 @@
         {
           "sourceId": "cgs",
           "locator": "Corollary 4.1.3, p.18",
-          "excerpt": "injective ΛK -linear maps with pseudo-null cokernel",
           "match": "The actual localization/map compatibility is used by the characteristic-ideal comparison."
         }
       ],

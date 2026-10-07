@@ -761,19 +761,16 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, after equation (eq.FABC), printed p. 35",
-          "excerpt": "where A=(a_ij) is a symmetric positive definite r x r matrix with rational entries, B in Q^r a column vector, and C in Q a scalar, and asked for which triples (A,B,C) the function f_{A,B,C}(tau)=f_{A,B,C}(e^{2 pi i tau}) is modular.",
           "match": "The analytic record, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, before equation (FAdef)",
-          "excerpt": "A main theorem of [KS, Sec. 6.1, Thm. 9] (see also Efimov) is that q-hypergeometric Nahm sums ... defined from a symmetric, integral N x N matrix A, are always admissible series.",
           "match": "The formal record, verbatim; note the absence of any positivity hypothesis."
         },
         {
           "sourceId": "gz",
           "locator": "Section 3, before Theorem 3.1",
-          "excerpt": "We call a positive integer D a strong denominator of Q if the value of Q(k) modulo 1 for k in Z^N depends only on the residue class of k modulo D. (For instance, one can take D=2d where d is any common denominator of Q.)",
           "match": "The strong denominator, verbatim."
         }
       ],
@@ -901,13 +898,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), equation (NahmEq), printed p. 35",
-          "excerpt": "Let X=(X_1,...,X_r) in C^r be a solution of Nahm's equations 1 - X_i = product_{j=1}^r X_j^{a_ij} (1 <= j <= r) (or symbolically 1-X=X^A), and let F be the field they generate over Q, which will typically be a number field since (NahmEq) is a system of r equations in r unknowns and generically ...",
           "match": "The equations and the field they generate, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, equation (zjt=0)",
-          "excerpt": "1-z_j = (-1)^{A_{j,j}} product_{i=1}^N z_j^{A_{i,j}}, j = 1,...,N.",
           "match": "GSWZ's sign convention for the same equations, with the (-1)^{A_jj} factor that the CGZ normalisation does not carry; the printed inner variable is z_j where the product must run over z_i, an erratum recorded in the gaps."
         }
       ],
@@ -1033,19 +1028,16 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (ii), printed p. 36",
-          "excerpt": "The first observation is that if A is a positive definite symmetric matrix, then there is a distinguished solution of the Nahm equations, namely the unique solution X^A=(X_1^A,...,X_r^A) with 0<X_i^A<1 for all i. We denote by xi_A the corresponding element [X^A] of the Bloch group.",
           "match": "The statement, verbatim; the source asserts it without proof, and the proof outline above is the standard convexity argument."
         },
         {
           "sourceId": "gz",
           "locator": "Section 2, before equation (eq.nahm)",
-          "excerpt": "Fix a positive definite N x N matrix A with rational entries and let (z_1,...,z_N) denote the unique solution in (0,1)^N of Nahm's equation.",
           "match": "The same assertion, again used without proof."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.3, after equation (z1eqn)",
-          "excerpt": "Since A is positive definite equation (z1z28554) has a unique solution in (0,1)^2, given to a few decimals by (0.88483...,0.78939...), belonging to the real embedding of the quartic number field F of type (2,1) and discriminant -5^2 . 19 defined by (z1eqn).",
           "match": "The worked instance of the theorem."
         }
       ],
@@ -1087,13 +1079,11 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, equation (36) and the sentence before Theorem 5, p. 13-14 (arXiv v2)",
-          "excerpt": "delta(t) := prod_{j=1}^N z_j(t)^{-A_jj} det(diag(1-z(t))A + diag(z(t))) is the discriminant of the t-deformed Nahm equations",
           "match": "The discriminant, specialised at t = 1."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, before Theorem 5, p. 14",
-          "excerpt": "Below, we will fix an irreducible component of the equations (41) that is non-degenerate, i.e., an isolated solution z with delta != 0.",
           "match": "The definition of non-degeneracy."
         }
       ],
@@ -1193,7 +1183,6 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), p. 35 (arXiv v3)",
-          "excerpt": "which will typically be a number field since (41) is a system of r equations in r unknowns and generically defines a 0-dimensional variety.",
           "match": "The source's heuristic; this lemma is the precise statement used, reconstructed here (the source gives no proof)."
         }
       ],
@@ -1236,13 +1225,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), p. 35 (arXiv v3), equation (41)",
-          "excerpt": "and let F be the field they generate over Q, which will typically be a number field since (41) is a system of r equations in r unknowns and generically defines a 0-dimensional variety.",
           "match": "The field of a solution; the source asserts algebraicity generically and gives no proof, which this node supplies for the distinguished solution through non-degeneracy."
         },
         {
           "sourceId": "gz",
           "locator": "Section 2, equation (9)",
-          "excerpt": "A-tilde = A + diag(z/(1-z)) where diag(z/(1-z)) denotes the diagonal matrix with diagonal elements z_i/(1-z_i).",
           "match": "The matrix whose positive definiteness gives non-degeneracy."
         }
       ],
@@ -1284,13 +1271,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), printed p. 35",
-          "excerpt": "... the element [X]=[X_1]+...[X_r] of Z[F] belongs to the kernel of the map (defd), because d([X]) = sum_i (X_i) wedge (1-X_i) = sum_{i,j} a_ij (X_i) wedge (X_j) = 0 by virtue of the symmetry of A. ... if the entries are only rational, we have to tensor everything with Q.)",
           "match": "The whole construction and the rational caveat, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, after equation (zjt=0)",
-          "excerpt": "Such data gives rise to an element xi = sum_{j=1}^N [z_j] in B(K) in the Bloch group of the number field K generated by z.",
           "match": "The same class for an arbitrary non-degenerate solution, which is the setting of GSWZ Theorem 5."
         }
       ],
@@ -1407,19 +1392,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, the t = 1 specialisation",
-          "excerpt": "R[delta^{-1/2}] = Z[z^{pm 1}, delta^{-1/2}]/(1 - z - (-1)^A z^A), where we again use shorthand in the definition of R[delta^{-1/2}] with z=(z_1,...,z_N) and the relations given by the Nahm equations.",
           "match": "The ring, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Remark 1.8",
-          "excerpt": "Therefore, throughout the paper we will only consider primes p>3 and always assume that 2,3 | Delta unless otherwise stated.",
           "match": "The convention on Delta and on the excluded primes."
         },
         {
           "sourceId": "gswz",
           "locator": "Remark 1.9",
-          "excerpt": "Moreover, under the action of the Galois automorphism of R[delta^{-1/2}] sending sqrt(delta) to -sqrt(delta), the element Phi_{A,z} lives in the -1-eigenspace.",
           "match": "The eigenspace statement that the involution is needed for."
         }
       ],
@@ -1535,19 +1517,16 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, equation (normalization), printed p. 37",
-          "excerpt": "L(x) = pi^2/6 - Li_2(x) - (1/2) log(x) log(1-x) if 0<x<1; -L(1/x) if x>1; pi^2/6 - L(1-x) if x<0, and extended by continuity to a function P^1(R) -> R/(pi^2/2)Z by sending the three points 0, 1 and infinity to pi^2/6, 0, and -pi^2/6.",
           "match": "The Rogers dilogarithm in the normalisation this packet uses, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), printed p. 36",
-          "excerpt": "This is equivalent to the vanishing of the numbers D(sigma X)=sum D(sigma X_i) for all embeddings sigma: F -> C, where D(x) is the Bloch-Wigner dilogarithm function, and this condition can be either tested numerically to any precision or else verified rigorously by writing a multiple of [X] as ...",
           "match": "The torsion criterion and the two ways of certifying it, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (ii), printed p. 36",
-          "excerpt": "Then since X^A is real, we obtain a further characteristic property when this element is torsion, namely that the real number L(xi_A)=sum L(X_i), where L(x) is the Rogers dilogarithm function as defined below, is a rational multiple of pi^2.",
           "match": "The rationality consequence, verbatim."
         }
       ],
@@ -1661,7 +1640,6 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), p. 35 (arXiv v3)",
-          "excerpt": "This is equivalent to the vanishing of the numbers D(sigma X)=sum D(sigma X_i) for all embeddings sigma: F -> C, where D(x) is the Bloch-Wigner dilogarithm function",
           "match": "The criterion, which the source asserts without proof; the proof is Borel's theorem through the regulator comparison."
         }
       ],
@@ -1702,7 +1680,6 @@
         {
           "sourceId": "cgz",
           "locator": "Section 1.3, after Theorem 1.8, printed p. 6",
-          "excerpt": "We remark that the vanishing condition can be (and often is) stated by saying that xi_A is a torsion element in the Bloch group of the smallest real (but in general not totally real) number field containing all the X_i, but when we take the image of this Bloch group in the Bloch group of Qbar ...",
           "match": "The equivalence and its reason, verbatim."
         }
       ],
@@ -1742,13 +1719,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 2.1, Definition 2.1 and Lemma 2.2, p. 8-9 (arXiv v3)",
-          "excerpt": "There is a surjection B(F) -> B(F) whose kernel is the 2-torsion group generated by the elements <X> = [X] + [X^{-1}] for X in F^x \\ 1.",
           "match": "CGZ's comparison, stated for their exterior-square 'Suslin' group; the antisymmetric convention and its correction are K3BlochGroups/E12, E14."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, observation (i), p. 35",
-          "excerpt": "This calculation makes sense as it stands if A has integer entries; if the entries are only rational, we have to tensor everything with Q.",
           "match": "The computation this node repeats in the antisymmetric quotient, where it leaves the diagonal term."
         }
       ],
@@ -1791,19 +1766,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, after equation (defgamma)",
-          "excerpt": "Here, as usual (x;q)_n = product_{j=0}^{n-1}(1-q^j x) and (x;q)_infinity^{-1} = sum_{k=0}^{infinity} x^k/(q;q)_k.",
           "match": "The two definitions and Euler identity, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.1, equations (logpoc) and (logpoc2)",
-          "excerpt": "log (t;q)_infinity = -sum_{l >= 1} t^l/(l(1-q^l)) and log (t;q)_infinity = sum_{k >= 0} (B_k/k!) Li_{2-k}(t) log(1+x)^{k-1}",
           "match": "The two complementary expansions of the logarithm, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.2, the two elementary identities",
-          "excerpt": "(1-t)(q t;q)_infinity = (t;q)_infinity, (t;q^{-1})_infinity = 1/(q t;q)_infinity",
           "match": "The shift and inversion identities, verbatim."
         }
       ],
@@ -1845,19 +1817,16 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, equation (eq.FABC), printed p. 35",
-          "excerpt": "f_{A,B,C}(q) := q^C f_{A,B}(q) := q^C sum_{m in Z_{>=0}^r} q^{(1/2) m^t A m + Bm}/((q)_{m_1} ... (q)_{m_r}), where A=(a_ij) is a symmetric positive definite r x r matrix with rational entries.",
           "match": "The definition, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 1, equation (eq.FABC)",
-          "excerpt": "F_Q(q) = F_{A,B,C}(q) = sum_{n in Z_{>=0}^N} q^{Q(n)}/((q)_{n_1} ... (q)_{n_N}) in Z((q^{1/d})), where Q(n) = (1/2) n^t A n + Bn + C and d is any denominator of Q.",
           "match": "The Puiseux series statement with the denominator, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, the list of modular cases, printed p. 35",
-          "excerpt": "apart from the two Rogers-Ramanujan cases (A,B,C)=(2,0,-1/60) or (2,1,11/60), only five further cases (1,0,-1/48), (1,+-1/2,1/24), (1/2,0,-1/40) and (1/2,1/2,1/40) were known for which f_{A,B,C} is modular, and it was later proved that these are in fact the only ones.",
           "match": "The complete rank one list, verbatim."
         }
       ],
@@ -1977,13 +1946,11 @@
         {
           "sourceId": "gz",
           "locator": "Section 2, equation (eq.Dmz)",
-          "excerpt": "the cyclic quantum dilogarithm function D_zeta(x) = product_{t=1}^{m-1}(1-zeta^t x)^t in Q(zeta)[x] where zeta is a primitive mth root of unity. The function that we will actually use is D_zeta(x)^{1/m} when |x|<1, where the mth root is defined by using the principal part of the logarithm of ...",
           "match": "The definition and the branch convention, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 4.2, equation (eq.Dzz)",
-          "excerpt": "D_zeta(zeta^{k_i} theta_i) = (theta_i;zeta)_{k_i}^m D_zeta(theta_i)/(1-z_i)^{k_i} = (theta_i;zeta)_{k_i}^m D_zeta(theta_i)/product_j theta_j^{m (A k)_i}, where the first equality follows from the fact that D_zeta(zeta x)/D_zeta(x)=(1-x)^m/(1-x^m) and the second equality follows from the fact ...",
           "match": "The two identities and the explicit dependence on Nahm equation, verbatim."
         }
       ],
@@ -2022,13 +1989,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, paragraph before Theorem 7.1, p. 36 (arXiv v3)",
-          "excerpt": "The full asymptotic expansion of f_{A,B,C}(zeta e^{-h/n}) as h -> 0^+ was calculated in [10] using the Euler-Maclaurin formula, generalizing an earlier result in [37] for the case n=1.",
           "match": "The stage text's 'Euler-Maclaurin estimates'; GZ's proof of Lemma 2.1 exchanges divergent sums formally, and this lemma supplies the remainder."
         },
         {
           "sourceId": "gz",
           "locator": "Section 4.1, proof of Lemma 2.1, p. 6-7 (arXiv v1)",
-          "excerpt": "sum by n = t mod m; definition of B_r(x); definition of Li_{2-r}(z)",
           "match": "The formal chain this lemma makes rigorous."
         }
       ],
@@ -2078,19 +2043,16 @@
         {
           "sourceId": "gz",
           "locator": "Lemma 2.1 and equations (eq.l1), (eq.psi)",
-          "excerpt": "log(q w e^{-nu epsilon/m};q)_infinity = -(1/(m epsilon)) Li_2(z) - (nu/m - 1/2) log(1-z) - (epsilon nu^2/(2m)) z/(1-z) - (1/m) log D_zeta(w) - log(1-w) + psi_{w,zeta}(nu,epsilon), where z = w^m.",
           "match": "The statement, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Proof of Lemma 2.1, Section 4.1",
-          "excerpt": "sum by n = t mod m; definition of B_r(x); definition of Li_{2-r}(z); using the distribution property sum_{t=1}^m Li_r(zeta^t w) = m^{1-r} Li_r(w^m) for the polylogarithm, we see that the r=0 and r=1 terms are given by ...",
           "match": "The four steps of the proof, verbatim from the displayed derivation."
         },
         {
           "sourceId": "gz",
           "locator": "Section 4.2, equation (eq.etae)",
-          "excerpt": "log(1/(q;q)_infinity) = pi^2/(6 epsilon) - (1/2) log(2 pi/epsilon) - epsilon/24 + O(epsilon^K) for all K > 0",
           "match": "The Euler-function case, used as the denominator of the summand."
         }
       ],
@@ -2136,13 +2098,11 @@
         {
           "sourceId": "gz",
           "locator": "Section 4.2, equation (23), p. 7 (arXiv v1)",
-          "excerpt": "the modularity of eta(z) (or alternatively, the Euler-macLaurin formula) implies that when q=e^{-epsilon} with epsilon -> 0, we have: log(1/(q;q)_infinity) = pi^2/(6 epsilon) - (1/2) log(2 pi/epsilon) - epsilon/24 + O(epsilon^K)",
           "match": "The case m = 1; GZ use it for the denominator at q = zeta e^{-epsilon/m}, which needs this node (source issue)."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.2, equations (48)-(49), p. 38 (arXiv v3)",
-          "excerpt": "We need only the special case tau -> tau/(n tau+1), where the transformation law is given by f_n(tau/(n tau+1)) = e((n-3)/24) f_n(tau).",
           "match": "The same modular mechanism, used by CGZ for the Andrews-Gordon sums."
         }
       ],
@@ -2189,19 +2149,16 @@
         {
           "sourceId": "gz",
           "locator": "Proposition 2.2, equation (eq.p1)",
-          "excerpt": "Consider natural numbers n_i satisfying n_i = k_i mod m and write n_i = (1/epsilon) log(1/z_i) + (1/sqrt(epsilon)) x_i ... Then e^{-epsilon Q(n)/m}/prod_i (q)_{n_i} = (epsilon/(2 pi))^{N/2} e^{Lambda/(m epsilon)} prod_i theta_i^{B_i}(1-z_i)^{1/2-1/m} prod_i D_zeta(theta_i)^{-1/m} prod_i ...",
           "match": "The statement, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 4.2, the expansion of the quadratic form",
-          "excerpt": "... it follows that -(epsilon/m) Q(n) = -(1/(2 m epsilon)) log z . log(1-z) + (1/m) B^t log z - (epsilon/m) C - (1/(2m)) x^t A x + (1/(m sqrt(epsilon))) x^t log(1-z) + (1/m) sqrt(epsilon) B^t x. ... The middle term of the last line cancels ...",
           "match": "The cancellation that makes the distinguished solution the peak, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 2, equations (alph) and (eq.rogers)",
-          "excerpt": "Lambda = -sum_{j=1}^N L(z), where L(z) is the Rogers dilogarithm function (shifted by a constant to make L(1)=0), defined for 0<z<1 by L(z) = Li_2(z) + (1/2) log(z) log(1-z) - pi^2/6.",
           "match": "The Garoufalidis-Zagier normalisation of the Rogers dilogarithm, which differs from the CGZ one of HB.3."
         }
       ],
@@ -2243,13 +2200,11 @@
         {
           "sourceId": "gswz",
           "locator": "Section 2.5, equation (eq:bracket)",
-          "excerpt": "For a Q-algebra R, formal Gaussian integration is a map from R[[w,w^3 h^{-1},h]] to R[[h]], defined by applying exp((h/2) sum_{i,j} (Lambda^{-1})_{i,j} d/dw_i d/dw_j) to f(w,h) and evaluating at w = 0.",
           "match": "The definition, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 3, equations (eq.FGI) and (eq.FGI2)",
-          "excerpt": "I_A[f] = (integral e^{-x^t A x/2} f(x) dx)/(integral e^{-x^t A x/2} dx) ~ sum_n (1/(2^n n!)) (Delta_A^n f)(0). In particular, for 1x1 matrices A, I_A[sum_j c_j x^j] ~ sum_l (2l-1)!! c_{2l} A^{-l}.",
           "match": "The same operator with the analytic motivation and the one-variable closed formula, verbatim."
         }
       ],
@@ -2376,13 +2331,11 @@
         {
           "sourceId": "gz",
           "locator": "Section 3, equation (eq.Gab)",
-          "excerpt": "G(Q,alpha) = (1/D^N) sum_{k in (Z/DZ)^N} e(alpha-bar Q(k)), where alpha in Q is prime to D and alpha-bar denotes the reduction of alpha modulo D and D is any strong denominator of Q. The sum on the right is clearly independent of the choice of D.",
           "match": "The definition and the independence, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 4.3, equations (eq.Fcong) and (eq.fQzcomb)",
-          "excerpt": "F_Q(q) = sum_{k in (Z/mZ)^N, k' in (Z/DZ)^N} F_Q^{[k,k']}(q) ... f_Q(alpha + i epsilon/(2 pi m)) ~ G(Q,alpha) sum_{k in (Z/mZ)^N} zeta^{Q(k)-bar} f_{Q,zeta}^{[k]}(epsilon).",
           "match": "The splitting and the resulting formula, verbatim."
         }
       ],
@@ -2498,7 +2451,6 @@
         {
           "sourceId": "gz",
           "locator": "Section 3, equation (13), p. 4 (arXiv v1)",
-          "excerpt": "I_A[f] = (integral e^{-x^t A x/2} f(x) dx)/(integral e^{-x^t A x/2} dx) ~ sum_{n>=0} (1/(2^n n!)) (Delta_A^n f)(0), where Delta_A denotes the Laplacian with respect to the quadratic form x^tAx.",
           "match": "The identity for polynomials (the denominator's domain is printed R instead of R^N)."
         }
       ],
@@ -2538,7 +2490,6 @@
         {
           "sourceId": "gz",
           "locator": "Section 4.3, equations (35)-(36) and the proof of Claim 4, p. 9-10 (arXiv v1)",
-          "excerpt": "Since phi is C^infinity, phi-hat(x)=O(|x|^{-K}) for every K>0 as |x| >> 0. Consequently, for l != 0, each term of the right hand side of (36) is exponentially small and so is the sum for all nonzero l.",
           "match": "The Poisson step; the source states it in one variable and applies it in N variables."
         }
       ],
@@ -2578,7 +2529,6 @@
         {
           "sourceId": "gz",
           "locator": "Section 4.3, Claim 2, equation (32), p. 9 (arXiv v1)",
-          "excerpt": "When lambda < -1/2, then we have: sum_{x in (x^{(0)}+mZ)sqrt(epsilon)} e^{-x^t A-tilde x/m} phi(x,epsilon) ~ sum_{...; |x_i| < epsilon^{lambda+1/2}} e^{-x^t A-tilde x/m} phi(x,epsilon).",
           "match": "The truncation this node justifies (GZ state it without the tail estimate)."
         }
       ],
@@ -2624,13 +2574,11 @@
         {
           "sourceId": "gz",
           "locator": "Section 4.3, Claims 1 to 4, equations (29) and (32)-(34), p. 8-10 (arXiv v1)",
-          "excerpt": "Note that there is a competition of the range of lambda in claims 2 and 3, and it is fortunate that the allowable range is nonempty. All three claims (32)-(34) follow from an application of the Poisson summation formula explained in detail in p.623-625 of [VZ].",
           "match": "The claims, their constraints and the reference; Claim 4's constant is corrected here (source issue)."
         },
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.1, equation (43), p. 36 (arXiv v3)",
-          "excerpt": "f_{A,B}(zeta e^{-h/n}) = mu omega e^{L(xi_A)/nh} (Phi_zeta(h) + O(h^K)) for all K>0 as h -> 0^+",
           "match": "The form of the conclusion the finite-truncation bounds are needed for."
         }
       ],
@@ -2669,7 +2617,6 @@
         {
           "sourceId": "gz",
           "locator": "Theorem 3.1, equation (21), p. 5 (arXiv v1)",
-          "excerpt": "Moreover, we have S_{Q,zeta}(epsilon)^m in F_m[[epsilon]] where F=Q(z_1^{1/d},...,z_N^{1/d}) and F_m is the cyclotomic extension F(zeta) of F.",
           "match": "The statement; the source's proof of Theorem 3.1 does not address it (source issue)."
         }
       ],
@@ -2723,13 +2670,11 @@
         {
           "sourceId": "gz",
           "locator": "Theorem 3.1, equations (eq.FGIII), (eq.CAB), (eq.SQz), (eq.PS)",
-          "excerpt": "e^{-Lambda/(m epsilon)} f_Q(alpha + i epsilon/(2 pi m)) ~ (chi^N/m^{N/2}) c(Q) G(Q,alpha) S_{Q,zeta}(epsilon) as epsilon decreases to 0, where chi = e(binom(m-1,2) alpha/12), c(Q) = det(A-tilde)^{-1/2} prod_i theta_i^{B_i} (1-z_i)^{1/2-1/m}, and S_{Q,zeta}(epsilon)^m is in F_m[[epsilon]].",
           "match": "The theorem, verbatim, with all four displayed ingredients."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, before Theorem 7.1, printed p. 37",
-          "excerpt": "The full asymptotic expansion of f_{A,B,C}(zeta e^{-h/n}) as h tends to 0 from above was calculated in [GZ:asymptotics] using the Euler-Maclaurin formula ... We do not give the complete formula here, but only the simplified form as needed for the applications we will give.",
           "match": "CGZ quote the Garoufalidis-Zagier theorem in simplified form; this node is the full form and the next node is the simplified one."
         }
       ],
@@ -2773,7 +2718,6 @@
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.1, last sentence, p. 36 (arXiv v3)",
-          "excerpt": "Moreover, if Phi_zeta(0)^n != 0, then its image in F_n^x/F_n^{x n} belongs to the chi^{-1} eigenspace.",
           "match": "The eigenspace statement this law yields."
         }
       ],
@@ -2820,19 +2764,16 @@
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.1, equations (43) and (44), p. 36 (arXiv v3)",
-          "excerpt": "Let n be a positive integer coprime to the denominator of A and B. Then for every primitive nth root of unity zeta, we have f_{A,B}(zeta e^{-h/n}) = mu omega e^{L(xi_A)/nh} (Phi_zeta(h) + O(h^K)) for all K>0 as h -> 0^+, where omega^2 in F^x, mu = e(r(n-1)(n-2)/24n)",
           "match": "The theorem as printed; this node adds n odd, makes (44) precise modulo n-th powers, and restricts the fixed mu to integer-valued Q (source issues)."
         },
         {
           "sourceId": "cgz",
           "locator": "Remark 7.3, p. 37",
-          "excerpt": "In the theorem, we do not assert that the power series Phi cannot vanish identically",
           "match": "The non-vanishing caveat."
         },
         {
           "sourceId": "gz",
           "locator": "Theorem 3.1, equations (18)-(21), p. 5 (arXiv v1)",
-          "excerpt": "Fix a rational number alpha whose denominator m is odd and prime to some denominator of Q",
           "match": "The oddness hypothesis that CGZ's quotation drops."
         }
       ],
@@ -2873,7 +2814,6 @@
         {
           "sourceId": "cgz",
           "locator": "Corollary 7.2 and its proof, printed p. 38",
-          "excerpt": "If Phi_zeta(0) is not 0, then the product of the power series Phi_zeta(h) with epsilon^{1/n} for any unit epsilon representing R_zeta(xi_A) belongs to F_n[[h]]. Proof: ... Since Phi_zeta(h)/Phi_zeta(0) is a power series with constant term 1, it follows that Phi_zeta(h)/Phi_zeta(0) is in F_n[[h]].",
           "match": "The corollary and its whole proof, verbatim."
         }
       ],
@@ -2917,7 +2857,6 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.2, equations (45)-(49), pp. 37-38 (arXiv v3)",
-          "excerpt": "By a famous identity of Andrews and Gordon, which reduces to the first Ramanujan-Rogers identity when n=5, we have the product expansion f_n(q) = prod_{k>0, 2k not= 0, +-1 (mod n)} 1/(1-q^k).",
           "match": "(a); (b)-(d) are CGZ (48)-(49) and (47)."
         }
       ],
@@ -2963,7 +2902,6 @@
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.4 and its proof, equations (45)-(52), pp. 37-39 (arXiv v3)",
-          "excerpt": "Let n be odd and eta_zeta be the n-torsion element in B(Q(zeta)^+) defined by (34), where zeta is a primitive nth root of unity. Then R_zeta(eta_zeta) = zeta^2.",
           "match": "The theorem and the structure of its proof; the ordering of the solution and the last display are corrected (source issues)."
         }
       ],
@@ -3006,13 +2944,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, the abuse of terminology, printed p. 35",
-          "excerpt": "(Here and from now on we will allow ourselves the abuse of terminology of saying that a function f(q) is modular if the function f(tau)=f(e^{2 pi i tau}) is invariant under the action of some subgroup of finite index of SL(2,Z).)",
           "match": "The generality that the whole layer exists to support, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Remark 7.6, printed p. 41",
-          "excerpt": "The proof of the theorem would have been marginally shorter if we had assumed that f_{A,B,C} was a modular function on a congruence subgroup, ... should mention that f_{A,B,C}, if modular at all, is expected automatically to be modular for a congruence subgroup, because it has ...",
           "match": "The source explains why it avoids the congruence hypothesis and what is expected instead; the expectation is a conjecture and is not used."
         }
       ],
@@ -3072,7 +3008,6 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "... Then for h tending to 0 from above, hbar = h/(2 pi), and any gamma = (a b; c d) in Gamma, taking epsilon = dh/(1-i c hbar), we find f_{A,B,C}(e^{-epsilon}) = ... = f((b+i hbar)/d) = f_{A,B,C}(zeta e^{-h/d}), where zeta = e(b/d).",
           "match": "The only use the Nahm application makes of this construction: the element gamma of Gamma supplies the cusp b/d and the scaling data, and the radial parameter is transported accordingly."
         }
       ],
@@ -3182,7 +3117,6 @@
         {
           "sourceId": "gz",
           "locator": "Section 7, before Proposition 7.1, p. 13",
-          "excerpt": "we define the valuation v_P(g) in Q of g at P as the smallest exponent of q = e(tau) in the Fourier expansion of (g o gamma)(tau), where gamma in SL(2,Z) is any element such that gamma(infinity) = P. This definition is easily seen to be independent of the choice of gamma.",
           "match": "The only use either source makes of the width: expansions at a cusp in rational powers of q, whose denominators are the widths."
         }
       ],
@@ -3312,13 +3246,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.3, before Theorem 7.5, printed p. 40",
-          "excerpt": "Finally, when we say that F_{A,B,C} is modular, we mean that the function f(tau)=f_{A,B,C}(e(tau)) is invariant with respect to a subgroup of finite index of SL(2,Z).",
           "match": "The exact notion the application uses: invariance of the upper half-plane form under a finite-index subgroup, with the analytic behaviour at the cusps supplied by this layer."
         },
         {
           "sourceId": "cgz",
           "locator": "Remark 7.7, printed p. 41",
-          "excerpt": "... We did not do this since it is easy to see that if a Nahm sum is modular at all, it is actually a modular function, because if it were a modular form of non-zero rational weight k, there would be an extra factor h^{-k} in the right-hand side of (eq.nc2).",
           "match": "Why weight zero is the right generality for the application, verbatim."
         }
       ],
@@ -3463,7 +3395,6 @@
         {
           "sourceId": "gz",
           "locator": "Section 7, before Proposition 7.1, p. 13",
-          "excerpt": "we define the valuation v_P(g) in Q of g at P as the smallest exponent of q = e(tau) in the Fourier expansion of (g o gamma)(tau), where gamma in SL(2,Z) is any element such that gamma(infinity) = P. This definition is easily seen to be independent of the choice of gamma.",
           "match": "The normalised order ord_{g,h}/h is this valuation."
         }
       ],
@@ -3593,7 +3524,6 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "f_{A,B,C}(e^{-epsilon}) = f(i epsilon/(2 pi)) = f((a i epsilon/2 pi + b)/(c i epsilon/2 pi + d)) = f((b+i hbar)/d) = f_{A,B,C}(zeta e^{-h/d}), where zeta = e(b/d)",
           "match": "The transport of the radial parameter to the cusp b/d, which is the only computation with the local parameter that the application performs."
         }
       ],
@@ -3642,13 +3572,11 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "Notice that in this case the number lambda = L(xi_A)/(4 pi^2) must be rational, since the modularity of f(tau)=f_{A,B,C}(e(tau)) implies that the function f(-1/tau) is invariant under some power of T.",
           "match": "The exact consequence the application draws from the growth of a modular function at a cusp: the exponential rate, which is the Rogers dilogarithm of the Bloch class, is forced to be a rational multiple of pi squared."
         },
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, equation (eq.nc2), printed p. 40",
-          "excerpt": "Moreover, if f_{A,B,C} is assumed to be modular, the error term O(epsilon) can be replaced by O(e^{-c/epsilon}) with some c > 0.",
           "match": "The exponentially small error term, which is the second half of what the growth theorem provides."
         }
       ],
@@ -3693,13 +3621,11 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "Then for h -> 0+, hbar = h/2pi, and any gamma = (a b; c d) in Gamma, taking epsilon = dh/(1 - i c hbar), we find f_{A,B,C}(e^{-epsilon}) = f(i epsilon/2pi) = f((a i epsilon/2pi + b)/(c i epsilon/2pi + d)) = f((b + i hbar)/d) = f_{A,B,C}(zeta e^{-h/d}), where zeta = e(b/d)",
           "match": "The first fact; 'any gamma' must be read as gamma with d > 0 (source issue HabiroNahmSeries/E25)."
         },
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "We can also assume that d is prime to M for any fixed integer M, since by intersecting Gamma with the full congruence subgroup Gamma(M), we may assume that Gamma is contained in Gamma(M).",
           "match": "The fourth fact."
         }
       ],
@@ -3742,19 +3668,16 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, the three properties, printed pp. 36 to 37",
-          "excerpt": "(a) The class [X] in B(C) vanishes for all solutions X of the Nahm equations. (b) The special class xi_A in B(C) associated to the solution X^A vanishes. (c) The function f_{A,B,C}(q) is modular for some B in Q^r and C in Q. ... Nahm's conjecture says that (a) implies (c) and (c) implies (b).",
           "match": "The three properties and the conjecture, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 7.1, the two counterexamples, printed p. 37",
-          "excerpt": "(The possible stronger hypothesis that (b) alone might already imply (c) was eliminated in [Zagier] using the 2x2 matrix A=(8 5; 5 4), and the other possible stronger assertion that (c) might require (a) was shown to be false by Vlasenko and Zwegers with the counterexample A=(3/2 1/2; 1/2 3/2).)",
           "match": "Both counterexamples with their matrices, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 1.3, printed p. 5",
-          "excerpt": "... with the implication from the vanishing of the Bloch elements to the modularity of certain Nahm sums not yet having a sufficiently precise formulation ... The conjectural implication from modularity to vanishing of Bloch elements, on the other hand, had a completely precise formulation.",
           "match": "Why only one direction is stated precisely, verbatim."
         }
       ],
@@ -3890,13 +3813,11 @@
         {
           "sourceId": "cgz",
           "locator": "Section 7.3, before Theorem 7.5, printed p. 40",
-          "excerpt": "Finally, when we say that F_{A,B,C} is modular, we mean that the function f(tau)=f_{A,B,C}(e(tau)) is invariant with respect to a subgroup of finite index of SL(2,Z).",
           "match": "The hypothesis the lemma starts from: invariance only, with nothing at the cusps."
         },
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "Notice that in this case the number lambda = L(xi_A)/4 pi^2 must be rational, since the modularity of f(tau)=f_{A,B,C}(e(tau)) implies that the function f(-1/tau) is invariant under some power of T.",
           "match": "The step that needs a finite principal part at the cusp 0, which this lemma supplies; the source does not argue it (source issue HabiroNahmSeries/E22)."
         }
       ],
@@ -3939,13 +3860,11 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40, (53)",
-          "excerpt": "On p. 56 of [37], it is shown that any Nahm sum has an expansion near q = 1 of the form f_{A,B,C}(e^{-epsilon}) = e^{L(xi_A)/epsilon}(K + O(epsilon)) (epsilon -> 0), where K (given explicitly in eq. (29) of [37]) is a non-zero algebraic number some power of which belongs to F = F_A.",
           "match": "Part (a); the node proves it from HB.4 at m = 1 instead of citing Zagier's survey."
         },
         {
           "sourceId": "gz",
           "locator": "Theorem 3.1 and Remark 3.2, pp. 5-6 (the case zeta = 1)",
-          "excerpt": "When zeta = 1, the statement and the proof of Theorem 3.1 is valid when A, B and C have real (but not necessarily, rational) entries.",
           "match": "The m = 1 case used for (a)."
         }
       ],
@@ -3990,13 +3909,11 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40, the display after (53) and (43)",
-          "excerpt": "and now comparing the asymptotic formulas (53) and (43) (with n = d), we find mu e^{L(xi_A)/hd} Phi(h) = e^{L(xi_A)/hd}(K e(lambda c/d) + O(h)) or Phi_zeta(0) = mu^{-1} K e(lambda c/d), with lambda in Q as above. This implies in particular that Phi_zeta(0) != 0",
           "match": "The comparison and both conclusions; the node corrects the phase sign and restores the factors omega and e(C b/d) (source issues HabiroNahmSeries/E19, E22)."
         },
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.1, printed p. 36, (43)",
-          "excerpt": "Let n be a positive integer coprime to the denominator of A and B. Then for every primitive nth root of unity zeta, we have f_{A,B}(zeta e^{-h/n}) = mu omega e^{L(xi_A)/nh}(Phi_zeta(h) + O(h^K))",
           "match": "The right-hand expansion, for f_{A,B} and not f_{A,B,C}, with the factor omega."
         }
       ],
@@ -4035,7 +3952,6 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 41",
-          "excerpt": "Now Corollary 7.2 implies that the rth power of R_zeta(xi_A) has trivial image in F_n^*/F_n^{*n} for infinitely many n, and in view of the injectivity statement in Theorem 1.2 this proves that xi_A is a torsion element in the finitely generated group B(F).",
           "match": "The step of the proof that this lemma isolates, verbatim; the source states it in one sentence and the lemma makes the group-theoretic content explicit."
         }
       ],
@@ -4079,25 +3995,21 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "We can also assume that d is prime to M for any fixed integer M, since by intersecting Gamma with the full congruence subgroup Gamma(M), we may assume that Gamma is contained in Gamma(M).",
           "match": "The shrinking step; the source never says which M is needed, and the node fixes it."
         },
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.1, printed p. 36",
-          "excerpt": "Let n be a positive integer coprime to the denominator of A and B.",
           "match": "The coprimality hypothesis; GZ Theorem 3.1, the proof CGZ cite, also requires the order to be odd."
         },
         {
           "sourceId": "gz",
           "locator": "Theorem 3.1, p. 5",
-          "excerpt": "Fix a rational number alpha whose denominator m is odd and prime to some denominator of Q",
           "match": "The oddness hypothesis dropped in CGZ's quotation (source issue HabiroNahmSeries/E14)."
         },
         {
           "sourceId": "cgz",
           "locator": "Theorem 1.2, printed p. 3",
-          "excerpt": "Theorem 1.2. Suppose that F does not contain any non-trivial nth root of unity. Then there is a map R_zeta : B(F)/nB(F) -> (O_{S,n}^x/O_{S,n}^{xn})^{chi^{-1}} [...] If n is prime to a certain integer M_F depending on F, then the map R_zeta is injective",
           "match": "The two hypotheses on n that the orders must satisfy; Remark 1.4 (p. 3) gives M_F = 6 Delta_F |K_2(O_F)|."
         }
       ],
@@ -4138,7 +4050,6 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "this proves that xi_A is a torsion element in the finitely generated group B(F).",
           "match": "The step this lemma makes precise; the finite generation of B_CGZ(F) is asserted in the source without reference."
         }
       ],
@@ -4185,13 +4096,11 @@
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.5, printed p. 40",
-          "excerpt": "Theorem 7.5. If f_{A,B,C}(tau) is a modular function, then xi_A in B(F_A) is a torsion element.",
           "match": "The theorem; 'modular function' means invariance under a finite-index subgroup (p. 40, before the theorem)."
         },
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, printed p. 40",
-          "excerpt": "Now Corollary 7.2 implies that the rth power of R_zeta(xi_A) has trivial image in F_n^x/F_n^{xn} for infinitely many n, and in view of the injectivity statement in Theorem 1.2 this proves that xi_A is a torsion element in the finitely generated group B(F).",
           "match": "Steps 3 to 5; the exponent r there is the node's s (the source reuses r, which also denotes the rank of A)."
         }
       ],
@@ -4233,13 +4142,11 @@
         {
           "sourceId": "cgz",
           "locator": "Remark 7.7, printed p. 41",
-          "excerpt": "... We did not do this since it is easy to see that if a Nahm sum is modular at all, it is actually a modular function, because if it were a modular form of non-zero rational weight k, there would be an extra factor h^{-k} in the right-hand side of (eq.nc2).",
           "match": "The third item, verbatim."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 1.3, printed p. 5",
-          "excerpt": "This relation conjecturally goes in both directions, but with the implication from the vanishing of the Bloch elements to the modularity of certain Nahm sums not yet having a sufficiently precise formulation to be studied.",
           "match": "The first item, verbatim."
         }
       ],
@@ -4283,25 +4190,21 @@
         {
           "sourceId": "gz",
           "locator": "Section 7, Proposition 7.1, (52), p. 14",
-          "excerpt": "Proposition 7.1. If f_Q(tau) is modular, then for every P in P^1(Q) we have v_P(F_Q) >= C_0(A) (52) with equality when P = 0.",
           "match": "The statement; the node restricts it to the cusps the proof reaches (source issue HabiroNahmSeries/E24)."
         },
         {
           "sourceId": "gz",
           "locator": "Proof of Proposition 7.1, (53)-(54), p. 14",
-          "excerpt": "On the other hand, Theorem 3.1 with zeta = e(P) and n = c imply that f((a+i epsilon)/c) ~ C'' e(i C_0(A)/(c epsilon)) where C'' is a constant, possibly zero. A comparison between (53) and (54) implies inequality (52).",
           "match": "The proof, which uses Theorem 3.1 at the order c."
         },
         {
           "sourceId": "gz",
           "locator": "Section 7, (51), p. 13",
-          "excerpt": "C_0(A) = -L(xi_A)/(2 pi)^2 (51) where L is our normalization of the Rogers dilogarithm given in (8).",
           "match": "The definition, whose sign the node corrects (source issue HabiroNahmSeries/E23)."
         },
         {
           "sourceId": "gz",
           "locator": "Section 7, after Proposition 7.1, (55), p. 14",
-          "excerpt": "As a special case of the proposition, for P = infinity it follows that v_infinity(f_Q) = min_{n in Z^N_{>=0}} Q(n) >= C_0(A) whenever f_Q is modular.",
           "match": "The consequence at infinity, recorded as unproved (gap)."
         }
       ],
@@ -4335,13 +4238,11 @@
         {
           "sourceId": "cgz",
           "locator": "Theorem 1.8 (Nahm's Conjecture), printed p. 6",
-          "excerpt": "If the function f_{A,B,C}(tau) is modular for some A, B and C as above, then xi_A vanishes in the Bloch group of Qbar.",
           "match": "Verbatim (tilde f in the source)."
         },
         {
           "sourceId": "cgz",
           "locator": "Section 1.3, printed p. 6, after Theorem 1.8",
-          "excerpt": "but when we take the image of this Bloch group in the Bloch group of Qbar or C, then the torsion vanishes, because B(Qbar) and B(C) are uniquely divisible [Suslin, Theorem 6.3] and so in particular are torsion free.",
           "match": "The reduction to Theorem 7.5."
         }
       ],
@@ -4383,19 +4284,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, after (28), p. 11",
-          "excerpt": "Here, as usual (x;q)_n = ∏_{j=0}^{n−1}(1−q^j x) and (x;q)_∞^{−1} = ∑_{k=0}^∞ x^k/(q;q)_k.",
           "match": "The formal definition."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.1, eq. (46), p. 19",
-          "excerpt": "log(t;q)_∞ = −∑_{ℓ≥1} t^ℓ/(ℓ(1−q^ℓ))",
           "match": "The logarithmic expansion."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.2, after (62), p. 20",
-          "excerpt": "(1−t)(qt;q)_∞ = (t;q)_∞, (t;q^{−1})_∞ = 1/(qt;q)_∞ in Q(q)[[t]]",
           "match": "The two functional identities."
         }
       ],
@@ -4504,13 +4402,11 @@
         {
           "sourceId": "gswz",
           "locator": "Definition 1.7, eq. (27), Section 1.6, p. 11 (arXiv v2)",
-          "excerpt": "an admissible series is a power series F(t,q) ∈ Q(q)[[t]] satisfying F(t,q) = 1 + O(t) and log F(t,q) = −∑_{0≠n∈(Z≥0)^N} ∑_{ℓ≥1} L_n(q^ℓ)/(ℓ(1−q^ℓ)) t_1^{ℓn_1}···t_N^{ℓn_N}, where L_n(q) ∈ Z[q^{±1}].",
           "match": "The definition, transliterated."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.2, eq. (61), p. 20",
-          "excerpt": "F(t,q) is admissible if and only if F(t,q^{−1}) is admissible.",
           "match": "The involution."
         }
       ],
@@ -4658,19 +4554,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, eqs. (28)-(29), p. 11",
-          "excerpt": "a series F(t,q) is admissible if and only if the unique integers c_{n,i} (generalised Donaldson–Thomas invariants), defined by the equality F(t,q) = ∏_{0≠n∈(Z≥0)^N} ∏_{i∈Z} (q^i t_1^{n_1}···t_N^{n_N};q)_∞^{c_{n,i}}, vanish for all but finitely many i for each fixed n.",
           "match": "Statement (b)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, first paragraph, p. 24",
-          "excerpt": "every F(t,q) ∈ Z((q))[[t]] satisfying F(0,q)=1 has a unique expansion of the form (28) for integers c_{n,i}, where for every n ∈ Z^N_{≥0}−{0}, c_{n,i}=0 is zero for sufficiently negative integers i.",
           "match": "Statement (a); the source's 'induction on the total degree of q^i t^n' is replaced by induction on the t-degree."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.2, eqs. (62)-(64), p. 20",
-          "excerpt": "G(t,q) = F(qt,q)/F(t,q), F^sym(t,q) = F(t,q)F(t,q^{−1}) are integral i.e., both lie in Z[q^{±1}][[t]].",
           "match": "Statement (c)."
         }
       ],
@@ -4708,7 +4601,6 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, eq. (30), p. 11",
-          "excerpt": "An admissible series F(t,q) can be expanded at each root of unity and defines a collection of series in t^{1/m} = (t_1^{1/m},…,t_N^{1/m}) given by Φ_m(t,x) = F(t^{1/m},ζ_m+x).",
           "match": "The construction."
         }
       ],
@@ -4795,19 +4687,16 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.3, eq. (68), p. 21",
-          "excerpt": "Φ_m(t,x) ∈ e^{V(t)/(m² log(1+x/ζ_m))} (1/√δ(t)) U_m(t) (1 + x t^{1/m} Q[ζ_m][[t^{1/m}]][[x]]), Φ_m(0,x) = 1.",
           "match": "The statement; U_m is used with the corrected (67)."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.2, eqs. (65)-(67), p. 21",
-          "excerpt": "u_m(t) = −((m−1)/(2m)) ∑ L_n(1)Li_1(t^n) + ((1−m)/m) ∑ L′_n(1)Li_1(t^n) − ∑_{j=1}^{m−1} ∑ L_n(ζ_m^j)/(1−ζ_m^j) ∑_{k∈Z/mZ} ζ_m^{−kj}/m Li_1(ζ_m^k t^{n/m}) ∈ tQ[[t]].",
           "match": "The printed definition; the first sign and the membership are corrected (E29)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 2.3, eq. (71), p. 21",
-          "excerpt": "−L_n(q^ℓ)/(ℓ(1−q^ℓ)) = ζ_m L_n(1)/(ℓ²) (1/x) + (L_n(1)/(2ℓ²) − L_n(1)/(2ℓ) + L′_n(1)/ℓ) + O(x)",
           "match": "The expansion from which the corrected sign follows."
         }
       ],
@@ -4924,13 +4813,11 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.5, eq. (75), p. 22",
-          "excerpt": "If F(t,q) is admissible, then for all primes p and positive integers m not divisible by p we have log(F(t^{p/m},q^p)) − p log(F(t^{1/m},q)) ∈ (p/x) Z_(p)[t^{1/m},ζ_m][[t,x]], q = ζ_m + x.",
           "match": "The statement."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.2, eq. (74), p. 22",
-          "excerpt": "Expanding near q=ζ_m+x as in (30) with (m,p)=1, we see that the left-hand side, even after division by p, is p-integral.",
           "match": "The proof."
         }
       ],
@@ -4973,19 +4860,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, eq. (31), p. 12",
-          "excerpt": "F_A(t,q) = ∑_{n∈Z^N_{≥0}} (−1)^{diag(A)·n} q^{(1/2)(n^tAn + diag(A)·n)} / ((q;q)_{n_1}···(q;q)_{n_N}) t_1^{n_1}···t_N^{n_N}",
           "match": "The definition."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, eq. (33), p. 13",
-          "excerpt": "F_A(t,q) − F_A(σ_j t,q) = (−1)^{A_{j,j}} t_j q^{A_{j,j}} F_A(∏_{i=1}^N σ_i^{A_{i,j}} t, q), j=1,…,N",
           "match": "The q-difference system."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.3, eq. (78), p. 23",
-          "excerpt": "F_A(t,q) = F_{I−A}(t,q^{−1}), which follows easily from the sum definition of F_A(t,q), equation (31) and the elementary fact that (q^{−1};q^{−1})_n = (−1)^n q^{−n(n+1)/2}(q;q)_n.",
           "match": "The reflection."
         }
       ],
@@ -5098,13 +4982,11 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, eqs. (34), (36), p. 13",
-          "excerpt": "1 − z_j(t) = (−1)^{A_{j,j}} t_j ∏_{i=1}^N z_j(t)^{A_{i,j}}, j = 1,…,N, z_j(0) = 1.",
           "match": "The equations; the printed z_j inside the product is corrected to z_i (E36)."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.3, eqs. (76)-(77), p. 23",
-          "excerpt": "the unique solution of the equation 1−z = t(−z)^A in Z[[t]] with z(0)=1 is given by the hypergeometric series z(t) = ∑_{k=0}^∞ (−1)^{(A+1)k} binom(Ak,k)/((A−1)k+1) t^k",
           "match": "The rank-one closed form."
         }
       ],
@@ -5216,19 +5098,16 @@
         {
           "sourceId": "gswz",
           "locator": "Definition 2.11, equations (PhiFGIdef) and (Ikdef)",
-          "excerpt": "We let Phi^FGI_{A,m}(t,x) = sum_{k in (Z/mZ)^N} I_{A,m,k}(t^{1/m},x), where I_{A,m,k}(t,x) is given by a formal Gaussian integral ... with Lambda(t) = -A - diag(z(t)/(1-z(t))).",
           "match": "The definition, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.5, after Definition 2.11",
-          "excerpt": "An important and non-trivial property is that I_{A,m,k}(t,x) is m-periodic in k, so that equation (PhiFGIdef) makes sense. ... as done in [AarhusII] or [GSW]. Note that the exponential prefactor of all I_{A,m,k}(t,x) is independent of k.",
           "match": "The periodicity and the equi-peakedness, verbatim; the source cites two references for the periodicity, which this packet records as an obligation."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.5, equation (eq:Vgen) and after",
-          "excerpt": "The integral is dominated by the leading term given by the exponential of h^{-1} times the function (1/2) w^t A w + sum_j -Li_2(1-e^{m w_j})/m^2 + (w_j/m) log((-1)^A t_j^m/(1-e^{m w_j})), whose critical points are exactly 1/m times the logarithm of z, where z=z(t) is the unique solution to the ...",
           "match": "The critical point identification, verbatim."
         }
       ],
@@ -5346,13 +5225,11 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.6, eq. (32), p. 12",
-          "excerpt": "F_{A,m,k}(t,q) = ∑_{n∈k+mZ^N_{≥0}} (−1)^{diag(A)·(n−k)} q^{(1/2)(n^tAn−k^tAk)+(1/2)diag(A)·(n−k)} / ((q^{k_1+1};q)_{n_1−k_1}···(q^{k_N+1};q)_{n_N−k_N}) t_1^{n_1−k_1}···t_N^{n_N−k_N}.",
           "match": "The definition."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 8, eq. (165), p. 35",
-          "excerpt": "∑_{ℓ=0}^m (−1)^ℓ q^{−ℓ(ℓ−1)/2} binom(m,ℓ)_{q^{−1}} σ_j^ℓ(t^k F_{A,m,k}(t,q)) = (−1)^{Am(m+1)/2} q^{Am(m+1)/2} t^m σ^{Am}(t^k F_{A,m,k}(t,q))",
           "match": "The system; sign corrected to (−1)^{Am} (E33)."
         }
       ],
@@ -5440,7 +5317,6 @@
         {
           "sourceId": "gswz",
           "locator": "Section 2.5, after Definition 2.11, p. 30",
-          "excerpt": "An important and non-trivial property is that I_{A,m,k}(t,x) is m-periodic in k, so that equation (117) makes sense. This follows from the definition of I_{A,m,k}(t,x) and a simple change of coordinates in the Gaussian integration as done in [AarhusII] or [GSW].",
           "match": "The statement; its proof is the packet's existing gap."
         }
       ],
@@ -5482,13 +5358,11 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.15, equation (PhiFGIAshift)",
-          "excerpt": "For a positive integer m and residue class k in {0,...,m-1}^N, the function t^k CS_{A,m,k}(t,q) defined in equation (FGIcong) satisfies the q-difference equations ... where sigma_j t := (t_1,...,q t_j,..., t_N).",
           "match": "The statement, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 2.15, equation (SAshift)",
-          "excerpt": "From the definition of I_{A,m,k}(t,x) and a simple change of coordinates in the Gaussian integration ... it is easy to see for l in (Z/mm'Z)^N that I_{A,l}(t,x) satisfies I_{A,mm',l}(t,x) - I_{A,mm',l}(sigma_j t,x) = (-1)^{A_{j,j}} t_j q^{A_{j,j}} I_{A,mm',l-delta_j}(prod_i sigma_i^{A_{i,j}} t, x)",
           "match": "The first-order relation for the integrals, verbatim."
         }
       ],
@@ -5523,7 +5397,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 8, after (166), p. 36",
-          "excerpt": "the fact that det(Λ^{−1})=O(t) dominates the t^{−1} appearing from the denominators of Li_{≤0}(z) shows that CS_{A,m,k}(t,ζ_{mm′}+x)∈Q[ζ_{mm′}]((x))[[t]].",
           "match": "The statement; the argument is a gap."
         }
       ],
@@ -5566,19 +5439,16 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 8, eq. (163), p. 35",
-          "excerpt": "For every symmetric matrix A with integer entries, positive integer m and residue class k∈{0,…,m−1}^N, we have: F_{A,m,k}(t^{1/m},q) = CS_{A,m,k}(t,q), q = ζ_{mm′}+x, for any positive integer m′",
           "match": "The refined form (restricted to m' prime to m)."
         },
         {
           "sourceId": "gswz",
           "locator": "Theorem 3, eq. (38), p. 13",
-          "excerpt": "For every symmetric matrix A with integer entries we have: Φ_A(t,q) = Φ^FGI_A(t,q).",
           "match": "The form in the introduction."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 8, eqs. (164)-(166), pp. 35-36",
-          "excerpt": "The proof in the general case is identical using equation (137), and is omitted.",
           "match": "Only N = 1 is written out."
         }
       ],
@@ -5623,7 +5493,6 @@
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, eqs. (35)-(37), p. 13",
-          "excerpt": "S = Z[t^{±1}, z^{±1}(t), δ(t)^{−1/2}]/(1−z(t)−(−1)^A t z(t)^A) … is the discriminant of the t-deformed Nahm equations, so that (after inverting 2) S is an étale Z[t]-algebra.",
           "match": "The ring and the étaleness claim."
         }
       ],
@@ -5721,25 +5590,21 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.12, eq. (123), p. 31",
-          "excerpt": "log Φ^FGI_{A,m}(t,x) ∈ V^FGI(t)/(m² log(1+x/ζ_m)) − (1/2) log δ^FGI(t) + log U^FGI_m(t) + x S^{(m)}_Q[[x]] and δ^FGI(t) ∈ S and m^{Nm} U^FGI_m(t)^{2m} ∈ S^{(m)}.",
           "match": "The statement."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.5, eqs. (121)-(122), p. 31",
-          "excerpt": "U^FGI_m(t) = (1/m^N) ∏_{j=1}^N ((1−z_j)D_{ζ_m}(1))/((1−z_j^{1/m})D_{ζ_m}(z_j^{1/m})) ∑_{k∈(Z/mZ)^N} ζ_m^{(1/2)diag(A)·k} t^{k/m} z^{Ak/m+diag(A)(1/(2m)−1/2)} / ((−ζ_m)^{−(1/2)k^tAk} ∏_j (ζ_m z_j^{1/m};ζ_m)_{k_j})",
           "match": "The printed constant; its phase is corrected (E30)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 2.12, eqs. (124)-(125), p. 31",
-          "excerpt": "To see that a factor of m cancels we use D_{ζ_m}(1)^{24m} = m^{12m}, which follows from properties of the multiplier system of the Dedekind η-function",
           "match": "The appeal replaced by the HB.2 import."
         },
         {
           "sourceId": "gswz",
           "locator": "Corollary 3.12, p. 51",
-          "excerpt": "For m prime to ∆, the constants U^FGI_m(1) from equation (121) are ∆-integral.",
           "match": "Context only; it does not assert that m^{Nm} is necessary."
         }
       ],
@@ -5783,25 +5648,21 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.6, eq. (79), p. 23",
-          "excerpt": "For every integral symmetric N×N matrix A, there exists a series V(t) = V_A(t) ∈ Q[[t]] such that for all m ∈ Z>0 we have log(F_A(t,ζ_m+x)) = ζ_m V(t^m)/(m²x) + O(x^0).",
           "match": "The statement."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.3, eq. (80), p. 23",
-          "excerpt": "V_A(t) = −Li_2(1−z(t)) − (A/2) log(z(t))² = ∑_{k=1}^∞ (−1)^{(A+1)k} binom(Ak,k)/(Ak²) t^k.",
           "match": "The rank-one closed form (stated there for A ∈ Z>0)."
         },
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.9, eq. (95), p. 26",
-          "excerpt": "Then for all m>0 and all k∈{0,…,m−1}^N, we have that log(F_{A,m,k}(t,ζ_m+x)) = ζ_m V(t^m)/(m²x) + O(x^0).",
           "match": "The congruence version."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 2.7, proof of Lemmas 2.6 and 2.9, p. 36",
-          "excerpt": "These follow from Theorem 8 and the explicit formula of CS_{A,m,k}(t,q) given in equation (118).",
           "match": "The proof, and the dependency order."
         }
       ],
@@ -5837,7 +5698,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, eqs. (83)-(84) and (88)-(89), pp. 24-25",
-          "excerpt": "1−G_j(t,q) = (−q)^{A_{j,j}} t_j ∏_{k=0}^{A_{j,j}−1} G_j(σ_j^k ∏_{i≠j} σ_i^{A_{i,j}} t, q)",
           "match": "The printed system, corrected here."
         }
       ],
@@ -5875,7 +5735,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, (84)-(85), p. 24",
-          "excerpt": "it follows by induction on the powers of t that G(t,q) ∈ Z[q^{±1}][[t]]. Therefore, we find as in equation (27) that −log(F(t,q)) = ∑ L_n(q^ℓ)/(ℓ(1−q^ℓ)) t^{nℓ}, with L_n(q) ∈ ((1−q)/(1−q^n)) Z[q^{±1}].",
           "match": "The step this lemma makes explicit."
         }
       ],
@@ -5911,7 +5770,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, before (87), p. 24",
-          "excerpt": "If L_N(q) does not belong to Z[q^{±1}], it must have a pole at ζ_a for some a|N and a>1 with residue α≠0.",
           "match": "The fact, with its justification made explicit."
         }
       ],
@@ -5959,19 +5817,16 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 6, eq. (81), p. 24",
-          "excerpt": "Suppose that A is an integral symmetric N×N matrix. Then the unique c_{n,i} ∈ Z such that F_A(t,q) = … = ∏_{0≠n∈(Z≥0)^N} ∏_{i∈Z} (q^i t^n;q)_∞^{c_{n,i}} have finite support, i.e. for fixed n all but finitely many i satisfy c_{n,i}=0.",
           "match": "The theorem."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, eqs. (82)-(89), pp. 24-25",
-          "excerpt": "If L_N(q) does not belong to Z[q^{±1}], it must have a pole at ζ_a for some a|N and a>1 with residue α≠0.",
           "match": "The contradiction step; (87) sign and (89) system corrected (E31, E34)."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.2, eq. (236), p. 64",
-          "excerpt": "The DT invariant of (27) c_{n,i} is non-zero only for 3n+1 ≤ i ≤ n²+n+1 (and exceptionally, for c_{1,3}=1) and satisfy the positivity c_{n,i} ∈ N.",
           "match": "The rank-one instance."
         }
       ],
@@ -6018,19 +5873,16 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.7, eq. (90), p. 25",
-          "excerpt": "Every F(t,q)∈1+tZ[1/m]((q))[[t]] can be written uniquely in the form F(t,q) = exp(−∑_{n=1}^∞ ∑_{(ℓ,m)=1} L_n(q^ℓ)/(ℓ(1−q^{mℓ})) t^{nℓ}) with L_n(q)∈Z[1/m]((q)), and conversely.",
           "match": "Statement (a) for N = 1."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 2.7, eq. (92), p. 25",
-          "excerpt": "exp(−∑_{(ℓ,m)=1} q^{kℓ}/(ℓ(1−q^{mℓ})) t^{nℓ}) = ∏_{d|m} (q^{dk}t^{dn};q^{dm})_∞^{μ(d)/d} ∈ 1+tZ[1/m]((q))[[t]]",
           "match": "The Moebius product identity."
         },
         {
           "sourceId": "gswz",
           "locator": "Definition 2.8, eq. (93), p. 26",
-          "excerpt": "L_n(q) ∈ Z[1/m, q^{±1}, Φ_d(q)^{−1} | d ≢ 0 (mod m)] and L_n(ζ_m) ∈ Z[1/m]",
           "match": "The printed definition; its ring is enlarged here (E28)."
         }
       ],
@@ -6140,7 +5992,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 7, after (105), p. 27",
-          "excerpt": "From Lemma 2.9, the residues at ζ_c are given universally by ζ_c V(t^c) c^{−2} for all c∈mZ>0",
           "match": "The claim, with its proof supplied."
         }
       ],
@@ -6186,19 +6037,16 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 7, eq. (96), p. 26",
-          "excerpt": "Fix an integral symmetric N×N matrix A, a positive integer m and a residue class k∈{0,…,m−1}^N. Then the series F_{A,m,k}(t^{1/m},q) ∈ 1+tZ[1/m]((q))[[t]] is m-admissible.",
           "match": "The printed theorem, false with the ring of (93); stated here with the corrected ring (E28)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 7, eqs. (101)-(103), p. 27",
-          "excerpt": "Notice that −(q^{mn+1−m};q)_{m−1}, never contains Φ_d(q) with d≡0 (mod m) as a factor and therefore, by induction, we see that G_{A,m,k}(t,q) ∈ q^k+t^mZ[q^{±1},Φ_d(q):d≢0 (mod m)][[t^m]].",
           "match": "The ratio step (correct; Φ_d there means Φ_d^{-1})."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 7, after (105), p. 27",
-          "excerpt": "If L_{n_0}(q)∉Z[1/m,q^{±1},Φ_d(q):d≢0 (mod m)] it must have a pole at q=ζ_{am} for some 1<a. From Lemma 2.9, the residues at ζ_c are given universally by ζ_c V(t^c) c^{−2} for all c∈mZ>0",
           "match": "The residue step; it fails for gcd(a,m) > 1."
         }
       ],
@@ -6239,13 +6087,11 @@
         {
           "sourceId": "gswz",
           "locator": "Section 2.6, opening",
-          "excerpt": "In this section we outline an independent proof of Lemma 2.12 of Section 2.5 using instead of formal Gaussian integration, the unique solution to the system of linear q-difference equations (PhiAshift). ... This is essentially the WKB method for linear q-difference equations",
           "match": "The method and the difficulty it overcomes, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.16 and Corollary 2.17",
-          "excerpt": "The coefficients b_k(t) defined by equation (eq:bkdef) exists and satisfy the properties: b_1(t) = A(A-1)X^2/2, and for k>1, b_k(t) in X Delta Q[X]. ... The coefficients c_k(t) in the function F(t;h) exists and for k in Z_{>0}, c_k(t) in X Q[X].",
           "match": "The two statements, verbatim."
         }
       ],
@@ -6283,7 +6129,6 @@
         {
           "sourceId": "gswz",
           "locator": "Section 2.7, eq. (167), p. 36",
-          "excerpt": "A consequence of Theorem 8 is that the power series defined in equations (65), (94), (66), and (67) for the admissible series and those defined in equations (116), (120), and (121) for the FGI series coincide: δ = δ^FGI, V = V^FGI, U_m = U^FGI_m.",
           "match": "The theorem, with (67) and (121) corrected."
         }
       ],
@@ -6323,7 +6168,6 @@
         {
           "sourceId": "gswz",
           "locator": "Corollary 2.18 and proof, eqs. (168)-(169), p. 36",
-          "excerpt": "We have t_j ∂_{t_j} V(t) = log z_j(t), j=1,…,N. Hence V determines z_j for j=1,…,N, and consequently the Hessian ∂²V(t)/(∂z_i∂z_j) = −A − diag(z(t)/(1−z(t))).",
           "match": "(168) as printed; (169) corrected to the logarithmic Hessian (E32)."
         }
       ],
@@ -6366,7 +6210,6 @@
         {
           "sourceId": "gswz",
           "locator": "Section 4.2, equations (Fexdef), (Frec), (DTvalues), (z3), (zfew3), (V3), (delta3), (Grec), (gexp)",
-          "excerpt": "F(t,q) = sum_k (-1)^k q^{3k(k+1)/2} t^k/(q;q)_k satisfies F(t,q) - F(qt,q) + q^3 t F(q^3t,q) = 0. The DT invariant c_{n,i} is non-zero only for 3n+1 <= i <= n^2+n+1 (and exceptionally, for c_{1,3}=1) ... z(t) = 1 + t + 3t^2 + 12t^3 + 55t^4 + ... V(t) = t + 5t^2/4 + 28t^3/9 +",
           "match": "The worked example's displays, verbatim in part."
         }
       ],
@@ -6399,7 +6242,6 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.10, eq. (108), p. 28",
-          "excerpt": "Fix an m-admissible series F(t,q). For all primes p and positive integers m′ with (mm′,p)=1, we have log(F(t^{p/m′},q^p)) − p log(F(t^{1/m′},q)) ∈ (p/x) Z_(p)[t^{1/mm′},ζ_{mm′}][[t,x]], q=ζ_{mm′}+x.",
           "match": "The statement, restricted to gcd(m, m') = 1."
         }
       ],
@@ -6434,7 +6276,6 @@
         {
           "sourceId": "gswz",
           "locator": "Corollary 2.4, p. 22",
-          "excerpt": "(a) V^{(1)}=V^{(2)} if and only if L_n^{(1)}(1)=L_n^{(2)}(1) for all n ≥ 1. (b) F^{(1)}=F^{(2)} if and only if V^{(1)}=V^{(2)}, δ^{(1)}=δ^{(2)} and U_m^{(1)}=U_m^{(2)} for all m ≥ 1. (c) F^{(1)}=F^{(2)} if and only Φ^{(1)}_m = Φ^{(2)}_m for some (and hence for every) m ≥ 1.",
           "match": "The corollary."
         }
       ],
@@ -6476,19 +6317,16 @@
         {
           "sourceId": "gswz",
           "locator": "§1.7, after (36), p. 13 (arXiv v2)",
-          "excerpt": "is the discriminant of the t-deformed Nahm equations, so that (after inverting 2) S is an étale Z[t]-algebra.",
           "match": "The étaleness that gives the unique Frobenius lift."
         },
         {
           "sourceId": "gswz",
           "locator": "§1.7, after (41), p. 14",
-          "excerpt": "The specialisation t = 1 is compatible with the Frobenius endomorphism φp(t) = t^p of the p-completions of the above rings.",
           "match": "The Frobenius the source uses without constructing it."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 2.13, before (133), p. 31",
-          "excerpt": "Since z is a unit, there exists η = η(z) ∈ S_p^(1) such that φp(z) = z^p e^{pη}.",
           "match": "The property used in Lemma 2.13."
         }
       ],
@@ -6605,19 +6443,16 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.13, (128), p. 31 (arXiv v2; same in v1)",
-          "excerpt": "For all primes p and positive integers m with (m, p) = 1, we have log(Ω^FGI_{A,m,k}(t^p, q^p)) − p log(Ω^FGI_{A,m,k}(t, q)) ∈ x^{−1} S_p^(m)[1/p, z^{1/m}][[x]], q = ζm + x.",
           "match": "The statement (printed Ω^FGI; the TeX macro is \\CS)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 2.13, (130)-(135), pp. 31-32",
-          "excerpt": "Since z is a unit, there exists η = η(z) ∈ S_p^(1) such that φp(z) = z^p e^{pη}.",
           "match": "The key step; the signs in (132)-(135) are corrected in source issue E60."
         },
         {
           "sourceId": "gswz",
           "locator": "Remark 2.14, (136), p. 32",
-          "excerpt": "If U^FGI_m(t) is a p-unit then we can lift the statement of equation (128) to log(f^FGI_A(t^p, q^p)) − p log(f^FGI_A(t, q)) ∈ x^{−1} S_p^(m)[1/p][[x]], q = ζm + x.",
           "match": "The lifting remark."
         }
       ],
@@ -6660,13 +6495,11 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 4, (39), p. 14 (arXiv v2; same in v1)",
-          "excerpt": "Fix a symmetric matrix A with integer entries, a positive integer m and an m-congruence class k ∈ {0, . . . , m − 1}^N. Then, for every prime p with (m, p) = 1, we have: log(FA,m,k(t^{p/m}, q^p)) − p log(FA,m,k(t^{1/m}, q)) ∈ (p/x) S^(m)[z(t)^{1/m}]∧p[[x]], q = ζm + x.",
           "match": "The theorem."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 4, (170), pp. 36-37",
-          "excerpt": "Theorem 8 together with Lemmas 2.10 and 2.13 imply the coefficients of x in equation (39) are in Z[t^{1/m}, ζm][[t]] ∩ S_p^(m)[1/p, z^{1/m}]. To complete the proof we will show that Z[t^{1/m}, ζm][[t]] ∩ S_p^(m)[1/p, z^{1/m}] ⊆ S_p^(m)[z^{1/m}].",
           "match": "The structure of the proof; the inclusion is argued only in outline (E59)."
         }
       ],
@@ -6713,19 +6546,16 @@
         {
           "sourceId": "gswz",
           "locator": "§1.7, the paragraph before Theorem 5, p. 14 (arXiv v2)",
-          "excerpt": "we define HR,ξ|∆ to denote the set of collections of series indexed by roots of unity of order prime to ∆ that satisfy (13) for all positive integers m and primes p such that (pm, ∆) = 1. When ξ = 0, we have HR,0|∆ = HR|∆.",
           "match": "The restricted module; '(13)' is read as the conditions of Definition 1.4 (HabiroNumberFields/E25)."
         },
         {
           "sourceId": "gswz",
           "locator": "Definition 1.4, (23)-(24), p. 10",
-          "excerpt": "such that under the canonical map K → Kp we have (fm(x))m≥1,(m,p)=1 ∈ HR∧p,ξ, and the following gluing condition for γ ∈ Z>0 is satisfied: f(q^γ)^γ f(q^−1) ∈ HR[1/γ]|γ",
           "match": "The global module, imported."
         },
         {
           "sourceId": "gswz",
           "locator": "Remark 1.9, p. 15",
-          "excerpt": "A stronger statement of the above theorem is probably true in HR[δ−1/2],ξ without including ∆, and in fact follows if Theorem [10, Thm. 1.6] holds for any m ∈ Z.",
           "match": "What the restriction costs."
         }
       ],
@@ -6767,7 +6597,6 @@
         {
           "sourceId": "gswz",
           "locator": "§1.7, (40), p. 14",
-          "excerpt": "The t = 1 specialisation refers to the ring homomorphism S = Z[t±, z±1(t), δ(t)−1/2]/(1 − z(t) − (−1)A t z(t)A) → R[δ−1/2] = Z[z±1, δ−1/2]/(1 − z − (−1)A zA)",
           "match": "The map, made precise."
         }
       ],
@@ -6871,19 +6700,16 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 5, first paragraph, §3.3, p. 43 (arXiv v2; same text in v1)",
-          "excerpt": "the constant term of fA,z,m(x) is εm(ξ)^{1/m} times an element of K[ζm]. For m prime to ∆ (where ∆ includes the primes 2 and 3 and finitely many other primes that depend only on the number field K), this follows from Theorem 1.6 and equation (14) of [10, Thm.1.6] combined with Hutchinson [31].",
           "match": "The claim and its cited inputs; the factor δ^{-1/2} is missing and CGZ's (14) is the wrong display (source issue E46)."
         },
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.12, equation (123), p. 30",
-          "excerpt": "log f^FGI_{A,m}(t, x) ∈ V^FGI(t)/(m² log(1 + x/ζm)) − ½ log δ^FGI(t) + log U^FGI_m(t) + x S^(m)_Q[[x]]",
           "match": "The constant term after the principal part is removed is δ^{-1/2}U_m."
         },
         {
           "sourceId": "cgz",
           "locator": "§1.2, Theorem 1.6 and (12)-(13), pp. 4-5 (arXiv v3; same numbering in v1, v2)",
-          "excerpt": "Theorem 1.6. For n prime to MF, the map Rζ equals c^γ_ζ for some γ ∈ (Z/nZ)×.",
           "match": "The comparison GSWZ invoke; with (12) (Theorem 7.4) and Hutchinson's proof of (13) it gives γ = 2."
         }
       ],
@@ -6932,13 +6758,11 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 5, second paragraph, (211)-(213), p. 43 (arXiv v2; same in v1)",
-          "excerpt": "Secondly, we will prove that for a system of q-difference equations associated to the combination in equation (24) there is a unique solution in formal power series in t. We will explicitly describe the case when N = 1.",
           "match": "The argument; (212)-(213) corrected as in E7."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 5, third paragraph, p. 44",
-          "excerpt": "we see that ψ(γ)A,µ,ν(t^{1/m}, ζm + x) ∈ S_p^(m)[[x]], for all primes p prime to ∆ and m prime to γ. Therefore, ψ(γ)A,µ,ν(t^{1/m}, ζm + x) ∈ S^(m)[[x]].",
           "match": "The descent; the conclusion is S^(m)[1/∆] (E63)."
         }
       ],
@@ -6984,13 +6808,11 @@
         {
           "sourceId": "gswz",
           "locator": "§1.7, after (41), p. 14 (arXiv v2; same in v1)",
-          "excerpt": "Fixing a prime p prime to ∆, V(t) specialises under t = 1 to Dp(ξ). When t = 1, V(t^p) = φp V(t) specialises to Dp(φp ξ) = φp Dp(ξ), where φp now reduces to the Frobenius endomorphism of Kp.",
           "match": "The identity; asserted without proof (E54)."
         },
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.13 proof, (130) and (132), pp. 31-32",
-          "excerpt": "we need to show that V(t^p)/p − pV(t) ∈ pS_p^(1)",
           "match": "The element whose specialisation is compared."
         }
       ],
@@ -7043,13 +6865,11 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 5, (42), p. 14 (arXiv v2; same in v1)",
-          "excerpt": "Fix a symmetric matrix A with integer entries and a non-degenerate solution z of the Nahm equations with associated ξ. Then we have: fA,z(q) ∈ HR[δ−1/2],ξ|∆.",
           "match": "The theorem (printed notation f)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 5, (214) and the last paragraph, p. 44",
-          "excerpt": "Varying over all m prime to ∆ and combining this with the previous result that equation (24) is satisfied, we conclude that fA,z(q) ∈ HR[δ−1/2],ξ|∆.",
           "match": "The conclusion of the proof."
         }
       ],
@@ -7096,13 +6916,11 @@
         {
           "sourceId": "gswz",
           "locator": "Remark 3.11",
-          "excerpt": "In fact, the specialisation t=q^nu for nu in Z^N (i.e., t_j=q^{nu_j} for integers nu_j) defines an element Phi_{A,z,nu}(q) in H_{R[1/sqrt delta],xi}|_Delta. The proof is identical to the proof of Theorem 5 and is omitted.",
           "match": "The statement and the omitted proof, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.7, after Corollary 1.11",
-          "excerpt": "Keeping in mind that the Habiro ring H_R of a number field K is a rank r module over H_{Z[1/Delta]}, where r=[K:Q], the above constructions presumably give a spanning set for H_R at the generic point of H.",
           "match": "The expectation about the span, verbatim, recorded as an expectation."
         }
       ],
@@ -7203,25 +7021,21 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 3.1",
-          "excerpt": "If z in R^wedge_p and |z|_p = 1 and |z-1|_p >= 1 then D_p(z) in p^2 R^wedge_p.",
           "match": "The first statement, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Proposition 3.3, equation (eq.xiz)",
-          "excerpt": "For every positive integer s, we have Span_{Z_p}{p^{-2} D_p(zeta) : zeta in mu(Q_{p^s})} = Z_{p^s}.",
           "match": "The second statement, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Theorem 9",
-          "excerpt": "Assume p>3. We have a Z_p-linear isomorphism D_p from K_3(K_p;Z_p) to p^2 O_{K_p}, and K_3(K_p;Z_p) is generated as a Z_p-module by the classes of the roots of unity.",
           "match": "The third statement, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 3.1, the finite polylogarithm",
-          "excerpt": "Although the p-adic polylogarithm Li_n is a transcendental function for n>0, its modulo p reduction can be described by a rational function, the finite polylogarithm function introduced by Kontsevich: li_{n,p}(z) = sum_{k=1}^{p-1} z^k/k^n.",
           "match": "The finite polylogarithm, verbatim."
         }
       ],
@@ -7264,7 +7078,6 @@
         {
           "sourceId": "gswz",
           "locator": "Corollary 1.11(b), p. 15, and proof of Corollary 1.11, p. 44",
-          "excerpt": "To replace HR[1/√δ]|∆ by HR[1/√δ], note the surjective map K3(K) → B(K) of Suslin (see e.g., [52, Eqn.(1.1)]). Hence, if rξ = 0, then the image of ξ in the Bloch group can be written as a sum of 5-term relations in the Bloch group.",
           "match": "The two steps of the proof."
         }
       ],
@@ -7308,7 +7121,6 @@
         {
           "sourceId": "gswz",
           "locator": "§1.7, after Corollary 1.11, p. 15",
-          "excerpt": "The converse direction follows from the fact that the vanishing of the Bloch-Wigner dilogarithms of all complex embeddings of an element of the Bloch group implies torsion, or from the fact that the triviality of the unit εm(ξ) for all but finitely m implies torsion.",
           "match": "The source's converse argument; it needs the non-vanishing hypothesis made explicit here (E56)."
         }
       ],
@@ -7351,7 +7163,6 @@
         {
           "sourceId": "gswz",
           "locator": "Remark 1.9",
-          "excerpt": "A stronger statement of the above theorem is probably true in H_{R[delta^{-1/2}],xi} without including Delta ... under the action of the Galois automorphism of R[delta^{-1/2}] sending sqrt(delta) to -sqrt(delta), the element Phi_{A,z} lives in the -1-eigenspace.",
           "match": "The opening of the remark, verbatim: the stronger statement without Delta and the sign under the Galois automorphism sqrt(delta) -> -sqrt(delta); the remark goes on to the other items, including rational A at the cost of a larger Delta."
         }
       ],
@@ -7397,13 +7208,11 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 5, p. 44",
-          "excerpt": "Theorems 4 of Section 1.7 and 8 of Section 2.7 imply that each term Ω^FGI_{A,m,k}(t, x) of equation (126), specialised to t = 1, satisfies equation (39), which is an essentially equation (21) restricted to a disc.",
           "match": "The local condition as GSWZ argue it; made precise by the potential identity."
         },
         {
           "sourceId": "gswz",
           "locator": "Definition 1.3, (20)-(22), p. 9",
-          "excerpt": "log(φp f̂(q^p)/f̂(q)^p) ∈ ∏_{m≥1,(m,p)=1} (p/x) R∧p[ζm][[x]]",
           "match": "Condition (21), with p divided by x."
         }
       ],
@@ -7441,7 +7250,6 @@
         {
           "sourceId": "gswz",
           "locator": "Corollary 1.10 and (43), §1.7, p. 15 (arXiv v2; same in v1)",
-          "excerpt": "The constant term of the expansion of fA,z(q) at m-th roots of unity ζm of order prime to ∆ is in R[ζm]. This is by no means an obvious fact. In the case of the series associated to the 41 knot, it asserts the integrality of the following sum",
           "match": "The corollary, with its ring corrected to R[δ^{-1/2}][ζ_m, ε_m^{1/m}] (E44) and the normalisation of (43) corrected (E45)."
         }
       ],
@@ -7480,7 +7288,6 @@
         {
           "sourceId": "gswz",
           "locator": "Corollary 1.11(a), (44), p. 15, and proof of Corollary 1.11, p. 44",
-          "excerpt": "However, equation (44) does immediately follow from the proof of Theorem 5 of Section 1.7 that showed fA,z satisfies equation (24), which in particular holds when γ = 1.",
           "match": "The proof through (24) at γ = 1."
         }
       ],
@@ -7523,13 +7330,11 @@
         {
           "sourceId": "gswz",
           "locator": "§4.1, (215)-(219), pp. 45-46 (arXiv v2; same in v1)",
-          "excerpt": "where the residue is taken over all w^m = z and z satisfies the equations ti Pi(z) = 1, i = 1, . . . , N.",
           "match": "The construction; z is the chosen (power-series) solution."
         },
         {
           "sourceId": "gswz",
           "locator": "Theorem 11, (221), p. 46",
-          "excerpt": "For every positive integer m and fA of Theorem 3 in Section 1.7, we have ΨA(t, q) = fA(t, q)fA(t, q^{−1}) ∈ Z[ζm][[x]][[t^{1/m}]], q = ζm + x.",
           "match": "The theorem."
         }
       ],
@@ -7573,19 +7378,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 4.1, before Theorem 12",
-          "excerpt": "To get elements of the Habiro ring of a number field, we specialise to t=1 and assume that the equations (tpz) define a reduced zero-dimensional scheme over Q. ... A solution z generates a number field K. Combining Theorem 3, Theorem 11 and Theorem 5, we obtain that ...",
           "match": "The setting and the deduction, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Theorem 12",
-          "excerpt": "For all mu, nu in Z^N, we have Psi_{A,mu,nu,z}(q) in H_R.",
           "match": "The theorem, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.1, after Theorem 12",
-          "excerpt": "Some cases of the above theorem were first proven in the thesis of Ferdinand Wagner.",
           "match": "The attribution, verbatim; that thesis was not read for this packet."
         }
       ],
@@ -7631,7 +7433,6 @@
         {
           "sourceId": "gswz",
           "locator": "Example 4.1",
-          "excerpt": "... Psi_1(x) = (2z^2 + 3z - 9)/23 + ((-6477 z^2 - 5311 z + 4318)/23^4) x^2 + O(x^3) of the element of the Habiro ring R = Z[z,1/23], where z^3-z+1=0 generates the cubic field of discriminant -23. ... Using delta = -2t - t/(1-z) = -t z^2 - t z + (-3t+1) one can compare these equations",
           "match": "The worked example, verbatim, including the three-way comparison."
         }
       ],
@@ -7677,19 +7478,16 @@
         {
           "sourceId": "gswz",
           "locator": "Section 4.3",
-          "excerpt": "The Nahm equations for z=(z_1,z_2) 1-z_1 = z_1^8 z_2^5, 1-z_2 = z_1^5 z_2^4 have eight solutions in two Galois orbits defined over two quartic fields ... belonging to the real embedding of the quartic number field F of type (2,1) and discriminant -5^2 . 19 ...",
           "match": "The example with its status, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.3, the denominators",
-          "excerpt": "... the denominator is actually 2^{77} . 3^{40} . 5^{34} . 19^{52}, so the series is Delta-integral. ... the denominator improves to 5^{33} . 19^{54}, where the remaining primes 5 and 19 are the prime factors of the discriminant -5^4 . 19 of the number field.",
           "match": "The numerical evidence, verbatim; note that the discriminant is printed as -5^2 . 19 earlier in the same section and as -5^4 . 19 here, a discrepancy recorded in the gaps."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.3, the second orbit",
-          "excerpt": "Incidentally, the element corresponding to the second quartic field E is not a torsion element of B(E), and its corresponding series, computed from the asymptotics of F_0(e(-1/tau)) when tau approaches infinity near the real line, does not exhibit any Delta-integrality properties.",
           "match": "The non-example, verbatim."
         }
       ],
@@ -7731,13 +7529,11 @@
         {
           "sourceId": "gswz",
           "locator": "Remark 4.2, equation (3knots)",
-          "excerpt": "Use the matrices A_{4_1} = (1 1; 1 1), A_{5_2} = (2 1 1; 1 1 0; 1 0 1), A_{(-2,3,7)} = (1 0 1; 0 1 2; 1 2 4) in Theorem 5 ... one can use a triangulation of it from SnapPy, choose quad types with Neumann-Zagier matrices (A|B) satisfying that B^{-1}A is ...",
           "match": "The three matrices and the general recipe, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 1.8, the relation with perturbative Chern-Simons theory",
-          "excerpt": "Theorem 5 involves a symmetric matrix with integer entries and a non-degenerate solution z of the Nahm equations. As such, it looks removed from perturbative Chern-Simons theory with complex gauge group. ...",
           "match": "The source itself separates the theorem from the physical interpretation; this node keeps that separation."
         }
       ],
@@ -7778,13 +7574,11 @@
         {
           "sourceId": "gswz",
           "locator": "Section 4.4",
-          "excerpt": "Hensel's lemma states that if a polynomial factors into irreducible polynomials over Z/pZ, then this factorisation lifts to a unique factorisation over Z/p^nZ. ... applying Hensel's lemma to P(x) lifts the Frobenius automorphism R/pR to R_p^wedge isomorphic to R tensor Z_p, where R = ...",
           "match": "The method, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.5, opening",
-          "excerpt": "Every result presented in the paper has been numerically verified. We will describe a select few of the computations that were carried out for two examples associated to the knots for 4_1 and 5_2.",
           "match": "The status of the computations, verbatim."
         }
       ],
@@ -7826,19 +7620,16 @@
         {
           "sourceId": "gswz",
           "locator": "§4.7, Example 4.4, (289)-(290), p. 57 (arXiv v2; same in v1)",
-          "excerpt": "We see that this gives an almost trivial element of the Habiro ring HZ[1/2].",
           "match": "The first example; (289) prints '2 if m ≡ 4 (mod 4)' for m ≡ 0 (mod 4), and (290)'s value there is −2, not 2 (source issue E53)."
         },
         {
           "sourceId": "gswz",
           "locator": "§4.7, Example 4.5, (291)-(295), pp. 57-58",
-          "excerpt": "Each Fm(u) in Q(√5, ζm) is constant, the first five values being:",
           "match": "The second example; F_1 = −1/2 − √5/10 for ξ = (−1 − √5)/2, and the conjugate for the other root."
         },
         {
           "sourceId": "gswz",
           "locator": "§4.7, opening, p. 57",
-          "excerpt": "Modular forms at roots of unity give rise to special elements associated to torsion classes in K3.",
           "match": "The lesson."
         }
       ],
@@ -7886,13 +7677,11 @@
         {
           "sourceId": "gswz",
           "locator": "§1.9, second bullet (Relative Bloch group), p. 17",
-          "excerpt": "The Habiro ring of the étale map Z[t] → S (with S given in (35)) can be defined and is being studied in the upcoming thesis of Ferdinand Wagner.",
           "match": "The comparison with a relative Habiro ring is future work; recorded as a gap."
         },
         {
           "sourceId": "gswz",
           "locator": "§1.9, fourth bullet (Line bundles on Ainf), p. 17",
-          "excerpt": "The line bundles defined in the present paper can also be defined over the period ring Ainf of p-adic Hodge theory, for all elements of K3cont(Cp).",
           "match": "A_inf statements are not consequences of this packet."
         }
       ],
@@ -7935,25 +7724,21 @@
         {
           "sourceId": "gswz",
           "locator": "Section 4.6",
-          "excerpt": "In this section we give a pair of elements of the same module over the Habiro ring of the cubic field K of discriminant -23 that come from the asymptotic series associated to a pair of hyperbolic knots, namely the 5_2 and the (-2,3,7)-pretzel knot. ...",
           "match": "The setting, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.6, the product and its denominators",
-          "excerpt": "the product Phi^{(5_2)}_1(x) Phi^{(-2,3,7)}_1(-x/(1+x)) has denominators given by powers of 2 and 23 ... The constant term is the product of the square roots of the delta-invariant of the two knots c = 1/sqrt(2)(2 alpha^2 - 2 alpha + 3).",
           "match": "The computation, verbatim."
         },
         {
           "sourceId": "gswz",
           "locator": "Section 4.6, the difference between the two series",
-          "excerpt": "Despite the above similarity, the series are quite different from each other: for instance the coefficients of the series of 5_2 see only the cubic trace field of discriminant -23, whereas those of (-2,3,7) see in addition the abelian field Q(2 cos(2 pi/7)) of discriminant 49. ...",
           "match": "The non-example, verbatim."
         },
         {
           "sourceId": "gz",
           "locator": "Section 5, equations (eq.NZ), (eq.ABchi), (eq.NZ2nahm)",
-          "excerpt": "The map T that appears in (eq.NZNdata) converts the NZ equation to a Nahm equation. Assuming that B is nonsingular, we can formally convert (eq.NZ) into 1 - z_i = e(B.e_i) prod_j z_j^{A_ij} where A = I - B^{-1}A, B = (1/2)(-B^{-1} eta + (1,...,1)^t) ... T(A,B,eta,f) maps to (A,B,C) where C=f.",
           "match": "The dictionary from a Neumann-Zagier datum to a Nahm datum, verbatim, which is how a knot produces the matrices of the previous node."
         }
       ],
@@ -7992,13 +7777,11 @@
         {
           "sourceId": "gswz",
           "locator": "§1.6, after (28), p. 12 (arXiv v2)",
-          "excerpt": "Here, as usual (x; q)n = ∏_{j=0}^{n−1}(1 − q^j x) and (x; q)^{−1}_∞ = Σ_{k=0}^∞ x^k/(q; q)k.",
           "match": "Identity (i)."
         },
         {
           "sourceId": "gswz",
           "locator": "§4.2, (244), p. 49",
-          "excerpt": "Equation (64) gives the factorisation z(t) = ∏_{n≥1}(1 − t^n)^{−n Σ_{i∈Z} c_{n,i}} which proves that the exponent of 1−t^n in the above product expansion is divisible by n.",
           "match": "Identity (iv)."
         }
       ],
@@ -8042,13 +7825,11 @@
         {
           "sourceId": "gswz",
           "locator": "§1.5, after Theorem 2, p. 11",
-          "excerpt": "(We do not know whether this is always the case, at least after tensoring with Q, but it certainly holds in many examples, e.g., the example coming from the figure eight knot, where ξ = 2[ζ6].)",
           "match": "The Bloch class."
         },
         {
           "sourceId": "gswz",
           "locator": "§4.5, (276)-(278), pp. 54-55",
-          "excerpt": "This field is Q(√−3) and has non-trivial roots of unity. In fact, the symbols of these roots of unity generate the Bloch group.",
           "match": "The worked abelian example."
         }
       ],

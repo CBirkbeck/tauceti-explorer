@@ -1053,7 +1053,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.1, pp.6–7",
-          "excerpt": "We say that P is homogeneous of degree n (an integer ≥ 0) if P(bx) = b^n P(x) for all object B in C_A, b ∈ B and x ∈ M ⊗_A B.",
           "match": "The definition."
         }
       ],
@@ -1139,7 +1138,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.1, p. 7",
-          "excerpt": "We say that P is multiplicative if P(1) = 1 and if P(xy) = P(x)P(y) for all B and x, y ∈ R ⊗_A B.",
           "match": "The definition."
         }
       ],
@@ -1227,7 +1225,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.5, Definition, p. 9",
-          "excerpt": "A d-dimensional A-valued determinant on R is an element of M^d_A(R, A), i.e. a multiplicative A-polynomial law D : R → A which is homogeneous of degree d.",
           "match": "The definition."
         }
       ],
@@ -1319,13 +1316,11 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.10, p. 12",
-          "excerpt": "we define the characteristic polynomial χ(r, t) ∈ B[t] of r by the formula χ(r, t) := D(t − r) =: Σ_{i=0}^d (−1)^i Λi(r)t^{d−i}.",
           "match": "The construction."
         },
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.10, (1.3), p. 12",
-          "excerpt": "the Newton relations hold",
           "match": "Newton relations."
         }
       ],
@@ -1409,7 +1404,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.12(i) and its proof, pp. 12–13",
-          "excerpt": "For all r, r′ ∈ R, D(1+rr′) = D(1+r′r).",
           "match": "The statement and the invertible-case reduction."
         }
       ],
@@ -1463,7 +1457,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.5, p. 9",
-          "excerpt": "for any A-algebra homomorphism ρ : R → M_d(A), D := det ∘ ρ is a d-dimensional A-valued determinant on R",
           "match": "The construction."
         }
       ],
@@ -1548,7 +1541,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Lemma 2.2, p. 24",
-          "excerpt": "if p_j : S_j → B are multiplicative A-polynomial laws of degree d_j such that the images of p_1 and p_2 commute in the obvious sense, then (p_1 p_2)(x_1, x_2) := p_1(x_1)p_2(x_2) still defines an A-multiplicative polynomial law of degree d_1 + d_2",
           "match": "The product law on S_1 × S_2; D_1·D_2 on R is this law pulled back along the diagonal R → R × R, with commuting images since A is commutative."
         }
       ],
@@ -1633,7 +1625,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.5, p. 9 (determinants on A[G])",
-          "excerpt": "When R = A[G] for some group G (or unital monoid), we say also that D is a determinant on G.",
           "match": "Determinants on groups; restriction is composition."
         }
       ],
@@ -1716,13 +1707,11 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Remark 1.4, p.9",
-          "excerpt": "induces an isomorphism Γ^n_A(M) ⊗_A B ≅ Γ^n_B(M ⊗_A B)",
           "match": "Base change of laws."
         },
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.5, p. 9",
-          "excerpt": "recall that M^d_A(R, B) ≅ M^d_B(R ⊗_A B, B) by Remark 1.4",
           "match": "Scalar extension of determinants."
         }
       ],
@@ -1798,7 +1787,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.5, p. 9",
-          "excerpt": "When d = 1, a determinant D : R → A of dimension 1 is by definition the same as an A-algebra homomorphism",
           "match": "The comparison."
         }
       ],
@@ -1850,7 +1838,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.10, Lemma 1.12(iii) and §1.26, pp. 12, 20",
-          "excerpt": "Tr satisfies the d-dimensional (B-valued) pseudocharacter identity.",
           "match": "Pseudocharacters, compared with determinants in §1.26."
         }
       ],
@@ -1935,7 +1922,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.12(ii) and (1.4)–(1.5), pp. 12–14",
-          "excerpt": "Λi(t1r1 + · · · + tnrn) = Σ_{ℓ(w)=i} ϵ(w)Λ(w)",
           "match": "Amitsur's formula and its proof via Lyndon words."
         }
       ],
@@ -1976,7 +1962,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.12(iii) and its proof, pp. 12–14",
-          "excerpt": "Tr satisfies the d-dimensional (B-valued) pseudocharacter identity.",
           "match": "The statement; the proof takes the multilinear part of Amitsur's formula. The cycle identity uses both oriented length-three cycles; the nearby printed degree-two display duplicates one of them (E18)."
         }
       ],
@@ -2016,7 +2001,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proposition 1.27 and its proof, p. 20",
-          "excerpt": "Λi(r) lies in the Z[1/d!]-algebra generated by Tr(r^j) for j ≤ i, hence Tr determines D.",
           "match": "The proof, which needs d! invertible; the statement omits the hypothesis (E1)."
         }
       ],
@@ -2063,7 +2047,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proposition 1.27 and its proof, p. 20",
-          "excerpt": "When A is a Q-algebra, it is a bijection.",
           "match": "The statement; the proof uses Procesi's theorem."
         }
       ],
@@ -2107,7 +2090,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proposition 1.29 and proof, pp.20–22",
-          "excerpt": "either that 2 is invertible in A and d = 2",
           "match": "The statement."
         }
       ],
@@ -2149,7 +2131,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 1.8 and Lemma 1.9, pp. 10–11",
-          "excerpt": "The above map D ↦ (T, D) induces a bijection between the set of A-valued determinants of G of dimension 2 and the set of pairs of functions (T, D)",
           "match": "The statement."
         }
       ],
@@ -2194,7 +2175,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 1.2(i), p. 7",
-          "excerpt": "P ↦ PA induces a bijection",
           "match": "Degree-one laws are base changes of linear maps."
         }
       ],
@@ -2277,7 +2257,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.17, p. 16",
-          "excerpt": "Define ker(P) ⊂ M, as the subset whose elements are the x ∈ M such that ∀B ∈ Ob(C_A), ∀ b ∈ B, ∀ m ∈ M ⊗_A B, P(x ⊗ b + m) = P(m).",
           "match": "The definition."
         }
       ],
@@ -2353,7 +2332,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.18(i), p. 16",
-          "excerpt": "ker(P) is the biggest A-submodule K ⊂ M such that P admits a factorization P = P̃ ∘ π with π is the canonical A-linear surjection M → M/K",
           "match": "The statement."
         }
       ],
@@ -2390,7 +2368,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.18(ii), p. 16",
-          "excerpt": "(ii) P̃ : R/ker(P) −→ S is faithful.",
           "match": "The statement, with R, S for M, N (E2)."
         }
       ],
@@ -2428,7 +2405,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.18(iii), p. 16",
-          "excerpt": "If B is a commutative A-algebra, then Im(ker(P) ⊗_A B → M ⊗_A B) ⊂ ker(P ⊗_A B).",
           "match": "The statement."
         }
       ],
@@ -2469,7 +2445,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.19(i), p. 17",
-          "excerpt": "ker(P) = {r ∈ R, ∀B, ∀r′ ∈ R ⊗_A B, P(1 + rr′) = 1}",
           "match": "The characterisation."
         }
       ],
@@ -2520,7 +2495,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.19(ii), p. 17",
-          "excerpt": "ker(P) is a two-sided ideal of R, it is proper if d > 0 and R ≠ 0.",
           "match": "The statement."
         }
       ],
@@ -2601,7 +2575,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.10, p. 12",
-          "excerpt": "this defines as well a homogeneous A-polynomial law of degree d χ(r) : R → R, r ↦ r^d − Λ1(r)r^{d−1} + Λ2(r)r^{d−2} + · · · + (−1)^d Λd(r).",
           "match": "The law χ and its polarised coefficients χ_α."
         }
       ],
@@ -2681,7 +2654,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.12(iv) and the paragraph on Vaccarino's theorem, pp. 12–15",
-          "excerpt": "If B = A, then for all r, r1, . . . , rn ∈ R and all α ∈ I_{n,d}, D(1 + χα(r1, . . . , rn)r) = 1.",
           "match": "The statement; the proof uses Vaccarino's Theorem 1.15."
         }
       ],
@@ -2722,7 +2694,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Corollary 1.14, p. 14",
-          "excerpt": "Then D factors through a (unique) B-valued determinant on G of dimension d.",
           "match": "The statement (with B the subring generated by the Λ_i(g))."
         }
       ],
@@ -2772,7 +2743,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§2.30, p. 37",
-          "excerpt": "We say that D is continuous if for each α ∈ I_n, the map D^{[α]} : G^n → A defined in § 1.1 is continuous. By Amitsur's formula, D is continuous if, and only if, Λi : G → A is continuous for all i ≤ n",
           "match": "The definition and the equivalence used here."
         }
       ],
@@ -2845,7 +2815,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 2.31, p. 38",
-          "excerpt": "Assume that H ⊂ G is a dense subgroup, then a continuous determinant on G is uniquely determined by its restriction to H.",
           "match": "The statement."
         }
       ],
@@ -2888,7 +2857,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.33, p. 38",
-          "excerpt": "A B-valued determinant D on G, viewed as an element P ∈ M^d_A(A[G], B), is continuous if, and only if, ker(P) ⊂ A[G] is open (that is, contains some J(H)).",
           "match": "The statement."
         }
       ],
@@ -2936,7 +2904,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.17, p. 17",
-          "excerpt": "We denote by CH(D) ⊂ R the two-sided ideal of R generated by the coefficients of χ(t1r1 + · · · + tnrn) ∈ R[t1, . . . , tn]",
           "match": "The definition."
         }
       ],
@@ -3017,7 +2984,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.17, p. 17",
-          "excerpt": "We say that D is Cayley-Hamilton if CH(D) = 0. Equivalently, D is Cayley-Hamilton if the polynomial law χ : R −→ R is identically zero.",
           "match": "The definition."
         }
       ],
@@ -3093,7 +3059,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.17, p. 17",
-          "excerpt": "if D : R → A is Cayley-Hamilton and if B is any commutative A-algebra, then D ⊗_A B : R ⊗_A B → B is also Cayley-Hamilton.",
           "match": "The statement."
         }
       ],
@@ -3132,7 +3097,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 1.20(ii), p. 18",
-          "excerpt": "If D is Cayley-Hamilton and S ⊂ R is any A-subalgebra, then the restriction of D to S is obviously Cayley-Hamilton.",
           "match": "The statement."
         }
       ],
@@ -3172,7 +3136,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.21, p. 18",
-          "excerpt": "ker(D) contains CH(D). In particular, if D is faithful then R is Cayley-Hamilton.",
           "match": "The statement."
         }
       ],
@@ -3211,7 +3174,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 1.21, p. 18",
-          "excerpt": "In particular, if D is faithful then R is Cayley-Hamilton.",
           "match": "The statement."
         }
       ],
@@ -3246,7 +3208,6 @@
         {
           "sourceId": "BP26",
           "locator": "Proof of Lemma 2.4.3, p.18",
-          "excerpt": "This is a finite A-algebra.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3279,7 +3240,6 @@
         {
           "sourceId": "BN93",
           "locator": "Proposition 3.2, p.221",
-          "excerpt": "Suppose e: X- X is an idempotent",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3315,7 +3275,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.3 immediately before Lemma 2.2.4, p.920",
-          "excerpt": "we will write TS(C•) for the image of this homomorphism.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3396,7 +3355,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2, p.905",
-          "excerpt": "the image T of T in EndD(R)(C) is a finite R-algebra",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3434,7 +3392,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.3 and Lemma 2.2.4, pp.920–921",
-          "excerpt": "has nilpotent kernel",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3468,7 +3425,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Lemma 2.2.4, p.920",
-          "excerpt": "I = ker(T → EndR(H∗(C•)))",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3549,7 +3505,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Proof of Lemma 2.2.4, p.921",
-          "excerpt": "α ◦ g ◦ f ◦ β = 0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3583,7 +3538,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Lemma 2.2.4, pp.920–921",
-          "excerpt": "Then I d+1 = 0.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3620,7 +3574,6 @@
         {
           "sourceId": "ACC23",
           "locator": "After Lemma 2.2.4, p.921",
-          "excerpt": "has nilpotent kernel",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3653,7 +3606,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2, p.905",
-          "excerpt": "of its localizations at maximal ideals",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3691,7 +3643,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2, p.905",
-          "excerpt": "this determines a decomposition C = ⊕m Cm in D(R).",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3768,7 +3719,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2, p.905",
-          "excerpt": "The direct summands Cm are well defined",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3802,7 +3752,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Lemma 2.2.4, p.920",
-          "excerpt": "Then I d+1 = 0.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3836,7 +3785,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.10, p.922",
-          "excerpt": "Pv (X) = X n − Tv,1 X n−1",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3917,7 +3865,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.10 and local-global compatibility before Theorem 2.3.1",
-          "excerpt": "qvi(i−1)/2",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3951,7 +3898,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.10, p.922",
-          "excerpt": "(−1)n qvn(n−1)/2 Tv,n",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -3985,7 +3931,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.20–24, pp.932–934",
-          "excerpt": "fψ (Tv,i ) = ψ(Frobv )−i Tv,i",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4019,7 +3964,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.20, p.932",
-          "excerpt": "Pv∨ (qv1−n X)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4056,7 +4000,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Notation p.899 and §2.2.20",
-          "excerpt": "the geometric Frobenius",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4091,7 +4034,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.20, p.932",
-          "excerpt": "ι(Pv (X)) = qvn(n−1) Pv∨ (qv1−n X).",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4126,7 +4068,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Notation and §2.2.10",
-          "excerpt": "Pv (X) = X n − Tv,1 X n−1",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4164,7 +4105,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§2.2.10, n=2 specialization",
-          "excerpt": "qvi(i−1)/2",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4198,19 +4138,16 @@
         {
           "sourceId": "BCGP25",
           "locator": "§1.8.27, pp.16–17",
-          "excerpt": "X 4 − Tℓ,1 X 3",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         },
         {
           "sourceId": "GT05",
           "locator": "§3, pp.193–196",
-          "excerpt": "Tq,2",
           "match": "The Satake calculation was read in the Numdam journal copy. GT05 Tq,2 is the T₁ used here; GT05 Tq,1 is T₂."
         },
         {
           "sourceId": "CG20",
           "locator": "Definition 6.7, p.838",
-          "excerpt": "Qx",
           "match": "The spin polynomial uses the stated CG20 indexing, checked against GT05."
         }
       ],
@@ -4291,13 +4228,11 @@
         {
           "sourceId": "BCGP25",
           "locator": "§1.8.8 and §1.8.27",
-          "excerpt": "Qℓ (X) = ℓ6 Pℓ,(− 21 ,− 12 ; 12 )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         },
         {
           "sourceId": "GT05",
           "locator": "§3, pp.193–196",
-          "excerpt": "Tq,2",
           "match": "The Satake calculation was read in the Numdam journal copy. GT05 Tq,2 is the T₁ used here; GT05 Tq,1 is T₂."
         }
       ],
@@ -4331,7 +4266,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Equation (1.8.27) and Lemma 1.8.28, p.17",
-          "excerpt": "Pℓ (X) := ℓ6 Pℓ,(− 21 ,− 12 ;− 21 )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4415,7 +4349,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "Lemma 1.8.28, p.17",
-          "excerpt": "the characteristic polynomial of (ρ∨",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4449,7 +4382,6 @@
         {
           "sourceId": "BCGP25",
           "locator": "§1.8.7–8 and Lemma 1.8.28",
-          "excerpt": "ν : GSp2g → Gm",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4483,7 +4415,6 @@
         {
           "sourceId": "ACC23",
           "locator": "Definition 2.3.6, p.938",
-          "excerpt": "We say that a maximal ideal m ⊂ TS is of Galois type",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4562,7 +4493,6 @@
         {
           "sourceId": "ACC23",
           "locator": "After Definition 2.3.6, p.938",
-          "excerpt": "then so is m∨",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4595,7 +4525,6 @@
         {
           "sourceId": "CG18",
           "locator": "§7.1, pp.72–73",
-          "excerpt": "lim(Ux − βx )n!",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4629,7 +4558,6 @@
         {
           "sourceId": "CG18",
           "locator": "Lemma 7.3, p.72",
-          "excerpt": "CT is a perfect complex",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4706,7 +4634,6 @@
         {
           "sourceId": "BP26",
           "locator": "Definition 2.4.2 and Lemma 2.4.3, p.18",
-          "excerpt": "M = M ord ⊕ M nord",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4739,7 +4666,6 @@
         {
           "sourceId": "BP26",
           "locator": "Lemma 2.4.6 and proof, p.19",
-          "excerpt": "Hi (C ord ) is a direct factor of Hi (C)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4772,7 +4698,6 @@
         {
           "sourceId": "CGH20",
           "locator": "§3 opening and proof of Lemma 3.1, pp.4–5",
-          "excerpt": "formally smooth of dimension one",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4810,7 +4735,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.1.10 and its use of Chenevier Example 2.32",
-          "excerpt": "There is a unique continuous",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4847,7 +4771,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 2.32, p.38",
-          "excerpt": "A compact",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4885,7 +4808,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Corollary 5.1.11, p.1038",
-          "excerpt": "T/(I1 ∩ I2 )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -4919,7 +4841,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 3.2, p.41",
-          "excerpt": "the natural map",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5000,7 +4921,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 3.2, p.41",
-          "excerpt": "is a bijection.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5079,7 +4999,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.1.11 and the topology of Tcl",
-          "excerpt": "contains a finite intersection of ideals",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5168,7 +5087,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.1.11 and Lemma 3.2 of Chenevier",
-          "excerpt": "unique continuous h-dimensional determinant",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5205,7 +5123,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.33 and Lemma 3.2",
-          "excerpt": "ker(P ) ⊂ A[G] is open",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5239,7 +5156,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 3.2",
-          "excerpt": "each coordinate map",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5273,7 +5189,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.1.11",
-          "excerpt": "for all finite places v 6∈ S",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5306,7 +5221,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 3.2",
-          "excerpt": "each coordinate map",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5339,7 +5253,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§2.24, determinants over dual numbers",
-          "excerpt": "A[ǫ] := A[t]/t2",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5373,7 +5286,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Theorem 5.4.1, pp.1058–1059",
-          "excerpt": "one finds that the determinant D",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5410,7 +5322,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Theorem 5.4.1 and Corollary 5.4.4",
-          "excerpt": "with values in the Hecke algebra",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5441,7 +5352,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Theorem 5.4.1, p.1059",
-          "excerpt": "nilpotence degree bounded",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5474,7 +5384,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Theorem 5.4.1, combination of error ideals",
-          "excerpt": "I N = 0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5505,7 +5414,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Theorem 5.4.1, p.1059",
-          "excerpt": "I! × I∂",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5536,7 +5444,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Theorem 5.4.1, p.1059",
-          "excerpt": "is a nilpotent ideal with square 0.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5572,7 +5479,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Proof of Theorem 5.4.1",
-          "excerpt": "nilpotence degree bounded",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5605,7 +5511,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.4.2, footnote 29, p.1060",
-          "excerpt": "bounded independently of m",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5640,7 +5545,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.4.3, p.1060",
-          "excerpt": "unique continuous semisimple representation",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5677,7 +5581,6 @@
         {
           "sourceId": "SCH15",
           "locator": "Corollary 5.4.4, p.1060",
-          "excerpt": "there exist an ideal",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5711,7 +5614,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 2.1, conditions (ii)–(iv)",
-          "excerpt": "κ(σ) = (χψ−1 (σ) − 1)yv",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5742,7 +5644,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.2, pp.10–11",
-          "excerpt": "FittT (N ) is generated by the determinants",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5822,7 +5723,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.1, equation (13), p.8",
-          "excerpt": "the congruence (8) extends to all t ∈ T[G]",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5853,7 +5753,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.1, equation (14), pp.8–9",
-          "excerpt": "M0 = ∆ψ /∆χ ∆ψ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5930,7 +5829,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.1, p.9",
-          "excerpt": "∆χ ∆ψ ⊂ ∆ψ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -5966,7 +5864,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 2.3 and proof, p.9",
-          "excerpt": "defines a continuous cocycle",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6043,7 +5940,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.1, pp.9–10, with the sign corrected to Theorem 2.1",
-          "excerpt": "N = N0 /Q",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6131,7 +6027,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.1, p.9",
-          "excerpt": "N is finitely generated since G is compact",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6164,7 +6059,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 1.1 and §2.1, pp.3,9",
-          "excerpt": "for every representative cocycle κ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6200,7 +6094,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Introduction, pp.4–5",
-          "excerpt": "B is a faithful T-module",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6236,7 +6129,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 2.1, equation (12), pp.7–8",
-          "excerpt": "(ξv (σv ) − χ(σv )) FittT (N )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6274,7 +6166,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 2.1, pp.7–8",
-          "excerpt": "there exists a finitely generated T-module N",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6310,7 +6201,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 1.1, pp.2–3",
-          "excerpt": "we do not assume that χ 6≡ ψ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6347,7 +6237,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.2, p.8",
-          "excerpt": "the nth -graded piece",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6427,7 +6316,6 @@
         {
           "sourceId": "ROBY63",
           "locator": "III §§1–2, pp.248–250",
-          "excerpt": "3 est un idéal homogène",
           "match": "Roby grades the polynomial presentation by weight n, proves the defining ideal homogeneous, and passes the grading to the quotient in III §2. IV §1 supplies the universal law, not the grading proof."
         }
       ],
@@ -6462,7 +6350,6 @@
         {
           "sourceId": "ROBY63",
           "locator": "Proposition IV.1 and Theorem IV.1, pp.265–267",
-          "excerpt": "loi polynôme universelle de",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6539,7 +6426,6 @@
         {
           "sourceId": "ROBY63",
           "locator": "Theorem IV.1 and proof, pp.266–267",
-          "excerpt": "un isomorphisme canonique",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6573,7 +6459,6 @@
         {
           "sourceId": "ROBY63",
           "locator": "Theorem III.3 and proof, pp.261–262",
-          "excerpt": "THÉORÈME III. 3.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6607,13 +6492,11 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.2 and the Roby algebra structure, p.8",
-          "excerpt": "the structure of A-algebra on R induces",
           "match": "Chenevier records the induced internal algebra multiplication. The tensor map itself is derived by applying Roby’s separately homogeneous representability twice; its mixed coefficients are not an assertion of an isomorphism."
         },
         {
           "sourceId": "ROBY63",
           "locator": "IV §11, Proposition IV.9 and proof, pp.284–286",
-          "excerpt": "PROPOSITION IV.9.",
           "match": "Separately homogeneous laws of bidegree (d,d) correspond to maps out of Γ^d(M)⊗Γ^d(N). Apply this to (m,n)↦γ_d(m⊗n)."
         }
       ],
@@ -6692,7 +6575,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.2 and footnote 13, p.8",
-          "excerpt": "its neutral element is 1R",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6770,7 +6652,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proposition 1.6 and Example 1.7(iv), pp.9–10",
-          "excerpt": "representable by the A-algebra",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6857,7 +6738,6 @@
         {
           "sourceId": "ROBY63",
           "locator": "Theorem IV.2 and Proposition IV.5, pp.277–278",
-          "excerpt": "Si M est un module libre",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6891,7 +6771,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Theorem 1.15, pp.14–15; EM23 Theorem 1.12",
-          "excerpt": "a result of Vaccarino",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6925,7 +6804,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 1.11(ii), equation (1.3), p.12",
-          "excerpt": "the Newton relations hold",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -6959,7 +6837,6 @@
         {
           "sourceId": "Q23",
           "locator": "§3.4, p.17; Chenevier §1.5",
-          "excerpt": "the transpose inverse map",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7042,7 +6919,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.5 matrix example and its local finite-projective extension, p.9",
-          "excerpt": "the usual determinant",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7126,7 +7002,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 1.7(ii), p.10 and Example 2.5, p.24",
-          "excerpt": "the reduced norm is the unique",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7207,14 +7082,12 @@
         {
           "sourceId": "Q23",
           "locator": "Definition 3.1 and the representation evaluation immediately following it, pp.11–12",
-          "match": "The two displayed compatibility equations imply that pullback along a representation is a pseudocharacter.",
-          "excerpt": "a sequence of O-algebra maps"
+          "match": "The two displayed compatibility equations imply that pullback along a representation is a pseudocharacter."
         },
         {
           "sourceId": "BHKT19",
           "locator": "Definition 4.1 and Lemma 4.3, pp.13–14",
-          "match": "Evaluation on actual reductive-group points commutes with reindexing and multiplication.",
-          "excerpt": "a collection of algebra maps"
+          "match": "Evaluation on actual reductive-group points commutes with reindexing and multiplication."
         }
       ],
       "implementationStatus": "unchecked",
@@ -7299,7 +7172,6 @@
         {
           "sourceId": "Q23",
           "locator": "Definition 3.1, pp.10–11",
-          "excerpt": "a sequence of O-algebra maps",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7393,7 +7265,6 @@
         {
           "sourceId": "Q23",
           "locator": "Definition 3.1 and Lemma 3.2, pp.11–12",
-          "excerpt": "Θm takes values in the subset C",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7473,7 +7344,6 @@
         {
           "sourceId": "Q23",
           "locator": "Definition 3.10 and Lemmas 3.11–3.12, p.16",
-          "excerpt": "a normal subgroup of Γ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7553,7 +7423,6 @@
         {
           "sourceId": "EM23",
           "locator": "Theorem 4.1 and proof, pp.13–14",
-          "excerpt": "There exists an isomorphism",
           "match": "The theorem and proof give the natural all-ring determinant/GL_d-pseudocharacter comparison for positive d; the introductory theorem uses this exact phrase."
         }
       ],
@@ -7587,7 +7456,6 @@
         {
           "sourceId": "EM23",
           "locator": "Proposition 2.6 and Lemma 2.7 with proof, pp.9–10",
-          "excerpt": "The morphisms βX and βΓ are isomorphisms",
           "match": "Proposition 2.6(i) lists flat base change and the Dedekind/connected geometrically reductive case; Lemma 2.7 proves the latter invariant-coordinate comparison."
         }
       ],
@@ -7622,7 +7490,6 @@
         {
           "sourceId": "PQ26",
           "locator": "Lemma 8.8 and proof, pp.44–45",
-          "excerpt": "induces a bijection of functors",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7656,7 +7523,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.2(iii), pp.23–24",
-          "excerpt": "D = D1 D2",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7692,7 +7558,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.4(1–2), p.25",
-          "excerpt": "x ↦ D(x + 1 − e)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7771,7 +7636,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.4(3), p.25",
-          "excerpt": "then so is De",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7805,7 +7669,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.4(4), pp.25–26",
-          "excerpt": "then s ≤ d",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7839,7 +7702,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Lemma 2.7(i), p.27",
-          "excerpt": "x is invertible in R if and only if D(x) is invertible in A",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7873,7 +7735,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.7(v), p.27",
-          "excerpt": "J ⊂ ker(D)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7907,7 +7768,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.8(i) and Example 2.9, pp.27–28",
-          "excerpt": "if K/k is a separable algebraic extension",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7943,7 +7803,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.8(ii), pp.27–28",
-          "excerpt": "ker(D) = Rad(R)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -7976,7 +7835,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Lemma 2.14, pp.29–30",
-          "excerpt": "By Jacobson’s density theorem",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8012,7 +7870,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Lemma 2.14, p.30",
-          "excerpt": "there are only finitely many",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8046,7 +7903,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.14, pp.29–30",
-          "excerpt": "finite dimensional over its center",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8084,7 +7940,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Theorem 2.12, pp.30–31",
-          "excerpt": "a finite product of matrix algebras",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8117,7 +7972,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Theorem 2.12, pp.28–31",
-          "excerpt": "there exists a semisimple representation",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8156,7 +8010,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Theorem 2.16, pp.31–32",
-          "excerpt": "as a k-algebra",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8191,7 +8044,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Definition-Proposition 2.18 and Definition 2.19, pp.32–33; corrected splitness equivalence (E17)",
-          "excerpt": "We say that D is split",
           "match": "The geometric predicates match the source. Splitness uses the faithful-quotient condition explicitly used in Theorem 2.22, correcting the false equivalence with arbitrary representation realizability in Definition 2.19."
         }
       ],
@@ -8286,7 +8138,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.10(i), p.28",
-          "excerpt": "is Rad(R)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8319,7 +8170,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Theorem 2.22, p.34",
-          "excerpt": "we may find some elements Ei,j",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8353,7 +8203,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Lemma 2.6, p.26",
-          "excerpt": "R = A and D is the identity",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8387,7 +8236,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Theorem 2.22(i), p.34",
-          "excerpt": "R = ⊕i,j AEi,j",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8425,7 +8273,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Theorem 2.22(i), p.34",
-          "excerpt": "D is split and absolutely irreducible",
           "match": "The statement uses faithful-quotient splitness, the condition used by the proof of Theorem 2.22; arbitrary realizability is insufficient (E17)."
         }
       ],
@@ -8461,7 +8308,6 @@
         {
           "sourceId": "BC09",
           "locator": "Definition 1.3.1 and Lemma 1.3.2",
-          "excerpt": "generalized matrix algebra",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8552,7 +8398,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Theorem 2.22(ii), p.34",
-          "excerpt": "is a generalized matrix algebra",
           "match": "The statement uses faithful-quotient splitness, the condition used by the proof of Theorem 2.22; arbitrary realizability is insufficient (E17)."
         }
       ],
@@ -8585,7 +8430,6 @@
         {
           "sourceId": "WE18",
           "locator": "§2.3, pp.15–16; BC09 Propositions 1.3.9 and 1.3.13",
-          "excerpt": "These maps remain injective after any base extension",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8660,7 +8504,6 @@
         {
           "sourceId": "WE18",
           "locator": "Proposition 2.23 and proof, pp.16–17",
-          "excerpt": "a natural d-dimensional Cayley-Hamilton pseudorepresentation",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8740,14 +8583,12 @@
         {
           "sourceId": "ANT20",
           "locator": "Theorem 2.4, Proposition 2.5 and proof, pp.5–6",
-          "match": "Prescribed residual factors are split absolutely irreducible, pairwise nonconjugate and matched to the lifted diagonal blocks.",
-          "excerpt": "uniquely determined"
+          "match": "Prescribed residual factors are split absolutely irreducible, pairwise nonconjugate and matched to the lifted diagonal blocks."
         },
         {
           "sourceId": "BC09",
           "locator": "§1.4.1 and Lemma 1.4.3, pp.24–27",
-          "match": "Adapted matrix units retain the labels of the distinct residual constituents.",
-          "excerpt": "a natural injective map"
+          "match": "Adapted matrix units retain the labels of the distinct residual constituents."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8836,14 +8677,12 @@
         {
           "sourceId": "CN23",
           "locator": "Proposition 3.2.3, p.49, importing ANT20 Proposition 2.5",
-          "excerpt": "contains A1,2 A2,1",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         },
         {
           "sourceId": "ANT20",
           "locator": "Proposition 2.5 and its entire proof, pp.5–6",
-          "match": "Supplies existence and uniqueness with prescribed residual factors without assuming d! invertible.",
-          "excerpt": "uniquely determined"
+          "match": "Supplies existence and uniqueness with prescribed residual factors without assuming d! invertible."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8940,14 +8779,12 @@
         {
           "sourceId": "BC09",
           "locator": "Proposition 1.5.1, pp.32–34",
-          "excerpt": "there exists an ideal IP",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         },
         {
           "sourceId": "ANT20",
           "locator": "Proposition 2.5 and its entire proof, pp.5–6",
-          "match": "All-characteristic determinant factorization, kernel containment, uniqueness and the primitive-entry formula.",
-          "excerpt": "uniquely determined"
+          "match": "All-characteristic determinant factorization, kernel containment, uniqueness and the primitive-entry formula."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8999,14 +8836,12 @@
         {
           "sourceId": "BC09",
           "locator": "§1.5.4 and Theorems 1.5.5–1.5.6, pp.34–37",
-          "match": "The extension endpoints are the representations determined by singleton parts and chosen GMA idempotents.",
-          "excerpt": "a natural injective map"
+          "match": "The extension endpoints are the representations determined by singleton parts and chosen GMA idempotents."
         },
         {
           "sourceId": "ANT20",
           "locator": "Proposition 2.5 and proof, pp.5–6",
-          "match": "The full-law partition factors are associated with the chosen corner blocks.",
-          "excerpt": "uniquely determined"
+          "match": "The full-law partition factors are associated with the chosen corner blocks."
         }
       ],
       "implementationStatus": "unchecked",
@@ -9083,7 +8918,6 @@
         {
           "sourceId": "BC09",
           "locator": "§1.5.3, p.35",
-          "excerpt": "A′i,j",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9168,7 +9002,6 @@
         {
           "sourceId": "BC09",
           "locator": "Theorem 1.5.5 and proof, pp.35–36",
-          "excerpt": "a natural injective map",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9206,7 +9039,6 @@
         {
           "sourceId": "BC09",
           "locator": "Theorem 1.5.6, pp.36–37",
-          "excerpt": "Mj = SEj",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9241,7 +9073,6 @@
         {
           "sourceId": "BC09",
           "locator": "Proposition 1.7.1, p.42",
-          "excerpt": "Let n be the minimal number of generators",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9290,7 +9121,6 @@
         {
           "sourceId": "BC09",
           "locator": "Proposition 1.7.4 and proof, pp.43–44",
-          "excerpt": "a non split extension",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9335,7 +9165,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "§1.22 and Proposition 1.23, pp.18–19",
-          "excerpt": "R(G, d)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9439,7 +9268,6 @@
         {
           "sourceId": "WE18",
           "locator": "Proposition 3.6 and proof, pp.21–23",
-          "excerpt": "is module-finite as an",
           "match": "The source states the target under these hypotheses, but its proof uses the false unrestricted nilpotence assertion (E19) and an unjustified bounded-sum description of the generated ideal (E20). The missing replacements are recorded as proof leaves; the source proof is not claimed to close this node."
         }
       ],
@@ -9474,7 +9302,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Proof of Corollary 2.23(i), p.35; §3.11",
-          "excerpt": "the reduced trace of an Azumaya algebra",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9509,7 +9336,6 @@
         {
           "sourceId": "CHT08",
           "locator": "Lemma 2.1.10 and proof, pp.13–14",
-          "excerpt": "tr ρ(∆) ⊂ S",
           "match": "S is the smaller coefficient ring; the inherited quotation used R, the ambient ring, which would make this hypothesis tautological."
         }
       ],
@@ -9555,7 +9381,6 @@
         {
           "sourceId": "GG12",
           "locator": "Lemma 7.1.1 and proof, p.25",
-          "excerpt": "whose image is contained in",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9590,7 +9415,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Theorem 2.22(i) and proof, pp.34–35; matrix-unit module consequence",
-          "excerpt": "an A-algebra isomorphism",
           "match": "The source identifies the residually split absolutely irreducible Cayley–Hamilton quotient with M_d(A). The displayed module decomposition follows here from its matrix units: N=E_11M, e_i⊗n↦E_i1n and inverse m↦Σ_i e_i⊗E_1im. CG18 Theorem 4.8 is a different multiplicity theorem and does not state this generic recognition lemma."
         }
       ],
@@ -9624,7 +9448,6 @@
         {
           "sourceId": "CN23",
           "locator": "Lemma 3.2.2(1–2), pp.48–49",
-          "excerpt": "is contained in the image of k[GFv]",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9658,7 +9481,6 @@
         {
           "sourceId": "CN23",
           "locator": "Lemma 3.2.2(3–4), pp.48–49",
-          "excerpt": "an idempotent projection",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9693,7 +9515,6 @@
         {
           "sourceId": "CN23",
           "locator": "Proposition 3.2.4(1), p.50",
-          "excerpt": "is a homomorphism",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9726,7 +9547,6 @@
         {
           "sourceId": "CN23",
           "locator": "Proposition 3.2.4(2), p.50",
-          "excerpt": "is also a homomorphism",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9767,13 +9587,11 @@
         {
           "sourceId": "ANT20",
           "locator": "Proof of Theorem 2.4, p.5",
-          "excerpt": "By Skolem–Noether",
           "match": "After matching the block idempotents, their local matrix algebra identifications are adjusted by inner conjugation."
         },
         {
           "sourceId": "CN23",
           "locator": "Proof of Proposition 3.2.4(3), p.50",
-          "excerpt": "Skolem–Noether",
           "match": "The two full-matrix reconstructions differ by an inner automorphism over A; its matrix is then lifted through the local surjection."
         }
       ],
@@ -9823,7 +9641,6 @@
         {
           "sourceId": "CN23",
           "locator": "Proposition 3.2.4(3), p.50",
-          "excerpt": "an Ã-valued lift",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9857,7 +9674,6 @@
         {
           "sourceId": "Q23",
           "locator": "Lemmas 3.4–3.5, pp.12–13",
-          "excerpt": "a unique closed G0(k)-orbit",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9891,7 +9707,6 @@
         {
           "sourceId": "Q23",
           "locator": "Proof of Theorem 3.7, conditions (1–4), p.13",
-          "excerpt": "the following four conditions",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9926,7 +9741,6 @@
         {
           "sourceId": "Q23",
           "locator": "Theorem 3.7, Claim A, pp.14–15",
-          "excerpt": "there is a unique g ∈ G(k)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9961,7 +9775,6 @@
         {
           "sourceId": "Q23",
           "locator": "Theorem 3.7, Claims B–C, p.15",
-          "excerpt": "there are unique g, g′",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9999,7 +9812,6 @@
         {
           "sourceId": "Q23",
           "locator": "End of proof of Theorem 3.7, p.15",
-          "excerpt": "ρ(γγ′) = gg′",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10036,7 +9848,6 @@
         {
           "sourceId": "Q23",
           "locator": "Theorem 3.7, pp.13–15",
-          "excerpt": "unique up to G0(k)-conjugation",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10077,7 +9888,6 @@
         {
           "sourceId": "BHKT19",
           "locator": "Proposition 4.7(iii) and proof, p.16",
-          "excerpt": "ρ factors through the finite quotient",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10114,7 +9924,6 @@
         {
           "sourceId": "BHKT19",
           "locator": "Proposition 4.7(ii), p.16",
-          "excerpt": "k admits a rank 1 valuation",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10150,7 +9959,6 @@
         {
           "sourceId": "BHKT19",
           "locator": "Theorem 4.8 and proof, pp.16–17",
-          "excerpt": "ρ takes values in G(OE)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10184,7 +9992,6 @@
         {
           "sourceId": "Q23",
           "locator": "Theorem 3.20, p.20, and Theorem 5.4, pp.27–28",
-          "excerpt": "is representable by a commutative",
           "match": "Theorem 3.20 represents the algebraic functor; Theorem 5.4 pro-represents the continuous deformation functor. There is no Definition 5.4 in this version."
         }
       ],
@@ -10263,7 +10070,6 @@
         {
           "sourceId": "Q23",
           "locator": "Theorem 5.7 and proof, p.29",
-          "excerpt": "is noetherian",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10301,7 +10107,6 @@
         {
           "sourceId": "BHKT19",
           "locator": "Theorem 4.10 and proof, pp.17–18",
-          "excerpt": "isomorphism of functors",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10334,7 +10139,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.2, pp.10–11",
-          "excerpt": "generated by the determinants",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10368,7 +10172,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Introduction, p.5",
-          "excerpt": "FittT (B) ⊂ AnnT (B)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10402,7 +10205,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Introduction, p.5; §2.2",
-          "excerpt": "FittT/I (B/IB)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10436,7 +10238,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.2, equations (18)–(24), pp.10–11",
-          "excerpt": "Relations arising from the quotient",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10470,7 +10271,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.3, pp.11–12",
-          "excerpt": "the same determinant",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10503,7 +10303,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.4, equation (28), p.12",
-          "excerpt": "det(E)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10537,7 +10336,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 2.4 and proof, pp.13–14",
-          "excerpt": "E′w = 0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10570,7 +10368,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 2.4, pp.13–14",
-          "excerpt": "det(E′) = 0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10603,7 +10400,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemmas 2.5–2.6, pp.15–16",
-          "excerpt": "with constant term 0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10636,7 +10432,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§3.1, equations (35)–(37), pp.17–18",
-          "excerpt": "R = R1 /(bσ : σ ∈ Bv0)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10716,7 +10511,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§3.2 equations (39)–(42); §4.5, pp.18–19,29",
-          "excerpt": "J′ ⊂ J",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10799,7 +10593,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 3.1, p.19",
-          "excerpt": "π(J) = 0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10832,7 +10625,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§3.3, p.19; Corollary 4.17, p.27",
-          "excerpt": "generated over A0 by the dτ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10905,7 +10697,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 3.2, last local step, equation (47), p.20",
-          "excerpt": "(xσ + νσ)xτ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10941,7 +10732,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 3.2, pp.20–21",
-          "excerpt": "π(A ∩ (IR , J)) ⊂ Ĩ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -10974,7 +10764,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 4.4, p.23",
-          "excerpt": "The restriction map",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11007,7 +10796,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Example 4.2, p.22; Lemma 5.10, p.42",
-          "excerpt": "V = ZA ⊕ ZB",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11041,7 +10829,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 4.9, p.24",
-          "excerpt": "std ⊗ std∨",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11075,7 +10862,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 4.10, p.24",
-          "excerpt": "has a good filtration.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11109,7 +10895,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.11, p.24",
-          "excerpt": "H i (B, V (j)) = 0 for i > j.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11143,7 +10928,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.12, pp.24–25",
-          "excerpt": "for primes p > 2",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11177,7 +10961,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 4.13, p.25",
-          "excerpt": "is surjective for all i ≥ 0.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11211,7 +10994,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.14, p.25",
-          "excerpt": "then V is an acyclic B-module.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11246,7 +11028,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 4.15, p.26",
-          "excerpt": "Then V ⊗Z S is an acyclic B-module.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11280,7 +11061,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 4.16, pp.26–27",
-          "excerpt": "traces and determinants",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11313,7 +11093,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 4.17, first part, p.27",
-          "excerpt": "scales cτ non-trivially",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11351,7 +11130,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 4.17, pp.27–28",
-          "excerpt": "We have H 0 (B, R) = A.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11385,7 +11163,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.18, pp.29–30",
-          "excerpt": "The ideals J 0 and J are stable",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11418,7 +11195,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "Lemma 1.1, pp.184–185",
-          "excerpt": "It clearly suffices to prove this when n = 2",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11452,7 +11228,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "§1 pp.185–187; DKSW §5.3.1 equation (60)",
-          "excerpt": "generalized Koszul complex",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11531,7 +11306,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "§1 p.186; DKSW equation (62), p.37",
-          "excerpt": "we now let p = n and q = 1",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11616,7 +11390,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "§3 Definition, p.194; DKSW Definition 5.1, p.37",
-          "excerpt": "We will say that f is E-regular",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11695,7 +11468,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "Proposition 2.1 and Corollary 2.2, p.187",
-          "excerpt": "we obtain the exact sequence",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11730,7 +11502,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "Theorem 2.9, pp.191–193",
-          "excerpt": "then Hi(E(Λf)) = 0 for all i ≥ p.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11765,7 +11536,6 @@
         {
           "sourceId": "BUCH64",
           "locator": "Proposition 3.1, pp.194–195; DKSW Theorem 5.2, p.37",
-          "excerpt": "Then Hq(E(f)) = 0 for all q ≠ 0.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11799,7 +11569,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 5.4 and proof, pp.37–38",
-          "excerpt": "is a resolution of R/J.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11833,7 +11602,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 5.11 and proof, p.43",
-          "excerpt": "Then the map f : Rn −→ R2 is regular.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11864,7 +11632,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 5.12, equation (70), p.43",
-          "excerpt": "R[V −1 ] · Jk = (r12 , . . . , r1k)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11897,7 +11664,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 5.12, proof, p.43",
-          "excerpt": "R ∩ (R[V −1 ] · Jk ) = Jk.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11932,7 +11698,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Corollary 5.12, p.43",
-          "excerpt": "The map f : Rn −→ R2 defined by f (ei ) = (bi , b0i ) is regular.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11965,7 +11730,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.13, Claim 1, pp.44–45",
-          "excerpt": "The sequence L1 , . . . , Lm is regular",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -11998,7 +11762,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.13, Claim 2, p.45",
-          "excerpt": "regular over R/(A11 )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12032,7 +11795,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.13, Claim 3, p.45",
-          "excerpt": "with e replaced by e − 1.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12068,7 +11830,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.13, pp.44–45",
-          "excerpt": "If m ≤ n, then L1 , . . . , Lm is a regular sequence.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12103,7 +11864,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.14, p.46",
-          "excerpt": "is a resolution of R/I.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12137,7 +11897,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§5.9 final paragraph, p.46",
-          "excerpt": "precisely one row of type III",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12173,7 +11932,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§5.4 equations (63)–(65), pp.38–39",
-          "excerpt": "C • := R(f )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12252,7 +12010,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.5(1) and §5.9, pp.39,46",
-          "excerpt": "C • is a resolution of R/J 0 .",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12287,7 +12044,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemmas 5.6–5.7, pp.40–41",
-          "excerpt": "the image of R(f ) −→ R(fe) is contained",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12321,7 +12077,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 5.8 and proof, p.41",
-          "excerpt": "The map fev is B-equivariant.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12357,7 +12112,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemmas 5.9–5.10, p.42",
-          "excerpt": "is isomorphic to A⊗k ⊗ R.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12392,7 +12146,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§5.4 equation (66), p.39",
-          "excerpt": "D• := R(fe)0",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12471,7 +12224,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 5.5(2), pp.39–40",
-          "excerpt": "all terms of D• are acyclic",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12509,7 +12261,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 4.23 and §§5.4–5.6, pp.33,38–42",
-          "excerpt": "There exists a morphism of complexes",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12543,7 +12294,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 4.22 and proof, pp.33–34",
-          "excerpt": "Then ι∗ = 0.",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12577,7 +12327,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§3.3, p.19",
-          "excerpt": "every entry of E 0 − E lies in IR",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12610,7 +12359,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.20, equation (54), pp.31–32",
-          "excerpt": "Pairing off the permutations",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12644,7 +12392,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.20, pp.31–32",
-          "excerpt": "det(E 00 ) ≡ det(E 0 )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12678,7 +12425,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.21, pp.32–33",
-          "excerpt": "det(E 0i ) ≡ det(E 0i−1 )",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12713,7 +12459,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Lemma 4.19, pp.30–33",
-          "excerpt": "e ∈ H 0 (B, R/J 0 ).",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12748,7 +12493,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§4.4 exact sequence (52), p.29",
-          "excerpt": "the desired result e ∈ A",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12786,7 +12530,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Proposition 3.3, p.21; §§4.4–4.6",
-          "excerpt": "In order to prove the desired result",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12820,7 +12563,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "§2.1, equation (14), p.9",
-          "excerpt": "M0 = ∆ψ /∆χ ∆ψ",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12895,7 +12637,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2 and §2.2.3–4",
-          "excerpt": "the image of this homomorphism",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12972,7 +12713,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2 and §2.2.3–4",
-          "excerpt": "the image of this homomorphism",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -13047,7 +12787,6 @@
         {
           "sourceId": "ACC23",
           "locator": "§1.2 and §2.2.3–4",
-          "excerpt": "the image of this homomorphism",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -13125,7 +12864,6 @@
         {
           "sourceId": "PILLONI20",
           "locator": "§5.1.3 pp.21–23; §15.2 p.107",
-          "excerpt": "Qℓ (X)",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -13203,7 +12941,6 @@
         {
           "sourceId": "DKSW23",
           "locator": "Theorem 1.1 and its reduction to Theorem 2.1",
-          "excerpt": "an irreducible representation",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -13239,7 +12976,6 @@
         {
           "sourceId": "BIP23",
           "locator": "Lemma 3.1 and proof, pp.10–11",
-          "excerpt": "There is a finitely generated commutative Rps-algebra Agen",
           "match": "BIP23 Lemma 3.1 supplies the finite-type generic representation construction. Its group-generated characteristic-polynomial detection is expressed here by polarized equations to cover a general finite Cayley–Hamilton algebra."
         }
       ],
@@ -13319,7 +13055,6 @@
         {
           "sourceId": "CHENEVIER-DET",
           "locator": "Example 1.2(i) and footnote 11, p.7",
-          "excerpt": "sending (X, Y ) to (XT, Y T )",
           "match": "The footnote proves additivity by total-degree-one coefficient comparison; naturality supplies the scalar-extension statement."
         }
       ],

@@ -513,7 +513,7 @@ the second detects an erased horizontal row or an incorrect C-power.
 Bloch’s *Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic
 Curves*, CRM Monograph Series 11 (AMS, 2000), Lecture 10 §§10.2–10.3,
 printed pp.77–85, supplies the calculation locators. The accessible
-[public digitization](https://www.scribd.com/document/750143417/CRM-Monograph-Series-11-Spencer-J-Bloch-Higher-Regulators-Algebraic-K-Theory-and-Zeta-Functions-of-Elliptic-Curves-AMS-2000)
+[the book](https://bookstore.ams.org/crmm-11) (the part was read from an unauthorised copy; its readings must be checked again against a legitimate one)
 was read on 2026-10-06. The AMS PDF endpoints returned HTTP 403. The text layer
 loses overlines, so the barred cubic denominator and the imaginary projection
 were independently reconstructed by the displayed algebra and the numerical

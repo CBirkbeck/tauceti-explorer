@@ -239,8 +239,7 @@
         {
           "sourceId": "bdp-published-2013-gh8",
           "locator": "Section 2.3, Proposition 2.7 and preceding paragraph, printed p. 1063",
-          "match": "The preceding paragraph supplies the index-zero cusp correction; the proposition gives homological triviality.",
-          "excerpt": "PROPOSITION 2.7"
+          "match": "The preceding paragraph supplies the index-zero cusp correction; the proposition gives homological triviality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -290,14 +289,12 @@
         {
           "sourceId": "bdp-published-2013-gh8",
           "locator": "Section 3.1, Definition 3.1 and Remark 3.2, printed pp. 1065--1066",
-          "match": "Supplies the extension realization; the finite Picard comparison is a separate requested proof.",
-          "excerpt": "Remark 3.2"
+          "match": "Supplies the extension realization; the finite Picard comparison is a separate requested proof."
         },
         {
           "sourceId": "castella-family-author-gh8",
           "locator": "Remark 6.6, p. 29",
-          "match": "The actual quotient map and basepoint identify the weight-two objects used by the remark.",
-          "excerpt": "Kummer images"
+          "match": "The actual quotient map and basepoint identify the weight-two objects used by the remark."
         }
       ],
       "implementationStatus": "unchecked",
@@ -350,8 +347,7 @@
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, character specialization after equation (5.1) and Lemma 5.4",
-          "match": "Direct reindexing fixes the convention without the problematic Section 4.4 identification.",
-          "excerpt": "Lemma 5.4."
+          "match": "Direct reindexing fixes the convention without the problematic Section 4.4 identification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -400,8 +396,7 @@
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, Definition 5.2 and equation (5.1), pp. 22--23",
-          "match": "Separates positive-conductor stabilization from tower normalization.",
-          "excerpt": "Definition 5.2."
+          "match": "Separates positive-conductor stabilization from tower normalization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -457,8 +452,7 @@
         {
           "sourceId": "ch-published-2018-gh8",
           "locator": "Proposition 4.4, printed pp. 591--593; Lemma 5.3, printed pp. 601--602",
-          "match": "The split recurrence is explicitly in the positive range; it is not a computation of the initial split case.",
-          "excerpt": "for all n > 1"
+          "match": "The split recurrence is explicitly in the positive range; it is not a computation of the initial split case."
         }
       ],
       "implementationStatus": "unchecked",
@@ -513,8 +507,7 @@
         {
           "sourceId": "bdp-published-2013-gh8",
           "locator": "Sections 3.2--3.4, printed pp. 1066--1070",
-          "match": "The quotient-adjunction and scalar calculation specify the comparison with the local realization.",
-          "excerpt": "p-adic Abel–Jacobi map"
+          "match": "The quotient-adjunction and scalar calculation specify the comparison with the local realization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -576,26 +569,22 @@
         {
           "sourceId": "castella-family-author-gh8",
           "locator": "Theorem 6.5, equations (6.8)--(6.9), p. 28; Remark 6.6, p. 29",
-          "match": "The theorem is higher-weight; the remark gives the stated p-old weight-two extension.",
-          "excerpt": "weight 2 and trivial character"
+          "match": "The theorem is higher-weight; the remark gives the stated p-old weight-two extension."
         },
         {
           "sourceId": "lz14-v3-gh8",
           "locator": "Proposition 4.11 and proof, p. 18; context Theorem 4.7, pp. 16--17",
-          "match": "The two-variable injectivity input includes the infinite-unramified-direction hypothesis; quotient descent still requires its own kernel calculation.",
-          "excerpt": "the regulator map"
+          "match": "The two-variable injectivity input includes the infinite-unramified-direction hypothesis; quotient descent still requires its own kernel calculation."
         },
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Theorem 5.1 and proof, pp. 21--22; Section 5.3, (5.3) and Lemma 5.5, p. 24",
-          "match": "Locates the quotient step and the subsequent nonzero ordinary-line pairing; neither is replaced by a generic claim that injective maps stay injective after quotienting.",
-          "excerpt": "Thus quotienting"
+          "match": "Locates the quotient step and the subsequent nonzero ordinary-line pairing; neither is replaced by a generic claim that injective maps stay injective after quotienting."
         },
         {
           "sourceId": "mathlib-quotient-082e2d3-gh8",
           "locator": "Quotient/Basic.lean lines 228--229, together with 158--159 and Submodule/Ker.lean 199--200",
-          "match": "Provides the existing algebraic kernel calculation used to specify the unresolved arithmetic descent condition.",
-          "excerpt": "ker_mapQ"
+          "match": "Provides the existing algebraic kernel calculation used to specify the unresolved arithmetic descent condition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -650,14 +639,12 @@
         {
           "sourceId": "ch-published-2018-gh8",
           "locator": "Section 5.2, Definition 5.2 and Lemma 5.3, printed pp. 601--602",
-          "match": "New explicit algebraic comparison of the two branches; the paper is not claimed to supply the missing initial raw trace proof.",
-          "excerpt": "5.2"
+          "match": "New explicit algebraic comparison of the two branches; the paper is not claimed to supply the missing initial raw trace proof."
         },
         {
           "sourceId": "castella-family-author-gh8",
           "locator": "Equation (6.7), author-copy p. 28",
-          "match": "The half-unit normalization is a comparison target, not a substitute for identifying the raw geometric classes.",
-          "excerpt": "(6.7)"
+          "match": "The half-unit normalization is a comparison target, not a substitute for identifying the raw geometric classes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -700,8 +687,7 @@
         {
           "sourceId": "ch-published-2018-gh8",
           "locator": "Definition 5.2 and Lemma 5.3, printed p. 601",
-          "match": "New negative test for a proposed normalization change. It does not assert a second independently established source error.",
-          "excerpt": "5.2"
+          "match": "New negative test for a proposed normalization change. It does not assert a second independently established source error."
         }
       ],
       "implementationStatus": "unchecked",
@@ -747,8 +733,7 @@
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, equation (5.1) and the preceding integral inverse-limit construction",
-          "match": "Elementary comparison check required for transporting the integral cycle tower; neither a new Iwasawa carrier nor a claimed source theorem.",
-          "excerpt": "(5.1)"
+          "match": "Elementary comparison check required for transporting the integral cycle tower; neither a new Iwasawa carrier nor a claimed source theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -798,8 +783,7 @@
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, equation (5.1) and its integral inverse-limit carrier",
-          "match": "New explicit comparison proof for fixed denominator data; the actual geometric data remain requested.",
-          "excerpt": "(5.1)"
+          "match": "New explicit comparison proof for fixed denominator data; the actual geometric data remain requested."
         }
       ],
       "implementationStatus": "unchecked",
@@ -844,8 +828,7 @@
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, equation (5.1), order of integral inverse limit and coefficient extension",
-          "match": "New explicit counterexample to replacing that order by levelwise rationalization without uniform control; not an example attributed to the source.",
-          "excerpt": "(5.1)"
+          "match": "New explicit counterexample to replacing that order by levelwise rationalization without uniform control; not an example attributed to the source."
         }
       ],
       "implementationStatus": "unchecked",
@@ -905,20 +888,17 @@
         {
           "sourceId": "ch-published-2018-gh8",
           "locator": "Lemma 5.4 and its proof, printed p. 602; exact conductor cp^n and equation (5.1)",
-          "match": "The source uses exact conductor before dropping the lower term; the comparison spells out the last-kernel condition and supplies an integral coset proof. The separate specialization is not claimed constructed.",
-          "excerpt": "Lemma 5.4"
+          "match": "The source uses exact conductor before dropping the lower term; the comparison spells out the last-kernel condition and supplies an integral coset proof. The separate specialization is not claimed constructed."
         },
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, Lemma 5.4, printed p. 23, including the citation of Rubin Lemma 2.4.3",
-          "match": "Separates the finite weighted-sum calculation from the cohomological evaluation/descent used by the source.",
-          "excerpt": "nontrivial finite order character"
+          "match": "Separates the finite weighted-sum calculation from the cohomological evaluation/descent used by the source."
         },
         {
           "sourceId": "mathlib-finite-characters-082e2d3-gh8",
           "locator": "Basic.lean, section sum, theorem sum_eq_zero_of_ne_one; finite commutative-monoid and integral-domain context",
-          "match": "Already-built scalar orthogonality supports the coset proof without cancellation in the possibly torsion coefficient module.",
-          "excerpt": "sum_eq_zero_of_ne_one"
+          "match": "Already-built scalar orthogonality supports the coset proof without cancellation in the possibly torsion coefficient module."
         }
       ],
       "implementationStatus": "unchecked",
@@ -986,19 +966,16 @@
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.3, equations (5.3)--(5.5), Definition 5.6 and Theorem 5.7, pp. 24--25",
-          "excerpt": "Theorem 5.7.",
           "match": "The exact completed-unramified formula is imported from GH.4; this node adds quotient, differential and consumer coefficient transport at r=1."
         },
         {
           "sourceId": "bdp-published-2013-gh8",
           "locator": "Sections 3.1--3.4, pp. 1065--1070",
-          "excerpt": "Definition 3.1",
           "match": "Functorial realization and its de Rham dual determine the sign and differential map; elliptic logarithm naturality is a supplier obligation."
         },
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 4.5, de Rham base-change discussion, p. 19",
-          "excerpt": "for any finite extension E/L",
           "match": "States the de Rham scalar-extension identification. The additional Abel--Jacobi, Bloch--Kato logarithm and trace squares are explicit supplier requests, not conclusions inferred from this vector-space identity."
         }
       ],
@@ -1054,13 +1031,11 @@
         {
           "sourceId": "castella-family-author-gh8",
           "locator": "Theorem 2.11 and proof, pp. 12--13; Proposition 5.2 and Theorem 5.3, pp. 22--23; Theorem 6.5 and Remark 6.6, pp. 28--29",
-          "excerpt": "Theorem 5.3.",
           "match": "Native family scalar identity, analytic specialization and its range; GH.8 translates the imported data for the congruence consumer."
         },
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Theorem 5.7, p. 25",
-          "excerpt": "Theorem 5.7.",
           "match": "The distinct revised CH identity retains its negative scalar, group-like term and pairing."
         }
       ],
@@ -1119,13 +1094,11 @@
         {
           "sourceId": "bsd-multiplicative-erratum-gh8",
           "locator": "Theorem 2.3 and proof, pp. 3--4; proof of Theorem 1.1 and footnote 1, p. 4",
-          "excerpt": "higher weight extension",
           "match": "Names the exact higher-weight systems, source theorem calls and congruence route consumed by BSD.6a; its arithmetic main-conjecture conclusions remain consumer-owned."
         },
         {
           "sourceId": "ch-erratum-gh8",
           "locator": "Lemma 7.5/Proposition 7.8 correction, p. 1",
-          "excerpt": "Perrin-Riou",
           "match": "Supplies the corrected proof route for derived local conditions; its replacement theorem is GH.2 work."
         }
       ],

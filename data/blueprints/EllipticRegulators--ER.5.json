@@ -75,7 +75,7 @@
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer J. Bloch",
       "edition": "CRM Monograph Series 11, AMS 2000; public HTML text-layer transcription containing AMS reprint page labels. Overlines and some glyphs are lost; no publisher PDF, page-image, licence or private-scan verification is claimed.",
-      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "url": "https://bookstore.ams.org/crmm-11",
       "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75",
       "accessed": "2026-10-06",
       "readSections": [
@@ -127,7 +127,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "§11.1, (11.1.1)–(11.1.2), pp.87–88; proof of Lemma 11.1.7, p.91",
-          "excerpt": "(11.1.1)",
           "match": "The printed transform and the dual-first transform in the proof disagree. This comparison implements the accepted parent correction EllipticRegulators/E7; the C⁴ is independently reconstructed from the reviewed direct ER.4 proof."
         }
       ],
@@ -170,7 +169,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "§11.2, (11.2.1)–(11.2.4), pp.91–92",
-          "excerpt": "(11.2.4)",
           "match": "Γ names the product g·H_χ(ḡ) occurring in the displayed formulas, rather than another CM datum. Parent E7/E8 fixes its convention and final scalar."
         }
       ],
@@ -316,7 +314,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Lemma 11.1.7 and proof, pp.90–91; §11.2, pp.91–92",
-          "excerpt": "Lemma 11.1.7.",
           "match": "The support/covariance are Lemma 11.1.7. The norm, reality and generator independence are derived consequences using the imported Fourier API and the E/ℚ conjugation hypothesis, not separately numbered source theorems."
         }
       ],
@@ -366,7 +363,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Corollary 11.1.6, p.90; (11.2.1), pp.91–92",
-          "excerpt": "Corollary 11.1.6.",
           "match": "The distribution proof partitions full conductor fibers. The printed last step of (11.2.1) incorrectly replaces them by units modulo C without an extra prime-support assumption; accepted parent E9 supplies the correction."
         }
       ],
@@ -413,7 +409,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(11.2.2)–(11.2.3), p.92",
-          "excerpt": "(11.2.3)",
           "match": "This is the orbit step in Bloch’s construction, with W replacing the insufficient unit index set as recorded in parent E9. Its precise factor |μ| must be compared with the generator multiplicity on the L-series side."
         }
       ],
@@ -460,7 +455,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "§11.2 preceding (11.2.1), p.91; Theorem 11.2.1, p.92",
-          "excerpt": "(11.2.1)",
           "match": "Bloch moves from the lattice sum to an ideal Hecke L-function without dividing by the number of generators. This explicit comparison implements accepted parent E8. The generator’s bar is recovered from the parent’s reviewed CM convention, since the public text loses overlines."
         }
       ],
@@ -511,7 +505,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Remark 11.2.2 and Corollary 11.2.3, p.93",
-          "excerpt": "Corollary 11.2.3.",
           "match": "The source nonzero argument lies entirely in the absolutely convergent region. The reviewed library audit identifies the pinned Tau Ceti declaration that already supplies it."
         }
       ],
@@ -562,13 +555,11 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(11.2.1)–(11.2.4), pp.91–92; Corollary 11.2.3, p.93",
-          "excerpt": "Theorem 11.2.1.",
           "match": "This is an independent scalar certificate for the parent corrected theorem, using accepted E7/E8/E9, rather than a new identifier for that theorem. The printed final formula and the printed kernel cannot be combined unchanged."
         },
         {
           "sourceId": "Brunault.These.2005.public",
           "locator": "Remarque 20, p.22; Proposition 26 and its proof, pp.26–27, (1.64)",
-          "excerpt": "(1.64)",
           "match": "The selected real-period uniformization transports conjugation to the natural coordinate action. The orientation-reversing substitution then makes the real-point regulator pure imaginary. Its conversion to Bloch’s R_q is imported from ER.4; no factor of two is inferred from this excerpt alone."
         }
       ],
@@ -619,7 +610,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "Theorem 11.2.1, p.92, specialized to the parent accepted examples",
-          "excerpt": "(11.2.4)",
           "match": "The source gives the general construction; the finite tables and numerical diagnostics are explicit specializations, independently recalculated here. The curve labels and character conventions are inherited from the accepted parent, not taken from OCR."
         }
       ],
@@ -664,7 +654,6 @@
         {
           "sourceId": "Bloch.CRM11.public",
           "locator": "(11.2.1)–(11.2.3), pp.91–92; parent E9 counterexample",
-          "excerpt": "(11.2.3)",
           "match": "This is the accepted parent E9 counterexample, recalculated at45 digits; it is not an example asserted in the published book."
         }
       ],
@@ -840,7 +829,7 @@
   "sourceVersions": [
     {
       "kind": "published",
-      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "url": "https://bookstore.ams.org/crmm-11",
       "citation": "Bloch CRM11, public HTML text-layer transcription; independent source collation is limited to this public transcription, not the publisher page images.",
       "read": "2026-10-06",
       "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75"

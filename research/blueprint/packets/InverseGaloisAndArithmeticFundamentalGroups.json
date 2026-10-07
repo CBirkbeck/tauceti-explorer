@@ -416,13 +416,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -505,13 +503,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -557,13 +553,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -648,13 +642,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -757,13 +749,11 @@
         {
           "sourceId": "mathlib-polynomial",
           "locator": "Polynomial.coeff_sum, coeff_monomial and mem_support_iff",
-          "excerpt": "coefficients",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -806,13 +796,11 @@
         {
           "sourceId": "mathlib-polynomial",
           "locator": "Polynomial.coeff_map and Polynomial.ext",
-          "excerpt": "coefficients",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -854,13 +842,11 @@
         {
           "sourceId": "mathlib-polynomial",
           "locator": "Polynomial.toSubring, map_toSubring and map_add",
-          "excerpt": "coefficients",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -902,13 +888,11 @@
         {
           "sourceId": "mathlib-polynomial",
           "locator": "Polynomial.toSubring, map_toSubring and map_mul",
-          "excerpt": "coefficients",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -949,13 +933,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -1036,13 +1018,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -1082,13 +1062,11 @@
         {
           "sourceId": "mathlib-polynomial",
           "locator": "Polynomial.eval_prod and mem_support_iff",
-          "excerpt": "coefficients",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -1130,13 +1108,11 @@
         {
           "sourceId": "mathlib-polynomial",
           "locator": "Polynomial.natDegree_eq_of_le_of_coeff_ne_zero and high-coefficient tests",
-          "excerpt": "coefficients",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -1179,13 +1155,11 @@
         {
           "sourceId": "mathlib-ratfunc",
           "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
-          "excerpt": "denominator",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -1229,13 +1203,11 @@
         {
           "sourceId": "mathlib-roots",
           "locator": "Polynomial.finite_setOfPred_isRoot and Set.Finite.subset",
-          "excerpt": "Nonzero polynomials have no roots away from a finite set.",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],
@@ -1275,13 +1247,11 @@
         {
           "sourceId": "mathlib-roots",
           "locator": "Set.Finite.union and Set.Finite.exists_notMem",
-          "excerpt": "Nonzero polynomials have no roots away from a finite set.",
           "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
         },
         {
           "sourceId": "debes",
           "locator": "§5.2.1–5.2.2, printed pp.136–138",
-          "excerpt": "spécialisation",
           "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
         }
       ],

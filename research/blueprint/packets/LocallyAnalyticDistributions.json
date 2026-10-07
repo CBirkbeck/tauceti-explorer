@@ -1861,7 +1861,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§I.4.1, Propositions I.4.2 and I.4.3, pp. 13–14",
-          "excerpt": "On note An(B(a, r), L) l’ensemble des fonctions analytiques sur B(a, r), et on munit An(B(a, r), L) de la valuation vB(a,r) déﬁnie par vB(a,r)(φ) = inf k∈N vp(ak(φ, a)) + kr, qui en fait un L-banach.",
           "match": "The definition; multiplicativity and the maximum principle follow."
         }
       ],
@@ -1942,13 +1941,11 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§I.4.2, Remark I.4.4, Lemma I.4.5, Corollary I.4.6, pp. 14–15",
-          "excerpt": "Comme Zp est compact, c’est la limite inductive des LAh(Zp, L), h ∈N, et on le munit de la topologie de la limite inductive.",
           "match": "LA_h and the inductive limit."
         },
         {
           "sourceId": "RJW-2024",
           "locator": "Definition 3.40 and the description of C^{n−an}, p. 24",
-          "excerpt": "Then one can check that C n−an(Zp, L) is an L-Banach space with valuation given by",
           "match": "The same spaces in RJW's notation."
         }
       ],
@@ -2044,7 +2041,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "Theorem I.4.7 and Corollary I.4.8, p. 15",
-          "excerpt": "Le résultat sui- vant, dû à Amice, permet de décrire les fonctions localement analytiques en termes de leurs coeﬃcients de Mahler.",
           "match": "Theorem I.4.7 follows."
         }
       ],
@@ -2087,7 +2083,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.41, p. 24",
-          "excerpt": "Note, however, that the topology we just deﬁned on C la(Zp, L) is not the one induced from C (Zp, L).",
           "match": "Remark 3.41; density is stated there as well."
         }
       ],
@@ -2129,13 +2124,11 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Definition 3.42 and Remark 3.44, pp. 24–25",
-          "excerpt": "We deﬁne the space Dla(Zp, L) of locally analytic distributions on Zp to be the continuous dual Homcts(C la(Zp, L), L).",
           "match": "Definition 3.42."
         },
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2 opening, pp. 29–30",
-          "excerpt": "On appelle distribution continue sur Zp une forme linéaire continue sur LA(Zp, L), c’est-à-dire une forme linéaire sur LA(Zp, L) dont la restriction à chaque LAh(Zp, L) est continue.",
           "match": "The same definition with the Fréchet valuations."
         }
       ],
@@ -2230,7 +2223,6 @@
         {
           "sourceId": "SCHNEIDER-TEITELBAUM-2001",
           "locator": "Introduction, p. 1, and Lemmas 1.1–1.3, pp. 3–5",
-          "excerpt": "The L-analytic functions in Can(o, K) are given locally by power series in one variable; they form a subspace of the Qp-analytic functions cut out by a set of “Cauchy-Riemann” diﬀerential equations.",
           "match": "Their L is our F; Lemmas 1.1–1.3 give the details."
         }
       ],
@@ -2273,13 +2265,11 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "Lemma II.2.1 and Theorem II.2.2, p. 30",
-          "excerpt": "L’application µ 7→Aµ est un isomorphisme d’espaces de Fré- chet de D(Zp, L) sur R+.",
           "match": "Theorem II.2.2."
         },
         {
           "sourceId": "RJW-2024",
           "locator": "Theorem 3.43 and (3.12), p. 25",
-          "excerpt": "The Mahler transform induces a bijection Dla(Zp, L) −→R+ ⊂L[[T ]].",
           "match": "RJW Theorem 3.43, the stage's reference; RJW's proof cites Colmez."
         }
       ],
@@ -2326,7 +2316,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.4.1–II.4.6, pp. 34–37",
-          "excerpt": "On en déduit la formule Axµ(T) = ∂Aµ(T), où ∂= (1 + T) d dT .",
           "match": "Multiplication by x; the other operations follow in §II.4."
         }
       ],
@@ -2368,7 +2357,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.4.2 (division par x), Proposition II.4.1, and Proposition I.5.16, pp. 24 and 35",
-          "excerpt": "Si k ≤−1, l’indépendance du membre de droite par rapport au choix de ∂kAµ suit de ce que log η = 0 si η ∈µpn et de ce que P η∈µpn η−b = 0 si b /∈pnZp.",
           "match": "The cancellation of logarithmic ambiguities at p-power roots of unity."
         }
       ],
@@ -2407,7 +2395,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§I.5.1, Theorem I.5.14, Propositions I.5.13 and I.5.19, Theorem I.5.17, pp. 18–25",
-          "excerpt": "Théorème I.5.14. — La famille des ei,k,r, pour i ∈N, 0 ≤k ≤r, est une base de Banach de C r(Zp, L).",
           "match": "Theorem I.5.14; the definition of C^r is §I.5.1."
         }
       ],
@@ -2495,7 +2482,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.1, Lemma II.1.1, §II.3.1, Proposition II.3.1, Theorem II.3.2(i), Proposition II.3.3, pp. 29–34",
-          "excerpt": "Une distribution continue µ sur Zp est dite d’ordre r si elle s’étend par continuité à C r.",
           "match": "The definition; the equivalences follow in §§II.1 and II.3."
         }
       ],
@@ -2588,7 +2574,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.3.2, pp. 31–32",
-          "excerpt": "Une distribution d’ordre 0 est aussi appelée une mesure.",
           "match": "Measures as order-zero distributions, with the Riemann-sum construction."
         }
       ],
@@ -2630,13 +2615,11 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "Theorem II.3.2 and its proof, pp. 32–33",
-          "excerpt": "alors µ se prolonge de manière unique en une distribution d’ordre r sur Zp.",
           "match": "Theorem II.3.2(ii)."
         },
         {
           "sourceId": "RJW-2024",
           "locator": "Theorem B.1 and the remarks after it, pp. 79–80",
-          "excerpt": "This theorem was ﬁrst proved in [MSD74, AV75, Vis76].",
           "match": "RJW's attribution to Manin, Mazur–Swinnerton-Dyer, Amice–Vélu and Višik."
         }
       ],
@@ -2715,7 +2698,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 9-10, finite-rank and compact definitions",
-          "excerpt": "compact",
           "match": "Compare the source convention with the supplier. The supplier generality request remains an explicit closure boundary."
         }
       ],
@@ -2789,7 +2771,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 7-9",
-          "excerpt": "cA(I)",
           "match": "The universal property of the source's c_A(I), realised using the existing C0 carrier."
         }
       ],
@@ -2868,7 +2849,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 7-9 and 15-16",
-          "excerpt": "potentially ONable",
           "match": "Preserves the integrated node and the source's norm-sensitive distinction; its carrier is now pinned to Mathlib."
         }
       ],
@@ -2897,7 +2877,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 2.1 and proof; Lemma 2.3(b), pp. 6-11",
-          "excerpt": "Noetherian",
           "match": "Records exactly the finite-module topological input that the inspected proof imports from BGR."
         }
       ],
@@ -2929,7 +2908,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.3(a)-(b), pp. 10-11",
-          "excerpt": "Lemma 2.3",
           "match": "Separates detection and its topological bound from the subsequent approximation estimate."
         }
       ],
@@ -2960,7 +2938,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.3(c), pp. 10-11",
-          "excerpt": "Lemma 2.3",
           "match": "Retains the accepted approximation node and exposes its norm-controlled lifting input."
         }
       ],
@@ -2992,7 +2969,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 2.4, pp. 11-12",
-          "excerpt": "Proposition 2.4",
           "match": "Both directions and the stated Noetherian restriction are preserved."
         }
       ],
@@ -3068,7 +3044,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Definition following Proposition 2.4, p. 12",
-          "excerpt": "det(1 - Xφ)",
           "match": "The signed principal-minor construction, separated from its later invariance and growth statements."
         }
       ],
@@ -3138,7 +3113,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 21",
-          "excerpt": "A{{T}}",
           "match": "Uses the source's entire-series algebra, not the open-unit-disc algebra in L1."
         }
       ],
@@ -3174,7 +3148,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 7(b) and its column-product estimate, pp. 75-76; Proposition 8, p. 77",
-          "excerpt": "r1 ... rm",
           "match": "Explicit finite-exception formulation of the minor-product estimate; the argument uses only ultrametricity and submultiplicativity and therefore applies to A. The uniform-family formulation is proved here rather than attributed verbatim."
         }
       ],
@@ -3209,7 +3182,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 8 proof, p. 77",
-          "excerpt": "Proposition 8",
           "match": "Isolates the telescoping estimate used before uniform control of all degrees."
         }
       ],
@@ -3240,7 +3212,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 8 and proof, p. 77",
-          "excerpt": "Proposition 8",
           "match": "A sufficient common-majorant variant with a complete head/tail proof over A, used in the product argument."
         }
       ],
@@ -3274,7 +3245,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.5(b), pp. 12-13",
-          "excerpt": "Lemma 2.5",
           "match": "The finite-coordinate comparison needed for the product-limit argument."
         }
       ],
@@ -3318,7 +3288,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.5(a)-(c) and Corollary 2.6, pp. 12-14",
-          "excerpt": "Corollary 2.6",
           "match": "Retains the accepted invariant, with its finite-free comparison boundary explicitly recorded."
         }
       ],
@@ -3349,7 +3318,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.7 and its complete proof, pp. 14-15",
-          "excerpt": "Lemma 2.7",
           "match": "Preserves the two distinct finite-module truncations and the one-compact-factor hypothesis."
         }
       ],
@@ -3380,7 +3348,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemmas 2.8-2.9 and Corollary 2.10, pp. 16-18",
-          "excerpt": "Lemma 2.8",
           "match": "Preserves the accepted scalar-extension target and names the undecomposed tensor input."
         }
       ],
@@ -3452,7 +3419,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 18-20",
-          "excerpt": "(Pr)",
           "match": "Retains the accepted property and separates its lifting and finite-generation consequences."
         }
       ],
@@ -3483,7 +3449,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, lifting discussion before Lemma 2.11, pp. 18-19",
-          "excerpt": "(Pr)",
           "match": "Separates both directions of the source's characterization and identifies the baseline open-mapping input."
         }
       ],
@@ -3513,7 +3478,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.11, p. 19",
-          "excerpt": "Lemma 2.11",
           "match": "The exact algebraic consequence used by the Riesz decomposition."
         }
       ],
@@ -3586,7 +3550,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 19-21, including Lemmas 2.12-2.13",
-          "excerpt": "(Pr)",
           "match": "Retains the accepted zero-extension construction with complement independence and the uncompleted exercise boundary."
         }
       ],
@@ -3615,7 +3578,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, p. 20; used in Proposition 3.2, p. 23",
-          "excerpt": "(Pr)",
           "match": "The determinant factorization used in the finite-projective rank argument is made a separate dependency."
         }
       ],
@@ -3651,13 +3613,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Corollary 1 to Proposition 7, p. 76; Proposition 8, p. 77",
-          "excerpt": "det(1+u+v+uv)",
           "match": "The field-case product identity; this node writes out its extension to Noetherian Banach A using a common column majorant and finite free determinants rather than reduction modulo valuation ideals."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.3(c), Proposition 2.4 and Lemma 2.5, pp. 10-14; Lemma 3.1, p. 22",
-          "excerpt": "Lemma 3.1",
           "match": "The source's finite approximation machinery proves the previously undecomposed multiplicativity import needed in the converse of Lemma 3.1."
         }
       ],
@@ -3694,7 +3654,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Zero-extension construction, pp. 19-20; Lemma 3.1, p. 22",
-          "excerpt": "(Pr)",
           "match": "Explicit transport of the preceding product theorem through the source's zero-extension construction."
         }
       ],
@@ -3725,13 +3684,11 @@
         {
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Appendix A3, division preceding Lemmas A3.5 and A3.7",
-          "excerpt": "A3",
           "match": "Exposes the polynomial-division input to the resultants, with the transport and convergence boundary retained."
         },
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "printed434/PDF18, norm interpretation and proof of LemmaA3.5",
-          "excerpt": "we can write P as BQ + R",
           "match": "The retained composite theorem now has explicit reciprocal-tail convergence, coefficient recurrence and entire uniqueness prerequisites. This completes its monic one-variable division proof plan, without claiming the resultant comparisons or spectral resultant."
         }
       ],
@@ -3828,13 +3785,11 @@
         {
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Appendix A3, definition of resultant and Lemma A3.7",
-          "excerpt": "Res(Q, P)",
           "match": "The finite quotient-algebra determinant; the separate spectral resultant is honestly kept unresolved."
         },
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "printed434–435/PDF18–19, norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "relatively prime",
           "match": "The retained node is decomposed through the analytic reduction map and exact native finite-algebra interfaces. No new source error or independent-review verdict is asserted."
         }
       ],
@@ -3877,13 +3832,11 @@
         {
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Lemma A3.7 and proof",
-          "excerpt": "Lemma A3.7",
           "match": "The unit criterion, isolated from the spectral-mapping theorem."
         },
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "printed434–435/PDF18–19, norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "relatively prime",
           "match": "The retained node is decomposed through the analytic reduction map and exact native finite-algebra interfaces. No new source error or independent-review verdict is asserted."
         }
       ],
@@ -3964,7 +3917,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 6, Proposition 10 and Lemma 3 with its three-step proof, pp. 78-79",
-          "excerpt": "Proposition 10",
           "match": "Separates the operator-valued resolvent construction from the polynomial invertibility criterion."
         }
       ],
@@ -3998,13 +3950,11 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 3.1, pp. 21-22",
-          "excerpt": "Lemma 3.1",
           "match": "Preserves the accepted criterion and its Noetherian Banach algebra hypotheses."
         },
         {
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Lemma A4.1 proof and Lemmas A3.7-A3.8, Theorem A3.9",
-          "excerpt": "Lemma A4.1",
           "match": "Identifies exactly where the product identity and the spectral resultant are used in the converse."
         }
       ],
@@ -4041,7 +3991,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, p. 23, finite-generation paragraph",
-          "excerpt": "the identity is compact",
           "match": "The full source argument is made explicit using existing Neumann-series and operator-completeness declarations. The converse is the finite-rank definition on pp. 9-10."
         }
       ],
@@ -4113,13 +4062,11 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2 and proof, pp. 23-24",
-          "excerpt": "Proposition 3.2",
           "match": "Retains the accepted projectors, finite projectivity and exact rank, while making the rank-stratification bookkeeping explicit."
         },
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 12 and proof, pp. 80-81",
-          "excerpt": "p = e^h",
           "match": "The Hasse-derivative projector construction transfers; the field-specific dimension argument is replaced, not imported."
         }
       ],
@@ -4154,7 +4101,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Theorem 3.3 and proof, pp. 24-25",
-          "excerpt": "Theorem 3.3",
           "match": "Preserves the accepted slope theorem, including the final characteristic-polynomial step needed to strengthen power-annihilation."
         }
       ],
@@ -4186,7 +4132,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, p. 9, finite-rank definition",
-          "excerpt": "finite rank",
           "match": "The containing-submodule definition is compared with the existing atlas supplier, using the pinned Noetherian submodule theorem."
         }
       ],
@@ -4223,7 +4168,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 8-10, operator norm and closure definition",
-          "excerpt": "closure",
           "match": "The pinned norm inequalities supply the exact strict/non-strict conversion used in Proposition 3.2."
         }
       ],
@@ -4267,7 +4211,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 2, pp. 7-8, definition of c_A(I)",
-          "excerpt": "A-action",
           "match": "The pointwise action and sup norm are the source construction; the carrier and norm already exist in Mathlib."
         }
       ],
@@ -4316,7 +4259,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma 2.3(a), p. 10, complete proof paragraph",
-          "excerpt": "Noetherian",
           "match": "The algebraic coordinate argument is extracted at its natural generality; topology and the inverse norm bound remain separate."
         }
       ],
@@ -4366,7 +4308,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4455,7 +4396,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4491,13 +4431,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "Proposition 12",
           "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4532,7 +4470,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4565,7 +4502,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4606,13 +4542,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "Proposition 12",
           "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4696,13 +4630,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "Proposition 12",
           "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4738,13 +4670,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "Proposition 12",
           "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4779,7 +4709,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "Proposition 12",
           "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
         }
       ],
@@ -4816,7 +4745,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
-          "excerpt": "Hasse derivatives",
           "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
         }
       ],
@@ -4858,13 +4786,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -4901,13 +4827,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -4940,13 +4864,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5042,13 +4964,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5087,13 +5007,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5131,13 +5049,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5173,13 +5089,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5214,13 +5128,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5256,13 +5168,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
-          "excerpt": "p = e^h",
           "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
-          "excerpt": "N = ker(ψ)",
           "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
         }
       ],
@@ -5306,7 +5216,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "§2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules.",
-          "excerpt": "Fredholm resolvant",
           "match": "The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence."
         }
       ],
@@ -5397,7 +5306,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5438,7 +5346,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5479,7 +5386,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5520,7 +5426,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5579,7 +5484,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5619,7 +5523,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5668,7 +5571,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5709,7 +5611,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5756,7 +5657,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5797,7 +5697,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5836,7 +5735,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         }
       ],
@@ -5886,13 +5784,11 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
-          "excerpt": "Lemme 3",
           "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
         },
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "§2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules.",
-          "excerpt": "Fredholm resolvant",
           "match": "The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence."
         }
       ],
@@ -5931,7 +5827,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
-          "excerpt": "the identity is compact",
           "match": "The source makes the identity on N a polynomial in u with no constant term. This explicit geometric factor and its generality without a unit parameter are worker deductions of that step."
         }
       ],
@@ -5972,7 +5867,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
-          "excerpt": "φ has an inverse on N",
           "match": "The source uses invertibility on N on p.24. The finite geometric inverse is made explicit here and is valid before any rank or determinant argument."
         }
       ],
@@ -6059,7 +5953,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Definition of (Pr), full manuscript pp.18–19, and use of Lemma2.11 on p.23",
-          "excerpt": "direct summand",
           "match": "The source defines (Pr) by a continuous direct summand of a potentially ONable module. Transitivity of its split inclusion is the existing API proof, now given its own dependency node."
         }
       ],
@@ -6100,7 +5993,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
-          "excerpt": "the identity is compact",
           "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
         }
       ],
@@ -6146,7 +6038,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
-          "excerpt": "the identity is compact",
           "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
         }
       ],
@@ -6188,7 +6079,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
-          "excerpt": "the identity is compact",
           "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
         }
       ],
@@ -6229,7 +6119,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
-          "excerpt": "the identity is compact",
           "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
         }
       ],
@@ -6274,7 +6163,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Lemma2.11, manuscript p.19, and Proposition3.2 proof, pp.23–24",
-          "excerpt": "By Lemma 2.11, N is projective.",
           "match": "Separates the finite-generation and (Pr) inputs from the remaining rank/determinant proof. The native algebraic projectivity carrier is reused."
         }
       ],
@@ -6313,7 +6201,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 8 proof, printed p. 77 (PDF p. 10)",
-          "excerpt": "Proposition 8",
           "match": "Extracts the product-difference step and gives its explicit uniform C-bound over a normed ring; it uses only the displayed telescoping identity, submultiplicativity and ultrametricity."
         }
       ],
@@ -6362,7 +6249,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 7(a,b), printed pp. 75–76 (PDF pp. 8–9)",
-          "excerpt": "det",
           "match": "Spells out the distinct-column estimate over the coefficient-ring generality used by Buzzard; the source proves the field case."
         }
       ],
@@ -6416,7 +6302,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 8 proof, printed p. 77 (PDF p. 10)",
-          "excerpt": "Proposition 8",
           "match": "Isolates the finite determinant estimate needed before taking the summable principal-minor difference."
         }
       ],
@@ -6456,7 +6341,6 @@
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
           "locator": "Definition following Proposition 2.4, manuscript p. 12",
-          "excerpt": "compact",
           "match": "Decomposes the asserted convergence of the principal-minor sum, retaining the arbitrary index set and explicitly separating the degree-zero boundary."
         }
       ],
@@ -6494,7 +6378,6 @@
         {
           "sourceId": "Serre-EndomorphismesCC-1962",
           "locator": "Proposition 7(b), printed p. 76 (PDF p. 9)",
-          "excerpt": "det",
           "match": "A finite-exception form of the distinct-column product bound; this avoids selecting a decreasing enumeration and works for arbitrary index types."
         }
       ],
@@ -6536,7 +6419,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6577,7 +6459,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6693,7 +6574,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6733,7 +6613,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6773,7 +6652,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6813,7 +6691,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6857,7 +6734,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6900,13 +6776,11 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         },
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Lemma A3.1, printed432/PDF16; corrected linear entire case, finding LocallyAnalyticDistributions/E1",
-          "excerpt": "Lemma A3.1.",
           "match": "Mathematical transcription of the displayed notation in the scanned page. The stated restricted-series assertion is false; the node assumes entire H and proves its own linear case."
         }
       ],
@@ -6951,7 +6825,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -6989,7 +6862,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -7032,7 +6904,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -7071,7 +6942,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
         }
       ],
@@ -7113,7 +6983,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7155,7 +7024,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7196,7 +7064,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7286,7 +7153,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7326,7 +7192,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7367,7 +7232,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7414,7 +7278,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7457,7 +7320,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7504,7 +7366,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7542,7 +7403,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7584,7 +7444,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7625,7 +7484,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
-          "excerpt": "we can write P as BQ + R",
           "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
         }
       ],
@@ -7665,7 +7523,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -7751,7 +7608,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -7792,7 +7648,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -7889,7 +7744,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -7929,7 +7783,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -7968,7 +7821,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -8007,7 +7859,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -8050,7 +7901,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
-          "excerpt": "the resultant as a norm",
           "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
         }
       ],
@@ -8089,7 +7939,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8134,7 +7983,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8257,7 +8105,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8297,7 +8144,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8338,7 +8184,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8378,7 +8223,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8420,7 +8264,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8458,7 +8301,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8497,7 +8339,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8537,7 +8378,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8580,7 +8420,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8623,7 +8462,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
-          "excerpt": "Then we set",
           "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
         }
       ],
@@ -8664,7 +8502,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8704,7 +8541,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8744,7 +8580,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8782,7 +8617,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8821,7 +8655,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8863,7 +8696,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8905,7 +8737,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8945,7 +8776,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -8987,7 +8817,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -9047,7 +8876,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -9086,7 +8914,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -9126,7 +8953,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -9170,7 +8996,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
         }
       ],
@@ -9209,7 +9034,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9291,7 +9115,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9333,7 +9156,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9436,7 +9258,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9477,7 +9298,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9521,7 +9341,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9562,7 +9381,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9603,7 +9421,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9647,7 +9464,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9686,7 +9502,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9735,7 +9550,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9778,7 +9592,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9816,7 +9629,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9854,7 +9666,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9894,7 +9705,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
-          "excerpt": "The corresponding formula is true",
           "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
         }
       ],
@@ -9956,7 +9766,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -9997,7 +9806,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10039,7 +9847,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10103,7 +9910,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10152,7 +9958,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10194,7 +9999,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10244,7 +10048,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10295,7 +10098,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10335,7 +10137,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10390,7 +10191,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
         }
       ],
@@ -10436,7 +10236,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10474,7 +10273,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10523,7 +10321,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10577,7 +10374,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10622,7 +10418,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10679,7 +10474,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10727,7 +10521,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10775,7 +10568,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10817,7 +10609,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10868,7 +10659,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10921,7 +10711,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -10972,7 +10761,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
         }
       ],
@@ -11013,7 +10801,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11053,7 +10840,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11096,7 +10882,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11135,7 +10920,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11179,7 +10963,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11278,7 +11061,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11323,7 +11105,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11362,7 +11143,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11402,7 +11182,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11441,7 +11220,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11480,7 +11258,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11521,7 +11298,6 @@
         {
           "sourceId": "Coleman-PadicBanach-published-1997",
           "locator": "Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.",
-          "excerpt": "taking a limit",
           "match": "Worker decomposition of the case of entire functional input B and fixed normalized polynomial characteristic input P. A fixed monic remainder and bounded output degree justify coefficient and all-radius Gauss convergence. This does not assert uniformity as the characteristic degree grows, the full entire-input construction, or the infinite-operator comparison."
         }
       ],
@@ -11565,7 +11341,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -11606,7 +11381,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -11645,7 +11419,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -11683,7 +11456,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -11722,7 +11494,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -11762,7 +11533,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -11807,7 +11577,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],
@@ -11913,7 +11682,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],
@@ -11953,7 +11721,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],
@@ -11998,13 +11765,11 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         },
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -12047,7 +11812,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],
@@ -12147,7 +11911,6 @@
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
           "locator": "§II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30",
-          "excerpt": "Fréchet",
           "match": "Worker decomposition of the evaluation and radius estimates used here; the source does not assign separate numbers to these elementary adapters."
         }
       ],
@@ -12186,7 +11949,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],
@@ -12228,7 +11990,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],
@@ -12330,7 +12091,6 @@
         {
           "sourceId": "RJW-2024",
           "locator": "Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22)",
-          "excerpt": "Mellin",
           "match": "Component evaluation and the branch parameterization; this adapter uses imported character charts and retains the source’s odd-prime convention where that specialization is discussed."
         }
       ],

@@ -349,7 +349,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.1.5, p. 192",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition VI.1.5.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -442,7 +441,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.1.6–VI.1.7, p. 193",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.1.7.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -533,7 +531,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.1.8–VI.1.9, pp. 193–194",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition VI.1.8.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -628,7 +625,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.2.6 and preceding discussion, pp. 199–200",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "VI.2.6.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -672,7 +668,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.2.2–VI.2.3, pp. 196–197",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.2.3.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -767,7 +762,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.2 opening and VI.8 final paragraphs, pp. 196, 226",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "the Cartan decomposition",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -813,7 +807,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.5.1–VI.5.7, pp. 209–211",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition VI.5.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -909,7 +902,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.1.12–VI.1.13, pp. 195–196",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.1.12.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -955,7 +947,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.1.10–VI.1.11, pp. 194–195",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.1.11.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1002,7 +993,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.1.10–VI.1.11, pp. 194–195; VI.2.8, p. 201, for the later bounded-action application",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.1.10.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1100,7 +1090,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.2.4–VI.2.5, pp. 198–200; IV.1.18, p. 112",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.2.4.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1142,7 +1131,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.2.8, p. 201",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.2.8.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1182,7 +1170,6 @@
           "sourceId": "CS17",
           "locator": "3.4.4–3.4.6, pp. 685–686",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Theorem 3.4.5.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1225,7 +1212,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "8.1 and 9.4–9.5, pp. 32, 36–37",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition 8.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1315,7 +1301,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "7.1–7.9, pp. 27–32",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition 7.2.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1405,7 +1390,6 @@
           "sourceId": "Zhu17",
           "locator": "1.9–1.11, pp. 418–421",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Lemma 1.10.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1493,7 +1477,6 @@
           "sourceId": "Zhu17",
           "locator": "1.12, 1.19–1.20; A.29–A.31, pp. 421, 425–426, 476–477",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 1.12.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1533,7 +1516,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "7.10–7.13 and 8.4–8.6, pp. 29–34",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition 7.10.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1623,7 +1605,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "7.13–7.14, pp. 30–32; Zhu 1.18, pp. 424–425",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Lemma 7.13.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1662,7 +1643,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "6.1, 6.8, 6.13 and 8.5, pp. 21–26, 33",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Theorem 6.8.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1702,7 +1682,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "6.11 and 8.8, pp. 25, 33–34",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Theorem 8.8.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1791,7 +1770,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "8.9–8.11, pp. 34–35",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Lemma 8.9.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1831,7 +1809,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "§8.4, Theorem 8.3 (statement p. 32; proof pp. 35–36), Lemmas 8.9–8.11 (pp. 34–35)",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Theorem 8.3.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1875,7 +1852,6 @@
           "sourceId": "SW20-berkeley",
           "locator": "20.3.1–20.3.4, p. 185",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition 20.3.3.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1918,7 +1894,6 @@
           "sourceId": "SW20-berkeley",
           "locator": "20.3.6 and 20.5.4, pp. 186, 190",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 20.5.4.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -1958,7 +1933,6 @@
           "sourceId": "SW20-berkeley",
           "locator": "21.1.1–21.1.4, pp. 191–192",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Theorem 21.1.1",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2004,7 +1978,6 @@
           "sourceId": "SW20-berkeley",
           "locator": "21.2.1–21.2.3, 21.4.3, 21.5.1, pp. 192–197",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Theorem 21.2.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2049,7 +2022,6 @@
           "sourceId": "Zhu17",
           "locator": "B.4–B.9, pp. 484–486",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Lemma B.4.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2137,7 +2109,6 @@
           "sourceId": "Zhu17",
           "locator": "B.10–B.11, pp. 486–488",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Lemma B.10.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2177,7 +2148,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "10.1 and discussion through 10.4, pp. 37–39",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 10.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2264,7 +2234,6 @@
           "sourceId": "BS17-witt-grassmannian",
           "locator": "10.5 and 10.6, pp. 39–40",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 10.5.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2304,14 +2273,12 @@
           "sourceId": "GLX26",
           "locator": "§3.2–§3.4, pp. 822–823",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Lemma 3.4",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         },
         {
           "sourceId": "VH24",
           "locator": "§2.2.14–§2.2.15, pp. 15–16",
           "match": "Admissible sets and their bounded affine-Schubert union.",
-          "excerpt": "2.2.15.",
           "excerptRole": "Short numbered paragraph locator; the mathematical contract is paraphrased."
         }
       ],
@@ -2399,7 +2366,6 @@
           "sourceId": "He21",
           "locator": "5.3–5.4, pp. 9–12",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "5.3. A convenient notation",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2488,7 +2454,6 @@
           "sourceId": "He21",
           "locator": "5.6 and proof 5.5, pp. 10–12",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 5.6.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2535,7 +2500,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.3.1–VI.3.5, pp. 201–206",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Corollary VI.3.5.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2626,7 +2590,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.3.7–VI.3.8, pp. 206–207",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.3.7.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2665,7 +2628,6 @@
           "sourceId": "Zhu17",
           "locator": "2.8–2.9, pp. 434–436; A.3.3, pp. 479–480",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Corollary 2.8.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2720,7 +2682,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.4.1, pp. 207–208",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.4.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2758,7 +2719,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.4.2, pp. 208–209",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.4.2.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2798,7 +2758,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.6.1–VI.6.5, pp. 211–214",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition VI.6.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2894,7 +2853,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.6.4–VI.6.6, VI.6.8, pp. 212–215",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.6.4.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2936,7 +2894,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.6.7, p. 214; VI.7.4, pp. 217–219",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Corollary VI.6.7.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -2982,7 +2939,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.1–VI.7.4, pp. 215–219",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition/Proposition VI.7.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3075,7 +3031,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.2–VI.7.4, pp. 216–219",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.7.4.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3116,7 +3071,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.7, pp. 220–221",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.7.7.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3210,7 +3164,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.5 and VI.7.9, pp. 219–222",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.7.5.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3301,7 +3254,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.5 end, pp. 219–220; Zhu 2.1, pp. 429–430",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.7.5.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3341,7 +3293,6 @@
           "sourceId": "Zhu17",
           "locator": "2.7 and 2.11–2.17, pp. 434, 436–440",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 2.7.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3382,7 +3333,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.8–VI.7.9, pp. 221–222",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Definition VI.7.8.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3479,7 +3429,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.10–VI.7.11, pp. 222–223",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.7.10.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3589,7 +3538,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.7.12–VI.7.13, pp. 223–224",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.7.12.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3640,7 +3588,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.8 opening, pp. 224–225",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "VI.8. Convolution",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3739,7 +3686,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.8 opening, pp. 224–225",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "VI.8. Convolution",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3780,7 +3726,6 @@
           "sourceId": "Zhu17",
           "locator": "2.1.2 and 2.2–2.4, pp. 431–432",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition 2.3.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3825,7 +3770,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.8.1(i), p. 225",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.8.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3867,7 +3811,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.8.1(ii), pp. 225–226",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.8.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3907,7 +3850,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.8.1(iii), pp. 225–226",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.8.1.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3950,7 +3892,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.8.2, p. 226; IV.2.24, pp. 125–126",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Proposition VI.8.2.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
@@ -3996,7 +3937,6 @@
           "sourceId": "FS-geometrization",
           "locator": "VI.6.7, VI.7.4–VI.7.8 and VI.8, pp. 214, 217–226",
           "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerpt": "Corollary VI.6.7.",
           "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
         }
       ],
