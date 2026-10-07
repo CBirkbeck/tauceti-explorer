@@ -22482,11 +22482,12 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #687"
+   "note": "deliverables arrived from an external worker on issue #687",
+   "finishedAt": "2026-10-07T01:49:56Z"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -26265,9 +26266,9 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #758"
+   "note": "claimed on GitHub issue #758"
   },
   {
    "id": "REV-IntegralHeckeAndGaloisDeterminants",
