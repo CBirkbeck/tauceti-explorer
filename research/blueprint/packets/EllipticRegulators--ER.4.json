@@ -102,9 +102,8 @@
       "id": "Bloch.CRM11",
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer J. Bloch",
-      "edition": "CRM Monograph Series 11, AMS, 2000.",
+      "edition": "CRM Monograph Series 11, American Mathematical Society, 2000.",
       "url": "https://bookstore.ams.org/crmm-11",
-      "accessed": "2026-10-06",
       "readSections": [
         "Lecture 10 §§10.2–10.3, printed pp.77–85: Lemmas 10.2.2–10.2.3, Propositions 10.3.1 and 10.3.3, Lemmas 10.3.2, 10.3.4–10.3.5.",
         "Text layer loses overlines. The barred denominator and signs are independently reconstructed by the pointwise algebra and numerical checks in the reader."
@@ -827,8 +826,7 @@
       "searched": [
         "Bloch author publications page https://math.uchicago.edu/~bloch/publications.html, opened 2026-10-06: no correction for this passage found.",
         "Search on 2026-10-06 for Bloch Higher Regulators elliptic curves errata Lecture 10; no matching published correction found.",
-        "Parent accepted sourceIssues: E11 supplies the capital-C typo; none covers this strict-boundary assertion.",
-        ""
+        "Parent accepted sourceIssues: E11 supplies the capital-C typo; none covers this strict-boundary assertion."
       ],
       "review": {
         "verdict": "confirmed",

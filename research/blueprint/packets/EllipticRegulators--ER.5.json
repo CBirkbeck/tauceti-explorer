@@ -74,10 +74,8 @@
       "id": "Bloch.CRM11",
       "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
       "authors": "Spencer J. Bloch",
-      "edition": "CRM Monograph Series 11, AMS 2000.",
+      "edition": "CRM Monograph Series 11, American Mathematical Society, 2000.",
       "url": "https://bookstore.ams.org/crmm-11",
-      "sha256": "f6f64f09e412c623adccec9744c052df811a8fb420f0fb1e7d319237937abc75",
-      "accessed": "2026-10-06",
       "readSections": [
         "Lecture11 §§11.1–11.2, printed pp.87–93, all lemmas, corollaries, construction and Theorem11.2.1.",
         "The corrected overlines and kernel are inherited from the accepted parent and independently checked through exact coordinate algebra; OCR is not used to certify them."
