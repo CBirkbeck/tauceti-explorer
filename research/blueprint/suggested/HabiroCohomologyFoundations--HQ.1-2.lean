@@ -5,7 +5,7 @@ import Mathlib.Data.Fin.VecNotation
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is
-definitive once synchronized with the independent review's corrections.
+definitive.
 These statements suggest Lean forms so that contributors and
 reviewers converge on names and signatures. All proofs are placeholders and
 claim no implementation.
