@@ -16744,8 +16744,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6897"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6897",
+   "finishedAt": "2026-10-07T16:43:04Z"
   },
   {
    "id": "REV-DESIGN-CrystallineLocalGlobalCompatibilityCM",
@@ -16769,7 +16770,8 @@
    "avoidAccountOf": "DESIGN-CrystallineLocalGlobalCompatibilityCM",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6904"
   },
   {
    "id": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -16789,8 +16791,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6898"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6898",
+   "finishedAt": "2026-10-07T16:51:34Z"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -16814,7 +16817,8 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6905"
   },
   {
    "id": "DESIGN-EllAdicHomotopyTypesAndWeights",
@@ -22979,7 +22983,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #361"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -37851,8 +37856,8 @@
     "BP-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6908"
+   "state": "external",
+   "note": "claimed on GitHub issue #6908"
   },
   {
    "kind": "blueprint",
@@ -39480,7 +39485,8 @@
     "BP-IgusaVarietiesAndTorsionConcentration~2"
    ],
    "prompt": "research/blueprint/prompts/REV-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6909"
   },
   {
    "kind": "blueprint",
@@ -39537,8 +39543,9 @@
     "BP-IntegralHeckeAndGaloisDeterminants~2"
    ],
    "prompt": "research/blueprint/prompts/REV-IntegralHeckeAndGaloisDeterminants~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6910"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6910",
+   "finishedAt": "2026-10-07T16:43:06Z"
   },
   {
    "kind": "blueprint",
@@ -42815,7 +42822,8 @@
     "REV-DiamondEtaleCohomology--C8"
    ],
    "prompt": "research/blueprint/prompts/ASM-DiamondEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #224"
   },
   {
    "id": "ASM-DirichletPadicLFunctions",
@@ -69855,8 +69863,9 @@
     "REV-FIX-RT-AREA-automorphic-1~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6900"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6900",
+   "finishedAt": "2026-10-07T17:09:21Z"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~3",
@@ -71058,8 +71067,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "RT-AREA-langlands-3",

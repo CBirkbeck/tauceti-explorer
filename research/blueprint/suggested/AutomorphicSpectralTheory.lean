@@ -4657,3 +4657,19 @@ theorem yu_169 {Q : Type u} [Fintype Q] {J : Type v} [Fintype J]
     (∑ q ∈ selected, (theta q)⁻¹ * ∏ j, beta j xi) =
       if LinearIndependent ℂ beta then 1 else 0 := by sorry
 end TauCeti.AutomorphicSpectral
+
+/-
+Real harmonic-analysis export proposal (findings /4 and /24):
+AS.6/real-invariant-paley-wiener, real-operator-paley-wiener and
+spectral-multiplier form a proposed AS.1a prefix before ET.1 and AS.6.
+Only independent AS.0 LF/Schwartz/integration, AS.1 induced-family and AF.1
+real-representation inputs belong to that prefix. The multiplier uses the
+operator theorem. ET.1 then supplies ordinary orbital integrals to AS.6's
+weighted orbital and general Euler-Poincare consumers. This does not create
+an integrated atlas stage or claim that the entire stage graph is acyclic.
+The DIT Bessel imports name QM.2/I and QM.2/J; Whittaker M/W stays at
+AS.0/dit-112. K-integral/parameter estimates remain requested from QM.2.
+The raw weight-zero Laplacian is QM.3/weight-k-hyperbolic-laplacian;
+the GZ Green operator has the opposite sign. Uniform parameter estimates
+remain distinct from the carrier formulas and fixed-parameter asymptotics.
+-/

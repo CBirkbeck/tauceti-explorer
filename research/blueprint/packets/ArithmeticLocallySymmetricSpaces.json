@@ -3810,7 +3810,7 @@
     "Nomizu: for a compact nilmanifold Γ_N\\N(ℝ), left-invariant forms compute de Rham cohomology (induction on a central series, Leray–Serre for circle/torus bundles); with coefficients in a unipotent representation V the same induction applies since V has an N-stable flag with trivial graded pieces.",
     "Γ_N\\N(ℝ) is a K(Γ_N, 1) (nilmanifold fibre of stratum-nilmanifold-fibration), so its cohomology with local system V is H^*(Γ_N, V).",
     "Levi equivariance: M acts on 𝔫 and V, hence on Lie algebra cochains. On a fixed nilmanifold only the normalizer of Γ_N acts geometrically. A general commensurator element compares transported lattices through refinement and transfer.",
-    "Relative Lie algebra cohomology H^*(𝔫, V) is AutomorphicFormsOnReductiveGroups AF.1's Lie algebra cochain construction; the theorem is planned here as RT-AREA-automorphic-1/6 requires."
+    "Use the requested AF.1a absolute Lie algebra cochain complex over E to define H^*(𝔫,V); the existing relative complex over C does not supply this exact output. The lattice comparison itself stays in ALS.4."
    ],
    "acceptance": [
     "N = 𝔾_a, Γ_N = ℤ, V = E with trivial action: H^0 = H^1 = E, matching H^*(𝔫, E) for the one-dimensional abelian 𝔫.",
@@ -3819,7 +3819,7 @@
    "prerequisites": [
     "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
     "AdditiveCombinatorics:AC.3",
-    "AutomorphicFormsOnReductiveGroups:AF.1",
+    "AutomorphicFormsOnReductiveGroups:AF.1a",
     "mathlib:groupCohomology"
    ],
    "sources": [
@@ -3847,7 +3847,7 @@
    ],
    "proofSteps": [
     "Apply the transported-level nilmanifold fibration to each g. Nomizu–van Est identifies the stalk cohomology with Lie-algebra cohomology; the discrete extension gives Leray/Hochschild–Serre before any degeneration claim.",
-    "Import the AF.1 Kostant theorem, using its actual Levi modules V^M_{w·λ}, not one-dimensional substitutes. This supplies the displayed E₂ page in characteristic zero.",
+    "Use the requested AF.1a absolute-cochain/Kostant theorem, using its actual Levi modules V^M_{w·λ}, not one-dimensional substitutes. This supplies the displayed E₂ page in characteristic zero.",
     "For the totally real GL_N statement use Harder–Raghuram (4.2), Proposition 4.3 and §4.2.3 exactly: the natural decomposition and induction include transported levels and π₀(K_∞)-invariants. Do not transfer the GL_N degeneration to every reductive group or every number field.",
     "Apply boundary-stratum-hecke-comparison and parabolic-hecke-maps on eligible components. The generic reductive splitting and extension beyond decomposed levels are recorded gaps with exact earlier inputs."
    ],
@@ -3860,7 +3860,7 @@
     "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison",
     "ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps",
     "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
-    "AutomorphicFormsOnReductiveGroups:AF.1",
+    "AutomorphicFormsOnReductiveGroups:AF.1a",
     "SmoothRepresentationsOfLocalGroups:SR.2"
    ],
    "sources": [
@@ -5433,8 +5433,8 @@
    ]
   },
   {
-   "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
-   "need": "Kostant's theorem: for a reductive Lie algebra over a field of characteristic 0 and a parabolic 𝔮 = 𝔪 ⊕ 𝔫, H^q(𝔫, V_λ) ≅ ⊕_{w ∈ W^P, ℓ(w) = q} V^M_{w·λ} as M-modules, w·λ = w(λ + ρ) − ρ, with Tau Ceti's Weyl vector ρ; and Lie algebra cohomology H^*(𝔫, V) (RT-AREA-automorphic-1/6).",
+   "supplier": "AutomorphicFormsOnReductiveGroups:AF.1a",
+   "need": "Kostant's theorem: for a reductive Lie algebra over a field of characteristic 0 and a parabolic 𝔮 = 𝔪 ⊕ 𝔫, H^q(𝔫, V_λ) ≅ ⊕_{w ∈ W^P, ℓ(w) = q} V^M_{w·λ} as M-modules, w·λ = w(λ + ρ) − ρ, with Tau Ceti's Weyl vector ρ; and Lie algebra cohomology H^*(𝔫, V) (RT-AREA-automorphic-1/6). Own the absolute Chevalley–Eilenberg complex and this theorem in the AF.1a cochain prefix; AF.1 imports that prefix. The current relative complex is over ℂ and does not yet supply the general characteristic-zero E statement or Kostant decomposition, so retain this stage request rather than citing it as an exact theorem.",
    "neededBy": [
     "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
     "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula"
@@ -5531,7 +5531,8 @@
     "Resolve the exact inputs recorded in Integral Kostant and continuous comparison limits.",
     "Resolve the exact inputs recorded in Typed automorphic and Galois comparison interfaces.",
     "Resolve the exact inputs recorded in Stage order for geometry, supports, duality and automorphic applications.",
-    "Resolve the exact inputs recorded in Suggested signatures: ALS.4."
+    "Resolve the exact inputs recorded in Suggested signatures: ALS.4.",
+    "Resolve the exact inputs recorded in AF.1a absolute cochains and Kostant supplier."
    ]
   },
   {
@@ -5635,7 +5636,7 @@
     "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula",
     "ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre"
    ],
-   "detail": "No integral Kostant–van Est decomposition is asserted: a large-p integral comparison and its lattice/Hecke compatibility would need a separate source and AF.1 input. The arithmetic Γ_N Hochschild–Serre construction is discrete. NT16 Lemma 4.5’s discrete arithmetic comparison is not a general continuous-cohomology theorem; a continuous version needs an exact comparison map and hypotheses. The finite quotient in ALS.6 needs only the direct finite-domain cochain identification, so R02.2 is no longer used as a mismatched supplier."
+   "detail": "No integral Kostant–van Est decomposition is asserted: a large-p integral comparison and its lattice/Hecke compatibility would need a separate source and AF.1a input. The arithmetic Γ_N Hochschild–Serre construction is discrete. NT16 Lemma 4.5’s discrete arithmetic comparison is not a general continuous-cohomology theorem; a continuous version needs an exact comparison map and hypotheses. The finite quotient in ALS.6 needs only the direct finite-domain cochain identification, so R02.2 is no longer used as a mismatched supplier."
   },
   {
    "title": "Typed automorphic and Galois comparison interfaces",
@@ -5750,7 +5751,7 @@
     "ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein",
     "ArithmeticLocallySymmetricSpaces:ALS.4/siegel-stratum-localization"
    ],
-   "detail": "SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals. Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate. Missing Lean declaration signatures: LocallySymmetric.boundary_triangle, LocallySymmetric.Hecke.restrictParabolic, LocallySymmetric.Hecke.integrateUnipotent, LocallySymmetric.Hecke.satakeUnnormalized, LocallySymmetric.Hecke.satakeUnnormalized_basis, LocallySymmetric.Hecke.satake_compat_normalized, LocallySymmetric.Hecke.parabolicInduction_invariants, LocallySymmetric.boundary_stratum_hecke_comparison, LocallySymmetric.nomizu_van_est, LocallySymmetric.boundary_stratum_cohomology_formula, LocallySymmetric.levi_hochschild_serre, LocallySymmetric.boundary_gluing_convergence, LocallySymmetric.heckeLocalize, LocallySymmetric.heckeLocalize.cohomology, LocallySymmetric.heckeLocalize.heckeAlgebra, LocallySymmetric.heckeLocalize.triangle, LocallySymmetric.heckeLocalize.eq_zero_iff, LocallySymmetric.heckeLocalize.reduction, LocallySymmetric.IsGaloisType, LocallySymmetric.IsEisenstein, LocallySymmetric.IsEisenstein.of_cohomology, LocallySymmetric.IsEisensteinCG, LocallySymmetric.IsEisenstein.iff_CG, LocallySymmetric.boundary_eigenvalue_criterion, LocallySymmetric.gln_boundary_eisenstein, LocallySymmetric.siegel_stratum_localization. Missing executable examples: satake_GL2_Tp, satake_one, satake_compat_SR4, satake_unnormalized_not_W_invariant, heckeLocalize_unsupported, heckeLocalize_module, heckeLocalize_sum, heckeLocalize_not_tensor, eisenstein_H0, eisenstein_GL1, eisenstein_iff_CG_PGL2, nonEisenstein_not_vanishing. The suggested file retains the exact mathematical specification and these names as explicit section-13 omissions; comments are not counted as Lean signatures. The ♠-only general real-place GL_n boundary theorem remains outside this plan: identify the orientation character arithmetically and prove its Galois-type compatibility, or supply the explicit dual-orientation Galois-type input now stated in gln-boundary-eisenstein. Ordinary Galois type plus neatness does not establish that input."
+   "detail": "SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals. Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate. Missing Lean declaration signatures: LocallySymmetric.boundary_triangle, LocallySymmetric.Hecke.restrictParabolic, LocallySymmetric.Hecke.integrateUnipotent, LocallySymmetric.Hecke.satakeUnnormalized, LocallySymmetric.Hecke.satakeUnnormalized_basis, LocallySymmetric.Hecke.satake_compat_normalized, LocallySymmetric.Hecke.parabolicInduction_invariants, LocallySymmetric.boundary_stratum_hecke_comparison, LocallySymmetric.nomizu_van_est, LocallySymmetric.boundary_stratum_cohomology_formula, LocallySymmetric.levi_hochschild_serre, LocallySymmetric.boundary_gluing_convergence, LocallySymmetric.heckeLocalize, LocallySymmetric.heckeLocalize.cohomology, LocallySymmetric.heckeLocalize.heckeAlgebra, LocallySymmetric.heckeLocalize.triangle, LocallySymmetric.heckeLocalize.eq_zero_iff, LocallySymmetric.heckeLocalize.reduction, LocallySymmetric.IsGaloisType, LocallySymmetric.IsEisenstein, LocallySymmetric.IsEisenstein.of_cohomology, LocallySymmetric.IsEisensteinCG, LocallySymmetric.IsEisenstein.iff_CG, LocallySymmetric.boundary_eigenvalue_criterion, LocallySymmetric.gln_boundary_eisenstein, LocallySymmetric.siegel_stratum_localization. Missing executable examples: satake_GL2_Tp, satake_one, satake_compat_SR4, satake_unnormalized_not_W_invariant, heckeLocalize_unsupported, heckeLocalize_module, heckeLocalize_sum, heckeLocalize_not_tensor, eisenstein_H0, eisenstein_GL1, eisenstein_iff_CG_PGL2, nonEisenstein_not_vanishing. The suggested file retains the exact mathematical specification and these names as explicit section-13 omissions; comments are not counted as Lean signatures. The ♠-only general real-place GL_n boundary theorem remains outside this plan: identify the orientation character arithmetically and prove its Galois-type compatibility, or supply the explicit dual-orientation Galois-type input now stated in gln-boundary-eisenstein. Ordinary Galois type plus neatness does not establish that input."
   },
   {
    "title": "Suggested signatures: ALS.5:finite-level-duality",
@@ -5786,6 +5787,14 @@
     "ArithmeticLocallySymmetricSpaces:ALS.6/tower-acceptance-tests"
    ],
    "detail": "The coherent finite-level supported equivariant complexes from ALS.1/ALS.3 and E1, with finite residual quotient actions, plus the AT stage 5 finite-cover Hochschild–Serre/edge maps. No completed tower or continuous profinite comparison is assumed or imported. Missing Lean declaration signatures: LocallySymmetric.finite_level_descent, LocallySymmetric.finite_cover_hochschild_serre, LocallySymmetric.lowest_degree_descent, LocallySymmetric.finite_cover_acceptance_tests. Missing executable examples: . The suggested file retains the exact mathematical specification and these names as explicit section-13 omissions; comments are not counted as Lean signatures."
+  },
+  {
+   "title": "AF.1a absolute cochains and Kostant supplier",
+   "neededBy": [
+    "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
+    "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula"
+   ],
+   "detail": "The exact request is to AF.1a, the unique cochain owner. Its existing complex supplies the complex relative theory; extension to the absolute algebraic complex over E of characteristic zero, the parabolic Kostant decomposition and compatible Levi action remain requested outputs. No integral or mod-p Kostant theorem is inferred. Nomizu’s lattice comparison remains an ALS.4 theorem."
   }
  ],
  "restructure": [
@@ -5921,7 +5930,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2",
   "date": "2026-10-07",
-  "notes": "Finished independent target-level review by Codex codex-hcCPKh: all 66 nodes, 156 source records in 13 public texts, 36 declarations at both pinned source commits, 132 API items, 88 tests, 31 planets, cross-owner prerequisites, prior review corrections, RS-09~2 and three confirmed red-team findings. Corrected 20 existing nodes, resolved three stage requests to exact suppliers, confirmed E1–E3, and synchronized the reader and suggested-file omission catalogue. No nodes added or baseline citations removed. Accepted as a complete planning pass with 15 explicit interface/signature/extension gaps, eight planned stages and no closed stage; general real-place ♠-only boundary vanishing and general reductive splitting are not claimed. lean-check stopped at a missing prebuilt TauCeti HeckeRing object before elaboration; file uncompiled, all implementation statuses unchecked.",
+  "notes": "Finished independent target-level review by Codex codex-hcCPKh: all 66 nodes, 156 source records in 13 public texts, 36 declarations at both pinned source commits, 132 API items, 88 tests, 31 planets, cross-owner prerequisites, prior review corrections, RS-09~2 and three confirmed red-team findings. Corrected 21 existing nodes, resolved three stage requests to exact suppliers, confirmed E1–E3, and synchronized the reader and suggested-file omission catalogue. No nodes added or baseline citations removed. Accepted as a complete planning pass with 16 explicit interface/signature/extension gaps, eight planned stages and no closed stage; general real-place ♠-only boundary vanishing and general reductive splitting are not claimed. lean-check stopped at a missing prebuilt TauCeti HeckeRing object before elaboration; file uncompiled, all implementation statuses unchecked.",
   "checked": [
    {
     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/cartan-involution",
@@ -6125,8 +6134,8 @@
    },
    {
     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
-    "verdict": "verified",
-    "note": "Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1 owns Lie cochains/Kostant."
+    "verdict": "corrected",
+    "note": "Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1a owns the requested absolute Lie-cochain/Kostant prefix. Preserved the concurrent supplier correction and explicit missing E-linear absolute-cochain/Kostant export."
    },
    {
     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula",

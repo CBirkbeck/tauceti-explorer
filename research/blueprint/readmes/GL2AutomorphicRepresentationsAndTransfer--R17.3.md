@@ -635,15 +635,17 @@ Acceptance checks:
 
 Declaration `TauCeti.GL2Transfer.adjointLift` (construction); node `GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift`.
 
-For a unitary cuspidal GL₂ automorphic representation π over a number field F, the adjoint lift Ad(π)=Sym²(π)⊗ω_π^{-1} is an isobaric automorphic GL₃ representation with trivial central character and all local factors matching the adjoint of the rank-two LLC parameter. At an unramified v with eigenvalues α,β its eigenvalues are α/β,1,β/α. It is invariant under character twist of π. It is cuspidal exactly when π has no nontrivial self-twist. In the quadratic monomial case π=AI_{E/F}(θ), the isobaric formula is Ad(π)=η_{E/F}⊞AI_{E/F}(θ/θ^σ), with the rank-two induction interpreted isobarically if its character is invariant. The generic adjoint representation/carrier is imported from ArithmeticGaloisRepresentations G7.
+For a unitary cuspidal GL₂ automorphic representation π over a number field F, the adjoint lift Ad(π)=Sym²(π)⊗ω_π^{-1} (the Gelbart–Jacquet lift) is an isobaric automorphic GL₃ representation with trivial central character, self-dual, whose component at every place is the Gelbart–Jacquet local lift: L(s,Ad(π)_v⊗χ_v)=L(s,(π_v⊗χ_v)×π̃_v)/L(s,χ_v), with the matching ε-factors, for every character χ_v. Through the GL₂ local Langlands correspondence and its pair-factor compatibility these are the factors of the adjoint of the rank-two LLC parameter. At an unramified v with eigenvalues α,β its eigenvalues are α/β,1,β/α. It is invariant under character twist of π. It is cuspidal exactly when π has no nontrivial self-twist (GJ78 Theorem 9.3 and Remark 9.9). If π≅π⊗η with η≠1, then η=η_{E/F} is quadratic, π=AI_{E/F}(θ), and Ad(π)=η_{E/F}⊞AI_{E/F}(θ/θ^σ), with the rank-two induction interpreted isobarically if its character is invariant. The adjoint of a Galois or Weil–Deligne parameter is taken from ArithmeticGaloisRepresentations G7.
 
 Construction or proof:
 
-1. Use Gelbart–Jacquet’s local lift and the GL₃ converse theorem for the analytic adjoint L-functions; the converse input is an explicit extension gap.
-2. Use Theorem 9.3 for the no-self-twist cuspidal case and Remark 9.9 for the quadratic self-twist case.
-3. Compare to the supplied adjoint Weil parameter; this construction does not rebuild general GL₃ automorphic carriers.
+1. Define the local lift by GJ78 Definition 3.1.3 (trivial central character, self-duality, GL₁-twisted L- and ε-factors equal to L₂ and ε₂); uniqueness is JPSS Lemma (7.5.3), quoted in GJ78 Proposition 3.3(1); for non-extraordinary π_v the lift is the explicit induced or special representation of GJ78 §3.2–3.3.
+2. Import GJ78 Theorem 8.1: for highly ramified χ, L₂(s,π,χ) is entire and bounded in vertical strips (Shimura's metaplectic integral). This input is not part of AL.3 Rankin–Selberg theory and is recorded with the GL₃ converse gap.
+3. Apply the GL₃ converse theorem in the form of GJ78 §9.2 (functional equations for twists highly ramified at a finite set T) and exclude the non-cuspidal cases (iii)–(v) by poles of L(s,(π⊗μ^{-1})×π̃) and the Jacquet–Shalika nonvanishing on Re s=1 (GJ78 §§9.4–9.8). This gives Theorem 9.3 when π has no self-twist.
+4. Self-twist case: GJ78 §3.7 and Remark 9.9 give Ad(π)=Ind(G₃,P;π(θθ'^{-1}),η), automorphic (isobaric) and not cuspidal because L(s,Ad(π)⊗η) has a pole.
+5. Compare each local lift with the adjoint of the supplied LLC parameter by equality of GL₁-twisted L- and ε-factors and the GL₃ local converse theorem, using that the GL₂ LLC preserves pair factors (R16.3); this construction does not rebuild general GL₃ automorphic carriers.
 
-Direct prerequisites: `GL2AutomorphicRepresentationsAndTransfer:R16.3`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `AutomorphicFormsOnReductiveGroups:AF.2/automorphic-representation`, `ArithmeticGaloisRepresentations:G7`.
+Direct prerequisites: `GL2AutomorphicRepresentationsAndTransfer:R16.3`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `AutomorphicFormsOnReductiveGroups:AF.2/automorphic-representation`, `ArithmeticGaloisRepresentations:G7`, `MetaplecticAutomorphicForms:MP.5`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6`, `AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation`, `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank`.
 
 Proposed library location: `TauCeti/NumberTheory/Automorphic/GL2/Transfer`, namespace `TauCeti.GL2Transfer`.
 
@@ -672,19 +674,22 @@ Acceptance checks:
 
 - For diag(2,3), unramified adjoint eigenvalues are 2/3,1,3/2, with product one.
 - For a nontrivial quadratic self-twist the output is not cuspidal.
+- When π has no nontrivial self-twist, L(s,Ad(π)⊗χ) is entire for every Hecke character χ (GJ78 Theorem 9.3(1)).
+
 
 ### Cyclic cubic induction of a character
 
 Declaration `TauCeti.GL2Transfer.cubic_character_induction` (theorem); node `GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction`.
 
-For a cyclic cubic extension E/F and a Hecke character θ of E, there is an isobaric automorphic GL₃ representation AI_{E/F}(θ), with local parameters Ind_{W_E}^{W_F}(θ) and standard L-function L_E(s,θ). It is cuspidal if and only if θ,θ^σ,θ^{σ²} are pairwise distinct. If θ=χ∘N_{E/F}, the output is χ⊞χη⊞χη² for the order-three character η associated to E/F. This rank-three character case is the exact monomial input to the tetrahedral proof; the general GL_n automorphic-induction theory is not redeveloped here.
+For a cyclic cubic extension E/F of number fields and a unitary Hecke character θ of E, there is an isobaric automorphic GL₃ representation AI_{E/F}(θ) whose local parameter at every place is Ind_{W_{E_w}}^{W_{F_v}}(θ_w) (the direct sum over w|v at a split place), in the sense of equal GL₁-twisted L- and ε-factors, and whose standard L-function is L_E(s,θ). It is cuspidal if and only if θ,θ^σ,θ^{σ²} are pairwise distinct, i.e. θ≠θ^σ. If θ=χ∘N_{E/F}, the output is χ⊞χη⊞χη² for the order-three character η associated to E/F. This rank-three character case is the exact monomial input to the tetrahedral proof; the general GL_n automorphic-induction theory is not redeveloped here.
 
 Construction or proof:
 
-1. Specialize Arthur–Clozel Chapter 3 Theorem 6.2 to n=1, ℓ=3, importing their local induction and analytic inputs.
-2. Use the cyclic orbit/centralizer criterion in that theorem to distinguish the cuspidal orbit of size three from the invariant-character branch.
+1. If θ≠θ^σ: Ind θ is irreducible (Mackey), and L(s,Ind θ⊗χ)=L_E(s,θ·(χ∘N_{E/F})) is entire and bounded in vertical strips for every χ, since θ·(χ∘N_{E/F}) is not Galois-invariant and so is never |·|^{it}. Apply JPSS 1979 Theorem (14.2) and the remark on monomial representations; its proof rests on the GL₃ converse theorem (13.6), recorded in the GL₃ supplier gap.
+2. If θ=θ^σ: write θ=χ∘N_{E/F} (class field theory for the cyclic extension) and take the isobaric sum χ⊞χη⊞χη²; Ind(χ∘N_{E/F})=χ⊕χη⊕χη² gives the local parameters.
+3. Arthur–Clozel Chapter 3 Theorem 6.2 with n=1, ℓ=3 and Theorem 4.2(d),(e) gives the same dichotomy, but only almost everywhere and through GL(3) cyclic base change.
 
-Direct prerequisites: `GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-base-change`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `AutomorphicFormsOnReductiveGroups:AF.2/automorphic-representation`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
+Direct prerequisites: `AutomorphicLFunctionsAndLocalFactors:AL.3`, `AutomorphicFormsOnReductiveGroups:AF.2/automorphic-representation`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`, `AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6`, `AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation`, `tauceti:TauCeti.simple_indFDRep_ofLinearCharacter_iff`, `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank`.
 
 Proposed library location: `TauCeti/NumberTheory/Automorphic/GL2/Transfer`, namespace `TauCeti.GL2Transfer`.
 
@@ -695,39 +700,42 @@ Acceptance checks:
 - An invariant character gives three rank-one summands, not a cuspidal GL₃ output.
 - The three nontrivial V₄ characters in the tetrahedral adjoint form one cyclic orbit.
 
+
 ### GL₃ analytic recognition for the Artin bridge
 
 Declaration `TauCeti.GL2Transfer.gl3_recognition` (theorem); node `GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition`.
 
-In the tetrahedral argument, use the supplied GL₃ converse theorem with the full Hecke-character twist family (and its analytic hypotheses, including both dual L-functions, vertical-strip bounds and functional equations) to recognize the adjoint candidate. Use GL₃ isobaric strong multiplicity one and the Rankin–Selberg pole/nonvanishing criterion to compare Ad(π) with the cubic automorphic induction of Ad(ρ). The latter criterion distinguishes common cuspidal constituents, including the reducible/isobaric branch. GL₂ strong multiplicity one and an untwisted L-function alone do not supply these results. The generic converse and GL₃ uniqueness proofs belong in the proposed AL extension, not in R16.5 a second time.
+Let F be a number field. (i) GL₃ converse theorem (Jacquet–Piatetski-Shapiro–Shalika; Cogdell Theorem 3.3 with n=3, twists of rank n−2=1): let Π=⊗Π_v be an irreducible admissible representation of GL₃(A_F) whose central character is an idele class character and whose Euler product converges in a right half-plane. If for every idele class character χ the functions L(s,Π⊗χ) and L(s,Π̃⊗χ^{-1}) extend to entire functions bounded in vertical strips and satisfy L(s,Π⊗χ)=ε(s,Π⊗χ)L(1−s,Π̃⊗χ^{-1}), then Π is cuspidal automorphic. If this is required only for χ unramified at a finite set S of finite places, Π agrees outside that set with an automorphic representation. (ii) Jacquet–Shalika pole criterion: if π¹,π² are unitary cuspidal automorphic representations of GL₃(A_F) with L(s,π²_v×π̃¹_v)=L(s,π¹_v×π̃¹_v) for almost all v, then π²≅π¹, because L^S(s,π¹×π̃¹) has a pole at s=1 and L^S(s,π²×π̃¹) has one only if π²≅π¹. These inputs recognise the adjoint lift (via (i)) and identify it with the cyclic cubic induction of Ad(ρ) in Langlands's tetrahedral argument (via (ii)). In that application both representations are cuspidal, so no GL₃ isobaric strong multiplicity one is used. GL₂ strong multiplicity one and an untwisted L-function alone do not supply these results. The generic converse input is AL.3/gln-converse-reduced-rank at n=3; the pole criterion is AL.3/rs-global-poles. The highly ramified T-twist variant is still a separate proof-source gap. R16.5 uses AL.3/gln-converse-full-rank at n=2 with its own checked hypotheses, not this GL₃ statement.
 
 Construction or proof:
 
-1. Route the general converse and GL₃ recognition/pole lemmas to the single AL extension after AL.3.
-2. Apply the supplied results to the two explicit GL₃ candidates from adjoint-lift and cubic-character-induction; the missing generic proofs remain gaps until that supplier is written.
+1. Import AL.3/gln-converse-reduced-rank at n=3 and AL.3/rs-global-poles. This node compares their GL₃ applications; it does not prove generic converse theory again. The highly ramified T-twist variant remains an acquisition gap.
+2. Route the GL₃ converse theorem (JPSS 1979 (13.6); Cogdell Theorem 3.3) and the Jacquet–Shalika Rankin–Selberg pole and nonvanishing results to the single AL extension after AL.3. These generic proofs stay in the recorded gap until that supplier is written.
+3. In the tetrahedral application, take π¹ to be the cubic induction of the V₄ character (cubic-character-induction) and π² to be Ad(π_ps(ρ)) (adjoint-lift). At places inert in E the Rankin–Selberg factors agree because both depend only on cubes of Satake classes (Langlands (3.1)–(3.2)), so (ii) gives π¹≅π² without comparing the Satake classes themselves.
 
-Direct prerequisites: `GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction`, `AutomorphicLFunctionsAndLocalFactors:AL.3`.
+Direct prerequisites: `AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction`.
 
 Proposed library location: `TauCeti/NumberTheory/Automorphic/GL2/Transfer`, namespace `TauCeti.GL2Transfer`.
 
-Source: [Stephen Gelbart and Hervé Jacquet, A relation between automorphic representations of GL(2) and GL(3)](https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf), Introduction pp. 472–474; §9.2–9.3, pp. 532–534. The stated source passage supplies the result, in the normalization and restricted scope described in the statement.
+Source: [Stephen Gelbart and Hervé Jacquet, A relation between automorphic representations of GL(2) and GL(3)](https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf), Introduction pp. 472–474; §9.2–9.3, pp. 532–534. The highly ramified variant remains a separate source-proof gap. Generic full/reduced-rank contracts: [Cogdell, Piatetski-Shapiro’s work on converse theorems](https://people.math.osu.edu/cogdell.1/PSCT-www.pdf), §§2–3, especially Theorem 3.3. Cuspidal comparison: Langlands, Base Change for GL(2), §3(i), (3.1)–(3.2); its generic pole inputs are imported from AL.3. The stated source passage supplies the result, in the normalization and restricted scope described in the statement.
 
 Acceptance checks:
 
 - Meromorphic continuation with an unchecked pole does not meet an entire converse hypothesis.
-- Two GL₂ candidates with equal determinant need not yet have equal adjoints.
+- At a place inert in the cyclic cubic field only the cubes of the two GL₃ Satake classes are known to agree; (ii) consumes equality of the Rankin–Selberg factors there, not of the Satake classes.
+
 
 ### Non-normal cubic base change
 
 Declaration `TauCeti.GL2Transfer.cubicBaseChange` (construction); node `GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change`.
 
-Let K/F be a separable non-Galois cubic extension of number fields, with S₃ normal closure. The Jacquet–Piatetski-Shapiro–Shalika cubic transfer associates to an isobaric GL₂ automorphic π over F an isobaric GL₂ representation BC_{K/F}(π) over K whose almost-everywhere Satake class at w|v is A_v^{f(w/v)}. This stage constructs weak transfer. The extraordinary all-place comparison needed by Carayol is a separate R17.6 declaration consuming Artin automorphy; an unrestricted strong upgrade is an explicit source-proof gap, not part of these construction steps. It respects twists via the norm and preserves the central character by norm pullback. A cuspidal input can cease to be cuspidal; for the primitive tetrahedral/octahedral dyadic parameters of §12.2.2, the restricted local parameter is irreducible. The original JPSS note and its analytic proof have not been obtained in this run: the general statement and the strong upgrade are precise source-proof gaps, supported here by Carayol’s explicit consumer statement.
+Let K/F be a separable non-Galois cubic extension of number fields, with S₃ normal closure. The Jacquet–Piatetski-Shapiro–Shalika cubic transfer associates to a cuspidal GL₂ automorphic π over F an automorphic GL₂ representation BC_{K/F}(π) over K, taken isobaric, whose Satake class at almost every w|v is A_v^{f(w/v)}. In Tunnell's statement of [JPSS], Π_w=π(Res ρ_v) whenever π_v=π(ρ_v), for almost all v. For an isobaric π=π(μ,ν) the transfer is π(μ∘N_{K/F},ν∘N_{K/F}). This stage constructs only this weak transfer. Carayol §12.2.1 also records local lifts for extensions of degree at most three (for non-Galois cubic extensions defined by L- and ε-factors) and states that the global lift has these local lifts as components at every place. That all-place statement, which Carayol's extraordinary comparison (AutomorphicGaloisRepresentations R19.2/carayol-cubic-base-change-of-extraordinary) needs, together with the correspondence of the local lift of a principal series, special or ordinary cuspidal π_v with the restriction of its Weil–Deligne parameter (asserted by Carayol §12.2.2 without reference), is an explicit source-proof gap and not part of these construction steps. The transfer respects twists via the norm and preserves the central character by norm pullback. A cuspidal input can cease to be cuspidal; for the primitive tetrahedral/octahedral dyadic parameters of Carayol §12.2.2, the restricted local parameter is irreducible. The original JPSS note and its GL₃/GL₂×GL₃ proof have not been obtained: the theorem rests on Tunnell's and Carayol's consumer statements.
 
 Construction or proof:
 
-1. Use the JPSS GL₃/GL₂×GL₃ converse construction, not a fictitious cyclic tower from F to K.
-2. Identify good-place powers; use strong multiplicity one to fix the global candidate.
-3. These steps establish only weak transfer. An unrestricted all-place upgrade awaits the original JPSS source/supplier proof; the separate extraordinary local comparison is not a prerequisite of this construction.
+1. Use the JPSS construction through automorphic forms on GL(3) and GL(2)×GL(3) (Tunnell p. 173), not a fictitious cyclic tower from F to K. Its details are in the unread CRAS note and remain a source gap.
+2. Identify good-place powers: for unramified π_v=π(ρ_v) and w|v, Res ρ_v has Frobenius ρ_v(Frob_v)^{f(w/v)}. Use isobaric strong multiplicity one over K (R16.4) to fix the global candidate and to derive the twist and central-character identities.
+3. These steps establish only weak transfer. The all-place compatibility with the JPSS local lift (Carayol §12.2.1(a)–(b)) awaits the original JPSS source or a supplier proof (for example Mao–Rallis, Canad. J. Math. 52 (2000), relative trace formula). Carayol's extraordinary local comparison, owned by AutomorphicGaloisRepresentations R19.2, consumes that all-place statement.
 
 Direct prerequisites: `GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-base-change`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition`, `GL2AutomorphicRepresentationsAndTransfer:R16.3`, `GL2AutomorphicRepresentationsAndTransfer:R16.4`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles`.
 
@@ -759,20 +767,6 @@ Acceptance checks:
 - A nonnormal cubic field has no degree-three cyclic intermediate extension from F.
 - For a place of splitting type (1,2), the two output local Satake classes are A and A².
 
-Layer status: **planned**. Every current stage target has a precise declaration node and its prerequisite chains end in a read baseline/supplier, an explicit request, or a named gap. The target-level pass is complete; the stage is not closed.
-
-Closure work:
-
-- Decompose prime-cyclic transfer/descent and tower-independence proofs below the present target-level nodes; discharge the local-factor normalization requests.
-- Write the proposed R17.4a and AL converse/GL₃ recognition supplier; obtain the original JPSS cubic-transfer proof.
-
-## R17.5 — Automorphic induction and Langlands–Tunnell
-
-Quadratic induction uses the canonical Hecke-character and representation-induction carriers. The dihedral case is its finite-order arithmetic application. The projective factor-set theory is imported from InductionRestriction and the pinned Tau Ceti algebraic lifting theorem. The new arithmetic inputs are finite-order idele-torsion extension, Tate's continuous obstruction vanishing and continuity/finite image of the resulting lift. The coefficient action in Tate's theorem is trivial; neither fixed-root-of-unity cohomology nor the Brauer group is asserted to vanish.
-
-The tetrahedral and octahedral branches consume the GL₃/cubic bridge. Determinants remove an order-three twist ambiguity but cannot distinguish two quadratic descents. The octahedral comparison therefore retains Tunnell's analytic input. The combined theorem is strong Artin automorphy over a number field, with all-place local parameters; total oddness is added for holomorphic weight one over a totally real field. That weight-one dictionary requires an explicit extension of the current cohomological R16.6 wording. A prescribed residual characteristic-zero lift for p>2 requires Serre's reduction-preserving argument in addition to projective lifting.
-
-Planets: Quadratic automorphic induction, Tate’s vanishing theorem, Tetrahedral Artin automorphy, Octahedral Artin automorphy, Langlands–Tunnell theorem.
 
 ### Quadratic automorphic induction
 
@@ -1623,11 +1617,11 @@ Required by: `GL2AutomorphicRepresentationsAndTransfer:R17.6/unramified-katz`.
 
 ## Gaps preventing closure
 
-### 1. GL₃ converse, isobaric uniqueness and pole inputs
+### 1. GL₃ converse and cuspidal pole inputs
 
-Add the proposed AL extension after AL.3: the n=3 converse with its exact twisting sets, dual entireness, strip bounds, functional equations, central character and convergence hypotheses, plus GL₃ isobaric strong multiplicity one and Rankin–Selberg constituent/pole recognition. Cogdell’s read survey states the converse; the generic proof and pole lemmas have not been decomposed here and belong to AL. R16.5 specializes that supplier.
+AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank now give the single generic owner contracts; G16 in that packet retains the original proof interiors and native signature carriers. R17.4a uses the reduced-rank node at n=3; R16.5 uses the full-rank node at n=2 with separately checked twist, growth, pole and archimedean hypotheses. Gelbart–Jacquet §9.2’s highly ramified T-twist variant still needs its original source and proof decomposition. The existing AL.3/rs-global-poles and rs-boundary-nonvanishing supply the generic analytic contracts for the unitary cuspidal GL₃ comparison. No GL₃ isobaric strong multiplicity-one theorem is inferred. The proposed AL.3b prefix must precede both GL₂ consumers without importing them.
 
-Required by: `GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change`.
+Needed by: `GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change`.
 
 ### 2. Original JPSS nonnormal cubic transfer proof
 
@@ -1669,7 +1663,7 @@ Required by: `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`, `GL2Aut
 
 RT-AREA-automorphic-1/1: cyclic/solvable Galois base change cannot supply a nonnormal cubic extension; rank-two converse theory cannot supply the GL₃ inputs to tetrahedral/octahedral Artin automorphy.
 
-Add R17.4a between R17.4 and R17.5 for adjoint-lift, cubic-character-induction, gl3-recognition and nonnormal-cubic-base-change. Until the stage exists these nodes realise current R17.4, preserving this job’s exact scope. Add a single AL layer after AL.3 for the generic n=3 converse and GL₃ uniqueness/pole criteria; R16.5 imports/specializes it. R17.4a requires R17.4 and AL.3/new AL layer; R17.5 consumes R17.4a. The extraordinary local comparison belongs to R17.6, dependent on R17.5 after Artin automorphy, as a late export to R19; it is not a prerequisite of the Artin proof.
+Add GL2AutomorphicRepresentationsAndTransfer:R17.4a 'Non-normal cubic base change and the Gelbart–Jacquet lift' between R17.4 and R17.5, holding adjoint-lift, cubic-character-induction, gl3-recognition and nonnormal-cubic-base-change. Its requires are R17.4, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.3b and MetaplecticAutomorphicForms:MP.5 (Gelbart–Jacquet's Shimura integral on the metaplectic cover); its consumer is R17.5. Until the stage exists these nodes realise R17.4. AL.3b is the proposed single prefix for AL.3/gln-converse-full-rank (n≥2) and gln-converse-reduced-rank (n≥3), after their independent analytic inputs; its consumers are R17.4a and R16.5. R16.5 compares only the full-rank n=2 statement with its own checked hypotheses. G16 retains the original proof interiors and the highly ramified T-twist variant. After the split the non-normal cubic part of the R17.4 → AutomorphicGaloisRepresentations:R19.2 export becomes R17.4a → R19.2. Carayol's extraordinary dyadic comparison (his §12.2.2 Proposition) is owned by AutomorphicGaloisRepresentations R19.2, which imports R17.4/R17.4a and R17.5 (accepted RT-AREA-langlands-2/4 fix); this packet does not plan it.
 
 The extra extraordinary-comparison export is needed because Carayol’s arithmetic local argument consumes Artin automorphy. It is attached to R17.6, while the existence of cubic transfer and the GL₃ bridge remain prerequisites of R17.5. The current atlas stage edges, every cross-stage prerequisite of this packet and all proposed links form an acyclic graph.
 
@@ -1815,3 +1809,11 @@ SHA-256: `0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4`.
 Read: Introduction pp. 1–3; §1 p. 4, definition of the archimedean weight-one representation; no claim to have read its Galois construction proof.
 
 SHA-256: `5bd3509ed947c8678f6acfc092379c6e580e2901da94cee36224c0bb56b9516d`.
+
+## Round-3 closure boundaries
+
+### GL₃ recognition suggested signature
+
+TauCeti.GL2Transfer.gl3_recognition is omitted from the suggested file until AL supplies the actual global admissible/cuspidal representation, completed twist, epsilon and Rankin–Selberg pole carriers. The old arbitrary-type equality from local data did not state either analytic recognition or the cuspidal pole criterion. A comment naming the exact missing signature does not count as that signature.
+
+Needed by: `GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition`.

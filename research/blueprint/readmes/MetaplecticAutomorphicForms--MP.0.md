@@ -4946,14 +4946,15 @@ A cuspidal weight-one-half eigenform has F(z)=Σ_{n≠0}b(n)W_{sgn(n)/4,ir/2}(4�
 
 **Construction or proof route.**
 
-1. Integrate in the periodic x variable to recover coefficients.
-2. Solve the resulting Whittaker ODE and use the cusp/L² condition to eliminate growing terms; apply the supplier’s differentiated convergence estimate.
+1. Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.
+2. Integrate in the periodic x variable to recover coefficients.
+3. Solve the resulting Whittaker ODE and use the cusp/L² condition to eliminate growing terms; apply the supplier’s differentiated convergence estimate.
 
 **Acceptance.**
 
 - Conjugation, sign, residue coordinate and norm factors must match the displayed statement; all supplier proof gates stay visible.
 
-**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/half-weight-maass-space`, `QSeriesPartitionsAndMockModularForms:QM.2`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`.
+**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/half-weight-maass-space`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `AutomorphicSpectralTheory:AS.0/dit-112`.
 
 **Source match.**
 
@@ -5473,8 +5474,9 @@ For n≠0, Re(s)>1, F_{1/2,n}(z,s)=Γ(s−sgn(n)/4)/(4π|n|Γ(2s)) times Σ_{Γ�
 
 **Construction or proof route.**
 
-1. Form the Γ∞\Γ₀(4) orbit sum of the normalized Whittaker-M seed.
-2. Prove absolute/compact-uniform convergence for Re(s)>1, covariance, and its Fourier expansion.
+1. Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.
+2. Form the Γ∞\Γ₀(4) orbit sum of the normalized Whittaker-M seed.
+3. Prove absolute/compact-uniform convergence for Re(s)>1, covariance, and its Fourier expansion.
 
 **Uses determining the API.**
 
@@ -5496,7 +5498,7 @@ For n≠0, Re(s)>1, F_{1/2,n}(z,s)=Γ(s−sgn(n)/4)/(4π|n|Γ(2s)) times Σ_{Γ�
 
 - Conjugation, sign, residue coordinate and norm factors must match the displayed statement; all supplier proof gates stay visible.
 
-**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/theta-multiplier`, `QSeriesPartitionsAndMockModularForms:QM.2`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `mathlib:QuotientGroup.rightRel`, `mathlib:CongruenceSubgroup.Gamma0`.
+**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/theta-multiplier`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `mathlib:QuotientGroup.rightRel`, `mathlib:CongruenceSubgroup.Gamma0`, `AutomorphicSpectralTheory:AS.0/dit-112`.
 
 **Source match.**
 
@@ -5559,8 +5561,9 @@ For nonzero discriminant indices n,d and Re(s)>1, Φ⁺(n,d; s) equals [Γ(s−s
 
 **Construction or proof route.**
 
-1. Compute the projected Poincaré Fourier coefficient by orbit unfolding.
-2. Apply the Whittaker–Bessel integral, selecting I for nd<0 and J for nd>0 and retaining all Gamma and power factors.
+1. Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.
+2. Compute the projected Poincaré Fourier coefficient by orbit unfolding.
+3. Apply the Whittaker–Bessel integral, selecting I for nd<0 and J for nd>0 and retaining all Gamma and power factors.
 
 **Uses determining the API.**
 
@@ -5582,7 +5585,7 @@ For nonzero discriminant indices n,d and Re(s)>1, Φ⁺(n,d; s) equals [Γ(s−s
 
 - Conjugation, sign, residue coordinate and norm factors must match the displayed statement; all supplier proof gates stay visible.
 
-**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/plus-kloosterman`, `QSeriesPartitionsAndMockModularForms:QM.2`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`.
+**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/plus-kloosterman`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i`, `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`.
 
 **Source match.**
 
@@ -5851,14 +5854,15 @@ Let m≠0, Re(s)>1, d fundamental, d′,d<0 and D=d′d nonsquare. Orient C_Q fr
 
 **Construction or proof route.**
 
-1. Use the corrected weight-two oriented unfolding.
-2. Evaluate the differentiated Whittaker integral, retaining Γ((s+1)/2)² and the source’s oriented differential.
+1. Import the exact general special-function carrier named in the prerequisites. Preserve the positive-real branch and parameter normalization; cover-specific Fourier/cycle integration remains here.
+2. Use the corrected weight-two oriented unfolding.
+3. Evaluate the differentiated Whittaker integral, retaining Γ((s+1)/2)² and the source’s oriented differential.
 
 **Acceptance.**
 
 - Conjugation, sign, residue coordinate and norm factors must match the displayed statement; all supplier proof gates stay visible.
 
-**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`, `QSeriesPartitionsAndMockModularForms:QM.2`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`.
+**Prerequisites.** `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`.
 
 **Source match.**
 
@@ -6750,169 +6754,168 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Stage7`. Implementati
 
 ## Supplier requests
 
-These contracts are imports from their named owners. PartII requests extend a supplier’s existing scope; they do not replan its existing definitions.
-
-### Request 1: AutomorphicLFunctionsAndLocalFactors:AL.0
+### `AutomorphicLFunctionsAndLocalFactors:AL.0`
 
 PartII: finite-dimensional local and adelic Schwartz–Bruhat spaces, the full joint archimedean Schwartz/Fréchet space (and completed tensor comparison), distributions/oscillatory Fourier transforms, self-dual determinant/covolume laws, Gaussian and ideal-lattice Poisson, compact Fourier completeness and Schwartz integration. The existing scalar AL.0 nodes are retained, not duplicated.
 
-Needed by: `MetaplecticAutomorphicForms:MP.0/heisenberg-haar`, `MetaplecticAutomorphicForms:MP.0/schroedinger-model`, `MetaplecticAutomorphicForms:MP.0/hilbert-schroedinger`, `MetaplecticAutomorphicForms:MP.2/weil-index`, `MetaplecticAutomorphicForms:MP.3/theta-coefficient-rationality`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `MetaplecticAutomorphicForms:MP.6/local-doubling-integral`, `MetaplecticAutomorphicForms:MP.6/theta-integral-factorization`, `MetaplecticAutomorphicForms:MP.6/rallis-inner-product`, `MetaplecticAutomorphicForms:MP.7/fundamental-eisenstein-coefficient`, `MetaplecticAutomorphicForms:MP.7/biro-shintani-lift`, `MetaplecticAutomorphicForms:MP.7/ramified-quadratic-twist-kernel-inputs`.
+Needed by: `MetaplecticAutomorphicForms:MP.0/heisenberg-haar`; `MetaplecticAutomorphicForms:MP.0/schroedinger-model`; `MetaplecticAutomorphicForms:MP.0/hilbert-schroedinger`; `MetaplecticAutomorphicForms:MP.2/weil-index`; `MetaplecticAutomorphicForms:MP.3/theta-coefficient-rationality`; `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`; `MetaplecticAutomorphicForms:MP.6/local-doubling-integral`; `MetaplecticAutomorphicForms:MP.6/theta-integral-factorization`; `MetaplecticAutomorphicForms:MP.6/rallis-inner-product`; `MetaplecticAutomorphicForms:MP.7/fundamental-eisenstein-coefficient`; `MetaplecticAutomorphicForms:MP.7/biro-shintani-lift`; `MetaplecticAutomorphicForms:MP.7/ramified-quadratic-twist-kernel-inputs`.
 
-### Request 2: SmoothRepresentationsOfLocalGroups:SR.2
+### `SmoothRepresentationsOfLocalGroups:SR.2`
 
 Smooth compact/normalized parabolic induction, Jacquet modules, Frobenius reciprocity and geometric lemma with precise support, coefficient and modulus hypotheses. MP supplies the cover/Weil-character adapters and rank filtrations.
 
-Needed by: `MetaplecticAutomorphicForms:MP.0/induced-schroedinger`, `MetaplecticAutomorphicForms:MP.3/big-theta-module`, `MetaplecticAutomorphicForms:MP.3/theta-finite-length`, `MetaplecticAutomorphicForms:MP.3/howe-duality`, `MetaplecticAutomorphicForms:MP.3/local-see-saw`, `MetaplecticAutomorphicForms:MP.3/persistence-and-stable-range`, `MetaplecticAutomorphicForms:MP.3/supercuspidal-first-occurrence`, `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`, `MetaplecticAutomorphicForms:MP.3/doubling-filtration`, `MetaplecticAutomorphicForms:MP.3/type-ii-theta`, `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`, `MetaplecticAutomorphicForms:MP.3/similitude-theta-howe`, `MetaplecticAutomorphicForms:MP.6/local-doubling-integral`.
+Needed by: `MetaplecticAutomorphicForms:MP.0/induced-schroedinger`; `MetaplecticAutomorphicForms:MP.3/big-theta-module`; `MetaplecticAutomorphicForms:MP.3/theta-finite-length`; `MetaplecticAutomorphicForms:MP.3/howe-duality`; `MetaplecticAutomorphicForms:MP.3/local-see-saw`; `MetaplecticAutomorphicForms:MP.3/persistence-and-stable-range`; `MetaplecticAutomorphicForms:MP.3/supercuspidal-first-occurrence`; `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`; `MetaplecticAutomorphicForms:MP.3/doubling-filtration`; `MetaplecticAutomorphicForms:MP.3/type-ii-theta`; `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`; `MetaplecticAutomorphicForms:MP.3/similitude-theta-howe`; `MetaplecticAutomorphicForms:MP.6/local-doubling-integral`.
 
-### Request 3: AutomorphicFormsOnReductiveGroups:AF.1
+### `AutomorphicFormsOnReductiveGroups:AF.1`
 
 Real smooth-vector/Fréchet/globalization and Sobolev-differentiation carriers; archimedean theta module category. MP proves its Heisenberg/finite-cover comparison before importing these.
 
-Needed by: `MetaplecticAutomorphicForms:MP.0/smooth-vectors`, `MetaplecticAutomorphicForms:MP.3/theta-finite-length`, `MetaplecticAutomorphicForms:MP.3/local-see-saw`, `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`, `MetaplecticAutomorphicForms:MP.3/archimedean-conservation`, `MetaplecticAutomorphicForms:MP.3/unitary-doubling-dichotomy`, `MetaplecticAutomorphicForms:MP.3/similitude-theta-howe`, `MetaplecticAutomorphicForms:MP.3/real-discrete-series-theta`, `MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces`, `MetaplecticAutomorphicForms:MP.6/jacobi-spaces`, `MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight`, `MetaplecticAutomorphicForms:MP.3/howe-duality`.
+Needed by: `MetaplecticAutomorphicForms:MP.0/smooth-vectors`; `MetaplecticAutomorphicForms:MP.3/theta-finite-length`; `MetaplecticAutomorphicForms:MP.3/local-see-saw`; `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`; `MetaplecticAutomorphicForms:MP.3/archimedean-conservation`; `MetaplecticAutomorphicForms:MP.3/unitary-doubling-dichotomy`; `MetaplecticAutomorphicForms:MP.3/similitude-theta-howe`; `MetaplecticAutomorphicForms:MP.3/real-discrete-series-theta`; `MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces`; `MetaplecticAutomorphicForms:MP.6/jacobi-spaces`; `MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight`; `MetaplecticAutomorphicForms:MP.3/howe-duality`.
 
-### Request 4: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category
+### `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`
 
 Native smooth representation abelian category and its coinvariants/duals/smooth-vector carriers; identify the full smooth central-character category needed for Stone–von Neumann, not just finite-dimensional operators. Native algebraic Coinvariants are reused.
 
-Needed by: `MetaplecticAutomorphicForms:MP.0/smooth-vectors`, `MetaplecticAutomorphicForms:MP.3/big-theta-module`, `MetaplecticAutomorphicForms:MP.3/small-theta-module`, `MetaplecticAutomorphicForms:MP.3/theta-finite-length`, `MetaplecticAutomorphicForms:MP.3/local-see-saw`, `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`, `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`, `MetaplecticAutomorphicForms:MP.1/smooth-stone-von-neumann`.
+Needed by: `MetaplecticAutomorphicForms:MP.0/smooth-vectors`; `MetaplecticAutomorphicForms:MP.3/big-theta-module`; `MetaplecticAutomorphicForms:MP.3/small-theta-module`; `MetaplecticAutomorphicForms:MP.3/theta-finite-length`; `MetaplecticAutomorphicForms:MP.3/local-see-saw`; `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`; `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`; `MetaplecticAutomorphicForms:MP.1/smooth-stone-von-neumann`.
 
-### Request 5: tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation
+### `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation`
 
 Reuse native orthogonal/symplectic groups and defining actions. PartII: Hermitian/quaternionic and connected similitude carriers and tensor double-centralizer comparison needed by the stated dual pairs.
 
-Needed by: `MetaplecticAutomorphicForms:MP.3/orthogonal-symplectic-dual-pair`, `MetaplecticAutomorphicForms:MP.3/unitary-splitting`, `MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum`.
+Needed by: `MetaplecticAutomorphicForms:MP.3/orthogonal-symplectic-dual-pair`; `MetaplecticAutomorphicForms:MP.3/unitary-splitting`; `MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum`.
 
-### Request 6: SmoothRepresentationsOfLocalGroups:SR.3
+### `SmoothRepresentationsOfLocalGroups:SR.3`
 
 Admissibility, finite length, smooth dual, supercuspidal/tempered and finite semisimple quotient interfaces in complex smooth modules. Supply MVW and Mínguez scope via their original proofs; MP owns only the cover/theta-specific comparisons.
 
-Needed by: `MetaplecticAutomorphicForms:MP.3/small-theta-module`, `MetaplecticAutomorphicForms:MP.3/theta-finite-length`, `MetaplecticAutomorphicForms:MP.3/howe-duality`, `MetaplecticAutomorphicForms:MP.3/persistence-and-stable-range`, `MetaplecticAutomorphicForms:MP.3/supercuspidal-first-occurrence`, `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`, `MetaplecticAutomorphicForms:MP.3/doubling-filtration`, `MetaplecticAutomorphicForms:MP.3/type-ii-theta`, `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`, `MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation`, `MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank`, `MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified`, `MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake`, `MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility`, `MetaplecticAutomorphicForms:MP.1/smooth-stone-von-neumann`, `MetaplecticAutomorphicForms:MP.3/similitude-theta-howe`, `MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta`, `MetaplecticAutomorphicForms:MP.3/gl2-gso4-theta`, `MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta`, `MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta`.
+Needed by: `MetaplecticAutomorphicForms:MP.3/small-theta-module`; `MetaplecticAutomorphicForms:MP.3/theta-finite-length`; `MetaplecticAutomorphicForms:MP.3/howe-duality`; `MetaplecticAutomorphicForms:MP.3/persistence-and-stable-range`; `MetaplecticAutomorphicForms:MP.3/supercuspidal-first-occurrence`; `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`; `MetaplecticAutomorphicForms:MP.3/doubling-filtration`; `MetaplecticAutomorphicForms:MP.3/type-ii-theta`; `MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction`; `MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation`; `MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank`; `MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified`; `MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake`; `MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility`; `MetaplecticAutomorphicForms:MP.1/smooth-stone-von-neumann`; `MetaplecticAutomorphicForms:MP.3/similitude-theta-howe`; `MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta`; `MetaplecticAutomorphicForms:MP.3/gl2-gso4-theta`; `MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta`; `MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta`.
 
-### Request 7: tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant
+### `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant`
 
 Use the existing Hilbert/Hasse identity layer, including R and dyadic fields, signed quadratic vs polar determinant. PartII: exact Hermitian and quaternionic trace-norm/global coherent-collection classification adapters; analytic Weil index and its global Poisson product stay with MP.
 
-Needed by: `MetaplecticAutomorphicForms:MP.3/first-occurrence`, `MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation`, `MetaplecticAutomorphicForms:MP.2/weil-index-identities`, `MetaplecticAutomorphicForms:MP.1/rao-factor-set`, `MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum`, `MetaplecticAutomorphicForms:MP.3/quaternionic-splitting`, `MetaplecticAutomorphicForms:MP.3/quaternionic-first-doubled-splitting`, `MetaplecticAutomorphicForms:MP.3/periods-i-comparison`, `MetaplecticAutomorphicForms:MP.3/division-ternary-theta`, `MetaplecticAutomorphicForms:MP.4/global-weil-index-product`, `MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections`, `MetaplecticAutomorphicForms:MP.6/pi-coherence-parity`, `MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances`, `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform`.
+Needed by: `MetaplecticAutomorphicForms:MP.3/first-occurrence`; `MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation`; `MetaplecticAutomorphicForms:MP.2/weil-index-identities`; `MetaplecticAutomorphicForms:MP.1/rao-factor-set`; `MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum`; `MetaplecticAutomorphicForms:MP.3/quaternionic-splitting`; `MetaplecticAutomorphicForms:MP.3/quaternionic-first-doubled-splitting`; `MetaplecticAutomorphicForms:MP.3/periods-i-comparison`; `MetaplecticAutomorphicForms:MP.3/division-ternary-theta`; `MetaplecticAutomorphicForms:MP.4/global-weil-index-product`; `MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections`; `MetaplecticAutomorphicForms:MP.6/pi-coherence-parity`; `MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances`; `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform`.
 
-### Request 8: ModularityAndLanglandsExtensions:ML.4
+### `ModularityAndLanglandsExtensions:ML.4`
 
 Exact local Langlands/Jacquet–Langlands/Satake normalization used by the classical similitude theta comparisons; exceptional G₂ parameters remain at their separate proposed owner.
 
-Needed by: `MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank`, `MetaplecticAutomorphicForms:MP.3/division-ternary-theta`, `MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta`.
+Needed by: `MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank`; `MetaplecticAutomorphicForms:MP.3/division-ternary-theta`; `MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta`.
 
-### Request 9: AdelicAlgebraicGroups:AA.2
+### `AdelicAlgebraicGroups:AA.2`
 
-PartII: disconnected orthogonal Haar/Tamagawa component and split O(1, 1) normalization; connected reductive Tamagawa results cannot directly supply this.
+PartII: disconnected orthogonal Haar/Tamagawa component and O(1) and split O(1,1) normalizations; connected reductive Tamagawa results cannot directly supply this.
 
-Needed by: `MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake`, `MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility`, `MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta`.
+Needed by: `MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake`; `MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility`; `MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta`; `MetaplecticAutomorphicForms:MP.6/theta-measure-normalizations`; `MetaplecticAutomorphicForms:MP.6/anisotropic-siegel-weil`; `MetaplecticAutomorphicForms:MP.6/first-term-identity`.
 
-### Request 10: AutomorphicLFunctionsAndLocalFactors:AL.2
+### `AutomorphicLFunctionsAndLocalFactors:AL.2`
 
 Native quadratic Dirichlet completed L-functions and special-function Gamma normalization, local epsilon factors and their character/measure conventions; MP compares its coefficients to these functions.
 
 Needed by: `MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations`.
 
-### Request 11: AdelicAlgebraicGroups:AA.1
+### `AdelicAlgebraicGroups:AA.1`
 
 Finite-dimensional local/adelic groups, restricted products, quotients and actual Haar/Fubini integration with topological assumptions, including unipotent compact probability quotients and covered-group comparison.
 
-Needed by: `MetaplecticAutomorphicForms:MP.4/adelic-metaplectic-cover`, `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`, `MetaplecticAutomorphicForms:MP.5/theta-integral-convergence`, `MetaplecticAutomorphicForms:MP.5/regularized-theta-integral`, `MetaplecticAutomorphicForms:MP.6/theta-measure-normalizations`, `MetaplecticAutomorphicForms:MP.6/unitary-siegel-weil-measure`, `MetaplecticAutomorphicForms:MP.7/theta-residue-normalization`, `MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface`.
+Needed by: `MetaplecticAutomorphicForms:MP.4/adelic-metaplectic-cover`; `MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker`; `MetaplecticAutomorphicForms:MP.5/theta-integral-convergence`; `MetaplecticAutomorphicForms:MP.5/regularized-theta-integral`; `MetaplecticAutomorphicForms:MP.6/theta-measure-normalizations`; `MetaplecticAutomorphicForms:MP.6/unitary-siegel-weil-measure`; `MetaplecticAutomorphicForms:MP.7/theta-residue-normalization`; `MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface`.
 
-### Request 12: tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules
+### `tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules`
 
 Reuse the finite quadratic module as native QuadraticMap Z A (AddCircle (1:Q)), its half-norm convention and discriminant pairing. Supply a checked Lean carrier bridge before MP’s finite Weil action; do not re-plan the completed lattice arithmetic.
 
-Needed by: `MetaplecticAutomorphicForms:MP.4/finite-weil-representation`, `MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface`, `MetaplecticAutomorphicForms:MP.5/ideal-class-theta`.
+Needed by: `MetaplecticAutomorphicForms:MP.4/finite-weil-representation`; `MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface`; `MetaplecticAutomorphicForms:MP.5/ideal-class-theta`.
 
-### Request 13: GeometricSatakeAndFusion:GS3
+### `GeometricSatakeAndFusion:GS3`
 
 PartII: metaplectic gerbe/twisted Satake, coherent fusion and modified dual-group construction required by Lafforgue §14. Ordinary fusion is imported from its exact existing node.
 
 Needed by: `MetaplecticAutomorphicForms:MP.4/function-field-metaplectic-programme`.
 
-### Request 14: GlobalShtukasAndFunctionFieldLanglands:GS.5
+### `GlobalShtukasAndFunctionFieldLanglands:GS.5`
 
 PartII: metaplectic shtuka sheaves and modified excursion operators with exact conditionality. Ordinary excursion operators are imported; Lafforgue §14 is a programme, not full theorem proof.
 
 Needed by: `MetaplecticAutomorphicForms:MP.4/function-field-metaplectic-programme`.
 
-### Request 15: AutomorphicFormsOnReductiveGroups:AF.2
+### `AutomorphicFormsOnReductiveGroups:AF.2`
 
 Finite-level K/Z-finiteness and the all-derivatives single-exponent uniform-growth API. Verify the theta seminorm estimate and finite-cover height transfer before applying the linear-group result.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces`, `MetaplecticAutomorphicForms:MP.7/shimura-eigenline-lift`, `MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces`; `MetaplecticAutomorphicForms:MP.7/shimura-eigenline-lift`; `MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight`.
 
-### Request 16: AutomorphicFormsOnReductiveGroups:AF.3
+### `AutomorphicFormsOnReductiveGroups:AF.3`
 
 Actual continuous/smooth compact unipotent fibre integrals and cusp decay on Siegel sets modulo the split center with unitary central character; regularized/projection interchanges require MP-specific proofs.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces`, `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`, `MetaplecticAutomorphicForms:MP.7/biro-shintani-lift`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces`; `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`; `MetaplecticAutomorphicForms:MP.7/biro-shintani-lift`.
 
-### Request 17: AdelicAlgebraicGroups:AA.3
+### `AdelicAlgebraicGroups:AA.3`
 
 Rational lattice counting and differentiated Schwartz majorants on the stated adelic Siegel sets/height. Supply the connected-group estimate; MP compares the finite cover and disconnected orthogonal components.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/global-theta-lift`, `MetaplecticAutomorphicForms:MP.5/theta-integral-convergence`, `MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/global-theta-lift`; `MetaplecticAutomorphicForms:MP.5/theta-integral-convergence`; `MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta`.
 
-### Request 18: AutomorphicSpectralTheory:AS.1
+### `AutomorphicSpectralTheory:AS.1`
 
 Normalized induced section spaces and source-qualified initial Eisenstein convergence chambers/majorants; MP must prove the genuine-cover comparison and preserve parameter/measure conventions.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/regularized-theta-integral`, `MetaplecticAutomorphicForms:MP.6/siegel-weil-section`, `MetaplecticAutomorphicForms:MP.7/half-weight-eisenstein`, `MetaplecticAutomorphicForms:MP.5/genuine-eisenstein-family`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/regularized-theta-integral`; `MetaplecticAutomorphicForms:MP.6/siegel-weil-section`; `MetaplecticAutomorphicForms:MP.7/half-weight-eisenstein`; `MetaplecticAutomorphicForms:MP.5/genuine-eisenstein-family`.
 
-### Request 19: AutomorphicSpectralTheory:AS.2
+### `AutomorphicSpectralTheory:AS.2`
 
 Meromorphic normalized intertwining/constant-term/functional-equation families and Laurent/residue topology; supply only after the exact cover adaptation, never an unqualified linear reductive theorem.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/regularized-theta-integral`, `MetaplecticAutomorphicForms:MP.6/siegel-weil-section`, `MetaplecticAutomorphicForms:MP.6/second-term-identity`, `MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections`, `MetaplecticAutomorphicForms:MP.5/genuine-eisenstein-family`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/regularized-theta-integral`; `MetaplecticAutomorphicForms:MP.6/siegel-weil-section`; `MetaplecticAutomorphicForms:MP.6/second-term-identity`; `MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections`; `MetaplecticAutomorphicForms:MP.5/genuine-eisenstein-family`.
 
-### Request 20: GeometryOfNumbersAndQuadraticArithmetic:GN.3
+### `GeometryOfNumbersAndQuadraticArithmetic:GN.3`
 
-Ideal norm/class and trace-dual arithmetic, ramified ideal classes, CM stabilizers and the oriented z→γ_Qz closed-cycle dictionary. The binary theta construction stays with MP.
+Ideal norm/class and trace-dual arithmetic, ramified ideal classes, CM stabilizers and the oriented z→γ_Qz closed-cycle dictionary. The binary theta construction stays with MP. This is a request for additional arithmetic supplier nodes, not a claim that the present GN.3 packet supplies them. Its theta-lattice-coefficient-interface imports MP.5 and cannot be an input here; the maintainer must route a precise independent arithmetic extension/Part II and replace the broad stage edges.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta`, `MetaplecticAutomorphicForms:MP.5/ideal-class-theta`, `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity`, `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-conjugation`, `MetaplecticAutomorphicForms:MP.6/ideal-lattice-poisson`, `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform`, `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`, `MetaplecticAutomorphicForms:MP.7/cm-poincare-sum`, `MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum`, `MetaplecticAutomorphicForms:MP.7/positive-factor-trace`, `MetaplecticAutomorphicForms:MP.7/cm-trace`, `MetaplecticAutomorphicForms:MP.7/geometric-trace`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta`; `MetaplecticAutomorphicForms:MP.5/ideal-class-theta`; `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity`; `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-conjugation`; `MetaplecticAutomorphicForms:MP.6/ideal-lattice-poisson`; `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform`; `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`; `MetaplecticAutomorphicForms:MP.7/cm-poincare-sum`; `MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum`; `MetaplecticAutomorphicForms:MP.7/positive-factor-trace`; `MetaplecticAutomorphicForms:MP.7/cm-trace`; `MetaplecticAutomorphicForms:MP.7/geometric-trace`.
 
-### Request 21: AutomorphicSpectralTheory:AS.0
+### `AutomorphicSpectralTheory:AS.0`
 
 Actual unbounded three-cusp Laplacian domain, multiplier Hilbert resolvent, finite-rank spectral residues and their coefficient/interchange estimates. Ordinary weight-zero Poincaré/resolvent and finite-dimensional spectral input remain here; MP proves the half-weight adaptation.
 
-Needed by: `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`, `MetaplecticAutomorphicForms:MP.7/half-weight-resolvent`, `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`, `MetaplecticAutomorphicForms:MP.7/cm-poincare-sum`, `MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum`, `MetaplecticAutomorphicForms:MP.7/spectral-trace-identity`, `MetaplecticAutomorphicForms:MP.7/geometric-trace`, `MetaplecticAutomorphicForms:MP.7/biro-shintani-lift`.
+Needed by: `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`; `MetaplecticAutomorphicForms:MP.7/half-weight-resolvent`; `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`; `MetaplecticAutomorphicForms:MP.7/cm-poincare-sum`; `MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum`; `MetaplecticAutomorphicForms:MP.7/spectral-trace-identity`; `MetaplecticAutomorphicForms:MP.7/geometric-trace`; `MetaplecticAutomorphicForms:MP.7/biro-shintani-lift`.
 
-### Request 22: tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
+### `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`
 
-Classical weight/character and all-cusp holomorphy carrier for binary weight 1 and half-weight adelization; the genuine multiplier/cocycle comparison is MP’s addition.
+Classical weight/character and all-cusp holomorphy carrier for binary weight1 and half-weight adelization; the genuine multiplier/cocycle comparison is MP’s addition.
 
-Needed by: `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity`, `MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight`.
+Needed by: `MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity`; `MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight`.
 
-### Request 23: QSeriesPartitionsAndMockModularForms:QM.2
+### `GeometryOfNumbersAndQuadraticArithmetic:GN.2`
 
-Whittaker M/W and ordinary/modified Bessel function carriers with exact integrals, differentiated asymptotics and decay. Reuse the existing I-Bessel node; new Whittaker/cycle evaluation is requested, not a duplicate special-function definition.
+Invariant genus characters χ_d on possibly imprimitive binary forms, including discriminant/conductor/parity at2; MP owns only the finite oscillator/Kohnen sum adapter. The current GN.2 lattice/genus nodes do not state this binary genus-character and extended Kronecker API; route its missing arithmetic extension and then cite exact nodes.
 
-Needed by: `MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion`, `MetaplecticAutomorphicForms:MP.7/half-weight-poincare`, `MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient`, `MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum`.
+Needed by: `MetaplecticAutomorphicForms:MP.7/quadratic-root-weyl-sum`; `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`; `MetaplecticAutomorphicForms:MP.7/geometric-trace`.
 
-### Request 24: GeometryOfNumbersAndQuadraticArithmetic:GN.2
-
-Invariant genus characters χ_d on possibly imprimitive binary forms, including discriminant/conductor/parity at2; MP owns only the finite oscillator/Kohnen sum adapter.
-
-Needed by: `MetaplecticAutomorphicForms:MP.7/quadratic-root-weyl-sum`, `MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding`, `MetaplecticAutomorphicForms:MP.7/geometric-trace`.
-
-### Request 25: tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order
+### `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order`
 
 Import the level-one orbifold geometry and the proposed FuchsianOrbifolds PartII arithmetic Nielsen-core/Stokes extension from the DIT16 routing. MP must not duplicate core surfaces or generic cycle geometry.
 
 Needed by: `MetaplecticAutomorphicForms:MP.7/negative-factor-trace`.
 
-### Request 26: RankZeroOneBSD:BSD.2
+### `QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i`
 
-Own the quadratic-twist continuation/residue/positivity/local-condition nonvanishing proof. Supply/read the original Friedberg–Hoffstein route before asserting a precise MP.7 kernel adapter; BFH analytic genus-two input is imported from MP.8.
+Extend the I-Bessel API with differentiated bounds locally uniform for complex order ν=2s−1 in the Re(s)>1 half-plane. The existing real-order bound is not this complex-parameter estimate.
 
-Needed by: `MetaplecticAutomorphicForms:MP.7/ramified-quadratic-twist-kernel-inputs`.
+Needed by: `MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient`.
 
-### Request 27: GrossZagierAndArithmeticHeights:GZ.5
+### `QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j`
 
-Read and import the toric period/Waldspurger owner only after MP’s normalized theta pairing, convergence and quaternionic-norm adapters; this node supplies a bilinear theta integral interface and does not re-plan the period identity.
+Extend the J-Bessel API with the locally uniform complex-order small-argument and differentiated cycle-integral estimates. Import the existing series/ODE carrier; no second Bessel definition is planned.
 
-Needed by: `MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface`.
+Needed by: `MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient`; `MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum`.
+
+### `AutomorphicSpectralTheory:AS.0/dit-112`
+
+Export the displayed M/W positive-real normalization and continued parameter domains; refine the compact-parameter derivative/endpoint estimates needed by the half-weight Fourier and Poincaré adapters. DIT11 Appendix A gives fixed-parameter asymptotics, not unrestricted uniform estimates.
+
+Needed by: `MetaplecticAutomorphicForms:MP.7/half-weight-poincare`; `MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion`.
+
 
 ## Source versions and reading boundaries
 
@@ -7742,3 +7745,24 @@ Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf425681
 ## Validation boundary
 
 The packet checker reports zero errors and zero warnings. Native signature fragments for 142 nodes in the Mathlib-only suffix elaborate against the pinned Mathlib, with 377 warnings, all declaration proof placeholders. This checks syntax and native types, not the omitted mathematical conditions or proofs. The complete suggested file **was not compiled**: the shared build lacks the compiled Tau Ceti ProjectiveRepresentation.Extension module. The inherited twelve nodes and the twenty-two further Tau-dependent nodes are outside that checked suffix. No dependency build was attempted. All 176 declaration names, 181 API names and 179 test names are present in the suggested file.
+
+## Round-3 closure boundaries
+
+### Special-function uniformity beyond the exact carriers
+
+The broad QM.2 imports are replaced by its existing I/J nodes and AS.0/dit-112 for Whittaker M/W. The three fine-node requests retain the missing complex-order uniform differentiated bounds and continued exceptional-parameter domains. Neither a real-order I estimate nor a fixed-parameter Whittaker asymptotic proves these uniform estimates.
+
+Needed by: `MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient`; `MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum`; `MetaplecticAutomorphicForms:MP.7/half-weight-poincare`; `MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion`.
+
+### Classical and unitary Jacobi consumer contracts
+
+QM.1’s request to MP.6, items(a)–(e), is binding: the discrete J_n(Γ) and Heisenberg-center bridge; matrix-index slash action; typus(Γ,V) and Fourier cusp support; half-integral scalar index through central characters or z↦2z; the elliptic-function theta decomposition and Skoruppa Theorem5, with the dual finite Weil module and finite-image hypothesis. The existing four adelic integral-index contracts do not yet supply these outputs, so QM.1’s eight stage prerequisites remain. Also extract the unitary Jacobi/Schrödinger–Weil and Fourier–Jacobi instance needed by AutomorphicCongruences:L2s, with its unitary splitting, coefficient/index and multiplier conventions. No use by L2 itself has been established, and no L2 edge is added. BFH genus-two and QM classical q-series specializations retain their owners.
+
+Needed by: `MetaplecticAutomorphicForms:MP.6/jacobi-group`; `MetaplecticAutomorphicForms:MP.6/jacobi-spaces`; `MetaplecticAutomorphicForms:MP.6/fourier-jacobi-extraction`; `MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface`.
+
+
+## Round-3 structural proposals
+
+### RT-AREA-automorphic-1/20 and the round2 review: the four MP.6 adelic contracts exist, but are insufficient for the matrix-index/half-integral classical and unitary consumers.
+
+Keep one Jacobi producer before MP.7, using the four existing MP.6 nodes. Complete exactly QM.1 request items(a)–(e) at least for SL₂ and a lattice index; add the separately source-qualified unitary instance for L2s. Skoruppa arXiv:0707.0718v1 §4 pp.10–13 fixes the classical action, cusp support and dual-Weil conventions; it does not prove a general unitary theorem. Retarget QM.1’s eight prerequisites only after those outputs exist. Keep MP.8’s GSp4 cover/BFH normalization and QM.1’s eta, theta, weak forms and q-series operations. No L2 edge follows from its embedded L2s paragraph. The MP.7 special-function consumers now cite the actual independent I/J and Whittaker carrier nodes; the remaining uniformity requests are explicit.

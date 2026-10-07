@@ -548,10 +548,19 @@ theorem cubic_character_induction {GL3Class : Type*} (θ : H)
     (inducedLocal : H → V → C) (local3 : GL3Class → V → C) :
     ∃ Pi : GL3Class, ∀ v, local3 Pi v = inducedLocal θ v := by sorry
 
--- Missing: generic AL converse, all Hecke-character twists with dual entireness,
--- functional equations and strip bounds; GL₃ isobaric uniqueness/pole criterion.
-theorem gl3_recognition {GL3Class : Type*} (Pi Ψ : GL3Class) (S : Finset V)
-    (localRep : GL3Class → V → C) (h : ∀ v, v ∉ S → localRep Pi v = localRep Ψ v) : Pi = Ψ := by sorry
+/-
+Signature omission: TauCeti.GL2Transfer.gl3_recognition.
+The analytic input is AL.3/gln-converse-reduced-rank at n=3: all GL1 twists
+(or twists unramified at the specified finite S), dual entireness, strip bounds
+and the functional equation. Nonempty S gives agreement outside S only.
+The highly ramified T variant remains an acquisition gap. The second input is
+AL.3/rs-global-poles with rs-boundary-nonvanishing for two unitary cuspidal GL3
+representations and equality of their Rankin–Selberg factors against the first
+dual, not equality of arbitrary objects or an isobaric uniqueness theorem.
+The actual representation, twist, completed L/epsilon and pole carriers are
+missing; no theorem signature is counted here. See the named packet gap and
+AL G16. This application also uses adjoint-lift and cubic-character-induction.
+-/
 
 -- Carayol's extraordinary dyadic comparison (his §12.2.2 Proposition) is planned in
 -- AutomorphicGaloisRepresentations R19.2 (R19.2/carayol-cubic-base-change-of-extraordinary),

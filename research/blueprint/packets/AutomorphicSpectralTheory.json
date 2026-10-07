@@ -9393,7 +9393,9 @@
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/dit-112",
         "AutomorphicSpectralTheory:AS.0/dit-113",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i",
+        "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j",
+        "QSeriesPartitionsAndMockModularForms:QM.3/classical-kloosterman-sum"
       ],
       "sources": [
         {
@@ -9475,7 +9477,7 @@
         "AutomorphicSpectralTheory:AS.1/eisenstein-convergence",
         "AutomorphicSpectralTheory:AS.0/dit-112",
         "AutomorphicSpectralTheory:AS.0/dit-113",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i"
       ],
       "sources": [
         {
@@ -9556,7 +9558,7 @@
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/dit-112",
         "AutomorphicSpectralTheory:AS.0/dit-113",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i"
       ],
       "sources": [
         {
@@ -10008,7 +10010,8 @@
         "mathlib:Complex.regularizedHGFun",
         "mathlib:Complex.radius_regularizedHGFunSeries_eq_top",
         "mathlib:Complex.betaIntegral_eq_Gamma_mul_div",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2",
+        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i"
       ],
       "sources": [
         {
@@ -10091,7 +10094,8 @@
         "AutomorphicSpectralTheory:AS.0/dit-112",
         "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
         "mathlib:Complex.Gamma_mul_Gamma_add_half",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j",
+        "AutomorphicSpectralTheory:AS.0/dit-113"
       ],
       "sources": [
         {
@@ -10133,7 +10137,7 @@
         "AutomorphicSpectralTheory:AS.0/dit-112",
         "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
         "mathlib:Complex.Gamma_mul_Gamma_add_half",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j"
       ],
       "sources": [
         {
@@ -10459,7 +10463,7 @@
         "AutomorphicSpectralTheory:AS.0/dit-112",
         "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
         "mathlib:Complex.Gamma_mul_Gamma_add_half",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j"
       ],
       "sources": [
         {
@@ -11690,6 +11694,7 @@
         "For the initial sum Re(s)>1; continuation uses the quoted Hejhal result and the spectral/resolvent inputs, with the proof-source gap retained."
       ],
       "proofSteps": [
+        "At weight zero identify Δ_GZ with the negative of QM.3/weight-k-hyperbolic-laplacian. QM.2 does not own a Laplacian; retain the sign conversion before the eigen-equation.",
         "Use Q-decay and lattice-point growth to prove locally uniform convergence of the effective-group sum off the diagonal.",
         "Pass the point-pair eigen-equation through the sum on compact off-diagonal sets and use inversion in Γ for symmetry.",
         "Continue the quotient resolvent and identify its constant spectral projection; retain the explicit pole before taking the finite part."
@@ -11704,7 +11709,7 @@
         "AutomorphicSpectralTheory:AS.0/gz-66",
         "AutomorphicSpectralTheory:AS.0/unbounded-selfadjoint-spectral",
         "EllipticRegulators:ER.7/real-analytic-eisenstein-series",
-        "QSeriesPartitionsAndMockModularForms:QM.2"
+        "QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian"
       ],
       "sources": [
         {
@@ -11918,15 +11923,9 @@
     },
     {
       "supplier": "QSeriesPartitionsAndMockModularForms:QM.2",
-      "need": "The named J,I,K Bessel functions, their differential equations and small/large-argument estimates, and the finite Kloosterman sum. AS owns the Whittaker comparison and modular spectral adapters, not these definitions.",
+      "need": "Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112.",
       "neededBy": [
-        "AutomorphicSpectralTheory:AS.1/dit-88",
-        "AutomorphicSpectralTheory:AS.1/dit-89",
-        "AutomorphicSpectralTheory:AS.1/dit-90",
         "AutomorphicSpectralTheory:AS.0/dit-113",
-        "AutomorphicSpectralTheory:AS.0/dit-115",
-        "AutomorphicSpectralTheory:AS.0/dit-118",
-        "AutomorphicSpectralTheory:AS.0/dit-appendix-a3-series-of-rhs",
         "AutomorphicSpectralTheory:AS.0/gz-217"
       ]
     }
@@ -11947,7 +11946,7 @@
         "Strong operator topology source qualification: BPCZ Appendix A equips Hom(V,W) and V′ with weak pointwise topologies. The bounded-set topology and weak-to-strong meromorphy upgrade in the operator-meromorphic target require a separate proof with a common denominator and the appropriate local boundedness/uniform seminorm hypotheses. The cited weak holomorphy passage alone does not establish that upgrade.",
         "Suggested continuation signatures: The packet retains the BPCZ two-sided functional equation, initial continuous functionals and common finite strip order. The suggested Schwartz and LF-dual signatures omit already expressible hypotheses and are false. Replace them with correctly typed half-plane data and an existence/uniqueness extension before acceptance; see the independent review for counterexamples.",
         "Suggested Fourier and object-sensitive tests: The Yu149 suggested theorem admits an arbitrary index/character family and arbitrary f and measure, so neither absolute Fourier convergence nor transfer follows. It must encode smooth f, probability Haar, the full dual character family and the corresponding convergence theorem. Several object tests in AS.0–AS.6 use numerical facts or unrelated carriers instead of the proposed object; the independent review identifies the failures. Replace those tests without assuming the desired conclusion.",
-        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — The named J,I,K Bessel functions, their differential equations and small/large-argument estimates, and the finite Kloosterman sum. AS owns the Whittaker comparison and modular spectral adapters, not these definitions."
+        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112."
       ],
       "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
     },
@@ -11965,7 +11964,7 @@
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.0 — Fourier–Laplace inversion for C_c∞ on finite-dimensional real height spaces with dual Haar measure and the componentwise Paley–Wiener characterization; this is the real-place Schwartz–Bruhat interface.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.1 — Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.1 — Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.",
-        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — The named J,I,K Bessel functions, their differential equations and small/large-argument estimates, and the finite Kloosterman sum. AS owns the Whittaker comparison and modular spectral adapters, not these definitions."
+        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112."
       ],
       "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
     },
@@ -11983,7 +11982,7 @@
         "Gross–Zagier resolvent source and regularized derivative integrals: GZ II§2 quotes Hejhal for the meromorphic kernel rather than proving its continuation; share the modular resolvent proof gap with DIT. At integer negative V-parameters some original Fourier integrals are conditional and must be defined by continuation, not by a divergent absolute integral. The gamma and K-Bessel formulas need source-to-library type integration.",
         "Local-factor and packet Part II beyond current owners: AutomorphicLFunctionsAndLocalFactors AL.3 covers GL×GL Rankin–Selberg factors; it does not define all GL×classical Shahidi L/ε factors, exterior/symmetric-square or Asai local factors with packet compatibility. Extend that owner as Part II before the Jiang–Zhang ratio is implemented. ET.0 is conjugacy data, not local parameter theory; unitary and orthogonal/classical generic tempered packets and the relevant pure inner forms need EndoscopicTransferAndUnitaryTraceComparison, Part II. No dependency on the existing stages is treated as proving these extensions.",
         "Modular core and boundary-residue adapters: The F_A core-surface construction belongs to the Fuchsian-orbifold Part II route of the reviewed DIT extraction; the geometry of oriented quadratic cycles/genus signs requires GeometryOfNumbersAndQuadraticArithmetic, Part II; current GN.2–3 do not supply it. Until its new roadmap has a supplier node, the integrable-over-core adapter is conditional on that imported finite-area cusp geometry. TauCeti.vitali supplies interior convergence only: the limit on Re(s)=1/2 and coefficient residues still require a parameter-uniform cusp majorant and the meromorphic resolvent proof, rather than an interior Vitali argument.",
-        "Effective modular-group and Green-resolvent integration: ER.7 supplies congruence groups and upper-half-plane geometry. Integrate the Γ₀(N)/±I index for the Green sum, distinguishing it from Γ∞\\Γ for Eisenstein series. Prove the off-diagonal lattice-growth/differentiation bounds and obtain the quoted Hejhal Chapters6–7 continuation proof; GZ p.239 quotes that proof rather than giving it. The supplied QM.2 Laplacian must use Δ_GZ=+y²(∂x²+∂y²), opposite to DIT’s nonnegative convention.",
+        "Effective modular-group and Green-resolvent integration: ER.7 supplies congruence groups and upper-half-plane geometry. Integrate the Γ₀(N)/±I index for the Green sum, distinguishing it from Γ∞\\Γ for Eisenstein series. Prove the off-diagonal lattice-growth/differentiation bounds and obtain the quoted Hejhal Chapters6–7 continuation proof; GZ p.239 quotes that proof rather than giving it. The imported QM.3 weight-zero Laplacian must use Δ_GZ=+y²(∂x²+∂y²), opposite to DIT’s nonnegative convention.",
         "Local analytic extensions beyond representation carriers: SR.3 supplies admissible/tempered representation carriers, not the complete Harish-Chandra estimates, rank-one continuation or Langlands classification requested here. AF.1 supplies (g,K) carriers, not real Langlands classification. SR.4 supplies Satake and spherical constant terms, not a proof of the analytic Gindikin–Karpelevich c-function. These are precise SR/AF Part II inputs; SR.1 finite Hecke convolution also needs the unitary integrated L¹ norm bound before the analytic Hilbert action is used.",
         "Smooth globalization, weighted χ projections and Siegel cutoffs: BPCZ items27–28 require the AF Part II SLF/Casselman–Wallach globalization and completed product, and Lapid smooth Eisenstein continuity into T_N([G]), beyond the finite-K-type Langlands prototypes. Item33 requires the weighted parabolic MW II.2.4 decomposition and equality of χ projections for different weights. Item45 is the AA Part II compact Siegel cutoff F^G (modulo the center), distinct from Λ^T. The previous routing of all four through Appendix A was not justified; these item-specific routes are now gap decisions.",
         "Supplier request: SmoothRepresentationsOfLocalGroups:SR.2 — Local normalized induction, induction in stages and compact-picture source/target identifications over nonarchimedean fields.",
@@ -12390,7 +12389,7 @@
     },
     {
       "title": "Effective modular-group and Green-resolvent integration",
-      "detail": "ER.7 supplies congruence groups and upper-half-plane geometry. Integrate the Γ₀(N)/±I index for the Green sum, distinguishing it from Γ∞\\Γ for Eisenstein series. Prove the off-diagonal lattice-growth/differentiation bounds and obtain the quoted Hejhal Chapters6–7 continuation proof; GZ p.239 quotes that proof rather than giving it. The supplied QM.2 Laplacian must use Δ_GZ=+y²(∂x²+∂y²), opposite to DIT’s nonnegative convention.",
+      "detail": "ER.7 supplies congruence groups and upper-half-plane geometry. Integrate the Γ₀(N)/±I index for the Green sum, distinguishing it from Γ∞\\Γ for Eisenstein series. Prove the off-diagonal lattice-growth/differentiation bounds and obtain the quoted Hejhal Chapters6–7 continuation proof; GZ p.239 quotes that proof rather than giving it. The imported QM.3 weight-zero Laplacian must use Δ_GZ=+y²(∂x²+∂y²), opposite to DIT’s nonnegative convention.",
       "neededBy": [
         "AutomorphicSpectralTheory:AS.2/automorphic-green",
         "AutomorphicSpectralTheory:AS.2/gz-68"
@@ -12468,7 +12467,7 @@
     },
     {
       "title": "Real harmonic-analysis prefix before ET.1",
-      "detail": "The real invariant/operator Paley–Wiener and multiplier targets are currently located in AS.6, whose weighted orbital-integral and Euler–Poincaré targets import ET.1. ET.1 must consume the general real harmonic-analysis results through an earlier AS prefix or an AF Part II prefix, not by importing the complete AS.6 stage. Record that exported prefix and its acyclic dependencies when integrating RT-AREA-automorphic-1/4 and /24; no new stage id is invented in this review.",
+      "detail": "The rescope proposal now names the three existing real Paley–Wiener/multiplier nodes and their independent inputs as an AS.1a export prefix. Current atlas stages and node ids remain unchanged pending maintainer integration. ET.1 must import that prefix, not the complete AS.6 stage, which imports ET.1 for orbital integrals. General Euler–Poincaré functions remain an AS.6 consumer of ET.1; they are not part of the exported harmonic-analysis prefix.",
       "neededBy": [
         "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
         "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener",
@@ -13494,14 +13493,24 @@
       "citation": "Heegner Points and Derivatives of L-Series; Invent. Math. 84 (1986), 225–320"
     },
     {
-      "kind": "lecture-notes",
+      "kind": "author copy",
       "url": "https://web.math.princeton.edu/~js129/PDFs/teaching/MAT520_fall_2025/MAT520_Lecture_Notes.pdf",
       "read": "2026-10-07",
       "sha256": "56aefb385eefd760ecd55bce9e3be14759f307fa98b5a00b8b787fde735e6b9d",
       "citation": "Jacob Shapiro, MAT520 Fall 2025 lecture notes; last typeset 10 December 2025; Theorem 10.5, pp.125–126"
     }
   ],
-  "restructure": [],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "AutomorphicSpectralTheory",
+        "EndoscopicTransferAndUnitaryTraceComparison"
+      ],
+      "detail": "RT-AREA-automorphic-1/4 and /24: real harmonic analysis supplies ET.1, whereas weighted orbital integrals use ET.1. A whole AS.6→ET.1 import would cycle.",
+      "proposal": "Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, AS.1/induced-family and AF.1 real representation theory. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes."
+    }
+  ],
   "upstreamNotes": [],
   "sourceRouting": [
     {

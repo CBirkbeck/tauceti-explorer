@@ -2,7 +2,7 @@
 
 **Verdict: accepted. Finished review, 7 October 2026.** Job `REV-ArithmeticLocallySymmetricSpaces~2`, Refs #6908. Agent: Codex. Session: `codex-hcCPKh`. This session wrote neither blueprint planning round. It completed the earlier checkpoint's outstanding audit, independently checked its proposed corrections, applied the justified fixes, and replaced the historical packet review with `independent-review-REV-ArithmeticLocallySymmetricSpaces~2`.
 
-Acceptance concerns the corrected target-level planning pass. The packet remains `complete` in PROTOCOL §0's sense: a finished pass under the budget. Its eight stages are `planned`, none is `closed`, and all implementations are `unchecked`. Fifteen explicit gaps and nineteen supplier requests remain. In particular, neither a general reductive characteristic-zero splitting nor the printed ordinary-♠-only real-place GL_n boundary theorem is asserted without the missing input. The narrowed conditional statements and the recorded extension obligations are consistent. This is a completed review, not a checkpoint.
+Acceptance concerns the corrected target-level planning pass. The packet remains `complete` in PROTOCOL §0's sense: a finished pass under the budget. Its eight stages are `planned`, none is `closed`, and all implementations are `unchecked`. Sixteen explicit gaps and nineteen supplier requests remain. In particular, neither a general reductive characteristic-zero splitting nor the printed ordinary-♠-only real-place GL_n boundary theorem is asserted without the missing input. The narrowed conditional statements and the recorded extension obligations are consistent. This is a completed review, not a checkpoint.
 
 | Measure | Revision-2 input | Reviewed result |
 |---|---:|---:|
@@ -10,9 +10,9 @@ Acceptance concerns the corrected target-level planning pass. The packet remains
 | API items / mathematical unit tests | 132 / 88 | 132 / 88 |
 | Planets / cited baseline declarations | 31 / 36 | 31 / 36 |
 | Public source texts / node citation records | 13 / 156 | 13 / 156 |
-| Requests / gaps | 22 / 15 | 19 / 15 |
+| Requests / gaps | 22 / 15 | 19 / 16 |
 | Stages planned / closed | 8 / 0 | 8 / 0 |
-| Nodes verified / corrected / added / unverifiable | Historical first-review ledger | 46 / 20 / 0 / 0 |
+| Nodes verified / corrected / added / unverifiable | Historical first-review ledger | 45 / 21 / 0 / 0 |
 | Newton–Thorne source issues confirmed | 3, earlier verdicts | 3, independently rechecked |
 
 ## Sources and source fidelity
@@ -43,7 +43,7 @@ A bounded correction search checked the [arXiv version history](https://arxiv.or
 
 ## Corrections applied in this review
 
-Twenty existing nodes changed. No node was added or removed; target granularity does not require splitting these targets into proof lemmas. All node identifiers, API/test names and planets remain stable. The reader and suggested-file mathematical catalogue were synchronized with every changed statement, hypothesis, prerequisite and specification. No executable Lean declaration changed.
+Twenty-one existing nodes changed. No node was added or removed; target granularity does not require splitting these targets into proof lemmas. All node identifiers, API/test names and planets remain stable. The reader and suggested-file mathematical catalogue were synchronized with every changed statement, hypothesis, prerequisite and specification. No executable Lean declaration changed.
 
 1. **Properness and orientation:** registered unquotiented bordification as a direct prerequisite of arithmetic properness. Corrected F-neat versus Q-restriction-of-scalars neatness. For F=ℚ(√5), u=682+305√5 has norm −1 and reduces to 1 at (11,√5−7) and (31,√5−6); diag(u,1) is F-neat at the two-prime level and reverses GL₂ orientation. In the underlying Q-representation, u and its conjugate multiply to −1, so the Q-neat determinant argument does not apply. Corrected the H²_c noncompact-surface acceptance case to require orientability or orientation coefficients. Required K′ to be open normal when using the finite quotient K/K′.
 2. **Hecke scope:** replaced arbitrary monoids by submonoids of ambient groups containing U, as required by the pinned Hecke triple. Free U-orbits make ℤ[Δ] free over ℤ[U], providing the restriction-of-injectives argument. Hecke multiplication always composes in End_D(R); a D(H) object does not make noncentral multiplication H-linear. The left regular S₃ module detects this error. Central/commutative cases can also be stated in D(H).
@@ -63,7 +63,7 @@ Accepted RS-09~2 supersedes the first review's completed-tower requests. ALS.6 o
 
 The confirmed finding files and their verifier verdicts were read:
 
-- RT-AREA-automorphic-1/6: arithmetic lattice Nomizu is ALS.4, abstract Lie cochains and Kostant are AF.1; AF.1a's continuous/relative comparison does not replace the lattice theorem. No integral Kostant statement is inferred.
+- RT-AREA-automorphic-1/6: arithmetic lattice Nomizu is ALS.4, abstract absolute Lie cochains and Kostant are requested from AF.1a; AF.1a's existing complex-relative theory does not supply the requested E-linear absolute complex/Kostant theorem or replace the lattice theorem. No integral Kostant statement is inferred.
 - RT-AREA-automorphic-1/27: induction/modulus and normalized versus unnormalized Satake stay with SR.2/SR.4 and RG2.4. The GL₂ coefficients are p and 1 for the stated f(tn) convention, becoming symmetric after the chosen square-root normalization.
 - RT-AREA-combinatorics/13: AC.3 owns nilmanifold carriers/rational Mal'cev/filtered data; generic Lie geometry belongs to the LieGroups direction. ALS applies these inputs to transported Borel–Serre fibres and never replans their generic theory. LieGroups layers 0,2,3,5 and the needed Cartan layer 9 were checked; no upstream roadmap was edited.
 
@@ -176,7 +176,7 @@ The per-node verdicts below match the packet's fresh review object. Verification
 | `ALS.4/boundary-triangle` | verified | The cohomological support triangle ends in [1], including the enhancement-dependent arbitrary-level version; E2 remains confirmed. |
 | `ALS.4/parabolic-hecke-maps` | verified | The integral Satake coefficient order is p,1 for f(tn); hyperspecial q-half normalization and positive-Iwahori single terms are separated. |
 | `ALS.4/boundary-stratum-hecke-comparison` | verified | Transported P-levels and good decompositions are propagated through induction and Hecke restriction, as required by NT/ACC. |
-| `ALS.4/nomizu-van-est` | verified | Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1 owns Lie cochains/Kostant. |
+| `ALS.4/nomizu-van-est` | corrected | Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1a owns the requested absolute Lie-cochain/Kostant prefix. Preserved the concurrent supplier correction and explicit missing E-linear absolute-cochain/Kostant export. |
 | `ALS.4/boundary-stratum-cohomology-formula` | corrected | Added the splitting-field/root-datum hypothesis and restricted HR splitting to totally real GLN; general reductive groups retain only the E₂/Kostant statement. |
 | `ALS.4/levi-hochschild-serre` | verified | NT 4.5 is discrete arithmetic unipotent cohomology; the transported group extension precedes a separate continuous comparison. |
 | `ALS.4/boundary-gluing-convergence` | corrected | Compact-support induction uses dual coefficient vanishing at the inverse ideal; the ordinary flag branch now retains its totally-real hypothesis. |
@@ -205,6 +205,8 @@ The per-node verdicts below match the packet's fresh review object. Verification
 
 ## Remaining work and orchestrator notes
 
-No unanswered question blocks this review. The orchestrator can take in the accepted complete planning pass. Keep all fifteen gaps visible and do not treat the eight planned stages as closed. Follow-up ownership work must supply the typed geometric/sheaf/cochain enhancements, precise requested owner exports and missing suggested signatures before implementation.
+No unanswered question blocks this review. The orchestrator can take in the accepted complete planning pass. Keep all sixteen gaps visible and do not treat the eight planned stages as closed. Follow-up ownership work must supply the typed geometric/sheaf/cochain enhancements, precise requested owner exports and missing suggested signatures before implementation.
 
 The maintainer should apply the already proposed geometry/cohomological-tools and automorphic-application stage splits when ordering implementation. The general real-place ♠-only boundary theorem additionally needs the orientation-character/Galois compatibility argument; the general reductive splitting and ordinary flag-resolution extension need separate source-backed inputs. These extensions were left explicit, not silently generalized from the specialized sources. No promotion, label change, foreign edit or second claim was made in this run.
+
+The final branch incorporates the concurrent supplier-contract correction merged in PR #7260: AF.1a is the unique absolute-cochain/Kostant prefix owner and AF.1 imports it. Its existing relative complex over ℂ does not yet provide the requested characteristic-zero E-linear absolute complex or parabolic Kostant theorem. The new sixteenth gap and precise request are preserved; the reader request heading and suggested catalogue are synchronized. The review verdict remains accepted with this explicit owner obligation.

@@ -2244,7 +2244,7 @@ V) given by the homotopy equivalence j_K.
 OMITTED theorem signature: LocallySymmetric.boundary_triangle.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2311,7 +2311,7 @@ For p > 1, p[diag(p,1)] + [diag(1,p)] is not invariant under swapping diagonal e
 δ_B^{1/2}·S(T_p) is Weyl-invariant.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2343,7 +2343,7 @@ through S=r_M∘r_P.
 OMITTED theorem signature: LocallySymmetric.boundary_stratum_hecke_comparison.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2373,14 +2373,14 @@ characteristic-zero statement: for integral or mod-p coefficients H^*(Γ_N, V) i
 OMITTED theorem signature: LocallySymmetric.nomizu_van_est.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
 
 Exact prerequisite references:
 ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration; AdditiveCombinatorics:AC.3;
-AutomorphicFormsOnReductiveGroups:AF.1; mathlib:groupCohomology
+AutomorphicFormsOnReductiveGroups:AF.1a; mathlib:groupCohomology
 -/
 
 /-!
@@ -2407,7 +2407,7 @@ integral Kostant decomposition is asserted.
 OMITTED theorem signature: LocallySymmetric.boundary_stratum_cohomology_formula.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2417,7 +2417,7 @@ ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est;
 ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison;
 ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps;
 ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration;
-AutomorphicFormsOnReductiveGroups:AF.1; SmoothRepresentationsOfLocalGroups:SR.2
+AutomorphicFormsOnReductiveGroups:AF.1a; SmoothRepresentationsOfLocalGroups:SR.2
 -/
 
 /-!
@@ -2440,7 +2440,7 @@ general discrete/profinite comparison is claimed here.
 OMITTED theorem signature: LocallySymmetric.levi_hochschild_serre.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2473,7 +2473,7 @@ d₁:(p,q)→(p+1,q); it is not substituted for the support argument in NT16’s
 OMITTED theorem signature: LocallySymmetric.boundary_gluing_convergence.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2532,7 +2532,7 @@ specified compatible lift to D(T^S), derived tensor with T^S_𝔪 computes local
 relative ring action alone does not provide this lift.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2597,7 +2597,7 @@ Res_{F/F⁺}GL_n), boundary cohomology localized at a non-Eisenstein 𝔪̃ can 
 2.4.2).
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2626,7 +2626,7 @@ non-Eisenstein alone proves nothing.
 OMITTED theorem signature: LocallySymmetric.boundary_eigenvalue_criterion.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2663,7 +2663,7 @@ the sense of CG18 Definition 5.5, H_i(Y_0(Q), μ)_𝔪 ≅ H_i^{BM}(Y_0(Q), μ)_
 OMITTED theorem signature: LocallySymmetric.gln_boundary_eisenstein.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2692,7 +2692,7 @@ Levi subgroups (S-Galois type for Res_{F/F⁺}GL_m, m ≤ n), as in gln-boundary
 OMITTED theorem signature: LocallySymmetric.siegel_stratum_localization.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -3284,3 +3284,15 @@ mathlib:CongruenceSubgroup.Gamma1; mathlib:UpperHalfPlane
 -/
 
 end TauCeti.LocallySymmetric
+
+
+
+/-
+ALS.4 supplier correction: AF.1a is the unique cochain owner.
+Nomizu-van Est needs absolute algebraic cochains over a characteristic-zero
+field E, with the lattice/rational representation and normalizer hypotheses.
+The boundary formula needs the AF.1a parabolic Kostant theorem with actual
+Levi representations. The existing complex-relative cochain node over C does
+not state these exact outputs; the AF.1a request and gap retain them.
+No integral or mod-p Kostant comparison is inferred.
+-/
