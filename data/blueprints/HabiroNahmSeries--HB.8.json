@@ -203,7 +203,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, equation (89), p. 25; compare (83)–(84), p. 24",
-          "excerpt": "we claim that $G_j(t,q) \\in \\BZ[q^{\\pm 1}][\\![t]\\!]$",
           "match": "The source motivates the integral recursion; the signed-coordinate path repairs the omitted off-diagonal factor and covers negative entries."
         }
       ],
@@ -247,7 +246,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 6, equation (83), p. 24; compare (33), (89), (98) and (165)",
-          "excerpt": "G(t,q) \\= \\frac{F(qt,q)}{F(t,q)}",
           "match": "The finite orbit product is a proof refinement assembled from the source’s ratio and higher q-difference operators, not a separately stated source theorem."
         }
       ],
@@ -354,7 +352,6 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.6 (79), corrected (98)/(165) and (34)",
-          "excerpt": "This lemma essentially follows from the $q$-difference equations",
           "match": "This is a new elementary proof route to the source’s residue lemma. Its orbit invariance and matrix-valued recurrence are written out rather than attributed verbatim to the paper."
         }
       ],
@@ -402,7 +399,6 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.6 (79); equations (116) and (168)",
-          "excerpt": "t_j \\pt_{t_j} V(t) \\= \\log z_j(t)",
           "match": "The source supplies the potential and its derivative identity; this construction defines it directly by the residue and proves the derivative noncircularly."
         }
       ],
@@ -508,7 +504,6 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 8 proof, equation (165) and the subsequent recurrence, p. 35",
-          "excerpt": "The proof in the general case is identical using",
           "match": "The source omits the matrix-valued calculation. This node spells out the eigenvalue and compatible multi-index induction, with the corrected sign from HabiroNahmSeries/E33."
         }
       ],
@@ -554,7 +549,6 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.7, equation (92) and its inclusion-exclusion proof, pp. 25–26",
-          "excerpt": "Every $F(t,q)\\in1+t\\,\\BZ[\\tfrac{1}{m}](\\!(q)\\!)[\\![t]\\!]$",
           "match": "The source states the one-variable version; this construction replaces n by a nonzero multi-index and gives the explicit total-degree proof."
         }
       ],
@@ -667,7 +661,6 @@
         {
           "sourceId": "gswz",
           "locator": "Equation (114) and the sentence immediately after it, p. 29; compare (59)",
-          "excerpt": "from which we remove four terms",
           "match": "The four-term removal is the stated intent; the printed coefficients and the claimed completion fail it. See HabiroNahmSeries/EHB8-1."
         }
       ],
@@ -713,19 +706,16 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.15, equations (137)–(139), p. 32",
-          "excerpt": "a simple change of coordinates",
           "match": "The source-specific affine calculation, now traced to the two original sources."
         },
         {
           "sourceId": "gsw",
           "locator": "Lemma 3.1(b), equation (23); Lemma 3.2, equation (25), p. 10",
-          "excerpt": "Part (b) follows from the fact the integration is unchanged under an affine change of",
           "match": "The exact affine Gaussian rule, read directly in the cited original."
         },
         {
           "sourceId": "aarhus",
           "locator": "Proposition 2.13, pp. 8–9",
-          "excerpt": "If the block A is invertible",
           "match": "Block Fubini supports recentering; it is not itself a proof of t-regularity."
         }
       ],
@@ -771,7 +761,6 @@
         {
           "sourceId": "gswz",
           "locator": "Proof of Theorem 8, p. 35",
-          "excerpt": "the\nfact that $\\det(\\Lambda^{-1})=O(t)$ dominates",
           "match": "This is the asserted regularity argument. The determinant alone does not control the separate vertex poles; the missing cancellation is recorded as G2."
         }
       ],
@@ -817,7 +806,6 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 8, equations (163)–(166), pp. 35–36",
-          "excerpt": "The proof of this equality uses crucially the fact",
           "match": "The exact identification target with the definition’s coprimality restriction and its unresolved inputs displayed."
         }
       ],
@@ -861,7 +849,6 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.9, equation (95), p. 26; proof after Theorem 8",
-          "excerpt": "These follow from Theorem~\\ref{thm.fgi.is.admis}",
           "match": "The source derives the congruence residue from Gaussian identification; HabiroNahmSeries/E39 restricts the extra root order."
         }
       ],
@@ -908,7 +895,6 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 7, equation (96) and proof (98)–(104), pp. 26–27",
-          "excerpt": "we use\nsimilar methods to the proof of Theorem~\\ref{thm.DT}",
           "match": "The source proves only a rank-one sketch with a false denominator ring. This records the corrected target and the exact general-rank proof obligations."
         }
       ],
@@ -957,7 +943,6 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.6, equation (79), p. 23",
-          "excerpt": "\\log(F_{A}(t,\\z_m+x)) \\= \\frac{\\z_mV(t^m)}{m^2x}+O(x^0)",
           "match": "Exactly Lemma 2.6, proved by a cyclotomic orbit argument instead of the source’s Gaussian synthesis."
         }
       ],
@@ -1005,7 +990,6 @@
         {
           "sourceId": "gswz",
           "locator": "Equation (116), p. 29; equation (168), p. 36",
-          "excerpt": "-\\sum_{j=1}^N \\Li_2(1-z_j(t))",
           "match": "The exact critical value; the derivative calculation replaces reliance on full Gaussian identification."
         }
       ],
@@ -1055,13 +1039,11 @@
         {
           "sourceId": "gswz",
           "locator": "Theorem 6 and equations (81)–(89), pp. 24–25",
-          "excerpt": "have finite support, i.e. for fixed $n$ all but finitely many $i$ satisfy $c_{n,i}=0$.",
           "match": "The exact theorem, with the simultaneous coordinate induction and complete proper-divisor residue sum supplied."
         },
         {
           "sourceId": "ks",
           "locator": "Section 6.1, Theorem 9; Section 6.9",
-          "excerpt": "For a given symmetric integer matrix B",
           "match": "Original attribution covers arbitrary signed symmetric integer matrices; it is not used as an unplanned black box."
         }
       ],

@@ -196,8 +196,16 @@ own lemma node and reference it by id.
 
 ## 5. Sources
 
-- Every node cites the source passage that states or proves it, with a locator,
-  a short literal excerpt of at most 300 characters, and the match.
+- Write everything in your own words. Roadmaps, packets, reader documents and
+  roadmap definitions give your own statements plus theorem, section and page
+  numbers. They never contain a verbatim passage of a source, and never
+  summarise a source section by section. This is a standing rule of the
+  maintainer, and it overrides any older instruction or example here.
+- Every node cites where its source states or proves it. `locator` gives the
+  theorem, section and page. `match` says, in your own words, what that place
+  states and how it supports the node.
+- Do not record an `excerpt`. Older packets still have them: delete them from
+  any packet you edit.
 - A standard fact may cite a standard textbook.
 - A public source outside the supplied library may be fetched into the worker's
   scratch directory, never into the repository. Record its URL, SHA-256 and
@@ -248,7 +256,7 @@ own lemma node and reference it by id.
              "statement": "For x in F with x ≠ 0, 1, the class [x] ∈ P(F)."}],
     "library": {"module": "TauCeti/NumberTheory/Bloch/PreBloch",
                 "namespace": "TauCeti.PreBlochGroup"},
-    "sources": [{"sourceId": "...", "locator": "...", "excerpt": "...", "match": "..."}],
+    "sources": [{"sourceId": "...", "locator": "Theorem 3.2, p. 41", "match": "what it states, in your own words"}],
     "implementationStatus": "unchecked"
   }],
   "requests": [{"supplier": "OtherRoadmap:Stage", "need": "Exact statement needed",
@@ -385,6 +393,12 @@ The orchestrator collects these proposals in `research/blueprint/RESTRUCTURE.md`
 decides on them, and re-plans the affected jobs. Families of roadmaps that
 overlap one another are restructured before they are blueprinted, by the
 restructuring jobs of section 15.
+
+A design job given several Part II directions of one roadmap (section 16) may
+plan one of them and propose the others as roadmaps of their own. When the
+orchestrator accepts such a split, it is recorded in
+`research/blueprint/splits.json`, and each direction it names gets a design job
+of its own, with the paper routes that propose it.
 
 ## 10. Links between roadmaps
 
@@ -771,7 +785,7 @@ found in their sources under `sourceIssues`:
   "source": "<a packet's source id; omitted in an extraction>",
   "kind": "misprint | error | gap",
   "locator": "Lemma 2.4, p. 9, in the version read (arXiv v2; and the published version where they differ)",
-  "printed": "what the source says, quoted",
+  "printed": "what the source says, in your own words (the wrong formula or symbol itself may be given as mathematics)",
   "correction": "what it should say, or what is missing",
   "reason": "the check or argument that shows it: a small case, a computation, the step that fails",
   "affects": "nothing | the proof | a stated result",
@@ -779,6 +793,10 @@ found in their sources under `sourceIssues`:
   "searched": ["where an existing correction was looked for: the journal's errata listing, the arXiv versions, the authors' pages"]
 }]
 ```
+
+State the mistake in your own words, like everything else in the atlas
+(section 5): say what the source asserts at the locator and what is wrong with
+it, without copying its sentences.
 
 Say which text you read. A published paper and its preprint are different
 documents, and a sentence quoted from one may not be in the other: BSTTTZ's

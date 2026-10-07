@@ -1,319 +1,361 @@
 /-
-# The parameter assignment and its functoriality — suggested signatures (ES5, ES6)
+This file is not the roadmap and is not exhaustive. The roadmap document is
+definitive. These signatures suggest Lean forms so contributors and reviewers
+can converge on names and interfaces. They claim no implementation.
 
-Suggested Lean signatures for the blueprint packet
-`research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json`
-(Tau Ceti Atlas roadmap `ExcursionOperatorsAndSpectralAction`, part `ES5`,
-layers ES5, ES6, ES6:functoriality, ES6:duality).
+Imported carriers are explicit parameters: the relatively discrete scalar
+sheaf, condensed endomorphism algebra, excursion algebra, invariant rings,
+and reconstruction/evaluation maps supplied by LP2. No substitute for D_lis,
+the parameter stack or geometric Satake is defined here.
 
-Written by Claude Code, session `cc-7b31c4`, for issue #727, 24 September 2026.
+Prototype boundary: animated enrichment, semisimplicity, the prescribed Weil
+projection, and relatively discrete continuity of reconstructed parameters
+cannot yet be stated at the pins. They are left out. Parameter signatures
+express global-point algebraic consequences of imported reconstruction maps;
+they are not the full geometric theorem. Schur and scalar transport use actual
+condensed algebras. Smoothness/admissibility of representations is omitted.
 
-**This file was not compiled.** The Mathlib build on the machine this was written on
-is a shared cache that must not be rebuilt, and the working tree has no elaborated
-dependency modules. Nothing below is claimed to elaborate; the `example`s are the
-unit tests of the packet written as statements.
-
-Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
-Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-
-Two things this part needs are absent from *both* pinned libraries and are not
-approximated here:
-
-* **local class field theory** — a search of the pinned declaration index found no
-  Artin map, no local reciprocity map and no class field theory at all, and Tau Ceti's
-  only `Weil` declarations concern Weil divisors. The whole torus case (FS IX.6.4,
-  IX.6.5) rests on `Z¹(W_E, G_m) = Hom(E^×, G_m)`, so those statements are written
-  below against a placeholder `LocalReciprocity` class;
-* **the local Weil group** as a topological group, with its inertia, wild inertia and
-  the degree map normalised by sending geometric Frobenius to `1`.
-
-Everything else — the dual group, stable ∞-categories, perfect complexes on a stack,
-the condensed enhancement of `D_lis` — is likewise a placeholder, named as the packet
-names it, so that a later development can substitute the real object without rewriting
-the statements.
-
-Source throughout: L. Fargues and P. Scholze, *Geometrization of the local Langlands
-correspondence*, SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+ZEmbedding records the rational-point exact sequence and central lifting only.
+The reductive-scheme, induced-torus, connected-centre and H1 conditions in the
+document are left out, not replaced by unnamed predicates. Its tests exercise
+this rational-point fragment. The reader contains the omission ledger; the
+independent review records corrections that its revision must incorporate.
 -/
-
-import Mathlib.RepresentationTheory.Basic
-import Mathlib.Algebra.Group.Hom.Defs
-import Mathlib.NumberTheory.MulChar.Basic
-import Mathlib.Algebra.Group.Units.Hom
-import Mathlib.Algebra.MonoidAlgebra.Defs
-import Mathlib.Algebra.Ring.Defs
-import Mathlib.Algebra.Ring.Hom.Defs
-import Mathlib.GroupTheory.FreeGroup.Basic
-import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
-import Mathlib.CategoryTheory.Center.Basic
-import Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro
-import Mathlib.Algebra.Group.Subgroup.Defs
 import Mathlib.Condensed.Basic
-import Mathlib.Condensed.Module
-import Mathlib.Algebra.Module.LinearMap.End
+import Mathlib.Algebra.Category.AlgCat.Basic
+import Mathlib.RepresentationTheory.Intertwining
+import Mathlib.Algebra.Algebra.Hom
+import Mathlib.Algebra.Algebra.Subalgebra.Basic
+import Mathlib.CategoryTheory.Center.Basic
 import Mathlib.CategoryTheory.Adjunction.Basic
-import Mathlib.CategoryTheory.Monoidal.Category
-import Mathlib.CategoryTheory.Monoidal.Functor
-import Mathlib.CategoryTheory.Monoidal.Rigid.Basic
-import Mathlib.LinearAlgebra.TensorProduct.Basic
-import Mathlib.Algebra.DirectSum.Basic
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.LinearAlgebra.RootSystem.Defs
-import Mathlib.AlgebraicGeometry.Scheme
-
-universe u v w
-
-namespace TauCeti.ParameterAssignment
+import Mathlib.GroupTheory.Subgroup.Center
 
 open CategoryTheory
-
-/-! ## Placeholders -/
-
-/-- The local Weil group, with its inertia and wild inertia and the normalised degree
-map. Absent at both pins; requested from
-`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`. -/
-class WeilGroup (W : Type u) [Group W] where
-  inertia : Subgroup W
-  wildInertia : Subgroup W
-  wild_le_inertia : wildInertia ≤ inertia
-  /-- `|·| : W → ℤ`, normalised by sending a geometric Frobenius to `1`. -/
-  degree : W →* Multiplicative ℤ
-
-/-- Local class field theory: `Z¹(W_E, G_m) = Hom(E^×, G_m)`, with a **fixed**
-geometric-Frobenius normalisation. Absent at both pins; the whole torus case of
-`ES6:functoriality` rests on it. -/
-class LocalReciprocity (E : Type u) [Field E] (W : Type u) [Group W] [WeilGroup W] where
-  recip : True
-  /-- The normalisation is part of the datum, not a convention chosen later. -/
-  geometricFrobeniusNormalised : True
-
-/-- The dual group with its `Q`-action, its Chevalley involution and the switching
-involution `sw` of FS VI.12.1. Owned by `GeometricSatakeAndFusion:GS4` and
-`ReductiveGroupsPartII:RG2.5`. -/
-class LGroupData (Ghat Q : Type u) [Group Ghat] [Group Q] where
-  chevalley : Ghat ≃* Ghat
-  finiteQ : Finite Q
-  /-- `sw`, which agrees with the Chevalley involution up to an inner automorphism
-  (FS VI.12.1, **not read**). -/
-  sw : True
-
-/-- The condensed enhancement of `D_lis(Bun_G, Λ)`. On compact objects it is the
-*relatively discrete* condensed structure (FS IX.1.2). -/
-class CondensedEnhancement (Λ : Type u) [CommRing Λ] (D : Type v) [Category.{w} D] where
-  relativelyDiscreteOnCompacts : True
+namespace TauCeti.Blueprint.ES5
+universe u
 
 section Schur
+variable {L : Type u} [Field L]
+variable {Scalar End End' : Condensed.{u} (AlgCat.{u} L)}
 
-/-! ## ES5 — Schur-irreducibility (FS IX.4.1)
+/-- The actual scalar unit, not an arbitrary isomorphism of abstract algebras. -/
+def IsSchurIrreducible (scalarUnit : Scalar ⟶ End) : Prop := IsIso scalarUnit
 
-`End(A) = L` **as condensed algebras**. The abstract condition is strictly weaker and
-does not produce a continuous parameter. -/
+namespace IsSchurIrreducible
+noncomputable def scalarIso (s : Scalar ⟶ End) (h : IsSchurIrreducible s) :
+    Scalar ≅ End := by sorry
 
-variable (L : Type u) [Field L] {D : Type v} [Category.{w} D]
-variable [CondensedEnhancement L D]
+theorem scalar_unique (s : Scalar ⟶ End) (h : IsSchurIrreducible s)
+    (S : CompHaus.{u}ᵒᵖ) (e : End.obj.obj S) :
+    ∃! a : Scalar.obj.obj S, (s.hom.app S).hom a = e := by sorry
 
-/-- `A` is Schur-irreducible: the unit `L → End(A)` is an isomorphism of **condensed**
-`L`-algebras. -/
-structure IsSchurIrreducible (A : D) : Prop where
-  /-- Abstractly the endomorphisms are scalars … -/
-  scalar : ∀ _f : A ⟶ A, True
-  /-- … and the identification is one of condensed algebras, which is the content. -/
-  condensed : True
+theorem sections_bijective (s : Scalar ⟶ End) (h : IsSchurIrreducible s)
+    (S : CompHaus.{u}ᵒᵖ) : Function.Bijective (s.hom.app S).hom := by sorry
 
-/-- **Unit test `condensed_not_abstract`.** There are objects with `End(A) = L`
-abstractly but not as condensed algebras; only the condensed condition is used. -/
-example : True := trivial
+theorem iso_invariant (s : Scalar ⟶ End) (e : End ≅ End') :
+    IsSchurIrreducible (s ≫ e.hom) ↔ IsSchurIrreducible s := by sorry
 
-/-- **Unit test `stable_under_shift`.** -/
-example (A : D) (_h : IsSchurIrreducible L A) : True := trivial
+theorem shift (s : Scalar ⟶ End) (s' : Scalar ⟶ End')
+    (e : End ≅ End') (hunit : s' = s ≫ e.hom) (h : IsSchurIrreducible s) :
+    IsSchurIrreducible s' := by sorry
+end IsSchurIrreducible
 
-/-- **Unit test `no_free_base_change`.** Base change along `L → L'` need not preserve
-Schur-irreducibility; the transport statement below carries the hypothesis explicitly. -/
-example : True := trivial
+-- schur_scalar_identity
+example (Scalar : Condensed.{u} (AlgCat.{u} L)) :
+    IsSchurIrreducible (𝟙 Scalar) := by sorry
+-- schur_rejects_zero
+example (s : Scalar ⟶ End) (S : CompHaus.{u}ᵒᵖ)
+    (hscalar : (0 : Scalar.obj.obj S) ≠ 1) (hzero : (0 : End.obj.obj S) = 1) :
+    ¬ IsSchurIrreducible s := by sorry
+-- schur_requires_all_sections
+example (s : Scalar ⟶ End) (S : CompHaus.{u}ᵒᵖ)
+    (h : ¬ Function.Bijective (s.hom.app S).hom) : ¬ IsSchurIrreducible s := by sorry
 
+/-- The relatively discrete endomorphism comparison is imported, with its unit. -/
+theorem condensedSchurOfAdmissible (s : Scalar ⟶ End)
+    (RelativeDiscreteEnd : Condensed.{u} (AlgCat.{u} L))
+    (a : Scalar ≅ RelativeDiscreteEnd) (b : RelativeDiscreteEnd ≅ End)
+    (hunit : s = a.hom ≫ b.hom) : IsSchurIrreducible s := by sorry
 end Schur
 
 section Character
+variable {L : Type u} [Field L]
+variable {Exc : Type u} [CommRing Exc] [Algebra L Exc]
+variable {End : Type u} [Semiring End] [Algebra L End]
+noncomputable def excursionCharacter (operators : Exc →ₐ[L] End)
+    (scalar : End ≃ₐ[L] L) : Exc →ₐ[L] L := by sorry
 
-/-! ## ES5 — the excursion character (FS VIII.3.7, VIII.3.8)
+namespace excursionCharacter
+theorem apply (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) (x : Exc) :
+    excursionCharacter op s x = s (op x) := by sorry
 
-For each `n ≥ 1` a map `Θₙ(A) : O((Ĝ ⋊ Q)ⁿ // Ĝ) → Map(W_Eⁿ, L)` of **condensed sets**,
-linear over `O(Qⁿ)`, satisfying the pullback and multiplication relations. -/
+theorem scalar_linear (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) (a : L) :
+    excursionCharacter op s (algebraMap L Exc a) = a := by sorry
 
-variable (L : Type u) [Field L] (Ghat Q : Type u) [Group Ghat] [Group Q] [LGroupData Ghat Q]
-variable (W : Type u) [Group W] [WeilGroup W]
+noncomputable def family {Inv Tuple : Type u} [CommRing Inv] [Algebra L Inv]
+    (universalEvaluation : Inv →ₐ[L] (Tuple → Exc))
+    (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) : Inv →ₐ[L] (Tuple → L) := by sorry
 
-/-- `O((Ĝ ⋊ Q)ⁿ // Ĝ)`, the invariant functions. Owned by
-`LanglandsParameterStacks:LP2:excursion-presentation`. -/
-def invariants (_n : ℕ) : Type u := by sorry
+theorem pullback {I J T U : Type u}
+    [CommRing I] [Algebra L I] [CommRing J] [Algebra L J]
+    (a : I →ₐ[L] (T → Exc)) (b : J →ₐ[L] (U → Exc))
+    (pull : I →ₐ[L] J) (reindex : U → T)
+    (h : ∀ f t, b (pull f) t = a f (reindex t))
+    (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) (f : I) (t : U) :
+    family b op s (pull f) t = family a op s f (reindex t) := by sorry
 
-/-- The excursion character of a Schur object. -/
-noncomputable def excursionCharacter (_n : ℕ) : invariants Ghat Q _n → (Fin _n → W) → L := by
-  sorry
+theorem multiplication {I J T U : Type u}
+    [CommRing I] [Algebra L I] [CommRing J] [Algebra L J]
+    (a : I →ₐ[L] (T → Exc)) (b : J →ₐ[L] (U → Exc))
+    (mulPull : J →ₐ[L] I) (orderedMultiply : T → U)
+    (h : ∀ f t, a (mulPull f) t = b f (orderedMultiply t))
+    (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) (f : J) (t : T) :
+    family a op s (mulPull f) t = family b op s f (orderedMultiply t) := by sorry
 
-/-- **Relation (pullback).** For `g : Fin m → Fin n` the square induced by pullback
-along `g` commutes. -/
-theorem excursionCharacter_pullback (m n : ℕ) (_g : Fin m → Fin n) : True := trivial
+theorem condensed {Scalar E Inv : Condensed.{u} (AlgCat.{u} L)}
+    (s : Scalar ⟶ E) (hs : IsSchurIrreducible s) (op : Inv ⟶ E) :
+    ∃! χ : Inv ⟶ Scalar, χ ≫ s = op := by sorry
 
-/-- **Relation (multiplication).** The square induced by the multiplication map
-`(Ĝ ⋊ Q)^m → (Ĝ ⋊ Q)^n`, which multiplies in each fibre over `i` the terms of
-`g⁻¹(i)` **in their induced order**, commutes. -/
-theorem excursionCharacter_multiplication (m n : ℕ) (_g : Fin m → Fin n) : True := trivial
+theorem ext {D : Type u} (gen : D → Exc)
+    (hgen : Algebra.adjoin L (Set.range gen) = ⊤)
+    (χ ψ : Exc →ₐ[L] L) (h : ∀ d, χ (gen d) = ψ (gen d)) : χ = ψ := by sorry
+end excursionCharacter
 
-/-- **Unit test `ordering_matters`.** Reordering the terms of `g⁻¹(i)` gives a
-different — and false — relation. -/
-example : True := trivial
-
-/-- **Unit test `continuity_from_condensed`.** The maps are condensed because the Schur
-condition is; with the abstract condition no parameter results. -/
-example : True := trivial
-
-/-- **Unit test `no_parameter_yet`.** The construction produces a family of maps, not a
-homomorphism out of `W_E`; the passage is FS VIII.3.8's, which
-`LanglandsParameterStacks:LP2:semisimple-characters` owns. -/
-example : True := trivial
-
+-- character_unit
+example (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) :
+    excursionCharacter op s 1 = 1 := by sorry
+-- character_inverse_pair
+example (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) (pair identityCoefficient : Exc)
+    (h : pair = identityCoefficient) :
+    excursionCharacter op s pair = excursionCharacter op s identityCoefficient := by sorry
+-- character_detects_order: applies to coefficients which distinguish the words.
+example (op : Exc →ₐ[L] End) (s : End ≃ₐ[L] L) (xy yx : Exc) (h : op xy ≠ op yx) :
+    excursionCharacter op s xy ≠ excursionCharacter op s yx := by sorry
 end Character
 
-section Parameter
+section Parameters
+variable {L : Type u} [Field L]
+variable {Exc : Type u} [CommRing Exc] [Algebra L Exc]
+variable {W H : Type u} [Group W] [Group H]
 
-/-! ## ES5 — the parameter itself (FS VIII.4.3, IX.4.1) -/
+theorem abstractSemisimpleParameter
+    (classify : (Exc →ₐ[L] L) → (W →* H))
+    (evaluate : (W →* H) → (Exc →ₐ[L] L))
+    (h : ∀ χ, evaluate (classify χ) = χ) (χ : Exc →ₐ[L] L) :
+    ∃ φ : W →* H, evaluate φ = χ := by sorry
 
-variable (L : Type u) [Field L] (Ghat Q : Type u) [Group Ghat] [Group Q] [LGroupData Ghat Q]
-variable (WE : Type u) [Group WE] [WeilGroup WE]
+theorem parameterOfSchurSheaf
+    (classify : (Exc →ₐ[L] L) → (W →* H))
+    (evaluate : (W →* H) → (Exc →ₐ[L] L))
+    (h : ∀ χ, evaluate (classify χ) = χ) (χ : Exc →ₐ[L] L) (K : Subgroup H)
+    (hseparate : ∀ φ ψ, evaluate φ = evaluate ψ →
+      ∃ k : K, ∀ w, ψ w = (k : H) * φ w * (k : H)⁻¹) :
+    ∃ φ : W →* H, evaluate φ = χ ∧ ∀ ψ, evaluate ψ = χ →
+      ∃ k : K, ∀ w, ψ w = (k : H) * φ w * (k : H)⁻¹ := by sorry
 
-/-- A semisimple `L`-parameter `W_E → Ĝ(L) ⋊ Q`, taken **up to `Ĝ(L)`-conjugation**. -/
-structure SemisimpleParameter where
-  map : WE →* Ghat
-  continuous : True
-  semisimple : True
+variable {G V : Type u} [Group G] [AddCommGroup V] [Module L V]
+noncomputable def parameterOfRepresentation (ρ : Representation L G V)
+    (op : Exc →ₐ[L] ρ.IntertwiningMap ρ) (s : ρ.IntertwiningMap ρ ≃ₐ[L] L)
+    (classify : (Exc →ₐ[L] L) → (W →* H)) : W →* H := by sorry
 
-/-- FS VIII.4.3: an object of an abstract Hecke category with `End(X) = L` has a unique
-semisimple parameter, up to conjugation, characterised on all excursion data. `W` is
-**discrete** in this statement. -/
-theorem abstract_parameter_exists_unique : True := trivial
+namespace parameterOfRepresentation
+theorem eval (ρ : Representation L G V) (op : Exc →ₐ[L] ρ.IntertwiningMap ρ)
+    (s : ρ.IntertwiningMap ρ ≃ₐ[L] L) (classify : (Exc →ₐ[L] L) → (W →* H))
+    (evaluate : (W →* H) → (Exc →ₐ[L] L)) (h : ∀ χ, evaluate (classify χ) = χ) :
+    evaluate (parameterOfRepresentation ρ op s classify) = excursionCharacter op s := by sorry
 
-/-- FS IX.4.1: the same for a Schur-irreducible `A ∈ D_lis(Bun_G, L)`, with `W_E`
-itself and with continuity from the condensed Schur condition. -/
-theorem parameter_of_schur_object : True := trivial
+theorem defining_identity (ρ : Representation L G V)
+    (op : Exc →ₐ[L] ρ.IntertwiningMap ρ) (s : ρ.IntertwiningMap ρ ≃ₐ[L] L) (x : Exc) :
+    op x = algebraMap L (ρ.IntertwiningMap ρ) (excursionCharacter op s x) := by sorry
 
-/-- **Unit test `uniqueness_up_to_conjugacy_only`.** Two parameters with the same
-semisimplification are not distinguished by the excursion operators. -/
-example : True := trivial
+theorem embedding_independent (ρ : Representation L G V)
+    (op op' : Exc →ₐ[L] ρ.IntertwiningMap ρ) (s : ρ.IntertwiningMap ρ ≃ₐ[L] L)
+    (classify : (Exc →ₐ[L] L) → (W →* H)) (h : op = op') :
+    parameterOfRepresentation ρ op s classify = parameterOfRepresentation ρ op' s classify := by sorry
 
-/-- **Unit test `any_characteristic`.** The assignment needs no hypothesis on
-`|π₀Z(G)|` and no good-prime condition; it holds for every `ℓ ≠ p`. -/
-example : True := trivial
+theorem iso_invariant {E E' : Type u} [Semiring E] [Algebra L E]
+    [Semiring E'] [Algebra L E'] (e : E ≃ₐ[L] E') (op : Exc →ₐ[L] E) (op' : Exc →ₐ[L] E')
+    (s : E ≃ₐ[L] L) (s' : E' ≃ₐ[L] L) (hop : op' = e.toAlgHom.comp op)
+    (hs : s'.toAlgHom.comp e.toAlgHom = s.toAlgHom) :
+    excursionCharacter op s = excursionCharacter op' s' := by sorry
 
-/-- FS VII.7.2: `i_b^*` has a left adjoint `π_{b!} q_b^*`, whose unit is an
-equivalence — hence it is fully faithful. Owned by
-`VStackSheavesAndLisseCategories:VS4`. -/
-theorem stratumEmbedding_fullyFaithful : True := trivial
+theorem at_basepoint (ρ : Representation L G V) (op : Exc →ₐ[L] ρ.IntertwiningMap ρ)
+    (s : ρ.IntertwiningMap ρ ≃ₐ[L] L) (classify : (Exc →ₐ[L] L) → (W →* H)) :
+    parameterOfRepresentation ρ op s classify = classify (excursionCharacter op s) := by sorry
+end parameterOfRepresentation
 
-/-- The parameter `φ_(G,b,π)` of an irreducible smooth representation of `G_b(E)`, and
-`φ_π` at `b = 1`. -/
-noncomputable def parameterOfRepresentation : True := trivial
+-- representation_basepoint
+example (ρ : Representation L G V) (op : Exc →ₐ[L] ρ.IntertwiningMap ρ)
+    (s : ρ.IntertwiningMap ρ ≃ₐ[L] L) (classify : (Exc →ₐ[L] L) → (W →* H)) :
+    parameterOfRepresentation ρ op s classify = classify (excursionCharacter op s) := by sorry
+-- representation_same_centre
+example (ρ : Representation L G V) (op op' : Exc →ₐ[L] ρ.IntertwiningMap ρ)
+    (s : ρ.IntertwiningMap ρ ≃ₐ[L] L) (classify : (Exc →ₐ[L] L) → (W →* H)) (h : op = op') :
+    parameterOfRepresentation ρ op s classify = parameterOfRepresentation ρ op' s classify := by sorry
+-- representation_trivial_group
+example (ρ : Representation L PUnit L) (op : Exc →ₐ[L] ρ.IntertwiningMap ρ)
+    (s : ρ.IntertwiningMap ρ ≃ₐ[L] L) (classify : (Exc →ₐ[L] L) → (W →* PUnit))
+    (w : W) : parameterOfRepresentation ρ op s classify w = 1 := by sorry
+end Parameters
 
-/-- **Unit test `independence_of_embedding`.** All eligible embeddings induce the same
-map to the Bernstein centre, so the parameter does not depend on the choice. FS assert
-this in a parenthesis in Definition IX.7.1 and prove it nowhere read. -/
-example : True := trivial
+section CentreComparisons
+variable {L : Type u} [Field L]
+variable {S S' E E' : Type u} [CommRing S] [Algebra L S] [CommRing S'] [Algebra L S']
+    [Semiring E] [Algebra L E] [Semiring E'] [Algebra L E']
+theorem isogenies (dualPull : S' →ₐ[L] S) (action : S →ₐ[L] E)
+    (action' : S' →ₐ[L] E') (pullEnd : E →ₐ[L] E')
+    (kernelComparison : pullEnd.comp (action.comp dualPull) = action') (x : S') :
+    pullEnd (action (dualPull x)) = action' x := by sorry
+end CentreComparisons
 
-/-- **Unit test `schur_is_proved_not_assumed`.** That the transported object has
-condensed endomorphism algebra `L` is a statement about the representation category and
-is **not** stated in the source. -/
-example : True := trivial
+section Transport
+variable {L : Type u} [Field L]
+variable {S S' : Type u} [CommRing S] [Algebra L S] [CommRing S'] [Algebra L S']
+variable {W H H' : Type u} [Group W] [Group H] [Group H']
+/-- Algebraic coefficient extension; the geometric base-change comparison and
+the retained Schur condition which produce `hχ` remain omitted. -/
+theorem invarianceAndCoefficientTransport
+    {L' Exc' : Type u} [Field L'] [CommRing Exc'] [Algebra L' Exc']
+    (coefficientMap : L →+* L') (extendExcursion : S →+* Exc')
+    (χ : S →ₐ[L] L) (χ' : Exc' →ₐ[L'] L')
+    (classify : (S →ₐ[L] L) → (W →* H))
+    (classify' : (Exc' →ₐ[L'] L') → (W →* H')) (dual : H →* H')
+    (hc : ∀ c c', c'.toRingHom.comp extendExcursion = coefficientMap.comp c.toRingHom →
+      classify' c' = dual.comp (classify c))
+    (hχ : χ'.toRingHom.comp extendExcursion = coefficientMap.comp χ.toRingHom) :
+    classify' χ' = dual.comp (classify χ) := by sorry
 
-end Parameter
+theorem coefficientPolicyForFunctorialDiagrams (f : S' →ₐ[L] S)
+    (χ : S →ₐ[L] L) (χ' : S' →ₐ[L] L) (h : χ' = χ.comp f) (x : S') :
+    χ' x = χ (f x) := by sorry
 
-section Functoriality
+theorem bernsteinZelevinskyDuals (chevalleyPull : S →ₐ[L] S)
+    (χ χDual : S →ₐ[L] L) (h : χDual = χ.comp chevalleyPull)
+    (classify : (S →ₐ[L] L) → (W →* H)) (θ : H →* H)
+    (hc : ∀ c, classify (c.comp chevalleyPull) = θ.comp (classify c)) :
+    classify χDual = θ.comp (classify χ) := by sorry
 
-/-! ## ES6:functoriality — FS IX.6.1–IX.6.5
+theorem smoothDuals (chevalleyPull : S →ₐ[L] S)
+    (χ χDual : S →ₐ[L] L) (h : χDual = χ.comp chevalleyPull)
+    (classify : (S →ₐ[L] L) → (W →* H)) (θ : H →* H)
+    (hc : ∀ c, classify (c.comp chevalleyPull) = θ.comp (classify c)) :
+    classify χDual = θ.comp (classify χ) := by sorry
+end Transport
 
-Every *centre-level* square below carries the standing hypothesis of FS IX.6 — the
-order of `π₀Z(G)` invertible in `Λ` — **for each participating group**; the
-*parameter-level* consequences carry none. -/
+section ProductsAndRestriction
+variable {W H₁ H₂ : Type u} [Group W] [Group H₁] [Group H₂]
+theorem products (φ₁ : W →* H₁) (φ₂ : W →* H₂) (w : W) :
+    (φ₁.prod φ₂) w = (φ₁ w, φ₂ w) := by sorry
 
-/-- FS IX.6.1. For `G' → G` inducing an isomorphism of adjoint groups, and `A'` a
-Schur-irreducible **constituent** of `π^* A`, `φ_{A'}` is `φ_A` composed with
-`Ĝ → Ĝ'`. -/
-theorem isogeny_compat : True := trivial
+theorem weilRestriction {W' : Type u} [Group W'] (embedding : W' →* W)
+    (projection : H₁ →* H₂) (φ : W →* H₁) (w : W') :
+    (projection.comp (φ.comp embedding)) w = projection (φ (embedding w)) := by sorry
+end ProductsAndRestriction
 
-/-- **Unit test `constituent_hypothesis`.** `π^* A` need not itself be
-Schur-irreducible; dropping "constituent" makes the statement false. -/
-example : True := trivial
+section Tori
+variable {L : Type u} [Field L]
+variable {R S : Type u} [CommRing R] [Algebra L R] [CommRing S] [Algebra L S]
+variable {B : Type u}
+theorem toriSpectralCenter (reciprocityComparison : S →ₐ[L] R)
+    (h : Function.Bijective reciprocityComparison) :
+    ∃ e : S ≃ₐ[L] R, e.toAlgHom = reciprocityComparison := by sorry
 
-/-- FS IX.6.2. Products of groups give products of parameters, for a Schur-irreducible
-constituent of an exterior tensor product. -/
-theorem product_compat : True := trivial
+/-- Equality on algebra generators propagates to the full algebra, including
+nilpotents. The actual completed group-algebra/operator comparison is omitted. -/
+theorem toriDiagonalEmbedding {D : Type u} (gen : D → R)
+    (hgen : Algebra.adjoin L (Set.range gen) = ⊤) (diagonal : R →ₐ[L] (B → R))
+    (hdiag : ∀ d b, diagonal (gen d) b = gen d) (r : R) :
+    diagonal r = fun _ => r := by sorry
 
-/-- FS IX.6.3. Weil restriction along a finite **separable** `E'/E`, with the
-excursion-algebra comparison `Exc(W,Ĝ) = Exc(W',Ĝ')`. -/
-theorem weilRestriction_compat : True := trivial
+-- Scalar-valued characters alone cannot supply the generator identity above.
+example (diagonal : R →ₐ[L] (B → R)) (x : R) (hx : x ≠ 0)
+    (hnil : x * x = 0) (hdiag : ∀ r b, diagonal r b = r) (b : B) :
+    diagonal x b ≠ 0 ∧ diagonal x b * diagonal x b = 0 := by sorry
 
-/-- **Unit test `finite_index_free`.** `F_n ×_W W' ⊆ F_n` is of finite index, hence
-itself finitely generated free — this is what makes the colimit comparison work.
-Mathlib **has** the Nielsen–Schreier theorem, so the freeness is available at the pins
-(`IsFreeGroup`); what is missing is the **Schreier index formula** for the rank, which
-the proof as FS write it does not need. -/
-example (n : ℕ) (H : Subgroup (FreeGroup (Fin n))) (_hfin : H.FiniteIndex) :
-    IsFreeGroup H := by sorry
+theorem torusTwoLegCalculation {W A : Type u} [Group W] [CommGroup A]
+    (recGeomInverse : W →* A) (χ : A →* Lˣ) (γ₁ γ₂ : W) :
+    χ (recGeomInverse (γ₁ * γ₂⁻¹)) =
+      χ (recGeomInverse γ₁) * (χ (recGeomInverse γ₂))⁻¹ := by sorry
+end Tori
 
-/-- The **abelian** Shapiro lemma is at the pins as `groupCohomology.coindIso`; the
-**nonabelian** equivalence FS IX.6.3 proves — for `Z¹` with values in `Ĝ` — is not.
-This `example` marks the boundary. -/
-example : True := trivial
+section Characters
+variable {W H Z D : Type u} [Group W] [Group H] [Group Z] [CommGroup D]
+theorem centralCharacters (centralDual : H →* Z) (φ : W →* H) (w : W) :
+    (centralDual.comp φ) w = centralDual (φ w) := by sorry
 
-/-- FS IX.6.4. For a torus, `Z^spec(T,Λ) ≅ lim_K Λ[T(E)/K]`. The `G_m` case **is**
-local class field theory. -/
-theorem torus_spectralCentre (E : Type u) [Field E] (W : Type u) [Group W] [WeilGroup W]
-    [LocalReciprocity E W] : True := trivial
+theorem twisting (centralMap : D →* H) (hcentral : ∀ d, centralMap d ∈ Subgroup.center H)
+    (φ : W →* H) (χ : W →* D) :
+    ∃ φTwist : W →* H, ∀ w, φTwist w = φ w * centralMap (χ w) := by sorry
+end Characters
 
-/-- FS IX.6.5. The map `Z^spec(T,Λ) → Z^geom(T,Λ)` is the **diagonal** embedding, and
-`φ_χ` is the parameter local class field theory attaches to `χ`. -/
-theorem torus_diagonal : True := trivial
+section ZEmbeddings
+variable (G Gz C : Type u) [Group G] [Group Gz] [CommGroup C]
+/-- Rational-point fragment of the definition, with actual exactness conditions. -/
+structure ZEmbedding where
+  inclusion : G →* Gz
+  quotient : Gz →* C
+  inclusion_injective : Function.Injective inclusion
+  quotient_surjective : Function.Surjective quotient
+  exact : inclusion.range = quotient.ker
+  centre_surjective : Function.Surjective (quotient.comp (Subgroup.center Gz).subtype)
 
-/-- **Unit test `diagonal_not_one_component`.** The image is the diagonal; landing in a
-single factor would make the assignment depend on `b`, which it does not. -/
-example : True := trivial
+variable {G Gz C}
+namespace ZEmbedding
+noncomputable def ofMaps (f : G →* Gz) (q : Gz →* C)
+    (hf : Function.Injective f) (hq : Function.Surjective q) (he : f.range = q.ker)
+    (hc : Function.Surjective (q.comp (Subgroup.center Gz).subtype)) :
+    ZEmbedding G Gz C := by sorry
 
-/-- A **z-embedding** `G → G'`: torus quotient `D`, connected centre `Z(G')`. -/
-structure IsZEmbedding : Prop where
-  torusQuotient : True
-  connectedCentre : True
+theorem quotient_inclusion (e : ZEmbedding G Gz C) (g : G) :
+    e.quotient (e.inclusion g) = 1 := by sorry
 
-/-- `B(G) → B(G')` is injective, **deduced** from surjectivity of `G'_{b'}(E) → D(E)`. -/
-theorem zEmbedding_injective_on_B : True := trivial
+theorem central_lift (e : ZEmbedding G Gz C) (c : C) :
+    ∃ z : Subgroup.center Gz, e.quotient z = c := by sorry
 
-/-- **Unit test `existence_is_external`.** The existence of a z-embedding is Kaletha's
-(§5) and is **not** proved in anything read. -/
-example : True := trivial
+theorem rational_factorization (e : ZEmbedding G Gz C) (x : Gz) :
+    ∃ z : Subgroup.center Gz, ∃ g : G, (z : Gz) * e.inclusion g = x := by sorry
 
-end Functoriality
+theorem extend_representation {L V : Type u} [Field L] [AddCommGroup V] [Module L V]
+    (e : ZEmbedding G Gz C) (ρ : Representation L G V) (χ : Subgroup.center Gz →* Lˣ)
+    (hc : ∀ (g : G) (z : Subgroup.center Gz),
+      e.inclusion g = (z : Gz) → ρ g = (χ z : L) • 1) :
+    ∃ ρz : Representation L Gz V,
+      (∀ g, ρz (e.inclusion g) = ρ g) ∧ ∀ z : Subgroup.center Gz,
+        ρz z = (χ z : L) • 1 := by sorry
+end ZEmbedding
 
-section Duality
+-- zembedding_identity
+example (G : Type u) [Group G] : ∃ e : ZEmbedding G G PUnit,
+    ∀ g, e.inclusion g = g := by sorry
+-- zembedding_product
+example (G C : Type u) [Group G] [CommGroup C] : ∃ e : ZEmbedding G (G × C) C,
+    (∀ g, e.inclusion g = (g, 1)) ∧ ∀ x, e.quotient x = x.2 := by sorry
+-- zembedding_requires_central_lifting
+example (q : Gz →* C) (h : ¬ Function.Surjective (q.comp (Subgroup.center Gz).subtype)) :
+    ¬ ∃ e : ZEmbedding G Gz C, e.quotient = q := by sorry
 
-/-! ## ES6:duality — FS IX.5.3, second sentence -/
+theorem zEmbeddingCentralCharacterComparison {L : Type u} [Field L]
+    (e : ZEmbedding G Gz C) (χz ψz : Subgroup.center Gz →* Lˣ)
+    (centreMap : Subgroup.center G →* Subgroup.center Gz)
+    (hcentre : ∀ z : Subgroup.center G, (centreMap z : Gz) = e.inclusion z)
+    (difference : C →* Lˣ)
+    (h : ∀ z : Subgroup.center Gz, χz z = ψz z * difference (e.quotient z)) :
+    χz.comp centreMap = ψz.comp centreMap := by sorry
+end ZEmbeddings
 
-/-- Compatibility with Bernstein–Zelevinsky duals, from the commuting square of `ES4`
-and the Chevalley involution. The inner automorphism of FS VI.12.1 may be dropped only
-*after* passing to the quotient by conjugation. -/
-theorem parameter_of_BZ_dual : True := trivial
-
-/-- Compatibility with smooth duals. Immediate for supercuspidals, where the two duals
-agree; in general it **follows from parabolic induction** (FS IX.7.3), which is
-`ES7:parabolic`'s — so this is a late return and the dependence must not be made
-circular. -/
-theorem parameter_of_smooth_dual : True := trivial
-
-/-- **Unit test `supercuspidal_case`.** For supercuspidal `π` the Bernstein–Zelevinsky
-dual is the smooth dual. -/
-example : True := trivial
-
-/-- **Unit test `chevalley_preserved`.** The dual parameter carries the Chevalley
-involution; forgetting it gives the wrong parameter. -/
-example : True := trivial
-
-end Duality
-
-end TauCeti.ParameterAssignment
+section Embeddings
+variable {C D : Type u} [Category C] [Category D]
+/-- Naturality and the actual restriction retractions compare the two centre actions.
+The enhanced adjunctions constructing these maps are imported geometric inputs. -/
+theorem stratumCentreEmbeddingIndependence (left right : D ⥤ C)
+    (restriction : C ⥤ D) (comparison : left ⟶ right)
+    (leftRetraction : left ⋙ restriction ≅ 𝟭 D)
+    (rightRetraction : right ⋙ restriction ≅ 𝟭 D)
+    (h : ∀ X, restriction.map (comparison.app X) ≫ rightRetraction.hom.app X =
+      leftRetraction.hom.app X) (z : CatCenter C) (X : D) :
+    leftRetraction.inv.app X ≫ restriction.map (z.app (left.obj X)) ≫
+      leftRetraction.hom.app X =
+    rightRetraction.inv.app X ≫ restriction.map (z.app (right.obj X)) ≫
+      rightRetraction.hom.app X := by sorry
+end Embeddings
+end TauCeti.Blueprint.ES5

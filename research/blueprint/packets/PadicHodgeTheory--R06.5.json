@@ -203,13 +203,11 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "§7.3, display (7.3.1), p. 97",
-          "excerpt": "The comparison isomorphism between crystalline and de Rham cohomology",
           "match": "The Berthelot–Ogus isomorphism H^i_dR(X/K) ≅ K ⊗_{K_0} H^i_cris(X_0/W(k))[1/p] and the filtered φ-module attached to a smooth proper O_K-scheme."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.5.1, p. 19",
-          "excerpt": "After that, Fontaine and Messing proved the comparison theorem for the",
           "match": "History of the crystalline comparison (Fontaine–Messing, then Kato, Hyodo, Tsuji); the proof used here is CP.2's."
         }
       ],
@@ -255,13 +253,11 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "§7.3, p. 97",
-          "excerpt": "this Tate module is the Zp -linear dual of",
           "match": "T_p(A) is the Z_p-linear dual of H^1_et, so D_cris(V_p(A)) is the dual of the filtered φ-module of H^1."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Remark 7.3.3, pp. 97–98",
-          "excerpt": "By work of Berthelot–Breen–Messing",
           "match": "Part (c): D(A[p^∞])^{(p)} ≅ H^1_cris(A/W(k)) ≅ H^1_dR(𝒜/W(k)), Hodge filtration matching Fontaine's module of logarithms."
         }
       ],
@@ -304,13 +300,11 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.5.1, p. 19",
-          "excerpt": "It was shown early on by Fontaine that the Tate modules",
           "match": "Fontaine: V_p(A) is de Rham for every abelian variety A, with D_dR(V_p(A)) dual to H^1_dR(A/K)."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "§7.2, after Theorem 7.2.8, p. 94",
-          "excerpt": "for abelian varieties A over K with good reduction, and to then",
           "match": "Tate's Hodge–Tate decomposition in the good-reduction case."
         }
       ],
@@ -353,7 +347,6 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.5.1, p. 19",
-          "excerpt": "One should remember that for an abelian variety A,",
           "match": "Berger states the duality between T_p(A) and H^1_et; as printed the Tate twist is misplaced (sourceIssue PadicHodgeTheory/E45), corrected in (a)."
         }
       ],
@@ -399,19 +392,16 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.3.2, p. 14",
-          "excerpt": "curve over F with good ordinary reduction, then Dcris (V ) is a 2-dimensional F",
           "match": "The ordinary case: φ(x) = α_0p^{−1}x, φ(y) = β_0y with α_0, β_0 ∈ O_F^×, and Fil^0 = F(y + λx)."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.3.2, p. 14",
-          "excerpt": "the operator ϕ : Dcris (V ) → Dcris (V ) is irreducible",
           "match": "The supersingular case: no φ-stable line."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Example 8.1.10, p. 107",
-          "excerpt": "In contrast, the structure of D as an isocrystal depends on whether the reduction E0",
           "match": "Same Hodge polygon, Newton polygon depending on ordinary versus supersingular."
         }
       ],
@@ -452,19 +442,16 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "Example 9.2.8, p. 142",
-          "excerpt": "This is exactly the extension class in H1 (GK , Qp (1)) arising from u, and its isomorphism",
           "match": "The matrix (χ η_u; 0 1) realises the Kummer class of u."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Proof of Lemma 8.3.9, p. 125",
-          "excerpt": "Kummer theory provides a concrete description of H1 (GK , Qp (1)) for any p-adic field",
           "match": "H^1(K, Q_p(1)) = Q_p ⊗ K̂^×, an extension of Q_p by Q_p ⊗ (1 + m_K) ≅ K."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.4.4, p. 18",
-          "excerpt": "described by Kummer theory",
           "match": "All extensions of Q_p by Q_p(1) come from Kummer theory."
         }
       ],
@@ -600,19 +587,16 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.4.4, p. 19",
-          "excerpt": "It is now easy to show that every extension of Qp by Qp (1) is semi-stable",
           "match": "Statement (d), with the basis x, y, φ and Fil^0 = F(y + log_p(q)x) for K = F unramified."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.4.3, p. 18",
-          "excerpt": "the action of Frobenius on Dst (V ) is therefore given by",
           "match": "φ(x) = p^{−1}x and φ(y) = y."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Lemma 8.3.9, p. 125",
-          "excerpt": "a semistable GK -representation and there is a Qp -hyperplane consisting of the crystalline",
           "match": "Statement (d) for any p-adic field K."
         }
       ],
@@ -650,13 +634,11 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.4.2, p. 17",
-          "excerpt": "therefore form a basis of",
           "match": "ε^{(n)} and q^{(n)} give a basis of E_q[p^n] and of T_p(E_q), with g(f) = f + c(g)e."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Example 9.2.9, p. 143",
-          "excerpt": "Vp (Eq ) is Bst -admissible",
           "match": "The Tate-curve representation realised inside B_st."
         }
       ],
@@ -697,19 +679,16 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.4.3, p. 18",
-          "excerpt": "This implies that V is semi-stable",
           "match": "D_dR(V) with basis x, y, Fil^0 = (y + log_p(q)x)F and semistability via u = v_p(q)Y + log[q̃/p̃^{v_p(q)}]."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.4.3, p. 18",
-          "excerpt": "the action of Frobenius on Dst (V ) is therefore given by",
           "match": "φ(x) = p^{−1}x, φ(y) = y."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Example 9.2.9, p. 143",
-          "excerpt": "Vp (Eq ) is Bst -admissible",
           "match": "Semistability for general K."
         }
       ],
@@ -754,19 +733,16 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "Proof of Proposition 8.3.8, p. 124",
-          "excerpt": "Thus, c is intrinsic to D.",
           "match": "The line Fil = Q_p(ce_1 + e_2) with e_1 = N(e_2) defines a parameter c intrinsic to D; up to sign and duality it is L(D)."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "§8.3, end, p. 126",
-          "excerpt": "one finds that cq = −λ(q)",
           "match": "Brinon–Conrad's value for the Tate curve, missing the factor 1/ord_p(q) (sourceIssue PadicHodgeTheory/E46)."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.4.3, p. 18",
-          "excerpt": "is canonically attached to V and is",
           "match": "Berger's \"ℓ-invariant\", corrected to log_p(q)/v_p(q) (sourceIssue PadicHodgeTheory/E44)."
         }
       ],
@@ -899,19 +875,16 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "§7.1, p. 84",
-          "excerpt": "a necessary and sufficient condition for A to",
           "match": "Good reduction iff V_p(A) is crystalline, via Grothendieck's criterion and the work of Fontaine, Breuil and Kisin."
         },
         {
           "sourceId": "brinon-conrad",
           "locator": "Theorem 7.1.13, p. 90",
-          "excerpt": "Then A has good reduction if and only if A[ℓn ] admits an integral model Gn for",
           "match": "Grothendieck's criterion, including ℓ = p."
         },
         {
           "sourceId": "coleman-iovita",
           "locator": "Introduction, p. 3 (arXiv v1)",
-          "excerpt": "crystalline if and only if A has good reduction.",
           "match": "Statement (a)."
         }
       ],
@@ -957,19 +930,16 @@
         {
           "sourceId": "coleman-iovita",
           "locator": "Introduction, p. 1 (arXiv v1)",
-          "excerpt": "Suppose for example that A is an Abelian variety with split semi-stable",
           "match": "The p-adic uniformisation cross T → G → B, Γ → G → A used to describe D_st(V(A))."
         },
         {
           "sourceId": "coleman-iovita",
           "locator": "Introduction, p. 2 (arXiv v1)",
-          "excerpt": "nius Monodromy module Dst (V (A))∗ provided by Fontaine’s theory, where",
           "match": "D_st(V(A)) for split semistable A is compared with the Hyodo–Kato structure of H^1_dR(A)."
         },
         {
           "sourceId": "berger-intro",
           "locator": "II.5.1, p. 19",
-          "excerpt": "they were potentially semi-stable",
           "match": "Fontaine: Tate modules of abelian varieties are potentially semistable."
         }
       ],
@@ -1018,7 +988,6 @@
         {
           "sourceId": "berger-intro",
           "locator": "II.4.1, p. 17",
-          "excerpt": "then there exists q such that E is isomorphic to Eq over F",
           "match": "Stated for all bad semistable reduction; true only for split multiplicative reduction (sourceIssue PadicHodgeTheory/E43); case (b) is the correction."
         }
       ],
@@ -1063,7 +1032,6 @@
         {
           "sourceId": "brinon-conrad",
           "locator": "§7, p. 83",
-          "excerpt": "The Néron-Ogg-Shafarevich criterion is extremely useful",
           "match": "The ℓ ≠ p side at good places (Néron–Ogg–Shafarevich) against which the p-adic side is compared."
         }
       ],
@@ -1105,13 +1073,11 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "Lemma 5.7, p. 58 (arXiv v2)",
-          "excerpt": "Mg is a premotivic structure of rank 2 over K and Filk−1 Mg,dR = Kg.",
           "match": "Rank two and the Hodge line of g."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§0.2, p. 4 (arXiv v2)",
-          "excerpt": "the comparison between ℓ-adic and de Rham cohomology being",
           "match": "The λ-adic–de Rham comparison for M_{N,k} is Faltings' theorem; Scholl's Kuga–Sato construction allows Tsuji's."
         }
       ],
@@ -1160,13 +1126,11 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "Proof of Lemma 8.13, p. 104 (arXiv v2)",
-          "excerpt": "By [Scho2] we know that the characteristic polynomial of ϕ on M := Mf,λ-crys is",
           "match": "X² − a_ℓX + ψ(ℓ)ℓ^{k−1} on the crystalline realisation (ℓ ∤ N, ℓ > k), after Scholl."
         },
         {
           "sourceId": "ddt",
           "locator": "Theorem 3.1(f) and its proof, pp. 86–87 (revision of 9 September 2007)",
-          "excerpt": "Moreover ρ|G` is ordinary if and only if a` is",
           "match": "Weight two: ordinary iff a_ℓ is a unit, with the unramified quotient given by the unit root."
         }
       ],
@@ -1215,13 +1179,11 @@
         {
           "sourceId": "ddt",
           "locator": "Theorem 3.1(a), p. 86 (revision of 9 September 2007)",
-          "excerpt": "has characteristic poly-",
           "match": "ρ_f unramified outside Nℓ with Frobenius polynomial X² − a_pX + pψ(p)."
         },
         {
           "sourceId": "ddt",
           "locator": "Proof of Theorem 3.1, p. 87",
-          "excerpt": "The first assertion of (f) follows from the fact that Af has good reduction",
           "match": "Good reduction of A_f at ℓ ∤ N; (g) from Deligne–Rapoport."
         }
       ],
@@ -1265,19 +1227,16 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "§0.2, p. 5 (arXiv v2)",
-          "excerpt": "we will only be applying Faltings’ comparison theorem in the “easy” case of crystalline representations",
           "match": "Diamond–Flach–Guo stay below the endpoint: their set of primes excludes p | Nk!."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§2, p. 18 (arXiv v2)",
-          "excerpt": "For each integer a with 0 ≤ a ≤ ℓ − 2, Faltings",
           "match": "Faltings' Fontaine–Laffaille categories stop at a = p − 2, i.e. k ≤ p − 1."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 4.1(2), p. 7",
-          "excerpt": "crystalline of weight k at p with 2 ≤ k ≤ p + 1",
           "match": "The lifting theorem that consumes the crystalline representations of weights up to p + 1."
         }
       ],
@@ -1334,19 +1293,16 @@
         {
           "sourceId": "dfg-arxiv",
           "locator": "§5.5, p. 60 (arXiv v2)",
-          "excerpt": "This is due to Eichler, Shimura and Igusa for λ not dividing pNg , by Langlands, Deligne",
           "match": "D_pst(M_λ|G_p)^ss corresponds to π_p via local Langlands for all p and λ."
         },
         {
           "sourceId": "dfg-arxiv",
           "locator": "§5.5, p. 60 (arXiv v2)",
-          "excerpt": "and Carayol [Ca0] for λ ∤ p, and by Scholl [Scho2] and Saito [Sai] in general.",
           "match": "Attribution: Scholl at good primes, Saito in general."
         },
         {
           "sourceId": "saito-hilbert",
           "locator": "Abstract, p. 1 (arXiv v2)",
-          "excerpt": "as is shown for an elliptic",
           "match": "Saito's Hilbert paper refers to his 1997 paper for elliptic modular forms."
         }
       ],
@@ -1394,19 +1350,16 @@
         {
           "sourceId": "saito-hilbert",
           "locator": "Theorem 1, p. 12 (arXiv v2)",
-          "excerpt": "is potentially semi-stable and there is an isomorphism",
           "match": "Theorem 1."
         },
         {
           "sourceId": "saito-hilbert",
           "locator": "Theorem 2, p. 13 (arXiv v2)",
-          "excerpt": "the monodromy filtration of",
           "match": "Theorem 2: purity of the monodromy filtration, weight w − 1."
         },
         {
           "sourceId": "saito-hilbert",
           "locator": "Introduction, p. 1 (arXiv v2)",
-          "excerpt": "We prove the compatibility by comparing the p-adic and ℓ-adic representations",
           "match": "The method: comparison with the ℓ-adic side through traces and the monodromy-weight conjecture."
         }
       ],

@@ -302,9 +302,6 @@
       "library": {
         "module": "TauCeti/NumberTheory/Bloch/Finite",
         "namespace": "TauCeti.K3Concrete"
-      },
-      "planet": {
-        "name": "Finite-field SL₂ homology"
       }
     },
     {
@@ -609,9 +606,6 @@
       "library": {
         "module": "TauCeti/NumberTheory/Bloch/Finite",
         "namespace": "TauCeti.K3Concrete"
-      },
-      "planet": {
-        "name": "Finite-field Bloch groups"
       }
     },
     {
@@ -791,9 +785,6 @@
       "library": {
         "module": "TauCeti/NumberTheory/Bloch/Finite",
         "namespace": "TauCeti.K3Concrete"
-      },
-      "planet": {
-        "name": "Finite Bloch comparison modulo n"
       }
     },
     {
@@ -1029,9 +1020,6 @@
       "library": {
         "module": "TauCeti/NumberTheory/Bloch/Finite",
         "namespace": "TauCeti.K3Concrete"
-      },
-      "planet": {
-        "name": "Rational indecomposable K₃"
       }
     },
     {

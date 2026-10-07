@@ -289,7 +289,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Lemma 3.3.7, pp.12–13",
-          "excerpt": "linearly independent",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -333,7 +332,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Lemma 3.3.7, pp.12–13",
-          "excerpt": "linearly independent",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -377,7 +375,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Lemma 3.3.7, pp.12–13",
-          "excerpt": "linearly independent",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -420,7 +417,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Lemma 3.3.7, pp.12–13",
-          "excerpt": "linearly independent",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -479,7 +475,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Lemma 3.3.7 and Proposition 3.3.8, pp.12–13",
-          "excerpt": "linearly independent",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -532,7 +527,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Proposition 3.3.8, pp.12–13",
-          "excerpt": "surjective",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -578,7 +572,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Proposition 3.3.8, pp.12–13",
-          "excerpt": "surjective",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -629,7 +622,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Proposition 3.3.8, pp.12–13",
-          "excerpt": "surjective",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],
@@ -680,7 +672,6 @@
         {
           "sourceId": "PAP-v2",
           "locator": "Lemma 4.1.6, p.22, with Lemma 3.3.7",
-          "excerpt": "linearly independent",
           "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
         }
       ],

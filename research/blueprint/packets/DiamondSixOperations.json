@@ -110,13 +110,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.2, p. 128",
-     "excerpt": "A morphism f : Y ′ → Y of v-stacks is compactifiable if it can be written as a composite of an open immersion and a partially proper morphism.",
      "match": "The definition, verbatim."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, after Definition 22.2, p. 128",
-     "excerpt": "A key difference to the world of schemes is the presence of a canonical compactification.",
      "match": "The factorisation is canonical (S0/compactifiable-iff-separated-open), which is why only existence is stored."
     }
    ],
@@ -248,13 +246,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(i), p. 128",
-     "excerpt": "The morphism f is compactifiable if and only if it is separated and the natural map Y ′ → Y ′ is an open immersion.",
      "match": "Statement; the target of the natural map is the canonical compactification (overline with superscript /Y lost in the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(i), p. 128",
-     "excerpt": "As open immersions and partially proper morphisms are separated, we see that f is separated.",
      "match": "The first half of the proof."
     }
    ],
@@ -299,13 +295,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(ii), p. 128",
-     "excerpt": "If f is compactifiable, then fe is compactifiable.",
      "match": "Statement (f̃ appears as fe in the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3, p. 128",
-     "excerpt": "Now parts (ii) and (iii) follow easily from (i).",
      "match": "The route through part (i)."
     }
    ],
@@ -347,13 +341,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(iii), p. 128",
-     "excerpt": "If fe is compactifiable and Ye → Y is a surjective map of v-stacks, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3, p. 128",
-     "excerpt": "In particular, the property of being compactifiable is v-local on the target by (iii)",
      "match": "The reformulation as v-locality."
     }
    ],
@@ -397,13 +389,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(iv), p. 128",
-     "excerpt": "If Y1 → Y2 and Y2 → Y3 are compactifiable morphisms of v-stacks, then the composite Y1 → Y3 is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(iv), p. 128",
-     "excerpt": "Now parts (ii) and (iii) follow easily from (i). In Part (iv), we may now assume that Y3 , and",
      "match": "The reduction to separated targets."
     }
    ],
@@ -449,19 +439,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(v), p. 128",
-     "excerpt": "If f is separated and representable in locally spatial diamonds and Y ′ admits a cover by open subfunctors V ⊂ Y ′ such that f |V : V → Y is compactifiable, then f is compactifiable.",
      "match": "Statement, first sentence."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(v), p. 128",
-     "excerpt": "In part (v), it is enough to prove that for any open subspace V ⊂ Y ′ , the composite V → Y ′",
      "match": "The reduction to the open-immersion assertion."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(v), p. 129",
-     "excerpt": "These cover Y ′ , so that Y ′ is open in Y , as desired.",
      "match": "The conclusion of the local argument."
     }
    ],
@@ -505,13 +492,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(vi), p. 128",
-     "excerpt": "If f is separated and étale, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(vi), p. 129",
-     "excerpt": "In that case, Y ′ decomposes as a disjoint union of quasicompact open subspaces of Y , so the result is clear.",
      "match": "The local structure used."
     }
    ],
@@ -552,19 +537,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(vii), p. 128",
-     "excerpt": "there is a separated surjective map g : Z → Y ′ of v-stacks that after pullback to strictly totally disconnected spaces has local sections",
      "match": "The condition, verbatim."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3, footnote 5, p. 128",
-     "excerpt": "In a previous version, it was claimed that in (vii), the local splitting condition on g is not required, but there are counterexamples to that version.",
      "match": "Why the condition is part of the data."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.14 and following paragraph, p. 150",
-     "excerpt": "by Proposition 22.3 (vii), it can be omitted if g has local sections after pullback to strictly totally disconnected spaces.",
      "match": "The second use of the condition."
     }
    ],
@@ -683,13 +665,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(vii), p. 128",
-     "excerpt": "If f is separated and representable in locally spatial diamonds and there is a separated surjective map g : Z → Y ′ of v-stacks that after pullback to strictly totally disconnected spaces has local sections and such that f ◦ g is compactifiable, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(vii), p. 129",
-     "excerpt": "But then g is locally split by assumption, so the result follows from (v).",
      "match": "Where the hypothesis is used."
     }
    ],
@@ -731,13 +711,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(viii), p. 128",
-     "excerpt": "If g : Y → Z is a separated map of v-stacks such that g ◦ f is compactifiable, then f is compactifiable.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.3(viii), p. 129",
-     "excerpt": "If the composite is an open immersion, then so is the first map (as it is a pullback of the composite).",
      "match": "The proof."
     }
    ],
@@ -786,19 +764,16 @@
     {
      "sourceId": "ECD",
      "locator": "Convention 22.1, p. 127",
-     "excerpt": "we will always work with unbounded derived categories and therefore assume that f is representable in locally spatial diamonds with locally dim. trg f < ∞",
      "match": "The standing hypotheses (b) and (c)."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.18, p. 137",
-     "excerpt": "Let f : Y ′ → Y be a compactifiable map of small v-stacks that is representable in locally spatial diamonds with locally dim. trg f < ∞, and assume nΛ = 0 for some n prime to p.",
      "match": "The three conditions together, as the domain of Rf_!."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, p. 135",
-     "excerpt": "(i.e., after pullback to any spatial diamond Z → Y , any quasicompact open subspace of Y ′ ×Y Z has finite dim. trg over Z)",
      "match": "The meaning of locally dim.trg f < ∞."
     }
    ],
@@ -943,13 +918,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Let f : Y ′ → Y be a compactifiable map of small v-stacks which is representable in spatial diamonds with dim. trg f < ∞, and assume nΛ = 0 for some n prime to p.",
      "match": "The hypotheses of the quasicompact definition."
     },
     {
      "sourceId": "ECD",
      "locator": "Theorem 22.5, p. 130",
-     "excerpt": "The constant 3 may well be an artifact of the proof; if f is still representable in spatial diamonds, it can be replaced by 2, as expected.",
      "match": "The compactification of a spatial-eligible map need not be spatial; spatiality of it is an extra hypothesis."
     }
    ],
@@ -1067,7 +1040,6 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.3(viii), p. 128",
-     "excerpt": "If g : Y → Z is a separated map of v-stacks such that g ◦ f is compactifiable, then f is compactifiable.",
      "match": "Only compactifiability cancels in the source."
     }
    ],
@@ -1114,19 +1086,16 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Rf! = Rf ∗ ◦ j! : Dét (Y ′ , Λ) → Dét (Y, Λ)",
      "match": "The definition (the overline and /Y on f‾ are lost in the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, before Definition 22.4, p. 129",
-     "excerpt": "Now if f : Y ′ → Y is a quasicompact compactifiable map of small v-stacks, we can write f as",
      "match": "The quasicompact factorisation through the proper canonical compactification."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Our first aim is to prove that this definition is well-behaved on unbounded derived categories.",
      "match": "Why the dimension bound S1/compactification-cd-bound is needed."
     }
    ],
@@ -1267,13 +1236,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.4, p. 129",
-     "excerpt": "Let f : Y ′ → Y be a compactifiable map of small v-stacks which is representable in spatial diamonds with dim. trg f < ∞, and assume nΛ = 0 for some n prime to p.",
      "match": "The definition fixes the canonical factorisation; independence of it is the target of this node."
     },
     {
      "sourceId": "ECD",
      "locator": "Theorem 19.2, p. 108",
-     "excerpt": "There is a natural transformation of functors j! Rg∗ → Rf∗ j!′ : Dét (U ′ , Λ) → Dét (Y, Λ) .",
      "match": "The proper base change used for the comparison map h."
     }
    ],
@@ -1330,19 +1297,16 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 22.5, p. 130",
-     "excerpt": "In particular, as j∗ is exact (by Remark 21.14), also Ri f∗ A = 0 for all A ∈ Dét (Y ′ , Λ) concentrated in degree 0 and i > 3 dim. trg f , so that Rf∗ has bounded cohomological dimension.",
      "match": "The conclusion for f and its route through j_*."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 22.5, p. 130",
-     "excerpt": "Unfortunately, for a compactifiable map f : Y ′ → Y of spatial diamonds, we do not know whether",
      "match": "Why the nonspatial argument through the Hausdorff quotient is needed."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 22.5, p. 131",
-     "excerpt": "In fact, we claim that H i (T × Y, B) = 0 for i > dim f . This follows from Proposition 22.7 below,",
      "match": "The topological step."
     }
    ],
@@ -1394,13 +1358,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 22.5, p. 130",
-     "excerpt": "The constant 3 may well be an artifact of the proof; if f is still representable in spatial diamonds, it can be replaced by 2, as expected.",
      "match": "The refinement and its additional hypothesis (the f there is f‾)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 22.5, p. 130",
-     "excerpt": "and ℓ ̸= p by Proposition 21.16, so the result follows from Proposition 21.11.",
      "match": "The spatial case of the proof."
     }
    ],
@@ -1447,13 +1409,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.6, p. 131",
-     "excerpt": "Then the category of proper diamonds f : Y → X with dim. trg f = 0 is equivalent to the category of compact Hausdorff spaces over π0 X, via sending a compact Hausdorff space T → π0 X to X ×π0 X T .",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.6, p. 131",
-     "excerpt": "Now T = S/S ′ is a compact Hausdorff space, and Y = X ×π0 X T . Using Example 11.12, we see that this gives the desired equivalence of categories.",
      "match": "The end of the proof."
     }
    ],
@@ -1499,7 +1459,6 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.7, p. 132",
-     "excerpt": "This follows from Proposition 14.9 if all Zi are spatial; in general, writing all Zi compatibly as quotients of affinoid perfectoid spaces Xi as in the proof of Lemma 11.22, the equivalence relations Ri = Xi ×Zi Xi are spatial diamonds by Proposition 12.3.",
      "match": "Statement and proof route."
     }
    ],
@@ -1542,13 +1501,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.7, p. 131",
-     "excerpt": "Then pullback under Y → |Y | defines an equivalence",
      "match": "Statement (the superscript + on D_ét is on the preceding line)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.7, p. 132",
-     "excerpt": "Thus, the stalk of Rt∗ t∗ F can also be computed as a direct limit of the cohomologies of t∗ F over these neighborhoods U ×π0 X S, which by the remark above reduces to",
      "match": "The stalk computation."
     }
    ],
@@ -1593,13 +1550,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.8, p. 132",
-     "excerpt": "There is a natural base change equivalence g ∗ Rf! ≃ Rfe! g ′∗ of functors Dét (Y ′ , Λ) → Dét (Ye , Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.8, p. 132",
-     "excerpt": "This follows by combining Theorem 22.5, Proposition 17.6 and Proposition 19.1.",
      "match": "Proof route."
     }
    ],
@@ -1646,13 +1601,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.9, p. 132",
-     "excerpt": "Then there is a natural equivalence Rf! ◦ Rg! ≃ R(f ◦ g)! of functors Dét (Y ′′ , Λ) → Dét (Y, Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.9, p. 133",
-     "excerpt": "However, by Theorem 19.2 and Theorem 22.5 (applied to Y ′′ → Y ′ ), we have j3! Rg1∗ = Rg2∗ j2! ,",
      "match": "The key identity."
     }
    ],
@@ -1696,13 +1649,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.10, p. 133",
-     "excerpt": "Then Rf! as defined in Definition 19.1 agrees with Rf! as defined in Definition 22.4.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.10, p. 133",
-     "excerpt": "using that ∆ : Y ′ ,→ Y ′ ×Y Y ′ is an open and closed immersion.",
      "match": "The construction of the comparison map."
     }
    ],
@@ -1748,13 +1699,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.11, p. 133",
-     "excerpt": "Then there is a functorial isomorphism Rf! B ⊗LΛ A ≃ Rf! (B ⊗LΛ f ∗ A) in B ∈ Dét (Y ′ , Λ) and A ∈ Dét (Y, Λ).",
      "match": "Statement; B on the source, A on the base."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.11, p. 134",
-     "excerpt": "As such, it is a (derived) filtered colimit of perfect complexes of Λ-modules. The case of a perfect complex is clear, and so the general case follows from the next proposition.",
      "match": "The last step."
     }
    ],
@@ -1802,13 +1751,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.12, p. 134",
-     "excerpt": "Then for any collection of objects Ai ∈ Dét (Y ′ , Λ), i ∈ I for some set I, the natural map",
      "match": "Statement, first part."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.12, p. 135",
-     "excerpt": "Now the sheaves are small, and the (κ-small) v-topos of a qcqs v-sheaf is coherent, so we get the result by SGA 4 VI Corollaire 5.2.",
      "match": "The key input."
     }
    ],
@@ -1852,13 +1799,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "be the full ∞-subcategory of A ∈ Dét (Y , Λ) such that A ≃ jV ! jV∗ A for some open subspace",
      "match": "The defining condition (D_ét,prop/Y(Y′, Λ) ⊂ D_ét(Y′, Λ); the primes on Y′ sit on the next line of the text layer)."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "In other words, on the full ∞-subcategory Dét,prop/Y (Y ′ , Λ) ⊂ Dét (Y ′ , Λ) of sheaves “with proper",
      "match": "The meaning of the subcategory."
     }
    ],
@@ -1963,19 +1908,16 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "is defined as the left Kan extension of",
      "match": "Rf_! is defined as a left Kan extension of Rf‾_* j_!."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "write A as a filtered colimit of objects AV = jV ! jV∗ A ∈ Dét,prop/Y (Y ′ , Λ), and then by definition (cf. [Lur09, Definition 4.3.2.2])",
      "match": "The pointwise formula."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, p. 135",
-     "excerpt": "Unfortunately, it is somewhat tricky to resolve all homotopy coherence issues in this approach.",
      "match": "Why the construction is made by an ∞-categorical left Kan extension."
     }
    ],
@@ -2084,7 +2026,6 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.13, p. 135",
-     "excerpt": "Note that here, Rf! AV = R(f |V )! (jV∗ A), as",
      "match": "The identification of the terms."
     }
    ],
@@ -2126,13 +2067,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.14, p. 135",
-     "excerpt": "commutes with all direct sums; equivalently (cf. [Lur16, Proposition 1.4.4.1 (2)]), with all colimits.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.14, p. 136",
-     "excerpt": "which commutes with arbitrary direct sums by Proposition 22.12.",
      "match": "The quasicompact input."
     }
    ],
@@ -2177,13 +2116,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.15, p. 136",
-     "excerpt": "There is a natural base change equivalence g ∗ Rf! ≃ Rfe! g ′∗ of functors Dét (Y ′ , Λ) → Dét (Ye , Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.15, p. 136",
-     "excerpt": "On Dét,prop/Y (Y ′ , Λ), the base change map is an equivalence by Proposition 22.8.",
      "match": "The proof."
     }
    ],
@@ -2232,19 +2169,16 @@
     {
      "sourceId": "ECD",
      "locator": "§22, construction before Lemma 22.16, p. 136",
-     "excerpt": "This is encoded in a coCartesian fibration Dét (Y•′ , Λ)0 → ∆, whose ∞-category of sections is the ∞-derived category Dét (Y•′ , Λ) of the simplicial space Y•′ .",
      "match": "The coherent diagram of coefficient categories."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, construction before Lemma 22.16, p. 136",
-     "excerpt": "As pullbacks preserve this condition, this is still a coCartesian fibration over ∆.",
      "match": "The support subcategories."
     },
     {
      "sourceId": "ECD",
      "locator": "§22, construction before Lemma 22.16, p. 137",
-     "excerpt": "be its left Kan extension, which exists by [Lur09, Corollary 4.3.2.14].",
      "match": "The fibrewise left Kan extension."
     }
    ],
@@ -2354,13 +2288,11 @@
     {
      "sourceId": "ECD",
      "locator": "Lemma 22.16, p. 137",
-     "excerpt": "The functor Rf•!0 is given by Rfi! : Dét (Yi′ , Λ) → Dét (Yi , Λ) in the fibre over i ∈ ∆.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Lemma 22.16, p. 137",
-     "excerpt": "Taken together, these imply that the relevant colimits agree (using [Lur09, Proposition 4.3.1.7] to see that one may pass to a cofinal subcategory).",
      "match": "Proof."
     }
    ],
@@ -2401,13 +2333,11 @@
     {
      "sourceId": "ECD",
      "locator": "Lemma 22.17, p. 137",
-     "excerpt": "The functor Rf•!0 : Dét (Y•′ , Λ)0 → Dét (Y• , Λ)0 sends coCartesian edges to coCartesian edges.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Lemma 22.17, p. 137",
-     "excerpt": "This follows from the previous lemma and Proposition 22.15.",
      "match": "Proof."
     }
    ],
@@ -2452,13 +2382,11 @@
     {
      "sourceId": "ECD",
      "locator": "§22, after Lemma 22.17, p. 137",
-     "excerpt": "Rf! : Dét (Y ′ , Λ) ≃ Dét,cart (Y•′ , Λ) → Dét,cart (Y• , Λ) ≃ Dét (Y, Λ) ,",
      "match": "The construction by coCartesian sections."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 22.18, p. 137",
-     "excerpt": "is the functor obtained from the previous discussion by passage to homotopy categories.",
      "match": "ECD's Rf_! is the homotopy-category functor."
     }
    ],
@@ -2601,7 +2529,6 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 22.18, p. 137",
-     "excerpt": "It is easy to see that this is independent of the choice of the simplicial v-hypercover, by passing to common refinements.",
      "match": "Statement and proof route."
     }
    ],
@@ -2646,13 +2573,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.19, p. 137",
-     "excerpt": "There is a natural base change equivalence g ∗ Rf! ≃ Rfe! g ′∗ of functors Dét (Y ′ , Λ) → Dét (Ye , Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.19, p. 138",
-     "excerpt": "Repeating the previous discussion over ∆ again over ∆ × ∆1 gives the result.",
      "match": "Proof route."
     }
    ],
@@ -2696,13 +2621,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.20, p. 138",
-     "excerpt": "commutes with all direct sums; equivalently (cf. [Lur16, Proposition 1.4.4.1 (2)]), with all colimits.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.20, p. 138",
-     "excerpt": "This follows from Proposition 22.14 and Proposition 22.19.",
      "match": "Proof."
     }
    ],
@@ -2746,13 +2669,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.21, p. 138",
-     "excerpt": "Then there is a natural equivalence Rf! ◦ Rg! ≃ R(f ◦ g)!",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.21, p. 138",
-     "excerpt": "On the other hand, all functors commute with all colimits by Proposition 22.20, so the full functors can be recovered by left Kan extension (as above).",
      "match": "Proof route."
     }
    ],
@@ -2798,13 +2719,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.22, p. 138",
-     "excerpt": "Then Rf! as defined in Definition 19.1 agrees with Rf! as defined in Definition 22.18.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.22, p. 138",
-     "excerpt": "As moreover both functors commute with all direct sums, one can reduce to the case where Y ′ is quasicompact, where it follows from Proposition 22.10.",
      "match": "Proof."
     }
    ],
@@ -2850,13 +2769,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 22.23, p. 139",
-     "excerpt": "Then there is a functorial isomorphism Rf! B ⊗LΛ A ≃ Rf! (B ⊗LΛ f ∗ A) in B ∈ Dét (Y ′ , Λ) and A ∈ Dét (Y, Λ).",
      "match": "Statement (printed for small v-sheaves)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.23, p. 139",
-     "excerpt": "This implies the desired result by passage to coCartesian sections (noting that both functors map coCartesian edges to coCartesian edges, as the second functor does).",
      "match": "The descent step."
     }
    ],
@@ -2904,13 +2821,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.19, p. 138",
-     "excerpt": "Repeating the previous discussion over ∆ again over ∆ × ∆1 gives the result.",
      "match": "The pattern: iterate the construction over products of indexing categories."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 22.23, p. 139",
-     "excerpt": "One then checks that varying A, the relevant diagrams commute in the derived category.",
      "match": "Coherence in the projection formula."
     }
    ],
@@ -2957,13 +2872,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 23.1, p. 140",
-     "excerpt": "Then the functor Rf! : Dét (Y ′ , Λ) → Dét (Y, Λ) admits a right adjoint",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 23.1, p. 140",
-     "excerpt": "This follows from Lurie’s ∞-categorical adjoint functor theorem, [Lur09, Corollary 5.5.2.9], and Proposition 22.20.",
      "match": "Proof."
     }
    ],
@@ -3101,13 +3014,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 23.2, p. 140",
-     "excerpt": "Indeed, this identity of functors is the right adjoint of the identity of functors Rf! (− ⊗Λ′ Λ) = Rf! ⊗Λ′ Λ , which follows from the projection formula, Proposition 22.23.",
      "match": "Statement and proof."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.2, p. 140",
-     "excerpt": "The functor Rf ! is compatible with change of rings g : Λ′ → Λ in the following sense.",
      "match": "Statement."
     }
    ],
@@ -3150,13 +3061,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.3(i), p. 140",
-     "excerpt": "For all A ∈ Dét (Y ′ , Λ), B ∈ Dét (Y, Λ), one has",
      "match": "Statement, (i)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.3, p. 141",
-     "excerpt": "so the result follows from the Yoneda lemma.",
      "match": "Proof route."
     }
    ],
@@ -3202,13 +3111,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.3(ii), p. 140",
-     "excerpt": "For all A, B ∈ Dét (Y, Λ), one has",
      "match": "Statement, (ii)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.3, p. 141",
-     "excerpt": "Similarly, for part (ii), note that for all C ∈ Dét (Y ′ , Λ),",
      "match": "Proof."
     }
    ],
@@ -3250,7 +3157,6 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 143",
-     "excerpt": "But if g = gi is étale, then g ∗ = Rg ! and h∗ = Rh! , so h∗ Rf ! = Rh! Rf ! = Rf ′! Rg ! = Rf ′! g ∗ , as desired.",
      "match": "A use of the composition law (Rh^!Rf^! = R(f ∘ h)^! = R(g ∘ f′)^! = Rf′^!Rg^!) together with S3/upper-shriek-etale."
     }
    ],
@@ -3292,7 +3198,6 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 143",
-     "excerpt": "But if g = gi is étale, then g ∗ = Rg ! and h∗ = Rh! ,",
      "match": "The identity used in ECD 23.4."
     }
    ],
@@ -3336,13 +3241,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.16(i), p. 151",
-     "excerpt": "Assume that g is compactifiable and representable in locally spatial diamonds with locally dim. trg g < ∞, and A ∈ Dét (Y, Λ).",
      "match": "Hypotheses (only on g)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.16, p. 151",
-     "excerpt": "Part (i) follows from Proposition 22.19 by passing to right adjoints.",
      "match": "Proof."
     }
    ],
@@ -3393,19 +3296,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4(i), p. 141",
-     "excerpt": "Rf ! Fℓ ⊗Fℓ f ∗ → Rf ! : Dét (X, Fℓ ) → Dét (Y, Fℓ )",
      "match": "The twisted-pullback transformation of (2), over F_ℓ."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4(i), p. 141",
-     "excerpt": "is an equivalence (using the projection formula, Proposition 22.23, in the equality).",
      "match": "Its construction from the projection formula."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(iii), p. 147",
-     "excerpt": "then the natural transformation of functors g ′∗ Rf ! → Rfe! g ∗ : Dét (Y, Λ) → Dét (Ye ′ , Λ)",
      "match": "The base-change transformation of (4)."
     }
    ],
@@ -3547,19 +3447,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4, p. 141",
-     "excerpt": "Let X be a strictly totally disconnected perfectoid space, let f : Y → X be a compactifiable map from a locally spatial diamond Y of locally dim. trg f < ∞, and fix a prime ℓ ̸= p. The following conditions are equivalent.",
      "match": "Hypotheses."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 142",
-     "excerpt": "It is clear that (i) implies (ii), and (ii) implies (iii).",
      "match": "The easy implications."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.5, p. 142",
-     "excerpt": "condition (iv) is expressing a version of the idea that “Rf ! commutes with arbitrary pro-étale base change”.",
      "match": "Meaning of (iv)."
     }
    ],
@@ -3604,13 +3501,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.4, p. 142",
-     "excerpt": "Moreover, under these conditions, for any ℓ-power-torsion ring Λ, the natural transformation",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 144",
-     "excerpt": "To handle the case of a general ℓ- power-torsion ring Λ, choose m such that ℓm = 0 in Λ.",
      "match": "Proof route."
     }
    ],
@@ -3653,13 +3548,11 @@
     {
      "sourceId": "ECD",
      "locator": "Lemma 23.6, p. 144",
-     "excerpt": "Then for any ring Λ and any C ∈ Dét (Y, Λ), one has a natural isomorphism",
      "match": "Printed hypothesis on Λ (corrected here)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Lemma 23.6, p. 144",
-     "excerpt": "Note that h is proper, so by the projection formula (Proposition 22.11), we get",
      "match": "Proof route, which needs nΛ = 0 with n prime to p."
     }
    ],
@@ -3705,13 +3598,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.7, p. 144",
-     "excerpt": "commutes with arbitrary direct sums if and only if for all constructible sheaves F of Fℓ -vector spaces on Yét and all i ≥ 0, the !-pushforward Ri f! F is constructible on Xét .",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.7, p. 145",
-     "excerpt": "It follows from adjunction that Rf ! commutes with arbitrary direct sums if and only if Rf! preserves compact objects (this simple but powerful observation goes back to Neeman, [Nee96]), so we get the result.",
      "match": "Proof."
     }
    ],
@@ -3754,13 +3645,11 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 23.8, p. 145",
-     "excerpt": "Here, for a locally spatial diamond Y , an object D ∈ Dét (Y, Fℓ ) is invertible if it is locally (equivalently, in the v-, quasi-pro-étale, or étale topology of Y ) isomorphic to Fℓ [n] for some integer",
      "match": "The definition, over F_ℓ."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "as the integer n is constant on an open and closed stratification of Y ′ , and then the space of isomorphisms between Rf ! Λ and Λ[n] is separated, étale and surjective over Y ′ as follows by v- descent.",
      "match": "Why the topologies agree."
     }
    ],
@@ -3892,19 +3781,16 @@
     {
      "sourceId": "ECD",
      "locator": "Definition 23.8, p. 145",
-     "excerpt": "Then f is ℓ-cohomologically smooth if f is compactifiable, locally dim. trg f < ∞, and for any strictly totally disconnected perfectoid space X with a map X → Y with pullback fX : Y ′ ×Y X → X, the functor",
      "match": "The definition."
     },
     {
      "sourceId": "ECD",
      "locator": "Definition 23.8, p. 145",
-     "excerpt": "We note that we are not a priori asking that the equivalence between",
      "match": "The equivalence is not assumed natural."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 23.9, p. 145",
-     "excerpt": "For example, the map M → ∗ for a topological manifold M should be considered smooth, but it is not representable in locally spatial diamonds.",
      "match": "Scope: separated maps representable in locally spatial diamonds only."
     }
    ],
@@ -4053,13 +3939,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.10, p. 145",
-     "excerpt": "Then f is ℓ-cohomologically smooth if and only if the following conditions are satisfied.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.10, p. 146",
-     "excerpt": "Thus, the result follows from the equivalence of (ii) and (iii) in Proposition 23.4 and Proposition 23.7.",
      "match": "Proof."
     }
    ],
@@ -4104,13 +3988,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.11, p. 146",
-     "excerpt": "Then f is universally open, i.e. for all X → Y , the map |Y ′ ×Y X| → |X| is open.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.11, p. 146",
-     "excerpt": "We claim that the support of Rf! Rf ! Fℓ agrees with the image of |Y ′ | → |X|.",
      "match": "Key step."
     }
    ],
@@ -4155,13 +4037,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(i), p. 147",
-     "excerpt": "is an equivalence, and the dualizing complex Df := Rf ! Λ ∈ Dét (Y ′ , Λ) is invertible, in fact étale locally isomorphic to Λ[n] for some integer n ∈ Z.",
      "match": "Definition and invertibility."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(iii), p. 147",
-     "excerpt": "In particular, the dualizing complex Df commutes with base change, i.e.",
      "match": "Base change."
     }
    ],
@@ -4291,13 +4171,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(i), p. 147",
-     "excerpt": "The natural transformation Rf ! Λ ⊗Λ f ∗ → Rf ! : Dét (Y, Λ) → Dét (Y ′ , Λ)",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "this implies also that Rf ! Λ⊗Λ f ∗ → Rf ! is an equivalence, as this can now be checked after base change to X e0 , where we know it.",
      "match": "Descent of the equivalence."
     }
    ],
@@ -4342,13 +4220,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(ii), p. 147",
-     "excerpt": "If f is quasicompact, then for any perfect-constructible A ∈ Dét (Y ′ , Λ), the proper pushforward Rf! A ∈ Dét (Y, Λ) is perfect-constructible.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "We need to see that Rf! preserves compact objects, but this is equivalent to the condition that Rf ! preserves arbitrary direct sums, which follows from part (i).",
      "match": "Proof."
     }
    ],
@@ -4398,19 +4274,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.12(iii), p. 147",
-     "excerpt": "If g : Ye → Y is a map of small v-sheaves with base change",
      "match": "Statement (printed for v-sheaves Ỹ)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 148",
-     "excerpt": "This implies that n e ≥ n, and that it is an isomorphism if n e = n.",
      "match": "The degree comparison."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.12, p. 149",
-     "excerpt": "This gives the desired base change result along Spa(C,e O e ) → Spa(C, OC ) in general,",
      "match": "The hypercover step."
     }
    ],
@@ -4453,13 +4326,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.13, p. 149",
-     "excerpt": "If f and g are representable in locally spatial diamonds and ℓ-cohomologically smooth, then f ◦ g is representable in locally spatial diamonds and ℓ-cohomologically smooth.",
      "match": "Statement, first part."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.13, p. 150",
-     "excerpt": "The first part follows from Proposition 23.12.",
      "match": "Proof."
     }
    ],
@@ -4511,13 +4382,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.13, p. 149",
-     "excerpt": "Con- versely, if g and f ◦ g are representable in locally spatial diamonds and ℓ-cohomologically smooth, g is surjective, and f is representable in diamonds and compactifiable, then f is representable in locally spatial diamonds and ℓ-cohomologically smooth.",
      "match": "Statement, second part."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.13, p. 150",
-     "excerpt": "One easily checks that locally dim. trg f ≤ dim. trg(f ◦ g) < ∞ (where one uses the modified tr.",
      "match": "The dimension step."
     }
    ],
@@ -4562,13 +4431,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 23.14, p. 149",
-     "excerpt": "then f is representable in locally spatial diamonds.",
      "match": "Conclusion (the full hypotheses are given in the statement)."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark after 23.14, p. 150",
-     "excerpt": "We do not know if in the second part, one can omit the hypothesis “f is compactifiable”;",
      "match": "The open question; the locally split case is the theorem here."
     }
    ],
@@ -4608,13 +4475,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.15, p. 150",
-     "excerpt": "If f is ℓ-cohomologically smooth, then fe is ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.15, p. 150",
-     "excerpt": "The first statement is clear from the definition.",
      "match": "Proof."
     }
    ],
@@ -4658,13 +4523,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.15, p. 150",
-     "excerpt": "Conversely, if fe is ℓ- cohomologically smooth, g is a surjective map of v-stacks, and locally dim. trg f < ∞, then f is ℓ-cohomologically smooth.",
      "match": "Statement, converse."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.15, p. 150",
-     "excerpt": "It is not clear to us whether the condition that locally dim. trg f < ∞ can be checked v-locally on the target.",
      "match": "Why the dimension hypothesis is retained."
     }
    ],
@@ -4707,13 +4570,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.16(ii), p. 151",
-     "excerpt": "Then for all A ∈ Dét (Y, Λ), the base change morphism g ∗ Rf∗ A → Rf∗′ ge∗ A is an isomorphism.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.16, p. 151",
-     "excerpt": "Part (i) follows from Proposition 22.19 by passing to right adjoints. Now part (ii) follows",
      "match": "Proof."
     }
    ],
@@ -4760,13 +4621,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.16(iii), p. 151",
-     "excerpt": "Assume that g is separated, representable in locally spatial diamonds and ℓ-cohomologically smooth, and Λ is ℓ-power torsion.",
      "match": "Printed hypotheses (f's hypotheses are added)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.16, p. 151",
-     "excerpt": "Finally, for part (iii), we can tensor by Re",
      "match": "Proof route."
     }
    ],
@@ -4806,13 +4665,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 23.17, p. 151",
-     "excerpt": "There is a functorial isomorphism f ∗ RH om(A, B) ∼ = RH om(f ∗ A, f ∗ B) in A, B ∈ Dét (X, Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.17, p. 151",
-     "excerpt": "This follows from Proposition 23.3 (ii) together with the identification Rf ! = f ∗ ⊗Λ Rf ! Λ, where Rf ! Λ is invertible.",
      "match": "Proof."
     }
    ],
@@ -4854,13 +4711,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 160",
-     "excerpt": "The projection map Y → X is cohomologically smooth (as the composite of an open immersion and a pullback of BC → Spa(C, OC ), cf. Theorem 24.1)",
      "match": "Open immersions are used as smooth maps."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 23.4, p. 143",
-     "excerpt": "But if g = gi is étale, then g ∗ = Rg ! and h∗ = Rh! ,",
      "match": "Rg^! = g^* for étale g."
     }
    ],
@@ -4907,13 +4762,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 24.1, p. 152",
-     "excerpt": "Let f : B → ∗ be the projection from the ball to the point, where B(R, R+ ) = R+ .",
      "match": "The definition of B."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 152",
-     "excerpt": "Condition (i) is easy (in fact, dim. trg f = 1).",
      "match": "dim.trg f = 1."
     }
    ],
@@ -5041,13 +4894,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 24.1, p. 152",
-     "excerpt": "one has a canonical isomorphism",
      "match": "The normalisation Λ(1)[2] of the ball's dualizing complex uses this twist."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 152",
-     "excerpt": "RfX! Fℓ (1) = g ∗ RfC! Fℓ (1) → Fℓ [−2] ,",
      "match": "The twisted trace."
     }
    ],
@@ -5167,19 +5018,16 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 24.1, p. 152",
-     "excerpt": "Then f is ℓ-cohomologically smooth for any prime ℓ ̸= p, and for any ring Λ with nΛ = 0 for some n prime to p, one has a canonical isomorphism",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 152",
-     "excerpt": "Condition (iii) is a condition about fX : B × X → X in case X = Spa(C, C + ) is strongly Noetherian. Thus, Huber’s results and in particular [Hub96, Theorem 7.5.3] applies.",
      "match": "Condition (iii)."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 24.1, p. 153",
-     "excerpt": "Thus, we can assume X = Spa(C, C + ). In this case, the result follows from [Hub96, Theorem 7.5.3].",
      "match": "Condition (iv)."
     }
    ],
@@ -5226,13 +5074,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.2, p. 153",
-     "excerpt": "Moreover, if we fix the Λ-valued Haar measure on K with total volume 1, there is a natural equivalence of functors",
      "match": "The measure and its normalisation."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.2, p. 153",
-     "excerpt": "natural trace maps qH,K∗ qH,K → id, which one can divide by [K : H] to make them compatible.",
      "match": "Normalised finite-level traces."
     }
    ],
@@ -5355,13 +5201,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.2, p. 153",
-     "excerpt": "This is adjoint to a map Rq! q ∗ = Rq∗ q ∗ = q∗ q ∗ → id. For any open subgroup H ⊂ K, consider",
      "match": "The free-action construction."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.3, p. 155",
-     "excerpt": "This map can be constructed v-locally, and is given by integrating over the K-action, fixing the Λ-valued Haar measure on K with total volume 1.",
      "match": "The nonfree construction."
     }
    ],
@@ -5476,13 +5320,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.2, p. 153",
-     "excerpt": "Then the quotient map f /K : Y ′ /K → Y is separated, representable in locally spatial diamonds, and ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.2, p. 154",
-     "excerpt": "The map to the direct limit factors over some term in the direct limit by compactness of Rf! F.",
      "match": "The key compactness step."
     }
    ],
@@ -5529,13 +5371,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark after Proposition 24.2, p. 153",
-     "excerpt": "However, it is not true that Rq ! = q ∗ .",
      "match": "The caution."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark after Proposition 24.2, p. 153",
-     "excerpt": "In this case, Rq ! Λ can be identified with the sheaf sending any open and closed subset T ⊂ S to the distributions Hom(C 0 (T, Λ), Λ), as follows easily from the adjunction defining Rq ! .",
      "match": "The computation."
     }
    ],
@@ -5582,13 +5422,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.3, p. 155",
-     "excerpt": "Assume that there is a profinite group K of pro-order prime to ℓ with an action K × Y ′ → Y ′ over Y for which the map K × Y ′ → Y ′ ×Y Y ′ is 0-truncated and qcqs.",
      "match": "Hypotheses."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.3, p. 156",
-     "excerpt": "This implies that R(f /K)! F is a direct summand of Rf! q ∗ F = R(f /K)! Rq! q ∗ F, which is thus constructible.",
      "match": "The constructibility step."
     }
    ],
@@ -5648,19 +5486,16 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.4, p. 156",
-     "excerpt": "Then f ♢ : (Y ′ )♢ → Y ♢ is ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.4, p. 156",
-     "excerpt": "By Proposition 23.13, it suffices to check that BnY → Y is ℓ-cohomologically smooth.",
      "match": "Reduction to the ball."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.4, p. 156",
-     "excerpt": "The result follows from Proposition 24.3, as we have already verified",
      "match": "The mixed-characteristic step."
     }
    ],
@@ -5711,13 +5546,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.5, p. 156",
-     "excerpt": "The map (Spa Qp )♢ → ∗ is ℓ-cohomologically smooth.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.5, p. 157",
-     "excerpt": "Using Proposition 24.2, this shows that (Spa Qp )♢ × Spa(C, OC ) → Spa(C, OC ) is ℓ-cohomologically smooth, and thus also (Spa Qp )♢ → ∗.",
      "match": "Proof."
     }
    ],
@@ -5769,13 +5602,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 24.6, p. 157",
-     "excerpt": "Then f is ℓ-cohomologically smooth if and only if the following conditions are satisfied.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 24.6, p. 158",
-     "excerpt": "using Proposition 23.16 (i) in the first equation, condition (ii) in the second equation, Proposi- tion 17.6 in the third equation, and a simple projection formula for Rh∗",
      "match": "The final computation."
     }
    ],
@@ -5819,13 +5650,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 25.1, p. 158",
-     "excerpt": "is an equivalence; equivalently, as Rf ! Fℓ is invertible, the double Verdier duality map",
      "match": "The two biduality maps and their equivalence."
     },
     {
      "sourceId": "ECD",
      "locator": "Proposition 25.4, p. 161",
-     "excerpt": "Assume that A ∈ Dét (X, Fℓ ) satisfies RH omFℓ (A, Rf ! Fℓ ) = 0. Then",
      "match": "The Verdier dual in the conservativity statement."
     }
    ],
@@ -5962,19 +5791,16 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 25.1, p. 158",
-     "excerpt": "Let A ∈ Dét (X, Fℓ ) be a bounded complex with constructible cohomology. Then the double (naive) duality map",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 159",
-     "excerpt": "We are reduced to the case A = j! Fℓ for a quasicompact open immersion j : U → X.",
      "match": "The reduction."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 160",
-     "excerpt": "Thus, it is enough to prove that the latter is trivial. In other words, we may assume that X is proper.",
      "match": "The compactification step."
     }
    ],
@@ -6019,13 +5845,11 @@
     {
      "sourceId": "ECD",
      "locator": "Theorem 25.1, p. 158",
-     "excerpt": "Moreover, if X is quasicompact, then H i (X, A) is finite for all i ∈ Z.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Theorem 25.1, p. 159",
-     "excerpt": "As the left-hand side commutes with all colimits by Proposition 20.10, it follows that Rf! Rj∗ Fℓ ∈ D(Fℓ ) is compact, i.e. bounded with finite cohomology groups.",
      "match": "Proof."
     }
    ],
@@ -6068,13 +5892,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.2, p. 158",
-     "excerpt": "This theorem does not hold if one replaces Spa(C, OC ) by Spa(C, C + ) for C + ̸= OC , even in the simplest case X = Spa(C, C + ).",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.2, p. 158",
-     "excerpt": "and so the double dual is also equal to Fℓ , which is different from A = j! Fℓ .",
      "match": "The computation."
     }
    ],
@@ -6122,13 +5944,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.3, p. 158",
-     "excerpt": "The biduality theorem also holds true for a general coefficient ring Λ of ℓ-power- torsion if A ∈ Dét (X, Λ) is perfect-constructible,",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.3, footnote 6, p. 158",
-     "excerpt": "The last step requires explanation for the biduality statement.",
      "match": "The coefficient-change argument."
     }
    ],
@@ -6175,13 +5995,11 @@
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 25.4, p. 161",
-     "excerpt": "In other words, the stalks of A at all closed points vanish, which implies that A = 0, as the closed points are very dense in |X|.",
      "match": "The statement used."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 25.4, p. 161",
-     "excerpt": "But Zariski–Riemann spaces of fields have a very dense set of closed points (by writing them as a cofiltered limit of projective varieties).",
      "match": "ECD's justification, replaced here by the valuation-theoretic argument."
     }
    ],
@@ -6231,13 +6049,11 @@
     {
      "sourceId": "ECD",
      "locator": "Proposition 25.4, p. 161",
-     "excerpt": "Let C be an algebraically closed nonarchimedean field of characteristic p with ring of integers OC , and let X be a locally spatial diamond with f : X → Spa(C, OC ) compactifiable with locally dim. trg f < ∞.",
      "match": "Hypotheses."
     },
     {
      "sourceId": "ECD",
      "locator": "proof of Proposition 25.4, p. 161",
-     "excerpt": "which implies that RΓc (U, A) = 0. Using this for U = X and U = X \\ {x} for some closed point x ∈ X, one sees that also the cone of RΓc (U, A) → RΓc (X, A) = RΓ(X, A) is zero, which is the stalk Ax of A at x.",
      "match": "The stalk step."
     }
    ],
@@ -6282,13 +6098,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.5, p. 161",
-     "excerpt": "Again, a similar result fails over Spa(C, C + ) if C + ̸= OC .",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.5, p. 161",
-     "excerpt": "Indeed, if X = Spa(C, C + ) and i : {s} → X is the inclusion of the closed point, then RH omΛ (i∗ Λ, Λ) = 0.",
      "match": "The computation."
     }
    ],
@@ -6330,13 +6144,11 @@
     {
      "sourceId": "ECD",
      "locator": "Remark 25.6, p. 161",
-     "excerpt": "A similar result holds with coefficients in a ring Λ (killed by n prime to p) as soon as for any M ∈ D(Λ) with R HomΛ (M, Λ) = 0, one has M = 0.",
      "match": "Statement."
     },
     {
      "sourceId": "ECD",
      "locator": "Remark 25.6, p. 161",
-     "excerpt": "We do not know in which generality it holds (for example if Λ is noetherian).",
      "match": "The open question."
     }
    ],

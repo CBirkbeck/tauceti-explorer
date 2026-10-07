@@ -1187,12 +1187,11 @@
       "statement": "For strictly totally disconnected perfectoid X, every abelian étale sheaf F has H^i(X_et,F)=0 for i>0.",
       "hypotheses": [],
       "proofSteps": [
-        "D1 says each étale cover splits. A locally liftable section under a sheaf epimorphism therefore lifts globally, so global sections is exact.",
-        "Use C0/E1 identification of étale cohomology with the derived global-sections functor."
+        "Apply DiamondEtaleCohomology:C0/std-etale-acyclic to the quasicompact open U=X. Its exactness of global sections gives the asserted vanishing for every abelian étale sheaf. This C8 identifier is an export of the C0 theorem, retained for existing references; it plans no second proof of étale acyclicity."
       ],
       "prerequisites": [
         "DiamondsAndVStacks:D1/strictly-totally-disconnected",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/std-etale-acyclic",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category"
       ],
       "acceptance": [
@@ -1227,10 +1226,11 @@
         "D1 Lemma7.19 and D5 quasi-pro-étale representability make the pulled-back source strictly totally disconnected. Apply strictly-disconnected-acyclic."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C1",
+        "DiamondEtaleCohomology:C1/etale-base-change-sheaves",
         "DiamondsAndVStacks:D1/pro-etale-maps-over-std-base",
         "DiamondsAndVStacks:D5/quasi-pro-etale-and-fibre-product-permanence",
-        "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic"
+        "DiamondEtaleCohomology:C0/std-etale-acyclic",
+        "DiamondEtaleCohomology:C0/etale-site-enough-points"
       ],
       "acceptance": [
         "Keep both quasicompact and separated; this proof does not invoke C9."
@@ -1373,7 +1373,10 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C8/point-quotient",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-site",
+        "DiamondEtaleCohomology:C0/std-etale-acyclic",
+        "DiamondEtaleCohomology:C0/quasi-pro-etale-pullback-fully-faithful",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections"
       ],
       "acceptance": [
@@ -2230,9 +2233,12 @@
         "Use the C7 constructible filtration and the exact extension-by-zero quotient to preserve vanishing on U. Reduce through finite extensions to a single stratum."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C7",
+        "DiamondEtaleCohomology:C7/constructible-spatial-characterisation",
+        "DiamondEtaleCohomology:C7/constructible-filtration",
+        "DiamondEtaleCohomology:C7/constructible-sheaf-spectral",
         "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites",
-        "DiamondEtaleCohomology:C5"
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero",
+        "DiamondEtaleCohomology:C5/open-support-triangle"
       ],
       "acceptance": [
         "The stratification is spectral-constructible. An arbitrary point/complement decomposition of a closed disc does not qualify."
@@ -2270,7 +2276,9 @@
         "DiamondEtaleCohomology:C8/constructible-support-reduction",
         "DiamondEtaleCohomology:C8/injection-direct-image",
         "DiamondEtaleCohomology:C8/closed-point-bound",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-cohomology-continuity",
+        "DiamondEtaleCohomology:C0/geometric-stalk",
+        "DiamondEtaleCohomology:C0/etale-site-enough-points",
         "DiamondsAndVStacks:D5"
       ],
       "acceptance": [
@@ -2453,13 +2461,12 @@
       "statement": "Let Y be spatial and F a constructible étale sheaf of F_ℓ-vector spaces. For a filtered system C_j in D_et(Y,F_ℓ), uniformly in D^{≥−n} for one n, the canonical map colim_j Hom(F[0],C_j)→Hom(F[0],colim_j C_j) is an isomorphism.",
       "hypotheses": [],
       "proofSteps": [
-        "Use bounded cohomological descent to a strictly totally disconnected cover; the one common lower bound controls totalization.",
-        "The C7 filtration reduces F by finitely many triangles to j!F_ℓ for quasicompact open j.",
-        "Adjunction reduces the comparison to filtered-colimit compatibility of cohomology on the coherent étale site."
+        "For the field Λ=F_ℓ, the constructible sheaf F concentrated in degree zero is perfect-constructible by DiamondEtaleCohomology:C7/perfect-constructible-over-field.",
+        "Apply DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness with A=F[0] and the given single common lower bound. This C9 identifier retains the finite-field statement of Proposition 20.9 as an export of the more general C7 result."
       ],
       "prerequisites": [
-        "DiamondEtaleCohomology:C0",
-        "DiamondEtaleCohomology:C7",
+        "DiamondEtaleCohomology:C7/perfect-constructible-over-field",
+        "DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness",
         "EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent",
         "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites"
       ],
@@ -2531,7 +2538,8 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/uniform-test-bound",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
+        "DiamondEtaleCohomology:C0/algebraic-topoi",
         "EnhancedDerivedSheaves:E2",
         "EnhancedDerivedSheaves:E2/postnikov-finite-cohomological-dimension"
       ],
@@ -2568,7 +2576,7 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/left-completeness",
-        "DiamondEtaleCohomology:C2",
+        "DiamondEtaleCohomology:C2/left-completion-comparison",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category"
       ],
       "acceptance": [
@@ -2644,7 +2652,7 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
         "EnhancedDerivedSheaves:E3",
-        "DiamondEtaleCohomology:C5"
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2680,7 +2688,9 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/ordinary-derived-comparison",
         "DiamondEtaleCohomology:C9/uniform-test-bound",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-site-enough-points",
+        "DiamondEtaleCohomology:C0/geometric-stalk",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
         "EnhancedDerivedSheaves:E2"
       ],
       "acceptance": [
@@ -2717,7 +2727,7 @@
       "prerequisites": [
         "DiamondEtaleCohomology:C9/etale-constant-compact",
         "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
-        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
         "EnhancedDerivedSheaves:E3"
       ],
       "acceptance": [
@@ -2766,7 +2776,9 @@
         "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
         "mathlib:CategoryTheory.ObjectProperty.triangEnvelope",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category",
-        "DiamondEtaleCohomology:C7"
+        "DiamondEtaleCohomology:C7/perfect-constructible-filtration",
+        "DiamondEtaleCohomology:C7/perfect-constructible-thick",
+        "DiamondEtaleCohomology:C7/perfect-local-system"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2808,10 +2820,12 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
+        "DiamondEtaleCohomology:C7/perfect-local-system",
         "DiamondEtaleCohomology:C7",
         "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
-        "DiamondEtaleCohomology:C5",
-        "DiamondEtaleCohomology:C3"
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero",
+        "DiamondEtaleCohomology:C3/etale-tensor",
+        "DiamondEtaleCohomology:C3/internal-hom"
       ],
       "acceptance": [
         "Retain every stated hypothesis; verify each proof step against its named input."
@@ -2847,8 +2861,10 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C7",
-        "DiamondEtaleCohomology:C5"
+        "DiamondEtaleCohomology:C7/perfect-constructible-filtration",
+        "DiamondEtaleCohomology:C7/support-restriction",
+        "DiamondEtaleCohomology:C5/open-support-triangle",
+        "DiamondEtaleCohomology:C5/etale-extension-by-zero"
       ],
       "acceptance": [
         "An arbitrary closed Z without constructibility does not justify the quasicompact complement step."
@@ -2921,7 +2937,7 @@
       ],
       "prerequisites": [
         "DiamondEtaleCohomology:C9/compact-iff-perfect-constructible",
-        "DiamondEtaleCohomology:C7"
+        "DiamondEtaleCohomology:C7/perfect-constructible-over-field"
       ],
       "acceptance": [
         "The field-coefficient equivalence must not be exported unchanged to an arbitrary Λ."
@@ -3310,7 +3326,7 @@
     },
     {
       "supplier": "DiamondsAndVStacks:D5",
-      "need": "Localization of a spatial diamond at a point, its chain of generalizations, the field-point presentation, and continuity of sheaf cohomology for these localizations. Existing D5 packet nodes give presentations/permanence but not this precise local-cohomology contract.",
+      "need": "Localization of a spatial diamond at a point, its chain of generalizations, and the quasi-pro-étale field-point presentation, with compatibility with the inverse system of quasicompact open neighbourhoods. C0/etale-cohomology-continuity supplies the cohomology-continuity statement once this geometric localization is supplied. Existing D5 presentation/permanence nodes do not supply the complete geometric localization contract.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/local-stalk-bound"
       ]
@@ -3331,62 +3347,6 @@
       "neededBy": [
         "DiamondEtaleCohomology:C9/etale-constant-compact",
         "DiamondEtaleCohomology:C9/compact-generators"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C0",
-      "need": "Coherent étale sites with enough points, bounded comparisons and continuity at localizations, plus size bounds for a skeleton of qc separated étale test objects.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic",
-        "DiamondEtaleCohomology:C8/point-sheaf-equivalence",
-        "DiamondEtaleCohomology:C8/local-stalk-bound",
-        "DiamondEtaleCohomology:C9/bounded-filtered-compactness",
-        "DiamondEtaleCohomology:C9/left-completeness",
-        "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
-        "DiamondEtaleCohomology:C9/compact-generators"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C1",
-      "need": "Corollary16.10 in the quasi-pro-étale case, with the actual base-change transformation on all abelian étale sheaves used to prove21.13/21.14.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/qpetale-direct-image"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C2",
-      "need": "The canonical14.15 identification of D_et with Postnikov left completion, with enhancement and cutoff compatibility.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C9/ordinary-derived-comparison"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C3",
-      "need": "Derived tensor/internal Hom and their comparison maps, used with the separate C5 étale extension-by-zero adjunction.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C7",
-      "need": "Spectral-constructible and perfect-constructible definitions; constructible approximation and20.8/20.16 filtrations; stability under finite triangles/retracts; dualizability of perfect local systems; over F_ℓ the bounded-constructible equivalence. Prove full faithfulness in20.15 before20.16 and essential surjectivity. Its filtration proof uses point quotients and specialization stabilizers; import the named C8 point-quotient and specialization-stabilizers nodes, whose prerequisites do not include C7, rather than the entire C8 stage. This avoids a stage-level cycle.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/constructible-support-reduction",
-        "DiamondEtaleCohomology:C9/bounded-filtered-compactness",
-        "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible",
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact",
-        "DiamondEtaleCohomology:C9/finite-field-compact-objects"
-      ]
-    },
-    {
-      "supplier": "DiamondEtaleCohomology:C5",
-      "need": "Exact étale extension by zero of 19.1, its pullback adjunction, open-support triangle and base-change comparison. This is available before general proper pushforward or Rf!.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/constructible-support-reduction",
-        "DiamondEtaleCohomology:C9/etale-constant-compact",
-        "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-        "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact"
       ]
     },
     {
@@ -3413,6 +3373,13 @@
         "DiamondEtaleCohomology:C8/tame-cd-bound",
         "DiamondEtaleCohomology:C8/residue-cd-bound"
       ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C7",
+      "need": "Promote the already planned IsPerfectLocalSystem.dualizable API item of C7/perfect-local-system to a named prerequisite lemma, as PROTOCOL §4 requires: for a commutative coefficient ring Λ and a locally spatial diamond U, every étale locally constant complex L with perfect values is dualizable, with dual RHom_Λ(L,Λ_U), and RHom_Λ(L,A) ≃ L^∨ ⊗^L_Λ A naturally in A. The carrier and proof outline already appear in C7/perfect-local-system; this is an API-granularity task, not a new assertion or an unresolved mathematical theorem.",
+      "neededBy": [
+        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
+      ]
     }
   ],
   "coverage": [
@@ -3436,7 +3403,7 @@
       "stageId": "DiamondEtaleCohomology:C9",
       "status": "planned",
       "remaining": [
-        "Resolve the E2 category-level left-completion and coproduct interfaces, the E3 cutoff interface, the DGAInfinity Layer 6 thick-closure import, and the C0/C2/C3/C5/C7 contracts; preserve one common finite bound.",
+        "Resolve the E2 category-level left-completion and coproduct interfaces, the E3 cutoff interface, the DGAInfinity Layer 6 thick-closure import, and promotion of C7 perfect-local-system dualizability to a prerequisite lemma; preserve one common finite bound. The named C0/C2/C3/C5/C7 suppliers are reconciled, while their recorded E46 and general-Λ E11 gaps remain inherited.",
         "State the omitted enhanced/site signatures against their owning carriers and validate the dimension-bound application."
       ]
     }
@@ -3515,13 +3482,14 @@
     },
     {
       "title": "Finite-window and generation interfaces",
-      "detail": "Object-wise Postnikov convergence and the uniform window are cited from the E2 nodes; the category-level left completion and the coproduct argument remain open requests to E2, the cutoff comparison to E3, and the thick-closure description of compact objects to Tau Ceti DGAInfinity Layer 6. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf.",
+      "detail": "Object-wise Postnikov convergence and the uniform window are cited from the E2 nodes; the category-level left completion and the coproduct argument remain open requests to E2, the cutoff comparison to E3, and the thick-closure description of compact objects to Tau Ceti DGAInfinity Layer 6. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf. The C7 perfect-local-system carrier and its dualizability API are available, but the API item must be promoted to a named prerequisite lemma before C9/perfect-local-system-compact can cite it; the residual C7 request records this exact granularity obligation.",
       "neededBy": [
         "DiamondEtaleCohomology:C9/left-completeness",
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
         "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
         "DiamondEtaleCohomology:C9/compact-generators",
-        "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible"
+        "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible",
+        "DiamondEtaleCohomology:C9/perfect-local-system-compact"
       ]
     },
     {

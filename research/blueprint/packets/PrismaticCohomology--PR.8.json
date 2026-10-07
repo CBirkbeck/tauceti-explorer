@@ -239,13 +239,11 @@
     {
      "sourceId": "K1",
      "locator": "§2, Definition 2.2 (p. 6–7)",
-     "excerpt": "A δlog-ring is a tuple (A, δ, α : M → A, δlog : M → A) consisting of a δ-ring (A, δ), a prelog structure α : M → A, and a map δlog : M → A satisfying (1) δlog(e) = 0, (2) α(m)^p δlog(m) = δ(α(m)), and (3) δlog(mm′) = δlog(m) + δlog(m′) + pδlog(m)δlog(m′)",
      "match": "The definition is the node's statement verbatim."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Remark 2.5 (p. 8)",
-     "excerpt": "a δlog-structure corresponds to a map of (multiplicative) monoids wlog : M → W2(R); m ↦ (1, δlog(m)) satisfying w(α(m)) = (α(m), 0) · wlog(m).",
      "match": "Witt-vector characterisation recorded as API."
     }
    ],
@@ -408,7 +406,6 @@
     {
      "sourceId": "K1",
      "locator": "§2, Remark 2.3 (p. 7)",
-     "excerpt": "We have an endomorphism φM of M defined by φM(m) = m^p α^{-1}(1 + pδlog(m)), and we obtain an commutative diagram",
      "match": "Construction and commutativity as stated."
     }
    ],
@@ -509,19 +506,16 @@
     {
      "sourceId": "K1",
      "locator": "§2, Lemma 2.11 (p. 9)",
-     "excerpt": "The ring Z(p){x}δlog is a polynomial ring on the set {x, δlog(x), δ(δlog(x)), δ^2(δlog(x)), . . .} and its Frobenius endomorphism φ is faithfully flat.",
      "match": "First and second assertions of the node."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Remark 2.6 (p. 8)",
-     "excerpt": "all limits and colimits of δlog-rings exist. They can be computed at the level of underlying rings and monoids",
      "match": "Limits and colimits clause."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Notation 2.7 (p. 8)",
-     "excerpt": "For a monoid M, we write {M}δlog for adjoining M to prelog structures in the theory of δlog-rings.",
      "match": "Notation A{M}_δlog."
     }
    ],
@@ -629,13 +623,11 @@
     {
      "sourceId": "K1",
      "locator": "§2, Lemma 2.9 (p. 8–9)",
-     "excerpt": "Let (A, M) be a δlog-ring, and I ⊂ A a finitely generated ideal containing p. If A∧cl denotes the classical I-completion of A, then (A∧cl, M) admits a natural δlog-structure.",
      "match": "Part (1)."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Lemma 2.13 (p. 10)",
-     "excerpt": "Assume that A → B is I-completely étale. Then, (B, M) admits a natural δlog-structure compatible with (A, M).",
      "match": "Part (2)."
     }
    ],
@@ -671,13 +663,11 @@
     {
      "sourceId": "K1",
      "locator": "§2, Proposition 2.14 (p. 10)",
-     "excerpt": "There is a unique δlog-structure on (A, N) compatible with that of (A, M).",
      "match": "Part (1)."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Corollary 2.15 (p. 10)",
-     "excerpt": "Then, (B, M)^a admits a unique δlog-structure compatible with (A, M) and its étale localizations. Therefore, we can talk about a δlog-structure on a log structure.",
      "match": "Part (2)."
     }
    ],
@@ -717,19 +707,16 @@
     {
      "sourceId": "K1",
      "locator": "§2, Proposition 2.16 (p. 11)",
-     "excerpt": "Let (A, M, α : M → A) be a δlog-ring with M integral. If rad(A) contains p, then there exists a unique map δlog : M^gp → A satisfying",
      "match": "Part (1)."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Proposition 2.16 (p. 11)",
-     "excerpt": "for any submonoid N ⊂ M^gp containing M, there exists a unique δ-structure on A ⊗Z(p)[M] Z(p)[N] making (A ⊗Z(p)[M] Z(p)[N], N) a δlog-ring over (A, M) using δlog above.",
      "match": "Parts (2)–(3)."
     },
     {
      "sourceId": "K1",
      "locator": "§1, p. 5",
-     "excerpt": "a key technical point in this paper is to show that δlog-structures extend through the exactification (Proposition 2.16); this leads to the existence of log prismatic envelopes.",
      "match": "Role of the node."
     }
    ],
@@ -765,19 +752,16 @@
     {
      "sourceId": "K1",
      "locator": "§2, Construction 2.17 (p. 12)",
-     "excerpt": "We call (A′, I′, M′) the exactification of (A, I, M) along (A, M) → (A/I, N). This construction is functorial, and the formation of (A′, M′) commutes with base changes on A.",
      "match": "Construction and functoriality."
     },
     {
      "sourceId": "K1",
      "locator": "§2, Remark 2.18 (p. 13)",
-     "excerpt": "assume that MB → N is an integral map of integral monoids. Then, N → M′ is integral as M′ → N is exact",
      "match": "Integrality clause."
     },
     {
      "sourceId": "OgusDraft",
      "locator": "I, Proposition 4.3.17(1), pp. 92–93",
-     "excerpt": "If v ◦ u is integral and v is exact then u is integral.",
      "match": "Apply u: M_B → M′ and v: M′ → N. This proves the correction of K1 Remark 2.18."
     }
    ],
@@ -879,13 +863,11 @@
     {
      "sourceId": "K1",
      "locator": "§3, Definition 3.3 (p. 14)",
-     "excerpt": "A (bounded) prelog prism is a δlog-triple (A, I, M), where (A, I) is a (bounded) prism. Prelog prisms form a full subcategory of the category of all δlog-triples. A prelog prism is of rank 1 if δlog = 0.",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§3, after Example 3.4 (p. 14)",
-     "excerpt": "if (A, I, MA) is a prelog prism and A → B is a map of δ-rings with B being (p, I)-complete, then (B, IB, MA) is a prelog prism exactly when B[I] = 0.",
      "match": "Rigidity clause."
     }
    ],
@@ -993,13 +975,11 @@
     {
      "sourceId": "K1",
      "locator": "§3, Definition 3.3 (p. 14)",
-     "excerpt": "A log prism (A, I, MSpf(A)) is a bounded prism (A, I) with a log structure MSpf(A) and its δlog-structure that comes from some prelog prism (A, I, M).",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§2.3, Convention 2.34 (p. 21)",
-     "excerpt": "A bounded pre-log prism (A, I, MA) is said to be a “log prism” if (A, MA) is a log ring.",
      "match": "The quoted variant."
     }
    ],
@@ -1112,19 +1092,16 @@
     {
      "sourceId": "K1",
      "locator": "§3, Example 3.4(4) (p. 14)",
-     "excerpt": "The Breuil-Kisin prelog prism is (W(k)[[u]], (E(u)), N → W(k)[[u]]; n ↦ u^n) with δlog = 0.",
      "match": "Item (4)."
     },
     {
      "sourceId": "K1",
      "locator": "§3, Example 3.4(3) (p. 14)",
-     "excerpt": "Using Teichmüller lifts [−] : R♭ → A as a prelog structure, (A, I, R♭) is a prelog prism of rank 1.",
      "match": "Item (2)."
     },
     {
      "sourceId": "K1",
      "locator": "§1, Example 1.3 (p. 2–3)",
-     "excerpt": "(1) N → W(k); 1 ↦ 0. This is used to define the so-called Hyodo-Kato cohomology.",
      "match": "Item (3)."
     }
    ],
@@ -1226,13 +1203,11 @@
     {
      "sourceId": "K1",
      "locator": "§3, Proposition 3.6 (p. 15)",
-     "excerpt": "there is a universal map (B, J, MB) → (B′, IB′, MB′) of δlog-triples over (A, I, MA) to a prelog prism (B′, IB′, MB′) with an exact surjection (B′, MB′) → (B′/IB′, N). Moreover, the monoid MB′ is integral.",
      "match": "The construction."
     },
     {
      "sourceId": "K1",
      "locator": "§3, Proposition 3.6 proof (p. 15)",
-     "excerpt": "Applying Construction 2.17, we may assume that (B, MB) → (B/J, N) is an exact surjection. Then, the statement follows from Proposition 3.1.",
      "match": "Proof sketch."
     }
    ],
@@ -1335,13 +1310,11 @@
     {
      "sourceId": "K1",
      "locator": "§3, Proposition 3.7 (p. 15)",
-     "excerpt": "Assume that (B′, IB′, MB′) is bounded. The construction of the log prism (B′, IB′, MB′)^a is universal in the sense that the following commutative diagram",
      "match": "Theorem."
     },
     {
      "sourceId": "K1",
      "locator": "§3, Lemma 3.8 (p. 15–16)",
-     "excerpt": "The map (C, Γ(Spf(C), MSpf(C))) → (C/IC, N^a_{C/I}) is exact surjective.",
      "match": "Key lemma."
     }
    ],
@@ -1381,19 +1354,16 @@
     {
      "sourceId": "K1",
      "locator": "§3, Proposition 3.9 (p. 17)",
-     "excerpt": "If N is weakly finitely generated over MA, then the prelog prismatic envelope (B′, IB′, MB′) of (B, (JB)∧(p,I), MB) exists and it is (p, I)-completely flat over (A, I, MA).",
      "match": "Part (1)."
     },
     {
      "sourceId": "K1",
      "locator": "§3, Proposition 3.11 (p. 18)",
-     "excerpt": "Then the prelog prismatic envelope (B′, IB′, MB′) of (B, MB) → (R, P) exists and it is (p, I)-completely flat over (A, I, MA).",
      "match": "Part (2)."
     },
     {
      "sourceId": "K1",
      "locator": "§3, before Proposition 3.9 (p. 16)",
-     "excerpt": "The proposition below is a technical core to compute log prismatic cohomology.",
      "match": "Role."
     }
    ],
@@ -1431,19 +1401,16 @@
     {
      "sourceId": "KY",
      "locator": "§2.3, Definition 2.18 (p. 17)",
-     "excerpt": "A monoid M is called perfectoid if the canonical map M♭/(M♭)× −→ M/M× is an isomorphism. A pre-log ring R = (R, M) is perfectoid if both R and M are perfectoid.",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§2.3, Definition 2.25 (p. 18)",
-     "excerpt": "An integral log ring (R, M) is perfectoid if it is perfectoid as a pre-log ring, or, equivalently (by Remark 2.24), if R is a perfectoid ring and M/M× is uniquely p-divisible",
      "match": "Perfectoid log rings."
     },
     {
      "sourceId": "KY",
      "locator": "§2.3, Construction 2.22 (p. 17)",
-     "excerpt": "The perfectoid pre-log ring (R♭, M♭) is the tilt of (R, M).",
      "match": "Tilt."
     }
    ],
@@ -1577,19 +1544,16 @@
     {
      "sourceId": "KY",
      "locator": "§2.4, Definition 2.35 (p. 21)",
-     "excerpt": "Let (A, I, MA) be a “log prism”. We say that (A, I, MA) is perfect if MA is integral and φ on (A, MA) is an isomorphism.",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§2.4, Remark 2.36 (p. 21)",
-     "excerpt": "suppose that (A, I) is perfect, then a “log prism” (A, I, MA) is perfect if and only if MA/A× is uniquely p-divisible.",
      "match": "Characterisation."
     },
     {
      "sourceId": "KY",
      "locator": "§2.4, Example 2.37 (p. 21)",
-     "excerpt": "Therefore, (Aperf, IAperf, MA,perf) is a perfect “log prism”, which we call the “perfection” of (A, I, MA).",
      "match": "Perfection."
     }
    ],
@@ -1699,13 +1663,11 @@
     {
      "sourceId": "KY",
      "locator": "§2.4, Proposition 2.39 (p. 21)",
-     "excerpt": "Sending (A, I, MA) ↦ (A/I, MA)^a induces an equivalence of categories with the category of perfectoid log rings. In particular, any perfect “log prism” (A, I, MA) admits a chart N → A of rank 1",
      "match": "Equivalence."
     },
     {
      "sourceId": "KY",
      "locator": "§2.4, Lemma 2.40 (p. 22)",
-     "excerpt": "Then any map (R, M) → (A/I, MA)^a of pre-log rings (such as ones attached to (R, M) → (A/I, MA)) lifts uniquely to a map (Ainf(R), ker θ, M♭) → (A, I, MA), of pre-log prisms.",
      "match": "Initiality."
     }
    ],
@@ -1740,13 +1702,11 @@
     {
      "sourceId": "KY",
      "locator": "§2.3, Lemma 2.28 (p. 18)",
-     "excerpt": "Then the natural map L̂R/Zp −∼→ L̂R/Zp is an isomorphism. Equivalently, L̂R/R = 0.",
      "match": "Statement (log versus non-log)."
     },
     {
      "sourceId": "KY",
      "locator": "§2.3, Corollary 2.29 (p. 19)",
-     "excerpt": "Let f : R → S be a map of perfectoid pre-log rings, then the p-completed log cotangent complex L̂S/R = 0.",
      "match": "Corollary."
     }
    ],
@@ -1788,19 +1748,16 @@
     {
      "sourceId": "K1",
      "locator": "§4.1, Definition 4.1 (p. 19)",
-     "excerpt": "an object consists of • a log prism (B, IB, MSpf(B)) = (B, IB, MB)^a with integral log structure MSpf(B) and a map of log prisms (A, I, MA)^a → (B, IB, MSpf(B)), • a map of formal schemes f : Spf(B/IB) → X over A/I, and • an exact closed immersion of log formal schemes",
      "match": "Objects."
     },
     {
      "sourceId": "K1",
      "locator": "§4.1, Definition 4.1 (p. 19)",
-     "excerpt": "A morphism (B, IB, MSpf(B)) → (C, IC, MSpf(C)) in ((X, MX)/(A, MA))∆ is an étale cover if B → C is (p, I)-completely étale and faithfully flat and the induced map of log formal schemes (Spf(C), MSpf(C)) → Spf(B), MSpf(B)) is étale and strict",
      "match": "Covers."
     },
     {
      "sourceId": "K1",
      "locator": "§4.1, Remark 4.4 (p. 19)",
-     "excerpt": "If MX is the trivial log structure, our log prismatic site recovers the prismatic site (X/A)∆ of Bhatt-Scholze with étale topology in place of flat topology",
      "match": "Compatibility."
     }
    ],
@@ -1926,13 +1883,11 @@
     {
      "sourceId": "K1",
      "locator": "§4.1, Remark 4.5 (p. 20)",
-     "excerpt": "Write ∆(X,MX)/(A,MA) := Rν∗O∆ ∈ D(Xét, A), ∆̄(X,MX)/(A,MA) := Rν∗Ō∆ ∈ D(Xét, A/I). These are commutative algebra objects in the corresponding derived categories",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§4.2 (p. 20)",
-     "excerpt": "This is a (p, I)-complete commutative algebra object in D(A) equipped with a φ-semilinear map ∆(R,P)/(A,MA) → ∆(R,P)/(A,MA) induced by that of O∆ determined by δ-structures.",
      "match": "Frobenius and completeness."
     }
    ],
@@ -2046,13 +2001,11 @@
     {
      "sourceId": "K1",
      "locator": "§4.1, Remark 4.6 (p. 20)",
-     "excerpt": "We define the absolute log prismatic site (X, MX)∆ as the category of diagrams",
      "match": "Integral variant."
     },
     {
      "sourceId": "KY",
      "locator": "§7.5, Definition 7.34 (p. 80)",
-     "excerpt": "The absolute saturated log prismatic site of (X, MX) is defined as follows: an object is a saturated log prism (A, I, MSpf A) = (A, I, MA)^a with a map (Spf A/I, MA)^a → (X, MX) that admits a saturated chart étale locally, and the topology is a strict flat topology.",
      "match": "Saturated variant."
     }
    ],
@@ -2149,13 +2102,11 @@
     {
      "sourceId": "K1",
      "locator": "§4.2, Construction 4.7 (p. 21)",
-     "excerpt": "Therefore, the object (C^0, IC^0, MC^0)^a in ((R, P)/(A, MA))∆ represents a covering of the final object of the topos Shv(((R, P)/(A, MA))∆). Thus, ∆(R,P)/(A,MA) is computed by the cosimplicial δ-A-algebra C^•.",
      "match": "Main assertion."
     },
     {
      "sourceId": "K1",
      "locator": "§4.2, Remark 4.8 (p. 22)",
-     "excerpt": "The resulting complex C•((R, P)/(A, MA), O∆) is a strictly functorial complex computing ∆(R,P)/(A,MA).",
      "match": "Strict functoriality."
     }
    ],
@@ -2261,7 +2212,6 @@
     {
      "sourceId": "K1",
      "locator": "§4.2, Lemma 4.11 (p. 22)",
-     "excerpt": "Suppose (A, I, MA) → (A′, IA′, MA′) is a map of bounded prelog prisms such that MA′ is integral and A → A′ has finite (p, I)-complete Tor amplitude.",
      "match": "Hypotheses; conclusion is the displayed isomorphism."
     }
    ],
@@ -2297,7 +2247,6 @@
     {
      "sourceId": "K1",
      "locator": "§4.2, Lemma 4.12 (p. 22)",
-     "excerpt": "Then the natural map Δ̄_{(R,P)/(A,M_A)} ⊗̂^L_R S → Δ̄_{(S,P)/(A,M_A)} is an isomorphism.",
      "match": "The overbars in the displayed PDF formula are essential: this is reduced, R-linear log prismatic cohomology."
     }
    ],
@@ -2336,13 +2285,11 @@
     {
      "sourceId": "K1",
      "locator": "§4.3, Proposition 4.13 (p. 23)",
-     "excerpt": "The product of (B′, IB′, MB′)^a and (C, IC, MC)^a in ((R, P)/(A, MA))∆ exists and it is (p, I)-completely faithfully flat over C. In particular, the sheaf represented by (B′, IB′, MB′)^a is a covering of the final object of the topos.",
      "match": "Main statement."
     },
     {
      "sourceId": "K1",
      "locator": "§4.3, Lemma 4.14 (p. 23)",
-     "excerpt": "The Breuil-Kisin log prism (W(k)[[u]], (E(u)), u^N)^a represents a covering of the final object of the category of sheaves on (OK, OK \\ {0})∆.",
      "match": "Absolute statement."
     }
    ],
@@ -2382,19 +2329,16 @@
     {
      "sourceId": "K1",
      "locator": "§5.2 (p. 26–27)",
-     "excerpt": "Taking derived global sections on ((R, P)/(A, MA))∆, we get a map RΓ(Spf(R)ét, L(R,P)/(A,MA)) → ∆̄(R,P)/(A,MA){1}[1].",
      "match": "Construction of η^1."
     },
     {
      "sourceId": "K1",
      "locator": "§5.2, Lemma 5.2 (p. 27)",
-     "excerpt": "For any local section m ∈ M^gp_X(U), the following holds: η^1(d log(m))^2 = 0 and βI(η^1(d log(m))) = 0.",
      "match": "Lemma 5.2."
     },
     {
      "sourceId": "K1",
      "locator": "§5.2 (p. 27)",
-     "excerpt": "we obtain, from the universality of the log de Rham complex, a map of commutative differential graded algebras η∗(X,MX) : Ω∗(X,MX)/(A/I,MA) → H∗(∆̄(X,MX)/(A,MA)){∗}",
      "match": "Extension to η^*."
     }
    ],
@@ -2501,13 +2445,11 @@
     {
      "sourceId": "K1",
      "locator": "§5.3, Lemma 5.7 (p. 29)",
-     "excerpt": "The induced map ∧^i A/I ⊗Z G → H^i(Tot(C•)){i} is an isomorphism of A/I-modules for all i.",
      "match": "Statement."
     },
     {
      "sourceId": "K1",
      "locator": "§5.3 (p. 28)",
-     "excerpt": "Here is our reformulation of the Hodge-Tate comparison theorem in the non-log case",
      "match": "Role."
     }
    ],
@@ -2543,13 +2485,11 @@
     {
      "sourceId": "K1",
      "locator": "§5.4, Proposition 5.8 (p. 29)",
-     "excerpt": "The Hodge-Tate comparison holds for (A/I⟨N⟩, MA ⊕ N).",
      "match": "Statement."
     },
     {
      "sourceId": "K1",
      "locator": "§5.4 (p. 29)",
-     "excerpt": "After inverting X0, this identification is compatible with the Hodge-Tate comparison map in the non-log case, and 1 ⊗ X0 corresponds to dX0/X0.",
      "match": "Key compatibility."
     }
    ],
@@ -2591,13 +2531,11 @@
     {
      "sourceId": "K1",
      "locator": "§5.2, Theorem 5.3 (p. 27)",
-     "excerpt": "The map η∗(X,MX) : Ω∗(X,MX)/(A/I,MA) → H∗(∆̄(X,MX)/(A,MA)){∗} constructed above is an isomorphism of differential graded A/I-algebras. In particular, ∆̄(X,MX)/(A,MA) is a perfect complex.",
      "match": "Theorem."
     },
     {
      "sourceId": "KY",
      "locator": "§1, Theorem 2(1) (p. 2)",
-     "excerpt": "Hodge–Tate comparison ([26]): There exists a canonical isomorphism ηX : Ω•X/(A/I,MA) −∼→ H•(∆̄X/(A,MA)){•} of sheaves of differential graded A/I-algebras.",
      "match": "Restatement with qcqs X."
     }
    ],
@@ -2635,13 +2573,11 @@
     {
      "sourceId": "K1",
      "locator": "§5.2, Corollary 5.5 (p. 27)",
-     "excerpt": "Let (A, I, MA) → (A′, IA′, MA′) be a map of bounded prelog prisms with integral monoids. The formation of ∆(X,MX)/(A,MA) commutes with the completed base change along this map.",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§1, Theorem 2(2) (p. 3)",
-     "excerpt": "Then we have a natural base change isomorphism RΓ∆(X/(A, MA)) ⊗̂L A A′ −∼→ RΓ∆(X′/(A′, MA′)).",
      "match": "Global form."
     }
    ],
@@ -2678,13 +2614,11 @@
     {
      "sourceId": "K1",
      "locator": "§6.1, Definition 6.4 (p. 32)",
-     "excerpt": "We define the (big) δlog-crystalline site ((X, MX)/(A, MA))δ CRYS as the opposite of the category whose object consists of • a log prism (B, (p), MSpf(B)) = (B, (p), MB)^a associated to a bounded prelog prism (B, (p), MB) over (A, (p), MA) with integral log structure, and a p-completed PD ideal",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§6.1, Remark 6.5 (p. 32)",
-     "excerpt": "For a δlog-PD triple (B, J, MB)^a over (A, MA), J admits divided powers as B is assumed to be p-torsionfree.",
      "match": "PD compatibility."
     }
    ],
@@ -2787,19 +2721,16 @@
     {
      "sourceId": "K1",
      "locator": "§6.1, Proposition 6.8 (p. 33)",
-     "excerpt": "If (X, MX) is smooth over (A/I, MA), the natural map induces an isomorphism of E∞-A-algebras on Xét: RuX∗OCRYS −∼→ RuδX∗Oδ CRYS.",
      "match": "Main statement."
     },
     {
      "sourceId": "K1",
      "locator": "§6.1, Remark 6.7 (p. 33)",
-     "excerpt": "Therefore, taking the derived limit, we obtain a canonical isomorphism Rucrys∗ O(X,MX)/(A,MA) ≅ RuX∗OCRYS",
      "match": "Comparison with the small site."
     },
     {
      "sourceId": "K1",
      "locator": "§6.1, Remark 6.9 (p. 34)",
-     "excerpt": "Moreover, the log de Rham complex with coefficients in C computes these cohomology as well [Bei13, 1.8, 1.7 Exercises (i)].",
      "match": "de Rham computation."
     }
    ],
@@ -2836,13 +2767,11 @@
     {
      "sourceId": "K1",
      "locator": "Appendix B, Proposition B.1 (p. 61)",
-     "excerpt": "The map pr•, regarded as an endomorphism of A•, is homotopic to the identity map as a map of cosimplicial A•(1)-modules.",
      "match": "Homotopy."
     },
     {
      "sourceId": "K1",
      "locator": "Appendix B, Proposition B.3 (p. 61)",
-     "excerpt": "Assume that G = Q^gp/M^gp is a free abelian group and Q^(1) → Q is exact. For any cosimplicial A•(1)-module M•, the natural map M• → A• ⊗A•(1) M• gives a quasi-isomorphism on the associated cochain complexes of k-modules.",
      "match": "Quasi-isomorphism."
     }
    ],
@@ -2880,13 +2809,11 @@
     {
      "sourceId": "K1",
      "locator": "§6.2 (p. 34–35)",
-     "excerpt": "This defines the desired functor. It is cocontinuous because ψB identifies the étale covers of B/J and B/p.",
      "match": "Functor and cocontinuity."
     },
     {
      "sourceId": "K1",
      "locator": "§6.2 (p. 35)",
-     "excerpt": "Thus, we obtain a comparison map as in Theorem 6.3.",
      "match": "The comparison map."
     }
    ],
@@ -2989,13 +2916,11 @@
     {
      "sourceId": "K1",
      "locator": "§6, Theorem 6.1 (p. 31)",
-     "excerpt": "We assume that MA → P is of Cartier type and (R, P) admits an exact surjection (R̃, P̃) → (R, P) from a smooth lift (R̃, P̃) over (A/p, MA). Then, there exists a canonical isomorphism",
      "match": "Statement."
     },
     {
      "sourceId": "K1",
      "locator": "§6.2 (p. 36)",
-     "excerpt": "Therefore, the mod p reduction of D• → φ∗C• decomposes into two maps to which we can apply either Proposition B.3 or [BS, Lemma 5.4]",
      "match": "Proof structure."
     }
    ],
@@ -3034,13 +2959,11 @@
     {
      "sourceId": "K1",
      "locator": "§6, Theorem 6.3 (p. 31)",
-     "excerpt": "Let (X, MX) be a smooth log scheme over (A/I, MA) of Cartier type in the sense of [Kat89, 4.8]. There is a canonical isomorphism of E∞-φ∗A-algebras on Xét",
      "match": "Theorem."
     },
     {
      "sourceId": "KY",
      "locator": "§1, Theorem 2(3) (p. 3)",
-     "excerpt": "Suppose I = (p) and further assume that X is of Cartier type over (A/I, MA). Then there is a canonical φ-equivariant isomorphism RΓlogcrys(X/(A, MA)) ≅ RΓ∆(X/(A, MA)) ⊗̂L A,φA A.",
      "match": "Global form."
     }
    ],
@@ -3081,19 +3004,16 @@
     {
      "sourceId": "K1",
      "locator": "§7.1, Definition 7.1 (p. 37)",
-     "excerpt": "A prelog q-PD triple is a triple (D, I, MD), where (D, I) is a q-PD pair and (D, I, MD) is a δlog-triple.",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§7.1, Lemma 7.4 (p. 38)",
-     "excerpt": "There exists a universal map (D2, I2, MD2) → (D3, I3, MD3) to a prelog q-PD triple with an exact surjection MD3 → P",
      "match": "Envelopes."
     },
     {
      "sourceId": "K1",
      "locator": "§7.1, Example 7.2 (p. 37)",
-     "excerpt": "The triple (Ainf(OC), (ξ), O♭C \\ {0}) is a prelog q-PD triple.",
      "match": "Example."
     }
    ],
@@ -3201,13 +3121,11 @@
     {
      "sourceId": "K1",
      "locator": "§7.2, Definition 7.5 (p. 39)",
-     "excerpt": "We define the log q-crystalline site ((X, MX)/(D, MD))q CRYS as the opposite of the following category: an object is a log q-PD triple (E, J, MSpf(E)) associated with a prelog q-PD triple (E, J, ME) over (D, I, MD) and ME being integral",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§7.2, Remark 7.7 (p. 40)",
-     "excerpt": "If q = 1 in D, the log q-crystalline site is exactly the δlog-crystalline site.",
      "match": "Specialisation."
     }
    ],
@@ -3306,7 +3224,6 @@
     {
      "sourceId": "K1",
      "locator": "§7.2, Theorem 7.10 (p. 40)",
-     "excerpt": "The canonical map from Remark 7.7 induces an isomorphism qΩ(X,MX)/(D,MD) ⊗̂L D D/(q − 1) −∼→ RuδX∗Oδ CRYS.",
      "match": "Statement."
     }
    ],
@@ -3342,7 +3259,6 @@
     {
      "sourceId": "K1",
      "locator": "§7.2, Theorem 7.13 (p. 42)",
-     "excerpt": "Assume that the mod p fiber of (X, MX) is of Cartier type over (D/(p, I), MD). There exists a canonical isomorphism ∆(X(1),M(1)X)/(φ∗D,φ∗MD) −∼→ φ∗qΩ(X,MX)/(D,MD) of E∞-φ∗D-algebras on Xét.",
      "match": "Statement."
     }
    ],
@@ -3382,19 +3298,16 @@
     {
      "sourceId": "K1",
      "locator": "§7.3, Construction 7.15 (p. 43)",
-     "excerpt": "The associated (p, [p]q)-completed (cohomological) Koszul complex is the log q-de Rham complex qΩ∗(E,ME)/(D,MD) of (E, ME) relative to (D, MD).",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§7.3, Theorem 7.17 (p. 44)",
-     "excerpt": "Then, there is a canonical isomorphism qΩ(R,P)/(D,MD) ≅ qΩ∗(F,MF)/(D,MD). This isomorphism is functorial on surjections (E, N) → (R, P).",
      "match": "Theorem."
     },
     {
      "sourceId": "K1",
      "locator": "§7, Remark 7.18 (p. 45)",
-     "excerpt": "Moreover, the linearized Frobenius induces an isomorphism Dφ∗qΩ(R,P)/(D,MD) ≅ Lη[p]q qΩ(R,P)/(D,MD)",
      "match": "Frobenius."
     }
    ],
@@ -3506,19 +3419,16 @@
     {
      "sourceId": "K1",
      "locator": "§8, Theorem 8.1 (p. 45)",
-     "excerpt": "Denote by MX its canonical log structure [ČK19, 1.6]. There exists an isomorphism qΩ(X,MX)/(Ainf,O♭C\\{0}) ≅ AΩX in D(Xét, Ainf) compatible with the Frobenius.",
      "match": "Statement."
     },
     {
      "sourceId": "K1",
      "locator": "§8, Remark 8.3 (p. 45)",
-     "excerpt": "As the mod p fiber of a semistable formal scheme is of Cartier type, qΩ(X,MX)/(Ainf,O♭C\\{0}) is isomorphic to the (p, µ)-completed base change of ∆(X,MX)/(Ainf,O♭C\\{0}) along φAinf by Theorem 7.13 and base change.",
      "match": "Reformulation."
     },
     {
      "sourceId": "K1",
      "locator": "§1, Example 1.5 (p. 4)",
-     "excerpt": "there is a canonical isomorphism (φ∗Ainf RΓ∆((X, MX)/(Ainf, O♭C \\ {0})))∧(p,φ(ξ)) ≅ RΓAinf(X)",
      "match": "Global form."
     }
    ],
@@ -3556,19 +3466,16 @@
     {
      "sourceId": "K1",
      "locator": "§8, Theorem 8.5 (p. 49)",
-     "excerpt": "Let X be as in Theorem 8.1. If X is proper over OC, there is a commutative diagram",
      "match": "K1 asserts commutativity, but the printed diagram has incorrect coefficients and an incorrect isomorphism label; see source issue E8.7 and the correcting comparison with ČK19 Proposition 6.8."
     },
     {
      "sourceId": "K1",
      "locator": "§8 (p. 49)",
-     "excerpt": "Fortunately, we have the following analogue of [ČK19, 6.8], which is strong enough to deduce the conjecture Cst in this setting without using [ČK19, 5.4]",
      "match": "Role."
     },
     {
      "sourceId": "CK",
      "locator": "§6.7; Proposition 6.8 and its diagram, pp. 65–66",
-     "excerpt": "For proper X, we now have two ways to identify RΓ(X_ét,AΩ_X) ⊗^L_{A_inf} B_dR with RΓ_ét(X_C^ad,Z_p) ⊗^L_{Z_p} B_dR.",
      "match": "The displayed B_dR^+ diagram has an unlabelled period comparison arrow; only the coefficient-sheaf comparison is labelled an isomorphism. This fixes K1’s intended diagram."
     }
    ],
@@ -3609,13 +3516,11 @@
     {
      "sourceId": "K1",
      "locator": "§1, Example 1.6 (p. 5)",
-     "excerpt": "Thus, we define the Breuil-Kisin cohomology of X by RΓBK(X) := RΓ∆((X, MX)/(W(k)[[u]], N)).",
      "match": "Definition."
     },
     {
      "sourceId": "K1",
      "locator": "§1, Example 1.6 (p. 5)",
-     "excerpt": "If X is proper over OK, it follows from the Hodge-Tate comparison (see below) that RΓBK(X) is a perfect complex, and the base change holds without completion.",
      "match": "Perfectness."
     }
    ],
@@ -3720,19 +3625,16 @@
     {
      "sourceId": "KY",
      "locator": "§3.1, Definition 3.2 (p. 27)",
-     "excerpt": "A pre-log ring A = (A, MA) is quasisyntomic if (1) A is p-complete and has bounded p∞-torsion, and (2) the log cotangent complex LA/Zp ∈ D(A) has p-complete Tor amplitude in [−1, 0]",
      "match": "Quasisyntomic pre-log rings."
     },
     {
      "sourceId": "KY",
      "locator": "§3.1, Definition 3.3 (p. 27)",
-     "excerpt": "A map A → B is quasisyntomic (resp. cover) if (1) A → B is p-completely homologically log flat (resp. faithfully flat), and (2) LB/A ⊗L B B/p has Tor amplitude in [−1, 0].",
      "match": "Maps and covers."
     },
     {
      "sourceId": "KY",
      "locator": "§3.1, Corollary 3.7 (p. 28)",
-     "excerpt": "QSynprelog,op forms a site with the topology given by quasisyntomic covers.",
      "match": "Site."
     }
    ],
@@ -3856,13 +3758,11 @@
     {
      "sourceId": "KY",
      "locator": "§3.2, Definition 3.11 (p. 29)",
-     "excerpt": "A p-complete pre-log ring S = (S, M) is semiperfectoid if (1) There exists a map R → S from a perfectoid ring to S; (2) S/p is semiperfect (meaning that the map Frob : S/p −→ S/p is surjective); (3) the natural map M♭ −→ M/M× is surjective.",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§3.2, Lemma 3.16 (p. 30–31)",
-     "excerpt": "Then S ∈ QRSPerfdprelog if and only if there exists a map R → S from a perfectoid R (equipped with the trivial pre-log structure) such that LS/R ⊗L S S/p ∈ D(S/p) has Tor amplitude concentrated in degree [−1].",
      "match": "Characterisation."
     }
    ],
@@ -3971,13 +3871,11 @@
     {
      "sourceId": "KY",
      "locator": "§3.2, Lemma 3.18 (p. 32)",
-     "excerpt": "then there exists a quasisyntomic cover R → S with S ∈ QRSPerfdprelog. One could choose S = (S, N) such that N is p-divisible.",
      "match": "Part (2)."
     },
     {
      "sourceId": "KY",
      "locator": "§3.2, Corollary 3.20 (p. 32)",
-     "excerpt": "Let C be any presentable ∞-category, then the canonical restriction of sites QRSPerfdprelog,op → QSynprelog,op induces an equivalence of sheaves valued in C",
      "match": "Part (4)."
     }
    ],
@@ -4015,13 +3913,11 @@
     {
      "sourceId": "KY",
      "locator": "§4.1, Definition 4.3 (p. 33)",
-     "excerpt": "The derived log prismatic cohomology is the functor deriving (or animating) the functor above to all simplicial pre-log rings over (A/I, MA).",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§4.2, Definition 4.9 (p. 35)",
-     "excerpt": "We define the derived log prismatic cohomology ∆L(X,MX)/(A,MA) to be the (p, I)-complete étale sheafification of the presheaf ∆pre(X,MX)/(A,MA).",
      "match": "Globalisation."
     }
    ],
@@ -4134,13 +4030,11 @@
     {
      "sourceId": "KY",
      "locator": "§4.1, Proposition 4.5 (p. 34)",
-     "excerpt": "There exists an increasing exhaustive multiplicative filtration Fil• ∆̄(R,P)/(A,MA) −→ ∆̄(R,P)/(A,MA) on ∆̄(R,P)/(A,MA) by (derived) p-complete objects, such that its graded pieces satisfy gri ∆̄(R,P)/(A,MA) ≅ (∧i L(R,P)/(A/I,MA){−i}[−i])∧.",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§4.2, Remark 4.10 (p. 36)",
-     "excerpt": "The (global) derived conjugate filtration has grade pieces",
      "match": "Global form."
     }
    ],
@@ -4180,19 +4074,16 @@
     {
      "sourceId": "KY",
      "locator": "§4.1, Proposition 4.7 (p. 34)",
-     "excerpt": "(2) The derived log prismatic cohomology on pre-log rings is invariant upon taking the associated log rings.",
      "match": "Part (2)."
     },
     {
      "sourceId": "KY",
      "locator": "§4.1, Proposition 4.7(3) (p. 34)",
-     "excerpt": "There is a natural isomorphism ∆(R,P)/(A,MA) ⊗̂L A A′ ≅ ∆(R′,P′)/(A′,MA′).",
      "match": "Part (3)."
     },
     {
      "sourceId": "KY",
      "locator": "§6, Remark 6.2 (p. 59)",
-     "excerpt": "under the (pseudo-)perfectoid assumption, we have a natural isomorphism ∆(R,P)/A −∼→ ∆(R,P)/(A,MA) by the Hodge–Tate comparison and Lemma 2.28.",
      "match": "Part (5)."
     }
    ],
@@ -4229,13 +4120,11 @@
     {
      "sourceId": "KY",
      "locator": "§4.2, Proposition 4.12 (p. 36)",
-     "excerpt": "For any affine object U = Spf(R) of Xét, the natural map ∆L(X,MX)/(A,MA)(U) → RΓ(((U, MU)/(A, MA))∆, O), where MU is the restriction of MX, is an isomorphism in D(A).",
      "match": "Part (1)."
     },
     {
      "sourceId": "KY",
      "locator": "§4.1, Corollary 4.6 (p. 34)",
-     "excerpt": "Assume that MA → P is a smooth chart of the associated log p-adic formal affine scheme (X, MX) over (A/I, MA) with X = Spf R. There is a natural isomorphism ∆L(R,P)/(A,MA) → RΓ∆((X, MX)/(A, MA)) compatible with the Hodge–Tate comparison maps.",
      "match": "Smooth affine case."
     }
    ],
@@ -4271,7 +4160,6 @@
     {
      "sourceId": "KY",
      "locator": "§4.1, Proposition 4.8 (p. 35)",
-     "excerpt": "On the log quasisyntomic site qSyn(A/I,MA), the presheaf (R, P) → ∆(R,P)/(A,MA) is a sheaf. If (A/I, MA) is a perfectoid pre-log ring, the same holds true on QSyn(A/I,MA).",
      "match": "Statement."
     }
    ],
@@ -4312,19 +4200,16 @@
     {
      "sourceId": "KY",
      "locator": "§4.3, Proposition 4.14 (p. 38)",
-     "excerpt": "there is a unique map of pre-log prisms (∆init S/R, (ξ), Minit S/R) → (A, I, MA) compatible with exact surjections above.",
      "match": "Universality."
     },
     {
      "sourceId": "KY",
      "locator": "§4.3, Proposition 4.17 (p. 39)",
-     "excerpt": "Assume that S = (S, N) is a quasiregular semiperfectoid integral pre-log ring. Then ∆S/R is discrete and naturally has the structure of a δ-ring",
      "match": "Part (2)."
     },
     {
      "sourceId": "KY",
      "locator": "§4.3, Corollary 4.21 (p. 41)",
-     "excerpt": "Then, S p-sat is semiperfectoid and the natural map ∆S/R,perf → ∆S p-sat/R,perf is an isomorphism.",
      "match": "Part (4)."
     }
    ],
@@ -4362,19 +4247,16 @@
     {
      "sourceId": "KY",
      "locator": "§5.4, Definition 5.13 (p. 49)",
-     "excerpt": "For (R, P) = (A/I⟨NS⟩, MA ⊕ NS), we define the Nygaard filtration FiliN ∆(1)(R,P)/(A,MA) −→ ∆(1)(R,P)/(A,MA) = ∆(R,P)/(A,MA) ⊗̂L A,φ A to be the totalization of",
      "match": "Definition on log-free algebras."
     },
     {
      "sourceId": "KY",
      "locator": "§5.5 (p. 50)",
-     "excerpt": "Deriving the above filtration, we obtain the derived Nygaard filtration Fil•N ∆L,(1)(R,P)/(A,MA) on any (simplicial) pre-log ring (R, P) over (A/I, MA)",
      "match": "Derived filtration."
     },
     {
      "sourceId": "KY",
      "locator": "§1 (p. 5)",
-     "excerpt": "It turns out that the condition φ(−) ∈ I^i ∆(S,M)/(A,MA) does not pick out the correct log Nygaard filtration on it.",
      "match": "Why the naive definition fails."
     }
    ],
@@ -4500,13 +4382,11 @@
     {
      "sourceId": "KY",
      "locator": "§5, Theorem 5.1 (p. 42)",
-     "excerpt": "There is a decreasing multiplicative filtration FilN by (p, I)-complete objects on ∆(1)(R,P)/(A,MA) equipped with an isomorphism griN ∆(1)(R,P)/(A,MA) ≅ Fili ∆̄(R,P)/(A,MA){i}.",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§5.6, Corollary 5.27 (p. 54)",
-     "excerpt": "If in addition MA is integral and (X, MX) is smooth over (A/I, MA), then we have a Nygaard filtration Fil•N ∆(1)(X,MX)/(A,MA) on ∆(1)(X,MX)/(A,MA), which satisfies gr•N ∆(1)(X,MX)/(A,MA) −∼→ τ≤• ∆̄(X,MX)/(A,MA){•}.",
      "match": "Smooth global form."
     }
    ],
@@ -4544,13 +4424,11 @@
     {
      "sourceId": "KY",
      "locator": "§5.5, Proposition 5.24 (p. 52)",
-     "excerpt": "There is a fiber sequence I ⊗L A Fil•−1 N ∆L,(1)(R,P)/(A,MA) −→ Fil•N ∆L,(1)(R,P)/(A,MA) −→ Fil•H LΩ̂(R,P)/(A/I,MA) that is functorial in (R, P).",
      "match": "Fibre sequence."
     },
     {
      "sourceId": "KY",
      "locator": "§5.6, Corollary 5.35 (p. 58)",
-     "excerpt": "RΓ(Xét, ∆(1)(X,MX)/(A,MA)) is complete with respect to the Nygaard filtration",
      "match": "Completeness."
     }
    ],
@@ -4588,13 +4466,11 @@
     {
      "sourceId": "KY",
      "locator": "§5.5, Corollary 5.17 (p. 51)",
-     "excerpt": "If moreover MA → P is of Cartier type, then the map ∆L,(1)(R,P)/(A,MA) → LηI ∆L(R,P)/(A,MA) is an isomorphism identifying the derived Nygaard filtration with the truncation of the I-adic filtration of ∆L(R,P)/(A,MA) with respect to the Beilinson t-structure.",
      "match": "Local."
     },
     {
      "sourceId": "KY",
      "locator": "§5.6, Proposition 5.29 (p. 55)",
-     "excerpt": "Let (X, MX) be a smooth log p-adic formal scheme over (A/I, MA) with the mod p fiber of Cartier type, then the Frobenius induces a canonical isomorphism of étale sheaves",
      "match": "Global."
     }
    ],
@@ -4631,13 +4507,11 @@
     {
      "sourceId": "KY",
      "locator": "§5.5, Corollary 5.18 (p. 51)",
-     "excerpt": "Assume P → R is a smooth chart of Cartier type over (A/I, MA). There is a canonical isomorphism ∆L(R,P)/(A,MA) ⊗̂L A,φ A/I ≅ Ω̂•(R,P)/(A/I,MA) of E∞-algebras in D(A/I).",
      "match": "Local."
     },
     {
      "sourceId": "KY",
      "locator": "§1, Theorem 2(4) (p. 3)",
-     "excerpt": "de Rham comparison: Assume that the mod p fiber of X is of Cartier type over (A/(p, I), MA). There is a canonical isomorphism RΓlogdR(X/(A/I, MA)) ≅ RΓ∆(X/(A, MA)) ⊗̂L A,φA A/I of E∞-A-algebras.",
      "match": "Global."
     }
    ],
@@ -4671,13 +4545,11 @@
     {
      "sourceId": "KY",
      "locator": "§5.6, Corollary 5.31 (p. 56–57)",
-     "excerpt": "Then for each i ≥ 0, we have natural maps Vi : τ≤i ∆(X,MX)/(A,MA) ⊗L A I^i −→ τ≤i ∆(1)(X,MX)/(A,MA)",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§1, Theorem 2(6) (p. 3)",
-     "excerpt": "Assume that the mod p fiber of X is of Cartier type over (A/(p, I), MA), then Frobenius is an isogeny: the linearized Frobenius map φ : RΓ∆(X/(A, MA)) ⊗̂L A,φA A −→ RΓ∆(X/(A, MA)) becomes an isomorphism upon inverting I.",
      "match": "Global form."
     }
    ],
@@ -4712,19 +4584,16 @@
     {
      "sourceId": "KatoII",
      "locator": "§2, Definition 2.1 (p. 6)",
-     "excerpt": "A homomorphism of fs monoids h : P → Q is said to be of Kummer type if the following condition is satisfied: It is injective, and for any a ∈ Q, there exists n ≥ 1 such that a^n ∈ h(P).",
      "match": "Kummer type."
     },
     {
      "sourceId": "KatoII",
      "locator": "§2, Definition 2.3 (p. 7)",
-     "excerpt": "we say a family of morphisms {fi : Ui → T}i of fs log schemes is a covering of T for the log flat (resp. log étale) topology, if the following conditions (i) (resp. (i)′) and (ii) are satisfied.",
      "match": "Coverings (log étale variant (i)′: log étale and of Kummer type)."
     },
     {
      "sourceId": "KY",
      "locator": "§6, after Theorem 6.1 (p. 59)",
-     "excerpt": "For a general saturated monoid P, one may simply define RΓkét(Spec(R[1/p], P)^a, Z/p^n) := lim→ RΓkét(Spec(R[1/p], Pi)^a, Z/p^n), where Pi runs through fine saturated submonoids of P and the colimit is filtered.",
      "match": "Saturated extension."
     }
    ],
@@ -4835,7 +4704,6 @@
     {
      "sourceId": "KY",
      "locator": "§6, Lemma 6.5 (p. 60)",
-     "excerpt": "Then there is a natural isomorphism RΓkét(X, Λ) −∼→ RΓkét(X^ad, Λ).",
      "match": "Statement."
     }
    ],
@@ -4875,13 +4743,11 @@
     {
      "sourceId": "KY",
      "locator": "§6, Theorem 6.1 (p. 59)",
-     "excerpt": "Let (A, I = (d)) be a perfect prism where I ≠ (p). Let (R, P) be a p-adically complete pre-log A/I-algebra where P is a saturated monoid and R has bounded p∞-torsion. For each n ≥ 1, there is a canonical isomorphism",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§1 (p. 6)",
-     "excerpt": "The key observation is that the Frobenius fixed points of the log prismatic cohomology in (1.3) does not change when we replace (R^i∞, P^i∞) by its (p-)saturation",
      "match": "Key step."
     }
    ],
@@ -4920,13 +4786,11 @@
     {
      "sourceId": "KY",
      "locator": "§7.2, Definition 7.3 (p. 72)",
-     "excerpt": "A log (locally spatial) diamond over Qp is a (locally spatial) diamond Y with a map Y → Spd Qp and a log structure MY → ÔY on the quasi-pro-étale site.",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§7.2, Corollary 7.9 (p. 73)",
-     "excerpt": "Fiber products exist in the category of saturated quasi-coherent (resp. fs) log (locally spatial) diamonds over Qp.",
      "match": "Fibre products."
     }
    ],
@@ -5033,13 +4897,11 @@
     {
      "sourceId": "KY",
      "locator": "§7.2, Example 7.6 (p. 72)",
-     "excerpt": "Similarly, if (X, MX) is an fs log p-adic formal scheme over Zp, then the diamond generic fiber X♦η over Spd Qp has a natural fs log structure induced by MX and gives rise to a log diamond (X, MX)♦η.",
      "match": "Construction."
     },
     {
      "sourceId": "KY",
      "locator": "§1, footnote 5 (p. 3)",
-     "excerpt": "Strictly speaking, the generic fiber Xη may not exist as a log adic space since the underlying pre-adic space might not be sheafy. Instead, the generic fiber Xη is viewed as a log diamond over Spd Qp.",
      "match": "Why diamonds."
     }
    ],
@@ -5136,13 +4998,11 @@
     {
      "sourceId": "KY",
      "locator": "§7.3, Definition 7.12 (p. 74)",
-     "excerpt": "A strictly totally disconnected log perfectoid space is a strictly totally disconnected perfectoid space X with a saturated quasi-coherent log structure MX such that MX/M×X is uniquely divisible.",
      "match": "Definition."
     },
     {
      "sourceId": "KY",
      "locator": "§7.3, Lemma 7.11 (p. 73)",
-     "excerpt": "For any strictly totally disconnected perfectoid space X, the vanishing of cohomology H^1(X, Ô×X) = 0 holds for the pro-étale topology.",
      "match": "Key lemma."
     }
    ],
@@ -5242,13 +5102,11 @@
     {
      "sourceId": "KY",
      "locator": "§7.3, Definition 7.14 (p. 74)",
-     "excerpt": "We say that f is quasi-pro-Kummer-étale (resp. Kummer-étale, resp. finite Kummer-étale) if for any map (X, MX) → (Y, MY) from a strictly totally disconnected log perfectoid space (X, MX), the saturated fiber product Y′ ×satY X is a perfectoid space and the map",
      "match": "Definition of maps."
     },
     {
      "sourceId": "KY",
      "locator": "§7.3, Definition 7.18 (p. 75)",
-     "excerpt": "The quasi-pro-Kummer-étale site (Y, MY)qpkét consists of quasi-pro-Kummer-étale maps (Y′, MY′) → (Y, MY), and coverings are jointly surjective maps",
      "match": "Site."
     }
    ],
@@ -5363,13 +5221,11 @@
     {
      "sourceId": "KY",
      "locator": "§7.3, Proposition 7.22 (p. 75)",
-     "excerpt": "For any integer n ≥ 1 and a saturated submonoid Q ⊂ P^{1/n} containing P, the following natural map (Spd(Qp⟨Q⟩, Zp⟨Q⟩), Q) → (Spd(Qp⟨P⟩, Zp⟨P⟩), P) induces a surjective finite Kummer-étale map of log diamonds.",
      "match": "The preprint states general fs P, but its proof misses torsion units. This node retains the justified torsion-free P^gp power-tower range, with general-fs site statements chart-local; see E8.9."
     },
     {
      "sourceId": "KY",
      "locator": "§7.3, Corollary 7.23 (p. 76)",
-     "excerpt": "taking the associated log diamond induces a morphism of sites (Spd(R, R+), P)^a qpkét → (Spec R, P)^a két.",
      "match": "Part (3)."
     }
    ],
@@ -5407,19 +5263,16 @@
     {
      "sourceId": "KY",
      "locator": "§7.3, Theorem 7.25 (p. 77)",
-     "excerpt": "For any fs monoid P with a map P → R, the comparison map induces an isomorphism RΓkét((Spec R[1/p], P)^a, Λ) ≅ RΓqpkét((Spd(R[1/p], R+), P)^a, Λ).",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§7.3, Corollary 7.27 (p. 77)",
-     "excerpt": "Then, for each n ≥ 1, there is a canonical isomorphism RΓ((Spd(R[1/p], R+), P)^a qpkét, Z/p^n) ≅ (∆(R,P)/A[1/d]/p^n)^φ=1",
      "match": "Reformulation."
     },
     {
      "sourceId": "KY",
      "locator": "§7.3, proof of Theorem 7.25 (p. 77)",
-     "excerpt": "Then, the claim follows from the arc descent [9, Corollary 6.17].",
      "match": "Imported input (recorded as a gap)."
     }
    ],
@@ -5462,19 +5315,16 @@
     {
      "sourceId": "KY",
      "locator": "§7.4, Theorem 7.30 (p. 78)",
-     "excerpt": "In the setup above, there are functorial isomorphisms RΓqpkét((X, MX)♦η, Z/p^mZ) ≅ (RΓ∆((X, MX)/(A, MA)))[1/d]/p^m)^φ=1 ≅ (RΓ∆((X0, MX0)/(A, M0)))[1/d]/p^m)^φ=1.",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§7.4, Corollary 7.31 (p. 79)",
-     "excerpt": "is a perfect complex of Zp-modules and there is an isomorphism RΓqpkét((X, MX)♦η, Zp) ⊗L Zp W(C♭) ≅ RΓ∆((X, MX)/(A, MA)) ⊗L Ainf W(C♭).",
      "match": "Proper case over O_C."
     },
     {
      "sourceId": "KY",
      "locator": "§1, Theorem 2(5) (p. 3)",
-     "excerpt": "Suppose that the associated log prism (A, I, MA)^a is a perfect log prism. Further assume that X → Spf(A/I, MA)^a is the base change of an fs log p-adic formal scheme X0 −→ Spf(A/I, M0)^a that is smooth over (A/I, M0) whose mod p fiber is of Cartier type",
      "match": "Hypotheses."
     }
    ],
@@ -5511,7 +5361,6 @@
     {
      "sourceId": "KY",
      "locator": "§7.5, Definition 7.32 (p. 80)",
-     "excerpt": "A sheaf F of pr^{−1}Λ-modules in (X, MX)qpkét is constant if F is isomorphic to pr^{−1}Λ^r, and F is locally constant or a Λ-local system if it is constant quasi-pro-Kummer-étale locally on (X, MX)qpkét.",
      "match": "Definition."
     }
    ],
@@ -5608,7 +5457,6 @@
     {
      "sourceId": "KY",
      "locator": "§7.5, Definition 7.35 (p. 81)",
-     "excerpt": "A Laurent F-crystal is a crystal of vector bundles E on ((X, MX)∆, O∆[1/I]∧p) equipped with isomorphisms φE : φ∗E ≅ E.",
      "match": "Definition."
     }
    ],
@@ -5715,19 +5563,16 @@
     {
      "sourceId": "KY",
      "locator": "§7.5, Theorem 7.36 (p. 81)",
-     "excerpt": "Let (X, MX) be a bounded fs log p-adic formal scheme. There is a natural equivalence Vect((X, MX)∆, O∆[1/I]∧p)^φ=1 ≃ LocZp((X, MX)♦η).",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§7.5, Theorem 7.37 (p. 82)",
-     "excerpt": "There is a natural equivalence Dperf((X, MX)∆, O∆[1/I]∧p)^φ=1 ≃ D(b)((X, MX)♦η, Zp).",
      "match": "Derived version."
     },
     {
      "sourceId": "KYcorr",
      "locator": "Publisher/Keio abstract, October 2026",
-     "excerpt": "we correct the statements of Theorem 7.35 and Theorem 7.36",
      "match": "Confirms a published correction exists; insufficient to verify the repaired equivalences. No corrected theorem is inferred from the abstract."
     }
    ],
@@ -5763,7 +5608,6 @@
     {
      "sourceId": "KY",
      "locator": "§7.5, Proposition 7.38 (p. 82)",
-     "excerpt": "If f is proper, Rf∗O∆ is an F-crystal of perfect complexes, and there is a natural isomorphism, (Rf∗O∆)ét ≅ Rfη,∗Zp",
      "match": "Statement."
     }
    ],
@@ -5800,13 +5644,11 @@
     {
      "sourceId": "KY",
      "locator": "§8, Proposition 8.3 (p. 86)",
-     "excerpt": "For every i, H^i∆ ⊗Ainf Ainf[1/φ^−1(µ)] ≅ H^i qpkét((X, MX)♦η, Zp) ⊗Zp Ainf[1/φ^−1(µ)].",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§8.1 (p. 86)",
-     "excerpt": "To prove Proposition 8.3, we will construct suitable comparison maps using the Riemann–Hilbert correspondence in characteristic p of the form of Bhatt–Lurie [6].",
      "match": "Imported input (recorded as a gap)."
     }
    ],
@@ -5843,13 +5685,11 @@
     {
      "sourceId": "KY",
      "locator": "§8.2, Proposition 8.8 (p. 89)",
-     "excerpt": "There is a Frobenius equivariant isomorphism φ∗RΓ∆((X0, MX0)/(Ainf, M0)) ⊗L Ainf Acrys ≅ RΓcrys((X0, MX0)OC/p/(Acrys, Mcrys)), and the Frobenius becomes an isomorphism after inverting p",
      "match": "Part (1)."
     },
     {
      "sourceId": "KY",
      "locator": "§8.2, Proposition 8.9 (p. 89)",
-     "excerpt": "Fix a section k → OC/p. There is an isomorphism RΓcrys((Y, MY)/(W(k), N)) ⊗L W(k) Acrys[1/p] ≅ RΓcrys((X0, MX0)OC/p/(Acrys, Mcrys))[1/p].",
      "match": "Part (2)."
     }
    ],
@@ -5885,13 +5725,11 @@
     {
      "sourceId": "KY",
      "locator": "§8, Theorem 8.2 (p. 85)",
-     "excerpt": "Let (X, MX) be as above, then φ∗H^i∆ = H^i∆ ⊗Ainf,φ Ainf with its Frobenius φ is a Breuil–Kisin–Fargues-module.",
      "match": "Statement."
     },
     {
      "sourceId": "KY",
      "locator": "§8, Definition 8.1 (p. 85)",
-     "excerpt": "A Breuil–Kisin–Fargues module is a finitely presented Ainf-module N equipped with a φ-linear map φ = φN : N → N, such that N[1/p] is a free Ainf[1/p]-module and that φ induces an isomorphism",
      "match": "Definition of BKF modules (imported from AI.2)."
     }
    ],
@@ -5933,13 +5771,11 @@
     {
      "sourceId": "K1",
      "locator": "Appendix A.1, Example (2) (p. 50)",
-     "excerpt": "Now consider only those (Y, MY) with reduced special fibers (equivalently, the special fiber is of Cartier type [Tsu19]).",
      "match": "Cartier type of semistable models."
     },
     {
      "sourceId": "K1",
      "locator": "§8, Theorem 8.1 (p. 45)",
-     "excerpt": "Let X be a p-adic formal scheme over OC that is, étale locally, étale over OC⟨t0, . . . , tr, t±1r+1, . . . , t±1d⟩/(t0 · · · tr − π) for some non-unit π ∈ OC.",
      "match": "The semistable chart over O_C."
     }
    ],

@@ -195,19 +195,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, Prop. 1.3(1), printed p. 121",
-          "excerpt": "There exists a unique element c6E of 0(E \\ CE) satisfying the following conditions (i) (ii). (i) c6E has the divisor cz(0) - CE on E, where (0) denotes the zero section of E regarded as a Cartier divisor on E and CE = Ker(c : E -> E) is also regarded as a Cartier divisor on E. (n",
           "match": "The OCR renders c-theta_E as 'c6E'/'ceE' and c^2*(0) as 'cz(0)'; the sentence gives exactly the uniqueness statement, the divisor condition as Cartier divisors, and the norm-invariance condition quoted in the node statement."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.10 (proof of Prop. 1.3(1)), printed p. 124",
-          "excerpt": "For an integer a which is prime to c, we have g = Na(g) = Na(uf) = ua f (since a : E -> E is of degree a2) and hence ua ~x = 1. By taking a = 2 (resp. a = 3), we have u3 = 1 (resp. u8 = 1). Hence u = 1.",
           "match": "This is the uniqueness step verbatim (with 'ua' for u^{a^2} and 'ua ~x' for u^{a^2-1}); it justifies the first proofStep and the acceptance item about c being prime to 6."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.10 (existence), printed p. 124",
-          "excerpt": "For this, by \"Abel's theorem\" it is sufficient to prove that the image of c2(0) - CE under the isomorpism of Abel Pic(E')deg_0 -> E(S) is zero.",
           "match": "Confirms that the existence proof runs through Abel's theorem and the degree-0 class, as recorded in the second proofStep."
         }
       ],
@@ -315,25 +312,21 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.4, printed p. 122",
-          "excerpt": "In 1.3, consider the case where E is the universal elliptic curve over Y (N), N > 3. We define c9a,ss- Take N > 1 such that Na = Nss = 0 ... Here i_* R(C0E) is defined since the image of ae1 + fre2 does not intersect with the divisor CE by the assumptions that c is prime to the o",
           "match": "Gives the definition of the Siegel unit as the pullback of c-theta_E along a*e_1 + b*e_2 and the exact reason the pullback is defined, as recorded in the hypotheses and the first proofStep."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.4, printed p. 122",
-          "excerpt": "By taking c such that (c, 6) = 1, c = 1 mod N and let 9a,ss = cya,ss (c2 - I )^{-1} in O(Y(N))^x tensor Q. Then it is seen from 1.3 (2) that #a # is independent of the choice of such c",
           "match": "Confirms the rationalisation, the exact congruence condition c = 1 mod N, and that independence is deduced from Prop. 1.3(2)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.1, printed p. 121",
-          "excerpt": "Y(N) is a smooth irreducible affme curve. The total constant field of Y(N) (the field of all algebraic numbers in the affine ring 0(Y(N)) is not Q, but is generated over O bv a primitive N-th root of 1.",
           "match": "Supports the hypothesis that the base is a smooth affine curve over Q whose constant field is Q(zeta_N); this matters for the Hochschild-Serre step used in the cohomology construction in Sec. 8.4."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.9, printed p. 124 (read from a page rendering)",
-          "excerpt": "From 1.3 (3), we can deduce that the pull back of g_{a/N,b/N} on H for a, b in Z, 0 <= a < N, (a mod N, b mod N) not= (0,0) is equal to q^w . prod_{n >= 0}(1 - q^n q^{a/N} zeta_N^b) . prod_{n > 0}(1 - q^n q^{-a/N} zeta_N^{-b}) where w = 1/12 - a/2N + (1/2)(a/N^2). Here q^alpha fo",
           "match": "Faithful transcription of the printed erroneous exponent; apply the independently confirmed correction E1. This is a misprint, not an unresolved ambiguity."
         }
       ],
@@ -435,19 +428,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, Lemma 1.7(1)(2), printed p. 123",
-          "excerpt": "(2) (Distribution property.) Let (a,ss) in (Q/Z)\\{(0,0)}, and let a be a non-zero integer. Then c9a,ss = prod c9ot'd' in U 0(Y(N))x ... where c is any integer which is prime to a and to the orders of a,ss, and a' (resp. ss') ranges over all elements of Q/Z such that aa' = a (resp",
           "match": "Gives the exact index set of the distribution product and the exact coprimality hypothesis on c, both recorded in the statement and hypotheses."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, after Lemma 1.7, printed p. 123",
-          "excerpt": "1.7 (1) is proved easily. 1.7 (2) is deduced from Na(ceE) = c0E.",
           "match": "States the proof route: (2) comes from the norm-invariance property (ii) of c-theta_E, as recorded in the second proofStep."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.6, printed p. 123",
-          "excerpt": "The induced action by a on the total constant field sends a primitive N-th root a of 1 to adet^)",
           "match": "Confirms the determinant twist on the constant field recorded in the statement."
         }
       ],
@@ -487,13 +477,11 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, Lemma 2.12, printed p. 131",
-          "excerpt": "Let faOEss) in (Q/Z)2 \\ {(0,0)}. Let A >= 1, and let c be an integer which is prime to 6A and to the orders of alpha, beta. Then we have phi*_A (c9a,ss) = prod_{ss'} c9a,ss' (i.e. cga,ss (Atau) = prod c9a,ss'(tau) as functions on the upper half plane), where ss' ranges over all e",
           "match": "Gives the exact hypotheses (c prime to 6A and to the orders) and the exact one-sided index set, as recorded in the statement."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, after Lemma 2.12, printed p. 131",
-          "excerpt": "This is proved by using the analytic presentation 1.3 (3) of Siegel units.",
           "match": "Records that the proof route is the q-product of Prop. 1.3(3), as in the first proofStep."
         }
       ],
@@ -538,25 +526,21 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.2, printed p. 126",
-          "excerpt": "For integers c, d such that (c, 6M) = 1 and (d,6N) = 1, we define elements c,dZM,N, which we call \"zeta elements\" by c,dZM,N = {c g1/M,0, d g0,1/N} in K2(Y(M,N)). Note c g1/M,0 in O(Y(M,1))x and dyo,l/N in O(Y(1,N))x by 1.7 (1).",
           "match": "Gives the definition of the Beilinson element as a Steinberg symbol, the exact coprimality hypotheses on c and d, and the observation (via Lemma 1.7(1)) that each factor is already defined at a smaller level."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.1, printed pp. 125-126",
-          "excerpt": "If M + N >= 5, the Q-scheme Y(M,N) represents the functor ... where E is an elliptic curve over S and e1 and e2 are sections of E over S such that Me1 = Ne2 = 0 and Z/M x Z/N -> E; (a,b) -> ae1 + be2 is injective.",
           "match": "Fixes the moduli interpretation and the exact M + N >= 5 hypothesis recorded in the statement and hypotheses."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.1, printed p. 126",
-          "excerpt": "In the rest of this section, except in 2.8, we always assume M , N >= 2, M + N >= 5.",
           "match": "Confirms that the standing hypotheses of Sec. 2 are M,N >= 2 and M+N >= 5."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.1, printed p. 125 (read from a page rendering)",
-          "excerpt": "G = {(a b ; c d) in GL2(Z/L) ; a = 1 mod M, b = 0 mod M, c = 0 mod N, d = 1 mod N}. Then Y(M,N) is independent of the choice of L. We have Y(N,N) = Y(N) if N >= 3. Let X(M,N) be the smooth compactification of Y(M,N).",
           "match": "Gives the explicit congruence subgroup defining Y(M,N), which the node had paraphrased loosely."
         }
       ],
@@ -657,19 +641,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, Prop. 2.3, printed p. 126",
-          "excerpt": "Let M', N' >= 2, and assume M | M', N | N'. Assume further that prime(M) = prime(M'), prime(N) = prime(N'), where for an integer a >= 1, prime(a) denotes the set of all prime divisors of a. Then, the norm homomorphism K2(Y(M',N')) -> K2(Y(M,N)) sends c,dZM',N' to c,dZM,N",
           "match": "Gives the exact hypothesis prime(M) = prime(M') and the exact conclusion, as recorded in the statement."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.11, printed p. 131",
-          "excerpt": "In general, if f : U -> V is a morphism of schemes which is finite and locally free, and if u in O(U)x and v in O(V)x, the norm map f* : K2(U) -> K2(V) satisfies the projection formula ... Hence, it is enough to prove the case M' = M and the case N' = N.",
           "match": "Confirms the projection formula and the reduction to the two one-sided cases, as in the first proofStep."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.11, printed p. 131",
-          "excerpt": "For each (x,y) in (Z/a)2, fix an element Sx,y of GL2(Z/L) of the form (1+Mu, Mv; 0, 1) such that u = x mod a and v = y mod a. (This is possible because prime(M') = prime(M).) Then sx,y for (x,y) in (Z/a)2 form a system of representatives of H\\G.",
           "match": "This is the exact point at which the hypothesis prime(M') = prime(M) is used, as recorded in the third proofStep."
         }
       ],
@@ -718,19 +699,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, Prop. 2.4, printed p. 126 (transcribed from a page rendering)",
-          "excerpt": "Let ell be a prime number which does not divide M. Let c, d be integers such that (c, 6M ell) = 1 and (d, 6N ell) = 1. Then the norm homomorphism K2(Y(M ell, N ell)) -> K2(Y(M,N)) sends c,d z_{M ell, N ell} to (1 - T'(ell)( 1/ell 0 ; 0 1 )^* + ( 1/ell 0 ; 0 1/ell )^* . ell) . c,d",
           "match": "Gives the two branches with their exact operators, including the factor ell in the quadratic term that the text layer drops, and the exact coprimality hypotheses. Transcribed in review from a rendering of p. 126. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.5, printed p. 127",
-          "excerpt": "This function ZM,N(S) has a presentation as an Euler product whose Euler factor at a prime number ell is 1 - T'(ell) ( 1/ell 0 ; 0 1 )* ell^{-s} + ( 1/ell 0 ; 0 1/ell )* ell^{1-2s} if (ell,MN) = 1, 1 - T'(ell) ( 1/ell 0 ; 0 1 )* ell^{-s} if (ell, M) = 1 and ell | N, 1 if ell | M.",
           "match": "Gives the three-case Euler factor of the operator-valued zeta function; the node identifies the norm relation of 2.4 with this Euler factor, and the three cases match 2.4's two branches plus the trivial case ell | M."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.13, printed pp. 131-132",
-          "excerpt": "The morphism Y(M ell, N ell) -> Y(M, N) factors as Y(M ell, N ell) -> Y(M, N ell) -> Y(M,N(ell)) -> Y(M,N). Let G0, G1, G2, G3 be the subgroups of GL2(Z/L ell) corresponding to Y(M ell, N ell), Y(M, N ell), Y(M,N(ell)), Y(M,N), respectively. (So, G0 in G1 in G2 in G3.)",
           "match": "Confirms the three-step factorisation recorded in the proofSteps."
         }
       ],
@@ -781,19 +759,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.4, printed pp. 182-183",
-          "excerpt": "Define ChM,N(k,r,r) to be the composite map lim K2(Y(Mp^n,Np^n)) -> lim H2(Y(Mp^n,Np^n),(Z/p^n)(2)) -> ... where: The first arrow is the Chern character map. (For a scheme X on which p is invertible and for f, g in O(X)x, the Chern character map K2(X) -> H2(X, (Z/p^n)(2)) sends {",
           "match": "Gives the five-step construction, the explicit moment monomial, and the Kummer/cup-product description of the Chern character, as recorded in the statement and proofSteps. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.4, printed p. 183",
-          "excerpt": "The last arrow is defined by the spectral sequence E2^{a,b} = Ha(Q, Hb(Y(M, N) tensor Qbar, )) -> H^{a+b}(Y(M,N), ) and by the fact Hb(Y(M, N) tensor Qbar, ) = 0 for b >= 2. (The last fact is because Y(M, N) tensor Qbar is an affine curve over an algebraically closed field.)",
           "match": "Confirms the Hochschild-Serre step and the exact reason for the degree vanishing, recorded as a hypothesis."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.4, printed p. 182",
-          "excerpt": "Poincaré duality gives (8.4.1) T_pE=H_p(1), inducing (8.4.2) Sym^(k−2)(H_p)=Sym^(k−2)(T_pE)(2−k).",
           "match": "Mathematical transcription from the page image. Equivalently Sym^(k−2)(T_pE)=Sym^(k−2)(H_p)(k−2), so the output twist is 2−r+(k−2)=k−r."
         }
       ],
@@ -894,7 +869,6 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Lemma 8.8, printed p. 185",
-          "excerpt": "(1) T'(n) o ChM,N(k, r, r') = n^{r-1} ChM,N(k,r,r') o T'(n) for any integer n which is prime to Mp (2) <a,b>* o ChM,N(k,r, r') = a^{r'-1} b^{k-r'-1} (ab)^{-r} ChM,N(k,r,r') o <a,b>* for any integers a, b such that (a, Mp) = 1 and (b, Np) = 1. This lemma is proved easily.",
           "match": "Gives both intertwining relations with their exact scalars and coprimality hypotheses, and records that Kato treats the proof as immediate from the construction."
         }
       ],
@@ -935,19 +909,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Lemma 8.5, printed p. 183",
-          "excerpt": "(1) For any set S of finite places of K containing all places lying over p, the canonical map H1(OK[S^{-1}],T) -> H1(K, T ) is injective. (2) The image of lim_n H1(K(zeta_{p^n}), T ) -> H1(K, T ) is contained in the image of H1(OK[1/p],T) -> H1(K, T ).",
           "match": "Gives both parts verbatim with their hypotheses; Kato attributes them to [PeO, 2.2.4] and [Ru4, B3.3]."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, proof of Lemma 8.5, printed p. 184",
-          "excerpt": "Hence we are reduced to showing lim_n H1(F_v(zeta_{p^n}),H0(K_v^{ur},T^*(1))) = 0 and hence to the fact that the p-cohomological dimension of the field union_{n>=1} F_v(zeta_{p^n}) is zero.",
           "match": "Confirms the final step of the proof recorded in the fourth proofStep, and shows the proof is unconditional in p."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.6, printed p. 184",
-          "excerpt": "The projections Y(Mp^n,Np^n) -> Y(M,N) factor canonically as Y(Mp^n,Np^n) -> Y(M,N) tensor Q(zeta_{p^n}) -> Y(M,N), and hence the image of ChM,N(k, r, r') is contained in the image of lim H1(Q(zeta_{p^n}), Vk,Z/p^m(Y(M,N))).",
           "match": "Confirms that the relevant tower is the cyclotomic one, so that part (2) of the lemma applies."
         }
       ],
@@ -990,25 +961,21 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, (8.1.1), printed p. 180",
-          "excerpt": "c,dz^{(p)}_{M,N}(k,r,r') in H1(Z[1/p], Vk,Zp(Y(M,N))(k-r)) where M,N >= 1, M + N >= 5, and r, r', c, d are integers satisfying 1 <= r' <= k - 1, (c, 6pM) = 1, (d,6pN) = 1.",
           "match": "Gives the target group, the twist (k-r), and the full list of numerical hypotheses recorded in the node."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Prop. 8.7(1), printed p. 184",
-          "excerpt": "Let M', N' >= 1 and assume M | M', N | N', (c,M') = (d,N') = 1, prime(Mp) = prime(M'p), prime(Np) = prime(N'p). Then the norm map ... sends c,d z^{(p)}_{M',N'} to c,d z^{(p)}_{M,N}",
           "match": "Gives relation (1) with the prime-set condition stated after adjoining p, exactly as recorded in the hypotheses."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Prop. 8.7(2), printed p. 184",
-          "excerpt": "Let ell be a prime number which is prime to Mpcd. Then the norm map ... sends c,d z^{(p)}_{M ell,N ell}(k,r,r') to 1-T'(ell)( 1/ell 0 ; 0 1 )* + ( 1/ell 0 ; 0 1/ell )* ell^{k-1-2r} c,dz^{(p)}_{M,N}(k, r, r') in the case ell does not divide N, and to 1 - T'(ell)( 1/ell 0 ; 0 1 )* ",
           "match": "Gives relation (2), including the explicit exponent k-1-2r in the quadratic term."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, before Prop. 8.7, printed p. 184",
-          "excerpt": "The following 8.7 is deduced from the norm properties 2.3, 2.4 of zeta elements in K2 by Lemma 8.8 below.",
           "match": "States the proof route of Prop. 8.7 used in the third and fourth proofSteps."
         }
       ],
@@ -1114,13 +1081,11 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "13.1 and Example 13.3, pp.224–225",
-          "excerpt": "the action of the arithmetic Frobenius",
           "match": "P_ell(t)=det(1−Fr_ell t:T) is evaluated at ell^(−1)σ_ell^(−1), giving the explicitly displayed moment polynomial."
         },
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "Definition II.1.1; Lemma IX.1.1",
-          "excerpt": "Euler factors",
           "match": "The imported ES.2 convention adapter is used, not a redefinition of the carrier."
         }
       ],
@@ -1221,25 +1186,21 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.6, printed p. 222",
-          "excerpt": "Let T = V_{O_lambda}(f) (8.3). Let Z be the Lambda-submodule of H1(V_{O_lambda}(f)) generated by the following elements ... Then Z in Z(f,T) and Z(f,T)/Z is a finite group.",
           "match": "Gives the conclusion verbatim, including that the index is finite rather than trivial."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.6(1)(2), printed p. 222",
-          "excerpt": "(1) c,d z^{(p)}_{p^n}(f,k,j,a(A), prime(pA))_{n>=1} in H1(T) (1 <= j <= k-1, a, A in Z, A >= 1, c,d in Z, (c,6pA) = (d,6pN) = 1). (2) c,d z^{(p)}_{p^n}(f,k,j,alpha,prime(pN))_{n>=1} in H1(T) (1 <= j <= k-1, alpha in SL2(Z), c,d in Z, (cd,6pN) = 1, c = d = 1 mod N).",
           "match": "Gives both generating families with their exact parameter ranges and the extra congruence condition in family (2)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.1, printed p. 180",
-          "excerpt": "In this paper, the p-adic zeta elements in (8.1.2), (8.1.3) and zeta elements in Sec. 5 and Sec. 6 with xi = a(A) will take care of zeta values with bad Euler factors (Euler factors at primes which divide N). Those with xi in SL2(Z) can not take care of bad Euler factors, but wil",
           "match": "Explains the distinct roles of the two families, recorded in the first acceptance item."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "13.10–13.12, pp.230–232",
-          "excerpt": "By Lemma 13.10, we have Z⊂Z(f,T). We prove that Z(f,T)/Z is a finite group.",
           "match": "The rest of 13.12 treats primes over p with μ and every height-one prime away from p using 13.11. Spanning alone proves neither inclusion in this direction nor finite index."
         }
       ],
@@ -1285,19 +1246,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 9.3, printed pp. 187-188",
-          "excerpt": "For a de Rham representation V we have a canonical homomorphism exp* : H1(K, V) -> D^0_dR(V) called the dual exponential map ([BK2], [KK2]). This is defined as the composite H1(K,V) -> H1(K,B^0_dR tensor V) = H0(K,B^0_dR tensor V) = D^0_dR(V) where the middle isomorphism is the p",
           "match": "Gives the construction of exp^* and its normalisation by log(chi_cyclo), recorded in the statement and hypotheses."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, (9.2.2), printed p. 187",
-          "excerpt": "Let Y be a curve of the form G\\Y(N) with N >= 3 and with a subgroup G of GL2(Z/N). Let k >= 2, and let V = Vk,Qp(Y) (8.3). Then V is a de Rham representation of Gal(Qp bar/Qp), and D^i_dR(V) = D_dR(V) for i <= 0, D^i_dR(V) = 0 for i >= k, D^i_dR(V) = Mk(X) tensor Qp for 1 <= i <= k-1.",
           "match": "Gives the de Rham property and the exact Hodge filtration of the modular local system, including the range 1 <= i <= k-1."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 9.4, printed p. 188",
-          "excerpt": "For k >= 2 and 1 <= i <= k - 1, consider the dual exponential maps (9.4.1) exp* : H1(Qp, Vk,Qp(Y)(i)) -> Mk(X) tensor Qp. Here to define (9.4.1), we used the fact D^0_dR(Vk,Qp(Y)(i)) = D^i_dR(Vk,Qp(Y)) = Mk(X) tensor Qp (Tate twist shifts the filtration of D_dR).",
           "match": "Confirms the target of (9.4.1) and the role of the Tate twist, recorded in the third proofStep."
         }
       ],
@@ -1409,25 +1367,21 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Thm. 9.5, printed p. 188",
-          "excerpt": "Let the notation be as in (8.1.1). Assume 1 <= r <= k - 1, at least one of r, r' is k - 1, and prime(M) in prime(N). Assume further that M >= 2 in the case (r,r') = (k - 2, k - 1). Then the dual exponential map (9.4.1) with Y = Y(M,N) and i = k - r sends the image of c,d z^{(p)}_",
           "match": "Gives all hypotheses (including the exceptional M >= 2 case) and all three Euler-factor cases with the exponent k-1-2r, exactly as recorded. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Sec. 10 opening, printed p. 189",
-          "excerpt": "In this section, we deduce Thm. 9.5 from a generalized explicit reciprocity law proved in [KK3]. In this proof, we use the compatibility of two dual exponential maps (10.9.5) and this compatibility is proved in Sec. 11.",
           "match": "States explicitly that Thm. 9.5 is deduced from an external result [KK3] plus the internal compatibility (10.9.5); this is the import boundary recorded in the packet gaps."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 10.1, printed p. 189",
-          "excerpt": "In 10.1-10.5, let K be a complete discrete valuation field of characteristic 0 with residue field k of characteristic p. We assume [k : k^p] < infinity. In our application, K will be a p-adic completion of the function field of a modular curve.",
           "match": "Confirms that the reciprocity law is applied over a non-perfect residue field, as recorded in the proofSteps."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, Thm. 9.7, printed p. 189",
-          "excerpt": "Then the map exp*_f : H1(Q(zeta_m) tensor Qp, V_{F_lambda}(f)(r)) -> S(f) tensor_F F_lambda tensor Q(zeta_m) sends the image of c,d z^{(p)}_m(f,r,r',xi,S) to c,d z_m(f,r,r',xi,S) in S(f) tensor_F F_lambda tensor Q(zeta_m). This follows from Thm. 9.6.",
           "match": "Gives the eigenform form of the reciprocity law and records that it is deduced from Thm. 9.6."
         }
       ],
@@ -1472,19 +1426,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.5(1), printed p. 221 (transcribed from a page rendering)",
-          "excerpt": "There exists a unique F_lambda-linear map V_{F_lambda}(f) -> H1(V_{F_lambda}(f)) ; gamma -> z_gamma^{(p)} having the following property : Let r in Z, 1 <= r <= k - 1, let n >= 0, and let gamma in V_F(f). Then the image of z_gamma^{(p)} under the composite map H1(V_{F_lambda}(f)) ",
           "match": "Gives the whole of Thm. 12.5(1) including the constant and the DUAL form f^*, checked against a rendering of p. 221; the node previously recorded the L-value as that of f and left the constant untranscribed. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.5(2), printed p. 221",
-          "excerpt": "Let Z(f) be the Lambda tensor Q-submodule of H1(V_{F_lambda}(f)) generated by z_gamma^{(p)} for all gamma in V_{F_lambda}(f). Then H1(V_{F_lambda}(f))/Z(f) is a torsion Lambda tensor Q-module.",
           "match": "Gives the torsion statement over Lambda tensor Q recorded in the statement."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.4(2), printed p. 221",
-          "excerpt": "H1(T) is a torsion free Lambda-module, and H1(T) tensor Q = H1(V_{F_lambda}(f)) is a free Lambda tensor Q-module of rank 1.",
           "match": "Supplies the freeness input used in the third proofStep."
         }
       ],
@@ -1527,19 +1478,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, Thm. 2.6, printed p. 127",
-          "excerpt": "The following Thm. 2.6 is deduced from the work of Beilinson in [Be, Sec. 5]. We will give the proof of Thm. 2.6 in Sec. 7. Theorem 2.6. Assume prime(M) in prime(N). Then we have ...",
           "match": "Gives the hypothesis prime(M) in prime(N), the attribution to Beilinson, and the location of Kato's own proof (Sec. 7, read at its key comparison passages)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.7, printed pp. 127-128",
-          "excerpt": "We define delta_{M,N} in H1(Y(M,N)(C),Z) to be the image of class(phi) in H1(X(M,N)(C), {cusps}, Z) under (2.7.1) where phi is the continuous map (0,infinity) -> X(N)(C) ; phi(y) = nu(yi) for 0 < y < infinity, which is a route from a cusp to a cusp.",
           "match": "Gives the exact definition of delta_{M,N} as the Poincare dual of a relative homology class of a path between cusps."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 2.5, printed p. 127",
-          "excerpt": "The function ZM,N(s) has an analytic continuation to the whole C as an operator valued meromorphic function in s, and is holomorphic at s not= 2. Furthermore, ZM,N(0) = 0.",
           "match": "Gives the analytic properties of the operator-valued zeta function recorded in the hypotheses."
         }
       ],
@@ -1590,37 +1538,31 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 13.4, printed p. 226",
-          "excerpt": "Let (T, L, Sigma) be as in 13.1, and let (zm)m be an Euler system for (T, L, Sigma). Let Lambda = OL[[G_infinity]]; let Z be the Lambda-submodule of H1(T) generated by (z_{p^n})_n, and let J be the ideal of Lambda generated by h(Z) for all Lambda-homomorphisms h : H1(T) -> Lambda",
           "match": "Gives the five hypotheses verbatim and the definitions of Z, J and H^2(T)_0, exactly as recorded in the statement. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 13.4(2)(3), printed p. 226",
-          "excerpt": "(2) Let p be a prime ideal of Lambda of height one which does not contain p. Then length_{Lambda_p}(H2(T)_{0,p}) <= length_{Lambda_p}(Lambda_p/J_p). (3) Assume that there exists an element sigma of Gal(Qbar/Q(zeta_{p^infinity})) such that Coker(1 - sigma : T -> T) is a free O_L-m",
           "match": "Gives the two bounds and the extra integral hypotheses of (3), including p not equal to 2. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, 13.1 and after Thm. 13.4, printed pp. 224, 226",
-          "excerpt": "We use results on Euler systems in Perrin-Riou [Pe4], Rubin [Ru4], and [KK4]. ... In the case of 13.3, the conditions (ii), (iii), (iv) in Thm. 13.4 are satisfied ((iii) is due to Deligne [De1], and (iv) is due to Ribet [Ri1]). However if f has CM, this theorem is not applied bec",
           "match": "Records both that Thm. 13.4 is imported and which of its hypotheses Kato verifies in the modular case, including the explicit failure of (v) for CM forms."
         },
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "Chapter II, Thm. 3.3, printed p. 28",
-          "excerpt": "Theorem 3.3. Suppose c is an Euler system for (T, K_infinity), and T satisfies hypotheses Hyp(K_infinity, T) and Hyp(K_infinity/K). Then char(X_infinity) divides ind_Lambda(c).",
           "match": "This is the form in which the imported bound appears in Rubin's monograph; the node's proofSteps record that Kato's hypothesis package (i)-(v) is not literally Rubin's Hyp(K_infinity,T) plus Hyp(K_infinity/K)."
         },
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "Chapter II, Hyp(K_infinity,T), printed p. 27",
-          "excerpt": "Hypotheses Hyp(K_infinity, T). (i) There is a tau in G_{K_infinity} such that tau acts trivially on mu_{p^infinity}, on (O_K^x)^{1/p^infinity}, and on K(1), T/(tau - 1)T is free of rank one over O. (ii) T tensor k is an irreducible k[G_{K_infinity}]-module.",
           "match": "Gives Rubin's hypothesis package verbatim, showing that the irreducibility is required over G_{K_infinity} whereas Kato's (iv) is stated over Gal(Qbar/Q)."
         },
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "Chapter II, Hyp(K_infinity/K) and Def. 3.1, printed p. 27",
-          "excerpt": "Hypothesis Hyp(K_infinity/K). If rank_{Zp}(Gamma) = 1 and G_{K_infinity} acts either trivially or by the cyclotomic character on V, then either K is a totally real field and Leopoldt's conjecture holds for K ..., or K is an imaginary quadratic field. [Preceded by:] We will need t",
           "match": "Shows that Rubin's second hypothesis is automatic over Q, and gives the definitions of X_infinity and ind_Lambda(c) that the comparison with Kato's H^2(T)_0 and J must go through. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         }
       ],
@@ -1660,31 +1602,26 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Prop. 13.7, printed p. 227",
-          "excerpt": "Define Z in H1(V_{O_lambda}(f)) as in Thm. 12.6. Then Zq is nonzero for any prime ideal q of Lambda of height 0. Proof. Let pm be + (resp. -) if the image of -sigma_{-1} in Lambda_q is 1 (resp. -1). By 13.6, for some sigma in SL2(Z) and some integer j such that 1 <= j <= k - 1, w",
           "match": "Gives the statement and the opening of the proof, including the sign convention and the exact conditions on c and d recorded in the second proofStep. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 13.5, printed pp. 226-227",
-          "excerpt": "(1) (Jacquet-Shalika [JS]). L(f, s) has no zero on Re(s) >= (k+1)/2 (2) (Rohrlich [Ro2]). Assume k is even. Let S be a finite set of prime numbers. Then the set of chi in union Hom((Z/m)x, Cx) with prime(m) in S such that LS(f,chi, k/2) = 0 is finite.",
           "match": "Gives the two analytic inputs with their hypotheses, in particular the weight-parity condition in (2) recorded as a hypothesis."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 13.6, printed p. 227",
-          "excerpt": "Theorem 13.6 (Ash-Stevens [AS]). Let L >= 3. Then Vk,Z(Y(L)) is generated over Z by the elements sigma* delta_{L,L}(k,j) (sigma in GL2(Z/L), 1 <= j <= k-1).",
           "match": "Page-image transcription: the full-level generating vector is δ_{L,L}(k,j), not δ_{1,L}(k,j)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, proof of Prop. 13.7, printed p. 227",
-          "excerpt": "The composite map (13.7.1) factors through H1(V_{F_lambda}(f))/p H1(V_{F_lambda}(f)) where p is the kernel of the ring homomorphism Lambda -> F_lambda which sends sigma in G_infinity to kappa(sigma)^{-1} chi(sigma)^{-1}. Hence for infinitely many prime ideals p of Lambda of heigh",
           "match": "Gives the final step of the argument recorded in the fourth proofStep."
         },
         {
           "sourceId": "burungale-tian-2025-v2",
           "locator": "Theorem 2.4 and Remark 2.5, pp.4–5",
-          "excerpt": "There exists a non-zero Fλ-linear map",
           "match": "The map and its torsion quotient are exactly the two rational inputs of the application."
         }
       ],
@@ -1738,31 +1675,26 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.5(3), printed pp. 221-222",
-          "excerpt": "Let p be a prime ideal of Lambda of height one which does not contain p. Then length_{Lambda_p}(H2(V_{F_lambda}(f))_p) <= length_{Lambda_p}(H1(V_{F_lambda}(f))_p/Z(f)_p) + length_{Lambda_p}(H2_loc(V_{F_lambda}(f))_p). If H2_loc(V_{F_lambda}(f))_p not= 0, then f and p satisfy the ",
           "match": "Gives inequality (a), the exclusion of primes containing p, and the exact exceptional configuration with its local length 1. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.5(4) and (12.5.2), printed p. 222",
-          "excerpt": "(12.5.2) The cyclotomic-kernel image contains SL₂(Z_p). Then Z(f,T)⊂H¹(T)⊂H¹(T)⊗Q. The printed inequality is length H²(V_Fλ(f))_𝔭≤length(H¹(V_Fλ(f))_𝔭/Z(f)_𝔭), outside (12.5.1).",
           "match": "Faithful mathematical transcription of the printed RATIONAL inequality. The intended integral lattice inequality in (b) is the contextual correction E8, established in proof 13.14 via integral 13.4(3)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Conjecture 12.10, printed pp. 223-224",
-          "excerpt": "Conjecture 12.10 (main conjecture). Let T be a Gal(Qbar/Q)-stable O_lambda-lattice of V_{F_lambda}(f) and let p be a prime ideal of Lambda of height one. In the case p = 2, assume p does not contain 2. Then Z(f,T)_p in H1(T)_p and length_{Lambda_p}(H2(T)_p) = length_{Lambda_p}(H1",
           "match": "Confirms that equality is the conjecture and that Kato proves only the inequality; this is the basis for the node's final sentence."
         },
         {
           "sourceId": "nakamura-2023-published",
           "locator": "Theorem 5.2, pp.253–254",
-          "excerpt": "contained in",
           "match": "The twist-one integral restatement bounds the H² kernel with the additional residual and τ hypotheses."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "13.14, p.234",
-          "excerpt": "The inequality in Thm. 12.5(4) follows from Thm. 13.4(3).",
           "match": "The printed 12.5(4) inequality uses rational V; the proof uses H¹(T), Z(f,T) and integral 13.4(3). The lattice inequality in this node is the contextual correction E8, not a verbatim transcription of the erroneous display."
         }
       ],
@@ -1818,31 +1750,26 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter IV, Prop. 17.1, printed p. 272",
-          "excerpt": "The following three conditions (i)-(iii) are equivalent. (i) p does not divide N and a_p in O_lambda^x. (ii) p does not divide N and there exists an element alpha of O_lambda^x such that 1 - alpha u divides the polynomial 1 - a_p u + epsilon(p) p^{k-1} u^2. (iii) V_{F_lambda}(f) ",
           "match": "Gives the three equivalent formulations of good ordinary reduction, including the unit-root condition and the unramified line, as recorded in the hypotheses. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter IV, 17.3 and Thm. 17.4, printed p. 273",
-          "excerpt": "Sel_infinity(T) = lim_n Sel(Q(zeta_{p^n}),T(r))(-r) (1 <= r <= k-1) which is independent of r, and let X(T) = Hom_{O_lambda}(Sel_infinity(T),F_lambda/O_lambda). ... Theorem 17.4. Assume f has good ordinary reduction at lambda. ... (1) X(T) is a torsion Lambda-module. (2) ... leng",
           "match": "Gives the definition of X(T), the independence of r, and statements (1) and (2) with the exclusion of primes containing p. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter IV, Thm. 17.4(3) and 17.5, printed pp. 273-274",
-          "excerpt": "(3) Let alpha, omega, gamma be as in (2), and assume that both omega and gamma are good for some Gal(Qbar/Q)-stable O_lambda-lattice of V_{F_lambda}(f) in the sense of 17.5 below. Assume further p not= 2 and that the condition 12.5.2 in 12.5 (4) is satisfied. ... In the case f of",
           "match": "Gives statement (3) with the goodness hypothesis and its concrete weight-2 interpretation as the Neron differential, recorded in the hypotheses and acceptance. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter IV, Prop. 17.2, printed pp. 272-273",
-          "excerpt": "Assume f has good ordinary reduction at lambda. ... let 0 -> T' -> T -> T'' -> 0 be the exact sequence defined by T' = T intersect V'_{F_lambda}(f), T'' = T/T'. Then for 1 <= r <= k - 1, the subgroup lim_n Sel(Q(zeta_{p^n}),T(r))(-r) ... coincides with the kernel of ... and hence",
           "match": "Gives the ordinary filtration and the independence-of-r statement recorded in the second proofStep."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "17.6 p.274; proof 17.13 pp.279–280",
-          "excerpt": "a lattice of V_Fλ(f*) isomorphic to T*(1−k)",
           "match": "Mathematical transcription of the corrected dual-lattice condition from 17.6. The proof works with a lattice U in V(f*) and concludes for X(U*(1−k)); no good period in S(f) is substituted for the chosen ω in S(f*)."
         }
       ],
@@ -1886,19 +1813,16 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, after Thm. 13.4, printed p. 226",
-          "excerpt": "However if f has CM, this theorem is not applied because the condition (v) is not satisfied in the CM case. So the CM case will be discussed separately in Sec. 15.",
           "match": "States the exclusion and the location of the replacement argument verbatim."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Remark 12.8 and (12.8.1), (12.8.2), printed pp. 222-223",
-          "excerpt": "We say that f has complex multiplication (f has CM) if there is an imaginary quadratic field K of Q and a Hecke character psi of K ... such that L(f,s) = L(psi,s). ... (12.8.1) If f has no CM, then, for almost all finite places lambda of F, there exist a Gal(Qbar/Q)-stable O_lamb",
           "match": "Gives the definition of CM and the two distinct large-image statements, with 'almost all lambda' in the first and 'open subgroup' in the second, as recorded in the hypotheses. The excerpt is truncated to keep it short; the display was checked in the cited PDF."
         },
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.8–5.10, p.50",
-          "excerpt": "we can take x = 1",
           "match": "The concrete unipotent verifies the distinct rational and integral packages; the draft cohomology assertion needs E3."
         }
       ],
@@ -1935,7 +1859,6 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "1.3(3), 1.4, 1.8–1.9, pp.121–124",
-          "excerpt": "Here q^α for α∈Q means e^(2πiατ).",
           "match": "The product, branch and algebraic unit construction supply the analytic and arithmetic targets; E1 corrects w."
         }
       ],
@@ -1975,7 +1898,6 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "8.4, pp.182–183",
-          "excerpt": "the homomorphism h sends f to the class of f",
           "match": "The displayed map on symbols is the Kummer cup; it must be reconciled with the supplier Chern convention."
         }
       ],
@@ -2015,7 +1937,6 @@
         {
           "sourceId": "nakamura-2023-published",
           "locator": "§3.1.3–3.1.4, equations (9)–(16), pp.207–212",
-          "excerpt": "In our article, we use these elements only for c = d",
           "match": "The equal-auxiliary K₂ symbol feeds the full-level moment and conductor class; the ES equations occur in (11)–(16)."
         }
       ],
@@ -2118,7 +2039,6 @@
         {
           "sourceId": "nakamura-2023-published",
           "locator": "Lemma 3.1, pp.205–206; Lemma A.3, p.268",
-          "excerpt": "as operators acting on H¹(Y(N), V_{k/A})",
           "match": "The central-operator formulas and duality identify the representation conventions rather than merely their dimensions."
         }
       ],
@@ -2164,13 +2084,11 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "12.5(1), 13.9–13.12, pp.221, 228–233",
-          "excerpt": "There exists a unique F_λ-linear map",
           "match": "The existence theorem is implemented through the smoothed geometric classes and the localized construction."
         },
         {
           "sourceId": "burungale-tian-2025-v2",
           "locator": "Theorem 2.4, Remark 2.5, pp.4–5",
-          "excerpt": "There exists a non-zero Fλ-linear map",
           "match": "The all-prime rational formulation and its critical characterization retain Kato’s map, not a hypothetical Euler system."
         }
       ],
@@ -2287,13 +2205,11 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "6.3–6.6, pp.161–163; 4.2.4 and 7.12–7.20",
-          "excerpt": "We introduce the dual cusp form f* of f.",
           "match": "The image-quotient period and the displayed critical formula fix f*, the period power and the sign."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "4.2–4.2.4, pp.142–143",
-          "excerpt": "these definitions are compatible",
           "match": "The page images give the product scalars, regularized weight-two smoothing and the two cases of (u,v); 6.6 refers to these exponents."
         }
       ],
@@ -2334,7 +2250,6 @@
         {
           "sourceId": "nakamura-2023-published",
           "locator": "Lemma 3.4, Remark 3.5, Corollary 3.6, pp.221–222",
-          "excerpt": "The map exp* is injective.",
           "match": "The parabolic target, inverse limit and rational splitting are necessary for the characterization."
         }
       ],
@@ -2380,7 +2295,6 @@
         {
           "sourceId": "nakamura-2023-published",
           "locator": "Theorem A.1, Remark A.2, Definition A.4, Corollary A.5, Remark A.6, pp.265–269",
-          "excerpt": "we define an E-linear map",
           "match": "The source twist, output twist and inverse-twist characterization define the actual twist-one map."
         }
       ],
@@ -2486,7 +2400,6 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "16.4–16.6, pp.270–271",
-          "excerpt": "φ(η) = αη and ⟨ω,η⟩ = 1",
           "match": "The normalized crystalline line and correctly twisted local class define the scalar arithmetic distribution."
         }
       ],
@@ -2593,7 +2506,6 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Theorem 16.2, Remark 16.3, Theorem 16.6(2), pp.269–271",
-          "excerpt": "Then μ = μ′.",
           "match": "The exact interpolation and growth uniqueness identify the scalar image with the analytic construction."
         }
       ],
@@ -2638,7 +2550,6 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "16.4, Remark 16.5(2), Theorem 16.6 proof, pp.270–271",
-          "excerpt": "the assumption V is crystalline appears",
           "match": "The de Rham extension is stated separately; the nonzero pairing in 16.6 uses the strict slope inequality."
         }
       ],
@@ -2682,13 +2593,11 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "13.5–13.7, pp.226–228",
-          "excerpt": "the exceptional set is finite",
           "match": "The analytic nonvanishing and Ash–Stevens generators are the separate inputs to detecting the zeta module."
         },
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.6, p.49",
-          "excerpt": "for almost all characters χ of finite order",
           "match": "The elliptic-curve cyclotomic application uses Rohrlich, not nonvanishing at the trivial character."
         }
       ],
@@ -2733,13 +2642,11 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Theorem 12.4, p.221; §§13.7–13.8 and 15.14",
-          "excerpt": "H¹(T) is a torsion free Λ-module",
           "match": "The lattice statements precede 12.5; the CM proof has a separate exceptional all-prime branch."
         },
         {
           "sourceId": "burungale-tian-2025-v2",
           "locator": "Theorem 2.3, p.4",
-          "excerpt": "Let f ∈ Sk (Γ1 (N )) be an elliptic newform and p a prime.",
           "match": "The public v2 states the rational torsion/freeness input at arbitrary p without a residual-image hypothesis."
         }
       ],
@@ -2784,7 +2691,6 @@
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.1–5.3, pp.47–49",
-          "excerpt": "a positive integer rE, independent of p",
           "match": "The local lattice and actual Euler-system period are distinct inputs to the Selmer application; E2 adds the necessary odd-prime condition."
         }
       ],
@@ -2827,7 +2733,6 @@
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.4–5.6, p.49; 5.8–5.11, pp.50–51",
-          "excerpt": "Then E(Q∞) is finitely generated.",
           "match": "The application combines finite-level twisted bounds, Rohrlich and Serre; it is not a generic ES theorem."
         }
       ],
@@ -2874,7 +2779,6 @@
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.14–5.16, pp.52–53",
-          "excerpt": "contained in the augmentation ideal of Λ",
           "match": "The concrete Coleman image and its Kato value yield the three reduction-type bounds."
         }
       ],
@@ -2915,7 +2819,6 @@
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.17 and proof, p.53",
-          "excerpt": "has no nonzero finite submodules.",
           "match": "The local torsion exclusions and formal-group norm limit are the additional arithmetic hypotheses."
         }
       ],
@@ -2961,7 +2864,6 @@
         {
           "sourceId": "rubin-euler-systems-draft",
           "locator": "III.5.11(ii), p.51; Corollary 5.18, pp.53–54",
-          "excerpt": "Suppose E is modular, E does not have complex multiplication",
           "match": "The final good-reduction upper bound removes the ordinary local factors via control; no BSD equality is supplied."
         }
       ],

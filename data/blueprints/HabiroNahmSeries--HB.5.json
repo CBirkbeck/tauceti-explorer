@@ -256,7 +256,6 @@
         {
           "sourceId": "gz",
           "locator": "§4.3, equations (24)–(25), pp. 227–228",
-          "excerpt": "we can split F_Q(q)",
           "match": "Adaptation: the source groups Nahm summands by congruence classes; this new positive majorant discards their phases and uses the block-product estimate. Its exact reindexing identity is proved above, not claimed to be printed in GZ."
         }
       ],
@@ -376,7 +375,6 @@
         {
           "sourceId": "gz",
           "locator": "§4.1, the first display in the proof of Lemma 2.1, p. 225",
-          "excerpt": "sum by n ≡ t mod m",
           "match": "New elementary adaptation of the source’s residue grouping of q-product factors. GZ does not state this bound; the proof here supplies it independently and does not extend Theorem 3.1 to forbidden orders."
         }
       ],
@@ -424,13 +422,11 @@
         {
           "sourceId": "zagier",
           "locator": "II.3B, (29), p. 48; II.3C, general-rank conclusion on p. 55, continued on p. 56",
-          "excerpt": "each of the methods described applies also",
           "match": "The displayed leading coefficient on p. 55 and the positive constant (29) give the q=1 rate for every shifted B. The all-order majorant itself is the new argument, not a claim that the source proves unrestricted root asymptotics."
         },
         {
           "sourceId": "gz",
           "locator": "§4.3, (24)–(25); §7, proof of Proposition 7.1",
-          "excerpt": "v_P(F_Q) ≥ C_0(A)",
           "match": "The source’s root growth is used for cusp valuations; the present upper bound fills the missing orders without requiring a full asymptotic series."
         }
       ],
@@ -480,7 +476,6 @@
         {
           "sourceId": "gz",
           "locator": "§7, (50)–(54), pp. 233–235, Proposition 7.1",
-          "excerpt": "with equality when P = 0",
           "match": "Corrected sign and completion of the printed restricted proof: parent E23–E24. The all-order upper bound supplies finite cusps, and a finite-index lower-unipotent orbit supplies infinity."
         }
       ],
@@ -536,25 +531,21 @@
         {
           "sourceId": "cgz",
           "locator": "§2.2, Lemma 2.4(b), (23), pp. 10–11; §2.3, Proposition 2.5 and Remark 2.6, p. 13",
-          "excerpt": "P/Sⁿ ∈ F_n×",
           "match": "The uniqueness characterization identifies the Kummer lift. Apply it to E, not to the rationalized original Bloch class."
         },
         {
           "sourceId": "cgz",
           "locator": "§7.1, (44) and Corollary 7.2, pp. 36–37",
-          "excerpt": "ε¹ᐟⁿ Φ_ζ(h) ∈ F_n[[h]]",
           "match": "Constant-term adaptation using the parent’s corrected coefficient field and actual multiplier. The parent HB.4 statement supplies the three descent inputs; this node does not assert an independent proof of them."
         },
         {
           "sourceId": "gz",
           "locator": "§3, Theorem 3.1, (17)–(20), p. 224",
-          "excerpt": "χ is the 12th root of ζ",
           "match": "The source multiplier is the binomial phase, raised to rank r. The Dedekind normalization rescales the series by ν_a/μ_a; it is not the unchanged formula in GZ."
         },
         {
           "sourceId": "cgz-published",
           "locator": "§7.1, Theorem 7.1, (45)–(46), and Corollary 7.2, p. 419",
-          "excerpt": "Corollary 7.2",
           "match": "Version-of-record collation of the v3 constant-term passage; no proof of the requested rational-data descent is claimed here."
         }
       ],
@@ -599,25 +590,21 @@
         {
           "sourceId": "cgz",
           "locator": "Proof of Theorem 7.5, p. 40, comparison of (53) and (43)",
-          "excerpt": "Φ_ζ(0) = μ⁻¹ K e(λc/d)",
           "match": "Corrected comparison retaining ω and q^C, correcting the sign and using the actual Dedekind multiplier: inherited E19–E22. The elementary integrality computation replaces the fixed-phase argument."
         },
         {
           "sourceId": "zagier",
           "locator": "II.3B, (28), p. 46 and (29), p. 48",
-          "excerpt": "K",
           "match": "Supplies the nonzero real leading constant and the exponential remainder under modularity; cusp meromorphy supplies the complex uniformity."
         },
         {
           "sourceId": "gz",
           "locator": "§3, Theorem 3.1, (17)–(20), p. 224",
-          "excerpt": "χ is the 12th root of ζ",
           "match": "Checks the source normalization. Equivalently one can keep ν_b throughout; ν_b^24∈Q(ζ_d), so the same fixed-power argument works. The present node chooses the rescaled Dedekind convention."
         },
         {
           "sourceId": "cgz-published",
           "locator": "§7.3, proof of Theorem 7.5, comparison of (55) and (45), p. 423",
-          "excerpt": "comparing the asymptotic formulas",
           "match": "The version of record retains the positive phase and omits ω and q^C in this comparison; the corrected comparison retains all three."
         }
       ],
@@ -675,19 +662,16 @@
         {
           "sourceId": "cgz",
           "locator": "Theorem 7.5 and proof, p. 40; Remark 7.6, pp. 40–41",
-          "excerpt": "infinitely many integers n",
           "match": "Refinement of the printed arithmetic argument: use one fixed enlarged field and an integral symbol there, then descend by regulators. The parent owns the endpoint; this node supplies its rational-data bridge."
         },
         {
           "sourceId": "cgz",
           "locator": "Theorem 1.2 and Remark 1.4, p. 3",
-          "excerpt": "6 Δ_F |K₂(O_F)|",
           "match": "Apply the good-order injectivity and finite exceptional integer to E. The absolute discriminant convention is from the supplier node."
         },
         {
           "sourceId": "cgz-published",
           "locator": "§7.3, Theorem 7.5, p. 422; proof (55) and Remark 7.6, p. 423",
-          "excerpt": "Theorem 7.5",
           "match": "Version-of-record collation; this refinement keeps the fixed-field integral reduction and the regulator descent explicit."
         }
       ],

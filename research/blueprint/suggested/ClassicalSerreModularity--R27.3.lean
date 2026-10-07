@@ -72,6 +72,19 @@ out of its node. Nothing is formalised: these are suggested signatures. The file
 `lake env lean` against Mathlib `082e2d3` with no errors, and its only warnings are
 `declaration uses sorry`.
 
+Independent review REV-FIX-RT-BP-ClassicalSerreModularity--R27.3: Claude claude-s4pYIP, 7 October 2026,
+Refs #5716. It names Newform's nebentypus field `χ` in the `serre_strong` sketch and marks the planned
+names there. The file elaborates with `lake env lean` against Mathlib `082e2d3` with no errors; its only
+warnings are the 23 `declaration uses sorry` of the round-3 statements.
+
+Independent review REV-FIX-RT-AREA-langlands-2~3: Claude claude-hd6PQ0, 7 October 2026, Refs #5871;
+accepted; its declarations are unchanged by that review. The file elaborates with `lake env lean` against Mathlib `082e2d3` with
+no errors and the same 23 warnings.
+Completed continuation: Codex codex-t0EaB3, 7 October 2026, Refs #5871; accepted.
+Source and test-classification corrections are recorded in the review report. The active Mathlib-only
+file was checked with lean-check: no errors, 23 declaration-uses-sorry warnings. Supplier sketches
+inside comments remain unelaborated; this receipt does not certify their APIs or arithmetic.
+
 ```
 -- R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes  (𝔽_p coefficients, not 𝔽̄_p):
 -- stated in Lean at the end of the file (`lemma_8_2`, `lemma_8_2_trace_eq_zero`).
@@ -92,9 +105,12 @@ theorem arises_of_modular (ρ̄ : GaloisRep ℚ 𝔽 2) (hS : IsSType ρ̄) (hmo
 -- Import the dyadic theorem R22.6/hypothesis-h, including the Breuil–Kisin comparison.
 theorem serre_of_hypH (hH2 : HypothesisH2) (ρ̄ : GaloisRep ℚ 𝔽 2) (hS : IsSType ρ̄) : IsModular ρ̄
 -- R27.6/full-classical-serre-theorem
+-- `HeckeRing.GL2.Newform` is Tau Ceti's; its nebentypus is the field `χ : (ZMod N)ˣ →* ℂˣ`.
+-- `coeffRing`, `residualRep` and the reduction of `χ` modulo `λ` are planned names of the missing
+-- arithmetic interface, not Tau Ceti declarations.
 theorem serre_strong (ρ̄ : GaloisRep ℚ (F̄ p) 2) (hodd : IsOdd ρ̄) (hirr : IsAbsIrreducible ρ̄) :
     ∃ (f : HeckeRing.GL2.Newform (serreLevel ρ̄) (serreWeight ρ̄)) (λ : Ideal f.coeffRing), λ.LiesOver p ∧
-      Nonempty (residualRep f λ ≃ ρ̄) ∧ det ρ̄ = f.character.reduce λ * cyclotomic p ^ (serreWeight ρ̄ - 1)
+      Nonempty (residualRep f λ ≃ ρ̄) ∧ det ρ̄ = f.χ.reduce λ * cyclotomic p ^ (serreWeight ρ̄ - 1)
 -- R27.6/odd-artin-weight-one-modularity: explicit Corollary 10.2(ii) export for ML.1.
 -- The early Gross/Coleman–Voloch/Khare descent input is an open proof contract.
 -- Do not import all of ML.1 in reverse, and do not treat weight >= 2 as weight-one modularity.
@@ -487,7 +503,7 @@ def katzBaseChange (N : ℕ) (k : ℤ) (A B : Type u) [CommRing A] [CommRing B] 
 
 /-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes`, imported from Tau Ceti
 ModularForms, Layer 4 (stand-in, opaque): the normalised cuspidal newforms of weight one, of all levels and characters. At the Tau Ceti pin the type is
-`Σ N, HeckeRing.GL2.Newform N 1`. -/
+`Σ N : ℕ+, HeckeRing.GL2.Newform (N : ℕ) 1`. -/
 def WeightOneNewform : Type := sorry
 
 namespace WeightOneNewform

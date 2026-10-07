@@ -50,6 +50,12 @@ Earlier compilation claims apply only to their recorded exact-file hashes.
 Remaining admitted signatures and the omitted global sheaf ledger are not proved.
 The preceding version's historical receipt applies only to SHA-256
  df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7.
+Independent review REV-DESIGN-HodgeStructuresPartII, codex-JoCdgi, 2026-10-07:
+569 conditional mathematical plans reviewed. The ledger has 36 omitted global
+node signatures (H.0 intrinsic prefix and ordered-augmentation-nilpotence).
+These omissions remain supplier gaps; compilation checks only the written
+native affine signatures with admitted bodies. No global sheaf implementation
+or historical admission-free prototype is certified by this check.
 All imports are Mathlib modules.
 No project/cache setup, library build or Lean language server was started.
 The affine test prefix is retained. The intrinsic local core uses actual additive

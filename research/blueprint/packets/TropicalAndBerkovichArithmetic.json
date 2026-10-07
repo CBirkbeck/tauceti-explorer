@@ -201,7 +201,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition 2.2.2.1(i), p. 6; Definition/Exercise 2.1.2.1(i), p. 4",
-          "excerpt": "M(A)",
           "match": "The source uses bounded points for Banach rings. The bounded-iff-dominated node proves equality with this presentation; this carrier needs no completion."
         }
       ],
@@ -341,7 +340,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition 2.2.2.1(i), p. 6",
-          "excerpt": "M(A)",
           "match": "Identifies the source boundedness convention with the chosen subtype; the proof is the pinned library theorem."
         }
       ],
@@ -380,7 +378,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition 2.2.2.1(i), p. 6",
-          "excerpt": "M(A)",
           "match": "The initial topology for evaluation at every element of A."
         }
       ],
@@ -474,7 +471,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition 2.2.2.1(i), p. 6",
-          "excerpt": "M(A)",
           "match": "The explicit induced-topology embedding is the library formulation of the definition."
         }
       ],
@@ -510,7 +506,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition/Exercise 2.1.2.1(i), p. 4; Definition 2.2.2.1(i), p. 6",
-          "excerpt": "M(A)",
           "match": "Native-carrier expansion used only to prove the image description."
         }
       ],
@@ -549,7 +544,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Fact 2.2.2.3(i), p. 7",
-          "excerpt": "M(A)",
           "match": "This is the explicit topological proof step for the compactness statement; supplied here from native closed-set lemmas."
         }
       ],
@@ -590,7 +584,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Fact 2.2.2.3(i), p. 7",
-          "excerpt": "M(A)",
           "match": "Proves the compactness assertion in a stronger generality; the nonemptiness assertion is not included."
         }
       ],
@@ -629,7 +622,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition 2.2.2.1(i), p. 6",
-          "excerpt": "M(A)",
           "match": "Point separation follows from distinct real-valued seminorms having different coordinates."
         }
       ],
@@ -669,7 +661,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Exercise 2.2.2.4(i), p. 7",
-          "excerpt": "M(A)",
           "match": "Contravariant continuous functor on bounded homomorphisms; completeness is unused."
         }
       ],
@@ -771,7 +762,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definitions 2.1.2.1(i) and 2.2.2.1(i), pp. 4, 6",
-          "excerpt": "M(A)",
           "match": "Specialization to the multiplicative norm of a field."
         }
       ],
@@ -852,7 +842,6 @@
         {
           "sourceId": "temkin-2011",
           "locator": "Definition 2.2.2.1(i), p. 6",
-          "excerpt": "M(A)",
           "match": "Elementary consequence of the bounded multiplicative point definition, proved here with explicit inverse bounds."
         }
       ],
@@ -891,7 +880,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Definition 3.1, printed p. 101; arXiv p. 7",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -977,7 +965,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Definitions 3.3 and 3.5, printed pp. 102–103",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1065,7 +1052,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Lemma 3.2 with proof, printed pp. 101–102",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1103,7 +1089,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Lemma 3.4(3), printed p. 102",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1142,7 +1127,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Lemma 3.4(1)–(2), Definition 3.5, printed pp. 102–103",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1181,7 +1165,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Lemma 3.4(4), printed pp. 102–103",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1218,7 +1201,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Definition 3.7, printed p. 103",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1304,7 +1286,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Lemma 3.8, printed p. 103",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1342,7 +1323,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Proposition 3.9, printed p. 103",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1382,7 +1362,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Theorem 4.22, printed p. 112",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1424,7 +1403,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Theorem 4.22(1), printed p. 112",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1462,7 +1440,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Definition 4.20 and Theorem 4.22(2), printed pp. 111–112",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1498,7 +1475,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Corollary 4.23, printed p. 112",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1535,7 +1511,6 @@
         {
           "sourceId": "bpr-structure-published",
           "locator": "Corollary 4.23, printed p. 112",
-          "excerpt": "Σ",
           "match": "Refines the reviewed extraction; published passages collated."
         }
       ],
@@ -1575,7 +1550,6 @@
         {
           "sourceId": "bpr-tropicalization-2016",
           "locator": "Theorem 1.1, arXiv p. 2",
-          "excerpt": "Γ",
           "match": "Reviewed introduction statement; proof bodies remain open."
         }
       ],
@@ -1615,7 +1589,6 @@
         {
           "sourceId": "bpr-tropicalization-2016",
           "locator": "Theorem 1.1 and following paragraph, arXiv p. 2",
-          "excerpt": "Γ",
           "match": "Reviewed introduction statement; proof bodies remain open."
         }
       ],
@@ -1653,7 +1626,6 @@
         {
           "sourceId": "bpr-tropicalization-2016",
           "locator": "Theorem 1.3, arXiv pp. 2–3",
-          "excerpt": "Γ",
           "match": "Reviewed introduction statement; proof bodies remain open."
         }
       ],
@@ -1694,7 +1666,6 @@
         {
           "sourceId": "bpr-tropicalization-2016",
           "locator": "Theorem 1.4, arXiv p. 3",
-          "excerpt": "Γ",
           "match": "Reviewed introduction statement; proof bodies remain open."
         }
       ],
@@ -1734,7 +1705,6 @@
         {
           "sourceId": "bpr-tropicalization-2016",
           "locator": "Introduction, arXiv p. 3, pointing to Remark 5.6",
-          "excerpt": "Γ",
           "match": "Reviewed introduction statement; proof bodies remain open."
         }
       ],

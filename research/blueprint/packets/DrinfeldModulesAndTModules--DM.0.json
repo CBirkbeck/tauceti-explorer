@@ -251,7 +251,6 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.1, p. 3, table of symbols",
-     "excerpt": "τ := the q-power Frobenius map sending x ↦ x^q on a commutative Fq-algebra R; c^(i) := c^{q^i} = the ith iterate of τ applied to an element c ∈ R, i ∈ Z; R{τ} := the ring of twisted polynomials Σ_i a_i τ^i, a_i ∈ R, where multiplication is given by aτ^i · bτ^j = ab^(i) τ^{i+j}",
      "match": "τ as the q-power Frobenius and c^(i) = c^{q^i}. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -349,13 +348,11 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.1, p. 3, table of symbols",
-     "excerpt": "τ := the q-power Frobenius map sending x ↦ x^q on a commutative Fq-algebra R; c^(i) := c^{q^i} = the ith iterate of τ applied to an element c ∈ R, i ∈ Z; R{τ} := the ring of twisted polynomials Σ_i a_i τ^i, a_i ∈ R, where multiplication is given by aτ^i · bτ^j = ab^(i) τ^{i+j}",
      "match": "The ring R{τ} and its multiplication rule. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.2, p. 3, the Carlitz module",
-     "excerpt": "The natural point of view is that a twisted polynomial f = a0 + a1τ + · · · + ad τ^d ∈ C∞{τ} represents the Fq-linear endomorphism of C∞, x ↦ f(x) = a0 x + a1 x^q + · · · + ad x^{q^d}.",
      "match": "Twisted polynomials as F_q-linear endomorphisms, used for evaluation. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -525,7 +522,6 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.1, p. 3, table of symbols",
-     "excerpt": "τ := the q-power Frobenius map sending x ↦ x^q on a commutative Fq-algebra R; c^(i) := c^{q^i} = the ith iterate of τ applied to an element c ∈ R, i ∈ Z; R{τ} := the ring of twisted polynomials Σ_i a_i τ^i, a_i ∈ R, where multiplication is given by aτ^i · bτ^j = ab^(i) τ^{i+j}",
      "match": "The multiplication rule from which the leading-term formula follows; the source uses deg_τ without stating additivity. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -569,13 +565,11 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.2, p. 3, the Carlitz module",
-     "excerpt": "The natural point of view is that a twisted polynomial f = a0 + a1τ + · · · + ad τ^d ∈ C∞{τ} represents the Fq-linear endomorphism of C∞, x ↦ f(x) = a0 x + a1 x^q + · · · + ad x^{q^d}.",
      "match": "The evaluation x ↦ Σ a_i x^{q^i}. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, Drinfeld modules",
-     "excerpt": "As in the case of the Carlitz module, elements of the ring L{τ} can be thought of as Fq-linear endomorphisms of the additive group of L, and thus we often identify φ with the A-module structure on L induced by φ and write (φ, L) for L with this new A-module structure.",
      "match": "The identification of L{τ} with F_q-linear endomorphisms of the additive group. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -702,7 +696,6 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, Drinfeld modules",
-     "excerpt": "As in the case of the Carlitz module, elements of the ring L{τ} can be thought of as Fq-linear endomorphisms of the additive group of L, and thus we often identify φ with the A-module structure on L induced by φ and write (φ, L) for L with this new A-module structure.",
      "match": "The identification the theorem makes precise. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -746,13 +739,11 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, Drinfeld modules",
-     "excerpt": "φ : A → EndL(Ga), and EndL(Ga) consists of all endomorphisms defined over L.",
      "match": "The source identifies φ with a map to End_L(G_a) and takes the identification L{τ} = End_L(G_a) (F_q-linear endomorphisms) as known; its proof is not in the source (see gaps). Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.2, p. 3",
-     "excerpt": "The natural point of view is that a twisted polynomial f = a0 + a1τ + · · · + ad τ^d ∈ C∞{τ} represents the Fq-linear endomorphism of C∞, x ↦ f(x) = a0 x + a1 x^q + · · · + ad x^{q^d}.",
      "match": "The q-polynomials f(x) = Σ a_i x^{q^i}. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -799,25 +790,21 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, the setting",
-     "excerpt": "Let L be an arbitrary extension of Fq. Let A be the ring of functions on a smooth projective geometrically irreducible curve X/Fq that are regular away from a fixed Fq-rational point ∞ ∈ X, and fix an Fq-algebra homomorphism ι : A → L.",
      "match": "A, the point ∞ and the characteristic map ι. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, the definition",
-     "excerpt": "A Drinfeld A-module is then an Fq-algebra homomorphism φ : A → L{τ} for which φ(a) = ι(a)τ^0 + higher order terms in τ.",
      "match": "The definition. The source's condition does not exclude the constant homomorphism a ↦ ι(a) (its rank would be 0, which the source's 'non-negative integer r' allows); the node follows Drinfeld and the roadmap and requires φ(A) ⊄ L. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, characteristic",
-     "excerpt": "If ι : A → L is injective, then φ is said to have generic characteristic. If not, then φ is said to have characteristic p, where p = ker ι ≠ (0). If φ(A) ⊆ K{τ} for some subfield K ⊆ L, we say that φ is defined over K.",
      "match": "Generic and special characteristic, and fields of definition. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, the module (φ, L)",
-     "excerpt": "As in the case of the Carlitz module, elements of the ring L{τ} can be thought of as Fq-linear endomorphisms of the additive group of L, and thus we often identify φ with the A-module structure on L induced by φ and write (φ, L) for L with this new A-module structure.",
      "match": "The A-module structure on L. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -985,7 +972,6 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, rank",
-     "excerpt": "There is a non-negative integer r such that for every a ∈ A, degτ(φ(a)) = r deg(a), where deg(a) is normalized by |A/(a)| = q^{deg(a)} (see [32, §4.5]). The integer r is called the rank of φ.",
      "match": "The rank relation, for A = F_q[t] where deg(a) is the t-degree. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -1032,7 +1018,6 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, rank",
-     "excerpt": "There is a non-negative integer r such that for every a ∈ A, degτ(φ(a)) = r deg(a), where deg(a) is normalized by |A/(a)| = q^{deg(a)} (see [32, §4.5]). The integer r is called the rank of φ.",
      "match": "The statement; the source gives no proof and refers to Goss §4.5, which was not available (see gaps). Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -1072,13 +1057,11 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5, rank",
-     "excerpt": "There is a non-negative integer r such that for every a ∈ A, degτ(φ(a)) = r deg(a), where deg(a) is normalized by |A/(a)| = q^{deg(a)} (see [32, §4.5]). The integer r is called the rank of φ.",
      "match": "The definition of the rank. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.4, p. 7",
-     "excerpt": "Furthermore, since the degree in z of φΛ(a)(z) is [Λ : aΛ] = q^{r deg a}, we see that the degree in τ of φΛ is r. Thus φΛ is a Drinfeld A-module of rank r.",
      "match": "The degree of φ_a(z) as a polynomial is q^{r deg a}, the kernel degree. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -1201,25 +1184,21 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.2, p. 3",
-     "excerpt": "The Carlitz module C is the first example of a Drinfeld module. Defined by Carlitz [9] in 1935, it is given by the Fq-algebra homomorphism C : Fq[t] → C∞{τ} defined so that C(t) = θ + τ.",
      "match": "The definition C(t) = θ + τ. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.2, p. 3",
-     "excerpt": "In this way C makes C∞ into an Fq[t]-module, where a · x = C(a)(x), and in particular C(t)(x) = θx + x^q.",
      "match": "The module structure C(t)(x) = θx + x^q. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.3, p. 5",
-     "excerpt": "In the case of the Carlitz module we have A = Fq[t], the structure morphism ι : A → C∞ is defined by ι(a) = a(θ), and the Carlitz module is a rank 1 Drinfeld A-module with generic characteristic.",
      "match": "Rank one, generic characteristic for ι(a) = a(θ). Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.2, p. 4, torsion",
-     "excerpt": "For f ∈ Fq[t], we let C[f] := {x ∈ C∞ | C(f)(x) = 0} denote the f-torsion on C, which is isomorphic to Fq[t]/(f) as an Fq[t]-module",
      "match": "The f-torsion, used by the kernel test. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -1346,19 +1325,16 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.4, p. 7, isogenies",
-     "excerpt": "we conclude that φΛ2(a)ψ(c) = ψ(c)φΛ1(a), for all a ∈ A, and we say that ψ(c) ∈ HomA(φΛ1, φΛ2). Any non-zero element ψ of C∞{τ} satisfying this property will be called an isogeny from φΛ1 to φΛ2",
      "match": "Hom_A and isogenies. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.4, p. 7",
-     "excerpt": "One also checks, for Λ1, Λ2 as above, that HomA(φΛ1, φΛ2) is an A-module, and so for any particular lattice Λ the endomorphism ring of φΛ is the A-algebra EndA(φΛ) := HomA(φΛ, φΛ).",
      "match": "Hom as an A-module, End as an A-algebra. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.4, p. 7",
-     "excerpt": "Isogeneity is an equivalence relation.",
      "match": "Isogeny is an equivalence relation, for modules of the same rank. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],
@@ -1484,13 +1460,11 @@
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.4, p. 7",
-     "excerpt": "Isogeneity is an equivalence relation.",
      "match": "The source restricts isogenies to lattices of the same rank; the node proves rank is forced. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     },
     {
      "sourceId": "BP-RAPID",
      "locator": "§2.4, p. 7",
-     "excerpt": "we conclude that φΛ2(a)ψ(c) = ψ(c)φΛ1(a), for all a ∈ A, and we say that ψ(c) ∈ HomA(φΛ1, φΛ2). Any non-zero element ψ of C∞{τ} satisfying this property will be called an isogeny from φΛ1 to φΛ2",
      "match": "The intertwining relation used in the proof. Prose verbatim from the arXiv PDF's text layer; formulas transcribed."
     }
    ],

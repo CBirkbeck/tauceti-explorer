@@ -1,92 +1,59 @@
 # Handoff — BP-CohomologyComparisons
 
-Job `BP-CohomologyComparisons`, issue #697. Agent: Claude Code, session `cc-7b31c4`, 24 September 2026.
+Issue #697. Agent: Codex. Session: `codex-mCCbxV`. Date: 7 October 2026.
 
-Deliverables:
+This is a completed target-level planning pass for CP.0–CP.6, submitted for independent review, not a checkpoint and not a claim of formalisation. All seven stages are **planned**, none is **closed**. Every owned declaration remains `unchecked`. The stopping rule is the protocol's completed breadth pass; the precise remaining work is recorded instead of claiming proof closure.
 
-- `research/blueprint/packets/CohomologyComparisons.json` — 20 nodes, 5 API items, 4 unit tests, 6 planets,
-  25 pinned baseline declarations, 13 gaps, 6 requests, 1 structural proposal.
-  `python3 scripts/check_blueprint.py`: **0 errors, 0 warnings**.
-- `research/blueprint/readmes/CohomologyComparisons.md` — the roadmap document, 1374 lines.
-- `research/blueprint/suggested/CohomologyComparisons.lean` — 145 lines of signatures.
+## Deliverables and scope
 
-## What this packet is
+- [Packet](../packets/CohomologyComparisons.json): 82 nodes (2 definitions, 2 constructions, 54 theorems, 18 applications, 6 comparisons), 20 API items, 12 tests, 31 planets, 14 pinned baseline references, 13 gaps and 51 supplier requests. Each definition/construction has at least three mathematical tests; every stage has at most six planets.
+- [Reader](../readmes/CohomologyComparisons.md): the definitive mathematical document, with statements, hypotheses, proof outlines, APIs, tests, supplier evidence, source corrections and closure instructions.
+- [Suggested Lean](../suggested/CohomologyComparisons.lean): typed prototypes for the specialization homomorphism dictionary and the underlying presented adic completion, plus an explicitly omitted mathematical inventory for the geometric signatures whose supplier types are missing.
 
-The roadmap had a **reviewed integrated decomposition** of Bhatt–Morrow–Scholze, *Integral p-adic Hodge theory*.
-All 20 node identifiers are kept with their statements, hypotheses, proof steps, acceptance tests and verified
-locators; added are prerequisites resolved to the pinned libraries or to a named supplier stage, planets, a
-coverage record per layer, and an API outline with unit tests for the single definition. The API counts are
-small because the decomposition contains one definition and no construction — ten of its twenty nodes are
-lemmas — and inventing definitions to raise the count would be the wrong thing to do.
+CP.0 fixes coefficient maps, geometric/site interfaces and conventions. CP.1 plans the integral derived specialization diagram, including Frobenius pullback, Bockstein and completion boundaries. CP.2 retains rational crystalline comparison and descent. CP.3 supplies the supporting BMS §13 construction and comparison chain, degeneration, Guo–Reinecke relative infinitesimal theory and the smooth absolute-relative agreement. CP.4 separates good-reduction, semistable, arbitrary algebraic and proper rigid comparisons and their different hypotheses. CP.5 covers torsion inequalities, lattice recovery, small-weight arithmetic interfaces and the two geometric counterexamples. CP.6 gives products, trace/duality/cycle/Chern and arithmetic exports and the routed Pan truncated-period adapters.
 
-## What was checked in this session
+All twenty original declaration identifiers survive as owned nodes or explicit import aliases. Accepted RS-01 ownership is followed: generic A_inf linear algebra belongs to AI.5, residue-section crystalline invariance to CR.3, and integral lattice classification to R07.4. The ten displaced generic nodes retain their full source/proof evidence as supplier records. The corrected AI.6 semistable length/lattice results are imported by exact node, rather than redeveloped here. No upstream roadmap or atlas data was edited.
 
-The source's `edition` field says the locators are **line numbers in a supplied text extraction**, and the
-recorded SHA-256 is of that file. It is not public and could not be obtained, so neither the hash nor the line
-numbers were reproduced.
+## Sources and baseline
 
-What was checked instead is the other half of every locator — the printed page — against `arXiv:1602.03148v3`,
-downloaded in this session. **Seven locators were tested and all seven land on the recorded page:**
+The public source register in the packet records URLs, exact editions, PDF SHA-256 hashes and sections read. The reader records the same reading boundaries. It replaces the old private extraction hash and line locators with reproducible printed page/theorem references. The comparison pass read BMS v3 §§2, 12–14 and the retained supplier sections; Česnavičius–Koshikawa v3 §§6–9; Guo–Reinecke v3 §10.1 and §10.2 comparison statements; Guo v1's smooth infinitesimal inputs; the November 2024 Colmez–Nizioł author manuscript's §6.2; the April 2022 Betts–Stix manuscript §3.4; Pan v1 §§6.3.9, 7.2.3–7.2.6; CDN's proper-curve Proposition 3.12; Prisms v4 §18; Scholze's primitive/local/global comparison statements and the full official erratum.
 
-| statement | recorded | found |
-| --- | --- | --- |
-| Theorem 1.1 | pp. 2–3 | p. 2 |
-| Example 3.16 | p. 25 | p. 25 |
-| Lemma 3.23 | p. 27 | p. 27 |
-| Theorem 4.4 | pp. 33–34 | p. 33 |
-| Theorem 12.1 | p. 96 | p. 96 |
-| Theorem 13.1 | p. 104 | p. 104 |
-| Theorem 14.1 | p. 118 | p. 118 |
+Original Beilinson h-descent, Kisin existence/uniqueness, Lang–Ogus/Illusie Enriques, positive-characteristic Bertini, early analytic BC/syntomic and DLLZ proofs are not claimed read or closed. Their exact imported statements and proof obligations are in the requests and gaps.
 
-A reviewer should treat the page half of each locator as corroborated here and the line half as resting on the
-decomposition's reading. The gap says so, and suggests recording a hash of a public file, or dropping the line
-numbers in favour of the pages, which are the portable half.
+The reviewed library audit contains no reviewed CP layer entry. All fourteen named baseline declarations were checked in sources at Mathlib 082e2d3 and Tau Ceti f790474. The actual statements matter: completion completeness needs a finitely generated ideal; module length is extended-natural; finrank is not torsion length; the pinned BDeRham definitions do not themselves provide field/DVR instances. Ordinary derived categories and tensor products do not supply completed E∞ or filtered geometric theories. Two nearby upstream documents, AdicSpaces and EllipticCurves, supplied the planning standard.
 
-## Coverage
+Three source issues are recorded with their precise text/version and correction search: Scholze's official corrections to pro-étale covers/point descriptions and structural OB_dR⁺ completion; and the Betts–Stix manuscript's nonproper total-bundle invocation in its Chern-class proof. The last finding is a proof gap in that manuscript only: published full text was unavailable, and no claim is made that the published version retains the step or that the result is false. The required proper projective-compactification argument is a closure obligation.
 
-Four of the seven layers carry the status the decomposition gave them, with its `remaining` lists verbatim and a
-note added. **CP.1, CP.4 and CP.6 have no decomposed source** — the integral comparison diagram belongs to
-`AInfCohomology` and is requested; the semistable and logarithmic branch and the exports were not read — and
-this packet adds no node for any of them.
+## Structural and verified findings
 
-Fourteen of the twenty nodes are in **CP.5**.
+All four attached findings are addressed: `RT-AREA-padic-1/24`, `RT-AREA-padic-2/3`, `/4` and `/23`. The primitive comparison request states the absolute/relative almost comparison and local-system finiteness with corrected covers. The two proposed orderings of a nonexistent early P8 primitive cut are exposed for restructuring, rather than silently citing an invented stage. The all-weight Kisin request is distinguished from rational classification and the finite-flat/p-divisible range. PR.8, R07.3/R06.4 and PR.4/EDC inputs and the R06.6 return interface have their actual mathematical scopes.
 
-## What the libraries already have
+Pan's late adapters have actual parent CP.6 and realise the routed CP.0/CP.3 extensions. They depend on T6:comparison after the ordinary CP.3 core, avoiding a whole-stage cycle back into CP.3. A late log-truncated substage is proposed. Likewise, the CP.6-consuming cyclotomic-character suffix of RT.6 must be separated from the early THH/prismatic input to PR.7. CN's earlier h/BC/syntomic proof inputs cannot come from R06.5/R06.6, which consume CP.4. The packet proposes source-qualified scope extensions in the owning roadmaps; it does not create those suppliers.
 
-There is no reviewed library audit for this roadmap, so the index was read directly. Mathlib has `WittVector`,
-`TruncatedWittVector`, `PreTilt`, `WittVector.fontaineTheta`, `BDeRhamPlus` and `BDeRham`, so the specialization
-dictionary cites `θ` instead of rebuilding it and the lattice statements are about a lattice in a ring the
-library already has. One citation is there for contrast rather than for use: `IsNoetherianRing`, because `A_inf`
-is **not** noetherian, which is exactly why every hypothesis in CP.5 is finite *presentation* and why the
-coherence lemma of CP.0 has to be proved rather than quoted.
+## What remains and where to resume
 
-## Requests
+Independent review should first check the target/source crosswalk, map-level hypotheses and ownership boundaries. The exact next work is indexed by the thirteen gap IDs; the reader's “Required supplier interfaces” and “Explicit gaps and closure work” give complete statements and the packet gives node incidence:
 
-Six: `AInfCohomology:AI.0` (the `A_inf`-cohomology theory itself), `AInfCohomology:AI.0:period-comparison`,
-`AInfCohomology:AI.2` and `AInfCohomology:AI.5` (the input package of Theorems 14.1 and 14.3),
-`CrystallineCohomology:CR.3` (crystalline base change and the Frobenius isogeny, which Proposition 13.21
-imports), and `PadicHodgeTheory:R06.2` (Kisin's functor and Breuil–Kisin theory, plus Scholze's de Rham
-comparison — the decomposition records both as having no verified supplier in its own graph).
+1. `G-primitive`: establish and place the corrected early absolute/relative primitive comparison and separately sourced log primitive input.
+2. `G-map-agreement`: write the explicit coordinate, Koszul and cup homotopies relating integral and rational comparison maps.
+3. `G-affine-crystalline`: supply CR.3's rational smooth affine/qcqs Frobenius-isogeny and completed residue-section invariance proof.
+4. `G-relative-filtration`: close the relative filtered comparison foundations and singular/éh extensions with the stated flatness, section and transversality hypotheses.
+5. `G-hk-conventions`: prove the exact log-base descent and signed uniformizer transport/cocycle with N = −d/dT.
+6. `G-log-products`: verify PR.8's log range/map agreement and supply the semistable tensor/cup enhancement separately.
+7. `G-analytic-cst`: provide h-derived and overconvergent HK, syntomic and Banach–Colmez inputs to the distinct algebraic and rigid K/C theorems.
+8. `G-kisin`: extend the owner to all-weight crystalline lattices, Kummer restriction and the original existence/uniqueness argument.
+9. `G-counterexamples`: supply the original lifting, crystalline computation, Bertini and weak-Lefschetz inputs to the two constructed surfaces.
+10. `G-chern`: supply PR.4's actual Chern constructions and the proper compactification proof; do not assume equality of the trace-normalized period with Fontaine's canonical one.
+11. `G-pan`: supply Pan22's earlier coefficient/flag comparison, tower torsion/completeness, analytic exactness and decompletion interfaces.
+12. `G-exports`: close the owner's normalized cyclotomic-character and Habiro specialization squares with their intersection hypotheses.
+13. `G-lean-types`: supply genuine geometric, completed, enhanced, filtered and analytic supplier types before giving the omitted Lean signatures.
 
-## Structural proposal
+The source-level proof gaps and supplier scope extensions above prevent closure. Review acceptance should lead to the protocol's follow-up jobs for open stages, then assembly. This pass does not require a worker to resume the old CP.5-heavy checkpoint.
 
-**CP.5 carries fourteen of the twenty nodes and should be divided.** Its two halves are cleanly separated: the
-first is linear algebra over `A_inf` with no cohomology in it — perfectness and Tor bounds, the structure
-theorem, the length inequalities, the monotonicity lemma, the freeness criteria — and the second is the four
-arithmetic conclusions those tools give. The first half is reusable by anything working over `A_inf`, and the
-decomposition's own gap list asks who should own it. Dividing the layer, or moving the first half to the owner
-of the `A_inf` linear algebra, would make that reuse visible and would stop one layer being three times the size
-of any other in the atlas.
+## Validation and prototype limits
 
-## Gaps
+`python3 scripts/check_blueprint.py research/blueprint/packets/CohomologyComparisons.json` passes with **0 errors and 0 warnings**, using the installed pinned declaration index. Submission path checks pass for the four deliverables, as does `git diff --check`. Additional consistency checks confirmed preservation of all original IDs, all 82 proposed names, every API/test name, gap/request incidence, the six-planets limit and honest seven-stage coverage. Short owned-source excerpts were matched against the downloaded source texts. Both the owned-node graph and the atlas stage graph augmented by accepted RS-01 links and this packet's cross-stage prerequisites and R06.6 return were checked acyclic.
 
-Twelve carried forward, including that Kisin's functor and Proposition 4.34 have no verified atlas supplier,
-that the `G_K`- and Frobenius-compatibility in Theorem 14.6(i) is not displayed in the source, that the §2
-counterexamples were read as statements only, and that the normalisation fact that `μ` is a unit is used
-implicitly. One is this job's own: the hash and line numbers could not be reproduced, and what was checked
-instead is recorded above.
+`lean-check research/blueprint/suggested/CohomologyComparisons.lean` elaborates at the pinned Mathlib, with only fourteen admitted-proof warnings. It checks two typed adapters, eight API lemma signatures and six examples. The other geometric definitions/constructions, advanced comparison signatures and remaining six tests are mathematical inventory entries explicitly omitted because their supplier types are absent. This is not verification of their geometric statements, and there are no truth-valued or axiom stand-ins for the missing theories. Every implementation status remains unchecked.
 
-## Did the Lean file compile?
-
-**No.** No toolchain at the pinned commits was available and the shared Mathlib build here is a cache a worker
-must not rebuild. Every name the file is written against was confirmed in the pinned declaration index.
+No background Lean process or repository copy was created. Job scratch is deleted on submission; all information needed by independent review and follow-up workers is in these four deliverables.

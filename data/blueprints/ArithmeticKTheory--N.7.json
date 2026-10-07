@@ -258,19 +258,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, the paragraph 'Bernoulli numbers' before Lemma 2.4, printed p. 472 (PDF p. 480)",
-     "excerpt": "(We use the topologists' Bk from [135], all of which are positive. Number theorists would write it as (−1)^{k+1} B_{2k}.) The first few Bernoulli numbers are: B1 = 1/6, B2 = 1/30, B3 = 1/42, B4 = 1/30, B5 = 5/66, B6 = 691/2730, B7 = 7/6, B8 = 3617/510.",
      "match": "The source's convention and its first values, verbatim; the node re-indexes them. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, same paragraph, printed p. 472 (PDF p. 480)",
-     "excerpt": "The denominator of Bk is always squarefree, divisible by 6, and equal to the product of all primes with (p − 1)|2k. Moreover, if (p − 1) ∤ 2k then p is not in the denominator of Bk/k even if p|k; see [135].",
      "match": "The denominator facts, in the source's indexing (its B_k = arithmetic B_{2k}). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "excerpt": "Kummer proved that p is irregular if and only if p divides the numerator of one of the Bernoulli numbers Bk, k ≤ (p − 3)/2 (see Washington [216, 5.34]). By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.",
      "match": "The Kummer-congruence refinement and the example 5 | B_5 (arithmetic B_10 = 5/66). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -394,7 +391,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4 (Lemma 2.4) and the recall of 2.1.2 before it, printed p. 472 (PDF p. 480)",
-     "excerpt": "Recall from 2.1.2 that wi(Q) = 2 when i is odd. Lemma 2.4. If i = 2k is even then wi(Q) is the denominator of Bk/4k. The prime ℓ divides wi(Q) exactly when (ℓ − 1) divides i.",
      "match": "The value over the rationals, verbatim, in the source's indexing. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -515,7 +511,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1 (Example 2.4.1, Irregular Primes), printed p. 472 (PDF p. 480)",
-     "excerpt": "A prime p is called irregular if p divides the order hp of Pic(Z[µp]); if p is not irregular it is called regular. Iwasawa proved that a prime p is regular if and only if Pic(Z[µ_{p^ν}]) has no p-torsion for all ν. The smallest irregular primes are 37, 59, 67, 101, 103, 131 and 149.",
      "match": "The definition, Iwasawa's equivalent form and the list, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -626,13 +621,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "excerpt": "Kummer proved that p is irregular if and only if p divides the numerator of one of the Bernoulli numbers Bk, k ≤ (p − 3)/2 (see Washington [216, 5.34]). By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.",
      "match": "The criterion and its consequence, verbatim, in the source's indexing, with its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, the historical remark, printed p. 472 (PDF p. 480)",
-     "excerpt": "The historical interest in regular primes is Kummer's 1847 proof of Fermat's Last Theorem (case I) for regular primes: x^p + y^p = z^p has no solution in which p ∤ xyz. For us, certain calculations of K-groups become easier at regular primes.",
      "match": "The context, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -678,13 +671,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.8.1 (Remark 10.8.1), printed p. 532 (PDF p. 540)",
-     "excerpt": "Remark 10.8.1. The Herbrand-Ribet theorem [216, 6.17–18] states that ℓ|Bk if and only if (Pic R/ℓ)^[ℓ−2k] ≠ 0. Among irregular primes < 4000, this happens for at most 3 values of k. For example, 37|c16 (see 10.3), so (Pic R/ℓ)^[5] = Z/37 and (Pic R/ℓ)^[k] = 0 for k ≠ 5.",
      "match": "The theorem and the numerical remark, verbatim, in the source's indexing. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.4.2 (Example 10.4.2), printed p. 530 (PDF p. 538)",
-     "excerpt": "If i is even, Z/ℓ occurs only when i ≡ 0 (mod ℓ − 1), corresponding to ζ^{⊗i}. If i is odd, exactly one term of M is Z/ℓ; M^G is Z/ℓ on the generator xj ⊗ ζℓ^{i−1}, where i ≡ 1 + 2j (mod ℓ − 1).",
      "match": "The eigenspace bookkeeping, verbatim; the packet had cited it as 10.4.1. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -732,19 +723,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522)",
-     "excerpt": "Example 8.3.2. If ℓ ≠ 2 is a regular prime (see 2.4.1), we claim that K2i(Z[ζℓ]) has no ℓ-torsion. The case K0 is tautological since Pic(OF)/ℓ = 0 by definition. Setting R = Z[ζℓ, 1/ℓ], we have |S| = 1 and Br(R) = 0 by (8.1.1).",
      "match": "The statement itself, for all K_{2i}, with the three inputs (Pic, |S| = 1, Br = 0); the packet did not cite it. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1 (Classical Data), (8.1.1), printed p. 513 (PDF p. 521)",
-     "excerpt": "The Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)^{r1} ⊕ ⊕_{v∈S finite} (Q/Z) → Q/Z → 0. (8.1.1)",
      "match": "The Brauer sequence the argument uses. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538)",
-     "excerpt": "Proposition 10.5. When ℓ is an odd regular prime, the group K2i(Z) has no ℓ-torsion. Thus the only ℓ-torsion subgroups of K∗(Z) are the Harris-Segal subgroups Z/wi(Q)_(ℓ) of K2i−1(Z) when i ≡ 0 (mod ℓ − 1).",
      "match": "The analogous statement over the integers. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -788,19 +776,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538)",
-     "excerpt": "Proposition 10.5. When ℓ is an odd regular prime, the group K2i(Z) has no ℓ-torsion. Thus the only ℓ-torsion subgroups of K∗(Z) are the Harris-Segal subgroups Z/wi(Q)_(ℓ) of K2i−1(Z) when i ≡ 0 (mod ℓ − 1).",
      "match": "The first two statements, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.6 (Theorem 10.6), printed p. 531 (PDF p. 539)",
-     "excerpt": "Theorem 10.6. If ℓ is an odd regular prime then K∗ = K∗(Z[1/ℓ]; Z/ℓ) is a free graded module over the polynomial ring Z/ℓ[β^{ℓ−1}]. It has (ℓ + 3)/2 generators: 1 ∈ K0, v ∈ K2ℓ−3, and the elements yk ∈ K4k+1 (k = 0, ..., (ℓ−3)/2) described above.",
      "match": "The module statement, verbatim: the polynomial ring is on β^{ℓ−1}. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.6, the case ℓ = 5, printed p. 532 (PDF p. 540)",
-     "excerpt": "When ℓ = 5, the groups Kn = Kn(Z[1/5]; Z/5) are 8-periodic, with respective ranks 1, 1, 0, 0, 0, 1, 0, 1 (n = 0, ..., 7), generated by an appropriate power of β^4 ∈ K8 times one of {1, [5], y1, v}.",
      "match": "The worked example, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -841,19 +826,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.8 (Vandiver's Conjecture 10.8), printed p. 532 (PDF p. 540)",
-     "excerpt": "Vandiver's Conjecture 10.8. If ℓ is an irregular prime then Pic(Z[ζℓ + ζℓ^{−1}]) has no ℓ-torsion. Equivalently, the natural representation of G = Gal(Q(ζℓ)/Q) on Pic(Z[ζℓ])/ℓ is a sum of G-modules µℓ^{⊗i} with i odd.",
      "match": "The conjecture and the equivalence, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.1, the paragraph before Table 10.1.1, printed p. 527 (PDF p. 535)",
-     "excerpt": "If n = 4i ≥ 8, the orders of the groups K4i(Z) are known to be products of irregular primes ℓ, with ℓ > 10^8, and are conjectured to be zero; this conjecture follows from, and implies, Vandiver's conjecture",
      "match": "The unconditional statement and the equivalence, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.8.2 (Historical Remark 10.8.2), printed p. 532 (PDF p. 540)",
-     "excerpt": "Historical Remark 10.8.2. What we now call “Vandiver's conjecture” was actually discussed by Kummer and Kronecker in 1849–1853; Harry Vandiver was not born until 1882 and only started using this assumption circa 1920",
      "match": "The historical remark, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -896,7 +878,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, the worked case of the rationals, printed p. 515 (PDF p. 523)",
-     "excerpt": "For example, when F = Q we have ζQ(−1) = −1/12, |K2(Z)| = 2 and w2(Q) = 24; see the Classical Data 8.1",
      "match": "The shape of a certified example: three independently known numbers. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -1005,7 +986,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.1.1 (Table 10.1.1) and its note, printed p. 528 (PDF p. 536)",
-     "excerpt": "K0(Z) = Z, K1(Z) = Z/2, K2(Z) = Z/2, K3(Z) = Z/48, K4(Z) = 0, K5(Z) = Z, K6(Z) = 0, K7(Z) = Z/240. Table 10.1.1: The groups Kn(Z), n < 20,000. The notation ‘(0?)’ refers to a finite group, conjecturally zero, whose order is a product of irregular primes > 10^8.",
      "match": "The first column of the table (transcribed) and its note, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -1047,13 +1027,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.3 (Corollary 5.3), printed p. 488 (PDF p. 496)",
-     "excerpt": "Corollary 5.3. Let F be a number field, with r1 real embeddings and r2 complex embeddings, and set w = w2(F). Then K3^ind(F) ≅ Z^{r2} ⊕ Z/w, and: (a) If F is totally imaginary then K3(F) ≅ Z^{r2} ⊕ Z/w; (b) If F has r1 > 0 embeddings into R then K3(F) ≅ Z^{r2} ⊕ Z/(2w) ⊕ (Z/2)^{r1−1}.",
      "match": "The structure theorem in both cases, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226)",
-     "excerpt": "Tate has used the same Euclidean algorithm type techniques to show that K2(Z[√−7]) and K2(Z[√−15]) are also cyclic of order 2, generated by the symbol {−1, −1}, while K2(R) = 1 for the imaginary quadratic rings R = Z[i], Z[√−3], Z[√−2] and Z[√−11].",
      "match": "Tate's vanishing for Z[i] and the other rings, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -1095,13 +1073,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1 (Classical Data), printed p. 513 (PDF p. 521)",
-     "excerpt": "The formulas for K0(OS) = Z ⊕ Pic(OS) and K1(OS) = OS^× ≅ Z^{r2+|S|−1} ⊕ µ(F) are different; see II.2.6.3 and III.1.3.6.",
      "match": "The degree-zero and degree-one formulas. The printed rank r2 + |S| − 1 is wrong for fields with real places (it gives rank 0 for Z[1/p]); the node uses the correct rank r1 + r2 + |S| − 1 = 1, recorded as ArithmeticKTheory/E1. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244)",
-     "excerpt": "Application 6.5.1 (K2 Q). If R = Z then, since K2(Z/p) = 1 and SK1(Z) = 1, we have an exact sequence 1 → K2(Z) → K2(Q) → ⊕ Fp^× → 1. As noted in Example 6.2.1, this sequence is split by the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ⊕ Fp^×.",
      "match": "The sequence for the integers, which is one of the two compared. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -1142,7 +1118,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244)",
-     "excerpt": "Application 6.5.1 (K2 Q). If R = Z then, since K2(Z/p) = 1 and SK1(Z) = 1, we have an exact sequence 1 → K2(Z) → K2(Q) → ⊕ Fp^× → 1. As noted in Example 6.2.1, this sequence is split by the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ⊕ Fp^×.",
      "match": "The decomposition that makes the check, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -1186,13 +1161,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6 (Birch-Tate Conjecture 8.6), printed p. 515 (PDF p. 523)",
-     "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r2 = 0) we have ζF(−1) = (−1)^{r1} |K2(OF)|/w2(F). The odd part of this conjecture was proven by Wiles in [229]",
      "match": "The formula with its hypothesis, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, the worked case, printed p. 515 (PDF p. 523)",
-     "excerpt": "For example, when F = Q we have ζQ(−1) = −1/12, |K2(Z)| = 2 and w2(Q) = 24; see the Classical Data 8.1",
      "match": "The model instance, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -1232,13 +1205,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, the status, printed p. 515 (PDF p. 523)",
-     "excerpt": "The two-primary part of the Birch-Tate conjecture is still open, but it is known to be a consequence of the 2-adic Main Conjecture of Iwasawa Theory (see Kolster's appendix to [161]). This was proven by Wiles for abelian extensions F of Q in loc. cit., so the full Birch-Tate Conjecture holds for all abelian extensions of Q.",
      "match": "The two-primary status, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, printed p. 515 (PDF p. 523)",
-     "excerpt": "Birch and Tate conjectured in 1970 that for totally real number fields (r2 = 0) we have ζF(−1) = (−1)^{r1} |K2(OF)|/w2(F). The odd part of this conjecture was proven by Wiles in [229]",
      "match": "The odd part, proved by Wiles with no abelian restriction, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],

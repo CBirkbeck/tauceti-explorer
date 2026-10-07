@@ -1,157 +1,35 @@
-# Handoff — BP-HeckeStacksAndLocalShtukas (issue #750)
+# BP-HeckeStacksAndLocalShtukas — completed target-level pass
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-hecke`.
+Issue #750; agent Codex; session codex-T2UIy2; 2026-10-07. This is a complete planning submission, not a checkpoint or an implementation claim.
 
-## Deliverables
+## Submission summary
 
-- `research/blueprint/packets/HeckeStacksAndLocalShtukas.json` — 12 nodes
-  (4 constructions, 1 definition, 4 theorems, 1 lemma, 2 comparisons), 32 API
-  items, 21 unit tests, 9 planets, 28 baseline declarations, 8 gaps, 22
-  requests, 2 structural entries. `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/HeckeStacksAndLocalShtukas.md` — 954 lines.
-- `research/blueprint/suggested/HeckeStacksAndLocalShtukas.lean` — 503 lines.
-- This note.
+46 nodes: 14 constructions, 15 theorems, 14 comparisons, one lemma, one definition and one application. They carry 47 API items, 46 prototype unit tests, 19 planets and 24 pinned baseline declarations. Twelve useful inherited node identifiers are retained. HS0, HS1, HS2, HS3 and HS4 are all **planned**; none is closed. The packet is **complete**, with 32 supplier requests and seven precise gaps. All implementation statuses remain **unchecked**.
 
-## Checks run
+The packet passes `scripts/check_blueprint.py` with the pinned declaration index: zero errors and warnings. The suggested file passes `lean-check` at the pinned shared build with only proof-placeholder warnings. It types ordinary categorical/algebraic interfaces and both actual rigidity triangles. Its named omission catalogue records absent geometric/enhanced theorem conditions; compilation does not certify those theorems or the geometric acceptance tests. Packet API/test names agree with the suggested file and reader; all 46 examples are present.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/HeckeStacksAndLocalShtukas.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**, with the pinned declaration index in place, so
-  every baseline reference was resolved against it rather than checked for form.
-- `python3 -m unittest discover -s tests` → 254 tests, OK.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths →
-  0 problems.
+Follow-up must resolve the general-E integral lattice supplier, restricted component proof gate, independent classical formal-moduli/O_E-linear/BKF inputs, higher-dimensional analytic compact support, enhanced Levi correspondence, IX.3.2’s all-level range and the geometric conditions omitted from prototypes. The supplier list gives exact statements and consumers.
 
-**The Lean file was not compiled.** No Lean was run for this job. The Mathlib
-build on this machine is a shared cache that must not be rebuilt, and this
-working tree has no elaborated dependency modules. Nothing is claimed to be
-formalised; every `implementationStatus` is `unchecked`.
+## Confirmed red-team findings
 
-## Source verification
+| Finding | Resolution and continuation boundary |
+| --- | --- |
+| RT-AREA-geomlanglands/2 | HS3/classical-comparison owns SW24.2.5 and Corollary24.3.5 after independent classical construction. ET.6a supplies the O_E-linear LT/Drinfeld towers; no ET.6a→HS2 import. Propose the late HS3:classical-comparison sub-layer for stage scheduling and export it to ES7:GLn-comparison. General GL_n/EL/PEL formal-moduli representability is a Part II request to the finite-flat/Dieudonné owner, not implicitly supplied by LT/Drinfeld alone. Atlas/consumer edits remain outside this job. |
+| RT-AREA-geomlanglands/13 | Separate HS1 ULA and duality nodes import the integral lisse VII.7.6–.10 package from VS5. Record VS5→HS1 as a supplier refinement, with the compact-Hom/stratum-invariant criterion. |
+| RT-AREA-geomlanglands/19 | GS4 remains owner of the enhanced perfect Satake extension. HS1 explicitly imports LP3/LP4 all-prime integral highest-weight/perfect generation and the relative coefficient formula over Perf(BQ^I), retaining Q-equivariance. VIII.5’s good-prime theorem is insufficient. |
+| RT-AREA-geomlanglands/20 | HS2/minuscule-rigidification uses the minuscule BB flag comparison and the étale-site equivalence to reconstruct the smooth rigid tower. HS3/huber-cohomology-comparison explicitly requests shriek, dualizing trace and derived coefficient compatibility beyond curve-only H3. |
+| RT-AREA-geomlanglands/21 | Keep HS0/demazure-generators-of-ULA-kernels as an identifier, but change its parent and realises to HS1. Its actual affine-FLAG/Iwahori resolution input is requested from GS1; VS2 VII.4.3 and VS3 lisse generators are explicit prerequisites. |
+| RT-AREA-geomlanglands/22 | HS2/general-local-field explicitly constructs the general-O_E tower in both characteristics through RF0/RF2/RF4. SW’s Q_p integral prototype is separate. The general-E lattice equivalence is a supplier request and remaining refinement, not a silently narrowed scope. |
+| RT-AREA-geomlanglands/29 | VS5 request names lisse VII.7.6, .7, .8, .9 and .10, distinct from the existing torsion V.5–V.7 nodes. HS1 consumes this package before HS3. |
 
-Both sources were downloaded again in this session and **both SHA-256 hashes
-reproduce the recorded values byte for byte**:
+## Source and baseline audit
 
-| source | URL | SHA-256 |
-| --- | --- | --- |
-| `FS-geometrization` | people.mpim-bonn.mpg.de/scholze/Geometrization.pdf | `9ab9efbd0df251bf…a905` |
-| `SW20-berkeley` | www.math.uni-bonn.de/people/scholze/Berkeley.pdf | `225505171ef809aa…4bffc` |
+The reader and packet record public URLs, editions, SHA-256 byte pins, exact read sections, short literal anchors and printed pagination for FS, Berkeley, Howe–Klevdal arXiv v2, Gleason–Lourenço arXiv v2 and the published Gleason–Lim–Xu article. Every recorded anchor was checked against its downloaded text; printed/PDF locations were checked independently. Berkeley 10.4.2 is on printed p.81, 19.4.2 on pp.176–177 and 19.5.3 on pp.180–181. The Levi geometric calculation is FS IX.7.2 pp.336–337. GLX’s published §3.4 is the extraction’s earlier §3.3.
 
-Every locator in this packet therefore rests on the same two files the
-independent review of the decomposition checked. No locator was re-verified
-against the PDFs beyond the hashes; the page-level checking, including the
-Berkeley convention *printed page = PDF page − 10*, was done by that review.
+All added GLX routes T29/D34/D36/T34/T35/T37/T70/T73/T74 and HK routes 119/121 are mapped in the packet/reader. GLX3.12 keeps the reviewed E01/T21 gate on its noncompact-torsor component step; the specific transitivity theorem is not declared false. No new independent erratum verdict is claimed. The reductive HK case stays here; nonreductive admissible pairs and integral ADLV/local-model product results stay with their own continuations.
 
-## The one node this packet does not keep
+CS/RV’s full nonemptiness proof, Hansen’s dimension-removal proof, the general-O_E integral equivalence, independent classical formal-moduli representability, full Dieudonné/BKF classification and higher-dimensional Huber duality are precisely requested supplier proofs. They were not independently established by this pass. The primary sources read identify their role and scope.
 
-The reviewed decomposition has a node
-`HeckeStacksAndLocalShtukas:HS4/uniform-wild-subgroup` for Fargues–Scholze
-Proposition IX.5.1. **It is not planned here**, and the decision rests on two
-statements already in the repository, not on a judgement about the mathematics.
+Both pinned library heads were verified and the 24 cited declaration statements read. AUDIT-21 already contains all five layers; the previous handoff’s claim that no audit existed was wrong. Tau Ceti already has IsSmoothDiscrete and SmoothDiscreteTopRep; derived smooth categories and induction remain supplier work. Coxeter/Tits cells, ordinary finite modules, Comma and ClosedSubgroupScheme were removed as substitutes for missing geometric/enhanced notions.
 
-1. The roadmap document, HS4: *"Export continuous Weil actions and
-   tensor-generator compatibility to ES1:finite-ramification, the canonical owner
-   of IX.5.1's uniform wild subgroup for each compact object. This transferred
-   theorem is not assumed in the construction of the Hecke family."*
-2. RS-22 (review `REV-RS-22`, accepted 23 September 2026), reason for keeping
-   HS4: *"parameter identities remain ES6/ES7 and uniform wild-inertia cutoff
-   remains ES1:finite-ramification. The older decomposition node does not reverse
-   that current ownership."*
-
-`data/atlas.json` agrees: the stage edge runs `HS4 →
-ExcursionOperatorsAndSpectralAction:ES1:finite-ramification`, in that direction.
-PROTOCOL §15 says what another roadmap plans is imported and never planned again.
-
-Nothing is lost: the statement is filed as a request to
-`ES1:finite-ramification` carrying its full content — the uniformity of `P` in
-`I` and in `V`, the full-faithfulness step `f_♯ Λ = Λ` for `[*/W_E^I] →
-[*/(W_E/P)^I]`, its reduction after a v-cover to the vanishing of the
-`Λ`-homology of `P^I`, and the point at which `ℓ ≠ p` is used — together with the
-decomposition's own note that only the statement and the first half of the proof
-were read. A reviewer who disagrees should weigh it as a duplication question,
-not as a dropped statement.
-
-## RS-22 more generally
-
-All five layers are kept. The roadmap is **retitled** to "Hecke correspondences
-on the Fargues–Fontaine curve and local shtuka cohomology"; the packet is written
-under that title and uses *global* only for the leg set, never for a global
-function field. `GlobalShtukasAndFunctionFieldLanglands`, the other family
-member, is neither a base nor a supplier and is not requested. RS-22's three new
-links into this roadmap — `VStackSheavesAndLisseCategories:VS1 → HS1`,
-`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group → HS1`, and
-`GeometricSatakeAndFusion:GS3:fusion → HS4` — are all filed as requests. The
-Class Field Theory supplier is a request only and never a prerequisite, because
-`scripts/check_blueprint.py` parses any `tauceti:` identifier as a baseline
-declaration.
-
-## The library search
-
-`data/library-coverage.json` has no reviewed audit entry for this roadmap, so the
-pinned declaration index was searched directly.
-
-**Absent from both libraries**, hence genuine dependencies: any declaration whose
-name contains `WeilGroup`, `LoopGroup`, `Shtuka` or `Perfectoid`, and any affine
-Grassmannian (the only `Grassmannian` is `Module.Grassmannian`).
-
-**Present and cited rather than planned.** The useful find is
-`mathlib:WittVector.Isocrystal`: a module over `K(p,k) = W(k)[1/p]` with a
-Frobenius-semilinear automorphism, which for `G = GL_n` is exactly the datum `b`
-of the shtuka triple, so the linear-algebra case of the datum is pinned. Also
-`mathlib:CoxeterSystem` and `tauceti:TauCeti.TitsSystem.bruhatCell` for the
-Bruhat order of the boundedness condition;
-`tauceti:TauCeti.ReductiveAffineGroupSchemeCat`,
-`tauceti:TauCeti.AffineGroupSchemeCat` and
-`tauceti:TauCeti.ClosedSubgroupScheme` for the groups;
-`tauceti:TauCeti.Huber.Pair` and `tauceti:TauCeti.ValuationSpectrum.spa` for the
-affinoid test objects; `tauceti:TauCeti.IsSmoothDiscrete` and
-`tauceti:TauCeti.SmoothDiscreteTopRep` as the pinned smooth-representation
-carriers HS3's conclusion must be compared with; and the condensed carriers for
-the enrichment.
-
-## What remains
-
-No layer is closed. The decomposition's five gaps are carried forward unchanged,
-each with a *next source action* naming exact printed pages, and three were
-added. In rough order of how much they block:
-
-1. **FS VII.4–VII.5 are unread** and carry the Hecke construction twice:
-   Proposition VII.4.3 for the passage from the Demazure generators to
-   preservation of `D_lis` in IX.2.1, and Proposition VII.5.2 both for extending
-   `T_V` from torsion `Λ` to all `Λ` and for `Rf_{K!}Rf_K^!ℤ_ℓ|_U = f_{K♯}ℤ_ℓ|_U`
-   in the proof of IX.3.1. Requested from `VStackSheavesAndLisseCategories:VS2`.
-   This gap is shared with that roadmap's packet.
-2. **FS IV.7 (Drinfeld's lemma) is unread**, and it is what identifies the target
-   of `T_V` with `W_E^I`-equivariant objects. Requested from
-   `VStackSheavesAndLisseCategories:VS1`, which RS-22 makes the canonical
-   supplier.
-3. **Berkeley 23.2–23.5 and Lecture 24 are unread.** HS2 rests on the *statement*
-   of Theorem 23.1.4, and the local Shimura tower that FS IX.3 identifies with a
-   Hecke fibre is constructed in the unread Lecture 24.
-4. **FS VIII.4 (excursion operators) is unread.** HS4's triangle identities have
-   no located source statement anywhere in Chapter IX — it was searched section
-   by section — and VIII.4 is where they would be.
-5. **One supplier edge the atlas does not have:**
-   `VStackSheavesAndLisseCategories:VS5 → HS1`. Theorem IX.2.2 deduces
-   ULA-preservation from Proposition VII.7.9, the lisse form of FS V.7.1, which
-   the VStack packet plans in VS5; the atlas links VS5 into HS3 but not into HS1.
-   Filed as a request here; a `kind:link` job should draw the edge.
-
-## Structural entries
-
-1. **The RS-22 retitle is adopted**, recorded so a reviewer can see it was
-   applied and not merely noted.
-2. **HS4 is two different things.** One half is the coherence of the Hecke family
-   (permutation, dual-leg creation and annihilation with the triangle
-   identities, iterated modification, fusion along every finite-set map); the
-   other is the geometry of the IX.6 diagrams. The decomposition found a source
-   statement for the second and none at all for the first, whose source route
-   runs through GS4 (dualizability) and VIII.4 (excursion operators), both owned
-   elsewhere. With IX.5.1 now correctly assigned to `ES1:finite-ramification`,
-   HS4 as it stands has one node with a source and one obligation without one.
-
-## Where to resume
-
-The packet is complete against the decomposition. The next real work is source
-reading, in the order above: FS VII.4–VII.5 first, since two nodes already
-written quote them; then IV.7; then Berkeley 23–24, which is a layer's worth of
-material rather than a gap in an existing node.
+AdicSpaces and ReductiveGroups upstream documents were read and left untouched. RS-22 is accepted and all five retained layers remain. IX.5.1’s uniform wild subgroup is downstream ES1:finite-ramification work; it is no longer a reversed prerequisite or an HS4-owned node. No application, atlas, upstream, other packet or reserved-id file is changed.

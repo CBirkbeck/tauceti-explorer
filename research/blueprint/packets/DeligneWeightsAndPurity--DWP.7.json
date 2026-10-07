@@ -191,7 +191,9 @@
     "Acceptance: on Spec 𝔽_q the rank-one Weil sheaf on which F acts by a transcendental b ∈ ℚ̄_ℓ with |ιb| = q for one ι is ι-pure of weight 2 for that ι but not mixed: ι-purity at one ι does not give algebraicity."
    ],
    "prerequisites": [
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness",
+    "DeligneWeightsAndPurity:DWP.5/weil-sheaf",
+    "DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters",
     "DeligneWeightsAndPurity:DWP.0/weil-q-number",
     "DeligneWeightsAndPurity:DWP.0/iota-weight",
     "DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota",
@@ -610,8 +612,9 @@
    "prerequisites": [
     "DeligneWeightsAndPurity:DWP.7/spreading-out-to-a-tame-relative-curve",
     "DeligneWeightsAndPurity:DWP.7/devissage-in-the-sheaf-and-the-source",
-    "DeligneWeightsAndPurity:DWP.6",
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.6/sharp-curve-purity",
+    "DeligneWeightsAndPurity:DWP.5/local-monodromy-purity",
+    "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries",
     "EtaleDualityAndPerverseSheaves:EDC.0",
     "SchemeAndStackFoundations:SF.2"
    ],
@@ -669,7 +672,7 @@
     "DeligneWeightsAndPurity:DWP.7/purity-of-the-relative-curve-case",
     "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
     "DeligneWeightsAndPurity:DWP.0/weil-q-number",
-    "DeligneWeightsAndPurity:DWP.5"
+    "DeligneWeightsAndPurity:DWP.5/weil-sheaf"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Weights/DirectImage",
@@ -717,8 +720,9 @@
     "DeligneWeightsAndPurity:DWP.7/spreading-out-to-a-tame-relative-curve",
     "DeligneWeightsAndPurity:DWP.7/purity-of-the-relative-curve-case",
     "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
-    "DeligneWeightsAndPurity:DWP.5",
-    "DeligneWeightsAndPurity:DWP.6",
+    "DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness",
+    "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries",
+    "DeligneWeightsAndPurity:DWP.6/sharp-curve-purity",
     "DeligneWeightsAndPurity:DWP.0/iota-weight"
    ],
    "library": {
@@ -765,7 +769,7 @@
     "DeligneWeightsAndPurity:DWP.7/integral-sheaf",
     "SchemeAndStackFoundations:SF.2",
     "EtaleDualityAndPerverseSheaves:EDC.0",
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.5/weil-sheaf",
     "EtaleDualityAndPerverseSheaves:EDC.2"
    ],
    "library": {
@@ -1753,7 +1757,7 @@
     "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
     "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
     "LefschetzPencilsAndVanishingCycles:LPV.1",
-    "DeligneWeightsAndPurity:DWP.5"
+    "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Weights/MixedComplexes",
@@ -1882,7 +1886,8 @@
    "prerequisites": [
     "DeligneWeightsAndPurity:DWP.8/pure-complexes",
     "DeligneWeightsAndPurity:DWP.8/twist-shift-and-smooth-lisse-purity-6-2-5",
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.5/local-monodromy-purity",
+    "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries",
     "EtaleDualityAndPerverseSheaves:EDC.1",
     "EtaleDualityAndPerverseSheaves:EDC.2"
    ],
@@ -2347,7 +2352,7 @@
     "DeligneWeightsAndPurity:DWP.0/weight-decomposition",
     "DeligneWeightsAndPurity:DWP.0/disjoint-spectra-no-intertwiner",
     "DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters",
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries",
     "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
     "EtaleDualityAndPerverseSheaves:EDC.0"
    ],
@@ -2489,7 +2494,7 @@
     "DeligneWeightsAndPurity:DWP.8/weight-decomposition-modulo-z-3-4-1-i",
     "DeligneWeightsAndPurity:DWP.0/weight-decomposition",
     "DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota",
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries",
     "EtaleDualityAndPerverseSheaves:EDC.0"
    ],
    "api": [
@@ -2824,7 +2829,7 @@
     "DeligneWeightsAndPurity:DWP.8/potentially-property-p-3-4-10",
     "DeligneWeightsAndPurity:DWP.8/geometric-semisimplicity-theorem-3-4-1-iii",
     "DeligneWeightsAndPurity:DWP.8/geometric-semisimplicity",
-    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy",
     "AdicCoefficientsAndComparisons:L2"
    ],
    "library": {
@@ -3904,30 +3909,6 @@
    "need": "Étale cohomology of Deligne–Mumford stacks of finite type over 𝔽_q, with the resolution of j_!ℚ_ℓ by normalised strata of a normal crossings divisor, for the stacky weight spectral sequence.",
    "neededBy": [
     "DeligneWeightsAndPurity:DWP.8/weight-spectral-sequence-of-a-normal-crossings-compactification"
-   ]
-  },
-  {
-   "supplier": "DeligneWeightsAndPurity:DWP.5",
-   "need": "The sheaf-level predicates of Weil II (1.2.2)–(1.2.7) (punctually pure, mixed, punctually ι-pure, ι-mixed, twists) on schemes of finite type over ℤ[1/ℓ] (not only over 𝔽_q), with the stabilities (1.2.5) and the Weil-sheaf variants; the local weight theorem (1.8.4) with (1.8.6)–(1.8.8) along a divisor finite étale over a base; the corollaries (1.8.9) (j_* preserves ι-mixedness with weights ≤ β), (1.8.10) and (1.8.11); and the specialisation theorem for monodromy groups (1.11.1), (1.11.5).",
-   "neededBy": [
-    "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
-    "DeligneWeightsAndPurity:DWP.7/purity-of-the-relative-curve-case",
-    "DeligneWeightsAndPurity:DWP.7/fundamental-direct-image-theorem-3-3-1",
-    "DeligneWeightsAndPurity:DWP.7/iota-mixed-direct-image-3-3-10",
-    "DeligneWeightsAndPurity:DWP.7/deligne-integrality-theorem-sga7-xxi",
-    "DeligneWeightsAndPurity:DWP.8/nearby-cycles-preserve-mixedness-6-1-13",
-    "DeligneWeightsAndPurity:DWP.8/intermediate-direct-image-purity-6-2-5cd",
-    "DeligneWeightsAndPurity:DWP.8/weight-decomposition-modulo-z-3-4-1-i",
-    "DeligneWeightsAndPurity:DWP.8/punctual-weight-filtration-3-4-1-ii",
-    "DeligneWeightsAndPurity:DWP.8/potentially-pure-lisse-sheaves-are-semisimple-3-4-12"
-   ]
-  },
-  {
-   "supplier": "DeligneWeightsAndPurity:DWP.6",
-   "need": "Weil II (3.2.3): for a smooth projective curve over a finite field, j : U → C dense open and ℱ lisse on U punctually ι-pure of weight β, H^i(C, j_*ℱ) is ι-pure of weight β + i, for every ι (so that integer weights follow).",
-   "neededBy": [
-    "DeligneWeightsAndPurity:DWP.7/purity-of-the-relative-curve-case",
-    "DeligneWeightsAndPurity:DWP.7/iota-mixed-direct-image-3-3-10"
    ]
   },
   {

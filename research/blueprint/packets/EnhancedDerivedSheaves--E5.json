@@ -211,13 +211,11 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 2.0.0.7, printed p. 169",
-     "excerpt": "A symmetric monoidal infinity-category is a coCartesian fibration of simplicial sets p : C^tensor -> N(Fin_*) with the following property: (*) For each n >= 0, the maps {rho^i : <n> -> <1>}_{1 <= i <= n} induce functors rho^i_! : C^tensor_{<n>} -> C^tensor_{<1>} which determine an equivalence C^tensor_{<n>} = (C^tensor_{<1>})^n.",
      "match": "The definition, quoted verbatim from Higher Algebra read in this session; the file was downloaded from the author's page and its SHA-256 is recorded in the source entry."
     },
     {
      "sourceId": "Lurie-HA",
      "locator": "Remark 2.1.2.19, printed p. 180",
-     "excerpt": "In other words, a symmetric monoidal infinity-category is a coCartesian fibration p : C^tensor -> N(Fin_*) which induces equivalences of infinity-categories C^tensor_{<n>} = C^n for each n >= 0, where C denotes the infinity-category C^tensor_{<1>}.",
      "match": "The same definition restated once the operadic language is available, which is how the packet's other nodes refer to it."
     }
    ],
@@ -328,13 +326,11 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 2.1.1.10, printed p. 172",
-     "excerpt": "An infinity-operad is a functor p : O^tensor -> N(Fin_*) between infinity-categories which satisfies the following conditions: (1) For every inert morphism f : <m> -> <n> in N(Fin_*) and every object C in O^tensor_{<m>}, there exists a p-coCartesian morphism f-tilde : C -> C' in O^tensor lifting f. In particular, f induces a functor f_! : O^tensor_{<m>} -> O^tensor_{<n>}.",
      "match": "The definition's first condition, quoted verbatim from Higher Algebra read in this session."
     },
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 2.1.1.10, printed p. 172",
-     "excerpt": "(2) Let C in O^tensor_{<m>} and C' in O^tensor_{<n>} be objects, let f : <m> -> <n> be a morphism in Fin_*, and let Map^f_{O^tensor}(C,C') be the union of those connected components of Map_{O^tensor}(C,C') which lie over f. Choose p-coCartesian morphisms C' -> C'_i lying over the inert morphisms rho^i : <n> -> <1> for 1 <= i <= n. Then the induced map Map^f(C,C') -> product of ...",
      "match": "The remaining two conditions, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -441,13 +437,11 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 2.1.2.13, printed p. 179",
-     "excerpt": "Let O^tensor be an infinity-operad. We will say that a map p : C^tensor -> O^tensor is a coCartesian fibration of infinity-operads if it satisfies the hypotheses of Proposition 2.1.2.12. In this case, we also say that p exhibits C^tensor as an O-monoidal infinity-category.",
      "match": "The definition, quoted verbatim from Higher Algebra read in this session."
     },
     {
      "sourceId": "Lurie-HA",
      "locator": "Remarks 2.1.2.16 and 2.1.2.17, printed p. 179",
-     "excerpt": "For every object X in O^tensor, we let C_X denote the inverse image of X under p. ... Note that if X in O^tensor_{<n>} corresponds to a sequence of objects {X_i} in O, then we have a canonical equivalence C_X = product over 1 <= i <= n of C_{X_i}. ... Then the underlying map C^tensor -> O^tensor is a coCartesian fibration of infinity-categories, which is classified by a ...",
      "match": "The fibres, their product decomposition and the classifying functor, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -554,7 +548,6 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 2.1.3.1, printed p. 182",
-     "excerpt": "Let p : C^tensor -> O^tensor be a fibration of infinity-operads, and suppose we are given infinity-operads alpha : O'^tensor -> O^tensor. We let Alg_{O'/O}(C) denote the full subcategory of Fun_{O^tensor}(O'^tensor, C^tensor) spanned by the maps of infinity-operads. ... In the special case where O' = O = N(Fin_*), we will denote the infinity-category Alg_{O'/O}(C) by CAlg(C). ...",
      "match": "The definition, quoted verbatim from Higher Algebra read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -661,13 +654,11 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 4.2.1.12, printed p. 383",
-     "excerpt": "Let C^tensor -> Assoc be a fibration of infinity-operads and let M be an infinity-category. A weak enrichment of M over C is a fibration of infinity-operads q : O^tensor -> LM together with isomorphisms O^tensor_a = C^tensor and O^tensor_m = M. In this situation, we will say that q exhibits M as weakly enriched over C.",
      "match": "The enrichment datum, quoted verbatim from Higher Algebra read in this session."
     },
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 4.2.1.13 and Remark 4.2.1.14, printed p. 383",
-     "excerpt": "We let LMod(M) denote the infinity-category Alg_{/LM}(O). We will refer to LMod(M) as the infinity-category of left module objects of M. Composition with the inclusion Assoc -> LM determines a categorical fibration LMod(M) -> Alg(C). If A is an algebra object of C, we let LModA(M) denote the fibre LMod(M) x_{Alg(C)} {A}. ... The notation of Definition 4.2.1.13 is somewhat ...",
      "match": "The definition and Lurie's own warning about the notation, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -772,19 +763,16 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Definition 1.1.1.9, printed p. 19",
-     "excerpt": "An infinity-category C is stable if it satisfies the following conditions: (1) There exists a zero object 0 in C. (2) Every morphism in C admits a fiber and a cofiber. (3) A triangle in C is a fiber sequence if and only if it is a cofiber sequence.",
      "match": "The definition, quoted verbatim from Higher Algebra read in this session."
     },
     {
      "sourceId": "Lurie-HA",
      "locator": "Remark 1.1.1.10, printed p. 20",
-     "excerpt": "Condition (3) of Definition 1.1.1.9 is analogous to the axiom for abelian categories which requires that the image of a morphism be isomorphic to its coimage.",
      "match": "Why condition (3) is the right one."
     },
     {
      "sourceId": "Lurie-HA",
      "locator": "Theorem 1.1.2.14 and Remark 1.1.2.15, printed p. 27",
-     "excerpt": "Let C be a pointed infinity-category which admits cofibers, and suppose that the suspension functor is an equivalence. Then the translation functor and the class of distinguished triangles endow hC with the structure of a triangulated category. ... The hypotheses of Theorem 1.1.2.14 hold whenever C is stable. In fact, the hypotheses of Theorem 1.1.2.14 are equivalent to the ...",
      "match": "The triangulated structure on the homotopy category, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -889,7 +877,6 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Section 1.1.4 and Proposition 1.1.4.1, printed p. 33",
-     "excerpt": "Let F : C -> C' be a functor between stable infinity-categories. Suppose that F carries zero objects into zero objects. It follows immediately that F carries triangles into triangles. If, in addition, F carries fiber sequences to fiber sequences, then we will say that F is exact. ... The following conditions are equivalent: (1) The functor F is left exact. That is, F commutes ...",
      "match": "The definition and the equivalence, quoted verbatim from Higher Algebra read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -935,13 +922,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Definition 5.1.4.1, printed p. 321",
-     "excerpt": "Let f : C -> D be a functor between infinity-categories. We will say that f exhibits D as an idempotent completion of C if D is idempotent complete, f is fully faithful, and every object of D is a retract of f(C) for some object C in C.",
      "match": "The definition, quoted verbatim from Higher Topos Theory read in this session; the file was downloaded from the author's page and its SHA-256 is recorded in the source entry."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proposition 5.1.4.2 with its proof, printed p. 321",
-     "excerpt": "Let C be an infinity-category. Then C admits an idempotent completion. Proof. Enlarging the universe if necessary, we may suppose that C is small. Let C' denote the full subcategory of P(C) spanned by those objects which are retracts of objects which belong to the image of the Yoneda embedding j : C -> P(C). Then C' is stable under retracts in P(C). Since P(C) admits all small ...",
      "match": "The existence, with its proof, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -989,7 +974,6 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Definition 5.3.4.5, printed p. 392",
-     "excerpt": "Let C be an infinity-category which admits small kappa-filtered colimits. We will say a functor f : C -> D is kappa-continuous if it preserves kappa-filtered colimits. Let C be an infinity-category containing an object C and let j_C : C -> S-hat denote the functor corepresented by C. If C admits kappa-filtered colimits, then we will say that C is kappa-compact if j_C is ...",
      "match": "The definition, quoted verbatim from Higher Topos Theory read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -1094,13 +1078,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Definition 5.3.5.1, printed p. 405",
-     "excerpt": "Let C be a small infinity-category and let kappa be a regular cardinal. We let Ind_kappa(C) denote the full subcategory of P(C) spanned by those functors f : C^op -> S which classify right fibrations C-tilde -> C, where the infinity-category C-tilde is kappa-filtered. In the case where kappa = omega, we will simply write Ind(C) for Ind_omega(C). We will refer to Ind_kappa(C) ...",
      "match": "The definition, quoted verbatim from Higher Topos Theory read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "Remark 5.3.5.2 and Proposition 5.3.5.3, printed p. 405",
-     "excerpt": "the Yoneda embedding j : C -> P(C) factors through Ind_kappa(C). This follows immediately from Lemma 5.1.5.2, since j(C) classifies the right fibration C_{/C} -> C. The infinity-category C_{/C} has a final object and is therefore kappa-filtered. ... The full subcategory Ind_kappa(C) inside P(C) is stable under kappa-filtered colimits.",
      "match": "The factorisation and the stability, quoted verbatim."
     }
    ],
@@ -1208,13 +1190,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proposition 5.3.5.10, printed p. 406",
-     "excerpt": "Let C and D be infinity-categories and let kappa be a regular cardinal. Suppose that C is small and that D admits small kappa-filtered colimits. Then composition with the Yoneda embedding induces an equivalence of infinity-categories Map^kappa(Ind_kappa(C), D) -> Fun(C,D); where the left hand side denotes the infinity-category of all kappa-continuous functors from Ind_kappa(C) to D.",
      "match": "The universal property, quoted verbatim from Higher Topos Theory read in this session."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "After Proposition 5.3.5.10, printed p. 406",
-     "excerpt": "In other words, if C is small and D admits kappa-filtered colimits, then any functor f : C -> D determines an essentially unique extension F : Ind_kappa(C) -> D (such that f is equivalent to F composed with j).",
      "match": "The form in which the stage text uses it."
     }
    ],
@@ -1264,7 +1244,6 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Proposition 1.1.3.6 with its proof, printed p. 30",
-     "excerpt": "Let C be a (small) stable infinity-category and let kappa be a regular cardinal. Then the infinity-category Ind_kappa(C) is stable. Proof. The functor j preserves finite limits and colimits (Propositions HTT.5.1.3.2 and HTT.5.3.5.14). It follows that j(0) is a zero object of Ind_kappa(C), so that Ind_kappa(C) is pointed. We next show that every morphism f : X -> Y in ...",
      "match": "The statement and the beginning of the proof, quoted verbatim from Higher Algebra read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -1313,13 +1292,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Definition 5.5.0.1, printed p. 453",
-     "excerpt": "An infinity-category C is presentable if C is accessible and admits small colimits.",
      "match": "The definition, quoted verbatim from Higher Topos Theory read in this session."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "After Definition 5.5.0.1, printed p. 453",
-     "excerpt": "The main result, Theorem 5.5.1.1, is due to Carlos Simpson: an infinity-category C is presentable if and only if it arises as an (accessible) localization of an infinity-category of presheaves. ... In 5.5.2, we will prove that the converse holds when C is presentable. This representability criterion has a number of consequences: it implies that C admits (small) limits ...",
      "match": "Simpson's theorem and the consequences, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -1432,7 +1409,6 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Section 5.5 and the straightening equivalence, printed pp. 453 onwards",
-     "excerpt": "An infinity-category C is presentable if C is accessible and admits small colimits.",
      "match": "The ambient setting. NO numbered statement in Higher Topos Theory or Higher Algebra read in this session defines coherent group actions on categories in the form this stage asks for; this node records the interface and says so."
     }
    ],
@@ -1541,13 +1517,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Section 5.5.8 and Lemma 5.5.8.11 region, printed pp. 506-508",
-     "excerpt": "Before giving the proof, we need a preliminary result concerning the interactions between products and sifted colimits.",
      "match": "Where the interaction of sifted colimits with products is established in Higher Topos Theory, read in this session. The pinned `CategoryTheory.IsSifted` states the ordinary form of the same fact and is cited rather than replanned."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proposition 5.5.8.15, printed p. 509",
-     "excerpt": "let D be an infinity-category which admits filtered colimits and geometric realizations. ... (2) Any functor g in Fun'(P_Sigma(C),D) preserves sifted colimits.",
      "match": "That filtered colimits and geometric realisations generate the sifted ones, in the form the universal property uses."
     }
    ],
@@ -1659,7 +1633,6 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proposition 5.5.8.10, printed pp. 507-508",
-     "excerpt": "Let C be a small infinity-category which admits finite coproducts. Then (1) The infinity-category P_Sigma(C) is an accessible localization of P(C). (2) The Yoneda embedding j : C -> P(C) factors through P_Sigma(C). Moreover, j carries finite coproducts in C to finite coproducts in P_Sigma(C). ... (4) The full subcategory P_Sigma(C) inside P(C) is stable under sifted colimits. ...",
      "match": "The construction and its six properties, quoted verbatim from Higher Topos Theory read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -1775,13 +1748,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proposition 5.5.8.15, printed p. 509",
-     "excerpt": "Let C be a small infinity-category which admits finite coproducts and let D be an infinity-category which admits filtered colimits and geometric realizations. Let Fun'(P_Sigma(C),D) denote the full subcategory spanned by those functors P_Sigma(C) -> D which preserve filtered colimits and geometric realizations. Then (1) Composition with the Yoneda embedding j : C -> P_Sigma(C) ...",
      "match": "The universal property, quoted verbatim from Higher Topos Theory read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proof of Proposition 5.5.8.15, printed p. 509",
-     "excerpt": "Lemma 5.5.8.14 and Proposition 5.5.8.10 imply that P_Sigma(C) is the smallest full subcategory of P(C) which is closed under filtered colimits, is closed under geometric realizations, and contains the essential image of the Yoneda embedding.",
      "match": "The key step of the proof, quoted verbatim."
     }
    ],
@@ -1833,13 +1804,11 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Section 5.5.8 introduction, printed p. 506",
-     "excerpt": "The presence of enough compact projective objects in an infinity-category allows us to construct projective resolutions, which gives rise to the theory of nonabelian homological algebra (or 'homotopical algebra'). We will review the rudiments of this theory in 5.5.8. Finally, in 5.5.9 we will present the same ideas in a more classical form following Quillen's manuscript. The ...",
      "match": "The setting and the comparison with Quillen's simplicial commutative rings, quoted verbatim from Higher Topos Theory read in this session. Section 5.5.9 itself was NOT read. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "Proposition 5.5.8.15 (3), printed p. 509",
-     "excerpt": "Assume that D admits finite coproducts. A functor g in Fun'(P_Sigma(C),D) preserves small colimits if and only if g composed with j preserves finite coproducts.",
      "match": "The criterion that makes the extended tensor product preserve colimits, hence compute pushouts."
     }
    ],
@@ -1944,7 +1913,6 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Section 5.5.8, printed p. 506",
-     "excerpt": "The presence of enough compact projective objects in an infinity-category allows us to construct projective resolutions, which gives rise to the theory of nonabelian homological algebra.",
      "match": "The only thing this layer needs from the sources read: the animation prefix out of which DerivedDeRhamCohomology:DD.0 builds the cotangent complex. Nothing about the cotangent complex itself is quoted here, because nothing about it is planned here."
     }
    ],
@@ -1987,7 +1955,6 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "Section 5.5.9, printed p. 506 (located, not read)",
-     "excerpt": "Finally, in 5.5.9 we will present the same ideas in a more classical form following Quillen's manuscript. The comparison of these two perspectives is based on a rectification result (Proposition 5.5.9.2).",
      "match": "The rectification comparison between the animation and simplicial commutative rings, which is a DIFFERENT comparison from the one this node is about. NO statement read in this session compares animated with E-infinity algebras, and this node records the restriction as an obligation rather than quoting a theorem."
     }
    ],
@@ -2031,7 +1998,6 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Example 1.1.1.11, printed p. 20",
-     "excerpt": "Recall that a spectrum consists of an infinite sequence of pointed topological spaces {X_i}_{i >= 0}, together with homeomorphisms X_i = Omega X_{i+1}, where Omega denotes the loop space functor. The collection of spectra can be organized into a stable infinity-category Sp. Moreover, Sp is in some sense the universal example of a stable infinity-category. This motivates the ...",
      "match": "What is being compared with, in Higher Algebra's own words, read in this session. The construction of Sp belongs to StableHomotopyKTheory by the roadmap's division and is not planned here. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator."
     }
    ],
@@ -2082,13 +2048,11 @@
     {
      "sourceId": "Lurie-HA",
      "locator": "Higher Algebra, Chapter 1 and Chapter 2 openings, printed pp. 15 and 169",
-     "excerpt": "Stable infinity-Categories ... Symmetric monoidal infinity-categories",
      "match": "The two chapters of Higher Algebra this packet reads for E5:abstract, of the four the stage's source route names."
     },
     {
      "sourceId": "Lurie-HTT",
      "locator": "Higher Topos Theory, Chapter 5, printed pp. 321-509",
-     "excerpt": "Presentable and accessible infinity-categories",
      "match": "The chapter of Higher Topos Theory this packet reads for E5:presentability and E5:animation, of the two the stage's source route names."
     }
    ],

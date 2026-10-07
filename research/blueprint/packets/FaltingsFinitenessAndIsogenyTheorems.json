@@ -499,19 +499,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, p. 350 (Definition of semiabelian variety)",
-     "excerpt": "Definition. Sei S ein Schema (oder ein algebraic stack). Eine semiabelsche Varietät der relativen Dimension g über S ist eine glatte algebraische Gruppe p: G → S, so daß die Fasern von p zusammenhängend der Dimension g sind, und Erweiterungen einer abelschen Varietät durch einen Torus.",
      "match": "The objects to which a)–d) apply; the node reads them as the semi-abelian schemes of C4, with separatedness and commutativity left implicit by Faltings."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, pp. 350–351 (definition of ω_{A/S}, Bemerkungen a), b))",
-     "excerpt": "Sei p: A → S eine semiabelsche Varietät der relativen Dimension g, s: S → A der Nullschnitt. Setze: ω_{A/S} = s*(Ω^g_{A/S}), ω_{A/S} ist ein Geradenbündel auf S. Bemerkungen. a) Wenn p eigentlich ist, so ist ω_{A/S} ≅ p_*(Ω^g_{A/S}). b) ω_{A/S} kommutiert mit Basiswechsel.",
      "match": "Literal definition and remarks a), b)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, p. 351 (Bemerkungen c), d))",
-     "excerpt": "c) Wenn A = Pic^τ(C/S) mit einer stabilen Kurve q: C → S, so ist ω_{A/S} ≅ Λ^g q_*(ω_{C/S}), wobei ω_{C/S} den relativen dualisierenden Modul bezeichnet. … Wenn α, β holomorphe Differentialformen auf A sind, so setze ⟨α, β⟩ = (i/2)^g ∫_A α ∧ β̄.",
      "match": "Remarks c) and d) as printed; the node corrects the sign of d) (E1)."
     }
    ],
@@ -576,13 +573,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, Lemma 1, p. 350",
-     "excerpt": "Lemma 1. Sei S normal, U ⊂ S offen und dicht p_1: A_1 → S und p_2: A_2 → S zwei semiabelsche Varietäten, φ: A_1/U → A_2/U ein über U definierter Homomorphismus algebraischer Gruppen. Dann läßt sich φ eindeutig auf ganz S fortsetzen.",
      "match": "Literal statement."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, proof of Lemma 1, p. 350",
-     "excerpt": "Nach Basiswechsel mit geeigneten Bewertungsringen sieht man, daß die Projektion pr_1: X → A_1 eigentlich ist, und daß ihre Fasern nur einen Punkt besitzen. Da A_1 normal ist, muß pr_1 ein Isomorphismus sein, und X der Graph der eindeutig bestimmten Fortsetzung von φ.",
      "match": "The proof steps are Faltings' own; the node names the facts (valuative criterion, Zariski's main theorem) behind them."
     }
    ],
@@ -633,25 +628,21 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, Lemma 2, p. 352",
-     "excerpt": "Lemma 2. Es gibt über Spec(ℤ) einen eigentlichen algebraic stack 𝔍, eine offene Teilmenge 𝔘 ⊂ 𝔍 und einen eigentlichen Morphismus ψ: 𝔘 → 𝔄_g, welcher sich zu einem ψ̄: 𝔍/ℚ → Ā_g/ℚ fortsetzt, so daß über 𝔍 die folgenden Objekte existieren: a) Eine stabile Kurve q: C → 𝔍.",
      "match": "Literal opening of Lemma 2."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, Lemma 2 b), c), p. 352",
-     "excerpt": "b) Ein Untergeradenbündel (=lokal direkter Sumand) ℒ ⊆ Λ^g q_*(ω_{C/ℤ}). c) Über 𝔘 ein Paar von Gruppenhomomorphismen α: Pic^τ(C/𝔍) → ψ*(A), β: ψ*(A) → Pic^τ(C/𝔍) mit α∘β = Multiplikation mit einem d∈ℕ, d ≠ 0.",
      "match": "Literal b), c); the dualising sheaf printed ω_{C/ℤ} is read as ω_{C/𝔍} (E3)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, pp. 351–352 (facts 2 a) and b) quoted before Lemma 2)",
-     "excerpt": "so gibt es ein r > 0, für welches (ω_{A/𝔄_g})^{⊗r} ein sehr amples Geradenbündel auf A_g/ℚ definiert ([3]). … b) Es gibt über ℂ einen eigentlichen dominanten Morphismus φ: 𝔑 → Ā_g/ℂ, so daß über 𝔑 eine semiabelsche Varietät existiert, welche die universelle abelsche Varietät über 𝔄_g fortsetzt",
      "match": "The Baily–Borel and Namikawa inputs; fact b) continues on p. 352 with '(siehe [8], §9)' and the identity ω^{⊗r} ≅ φ^*(ℳ) referred to [6], §2."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, proof of Lemma 2, p. 352",
-     "excerpt": "In dem generischen Punkte von 𝔄_g ist die zugehörige abelsche Varietät Quotient einer Jacobischen. Die zugehörige Kurve entspricht einer rationalen Abbildung von 𝔄_g in M̄_g̃, für ein g̃.",
      "match": "The first step of Faltings' proof; the rest of the proof is recorded in the proof steps."
     }
    ],
@@ -771,13 +762,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, Korollar to Lemma 2, pp. 352–353",
-     "excerpt": "Korollar. Es gibt eine natürliche Zahl e > 0 mit der folgenden Eigenschaft: … Unter Benutzung dieses Isomorphismus gilt: e·ρ*(ℳ) ⊆ (ω_{A/R})^{⊗r} ⊆ e^{−1}·ρ*(ℳ).",
      "match": "Literal statement (hypotheses as in the node)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§2, proof of the Korollar, p. 353",
-     "excerpt": "Durch Pullback erhält man eine stabile Kurve q: C → Spec(R′) und α: Pic^τ(C/R′) → A/R′, β: A/R′ → Pic^τ(C/R′) mit α∘β = d·id (Benutze Lemma 1 über R′) … Daraus folgt unmittelbar, daß d^g·ρ̃*(ℒ) ⊆ ω_{A/R′} ⊆ ρ̃*(ℒ), und wir sind fertig.",
      "match": "The final step of the proof, reproduced and justified in the proof steps."
     }
    ],
@@ -828,19 +817,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, p. 353 (metrized line bundles)",
-     "excerpt": "Analog zu [5] definieren wir ein metrisiertes Geradenbündel auf Spec(R) als einen projektiven R-Modul P vom Rang 1, zusammen mit Normen ‖ ‖_v auf P⊗_R K_v für alle unendlichen Stellen v von K.",
      "match": "Literal definition; ε_v is defined in the next sentence (1 or 2 for K_v ≅ ℝ or ℂ)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, p. 354 (Grad and h(A))",
-     "excerpt": "Grad(P, ‖ ‖) = log(#(P/R·p)) − Σ_v ε_v·log‖p‖_v. … Definition. Die modultheoretische Höhe h(A) ist h(A) = (1/[K:ℚ])·Grad(ω_{A/R}). Man sieht sofort, daß h(A) invariant ist gegenüber Erweiterungen des Grundkörpers.",
      "match": "Literal definition of the degree and of h(A), and the invariance claim."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, p. 354 (the archimedean metric)",
-     "excerpt": "Die Metriken an den unendlichen Stellen kommen vom schon erwähnten Skalarprodukt: ‖α‖²_v = (i/2)^g · ∫_{A(K_v)} α ∧ ᾱ.",
      "match": "The printed normalisation, corrected in the node (E1, E2)."
     }
    ],
@@ -907,19 +893,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, p. 355 (the general statement)",
-     "excerpt": "Allgemeiner gilt für ein glattes X, einen Divisor Y von X mit normalen Überkreuzungen und eine semiabelsche Varietät p: A → X, so daß über X − Y p eigentlich und A prinzipal polarisiert ist, daß die kanonische Metrik auf ω_{A/X} logarithmische Singularitäten längs Y hat.",
      "match": "Literal statement of the theorem."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, p. 355 (Beispiel)",
-     "excerpt": "Beispiel. X = Ā_g(ℂ), Y = Ā_g(ℂ) − A_g(ℂ), ℳ und ‖ ‖ wie bisher. Dies wurde zwar schon in [6] gezeigt (Ende von §2), doch folgt hier auf Wunsch der Referenten eine kurze Beweisskizze:",
      "match": "The instance used in Satz 1 and the pointer to the full proof in [6]."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, pp. 355–356 (proof sketch)",
-     "excerpt": "Dazu betrachtet man statt ω_{A/X} p_*(Ω¹_{A/X}) („logarithmische Singularitäten“ läßt sich auch für Vektorbündel definieren), und mit den Methoden des §2 reduziert man das Problem auf den Fall, daß A Jacobische einer semi-stabilen Kurve q: C → X ist.",
      "match": "The reduction steps; p_*(Ω¹) is read as s^*(Ω¹) (E5)."
     }
    ],
@@ -969,13 +952,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, Lemma 3, p. 356",
-     "excerpt": "Lemma 3. Sei X ⊆ ℙ^n_ℤ Zariski-abgeschlossen, Y ⊆ X abgeschlossen, ‖ ‖ eine hermitesche Metrik auf 𝒪(1)|(X(ℂ) − Y(ℂ)), mit logarithmischen Singularitäten längs Y. … Dann gibt es für jedes c nur endlich viele x ∈ X(K) − Y(K) mit h(x) ≤ c.",
      "match": "Literal statement."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, proof of Lemma 3, p. 356",
-     "excerpt": "mit log|‖ ‖/‖ ‖_1 (z)| ≤ c_1 + c_2·inf{log(|log‖f_i(z)‖_1|)} für z ∈ X(ℂ). … erhält man sofort Konstanten c_3, c_4 > 0 mit |h(x) − h_1(x)| ≤ c_3 + c_4·log(h_1(x)).",
      "match": "The two displayed estimates; the first as printed (zoomed page image), corrected in the proof steps (E7)."
     }
    ],
@@ -1020,7 +1001,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, Lemma 4 and its proof, p. 357",
-     "excerpt": "Lemma 4. Sei K ein Zahlkörper, S eine endliche Menge von Stellen von K. Dann gibt es nur endlich viele Körpererweiterungen K′ ⊇ K von vorgegebener Ordnung, welche außerhalb von S unverzweigt sind. Beweis. Bekannt (Hermite-Minkowski).",
      "match": "Literal statement and proof; the node is an imported theorem with a recorded gap."
     }
    ],
@@ -1068,13 +1048,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, Satz 1, pp. 356–357",
-     "excerpt": "Satz 1. Sei c gegeben. Dann gibt es nur endlich viele Isomorphieklassen von Paaren aus i) einer semiabelschen Varietät der relativen Dimension g p: A → Spec(R) mit eigentlicher generischer Faser A/K ii) einer prinzipalen Polarisation auf A/K, für welche h(A) ≤ c gilt.",
      "match": "Literal statement."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, proof of Satz 1, p. 357",
-     "excerpt": "Nach dem Korollar zu Lemma 2 ist die Differenz zwischen h(x) und r·h(A) beschränkt (x∈A_g(K) gehört zu A). Nach Lemma 3 liefern die A mit h(A) ≤ c somit nur endlich viele verschiedene x∈A_g(K).",
      "match": "The first two steps of the proof; the descent steps are quoted at the descent node."
     }
    ],
@@ -1123,19 +1101,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 357 (setup before Lemma 5)",
-     "excerpt": "(Nach Lemma 1 reicht es natürlich, wenn man φ über K definiert.) Wir setzen G=Ker(φ)⊆A₁. Da φ automatisch flach ist, ist G ein quasiendliches flaches Gruppenschema über Spec(R).",
      "match": "Literal, read on the GDZ page image of p. 357; source of the flatness and kernel hypotheses."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 357 (the computation preceding Lemma 5)",
-     "excerpt": "φ induziert eine Injektion φ*: ω_{A₂/R}→ω_{A₁/R}, und man sieht sofort, daß #(ω_{A₁/R}/φ*(ω_{A₂/R}))=#s*(Ω¹_{A₁/A₂})=#s*(Ω¹_{G/R}). Da außerdem φ* die Normen an den unendlichen Stellen um (Grad(φ))^{1/2} verändert, folgt unmittelbar",
      "match": "Literal, page image p. 357; the finite and archimedean inputs."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 358, Lemma 5",
-     "excerpt": "Lemma 5. h(A₂)=h(A₁)+½log(Grad(φ))−1/[K:ℚ]·log(#s*(Ω¹_{G/R})).",
      "match": "Literal display, page image p. 358; matches the node's formula and sign."
     }
    ],
@@ -1174,13 +1149,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 358, Bemerkung after Lemma 5 (first part)",
-     "excerpt": "Bemerkung. Wenn G von einer Zahl n∈ℕ annulliert wird, so annulliert n auch Ω¹_{G/R}. Daraus folgt, daß exp(2[K:ℚ]·(h(A₂)−h(A₁))) eine rationale Zahl ist, in deren Zähler und Nenner nur Primteiler von Grad(φ) auftauchen.",
      "match": "Literal, page image p. 358."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 358, Bemerkung after Lemma 5 (last sentence)",
-     "excerpt": "Die Exponenten dieser Primteiler darin können durch ihre Exponenten in Grad(φ) beschränkt werden.",
      "match": "Literal, page image p. 358; read as 'bounded in terms of', made explicit in the statement."
     }
    ],
@@ -1227,25 +1200,21 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 358 (setting before Lemma 6)",
-     "excerpt": "Ĥ_i=Â[l^∞] die assoziierte l-divisible Gruppe. Ĥ_i ist formale Komplettierung einer l-divisiblen Gruppe H_i über R_i, und H_i/K_i ist eine l-divisible Untergruppe von A[l^∞]/K_i. Dasselbe gilt für T[l^∞], und zu diesen Untergruppen gehören ℤ_l-Untergitter T_l(T)⊆T_l(H_i)⊆T_l(A).",
      "match": "Literal, page image p. 358."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 358, Lemma 6",
-     "excerpt": "Lemma 6. Sei D_i=Gal(K̄_i/K_i) die absolute Galois-Gruppe von K_i, I_i⊆D_i die Verzweigungsgruppe. Dann operiert I_i trivial auf T_l(A)/T_l(H_i), und die induzierte Operation von D_i/I_i≅ℤ̂ erfolgt über einen endlichen Quotienten von ℤ̂.",
      "match": "Literal statement, page image p. 358."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359, proof of Lemma 6",
-     "excerpt": "⟨ , ⟩ ist nicht ausgeartet, und bekanntlich (SGA VII, Exp. IX, §7) ist ⟨T_l(T), T_l(H_i)⟩=0. Aus Dimensionsgründen ist T_l(H_i)=T_l(T)^⊥, und wir erhalten eine Injektion T_l(A)/T_l(H_i)↪Hom_{ℤ_l}(T_l(T), ℤ_l(1)).",
      "match": "Literal, page image p. 359 (zoomed); the citation is 'SGA VII, Exp. IX, §7', the old excerpt dropped '§7'."
     },
     {
      "sourceId": "sga7-I-expose-IX",
      "locator": "Exposé IX, 7.3-7.4, (7.3.1)-(7.3.6) and (7.4.1)-(7.4.3), printed pp. 407-409 (PDF pp. 412-414 of the SLMath copy)",
-     "excerpt": "et par restriction aux parties fixes un accouplement (7.4.2) T_ℓ(A)^f × T_ℓ(A')^f = T_ℓ(Ĝ) × T_ℓ(Ĝ') → ℤ_ℓ(1) … de sorte que (7.4.2) se factorise en (7.4.3) T_ℓ(A)^ab × T_ℓ(A')^ab = T_ℓ(B̂) × T_ℓ(B̂') → ℤ_ℓ(1)",
      "match": "Re-read on the page images of the public SLMath copy (SHA-256 reproduces the recorded hash): 7.3 fixes an arbitrary prime ℓ, (7.3.1)-(7.3.2) identify fixed and toric parts, (7.4.2)-(7.4.3) give the factorization through the abelian parts, which is the orthogonality Faltings imports."
     }
    ],
@@ -1285,13 +1254,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359",
-     "excerpt": "Nach Basiserweiterung K⊆K_i können wir den Durchschnitt G_i=G∩H_i bilden. Dies ist die maximale l-divisible Untergruppe von G_i/K_i, welche sich über R_i ausdehnen läßt, und es ist #(s*Ω¹_{A/A_n}⊗_R R_i)=#s*(Ω¹_{(G_i)_n/R_i}).",
      "match": "Literal, page image p. 359 (zoomed). The claim that G_i is the maximal l-divisible subgroup extending over R_i is what erratum a) and b) correct (recorded as a source issue), and 'G_i/K_i' is a misprint for 'G/K_i'; the node therefore states the count for an l-divisible group Γ over R_i."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359 (application of [13], Proposition 2)",
-     "excerpt": "Nach [13], Proposition 2 kann man dies sofort ausrechnen: Sei d_i die Dimension der maximalen formalen Untergruppe von G_i. Dann ist #s*(Ω¹_{(G_i)_n/R_i})=l^{n·m_i·d_i}.",
      "match": "Literal, page image p. 359. Tate's Proposition 2 is a discriminant formula (Tate, (2.2), pp. 164–165, as the FiniteFlat packet reads it); the count used here is derived from it in R07.1 (RT-AREA-padic-2/5)."
     }
    ],
@@ -1340,19 +1307,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, pp. 359-360 (the global transfer)",
-     "excerpt": "Wir müssen also zeigen, daß Σ m_i d_i=½mh. Dazu betrachten wir die absolute Galois-Gruppe π̃=Gal(ℚ̄/ℚ), und den π̃-Modul Ṽ=Ind_π^π̃(T_l(A)) (π=Gal(K̄/K)). Dieser enthält den Untermodul W̃=Ind_π^π̃(T_l(G)) vom Rang mh",
      "match": "Literal, page images pp. 359-360."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 360 (the character χ and Tate's Theorem 2)",
-     "excerpt": "und π̃ operiert auf der Geraden L=Λ^{mh}(W̃)⊆Λ^{mh}(Ṽ) via einen Charakter χ: π̃→ℤ_l^*. … und somit ist nach [13], Theorem 2 χ·χ_0^{−Σ m_i d_i} ein Charakter endlicher Ordnung auf D und auch auf π̃.",
      "match": "Literal, page image p. 360; 'auf D' follows only through the global form of χ (source issue recorded)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 360 (conclusion)",
-     "excerpt": "Da χ_0(F_p)=p, ist wie verlangt Σ_{i=1}^r m_i d_i = mh/2.",
      "match": "Literal, page image p. 360."
     }
    ],
@@ -1398,31 +1362,26 @@
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, Invent. Math. 75 (1984), 381, part a) (first sentence)",
-     "excerpt": "a) Wenn W⊆T_l(Â) ein D_i-invariantes Untergitter ist, so entspricht dem zwar eine l-divisible Untergruppe von A/K_i, und durch Bildung der Zariski-Abschlüsse erhält man ein System endlicher flacher Gruppenschemata G_{i,n}⊆Â über Spf(R_i) oder auch Spec(R_i).",
      "match": "Literal, zoomed page image of the free Springer PDF: the closures lie in Â, not in A."
     },
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, p. 381, part a) (the defect)",
-     "excerpt": "Diese bilden jedoch nur dann eine l-divisible Gruppe, wenn die Abbildungen G_{i,n+1}/G_{i,n}→G_{i,n}/G_{i,n−1} Isomorphismen für n≧1 sind. Dies kann man im Allgemeinen nicht erwarten, doch lehrt eine Betrachtung der Diskriminanten, daß dies für große n der Fall ist.",
      "match": "Literal, page image."
     },
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, p. 381, part a) (the shift)",
-     "excerpt": "Der Übergang von A=A_0 zu A_m bedeutet, daß man diese Abbildungen nur für n>m betrachten muß. Dies Argument findet man schon bei Tate ([1], S. 182).",
      "match": "Literal, page image."
     },
     {
      "sourceId": "tate-1967-p-divisible-groups",
      "locator": "(4.2), proof of Proposition 12, p. 182",
-     "excerpt": "Let D_i be the affine algebra of E_{i+1}/E_i. Then all D_i ⊗_R K can be identified, and the D_i constitute an increasing sequence of orders in a finite separable K-algebra. Hence there is an i_0 such that D_i = D_{i+1} for i ≥ i_0. Put Γ_v = E_{i_0+v}/E_{i_0}.",
      "match": "Literal, page image of the public scan, read 30 September 2026 (FIX-RT-AREA-padic-2~2). This is the page the erratum cites ('Dies Argument findet man schon bei Tate ([1], S. 182)')."
     },
     {
      "sourceId": "tate-1967-p-divisible-groups",
      "locator": "(4.2), Proposition 12, printed p. 181; proof p. 182",
-     "excerpt": "M is a ℤ_p-direct summand",
      "match": "The direct-summand hypothesis was checked on the public page image in REV-FIX-RT-AREA-padic-2~2; it makes the erratum’s sublattice convention explicit."
     }
    ],
@@ -1464,7 +1423,6 @@
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, Invent. Math. 75 (1984), 381, part b)",
-     "excerpt": "b) Der Durchschnitt G_i=G∩H_i von l-divisiblen Gruppen über Spec(R_i) definiert im Allgemeinen nicht einmal über K_i eine l-divisible Gruppe. Auch dieses Problem verschwindet beim Übergang zu einem passenden A_m. Man kann dann wieder wie in a) weitermachen.",
      "match": "Literal, page image; the whole of part b)."
     }
    ],
@@ -1508,31 +1466,26 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 358, Satz 2 (as printed)",
-     "excerpt": "Satz 2. Sei p: A→Spec(R) eine semiabelsche Varietät mit eigentlicher generischer Faser, l eine Primzahl, und G/K⊆A[l^∞]/K eine l-divisible Untergruppe. Weiter sei G_n der Kern von l^n auf G, und A_n die semiabelsche Varietät A_n=A/G_n. Dann ist h(A_n)=h(A).",
      "match": "Literal, page image p. 358; the conclusion is superseded by the erratum (source issue recorded)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Zusatz bei der Korrektur, p. 366",
-     "excerpt": "Herr O. Gabber hat mir mitgeteilt, daß der Beweis von Satz 2 nicht ganz korrekt ist. Man erhält nur, daß die Folge h(A_n) stationär wird. Dies reicht für unsere Zwecke.",
      "match": "Literal, page image p. 366; the author's own correction in the same paper."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359 (the height formula)",
-     "excerpt": "h(A_n)−h(A)=n·log(l)·(h/2−Σ_{i=1}^r (m_i/m)·d_i).",
      "match": "Literal display, page image p. 359; valid after the shift, as step 2 applies it."
     },
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, Invent. Math. 75 (1984), 381, opening paragraph",
-     "excerpt": "N. Katz hat bemerkt, daß der Satz 2 in der obigen Arbeit nicht ganz korrekt ist (O. Gabber hat ein Gegenbeispiel konstruiert). Seine Aussage sollte durch die folgende ersetzt werden, die für das Weitere ausreicht: Die Folge h(A_n) wird stationär.",
      "match": "Literal, page image."
     },
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, p. 381, second paragraph",
-     "excerpt": "Der Fehler besteht darin, daß zwei Feinheiten übersehen wurden. Der ursprüngliche Beweis funktioniert jedoch, wenn man gleich zu Beginn A=A_0 durch ein A_m ersetzt, mit genügend großem m.",
      "match": "Literal, page image; the repair the proof steps follow."
     }
    ],
@@ -1580,13 +1533,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, proof of Satz 3 and Satz 4, p. 361",
-     "excerpt": "Dann besitzt T_l eine nichtausgeartete schiefsymmetrische Bilinearform. Sei W⊆T_l⊗_{ℤ_l}ℚ_l ein π-invarianter maximal isotroper Teilraum. Dem entspricht eine l-divisible Untergruppe G⊆A[l^∞], und die semiabelschen Varietäten A_n=A/G_n tragen wieder prinzipale Polarisationen.",
      "match": "Literal, page image p. 361; the old excerpt dropped 'W⊆T_l⊗ℚ_l'."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, p. 361",
-     "excerpt": "Nach Satz 2 ist h(A_n)=h(A), und nach Satz 1 sind unendlich viele A_n's isomorph.",
      "match": "Literal; 'h(A_n)=h(A)' must be read with the erratum as stationarity, which still gives boundedness and the same conclusion."
     }
    ],
@@ -1633,13 +1584,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, proof of Satz 3/4, p. 361",
-     "excerpt": "Man darf dann zum Beweis den Grundkörper erweitern, oder A durch eine isogene abelsche Varietät ersetzen. Wir können also annehmen, daß A/K prinzipal polarisiert ist, und daß A sich zu einer semiabelschen Varietät über Spec(R) fortsetzt.",
      "match": "Literal, page image p. 361; the reduction is asserted without argument, and the construction here supplies it."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, proof of Korollar 3, p. 362",
-     "excerpt": "Wir dürfen weiter den Grundkörper K zum Beweis erweitern, und dann annehmen, daß A und alle B's sich zu semiabelschen Varietäten über Spec(R) fortsetzen, und daß es für alle B's eine Isogenie vom Grad √d mit einer prinzipal polarisierten abelschen Varietät gibt.",
      "match": "Literal, page image p. 362; the degree √d of the construction."
     }
    ],
@@ -1770,19 +1719,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, proof of Satz 3/4, p. 361",
-     "excerpt": "Wähle a, b, c, d∈ℚ_l mit a²+b²+c²+d²=−1. Setze v = (…) (entsprechend dem Quaternion a+bi+cj+dk), so daß v·ᵗv=−1.",
      "match": "Literal (German as printed, the 4 × 4 matrix elided); read on the GDZ page image at 300 dpi: the coefficients are in ℚ_l."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, proof of Satz 3/4, p. 361",
-     "excerpt": "Wenn W ein beliebiger π-invarianter Teilraum von T_l⊗_{ℤ_l}ℚ_l ist, so wendet man obige Überlegungen an auf den maximal isotropen Teilraum W_1={(x, vx)|x∈W^4}⊕{(y, −vy)|y∈(W^⊥)^4}⊆T_l(A)^8⊗_{ℤ_l}ℚ_l.",
      "match": "Literal definition of W_1 (printed ⊕, not +); the isotropy, dimension and invariance are asserted in the word 'maximal isotropen' and proved in the proof steps."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter I, §13, Theorem 13.12 (Zarhin's trick) and its proof, printed p. 60",
-     "excerpt": "THEOREM 13.12 (ZARHIN'S TRICK). For any abelian variety A, (A × A^∨)^4 is principally polarized. … α^tr ∘ α = (a² + b² + c² + d²)I_4.",
      "match": "The same quaternion matrix in its original role; confirms v·ᵗv = (a² + b² + c² + d²)·1."
     }
    ],
@@ -1909,19 +1855,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Satz 3 and Satz 4, p. 360",
-     "excerpt": "Satz 3. Die Operation von π auf T_l⊗_{ℤ_l}ℚ_l ist halbeinfach. Satz 4. Die Abbildung End_K(A)⊗_ℤℤ_l→End_π(T_l) ist ein Isomorphismus. Beweis. Die beiden Sätze werden zusammen bewiesen.",
      "match": "Literal statements, read on the GDZ page image."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, proof of Satz 3/4, p. 360",
-     "excerpt": "Es reicht bekanntlich, statt Satz 4 die etwas schwächere Aussage zu beweisen, daß die Abbildung End_K(A)⊗_ℤℚ_l→End_π(T_l⊗_{ℤ_l}ℚ_l) bijektiv ist.",
      "match": "The reduction to the rational statement (first proof step)."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §2, Theorem 2.5 and its proof, printed p. 138",
-     "excerpt": "THEOREM 2.5. Let A be an abelian variety over k, and assume that A × A and A satisfy (*) for some ℓ ≠ char(k). Then (a) V_ℓA is a semisimple Q_ℓ[Γ]-module. (b) End(A) ⊗ Q_ℓ = End(V_ℓA)^Γ.",
      "match": "Milne writes out the deduction Faltings leaves to Zarhin [16]; here its hypothesis is replaced by the transfer node (images of idempotents for all invariant subspaces of V_l(A) and V_l(A × A))."
     }
    ],
@@ -1963,13 +1906,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Korollar 1 and its proof, p. 361",
-     "excerpt": "Korollar 1. Seien A_1 und A_2 abelsche Varietäten über K. Dann ist Hom_K(A_1, A_2)⊗_ℤℤ_l→Hom_π(T_l(A_1), T_l(A_2)) ein Isomorphismus. Beweis. Satz 4 für A_1×A_2.",
      "match": "Literal statement and proof, read on the page image."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §1, Theorem 1.3, printed p. 132",
-     "excerpt": "THEOREM 1.3 (TATE'S CONJECTURE). For abelian varieties A and B over a number field k, the map Hom(A, B) ⊗ Z_ℓ → Hom(T_ℓA, T_ℓB)^Γ, Γ = Gal(k^al/k), is bijective.",
      "match": "The same statement in the public exposition."
     }
    ],
@@ -2014,13 +1955,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Korollar 3 and the start of its proof, p. 362",
-     "excerpt": "Korollar 3. Sei A/K eine abelsche Varietät, d>0. Dann gibt es nur endlich viele Isomorphieklassen d-fach polarisierter abelscher Varietäten B/K, so daß für alle l T_l(A)≅T_l(B). Beweis. Die Voraussetzung besagt, daß zu jedem l eine Isogenie vom Grad prim zu l zwischen A und B existiert.",
      "match": "Literal, read on the page image."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, end of the proof of Korollar 3, p. 362",
-     "excerpt": "c) es gibt ein N, so daß für jede Primzahl l und alle B's Isogenien φ: A→B existieren, für die die größte l-Potenz in Grad(φ) N teilt. … Also sind die h(B) beschränkt, und man kann Satz 1 anwenden.",
      "match": "Condition (c) and the conclusion through Satz 1."
     }
    ],
@@ -2072,19 +2011,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Satz 5 and the start of its proof, p. 362",
-     "excerpt": "Satz 5. Sei S eine endliche Menge von Stellen von K. Dann gibt es nur endlich viele Isogenie-Klassen abelscher Varietäten vorgegebener Dimension über K, welche gute Reduktion außerhalb S haben.",
      "match": "Literal statement, read on the page image."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 5, pp. 362–363",
-     "excerpt": "Dann ist M freier ℤ_l-Modul vom Rang ≦8g², und M besitzt Darstellungen auf T_l(A_1) und T_l(A_2). … Da #(M/lM)* ≦l^{8g²}, faktorisiert ρ über G, und ρ(π) ist die Vereinigung der Bilder der Konjugationsklassen der F_v, v∈{v_1, …, v_r}.",
      "match": "The rank bound, the cardinality bound (printed ≦) and the factorization through G."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §3, proof of Theorem 3.10, printed p. 144",
-     "excerpt": "But for each v there are only finitely many possible P_v(A, t)'s (they are polynomials of degree 2g with integer coefficients which the Riemann hypothesis shows to be bounded), and so there are only finitely many isogeny classes of A's.",
      "match": "The final counting step that Faltings states at the start of the proof."
     }
    ],
@@ -2130,19 +2066,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 363",
-     "excerpt": "Dazu sei n das Produkt der Primzahlen l, für welche entweder die Erweiterung K⊇ℚ in l verzweigt, oder A nicht gute Reduktion an allen Stellen der Charakteristik l hat. Wähle eine Primzahl p, welche n nicht teilt.",
      "match": "Literal definition of n and p."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, pp. 363–364",
-     "excerpt": "P_h(T)=det[T−F_p|Λ^h(Ind_π^{π̃}(T_l(A)))]. Dabei ist l eine zu pn prime Primzahl … Die P_h(T) sind unabhängig von l, haben Koeffizienten in ℤ, und ihre Nullstellen haben absoluten Betrag p^{+h/2} (Weil-Vermutung oder besser -Satz).",
      "match": "Literal, including the printed '+' in the exponent (harmless)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 364",
-     "excerpt": "Wir wählen nun N≧2 so groß, daß keine Primzahl l>N P_h(±p^j) teilt, falls 0≦h≦2gm, 0≦j≦gm, j‡½h. Außerdem sei N≧np.",
      "match": "Literal choice of N; '‡' is the journal's ≠ (800 dpi zoom)."
     }
    ],
@@ -2190,19 +2123,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 364",
-     "excerpt": "Diese Potenz läßt sich mit Hilfe von [10], Théorème 4.11 (statt der Tateschen Theorie [13]) wie folgt bestimmen: Sei l^d=#s*(Ω¹_{G/R}), 0≦d≦gm. Dann ist (nach Raynaud) χ·ε^h=χ_0^{+d}.",
      "match": "Literal; '[10], Théorème 4.11' is Raynaud's Théorème 4.1.1 (misprint, source issue); '+d' as printed."
     },
     {
      "sourceId": "raynaud-1974-schemas-en-groupes-p-p",
      "locator": "Section 4.1, Théorème 4.1.1, printed p. 272",
-     "excerpt": "THÉORÈME 4.1.1. — Soit G la fibre générique d'un R-schéma en groupes 𝒢, fini, plat, commutatif, annulé par p. Supposons e ≦ p−1. Alors l'action de Gal(K̄/K) sur det(G) est donnée par le caractère modéré τ_p^{v(𝔇̄(𝒢))}.",
      "match": "Literal from the page image of the Numdam file (SHA-256 matches the packet record); the drafted excerpt was OCR text ('T_{d(^)}')."
     },
     {
      "sourceId": "raynaud-1974-schemas-en-groupes-p-p",
      "locator": "Section 4, opening, printed p. 271; appendix, Définition 8, printed p. 279",
-     "excerpt": "Dans ce paragraphe, on suppose R strictement hensélien, d'inégales caractéristiques. … DÉFINITION 8. — Nous appellerons l'idéal 𝔇̄ la différente absolue de G.",
      "match": "The standing hypothesis of section 4 and the definition of the exponent in Théorème 4.1.1."
     }
    ],
@@ -2245,13 +2175,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 363",
-     "excerpt": "Es reicht also, wenn es nur endlich viele Isomorphie-Klassen π-invarianter Gitter in T_l(A)⊗_{ℤ_l}ℚ_l gibt. Dazu sei M_l die von π erzeugte ℤ_l-Unteralgebra von End_{ℤ_l}(T_l(A)). Es folgt dann alles aus der Tatsache, daß M_l⊗_{ℤ_l}ℚ_l halbeinfach ist (Satz 3).",
      "match": "Literal; the source asserts the finiteness from semisimplicity without proof."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Appendix to Chapter IV (Milne's review of Faltings 1983), printed p. 160",
-     "excerpt": "The isogenies whose degrees are divisible only by the primes dividing N correspond to the Γ-stable sublattices of ∏_{l|N} T_lA. From what has been shown about T_lA, there exist only finitely many isomorphism classes of such sublattices",
      "match": "The same step in the review; also without proof."
     }
    ],
@@ -2296,19 +2224,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Satz 6, p. 363",
-     "excerpt": "Satz 6 (Shafarevich-Vermutung). Sei S eine endliche Menge von Stellen von K, d>0. Dann gibt es nur endlich viele Isomorphie-Klassen d-fach polarisierter abelscher Varietäten über K von vorgegebener Dimension, welche außerhalb S gute Reduktion haben.",
      "match": "Literal statement."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 363",
-     "excerpt": "Wir werden ein N konstruieren, so daß Zähler und Nenner dieser rationalen Zahl keine Primfaktoren l>N besitzen, und daß die auftretenden l-Potenzen für Primzahlen l≦N beschränkt sind.",
      "match": "The plan of the proof."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, end of the proof of Satz 6, p. 365",
-     "excerpt": "folgt unsere Behauptung, und es ergibt sich, daß die h(B)'s der betrachteten B's beschränkt sind. Damit folgt Satz 6 aus Satz 1.",
      "match": "The conclusion through Satz 1."
     }
    ],
@@ -2350,13 +2275,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Korollar 1 to Satz 6 and its proof, p. 365",
-     "excerpt": "Korollar 1. Es gibt nur endlich viele Isomorphie-Klassen glatter Kurven X/K vom Geschlecht g≧2, welche außerhalb S gute Reduktion haben. Beweis. Torelli.",
      "match": "Literal statement and proof."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §4, Proposition 4.1 and Theorem 4.2, printed p. 144",
-     "excerpt": "PROPOSITION 4.1. Let C be a curve over a number field K. If C has good reduction at a prime v of K, then so also does Jac(C). THEOREM 4.2 (RATIONAL VERSION OF TORELLI'S THEOREM). Let C be a complete nonsingular curve of genus ≥ 2 over a perfect field k.",
      "match": "The two inputs of 'Torelli'; Theorem 4.2 continues 'The isomorphism class of C is uniquely determined by that of the principally polarized abelian variety (J(C), θ(C))'."
     }
    ],
@@ -2403,19 +2326,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Satz 7 and the start of its proof, p. 365",
-     "excerpt": "Satz 7 (Mordell-Vermutung). Sei X/K eine glatte Kurve vom Geschlecht g≧2. Dann ist X(K) endlich. Beweis. Dies steht in [9]: Nach eventueller Erweiterung des Grundkörpers gibt es eine unverzweigte Überlagerung vom Grad m>2: φ: X_1→X.",
      "match": "Literal; the draft's excerpt printed 'm >= 2', but the page reads m>2 (400 dpi)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 7, p. 365",
-     "excerpt": "a) v teilt 2. b) X_1 hat schlechte Reduktion in v. c) φ verzweigt in der Faser mod v. Dies sind nur endlich viele Stellen, und es gibt somit nur endlich viele Möglichkeiten für Y(x). Dasselbe gilt für die Abbildung Y(x)→X_1→X, welche genau über x verzweigt.",
      "match": "The three conditions and the conclusion."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §5, Theorem 5.2, printed p. 146",
-     "excerpt": "THEOREM 5.2 (DE FRANCHIS). Let C′ and C be curves over a field k. If C has genus ≥ 2, then there are only finitely many nonconstant maps C′ → C.",
      "match": "The input behind 'Dasselbe gilt für die Abbildung'."
     }
    ],
@@ -2455,13 +2375,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Bemerkungen after Satz 7, no. 2, p. 365",
-     "excerpt": "2. Mit Hilfe der Methode aus [16] kann man aus Satz 6 folgern, daß für fast alle Primzahlen l die von π erzeugte Unteralgebra M_l von End_{ℤ_l}(T_l(A)) der volle Kommutator von End_K(A)⊗_ℤℤ_l ist.",
      "match": "Literal remark; no proof in the source."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §2, Corollary 2.7, printed p. 138",
-     "excerpt": "COROLLARY 2.7. Let R be the image of Q_ℓ[Γ] in End(V_ℓA). Then R is the centralizer of End⁰(A)_ℓ in End(V_ℓA).",
      "match": "The rational version, for every ℓ."
     }
    ],
@@ -2499,7 +2417,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Bemerkungen after Satz 7, no. 1, p. 365",
-     "excerpt": "Bemerkungen. 1. Man erhält auf diesem Wege auch einen Beweis des Siegelschen Satzes (über ganze Punkte), welcher ohne diophantische Approximation auskommt.",
      "match": "Literal remark; no statement or proof of the form of Siegel's theorem obtained."
     }
    ],
@@ -2605,7 +2522,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, Definition, p. 355",
-     "excerpt": "Die Metrik ‖ ‖ hat logarithmische Singularitäten längs Y, wenn folgendes gilt: Es gibt eine eigentliche dominante Abbildung φ: X̃ → X, so daß X̃ glatt und φ^{−1}(Y) ein Divisor mit normalen Überkreuzungen ist, und so daß für ein lokales Erzeugendes h … Sup{‖h‖, ‖h‖^{−1}} ≤ c_1·|(log|f|)|^{c_2}",
      "match": "Literal definition; the node makes explicit that the bound is local near φ^{−1}(Y) (E6)."
     }
    ],
@@ -2649,13 +2565,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, proof of Satz 1, p. 357",
-     "excerpt": "Wir müssen uns nun noch überlegen, daß nur endlich viele K-Isomorphieklassen dieselbe Klasse über dem algebraischen Abschluß K̄ induzieren können. Wir fixieren also eine solche Klasse über K̄, und betrachten die entsprechenden A/K.",
      "match": "The statement of this node, as Faltings formulates the remaining step."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§3, proof of Satz 1, p. 357",
-     "excerpt": "Es ist bekannt, daß alle diese an denselben Stellen von K schlechte Reduktion haben. Aus dem Lemma 4 weiter unten folgt dann sofort die Existenz einer endlichen Erweiterung K′ ⊇ K, welche für ein n ≥ 3 die Koordinaten der n-Teilungspunkte aller A/K enthält.",
      "match": "The steps; the node names the facts behind 'Es ist bekannt' and 'Bekanntlich' and the Galois-cohomology finish."
     }
    ],
@@ -2700,13 +2614,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, proof of Korollar 3 to Satz 4, p. 362",
-     "excerpt": "Wir dürfen weiter den Grundkörper K zum Beweis erweitern, und dann annehmen, daß A und alle B's sich zu semiabelschen Varietäten über Spec(R) fortsetzen, und daß es für alle B's eine Isogenie vom Grad √d mit einer prinzipal polarisierten abelschen Varietät gibt.",
      "match": "The reduction the node makes precise, with the uniform extension."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§6, proof of Satz 6, p. 363",
-     "excerpt": "Wie im Beweis des Korollar 3 zu Satz 4 dürfen wir weiter voraussetzen, daß sich alle B's zu semiabelschen Varietäten über Spec(R) fortsetzen, und daß d = 1 ist.",
      "match": "The use of (ii): finiteness for d-fold polarizations follows from the principal case."
     }
    ],
@@ -2747,13 +2659,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359 (Tate's Theorem 3, Corollary 2)",
-     "excerpt": "Wenn C_i die Komplettierung des algebraischen Abschlusses von K_i bezeichnet, so ist weiter bekannt ([13], Theorem 3, Corollary 2), daß T_l(G_i)⊗_{ℤ_l}C_i≅C_i^{h_i−d_i}⊕C_i^{d_i}(+1), (h_i=Höhe(G_i), „(+1)“=Tate-Twist) als D_i-Moduln.",
      "match": "Literal, page image p. 359; the imported Hodge-Tate decomposition."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359 (combination with Lemma 6)",
-     "excerpt": "Zusammen mit Lemma 6 ergibt sich daraus, daß D_i auf Λ^h T_l(G)⊗_{ℤ_l}C_i⊆Λ^h T_l(A)⊗_{ℤ_l}C_i (h=Höhe(G)) wie auf C_i(χ_0^{d_i})=C_i(d_i) operiert (χ_0=zyklotomischer Charakter).",
      "match": "Literal, page image p. 359; the node's conclusion, with the hypothesis on G_i made explicit."
     }
    ],
@@ -2793,7 +2703,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 360",
-     "excerpt": "Aus der Klassenkörpertheorie folgt, daß χ von der Form χ=(l-adische Potenz von χ_0)·(Charakter endlicher Ordnung) ist.",
      "match": "Literal, page image p. 360. The node makes 'l-adische Potenz' precise through ⟨·⟩ (χ_0^a with a ∈ ℤ_l is not defined on the torsion of ℤ_l^×), and routes the class field theory input to Kronecker-Weber."
     }
    ],
@@ -2837,7 +2746,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 360",
-     "excerpt": "Sei C die Komplettierung des algebraischen Abschlusses von ℚ_l, D≅Gal(ℚ̄_l/ℚ_l)⊆π̃ die Zerlegungs-Gruppe von l. Dann gilt als D-Modul L⊗_{ℤ_l}C≅C(+Σ_{i=1}^r m_i d_i) (dies folgt aus unseren vorherigen Berechnungen)",
      "match": "Literal, page image p. 360. Faltings says only that this follows from the previous computations; the node spells out the Mackey decomposition and the transfer formula it needs."
     }
    ],
@@ -2877,7 +2785,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 360",
-     "excerpt": "Schließlich folgt aus dem schon von Weil bewiesenen Teil der Weil-Vermutungen mit einigen lokalen Überlegungen, daß χ(F_p) (p=Primzahl, F_p=Frobenius) für fast alle p eine algebraische Zahl ist, all deren Konjugierte Betrag p^{mh/2} haben.",
      "match": "Literal, page image p. 360; the 'lokale Überlegungen' are the Mackey computation of step 3."
     }
    ],
@@ -2920,13 +2827,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§4, p. 359",
-     "excerpt": "Wir übertragen dies nun wieder auf den globalen Fall: Es ist #s*(Ω¹_{A/A_n})=l^{n Σ_{i=1}^r m_i d_i}, (l^n·Ω¹_{A/A_n}=0)",
      "match": "Literal, page image p. 359; stated by Faltings for A itself, valid after the shift."
     },
     {
      "sourceId": "faltings-1984-erratum",
      "locator": "Erratum, Invent. Math. 75 (1984), 381, second paragraph",
-     "excerpt": "Der ursprüngliche Beweis funktioniert jedoch, wenn man gleich zu Beginn A=A_0 durch ein A_m ersetzt, mit genügend großem m.",
      "match": "Literal, page image; the shift under which this node holds."
     }
    ],
@@ -2967,7 +2872,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, p. 361",
-     "excerpt": "Wenn W ein beliebiger π-invarianter Teilraum von T_l⊗_{ℤ_l}ℚ_l ist, so wendet man obige Überlegungen an auf den maximal isotropen Teilraum W_1={(x,vx)|x∈W^4}⊕{(y,−vy)|y∈(W^⊥)^4}⊆T_l(A)^8⊗_{ℤ_l}ℚ_l.",
      "match": "Literal, page image p. 361. 'obige Überlegungen' (the tower argument) are applied to A^8 with the product principal polarization; this node records the product facts that application needs, which is the R28.3 target 'companion finiteness statements for products and polarisations'."
     }
    ],
@@ -3009,13 +2913,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, p. 360 (start of the proof of Satz 3 and Satz 4)",
-     "excerpt": "Beweis. Die beiden Sätze werden zusammen bewiesen. Es reicht bekanntlich, statt Satz 4 die etwas schwächere Aussage zu beweisen, daß die Abbildung End_K(A)⊗_ℤℚ_l→End_π(T_l⊗_{ℤ_l}ℚ_l) bijektiv ist.",
      "match": "Literal, page image p. 360."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "§5, p. 361",
-     "excerpt": "Man darf dann zum Beweis den Grundkörper erweitern, oder A durch eine isogene abelsche Varietät ersetzen.",
      "match": "Literal, page image p. 361; the invariance this node proves."
     }
    ],
@@ -3052,7 +2954,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, proof of Satz 3/4, p. 361",
-     "excerpt": "Wähle a, b, c, d∈ℚ_l mit a²+b²+c²+d²=−1.",
      "match": "The source takes the existence of such a quadruple for granted; this node proves it, for l = 2 with the explicit quadruple (a, 1, 1, 2), a² = −7."
     }
    ],
@@ -3099,13 +3000,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, proof of Satz 3/4, p. 361",
-     "excerpt": "Nach Satz 2 ist h(A_n)=h(A), und nach Satz 1 sind unendlich viele A_n's isomorph. Wie in [16] folgt daraus, daß W Bild eines Idempotents aus End_K(A)⊗_ℤℚ_l ist.",
      "match": "The statement of the lemma; its proof is cited to Zarhin [16] and not printed. 'h(A_n) = h(A)' is corrected in the Zusatz bei der Korrektur (p. 366) to eventual stationarity, which is all the lemma needs."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §2, Lemma 2.4 and its proof, printed pp. 136–137",
-     "excerpt": "LEMMA 2.4. Suppose A satisfies (*). For any W ⊂ V_ℓA stable under Γ, there is a u ∈ End(A) ⊗ Q_ℓ such that uV_ℓA = W.",
      "match": "Milne proves this under (*) (finitely many B ℓ-power isogenous to A); the proof uses only an infinite set of pairwise isomorphic members of the tower X_n = (T_ℓ ∩ W) + ℓ^n T_ℓ, which the preceding node supplies for maximal isotropic W."
     }
    ],
@@ -3150,13 +3049,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, proof of Satz 3/4, p. 361",
-     "excerpt": "Der Rest des Beweises geht genauso wie in [16], und sei daher nur skizziert: … Wenn W ein beliebiger π-invarianter Teilraum von T_l⊗_{ℤ_l}ℚ_l ist, so wendet man obige Überlegungen an auf den maximal isotropen Teilraum W_1",
      "match": "The source applies the maximal isotropic case to W_1 and leaves the passage back to W unprinted; this node supplies it."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §2, proof of Theorem 2.5(a), printed p. 138",
-     "excerpt": "This is a right ideal in End(A)⊗Q_ℓ, and aV_ℓA = W because the hypothesis on A and (2.4) imply there exists a u ∈ End(A) ⊗ Q_ℓ such that uV_ℓA = W. From the above remarks, we know that a is generated by an idempotent e",
      "match": "The right-ideal step used in the last two proof steps."
     }
    ],
@@ -3203,19 +3100,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Korollar 2, p. 361",
-     "excerpt": "Korollar 2. Seien A_1, A_2 wie im Korollar 1. Es sind äquivalent i) A_1 und A_2 sind isogen. ii) T_l(A_1)⊗_ℤℚ_l≅T_l(A_2)⊗_ℤℚ_l als π-Modul. iii) L_v(s, A_1)=L_v(s, A_2) für fast alle Stellen v von K. iv) L_v(s, A_1)=L_v(s, A_2) für alle v.",
      "match": "Literal statement as printed (including the misprinted ⊗_ℤ in ii), recorded as a source issue)."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, definition of L(A, s) and proof of Korollar 2, p. 361",
-     "excerpt": "wobei das Produkt über fast alle Stellen von K zu erstrecken ist. Die lokalen L-Faktoren L_v(A, s) sind unabhängig von l. … Die Äquivalenz von i) und ii) folgt aus Satz 4, die von ii) und iii) aus Satz 3 (+Čebotarev), und aus ii) folgt iv) folgt iii) ist trivial.",
      "match": "The definition of L_v at almost all places and the one-line proof."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §3, Lemma 3.9, printed p. 143",
-     "excerpt": "LEMMA 3.9. Let k be a field of characteristic zero, and let R be a k-algebra of finite dimension over k. Two semisimple R-modules of finite-dimension over k are isomorphic if they have the same trace.",
      "match": "The trace criterion used in (iii) ⇒ (ii)."
     }
    ],
@@ -3263,7 +3157,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 364",
-     "excerpt": "Wenn ε: π̃→{±1} den Charakter bezeichnet, mit dem π̃ auf Λ^m Ind_π^{π̃}(ℤ) operiert, so ist χ·ε^h unverzweigt außerhalb l, denn die Trägheitsgruppen der Stellen v von K, welche l nicht teilen, operieren unipotent auf V_l (semistabile Reduktion).",
      "match": "Literal; the determinant-of-induction computation that turns unipotence at places of K into unramifiedness at primes of ℚ is left implicit and is written out here."
     }
    ],
@@ -3302,7 +3195,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 364",
-     "excerpt": "Nach der Klassenkörpertheorie ist χ·ε^h eine Potenz des zyklotomischen Charakters χ_0.",
      "match": "Literal; the class field theory used is Kronecker–Weber together with the ramification of cyclotomic fields."
     }
    ],
@@ -3348,19 +3240,16 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 364",
-     "excerpt": "Wir werden zeigen, daß für jede Isogenie φ: B_1→B_2 von zu A isogenen abelschen Varietäten, deren Grad eine l-Potenz mit einer Primzahl l>N ist, h(B_1) und h(B_2) übereinstimmen. … Wir dürfen annehmen, daß l den Kern G von φ annulliert.",
      "match": "Literal statement of the claim and the first reduction."
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, pp. 364–365",
-     "excerpt": "Also ist χ_0^d(F_p)=±p^d eine Nullstelle von P_{mh}(T) modulo l, und nach Wahl von N muß d=hm/2 gelten. Da wieder h(B_2)−h(B_1)=log(l)(h/2−d/m), folgt unsere Behauptung",
      "match": "Literal conclusion (with the misprint χ_0^d(F_p) for χ(F_p))."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Appendix to Chapter IV (Milne's review of Faltings 1983), printed p. 159",
-     "excerpt": "THEOREM (*) Let A be an abelian variety over K with semistable reduction everywhere; then there is an N such that for every isogeny A → B of degree prime to N, h(A) = h(B).",
      "match": "The same statement as it is usually quoted."
     }
    ],
@@ -3401,7 +3290,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, proof of Satz 6, p. 363",
-     "excerpt": "Wenn für zwei abelsche Varietäten B_1/K und B_2/K T_l(B_1) und T_l(B_2) als π-Moduln isomorph sind, so existiert nach Satz 4 eine Isogenie vom Grad prim zu l zwischen B_1 und B_2, und l tritt nicht in exp(2[K:ℚ](h(B_1)−h(B_2))) auf.",
      "match": "Literal; the reduction of the small-prime bound to the lattice finiteness."
     }
    ],
@@ -3442,13 +3330,11 @@
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §1, Theorem 1.4, printed p. 132",
-     "excerpt": "THEOREM 1.4 (FINITENESS II). Given a number field k, an integer g, and a finite set of finite primes S of k, there are only finitely many isomorphism classes of abelian varieties A over k of dimension g having good reduction outside S.",
      "match": "The unpolarized statement the stage text asks for."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter I, §13, Corollary 13.13 and its proof, printed p. 61",
-     "excerpt": "From (13.12) we know that (A × A^∨)^4 has a principal polarization, and according to (11.2), the abelian varieties of dimension 8g over k having principal polarizations fall into finitely many isomorphism classes. But A is a direct factor of (A × A^∨)^4",
      "match": "The transfer argument (over a finite field there; here with Satz 6 in place of (11.2))."
     }
    ],
@@ -3487,13 +3373,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Satz 3, p. 360",
-     "excerpt": "Satz 3. Die Operation von π auf T_l⊗_{ℤ_l}ℚ_l ist halbeinfach.",
      "match": "Satz 3 for g = 1."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §1, Theorem 1.2, printed p. 131",
-     "excerpt": "THEOREM 1.2 (SEMISIMPLICITY). Let A be an abelian variety over a number field k; for all primes ℓ, the action of Gal(k^al/k) on V_ℓA is semisimple.",
      "match": "The statement exported by R28.6 for the elliptic-curve type."
     }
    ],
@@ -3535,7 +3419,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Korollar 1, p. 361",
-     "excerpt": "Korollar 1. Seien A_1 und A_2 abelsche Varietäten über K. Dann ist Hom_K(A_1, A_2)⊗_ℤℤ_l→Hom_π(T_l(A_1), T_l(A_2)) ein Isomorphismus.",
      "match": "Korollar 1 for g = 1."
     }
    ],
@@ -3577,7 +3460,6 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 5, Korollar 2, p. 361",
-     "excerpt": "Korollar 2. Seien A_1, A_2 wie im Korollar 1. Es sind äquivalent i) A_1 und A_2 sind isogen. ii) T_l(A_1)⊗_ℤℚ_l≅T_l(A_2)⊗_ℤℚ_l als π-Modul. iii) L_v(s, A_1)=L_v(s, A_2) für fast alle Stellen v von K.",
      "match": "Korollar 2 for g = 1 (⊗_ℤ is a misprint for ⊗_{ℤ_l})."
     }
    ],
@@ -3621,13 +3503,11 @@
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
      "locator": "Section 6, Satz 6, p. 363",
-     "excerpt": "Satz 6 (Shafarevich-Vermutung). Sei S eine endliche Menge von Stellen von K, d>0. Dann gibt es nur endlich viele Isomorphie-Klassen d-fach polarisierter abelscher Varietäten über K von vorgegebener Dimension, welche außerhalb S gute Reduktion haben.",
      "match": "Satz 6 with g = 1 and d = 1."
     },
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter IV, §1, Theorem 1.1, printed p. 131",
-     "excerpt": "THEOREM 1.1 (FINITENESS I). Let A be an abelian variety over an algebraic number field k. Then, up to isomorphism, there are only finitely many abelian varieties B over k that are isogenous to A.",
      "match": "The general statement, of which this node is the elliptic-curve case that the R28.6 stage text asks for."
     }
    ],
@@ -3675,7 +3555,6 @@
     {
      "sourceId": "milne-2008-abelian-varieties",
      "locator": "Chapter I, §10, Theorem 10.15, printed p. 49",
-     "excerpt": "THEOREM 10.15. For any abelian varieties A and B, and ℓ ≠ char(k), the natural map Hom(A, B) ⊗ Z_ℓ → Hom(T_ℓA, T_ℓB) is injective, with torsion-free cokernel. Hence Hom(A, B) is a free Z-module of finite rank ≤ 4 dim(A) dim(B).",
      "match": "The general finite generation; the sharper rank-one statement for End_K(E') = ℤ, which the R28.6 stage text asks for ('the finite-generation and rank-one Hom consequence when End_Q(E)=Z'), follows by the elementary argument of the proof steps."
     }
    ],

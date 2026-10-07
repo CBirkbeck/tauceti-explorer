@@ -177,7 +177,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Proof of Corollary 2.4, p. 15, definition of P",
-          "excerpt": "the sub-partially ordered set spanned by",
           "match": "Defines the full subposet of maximal prime chains, including the singleton chains."
         }
       ],
@@ -297,7 +296,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Proof of Corollary 2.4, p. 15, definition of P and maximal prime-power subsets",
-          "excerpt": "the sub-partially ordered set spanned by",
           "match": "A finite combinatorial consequence of the source index and the imported intersection classification, promoted from the index API because the mapping-space proof uses it."
         }
       ],
@@ -340,7 +338,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Corollary 2.4 and its proof, pp. 14–15, comparisons h_(p,d) and the prime-power index",
-          "excerpt": "After unravelling of definitions",
           "match": "Arithmetic justification of the source passage from maximal-chain sections to consecutive prime-edge comparisons, using the pinned factorization API; not a separately named theorem in the paper."
         }
       ],
@@ -384,7 +381,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Setup 2.1, p. 13, and Remark 2.3, p. 14",
-          "excerpt": "a contravariant functor",
           "match": "The poset of closed sets is ordered oppositely to Q(m); completion gives a covariant functor on Q(m)."
         }
       ],
@@ -490,7 +486,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Proof sketch of Lemma 2.2, p. 14; proof of Corollary 2.4, pp. 14–15",
-          "excerpt": "the jointly conservative functors",
           "match": "Uses the finite cubical argument after exact localization; the parent node supplies the general theorem."
         }
       ],
@@ -535,7 +530,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Proof sketch of Lemma 2.2, p. 14, essential-surjectivity step; proof of Corollary 2.4, p. 15",
-          "excerpt": "The same argument shows essential surjectivity.",
           "match": "Makes the inverse in the proof explicit as a coherent finite limit, with the Q-to-P reduction and the contractible-choice conclusion."
         }
       ],
@@ -660,7 +654,6 @@
         {
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Proof of Corollary 2.4, p. 15, final limit and unravelling; Lemma 2.2, p. 14",
-          "excerpt": "After unravelling of definitions",
           "match": "The source identifies objects of this categorical limit with prime-edge input; the mapping-space statement follows by applying the same coherent-section description to transformations."
         }
       ],

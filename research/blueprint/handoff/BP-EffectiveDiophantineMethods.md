@@ -1,38 +1,111 @@
-# BP-EffectiveDiophantineMethods — first finite-sieve checkpoint
+# BP-EffectiveDiophantineMethods — complete pass
 
-Issue: #1028. Author: Codex — codex-hjdg0j. Claim comment 5855175133; winning bot reply 5855175935. The complete issue was read before claiming and again after the bot confirmed the claim. No preceding packet, reader or suggested file existed in the working snapshot.
+Issue #1028. Author: Claude (session claude-IYaPk6), claim comment 6031663394, confirmed by the bot.
+This pass continues the merged checkpoint of Codex codex-hjdg0j (#3244), whose twenty ED.5 nodes are
+kept under their ids (their placeholder excerpts "A(L)" are replaced by literal quotations from the
+published Bruin–Stoll text, and four of their planets are reassigned).
 
-## Completed component
+## What is done
 
-Twenty ED.5 nodes: one definition, one construction, eleven lemmas and seven theorems. Nine API items, nine packet tests, nine typed examples, six planets and twenty-eight baseline references. The component uses existing finite sets, additive homomorphisms, image/preimage subgroups and quotient groups. Its dependency graph is acyclic and ends in the pinned baseline. This is closure of the listed finite algebraic component only. The packet remains partial, with nine precise gaps; ED.5 is partial and ED.0–ED.4/ED.6 are not_read. No implementation is claimed.
+The packet is `complete`: all seven stages in scope are `planned`, within the RS-03 decisions
+(accepted; RS-03 narrows ED.0, ED.1, ED.2, ED.3 and ED.6 and these nodes stay inside the `keeps`).
 
-The nodes specify admissible quotient classes and representative congruences; monotonicity in constraints and local overapproximations; global soundness and the empty-sieve obstruction; initialization with attainable local values; projection under refinement; coset lifting, exact membership and correctness; omission of unchanged local tests; a deterministic cardinality bound; target-preserving prepared subgroups and strict progress; coprime-index coverage of a sieve quotient; and conditional application to commuting maps or unique residue fibres.
+| Stage | Nodes | Content |
+|---|---|---|
+| ED.0 | 9 | precision contract; isolating-interval refinement; archimedean and Hensel embedding certificates; certified nonvanishing; valuation certificate; height enclosure; complete bounded-height enumeration of ℙ¹(L) (Doyle–Krumm; meets the ArithmeticDynamics DY.3 request). No CN.4 input (RS-03). |
+| ED.1 | 11 | de Weger's real and p-adic approximation lattices on GN.5's LLL; reduced-basis distance bounds; homogeneous, inhomogeneous and p-adic reduction; Fincke–Pohst enumeration with completeness; lattice exclusion certificates and their soundness. |
+| ED.2 | 32 | certified logarithm/argument enclosures; certified Matveev and Yu constants (DT.3 bounds imported, not restated); the full Tzanakis–de Weger method for Thue equations; the Thue–Mahler method (prime ideal removing lemma, S-unit covering, initial bounds, p-adic and real reduction, certificate); de Weger's S-unit method over ℚ; the three certified-solution-set theorems. |
+| ED.3 | 29 | local images of 2-descent with the size test; certified 2-Selmer group equal to Tau Ceti's `selmerGroup₂`; rank upper bounds (full 2-descent and 2-isogeny); quartic local solubility; Silverman's explicit height-difference bound in the Tau Ceti normalisation; canonical-height enclosures, regulator, index bound, saturation, torsion, Mordell–Weil basis certificate; finite-index subgroup certificate for Jacobians; genus-two x − T descent; Lind–Reichardt torsor; Fermigier's rank-13 descent; ArithmeticDynamics's rank-zero curves and the FPS, Poonen and Stoll Jacobians. |
+| ED.4 | 26 | abelian logarithm and integration pairing; annihilating differentials with certified precision; Chabauty's theorem; tiny integrals and disc constants; residue-disc zero bounds (McCallum–Poonen Lemma 5.1, Remark 5.2, certified Strassmann indices for exceptional discs); **Strassmann's theorem (owned here, see below)**; Coleman's bound; the bad-reduction bound; Chabauty–Coleman certificate and completeness; symmetric and relative symmetric-square Chabauty (Siksek, Box); the C₀(5), C₁(3₂) and X₀^dyn(6) certificates requested by ArithmeticDynamics (the last two conditional, labelled). |
+| ED.5 | 41 | the 20 finite-sieve nodes; reduction square for a curve and its Jacobian; sieve soundness for curves; bad and deep information; the ED.3 handoff; iterated lifting and GetSubgroup; height separation and bounded-height points; the genus-two Kummer test (corrected, see E12, E13, E17); Siksek's lattice step and integral points on y² = f(x); the Chabauty–sieve combination; Box's relative symmetric sieve; the sieve certificate and its soundness; the small-curves application (conditional where the source is). |
+| ED.6 | 39 | certified solution sets with conditionality labels; comparison of p-adic candidates with global points; BDMTV 2019 §§4–6 (all 29 routed items: connection, gauge, Hodge filtration algorithm, Frobenius structure, splitting, local height, base change, precision, X_s(13) model, Tate classes, Hodge and Frobenius data, the three charts, rank 3, Theorems 1.1, 1.2, Corollary 1.3, class number one); BDMTV 2021 Algorithm 3.12 with its failure outputs and the X₀⁺(N), X_S4(13) results; the worked Thue, Thue–Mahler, S-unit and elliptic integral-point examples. |
 
-The two application theorems take an existing type and actual maps with value-level equalities. They do not manufacture curve or Jacobian objects, and they do not establish the required geometric hypotheses. There is no replacement certificate structure or opaque proposition field. CN.5 retains generic certificate schemas. RS-03, the reviewed audit and the protected elliptic suppliers retain their ownership.
+Totals: 187 nodes (24 definitions, 31 constructions, 103 theorems, 13 lemmas, 16 applications),
+356 API items, 244 unit tests, 40 planets (at most six per layer), 194 baseline declarations, 25
+sources, 21 source issues (E1 from the checkpoint, E2–E21 new), 34 requests, 12 gaps, 8 restructure
+proposals.
 
-## Sources and a correction
+## Decisions a reviewer should check
 
-Bruin–Stoll, version of record, LMS J. Comput. Math. 13 (2010), pp.272–280 were read in full, using at most three physical pages per extraction. This covers §§1–3 and §4.1. The May 2009 author copy pp.1–15 was also read; its numbering is not used for published locators. The full paper remains unfinished. The author implementation MWSieve-new.m was read only at LiftInformation lines 2471–2615 and was not executed.
+- **Strassmann's theorem is owned by ED.4** (`ED.4/strassmann-bound`). Importing
+  `ArithmeticDynamics:DY.6/strassmann-theorem`, as the RT-AUDIT-09/7 verifier's options allowed,
+  closes the stage cycle ED.4 → DY.3 → DY.6 → ED.4 (DY.3 consumes the ED.4 Chabauty certificates).
+  The restructure entry asks DY.6 and MordellLawrenceVenkatesh LV.3 to import it from ED.4.
+- **RS-03:** ED.0 has no CN.4 input; worked Thue/S-unit examples sit in ED.6, not ED.2; ED.3 reuses
+  Tau Ceti's elliptic 2-descent (`selmerGroup₂`, the descent map, `pow_rank_le_card_of_range_μ_le`,
+  canonical height, regulator) and only certifies.
+- **New stage edges** (all checked acyclic against the atlas stage edges together with the edges
+  implied by every research packet) are listed per target stage in `restructure`.
+- The comparison "Coleman integral = abelian integral" is planned in ED.4
+  (`ED.4/coleman-abelian-comparison`, by Dwork's principle), following the ColemanIntegration
+  packet's own proposal; NC.4 can cite it.
 
-E1 records a literal printed notation defect in PrepareLift on published p.279. With Γ=ℤ, G=ℤ/4 and target 2Γ, taking the original reduction kernel produces 4Γ and violates the required target containment. The correct step uses the kernel after reducing the target modulo the sieve modulus. The authors' implementation already does this. E1 identifies that existing correction, the exact counterexample, version hashes and correction searches; it does not allege a bug in the implementation or a false rational-point theorem. This finding awaits independent review.
+## Requests (34)
 
-BDMTV (2019), published pp.885–887 were freshly read. Its full ED.6 route and all twenty-eight routed items in the existing extraction were read as a worklist. They have not been freshly proved or decomposed here. All algorithm, precision and X_s(13) work remains explicit in the ED.6 gap, including reconciliation of the extraction's eight source findings and the retracted Lemma 4.7. The original campaign sources and the modular-curve sequel also still require full reading.
+To ComputationalNumberTheory CN.2 (class groups, units, prime factorisations), CN.3 (modular data
+for X_s(13)), CN.4 (certified log/arctan enclosures, L-values), CN.5 (example schema);
+HeightsRationalPointsAndObstructions RP.0 (Néron local heights, Néron–Tate height on Jacobians) and
+RP.1 (Mordell–Weil for Jacobians, 2-isogeny Kummer maps); SchemeAndStackFoundations SF.3 (curve
+inputs, specialisation, symmetric square); NeronModels R11.4; DeligneWeightsAndPurity DWP.1;
+AnabelianGeometryAndNonabelianChabauty NC.2 and NC.5 (quadratic Chabauty theory, BDMTV items they
+own); PadicDifferentialEquationsAndRigidCohomology RD.7 (Tuitman's Frobenius algorithm);
+GrossZagierAndArithmeticHeights GZ.8; ModularCurvesPartII R13.4a, R13.5, R14.5; and the Tau Ceti
+layers EllipticCurves 3, 4, 6, 7, JacobianChallenge D, E, F, AlgebraicCurves 10, StableReduction 5.
 
-## Verification
+## Gaps (12)
 
-- Blueprint checker: zero errors, one explained index warning. The index writes Finset.Finset.mem_filter, whereas the pinned source and direct Lean check give Finset.mem_filter. Keep the actual name.
-- Lean: the final suggested file elaborates against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and the Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 baseline. It has 35 expected placeholder warnings and no other warnings or errors. The imported closure contains 2,181 Mathlib source files, all byte-verified at the pin; no Tau Ceti implementation module is needed.
-- Suggested-file SHA-256: 1a5b9a1007d8850579cc95a2e7b780ef0d8a4f5381d91587dfa824f74b73135e.
-- Four temporary proofs were appended only to the authorized suggested file: native quotient congruence membership, exact translated-kernel lifting, the Bézout index-coverage argument and target containment. All elaborated with only standard logical axioms and no placeholder axiom. The probes were removed; no auxiliary Lean file is submitted.
-- Independent Python models checked 40,892 finite cyclic configurations, 382,762 refinements, 382,762 omitted-test comparisons, 1,331,656 global-element cases and 23,590 coprime-index cases. They include empty constraints, empty local sets, non-surjective maps, non-subgroup local sets and torsion. Four explicit regressions check the published kernel issue, nonempty coarse survivors without a global solution, unattainable local data and failure of coverage without coprimality. These are mathematical model checks, not execution of the proposed Lean implementation.
-- Packet/reader/signature agreement, source-issue schema, native-name checks, dependency closure and the four-file boundary were checked. Intake file checks must pass before submission.
+Rank of E11 (no rational 2-torsion; no source read gives the full descent); the three genus-two
+rank-zero curves of ArithmeticDynamics's request; the corrected 2-descent for Poonen's C₁(3₂)
+(his erratum gives no computation); explicit points on Fermigier's homogeneous spaces; certified
+finite presentations of Jacobians over finite fields (Mumford/Cantor, discrete logarithms, Smith
+forms); the Cassels–Flynn model of genus-two Jacobians and Kummer surfaces; genus-two height
+comparison constants; the small-curves experiment data; Bilu–Parent–Rebolledo; Baran's X_ns(13)
+model and isomorphism; the X_S4(13) isogeny and reduction inputs; certified Coleman integrals
+through ramified extensions (Balakrishnan–Tuitman 2017, not read).
 
-## Resume here
+## What a follow-up must do
 
-1. Construct and certify ED.5's geometric input data: Jacobian points, the degree-one-class embedding, reduction homomorphisms, complete local images, commutative squares and concrete finite quotient presentations. Import protected EllipticCurves Layer 4 for elliptic reduction. Preserve the explicit conditional status of the two generic map theorems.
-2. Finish Bruin–Stoll from published §4.2 through §8 and all cited inputs used. Decompose the actual finite chain/presentation strategy, bad and deep information, genus-two arithmetic and examples. Never infer termination from an expected survivor count. The target D must stay inside every prepared subgroup.
-3. Obtain the certified index/saturation outputs from ED.3 and the height or Coleman uniqueness/coverage inputs from ED.2/ED.4. Cover every residual candidate, including torsion and exceptional residue discs.
-4. Continue the nine gap entries, respecting RS-03 and current supplier nodes. The Strassmann overlap needs the single-owner resolution recorded by the RT-AUDIT-09 verifier; its draft LV reference is not an established supplier assumption.
-5. Read and decompose the BDMTV algorithm and example in full, importing NC.5 theory and CN.5 general schemas. The twenty-eight exact routed item identifiers are retained in the packet's ED.6 gap.
+Each stage's `remaining` list is precise. The main items: embeddings into finite extensions of ℚ_p
+(ED.0, needed by the second special case of Thue–Mahler); the faster Doyle–Krumm generator; the
+de Weger Lemma 3.17 sublattices; Thue–Mahler with gcd(Y, f₀) > 1; Cremona's quartic 2-descent and
+local-height canonical heights; odd-degree isogeny descents and 4-descent; Stoll's rank-dependent
+Coleman bound and Coleman's bound for p ≤ 2g (sources not read); Siksek's 2009 symmetric-power
+paper (not downloadable; the symmetric-square proof steps are reconstructed from Box's statements);
+the remaining BDMTV 2021 examples.
 
-The full twenty-node component and all conventions appear in the reader. Do not mark ED.5 closed on the strength of these finite algebra lemmas.
+## Sources read (2026-10-07; URLs and SHA-256 in the packet)
+
+McCallum–Poonen; Bruin–Stoll (version of record pp.272–306, arXiv v2, author copy); Tzanakis–de
+Weger 1989 and 1992; de Weger's CWI Tract 65 (Chapters 2–6); Fincke–Pohst; Doyle–Krumm; Matveev
+2000; Yu 1994; Silverman 1990; Cremona's book Chapter III; Aitken–Lemmermeyer; Flynn–Poonen–Schaefer;
+Poonen's preperiodic-points paper (arXiv:math/9512217v1; the Math. Z. version was not read) and his
+errata; Stoll 2008 and 2019; Prickett's thesis (rendered pages);
+Siksek 2010; Box 2021; Caraiani–Newton v3 §7.4 (v1, v2 compared there); BDMTV 2019 (published) and
+2021 (arXiv v4); Katz–Rabinoff–Zureick-Brown 2016 and Balakrishnan–Bradshaw–Kedlaya 2010 for the
+ED.4 tiny integrals and Stoll's bound context. Not obtainable here:
+Siksek, "Chabauty for symmetric powers of curves" (2009), and Siksek's 1995 saturation paper.
+
+## Source issues
+
+E2–E21 are new: de Weger Lemma 3.15 sign, Figure 2 index, Lemma 3.17(i) false; Tzanakis–de Weger
+1989 Prop. 3.2 inequality, Lemma 2.1 transposition, test (3.8) gap, p.106 factor, p.123 swap;
+Tzanakis–de Weger 1992 Lemma 1 corollary reference and Proposition 7 constants; Aitken–Lemmermeyer
+Appendix B (y² = x³ + 17x, not −17x); Poonen 1998 p.15 (S± for R±); Bruin–Stoll Lemma 4.1 (missing
+factor 3, a/b swap, and a gap in the last step, with the correction used in ED.5/kummer-curve-test)
+and FindQSequence's ε for ε₁; BDMTV 2021 §4.1 (two) and Lemma 4.7, whose printed hypothesis
+max{i : ord_p(F_i) + i = n} < m is too weak for its conclusion (E21; ED.6/root-determination-precision
+uses ord_p(F_i) + i ≥ n for i ≥ m, which the proof needs); FPS Lemma 2 proof. Each was checked on the
+rendered page. The Caraiani–Newton ⟨5G₁, …⟩ misprint is already PAPER-CARAIANI-NEWTON-23/E9 and is
+cited, not duplicated.
+
+## Checks
+
+- `scripts/check_blueprint.py`: 0 errors, 1 warning (the index lists `Finset.mem_filter` under a
+  doubled namespace; the pinned source and a Lean check give `Finset.mem_filter`; it comes from the
+  checkpoint's ED.5 nodes).
+- Every excerpt was compared with the downloaded text; the remaining non-literal matches are
+  column-split or OCR-garbled lines of scanned sources, checked by hand.
+- Independent second reading of every stage (fresh readers, 296 exact fixes applied), with numerical
+  claims recomputed in exact arithmetic.
+- Suggested Lean file: elaborated with `lean-check` (`lake env lean` in the shared build, Mathlib 082e2d3; the file imports Mathlib modules only and names the Tau Ceti declarations it builds on in comments): exit 0, 705 warnings, every one "declaration uses `sorry`", no errors. The file has 5,834 lines.
+- Every packet definition, API item and unit-test name occurs in the suggested file.

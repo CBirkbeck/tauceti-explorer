@@ -1,0 +1,231 @@
+{
+ "id": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+ "title": "Modularity and modular parametrisations of elliptic curves over Q, Part II: abelian varieties of GL₂-type",
+ "area": "automorphic",
+ "parent": "EllipticCurveModularity",
+ "summary": "Starting where the modularity of elliptic curves over ℚ stops, this Part II proves that every abelian variety over ℚ of GL₂-type is a quotient of a modular Jacobian J₁(N) (Ribet's reduction, made unconditional by Khare–Wintenberger, Corollary 10.2(i)), with the exact level cond(A)^{1/dim A} given by Carayol's conductor theorem. It develops the endomorphism algebra and the two-dimensional λ-adic system of such a variety, the equivalent forms of modularity, the L-function, and Ribet's theory of ℚ-curves: a non-CM elliptic curve isogenous to all its Galois conjugates is a factor of a GL₂-type variety, hence modular over ℚ̄ and, over a solvable Galois field of definition, automorphic of parallel weight two.",
+ "readme": "The definitive document is research/blueprint/readmes/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md. This Part II starts where EllipticCurveModularity stops: R29 proves modularity of elliptic curves over ℚ, and GT.1–GT.4 generalise its steps to an abelian variety A over ℚ of GL₂-type of any dimension n = [E : ℚ], proving compatibility with R29 in dimension one. GT.1 sets up the endomorphism algebra (Ribet §2), GT.2 the good-prime λ-adic system and the hypotheses for the direct Serre/Ribet argument (Ribet §3), GT.3 the modularity theorem (Ribet Theorem 4.4, Khare–Wintenberger Corollary 10.2(i)) and its equivalent forms, GT.4 the exact level and L-function (Carayol). GT.5–GT.6 develop Ribet's ℚ-curves (§§6–7) and their modularity over a solvable Galois field of definition, which EllipticCurveModularityImaginaryQuadratic imports for Caraiani–Newton's quadratic points. Imported, never re-planned: Theorem 10.1(i) and the Serre theorem (ClassicalSerreModularity R27.6), Faltings' theorems (FaltingsFinitenessAndIsogenyTheorems R28.4), the quotient A_f (ModularCurvesPartII R14.5), the representations of newforms with Carayol's local–global compatibility (AutomorphicGaloisRepresentations R19.3–R19.4), endomorphism algebras, Rosati involutions and Weil restriction (AbelianSchemesAndArithmeticModuli A6), and base change for GL₂ (GL2AutomorphicRepresentationsAndTransfer). Inner twists, the building-block theory over ℚ̄ and the converse direction of Ribet §5 (that the ℚ̄-factors of GL₂-type varieties are ℚ-curves) are not part of this roadmap.",
+ "prerequisites": [
+  "EllipticCurveModularity",
+  "AbelianSchemesAndArithmeticModuli",
+  "AutomorphicGaloisRepresentations",
+  "FaltingsFinitenessAndIsogenyTheorems",
+  "ModularCurvesPartII",
+  "PELModuli",
+  "SmallRamificationAndAbelianVarietyBaseCases",
+  "tauceti:TauCetiRoadmap/Chebotarev",
+  "tauceti:TauCetiRoadmap/ModularForms",
+  "ArithmeticGaloisRepresentations",
+  "NeronModelsAndSemistableAbelianVarieties",
+  "PadicHodgeTheory",
+  "AlgebraicModularFormsAndSerreWeights",
+  "ClassicalSerreModularity",
+  "tauceti:TauCetiRoadmap/JacobianChallenge",
+  "PotentialModularityAndCompatibleSystems",
+  "GL2AutomorphicRepresentationsAndTransfer",
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+  "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "ComplexMultiplicationAndExplicitReciprocity"
+ ],
+ "stages": [
+  {
+   "key": "GT.1",
+   "title": "Abelian varieties of GL₂-type and their endomorphism algebras",
+   "description": "**Objects.** An *abelian variety of GL₂-type over ℚ* is a pair (A, ι) of an abelian variety A over ℚ and an injective ℚ-algebra map ι : E → End⁰_ℚ(A) = ℚ ⊗ End_ℚ(A) from a number field E with [E : ℚ] = dim A. It is *primitive* if A is not ℚ-isogenous to a power construction E ⊗_F B with [E : F] > 1.\n\n**Targets.**\n- The Lie-algebra divisibility: for every number field E acting on A up to isogeny over ℚ, [E : ℚ] divides dim A (Ribet §2).\n- Ribet's Theorem 2.1: for (A, ι) of GL₂-type the conditions (i) A is primitive, (ii) A is ℚ-simple, (iii) End⁰_ℚ(A) is a number field of degree dim A are equivalent; in that case End⁰_ℚ(A) = ι(E).\n- The power construction E ⊗_F B: for B of GL₂-type with field F and a finite extension E/F of degree n, Bⁿ is of GL₂-type with field E; it is not ℚ-simple when n > 1.\n- For ℚ-simple A of GL₂-type, the field E = End⁰_ℚ(A) is totally real or a CM field, and the Rosati involution of every polarization over ℚ restricts to its canonical involution (identity, resp. complex conjugation).\n- The modular quotient A_f of J₁(N) attached to a weight-two newform f is ℚ-simple of GL₂-type with End⁰_ℚ(A_f) = K_f, the coefficient field of f.\n\nElliptic curves over ℚ are exactly the one-dimensional case (E = ℚ), which recovers the parent's setting `EllipticCurveModularity:R29.1`.",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSchemesAndArithmeticModuli:A6",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "AutomorphicGaloisRepresentations:R19.6",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "ModularCurvesPartII:R14.5",
+    "PELModuli:M0",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms"
+   ]
+  },
+  {
+   "key": "GT.2",
+   "title": "The λ-adic system of a GL₂-type abelian variety",
+   "description": "Let A be a ℚ-simple abelian variety of GL₂-type with E = End⁰_ℚ(A), and S the set of primes of bad reduction.\n\n**Targets.**\n- V_ℓ(A) is free of rank two over E ⊗_ℚ ℚ_ℓ; for a prime λ | ℓ of E, V_λ(A) = V_ℓ(A) ⊗_{E⊗ℚ_ℓ} E_λ is a two-dimensional E_λ-representation ρ_λ of G_ℚ, and V_ℓ(A) = ⊕_{λ|ℓ} V_λ(A).\n- E-rationality: for p ∉ S and λ ∤ p the characteristic polynomial of ρ_λ(Frob_p) is X² − a_p X + ε(p)p with a_p ∈ E independent of λ.\n- Ribet's Lemma 3.1: det ρ_λ = ε·χ_ℓ for one finite-order character ε : G_ℚ → E^× unramified outside S.\n- Ribet's Lemma 3.2: ε is even, so every ρ_λ is odd.\n- Ribet's Proposition 3.3: every ρ_λ is absolutely irreducible and End_{ℚ_ℓ[G_ℚ]} V_λ = E_λ.\n- Ribet's Propositions 3.4–3.6: a_p = ε(p)·ā_p for p ∉ S; E = ℚ(a_p : p ∉ S′) for every finite S′ ⊇ S; F = ℚ(a_p²/ε(p)) is totally real and E/F is abelian.\n- Ribet's Lemma 3.7: the residual representation on A[λ] (for a model with End_ℚ(A) = 𝒪_E) is absolutely irreducible for all but finitely many λ; this generalises `EllipticCurveModularity:R29.1`.\n- Bounded conductors: for λ of degree one, N(ρ̄_λ) | N(ρ_λ) | cond(A), with cond(A) independent of ℓ.\n- Local behaviour at good primes: for ℓ ∉ S, ρ_λ is crystalline at ℓ with Hodge–Tate weights {0, 1} at every embedding of E_λ (weights (1, 0), regular), and A′[λ] is finite flat over ℤ_ℓ.\n- The integral model: A is E-equivariantly isogenous to A′ with End_ℚ(A′) = 𝒪_E, giving the residual representations on A′[λ].",
+   "requires": [
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSchemesAndArithmeticModuli:A3",
+    "AbelianSchemesAndArithmeticModuli:A6",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "ArithmeticGaloisRepresentations:R01.3",
+    "ArithmeticGaloisRepresentations:R01.4",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "PadicHodgeTheory:R06.2",
+    "PadicHodgeTheory:R06.5",
+    "PadicHodgeTheory:R06.6",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+   ]
+  },
+  {
+   "key": "GT.3",
+   "title": "Modular abelian varieties and the modularity theorem",
+   "description": "**Objects.** An abelian variety A over ℚ is *modular of level N* if there is a surjective homomorphism J₁(N) → A over ℚ; it is *modular* if it is modular of some level N ≥ 1.\n\n**Targets.**\n- Residual Serre witnesses (generalising R29.2): for the infinite set Λ of odd degree-one primes λ of good reduction with ρ̄_λ absolutely irreducible, ρ̄_λ arises from a newform of weight two and level dividing cond(A) (strong Serre theorem, ClassicalSerreModularity R27.6).\n- One newform and exact coefficients (generalising R29.3): a single newform f recurs for infinitely many λ, and there is an isomorphism j : K_f ≅ E with j(a_p(f)) = a_p(A) for all p ∉ S, p ∤ N_f.\n- Tate-module comparison (generalising R29.4): ρ_λ ≅ ρ_{f, j⁻¹λ} ⊗ E_λ for every λ, and V_ℓ(A) ≅ V_ℓ(A_f).\n- Equivalent forms of modularity for a ℚ-simple A of GL₂-type: (a) A is modular; (b) A is ℚ-isogenous to A_f for a weight-two newform f; (c) for one λ there is a newform f with ρ_λ ≅ ρ_{f,λ′} after extension of scalars; (d) the same for every λ; (e) A is isomorphic to a ℚ-simple quotient of J₁(N) for some N.\n- Ribet's Theorem 4.4 and Khare–Wintenberger Corollary 10.2(i) (generalising R29.5): every abelian variety over ℚ of GL₂-type is modular; a ℚ-simple one is ℚ-isogenous to A_f, by Faltings' isogeny criterion.\n- Characterisation (generalised Shimura–Taniyama–Weil): the ℚ-simple quotients of the J₁(N), N ≥ 1, are exactly the ℚ-simple abelian varieties of GL₂-type over ℚ, up to isomorphism.\n- Trivial character: E is totally real ⇔ ε = 1 ⇔ A is a quotient of J₀(N) for some N; for dim A = 1 this is the parent's quotient of J₀(N_E) (`EllipticCurveModularity:R29.5`).\n- Modular parametrisation: for A modular of level N there is a nonconstant morphism X₁(N) → A over ℚ sending a rational cusp to 0 whose image generates A, generalising the parametrisation of `EllipticCurveModularity:R29.5`.",
+   "requires": [
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2",
+    "AbelianSchemesAndArithmeticModuli:A6",
+    "AlgebraicModularFormsAndSerreWeights:R15.4",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "ArithmeticGaloisRepresentations:R01.5",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "AutomorphicGaloisRepresentations:R19.6",
+    "ClassicalSerreModularity:R27.6",
+    "EllipticCurveModularity:R29.3",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "ModularCurvesPartII:R14.2",
+    "ModularCurvesPartII:R14.5",
+    "ModularCurvesPartII:R14.6",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
+   ]
+  },
+  {
+   "key": "GT.4",
+   "title": "Conductors, exact level and L-functions",
+   "description": "**Targets.**\n- The conductor exponent of a GL₂-type variety: for every prime p and every λ ∤ p, f_p(A) = [E : ℚ]·f_p(ρ_λ), where f_p(A) is the Artin conductor exponent of V_ℓ(A) and f_p(ρ_λ) that of the E_λ-representation; f_p(ρ_λ) is independent of λ ∤ p. Hence cond(A) = N(A)^{dim A} for the integer N(A) = ∏ p^{f_p(ρ_λ)}.\n- Carayol's conductor theorem for A_f: for a weight-two newform f of level N, cond(A_f) = N^{dim A_f} and N(A_f) = N.\n- Exact level: for A of GL₂-type, A is modular of level M if and only if N(A) divides M; the optimal level is N(A) = cond(A)^{1/dim A}. The level M = cond(A)^{dim A} named in Khare–Wintenberger §10.2 is valid but not optimal.\n- Strict compatibility, after modularity: the good Frobenius polynomials are E-rational, and after a finite coefficient extension E′/E the reindexed λ-adic system is E′-rational and strictly compatible in the sense of Khare–Wintenberger §5 (PotentialModularityAndCompatibleSystems R24.5), with local Weil–Deligne parameters realised over E′ and transported from the system of f.\n- L-functions: for A of GL₂-type, L(A, s) = ∏_{σ : K_f → ℂ} L(f^σ, s) with equality of every local factor, including the bad ones; hence L(A, s) has analytic continuation and a functional equation with conductor cond(A). For dim A = 1 this is the parent's `EllipticCurveModularity:R29.6`.\n- Compatibility with the parent: for an elliptic curve over ℚ, GT.3–GT.4 return the parent's newform of level N_E, isogeny and parametrisation X₀(N_E) → E.",
+   "requires": [
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
+    "ArithmeticGaloisRepresentations:R01.3",
+    "AutomorphicGaloisRepresentations:R19.3",
+    "AutomorphicGaloisRepresentations:R19.4",
+    "EllipticCurveModularity:R29.3",
+    "EllipticCurveModularity:R29.5",
+    "EllipticCurveModularity:R29.6",
+    "ModularCurvesPartII:R14.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "PotentialModularityAndCompatibleSystems:R24.5:operations",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
+   ]
+  },
+  {
+   "key": "GT.5",
+   "title": "ℚ-curves as factors of abelian varieties of GL₂-type",
+   "description": "**Objects.** A *ℚ-curve* is an elliptic curve C over ℚ̄ such that ᵍC is isogenous to C over ℚ̄ for every g ∈ G_ℚ. For a non-CM ℚ-curve with a model C₀ over a finite Galois extension K/ℚ over which isogenies μ_g : ᵍC₀ → C₀ are defined, the *Ribet cocycle* c(g, h) = μ_g ∘ ᵍμ_h ∘ μ_{gh}⁻¹ ∈ ℚ^× has a class [c_C] ∈ H²(G_ℚ, ℚ^×) independent of the choices.\n\n**Targets.**\n- Tate's theorem (Ribet 6.3): H²(G_ℚ, ℚ̄^×) = 0 for the trivial action; hence c_C = ∂α for a locally constant α : G_ℚ → ℚ̄^×, and ε_C(g) = α(g)²/deg μ_g is a Dirichlet character.\n- Ribet's Lemma 6.4: for B = Res_{K/ℚ} C₀, End⁰_ℚ(B) is the twisted group algebra ℚ^c[Gal(K/ℚ)] with basis λ_σ and λ_σλ_τ = c(σ, τ)λ_{στ}; α induces a surjection ω : End⁰_ℚ(B) → E_α = ℚ(α(g) : g).\n- Ribet's Proposition 6.5 and Corollary 6.6: B_K is isogenous to End⁰_ℚ(B) ⊗ C₀ compatibly with the action, and Lie(B/ℚ) is free of rank one over End⁰_ℚ(B).\n- Ribet's Theorem 6.1: every non-CM ℚ-curve C is a ℚ̄-simple factor of a primitive abelian variety A of GL₂-type over ℚ, namely the image of the projector of End⁰_ℚ(B) onto E_α.\n- Ribet's Corollary 6.2, unconditional: every non-CM ℚ-curve is a quotient over ℚ̄ of J₁(N)_ℚ̄ for some N.\n- Quadratic fields (Ribet §7): for K quadratic with a K-isogeny μ : σC₀ → C₀ and μ ∘ σμ = [m], Res_{K/ℚ} C₀ is of GL₂-type with E = ℚ(√m) when m is not a square, and C₀ is K-isogenous to the base change of a curve over ℚ when m is a square; ε equals the character θ of K/ℚ cut out by the sign of m (Lemma 7.1), and at least one of E, K is real (Proposition 7.2).",
+   "requires": [
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4",
+    "AbelianSchemesAndArithmeticModuli:A1",
+    "AbelianSchemesAndArithmeticModuli:A6",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+    "ModularCurvesPartII:R14.5",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.1"
+   ]
+  },
+  {
+   "key": "GT.6",
+   "title": "Modularity of ℚ-curves over their fields of definition",
+   "description": "**Targets.**\n- The twisting lemma: if ρ₁, ρ₂ : G_K → GL₂(ℚ̄_ℓ) are continuous and ρ₁|_H ≅ ρ₂|_H is absolutely irreducible for an open normal subgroup H, then ρ₂ ≅ ρ₁ ⊗ ψ for a character ψ of G_K/H.\n- Galois form: for a number field K and a non-CM elliptic curve C over K that is a ℚ-curve, there are a weight-two newform f, an embedding ι : K_f → ℚ̄_ℓ and a finite-order character ψ : G_K → ℚ̄_ℓ^× with V_ℓ(C) ⊗ ℚ̄_ℓ ≅ (ρ_{f,ι}|_{G_K}) ⊗ ψ.\n- Automorphic form: if moreover K/ℚ is Galois with solvable Galois group, then Π = BC_{K/ℚ}(π_f) ⊗ (ψ ∘ Art_K) is a cuspidal automorphic representation of GL₂(𝔸_K) of parallel weight two with L(Π, s − 1/2) = L(C, s), local factor by local factor; so C is modular over K in the sense of Caraiani–Newton and of Freitas–Le Hung–Siksek.\n- Quadratic fields: every ℚ-curve over a real or imaginary quadratic field is modular in that sense (the input of Caraiani–Newton Corollaries 7.2.5 and 7.3.4 and of Freitas–Le Hung–Siksek §12).",
+   "requires": [
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "AutomorphicGaloisRepresentations:R19.4",
+    "AutomorphicGaloisRepresentations:R19.6",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "ArithmeticGaloisRepresentations:R01.5"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "KW-I",
+   "title": "Serre's modularity conjecture (I)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Inventiones mathematicae 178 (2009), no. 3, 485–504; authors' copy results.pdf (23 pp., PDF of 31 May 2009), cited by its own page numbers",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+   "readSections": [
+    "§1 Introduction (Theorem 1.2), pp. 1–3",
+    "§5 Compatible systems of geometric representations, pp. 7–9",
+    "§10 Modularity of compatible systems (Theorem 10.1, §10.2, Corollary 10.2), pp. 19–21"
+   ]
+  },
+  {
+   "id": "Ribet92",
+   "title": "Abelian varieties over Q and modular forms",
+   "authors": "Kenneth A. Ribet",
+   "edition": "Algebra and Topology 1992 (Taejŏn), Korea Adv. Inst. Sci. Tech. (1992), 53–79; reprinted in Modular Curves and Abelian Varieties, Progress in Mathematics 224 (2004), 241–261; author's AMS-TeX manuscript korea.pdf (19 pp., PDF of 6 September 2003), cited by its own page numbers",
+   "url": "https://math.berkeley.edu/~ribet/Articles/korea.pdf",
+   "readSections": [
+    "§1 Introduction, pp. 1–2",
+    "§2 Abelian varieties over Q of GL2-type (Theorem 2.1), pp. 2–3",
+    "§3 ℓ-adic representations (Lemmas 3.1, 3.2, 3.7; Propositions 3.3–3.6), pp. 3–7",
+    "§4 Conjectural connection with modular forms (Lemmas 4.1–4.3, Theorem 4.4), pp. 7–9",
+    "§5 Decomposition over Q̄ (5.1–5.6), pp. 9–12",
+    "§6 Q-curves as factors (6.1–6.6), pp. 12–15",
+    "§7 Q-curves over quadratic fields (7.1, 7.2), pp. 15–17",
+    "§8 Descent up to isogeny (8.2), pp. 17–18",
+    "References, pp. 18–19"
+   ]
+  },
+  {
+   "id": "Carayol86",
+   "title": "Sur les représentations ℓ-adiques associées aux formes modulaires de Hilbert",
+   "authors": "Henri Carayol",
+   "edition": "Annales scientifiques de l'École normale supérieure (4) 19 (1986), no. 3, 409–468; Numdam scan with text layer (published pagination; PDF page = printed page − 407)",
+   "url": "https://www.numdam.org/item/ASENS_1986_4_19_3_409_0.pdf",
+   "readSections": [
+    "§0 Introduction: 0.4–0.8 (normalisations, Hecke correspondence, Théorème (A), Corollaire 0.8), pp. 409–411"
+   ]
+  },
+  {
+   "id": "FLHS15",
+   "title": "Elliptic curves over real quadratic fields are modular",
+   "authors": "Nuno Freitas, Bao V. Le Hung and Samir Siksek",
+   "edition": "Inventiones mathematicae 201 (2015), 159–206; arXiv:1310.7088v4 (18 July 2014) read",
+   "url": "https://arxiv.org/pdf/1310.7088v4",
+   "readSections": [
+    "§1 Summary of results (definition of modularity), pp. 2–3",
+    "§11 remarks before Lemma 11.1, pp. 17–18",
+    "§12 opening paragraph on Q-curves, p. 18"
+   ]
+  },
+  {
+   "id": "CN23",
+   "title": "On the modularity of elliptic curves over imaginary quadratic fields",
+   "authors": "Ana Caraiani and James Newton",
+   "edition": "arXiv:2301.10509v3 (27 March 2025)",
+   "url": "https://arxiv.org/pdf/2301.10509v3",
+   "readSections": [
+    "§1 Introduction (definition of modular elliptic curves, the modular curves of §7), pp. 2–7",
+    "§7.2 Corollary 7.2.5, p. 97",
+    "§7.3 Corollary 7.3.4, p. 98"
+   ]
+  }
+ ],
+ "status": "draft"
+}

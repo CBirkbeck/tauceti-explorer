@@ -1,276 +1,204 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.4 and L8, parts of R08.5, R08.6 and L7 (checkpoint 8)
+# BP-LocalGaloisDeformationRings: complete pass over R08.1–R08.6, L7 and L8
 
-Claude Code — session `cc-39fac3`, 28–29 September 2026. Refs #770. **Status: partial.**
-- R08.1, R08.2, R08.3, R08.4 and L8 are `source_decomposed`.
-- R08.5, R08.6 and L7 are `partial`.
+Claude — session `claude-CxJ5Mu`, 7 October 2026. Refs #770. **Status: complete** (goes to its independent review).
 
-## Checkpoint 8: Kisin's 2-adic rings in R08.5 (8 nodes)
+This pass continues the eight checkpoints of session `cc-39fac3` (28–29 September 2026, 72 nodes). It plans the 19
+sources the maintainer added to the issue, handles the five confirmed red-team findings, closes the open stages, and
+brings the document and the suggested file up to date.
 
-**Source.** Kisin, *Modularity of 2-adic Barsotti–Tate representations*, author's DVI serre2.dvi (sha256
-a11fdea3…97bf7d), §2, pp. 19–35. It was read through the DVI text extraction.
+## What the packet now contains
 
-**Nodes:**
-- `connected-kisin-modules-with-coefficients` (construction; 6 API items, 4 tests);
-- `etale-multiplicative-parts`;
-- `connected-model-moduli`;
-- `flat-connected-deformation-ring` (planet);
-- `rank-two-type-v`;
-- `rank-two-connected-components` (planet);
-- `ordinary-deformations-p2`;
-- `kisin-local-rings-p2-comparison` (comparison with R08.1–R08.2).
+- **153 nodes** (81 new): 92 theorems, 14 lemmas, 14 definitions, 29 constructions, 3 comparisons, 1 application.
+  There are 208 API items, 160 unit tests, 43 planets, 9 baseline declarations, 17 requests and 3 gaps.
+- **Nodes per layer:** R08.1 16, R08.2 30, R08.3 13, L7 39, L8 7, R08.4 15, R08.5 14, R08.6 19.
+- **Coverage:** every stage is `planned`; L8 is `source_decomposed`. Each `planned` record lists its refinements (see
+  below).
+- `check_blueprint.py`: 0 errors, 0 warnings.
 
-**New request:** FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4, for Kisin §1: connected Kisin modules classify
-connected finite flat group schemes at p = 2. The Pappas–Rapoport local-model gap is extended to Deligne–Pappas's use in
-2.3.9(3).
+## New nodes, by source
 
-**Source findings:** none. The 2.5.4 tangent computation splits ad = E′ ⊕ ad⁰ only over characteristic 0, which is
-legitimate at p = 2.
+- **Böckle–Iyengar–Paškūnas, Paškūnas–Quast, Ding, Breuil–Hellmann–Schraen (R08.1):**
+  - `coefficient-rings-lambda`, `lambda-presentation`;
+  - `completion-at-points` (Kisin's comparison, also from CG18 and BCGP21), `smooth-points-generic-fibre`;
+  - `rank-one-ring`, `determinant-twisting`;
+  - `g-valued-framed-ring`, `g-valued-presentations`;
+  - `phi-gamma-module-deformation-rings`.
+- **Away from p (R08.2):**
+  - Liu et al. and its companion: `q-tame-group`, `level-raising-local-problems`, `rigid-residual-conditions`;
+  - Shotton via Newton–Thorne: `unrestricted-ring-complete-intersection`, `inertial-type-with-monodromy`,
+    `fixed-type-rings-rank-n` (with BLGGT Lemma 1.3.4 and BCGP25 Lemma 5.6.2);
+  - Newton–Thorne: `steinberg-ring-domain`, `dotto-division-algebra-cycles`;
+  - CG18: `rank-two-unrestricted-rings-cg`, `taylor-wiles-local-tangent`;
+  - CG20: `regular-unipotent-minimally-ramified`, `gsp4-ramification-types`, `gsp4-minimal-conditions`;
+  - BCGP21 and BCGP25: `gsp4-taylor-wiles-lifts`, `gsp4-unipotent-local-models`, `gsp4-ihara-avoidance-rings`;
+  - BCGP25: `ihara-avoidance-rings-p2`, `taylor-wiles-block-condition`;
+  - FKP: `g-valued-generic-fibre-away-from-p`, `equal-characteristic-local-lifts`,
+    `reducible-lifts-prescribed-determinant`.
+- **R08.3:**
+  - `pst-quotient-in-families` (Kisin 2.5.5, 2.7.6, 2.7.7 over any complete local A°; red-team finding /14);
+  - `g-valued-pst-rings` (Balaji, Bellovin–Gee via FKP);
+  - `weil-deligne-type-ring` (CDN R_{B,M});
+  - `bcdt-type-rings` (BCDT R^D and Conjecture 1.1.1);
+  - `fixed-determinant-pst-rings` (CN Lemma 3.3.6).
+- **R08.4:** `finite-cocycles-kummer` (KW II Lemma 3.7), `kw-algebraisation-lemma` (Lemma 3.8),
+  `bt-ring-unique-generalisation` (CN Lemmas 5.3.3–5.3.4).
+- **R08.5 (KW I and KW II):** `weight-p-crystalline-ordinarity`, `weight-p-plus-one-ordinary-ring`,
+  `semistable-weight-two-resolution`, `dyadic-minimal-lifts`, `twisted-semistable-away-from-p`,
+  `kw1-endpoint-weight-rings`.
+- **R08.6:**
+  - KW I: `kw1-lift-types`, `good-dihedral-type`, `dyadic-weight-two-transition`;
+  - FKP: `ordinary-pcris-lifts-reducible`, `serre-weight-crystalline-lift`;
+  - Newton–Thorne: `newton-thorne-local-quotients`, `torsion-semistable-condition`;
+  - BCDT: `category-deformation-conditions`.
+- **L7:**
+  - `ordinary-of-weight-lambda` (NT26 Definition 2.5(2), BCGP25 Definition 5.6.8, CN Definition 3.3.1);
+  - `semistable-ordinary-quotient` (CN);
+  - `g-valued-ordinary-condition`, `-quotient`, `-components` (FKP Appendix B, with the central generators of E43);
+  - `snowden-ordinary-ring-trivial-residual` (CN Proposition 5.3.2);
+  - `ordinary-ring-with-frobenius-eigenvalue`, `eigenvalue-ring-normal-cm-type-three` (CG18);
+  - `gsp4-siegel-ordinary-condition`, `gsp4-siegel-ordinary-tangent` (CG20);
+  - `gsp4-borel-ordinary-conditions`, `gsp4-ordinary-generic-fibres`, `gl2-borel-ordinary-ring` (BCGP21);
+  - `gsp4-ordinary-flag-incidence`, `gsp4-ordinary-regularity`, `gsp4-ordinary-weight-two-components` (BCGP25);
+  - `connects-relation`, `weight-zero-crystalline-connectedness`, `local-model-rho-nm0` (BLGGT, BCGNT, BCG);
+  - `kisin-modules-tame-descent`, `semisimple-kisin-modules-and-shapes`, `gl3-pcris-deformation-rings`,
+    `gl3-explicit-rings`, `gl3-component-labelling` (LLHLM);
+  - `partition-monodromy-rings`, `partition-ring-smooth-points` (Clozel–Thorne);
+  - `torsion-crystalline-representations` (Liu et al. Definition 2.2.4);
+  - `away-from-p-rank-n-interface`.
+- **L8:** `doubling-equals-unramified` (CG18 Lemma 3.22).
+- **Existing nodes extended:**
+  - `R08.2/ihara-avoidance-components` takes Newton–Thorne's congruence;
+  - `L7/trivial-residual-flag-ring` takes BCGP25 Proposition 5.6.6(3) at p = 2 and Remark 5.6.7 (no flat closure);
+  - `R08.4/rank-two-bt-components` takes CN Lemma 5.3.4.
+- **Stage placeholders replaced by nodes:** the prerequisites `LocalGaloisDeformationRings:L7` and `:R08.5` in R08.6's
+  exports.
+- **Two cycles removed.** Both were node dependencies running against the stage order:
+  - `R08.5/ordinary-deformations-p2` → `R08.6/export-ordinary` (now uses `R08.4/finite-cocycles-kummer`);
+  - `R08.1/smooth-points-generic-fibre` → R08.2.
+- **Unit-test kinds:** the `example`/`value` kinds of the earlier checkpoints were mapped to the protocol's kinds.
 
-**R08.5 remaining:**
-- KW II's endpoint and dyadic calculations beyond Kisin §2;
-- KW I Theorem 4.1's endpoint weights.
+## The red-team findings
 
-**Checks.** `check_blueprint.py`: 72 nodes, 0 errors, 0 warnings. The Lean file compiles with exit 0 against the pinned
-Mathlib. It adds three checked tests for Kisin 2.5.6: the two determinant relations, and that the lift squares to the
-identity.
+- **RT-AREA-langlands-2/14:**
+  - R08.3 exports Kisin's (2.5.5), (2.7.6) and (2.7.7) over an arbitrary complete local Noetherian A° as
+    `R08.3/pst-quotient-in-families`, read in the AMS PDF of Kisin's JAMS paper;
+  - the link R08.3 → AutomorphicGaloisRepresentations R19.5, and R19.5's node, are proposed in `restructure`.
+- **/16 (local duality):**
+  - every dimension and smoothness node lists `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-…` and names
+    `tateDualityPairing_perfect_mixed` and `eulerCharacteristic_finrank_fp` in its proof outline. That covers 39 nodes,
+    among them the KW II Lemma 3.7 analogue `R08.4/finite-cocycles-kummer`;
+  - these two names are planned in that Tau Ceti layer; they are not in the pinned library;
+  - the request lists every consumer and asks for the link Layer 5 → R08.1.
+- **/17 (Berger–Li–Zhu):**
+  - R08.5 imports KW II Lemma 3.5 from PadicHodgeTheory R06.4, through a request and the R06.4 nodes
+    `weight-p-endpoint-branch`, `weight-p-plus-one-branch` and `two-dimensional-ordinarity-criterion`;
+  - the single-owner proposal (R06.4, with R21.5 keeping only Skinner–Wiles' p = 3 branch) is in `restructure`.
+- **/18 (duplicate pst rings):**
+  - R08.3 owns Kisin's rings in every rank (including the G-valued rings);
+  - L7 is narrowed in the `restructure` record, with the owners entry and the corrected R08.3 text.
+- **/22 (P9 versus PA.3):**
+  - the uses of L7's and L8's ACC+ §6.2 nodes name PotentialAutomorphyInfrastructure PA.3;
+  - `restructure` proposes the corrected L7 text and the links L7, L8, G8 → PA.3.
 
-## Checkpoint 7: CHT's local conditions in L7 (6 nodes)
+## Structure proposals (`restructure`)
 
-**Source.** CHT, Publ. Math. IHÉS 108 (Numdam, sha 9d3b707…): §2.4.1 (pp. 33–37), §2.4.2 (pp. 37–40) and §2.4.5
-(pp. 47–53), read on the page images.
+Besides the five above, the packet proposes splitting L7 into five sub-layers:
+- L7a, bounded-height lattice moduli, placed before R08.3;
+- L7b, Fontaine–Laffaille, discrete series and rank n away from p;
+- L7c, ordinary conditions for GL_n and G;
+- L7d, GSp₄ ordinary conditions;
+- L7e, components.
 
-**Nodes:**
-- the Fontaine–Laffaille condition (construction) and its tangent space and smoothness;
-- ordinary deformations with fixed inertial characters (construction) and their smoothness;
-- discrete series deformations away from l (construction) and their smoothness.
+Two stage-level dependencies still run against the atlas edges, and both are older than this pass:
+- R08.3's semistable quotient uses L7's lattice moduli;
+- L7's flag scheme uses L8's coefficient ring Λ_v.
 
-The three constructions have 5 API items and 4 tests each.
+Placing L7a before R08.3 and moving `L8/ordinary-coefficient-ring` into L7c removes both. RS-08's owner record for
+the lattice moduli (L7) is kept.
 
-**E2 (error).** CHT §2.4.2's condition 2 has the ratio inverted relative to the proofs of Lemmas 2.4.7–2.4.8.
-- For r̄ = ω ⊕ 1 with ω as the sub, the printed condition holds, but the ring is not smooth of the stated dimension:
-  there are 5 first-order lifts rather than 4.
-- The plan uses the corrected condition (2′).
-- No erratum was found.
+## Gaps (3)
 
-**L7 remaining:**
-- ordinary functors with varying characters for nontrivial ρ̄ in rank n > 2 (Geraghty §3);
-- the rank-n interface with R08.2;
-- the Thorne gap.
+- Pappas–Rapoport local models (from checkpoint 5).
+- Thorne's Proposition 3.14 behind ACC+ Proposition 6.2.10 (from checkpoint 6).
+- **New:** generic reducedness of potentially Barsotti–Tate rings (Caraiani–Emerton–Gee–Savitt). No Emerton–Gee stack
+  roadmap exists. It is needed by `R08.4/bt-ring-unique-generalisation`.
 
-**Lean.** New checked tests:
-- the Fontaine–Laffaille count at n = 2;
-- the discrete-series identity m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n²;
-- the E2 count 1 + 1 + 3 = 5 ≠ 4.
+## Requests (17)
 
-**Totals.** 64 nodes, 27 planets, 10 requests, 2 gaps and 2 source issues. `check_blueprint.py`: 0 errors, 0 warnings.
+The earlier ones stand. The new ones are:
+- Tau Ceti classical groups Layer 0: GSp_{2n} over any ring.
+- PadicHodgeTheory P7: (φ, Γ)-modules over the Robba ring.
+- Tau Ceti ProfiniteCohomology Layer 9: Kummer theory for F^nr.
+- PadicHodgeTheory R06.4: KW II Lemma 3.5 with Berger–Li–Zhu.
+- DeformationAndDerivedPatchingAlgebra R03.3: graded Cohen–Macaulay rings, Hilbert series, canonical modules and type.
+- PadicLocalLanglandsForGL2Qp R30.5: pseudo-character rings of blocks and CDN Théorème 5.11. The link R30.5 → R08.3 is
+  acyclic.
 
-## Checkpoint 6: L8 (6 nodes) and L7 ordinary flags (3 nodes)
+## What a follow-up does (the `remaining` lists)
 
-**Sources:**
-- ACC+ (arXiv:1812.09999v2) §6.2.6, pp. 137–141, from the clean text layer; the sha256 is recorded.
-- Skinner–Wiles (Publ. Math. IHÉS 89, 1999), Lemma 2.2 and Corollary 2.3, read on the page images.
+- **R08.1:** at lemma level, split PQ26 Lemmas 3.3–3.5 and BIP Corollary 3.42.
+- **R08.2:**
+  - G-valued minimally ramified conditions beyond GL_n and GSp₄ are planned only through Bellovin–Gee and Booher as
+    cited;
+  - split BCGP21 Propositions 7.4.14–7.4.18.
+- **R08.3:**
+  - CDN Théorème 5.11 is requested from R30.5;
+  - the trianguline variety belongs to the Breuil–Hellmann–Schraen roadmap.
+- **R08.4, R08.5:** the gaps above.
+- **R08.6:** general de Rham lifting is GL2ModularityLifting R32; only its local conditions are exported here.
+- **L7:**
+  - Thorne's gap;
+  - the LLHLM table rows (Tables 3–4, §3.6.2–3.6.3), one node per row at lemma level;
+  - Geraghty's paper (Math. Ann. 2019) was not obtained. Its Lemmas 2.32, 3.10 and 3.14 and Corollary 3.6 are cited
+    through BCGNT, BCGP25 and FKP, and should be read at the next pass.
 
-**L8 (source_decomposed):**
-- `ordinary-coefficient-ring` (planet): Λ_v with its chosen torsion components, χ_i^univ, Λ̃_v and χ̃_i^univ.
-- `determinant-ordinary-ring` (planet): (6.2.7)–(6.2.8), R̃^{det,ord}_v and R^{det,ord}_v.
-- `det-ord-finite`: Lemma 6.2.9.
-- `ordinary-point-criteria`: the point criteria and R^{det,ord}_v ↠ (R^△_v)_red.
-- `distinct-characters-flag`: Lemma 6.2.11.
-- `determinant-flag-comparison` (planet): Proposition 6.2.12. It is stated at the published level (spaces and
-  components, trivial ρ̄, [F_v : ℚ_p] > n(n + 1)/2 + 1), with no ring isomorphism over nonreduced rings, as the stage
-  demands.
+## Mistakes in the sources
 
-**L7 (still partial):**
-- `ordinary-flag-scheme` (planet): 𝒢_v, properness and the image R^△_v. This replaces the L7 remaining item "ordinary
-  full-flag moduli".
-- `trivial-residual-flag-ring`: ACC+ Proposition 6.2.10.
-- `residually-split-nearly-ordinary-ring`: Skinner–Wiles Lemma 2.2 and Corollary 2.3. This answers
-  OrdinaryAutomorphicFormsAndModularityLifting R21.3's request, which is filed against L8. The node lives in L7 because
-  the stage text gives L7 "ordinary deformation functors with a full invariant flag … under the source
-  genericity/distinguishedness assumptions".
+No new `sourceIssues` entries are added. The packet keeps E1 (Savitt) and E2 (CHT).
 
-**New gap:** Thorne, J. Amer. Math. Soc. 28 (2015), Proposition 3.14, behind ACC+ Proposition 6.2.10. It is not on arXiv
-(only part II is) and was not obtained.
-
-**New request:** Tau Ceti ClassFieldTheory Layer 7, for the local Artin map normalisation behind Λ_v.
-
-**Lean.** Two checked tests: the n = 2 ordered-product identity for a diagonal lift, and the dimension arithmetic of
-Proposition 6.2.12. It compiles with 0 errors; the 4 warnings are the existing `sorry` declarations.
-
-**Totals.** 58 nodes, 46 API items, 36 unit tests, 27 planets, 10 requests, 2 gaps and 1 source issue.
-`check_blueprint.py`: 0 errors, 0 warnings.
-
-# Checkpoint 5
-
-## Checkpoint 5: R08.4 (12 nodes, 6 planets)
-
-The source is Kisin's Annals paper §2, read from the author's DVI through a text extraction, and Savitt (arXiv v3).
-
-**Moduli and generic fibre:**
-- `flat-deformation-condition`, from Ramakrishna and Raynaud.
-- `finite-flat-model-moduli`: L7's height-lattice moduli with h = 1, the map Θ, and the closed fibre as finite flat
-  models.
-- `small-ramification-flat`: e < p − 1, Raynaud.
-- `flat-generic-fibre`: crystalline with weights {0, 1}, formally smooth, dimension d² + Σ(d − v_ψ)v_ψ.
-
-**Resolution and components:**
-- `hodge-type-resolution`: Θ^v, an isomorphism after inverting p.
-- `resolution-local-structure`: normal and Cohen–Macaulay with a reduced closed fibre. The input is Pappas–Rapoport
-  local models, which no roadmap plans, so it is **recorded as a gap**.
-- `components-via-special-fibre`: Kisin (2.4.10). It uses the image, as RS-08 demands.
-- `ordinary-type-of-components`: (2.4.14)–(2.4.16).
-
-**Rank two:**
-- `rank-two-nonordinary-connected`: (2.5.6), K₀ = ℚ_p.
-- `rank-two-ordinary-locus`: (2.5.15).
-- `rank-two-bt-components`: (2.5.16). This is which components a modular point meets, i.e. Kisin's matching conditions.
-
-**Weight two:** `savitt-weight-two-rings` (Savitt 6.22–6.24). R08.6/export-weight-two-irreducible now cites it instead of
-the stage.
-
-**Source issue E1 (error, corrected by the author):** Savitt's published Theorem 6.12(4). It is `known` via arXiv v3,
-Remark 1.7, and the author's corrigendum. `sourceVersions` records the arXiv v3 file.
-
-**New requests:** FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (Raynaud) and R07.4 (Kisin modules ↔ finite flat
-and p-divisible groups, Breuil's full faithfulness, and strongly divisible modules with descent data).
-
-**Not covered:**
-- The 2-adic analogues are stage R08.5.
-- Potentially Barsotti–Tate lifts of a nontrivial type reach this layer through a global base change (GL2ModularityLifting
-  R22.5), so no local component theorem for types is claimed.
-
-**Lean:** three new proved checks (the 4 + [K : ℚ_p] count, e = 1 < p − 1, and the unit rescaling in X₁X₂ − pw), and new
-signatures. It compiles with 0 errors and 4 `sorry` warnings (unchanged).
-
-This works within RS-08, whose review accepted it.
-
-## What is planned
-
-There are 7 nodes (5 theorems, 2 lemmas) and 3 planets:
-- `local-lifting-ring`;
-- `local-tangent-obstruction`, the dimension bound from local duality and the Euler characteristic;
-- `local-fixed-determinant`;
-- `local-forget-framing`;
-- `archimedean-rings-p-odd`;
-- `archimedean-odd-ring-p2`, the explicit ring 𝒪[[a, b, c]]/(a² + bc − 1), matching KW II Proposition 3.3 as quoted by Tung;
-- `local-residue-field-change`.
-
-The generic functors and theorems are reused from the GlobalGaloisDeformations packet (#3804, merged), per RS-08.
-
-**Requests:**
-- Tau Ceti ClassFieldTheory Layer 5: local Tate duality and the local Euler characteristic.
-- DeformationAndDerivedPatchingAlgebra R03.2: relations versus obstructions.
-- DeformationAndDerivedPatchingAlgebra R03.1: completed tensor products.
-
-## Checkpoint 2: R08.2 (9 nodes, 5 planets)
-
-- `tame-splitting`.
-- `unramified-lifting-ring`.
-- `minimally-ramified-condition` and `minimally-ramified-ring` (CHT08 §2.4.4).
-- `unrestricted-away-from-p` (CHT08 Lemma 2.4.9; Gee Theorem 3.31; BLGGT via Tung).
-- `inertial-type-quotient`.
-- `taylor-wiles-local-ring` (Gee Lemma 3.33).
-- `steinberg-condition` (Taylor II §3, with the monodromy relation).
-- `ihara-avoidance-components` (Taylor II Proposition 3.1; Gee 3.36–3.38).
-
-New sources: CHT08 and Taylor II, both open access on Numdam. The deformation-problem nodes are reused from GlobalGaloisDeformations R04.3 (#3806, merged).
-
-## Checkpoint 4: R08.6 exports from KW II §3 (11 nodes, 4 planets)
-
-- `smooth-resolution-criterion` (KW II Proposition 2.12).
-- `kw-local-conditions`, with the choices.
-- Per-case exports:
-  - archimedean;
-  - irreducible Fontaine–Laffaille (L7);
-  - irreducible weight two (Savitt, R08.4);
-  - ordinary (Proposition 3.6, proved here);
-  - semistable weight two at p (R08.5);
-  - endpoint weight p + 1 (R08.5);
-  - away from p (R08.2 Steinberg, and GlobalGaloisDeformations R04.4 inertia-rigid).
-- `export-completed-tensor-product` (Proposition 3.2).
-- `local-nonemptiness`, which closes R08.3's remaining item, so R08.3 is now `source_decomposed`.
-
-These exports are what GlobalGaloisDeformations R04.6 (#3815) and GL2ModularityLifting R22.1 (#3816) request.
-
-**Remaining in R08.6:**
-- KW I Theorem 5.1's lift types.
-- The good-dihedral type.
-- The dyadic weight-two transition.
-- The modern de Rham applications.
-
-The proofs cited to L7, R08.4 and R08.5 are to be planned in those layers: Fontaine–Laffaille, Savitt's weight-two
-computation, and the dyadic/endpoint cases.
-
-**Lean:** two new proved checks, for the archimedean substitution and the 3|S| count; still 4 `sorry` warnings.
-
-## Checkpoint 3: R08.3 (7 nodes) and L7's height lattices (2 nodes)
-
-The source is Kisin, *Potentially semi-stable deformation rings*, JAMS 21 (2008). The AMS PDF is free, and printed
-page = PDF page + 512.
-
-**L7** (RS-08 makes L7 own the rank-general bounded-height lattices):
-- `finite-height-lattices`. Uniqueness is Kisin 2006, 2.1.12, with the gap repaired in Kisin 2008 Errata (E.4).
-- `height-lattice-moduli` (Kisin 1.3, 1.5.1, 1.6.4, 1.7). It includes the K = ℚ₂ example showing that Θ is not a
-  closed immersion integrally.
-
-**R08.3:**
-- `hodge-and-galois-types`;
-- `semistable-height-quotient` (Theorem 2.5.5);
-- `hodge-type-components` (Corollary 2.6.2);
-- `pst-deformation-ring` (Theorem 2.7.6 and Corollary 2.7.7). The integral ring is the reduced, p-torsion-free
-  closure, as in Gee 3.28, and the ω example shows it can be empty.
-- `filtered-phi-N-deformations` (Kisin 3.1.2–3.3.1);
-- `pst-generic-fibre` (Theorem 3.3.4). Only a dense open is smooth, as Kisin's footnote on Breuil–Mézard (ii) shows.
-- `pcris-generic-smooth` (Theorem 3.3.8, Gee 3.28);
-- `pst-coefficient-change`.
-
-**Reused (other packets' nodes):**
-- PadicHodgeTheory R06.1–R06.3: B_st, D_st, filtered (φ, N, Gal)-modules, weak admissibility, Colmez–Fontaine,
-  D_pst, WD(V), the HT(χ_p) = +1 convention and coefficient change.
-- AdicSpacesPartII F0/grothendieck-algebraization.
-
-**New requests:**
-- FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 (Breuil–Kisin modules).
-- AlgebraicModuliForArithmeticGeometry R09.1 (Grassmannians).
-- DeformationAndDerivedPatchingAlgebra R03.3 (dim R = dim R[1/p] + 1).
-
-**Still open:**
-- R08.3: nonemptiness for R24's local types (KW II §3.2's lifts at places above p). This should be planned with R08.6.
-- L7: ordinary full-flag moduli, Fontaine–Laffaille conditions and ordinary functors.
-- Kisin §4 (Hilbert modular forms) is automorphic and not planned here.
+Nodes use corrected statements for the mistakes the reviewed extractions recorded, and cite them in their hypotheses:
+- CG18: E89, the case v ≡ −1 mod p missing from Lemma 4.11. The packet re-derives it: the line ω̄² ⊂ ad⁰ρ̄(1) is
+  trivial exactly when v ≡ ±1 mod p. Also E92–E93 and E172.
+- CG20: E17, E20, E23–E25 and E148.
+- FKP: E6, E7, E29 and E43.
+- BCGP21: §§7.3–7.4.
+- CN: E1–E2.
+- BCGNT: E26.
+- LTXZZ: the §6.4 monodromy direction, and footnote 5 of Definition 2.2.4.
 
 ## Suggested Lean file
 
-`suggested/LocalGaloisDeformationRings.lean` imports Mathlib only. It compiles against the pinned Mathlib 082e2d3 oleans with 0 errors and 4 `sorry` warnings. Its two matrix examples are proved by `simp`.
+`suggested/LocalGaloisDeformationRings.lean` **elaborates** with `lean-check`:
+- the shared build at the pinned Mathlib 082e2d3, which imports Mathlib only;
+- exit 0, and its only warnings are 4 `declaration uses sorry`.
 
-Checkpoint 3 adds two proved items:
-- `flagDim`, the (d² − Σ m²)/2 of Kisin's dimension formula, with four `decide` checks;
-- `X_not_dvd_pow`, which says u ∤ E(u)^h.
+New elaborated checks:
+- the tame relation for (Φ, S), with a proved power formula for lower unipotents;
+- Snowden's presentation of R̃† ⊗ k: the four bilinear generators as entries of mn − βm, m² = (a² + bc)·1,
+  det(1 + n) − 1 and the characteristic polynomial at 1 + β (all proved);
+- the trace relation α + α⁻¹ = 2 + φ₁ + φ₄;
+- the Chebyshev case v = 2 of CG18's footnote 5;
+- N₁² = 0 for GSp₄;
+- ρ_{n,m,0}'s weights and its tensor-exponent identity;
+- the dimension counts of Lemma 4.8, the GSp₄ filtration and the good-dihedral example.
 
-The ring-level signatures for L7 and R08.3 are in the comment block.
+A generated sketch block names every definition, API item, unit test and theorem of the packet. All 208 API names and
+160 test names occur in the file.
 
-The ring-level signatures, which use the GlobalGaloisDeformations functors, are in a comment block.
+## Sources read in this pass
 
-## Checks
-
-- `check_blueprint.py` with the pinned index, and with the merged GlobalGaloisDeformations packet present: 0 errors, 0 warnings.
-- `intake.py check-files`: see the PR.
-
-## What a continuation should do
-
-0. **Done in checkpoint 5:** R08.4 and Savitt's weight-two computation.
-1. **R08.5:** Kisin's 2-adic paper §§1–2 (DVI serre2.dvi on his page: connected finite flat group schemes at p = 2,
-   flat connected deformation rings, rank two, ordinary deformations), and KW II's endpoint and dyadic calculations.
-2. **R08.3 nonemptiness and R08.6:** KW II §3.2 (the authors' final version is free on Khare's UCLA page; see the
-   GlobalGaloisDeformations packet) constructs the lifts at places above p.
-3. **R08.5, the rest of L7, and L8.** For general n away from p, Shotton's explicit GL₂ equations and BLGGT (arXiv:1010.2561) §1.3 are the next free sources.
-
-## Sources read
-
-- Gee, arXiv:2202.05818v2, §3.1–3.19.
-- Kisin, Lecture 1.
-- Tung, arXiv:1908.06174v3, §3.2.5.
-- Kisin, JAMS 21 (2008): Introduction, §1, §2.5–2.7, §3 and the Errata for [Ki 2].
-- Gee, §3.27–3.28.
-- Kisin, *Moduli of finite flat group schemes, and modularity* (author's DVI): §2.1–2.5.
-- Savitt, arXiv:math/0404327v3: §1 and §6.6.
+All were fetched into scratch on 7 October 2026. The sha256 values are in the packet's sources.
+- arXiv: NT26 (2212.03595v2), LTXZZ (1912.11942v3) and its companion (2108.06998v1), FKP (2008.12593v5),
+  CG18 (1207.4224v2), CG20 (1907.08691v1) with its appendix (1907.08694v1), PQ26 (2404.14622v2), BCGNT (2309.15880),
+  CDN (2204.11214), BIP (2110.01638v2), LLHLM (1608.06570v4), BCG (2309.15944v3), Ding (2407.21237),
+  BHS (1702.02192), BCGP21 (1812.09269v3), BCGP25 (2502.20645v1), CN (2301.10509v3), BLGGT (1010.2561v4).
+- Other copies:
+  - Clozel–Thorne III, the accepted manuscript on Thorne's page; fetched without certificate verification, because
+    the server's certificate chain is incomplete;
+  - KW I, the authors' copy;
+  - KW II, the authors' final version;
+  - BCDT, the AMS open-access PDF;
+  - Kisin, JAMS 2008, the AMS PDF.
+- **Not obtained:** Geraghty (Math. Ann. 2019), Snowden (Math. Z. 2018), Shotton (Compositio 2018), Bellovin–Gee
+  (ANT 2019), Dotto, Wake–Wang-Erickson, Thorne (JAMS 2015). Each is cited through the papers above that quote it,
+  with their locators.

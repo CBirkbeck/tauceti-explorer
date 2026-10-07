@@ -48,7 +48,7 @@
     "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
     "DESIGN-SchemeAndStackFoundationsPartII"
    ],
-   "items": 11,
+   "items": 10,
    "name": "Excellent rings and schemes (G-rings, J-2, universal catenarity)",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 3 queued jobs its items go to",
@@ -56,7 +56,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 7
+   "unrouted": 8
   },
   "algebraicgeometry/ferrand-pushouts": {
    "importers": [],

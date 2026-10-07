@@ -214,19 +214,16 @@
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "Introduction, Theorem A, p. 2 (arXiv v3)",
-     "excerpt": "Theorem A. Assume p = 2. Let ρ be as in the conjecture.",
      "match": "The 2-adic theorem with no local restriction."
     },
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "Introduction, p. 3 (arXiv v3)",
-     "excerpt": "We focus only on the case p = 2 since this is the only remaining case with the restriction",
      "match": "The removal of the local restriction at 2."
     },
     {
      "sourceId": "PASKUNAS-2016",
      "locator": "§1, Theorem 1.1, pp.1–2 (arXiv v2; hypothesis (iv) and conclusion on p.2)",
-     "excerpt": "Theorem 1.1. Assume that p = 2. Let F be a totally real field where 2 is totally split",
      "match": "The earlier theorem with hypothesis (iv)."
     }
    ],
@@ -280,13 +277,11 @@
     {
      "sourceId": "PAN-2022",
      "locator": "Introduction, Theorem 1.0.2, p. 3 (arXiv v2)",
-     "excerpt": "Theorem 1.0.2. Let p be an odd prime and ρ be as in the conjecture.",
      "match": "The residually reducible theorem, with the p = 3 exclusion."
     },
     {
      "sourceId": "PAN-2022",
      "locator": "Introduction, after Theorem 1.0.2, p. 3 (arXiv v2)",
-     "excerpt": "The assumption that χ̄χ̄21 |Gal(Qp /Qp ) 6= ω when p = 3 is used almost everywhere throughout",
      "match": "Why p = 3 with χ̄₁χ̄₂^{−1} = ω is excluded."
     }
    ],
@@ -336,7 +331,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§8, Theorem 8.0.1 and Remark 8.0.4, pp.124–125",
-     "excerpt": "Remark 8.0.4.",
      "match": "The exact conditional theorem and the stated full-Serre dependence of its unconditional specialization."
     }
    ],
@@ -381,13 +375,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, the Theorem, printed p. 6 (on the page image)",
-     "excerpt": "Suppose that ρ : Gal(Q̄/Q) → GL₂(E) is a continuous representation, irreducible and unramified outside a finite set of primes",
      "match": "The theorem with hypotheses (i)–(iii)."
     },
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Theorem 1.7 and its proof, pp. 4–5 (arXiv v2)",
-     "excerpt": "Proof. See [SW99] Theorem in the third page.",
      "match": "Dieulefait–Pacetti's statement of the p = 3 branch."
     }
    ],
@@ -439,19 +431,16 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Theorem 1.4 and its proof, p. 4 (arXiv v2)",
-     "excerpt": "Our precise statement incorporates the results in [HT15, Theorem 1.4], where the other hypothesis in Kisin’s article is removed for p ≥ 5",
      "match": "The statement and its attributions."
     },
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "Introduction, the theorem of Kisin, Paškūnas, Hu–Tan and Tung, pp. 1–2 (arXiv v3)",
-     "excerpt": "Such a result is known as a modularity lifting theorem, which says that if ρ is modular, then any lift ρ of",
      "match": "The combined theorem and its hypotheses."
     },
     {
      "sourceId": "TUNG-2021-P3",
      "locator": "Theorem 4.7, p. 15 (arXiv v4)",
-     "excerpt": "is modular (thus ρ and ρ̄ are odd).",
      "match": "The combined theorem with ρ̄ modular as a hypothesis, for every odd p."
     }
    ],
@@ -497,7 +486,6 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Theorem 1.5 and its proof, p. 4 (arXiv v2)",
-     "excerpt": "See [Kis09b, Theorem 0.1] for k = 2 and ρ potentially Barsotti-Tate",
      "match": "The 2-adic transfer and its sources."
     }
    ],
@@ -540,7 +528,6 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Theorem 1.6 and its proof, p. 4 (arXiv v2)",
-     "excerpt": "See [SW99](Theorem in the third page) and [Pan19, Theorem 1.0.2].",
      "match": "The residually reducible modularity theorem."
     }
    ],
@@ -591,13 +578,11 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "§1.4, Definition 1.10 and the definition of almost strictly compatible systems, pp. 6–7 (arXiv v2)",
-     "excerpt": "An almost strictly compatible system is a 5-tuple satisfying the first five properties",
      "match": "The exception at residually reducible members."
     },
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "Remark 4, p. 7 (arXiv v2)",
-     "excerpt": "If ρ is part of a compatible system of Galois representations {ρp }, then",
      "match": "Propagation of modularity along the system."
     }
    ],
@@ -640,43 +625,36 @@
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "Introduction, p. 2 (arXiv v3)",
-     "excerpt": "since we work over Q, the condition on the modularity of ρ follows from a deep theorem of Khare-Wintenberger [KW09b] and Kisin [Kis09b]",
      "match": "Residual modularity is a hypothesis of the lifting theorem."
     },
     {
      "sourceId": "PASKUNAS-2016",
      "locator": "§1.1.2 'Global part', p. 5 (arXiv v2)",
-     "excerpt": "We use their results as an input in our proof.",
      "match": "Khare–Wintenberger and Kisin's Barsotti–Tate theorems as inputs."
     },
     {
      "sourceId": "PAN-2022",
      "locator": "Remark 8.0.4, p. 125 (arXiv v2)",
-     "excerpt": "When F = Q, the last condition automatically holds by the work of KhareWintenberger [KW09a], [KW09b] on Serre’s conjecture.",
      "match": "The appeal to Serre's conjecture, in the residually irreducible part only."
     },
     {
      "sourceId": "EMERTON-LGC-2011",
      "locator": "§7.3, proof of Theorem 1.2.3, p. 96",
-     "excerpt": "implies that V is modular, and thus we may apply the results (and more generally the methods) of Böckle [4]",
      "match": "Emerton's promodularity uses Serre's conjecture."
     },
     {
      "sourceId": "EMERTON-LGC-2011",
      "locator": "§7.4, completion of the proof of Theorem 3.3.22, p. 97",
-     "excerpt": "the weight part of Serre’s conjecture shows that",
      "match": "Theorem 3.3.22 uses only an auxiliary modular ρ̄ and the weight part for it."
     },
     {
      "sourceId": "HU-TAN-2015",
      "locator": "Proof of Theorem 6.3, p. 35 (arXiv v2)",
-     "excerpt": "needs that ρ is modular, which is the main result of [17], [18].",
      "match": "Hu–Tan's Theorem 1.4 is Theorem 6.3 plus Khare–Wintenberger."
     },
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "§4.3, Lemmas 4.3.3–4.3.4, pp.20–21",
-     "excerpt": "Globalization.",
      "match": "Names the suitable-globalization and weight-change inputs actually used."
     }
    ],
@@ -714,7 +692,6 @@
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "§5.3, Lemma 5.3.2, pp.28–29; §8, Theorem 8.0.1 p.38 and Theorem 8.0.3 with proof pp.38–39 (arXiv v3)",
-     "excerpt": "Lemma 5.3.2.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -749,7 +726,6 @@
     {
      "sourceId": "TUNG-2021-DYADIC",
      "locator": "§8, Theorem 8.0.3 and proof, pp.38–39 (arXiv v3)",
-     "excerpt": "Theorem 8.0.3.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -788,7 +764,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§4.1, Definition 4.1.4 and Remarks 4.1.5–4.1.6, p.39",
-     "excerpt": "nice",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -882,7 +857,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.2.4, p.114",
-     "excerpt": "potentially nice",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -976,7 +950,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§4.1, Corollary 4.1.8, pp.39–40",
-     "excerpt": "Corollary 4.1.8.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1015,7 +988,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.1, Lemma 7.1.3 and §7.1.4, p.112",
-     "excerpt": "Lemma 7.1.3.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1052,7 +1024,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.2, Lemma 7.2.1, Corollary 7.2.3 and proof, pp.113–114",
-     "excerpt": "Lemma 7.2.1.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1087,7 +1058,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.3, Lemma 7.3.1 and Corollary 7.3.2, pp.115–116",
-     "excerpt": "Lemma 7.3.1.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1125,7 +1095,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.2.4–7.2.5, pp.114–115; §7.3 after Corollary 7.3.2, p.116",
-     "excerpt": "7.2.5.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1159,7 +1128,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.4, Definition 7.4.1, p.116",
-     "excerpt": "good",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1255,7 +1223,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.4, Definition 7.4.21, p.121",
-     "excerpt": "Definition 7.4.21.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1344,7 +1311,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.4, Lemmas 7.4.15–7.4.19 and Corollary 7.4.20, pp.119–121",
-     "excerpt": "Corollary 7.4.20.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1381,7 +1347,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.4, Corollary 7.4.22 and proof, p.121",
-     "excerpt": "Corollary 7.4.22.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1427,7 +1392,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.4, Proposition 7.4.3 and proof, Lemmas 7.4.4–7.4.23, pp.117–124",
-     "excerpt": "Proposition 7.4.3.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1472,7 +1436,6 @@
     {
      "sourceId": "PAN-2022",
      "locator": "§7.1, Theorem 7.1.1; §7.4, Lemma 7.4.2, pp.111–116",
-     "excerpt": "Theorem 7.1.1.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1509,13 +1472,11 @@
     {
      "sourceId": "SKINNER-WILES-1999",
      "locator": "Introduction, Theorem, printed p.6 (Numdam page image)",
-     "excerpt": "Theorem.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     },
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "§1.2, Theorem 1.7, arXiv p.4; publisher PDF p.5",
-     "excerpt": "Theorem 1.7.",
      "match": "The p=3 specialization; retain the finite-order determinant hypothesis from the cited Skinner–Wiles theorem."
     }
    ],
@@ -1551,7 +1512,6 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "§2, Paso 6, arXiv p.14 / publisher PDF p.14; §1.2, Theorem 1.7, arXiv p.4 / publisher PDF p.5",
-     "excerpt": "Paso 6",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1594,7 +1554,6 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "§1.4, Definition 1.10 and Remark 4, arXiv pp.6–7 / publisher PDF p.7",
-     "excerpt": "Remark 4.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],
@@ -1630,7 +1589,6 @@
     {
      "sourceId": "DIEULEFAIT-PACETTI",
      "locator": "§1.2, Theorem 1.7, arXiv pp.4–5 / published p.5",
-     "excerpt": "Theorem 1.7.",
      "match": "The cited passage supplies this statement and the indicated proof route."
     }
    ],

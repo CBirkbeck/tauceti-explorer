@@ -1403,7 +1403,8 @@
     "mathlib:Ideal.sum_ramification_inertia_eq_finrank",
     "mathlib:Ideal.relNorm_singleton",
     "mathlib:Algebra.norm",
-    "K2SymbolsBrauer:T.4/complete-norm-residue"
+    "K2SymbolsBrauer:T.4/complete-norm-residue",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge"
    ],
    "library": {
     "module": "TauCeti/Algebra/KTheory/TameSymbol",
@@ -2436,7 +2437,8 @@
     "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
     "tauceti:TauCeti.Place.heightOneSpectrumEquiv",
     "tauceti:TauCeti.Place.ratFuncEquiv",
-    "tauceti:TauCeti.Divisor.principal"
+    "tauceti:TauCeti.Divisor.principal",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
    ],
    "sources": [
     {
@@ -3095,7 +3097,8 @@
     "tauceti:TauCeti.Divisor.isUnitAtSupport_iff_disjoint",
     "tauceti:TauCeti.Divisor.principal",
     "tauceti:TauCeti.Place.normResidue",
-    "tauceti:WeierstrassCurve.Affine.isFunctionField"
+    "tauceti:WeierstrassCurve.Affine.isFunctionField",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68"
    ],
    "sources": [
     {
@@ -3311,7 +3314,9 @@
     "K2SymbolsBrauer:T.3/higher-milnor-residues",
     "K2SymbolsBrauer:T.4/milnor-projection-formula",
     "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
-    "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols"
+    "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree"
    ],
    "sources": [
     {
@@ -4110,6 +4115,7 @@
     "K2SymbolsBrauer:T.1/k2-definition",
     "K2SymbolsBrauer:T.1/k2-is-centre",
     "K2SymbolsBrauer:T.2/steinberg-symbol",
+    "K2SymbolsBrauer:T.2:symbols",
     "K2SymbolsBrauer:T.2:symbols/diagonal-lift-words",
     "K2SymbolsBrauer:T.2:symbols/diagonal-lift"
    ],
@@ -4411,7 +4417,8 @@
     "K2SymbolsBrauer:T.1/stabilisation",
     "K2SymbolsBrauer:T.1/k2-definition",
     "K2SymbolsBrauer:T.6/dennis-stein-symbol",
-    "KTheoryLowDegrees:U.5"
+    "KTheoryLowDegrees:U.5",
+    "GeneralAlgebraicKTheory:K.5"
    ],
    "library": {
     "module": "TauCeti/Algebra/KTheory/RelativeK2",
@@ -4723,7 +4730,11 @@
     "K2SymbolsBrauer:T.2/matsumoto",
     "tauceti:TauCeti.kummerMap",
     "tauceti:TauCeti.KummerCoeff",
-    "mathlib:rootsOfUnity"
+    "mathlib:rootsOfUnity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KTheory/NormResidueSymbol",
@@ -4971,7 +4982,8 @@
     }
    ],
    "prerequisites": [
-    "K2SymbolsBrauer:T.2/matsumoto"
+    "K2SymbolsBrauer:T.2/matsumoto",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KTheory/NormResidueSymbol",
@@ -5088,7 +5100,10 @@
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.7/symbol-formula",
-    "K2SymbolsBrauer:T.7/twisted-roots-of-unity"
+    "K2SymbolsBrauer:T.7/twisted-roots-of-unity",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "MotivicEtaleKTheory:M.1",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KTheory/NormResidueSymbol",
@@ -5145,7 +5160,10 @@
    "prerequisites": [
     "K2SymbolsBrauer:T.7/classical-local-symbols",
     "K2SymbolsBrauer:T.7/brauer-valued-symbol",
-    "K2SymbolsBrauer:T.7/twisted-roots-of-unity"
+    "K2SymbolsBrauer:T.7/twisted-roots-of-unity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map"
    ],
    "sources": [
     {
@@ -5199,7 +5217,13 @@
     "K2SymbolsBrauer:T.2/matsumoto",
     "ClassicalArithmeticCompletion:CA.1",
     "mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite",
-    "mathlib:rootsOfUnity_one"
+    "mathlib:rootsOfUnity_one",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map"
    ],
    "sources": [
     {
@@ -5308,7 +5332,9 @@
     "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
     "K2SymbolsBrauer:T.4/prime-to-p-closure",
     "K2SymbolsBrauer:T.4/transfer-base-change",
-    "K2SymbolsBrauer:T.3/higher-ramification-formula"
+    "K2SymbolsBrauer:T.3/higher-ramification-formula",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree"
    ],
    "sources": [
     {
@@ -5581,7 +5607,8 @@
    "note": "After RT-AREA-ktheory-1/28 the stage follows T.4 and is the comparison with Quillen K-theory. Parented here: the discrete-valuation-ring boundary with its sign (localization-boundary: the K-book's boundary is the inverse of T.3's symbol); the localisation theorem for K₂ of a Dedekind domain, prime by prime (dedekind-localization-boundary, K-book III.6.5 and V.6.6, which T.5 imports); the norm–residue square and restriction–transfer formula for Quillen's transfers (quillen-transfer-norm-residue, V.(6.6.3)–(6.6.4)); and the comparison of T.4's Milnor norm with Quillen's transfer on K₂ (milnor-quillen-transfer-comparison: proved for every finite extension by common arbitrary-field base change, degree-p generation and prime-to-p detection). The stage's other targets are realised by nodes parented upstream: the higher Milnor residues, specialisations, product signs, finite support and rigidity in T.3:symbols (Π on the right, so that in degree two they are T.3's symbol; ∂^{Wb} = (−1)^{n−1}∂ against Theorem III.7.3; Ex. III.7.1 as corrected, III.7.2 proved, III.7.10 as printed in this normalisation), and the Milnor transfer formulas in T.4 (projection formula, restriction–transfer degree, the general norm–residue formula T.3/transfer-and-norm-residue and the ramification formula T.3/higher-ramification-formula, Ex. III.7.8). No transfer is constructed here: Milnor norms come from T.4 and K-theory transfers from GeneralAlgebraicKTheory K.3.",
    "remaining": [
     "Apply the stage change of RT-AREA-ktheory-1/28: the edge T.4 → T.3:localization-comparison (the earlier proposal T.3:localization-comparison → T.4 is withdrawn, since together they form a cycle), and move the sentence 'Develop higher Milnor residues, specialisation with a uniformiser, and their product signs' with 'Prove finite support' to T.3:symbols' text, whose nodes realise them.",
-    "The K.3 ring boundary, the arbitrary-field base change of transfers and the right module action are planned nodes of the GeneralAlgebraicKTheory K.1 packet (K.3/localization-degree-one-index, K.3/dvr-degree-one-boundary, K.3/finite-field-transfer-base-change, K.3/localization-product-boundary), not pinned declarations; the torsion Serre quotient (K.3) and the unit product (K.7) remain requests."
+    "The K.3 ring boundary, the arbitrary-field base change of transfers and the right module action are planned nodes of the GeneralAlgebraicKTheory K.1 packet (K.3/localization-degree-one-index, K.3/dvr-degree-one-boundary, K.3/finite-field-transfer-base-change, K.3/localization-product-boundary), not pinned declarations; the torsion Serre quotient (K.3) and the unit product (K.7) remain requests.",
+    "The general Milnor norm/residue chain depends on the unresolved arbitrary-residue complete-DVR support gap recorded for T.4; its outline does not close that supplier contract."
    ]
   },
   {
@@ -5589,7 +5616,7 @@
    "status": "partial",
    "note": "The Bass–Tate sequence as the K-book proves it (Theorem III.7.4, Milnor) through the leading-coefficient splitting, the corrected degree reduction and the two filtration lemmas; the simple Milnor transfer with its degree-one identification and the projection and degree formulas; the elementary all-degree norm/residue identities Kato's proof uses, all before the transitivity theorem (base change Ex. III.7.7, ramification Ex. III.7.8, the complete case Corollary III.7.6.3, the constant extensions Ex. III.7.9 and Proposition III.7.6.4); Kato's theorem that the norm does not depend on the chain of generators; the general Milnor norm–residue formula; Suslin's reciprocity law in every degree for a proper curve over any field, over the places of the regular proper model and with Kato's norms for possibly inseparable residue extensions (RT-AREA-ktheory-1/12; MotivicEtaleKTheory M.4 imports it); the tame-symbol form on a proper regular curve; its disjoint-support case f(div g) = g(div f) and the compatibility with EllipticCurves Layer 2's milestone (RT-AREA-ktheory-1/32); and the transport of symbols along AlgebraicCurves Layer 12's closed-point/place, residue-field and divisor dictionary, which is imported and not re-proved. The place at infinity is outside the sum of the sequence and its role is recorded.",
    "remaining": [
-    "Import/implement the exact AlgebraicCurves Layer 2 finite-normalization and completion contracts and the generic DVR norm support requested from LocalFieldsRamification Layer 3.",
+    "Import AlgebraicCurves Layer 2’s exact finite-normalization/completion contracts. Resolve the recorded generic complete-DVR support gap: the arbitrary-residue norm and base-change length statements exceed the current LocalFieldsRamification Layer 3 scope.",
     "Stage edges for the maintainer: EllipticCurves Layer 2 → T.4 and T.4 → MotivicEtaleKTheory M.4 (RT-AREA-ktheory-1/32 and /12); the link AlgebraicCurves Layer 12 → T.4 (AC-L40) already exists."
    ]
   },
@@ -5660,6 +5687,16 @@
    "detail": "The stage text makes the square-zero examples 'tests of K.5', whose relative K-theory is the homotopy fibre of K(A) → K(A/I). The comparison of its π₂ with the relative group K₂(R, I) of K-book Definition III.5.7 is attributed to Keune and Loday in K-book IV.1.11 (PDF p. 276) and not proved there, and neither GeneralAlgebraicKTheory K.5's text nor this packet owns it. Until it is supplied the T.6 computations test the classical relative group only."
   },
   {
+   "title": "Generic complete-DVR norm and finite-base-change length support has no in-scope supplier contract",
+   "neededBy": [
+    "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+    "K2SymbolsBrauer:T.4/kato-complete-residue",
+    "K2SymbolsBrauer:T.4/complete-norm-residue",
+    "K2SymbolsBrauer:T.3/transfer-and-norm-residue"
+   ],
+   "detail": "The four-case calculation and finite descent require, for every finite extension E/F of complete discrete valuation fields with arbitrary (possibly imperfect or infinite) residue field, a unique normalized extended valuation, a finite free integral-closure lattice S/R of rank e f=[E:F], ord_F N(y)=f ord_E(y), and res N(u)=N_l/k(res u)^e. For finite complete base change F′/F and separable E/F they also require the componentwise identity Σ_(i over j)e(E_i/E)[l_i:L_j]=e(F′/F) length(A_j), with A_j the Artinian factors of l⊗k k′. The packet supplies determinant/filtration proof outlines for the norm identities and a full-lattice reduction proof outline for the length identity. However LocalFieldsRamification Layers 0–3 export these local structures under IsNonarchimedeanLocalField, hence finite residue fields; their existing Layer 3 norm milestone cannot close this arbitrary-residue import. AlgebraicCurves Layer 5’s arbitrary-residue completion comparison does not itself promise these finite-extension support exports. The current request and upstream note are maintainer routing information, not an in-scope prerequisite. Identify and link an exact existing general supplier or establish a Part II support plan in the owning direction under PROTOCOL §15, with the finite-extension substrate and these exports. Retain complete fields here; a general henselian assertion additionally needs appropriate finiteness/defect hypotheses. No T.4 private norm theory is created."
+  },
+  {
    "title": "G-monomial-kernel: the finite-rank unit-symbol import has no owning node",
    "detail": "The upper generation bound uses the finite-rank monomial-kernel theorem for every commutative ring A and n≥3: ker(St_n(A)→E_n(A))∩W_n is central and generated by unit symbols, compatibly with stabilization (Milnor Corollary 9.3 and Theorem 9.11). The companion T.2:symbols packet has diagonal words and commuting-unit symbols, but no declaration with this conclusion. Its symbols-generate theorem covers fields/division rings or commutative semilocal rings, which does not apply to ℤ. Keep the stage prerequisite K2SymbolsBrauer:T.2:symbols until its owner supplies an exact node and the central monomial-word reduction proof; do not substitute Matsumoto or the semilocal theorem. The upper bound, and hence the integer and rational calculations that consume it, remain conditional on this import.",
    "neededBy": [
@@ -5670,8 +5707,9 @@
  "requests": [
   {
    "supplier": "K2SymbolsBrauer:T.2:symbols",
-   "need": "Supply the monomial-kernel theorem of Milnor §9: for n≥3 and commutative A, C_n=ker(St(n,A)→E(n,A))∩W_n is central and generated by unit symbols {u,v} (Corollary 9.3, Theorem 9.11, pp. 71–78), with compatibility under stabilization. The proof contract is: diagonal lifts generate a normal subgroup H of W; modulo H, signed permutation relations eliminate a kernel word, so C_n⊆H. Modulo the central subgroup generated by unit symbols, diagonal lifts multiply and commute; write a kernel element as h₁₂(u₂)⋯h₁n(u_n). Its diagonal matrix forces every u_j=1, so the element is trivial in that quotient. T.2 owns this field-independent unit-symbol lemma; T.5 applies it only with A=ℤ. The existing nodes K2SymbolsBrauer:T.2:symbols/diagonal-lift-words and K2SymbolsBrauer:T.2:symbols/diagonal-lift already supply w_ij, h_ij and their elementary images; they are exact prerequisites of T.6/dennis-stein-symbol.",
+   "need": "From the companion packet K2SymbolsBrauer--T.1: expose w_ij(u) = x_ij(u) x_ji(−u⁻¹) x_ij(u) and h_ij(u) = w_ij(u) w_ij(−1) as API items of K2SymbolsBrauer:T.2/steinberg-symbol, with φ(h_ij(u)) = diag(u, u⁻¹) at (i, j) and h_ij(1) = 1; the Dennis-Stein word uses h_ij(1 − rs)⁻¹. Every other input from the companion part is cited by node id. For the integer upper bound, also supply the monomial-kernel theorem of Milnor §9: for n≥3 and commutative A, C_n=ker(St(n,A)→E(n,A))∩W_n is central and generated by unit symbols {u,v} (Corollary 9.3, Theorem 9.11, pp. 71–78). Proof: diagonal lifts generate a normal subgroup H of W; modulo H, signed permutation relations eliminate a kernel word, so C_n⊆H. Modulo the central subgroup generated by unit symbols, diagonal lifts multiply and commute; write a kernel element as h₁₂(u₂)⋯h₁n(u_n). Its diagonal matrix forces every u_j=1, so the element is trivial in that quotient. T.2 owns this field-independent unit-symbol lemma; T.5 applies it only with A=ℤ.",
    "neededBy": [
+    "K2SymbolsBrauer:T.6/dennis-stein-symbol",
     "K2SymbolsBrauer:T.5/integer-kernel-upper-generation"
    ]
   },
@@ -5755,7 +5793,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
-   "need": "localArtinEquiv with its normResidue form K^×/N L^× ≅ Gal(L/K) for a finite abelian extension of a nonarchimedean local field, the unramified case in which units are norms, and localArtinMap_quadratic_eq_hilbertSymbol as the m = 2 check.",
+   "need": "localArtinEquiv with its normResidue form K^×/N L^× ≅ Gal(L/K) for a finite abelian extension of a nonarchimedean local field, the unramified case in which units are norms, and localArtinMap_quadratic_eq_hilbertSymbol as the m = 2 check. Export the character-evaluation identity χ(Artin(a))=inv(a∪δχ), transported from Layer 4’s ClassFormation.character_artinMap using Layer 6’s localClassFormation_inv and the arithmetic-Frobenius normalization. This is already an abstract owner milestone; the request is for its local specialization, not a new T.7 construction.",
    "neededBy": [
     "K2SymbolsBrauer:T.7/classical-local-symbols",
     "K2SymbolsBrauer:T.7/local-comparison",
@@ -5879,10 +5917,11 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-   "need": "The existing norm-on-valuations milestone gives ord_F N(y)=f ord_E(y) for local fields. T.4 also needs its complete/henselian DISCRETE-VALUATION-field form without finite residue fields, and res N(u)=N_l/k(res u)^e for a unit u, including inseparable residue extensions. Determinant proof: the finite free valuation-ring lattice S has rank ef; the determinant of multiplication by y has valuation length_R(S/yS)=f ord_E(y) for integral nonzero y, and extend to fractions. For a unit u, filter S/π_F S by powers of π_E; there are e successive copies of l as k-vector spaces, and multiplication on each has determinant N_l/k(ū). Multiply the e determinants. GS Lemma 7.3.10, pp. 200–201 uses these identities. This extends the standing local-field scope and is flagged in upstreamNotes; no generic norm theory is rebuilt in T.4. Also supply the generic complete-DVR base-change length identity: For finite complete-DVR base change F′/F, put r=e(F′/F), k′ its residue field, e=e(E/F), and E⊗F F′=∏ E_i with residue l_i. Write l⊗k k′=∏ A_j with residue L_j and length t_j. Let e_i=e(E_i/F′), e′_i=e(E_i/E), with i assigned to its residue component j. Then Σ_(i over j) e′_i [l_i:L_j]=r t_j. Proof: B=S⊗R R′ and its finite normalization C=∏S_i are full R′-lattices in the same algebra, with torsion quotient D. Reduction modulo π′ has equal composition multiplicities for B and C, since the finite-length kernel and cokernel of multiplication by π′ on D have equal multiplicities by length additivity. This is an elementary module-length argument, not a new Quillen G-theory construction. The e-step filtration of S/πS gives e t_j on B, while C gives Σ e_i [l_i:L_j]. Thus Σ e_i [l_i:L_j]=e t_j. Multiply by r and use r e_i=e e′_i; cancel the positive integer e in the LENGTH identity, not in a Milnor K-group. This establishes the displayed multiplicities. Combined with restriction-transfer degree in the residue fields, it proves the r·residue-base-change square used in complete-norm-residue without assuming that composita of residue fields exhaust l_i.",
+   "need": "The existing norm-on-valuations milestone gives ord_F N(y)=f ord_E(y) for local fields. T.4 also needs its complete DISCRETE-VALUATION-field form without finite residue fields, and res N(u)=N_l/k(res u)^e for a unit u, including inseparable residue extensions. Determinant proof: the finite free valuation-ring lattice S has rank ef; the determinant of multiplication by y has valuation length_R(S/yS)=f ord_E(y) for integral nonzero y, and extend to fractions. For a unit u, filter S/π_F S by powers of π_E; there are e successive copies of l as k-vector spaces, and multiplication on each has determinant N_l/k(ū). Multiply the e determinants. GS Lemma 7.3.10, pp. 200–201 uses these identities. This extends the standing local-field scope and is flagged in upstreamNotes; no generic norm theory is rebuilt in T.4. Also supply the generic complete-DVR base-change length identity: For finite separable E/F and any finite complete-DVR base change F′/F, put r=e(F′/F), k′ its residue field, e=e(E/F), and E⊗F F′=∏ E_i with residue l_i. Write l⊗k k′=∏ A_j with residue L_j and length t_j. Let e_i=e(E_i/F′), e′_i=e(E_i/E), with i assigned to its residue component j. Then Σ_(i over j) e′_i [l_i:L_j]=r t_j. Proof: B=S⊗R R′ and its finite normalization C=∏S_i are full R′-lattices in the same algebra, with torsion quotient D. Reduction modulo π′ has equal composition multiplicities for B and C, since the finite-length kernel and cokernel of multiplication by π′ on D have equal multiplicities by length additivity. This is an elementary module-length argument, not a new Quillen G-theory construction. The e-step filtration of S/πS gives e t_j on B, while C gives Σ e_i [l_i:L_j]. Thus Σ e_i [l_i:L_j]=e t_j. Multiply by r and use r e_i=e e′_i; cancel the positive integer e in the LENGTH identity, not in a Milnor K-group. This establishes the displayed multiplicities. Combined with restriction-transfer degree in the residue fields, it proves the r·residue-base-change square used in complete-norm-residue without assuming that composita of residue fields exhaust l_i. UNRESOLVED SCOPE: Layer 3’s stated IsNonarchimedeanLocalField contract does not supply these arbitrary-residue-field statements. This is a maintainer routing request, recorded as a gap, not evidence that the current upstream stage covers them. A generic support contract or a Part II in the owning direction is required before this proof chain is closed.",
    "neededBy": [
     "K2SymbolsBrauer:T.4/kato-complete-residue",
-    "K2SymbolsBrauer:T.4/complete-norm-residue"
+    "K2SymbolsBrauer:T.4/complete-norm-residue",
+    "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols"
    ]
   },
   {
@@ -5890,6 +5929,13 @@
    "need": "Finite normalization completion contract used by T.4: for a DVR R with fraction F, finite E/F and finite integral closure S/R, the semilocal completion is ∏_w completed S_w and E⊗_F F̂≅∏_w Ê_w, with identical residue fields and ramification index 1 for E→Ê_w. Prove via finite-module tensor completion, Chinese remaindering S/π^nS, and inverting π; source GS Appendix A.6.4 and Corollary 7.4.3. Request the generic DVR form from the normalization owner, rather than applying number-field-only completions to imperfect function fields.",
    "neededBy": [
     "K2SymbolsBrauer:T.3/transfer-and-norm-residue"
+   ]
+  },
+  {
+   "supplier": "K2SymbolsBrauer:T.2:symbols",
+   "need": "Supply the monomial-kernel theorem of Milnor §9: for n≥3 and commutative A, C_n=ker(St(n,A)→E(n,A))∩W_n is central and generated by unit symbols {u,v} (Corollary 9.3, Theorem 9.11, pp. 71–78), with compatibility under stabilization. The proof contract is: diagonal lifts generate a normal subgroup H of W; modulo H, signed permutation relations eliminate a kernel word, so C_n⊆H. Modulo the central subgroup generated by unit symbols, diagonal lifts multiply and commute; write a kernel element as h₁₂(u₂)⋯h₁n(u_n). Its diagonal matrix forces every u_j=1, so the element is trivial in that quotient. T.2 owns this field-independent unit-symbol lemma; T.5 applies it only with A=ℤ. The existing nodes K2SymbolsBrauer:T.2:symbols/diagonal-lift-words and K2SymbolsBrauer:T.2:symbols/diagonal-lift already supply w_ij, h_ij and their elementary images; they are exact prerequisites of T.6/dennis-stein-symbol.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.5/integer-kernel-upper-generation"
    ]
   }
  ],
@@ -6195,9 +6241,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3",
-  "date": "2026-10-02",
-  "notes": "Codex session codex-rtOQ9t; independent of fixer codex-a71f92 (PR #5603). All five confirmed RT-BP-K2SymbolsBrauer--T.3 fixes are sound at planning/signature level: guarded relative D3 and its actual differential detector; conditional m=1 real factor and full first-root regression; units-only real Hilbert comparison plus zero-input non-example; arbitrary valued embeddings with positive residue-map index and a separate trivial-restriction case; direct degree-two residue/tame-symbol equality. However the earlier independent-review-REV-FIX-RT-AREA-ktheory-1 objections remain: source/decompose general Milnor/Quillen and norm-residue proofs, identify the upstream degree-one DVR boundary supplier, establish mixed-inseparable normalization finiteness and K2(Z) upper generation, and fix source-backed local/Chern normalizations. This review confirms the five specific repairs without treating them as completion of those broader fixes. Earlier review preserved verbatim in reviewHistory; 11 gaps and 29 requests remain. Public source pages and six added pinned declarations checked; finite-ring/ramification controls and pinned-index checker passed (0 errors/0 warnings). No mathematical edits. Suggested Lean not compiled: no existing build at both pins. Report: research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md."
+  "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2",
+  "date": "2026-10-07",
+  "notes": "Codex session codex-q3tan1, independent of fixer codex-DWTl3R. The five original red-team repairs remain sound. Revision 2 supplies sound source-level decompositions for the arbitrary-field Milnor/Quillen comparison, K.3 degree-one boundary/right action, mixed normalization, integer word/kernel generation, and local/Chern signs. Corrected missing request-consumer prerequisites, residue restriction-transfer degree dependencies, the exact local character-evaluation request, a stale suggested-file signature inventory, and the zero-ideal relative test. One older obligation remains unresolved: general all-degree norm/residue closure imports generic complete-DVR norm and finite-base-change length support from LocalFieldsRamification Layer 3, whose stated local-field scope has finite residue fields. A stronger request plus upstreamNote does not satisfy PROTOCOL §3. Added an explicit gap and coverage remainder; maintainer must identify an exact in-scope supplier or route a Part II under §15. The four previously retained gaps remain outside these fixes. Previous review preserved verbatim in reviewHistory. Validation and full-file Lean limitation are documented in research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md; no formalization or live promotion is claimed."
  },
  "reviewHistory": [
   {
@@ -6503,6 +6549,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
    "date": "2026-09-30",
    "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.3. Ownership and relative S-integer sequence repairs are sound, but /9, /12, /26–/28 leave the general transfer/residue comparison, mixed-inseparable finiteness, acyclic DVR boundary owner, K₂(ℤ) upper bound and local/Chern normalization gaps. Corrected m=1 real factors, two degree-two residue proof signs and the local invariant coordinate. PR #5300 additionally confirms unresolved relative-D3, total conic-symbol and arbitrary-base-change defects. These prevent acceptance. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3",
+   "date": "2026-10-02",
+   "notes": "Codex session codex-rtOQ9t; independent of fixer codex-a71f92 (PR #5603). All five confirmed RT-BP-K2SymbolsBrauer--T.3 fixes are sound at planning/signature level: guarded relative D3 and its actual differential detector; conditional m=1 real factor and full first-root regression; units-only real Hilbert comparison plus zero-input non-example; arbitrary valued embeddings with positive residue-map index and a separate trivial-restriction case; direct degree-two residue/tame-symbol equality. However the earlier independent-review-REV-FIX-RT-AREA-ktheory-1 objections remain: source/decompose general Milnor/Quillen and norm-residue proofs, identify the upstream degree-one DVR boundary supplier, establish mixed-inseparable normalization finiteness and K2(Z) upper generation, and fix source-backed local/Chern normalizations. This review confirms the five specific repairs without treating them as completion of those broader fixes. Earlier review preserved verbatim in reviewHistory; 11 gaps and 29 requests remain. Public source pages and six added pinned declarations checked; finite-ring/ramification controls and pinned-index checker passed (0 errors/0 warnings). No mathematical edits. Suggested Lean not compiled: no existing build at both pins. Report: research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md."
   }
  ],
  "upstreamNotes": [
@@ -6512,7 +6564,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-   "note": "The norm-on-valuations milestone is already in Layer 3. The residue norm and valuation formulas requested here must also cover complete discrete valuation fields with arbitrary residue field, and the finite henselian extensions used in descent; this is stronger than the roadmap’s standing local-field scope. Its owner should supply a generic DVR support lemma or Part II, rather than T.4 rebuilding local-field norm theory."
+   "note": "The norm-on-valuations milestone is already in Layer 3. The residue norm and valuation formulas requested here must also cover complete discrete valuation fields with arbitrary residue field, including the finite complete extensions used in descent; this is stronger than the roadmap’s standing local-field scope. Its owner should supply a generic DVR support lemma or Part II, rather than T.4 rebuilding local-field norm theory. Independent review REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2: the proposed existing-stage import fails PROTOCOL §3’s scope condition. AlgebraicCurves Layer 5 does cover arbitrary-residue completions, but its completion comparison does not state these general finite-extension norm and lattice-length exports. Do not silently widen either upstream roadmap; resolve the generic support ownership through an exact existing contract or Part II."
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",

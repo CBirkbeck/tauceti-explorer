@@ -348,13 +348,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §2, Example 2.1, printed p. 3 (PDF p. 13)",
-     "excerpt": "by Kummer theory and Proposition B.2.3, respectively H1(K, µp∞) = K× ⊗ (Qp/Zp), H1(K, Zp(1)) = lim←n H1(K, µpn) = lim←n K×/(K×)^{pn} = K× ⊗̂ Zp, where ⊗̂ denotes the (p-adically) completed tensor product.",
      "match": "The completed tensor product K× ⊗̂ ℤ_p is lim K×/(K×)^{p^n}."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24)",
-     "excerpt": "We define the p-adic completion of B to be the double dual Bˆ = Hom(Hom(B, Qp/Zp), Qp/Zp) ... For example, if B is a Zp-module then Bˆ = B; if B is a finitely generated abelian group then Bˆ = B ⊗Z Zp.",
      "match": "The finitely generated case B̂ = B ⊗ ℤ_p."
     }
    ],
@@ -465,7 +463,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24)",
-     "excerpt": "We define the p-adic completion of B to be the double dual Bˆ = Hom(Hom(B, Qp/Zp), Qp/Zp) ... For example, if B is a Zp-module then Bˆ = B; if B is a finitely generated abelian group then Bˆ = B ⊗Z Zp.",
      "match": "B̂ = B ⊗ ℤ_p for finitely generated B, applied to B = E_F."
     }
    ],
@@ -502,7 +499,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24)",
-     "excerpt": "We define the p-adic completion of B to be the double dual Bˆ = Hom(Hom(B, Qp/Zp), Qp/Zp) ... For example, if B is a Zp-module then Bˆ = B; if B is a finitely generated abelian group then Bˆ = B ⊗Z Zp.",
      "match": "The finitely generated case."
     }
    ],
@@ -539,7 +535,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, (10.8), printed p. 53 (arXiv v2)",
-     "excerpt": "we obtain an isomorphism K×n ⊗ Zp ≅ H1(Kn, Zp(1)).",
      "match": "The local statement corrected here (sourceIssues E1)."
     }
    ],
@@ -575,7 +570,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.7, printed p. 153 (PDF p. 163)",
-     "excerpt": "K is a local field and G = GK. If T is a G-module which is finite ... then Hi(G, T) is finite",
      "match": "Finiteness of local H^1 with finite coefficients."
     }
    ],
@@ -614,13 +608,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §2, Example 2.1, printed p. 3 (PDF p. 13)",
-     "excerpt": "by Kummer theory and Proposition B.2.3, respectively H1(K, µp∞) = K× ⊗ (Qp/Zp), H1(K, Zp(1)) = lim←n H1(K, µpn) = lim←n K×/(K×)^{pn} = K× ⊗̂ Zp, where ⊗̂ denotes the (p-adically) completed tensor product.",
      "match": "The inverse system H^1(K, μ_{p^n}) whose limit is taken."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, display (10.7), printed p. 52 (arXiv v2)",
-     "excerpt": "Taking inverse limits over m ≥ 1, which is exact, we obtain an isomorphism called the Kummer map δ : F× ⊗ Zp ∼−→ H1(F, Zp(1)). (10.7)",
      "match": "The level-wise Kummer maps assembled in (10.7)."
     }
    ],
@@ -660,7 +652,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, display (10.7), printed p. 52 (arXiv v2)",
-     "excerpt": "Taking inverse limits over m ≥ 1, which is exact, we obtain an isomorphism called the Kummer map δ : F× ⊗ Zp ∼−→ H1(F, Zp(1)). (10.7)",
      "match": "The limit Kummer map, with the target corrected to the completion."
     }
    ],
@@ -759,7 +750,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
      "match": "The hypothesis H^{i−1}(G, T_n) finite, for i = 1."
     }
    ],
@@ -800,19 +790,16 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §2, Example 2.1, printed p. 3 (PDF p. 13)",
-     "excerpt": "by Kummer theory and Proposition B.2.3, respectively H1(K, µp∞) = K× ⊗ (Qp/Zp), H1(K, Zp(1)) = lim←n H1(K, µpn) = lim←n K×/(K×)^{pn} = K× ⊗̂ Zp, where ⊗̂ denotes the (p-adically) completed tensor product.",
      "match": "The identification."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
      "match": "The inverse-limit step."
     },
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, display (10.7), printed p. 52 (arXiv v2)",
-     "excerpt": "Taking inverse limits over m ≥ 1, which is exact, we obtain an isomorphism called the Kummer map δ : F× ⊗ Zp ∼−→ H1(F, Zp(1)). (10.7)",
      "match": "The same map, corrected (sourceIssues E1)."
     }
    ],
@@ -855,13 +842,11 @@
     {
      "sourceId": "BURUNGALE-TIAN-26",
      "locator": "Footnote 3 to Theorem 2.1, p. 4, and §2.2.3 (arXiv v2)",
-     "excerpt": "One may to [12, §15.6] for a description of the underlying Iwasawa modules in terms of Iwasawa cohomology.",
      "match": "The units-to-cohomology comparison that the maintainer's units-kummer item routes here, at finite level."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
      "match": "The inverse-limit step."
     }
    ],
@@ -905,13 +890,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
      "match": "The criterion applied level by level."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.7, printed p. 153 (PDF p. 163)",
-     "excerpt": "K is a global field, KS is a (possibly infinite) Galois extension of K unramified outside a finite set of places of K, and G = Gal(KS/K) ... If T is a G-module which is finite ... then Hi(G, T) is finite",
      "match": "Finiteness for G_{F,S} and local G_K."
     }
    ],
@@ -946,13 +929,11 @@
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§1, Definition 1.1, p. 4 (arXiv v1)",
-     "excerpt": "A local condition on T (over K) is a choice of an R-submodule of H1(K, T). ... If I is an ideal of R, then a local condition on T induces local conditions on T/IT and T[I] by taking H1_F(K, T/IT) and H1_F(K, T[I]) to be the image and inverse image, respectively, of H1_F(K, T) under the maps induced by T ↠ T/IT, T[I] ↪ T.",
      "match": "Local conditions."
     },
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§2, Definition 2.1, p. 6 (arXiv v1)",
-     "excerpt": "If F is a Selmer structure, we define the Selmer module H1_F(K, T) ⊂ H1(K, T) to be the kernel of the sum of restriction maps H1(K_Σ(F)/K, T) → ⊕_{q∈Σ(F)} (H1(Kq, T)/H1_F(Kq, T))",
      "match": "Selmer structures."
     }
    ],
@@ -1045,13 +1026,11 @@
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§2, Definition 2.1, p. 6 (arXiv v1)",
-     "excerpt": "If F is a Selmer structure, we define the Selmer module H1_F(K, T) ⊂ H1(K, T) to be the kernel of the sum of restriction maps H1(K_Σ(F)/K, T) → ⊕_{q∈Σ(F)} (H1(Kq, T)/H1_F(Kq, T))",
      "match": "The Selmer module as a kernel."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §5, Definition 5.1, printed pp. 11–12 (PDF pp. 21–22)",
-     "excerpt": "SΣ(K, W) = ker(H1(K, W) → ⊕_{v∉Σ} H1_s(Kv, W)), SΣ(K, W) = ker(SΣ(K, W) → ⊕_{v∈Σ} H1(Kv, W)) ... In other words, SΣ(K, W) consists of all classes c ∈ H1(K, W) satisfying the local conditions cv ∈ H1_f(Kv, W) if v ∉ Σ, no restriction for v ∈ Σ",
      "match": "Rubin's relaxed and strict Selmer groups."
     }
    ],
@@ -1137,7 +1116,6 @@
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§2, Definition 2.3 and display (2.4), pp. 6–7 (arXiv v1)",
-     "excerpt": "If m | n ∈ N, the definition leads to an exact sequence 0 → H1_{F^m}(K, T) → H1_{F^n}(K, T) → ⊕_{q|(n/m)} H1(Kq, T)/H1_f(Kq, T). (2.4)",
      "match": "The exact sequence."
     }
    ],
@@ -1172,7 +1150,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §5, Lemma 5.4, printed p. 12 (PDF p. 22)",
-     "excerpt": "the natural map ιM : H1(K, WM) → H1(K, W) induces a surjection SΣ(K, WM) ↠ SΣ(K, W)M",
      "match": "A Selmer map induced by a coefficient map."
     }
    ],
@@ -1207,7 +1184,6 @@
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§1, Definition 1.1, p. 4 (arXiv v1)",
-     "excerpt": "A local condition on T (over K) is a choice of an R-submodule of H1(K, T). ... If I is an ideal of R, then a local condition on T induces local conditions on T/IT and T[I] by taking H1_F(K, T/IT) and H1_F(K, T[I]) to be the image and inverse image, respectively, of H1_F(K, T) under the maps induced by T ↠ T/IT, T[I] ↪ T.",
      "match": "Propagation."
     }
    ],
@@ -1303,13 +1279,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.2, Definition 3.4, printed p. 5 (PDF p. 15)",
-     "excerpt": "Define H1_f(K, T) ⊂ H1(K, T) and H1_f(K, W) ⊂ H1(K, W) to be the inverse image and image, respectively, of H1_f(K, V) under the natural maps H1(K, T) → H1(K, V) → H1(K, W).",
      "match": "The definitions."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.2, proof of Lemma 3.5, printed p. 6 (PDF p. 16)",
-     "excerpt": "It is immediate from the definitions that H1_f(K, W) is divisible and H1_s(K, T) is torsion-free.",
      "match": "Saturation and divisibility."
     }
    ],
@@ -1346,13 +1320,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.1, Definition 3.1, printed p. 4 (PDF p. 14)",
-     "excerpt": "We define the subgroup of unramified cohomology classes H1_ur(K, B) ⊂ H1(K, B) by H1_ur(K, B) = ker(H1(K, B) → H1(I, B)).",
      "match": "The definition."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.1, Lemma 3.2(i), printed p. 4 (PDF p. 14)",
-     "excerpt": "H1_ur(K, B) ≅ H1(Kur/K, B^I) ≅ B^I/(Fr − 1)B^I.",
      "match": "The inflation description."
     }
    ],
@@ -1441,7 +1413,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.1, Definition 13.19(1), p. 70 (arXiv v2)",
-     "excerpt": "Greenberg's approach assumes that the representation V is p-ordinary, in the sense that there exists a saturated, finite, GQ-invariant filtration Fil^i of V such that the inertia group IQp of GQp acts on the ith graded piece Fil^i/Fil^{i+1} as the ith power of the cyclotomic character ... L^Gr_vp := ker(H1(Fvp, W) → H1(Ivp, W) → H1(Ivp, W/Fil1W))",
      "match": "The definition, with stability corrected to G_{ℚ_p} (sourceIssues E2)."
     }
    ],
@@ -1535,13 +1506,11 @@
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§2, Definition 2.1, p. 6 (arXiv v1)",
-     "excerpt": "If F is a Selmer structure, we define the Selmer module H1_F(K, T) ⊂ H1(K, T) to be the kernel of the sum of restriction maps H1(K_Σ(F)/K, T) → ⊕_{q∈Σ(F)} (H1(Kq, T)/H1_F(Kq, T))",
      "match": "The definition via H^1(K_Σ/K, T)."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §5, Lemma 5.3, printed p. 12 (PDF p. 22)",
-     "excerpt": "Lemma 5.3. Suppose Σ contains all infinite places, all primes above p, and all primes of K where T is ramified. If A = T, W, or WM with M ∈ O, then SΣ(K, A) = H1(KΣ/K, A).",
      "match": "The comparison."
     }
    ],
@@ -1634,7 +1603,6 @@
     {
      "sourceId": "BURUNGALE-TIAN-26",
      "locator": "§1.0.1 and §3.1, pp. 1 and 6 (arXiv v2)",
-     "excerpt": "corankZp Selp∞(E/Q) = r",
      "match": "The corank is read on the Pontryagin dual."
     }
    ],
@@ -1723,7 +1691,6 @@
     {
      "sourceId": "BURUNGALE-TIAN-26",
      "locator": "§1.0.1, the exact sequence and (1.1), p. 1 (arXiv v2)",
-     "excerpt": "0 → E(Q) ⊗Z Qp/Zp → Selp∞(E/Q) → X(E/Q)[p∞] → 0 ... (1.1) corankZp Selp∞(E/Q) = r =⇒ ords=1 L(s, E/Q) = r",
      "match": "The corank in the p-converse (1.1)."
     }
    ],
@@ -1808,7 +1775,6 @@
     {
      "sourceId": "BURUNGALE-TIAN-26",
      "locator": "§1.0.1, the exact sequence and (1.1), p. 1 (arXiv v2)",
-     "excerpt": "0 → E(Q) ⊗Z Qp/Zp → Selp∞(E/Q) → X(E/Q)[p∞] → 0 ... (1.1) corankZp Selp∞(E/Q) = r =⇒ ords=1 L(s, E/Q) = r",
      "match": "The exact sequence and the corank."
     }
    ],
@@ -1849,13 +1815,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §4, Theorem 4.1, printed p. 8 (PDF p. 18)",
-     "excerpt": "Then the cup product and the local invariant map induce perfect pairings",
      "match": "The three local Tate pairings to which the construction is applied."
     },
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§1, Definition 1.6, p. 5 (arXiv v1)",
-     "excerpt": "A local condition F for T determines a local condition F^* for T^*, by taking H^1_{F^*}(K, T^*) to be the orthogonal complement of H^1_F(K, T) under the Tate pairing",
      "match": "The dual local condition."
     }
    ],
@@ -1982,7 +1946,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §4, proof of Proposition 4.3, printed p. 9 (PDF p. 19)",
-     "excerpt": "The deﬁnition of the local pairings in terms of cup products shows that the diagram",
      "match": "The first compatibility square; the second is the diagram for T and W_M used for (ii)."
     }
    ],
@@ -2022,13 +1985,11 @@
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§2, Definition 2.1, p. 6 (arXiv v1)",
-     "excerpt": "A Selmer structure F on T is a collection of the following data",
      "match": "Selmer structures and their Selmer modules."
     },
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§2, Definition 2.5, p. 7 (arXiv v1)",
-     "excerpt": "a Selmer structure F for T determines a Selmer structure F^* for T^*",
      "match": "The dual Selmer structure."
     }
    ],
@@ -2142,7 +2103,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.1, Corollary 3.3, printed p. 5 (PDF p. 15)",
-     "excerpt": "Suppose p ≠ ℓ and V is a Q_p[G_K]-module which has ﬁnite dimension as a Q_p-vector space.",
      "match": "Corollary 3.3 and its proof."
     }
    ],
@@ -2183,13 +2143,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.2, Lemma 3.5, printed p. 6 (PDF p. 16)",
-     "excerpt": "H^1_ur(K, T) ⊂ H^1_f(K, T) with ﬁnite index and H^1_s(K, T) is torsion-free",
      "match": "Lemma 3.5; Lemma 3.8 (p. 7) for W_M."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §3.2, Remark 3.7, printed p. 7 (PDF p. 17)",
-     "excerpt": "Note that all of these groups are zero unless K = R and p = 2.",
      "match": "The archimedean conditions."
     }
    ],
@@ -2228,7 +2186,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §4, Proposition 4.2, printed p. 9 (PDF p. 19)",
-     "excerpt": "Then H^1_f(K, V) and H^1_f(K, V^*) are orthogonal complements of each other under the pairing",
      "match": "Proposition 4.2 and its proof."
     }
    ],
@@ -2271,13 +2228,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §4, Proposition 4.3, printed p. 9 (PDF p. 19)",
-     "excerpt": "(i) H^1_f(K, T) and H^1_f(K, W^*) are orthogonal complements of each other,",
      "match": "Proposition 4.3."
     },
     {
      "sourceId": "MAZUR-RUBIN-16",
      "locator": "§1, Proposition 1.7, p. 5 (arXiv v1)",
-     "excerpt": "(i) H^1_f(K, T) and H^1_f(K, T^*) are orthogonal complements under ⟨, ⟩.",
      "match": "The unramified case over a general coefficient ring."
     }
    ],
@@ -2323,13 +2278,11 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §5, Proposition 5.6, printed p. 12 (PDF p. 22)",
-     "excerpt": "Suppose Σ is a ﬁnite set of primes of K.",
      "match": "Proposition 5.6, with Lemma 5.4, Remark 5.5 and Lemma 5.7 (pp. 12–13) and Corollary 3.10 (p. 8)."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §5, Remark 5.5, printed p. 12 (PDF p. 22)",
-     "excerpt": "Lemma 5.4 need not be true if we replace S^Σ by S_Σ",
      "match": "The strict Selmer groups."
     }
    ],
@@ -2374,7 +2327,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §7, Theorem 7.3, printed p. 17 (PDF p. 27)",
-     "excerpt": "(ii) The images loc^s_{Σ,Σ_0}(S^Σ(K, W_M)) and loc^f_{Σ,Σ_0}(S_{Σ_0}(K, W^*_M)) are orthogonal complements of each other with respect to the pairing",
      "match": "Theorem 7.3 and Remark 7.4 (p. 19)."
     }
    ],
@@ -2418,7 +2370,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §7, Corollary 7.5, printed p. 19 (PDF p. 29)",
-     "excerpt": "where loc^s_{Σ_p} is the localization map S^{Σ_p}(K, T) → ∏_{v|p} H^1_s(K_v, T).",
      "match": "Corollary 7.5 and its proof."
     }
    ],
@@ -2458,13 +2409,11 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "Chapter 8, 8.3.4–8.3.5, p. 203 (Numdam PDF p. 212)",
-     "excerpt": "the subscript “Iw” stands for “Iwasawa” – this notation is due to Fontaine",
      "match": "The definition 8.3.4 and Proposition 8.3.5 (i)–(iii)."
     },
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §3, Lemmas 3.1–3.2, printed p. 154 (PDF p. 164)",
-     "excerpt": "Suppose K∞ is an inﬁnite p-extension of K. Then",
      "match": "The H¹ limit through T/p^n (Lemma 3.1) and the vanishing of norm-compatible invariants (Lemma 3.2)."
     }
    ],
@@ -2570,13 +2519,11 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "Chapter 8, Proposition 8.4.4.1, p. 206 (Numdam PDF p. 215)",
-     "excerpt": "functorial in M. In particular, 𝓕_Γ(M) is of ﬁnite type over R̄.",
      "match": "Proposition 8.4.4.1 (i)–(iii) and its proof."
     },
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "Chapter 8, Proposition 8.4.4.2, p. 207 (Numdam PDF p. 216)",
-     "excerpt": "is an isomorphism, hence inducing an isomorphism",
      "match": "Proposition 8.4.4.2 and 8.4.4.3."
     }
    ],
@@ -2619,13 +2566,11 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "Chapter 8, Proposition 8.4.8.1, p. 214 (Numdam PDF p. 223)",
-     "excerpt": "then for every T ∈ D⁺((ad R[G]Mod)_{R-ft}) there is a canonical isomorphism in D⁺(_R Mod)",
      "match": "Proposition 8.4.8.1 and its proof (pp. 214–215)."
     },
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "Chapter 8, Corollary 8.4.8.2 and Proposition 8.4.8.3, p. 215 (Numdam PDF p. 224)",
-     "excerpt": "degenerates into short exact sequences",
      "match": "Corollaries 8.4.8.2, 8.4.8.4 and Proposition 8.4.8.3."
     }
    ],
@@ -2665,7 +2610,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "Chapter 8, Proposition 8.4.8.5, p. 216 (Numdam PDF p. 225)",
-     "excerpt": "Assume that Γ ≅ Z_p^r, G satisﬁes (F) and cd_p(G) < ∞.",
      "match": "Proposition 8.4.8.5 and its proof."
     }
    ],
@@ -2704,7 +2648,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §3, Proposition 3.3, printed p. 154 (PDF p. 164)",
-     "excerpt": "If {c_F} ∈ lim H^1(F, T) then for every F c_F ∈ H^1_ur(F, T).",
      "match": "Proposition B.3.3, Corollaries B.3.4 and B.3.5 (pp. 154–155)."
     }
    ],
@@ -2744,7 +2687,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §5, Proposition 5.1, printed p. 157 (PDF p. 167)",
-     "excerpt": "With notation as above, if i ≥ 0 there is a canonical isomorphism",
      "match": "Proposition B.5.1 and Corollaries B.5.2–B.5.3; the double-coset Shapiro lemma is Proposition B.4.2 (p. 156)."
     }
    ],
@@ -2784,7 +2726,6 @@
     {
      "sourceId": "BURUNGALE-TIAN-26",
      "locator": "§3, (3.2), p. 6 (arXiv v2)",
-     "excerpt": "Let z be the image of the Beilinson–Kato element",
      "match": "The twist-and-specialise map (3.2), with the prime q of the proof of Theorem 3.1."
     }
    ],
@@ -2826,7 +2767,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§10.5, (10.5)–(10.8) and Definition 10.16, pp. 52–53 (arXiv v2); published pp. 170–172",
-     "excerpt": "We deﬁne the Iwasawa cohomology to be",
      "match": "§10.5 up to the definition of H^1_Iw and the map κ; (10.7) and (10.8) are corrected as in E1, and the norm relation as in E4."
     }
    ],
@@ -2871,7 +2811,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.2, pp. 70–71 (arXiv v2); published pp. 196–197",
-     "excerpt": "We now reinterpret the space X+∞ appearing in Theorem 13.8 in terms of a Greenberg Selmer group.",
      "match": "Steps (1)–(4) of §13.5.2 and the first sentence of Example 13.22."
     }
    ],
@@ -2911,7 +2850,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.3, pp. 71–72 (arXiv v2), with Remark 13.23; published pp. 197–198",
-     "excerpt": "We let rV denote the order of the pole of L∞(V,s) at s = 1.",
      "match": "The definition of r_V, the example V = ℚ_p(n) and Remark 13.23."
     }
    ],
@@ -3022,7 +2960,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.3, Conjecture 13.21, p. 71 (arXiv v2); published p. 197",
-     "excerpt": "If rV = rV∨ = 0, then the characteristic ideal of the Pontryagin dual of H1",
      "match": "Conjecture 13.21 (i)–(ii) with the surrounding hypotheses of §13.5.3."
     }
    ],
@@ -3126,7 +3063,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.3, Example 13.22 and Remark 13.23, pp. 71–72 (arXiv v2); published pp. 197–198",
-     "excerpt": "so we see that Greenberg’s conjecture is essentially a (twist of) Theorem 13.8",
      "match": "Example 13.22 (\"essentially a (twist of) Theorem 13.8\") and Remark 13.23; the twist bookkeeping is made explicit here."
     }
    ],
@@ -3165,7 +3101,6 @@
     {
      "sourceId": "RJW-PADIC-L",
      "locator": "§13.5.1, Definition 13.19(2) and Remark 13.20, p. 70 (arXiv v2); published p. 196",
-     "excerpt": "Greenberg Selmer groups and Bloch–Kato Selmer groups coincide in some fundamental examples.",
      "match": "Definition 13.19(2) and Remark 13.20."
     }
    ],

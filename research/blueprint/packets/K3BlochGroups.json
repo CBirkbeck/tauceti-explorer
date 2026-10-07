@@ -4128,7 +4128,7 @@
    ],
    "proofSteps": [
     "V.4 owns this input. Its stage asks to prove the homology-stability lemmas 'here when they are not supplied by H', and no stage supplies them: StableHomotopyKTheory H.3 is the plus construction and GeneralAlgebraicKTheory K.2:plus the ring and plus model; neither states homological stability.",
-    "The proof is Suslin's [183] (Homology of GL_n, characteristic classes and Milnor K-theory). The K-book states Proposition IV.1.15 without proof, and the paper was not obtained, so the proof is a recorded gap.",
+    "Use the scalar and affine-block homology invariance, independent-frame complex, frame-coinvariant algebra splitting, and simultaneous e-injectivity/stability induction of V.4/frame-spectral-sequence-collapse, following Suslin's characteristic-class/Milnor-homology paper (Su84 §§1–2). The normalized Milnor quotient map is V.4/normalized-milnor-homology-map; the general group-homology proof inputs remain its named supplier gaps.",
     "Specialise to n = 3 for the extension of ψ to H_3(GL(F), ℤ)."
    ],
    "acceptance": [
@@ -4139,7 +4139,9 @@
    "prerequisites": [
     "mathlib:groupHomology",
     "mathlib:Matrix.GeneralLinearGroup",
-    "K2SymbolsBrauer:T.2:symbols"
+    "K2SymbolsBrauer:T.2:symbols",
+    "K3BlochGroups:V.4/frame-spectral-sequence-collapse",
+    "K3BlochGroups:V.4/normalized-milnor-homology-map"
    ],
    "sources": [
     {
@@ -4917,7 +4919,7 @@
    ],
    "proofSteps": [
     "Write B_2 = U ⋊ T_2 with U ≅ (F, +); by the Lyndon–Hochschild–Serre spectral sequence it suffices that H_p(T_2, H_q(U, ℤ)) = 0 for q > 0.",
-    "Prove this vanishing for infinite F by Suslin's argument [184, §3]; the K-book cites it without proof and the paper was not obtained (recorded gap)."
+    "Apply V.4/affine-block-homology to the triangular subgroup and its diagonal projection over the infinite field. Scalar homology vanishing for the unipotent coefficient groups gives the integral homology equivalence, naturally in the field; this uses the general homology supplier inputs recorded in that refinement."
    ],
    "acceptance": [
     "The statement fails for F = F_4: B_2 = U ⋊ T_2 with |U| = 4 and |T_2| = 9 coprime, so H_2(B_2, ℤ) ≅ H_2(T_2) ⊕ H_2(U)_{T_2} = ℤ/3 ⊕ ℤ/2, because T_2 acts on H_2(U, ℤ) = ∧²_{F_2}F_4 through the norm to F_2, which is trivial.",
@@ -4926,7 +4928,8 @@
    "prerequisites": [
     "K3BlochGroups:V.4/monomial-subgroups",
     "mathlib:groupHomology",
-    "mathlib:Matrix.GeneralLinearGroup"
+    "mathlib:Matrix.GeneralLinearGroup",
+    "K3BlochGroups:V.4/affine-block-homology"
    ],
    "sources": [
     {
@@ -6210,7 +6213,7 @@
    ],
    "proofSteps": [
     "Upper bound: 6c = 0 in every field with at least four elements (V.3/angle-bracket-homomorphism).",
-    "Lower bound in B(R): a homomorphism from B(R), built from the Rogers dilogarithm L(x) = Li_2(x) + ½ log(x) log(1 − x) on (0, 1) suitably extended to R, to R modulo a lattice of rational multiples of π², under which c has image of order six. This is Suslin's argument [Su91, pp. 219–220], cited by the K-book and not read (gap); the Rogers function is requested from Polylogarithms P.1. The Bloch-Wigner function cannot be used: it vanishes on P¹(R) and kills all torsion.",
+    "For the lower bound in B(R), use the Rogers homomorphism of V.5/real-rogers-detector with period π²Z. Its three generator formulas send c=[2]+[−1] to −π²/6, of exact order six. The positive-presentation descent is Suslin Lemma 1.6, pp219–220; its refinement and the analytic interval identities are the named P.1/descent requirements. Bloch–Wigner vanishes on real points and cannot give this lower bound.",
     "The map B(Q) → B(R) induced by the inclusion (V.4/suslin-functoriality) is a homomorphism, so the order of c in B(Q) is at least its order in B(R); with the upper bound it is six in both.",
     "B(Q) is cyclic of order six (V.5/k3-Q-splitting), so an element of order six generates it."
    ],
@@ -6224,7 +6227,9 @@
     "K3BlochGroups:V.3/angle-bracket-homomorphism",
     "K3BlochGroups:V.3/element-c",
     "K3BlochGroups:V.4/suslin-functoriality",
-    "Polylogarithms:P.1"
+    "Polylogarithms:P.1",
+    "K3BlochGroups:V.5/real-rogers-detector",
+    "K3BlochGroups:V.5/universal-class-order-six"
    ],
    "sources": [
     {
@@ -7322,7 +7327,9 @@
     "K3BlochGroups:V.5/milnor-k3-finite-field",
     "K3BlochGroups:V.4/enhanced-mu",
     "K3BlochGroups:V.3/bloch-group",
-    "K3BlochGroups:V.4/enhanced-tor"
+    "K3BlochGroups:V.4/enhanced-tor",
+    "K3BlochGroups:V.5/finite-stabilization-equivalence",
+    "K3BlochGroups:V.5/finite-enhanced-torsion-sequence"
    ],
    "sources": [
     {
@@ -7372,7 +7379,9 @@
    "prerequisites": [
     "K3BlochGroups:V.5/finite-field-bloch-comparison",
     "K3BlochGroups:V.5/bloch-finite-field-mod-n",
-    "K3BlochGroups:V.3/cgz-convention-comparison"
+    "K3BlochGroups:V.3/cgz-convention-comparison",
+    "K3BlochGroups:V.5/norm-one-cartan-embedding",
+    "K3BlochGroups:V.5/cartan-homology-modulo-n"
    ],
    "sources": [
     {

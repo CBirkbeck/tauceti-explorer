@@ -1,5 +1,8 @@
 {
- "purpose": "The roadmaps the maintainer wants finished next (2026-10-05): every roadmap covering these areas. Their planning, review, assembly and fix issues carry the label `focus`, and workers take `focus` issues first (WORKERS.md). Edit this file to change the focus; the next intake sync relabels the issues.",
+ "purpose": "The roadmaps the maintainer wants finished next (2026-10-05): every roadmap covering these areas. Their planning, review, assembly and fix issues carry the label `focus`, and workers take `focus` issues first (WORKERS.md). The areas listed under `top` come before every other area (2026-10-07): their issues also carry the label `top`, and workers take those first of all. Edit this file to change the focus; the next intake sync relabels the issues.",
+ "top": [
+  "Caraiani–Newton"
+ ],
  "areas": {
   "Habiro rings and Habiro cohomology": [
    "HabiroRings",
@@ -39,7 +42,8 @@
    "GL2ModularityLifting",
    "PotentialModularityAndCompatibleSystems",
    "EllipticCurveModularity",
-   "EllipticModularityEffectiveComparisons"
+   "EllipticModularityEffectiveComparisons",
+   "EllipticCurveModularityPartII"
   ],
   "BSD in rank 0 and 1": [
    "RankZeroOneBSD",
@@ -105,20 +109,24 @@
    "OverconvergentAutomorphicForms",
    "AutomorphicGaloisRepresentations",
    "AutomorphicGaloisRepresentationsPartII",
-   "ModularityAndLanglandsExtensions"
+   "ModularityAndLanglandsExtensions",
+   "PotentialAutomorphyInfrastructurePartII"
   ],
   "Lawrence–Venkatesh": [
    "MordellLawrenceVenkatesh",
    "HodgeStructuresPartII"
   ],
   "Caraiani–Newton": [
-   "EllipticCurveModularityPartII",
-   "PotentialAutomorphyInfrastructurePartII",
+   "EllipticCurveModularityImaginaryQuadratic",
+   "CrystallineLocalGlobalCompatibilityCM",
+   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
    "PotentialAutomorphyInfrastructure",
    "LocalGaloisDeformationRings",
    "IntegralHeckeAndGaloisDeterminants",
    "ArithmeticGaloisRepresentations",
-   "EffectiveDiophantineMethods"
+   "EffectiveDiophantineMethods",
+   "ArithmeticLocallySymmetricSpaces",
+   "IgusaVarietiesAndTorsionConcentration"
   ]
  }
 }

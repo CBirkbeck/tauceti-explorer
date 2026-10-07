@@ -29,7 +29,7 @@
     {
       "key": "CG.1",
       "title": "Rational algebraic representations and primitive powers",
-      "description": "Specialize the existing finite-comodule category and SplitK0 to GSp. Construct standard and multiplier representations, primitive exterior powers with ν-valued contraction, and their split decomposition and fundamental highest weights. Prove the finite Hom/weight base-change theorem, construct rational models and classify rational irreducibles with unrestricted integer multiplier exponent. Induce the canonical Q-to-C and Q-to-K ring equivalence using the existing SplitK0 functorial map.",
+      "description": "Specialize the existing finite-comodule category and SplitK0 to GSp. Construct standard and multiplier representations, primitive exterior powers with ν-valued contraction, and their split decomposition and fundamental highest weights. Prove the finite Hom/weight base-change theorem, construct the rational highest tensor component using semisimplicity and its one-dimensional top line, and classify rational irreducibles with unrestricted integer multiplier exponent. Induce the canonical Q-to-C and Q-to-K ring equivalence using the existing SplitK0 functorial map.",
       "requires": [
         "ClassicalGroupsPartII:CG.0",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
@@ -97,7 +97,7 @@
       "sha256": "7d81adf60297c1a756e899028ca077a0861ee21275e62992bd7dc8ec670f88bb",
       "accessed": "2026-10-05",
       "readSections": [
-        "§7.9, pp.131–132: Cartan products and symplectic fundamental representations"
+        "§7.9, pp.131–132 and the symplectic dimension calculation continuing onto p.133: Cartan products and symplectic fundamental representations"
       ]
     },
     {
