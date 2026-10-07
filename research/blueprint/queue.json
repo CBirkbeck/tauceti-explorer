@@ -30433,7 +30433,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructure.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -30452,7 +30452,8 @@
     "BP-PotentialModularityAndCompatibleSystems--R24.3",
     "BP-TorsionCohomologyInfrastructure",
     "BP-WeightsInEtaleCohomology"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1018"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructure",
@@ -52365,8 +52366,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5705"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5705",
+   "finishedAt": "2026-10-07T08:31:01Z"
   },
   {
    "id": "REV-FIX-RT-RS-01",
