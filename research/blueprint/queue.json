@@ -24754,7 +24754,8 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES5",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #404"
   },
   {
    "id": "BP-ExcursionOperatorsAndSpectralAction--ES7",
