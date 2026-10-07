@@ -146,9 +146,9 @@ are in the packet and definitive reader. The actual supplier carriers are missin
 these omissions are not replaced by opaque predicates, arbitrary result types,
 or a set quotient pretending to be a geometric moduli space.
 
-Carrier groups: G1 global relative operators and bundles; G2 scheme/GIT and slices;
+Carrier groups: G1 global relative coherent operators and bundles; G2 scheme/GIT and slices;
 G3 relative coherent analytic families; G4 compact Kähler/Chern-Weil theory;
-G5 dg Lie/gauge deformation; G6 projective topology; G7 nonlinear metric flow;
+G5 determinant-rigidified dg Lie/gauge deformation and coarse-inertia comparison; G6 projective topology; G7 nonlinear metric flow;
 G8 primary Corlette proof; G9 gauge and moment-map compactness.
 G10 additionally records the regularity boundary of the coarse homeomorphism.
 
@@ -171,6 +171,7 @@ Example omission: TauCeti.NonabelianHodge.IsStableParameterConnection.line_stabl
 Example omission: TauCeti.NonabelianHodge.IsStableParameterConnection.zero_excluded
 Example omission: TauCeti.NonabelianHodge.IsStableParameterConnection.zero_higgs_iff
 Example omission: TauCeti.NonabelianHodge.IsStableParameterConnection.trivial_rankTwo_excluded
+Additional API/test obligations: TauCeti.NonabelianHodge.IsStableParameterConnection.equal_rank_ignored
 
 Omitted node: HodgeStructuresPartII:H.1/parameter-families
 Required inputs: G1; G11.
@@ -184,6 +185,7 @@ Example omission: TauCeti.NonabelianHodge.FixedDeterminantFamily.zero_fibre
 Example omission: TauCeti.NonabelianHodge.FixedDeterminantFamily.one_fibre
 Example omission: TauCeti.NonabelianHodge.FixedDeterminantFamily.absolute_derivative_excluded
 Example omission: TauCeti.NonabelianHodge.FixedDeterminantFamily.geometric_determinant_nonexample
+Additional API/test obligations: TauCeti.NonabelianHodge.FixedDeterminantFamily.mk, TauCeti.NonabelianHodge.FixedDeterminantFamily.iso_ext, TauCeti.NonabelianHodge.FixedDeterminantFamily.rigidification_inertia
 
 Omitted node: HodgeStructuresPartII:H.1/betti-framed
 Required inputs: G6; G11.
@@ -283,6 +285,7 @@ Example omission: TauCeti.NonabelianHodge.HarmonicBundlePresentation.trivial_lin
 Example omission: TauCeti.NonabelianHodge.HarmonicBundlePresentation.point
 Example omission: TauCeti.NonabelianHodge.HarmonicBundlePresentation.zero_higgs_unitary
 Example omission: TauCeti.NonabelianHodge.HarmonicBundlePresentation.tensor_stability_nonexample
+Additional API/test obligations: TauCeti.NonabelianHodge.HarmonicBundlePresentation.mk, TauCeti.NonabelianHodge.HarmonicBundlePresentation.hom_ext
 
 Omitted node: HodgeStructuresPartII:H.1/kahler-identities
 Required inputs: G4; G11.
@@ -299,6 +302,7 @@ Example omission: TauCeti.NonabelianHodge.DonaldsonFunctional.equal_metrics
 Example omission: TauCeti.NonabelianHodge.DonaldsonFunctional.rankOne_fixed
 Example omission: TauCeti.NonabelianHodge.DonaldsonFunctional.diagonal_kernel
 Example omission: TauCeti.NonabelianHodge.DonaldsonFunctional.missing_higgs_term
+Additional API/test obligations: TauCeti.NonabelianHodge.DonaldsonFunctional.nonharmonic_background
 
 Omitted node: HodgeStructuresPartII:H.1/higgs-metric-existence
 Required inputs: G7; G11.
