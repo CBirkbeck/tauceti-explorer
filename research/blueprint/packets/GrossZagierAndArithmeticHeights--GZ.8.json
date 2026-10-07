@@ -495,7 +495,8 @@
    ],
    "prerequisites": [
     "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
-    "GrossZagierAndArithmeticHeights:GZ.1",
+    "GrossZagierAndArithmeticHeights:GZ.1/coefficient-valued-height",
+    "GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing",
     "GrossZagierAndArithmeticHeights:GZ.8/chi-isotypic-mordell-weil-space",
     "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
     "mathlib:LinearMap",
@@ -1993,7 +1994,7 @@
    "prerequisites": [
     "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
     "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
-    "GrossZagierAndArithmeticHeights:GZ.5",
+    "GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization",
     "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
     "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
     "AutomorphicPadicLFunctions:L3",
@@ -2476,8 +2477,12 @@
    "prerequisites": [
     "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
     "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
-    "GrossZagierAndArithmeticHeights:GZ.6",
-    "GrossZagierAndArithmeticHeights:GZ.7",
+    "GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-cuspform",
+    "GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-coefficients",
+    "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
+    "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection",
+    "GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula",
+    "GrossZagierAndArithmeticHeights:GZ.7/classical-finite-height-sum",
     "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
     "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
     "mathlib:CuspForm",
