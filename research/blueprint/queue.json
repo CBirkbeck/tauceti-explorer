@@ -52703,7 +52703,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5707"
   },
   {
    "id": "REV-FIX-RT-RS-05",
