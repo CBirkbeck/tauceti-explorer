@@ -1,164 +1,60 @@
-# Handoff — BP-DiamondsAndVStacks (issue #712)
+# Handoff — BP-DiamondsAndVStacks, issue #712
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-d0`.
+Agent: Codex (GPT-6), session `codex-rYXgzb`. Branch: `codex-rYXgzb-diamonds-blueprint`.
 
-## Deliverables
+## Completed target pass
 
-- `research/blueprint/packets/DiamondsAndVStacks.json` — 72 nodes (11 definitions,
-  13 constructions, 39 theorems, 8 lemmas, 1 application), 188 API items, 96 unit
-  tests, 39 planets, 98 baseline declarations, 8 gaps, 4 requests, 5 structural
-  proposals. `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/DiamondsAndVStacks.md` — 3062 lines, one section per
-  layer with every node's statement, hypotheses, proof outline, API table, uses,
-  unit tests, acceptance items, prerequisites and sources, then the request table,
-  the gaps, the structural proposals and the acceptance tests the stage texts name.
-- `research/blueprint/suggested/DiamondsAndVStacks.lean` — 996 lines of suggested
-  signatures and `example` unit tests, everything `sorry`.
-- This note.
+The 72-node checkpoint was continued in place, with every retained node identifier preserved. All seven scoped stages D0–D6 are **planned**, and the packet status is **complete** under PROTOCOL §0: every target has a statement, construction/proof, sources and a dependency chain ending at the pinned baseline, an exact foreign node, a supplier request or an explicit gap. No stage is closed. Every implementation status is unchecked. This is ready for independent blueprint review, not a claim of source closure or formalisation.
 
-## Checks run
+Counts: 12 definition nodes, 50 theorem nodes, 8 lemma nodes, 18 construction nodes, 1 application nodes, 1 comparison nodes; 213 API items; 116 definition/construction tests; 41 planets; 106 baseline declarations; 13 sources; two source gaps; five supplier requests. Planets respect the per-stage limit.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/DiamondsAndVStacks.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**, with the pinned declaration index in place, so all 98
-  baseline references were resolved against it and not merely checked for form.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths → 0 problems.
-- `python3 -m unittest discover -s tests` → OK.
+The four deliverables are the packet, definitive reader, suggested file and this note. The reader now states every target, hypothesis, proof step, API, test, use, prerequisite and acceptance criterion, including all routed source additions and the four confirmed area findings. No atlas, queue, content or other packet files were changed.
 
-**The Lean file was not compiled.** No Lean was run for this job. The Mathlib build
-on this machine is a shared cache that must not be rebuilt, and this working tree
-has no elaborated dependency modules. Nothing in this packet is claimed to be
-formalised and every `implementationStatus` is `unchecked`.
+## Verification
 
-## What this job rested on
+- `scripts/check_blueprint.py` with the pinned declaration index: 0 errors and 0 warnings. All 106 baseline names resolve; declaration statements were read, including the added Tau Ceti pro-constructible API and Mathlib fibered-category, transformation/modification and ordinal-cofinality definitions.
+- `lean-check research/blueprint/suggested/DiamondsAndVStacks.lean`: elaborated successfully at the pinned Mathlib build; only warnings are declarations using `sorry`. No library rebuild, dependency update or language server was used.
+- Literal excerpt audit against the read source texts, with Unicode/whitespace normalization: 160 PDF excerpts checked, zero mismatches. The two quoted source findings have a version ledger and correction-search provenance.
+- `research/blueprint/intake.py check-files` on the four deliverables: 0 problems. `git diff --check`: passed.
 
-There was **no integrated decomposition**, **no draft** and **no reviewed library
-audit** for this roadmap: `data/library-coverage.json` has no entry whose key starts
-with `DiamondsAndVStacks`, which I checked by listing all 1316 keys of its `layers`
-map rather than by probing seven strings. So the packet was written from the source
-and from the pinned libraries directly.
+The suggested file contains substantive mathematical bodies: relative spectral predicates, inverse topology, spectral submersions and limits, finite-T0 pro-presentations, cutoff cardinals and completion bounds, Pro and its Hom formula, compact-Hausdorff presentations, qc/qs sheaf predicates, actual pseudofunctor stackification and two-fibre categories, finite-quasicompact perfectoid precoverages, sheaf quotient/atlas definitions, spatial and representability predicates, marked-map presheaves and point localizations. The previous opaque propositions were removed.
 
-The source is Scholze, *Étale cohomology of diamonds*, arXiv:1709.07343, SHA-256
-`78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc`. It was
-downloaded again in this session and the hash reproduces the copy already in the
-scratch space byte for byte. Sections 2, 4, 7–13 and 15 were read in full with all
-proofs; sections 1, 3, 5, 6, 14 and 16 were read for the statements this roadmap
-imports or exports.
+This is **Mathlib-relative elaboration**. Tau Ceti’s pinned `Topology/Spectral/ProConstructible` source was read, but its dependency olean is absent from the shared build. The prototype therefore uses the equivalent explicit patch-closed predicate, and does not claim to have compiled a Tau Ceti import. Physical perfectoid/adic examples must be instantiated with their suppliers; geometric consequences do not follow from arbitrary category/topology parameters.
 
-**A note on the extraction, because it changed what could be read.** The first pass
-of the scratch PDF extractor associated font resources globally rather than per page,
-so it applied a mathematics font's `ToUnicode` map to the text-italic font. Since
-every theorem statement in the source is set in italics, every theorem came out as an
-unreadable substitution cipher — `A⋗⅁pf:Y→X⋊℧⅁⪯̸⋉⋊ℶdpe∖℧ec≈⋊ℶd∼p⅁ce∼` for "A map
-f : Y → X of affinoid perfectoid spaces". I rewrote the extractor to parse the
-object streams and each page's own `/Resources /Font` dictionary
-(`$SCRATCH/pdftext4.py`); after that the italic text decodes correctly and the
-printed page numbers of the file coincide with the extraction page numbers. Every
-excerpt in this packet comes from that second pass.
+## Signature refinement contract
 
-## The three findings that changed the plan
+`signatureCoverage` records 87 typed proposed API names and 20 complete tagged test signatures. The remaining 222 API/test signatures are individually named with their exact mathematical statements and the required interface, both in the packet and in the suggested file’s comment ledger. An objectwise calculation or a sheaf-valued specialization is not counted as the full stack-valued test. Conditions without a suitable carrier are omitted under PROTOCOL §13, never replaced by arbitrary proposition fields.
 
-1. **Mathlib already has the absolute spectral-space theory.** `SpectralSpace` is
-   ECD Definition 2.1 verbatim, `IsSpectralMap` is the absolute morphism condition,
-   `WithConstructibleTopology` with `compactSpace_withConstructibleTopology` is the
-   constructible topology with its quasicompactness, `Topology.IsConstructible`,
-   `Topology.IsLocallyConstructible` and `IsRetrocompact` are there, `GeneralizingMap`
-   and `StableUnderGeneralization` are there, and `PrimeSpectrum` carries a
-   `SpectralSpace` instance, so ECD Theorem 2.2 (ii) ⇒ (i) is proved. D0 therefore
-   plans only locally spectral spaces and the relative morphism condition, the
-   *profiniteness* of the constructible topology, ECD 2.3–2.11, the pro-category
-   (Mathlib has `Ind`, not `Pro`) and Hochster realization.
-2. **Mathlib already has descent data, prestacks and stacks.**
-   `Mathlib/CategoryTheory/Sites/Descent/` has `Pseudofunctor.DescentData`,
-   `IsPrestack` with `sheafHom`, `IsStack`, `toDescentData` and
-   `isEquivalence_toDescentData`. That is ECD Definition 9.1 together with the
-   statement that a stack is one for which `F(X) → F(Y/X)` is an equivalence. D0
-   plans only stackification, 2-fibre products and groupoid quotients, and a
-   `restructure` entry proposes narrowing D0's text to match.
-3. **`AlgebraicGeometry.Scheme.qcPrecoverage` is literally ECD's covering
-   condition**, transported to schemes: "every affine open of the base can be covered
-   by a finite union of images of quasi-compact opens of the components". The D2
-   site nodes cite it as the model and as a unit test.
+Every open stage’s `remaining` list names the affected nodes. Resume there and at each node’s signature ledger: instantiate geometric definitions with the actual perfectoid/adic category; connect stack-valued slices and quotients to the existing Mathlib pseudofunctors; and state the outstanding tests under their given names. The named-target ledger additionally records 49 theorem/lemma/application/comparison signatures requiring their carrier and interface; all are named with their exact statements in the suggested comment ledger. Typed theorem forms are baseline-relative specializations, with the definitive reader giving the full targets. The generic prototype is not a replacement perfectoid library.
 
-Tau Ceti's `TauCeti/AlgebraicGeometry/AdicSpace/` has 381 declarations — the
-valuation spectrum, its patch topology with quasicompactness and the closed
-embedding into a product of copies of `Bool`, pro-constructibility of the loci
-`|f| ≤ 1`, `spectralSpace_spa_of_pairOfDefinition`,
-`spectralSpace_cont_of_pairOfDefinition`, the rational-subset theory and the
-analytic locus. This is exactly the anchor RS-05 names as D0's supplier, and it is
-cited, not re-planned.
+## Precise open inputs
 
-## RS-05 and the layer boundaries
+- **Hochster realization has no proof in the source.** The finite-T0 inverse-system construction is planned explicitly via finite distributive sublattices of qc opens. The additional construction of a commutative ring realizing an arbitrary spectral space is still an input gap: ECD 2.2 cites Hochster without proof, and the attempted freely hosted original proof could not be retrieved. Retain this separate target, locate Hochster Theorem 6 and transcribe its ring construction before calling D0 closed.
+- **Noncompact period-torsor component transitivity.** For the specific G(Q_p)-torsors of GLX Proposition 3.12, Proposition 6.6(2) and Lemma 6.12, prove that invariant clopens separate component orbits, or give an independent proof that the action on components is transitive over the connected period base. The compact/profinite corollary does not establish these noncompact applications. E01 refutes the universal lemma but not their conclusions; this plan exposes the remaining geometric input.
 
-RS-05 (accepted 23 September 2026) keeps D1–D6 and narrows D0; this packet follows
-it. Two boundary facts are worth repeating because neither is visible from the D
-stage texts alone:
+- **SchemeAndStackFoundations:SF.2.** ECD 9.5: a finitely presented faithfully flat cover of a strictly henselian local scheme admits a finite flat locally free refinement. One route is Stacks 0571–0572 (quasi-finite flat refinement) followed by the finite local-factor theorem over a henselian ring. For R=C⁺/C⁰⁰, a valuation ring with algebraically closed fraction field, every finite flat cover has an R-valued section: choose a generic point and extend it by properness and the valuation criterion. Strict henselianity alone does not split arbitrary finite flat covers. Consumers: DiamondsAndVStacks:D3/descended-subsets-are-cut-out-by-functions.
+- **AdicSpacesPartII:R2.** Raynaud–Gruson for valuation rings of arbitrary height: a flat finite-type algebra over a valuation ring is finitely presented. Existing R2/flat-tft-is-tfp covers complete rank-one O_K; extend it to the arbitrary-height C⁺ used in ECD 9.5. Also extend R2/specialisation-map from classical closed points to lifting K-valued special-fibre points to O_C-valued points for the flat finitely presented formal model in that lemma. Consumers: DiamondsAndVStacks:D3/descended-subsets-are-cut-out-by-functions.
+- **TropicalAndBerkovichArithmetic:TB.0.** Extend the existing node TB.0/spectrum from normed rings to Banach and complete Tate rings and supply the normalized seminorm space (|ϖ|=1/2, canonically independent of normalization), its evaluation topology and the theorem that Spa(R,R⁺)→M(R) is the maximal Hausdorff quotient for complete Tate Huber pairs. Make an early TB.0:spectrum substage depending only on LI.0 and Tau Ceti AdicSpaces Layer 2; no dependency on D5. D5 only extends this functor to small v-sheaves (ECD 13.10–13.13). Consumers: DiamondsAndVStacks:D5/berkovich-quotient.
+- **AdicSpacesPartII:R2.** A category of pre-adic spaces over Spa(ℤ_p,ℤ_p) allowing nonanalytic points, associated pre-adic spaces for complete integral Huber pairs and formal schemes, open gluing and maps from perfectoid untilts. Existing noetherian-formal-scheme-as-adic-space is not general enough for O_C; extend the mapping-functor construction to the complete nonnoetherian pairs used in Berkeley §18.1. Consumers: DiamondsAndVStacks:D6/pre-adic-diamondification.
+- **AdicSpacesPartII:R0.** Rigid K-varieties, seminormalization as a finite universal homeomorphism and seminormality criterion O_X≅ν_*Ô_X for the completed pro-étale structural sheaf (KL16 Theorem 8.2.3), including perfectoid seminormality and affinoid function recovery. D6 uses this analytic input to prove Berkeley Proposition 10.2.3; it does not redevelop seminormalization. Consumers: DiamondsAndVStacks:D6/seminormal-rigid-full-faithfulness.
 
-- **ECD 7.8–7.11 and 4.2–4.4 belong to `PerfectoidSpaces:P6`**, whose own stage text
-  claims the affinoid pro-étale calculus, the pro-category equivalence 7.10, the
-  stability assertions 7.11, the Zariski-closed-immersion statement 7.9 and the
-  κ-small perfectoid spaces. D1's text enumerates "7.1–7.7 and 7.12–7.23" and is
-  silent about them. They are requested here. Putting them in D2, which is the other
-  natural guess, would make a cycle, since D2 requires D1.
-- **ECD 15.3 belongs to `AdicEtaleGeometry:A4`** by that stage's own text, and
-  Huber's étale and finite étale sites belong to `AdicEtaleGeometry:A2`. Both are
-  requested; D6 states Lemma 15.6 against those definitions.
+## Confirmed area findings and ownership
 
-`PerfectoidSpaces:P4` is requested for ECD §5.
+- **RT-AREA-padic-1/3:** D6 now plans Berkeley 18.1–18.2 for all pre-adic targets, including Spd O_E, Spd O_C, integral pairs, formal spectra and integral symmetric powers. Integral bases retain the special-fibre locus. The map of integral Galois bases is a proper v-cover and a sheaf quotient, with no freeness assertion on the special fibre. The underlying-space homeomorphism is analytic-only. D6 already precedes RF0/RF2/GS0/GS1, so no new consumer edge is requested.
+- **RT-AREA-padic-1/10:** TB.0’s existing spectrum node is the sole owner of the seminorm carrier. Its complete-Tate and maximal-Hausdorff extensions are requested in an early substage with only LI.0 and Tau Ceti AdicSpaces Layer 2 inputs; D5 retains ECD 13.10–13.13 and requests the outward TB.0 → D5 edge.
+- **RT-AREA-padic-1/11:** general canonical compactification remains DiamondEtaleCohomology:C4, ECD §18. RS-05’s ownership text needs that correction. D2 owns sites/functions, D3 effective descent, D4 quotients and D5 §§11–13 spatial geometry. The elementary ECD 9.9 proof is independent of the subsequent C4 theory.
+- **RT-AREA-padic-1/12:** D0 keeps ordinary Set/Ab profinite sheaves and ultrafilter stalks; the infinity-categorical extensions route outward to EnhancedDerivedSheaves. No E1/E2 → D0 dependency or second higher-sheaf model is introduced.
 
-## What remains
+Further proposals preserve the current stage ids: divide D0 into spectral/sites/size/stacks and D5 into spatial/criterion/representability; isolate integral D6:pre-adic. These are maintainer proposals in the packet, not atlas mutations. P6 remains the owner of ECD 7.8–7.11 and cutoff-sized perfectoid objects. A1, rather than the obsolete A2 site pointer, supplies adic étale sites. A4’s exact ECD 15.3 node is imported.
 
-No layer is closed. The eight gaps, in rough order of how much they block:
+## Sources and corrected statements
 
-1. **SGA 4 Exposé VI was not read.** ECD recalls Définitions 1.1, 1.7, 1.13 and 2.3
-   and Corollaires 1.17, 2.6, 2.8 on pp. 40–41, so the statements are available and
-   quoted; the proofs of the corollaries, which say qcqs conditions may be checked
-   after pullback to a generating subcategory, are not. Next source action: SGA 4,
-   Tome 2, Exposé VI, §§1–2.
-2. **One step of the proof of ECD Theorem 8.7 is not proved in the source.** The
-   almost identification of `S⁺/ϖ ⊗_{R⁺/ϖ} S⁺/ϖ` with `T⁺/ϖ` carries a reference
-   marker rather than an argument. This is the completed-integral equalizer step the
-   roadmap text names, and it is the only step of the v-descent proof not read in
-   full.
-3. **Two ECD proofs are left to the reader**: Proposition 8.3 (the perfectoid sheaf
-   categories are algebraic) and Proposition 11.19 (the locally spatial analogue of
-   11.18). Both statements are planned with the verification written out as proof
-   steps; nothing was read.
-4. **Hochster realization has no proof in ECD.** Next source action: Hochster,
-   *Prime ideal structure in commutative rings*, Trans. AMS 142 (1969), Theorem 6.
-5. **Huber's étale and finite étale sites were not read**, so the right-hand sides of
-   the equivalences of Lemma 15.6 are taken on trust from ECD's reference.
-6. **Stacks Project tag 0APA**, cited inside the proof of ECD Lemma 2.7, was not
-   read; the proof recorded in that node reconstructs the step from Lemmas 2.3 and
-   2.4 and should be checked against the tag.
-7. **The formal-scheme input of ECD Lemma 9.5** (`Spf O⁺(V)` flat and topologically
-   of finite type over `Spf C⁺`, and the refinement of a finitely presented
-   faithfully flat cover of a strictly henselian local ring by a finite one) is not
-   planned anywhere; `AdicEtaleGeometry:A2` is asked for formal schemes and is the
-   likely owner.
-8. **ECD's proof of Lemma 15.6 is compressed**; the étale half is obtained by
-   combining the description of `|Y^♢|` with the local structure of étale maps, and
-   the node writes that combination out, which is more than the source does.
+ECD arXiv v4 was re-fetched and hashed; the checkpoint’s ECD source log is retained as provenance. The current target pass checked §§2, 4, 7–13 and 15 and the routed §14.9/§22.12 inputs. Berkeley lectures 8–10/17 and 18.1–18.2 supply the geometric and integral conventions and 10.2.3’s seminormal rigid full faithfulness. Arc supplies spectral submersions and the limit counterexample. KL15 supplies inverse topology; the vector-bundle comparison is **KL16 3.5.8**, not a KL15 theorem. KL16 8.2.3 is the requested seminormal function-recovery input. Heuer/HK/GLX were read at the routed passages. Sch12 6.18’s completed integral tensor product is already supplied by the exact P2 node. SGA IV Tome 2, VI §§1–2/5/8.7 supplies the ordinary topos interfaces, filtered cohomology and limit comparison. Stacks 02UW supplies the irreducible constant-sheaf argument without a noetherian hypothesis; 02ZM/02ZP/04Y1/044O supply stackification and groupoid quotients. Sources are publicly linked and hashed in the packet. No extracted texts or scratch paths are committed.
 
-## Structural proposals
+Two source findings are recorded. GLX E01 is inherited with its origin and independent extraction review; that review read the preprint/LaTeX and explicitly did not reproduce the published PDF. The earlier extraction worker’s published-page verification and hash are recorded separately, with no claim that this run performed it. The dense integer-orbit quotient of Z_p disproves the unrestricted component formula, but does not disprove the paper’s geometric conclusions. The valid separated-component-orbit theorem and compact/profinite corollary are stated; the three noncompact applications remain the explicit geometric gap.
 
-1. `DiamondsAndVStacks:D0`'s only `requires` entry in `data/atlas.json` is the marker
-   `UPSTREAM:ECD:BASE`, which is not a stage id and can appear neither as a node
-   prerequisite nor as a request supplier, so D0 has no supplier edge in the atlas at
-   all. RS-05 already records the intended supplier in `suppliedBy`; the proposal is
-   to put it into `requires`.
-2. Add one sentence to D1's and D2's stage texts saying that the pro-étale morphism
-   calculus is imported from P6.
-3. Split D0 into four sub-layers (spectral, sites, size, stacks): its text asks for
-   four independent developments with four different consumer sets.
-4. Narrow D0's stack paragraph, because the pinned Mathlib now has descent data,
-   prestacks and stacks.
-5. Split D5, which carries ECD 11.17–11.31, 12.12–12.21 and all of §13 and is the
-   largest single load in the roadmap, into spatial / criterion / representability.
+ECD 7.12’s “left adjoint” conflicts with its final-object construction and counit. The node uses the right-adjoint universal property and records this as a manuscript-local misprint, pending this blueprint’s independent review. The current arXiv history, author list and targeted correction search are recorded. The w-local inclusion is not full; counit isomorphisms are tested only for a one-point rank-one geometric space. Localizations use generalizations. Strict henselianity alone does not split arbitrary finite flat covers: ECD 9.5’s splitting step uses the valuation ring with algebraically closed fraction field and properness.
 
-## Where to resume
+## Next action
 
-The packet is complete against the source for the sections in scope. The next real
-work is source reading, in the order of the gap list: SGA 4 VI first, because three
-D0 nodes quote it and nothing else in the atlas will supply it; then the one missing
-step in the proof of Theorem 8.7, which is the only hole in an otherwise fully read
-v-descent argument; then Huber, which D6 and `AdicEtaleGeometry:A2` both need.
+Independent review checks source faithfulness, target coverage, supplier hypotheses, ownership, API/tests, the signature-refinement ledger and source corrections. Accepted open stages require the work above before closure. All resumption information is in committed deliverables; the job scratch directory is discarded after the pull request opens.
