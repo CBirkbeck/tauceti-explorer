@@ -1,5 +1,6 @@
 import Mathlib.Algebra.Lie.Classical
 import Mathlib.AlgebraicGeometry.AffineSpace
+import Mathlib.AlgebraicGeometry.Geometrically.Connected
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.AlgebraicGeometry.ZariskisMainTheorem
 import Mathlib.Analysis.CStarAlgebra.Matrix
@@ -138,7 +139,9 @@ example (ρ : Γ →* Matrix.GeneralLinearGroup (Fin 1) K)
   sorry
 
 -- TraceFreeAdjoint.test_char_two_no_splitting
-example : (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)) ∈ LieAlgebra.SpecialLinear.sl (Fin 2) (ZMod 2) := by
+example : (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)) ∈ LieAlgebra.SpecialLinear.sl (Fin 2) (ZMod 2) ∧
+    ¬ IsCompl (LinearMap.ker (Matrix.traceLinearMap (Fin 2) (ZMod 2) (ZMod 2)))
+      (Submodule.span (ZMod 2) {(1 : Matrix (Fin 2) (Fin 2) (ZMod 2))}) := by
   sorry
 
 -- TraceFreeAdjoint.test_irreducible_no_invariants
@@ -152,6 +155,13 @@ end TraceFreeAdjoint
 /-- The trace-free adjoint representation as an object of `Rep K Γ`. -/
 abbrev adRep (ρ : Γ →* Matrix.GeneralLinearGroup (Fin r) K) : Rep K Γ :=
   Rep.of (TraceFreeAdjoint.rep ρ)
+
+/-- For finitely generated `Γ`, `H¹(Γ, ad⁰ρ)` commutes with extension of the coefficient field. -/
+theorem TraceFreeAdjoint.baseChange_H1 [Group.FG Γ] {L : Type} [Field L] (f : K →+* L)
+    (ρ : Γ →* Matrix.GeneralLinearGroup (Fin r) K) :
+    Module.finrank L (groupCohomology (adRep ((Matrix.GeneralLinearGroup.map f).comp ρ)) 1) =
+      Module.finrank K (groupCohomology (adRep ρ) 1) := by
+  sorry
 
 -- TraceFreeAdjoint.test_trivial_free_abelian
 example (r : ℕ) :
@@ -202,7 +212,7 @@ example [IsEmpty ι] : IsQuasiUnipotentAtInfinity T ρ := by
 
 -- BoundaryMonodromyData.test_Gm_root_of_unity
 example (ρ : Multiplicative ℤ →* Matrix.GeneralLinearGroup (Fin 1) ℂ) :
-    IsQuasiUnipotentAtInfinity (fun _ : Unit => Multiplicative.ofAdd (1 : ℤ)) ρ ↔
+    IsQuasiUnipotentAtInfinity ![Multiplicative.ofAdd (1 : ℤ), Multiplicative.ofAdd (-1 : ℤ)] ρ ↔
       ∃ n : ℕ, 0 < n ∧
         ((ρ (Multiplicative.ofAdd 1) : Matrix.GeneralLinearGroup (Fin 1) ℂ) 0 0) ^ n = 1 := by
   sorry
@@ -210,14 +220,14 @@ example (ρ : Multiplicative ℤ →* Matrix.GeneralLinearGroup (Fin 1) ℂ) :
 -- BoundaryMonodromyData.test_Gm_not_quasiUnipotent
 example (ρ : Multiplicative ℤ →* Matrix.GeneralLinearGroup (Fin 1) ℂ)
     (h : (ρ (Multiplicative.ofAdd 1) : Matrix.GeneralLinearGroup (Fin 1) ℂ) 0 0 = 2) :
-    ¬ IsQuasiUnipotentAtInfinity (fun _ : Unit => Multiplicative.ofAdd (1 : ℤ)) ρ := by
+    ¬ IsQuasiUnipotentAtInfinity ![Multiplicative.ofAdd (1 : ℤ), Multiplicative.ofAdd (-1 : ℤ)] ρ := by
   sorry
 
 -- BoundaryMonodromyData.test_unipotent_infinite_order
 example (ρ : Multiplicative ℤ →* Matrix.GeneralLinearGroup (Fin 2) ℂ)
     (h : ((ρ (Multiplicative.ofAdd 1) : Matrix.GeneralLinearGroup (Fin 2) ℂ) :
       Matrix (Fin 2) (Fin 2) ℂ) = !![1, 1; 0, 1]) :
-    IsQuasiUnipotentAtInfinity (fun _ : Unit => Multiplicative.ofAdd (1 : ℤ)) ρ ∧
+    IsQuasiUnipotentAtInfinity ![Multiplicative.ofAdd (1 : ℤ), Multiplicative.ofAdd (-1 : ℤ)] ρ ∧
       ¬ IsOfFinOrder (ρ (Multiplicative.ofAdd 1)) := by
   sorry
 
@@ -351,8 +361,9 @@ abbrev repTopology (Γ : Type) [Group Γ] (r : ℕ) :
 determinant `δ` is conjugate to `ρ`. For absolutely irreducible `ρ` and finitely generated `Γ` it is
 equivalent to isolation of `[ρ]` in `M_B^s(Γ, r, δ)` (layer H.1's coarse space). -/
 def IsRigidRepresentation (δ : Γ →* ℂˣ) (ρ : Γ →* Matrix.GeneralLinearGroup (Fin r) ℂ) : Prop :=
-  ∀ᶠ σ in @nhds _ (repTopology Γ r) ρ, Matrix.GeneralLinearGroup.det.comp σ = δ →
-    ∃ P : Matrix.GeneralLinearGroup (Fin r) ℂ, ∀ γ, σ γ = P * ρ γ * P⁻¹
+  Matrix.GeneralLinearGroup.det.comp ρ = δ ∧
+    ∀ᶠ σ in @nhds _ (repTopology Γ r) ρ, Matrix.GeneralLinearGroup.det.comp σ = δ →
+      ∃ P : Matrix.GeneralLinearGroup (Fin r) ℂ, ∀ γ, σ γ = P * ρ γ * P⁻¹
 
 namespace IsRigidRepresentation
 
@@ -367,6 +378,7 @@ theorem twist (χ : Γ →* ℂˣ) :
   sorry
 
 theorem of_cohomologicallyRigid [Group.FG Γ] (hρ : (matrixRepresentation ρ).IsIrreducible)
+    (hδ : Matrix.GeneralLinearGroup.det.comp ρ = δ)
     (h : IsStronglyCohomologicallyRigid ρ) : IsRigidRepresentation δ ρ := by
   sorry
 
@@ -692,7 +704,8 @@ example (K : Type) [Field K] [NumberField K] (x : K) (hx : IsIntegral ℤ x)
   sorry
 
 -- SalemCharacter.test_gaussian_not_integral
-example : ¬ IsIntegral ℤ ((3 + 4 * Complex.I) / 5 : ℂ) := by
+example : ‖((3 + 4 * Complex.I) / 5 : ℂ)‖ = 1 ∧ (∀ n : ℕ, 0 < n → ((3 + 4 * Complex.I) / 5 : ℂ) ^ n ≠ 1) ∧
+    ¬ IsIntegral ℤ ((3 + 4 * Complex.I) / 5 : ℂ) := by
   sorry
 
 -- IsStronglyIntegral.test_salem_not_strong
@@ -757,11 +770,13 @@ example (x : M) : x ∈ RigidLocus f ↔ f.QuasiFiniteAt x := by
 end RigidLocus
 
 /-- The part of an arithmetic model expressible with Mathlib's schemes: a finitely generated
-subring `R ⊂ ℂ` smooth over `ℤ`, a smooth proper `X_S → Spec R` and an identification of its base
-change along `Spec ℂ → Spec R` with `X`, together with a section. The torsion line bundle `L_S`,
-the isomorphism `L_S^{⊗d} ≅ O`, projectivity and geometric connectedness of the fibres are part of
-the planned structure but have no Mathlib carrier at the pinned commit (omission inventory). -/
-structure ArithmeticModel (X : Scheme.{0}) (x : Spec (CommRingCat.of ℂ) ⟶ X) where
+subring `R ⊂ ℂ` smooth over `ℤ`, a smooth proper `X_S → Spec R` with geometrically connected fibres,
+an identification over `Spec ℂ` of its base change along `Spec ℂ → Spec R` with `X`, and a spread
+section compatible with the base point `x`. The torsion line bundle `L_S`, the isomorphism
+`L_S^{⊗d} ≅ O`, invertibility of `d` and projectivity have no Mathlib carrier at the pinned commit
+(omission inventory). -/
+structure ArithmeticModel (X : Scheme.{0}) (f : X ⟶ Spec (CommRingCat.of ℂ))
+    (x : Spec (CommRingCat.of ℂ) ⟶ X) where
   /-- the coefficient ring, a finitely generated subring of `ℂ` -/
   R : Subring ℂ
   fg : Algebra.FiniteType ℤ R
@@ -771,30 +786,39 @@ structure ArithmeticModel (X : Scheme.{0}) (x : Spec (CommRingCat.of ℂ) ⟶ X)
   p : XS ⟶ Spec (CommRingCat.of R)
   smooth_p : Smooth p
   proper_p : IsProper p
-  /-- the generic-fibre identification -/
+  geomConnected_p : GeometricallyConnected p
+  /-- the generic-fibre identification, over `Spec ℂ` -/
   genericFibreIso : Limits.pullback p (Spec.map (CommRingCat.ofHom R.subtype)) ≅ X
+  genericFibreIso_over : genericFibreIso.hom ≫ f = Limits.pullback.snd _ _
   /-- the spread base point -/
   xS : Spec (CommRingCat.of R) ⟶ XS
   section_p : xS ≫ p = 𝟙 _
+  basePoint : ∀ h : (Spec.map (CommRingCat.ofHom R.subtype) ≫ xS) ≫ p =
+      𝟙 _ ≫ Spec.map (CommRingCat.ofHom R.subtype),
+    Limits.pullback.lift _ _ h ≫ genericFibreIso.hom = x
 
 namespace ArithmeticModel
 
-variable {X : Scheme.{0}} {x : Spec (CommRingCat.of ℂ) ⟶ X}
+variable {X : Scheme.{0}} {f : X ⟶ Spec (CommRingCat.of ℂ)} {x : Spec (CommRingCat.of ℂ) ⟶ X}
 
-/-- Every smooth proper `X/ℂ` with a point has an arithmetic model. -/
-theorem «exists» (f : X ⟶ Spec (CommRingCat.of ℂ)) [Smooth f] [IsProper f]
-    (hx : x ≫ f = 𝟙 _) : Nonempty (ArithmeticModel X x) := by
+/-- Every smooth proper geometrically connected `X/ℂ` with a point has an arithmetic model. -/
+theorem «exists» [Smooth f] [IsProper f] [GeometricallyConnected f] (hx : x ≫ f = 𝟙 _) :
+    Nonempty (ArithmeticModel X f x) := by
   sorry
 
-/-- Restriction of a model to `R[1/g]` for nonzero `g ∈ R`. -/
-theorem restrict (M : ArithmeticModel X x) (g : M.R) (hg : g ≠ 0) :
-    ∃ M' : ArithmeticModel X x, M.R ≤ M'.R ∧ (g : ℂ)⁻¹ ∈ M'.R := by
+/-- Restriction of a model to `R[1/g]` for nonzero `g ∈ R` is again a model, with `X_S` replaced by
+its base change. -/
+theorem restrict (M : ArithmeticModel X f x) (g : M.R) (hg : g ≠ 0) :
+    ∃ (M' : ArithmeticModel X f x) (h : M.R ≤ M'.R),
+      (M'.R : Set ℂ) = Subring.closure (insert ((g : ℂ)⁻¹) (M.R : Set ℂ)) ∧
+        Nonempty (M'.XS ≅ Limits.pullback M.p
+          (Spec.map (CommRingCat.ofHom (Subring.inclusion h)))) := by
   sorry
 
 -- ArithmeticModel.test_generic_fibre
-example (M : ArithmeticModel X x) :
-    Nonempty (Limits.pullback M.p (Spec.map (CommRingCat.ofHom M.R.subtype)) ≅ X) :=
-  ⟨M.genericFibreIso⟩
+example (M : ArithmeticModel X f x) :
+    Smooth f ∧ IsProper f ∧ M.genericFibreIso.hom ≫ f = Limits.pullback.snd _ _ := by
+  sorry
 
 end ArithmeticModel
 
@@ -810,6 +834,11 @@ section HodgeBundles
 
 open TensorProduct
 
+/-- The component of a Higgs field `θ : E → E ⊗ Ω` along a covector `v` of `Ω`. -/
+def higgsComponent {R : Type} [CommRing R] {Ω E : Type} [AddCommGroup Ω] [Module R Ω]
+    [AddCommGroup E] [Module R E] (θ : E →ₗ[R] E ⊗[R] Ω) (v : Module.Dual R Ω) : E →ₗ[R] E :=
+  (TensorProduct.rid R E).toLinearMap ∘ₗ TensorProduct.map LinearMap.id v ∘ₗ θ
+
 /-- A system of Hodge bundles in a coordinate chart. -/
 structure SystemOfHodgeBundles (R : Type) [CommRing R] (Ω E : Type) [AddCommGroup Ω] [Module R Ω]
     [AddCommGroup E] [Module R E] where
@@ -824,6 +853,9 @@ structure SystemOfHodgeBundles (R : Type) [CommRing R] (Ω E : Type) [AddCommGro
   /-- degree `-1` -/
   lowers : ∀ p, ∀ e ∈ Ep p, θ e ∈ LinearMap.range (TensorProduct.map (Ep (p - 1)).subtype
     (LinearMap.id : Ω →ₗ[R] Ω))
+  /-- integrability `θ ∧ θ = 0`, in the chart form: the components of `θ` commute -/
+  integrable : ∀ v w : Module.Dual R Ω,
+    higgsComponent θ v ∘ₗ higgsComponent θ w = higgsComponent θ w ∘ₗ higgsComponent θ v
 
 namespace SystemOfHodgeBundles
 
@@ -832,11 +864,12 @@ variable {R : Type} [CommRing R] {Ω E : Type} [AddCommGroup Ω] [Module R Ω] [
 
 /-- The component of `θ` along a covector `v` of `Ω`. -/
 def contract (v : Module.Dual R Ω) : E →ₗ[R] E :=
-  (TensorProduct.rid R E).toLinearMap ∘ₗ TensorProduct.map LinearMap.id v ∘ₗ H.θ
+  higgsComponent H.θ v
 
 /-- Multiplication by `t ^ p` on `Ep p` is an isomorphism from `(E, t θ)` to `(E, θ)`. -/
-theorem scaleIso (t : Rˣ) : ∃ φ : E ≃ₗ[R] E, ∀ e,
-    TensorProduct.map φ.toLinearMap (LinearMap.id : Ω →ₗ[R] Ω) ((t : R) • H.θ e) = H.θ (φ e) := by
+theorem scaleIso (t : Rˣ) : ∃ φ : E ≃ₗ[R] E, (∀ p, ∀ e ∈ H.Ep p, φ e = ((t ^ p : Rˣ) : R) • e) ∧
+    ∀ e, TensorProduct.map φ.toLinearMap (LinearMap.id : Ω →ₗ[R] Ω) ((t : R) • H.θ e) =
+      H.θ (φ e) := by
   sorry
 
 /-- The shift of the grading. -/
@@ -846,6 +879,7 @@ def shift (k : ℤ) : SystemOfHodgeBundles R Ω E where
   finite_support := by sorry
   θ := H.θ
   lowers := by sorry
+  integrable := H.integrable
 
 /-- Joint nilpotence: any product of `N` components of `θ` vanishes once `N` exceeds the number of
 nonzero degrees. -/
@@ -862,9 +896,11 @@ example (h : ∀ p, p ≠ 0 → H.Ep p = ⊥) : H.θ = 0 := by
   sorry
 
 -- SystemOfHodgeBundles.test_scale_iso
-example (t : Rˣ) : ∃ φ : E ≃ₗ[R] E, ∀ e,
-    TensorProduct.map φ.toLinearMap (LinearMap.id : Ω →ₗ[R] Ω) ((t : R) • H.θ e) = H.θ (φ e) :=
-  H.scaleIso t
+example (t : Rˣ) (h : ∀ p, p ≠ 0 → p ≠ 1 → H.Ep p = ⊥) :
+    ∃ φ : E ≃ₗ[R] E, (∀ e ∈ H.Ep 1, φ e = (t : R) • e) ∧ (∀ e ∈ H.Ep 0, φ e = e) ∧
+      ∀ e, TensorProduct.map φ.toLinearMap (LinearMap.id : Ω →ₗ[R] Ω) ((t : R) • H.θ e) =
+        H.θ (φ e) := by
+  sorry
 
 -- SystemOfHodgeBundles.test_trace_zero
 example [Module.Free R E] [Module.Finite R E] (v : Module.Dual R Ω) :
@@ -894,18 +930,111 @@ theorem restriction_injective (A : Rep k G) (S : Subgroup G) [S.Normal]
     Function.Injective (groupCohomology.map S.subtype (𝟙 _) 1 (A := A)).hom := by
   sorry
 
-/-- If `A^S = 0` and the restriction to `S` vanishes (as it does when `H¹(S, A)^{G/S} = 0`, the
-image of restriction being `G/S`-invariant), then `H¹(G, A) = 0`. -/
+/-- If `A^S = 0` and the `G/S`-invariant classes in `H¹(S, A)` vanish, then `H¹(G, A) = 0`.
+A class of the cocycle `c` is `G`-invariant when, for every `g`, the conjugate cocycle
+`s ↦ g⁻¹ · c(g s g⁻¹)` differs from `c` by a coboundary. -/
 theorem fibrewise_h1_vanishing (A : Rep k G) (S : Subgroup G) [S.Normal]
     (hinv : ∀ a : A, (∀ s : S, A.ρ s a = a) → a = 0)
-    (hres : ∀ x : groupCohomology A 1,
-      (groupCohomology.map S.subtype (𝟙 _) 1 (A := A)).hom x = 0) :
+    (hinvH1 : ∀ c : S → A, c ∈ groupCohomology.cocycles₁ (Rep.res S.subtype A) →
+      (∀ g : G, ((fun s : S => A.ρ g⁻¹ (c ⟨g * s * g⁻¹, ‹S.Normal›.conj_mem _ s.2 g⟩)) - c) ∈
+        groupCohomology.coboundaries₁ (Rep.res S.subtype A)) →
+      c ∈ groupCohomology.coboundaries₁ (Rep.res S.subtype A)) :
     Subsingleton (groupCohomology A 1) := by
   sorry
 
 end Fibrewise
 
 end TauCeti.NonabelianHodge
+
+/-!
+## Index of native names
+
+Full names (relative to `TauCeti.NonabelianHodge`) of the packet items declared or stated as
+examples above, by node; declarations inside `namespace` blocks are listed with their prefix.
+
+HodgeStructuresPartII:H.5/trace-free-adjoint:
+  TraceFreeAdjoint.rep, TraceFreeAdjoint.rep_apply, TraceFreeAdjoint.endSplitting,
+  TraceFreeAdjoint.conjEquiv, TraceFreeAdjoint.twist, TraceFreeAdjoint.projectivization,
+  TraceFreeAdjoint.invariants_eq_bot, TraceFreeAdjoint.baseChange, TraceFreeAdjoint.baseChange_H1,
+  TraceFreeAdjoint.test_rank_one, TraceFreeAdjoint.test_trivial_free_abelian,
+  TraceFreeAdjoint.test_full_adjoint_differs, TraceFreeAdjoint.test_char_two_no_splitting,
+  TraceFreeAdjoint.test_irreducible_no_invariants.
+HodgeStructuresPartII:H.5/rigid-representation:
+  IsRigidRepresentation, IsRigidRepresentation.conj, IsRigidRepresentation.twist,
+  IsRigidRepresentation.of_cohomologicallyRigid, IsRigidRepresentation.rankOne,
+  IsRigidRepresentation.test_rank_one, IsRigidRepresentation.test_free_group,
+  IsRigidRepresentation.test_unfixed_determinant, IsRigidRepresentation.test_finite_group.
+HodgeStructuresPartII:H.5/projective-rigidity:
+  IsAbsolutelyIrreducible, IsAbsolutelyIrreducible.iff_algebraicClosure,
+  ProjectiveRepresentation.test_rotation_not_absolutely_irreducible.
+HodgeStructuresPartII:H.5/cohomological-rigidity:
+  IsCohomologicallyRigid, IsCohomologicallyRigid.of_strong, IsCohomologicallyRigid.projective_iff,
+  IsCohomologicallyRigid.conj_aut, IsCohomologicallyRigid.test_rank_one,
+  IsCohomologicallyRigid.test_hypergeometric, IsCohomologicallyRigid.test_not_strong,
+  IsCohomologicallyRigid.test_projective_groupCohomology.
+HodgeStructuresPartII:H.5/strong-cohomological-rigidity:
+  IsStronglyCohomologicallyRigid, IsStronglyCohomologicallyRigid.isCohomologicallyRigid,
+  IsStronglyCohomologicallyRigid.of_finiteCover, IsStronglyCohomologicallyRigid.conj_aut,
+  IsStronglyCohomologicallyRigid.of_groupCohomology,
+  IsStronglyCohomologicallyRigid.test_projective, IsStronglyCohomologicallyRigid.test_rank_one,
+  IsStronglyCohomologicallyRigid.test_hypergeometric,
+  IsStronglyCohomologicallyRigid.test_free_group.
+HodgeStructuresPartII:H.5/strong-implies-cohomological:
+  IsStronglyCohomologicallyRigid.isCohomologicallyRigid.
+HodgeStructuresPartII:H.5/rigid-locus:
+  RigidLocus, RigidLocus.mem_iff_isolated, RigidLocus.locallyQuasiFinite,
+  RigidLocus.field_isClopen, RigidLocus.comp_openImmersion, RigidLocus.isFinite_of_isProper,
+  RigidLocus.equivariant, RigidLocus.test_fat_point, RigidLocus.test_affine_line,
+  RigidLocus.test_compat_mathlib.
+HodgeStructuresPartII:H.5/rigidity-conjugate:
+  rigidity_conj_aut.
+HodgeStructuresPartII:H.5/rigid-number-field:
+  exists_numberField_of_rigid.
+HodgeStructuresPartII:H.5/boundary-monodromy-data:
+  IsQuasiUnipotentAtInfinity, IsQuasiUnipotentAtInfinity.iff_eigenvalues,
+  IsQuasiUnipotentAtInfinity.conj_aut, BoundaryMonodromyData.test_projective_vacuous,
+  BoundaryMonodromyData.test_Gm_root_of_unity, BoundaryMonodromyData.test_Gm_not_quasiUnipotent,
+  BoundaryMonodromyData.test_unipotent_infinite_order.
+HodgeStructuresPartII:H.5/system-of-hodge-bundles:
+  SystemOfHodgeBundles, SystemOfHodgeBundles.contract, SystemOfHodgeBundles.scaleIso,
+  SystemOfHodgeBundles.shift, SystemOfHodgeBundles.nilpotent, SystemOfHodgeBundles.trace_eq_zero,
+  SystemOfHodgeBundles.test_single_degree, SystemOfHodgeBundles.test_trace_zero,
+  SystemOfHodgeBundles.test_nonnilpotent_not_hodge, SystemOfHodgeBundles.test_scale_iso.
+HodgeStructuresPartII:H.5/unitary-representation:
+  IsUnitaryRepresentation, IsUnitaryRepresentation.iff_conj_unitaryGroup,
+  IsUnitaryRepresentation.iff_invariant_form, IsUnitaryRepresentation.semisimple,
+  IsUnitaryRepresentation.of_finite, IsUnitaryRepresentation.comp,
+  IsUnitaryRepresentation.not_aut_invariant, IsUnitaryRepresentation.test_rank_one,
+  IsUnitaryRepresentation.test_unipotent, IsUnitaryRepresentation.test_finite_image,
+  IsUnitaryRepresentation.test_unitaryGroup_valued,
+  IsUnitaryRepresentation.test_galois_nonexample.
+HodgeStructuresPartII:H.5/smooth-arithmetic-model:
+  ArithmeticModel, ArithmeticModel.exists, ArithmeticModel.restrict,
+  ArithmeticModel.genericFibreIso, ArithmeticModel.test_generic_fibre.
+HodgeStructuresPartII:H.5/integral-representation:
+  IsIntegralRepresentation, IntegralRealization, IsIntegralRepresentation.iff_algebraicIntegers,
+  IsIntegralRepresentation.of_finite, IsIntegralRepresentation.charpoly,
+  IsIntegralRepresentation.conj_aut, IsIntegralRepresentation.of_realization,
+  IsIntegralRepresentation.test_trivial, IsIntegralRepresentation.test_half_not_integral,
+  IsIntegralRepresentation.test_S_integral_not_integral, IsIntegralRepresentation.test_unipotent,
+  IsIntegralRepresentation.test_compat_ringOfIntegers.
+HodgeStructuresPartII:H.5/strongly-integral:
+  IsStronglyIntegral, IsStronglyIntegral.iff_lattice, IsStronglyIntegral.isIntegral,
+  IsStronglyIntegral.unitary_finite, IsStronglyIntegral.test_gl_n_Z,
+  IsStronglyIntegral.test_salem_not_strong, IsStronglyIntegral.test_implies_integral.
+HodgeStructuresPartII:H.5/strong-integral-unitary-finite:
+  IsStronglyIntegral.unitary_finite.
+HodgeStructuresPartII:H.5/unitary-embeddings-finite:
+  unitary_embeddings_finite.
+HodgeStructuresPartII:H.5/infinite-image-unitary-example:
+  SalemCharacter, SalemCharacter.isUnitary, SalemCharacter.isIntegral,
+  SalemCharacter.infinite_range, SalemCharacter.not_strongly_integral,
+  SalemCharacter.exists_nonunitary_conjugate, SalemCharacter.test_unitary,
+  SalemCharacter.test_infinite_image, SalemCharacter.test_kronecker,
+  SalemCharacter.test_gaussian_not_integral.
+HodgeStructuresPartII:H.5/fibrewise-h1-vanishing:
+  fibrewise_h1_vanishing.
+-/
 
 /-!
 ## Omission inventory
@@ -1165,10 +1294,12 @@ Node HodgeStructuresPartII:H.5/intermediate-extension-h1 (missing carriers: B)
   intermediate extension of F (placed in the appropriate perverse degree and shifted back): there
   is an exact triangle j_{!*}F → Rb_* a_* F → C with C supported on D_sing and concentrated in
   degrees ≥ 2. If the local monodromies of F are finite, j_{!*}F = j_*F; if X is a curve, j_{!*} =
-  j_*. The same identity holds for lisse ℚ̄_ℓ-sheaves on varieties over finite fields
-  (Esnault–Groechenig 2018 Lemma 3.4). Thus the j_{!*}-definitions of cohomological rigidity of
-  Esnault–Groechenig, Klevdal–Patrikis and Landesman–Litt agree with the a_*-definition of
-  HodgeStructuresPartII:H.5/cohomological-rigidity.
+  j_*. The same identity holds for lisse ℚ̄_ℓ-sheaves on X_s ⊂ X̄_s for a good compactification
+  over a finite field with ℓ invertible (for instance the fibre of a model as in
+  HodgeStructuresPartII:H.5/smooth-arithmetic-model; Esnault–Groechenig 2018 Lemma 3.4). Thus the
+  j_{!*}-definitions of cohomological rigidity of Esnault–Groechenig, Klevdal–Patrikis and
+  Landesman–Litt agree with the a_*-definition of HodgeStructuresPartII:H.5/cohomological-
+  rigidity.
 
 Node HodgeStructuresPartII:H.5/rigid-higgs-gm-fixed (missing carriers: M, F)
   IsRigidHiggs.gm_fixed: Let X be smooth connected projective over ℂ and (V,θ) a rigid stable
@@ -1298,8 +1429,9 @@ Node HodgeStructuresPartII:H.5/rigid-hodge-splitting (missing carriers: M, V)
   𝔸¹ is a Rees section of a complex variation of Hodge structure as in (i) (Simpson's Lemma 7.2).
 
 Node HodgeStructuresPartII:H.5/smooth-arithmetic-model (missing carriers: A)
-  ArithmeticModel.dominate: Any two arithmetic models of (X, x, L, ι) restrict to isomorphic
-  models over a common finitely generated subring of ℂ containing both coefficient rings.
+  ArithmeticModel.dominate: Any two arithmetic models of (X, x, L, ι) become isomorphic after base
+  change to a common finitely generated subring R̃₃ ⊂ ℂ containing both coefficient rings,
+  followed by inverting finitely many nonzero elements.
   ArithmeticModel.spread_hom: Morphisms, sections and isomorphisms of finitely presented objects
   over X extend over some restriction of S, uniquely after further shrinking (EGA IV 8.8.2(i),
   Mathlib Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType).
@@ -1323,20 +1455,28 @@ Node HodgeStructuresPartII:H.5/relative-moduli (missing carriers: A, M)
   sheaf of rings of differential operators on X_S/S of integrable connections (crystalline
   differential operators of order ≤ 1 generated in degree one), of Higgs fields (Sym T_{X_S/S}),
   or of λ-connections on X_S × 𝔸¹/S × 𝔸¹, there are quasi-projective S-schemes (respectively S ×
-  𝔸¹-schemes) of finite type M_dR(X_S/S, L_S, r), M_Dol(X_S/S, L_S, r) and M_Hod(X_S/S, L_S, r)
-  which uniformly corepresent the functors of families of Gieseker semistable Λ-modules with
-  Hilbert polynomial r·P_O and determinant (L_S, λ∇_{L_S}) on the fibres, with open subschemes M^s
-  universally corepresenting the geometrically stable families. For every locally Noetherian
-  S-scheme T there is a morphism φ_T: M(X_S/S) ×_S T → M(X_T/T), a bijection on points when T is a
-  geometric point; on the stable opens the base change to Spec ℂ is isomorphic to the stable
-  fixed-determinant moduli of HodgeStructuresPartII:H.1/derham-coarse,
-  HodgeStructuresPartII:H.1/dolbeault-coarse and HodgeStructuresPartII:H.1/hodge-coarse. Their
-  rigid loci M^rig(X_S/S, L_S, r) are the relative quasi-finite loci
-  (HodgeStructuresPartII:H.5/rigid-locus). Notation M(X_S/S, L_S, ≤ r) = ⊔_{r′ ≤ r} M(X_S/S, L_S,
+  𝔸¹-schemes) of finite type M_dR(X_S/S, r), M_Dol(X_S/S, r) and M_Hod(X_S/S, r) which uniformly
+  corepresent the functors of families of Gieseker semistable Λ-modules with Hilbert polynomial
+  r·P_O, with open subschemes M^s universally corepresenting the geometrically stable families
+  (Langer Theorem 1.1). The fixed-determinant schemes M(X_S/S, L_S, r) are the fibres of the
+  determinant morphism over the section (L_S, λ∇_{L_S}); on the stable opens they universally
+  corepresent the geometrically stable families with that determinant, and in general their
+  geometric points biject with S-equivalence classes on the geometric fibres. For every locally
+  Noetherian S-scheme T there is a morphism φ_T: M(X_S/S) ×_S T → M(X_T/T), a bijection on points
+  when T is a geometric point, and an isomorphism on the stable opens; in particular the base
+  change of M^s along Spec ℂ → S is the stable fixed-determinant moduli of
+  HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse and
+  HodgeStructuresPartII:H.1/hodge-coarse. The relative rigid loci are taken inside the stable
+  opens: M^rig(X_S/S, L_S, r) := RigidLocus of M^s(X_S/S, L_S, r) → S
+  (HodgeStructuresPartII:H.5/rigid-locus), and M^rig_Hod(X_S/S, L_S, r) := RigidLocus of
+  M_Hod^s(X_S/S, L_S, r) → S × 𝔸¹. Isolated strictly polystable points of the semistable moduli
+  (such as [O², d] on ℙ¹) are excluded. Notation M(X_S/S, L_S, ≤ r) = ⊔_{r′ ≤ r} M(X_S/S, L_S,
   r′).
   RelativeModuli.dolbeault: The quasi-projective S-scheme M_Dol(X_S/S, L_S, r) of finite type.
-  RelativeModuli.hodge: The quasi-projective S × 𝔸¹-scheme M_Hod(X_S/S, L_S, r), with fibres over
-  λ = 0 and λ = 1 the Dolbeault and de Rham moduli.
+  RelativeModuli.hodge: The quasi-projective S × 𝔸¹-scheme M_Hod(X_S/S, L_S, r): over S × 𝔾_m it
+  is M_dR × 𝔾_m by rescaling, and the λ = 0 fibre maps to M_Dol(X_S/S, L_S, r) by a morphism that
+  is bijective on geometric points (an isomorphism over ℚ, HodgeStructuresPartII:H.1/hodge-
+  coarse).
   RelativeModuli.corepresents: Uniform corepresentation of the family functor; universal
   corepresentation on the stable open.
   RelativeModuli.baseChange: For locally Noetherian T → S the morphism φ_T: M(X_S/S) ×_S T →
@@ -1344,7 +1484,8 @@ Node HodgeStructuresPartII:H.5/relative-moduli (missing carriers: A, M)
   RelativeModuli.stableGenericIso: The stable open base-changes to the stable moduli of
   HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse,
   HodgeStructuresPartII:H.1/hodge-coarse over ℂ.
-  RelativeModuli.rigidLocus: M^rig(X_S/S, L_S, r) := RigidLocus of the structure morphism.
+  RelativeModuli.rigidLocus: M^rig(X_S/S, L_S, r) := RigidLocus of the structure morphism of the
+  stable open M^s(X_S/S, L_S, r).
   RelativeModuli.leRank: M(X_S/S, L_S, ≤ r) := ⊔_{r′ ≤ r} M(X_S/S, L_S, r′).
   RelativeModuli.test_rank_one: For r = 1, M_dR(X_S/S, L_S, 1) → S and M_Dol(X_S/S, L_S, 1) → S
   are isomorphisms (the single object (L_S, ∇_{L_S}), respectively (L_S, 0)).
@@ -1395,7 +1536,8 @@ Node HodgeStructuresPartII:H.5/nice-hodge-models (missing carriers: A, M)
   1 a spread rigid connection and at λ = 0 its associated graded rigid Higgs bundle
   (Esnault–Groechenig state (b) without the equivariance; this plan chooses the Rees families of
   HodgeStructuresPartII:H.5/rigid-hodge-splitting (i)); (c) the sections give a bijection
-  ⊔_{i=1}^{M} [(N_S^i, D_S^i)](|S × 𝔸¹|) = ⊔_{a=0}^{d−1} |M^rig_Hod(X_S/S, L_S^a, ≤ r)|. In
+  ⊔_{i=1}^{M} [(N_S^i, D_S^i)](|S × 𝔸¹|) = ⊔_{a=0}^{d−1} |M^rig_Hod(X_S/S, L_S^a, ≤ r)|, the rigid
+  Hodge loci being taken in the stable opens (HodgeStructuresPartII:H.5/relative-moduli). In
   particular the number n_L of rank-r rigid connections with determinant among L^0, …, L^{d−1}
   equals the number of rank-r rigid stable Higgs bundles with those determinants and indexes the
   sections at λ = 0 and λ = 1. (Indices as corrected in source issue E-H5-1.)
