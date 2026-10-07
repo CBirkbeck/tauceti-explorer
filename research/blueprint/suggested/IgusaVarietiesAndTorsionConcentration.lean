@@ -97,6 +97,13 @@ universe u
 
 /-! ## The unitary datum (IG.0) -/
 
+/-- The split trace pairing, defined before the datum so self-duality is a field. -/
+def splitTracePairing (F : Type) [Field F] [NumberField F] [NumberField.IsCMField F]
+    (n : ℕ) (x y : Fin (2 * n) → F) : ℚ :=
+  Algebra.trace ℚ F (∑ i : Fin n,
+    (x ⟨i, by omega⟩ * NumberField.IsCMField.complexConj F (y ⟨2 * n - 1 - i, by omega⟩) -
+      x ⟨2 * n - 1 - i, by omega⟩ * NumberField.IsCMField.complexConj F (y ⟨i, by omega⟩)))
+
 /-- The quasi-split unitary similitude datum: a CM field `F`, an integer `n ≥ 1` and an
 `O_F`-lattice `L ⊂ F^{2n}` (self-dual for the trace of the split skew-hermitian form; that
 condition is part of `IG.0/quasi-split-unitary-datum`). -/
@@ -111,6 +118,9 @@ structure UnitarySimilitudeDatum where
   n_pos : 0 < n
   /-- The self-dual lattice. -/
   L : Submodule (NumberField.RingOfIntegers F) (Fin (2 * n) → F)
+  L_finite : Module.Finite (NumberField.RingOfIntegers F) L
+  L_full : Submodule.span F (L : Set (Fin (2 * n) → F)) = ⊤
+  L_selfDual : ∀ y, y ∈ L ↔ ∀ x ∈ L, ∃ z : ℤ, splitTracePairing F n x y = z
 
 attribute [instance] UnitarySimilitudeDatum.field UnitarySimilitudeDatum.numberField
   UnitarySimilitudeDatum.isCM
@@ -577,7 +587,7 @@ def skewHermitian (x y : Fin (2 * D.n) → D.F) : D.F :=
       x ⟨2 * D.n - 1 - i, by omega⟩ * NumberField.IsCMField.complexConj D.F (y ⟨i, by omega⟩))
 
 /-- The alternating form `(x, y) = tr_{F/ℚ} ⟨x, y⟩`. -/
-def traceForm (x y : Fin (2 * D.n) → D.F) : ℚ := Algebra.trace ℚ D.F (D.skewHermitian x y)
+def traceForm (x y : Fin (2 * D.n) → D.F) : ℚ := splitTracePairing D.F D.n x y
 
 /-- Self-duality of an `O_F`-lattice for `(·,·)`. -/
 def IsSelfDualLattice (M : Submodule (𝓞 D.F) (Fin (2 * D.n) → D.F)) : Prop :=
@@ -936,7 +946,10 @@ def involutionType {p : ℕ} [Fact p.Prime] (B : Type) [Ring B] [Algebra ℚ_[p]
 
 /-- (IG.0/unramified-local-pel-datum) An unramified local PEL datum `(B, *, V, (·,·), O_B, Λ, μ)`
 of type (A) or (C) (the class `b ∈ B(G, μ⁻¹)` is an extra argument of the constructions); the
-cocharacter `μ` is recorded by the projector onto `V₁ ⊂ V ⊗ ℚ̄_p`. -/
+cocharacter `μ` is recorded by the projector onto `V₁ ⊂ V ⊗ ℚ̄_p`.
+REVIEW LIMITATION: the unramified-centre/maximal-order, B-linear and isotropic Hodge
+decomposition, and c∘μ=id conditions are still omitted. This carrier is not yet the full
+LocalPELDatum contract; see the review and the named packet gap. -/
 structure LocalPELDatum (p : ℕ) [Fact p.Prime] where
   /-- The algebra `B`. -/
   B : Type
@@ -957,9 +970,12 @@ structure LocalPELDatum (p : ℕ) [Fact p.Prime] where
   /-- The alternating form. -/
   form : LinearMap.BilinForm ℚ_[p] (Fin dimV → ℚ_[p])
   form_alt : ∀ v, form v v = 0
+  form_nondegenerate : ∀ v, (∀ w, form v w = 0) → v = 0
   form_adj : ∀ (b : B) (v w : Fin dimV → ℚ_[p]), form (act b v) w = form v (act (invol b).unop w)
   /-- The self-dual `O_B`-stable lattice `Λ`. -/
   Λ : Submodule ℤ_[p] (Fin dimV → ℚ_[p])
+  Λ_finite : Module.Finite ℤ_[p] Λ
+  Λ_full : Submodule.span ℚ_[p] (Λ : Set (Fin dimV → ℚ_[p])) = ⊤
   Λ_stable : ∀ b ∈ OB, ∀ v ∈ Λ, act b v ∈ Λ
   Λ_selfDual : ∀ y, y ∈ Λ ↔ ∀ x ∈ Λ, ∃ z : ℤ_[p], form x y = z
   /-- The projector onto the weight-one summand `V₁` of `μ`. -/
@@ -1326,6 +1342,22 @@ def PDivGroup.HasConstantNewtonPolygon {p : ℕ} {T : Scheme.{u}} (X : PDivGroup
 def PDivGroup.finSum {p : ℕ} {S : Scheme.{u}} {r : ℕ} (G : Fin r → PDivGroup p S) :
     PDivGroup p S := sorry
 
+/-- The map on finite torsion group schemes (owner: R07.1). -/
+def PDivGroup.torsionMap {p : ℕ} {T : Scheme.{u}} {A B : PDivGroup p T}
+    (f : A ⟶ B) (m : ℕ) : A.torsion m ⟶ B.torsion m := sorry
+
+/-- Quotient by a sub-p-divisible group (owner: R07.1; requested exactness interface).
+Closed immersion on each finite torsion level expresses an actual subgroup; categorical
+monicity alone also admits multiplication by p and is insufficient. -/
+def PDivGroup.quotient {p : ℕ} {T : Scheme.{u}} {A B : PDivGroup p T}
+    (f : A ⟶ B) (hf : ∀ m, IsClosedImmersion (PDivGroup.torsionMap f m).left) :
+    PDivGroup p T := sorry
+
+/-- The canonical quotient map. -/
+def PDivGroup.quotientπ {p : ℕ} {T : Scheme.{u}} {A B : PDivGroup p T}
+    (f : A ⟶ B) (hf : ∀ m, IsClosedImmersion (PDivGroup.torsionMap f m).left) :
+    B ⟶ PDivGroup.quotient f hf := sorry
+
 /-- A slope filtration witnessing complete slope divisibility: slopes `λ₁ > ⋯ > λ_r ≥ 0`
 (`λ_i = num/den`), a chain `0 = 𝒢₀ ⊂ ⋯ ⊂ 𝒢_r = 𝒢` of monomorphisms with `p^{-num} Frob^{den}` an
 isogeny on `𝒢_i` and an isomorphism on the graded piece `𝒢_i/𝒢_{i−1}`. -/
@@ -1344,13 +1376,17 @@ structure SlopeFiltration {p : ℕ} {T : Scheme.{u}} (X : PDivGroup p T) where
   /-- The inclusions `𝒢_{i−1} ⊂ 𝒢_i`. -/
   incl : ∀ i : Fin r, piece i.castSucc ⟶ piece i.succ
   incl_mono : ∀ i, Mono (incl i)
+  incl_closed : ∀ i m, IsClosedImmersion (PDivGroup.torsionMap (incl i) m).left
   /-- `𝒢_r = 𝒢`. -/
   top : piece (Fin.last r) ≅ X
   /-- The graded pieces `𝒢_i/𝒢_{i−1}`. -/
   graded : Fin r → PDivGroup p T
+  graded_pos : ∀ i, 0 < (graded i).height
+  gradedIso : ∀ i, PDivGroup.quotient (incl i) (incl_closed i) ≅ graded i
   /-- The quotient maps `𝒢_i → 𝒢_i/𝒢_{i−1}`. -/
   quot : ∀ i : Fin r, piece i.succ ⟶ graded i
   quot_epi : ∀ i, Epi (quot i)
+  quot_eq : ∀ i, quot i = PDivGroup.quotientπ (incl i) (incl_closed i) ≫ (gradedIso i).hom
   /-- `p^{-λ_i num} Frob^{den}` is an isogeny of `𝒢_i`. -/
   slopeDivisible : ∀ i : Fin r, ((piece i.succ).slopeQIsog (num i) (den i)).IsogenyLift
   /-- … and an isomorphism of the graded piece. -/
@@ -1379,10 +1415,11 @@ theorem baseChange {T T' : Scheme.{u}} (f : T' ⟶ T) {X : PDivGroup p T}
     (h : IsCompletelySlopeDivisible X) :
     IsCompletelySlopeDivisible ((PDivGroup.baseChange f).obj X) := sorry
 
-/-- (IG.0/completely-slope-divisible) Over a connected regular (hence integral) base, complete
-slope divisibility at the geometric generic point implies it everywhere (Zink). -/
+/-- (IG.0/completely-slope-divisible) Over a connected regular (hence integral) base with
+constant Newton polygon, complete slope divisibility at the geometric generic point implies it everywhere (Zink; CSnc E12). -/
 theorem of_generic {T : Scheme.{u}} [IsIntegral T] [∀ x : T, CharP (T.presheaf.stalk x) p]
     (hreg : ∀ x : T, IsRegularLocalRing (T.presheaf.stalk x)) (X : PDivGroup p T)
+    (hNP : X.HasConstantNewtonPolygon)
     (h : IsCompletelySlopeDivisible
       ((PDivGroup.baseChange (IG0geomPoint T (genericPoint T))).obj X)) :
     IsCompletelySlopeDivisible X := sorry
@@ -1400,9 +1437,10 @@ example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [IsAlgClosed k] [CharP k
     ∃ F : SlopeFiltration (PDivGroup.sum (PDivGroup.mu p (pt k)) (PDivGroup.etaleUnit p (pt k))),
       F.r = 2 ∧ ∀ i, (F.num i : ℚ) / F.den i = if (i : ℕ) = 0 then 1 else 0 := sorry
 
--- test: IsCompletelySlopeDivisible.isoclinic — isoclinic slope divisible ⇒ completely slope divisible with r = 1
+-- test: IsCompletelySlopeDivisible.isoclinic — nonzero isoclinic slope divisible ⇒ r = 1
 example (p : ℕ) [Fact p.Prime] {T : Scheme.{u}} (X : PDivGroup p T) (a s : ℕ) (hs : 0 < s)
-    (h : (X.slopeQIsog a s).IsoLift) : ∃ F : SlopeFiltration X, F.r = 1 := sorry
+    (h : (X.slopeQIsog a s).IsoLift) (hheight : 0 < X.height) :
+    ∃ F : SlopeFiltration X, F.r = 1 := sorry
 
 -- test: IsCompletelySlopeDivisible.not_all — some p-divisible group (e.g. with non-constant Newton polygon) is not completely slope divisible
 example (p : ℕ) [Fact p.Prime] :
@@ -1434,6 +1472,7 @@ theorem slopeFiltrationExistence (p : ℕ) [Fact p.Prime] :
       IsCompletelySlopeDivisible X) ∧
     (∀ (T : Scheme.{u}) [IsIntegral T] [∀ x : T, CharP (T.presheaf.stalk x) p],
       (∀ x : T, IsRegularLocalRing (T.presheaf.stalk x)) → ∀ X : PDivGroup p T,
+      X.HasConstantNewtonPolygon →
       IsCompletelySlopeDivisible ((PDivGroup.baseChange (IG0geomPoint T (genericPoint T))).obj X) →
       IsCompletelySlopeDivisible X) := sorry
 
@@ -1657,20 +1696,15 @@ def IG0SpfWk (p : ℕ) [Fact p.Prime] (k : Type u) [CommRing k] : IG0Nilp p (Wit
 def LocalPELDatum.autXb {p : ℕ} [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) :
     Subgroup (𝒟.J b) := sorry
 
--- test: RZSpace.lubinTate — for the PEL realization of GL_n × 𝔾_m (μ = (1,0,…,0), b basic): ⊔_{ℤ×ℤ} Spf W[[x₁,…,x_{n−1}]] (the packet's ⊔_ℤ is the EL space)
+-- test: RZSpace.lubinTate — for the PEL realization of GL_n × 𝔾_m (μ = (1,0,…,0), b basic): ⊔_{ℤ×ℤ} Spf W[[x₁,…,x_{n−1}]] (the EL space has a single ℤ index)
 example (p : ℕ) [Fact p.Prime] (n : ℕ) (hn : 1 ≤ n) (k : Type u) [Field k] [IsAlgClosed k]
     [CharP k p] :
     Nonempty (RZSpace (LocalPELDatum.lubinTate p n) (LocalPELDatum.lubinTate p n).basic k ≅
       IG0DisjointCopies (ℤ × ℤ) (IG0SpfPS p k (n - 1))) := sorry
 
--- test: RZSpace.etale_points — μ trivial (X_b étale): 𝔐 is the discrete set J_b(ℚ_p)/Aut(X_b)
-example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k]
-    [IsAlgClosed k] [CharP k p] (hμ : 𝒟.hodgeProj = 0) :
-    Nonempty (RZSpace 𝒟 b k ≅ IG0DisjointCopies (𝒟.J b ⧸ 𝒟.autXb b) (IG0SpfWk p k)) := sorry
-
 -- test: RZSpace.not_isomorphisms — requiring ρ to be an isomorphism gives a proper subfunctor
 example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k]
-    [IsAlgClosed k] [CharP k p] : ¬ IsIso (RZSpace.isoLocusι 𝒟 b k) := sorry
+    [IsAlgClosed k] [CharP k p] (hV : 0 < 𝒟.dimV) : ¬ IsIso (RZSpace.isoLocusι 𝒟 b k) := sorry
 
 -- test: RZSpace.dim — the formal dimension of 𝔐 is ⟨2ρ, μ⟩
 example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k]
@@ -2272,11 +2306,11 @@ def IgusaIsogenyPairsIG1 (N : ℕ) (X : PDivGStructure D p (pt k)) (R : Type u) 
 
 namespace Igusa
 
-/-- (IG.1/perfect-igusa-variety, (3); CS17 Lemma 4.3.4) For a perfect `k`-algebra `R`,
+/-- (IG.1/perfect-igusa-variety, (3); CS17 Lemma 4.3.4) For every `k`-algebra `R`,
 `Ig^X(R)` is the set of pairs `(A, ρ̃)` with `A` up to `p`-power isogeny and `ρ̃` a
-quasi-isogeny. The description is for perfect `R` (`Ig^X` is perfect). -/
+quasi-isogeny. The construction of A′ uses a reverse quasi-isogeny, not necessarily an isogeny. -/
 def isoUpToIsogeny [Fact p.Prime] [CharP k p] (N : ℕ) (X : PDivGStructure D p (pt k))
-    (R : Type u) [CommRing R] [Algebra k R] (hR : Function.Bijective (fun r : R => r ^ p)) :
+    (R : Type u) [CommRing R] [Algebra k R] :
     {y : Spec (CommRingCat.of R) ⟶ IgusaVariety N X //
         y ≫ IgusaVariety.toPtIG1 N X = Spec.map (CommRingCat.ofHom (algebraMap k R))} ≃
       IgusaIsogenyPairsIG1 N X R := sorry
@@ -2841,7 +2875,7 @@ def IrrIG1 (b : KottwitzSet D p) (ℓ : ℕ) : Type := sorry
 /-- The dimension of the `K`-invariants `π^K` (finite for admissible `π` and compact open
 `K`). -/
 def IrrIG1.invariantsDim {b : KottwitzSet D p} {ℓ : ℕ} (π : IrrIG1 b ℓ)
-    (K : Subgroup (GAfp D p × JGroup b)) : ℕ := sorry
+    (K : Subgroup (GAfp D p × JGroup b)) : Cardinal.{0} := sorry
 
 /-- The Hecke algebra `C^∞_c(G(𝔸_f^p) × J_b(ℚ_p), ℚ̄_ℓ)` of test functions (owner:
 SmoothRepresentations SR; local carrier). -/
@@ -2972,9 +3006,9 @@ def IgusaFirstKind.toStratum (E : HTDatum) (k : Type u) [Field k] (m j : ℕ) :
     IgusaFirstKind.space E k m j ⟶ DrinfeldStratum.scheme E 0 k j := sorry
 
 /-- (IG.1/harris-taylor-igusa-varieties) The Igusa variety of the first kind `I_{m,j} → Y°_{0,j}`
-(`0 ≤ j ≤ n − 1`): Drinfeld level-`m` structures on the étale part of `A[u^{c,∞}]` together with
-an isomorphism of the formal part with the fixed one-dimensional formal `O_{F_u}`-module of
-height `j + 1` up to level `m` [HT01, §IV.1]. -/
+(`0 ≤ j ≤ n − 1`): level-`m` trivializations of the étale part of `A[u^{c,∞}]`,
+of height `n−1−j` [HT01, §IV.1]. Trivializing the formal part of height `j+1` is the
+additional Mantovan cover, not part of the first-kind variety (Li–Liu footnote 15). -/
 def IgusaFirstKind (E : HTDatum) (k : Type u) [Field k] (m j : ℕ) :
     Over (DrinfeldStratum.scheme E 0 k j) :=
   Over.mk (IgusaFirstKind.toStratum E k m j)
@@ -3059,8 +3093,8 @@ theorem refinedStrataClosuresSmooth (E : HTDatum) (p : ℕ) (k : Type u) [Field 
     SmoothOfRelativeDimension h
         (LCSubschemeIG2.ι (RefinedStratum.closure E m k h M) ≫ E.toSpec m k) ∧
       IsProper (LCSubschemeIG2.ι (RefinedStratum.closure E m k h M) ≫ E.toSpec m k) ∧
-      ∃ e : LCSubschemeIG2 (RefinedStratum E m k h M) ≅ IgusaFirstKind.space E k m h,
-        e.hom ≫ IgusaFirstKind.toPt E k m h =
+      ∃ e : LCSubschemeIG2 (RefinedStratum E m k h M) ≅ IgusaFirstKind.space E k m (E.n - 1 - h),
+        e.hom ≫ IgusaFirstKind.toPt E k m (E.n - 1 - h) =
           LCSubschemeIG2.ι (RefinedStratum E m k h M) ≫ E.toSpec m k := sorry
 
 end HarrisTaylor
@@ -3977,7 +4011,9 @@ example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClos
     IsOpen (ekedahlOortStratum (D := D) k N (EOIndexIG2.longest D p)) ∧
       Dense (ekedahlOortStratum (D := D) k N (EOIndexIG2.longest D p)) := sorry
 
--- test: ekedahlOortStratum_ne_leaf — for n ≥ 2 some EO stratum is not contained in a single Newton stratum
+-- REVIEW UNVERIFIED: this universal mixed-Newton assertion still needs an actual datum and
+-- witness, or a proof for every datum. It is not a checked negative test.
+-- test: ekedahlOortStratum_ne_leaf — proposed mixed-Newton EO example
 example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
     [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)] (hn : 2 ≤ D.n) :
@@ -5103,10 +5139,9 @@ theorem RZSpaceInfinite.groupActions (Dl : LocalPELDatum p) (b : Dl.KottwitzSet)
     (∀ j : Dl.J b, RZSpaceInfinite.actJ.{u} Dl b j ≫ localHodgeTate Dl b = localHodgeTate Dl b) :=
   sorry
 
--- test: localHodgeTate_etale — for `μ` trivial `Fℓ_{G,μ}` is a point and `π_HT` is constant
-example (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) (hμ : Dl.hodgeProj = 0) :
-    ∃ _ : IsIso (Dl.flagToBase.{u}),
-      localHodgeTate.{u} Dl b = RZSpaceInfinite.toBase Dl b ≫ inv Dl.flagToBase := sorry
+-- test: localHodgeTate_J_invariant — J_b acts on the source and fixes the period map
+example (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) (j : Dl.J b) :
+    RZSpaceInfinite.actJ.{u} Dl b j ≫ localHodgeTate Dl b = localHodgeTate Dl b := sorry
 
 /-- The Drinfeld upper half plane `Ω ⊂ ℙ¹ = Fℓ` (for `LocalPELDatum.lubinTate p 2`, the PEL
 realization of `GL₂ × 𝔾_m` of part p01) (owner: BunGAndNewtonStrata BG3). -/
@@ -6090,17 +6125,21 @@ theorem SWInfiniteLevel.pel (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) (k : Typ
     [IsAlgClosed k] [CharP k p] [ExpChar k p] [PerfectRing k p] :
     Diamond.IsClosedImmersionD (SWInfiniteLevel.pelEmbedding Dl b k) := sorry
 
--- test: SWInfiniteLevel.mu — for `H = μ_{p^∞}`, `M_∞` is a profinite set (totally disconnected, no positive-dimensional deformations)
-example [CharP k p] : TotallyDisconnectedSpace (Diamond.space (SWInfiniteLevel (PDivGroup.mu p (pt k)))) :=
-  sorry
+/-- Base change of the SW tower to a geometric p-adic field (owner: local-shtuka tower). -/
+def SWInfiniteLevel.overC (H : PDivGroup p (pt k)) (C : PadicCField.{u} p) : Diamond.{u} := sorry
+
+-- test: SWInfiniteLevel.mu — over C with all roots of unity, the tower is constant locally profinite
+example [CharP k p] (C : PadicCField.{u} p) :
+    Nonempty (SWInfiniteLevel.overC (PDivGroup.mu p (pt k)) C ≅
+      Diamond.constOver (GL (Fin 1) ℚ_[p]) (Diamond.spa C.C)) := sorry
 
 -- test: SWInfiniteLevel.etale — for `H` étale of height `h` (`d = 0`), `M_∞ ≅ GL_h(ℚ_p)` (locally profinite set over the base)
 example (H : PDivGroup p (pt k)) (hd : H.dim = 0) :
     Nonempty (SWInfiniteLevel H ≅
       Diamond.constOver (GL (Fin H.height) ℚ_[p]) (SWInfiniteLevel.base H)) := sorry
 
--- test: SWInfiniteLevel.tower_not_stationary — for `H` of height `h ≥ 1` no transition map `M_{n+1} → M_n` is an isomorphism, so `M_∞` is not any finite-level `M_n`
-example (H : PDivGroup p (pt k)) (hH : 0 < H.height) (n : ℕ) :
+-- test: SWInfiniteLevel.tower_not_stationary — for `H` of height `h ≥ 1` and `n ≥ 1` no transition map `M_{n+1} → M_n` is an isomorphism, so `M_∞` is not any finite-level `M_n`
+example (H : PDivGroup p (pt k)) (hH : 0 < H.height) (n : ℕ) (hn : 1 ≤ n) :
     ¬ IsIso ((SWInfiniteLevel.tower H).map (homOfLE (Nat.le_succ n)).op) := sorry
 
 end SWInfinite
@@ -6184,6 +6223,10 @@ instance : Pretriangulated (EtDerivedIG X Λ) := sorry
 
 /-- The perverse t-structure (middle perversity) on `D(X_ét, Λ)` for `X` of finite type over a
 field (owner: EtaleDualityAndPerverseSheaves EDC.4). -/
+-- REVIEW LIMITATION: the nonnoetherian, nonconstructible applications below require an
+-- enlarged lower-bound category with continuity and uniform costalk bounds; EDC.5 supplies
+-- only its constructible interface. This declaration is a requested carrier, not a theorem
+-- identifying an existing t-structure on every scheme X.
 def perverseTStructure : Triangulated.TStructure (EtDerivedIG X Λ) := sorry
 
 /-- The constant sheaf `Λ`. -/
@@ -6302,10 +6345,16 @@ example (X : Diamond.{u}) (G : Type) [Group G] [Finite G] [TopologicalSpace G]
     Nonempty (equivariantSite (Λ := Λ) X G act ≌ DiamondDerived (Diamond.quotient X G act) Λ) :=
   sorry
 
--- test: equivariantSite.not_quotient — `(Fℓ/G(ℚ_p))_ét` is not the étale site of any diamond
-example {p : ℕ} [Fact p.Prime] (Dl : LocalPELDatum p) (act : Dl.G →* Aut Dl.flag.{u}) [TopologicalSpace Dl.G] :
-    ¬ ∃ Y : Diamond.{u}, Nonempty (equivariantSite (Λ := Λ) Dl.flag Dl.G act ≌ DiamondDerived Y Λ) :=
-  sorry
+/-- Cohomology of the equivariant site with constant coefficients; for a trivial action
+on a geometric point this computes group cohomology (owner: equivariant étale sites). -/
+def equivariantSite.H (X : Diamond.{u}) (G : Type) [Group G] [TopologicalSpace G]
+    (act : G →* Aut X) (Λ : Type u) [CommRing Λ] (i : ℕ) : Type u := sorry
+
+-- test: equivariantSite.trivial_action_retains_group — H¹(B C_ℓ,F_ℓ) is nonzero
+example {p : ℕ} [Fact p.Prime] (C : PadicCField.{u} p) (ℓ : ℕ) [Fact ℓ.Prime] :
+    letI : TopologicalSpace (Multiplicative (ZMod ℓ)) := ⊥
+    Nonempty (equivariantSite.H (Diamond.spa C.C) (Multiplicative (ZMod ℓ)) 1 (ULift.{u} (ZMod ℓ)) 1 ≃
+      ULift.{u} (ZMod ℓ)) ∧ Subsingleton (DiamondH (Diamond.spa C.C) ℓ 1) := sorry
 
 end EquivariantSites
 
@@ -6386,10 +6435,11 @@ neighbourhoods of `x`. -/
 theorem cofinal (V : AffinoidEtaleNbhd (FlagVariety.{u} D p) x) :
     ∃ U : FormalNeighbourhood D p N x, U.toAffinoidEtaleNbhd.Refines V := sorry
 
-/-- (IG.4/finite-level-formal-models) `Spec(R°_{K(p^∞N),U}/p) → Spec(A°/p)` is integral, and finite
-at each finite level `m ≥ level`. -/
+/-- (IG.4/finite-level-formal-models) `Spec(R°_{K(p^∞N),U}/p) → Spec(A°/p)` and the sufficiently large finite-level maps
+are integral. Finiteness over these nonnoetherian models is not asserted. The necessary
+descent/enlarged perversity interfaces remain packet gaps. -/
 theorem integral (U : FormalNeighbourhood D p N x) :
-    IsIntegralHom U.projInf ∧ ∀ m, U.level ≤ m → IsFinite (U.projLevel m) := sorry
+    IsIntegralHom U.projInf ∧ ∀ m, U.level ≤ m → IsIntegralHom (U.projLevel m) := sorry
 
 /-- (IG.4/finite-level-formal-models) Pushforward along the finite-level mod-`p` maps preserves
 `^pD^{≥d}`. -/
@@ -6415,9 +6465,9 @@ example (U : FormalNeighbourhood D p N x) (V : Diamond.{u}) (c : FiniteEtaleRati
     ∃ (U' : FormalNeighbourhood D p N x) (e : U'.V ≅ V),
       e.hom ≫ c.toHom ≫ U.toY = U'.toY := sorry
 
--- test: FormalNeighbourhood.level_zero — at each finite level the mod-`p` map is finite
+-- test: FormalNeighbourhood.level_zero — at sufficiently large finite level the mod-`p` map is integral
 example (U : FormalNeighbourhood D p N x) (m : ℕ) (hm : U.level ≤ m) :
-    IsFinite (U.projLevel m) := sorry
+    IsIntegralHom (U.projLevel m) := sorry
 
 -- test: FormalNeighbourhood.not_proper_generic — `π_{HT,U}` has positive-dimensional fibres (needs `d_{b(x)} > 0`, false for basic `x`) although its mod-`p` model is ind-finite
 example (U : FormalNeighbourhood D p N x) (hb : 0 < (FlagPoint.newton x).dimLeaf) :
@@ -7363,6 +7413,9 @@ def UnitarySimilitudeDatum.lowerRank (D : UnitarySimilitudeDatum) (r : ℕ) (hr 
   n := D.n - r
   n_pos := by omega
   L := sorry
+  L_finite := sorry
+  L_full := sorry
+  L_selfDual := sorry
 
 /-- (IG.6/boundary-strata-by-parabolics) The lower-rank Igusa datum: `X_P = Z_{b,−1}/Z_{b,−2}` with
 its `G_{2(n−r)}`-structure (`r < n`); its class `b_P` is `(lowerRankDatum Z hr).newtonClass`. -/
