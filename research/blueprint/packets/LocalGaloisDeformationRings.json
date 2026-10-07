@@ -1418,7 +1418,7 @@
     },
     {
      "sourceId": "NT-2026",
-     "locator": "proof of Theorem 5.9, arXiv v2 p. 33",
+     "locator": "proof of Theorem 5.9, arXiv v2 p. 45",
      "excerpt": "This non-vanishing follows from the congruence modulo ̟ between the unipotent and tamely-ramified-type lifting rings, cf. [Tay08, §3] or indeed [Sho18]. We note that the same congruence is exploited",
      "match": "(2): the unipotent and tamely ramified type rings are congruent mod ϖ, so the latter is non-zero."
     }
@@ -1624,7 +1624,7 @@
    "statement": "Let V_𝔽 be a d-dimensional 𝔽-representation of G_K, R^□ = R^□_{V_𝔽} its framed deformation ring over 𝒪_E (R08.1/local-lifting-ring), and (τ, v) a Galois type and a p-adic Hodge type. (1) There is a quotient (R^□[1/p])^{τ,v} of R^□[1/p] such that a map to a finite E-algebra B factors through it exactly when V_B is potentially semistable of type τ and p-adic Hodge type v. It is a union of connected components of the Hodge-type-v locus of the semistable-over-L quotient, for any finite Galois L/K with I_L ⊆ ker τ. (2) The locus (R^□[1/p])^{τ,v}_cr where V_B is potentially crystalline is its closed subscheme N = 0. (3) R^{□,τ,v} denotes the reduced, p-torsion-free quotient of R^□ with R^{□,τ,v}[1/p] = ((R^□[1/p])^{τ,v})_red; its ℚ̄_p-points are exactly the lifts that are potentially semistable of type (τ, v). The same holds for R_{V_𝔽} when End_{𝔽[G_K]}V_𝔽 = 𝔽, and with fixed determinant.",
    "hypotheses": [
     "The characterisation in (1) is on points with values in all finite E-algebras B, not only fields, so it determines the closed subscheme.",
-    "(3) is the reduced closure used by Gee (Theorem 3.28 in the crystalline case) and by later work. Reducedness of (R^□[1/p])^{τ,v} itself is not asserted by Kisin, so the integral ring is defined through the reduced subscheme.",
+    "(3) is the reduced closure used by Gee (Theorem 3.28 in the crystalline case) and by subsequent work. Reducedness of (R^□[1/p])^{τ,v} itself is not asserted by Kisin, so the integral ring is defined through the reduced subscheme.",
     "Nonemptiness is not automatic: R^{□,τ,v} can be 0."
    ],
    "proofSteps": [
@@ -2360,7 +2360,7 @@
    "kind": "theorem",
    "statement": "Let d = 2, v_ψ = 1 for all ψ (so 𝒢ℛ^v = 𝒢ℛ^{v,loc}), and K₀ = ℚ_p. Any two non-ordinary 𝔽′-points of 𝒢ℛ^v_0 lie on the same connected component. So the non-ordinary locus of Spec R^v[1/p] is connected.",
    "hypotheses": [
-    "K₀ = ℚ_p means K/ℚ_p totally ramified; Kisin notes that Gee later removed this restriction, which was not read here, so it is kept.",
+    "K₀ = ℚ_p means K/ℚ_p totally ramified; Kisin notes that Gee subsequently removed this restriction, which was not read here, so it is kept.",
     "The residual input (Kisin (2.5.3)): for V_𝔽 reducible, V_𝔽^ss|I_K ≅ ω^i ⊕ ω^j with i, j ∈ [0, e] and p − 1 | e − i − j; for V_𝔽 irreducible (𝔽 ⊇ 𝔽_{p²}), V_𝔽|I_K ≅ ω₂^i ⊕ ω₂^{pi} with i = i₀ + pi₁, i₀, i₁ ∈ [0, e], p + 1 ∤ i and p − 1 | e − i."
    ],
    "proofSteps": [
@@ -4842,7 +4842,7 @@
     },
     {
      "sourceId": "PQ-2026",
-     "locator": "Lemma 3.1, arXiv v2",
+     "locator": "Lemma 3.1, arXiv v2 p. 22",
      "excerpt": "Lemma 3.1. Let V be a continuous representation of Γ on a finite dimensional κ-vector space V . Then (13) dimκ Z 1 (Γ, V ) = h1 (Γ, V ) + dimκ V − h0 (Γ, V ), where hi (Γ, V ) := dimκ H i (Γ, V ). Moreover, if Γ = ΓF then dimκ Z 1 (ΓF , V",
      "match": "(1)."
     }
@@ -5075,7 +5075,7 @@
    "sources": [
     {
      "sourceId": "PQ-2026",
-     "locator": "§3, Lemma 3.2",
+     "locator": "§3, Lemma 3.2, arXiv v2 p. 23",
      "excerpt": "Lemma 3.2. Let ρ : Γ → G(κ) be a continuous representation. Then Dρ,G is □ pro-representable by a complete local noetherian Λ-algebra Rρ,G with residue field κ. Proof. If A, B, C ∈ AΛ , then a homomorphism Γ → G(A ×C B) is continuous if",
      "match": "(2)."
     },
@@ -5198,13 +5198,13 @@
    "sources": [
     {
      "sourceId": "PQ-2026",
-     "locator": "Proposition 3.6",
+     "locator": "Proposition 3.6, arXiv v2 p. 24",
      "excerpt": "Proposition 3.6. Let φ : G → H be a morphism of smooth affine O-group schemes such that the induced morphism on neutral components G0 → H 0 is smooth and surjective. Let ρ : Γ → G(κ) be a continuous representation and let ad0,φ = □ ker(ad",
      "match": "(1)."
     },
     {
      "sourceId": "PQ-2026",
-     "locator": "Corollary 3.12 and Proposition 3.13",
+     "locator": "Corollary 3.12 and Proposition 3.13, arXiv v2 p. 26",
      "excerpt": "Corollary 3.12. If Z is finite étale then RH = RG . Proof. Since Z is finite étale its Lie algebra is zero. We thus get ad0,φ ρ = 0 and the assertion follows from Proposition 3.6. □ Proposition 3.13. If Z is a torus such that Z ∩ G′ is",
      "match": "(3)."
     },
@@ -5250,13 +5250,13 @@
    "sources": [
     {
      "sourceId": "DING-2025",
-     "locator": "§3.2.2, arXiv p. 57",
+     "locator": "§3.2.2, arXiv p. 61",
      "excerpt": "deformations of D with respect to the refinement w(ϕ)), and RD,g be the uni- versal deformation ring of de Rham deformations or equivalently crystabelline deformations. All of these rings are formally smooth complete",
      "match": "R_{D,w} and R_{D,g}."
     },
     {
      "sourceId": "DING-2025",
-     "locator": "§3.2.2, arXiv p. 57",
+     "locator": "§3.2.2, arXiv p. 61",
      "excerpt": "All of these rings are formally smooth complete local Noetherian E-algebras (using the fact ϕ is generic). See [3, § 2.3.5, § 2.5.3] [54, § 2] for",
      "match": "Formal smoothness."
     }
@@ -5407,7 +5407,7 @@
     {
      "name": "tameGroup_q_one",
      "kind": "degenerate",
-     "statement": "For q ≡ 1 mod p^∞ is impossible; for q = 1 (formal case) T_1 = ℤ_p × ℤ̂ is abelian."
+     "statement": "q = 1: T_1 = ℤ_p × ℤ̂ is abelian (the relation φtφ^{-1} = t is trivial)."
     },
     {
      "name": "tameGroup_not_direct",
@@ -5588,7 +5588,7 @@
     },
     {
      "sourceId": "NT-2026",
-     "locator": "proof of Lemma 3.6, arXiv v2 p. 19",
+     "locator": "proof of Lemma 3.6, arXiv v2 p. 18",
      "excerpt": "They are quotients of Rv /(̟), which is again equidimensional of dimension n2 (cf. [Sho18, Theorem 2.5]). We see that (Rv /(̟))red ∼ = (Rv′ /(̟))red if and",
      "match": "The special fibre, citing Shotton Theorem 2.5."
     }
@@ -5722,7 +5722,7 @@
     "(3) finitely many types appear (r̄|_{P_K} determines τ|_{P_K} and the tame part has bounded order); by (2) one point per component suffices."
    ],
    "acceptance": [
-    "n = 2, ℓ ≡ 1 mod p, r̄ trivial: the types are 1 ⊕ 1 (N = 0), Sp₂ and χ ⊕ χ^{-1}·(…) with χ of p-power order; each gives a component of dimension 5 = 1 + n²."
+    "n = 2, ℓ ≡ 1 mod p, r̄ trivial: the inertial types occurring are the trivial type (N = 0), the Steinberg type Sp₂ (N ≠ 0), and χ ⊕ χ^{-1} on tame inertia with χ ≠ 1 of p-power order (fixed determinant); each gives components of dimension 5 = 1 + n² of the framed ring."
    ],
    "prerequisites": [
     "LocalGaloisDeformationRings:R08.2/inertial-type-with-monodromy",
@@ -5742,7 +5742,7 @@
     },
     {
      "sourceId": "NT-2026",
-     "locator": "proof of Lemma 3.6, arXiv v2 p. 19",
+     "locator": "proof of Lemma 3.6, arXiv v2 p. 18",
      "excerpt": "Both Rv /(̟) and Rv′ /(̟) are equidimensional of dimension n2 (as Rv and Rv′ are equidimensional of dimension 1 + n2 and O-flat, by definition). They",
      "match": "(1)."
     }
@@ -6109,7 +6109,7 @@
    "proofSteps": [
     "exp₂ and log₂ are the truncations of exp and log valid on 4 × 4 symplectic nilpotents (N⁴ = 0) with the cubic correction making them inverse; equivariance is clear.",
     "Strata: nilpotent orbits of sp₄ are indexed by rank 0–3; centraliser dimensions from Proposition 7.4.10.",
-    "ℳ(1, 1; q) ≅ 𝒩(q): log₂ intertwines Σ ↦ Σ^q with N ↦ qN + q*N³, and conjugating by a Φ with ΦNΦ^{-1} = qN·(…) gives the stated isomorphism (BCGP21 §7.4.13)."
+    "ℳ(1, 1; q) ≅ 𝒩(q): (Φ, Σ) ↦ (Φ, log₂ Σ). If ΦΣΦ^{-1} = Σ^q then Φ(log₂ Σ)Φ^{-1} = log₂(Σ^q) = q log₂ Σ + q*(log₂ Σ)³ by the relation for log₂ of powers; conversely exp₂ inverts this on 𝒩(q) (BCGP21 §7.4.13, the analogue of Taylor II Lemma 3.2)."
    ],
    "acceptance": [
     "The irreducible components of 𝒩(q) are indexed by the nilpotent strata closures meeting the q-eigencondition (Propositions 7.4.14–7.4.16)."
@@ -6238,7 +6238,7 @@
     },
     {
      "sourceId": "BCGP-2021",
-     "locator": "Proposition 7.4.21, arXiv v3 p. 196",
+     "locator": "Proposition 7.4.21, arXiv v3 p. 197",
      "excerpt": "Proposition 7.4.21. Let σ be a chosen topological generator of the tame inertia subgroup of GFv . Let x = χ1 (Art−1 −1 Fv (σ)) and y = χ2 (ArtFv (σ)). Then R̃vχ ≃ ÔM(x,y;qv ),(1,1) . Proof. Since ρ|GFv is trivial, any lifting of it",
      "match": "(3)."
     }
@@ -6449,7 +6449,7 @@
     },
     {
      "sourceId": "KISIN-PST-2008-AMS",
-     "locator": "Theorem (2.5.5), p. 531",
+     "locator": "Theorem (2.5.5), p. 530",
      "excerpt": "Theorem (2.5.5). Let A◦ be a complete local Noetherian W (F)-algebra, and VA◦ a ﬁnite free A◦ -module of rank r, equipped with a continuous action of",
      "match": "(1)."
     }
@@ -7589,7 +7589,7 @@
    "sources": [
     {
      "sourceId": "NT-2026",
-     "locator": "Definition 2.5(2), arXiv v2 p. 11",
+     "locator": "Definition 2.5(2), arXiv v2 p. 12",
      "excerpt": "We say that ρ is ordinary of weight λ if for each place × v|p there exist continuous characters ψv,1 , . . . , ψv,n : GFv → Qp and an isomorphism   ψv,1 ∗ ∗ ∗  0  ψv,2 ∗ ∗   ρ|GFv ∼  . . . ,  .. .. .. ∗  0 ··· 0 ψv,n where for each i = 1, . . . , n,",
      "match": "The character convention with the finite-order factor."
     },
@@ -7997,7 +7997,7 @@
     },
     {
      "sourceId": "BCG-2025",
-     "locator": "proof of Theorem 2.1, arXiv v3 p. 5",
+     "locator": "proof of Theorem 2.1, arXiv v3 p. 6",
      "excerpt": "the corresponding crystalline deformation ring which are ordinary, as in [FKP22, Lem. B.4]; this is indeed a nonempty set of components because (2.1.1) shows",
      "match": "As used for GL_n."
     }
@@ -8329,7 +8329,7 @@
    "kind": "theorem",
    "statement": "Keep L7/gsp4-siegel-ordinary-condition. (1) b⁰/u ≅ 1 ⊕ 1 ⊕ λ(α)λ(β)^{-1} as k[G_p]-modules, u ≅ λ(α²)ε̄^{a−1} ⊕ λ(β²)ε̄^{a−1} ⊕ λ(αβ)ε̄^{a−1}, and h⁰(G_p, g⁰/b⁰) = 0; hence h⁰(G_p, u) = h²(G_p, u) = 0, h¹(G_p, u) = 3, H¹(G_p, b⁰) ↠ H¹(G_p, b⁰/u) and H¹(G_p, b⁰) ↪ H¹(G_p, g⁰). (2) dim_k L_p − dim_k H⁰(G_p, ad⁰r̄) = 3. (3) The condition at p is equivalent to r|G_p being ordinary of fixed weight; for a = 2 it is equivalent to finite flatness of r^∨ ≅ r ⊗ ε.",
    "hypotheses": [
-    "CG20 prints λ(β)λ(α)^{-1} for the character on the (1, 2) root space; Ad of diag(λ(α), λ(β), …) acts by λ(α)λ(β)^{-1} (extraction issue E23); the dimension count is unaffected.",
+    "CG20 prints λ(β)λ(α)^{-1} for the character on the (1, 2) root space; conjugation by diag(λ(α), λ(β), ε^{1−a}λ(β)^{-1}, ε^{1−a}λ(α)^{-1}) acts on that root space by λ(α)λ(β)^{-1} (extraction issue E23); the dimension count is unaffected.",
     "Remark 4.7 is printed for r and with Ext¹(εψ₁, ψ₂); it concerns r^∨ and extensions 0 → εψ₁ → E → ψ₂ → 0 (extraction issues E25, E20, E24)."
    ],
    "proofSteps": [
@@ -8453,7 +8453,7 @@
     {
      "name": "gsp4BorelOrdinary_semistable_not_crystalline",
      "kind": "characterisation",
-     "statement": "A lift with non-split extension of λ_α by ε^{-1}λ_α^{-1}... of Steinberg type is p-distinguished ordinary but not crystalline."
+     "statement": "When α² = 1, the rank-two subquotient on the first and fourth basis vectors may be the non-split extension of ε^{-1}λ_α^{-1} by λ_α given by the Kummer class of p in H¹(ℚ_p, E(ε)) = H¹(ℚ_p, E(ελ_α²)); such a lift is p-distinguished weight-2 ordinary and semistable but not crystalline, so the condition is not the crystalline condition."
     },
     {
      "name": "gsp4BorelOrdinary_closed_immersion",
@@ -8480,7 +8480,7 @@
     "(5): smoothness iff H² of the Borel (resp. parabolic) adjoint at x vanishes (R08.1/completion-at-points); for pure x the vanishing follows from a weight argument (the duality step as printed fails for ad⁰_B)."
    ],
    "acceptance": [
-    "Relative dimension 16 = 10 + 6 for the Borel-ordinary ring (10 = dim ad⁰, 6 = framing + Λ_{v,2} directions) — matching BCGP25 Lemma 6.2.2(1)."
+    "The relative dimensions agree with BCGP25 Lemma 6.2.2(1): the Borel-ordinary flag scheme over the weight algebra has components of dimension 16 at points where H²(G_{ℚ_p}, Fil⁰ad⁰ρ_x) = 0."
    ],
    "prerequisites": [
     "LocalGaloisDeformationRings:L7/gsp4-borel-ordinary-conditions",
@@ -8523,13 +8523,13 @@
    ],
    "title": "The GL₂ ordinary ring R^{B₂}: irreducible generic fibre and explicit presentations",
    "kind": "theorem",
-   "statement": "Let r̄ = (λ_γ̄ ∗; 0 ε̄^{-1}λ_γ̄^{-1}) : G_{ℚ_p} → GL₂(k) (p > 2), Λ = 𝒪⟦1 + pℤ_p⟧ with canonical character θ : I_{ℚ_p} → Λ^× (through Art^{-1}). A lift r over A ∈ CNL_Λ is ordinary if it is ker(GL₂(A) → GL₂(k))-conjugate to (χ ∗; 0 ε^{-1}χ^{-1}) with χ̄ = λ_γ̄ and χ|I = θ; this is represented by R^{B₂}. (1) h²(ℚ_p, ad⁰_{B₂}r̄) = 0 unless γ̄² = 1 and the extension class η vanishes, when it is 1. (2) R^{B₂}[1/p] is irreducible of relative dimension 5 over Λ[1/p]... (relative dimension as in Lemma 7.3.6). (3) The B₂-framed fixed-determinant ring R^{B₂,◹} has an explicit presentation over the universal deformation ring R^{GL₁} = 𝒪⟦y₁, y₂⟧ of λ_γ̄ (Lemma 7.3.7), R^{B₂,□} being formally smooth over R^{B₂,◹} of relative dimension 1. (4) The points of R^{B₂}[1/p] that are not smooth over Λ are, up to unramified twist, crystalline extensions of ε^{-1} by 1.",
+   "statement": "Let p > 2 and r̄ = (λ_ᾱ ∗; 0 ε̄^{-1}λ_ᾱ^{-1}) : G_{ℚ_p} → GL₂(k), written with extension class η_{α²} ∈ H¹(ℚ_p, ε̄λ_{ᾱ²}); let Λ = 𝒪⟦1 + pℤ_p⟧ with canonical character θ : I_{ℚ_p} → Λ^× (through Art^{-1}). A lift r over A ∈ CNL_Λ is ordinary if it is ker(GL₂(A) → GL₂(k))-conjugate to (χ ∗; 0 ε^{-1}χ^{-1}) with χ̄ = λ_ᾱ and χ|_{I_{ℚ_p}} = θ; this local deformation problem is represented by R^{B₂}. (1) h²(ℚ_p, ad⁰_{B₂}r̄) = 0 unless ᾱ² = 1 and η_{α²} = 0, in which case it equals 1. (2) R^{B₂}[1/p] is irreducible of relative dimension 5 over ℚ_p; when h² = 0, R^{B₂} is formally smooth over 𝒪 of relative dimension 5. (3) The B₂-framed fixed-determinant ring R^{B₂,◹} has an explicit presentation over the universal deformation ring R^{GL₁} = 𝒪⟦y₁, y₂⟧ of λ_ᾱ (Lemma 7.3.7), and R^{B₂,□} is formally smooth over R^{B₂,◹} of relative dimension 1. (4) The points of R^{B₂}[1/p] that are not smooth over Λ are, up to unramified twist, crystalline extensions of ε^{-1} by 1.",
    "hypotheses": [],
    "proofSteps": [
-    "(1): ad⁰_{B₂}r̄ is an extension of 1 by ε̄λ_{γ̄²} (the upper-right root space); H² ≅ H⁰ of the twisted dual by local Tate duality (Tau Ceti ClassFieldTheory Layer 5).",
-    "(3): write the B₂-valued lift as (χ, cocycle) with χ = Teichmüller(λ_γ̄)·(universal character over R^{GL₁}) and the cocycle in Z¹(ℚ_p, ε^{-1}χ^{-2}); presentations by framing variables x_i, character variables y_i and cocycle variables z_i (Remark 7.3.8).",
-    "(4): non-smooth points over Λ are where H² of the character ε^{-1}χ^{-2}·(1) jumps, i.e. χ² = ε^{-1}·unramified with trivial extension class... crystalline extensions of ε^{-1} by 1 up to twist (Lemma 7.3.9).",
-    "Local Tate duality and the local Euler characteristic formula used in the dimension and smoothness count are Tau Ceti ClassFieldTheory Layer 5 (tateDualityPairing_perfect_mixed, eulerCharacteristic_finrank_fp), cited as that layer (red-team finding RT-AREA-langlands-2/16)."
+    "(1): with respect to the basis {x_{α²}, x_α} of ad⁰_{B₂}, ad⁰_{B₂}r̄ = (ε̄λ_{ᾱ²} −2η_{α²}; 0 1); for M killed by p, H²(ℚ_p, M) ≅ Hom_{G_{ℚ_p}}(M, ε̄)^∨ (local Tate duality, Tau Ceti ClassFieldTheory Layer 5), which is non-zero exactly when ᾱ² = 1 and η_{α²} = 0.",
+    "(2): Mazur's presentation 𝒪⟦x₁, …, x_r⟧/(y₁, …, y_s) with r = 3 − h⁰ + h¹ and s = h² of ad⁰_{B₂}r̄, and r − s = 3 + dim ad⁰_{B₂} = 5 by the local Euler characteristic; if h² = 1 then ᾱ = ±1, r̄ is split, R^{B₂} is a complete intersection, and irreducibility of the generic fibre follows Geraghty Lemma 3.13 (connectedness via the section χ ⊕ χ^{-1}ε^{-1} over Λ[1/p]) together with the smoothness away from the locus of (4).",
+    "(3): write the B₂-valued lift as a character χ = Teichmüller(λ_ᾱ)·(universal character over R^{GL₁}) and a cocycle valued in ε^{-1}χ^{-2}; variables x_i (framing), y_i (character) and z_i (cocycle) (Remark 7.3.8).",
+    "(4): in the Tate pairing H¹(ℚ_p, ℚ_p) × H¹(ℚ_p, ℚ_p(1)) → ℚ_p the unramified classes are annihilated exactly by the crystalline extensions, so smoothness over Λ fails exactly at crystalline extensions of ε^{-1} by 1, up to twist (Lemma 7.3.9)."
    ],
    "acceptance": [
     "γ̄ = 1, η ≠ 0 (très ramifié): h² = 0 and R^{B₂} is formally smooth over Λ."
@@ -8691,7 +8691,7 @@
    ],
    "proofSteps": [
     "(1): the completed local ring of 𝒢_v[1/p] at x is a quotient of a power series ring by at most h²(Fil⁰ad⁰ρ_x) relations, with tangent dimension computed by the local Euler characteristic (dim Fil⁰ = 6, [F_v:ℚ_p] = 1, framing 10); duality via the trace pairing identifies (Fil⁰)^∨ with ad⁰/Fil¹ (Tau Ceti ClassFieldTheory Layer 5).",
-    "(2): (ad⁰/Fil¹)(1) has graded characters among χ̃₁²ε·ε^{-1}..., so (a) kills H⁰; purity (Frobenius weights) kills it in (b), (c).",
+    "(2): ad⁰ρ_x/Fil¹ad⁰ρ_x has a filtration whose graded pieces are characters built from the ratios of the graded characters χ̃₁, χ̃₂, ε^{-1}χ̃₂^{-1}, ε^{-1}χ̃₁^{-1} of the flag (the root characters χ̃₁²ε, χ̃₂²ε, χ̃₁χ̃₂ε and χ̃₁χ̃₂^{-1} together with the torus part); H⁰ of its Tate twist vanishes when none of these equals ε (case (a)); in cases (b), (c) purity of WD(ρ_x) forces the Frobenius weights of these characters to differ from those of ε.",
     "(3): p-distinguished ⟹ 𝒢_v → Spec R_v is a closed immersion near x (L7/gsp4-ordinary-flag-incidence (2))."
    ],
    "acceptance": [
@@ -8897,13 +8897,13 @@
    "sources": [
     {
      "sourceId": "BCGNT-2025",
-     "locator": "Lemma 5.1.4, arXiv",
+     "locator": "Lemma 5.1.4, arXiv p. 50",
      "excerpt": "Lemma 5.1.4. Let K be a finite extension of Qp . Let ρ1 , ρ2 be ordinary, crystalline weight 0 representations of GK with ρ1 = ρ2 the trivial representation. Then ρ1 ∼ ρ2 . Proof. This follows immediately from [Ger19, Lemma 3.14] — the",
      "match": "(1)."
     },
     {
      "sourceId": "BCGNT-2025",
-     "locator": "Lemma 5.1.5, arXiv",
+     "locator": "Lemma 5.1.5, arXiv p. 50",
      "excerpt": "Lemma 5.1.5. Let K be a finite extension of Qp , and let ρ : GK → GLn (Zp ) be crystalline of weight 0. Then there exists a constant c = c(K, ρ, n) with the following property: • if t : GK → GLn (Zp ) is crystalline of weight 0, and t ≡",
      "match": "(2)."
     }
@@ -8942,13 +8942,13 @@
    "sources": [
     {
      "sourceId": "BCGNT-2025",
-     "locator": "Definition 5.1.1, arXiv",
+     "locator": "Definition 5.1.1, arXiv p. 49",
      "excerpt": "Definition 5.1.1. For n, m ∈ Z≥1 , let ε2 , ε′2 : GQp2 → Zp be the two Lubin–Tate characters trivial on ArtQp2 (p), and let ρn,m,0 denote the representation n m(n−i) ′ m(i−1) M (5.1.2) ρn,m,0 = ε2 (ε2 ) : GQp2 → GLn (Zp ). i=1 We assume",
      "match": "The definition."
     },
     {
      "sourceId": "BCGNT-2025",
-     "locator": "Lemma 5.1.3, arXiv",
+     "locator": "Lemma 5.1.3, arXiv p. 49",
      "excerpt": "Lemma 5.1.3. Let K0 /Qp2 be an unramified extension and let ρ : GK0 → GLn (Zp ) be any crystalline representation of Hodge–Tate weights {0, m, 2m, . . . , (n − 1)m} (with respect to any embedding K0 → Qp ) such that ρ|IK0 = ρn,m,0 |IK0 .",
      "match": "(2)."
     }
@@ -9790,8 +9790,8 @@
    "sources": [
     {
      "sourceId": "LTXZZ-2022",
-     "locator": "the rigidity definition (published Definition 6.3.3; arXiv v3 Definition 6.3.4), published p. 277",
-     "excerpt": "the following are satisfied: m RQ is absolutely irreducible; m either one of the two assumptions in Lemma 2.3.5 is satisfied; m the order of γ is coprime to `; and m (R̄(m) )hγ is free over Oλ /λm of rank 1. Then (S, γ)-abundant rS -tuple exists. Proof. By",
+     "locator": "the rigidity definition (published Definition 6.3.3, p. 277; arXiv v3 Definition 6.3.4)",
+     "excerpt": "every lifting of r̄v is minimally ramified [LTXZZ, Definition 3.4.8]. (2) For v in Σ+ \\ lr , the generalized eigenvalues of r̄v (φw ) in F` contain the pair {kvk −N , kvk−N +2 } exactly once, where w",
      "match": "The four conditions."
     }
    ],
