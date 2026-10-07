@@ -810,14 +810,41 @@ abbrev IG0Zloc (p : ℕ) [Fact p.Prime] : Type := Localization.AtPrime (Ideal.sp
 abbrev IG0Away (D : UnitarySimilitudeDatum) (N : ℕ) : Type :=
   Localization.Away ((N : ℤ) * NumberField.discr D.F)
 
-/-- The moduli problem `S^pre_K` of `(A, ι, λ, η, ζ_N)` with the lifting condition, as a scheme
-over `ℤ[1/Δ_F]` (it is a scheme after inverting `N` or localizing at `p` with prime-to-`p` part of
-`N` at least 3). -/
+/-- The part of `N` prime to `p`. Only prime `p` and `N > 0` are used. -/
+def IG0tamePart (N p : ℕ) : ℕ := N / p ^ N.factorization p
+
+/-- For `N ≥ 3`, the product of prime divisors `q` of `N` whose prime-to-`q` part
+is less than 3. For `N < 3`, invert zero so the prototype restriction has empty base. -/
+def IG0badLevelFactor (N : ℕ) : ℤ :=
+  if 3 ≤ N then
+    ∏ q ∈ N.primeFactors, if IG0tamePart N q < 3 then (q : ℤ) else 1
+  else 0
+
+/-- The coordinate ring of `U_{D,N} = Spec ℤ[1/(Δ_F b_N)]`, where `b_N` is
+`IG0badLevelFactor N`. For `N ≥ 3`, this is the open base on which `Δ_F` is
+invertible and the prime-to-`q` part of `N` is at least 3 at every residual prime
+`q`. In particular it contains every good-reduction prime, and every bad-reduction
+prime with tame part at least 3. -/
+abbrev IG0SchemeBaseRing (D : UnitarySimilitudeDatum) (N : ℕ) : Type :=
+  Localization.Away (NumberField.discr D.F * IG0badLevelFactor N)
+
+/-- The restriction to `U_{D,N}` of the PEL Deligne–Mumford stack `S^pre_K`
+parametrizing `(A, ι, λ, η, ζ_N)` with the lifting condition, represented by a scheme.
+Here `U_{D,N} = Spec ℤ[1/(Δ_F b_N)]`, with `b_N` the product of primes `q | N`
+for which `N / q^{v_q(N)} < 3`; for `N < 3` the restriction is empty. The whole
+stack over `ℤ[1/Δ_F]` is not declared to be a Scheme. Owner: PELModuli M1–M2;
+the source's representability assertions cover this open base. -/
 def PreIntegralModel (D : UnitarySimilitudeDatum) (N : ℕ) : Scheme.{0} := sorry
 
-/-- Structure morphism of `S^pre_K`. -/
+/-- Structure map of the representable open restriction to `U_{D,N}`. -/
+def PreIntegralModel.toBase (D : UnitarySimilitudeDatum) (N : ℕ) :
+    PreIntegralModel D N ⟶ Spec (CommRingCat.of (IG0SchemeBaseRing D N)) := sorry
+
+/-- Structure morphism of the representable open restriction over `Spec ℤ`. -/
 def PreIntegralModel.toSpecZ (D : UnitarySimilitudeDatum) (N : ℕ) :
-    PreIntegralModel D N ⟶ Spec (CommRingCat.of ℤ) := sorry
+    PreIntegralModel D N ⟶ Spec (CommRingCat.of ℤ) :=
+  PreIntegralModel.toBase D N ≫
+    Spec.map (CommRingCat.ofHom (algebraMap ℤ (IG0SchemeBaseRing D N)))
 
 /-- `S^pre_K × ℤ[1/(Δ_F N)]`. -/
 def PreIntegralModel.away (D : UnitarySimilitudeDatum) (N : ℕ) : Scheme.{0} :=
@@ -833,8 +860,9 @@ instance (D : UnitarySimilitudeDatum) (N : ℕ) : QuasiCompact (PreIntegralModel
 instance (D : UnitarySimilitudeDatum) (N : ℕ) : QuasiSeparated (PreIntegralModel.awayι D N) :=
   sorry
 
-/-- (IG.0/integral-model) The integral model `S_K`, `K = K(N)`: the normalization of `S^pre_K` in
-`S^pre_K × ℤ[1/(Δ_F N)]`. -/
+/-- (IG.0/integral-model) The restriction of the normalized Deligne–Mumford stack
+`S_K`, `K = K(N)`, to the representable open base `U_{D,N}`: normalize the scheme
+`PreIntegralModel D N` in its `N`-inverted locus. -/
 def IntegralModel (D : UnitarySimilitudeDatum) (N : ℕ) : Scheme.{0} :=
   (PreIntegralModel.awayι D N).normalization
 
@@ -844,7 +872,9 @@ namespace IntegralModel
 def toSpecZ (D : UnitarySimilitudeDatum) (N : ℕ) : IntegralModel D N ⟶ Spec (CommRingCat.of ℤ) :=
   (PreIntegralModel.awayι D N).fromNormalization ≫ PreIntegralModel.toSpecZ D N
 
-/-- `S_K ⊗ ℤ_(p)`. -/
+/-- Base change of the representable open restriction to `ℤ_(p)`. It is the
+integral moduli scheme at `p` when `p ∤ Δ_F` and `3 ≤ IG0tamePart N p`; outside
+that regime this definition denotes only the base change of the open restriction. -/
 def atP (D : UnitarySimilitudeDatum) (N p : ℕ) [Fact p.Prime] : Scheme.{0} :=
   pullback (toSpecZ D N) (Spec.map (CommRingCat.ofHom (algebraMap ℤ (IG0Zloc p))))
 
@@ -881,9 +911,20 @@ def universalPDiv (D : UnitarySimilitudeDatum) (N p : ℕ) [Fact p.Prime] :
 def hecke (D : UnitarySimilitudeDatum) (N p : ℕ) [Fact p.Prime] (g : GAfp D p) :
     SchemeCorrespondence (atP D N p) := sorry
 
-/-- Change of level `S_{K(M)} → S_{K(N)}` for `N ∣ M`. -/
-def transition (D : UnitarySimilitudeDatum) {N M : ℕ} (h : N ∣ M) :
-    IntegralModel D M ⟶ IntegralModel D N := sorry
+/-- Change of level over the common good-prime localization. The global
+representable opens for `N` and `M` can differ, so a global Scheme map is not
+asserted for arbitrary `N ∣ M`. -/
+def transitionAtP (D : UnitarySimilitudeDatum) (p : ℕ)
+    [Fact p.Prime] {N M : ℕ} (h : N ∣ M)
+    (hN : 3 ≤ N) (hM : 3 ≤ M)
+    (hp : ¬ (p : ℤ) ∣ M * NumberField.discr D.F) :
+    atP D M p ⟶ atP D N p := sorry
+
+/-- Forget level on complex points, induced by the generic-fibre level map. -/
+def complexTransition (D : UnitarySimilitudeDatum)
+    {N M : ℕ} (h : N ∣ M) (hN : 3 ≤ N) (hM : 3 ≤ M) :
+    (Spec (CommRingCat.of ℂ) ⟶ IntegralModel D M) →
+      (Spec (CommRingCat.of ℂ) ⟶ IntegralModel D N) := sorry
 
 end IntegralModel
 
@@ -909,11 +950,9 @@ example (D : UnitarySimilitudeDatum) (N : ℕ) (hN : 3 ≤ N) :
     Nonempty ((Spec (CommRingCat.of ℂ) ⟶ IntegralModel D N) ≃
       D.locallySymmetricSpace (D.principalLevel N)) := sorry
 
--- test: IntegralModel.not_smooth_at_N — no smoothness at p ∣ N: e.g. F imaginary quadratic, n = 1, N = p ≥ 3 gives a non-smooth model at p (Katz–Mazur full level p)
-example (D : UnitarySimilitudeDatum) (p : ℕ) [Fact p.Prime] (hp : 3 ≤ p)
-    (hF : Module.finrank ℚ D.F = 2) (hn : D.n = 1)
-    (hunr : ¬ (p : ℤ) ∣ NumberField.discr D.F) :
-    ¬ Smooth (IntegralModel.toZp D p p) := sorry
+-- test: IntegralModel.tame_level_required — N = p has prime-to-p part 1, outside the stated local scheme regime
+example (p : ℕ) [Fact p.Prime] (hp : 3 ≤ p) :
+    IG0tamePart p p = 1 ∧ ¬ 3 ≤ IG0tamePart p p := sorry
 
 /-! ### `IG.0/complex-uniformization` -/
 
@@ -930,7 +969,7 @@ theorem complexUniformization (D : UnitarySimilitudeDatum) :
         D.locallySymmetricSpace (D.principalLevel N)),
       ∀ (N M : ℕ) (hN : 3 ≤ N) (hM : 3 ≤ M) (h : N ∣ M)
         (x : Spec (CommRingCat.of ℂ) ⟶ IntegralModel D M),
-        e N hN (x ≫ IntegralModel.transition D h) = D.lssTransition h (e M hM x) := sorry
+        e N hN (IntegralModel.complexTransition D h hN hM x) = D.lssTransition h (e M hM x) := sorry
 
 
 /-! ### `IG.0/unramified-local-pel-datum` -/
@@ -1576,7 +1615,9 @@ def IG0SpfW (p : ℕ) [Fact p.Prime] (k : Type u) [CommRing k] (R : Type u) [Com
 def IG0SpfPerfPS (p : ℕ) [Fact p.Prime] (k : Type u) [CommRing k] (d : ℕ) :
     IG0Nilp p (WittVector p k) ⥤ Type u := sorry
 
-/-- The sheaf `U ↦ C(|Spec|, X)` of locally constant maps to a topological space. -/
+/-- The sheaf `R ↦ C(|Spec R|, X)` of continuous maps to a locally profinite
+target. For nondiscrete `X` these maps need not be locally constant; the legacy
+name `IG0LocConst` is retained only for compatibility. -/
 def IG0LocConst (p : ℕ) [Fact p.Prime] (k : Type u) [CommRing k] (X : Type) [TopologicalSpace X] :
     IG0Nilp p (WittVector p k) ⥤ Type u := sorry
 
@@ -1619,12 +1660,22 @@ example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet)
     [IsAlgClosed k] [CharP k p] (h : (𝒟.pdivOfB b k).toPDivGroup.IsIsoclinic) :
     IsIso (AutUniversalCover.toJ 𝒟 b k) ∧ LocalPELDatum.dimLeaf b = 0 := sorry
 
--- test: AutUniversalCover.ordinary_GL2 — X_b = μ × ℚ_p/ℤ_p: fibres Spf W[[x^{1/p^∞}]] (d = 1)
-example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k]
-    [IsAlgClosed k] [CharP k p]
-    (h : Nonempty ((𝒟.pdivOfB b k).toPDivGroup ≅
-      PDivGroup.sum (PDivGroup.mu p (pt k)) (PDivGroup.etaleUnit p (pt k)))) :
-    ∀ j : 𝒟.J b, Nonempty (AutUniversalCover.fibre 𝒟 b k j ≅ IG0SpfPerfPS p k 1) := sorry
+/-- Standard rank-two symplectic PEL datum: `B = ℚ_p`, identity involution,
+`V = ℚ_p²` with its standard alternating form, `O_B = ℤ_p`, lattice `ℤ_p²`,
+and `μ(t) = diag(t,1)`. Its similitude group is `GSp₂ = GL₂`. -/
+def LocalPELDatum.symplecticRankTwo (p : ℕ) [Fact p.Prime] : LocalPELDatum p := sorry
+
+/-- The ordinary class represented by `μ_{p^∞} ⊕ ℚ_p/ℤ_p` with its standard
+principal polarization in the rank-two symplectic datum. -/
+def LocalPELDatum.symplecticRankTwoOrdinary (p : ℕ) [Fact p.Prime] :
+    (LocalPELDatum.symplecticRankTwo p).KottwitzSet := sorry
+
+-- test: AutUniversalCover.ordinary_GL2 — fix the symplectic datum; its ordinary fibres have dimension 1
+example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [IsAlgClosed k] [CharP k p] :
+    ∀ j : (LocalPELDatum.symplecticRankTwo p).J
+        (LocalPELDatum.symplecticRankTwoOrdinary p),
+      Nonempty (AutUniversalCover.fibre (LocalPELDatum.symplecticRankTwo p)
+        (LocalPELDatum.symplecticRankTwoOrdinary p) k j ≅ IG0SpfPerfPS p k 1) := sorry
 
 -- test: AutUniversalCover.not_aut_Xb — its k-points J_b(ℚ_p) are not compact, unlike Aut(X_b)(k)
 example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) :
@@ -1664,6 +1715,39 @@ def IG0SeminormalRing (R : Type u) [CommRing R] : Prop :=
 /-- Seminormal schemes: all local rings seminormal. -/
 def IG0Seminormal (X : Scheme.{u}) : Prop := ∀ x : X, IG0SeminormalRing (X.presheaf.stalk x)
 
+/-- Automorphisms of `X[p^m]` that lift to every higher truncation, for an
+arbitrary p-divisible group `X`. No polarization or fixed total height is imposed. -/
+def LiftableAutPlain {p : ℕ} {k : Type u} [Field k]
+    (X : PDivGroup p (pt k)) (m : ℕ) : Type u := sorry
+
+instance {p : ℕ} {k : Type u} [Field k] (X : PDivGroup p (pt k)) (m : ℕ) :
+    Group (LiftableAutPlain X m) := sorry
+
+/-- Isomorphisms of the `p^m`-torsion of `G_T` and `X_T` that lift fppf locally
+to every higher truncation. The two base changes use `t` and `t ≫ s`, respectively,
+so their structural maps to the same field are explicit. -/
+def IG0LiftableTruncIsoPlain {p : ℕ} {k : Type u} [Field k] {S : Scheme.{u}}
+    (G : PDivGroup p S) (X : PDivGroup p (pt k)) (m : ℕ) (s : S ⟶ pt k)
+    {T : Scheme.{u}} (t : T ⟶ S) : Type u := sorry
+
+/-- CSnc Proposition 2.2.3 and Theorem 2.2.4 without extra structures. This applies
+to every isoclinic graded piece in the Mantovan construction. The EL-linear and
+cross-polarization-compatible locus in the product of these torsors is then a
+union of connected components by isoclinic rigidity. That compatibility locus is
+recorded by the later `GammaLevelIG1` API; an individual graded piece is not assumed
+to carry the full balanced `PDivGStructure`. -/
+theorem liftableAutomorphismsPlain {p : ℕ} [Fact p.Prime] {k : Type u}
+    [Field k] [IsAlgClosed k] [CharP k p] (X : PDivGroup p (pt k))
+    (hX : X.IsIsoclinic) (m : ℕ) (hm : 1 ≤ m) :
+    Finite (LiftableAutPlain X m) ∧
+    ∀ (S : Scheme.{u}) (s : S ⟶ pt k), IG0Seminormal S → ∀ G : PDivGroup p S,
+      (∀ x : S, Nonempty ((PDivGroup.baseChange (IG0geomPoint S x)).obj G ≅
+        (PDivGroup.baseChange (IG0geomPoint S x ≫ s)).obj X)) →
+      ∃ (J : Scheme.{u}) (π : J ⟶ S), IsFinite π ∧ Etale π ∧
+        Nonempty (IG0Torsor (LiftableAutPlain X m) π) ∧
+        ∀ (T : Scheme.{u}) (t : T ⟶ S),
+          Nonempty ({j : T ⟶ J // j ≫ π = t} ≃ IG0LiftableTruncIsoPlain G X m s t) := sorry
+
 /-- `Γ_m`: automorphisms of `X[p^m]` with extra structures that lift to all `X[p^{m′}]`. -/
 def LiftableAut {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k]
     (X : PDivGStructure D p (pt k)) (m : ℕ) : Type u := sorry
@@ -1671,11 +1755,11 @@ def LiftableAut {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k]
 instance {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k]
     (X : PDivGStructure D p (pt k)) (m : ℕ) : Group (LiftableAut X m) := sorry
 
-/-- Isomorphisms `𝒢[p^m]_T ≅ X[p^m]_T` with extra structures that lift fppf locally to all
-`p^{m′}`-truncations, for `t : T → 𝒳`. -/
+/-- Isomorphisms `𝒢[p^m]_T ≅ X[p^m]_T` with extra structures that lift fppf locally
+to all `p^{m′}`-truncations. The base changes use `t` and `t ≫ s`, respectively. -/
 def IG0LiftableTruncIso {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k]
     {𝒳 : Scheme.{u}} (𝒢 : PDivGStructure D p 𝒳) (X : PDivGStructure D p (pt k)) (m : ℕ)
-    {T : Scheme.{u}} (t : T ⟶ 𝒳) : Type u := sorry
+    (s : 𝒳 ⟶ pt k) {T : Scheme.{u}} (t : T ⟶ 𝒳) : Type u := sorry
 
 /-- (IG.0/liftable-automorphisms) For isoclinic `X`, `Γ_m` is finite, and over a seminormal
 `𝒳` with `𝒢` geometrically isomorphic to `X`, the functor of liftable isomorphisms
@@ -1690,7 +1774,7 @@ theorem liftableAutomorphisms {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Pri
       ∃ (J : Scheme.{u}) (π : J ⟶ 𝒳), IsFinite π ∧ Etale π ∧
         Nonempty (IG0Torsor (LiftableAut X m) π) ∧
         ∀ (T : Scheme.{u}) (t : T ⟶ 𝒳),
-          Nonempty ({j : T ⟶ J // j ≫ π = t} ≃ IG0LiftableTruncIso 𝒢 X m t) := sorry
+          Nonempty ({j : T ⟶ J // j ≫ π = t} ≃ IG0LiftableTruncIso 𝒢 X m s t) := sorry
 
 /-! ### `IG.0/pel-rapoport-zink-space` -/
 
@@ -1732,7 +1816,8 @@ def jAction : 𝒟.J b →* Aut (RZSpace 𝒟 b k) := sorry
 diamond. -/
 def genericFibre (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k] [IsAlgClosed k] [CharP k p] : Diamond.{u} := sorry
 
-/-- (IG.0/pel-rapoport-zink-space) The truncated space `M^{0,d}` (kernel of `ρ` in `X_b[p^d]`). -/
+/-- (IG.0/pel-rapoport-zink-space) The truncated space `M^{0,d}` of genuine
+isogenies `ρ` with kernel contained in `X_b[p^d]`, not arbitrary quasi-isogenies. -/
 def truncated (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k] [IsAlgClosed k] [CharP k p] (d : ℕ) : IG0Nilp p (WittVector p k) ⥤ Type u := sorry
 
 /-- `M^{0,d} ↪ 𝔐`. -/
@@ -1786,8 +1871,9 @@ example (p : ℕ) [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet)
 
 /-! ### `IG.0/truncated-rz-isomorphism-locus` -/
 
-/-- The reduced special fibre `M^{0,d}_Y` of the truncated RZ space of `Y`, with its structure map
-and universal p-divisible group `H`. -/
+/-- The reduced special fibre `M^{0,d}_Y` of the truncated RZ space of genuine
+isogenies with kernel contained in `Y[p^d]`, with its structure map and universal
+p-divisible group `H`. The bound is on the kernel, not the degree `≤ d`. -/
 def TruncRZFibre {p : ℕ} [Fact p.Prime] (𝒟 : LocalPELDatum p) {k : Type u} [Field k]
     (Y : 𝒟.PDivB (pt k)) (d : ℕ) : Scheme.{u} := sorry
 
@@ -2550,14 +2636,49 @@ theorem pro_isLimit [Fact p.Prime] [CharP k p] (N : ℕ)
     (hX : IsCompletelySlopeDivisible X.pdiv) :
     Nonempty (IsLimit (pro N X)) := sorry
 
-/-- The submonoid of `J_b(ℚ_p)` of quasi-isogenies preserving `⊕ X_i` integrally with
-nonnegative valuations on the graded pieces (local data carrier). -/
+/-- Mantovan's monoid `S_b` for decreasing slopes `λ₁ > ⋯ > λ_r`.
+For `δ ∈ J_b`, require `δ⁻¹` to be an isogeny. Let `e_i` be minimal and `f_i`
+maximal with `ker[p^{f_i}] ≤ ker[δ_i⁻¹] ≤ ker[p^{e_i}]`. Require
+`f_{i-1} ≥ e_i` for `i ≥ 2`. It contains `Γ_b`, `p⁻¹`, and the inverse slope
+Frobenius. Sources: Man05 pp.11–12 and Shin09 p.16. -/
 def jMonoid (X : PDivGStructure D p (pt k)) : Submonoid (JGroup (X.newtonClass)) := sorry
 
-/-- (IG.1/mantovan-igusa-variety) Only the submonoid `jMonoid X` of `J_b(ℚ_p)` acts on the
-Mantovan tower, by finite correspondences (here: endomorphisms of `Ig^X_Mant`). -/
-def monoidAction (N : ℕ) (X : PDivGStructure D p (pt k)) :
-    jMonoid X →* End (pro N X).pt := sorry
+/-- The level loss `e(δ)=e₁(δ)`, equivalently the maximum of the minimal kernel
+bounds `e_i(δ)` on the decreasing slope pieces. Used for completely slope divisible `X`. -/
+def levelLoss (X : PDivGStructure D p (pt k)) (δ : jMonoid X) : ℕ := sorry
+
+/-- (IG.1/mantovan-igusa-variety) Man05 Lemma 5: the quotient construction for
+`δ ∈ S_b` gives a genuine morphism from level `m` to level `m-e(δ)`. The source
+uses inverse trivializations `X_i → 𝒢^i` and right composition by `δ`; this is not
+an endomorphism of a fixed finite level. -/
+def levelAction [Fact p.Prime] [CharP k p] (N : ℕ)
+    (X : PDivGStructure D p (pt k))
+    [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
+    [Fact (IsCompletelySlopeDivisible X.pdiv)]
+    (δ : jMonoid X) (m : ℕ) (hm : levelLoss X δ ≤ m) :
+    MantovanIgusaVariety N X m ⟶ MantovanIgusaVariety N X (m - levelLoss X δ) := sorry
+
+/-- (IG.1/mantovan-igusa-variety) Mantovan's source monoid `S_b` acts on the right.
+At the pro-level its compatible level-changing maps therefore give a monoid hom
+from `S_bᵐᵒᵖ` to `End`, whose multiplication is functional composition. On inverse
+trivializations `ρ_i : 𝒢^i → X_i`, the element `δ` acts after perfection by
+`ρ ↦ δ⁻¹ρ`. The perfect left `J_b`-action uses `ρ ↦ jρ`. -/
+def monoidAction [Fact p.Prime] [CharP k p] (N : ℕ)
+    (X : PDivGStructure D p (pt k))
+    [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
+    [Fact (IsCompletelySlopeDivisible X.pdiv)] :
+    (jMonoid X)ᵐᵒᵖ →* End (pro N X).pt := sorry
+
+/-- The right action on the pro-object is supplied by the source morphisms from
+level `m` to `m-e(δ)`. The projections in this identity lie at different levels. -/
+theorem monoidAction_toLevel [Fact p.Prime] [CharP k p] (N : ℕ)
+    (X : PDivGStructure D p (pt k))
+    [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
+    [Fact (IsCompletelySlopeDivisible X.pdiv)]
+    (δ : jMonoid X) (m : ℕ) (hm : levelLoss X δ ≤ m) :
+    (monoidAction N X (MulOpposite.op δ)).asHom ≫
+        (pro N X).π.app (Opposite.op (m - levelLoss X δ)) =
+      (pro N X).π.app (Opposite.op m) ≫ levelAction N X δ m hm := sorry
 
 /-- Trivializing all of `A[p^m]` (rather than its graded pieces): the moduli scheme
 `Isom_{C^X}(𝒢[p^m], X[p^m])` with its map to `C^X` (local carrier for the non-example). -/
@@ -2624,8 +2745,9 @@ instance Igusa.toMantovan_isIntegralHom [Fact p.Prime] [CharP k p] {N : ℕ}
 family of maps from a perfect scheme to the `Ig^X_{Mant,m}` lifts uniquely to `Ig^X`;
 (2) `H^i(Ig^b, ℤ/ℓ^n)` and `H^i_c(Ig^b, ℤ/ℓ^n)` are the colimits of the finite-level groups
 (every class comes from a finite level, and a class dying on `Ig^b` dies at a finite level);
-(3) the `J_b(ℚ_p)`-action on `Ig^b` restricts on the submonoid acting on `Ig^b_Mant` to that
-action, so the two actions agree on cohomology. -/
+(3) if `P : Ig^b → Ig^b_Mant`, `a_j` is the perfect left action and `r_δ` the
+source right monoid action, then `P ∘ a_{δ⁻¹} = r_δ ∘ P`. Inverse pullback
+`a_{j⁻¹}^*` gives the left cohomology action, agreeing at `j=δ` with `r_δ^*`. -/
 theorem perfectionOfMantovan [Fact p.Prime] [CharP k p] (N : ℕ)
     (X : PDivGStructure D p (pt k))
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
@@ -2645,10 +2767,11 @@ theorem perfectionOfMantovan [Fact p.Prime] [CharP k p] (N : ℕ)
       (∀ (m : ℕ) (y : EtHc (MantovanIgusaVariety N X m) (ZMod (ℓ ^ n)) i),
           EtHc.pullbackIG1 (Igusa.toMantovan N X m) (ZMod (ℓ ^ n)) i y = 0 →
           ∃ e, EtHc.pullbackIG1 (MantovanIgusa.transitionIter N X m e) (ZMod (ℓ ^ n)) i y = 0)) ∧
-    (∀ j : MantovanIgusa.jMonoid X,
-      Igusa.toMantovanPro N X ≫ MantovanIgusa.monoidAction N X j =
-        (Igusa.jAction N X (j : JGroup (X.newtonClass))).hom ≫ Igusa.toMantovanPro N X) :=
-  sorry
+    (∀ δ : MantovanIgusa.jMonoid X,
+      Igusa.toMantovanPro N X ≫
+          (MantovanIgusa.monoidAction N X (MulOpposite.op δ)).asHom =
+        (Igusa.jAction N X ((δ : JGroup (X.newtonClass))⁻¹)).hom ≫
+          Igusa.toMantovanPro N X) := sorry
 
 /-- (IG.1/igusa-faithfully-flat; CS17 Cor. 4.3.9) For completely slope divisible `X_b`,
 `Ig^b → C^b` is faithfully flat, hence an fpqc torsor under the group scheme `Aut(X_b)`; this
@@ -2689,8 +2812,11 @@ def projMant (N : ℕ) (X : PDivGStructure D p (pt k)) (m : ℕ) :
 def transitionIG1 (X : PDivGStructure D p (pt k)) {N N' : ℕ} (h : N' ∣ N) :
     IgusaVariety N X ⟶ IgusaVariety N' X := sorry
 
-/-- (IG.1/igusa-group-actions) The action of `J_b(ℚ_p) × G(𝔸_f^p)` on `Ig^b_∞`; being a
-monoid homomorphism into the automorphism group, it satisfies `(gh)·x = g·(h·x)`, `1·x = x`. -/
+/-- (IG.1/igusa-group-actions) The geometric left action on `Ig^b_∞`:
+`(j,h) : (ρ̃,η) ↦ (j ∘ ρ̃, η ∘ h⁻¹)`. The finite Hecke correspondence labelled
+`g` in `Igusa.heckeAction` uses `η ↦ η ∘ g`; the tower action at `h` uses that
+correspondence labelled `h⁻¹`. Thus this is a monoid homomorphism into `Aut`, with
+`(gh)·x = g·(h·x)` and `1·x = x`. -/
 def action (X : PDivGStructure D p (pt k)) :
     JGroup (X.newtonClass) × GAfp D p →* Aut (IgusaTower X) := sorry
 
@@ -2719,8 +2845,10 @@ theorem levelQuotient [Fact p.Prime] [CharP k p] (N : ℕ)
 def globalEmbedding (X : PDivGStructure D p (pt k)) :
     ℚˣ →* JGroup (X.newtonClass) × GAfp D p := sorry
 
-/-- (IG.1/igusa-group-actions) `ℤ[1/p]^× = {±p^e}`, embedded diagonally, acts trivially on
-`Ig^b_∞`. -/
+/-- (IG.1/igusa-group-actions) The diagonal `ℤ[1/p]^× = {±p^e}` acts trivially.
+Indeed `(z,z)` sends `(ρ̃,η)` to `(zρ̃,ηz⁻¹)`, and `[z⁻¹]:A→A` identifies this
+object with the original one in the moduli problem up to p-power isogeny. The action
+factors through this scalar quotient; no faithfulness of the quotient is asserted. -/
 theorem globalUnits_trivial [Fact p.Prime] [CharP k p]
     (X : PDivGStructure D p (pt k)) (x : ℚˣ)
     (hx : ∃ (s : ℤˣ) (e : ℤ), (x : ℚ) = (s : ℚ) * (p : ℚ) ^ e) :
@@ -2737,7 +2865,8 @@ def ShimuraTowerIG1 (D : UnitarySimilitudeDatum) (p : ℕ) (k : Type u) [Field k
 def ShimuraTowerIG1.proj (D : UnitarySimilitudeDatum) (p : ℕ) (k : Type u) [Field k] (N : ℕ) :
     ShimuraTowerIG1 D p k ⟶ SpecialFibre D p k N := sorry
 
-/-- The prime-to-`p` Hecke action on the tower. -/
+/-- The geometric left prime-to-`p` Hecke action on the tower, `η ↦ η ∘ h⁻¹`.
+The finite Hecke correspondence labelled `g` still uses `η ↦ η ∘ g`. -/
 def ShimuraTowerIG1.action (D : UnitarySimilitudeDatum) (p : ℕ) (k : Type u) [Field k] :
     GAfp D p →* Aut (ShimuraTowerIG1 D p k) := sorry
 
@@ -2745,8 +2874,9 @@ def ShimuraTowerIG1.action (D : UnitarySimilitudeDatum) (p : ℕ) (k : Type u) [
 def IgusaTower.toShimura (X : PDivGStructure D p (pt k)) :
     IgusaTower X ⟶ ShimuraTowerIG1 D p k := sorry
 
-/-- (IG.1/igusa-group-actions) The `G(𝔸_f^p)`-action on `Ig^b_∞` is compatible with the
-prime-to-`p` Hecke action on `S_k` under `Ig^b → C^b ⊂ S_{K,k}`. -/
+/-- (IG.1/igusa-group-actions) The geometric left `G(𝔸_f^p)`-actions on both
+towers, using `η ↦ η ∘ h⁻¹`, agree under `Ig^b → C^b ⊂ S_{K,k}`. This uses the
+finite Hecke correspondence labelled `h⁻¹` on each side. -/
 theorem IgusaTower.hecke_compat [Fact p.Prime] [CharP k p]
     (X : PDivGStructure D p (pt k)) :
     (∀ g : GAfp D p, (IgusaTower.action X (1, g)).hom ≫ IgusaTower.toShimura X =
@@ -2994,17 +3124,17 @@ def GrothIG1.unramifiedPart {b : KottwitzSet D p} {ℓ : ℕ} (S : Finset ℕ) (
     GrothIG1 b ℓ :=
   fun π => if π.invariantsDim ((hyperspecialAwayIG1 D p S).prod ⊥) ≠ 0 then c π else 0
 
-/-- The multiplicity of `π` in `lim_{K^p, m} H^k_c(Ig^b_{Mant,K^p,m}, ℚ̄_ℓ)` (local carrier). -/
+/-- The multiplicity of `π` in `colim_{K^p, m} H^k_c(Ig^b_{Mant,K^p,m}, ℚ̄_ℓ)` (local carrier). -/
 def IgusaCohomology.multiplicityIG1 (X : PDivGStructure D p (pt k)) (ℓ k' : ℕ)
     (π : IrrIG1 (X.newtonClass) ℓ) : ℕ := sorry
 
-/-- The trace of `φ` on the admissible representation `lim_{K^p, m} H^k_c(Ig^b_{Mant,K^p,m}, ℚ̄_ℓ)`
+/-- The trace of `φ` on the admissible representation `colim_{K^p, m} H^k_c(Ig^b_{Mant,K^p,m}, ℚ̄_ℓ)`
 (local carrier). -/
 def IgusaCohomology.traceDegreeIG1 (X : PDivGStructure D p (pt k)) (ℓ : ℕ) [Fact ℓ.Prime]
     (k' : ℕ) (φ : TestFunctionIG1 (X.newtonClass) ℓ) : AlgebraicClosure ℚ_[ℓ] := sorry
 
 /-- (IG.1/alternating-igusa-cohomology; CS17 §5.2) The alternating Igusa cohomology
-`[H_c(Ig^b, ℚ̄_ℓ)] = Σ_k (−1)^k lim_{K^p, m} H^k_c(Ig^b_{Mant,K^p,m}, ℚ̄_ℓ)` in
+`[H_c(Ig^b, ℚ̄_ℓ)] = Σ_k (−1)^k colim_{K^p, m} H^k_c(Ig^b_{Mant,K^p,m}, ℚ̄_ℓ)` in
 `Groth(G(𝔸_f^p) × J_b(ℚ_p))` (the cohomology vanishes for `k > 2 d_b`). -/
 def AltIgusaCohomology (X : PDivGStructure D p (pt k)) (ℓ : ℕ) :
     GrothIG1 (X.newtonClass) ℓ :=
@@ -3409,13 +3539,15 @@ example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClos
     ∃ h : IsWellPositioned (newtonStratum D p k N (KottwitzSet.ordinary D p)),
       ∀ Z, h.boundaryData Z = BoundaryShimuraIG2.ordinaryLocus k Z := sorry
 
--- test: IsWellPositioned.not_point — n = 1, [F⁺:ℚ] = 2: a closed curve whose closure in S^* meets a cusp is not well-positioned
+-- test: IsWellPositioned.not_point — n = 1, [F⁺:ℚ] = 2: a closed curve whose closure in S^* meets a proper cusp (positive torus rank) is not well-positioned
 example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
     [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)] (hn : D.n = 1)
     (hF : Module.finrank ℚ (NumberField.maximalRealSubfield D.F) = 2)
     (Y : Set (SpecialFibre D p k N)) (hY : IsClosed Y) (hY' : interior Y = ∅)
     (Z : CuspLabelIG2 D p N)
+    (hZproper : Disjoint (Set.range (BoundaryShimuraIG2.ι k Z).base)
+      (Set.range (MinimalCompactIG2.j D p k N).base))
     (hZ : (closure ((MinimalCompactIG2.j D p k N).base '' Y) ∩
       Set.range (BoundaryShimuraIG2.ι k Z).base).Nonempty) :
     IsEmpty (IsWellPositioned Y) := sorry
@@ -3493,8 +3625,9 @@ def HodgeSectionIG2.nonVanishing {D : UnitarySimilitudeDatum} {p : ℕ} {k : Typ
     {N : ℕ} {Y : Set (MinimalCompactIG2 D p k N)} {a : ℕ} (s : HodgeSectionIG2 D p k N Y a) :
     Set (MinimalCompactIG2 D p k N) := sorry
 
-/-- The classical Hasse invariant `det(V : ω^{(p)} → ω)`, a section of `ω^{⊗(p−1)}` on
-`S^*_k` (local carrier). -/
+/-- The classical Hasse invariant `det(V^* : ω → Frob^*ω)`, a section of
+`ω^{⊗(p−1)}` on `S^*_k`. Here `V^*` is pullback on invariant differentials
+along Verschiebung (local carrier). -/
 def hasseInvariantIG2 (D : UnitarySimilitudeDatum) (p : ℕ) (k : Type u) [Field k] (N : ℕ) :
     HodgeSectionIG2 D p k N Set.univ (p - 1) := sorry
 
@@ -3782,10 +3915,10 @@ def toLeafTor (N : ℕ) (X : PDivGStructure D p (pt k)) :
 def gammaAction (N : ℕ) (X : PDivGStructure D p (pt k)) :
     Aut X →* Aut (Over.mk (toLeafTor N X)) := sorry
 
-/-- (IG.2/perfect-toroidal-igusa-variety; CSnc Thm. 3.2.8) `Ig^{X,tor} → C^{X,tor}` is a
-pro-finite étale `Γ_X`-Galois cover (any `X`, not necessarily completely slope divisible): it is
-integral and surjective, `Ig^{X,tor}` is perfect, and `Γ_X` acts simply transitively on the
-geometric fibres. -/
+/-- CSnc Theorem3.2.8: the map factors through a pro-finite étale
+`Γ_X`-cover of `C^{X,tor}_perf`. The displayed map to the original leaf
+is integral and surjective, with perfect source and simply transitive
+`Γ_X`-action on geometric fibres. -/
 theorem isGalois [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
     (X : PDivGStructure D p (pt k)) :
@@ -3870,7 +4003,9 @@ example [Fact p.Prime] [CharP k p] (N : ℕ)
 -- test: PerfectToroidalIgusa.not_aut_torsor — Ig^{X,tor} → C^{X,tor} is not an Aut(X)-torsor at the boundary (Howe)
 example [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
-    (X : PDivGStructure D p (pt k)) (c : SlopeFiltration X.pdiv) (hc : 2 ≤ c.r)
+    (X : PDivGStructure D p (pt k))
+    (hF : Module.finrank ℚ D.F = 2) (hn : D.n = 1)
+    (hb : X.newtonClass = KottwitzSet.ordinary D p)
     (hbd : (Set.range (leafToToroidalIG2 N X).base)ᶜ.Nonempty)
     (act : pullback (PerfectToroidalIgusa.toLeafTor N X ≫ LeafToroidalIG2.toPt N X)
       (AutSchemeIG1.toPt X) ⟶ PerfectToroidalIgusa N X) :
@@ -4093,7 +4228,7 @@ example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClos
     Disjoint (ekedahlOortStratum (D := D) k N w)
       (ekedahlOortStratum (D := D) k N w') := sorry
 
--- test: hasseSection_ordinary_compat — on the ordinary stratum the Hasse section is a power of the classical Hasse invariant
+-- test: hasseSection_ordinary_compat — the chosen ordinary section has weight divisible by p−1 and the classical Hasse non-vanishing locus
 example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
     [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)] :
@@ -4118,7 +4253,7 @@ theorem fundamentalEoStratumInNewtonStratum {D : UnitarySimilitudeDatum} {p : �
     (b : KottwitzSet D p) :
     ∃ (w : EOIndexIG2 D p) (Xw : PDivGStructure D p (pt k)),
       ekedahlOortStratum k N w ⊆ newtonStratum D p k N b ∧
-        Xw.newtonClass = b ∧ IsCompletelySlopeDivisible Xw.pdiv ∧
+        Xw.newtonClass = b ∧
         ekedahlOortStratum k N w = centralLeaf D p k N Xw := sorry
 
 /-- (IG.2/affineness-transfer-lemma; CSnc Lemma 3.3.3) Given `X ← C → Y` with closed
@@ -4349,12 +4484,12 @@ theorem hecke_j (N N' : ℕ) (X : PDivGStructure D p (pt k)) (m : ℕ) (g : GAfp
 
 end MinimalIgusa
 
--- test: MinimalIgusa.level_zero — Ig^{b,*}_0 = C^{b,*}
+-- test: MinimalIgusa.level_zero — level zero is the normalization; it is the base when the base is normal
 example [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
     (X : PDivGStructure D p (pt k)) [Fact (IsCompletelySlopeDivisible X.pdiv)]
-    : IsIso (MinimalIgusa.toLeafMin N X 0) :=
-  sorry
+    [IsNormalSchemeIG2 (LeafMinimalIG2 N X)] :
+    IsIso (MinimalIgusa.toLeafMin N X 0) := sorry
 
 -- test: MinimalIgusa.ordinary — modular-curve case, b ordinary: Ig^{b,*}_1 is a smooth curve (the Igusa curve with its cusps), finite over C^{b,*}
 example [Fact p.Prime] [CharP k p] (N : ℕ)
@@ -4371,14 +4506,6 @@ example [Fact p.Prime] [CharP k p] (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
     (X : PDivGStructure D p (pt k)) [Fact (IsCompletelySlopeDivisible X.pdiv)] [Infinite (Aut X)]
     [Nonempty (CentralLeaf N X)] : ¬ IsFinite (MinimalIgusa.limToLeafMinIG2 N X) := sorry
-
--- test: MinimalIgusa.not_etale — for n ≥ 2 and nonempty boundary, some Ig^{b,*}_m → C^{b,*} is not étale (for n = 1 it is étale)
-example [Fact p.Prime] [CharP k p] (N : ℕ)
-    [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
-    (X : PDivGStructure D p (pt k)) [Fact (IsCompletelySlopeDivisible X.pdiv)] (hn : 2 ≤ D.n)
-    (hX : ∃ τ, X.etaleRank τ ≠ 0)
-    (hbd : (Set.range (leafToMinimalIG2 N X).base)ᶜ.Nonempty) :
-    ∃ m, ¬ Etale (MinimalIgusa.toLeafMin N X m) := sorry
 
 end Minimal
 
@@ -4982,17 +5109,23 @@ def ShimuraAdic.supersingularResidueDiscs (D : UnitarySimilitudeDatum) (p N : �
 example (D : UnitarySimilitudeDatum) (p N : ℕ) (hD : D.IsModularCase) :
     ShimuraAdic.supersingularResidueDiscs.{u} D p N ≤ goodReductionLocus.{u} D p N 0 := sorry
 
-/-- The cusps of the modular curve `S_{K(N),ℚ_p}` (finite level, `n = 1`, `F` imaginary
-quadratic), as points of `|S_{K(N),ℚ_p}|` of the minimal compactification (owner:
-PerfectoidShimuraVarieties S3). -/
+/-- The punctured residue discs at the cusps of the modular curve
+`S_{K(N),ℚ_p}` (finite level, `n = 1`, `F` imaginary quadratic). They are
+obtained by intersecting the cusp residue discs of the minimal compactification
+with the open modular curve, and form an open of `|S_{K(N),ℚ_p}|`.
+Owner: PerfectoidShimuraVarieties S3. -/
 def ShimuraAdic.cuspResidueDiscs (D : UnitarySimilitudeDatum) (p N : ℕ) :
     TopologicalSpace.Opens (Diamond.space (ShimuraAdic.{u} D p N 0)) := sorry
 
--- test: goodReductionLocus_modular — for the modular curve the complement of `S°` is the union of the open residue discs at the cusps
-example (D : UnitarySimilitudeDatum) (p N : ℕ) (hD : D.IsModularCase) :
-    ((goodReductionLocus.{u} D p N 0 : Set _))ᶜ =
-      (ShimuraAdic.cuspResidueDiscs.{u} D p N : Set (Diamond.space (ShimuraAdic D p N 0))) :=
-  sorry
+-- test: goodReductionLocus_modular — rank-one points outside S° are exactly those in cusp discs
+example (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime]
+    (hD : D.IsModularCase) (hN : 3 ≤ N)
+    (hp : ¬ (p : ℤ) ∣ N * NumberField.discr D.F)
+    (C : PadicCField.{u} p) (x : Diamond.spa C.C ⟶ ShimuraAdic.{u} D p N 0) :
+    (∃ y, y ≫ Diamond.restrict.ι (ShimuraAdic.{u} D p N 0)
+      (goodReductionLocus D p N 0) = x) ↔
+    ¬ ∃ z, z ≫ Diamond.restrict.ι (ShimuraAdic.{u} D p N 0)
+      (ShimuraAdic.cuspResidueDiscs D p N) = x := sorry
 
 -- test: goodReductionLocus_not_closed — `S°` is not closed in `S_{ℚ_p}` (the quasi-split Shimura variety is non-compact)
 example (D : UnitarySimilitudeDatum) (p N m : ℕ) :
@@ -5261,15 +5394,64 @@ theorem localPeriodFibres_invariant (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) 
     pullback.fst _ _ ≫ localHodgeTate.{u} Dl b = RZSpaceInfinite.autAction Dl b ≫ localHodgeTate Dl b :=
   sorry
 
-/-- (IG.3/local-period-fibres) CS17 Proposition 4.2.14: the action map
-`M̂_{D,∞} ×_{Spa L} Aut_G(X̃_b)^ad_η → (M_{D,∞} ×_{Fℓ_{G,μ}} M_{D,∞})^∧`, `(m, g) ↦ (m, m·g)`,
-is an isomorphism (of perfectoid spaces; recorded on diamonds, fibre products over a common
-base as corrected in PAPER-CARAIANI-SCHOLZE-17/E44). -/
+/-- The completed cyclotomic field base `Spd K_∞`,
+`K_∞ = completion(Ĕ(ζ_{p^∞}))`, with the chosen compatible roots.
+Owner: local PEL/SW infinite-level tower. -/
+def LocalPELDatum.cyclotomicBase (Dl : LocalPELDatum p) : Diamond.{u} := sorry
+
+/-- Forget the cyclotomic extension. -/
+def LocalPELDatum.cyclotomicToBase (Dl : LocalPELDatum p) :
+    Dl.cyclotomicBase.{u} ⟶ Dl.base := sorry
+
+/-- The flag variety after the chosen completed cyclotomic base change. -/
+def LocalPELDatum.cyclotomicFlag (Dl : LocalPELDatum p) : Diamond.{u} :=
+  pullback Dl.flagToBase Dl.cyclotomicToBase
+
+/-- The structural map recording the roots used in the pairing condition. -/
+def RZSpaceInfinite.toCyclotomic (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    RZSpaceInfinite.{u} Dl b ⟶ Dl.cyclotomicBase := sorry
+
+theorem RZSpaceInfinite.toCyclotomic_comp (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    RZSpaceInfinite.toCyclotomic.{u} Dl b ≫ Dl.cyclotomicToBase =
+      RZSpaceInfinite.toBase Dl b := sorry
+
+theorem localHodgeTate_over (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    localHodgeTate.{u} Dl b ≫ Dl.flagToBase = RZSpaceInfinite.toBase Dl b := sorry
+
+/-- The local period map with its cyclotomic structural map retained. -/
+def localHodgeTateCyc (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    RZSpaceInfinite.{u} Dl b ⟶ Dl.cyclotomicFlag :=
+  pullback.lift (localHodgeTate Dl b) (RZSpaceInfinite.toCyclotomic Dl b)
+    ((localHodgeTate_over Dl b).trans (RZSpaceInfinite.toCyclotomic_comp Dl b).symm)
+
+/-- Forgetting the cyclotomic coordinate recovers the original local period map.
+This is the compatibility used by consumers phrased over `Spd Ĕ`. -/
+theorem localHodgeTateCyc_toFlag (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    localHodgeTateCyc.{u} Dl b ≫ pullback.fst Dl.flagToBase Dl.cyclotomicToBase =
+      localHodgeTate Dl b := sorry
+
+/-- The second coordinate of the lifted period map is the chosen cyclotomic
+structural map, so fibre products retain the pairing convention. -/
+theorem localHodgeTateCyc_toCyclotomic (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    localHodgeTateCyc.{u} Dl b ≫ pullback.snd Dl.flagToBase Dl.cyclotomicToBase =
+      RZSpaceInfinite.toCyclotomic Dl b := sorry
+
+/-- The automorphism action changes ρ and preserves the cyclotomic base map
+as well as the Hodge–Tate filtration. -/
+theorem localPeriodFibres_invariantCyc (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
+    pullback.fst (RZSpaceInfinite.toBase.{u} Dl b) (AutGroupAd.toBase Dl b) ≫
+        localHodgeTateCyc Dl b =
+      RZSpaceInfinite.autAction Dl b ≫ localHodgeTateCyc Dl b := sorry
+
+/-- CS17 Proposition4.2.14 with E44 corrected: the period fibre product
+is over `Fl_{K_∞}`. The source `M_∞ ×_{Ĕ} Aut` is canonically
+`M_∞ ×_{K_∞} Aut_{K_∞}`. -/
 theorem localPeriodFibres (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) :
-    IsIso (pullback.lift (pullback.fst _ _) (RZSpaceInfinite.autAction.{u} Dl b)
-      (localPeriodFibres_invariant Dl b) :
+    IsIso (pullback.lift
+      (pullback.fst (RZSpaceInfinite.toBase.{u} Dl b) (AutGroupAd.toBase Dl b))
+      (RZSpaceInfinite.autAction Dl b) (localPeriodFibres_invariantCyc Dl b) :
         pullback (RZSpaceInfinite.toBase.{u} Dl b) (AutGroupAd.toBase Dl b) ⟶
-          pullback (localHodgeTate Dl b) (localHodgeTate Dl b)) := sorry
+          pullback (localHodgeTateCyc Dl b) (localHodgeTateCyc Dl b)) := sorry
 
 end LocalFibres
 
@@ -5567,14 +5749,16 @@ space `X̂^b_∞`. -/
 theorem XbInfinite.preperfectoid (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
     Diamond.IsPerfectoid (XbInfinite.{u} Dp b) := sorry
 
--- test: XbInfinite.ordinary — corrected: for `b` ordinary, `π_HT(M^{ord}_∞)` lies over the rational flags (`Fℓ^{ord}` is `0`-dimensional), but the fibre over each rational flag is an `Aut_G(X̃_b)^ad`-torsor of dimension `⟨2ρ, ν_ord⟩ = ⟨2ρ, μ⟩ > 0`, not a profinite set (see report)
-example (Dl : LocalPELDatum p) (C : PadicCField.{u} p)
-    (x : Diamond.spa C.C ⟶ Dl.flagStratum Dl.ordinary) :
-    topologicalKrullDim (Diamond.space (Dl.flagStratum.{u} Dl.ordinary)) = 0 ∧
+-- test: XbInfinite.ordinary — split GL₂ ordinary flags have dimension0 and their local period fibres have dimension1
+example (C : PadicCField.{u} p)
+    (x : Diamond.spa C.C ⟶
+      (LocalPELDatum.lubinTate p 2).flagStratum (LocalPELDatum.lubinTate p 2).ordinary) :
     topologicalKrullDim (Diamond.space
-        (pullback (localHodgeTateStratum.{u} Dl Dl.ordinary) x)) =
-      ((LocalPELDatum.dimLeaf Dl.ordinary : ℕ) : WithBot ℕ∞) ∧
-    LocalPELDatum.dimLeaf Dl.ordinary = Dl.dimMu := sorry
+      ((LocalPELDatum.lubinTate p 2).flagStratum
+        (LocalPELDatum.lubinTate p 2).ordinary)) = 0 ∧
+    topologicalKrullDim (Diamond.space
+      (pullback (localHodgeTateStratum (LocalPELDatum.lubinTate p 2)
+        (LocalPELDatum.lubinTate p 2).ordinary) x)) = 1 := sorry
 
 /-- The action of `G(ℤ_p)` on `X^b_∞` (through `α`). -/
 def XbInfinite.actGzp (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) (g : Dp.toLocal.Gzp) :
@@ -5604,11 +5788,53 @@ theorem productFormula_compat {p : ℕ} [Fact p.Prime] (Dp : IntegralPELDatum p)
     XbInfinite.toRZInf.{u} Dp b ≫ localHodgeTate _ b =
       XbInfinite.toShimura Dp b ≫ (Dp.shimuraNewtonι b ≫ Dp.piHT) := sorry
 
-/-- (IG.3/product-formula) CS17 Lemma 4.3.20: the induced map
-`X̂^b_∞ → (M^b_∞ ×_{Fℓ_{G,μ}} 𝒮^b_{K^p})^∧` is an isomorphism (no compactness needed). -/
-theorem productFormula {p : ℕ} [Fact p.Prime] (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
-    IsIso (pullback.lift (XbInfinite.toRZInf.{u} Dp b) (XbInfinite.toShimura Dp b)
-      (productFormula_compat Dp b)) := sorry
+/-- The good-reduction Newton stratum after the same chosen completed
+cyclotomic base change as the local PEL tower, with the matching pairing
+and root-of-unity convention. Owner: PerfectoidShimuraVarieties/local PEL adapter. -/
+def IntegralPELDatum.shimuraNewtonCyc {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) : Diamond.{u} := sorry
+
+/-- Forget the extra base coordinate. -/
+def IntegralPELDatum.shimuraNewtonCycToNewton {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    Dp.shimuraNewtonCyc.{u} b ⟶ Dp.shimuraNewton b := sorry
+
+/-- The global period map on the Newton stratum over the chosen base. -/
+def IntegralPELDatum.shimuraNewtonHTCyc {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    Dp.shimuraNewtonCyc.{u} b ⟶ Dp.toLocal.cyclotomicFlag := sorry
+
+/-- Forgetting the cyclotomic coordinate recovers the global period map on
+`𝒮^b_{K^p}`. Together with `localHodgeTateCyc_toFlag` and
+`XbInfinite.toShimuraCyc_comp`, this connects the Cartesian formula to
+`productFormula_compat` and the geometric-fibre cohomology consumers. -/
+theorem IntegralPELDatum.shimuraNewtonHTCyc_toFlag {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    Dp.shimuraNewtonHTCyc.{u} b ≫
+        pullback.fst Dp.toLocal.flagToBase Dp.toLocal.cyclotomicToBase =
+      Dp.shimuraNewtonCycToNewton b ≫ Dp.shimuraNewtonι b ≫ Dp.piHT := sorry
+
+/-- Forget ρ while retaining the base and pairing conventions. -/
+def XbInfinite.toShimuraCyc {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    XbInfinite.{u} Dp b ⟶ Dp.shimuraNewtonCyc b := sorry
+
+theorem XbInfinite.toShimuraCyc_comp {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    XbInfinite.toShimuraCyc.{u} Dp b ≫ Dp.shimuraNewtonCycToNewton b =
+      XbInfinite.toShimura Dp b := sorry
+
+theorem productFormula_compatCyc {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    XbInfinite.toRZInf.{u} Dp b ≫ localHodgeTateCyc Dp.toLocal b =
+      XbInfinite.toShimuraCyc Dp b ≫ Dp.shimuraNewtonHTCyc b := sorry
+
+/-- CS17 Lemma4.3.20, with all objects over the same completed
+cyclotomic base and the full level α retained. -/
+theorem productFormula {p : ℕ} [Fact p.Prime]
+    (Dp : IntegralPELDatum p) (b : Dp.toLocal.KottwitzSet) :
+    IsIso (pullback.lift (XbInfinite.toRZInf.{u} Dp b)
+      (XbInfinite.toShimuraCyc Dp b) (productFormula_compatCyc Dp b)) := sorry
 
 /-! ### IG.3/rank-one-cohomology-lemma -/
 
@@ -5634,8 +5860,12 @@ theorem rankOneCohomologyLemma {p : ℕ} [Fact p.Prime] (m : ℕ) :
 
 /-! ### IG.3/perfect-scheme-lift-cohomology -/
 
-/-- The specialisation map `H^i(𝔛, ℤ/m) → H^i(𝔛_s, ℤ/m)` (restriction to the special fibre;
-here an isomorphism by topological invariance, map as in PAPER-CARAIANI-SCHOLZE-17/E61). -/
+/-- Restriction `H^i(𝔛, ℤ/m) → H^i(𝔛_s, ℤ/m)` to the actual special fibre,
+an isomorphism from the equivalence of the formal and special-fibre étale sites.
+The target is `reduction.obj 𝔛`. This is not by itself the canonical map in
+PAPER-CARAIANI-SCHOLZE-17/E61: for an original `X/𝔽̄_p` and a larger residue
+field `k`, that map is `H^i(X) → H^i(𝔛)` via pullback to `X ×_{𝔽̄_p} k`
+and the inverse of the formal/special-fibre identification. -/
 def PadicFormalScheme.toSpecialCoh (𝔛 : PadicFormalScheme.{u}) (m i : ℕ) :
     𝔛.EtH m i →+ TauCeti.Igusa.EtH (PadicFormalScheme.reduction.obj 𝔛) (ZMod m) i := sorry
 
@@ -5643,11 +5873,17 @@ def PadicFormalScheme.toSpecialCoh (𝔛 : PadicFormalScheme.{u}) (m i : ℕ) :
 def PadicFormalScheme.toGenericCoh (𝔛 : PadicFormalScheme.{u}) (m i : ℕ) :
     𝔛.EtH m i →+ DiamondHMod (PadicFormalScheme.adicGenericFibre.obj 𝔛) m i := sorry
 
-/-- (IG.3/perfect-scheme-lift-cohomology) CS17 Lemma 4.4.3: for `X` perfect (qcqs) over the
-residue field of `C`, `ℓ ≠ p`, and `𝔛_{O_C} = W(X) ×̂ O_C`, the maps
-`H^i(X, ℤ/ℓ^n) ← H^i(𝔛_{O_C}, ℤ/ℓ^n) → H^i(𝒳_C, ℤ/ℓ^n)` are isomorphisms (the left one
-identifies `H^i(𝔛_{O_C})` with the cohomology of the special fibre `X ⊗ O_C/p`, whose
-reduction is `X`). -/
+/-- (IG.3/perfect-scheme-lift-cohomology) The residue-field version of CS17
+Lemma 4.4.3: for `X` perfect (qcqs) over the residue field of `C`, `ℓ ≠ p`,
+and `𝔛_{O_C} = W(X) ×̂ O_C`, restriction to the actual special fibre and
+restriction to the generic fibre are isomorphisms. The special fibre is
+`X ⊗_k O_C/p`, whose reduction is `X`, so after this identification one may
+display `H^i(X, ℤ/ℓ^n) ← H^i(𝔛_{O_C}, ℤ/ℓ^n) → H^i(𝒳_C, ℤ/ℓ^n)`.
+For the packet's original `X/𝔽̄_p` and a larger residue field, E61's canonical
+first map points from `H^i(X)` to `H^i(𝔛_{O_C})`; the opposite display then
+uses its inverse after the algebraically closed residue-field comparison.
+The signature below records the two restriction maps for the residue-field
+version, rather than claiming to encode that additional pullback. -/
 theorem perfectSchemeLiftCohomology {p : ℕ} [Fact p.Prime] (C : PadicCField.{u} p)
     (X : Scheme.{u}) [CompactSpace X] [QuasiSeparatedSpace X] [PerfectSchemeIG1 p X]
     (ℓ n i : ℕ) (hℓ : ℓ.Prime) (hℓp : ℓ ≠ p) :
@@ -6127,24 +6363,38 @@ def SWInfiniteLevel.toLevel (H : PDivGroup p (pt k)) (n : ℕ) :
 /-- The base `Spd W(k)[1/p]`. -/
 def SWInfiniteLevel.base (H : PDivGroup p (pt k)) : Diamond.{u} := sorry
 
-/-- (IG.3/sw-infinite-level-rz-space) SW Theorem 6.3.4: `M_∞` is preperfectoid (its diamond is
-perfectoid) and `M_∞ ∼ lim_n M_n` (on diamonds: the projections identify `M_∞` with the limit). -/
-theorem SWInfiniteLevel.preperfectoid (H : PDivGroup p (pt k)) :
-    Diamond.IsPerfectoid (SWInfiniteLevel H) ∧
+/-- The structural map of the SW infinite-level space over `Spd W(k)[1/p]`. -/
+def SWInfiniteLevel.toBase (H : PDivGroup p (pt k)) :
+    SWInfiniteLevel H ⟶ SWInfiniteLevel.base H := sorry
+
+/-- SW Theorem 6.3.4 and Definition 2.3.9: after a chosen perfectoid field
+base change the strong completion is perfectoid. On diamonds the same base
+change is represented by that perfectoid space. The original space over
+`W(k)[1/p]` is preperfectoid and is the limit of its finite-level diamonds. -/
+theorem SWInfiniteLevel.preperfectoid (H : PDivGroup p (pt k))
+    (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K]
+    [CompleteSpace K] [NormedAlgebra ℚ_[p] K]
+    (hK : Diamond.IsPerfectoid (Diamond.spa K))
+    (f : Diamond.spa K ⟶ SWInfiniteLevel.base H) :
+    Diamond.IsPerfectoid (pullback (SWInfiniteLevel.toBase H) f) ∧
     ∃ e : SWInfiniteLevel H ≅ limit (SWInfiniteLevel.tower H),
       ∀ n, e.hom ≫ limit.π _ (Opposite.op n) = SWInfiniteLevel.toLevel H n := sorry
 
 /-- `M_∞ ×_{Spd W(k)[1/p]} Spd W(k)[1/p](ζ_{p^∞})`. -/
 def SWInfiniteLevel.overCyc (H : PDivGroup p (pt k)) : Diamond.{u} := sorry
 
-/-- `M′_∞`: `h`-tuples `(s₁, …, s_h) ∈ H̃^ad_η(R, R⁺)` whose quasi-logarithms span a rank
-`h − d` subspace with locally free quotient `W` of rank `d` of `M(H) ⊗ R`, with
-`0 → ℤ_p^h → H̃^ad_η(C, C⁺) → W ⊗ C → 0` exact at geometric points (SW Lemma 6.3.6). -/
+/-- `M′_∞` over `W(k)[1/p]`: `h`-tuples in the universal cover whose
+quasi-logarithms span a rank `h - d` submodule with a finite projective
+quotient `W` of rank `d`, and for which
+`0 → ℚ_p^h → H̃^ad_η(C, O_C) → W ⊗ C → 0`
+is exact at every geometric point. The first arrow sends the basis to the
+tuple. The original Tate trivialization `α` remains integral over `ℤ_p`.
+SW Definition 6.3.5 and Lemma 6.3.6. -/
 def SWInfiniteLevel.tuples (H : PDivGroup p (pt k)) : Diamond.{u} := sorry
 
-/-- (IG.3/sw-infinite-level-rz-space) `M_∞ ≅ M′_∞` over `W(k)[1/p](ζ_{p^∞})`. -/
+/-- SW Lemma 6.3.6: the tuple description holds already over `W(k)[1/p]`. -/
 theorem SWInfiniteLevel.eq_tuples (H : PDivGroup p (pt k)) :
-    Nonempty (SWInfiniteLevel.overCyc H ≅ SWInfiniteLevel.tuples H) := sorry
+    Nonempty (SWInfiniteLevel H ≅ SWInfiniteLevel.tuples H) := sorry
 
 /-- The group `J_H(ℚ_p)` of self-quasi-isogenies of `H`. -/
 def SWInfiniteLevel.J (H : PDivGroup p (pt k)) : Type := sorry
@@ -6198,18 +6448,22 @@ theorem SWInfiniteLevel.pel (Dl : LocalPELDatum p) (b : Dl.KottwitzSet) (k : Typ
     [IsAlgClosed k] [CharP k p] [ExpChar k p] [PerfectRing k p] :
     Diamond.IsClosedImmersionD (SWInfiniteLevel.pelEmbedding Dl b k) := sorry
 
-/-- Base change of the SW tower to a geometric p-adic field (owner: local-shtuka tower). -/
-def SWInfiniteLevel.overC (H : PDivGroup p (pt k)) (C : PadicCField.{u} p) : Diamond.{u} := sorry
+/-- Geometric base change along the specified map from the geometric field. -/
+def SWInfiniteLevel.overC (H : PDivGroup p (pt k)) (C : PadicCField.{u} p)
+    (f : Diamond.spa C.C ⟶ SWInfiniteLevel.base H) : Diamond.{u} :=
+  pullback (SWInfiniteLevel.toBase H) f
 
--- test: SWInfiniteLevel.mu — over C with all roots of unity, the tower is constant locally profinite
-example [CharP k p] (C : PadicCField.{u} p) :
-    Nonempty (SWInfiniteLevel.overC (PDivGroup.mu p (pt k)) C ≅
+-- test: SWInfiniteLevel.mu — geometric base change trivializes the Tate twist
+example [CharP k p] (C : PadicCField.{u} p)
+    (f : Diamond.spa C.C ⟶ SWInfiniteLevel.base (PDivGroup.mu p (pt k))) :
+    Nonempty (SWInfiniteLevel.overC (PDivGroup.mu p (pt k)) C f ≅
       Diamond.constOver (GL (Fin 1) ℚ_[p]) (Diamond.spa C.C)) := sorry
 
--- test: SWInfiniteLevel.etale — for `H` étale of height `h` (`d = 0`), `M_∞ ≅ GL_h(ℚ_p)` (locally profinite set over the base)
-example (H : PDivGroup p (pt k)) (hd : H.dim = 0) :
-    Nonempty (SWInfiniteLevel H ≅
-      Diamond.constOver (GL (Fin H.height) ℚ_[p]) (SWInfiniteLevel.base H)) := sorry
+-- test: SWInfiniteLevel.etale — geometric base change trivializes the étale descent data
+example (H : PDivGroup p (pt k)) (hd : H.dim = 0) (C : PadicCField.{u} p)
+    (f : Diamond.spa C.C ⟶ SWInfiniteLevel.base H) :
+    Nonempty (SWInfiniteLevel.overC H C f ≅
+      Diamond.constOver (GL (Fin H.height) ℚ_[p]) (Diamond.spa C.C)) := sorry
 
 -- test: SWInfiniteLevel.tower_not_stationary — for `H` of height `h ≥ 1` and `n ≥ 1` no transition map `M_{n+1} → M_n` is an isomorphism, so `M_∞` is not any finite-level `M_n`
 example (H : PDivGroup p (pt k)) (hH : 0 < H.height) (n : ℕ) (hn : 1 ≤ n) :
@@ -6224,7 +6478,7 @@ section Mantovan
 open CategoryTheory.Pretriangulated
 
 /-- The derived category of smooth `G(ℚ_p) × W_{E_p}`-representations on `𝔽_ℓ`-modules
-(owner: SmoothRepresentations SR.1 / LocalLanglandsCorrespondence). -/
+(owner: SmoothRepresentationsOfLocalGroups SR.0:derived-extension). -/
 def SmoothRepDerived {p : ℕ} [Fact p.Prime] (Dp : IntegralPELDatum p) (ℓ : ℕ) : Type (u + 1) := sorry
 
 variable {p : ℕ} [Fact p.Prime] (Dp : IntegralPELDatum p) (ℓ : ℕ)
@@ -6239,13 +6493,26 @@ instance : Pretriangulated (SmoothRepDerived.{u} Dp ℓ) := sorry
 /-- `RΓ(S_{K^p, ℚ̄_p}, 𝔽_ℓ)` with its `G(ℚ_p) × W_{E_p}`-action. -/
 def RGammaShimuraSmooth : SmoothRepDerived.{u} Dp ℓ := sorry
 
-/-- The graded piece `RΓ(Ig^b, 𝔽_ℓ)^{op} ⊗^L_{C_c(J_b(ℚ_p))} RΓ_c(M_{(G,b,μ),∞}, 𝔽_ℓ(d_b))[2d_b]`. -/
+/-- The graded piece
+`RΓ(Ig^b, 𝔽_ℓ)^{op} ⊗^L_{C_c(J_b(ℚ_p))}
+ RΓ_c(M_{(G,b,μ),∞}, 𝔽_ℓ(d_b))[2d_b]`.
+Here the coefficient `𝔽_ℓ(d_b)` carries the `J_b(ℚ_p)`-equivariant
+structure induced by `Rπ_unip^! 𝔽_ℓ ≅ 𝔽_ℓ(d_b)[2d_b]`, where
+`π_unip : M_∞ → M_∞/J̃_b^0` is the connected automorphism torsor.
+Its smooth character `κ` agrees with the character on the Igusa dualizing
+twist. These are part of the construction (Koshikawa Lemmas 7.4 and 7.6),
+BG3 supplies the full kernel geometry, and the existing VS4 contractibility and
+stratum-coefficient theorems supply coefficient invariance and the underlying trace.
+The equivariant trace/orientation API is requested from VS4; the compact-torsor
+derived-coinvariant comparison is requested from DiamondSixOperations S2 and SR.1. -/
 def mantovanGraded (b : Dp.toLocal.KottwitzSet) : SmoothRepDerived.{u} Dp ℓ := sorry
 
 /-- (IG.3/mantovan-formula) Koshikawa Theorem 7.1: for `ℓ ≠ p`, `RΓ(S_{K^p,ℚ̄_p}, 𝔽_ℓ)` has a
 finite filtration `0 = F₀ → F₁ → ⋯ → F_n ≅ RΓ` by complexes of smooth
 `G(ℚ_p) × W_{E_p}`-representations, indexed by a linear extension `e` of the closure order on
-`B(G_{ℚ_p}, μ⁻¹)`, with cones `F_{i+1}/F_i ≅ mantovanGraded (e i)`. -/
+`B(G_{ℚ_p}, μ⁻¹)`, with cones `F_{i+1}/F_i ≅ mantovanGraded (e i)`.
+The graded pieces carry the equivariant dualizing convention in `mantovanGraded`;
+the shift comes from the connected `J̃_b^0` torsor. -/
 theorem mantovanFormula [Fintype Dp.toLocal.KottwitzSet] (hℓ : ℓ.Prime) (hℓp : ℓ ≠ p) :
     ∃ (n : ℕ) (e : Fin n ≃ Dp.toLocal.KottwitzSet) (_ : ∀ i j, e i ≤ e j → i ≤ j)
       (F : Fin (n + 1) → SmoothRepDerived.{u} Dp ℓ)
@@ -6372,9 +6639,10 @@ section EquivariantSites
 
 variable {Λ : Type u} [CommRing Λ]
 
-/-- (IG.4/equivariant-sites-and-nearby-cycles) Scholze's equivariant étale site `(X/G)_ét` for a
-continuous action `act : G →* Aut X` of a locally profinite group on a diamond, recorded by its
-derived category of `Λ`-sheaves (owner of the site formalism: AdicEtaleGeometry A1). -/
+/-- The derived category `D((X/G)_ét, Λ)` for the genuine equivariant étale site.
+The separate `equivariantEtaleSite` carrier below supplies the site-level slice.
+Owner: AdicEtaleGeometry A1; locally profinite continuous-action eligibility is
+explicitly omitted from this carrier-only prototype and remains a supplier contract. -/
 def equivariantSite (X : Diamond.{u}) (G : Type) [Group G] [TopologicalSpace G]
     (act : G →* Aut X) (Λ : Type u) [CommRing Λ] : Type (u + 1) := sorry
 
@@ -6398,16 +6666,29 @@ theorem equivariantSite.pullback {X Y : Diamond.{u}} (G : Type) [Group G] [Topol
     Nonempty (equivariantSite.Rpush (Λ := Λ) G actX actY π ⋙ equivariantSite.forget X G actX ≅
       equivariantSite.forget Y G actY ⋙ DiamondDerived.Rpush π) := sorry
 
-/-- The object `X × G/K` of `(X/G)_ét` attached to a compact open subgroup `K`. -/
-def equivariantSite.cosetObject (X : Diamond.{u}) (G : Type) [Group G] [TopologicalSpace G]
-    (act : G →* Aut X) (K : Subgroup G) : equivariantSite X G act Λ := sorry
+/-- The category underlying Scholze's equivariant étale site `(X/G)_ét`.
+This is distinct from the derived category `equivariantSite X G act Λ`.
+The locally profinite continuous-action domain is the A1/SF.2 supplier contract;
+its unavailable eligibility hypotheses are explicitly omitted in this prototype. -/
+def equivariantEtaleSite (X : Diamond.{u}) (G : Type) [Group G]
+    [TopologicalSpace G] (act : G →* Aut X) : Type (u + 1) := sorry
 
-/-- (IG.4/equivariant-sites-and-nearby-cycles) For `K ⊂ G` compact open, `(X/K)_ét` is the slice
-of `(X/G)_ét` over `X × G/K`. -/
-theorem equivariantSite.slice (X : Diamond.{u}) (G : Type) [Group G] [TopologicalSpace G]
-    (act : G →* Aut X) (K : Subgroup G) (hK : IsOpen (K : Set G) ∧ IsCompact (K : Set G)) :
-    Nonempty (equivariantSite X K (act.comp K.subtype) Λ ≌
-      Over (equivariantSite.cosetObject (Λ := Λ) X G act K)) := sorry
+instance (X : Diamond.{u}) (G : Type) [Group G] [TopologicalSpace G]
+    (act : G →* Aut X) : Category.{u} (equivariantEtaleSite X G act) := sorry
+
+/-- The étale `G`-space `X × G/K` over `X`, an object of the site. -/
+def equivariantSite.cosetObject (X : Diamond.{u}) (G : Type) [Group G]
+    [TopologicalSpace G] (act : G →* Aut X) (K : Subgroup G) :
+    equivariantEtaleSite X G act := sorry
+
+/-- (IG.4/equivariant-sites-and-nearby-cycles) The compact-open slice equivalence
+is an equivalence of sites. Transport of the Grothendieck topology is part of
+its supplier statement, explicitly omitted in this carrier-only prototype. -/
+theorem equivariantSite.slice (X : Diamond.{u}) (G : Type) [Group G]
+    [TopologicalSpace G] (act : G →* Aut X) (K : Subgroup G)
+    (hK : IsOpen (K : Set G) ∧ IsCompact (K : Set G)) :
+    Nonempty (equivariantEtaleSite X K (act.comp K.subtype) ≌
+      Over (equivariantSite.cosetObject X G act K)) := sorry
 
 /-- (IG.4/equivariant-sites-and-nearby-cycles) The nearby-cycle functor
 `Rλ_{U/K_p *} : D((U_η̄/K_p)_ét) → D(U_{s̄,ét})` for an affinoid `U = Spa(A, A°)` étale over
@@ -6465,75 +6746,181 @@ section FormalNbhd
 
 variable {Λ : Type u} [CommRing Λ]
 
-/-- An affinoid étale neighbourhood `U = Spa(A, A°) → Y` of a geometric point
-`x : Spd C → Y`, with formal model `𝔘 = Spf A°` and the special fibre `Spec(A°/p) ⊗ k`. -/
-structure AffinoidEtaleNbhd {p : ℕ} [Fact p.Prime] (Y : Diamond.{u}) {C : PadicCField.{u} p}
-    (x : Diamond.spa C.C ⟶ Y) where
-  /-- The neighbourhood `U`. -/
-  V : Diamond.{u}
-  /-- The étale map `U → Y`. -/
-  toY : V ⟶ Y
-  /-- The lift of the point. -/
-  pt : Diamond.spa C.C ⟶ V
-  pt_comp : pt ≫ toY = x
-  /-- The formal model `𝔘 = Spf A°`. -/
-  model : PadicFormalScheme.{u}
-  /-- The special fibre `𝔘_k = Spec(A°/p ⊗ k)`. -/
-  special : Scheme.{u}
-  special_affine : IsAffine special
-  /-- Raw reduction `Spec(A°/p)` and its structure over `O_C/p`. -/
-  modP : Scheme.{u}
-  modPToBase : modP ⟶ Spec (C.Oeps 1)
-  /-- This property is imposed only on the cofinal basis used in CSnc p.62. -/
-  modP_finitePresentation : LocallyOfFinitePresentation modPToBase
-  specialToK : special ⟶ TauCeti.Igusa.pt C.k
-  special_finiteType : LocallyOfFiniteType specialToK
-  /-- Residue-field reduction of the raw model, with its cartesian square. -/
-  reduction : special ⟶ modP
-  reduction_cartesian : IsPullback reduction specialToK modPToBase (C.epsReduction 1)
+/-- Genuine affinoid étale neighbourhoods `U = Spa(A,A°)` of `x`, equipped with
+`Spf(A°)` over `O_C`, in the finite-presentation cofinal basis used in CSnc §4.6.
+The carrier's elements satisfy these geometric conditions by its mathematical
+meaning. OMITTED from this prototype: a typed adic étaleness/affinoid predicate,
+the `O_C`-formal-scheme structure and the identification of its coordinate ring
+with the ring of power-bounded elements. Owners: AdicSpacesPartII and SF.2.
+The generic fibre and raw/residue-field reductions below ARE linked explicitly. -/
+def AffinoidEtaleNbhd {p : ℕ} [Fact p.Prime] (Y : Diamond.{u})
+    {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ Y) : Type (u + 1) := sorry
 
-/-- `V` refines `U`: a map of neighbourhoods over `Y` compatible with the points. -/
-def AffinoidEtaleNbhd.Refines {p : ℕ} [Fact p.Prime] {Y : Diamond.{u}} {C : PadicCField.{u} p}
-    {x : Diamond.spa C.C ⟶ Y} (V U : AffinoidEtaleNbhd Y x) : Prop :=
+namespace AffinoidEtaleNbhd
+
+variable {p : ℕ} [Fact p.Prime] {Y : Diamond.{u}} {C : PadicCField.{u} p}
+  {x : Diamond.spa C.C ⟶ Y}
+
+/-- The genuine canonical model `Spf(A°)` over `O_C`. -/
+def model (U : AffinoidEtaleNbhd Y x) : PadicFormalScheme.{u} := sorry
+
+/-- The neighbourhood is the generic fibre of its model. -/
+def V (U : AffinoidEtaleNbhd Y x) : Diamond.{u} :=
+  PadicFormalScheme.adicGenericFibre.obj U.model
+
+def toY (U : AffinoidEtaleNbhd Y x) : U.V ⟶ Y := sorry
+
+def pt (U : AffinoidEtaleNbhd Y x) : Diamond.spa C.C ⟶ U.V := sorry
+
+theorem pt_comp (U : AffinoidEtaleNbhd Y x) : U.pt ≫ U.toY = x := sorry
+
+/-- Raw reduction of this same formal model, before passing to the residue field. -/
+def modP (U : AffinoidEtaleNbhd Y x) : Scheme.{u} :=
+  PadicFormalScheme.reduction.obj U.model
+
+def modPToBase (U : AffinoidEtaleNbhd Y x) : U.modP ⟶ Spec (C.Oeps 1) := sorry
+
+theorem modP_finitePresentation (U : AffinoidEtaleNbhd Y x) :
+    LocallyOfFinitePresentation U.modPToBase := sorry
+
+/-- Residue-field special fibre, explicitly the base change of raw reduction. -/
+def special (U : AffinoidEtaleNbhd Y x) : Scheme.{u} :=
+  pullback U.modPToBase (C.epsReduction 1)
+
+def reduction (U : AffinoidEtaleNbhd Y x) : U.special ⟶ U.modP :=
+  pullback.fst U.modPToBase (C.epsReduction 1)
+
+def specialToK (U : AffinoidEtaleNbhd Y x) : U.special ⟶ TauCeti.Igusa.pt C.k :=
+  pullback.snd U.modPToBase (C.epsReduction 1)
+
+theorem special_affine (U : AffinoidEtaleNbhd Y x) : IsAffine U.special := sorry
+
+theorem special_finiteType (U : AffinoidEtaleNbhd Y x) :
+    LocallyOfFiniteType U.specialToK := sorry
+
+theorem reduction_cartesian (U : AffinoidEtaleNbhd Y x) :
+    IsPullback U.reduction U.specialToK U.modPToBase (C.epsReduction 1) := sorry
+
+/-- Refinement over the ambient flag space, respecting the geometric point. -/
+def Refines (V U : AffinoidEtaleNbhd Y x) : Prop :=
   ∃ h : V.V ⟶ U.V, h ≫ U.toY = V.toY ∧ V.pt ≫ h = U.pt
 
-/-- (IG.4/finite-level-formal-models) A neighbourhood `U = Spa(A) → Fℓ_C` of `x` together with
-the finite-level data: `S^*_{K(p^∞N),U}` is affinoid perfectoid, the preimage of an affinoid
-`U′ = S^*_{K(p^mN),U}` for `m ≥ level`, and the mod-`p` maps
-`Spec(R°_{K(p^mN),U}/p) → Spec(A°/p)` at each finite level `m ≥ level`. -/
-structure FormalNeighbourhood (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime]
-    {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
-    extends AffinoidEtaleNbhd (FlagVariety.{u} D p) x where
-  /-- The level `m₀` from which on the preimage comes from finite level. -/
-  level : ℕ
-  /-- `S^*_{K(p^∞N),U} = S^*_{K(p^∞N),C} ×_{Fℓ_C} U`. -/
-  preimage : Diamond.{u}
-  /-- `π_{HT,U} : S^*_{K(p^∞N),U} → U`. -/
-  piHTU : preimage ⟶ V
-  preimage_affinoid : Diamond.IsAffinoidPerfectoid preimage
-  /-- `Spec(R°_{K(p^mN),U}/p ⊗ k)`, for `m ≥ level`. -/
-  specialLevel : ℕ → Scheme.{u}
-  /-- Raw finite-level mod-p models are distinguished from their residue-field reductions. -/
-  modPLevel : ℕ → Scheme.{u}
-  modPProj : ∀ m, modPLevel m ⟶ modP
-  levelReduction : ∀ m, specialLevel m ⟶ modPLevel m
+end AffinoidEtaleNbhd
 
-  /-- The mod-`p` maps `Spec(R°_{K(p^mN),U}/p) → Spec(A°/p)`. -/
-  projLevel : ∀ m, specialLevel m ⟶ special
-  levelReduction_cartesian : ∀ m,
-    IsPullback (levelReduction m) (projLevel m) (modPProj m) reduction
-  /-- The transition maps in `p`-level. -/
-  transitionMap : ∀ {m m'}, m ≤ m' → (specialLevel m' ⟶ specialLevel m)
-  /-- The corresponding transitions on the raw `O_C/p` models. -/
-  modPTransitionMap : ∀ {m m'}, m ≤ m' → (modPLevel m' ⟶ modPLevel m)
-  /-- `Spec(R°_{K(p^∞N),U}/p ⊗ k)` and its map to `Spec(A°/p)`. -/
-  specialInf : Scheme.{u}
-  projInf : specialInf ⟶ special
-  modPInf : Scheme.{u}
-  modPInfProj : modPInf ⟶ modP
-  modPInfToLevel : ∀ m, modPInf ⟶ modPLevel m
-  /-- Finite presentation factors the target map, not a finiteness assertion about the source. -/
-  modP_factor : ∀ m, level ≤ m → modPInfToLevel m ≫ modPProj m = modPInfProj
+/-- Genuine finite-level formal models of the MINIMAL Hodge–Tate preimage of a
+neighbourhood in the preceding cofinal basis, as constructed in CSnc pp.61–63.
+Each element includes the descended finite-level affinoid charts and their
+canonical integral models, the infinite-level canonical model, the factorization
+of the period map modulo p, and compatible level transitions.
+OMITTED: typed finite-level normalization/power-bounded-ring identifications,
+etale descent to the finite-level Shimura spaces, and the auxiliary ℓ-level and
+toroidal geometric chart diagrams (requested from SF.2). Their nearby-cycle
+comparison belongs to IG.4/semiperversity. Toroidal charts
+map properly to the minimal charts; no toroidal-affinoid assertion is made.
+The MINIMAL infinite-level preimage is a literal pullback below, and all raw and
+residue-field reductions are explicitly attached to their formal models. -/
+def FormalNeighbourhood (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime]
+    {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p) :
+    Type (u + 1) := sorry
+
+namespace FormalNeighbourhood
+
+variable {D : UnitarySimilitudeDatum} {p N : ℕ} [Fact p.Prime]
+  {C : PadicCField.{u} p} {x : Diamond.spa C.C ⟶ FlagVariety.{u} D p}
+
+def toAffinoidEtaleNbhd (U : FormalNeighbourhood D p N x) :
+    AffinoidEtaleNbhd (FlagVariety.{u} D p) x := sorry
+
+-- Preserve the old inherited projection API for every existing consumer.
+abbrev V (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.V
+abbrev toY (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.toY
+abbrev pt (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.pt
+abbrev model (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.model
+abbrev special (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.special
+abbrev modP (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.modP
+abbrev modPToBase (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.modPToBase
+abbrev specialToK (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.specialToK
+abbrev reduction (U : FormalNeighbourhood D p N x) := U.toAffinoidEtaleNbhd.reduction
+
+theorem pt_comp (U : FormalNeighbourhood D p N x) : U.pt ≫ U.toY = x :=
+  U.toAffinoidEtaleNbhd.pt_comp
+
+theorem special_affine (U : FormalNeighbourhood D p N x) : IsAffine U.special :=
+  U.toAffinoidEtaleNbhd.special_affine
+
+theorem modP_finitePresentation (U : FormalNeighbourhood D p N x) :
+    LocallyOfFinitePresentation U.modPToBase := U.toAffinoidEtaleNbhd.modP_finitePresentation
+
+theorem special_finiteType (U : FormalNeighbourhood D p N x) :
+    LocallyOfFiniteType U.specialToK := U.toAffinoidEtaleNbhd.special_finiteType
+
+theorem reduction_cartesian (U : FormalNeighbourhood D p N x) :
+    IsPullback U.reduction U.specialToK U.modPToBase (C.epsReduction 1) :=
+  U.toAffinoidEtaleNbhd.reduction_cartesian
+
+def level (U : FormalNeighbourhood D p N x) : ℕ := sorry
+
+/-- The actual minimal Hodge–Tate preimage, rather than an unrelated diamond. -/
+def preimage (U : FormalNeighbourhood D p N x) : Diamond.{u} :=
+  pullback (piHTMin.{u} D p N) U.toY
+
+def piHTU (U : FormalNeighbourhood D p N x) : U.preimage ⟶ U.V :=
+  pullback.snd (piHTMin.{u} D p N) U.toY
+
+theorem preimage_affinoid (U : FormalNeighbourhood D p N x) :
+    Diamond.IsAffinoidPerfectoid U.preimage := sorry
+
+/-- For m≥level, the canonical model of the descended minimal chart at level p^mN.
+For m<level use the model at level, to make the indexing and transition API total. -/
+def modelLevel (U : FormalNeighbourhood D p N x) (m : ℕ) : PadicFormalScheme.{u} := sorry
+
+def modPLevel (U : FormalNeighbourhood D p N x) (m : ℕ) : Scheme.{u} :=
+  PadicFormalScheme.reduction.obj (U.modelLevel m)
+
+def modPProj (U : FormalNeighbourhood D p N x) (m : ℕ) : U.modPLevel m ⟶ U.modP := sorry
+
+def specialLevel (U : FormalNeighbourhood D p N x) (m : ℕ) : Scheme.{u} :=
+  pullback (U.modPProj m) U.reduction
+
+def levelReduction (U : FormalNeighbourhood D p N x) (m : ℕ) :
+    U.specialLevel m ⟶ U.modPLevel m := pullback.fst (U.modPProj m) U.reduction
+
+def projLevel (U : FormalNeighbourhood D p N x) (m : ℕ) : U.specialLevel m ⟶ U.special :=
+  pullback.snd (U.modPProj m) U.reduction
+
+theorem levelReduction_cartesian (U : FormalNeighbourhood D p N x) (m : ℕ) :
+    IsPullback (U.levelReduction m) (U.projLevel m) (U.modPProj m) U.reduction := sorry
+
+def transitionMap (U : FormalNeighbourhood D p N x) {m m' : ℕ} (h : m ≤ m') :
+    U.specialLevel m' ⟶ U.specialLevel m := sorry
+
+def modPTransitionMap (U : FormalNeighbourhood D p N x) {m m' : ℕ} (h : m ≤ m') :
+    U.modPLevel m' ⟶ U.modPLevel m := sorry
+
+/-- Canonical model Spf(R∞°) of the actual minimal preimage. -/
+def modelInf (U : FormalNeighbourhood D p N x) : PadicFormalScheme.{u} := sorry
+
+def genericInfIso (U : FormalNeighbourhood D p N x) :
+    PadicFormalScheme.adicGenericFibre.obj U.modelInf ≅ U.preimage := sorry
+
+def modPInf (U : FormalNeighbourhood D p N x) : Scheme.{u} :=
+  PadicFormalScheme.reduction.obj U.modelInf
+
+def modPInfProj (U : FormalNeighbourhood D p N x) : U.modPInf ⟶ U.modP := sorry
+
+def specialInf (U : FormalNeighbourhood D p N x) : Scheme.{u} :=
+  pullback U.modPInfProj U.reduction
+
+def projInf (U : FormalNeighbourhood D p N x) : U.specialInf ⟶ U.special :=
+  pullback.snd U.modPInfProj U.reduction
+
+def modPInfToLevel (U : FormalNeighbourhood D p N x) (m : ℕ) :
+    U.modPInf ⟶ U.modPLevel m := sorry
+
+theorem modP_factor (U : FormalNeighbourhood D p N x) (m : ℕ) (hm : U.level ≤ m) :
+    U.modPInfToLevel m ≫ U.modPProj m = U.modPInfProj := sorry
+
+end FormalNeighbourhood
 
 namespace FormalNeighbourhood
 
@@ -6558,29 +6945,13 @@ level using the finite presentation of `A°/p` over `O_C/p`. -/
 theorem factor_modP (U : FormalNeighbourhood D p N x) (m : ℕ) (hm : U.level ≤ m) :
     U.modPInfToLevel m ≫ U.modPProj m = U.modPInfProj := sorry
 
-/-- (IG.4/finite-level-formal-models) Requested EDC.5 integral-pushforward lower-bound
-contract, with source dimension pulled back from the finite-type residue-field base.
-The underlying theorem must prove this for the level complexes in CSnc, including
-nonconstructible filtered limits, rather than assuming arbitrary perverse t-exactness. -/
-theorem pushforward_ge (U : FormalNeighbourhood D p N x) (d : ℤ) (m : ℕ) (hm : U.level ≤ m)
-    (ℓ : ℕ) [Fact ℓ.Prime] [CharP Λ ℓ] (hℓp : ℓ ≠ p)
-    (K : EtDerivedIG (U.specialLevel m) Λ)
-    (hK : perverseLower _ Λ (fun z ↦ residueDimension _ C.k U.specialToK ((U.projLevel m).base z)) d K) :
-    perverseLower _ Λ (residueDimension _ C.k U.specialToK) d
-      ((EtDerivedIG.Rpush (U.projLevel m)).obj K) := sorry
-
-/-- Imported SF.2/LPV.6 compatibility predicate: the algebraized open/finite charts
-at auxiliary ℓ-power tame level, their level-change maps and toroidal boundary maps
-commute with nearby-cycle and scheme/adic comparisons. This is the requested geometric
-interface, rather than an assertion that the p-level equality supplies those comparisons. -/
-def AuxiliaryTowerBoundaryCompatible (U : FormalNeighbourhood D p N x) : Prop := sorry
-
-/-- (IG.4/finite-level-formal-models) Compatibility on both reductions and in the
-auxiliary tower and boundary comparisons. -/
+/-- (IG.4/finite-level-formal-models) Compatibility of p-level projections on
+both reductions. The geometric auxiliary ℓ-tower and toroidal-boundary diagrams
+are explicitly omitted pending SF.2's genuine chart interfaces. Their nearby-cycle
+and perverse comparison compatibility belongs to IG.4/semiperversity. -/
 theorem transition (U : FormalNeighbourhood D p N x) {m m' : ℕ} (h : m ≤ m') :
     (U.transitionMap h ≫ U.projLevel m = U.projLevel m') ∧
-    (U.modPTransitionMap h ≫ U.modPProj m = U.modPProj m') ∧
-    AuxiliaryTowerBoundaryCompatible U := sorry
+    (U.modPTransitionMap h ≫ U.modPProj m = U.modPProj m') := sorry
 
 /-- A composite `V → U` of finite étale maps and rational embeddings (data witnessing the chain;
 owner: AdicSpacesPartII). -/
@@ -6686,6 +7057,13 @@ theorem compactMinimalStratumConcentration {p : ℕ} [Fact p.Prime] (Dp : Integr
     (hi : Submodule.torsionBySet (Dp.Hecke S) (EtH (Dp.igusa C b) (ZMod ℓ) i) 𝔪 ≠ ⊥) :
     i = LocalPELDatum.dimLeaf b := sorry
 
+/- Explicit prototype omission: compactMinimalStratumConcentration above records
+the F_ℓ theorem. Its Qbar_ℓ analogue uses a characteristic-zero Hecke eigenideal,
+rather than m-torsion for an integral maximal ideal containing ℓ. Li–Liu footnote16
+also needs the separate special-signature/one-hyperspecial-factor comparison.
+At torsion finite levels averaging is taken over a cofinal system of sufficiently
+small pro-p compact opens, where p≠ℓ makes invariants exact. -/
+
 /-! ### IG.4/ell-power-boundary-killing -/
 
 section EllPower
@@ -6745,6 +7123,32 @@ end EllPower
 
 /-! ### IG.4/semiperversity -/
 
+namespace FormalNeighbourhood
+
+variable {D : UnitarySimilitudeDatum} {p N : ℕ} [Fact p.Prime]
+  {C : PadicCField.{u} p} {x : Diamond.spa C.C ⟶ FlagVariety.{u} D p}
+  {Λ : Type u} [CommRing Λ]
+
+/-- (IG.4/semiperversity) Requested EDC.5 integral-pushforward lower-bound
+contract, with source dimension pulled back from the finite-type residue-field base.
+The supplier must establish the statement for the level complexes in CSnc and its
+uniformly bounded nonconstructible limits. This comparison belongs to the later
+semiperversity target, separately from the early geometric formal-model data. -/
+theorem pushforward_ge (U : FormalNeighbourhood D p N x) (d : ℤ) (m : ℕ) (hm : U.level ≤ m)
+    (ℓ : ℕ) [Fact ℓ.Prime] [CharP Λ ℓ] (hℓp : ℓ ≠ p)
+    (K : EtDerivedIG (U.specialLevel m) Λ)
+    (hK : perverseLower _ Λ (fun z ↦ residueDimension _ C.k U.specialToK ((U.projLevel m).base z)) d K) :
+    perverseLower _ Λ (residueDimension _ C.k U.specialToK) d
+      ((EtDerivedIG.Rpush (U.projLevel m)).obj K) := sorry
+
+/- Explicit prototype omission: `FormalNeighbourhood.nearbyComparisonCompatibility`
+from the packet API. The missing typed diagrams say that auxiliary ℓ-level changes,
+toroidal boundary maps, nearby cycles, geometric costalks and the finite-level/limit
+comparisons commute. These are the SF.2/LPV.6/EDC.5 supplier contracts. A p-level
+commuting square does not assert them, and no Prop-valued placeholder is introduced. -/
+
+end FormalNeighbourhood
+
 /-- The nearby cycles `Rψ(Rπ°_HT*𝔽_ℓ)|_𝔘 ∈ D(𝔘_k, 𝔽_ℓ)` on the special fibre of the formal model of
 an affinoid étale neighbourhood. -/
 def nearbyCyclesGood {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prime] (N : ℕ)
@@ -6762,6 +7166,12 @@ theorem semiperversity {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prime] (N 
     (hΛ : Fintype.card Λ = ℓ) (V : AffinoidEtaleNbhd (FlagVariety.{u} D p) x) :
     ∃ U : AffinoidEtaleNbhd (FlagVariety.{u} D p) x, U.Refines V ∧
       perverseLower _ Λ (residueDimension _ C.k U.specialToK) (D.dim : ℤ) (nearbyCyclesGood N U Λ) := sorry
+
+/- Acceptance for IG.4/semiperversity: in dimension d=1, a CLOSED point z of
+the finite-type special-fibre target has δ(z)=0, so its geometric COSTALK
+i_z!Rψ(Rπ°_HT,* F_ℓ) has no cohomology below degree1. This says nothing
+about an arbitrary basic stalk. The nearby-cycle/costalk comparison and
+uniform lower-bound continuity remain the precise requested suppliers. -/
 
 /-! ### IG.4/partial-support-cohomology -/
 
@@ -7327,6 +7737,10 @@ theorem igusaPoincareDuality {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prim
         Nontrivial (localizeAt 𝔪 (EtH (MantovanIgusaVariety N X m) (ZMod ℓ) (2 * X.newtonClass.dimLeaf - i))) :=
   sorry
 
+/- Ordinary b makes J_b a split Newton Levi; its representation parameters
+may have higher-dimensional blocks. A sum of characters follows only with
+the additional generic residual hypotheses of genericLiftSplits. -/
+
 /-- (IG.5/galois-representations-for-igusa-constituents) CSnc Theorem 5.1.2: for every constituent
 `π ⊗ ψ` of `[H_c(Ig^b_{K(N)}, ℚ̄_ℓ)]` with nonzero multiplicity there is a continuous semisimple
 `ρ : Gal(F̄/F) → GL_{2n}(ℚ̄_ℓ)`, unramified almost everywhere and at every split `v | q ∉ S`, with
@@ -7343,6 +7757,11 @@ theorem galoisRepresentationsForIgusaConstituents {D : UnitarySimilitudeDatum}
         ρ.charpolyAt (frobAt v.v) = (heckePoly v).map ψ) ∧
       ∀ v : IgPlace D, (p : NumberField.RingOfIntegers D.F) ∈ v.asIdeal →
         badulescuParam π v = ρ.localSSParam v := sorry
+
+/- The concentration-to-constituent proof first detects nonzero cohomology by
+a sufficiently small pro-p J_b subgroup. Exact invariants (p≠ℓ) identify a
+finite-level lattice complex. Universal coefficients and eigencharacter
+extraction are applied there before returning to the smooth tower. -/
 
 /-- (IG.5/concentrated-cohomology-gives-constituent) If `H^i(Ig^b_{K(N)}, 𝔽_ℓ)_𝔪` is nonzero for
 exactly one `i`, then `H^*_c(Ig^b, ℤ_ℓ)_{𝔪^∨}` is concentrated in one degree and torsion-free, some
@@ -7380,6 +7799,13 @@ def localResidueCard (p : ℕ) [Fact p.Prime] (L : Type) [Field L] [Algebra ℚ_
 /-- The `ℓ`-adic cyclotomic character of `Gal(L̄/L)`. -/
 def adicCyclotomic (p : ℕ) [Fact p.Prime] (L : Type) [Field L] [Algebra ℚ_[p] L] (ℓ : ℕ)
     [Fact ℓ.Prime] : ContinuousMonoidHom (Field.absoluteGaloisGroup L) (QlBar ℓ)ˣ := sorry
+
+/- Local finite-cohomology input: ClassFieldTheory layer5 must supply the
+finite local Euler characteristic and Tate duality giving H¹(G_L,χ_λ)=0
+for an unramified mod-ℓ character with λ∉{1,q_L}, ℓ≠p. D7 derived duality
+alone does not supply that Euler formula. If q_L≡1 modℓ, the ratio condition
+forces distinct residual roots; repeated roots belong to the q_L≠1 branch,
+where an unramified characteristic-zero Frobenius need not be semisimple. -/
 
 /-- (IG.5/generic-lift-splits) CS17 Lemma 6.2.2: let `ρ : Gal(L̄/L) → GL_m(ℚ̄_ℓ)` have unramified
 semisimplified reduction with Frobenius eigenvalues `α_i ≠ q α_j` (`i ≠ j`). (1) If moreover
@@ -7652,15 +8078,15 @@ instance {X : PDivGStructure D p (pt k)} {r : ℕ} (Z : SymplecticFiltration X r
     Mono Z.incl := sorry
 
 -- test: boundaryStratum_n_one — for n = 1 the only boundary class is r = 1 and X_P = 0
-example (X : PDivGStructure D p (pt k)) (hn : D.n = 1) :
+example [Fact p.Prime] [CharP k p] (X : PDivGStructure D p (pt k)) (hn : D.n = 1) :
     Finset.Icc 1 D.n = {1} ∧ ∀ Z : SymplecticFiltration X 1, Z.graded.height = 0 := sorry
 
 -- test: boundaryStratum_basic — if X_b^{ét} = 0 every boundary stratum is empty
-example (X : PDivGStructure D p (pt k)) (h : ∀ τ : NumberField.RingOfIntegers D.F →+* k, X.etaleRank τ = 0) (r : ℕ)
+example [Fact p.Prime] [CharP k p] (X : PDivGStructure D p (pt k)) (h : ∀ τ : NumberField.RingOfIntegers D.F →+* k, X.etaleRank τ = 0) (r : ℕ)
     (hr : r ∈ Finset.Icc 1 D.n) : IsEmpty (boundaryStratum X r) := sorry
 
 -- test: lowerRankDatum_not_quotient — X_P is Z_{b,−1}/Z_{b,−2} (Z_{b,−2} ⊂ Z_{b,−1}), so heights add up
-example (X : PDivGStructure D p (pt k)) (r : ℕ) (Z : SymplecticFiltration X r) :
+example [Fact p.Prime] [CharP k p] (X : PDivGStructure D p (pt k)) (r : ℕ) (Z : SymplecticFiltration X r) :
     Z.minusTwo.height + Z.graded.height = Z.minusOne.height := sorry
 
 /-- The fibre `Ig^{b,*}_{∞,P}` of the cusp-label map over the identity coset. -/
@@ -7676,10 +8102,10 @@ def boundaryFibre.ι {X : PDivGStructure D p (pt k)} {r : ℕ} (Z : SymplecticFi
 fibre over the identity is `Ig^{b,*}_{∞,P}`, and
 `RΓ_c(Ig^{b,*}_{∞,[P]}, i^*Rj_*𝔽_ℓ) ≅ Ind^{J_b × G(𝔸_f^p)}_{P_b × P(𝔸_f^p)} RΓ_c(Ig^{b,*}_{∞,P}, i^*_P Rj_*𝔽_ℓ)`
 (unnormalized smooth induction). -/
-theorem boundaryParabolicInduction [CharP k p]
+theorem boundaryParabolicInduction [Fact p.Prime] [CharP k p]
     (hp : (Ideal.span {(p : NumberField.RingOfIntegers D.F)}).IsRadical)
     (X : PDivGStructure D p (pt k)) (r : ℕ) (hr : r ∈ Finset.Icc 1 D.n)
-    (Z : SymplecticFiltration X r) (ℓ : ℕ) (hℓp : ℓ ≠ p) :
+    (Z : SymplecticFiltration X r) (ℓ : ℕ) [Fact ℓ.Prime] (hℓp : ℓ ≠ p) :
     ∃ c : boundaryStratum X r →
         (JGroup (X.newtonClass) ⧸ levelSubgroup Z) × (GAfp D p ⧸ parabolicAfp D p r),
       (∀ g x, c ((boundaryStratumAct X r g).hom.base x) = (g.1 • (c x).1, g.2 • (c x).2)) ∧
@@ -7755,13 +8181,14 @@ def smoothFunctionsGL1 (D : UnitarySimilitudeDatum) (ℓ : ℕ) : SmoothDerived 
   sorry
 
 -- test: boundaryComparison_n_one — for n = 1 (and F⁺ = ℚ, Igusa curves) the map identifies the cusp cohomology with functions on GL_1(F)\GL_1(𝔸_{F,f}) ⊗ RΓ_c(Ig^{b_P})
-example (X : PDivGStructure D p (pt k)) (hn : D.n = 1)
+example [Fact p.Prime] [CharP k p]
+    (hp : (Ideal.span {(p : NumberField.RingOfIntegers D.F)}).IsRadical) (X : PDivGStructure D p (pt k)) (hn : D.n = 1)
     (hF : Module.finrank ℚ (NumberField.maximalRealSubfield D.F) = 1)
-    (Z : SymplecticFiltration X 1) (ℓ : ℕ) (hℓp : ℓ ≠ p) :
+    (Z : SymplecticFiltration X 1) (ℓ : ℕ) [Fact ℓ.Prime] (hℓp : ℓ ≠ p) :
     Nonempty (lsCohGLr D 1 ℓ ≅ smoothFunctionsGL1 D ℓ) ∧ IsIso (boundaryComparison Z ℓ) := sorry
 
 -- test: boundaryComparison_empty — if X_b^{ét} = 0 there is no filtration and the boundary complex vanishes
-example (X : PDivGStructure D p (pt k)) (h : ∀ τ : NumberField.RingOfIntegers D.F →+* k, X.etaleRank τ = 0) (r : ℕ)
+example [Fact p.Prime] [CharP k p] (X : PDivGStructure D p (pt k)) (h : ∀ τ : NumberField.RingOfIntegers D.F →+* k, X.etaleRank τ = 0) (r : ℕ)
     (hr : r ∈ Finset.Icc 1 D.n) (ℓ : ℕ) :
     IsEmpty (SymplecticFiltration X r) ∧ Limits.IsZero (boundaryCohStratum X r ℓ) := sorry
 
@@ -7769,6 +8196,11 @@ example (X : PDivGStructure D p (pt k)) (h : ∀ τ : NumberField.RingOfIntegers
 example (r : ℕ) (hr : 1 ≤ r)
     (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F)) :
     ¬ TotallyDisconnectedSpace (LSSpaceGLr D r) := sorry
+
+/- In the GL₁ comparison, arithmetic-unit cohomology describes each neat
+FINITE-level quotient. At full adelic level retain the actual colimit and
+its restriction maps. A finite-level punctured cusp also has a Kummer H¹;
+the ℓ-power tower kills it before the full-tower local formula is applied. -/
 
 /-! ### Local computation and Pink's formula -/
 
@@ -7796,9 +8228,9 @@ def localBoundaryMap {X : PDivGStructure D p (pt k)} (c : IgusaCuspLabel X) (ℓ
 /-- (IG.6/local-boundary-computation) CSnc Proposition 6.3.1: for a fixed Igusa cusp label `Z̃`,
 `RΓ_c(Ig^{b_P}_∞, 𝔽_ℓ) ⊗ colim_Γ RΓ(Γ, 𝔽_ℓ) → RΓ_c(Ig^{b,*}_{∞,Z̃}, i^*_{Z̃} Rj_*𝔽_ℓ)` is an
 isomorphism. (Remark 6.3.2: the same method proves Pink's original formula Hecke-equivariantly.) -/
-theorem localBoundaryComputation [CharP k p]
+theorem localBoundaryComputation [Fact p.Prime] [CharP k p]
     (hp : (Ideal.span {(p : NumberField.RingOfIntegers D.F)}).IsRadical)
-    {X : PDivGStructure D p (pt k)} (c : IgusaCuspLabel X) (hc : 1 ≤ c.rank) (ℓ : ℕ)
+    {X : PDivGStructure D p (pt k)} (c : IgusaCuspLabel X) (hc : 1 ≤ c.rank) (ℓ : ℕ) [Fact ℓ.Prime]
     (hℓp : ℓ ≠ p) :
     IsIso (localBoundaryMap c ℓ) := sorry
 
@@ -7806,10 +8238,10 @@ theorem localBoundaryComputation [CharP k p]
 `RΓ_c(Ig^{b,*}_{∞,[P]}, i^*_{[P]}Rj_*𝔽_ℓ) ≅ Ind^{J_b(ℚ_p)×G(𝔸_f^p)}_{P_b(ℚ_p)×P(𝔸_f^p)}
 (RΓ(GL_r(F)\(X_r × GL_r(𝔸_{F,f})), 𝔽_ℓ) ⊗ RΓ_c(Ig^{b_P}_∞, 𝔽_ℓ))` as complexes of smooth
 representations (unnormalized induction, Levi action on the tensor product, no twist or shift). -/
-theorem igusaPinkFormula [CharP k p]
+theorem igusaPinkFormula [Fact p.Prime] [CharP k p]
     (hp : (Ideal.span {(p : NumberField.RingOfIntegers D.F)}).IsRadical)
     (X : PDivGStructure D p (pt k)) (r : ℕ) (hr : r ∈ Finset.Icc 1 D.n)
-    (Z : SymplecticFiltration X r) (ℓ : ℕ) (hℓp : ℓ ≠ p) :
+    (Z : SymplecticFiltration X r) (ℓ : ℕ) [Fact ℓ.Prime] (hℓp : ℓ ≠ p) :
     IsIso (boundaryComparison Z ℓ) ∧
       Nonempty (boundaryCohStratum X r ℓ ≅ (SmoothDerived.ind (PbP Z)).obj (boundarySource Z ℓ)) :=
   sorry
@@ -7884,6 +8316,11 @@ def rGammaContP {D : UnitarySimilitudeDatum} (P : StdParabolicIG D) (S : Finset 
 /-- `RΓ_cont(K^S_M, −) : D^+_sm(M(𝔸^S), 𝔽_ℓ) → D^+(𝕋^S_M)`. -/
 def rGammaContM {D : UnitarySimilitudeDatum} (P : StdParabolicIG D) (S : Finset ℕ) (ℓ : ℕ) :
     SmoothDerived (P.leviAdelic S) ℓ ⥤ HeckeDerived (P.heckeLevi S) := sorry
+
+/- Variance correction to CSnc arXivv2 pp.85,87: part(1) lands in D+(T^S),
+as r_P:T^S→T_P^S restricts T_P-modules to T^S-modules. For the composite
+r_M∘r_P the restriction functors are r_P*∘r_M*, in that order. The typed
+functors below already have this corrected variance. -/
 
 /-- (IG.6/parabolic-induction-derived-invariants) CSnc Lemmas 6.4.2–6.4.3, with `K^S` hyperspecial
 outside `S` and `K^S_N` pro-prime-to-`ℓ` (`ℓ ∈ S`):
@@ -8222,17 +8659,23 @@ def ltxzzSatakePoly {N : ℕ} {Sp : Finset (LTXZZPlace F)} {κ : Type} [Field κ
 /-- The residue characteristic of a place of `F⁺`. -/
 def LTXZZPlace.residueChar (w : LTXZZPlace F) : ℕ := sorry
 
-/-- LTXZZ Proposition D.1.3: if `F⁺ ≠ ℚ`, `Σ⁺ ⊇ Σ⁺_bad`, and `φ` is decomposed generic at a prime
-`p` splitting completely in `F` and below no place of `Σ⁺` (Satake roots at every `v | p` with
-`α_i/α_j ∉ {1, p}`), then `φ` is cohomologically generic. -/
-theorem IsCohomologicallyGeneric.of_decomposedGeneric {N : ℕ} {Sp : Finset (LTXZZPlace F)}
-    {κ : Type} [Field κ] (φ : LTXZZHecke F N Sp →+* κ)
+/-- LTXZZ Proposition D.1.3, applied anew after every enlargement of the bad set.
+This sufficient criterion uses mod-ℓ coefficients and generic auxiliary primes
+away from ℓ and any enlarged bad set. A single prime for an arbitrary abstract
+Hecke homomorphism does not suffice. Corollary D.1.4 produces this family for
+its automorphic/Galois systems by Chebotarev. The compact concentration theorem
+itself remains an imported supplier, rather than a theorem replanned here. -/
+theorem IsCohomologicallyGeneric.of_decomposedGeneric {N : ℕ}
+    {Sp : Finset (LTXZZPlace F)} {ℓ : ℕ} [Fact ℓ.Prime]
+    (φ : LTXZZHecke F N Sp →+* AlgebraicClosure (ZMod ℓ))
     (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubfield F))
     (hbad : ltxzzBadPlaces F ⊆ Sp)
-    (hgen : ∃ p : ℕ, p.Prime ∧ SplitsCompletelyIG F p ∧ (∀ w ∈ Sp, w.residueChar ≠ p) ∧
-      ∀ v : HeightOneSpectrum (NumberField.RingOfIntegers F),
-        (p : NumberField.RingOfIntegers F) ∈ v.asIdeal →
-        PolyDecompGeneric ((ltxzzSatakePoly φ v).map (algebraMap κ (AlgebraicClosure κ))) N p) :
+    (hgen : ∀ (Sp' : Finset (LTXZZPlace F)), Sp ⊆ Sp' →
+      ∃ p : ℕ, p.Prime ∧ p ≠ ℓ ∧ SplitsCompletelyIG F p ∧
+        (∀ w ∈ Sp', w.residueChar ≠ p) ∧
+        ∀ v : HeightOneSpectrum (NumberField.RingOfIntegers F),
+          (p : NumberField.RingOfIntegers F) ∈ v.asIdeal →
+          PolyDecompGeneric (ltxzzSatakePoly φ v) N p) :
     IsCohomologicallyGeneric φ := sorry
 
 /-- The Eisenstein homomorphism of the trivial representation (degree character). -/
@@ -8277,25 +8720,22 @@ theorem onlyOrdinaryContributes (E : ImagQuadSubfield D) {p ℓ : ℕ} [Fact ℓ
     ∀ i < D.dim, Subsingleton (localizeAt 𝔪 (DiamondH (GoodReductionLocus.{u} D p N) ℓ i)) :=
   sorry
 
-/-- (IG.7/level-descent) CSnc proof of Theorem 1.1, descent: (1) from infinite level at `p` to
-`X_{K(N)}`; (2) to the unitary group at `K⁰ = K(N) ∩ G⁰(𝔸_f)` for every maximal `𝔪⁰ ⊂ 𝕋^{0,S}` over
-`𝔪`; (3) to an arbitrary neat `K⁰` with `K⁰.badPrimes ⊆ S`, given the infinite-level vanishing for
-every enlargement `S' ⊇ S` and every admissible `N'` (Hochschild–Serre along `K(N') ∩ G⁰(𝔸_f) ⊂ K⁰`
-when `K⁰_p = G⁰(ℤ_p)`, from infinite level at `p` with Lan–Stroh otherwise). The source writes the
-descent only at level `K(N)` (sourceIssues E9). -/
+/-- (IG.7/level-descent) CSnc proof of Theorem1.1: (1) descend from the
+infinite p-level bound to principal K(N); (2) restrict to the open-and-closed
+unitary component at K(N)∩G⁰(A_f), with compatible Hecke localization.
+The full source target also includes (3) arbitrary neat level: choose a NEW
+good generic auxiliary prime outside its bad-level support and descend from
+an actual normal principal-level cover. This third signature is explicitly
+OMITTED here pending the SF.2/SR geometric continuous étale Cartan–Leray and
+Hecke-localization interface. The packet retains the full target and precise
+request; no implication over vacuous fixed-p standing data substitutes for it. -/
 theorem levelDescent (E : ImagQuadSubfield D) {p ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ} {N : ℕ}
     (hyp : CSStandingHyp E p ℓ S N) (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal] :
     ((∀ i < D.dim, Subsingleton (localizeAt 𝔪 (DiamondH (GoodReductionLocus.{u} D p N) ℓ i))) →
       ∀ i < D.dim, Subsingleton (localizeAt 𝔪 (D.lssCoh (D.principalLevel N) (ZMod ℓ) i))) ∧
     ((∀ i < D.dim, Subsingleton (localizeAt 𝔪 (D.lssCoh (D.principalLevel N) (ZMod ℓ) i))) →
       ∀ (𝔪₀ : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪₀.IsMaximal], 𝔪₀.comap (D.heckeRestrict S) = 𝔪 →
-        ∀ i < D.dim, Subsingleton (LocalizedModule 𝔪₀.primeCompl (D.unitaryLssCoh (levelK0 D N).toSubgroup (ZMod ℓ) i))) ∧
-    (∀ K0 : NeatLevel D, K0.badPrimes ⊆ S →
-      ∀ (𝔪₀ : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪₀.IsMaximal], 𝔪₀.comap (D.heckeRestrict S) = 𝔪 →
-        (∀ (S' : Finset ℕ) (hS : S ⊆ S') (N' : ℕ), CSStandingHyp E p ℓ S' N' →
-          ∀ i < D.dim, Subsingleton (localizeAt (𝔪.comap (HeckeAlgebra.restrictIG D hS))
-            (DiamondH (GoodReductionLocus.{u} D p N') ℓ i))) →
-        ∀ i < D.dim, Subsingleton (LocalizedModule 𝔪₀.primeCompl (D.unitaryLssCoh K0.toSubgroup (ZMod ℓ) i))) := sorry
+        ∀ i < D.dim, Subsingleton (LocalizedModule 𝔪₀.primeCompl (D.unitaryLssCoh (levelK0 D N).toSubgroup (ZMod ℓ) i))) := sorry
 
 /-- (IG.7/caraiani-scholze-vanishing) Caraiani–Scholze, Theorem 1.1: for `F ⊇ F₀` CM with `F⁺ ≠ ℚ`,
 `G⁰` quasi-split unitary of signature `(n, n)`, `K` neat, `d = [F⁺:ℚ]n²`, and `𝔪 ⊂ 𝕋^{0,S}` in the
@@ -8351,15 +8791,19 @@ theorem irreducibleSpecialization (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ
     ∀ x : LocalizedModule 𝔪.primeCompl (LSCohV K (AlgRepLattice.trivial D (PadicInt ℓ)) D.dim),
       (ℓ : D.UnitaryHeckeAlgebra S) • x = 0 → x = 0 := sorry
 
-/-- (IG.7/acc-middle-degree-export) ACC+ Theorem 4.3.3 (renamed: ACC+'s coefficient prime `p` is `ℓ`
-here). Assume `[F⁺:ℚ] > 1`, `F ⊇ F₀` imaginary quadratic, and every prime `l ∉ S` is unramified in
-`F` or split in an imaginary quadratic subfield of `F`. If `𝔪 ⊂ 𝕋^{0,S}` is in the support of
-`H^*(X_K, V_λ)` (`V_λ` an `O`-lattice) and `ρ̄_𝔪` has length `≤ 2` and is decomposed generic
-(ACC+ Definition 4.3.1), then with `d = n²[F⁺:ℚ]`, `H^d(X_K, V_λ)_𝔪 → H^d(X_K, V_λ[1/ℓ])_𝔪` is
-injective and `H^d(X_K, V_λ)_𝔪 → H^d(∂X_K, V_λ)_𝔪` is surjective. -/
+/-- (IG.7/acc-middle-degree-export) ACC+ Theorem4.3.3, with its coefficient
+prime p renamed ℓ: for a genuine finite characteristic-zero coefficient integer
+ring O and algebraic lattice V, generic length≤2 yields middle-degree injection
+after inverting ℓ and surjection to the boundary. The injective scalar map hO
+excludes torsion coefficient rings such as F_ℓ. The prototype uses rational-prime
+sets S containing ℓ, hence the rational-prime-saturated special case of ACC.
+The full finite-place-set Hecke/localization adapter and compatible generic-prime
+choice are explicitly omitted and requested from ALS; the packet preserves the
+exact source-level target. The conditions F⁺≠Q and length≤2 remain here. -/
 theorem accMiddleDegreeExport (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ}
     (O : Type) [CommRing O] [IsDomain O] [IsIntegrallyClosed O] [Algebra (PadicInt ℓ) O]
-    [Module.Finite (PadicInt ℓ) O] (K : NeatLevel D) (hK : K.badPrimes ⊆ S)
+    [Module.Finite (PadicInt ℓ) O]
+    (hO : Function.Injective (algebraMap (PadicInt ℓ) O)) (K : NeatLevel D) (hK : K.badPrimes ⊆ S) (hℓ : ℓ ∈ S)
     (hS : ∀ l : ℕ, l.Prime → l ∉ S →
       (Ideal.span {(l : NumberField.RingOfIntegers D.F)}).IsRadical ∨
         ∃ E' : ImagQuadSubfield D, E'.SplitsAt l)
@@ -8371,15 +8815,19 @@ theorem accMiddleDegreeExport (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Pri
     Function.Injective (locMapIG 𝔪 (lsInvertEllV K V D.dim S)) ∧
       Function.Surjective (locMapIG 𝔪 (lsRestrictV K V D.dim S)) := sorry
 
-/-- (IG.7/middle-degree-without-length-hypothesis) Caraiani–Newton Theorem 2.1.28 (renamed: CN's
-coefficient prime `p` is `ℓ` here): for `F ⊇ F₀` imaginary CM (`F⁺ = ℚ` allowed), `T ∋ ℓ` a finite
-set of primes such that every prime `l ∉ T` is unramified in `F` or split in an imaginary quadratic
-subfield, and `𝔪 ⊂ 𝕋^{0,T}` with `ρ̄_𝔪` decomposed generic (CN Definition 2.1.27), the maps
-`H^d(X_K, V_λ[1/ℓ])_𝔪 ↩ H^d(X_K, V_λ)_𝔪 ↠ H^d(∂X_K, V_λ)_𝔪` are injective, resp. surjective; no
-length hypothesis and no `[F⁺:ℚ] > 1`. -/
+/-- (IG.7/middle-degree-without-length-hypothesis) CN Theorem2.1.28, with
+coefficient prime p renamed ℓ: the same middle-degree injection and boundary
+surjection hold without F⁺≠Q or residual length restrictions, using Koshikawa1.3.
+The scalar map hO is injective, so O is a finite characteristic-zero coefficient
+integer ring. Rational-prime T records only the saturated special case; the full
+conjugation-stable finite-place Hecke/localization adapter is explicitly OMITTED
+and requested from ALS. The compatible global Galois eigensystem chooses a good
+generic prime outside the bad level and identifies the relevant local spherical
+parameter; arbitrary unrelated local localization is not asserted to dominate it. -/
 theorem middleDegreeWithoutLengthHypothesis (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Prime]
     {T : Finset ℕ} (hℓT : ℓ ∈ T) (O : Type) [CommRing O] [IsDomain O] [IsIntegrallyClosed O]
-    [Algebra (PadicInt ℓ) O] [Module.Finite (PadicInt ℓ) O] (K : NeatLevel D) (hK : K.badPrimes ⊆ T)
+    [Algebra (PadicInt ℓ) O] [Module.Finite (PadicInt ℓ) O]
+    (hO : Function.Injective (algebraMap (PadicInt ℓ) O)) (K : NeatLevel D) (hK : K.badPrimes ⊆ T)
     (hT : ∀ l : ℕ, l.Prime → l ∉ T →
       (Ideal.span {(l : NumberField.RingOfIntegers D.F)}).IsRadical ∨
         ∃ E' : ImagQuadSubfield D, E'.SplitsAt l)
@@ -8395,8 +8843,11 @@ section Koshikawa
 
 attribute [local instance] HasDerivedCategory.standard
 
-/-- Local Shimura data `(G, b, μ)` with `G = ∏_{i ∈ I} GL_{n_i}` over a finite extension `F_v/ℚ_p`
-and `K = ∏ GL_{n_i}(𝓞_{F_v})` (owner: HeckeStacksAndLocalShtukas HS2). -/
+/-- Genuine local Shimura data `(G,b,μ)` for products of GL groups over a
+finite extension F_v/Q_p and hyperspecial K. Owner: HeckeStacksAndLocalShtukas
+HS2. The finite-F_v rigid realization, reflex-base comparison and μ versus μ⁻¹
+orientation adapter are explicitly omitted from this carrier-only prototype and
+requested as HS2 extensions; the endpoint retains the finite-local-field scope. -/
 def LocalShimuraDatumGL (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
     (I : Type) [Fintype I] (n : I → ℕ) : Type := sorry
 
@@ -8531,6 +8982,12 @@ theorem koshikawaSpectralSatakeReduction (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.
     fsUnramifiedSpectralCharacter (χ.comp (spectralSatakeMap p Fv I n ℓ)) =
       some (fun i ↦ localUnramifiedParam 𝔪 emb i) := sorry
 
+/- The local-shtuka realization uses [d_μ](d_μ/2), with geometric
+d_μ=⟨2ρ,μ⟩, not dim(r_μ) as printed in Koshikawa arXivv1 p.6. This
+shift/twist does not change the vanishing endpoint. Integral spectral/Satake
+compatibility, smooth finite-generation/Nakayama and faithful q^(1/2) descent
+remain separate requested ES3/ES5/SR interfaces. -/
+
 /-- (IG.7/koshikawa-local-vanishing) Koshikawa Theorem 1.1: for `G = ∏ GL_{n_i}`, hyperspecial `K`,
 `ℓ ≠ p`, and `𝔪 ⊂ ℤ_ℓ[K\G(F_v)/K]` with generic unramified parameter (`α_{j'}/α_j ≠ q` for `j ≠ j'`
 in each factor), if `J_b` is not quasi-split then `H^i_c(M_{(G,b,μ),K}, ℤ_ℓ)_𝔪 = 0` for all `i`. -/
@@ -8574,11 +9031,11 @@ def localParamAtP {D : UnitarySimilitudeDatum} {p ℓ : ℕ} [Fact ℓ.Prime]
 The following objects are complexes of modules for `H_{K_p}`; thus localization is at p,
 and is not the away-p `𝕋^S` localization used by the other vanishing route. -/
 
-/-- `RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!Rπ°_HT*𝔽_ℓ)` (support functors: C6, equivariance: SF.2). -/
+/-- `RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!Rπ°_HT*𝔽_ℓ)` (support functors: DiamondSixOperations S3, equivariance: SF.2). -/
 def ordinaryCostalkAtP {D : UnitarySimilitudeDatum} {p : ℕ}
     (K : ShimuraLevelG D p) (ℓ : ℕ) : DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) := sorry
 
-/-- `RΓ_c([Fℓ(ℚ_p)/K_p],i₀*Rπ°_HT*𝔽_ℓ)`. -/
+/-- `RΓ_c([Fℓ(ℚ_p)/K_p],i₀^*Rπ°_HT*𝔽_ℓ)`. -/
 def ordinaryStalkAtP {D : UnitarySimilitudeDatum} {p : ℕ}
     (K : ShimuraLevelG D p) (ℓ : ℕ) : DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) := sorry
 
@@ -8595,6 +9052,14 @@ def localizeHeckeAtP {D : UnitarySimilitudeDatum} {p ℓ : ℕ}
     DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) ⥤
       DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) := sorry
 
+/- Explicit prototype omissions: S3 supplies the actual closed/open support
+adjunction and triangle, with i_* left adjoint to Ri!. S4 supplies smooth base
+change and the mixed ordinary-pullback/exceptional-costalk exchange. The formal
+model comparison RΓ_ordinary≅Rlim RΓ_Z(RψF) is requested from EDC.5/LPV.6;
+filtered-colimit continuity is not this derived inverse-limit statement.
+The smooth-dual tensor/Hom argument also retains admissibility, reflexivity,
+the opposite action and the κ⁻¹[-2d] ordinary dualizing object. -/
+
 /-- (IG.7/koshikawa-ordinary-costalk-bound) Koshikawa Corollary 8.2.
 The proof uses finite closed specialization sets Z and `Rlim RΓ_Z(RψF)`, preserving D≥d.
 No filtered-colimit replacement, stalk bound or away-p localization enters this theorem. -/
@@ -8607,7 +9072,10 @@ theorem koshikawaOrdinaryCostalkBound (D : UnitarySimilitudeDatum) (p ℓ : ℕ)
 Smooth base change along q_K, the ordinary dualizing object κ⁻¹[−2d], the opposite-action
 tensor/smooth-dual Hom dictionary and disjoint spectral supports prove this map is an
 isomorphism after local spherical localization. These general interfaces are explicitly
-requested from BG3, SR, C6 and ES; the application belongs here. -/
+imported from BG3 geometry, VS4 coefficient invariance and SR/ES, with the
+remaining support and equivariance APIs requested from S3/S4/VS4. The mixed
+exchange itself is the existing S4/smooth-upper-shriek-exchange theorem, with
+its eligibility and smoothness hypotheses; the application belongs here. -/
 theorem koshikawaOrdinaryCostalkStalk (D : UnitarySimilitudeDatum) (p ℓ : ℕ)
     [Fact p.Prime] [Fact ℓ.Prime] (hℓp : ℓ ≠ p) (hsplit : SplitsCompletelyIG D.F p)
     (K : ShimuraLevelG D p) (𝔪 : Ideal (LocalHeckeAtP D p ℓ)) [𝔪.IsMaximal]
