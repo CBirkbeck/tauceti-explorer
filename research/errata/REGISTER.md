@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7741 new mistakes confirmed · 1389 awaiting review · 1796 already corrected in print · 133 rejected on review · 15 extractions and packets not yet checked.
+7741 new mistakes confirmed · 1389 awaiting review · 1796 already corrected in print · 133 rejected on review · 14 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -20217,4 +20217,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `ComplexComparisonPartII`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `LanglandsParameterStacks`, `ModularCurvesPartII`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `ComplexComparisonPartII`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `LanglandsParameterStacks`, `ModularCurvesPartII`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`.
