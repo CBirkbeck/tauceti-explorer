@@ -13,7 +13,7 @@
     "IgusaVarietiesAndTorsionConcentration:IG.7"
   ],
   "status": "complete",
-  "summary": "Blueprint of the Igusa-variety and torsion-concentration roadmap, planned at target level from Caraiani–Scholze's non-compact paper (§§2–6, arXiv v2) and the local and product-formula parts of their compact paper (Annals 2017, §§4 and 6), widened as the source route requires to unramified PEL data of type (A) or (C). IG.0 instantiates the quasi-split unitary datum, its integral model and the Newton map into B(G_{ℚ_p}, μ^{−1}) (importing B(G), J_b and B(G, μ) from BunGAndNewtonStrata), and develops the local theory of p-divisible groups with G-structure: completely slope divisible groups, the Chai–Oort internal Hom, the automorphism group of the universal cover with its dimension ⟨2ρ, ν_b⟩, Rapoport–Zink spaces of PEL type, central leaves, Serre–Tate for semi-abelian schemes and Drinfeld-level strata. IG.1 constructs perfect and Mantovan Igusa varieties with their group actions and cohomology complexes. IG.2 builds well-positioned subsets, partial toroidal and minimal compactifications of leaves and Igusa varieties, Ekedahl–Oort strata, affineness and Igusa cusp labels. IG.3 identifies the fibres of the Hodge–Tate period maps (open, toroidal and minimal) with Igusa varieties, through the local period map, the product formula and canonical compactifications. IG.4 proves semiperversity of nearby cycles and the two degree bounds; IG.5 the dual Hecke ideal and the genericity obstruction; IG.6 Pink's formula for Igusa varieties and the boundary length obstruction; IG.7 the concentration theorem, its integral and irreducible forms, the ACC+ middle-degree export and Koshikawa's removal of the length and [F⁺:ℚ] > 1 hypotheses. Confirmed red-team findings are applied: imported B(G) algebra, requested primitive comparison and torsion determinants, corrected statements of Corollaries 3.2.14 and 5.1.3 and Lemma 3.3.8, and the proof of Theorem 6.4.1 by induction with IG.4 and IG.5.",
+  "summary": "Blueprint of the Igusa-variety and torsion-concentration roadmap, planned at target level from Caraiani–Scholze's non-compact paper (§§2–6, arXiv v2) and the local and product-formula parts of their compact paper (Annals 2017, §§4 and 6), widened as the source route requires to unramified PEL data of type (A) or (C). IG.0 instantiates the quasi-split unitary datum, its integral model and the Newton map into B(G_{ℚ_p}, μ^{−1}) (importing B(G), J_b and B(G, μ) from BunGAndNewtonStrata), and develops the local theory of p-divisible groups with G-structure: completely slope divisible groups, the Chai–Oort internal Hom, the automorphism group of the universal cover with its dimension ⟨2ρ, ν_b⟩, Rapoport–Zink spaces of PEL type, central leaves, Serre–Tate for semi-abelian schemes and Drinfeld-level strata. IG.1 constructs perfect and Mantovan Igusa varieties with their group actions and cohomology complexes. IG.2 builds well-positioned subsets, partial toroidal and minimal compactifications of leaves and Igusa varieties, Ekedahl–Oort strata, affineness and Igusa cusp labels. IG.3 identifies the fibres of the Hodge–Tate period maps (open, toroidal and minimal) with Igusa varieties, through the local period map, the product formula and canonical compactifications. IG.4 proves semiperversity of nearby cycles and the two degree bounds; IG.5 the dual Hecke ideal and the genericity obstruction; IG.6 Pink's formula for Igusa varieties and the boundary length obstruction; IG.7 the concentration theorem, its integral and irreducible forms, the ACC+ middle-degree export and Koshikawa's removal of the length and [F⁺:ℚ] > 1 hypotheses. Confirmed red-team findings are applied: imported B(G) algebra, requested primitive comparison and torsion determinants, corrected statements of Corollaries 3.2.14 and 5.1.3 and Lemma 3.3.8, and the proof of Theorem 6.4.1 by induction with IG.4 and IG.5. Revision BP-IgusaVarietiesAndTorsionConcentration~2 preserves the historical independent review and all 120 original IDs, adds three source-named Koshikawa application theorems, repairs the six flagged prototype contracts and synchronizes the reader. All implementation statuses remain unchecked; supplier requests are planning terminals.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -798,7 +798,7 @@
       ],
       "title": "Unramified local PEL data of type (A) or (C) and the p-divisible group X_b (CS17 §4.2)",
       "kind": "definition",
-      "statement": "An unramified local PEL datum D^int = (B, *, V, (·,·), O_B, Λ, μ, b) consists of: a finite-dimensional semisimple ℚ_p-algebra B with anti-involution *, which is a product of matrix algebras over unramified extensions of ℚ_p; a *-stable maximal ℤ_p-order O_B; a finite left B-module V with an alternating form (·,·) : V × V → ℚ_p such that (bv, w) = (v, b*w); an O_B-stable lattice Λ ⊂ V self-dual for (·,·), so that G(R) = {(g, c) ∈ GL_{B⊗R}(V ⊗ R) × R^× : (gv, gw) = c(v, w)} extends to a reductive group G over ℤ_p, assumed connected (type D excluded); a conjugacy class μ : 𝔾_m → G_{ℚ̄_p} of cocharacters with weights 0 and 1 on V, V_{ℚ̄_p} = V₀ ⊕ V₁ with both summands totally isotropic and c ∘ μ = id, with field of definition E; and b ∈ G(L), L = W(𝔽̄_p)[1/p], with [b] ∈ B(G, μ^{−1}). The slopes of b on V lie in [−1, 0] in the paper's (nonstandard) covariant normalization of the Dieudonné module, so there is a p-divisible group X_b over 𝔽̄_p with O_B-action and symmetric quasi-polarization, unique up to quasi-isogeny, whose rational covariant Dieudonné module is V ⊗ L with Frobenius b σ. Global PEL data of type (A) or (C) unramified at p with hyperspecial level give such a datum at every b ∈ B(G_{ℚ_p}, μ^{−1}).",
+      "statement": "An unramified local PEL datum D^int = (B, *, V, (·,·), O_B, Λ, μ, b) consists of: a finite-dimensional semisimple ℚ_p-algebra B with anti-involution *, which is a product of matrix algebras over unramified extensions of ℚ_p; a *-stable maximal ℤ_p-order O_B; a finite left B-module V with an alternating form (·,·) : V × V → ℚ_p such that (bv, w) = (v, b*w); an O_B-stable lattice Λ ⊂ V self-dual for (·,·), so that G(R) = {(g, c) ∈ GL_{B⊗R}(V ⊗ R) × R^× : (gv, gw) = c(v, w)} extends to a reductive group G over ℤ_p, assumed connected (type D excluded); a conjugacy class μ : 𝔾_m → G_{ℚ̄_p} of cocharacters with weights 0 and 1 on V, V_{ℚ̄_p} = V₀ ⊕ V₁ with both summands totally isotropic and c ∘ μ = id, with field of definition E; and b ∈ G(L), L = W(𝔽̄_p)[1/p], with [b] ∈ B(G, μ^{−1}). The slopes of b on V lie in [−1, 0] in the paper's (nonstandard) covariant normalization of the Dieudonné module, so there is a p-divisible group X_b over 𝔽̄_p with rational B-action on its universal cover and symmetric quasi-polarization, unique up to quasi-isogeny, whose rational covariant Dieudonné module is V ⊗ L with Frobenius b σ. Global PEL data of type (A) or (C) unramified at p with hyperspecial level give such a datum at every b ∈ B(G_{ℚ_p}, μ^{−1}).",
       "hypotheses": [
         "B is a product of matrix algebras over unramified extensions of ℚ_p (unramified datum).",
         "G connected: data of type D are excluded.",
@@ -806,8 +806,9 @@
       ],
       "proofSteps": [
         "Record the datum and the reductive model G_{ℤ_p} = Aut(Λ, (·,·) up to scalar).",
+        "Express unramified field factors by their finite étale ℤ_p integer rings and fraction fields. A chosen decomposition B ≅ ∏M_{r_i}(F_i) identifies O_B with ∏M_{r_i}(O_{F_i}), a maximal order. Over ℚ̄_p the projector P is B-linear, P²=P, both im P and ker P are isotropic, and the concrete map μ(t)=(1−P)+tP scales the extended form by t. These are actual carrier fields, not an arbitrary idempotent.",
         "Import B(G), the Newton and Kottwitz maps and B(G, μ^{−1}) from BunGAndNewtonStrata BG0–BG1; do not redefine them.",
-        "Construct a p-divisible representative of the rational isocrystal with O_B-action and symmetric quasi-polarization. CS17 uses covariant slopes [−1,0]; the R07.2 positive-slope convention requires an explicit dual/sign adapter. Dieudonné–Manin alone does not supply a self-dual integral lattice or a principal polarization.",
+        "Construct only the rational framing object X_b, with rational B-action and symmetric quasi-polarization, from the admissible isocrystal. CS17 uses covariant slopes [−1,0]; import the explicit dual/sign adapter from R07.2. The separate IntegralSlopeRepresentative type records an integral O_B-action satisfying the determinant condition, a principal polarization, a structure-preserving quasi-isogeny to X_b and complete slope divisibility. Existence for the PEL classes used in CS17 §4.3.1/Koshikawa §6 is an exact R07.2 request; it is not a consequence of rational Dieudonné–Manin classification.",
         "For the quasi-split unitary datum at p split in F, D^int is the product over places w | p of GL_{2n}(F_w) data together with the similitude factor (CSnc §5.1)."
       ],
       "acceptance": [
@@ -865,7 +866,8 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
         "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "PELModuli:M0"
       ],
       "api": [
         {
@@ -876,7 +878,7 @@
         {
           "name": "LocalPELDatum.pdivOfB",
           "role": "constructor",
-          "statement": "A representative X_b with O_B-action and symmetric quasi-polarization of b ∈ B(G,μ⁻¹); a principal-polarized representative requires the integral existence input recorded below."
+          "statement": "A rational framing X_b with rational B-action on its universal cover and symmetric quasi-polarization. Integral O_B-action and principal polarization are separate structures, not consequences of this constructor."
         },
         {
           "name": "LocalPELDatum.pdivOfB_isocrystal",
@@ -897,6 +899,11 @@
           "name": "LocalPELDatum.J",
           "role": "data",
           "statement": "The group J_b(ℚ_p) of self-quasi-isogenies of X_b respecting the extra structures, identified with J_b of BunGAndNewtonStrata BG0."
+        },
+        {
+          "name": "LocalPELDatum.IntegralSlopeRepresentative",
+          "role": "data",
+          "statement": "An integral principal-polarized PEL p-divisible group satisfying the determinant condition, a structure-preserving quasi-isogeny to the rational framing X_b and a completely slope divisible underlying group; nonemptiness for the classes used is requested from R07.2."
         }
       ],
       "library": {
@@ -935,7 +942,7 @@
         "Attach to A_x̄[p^∞] its covariant Dieudonné module with O_B-action and polarization (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2); the rational module is an isocrystal with G-structure because the extra structures are tensors fixed by G.",
         "Its class lies in B(G, μ^{−1}) by Mazur's inequality with the Kottwitz condition (Rapoport–Richartz; imported as the description of B(G, μ) in BunGAndNewtonStrata BG1).",
         "Local constancy and semicontinuity of the Newton polygon (Grothendieck–Katz) give that S^b is locally closed and that the closure of S^b is contained in ⊔_{b′ ≤ b} S^{b′} for the order of BG1; the closure equality is not used.",
-        "Choose X_b completely slope divisible in its isogeny class (IG.0/slope-filtration-existence)."
+        "Choose the underlying completely slope divisible group by IG.0/slope-filtration-existence, and choose the integral G-structured framing through the separate R07.2 IntegralSlopeRepresentative existence request. The latter supplies O_B-action, determinant condition and principal polarization as well as the compatible quasi-isogeny."
       ],
       "acceptance": [
         "Ordinary example: for the quasi-split unitary datum with p split in F, the ordinary b is the maximal element of B(G_{ℚ_p}, μ^{−1}) and S^{ord} is open and dense in S_{K,k} ([Wed99]).",
@@ -1404,13 +1411,13 @@
       ],
       "title": "Completely slope divisible representatives and their behaviour over perfect bases and valuation rings (Oort–Zink)",
       "kind": "theorem",
-      "statement": "(1) Every p-divisible group over an algebraically closed field of characteristic p is isogenous to a completely slope divisible one, which is a direct sum of isoclinic slope divisible groups defined over a finite field, with decreasing slopes; this holds compatibly with O_F-actions and polarizations (choose X_b with G-structure). (2) Over a perfect base a completely slope divisible p-divisible group is the direct sum of its isoclinic graded pieces [OZ02, Prop. 1.3]. (3) If V is a valuation ring of characteristic p with fraction field K and G/V has constant Newton polygon with G_K completely slope divisible, then G is completely slope divisible [OZ02, Prop. 2.3]. (4) Over a connected regular characteristic-p base with constant Newton polygon, complete slope divisibility at the geometric generic point implies it everywhere [Zin01, Thm 7].",
+      "statement": "(1) Every p-divisible group over an algebraically closed field of characteristic p is isogenous to a completely slope divisible one, which is a direct sum of isoclinic slope divisible groups defined over a finite field, with decreasing slopes; for the PEL classes used here, choosing a representative with integral O_B-action, determinant condition, principal polarization and complete slope divisibility is the separate IntegralSlopeRepresentative existence request to R07.2, as used in CS17 §4.3. (2) Over a perfect base a completely slope divisible p-divisible group is the direct sum of its isoclinic graded pieces [OZ02, Prop. 1.3]. (3) If V is a valuation ring of characteristic p with fraction field K and G/V has constant Newton polygon with G_K completely slope divisible, then G is completely slope divisible [OZ02, Prop. 2.3]. (4) Over a connected regular characteristic-p base with constant Newton polygon, complete slope divisibility at the geometric generic point implies it everywhere [Zin01, Thm 7].",
       "hypotheses": [
         "Characteristic p bases; (3) needs constant Newton polygon.",
         "In (4), the Newton polygon is constant on the base (omitted in CSnc Lemma 2.3.4; sourceIssues E12)."
       ],
       "proofSteps": [
-        "(1) Dieudonné–Manin over k̄ and descent of a lattice stable under the slope decomposition; for G-structure take a lattice stable under O_B and self-dual (Mantovan [Man05, §3]).",
+        "(1) For the underlying p-divisible group, use Dieudonné–Manin over k̄ and descent of a lattice stable under the slope decomposition. For the integral G-structured choice X_b in the PEL classes used here, invoke the precise R07.2 IntegralSlopeRepresentative existence contract (CS17 §4.3, referring to Mantovan [Man05, §3]); rational quasi-polarization alone does not yield a self-dual integral lattice.",
         "(2) On a perfect base Frobenius is invertible, so the maps p^{−r_i}Frob^{s} split the filtration canonically.",
         "(3), (4): cited from Oort–Zink and Zink; their proofs are planned here only as the cited statements, which IG.0/central-leaf, IG.0/berthelot-without-noetherian and IG.1/perfection-of-mantovan use."
       ],
@@ -2970,7 +2977,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
         "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
         "SmoothRepresentationsOfLocalGroups:SR.0",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "api": [
         {
@@ -3083,7 +3091,8 @@
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-cohomology",
         "SmoothRepresentationsOfLocalGroups:SR.0",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "api": [
         {
@@ -4075,9 +4084,9 @@
           "statement": "The stratum of the longest element of ^JW is open and dense."
         },
         {
-          "name": "ekedahlOortStratum_ne_leaf",
+          "name": "ekedahlOortStratum_disjoint",
           "kind": "non-example",
-          "statement": "For n ≥ 2, an EO stratum is in general not contained in a single Newton stratum; Nie's fundamental strata are the exceptions used here (for n = 1 the EO strata are the Newton strata)."
+          "statement": "Distinct G-zip labels w≠w′ have disjoint EO strata. A point with label w cannot belong to S^{w′}; this rejects a construction that identifies distinct fibres. No mixed-Newton witness is asserted for every PEL datum."
         },
         {
           "name": "hasseSection_ordinary_compat",
@@ -6254,7 +6263,8 @@
         "HeckeStacksAndLocalShtukas:HS2/minuscule-rigidification",
         "HeckeStacksAndLocalShtukas:HS2/levels-and-tower-limit",
         "SmoothRepresentationsOfLocalGroups:SR.0",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "sources": [
         {
@@ -6409,14 +6419,14 @@
       ],
       "title": "Cofinal affinoid neighbourhoods of the flag variety with finite-level formal models of their preimages (CSnc proof of Theorem 4.6.1; CS17 Proposition 6.1.3)",
       "kind": "construction",
-      "statement": "Every geometric point x of Fℓ_C has a cofinal system of affinoid étale neighbourhoods U = Spa(A) → Fℓ_C such that: (1) S^*_{K(p^∞N),U} := S^*_{K(p^∞N),C} ×_{Fℓ_C} U is affinoid perfectoid, = Spa(R_{K(p^∞N),U}), and is the preimage of an affinoid U′ = S^*_{K(p^mN),U} étale over S^*_{K(p^mN),C} for m large; (2) with 𝔘 = Spf(A°), the reduction modulo p of Spf(R°_{K(p^∞N),U}) → 𝔘 factors over Spec(R°_{K(p^mN),U}/p) → Spec(A°/p) for m large, and this map of affine schemes is integral (integrality is the asserted property; no finite-type claim over 𝔽_p is made here), so pushforward along it preserves the perverse lower bound ^pD^{≥d}; (3) the same holds with toroidal compactifications and with auxiliary ℓ-power tame level. These formal models, with the transition maps in p-level and ℓ-level and the boundary maps, are the finite-level geometry from which the semiperverse bound is deduced.",
+      "statement": "Every geometric point x of Fℓ_C has a cofinal system of affinoid étale neighbourhoods U = Spa(A) → Fℓ_C such that: (1) S^*_{K(p^∞N),U} := S^*_{K(p^∞N),C} ×_{Fℓ_C} U is affinoid perfectoid, = Spa(R_{K(p^∞N),U}), and is the preimage of an affinoid U′ = S^*_{K(p^mN),U} étale over S^*_{K(p^mN),C} for m large; (2) with 𝔘 = Spf(A°), the reduction modulo p of Spf(R°_{K(p^∞N),U}) → 𝔘 factors over Spec(R°_{K(p^mN),U}/p) → Spec(A°/p) for m large, and this map of affine schemes is integral (integrality is the asserted property; no finite-type claim over 𝔽_p is made here), and its residue-field base change preserves the perverse lower bound via the costalk criterion and the requested integral-pushforward interface; (3) the same holds with toroidal compactifications and with auxiliary ℓ-power tame level. These formal models, with the transition maps in p-level and ℓ-level and the boundary maps, are the finite-level geometry from which the semiperverse bound is deduced. Distinguish the raw model Spec(A°/p) over O_C/p from its residue-field reduction 𝔘_k. On the cofinal basis A°/p is finitely presented over O_C/p, so 𝔘_k is affine of finite type over k. The source of the integral map need not be of finite type. The lower-bound predicate is H^i(i_x!K)=0 for i<a−δ(x), with δ(x)=dim closure{x} on 𝔘_k, pulled back to integral sources.",
       "hypotheses": [
         "p unramified in F, N ≥ 3 prime to p, Σ as in CSnc Remark 2.5.6; C complete algebraically closed over ℚ_p with residue field k; ℓ ≠ p; d = [F⁺:ℚ]n²."
       ],
       "proofSteps": [
         "(1) Scholze [Sch15, Thm 4.1.1] (PerfectoidShimuraVarieties S3 affinoid perfectoid basis of the flag variety) gives affinoid perfectoid preimages coming from finite level; refining by composites of finite étale maps and rational embeddings keeps the property and is cofinal.",
-        "Factor the mod-p map at sufficiently large level using finite presentation over O_C/p, then use the integral descent argument of CSnc p.62. The finite-type 𝔽_p lemma from CS17 cannot be applied directly to these nonnoetherian O_C/p models; the required descent is recorded as a gap.",
-        "Use an enlarged perverse lower-bound formalism for these possibly nonconstructible special-fibre complexes, continuity and integral pushforward. EDC.5’s constructible perverse t-structure and finite pushforward do not alone supply this statement (gap and supplier request below)."
+        "A°/p is finitely presented over O_C/p on the chosen cofinal basis. The infinite-level coordinate ring is the filtered limit of the finite-level mod-p rings, so the map A°/p→R∞°/p factors at m≥m₀; record the commuting factorization. Apply the affine integral valuative criterion directly to this mod-p map as in CSnc p.62, extending valuations and descending integrality. Do not infer finiteness over F_p. Reduction along O_C/p→k gives a cartesian special-fibre square; finite presentation gives a finite-type k-model for the target and integrality is preserved by base change.",
+        "Use the enlarged lower-bound predicate defined by geometric costalk vanishing H^i(i_x!K)=0 for i<a−δ(x), not a t-structure asserted for every scheme. Request from EDC.5 integral pushforward with δ pulled back from the finite-type base, and continuity for the specific uniformly bounded finite-level torsion complexes and their filtered colimits. At each (p,ℓ)-level algebraize the étale chart of the minimal Shimura variety and factor the projection as an open immersion into the finite minimal-level cover followed by a finite map. These are the noetherian operations to which perverse exactness and nearby-cycle comparison apply."
       ],
       "acceptance": [
         "Over a rational flag x the fibre has the ordinary Newton class. An étale neighbourhood U of x can contain other Newton classes; its entire preimage is not the ordinary locus."
@@ -6440,12 +6450,12 @@
         {
           "name": "FormalNeighbourhood.level_zero",
           "kind": "degenerate",
-          "statement": "At sufficiently large finite level m, the mod-p map Spec(R°/p)→Spec(A°/p) is integral; finite over a finite-type 𝔽_p model requires additional descent data."
+          "statement": "For m≥m₀ both the raw mod-p map and its residue-field reduction are integral. Finite presentation of the target enables factorization; it does not assert finiteness of the source map."
         },
         {
           "name": "FormalNeighbourhood.not_proper_generic",
           "kind": "non-example",
-          "statement": "If d_{b(x)} > 0, the generic-fibre map π_{HT,U} has positive-dimensional fibres although its mod-p model is ind-finite (CS17 footnote 32); for basic x the fibres are 0-dimensional."
+          "statement": "If d_{b(x)} > 0, the generic-fibre map π_{HT,U} has positive-dimensional fibres although its mod-p model is integral (CS17 footnote 32); for basic x the fibres are 0-dimensional."
         }
       ],
       "prerequisites": [
@@ -6458,13 +6468,15 @@
         "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
         "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
         "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps",
-        "EtaleDualityAndPerverseSheaves:EDC.5"
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "SchemeAndStackFoundations:SF.2",
+        "LefschetzPencilsAndVanishingCycles:LPV.6"
       ],
       "api": [
         {
           "name": "FormalNeighbourhood",
           "role": "constructor",
-          "statement": "U = Spa(A) → Fℓ_C with 𝔘 = Spf A° and the finite-level affinoid U′ = S^*_{K(p^mN),U}."
+          "statement": "U=Spa(A) with raw finite-presentation mod-p model over O_C/p, its finite-type k-reduction, finite-level maps and commuting factorization of the infinite-level map; do not identify raw reduction with residue-field reduction."
         },
         {
           "name": "FormalNeighbourhood.cofinal",
@@ -6479,12 +6491,17 @@
         {
           "name": "FormalNeighbourhood.pushforward_ge",
           "role": "relation",
-          "statement": "Pushforward along it preserves ^pD^{≥d}."
+          "statement": "For ℓ≠p, integral pushforward preserves the geometric-costalk lower bound for the level complexes and continuous limits; use δ(x)=dim closure{x} on the finite-type residue-field target and its pullback on the source (requested EDC.5 extension)."
         },
         {
           "name": "FormalNeighbourhood.transition",
           "role": "functoriality",
-          "statement": "Compatible with the transition maps in p-level and ℓ-level and with the toroidal boundary."
+          "statement": "Commuting p-level transition maps on reductions; at auxiliary ℓ-level and on the toroidal boundary, the level charts and comparison functors commute with changes of level and restriction. These compatibilities are imported through SF.2/LPV.6 and explicitly requested, rather than supplied by a single p-level equality."
+        },
+        {
+          "name": "FormalNeighbourhood.factor_modP",
+          "role": "characterisation",
+          "statement": "The raw infinite-level map to Spec(A°/p) factors over the sufficiently large finite-level raw model, by finite presentation of A°/p over O_C/p."
         }
       ],
       "library": {
@@ -6521,8 +6538,8 @@
       ],
       "proofSteps": [
         "Choose U as in IG.4/finite-level-formal-models: S_{K^p,U} affinoid perfectoid, preimage of an affinoid S_{K_pK^p,U} étale over finite level for small K_p, with the equivalence of sites (S_{K^p,U}/K_p)_ét ≅ S_{K_pK^p,U,ét} ([Sch15b, Prop. 2.12]).",
-        "π_HT is partially proper, so the mod-p map π_{HT,K_p,U_s} : 𝔖_{K_pK^p,U,s} → U_s of affine finite type 𝔽_p-schemes satisfies the rank-one valuative criterion and is finite (IG.4/finiteness-from-rank-one-valuative-criterion; with the corrected first step of sourceIssues PAPER-CARAIANI-SCHOLZE-17/E91).",
-        "Compute the pushforward via the lower-left corner: the nearby cycles of 𝔽_ℓ on the smooth proper finite-level model are perverse up to the shift ⟨2ρ, μ⟩ = dim (Illusie's t-exactness of nearby cycles [Ill94, Cor. 4.5] and Huber's comparison [Hub96, Thm 3.5.13]), and finite pushforward preserves perversity."
+        "Use the finite-presentation factorization and the rank-one valuative argument of IG.4/finite-level-formal-models. The raw O_C/p map is integral. CS17 pp.752–753 also uses finite-type noetherian models, where the affine valuative criterion gives a finite map (IG.4/finiteness-from-rank-one-valuative-criterion). That finite-type upgrade requires its own descent hypotheses; it is not asserted for every raw O_C/p model. Record the cartesian residue-field square and apply the requested enlarged perverse pushforward interface to the compact level complexes.",
+        "Compute via the lower-left corner of the comparison square. The finite-level smooth scheme has 𝔽_ℓ[⟨2ρ,μ⟩] perverse; use torsion nearby-cycle t-exactness and Huber’s scheme/adic comparison. Finite pushforward on the noetherian approximants preserves both halves. The requested EDC.5 stalk/costalk continuity and integral pushforward comparison for this compact system transfer both bounds to the residue-field target. This is the full compact bound; the non-compact application asserts only the costalk lower bound."
       ],
       "acceptance": [
         "Valid with 𝔽_ℓ replaced by ℤ/ℓ^n or ℚ̄_ℓ (Li–Liu use the ℚ̄_ℓ version)."
@@ -6652,15 +6669,16 @@
       ],
       "title": "Semiperversity of the nearby cycles of Rπ°_HT*𝔽_ℓ (CSnc Theorem 4.6.1 = Theorem 2.8.3)",
       "kind": "theorem",
-      "statement": "Consider Rπ°_HT*𝔽_ℓ ∈ D(Fℓ_C, 𝔽_ℓ) for π°_HT : S°_{K(p^∞N),C} → Fℓ_C. Every geometric point x of Fℓ_C has a cofinal system of affinoid étale neighbourhoods U = Spa(A) → Fℓ_C such that, with 𝔘 = Spf(A°), the nearby cycles satisfy Rψ(Rπ°_HT*𝔽_ℓ)|_𝔘 ∈ ^pD^{≥d}(𝔘_k, 𝔽_ℓ), d = [F⁺:ℚ]n². The statement is local (for such cofinal U), in the scheme-theoretic perverse t-structure on the special fibres 𝔘_k; it is not a statement about a perverse t-structure on Fℓ itself.",
+      "statement": "Consider Rπ°_HT*𝔽_ℓ ∈ D(Fℓ_C, 𝔽_ℓ) for π°_HT : S°_{K(p^∞N),C} → Fℓ_C. Every geometric point x of Fℓ_C has a cofinal system of affinoid étale neighbourhoods U = Spa(A) → Fℓ_C such that, with 𝔘 = Spf(A°), the nearby cycles satisfy Rψ(Rπ°_HT*𝔽_ℓ)|_𝔘 ∈ ^pD^{≥d}(𝔘_k, 𝔽_ℓ), d = [F⁺:ℚ]n². The statement is local (for such cofinal U), in the scheme-theoretic perverse t-structure on the special fibres 𝔘_k; it is not a statement about a perverse t-structure on Fℓ itself. Here ^pD^{≥d} denotes the geometric costalk lower-bound criterion on the finite-type k-target and its continuous enlargement for the level complexes; no perverse t-structure on all nonnoetherian schemes is assumed.",
       "hypotheses": [
         "p unramified in F, N ≥ 3 prime to p, Σ as in CSnc Remark 2.5.6; C complete algebraically closed over ℚ_p with residue field k; ℓ ≠ p; d = [F⁺:ℚ]n²."
       ],
       "proofSteps": [
-        "By Hochschild–Serre it suffices to treat π°_{HT,ℓ^∞} with ℓ^∞ tame level; by IG.4/ell-power-boundary-killing replace it by π^tor_{HT,ℓ^∞}.",
-        "Choose U as in IG.4/finite-level-formal-models; nearby cycles commute with pushforward, so reduce to Rψ(Rg^{∞,∞}_{m*}𝔽_ℓ) ∈ ^pD^{≥d}(Spec(R°_{K(p^mN),U}/p)) for g^{∞,∞}_m : S^tor_{K(p^∞Nℓ^∞),U} → U′ = S^*_{K(p^mN),U}.",
-        "Write Rg^{∞,∞}_{m*}𝔽_ℓ = colim_{m₁,m₂} Rg^{m₁,m₂}_{m*}𝔽_ℓ; for fixed m₁, colim_{m₂} Rg_*𝔽_ℓ ≅ colim_{m₂} Rg_*Rj_*𝔽_ℓ (scheme-level boundary killing), which is the pushforward from the open Shimura variety, an algebraization of an étale map to S^*_{K(p^mN),C}.",
-        "On the scheme level, 𝔽_ℓ on the smooth open Shimura variety of dimension d lies in ^pD^{≥d} (𝔽_ℓ[d] is perverse), and its nearby cycles stay in ^pD^{≥d} by t-exactness of nearby cycles (Illusie [Ill94]; LefschetzPencilsAndVanishingCycles LPV.6) and Huber's comparison [Hub96, Thm 3.5.13]; the filtered colimit over levels preserves the lower bound (LefschetzPencilsAndVanishingCycles LPV.6 filtered-colimit support criterion), and so does pushforward along the integral map of IG.4/finite-level-formal-models."
+        "Use Hecke-equivariant geometric continuous étale Cartan–Leray for the ℓ-power tame tower: the finite-level complex is RΓ_cont(Q,Rπ°_{HT,ℓ∞,*}𝔽_ℓ). Derived invariants are left t-exact and preserve the uniform lower costalk bound via the requested compatibility with nearby cycles and costalks. The ℓ-power tower is not an exact-invariants pro-p argument. For subsequent p-level descent restrict to compact pro-p K_p with p≠ℓ, where smooth invariants are exact; treat general compact opens by derived invariants.",
+        "At ℓ∞ tame level, combine IG.4/ell-power-boundary-killing with the toroidal and open period-fibre comparisons to identify Rπ°_{HT,ℓ∞,*}𝔽_ℓ with Rπ^tor_{HT,ℓ∞,*}𝔽_ℓ. Choose a FormalNeighbourhood; the raw mod-p factorization and the integral map remain distinct from their residue-field reductions.",
+        "Write Rg∞,∞_*𝔽_ℓ as the filtered colimit over (m₁,m₂) of finite-level pushforwards. For fixed m₁, the colimit over m₂ of Rg_*𝔽_ℓ agrees with that of Rg_*Rj_*𝔽_ℓ by the scheme boundary-killing theorem. Algebraize the étale chart U′→S*_{K(p^mN),C}; the open variety is smooth of dimension d, j is an open immersion into a finite minimal-level cover, and the map from that cover to U′ is finite.",
+        "At finite scheme level 𝔽_ℓ[d] is perverse, Rj_* preserves the perverse lower half and finite pushforward is t-exact. Use torsion nearby-cycle t-exactness in the precise O_C-model domain and the scheme/adic comparison (requested from LPV.6 and H1, not a rational-coefficient substitution). EDC.5 continuity of the uniform costalk bound passes through the two-level colimit. Nearby cycles commute with the pushforward; the integral reduction map then preserves the bound by FormalNeighbourhood.pushforward_ge.",
+        "Descend from the ℓ-power tower by the geometric Cartan–Leray complex from the first step. Exact pro-p invariants are used only for pro-p groups at the geometric prime, never for this ℓ-power group."
       ],
       "acceptance": [
         "For F imaginary quadratic and n = 1 (d = 1): the nearby cycles at a supersingular (basic) point have no cohomology below degree 1 after the perverse shift.",
@@ -6684,7 +6702,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
         "EtaleDualityAndPerverseSheaves:EDC.5",
         "SchemeAndStackFoundations:SF.2",
-        "SmoothRepresentationsOfLocalGroups:SR.0"
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "sources": [
         {
@@ -7143,7 +7162,8 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi",
         "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence",
         "SchemeAndStackFoundations:SF.2",
-        "SmoothRepresentationsOfLocalGroups:SR.0"
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "sources": [
         {
@@ -7383,7 +7403,8 @@
         "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-strata-by-parabolics",
         "IgusaVarietiesAndTorsionConcentration:IG.2/igusa-cusp-labels",
         "SmoothRepresentationsOfLocalGroups:SR.0",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "sources": [
         {
@@ -7627,13 +7648,14 @@
         "ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps",
         "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison",
         "SmoothRepresentationsOfLocalGroups:SR.0",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "sources": [
         {
           "sourceId": "csnc",
           "locator": "CSnc §6.4, Lemma 6.4.2, p. 85",
-          "excerpt": "Lemma 6.4.2. There is a natural isomorphism of functors RΓcont \u0010 KS",
+          "excerpt": "Lemma 6.4.2. There is a natural isomorphism of functors",
           "match": "Derived invariants of parabolic induction."
         },
         {
@@ -7979,7 +8001,8 @@
         "IgusaVarietiesAndTorsionConcentration:IG.0/unitary-subgroup-comparison",
         "IgusaVarietiesAndTorsionConcentration:IG.7/cs-generic-maximal-ideal",
         "SchemeAndStackFoundations:SF.2",
-        "SmoothRepresentationsOfLocalGroups:SR.0"
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
       ],
       "sources": [
         {
@@ -8155,6 +8178,55 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-parameter-irrelevance",
+      "parentStageId": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "realises": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7"
+      ],
+      "title": "Generic unramified parameters are irrelevant for nonsplit inner forms (Koshikawa Lemma 3.1)",
+      "kind": "theorem",
+      "statement": "Let G=∏GL_{n_i} over a finite extension F/ℚ_p with residue cardinal q and J_b a nonsplit inner form. For every irreducible smooth 𝔽̄_ℓ-representation π of J_b(F), ℓ≠p, its Fargues–Scholze semisimple parameter is not a generic unramified parameter of G: if it is unramified, the eigenvalues in some factor have α_{j′}/α_j=q for j≠j′. Apply the twisted Levi inclusion appropriate to J_b when viewing its parameter in G.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Reduce to the supercuspidal support using parameter compatibility with products and normalized parabolic induction (or unnormalized induction with the specified modulus cocycle).",
+        "Lift the supercuspidal support over 𝔽̄_ℓ to integral supercuspidal characteristic-zero representations of the corresponding GL_m(D) factors by Mínguez–Sécherre Theorem 3.27 and Remark 3.28 (Koshikawa Theorem 2.1). This does not lift every irreducible π directly.",
+        "Use reduction compatibility for FS parameters, then the characteristic-zero agreement with semisimplified local Langlands for GL_n and its inner forms. If the residual parameter is generic unramified, the characteristic-zero support parameter must be a sum of characters with no cyclotomic-linked pair, by CS17 Lemma 6.2.2 / CSnc Corollary 5.1.3.",
+        "A GL_m(D) factor with degree(D)>1 has a non-character supercuspidal Weil–Deligne block or a linked character segment in its GL_n parameter. This contradicts the preceding condition. Since J_b is nonsplit, such a factor occurs. This is the IG application of generic LLC/lifting inputs, not a new local Langlands correspondence."
+      ],
+      "acceptance": [
+        "For G=GL₂ and basic slope 1/2, J_b=D×; no irreducible smooth mod-ℓ representation of D× has a generic unramified GL₂ parameter. The split b case is excluded from this assertion."
+      ],
+      "prerequisites": [
+        "ExcursionOperatorsAndSpectralAction:ES5",
+        "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction",
+        "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "kos21",
+          "locator": "§§2–3, Theorem 2.1 and Lemma 3.1, pp.4–5",
+          "excerpt": "admits a lift to a supercuspidal irreducible",
+          "match": "The theorem is applied to supercuspidal support, with inner-form analogue in Remark 3.28 as recorded in the proof of Lemma 3.1."
+        },
+        {
+          "sourceId": "kos21",
+          "locator": "§3, Lemma 3.1, p.5",
+          "excerpt": "Lemma 3.1. Suppose Jb is not quasi-split.",
+          "match": "The lemma excludes generic unramified FS parameters for irreducible mod-ℓ representations of J_b; its proof lifts supercuspidal support."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "koshikawaParameterIrrelevance",
+          "role": "characterisation",
+          "statement": "Let G=∏GL_{n_i} over a finite extension F/ℚ_p with residue cardinal q and J_b a nonsplit inner form. For every irreducible smooth 𝔽̄_ℓ-representation π of J_b(F), ℓ≠p, its Fargues–Scholze semisimple parameter is not a generic unramified parameter of G: if it is unramified, the eigenvalues in some factor have α_{j′}/α_j=q for j≠j′. Apply the twisted Levi inclusion appropriate to J_b when viewing its parameter in G."
+        }
+      ]
+    },
+    {
       "id": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing",
       "parentStageId": "IgusaVarietiesAndTorsionConcentration:IG.7",
       "realises": [
@@ -8167,9 +8239,10 @@
         "G a product of GL_{n_i}, hyperspecial K; ρ̄_𝔪 generic in Koshikawa's sense."
       ],
       "proofSteps": [
-        "Use the integral/mod-ℓ Fargues–Scholze spectral action and its compatibility with the unramified spherical Hecke/Satake character. ES5’s parameter assignment alone does not supply this action.",
-        "Koshikawa §3–4 uses mod-ℓ Fargues–Scholze parameters of irreducible smooth J_b-representations and the irrelevance of generic unramified parameters for nonsplit inner forms, plus the integral localization argument. ES7:GLn-comparison is stated in characteristic zero and cannot be substituted for this torsion input.",
-        "The local Shimura varieties are those of HeckeStacksAndLocalShtukas HS2."
+        "Extend coefficients faithfully to ℤ_ℓ[q^{1/2}] as in Koshikawa §4. Realize shifted/twisted compact local-shtuka cohomology as i_b* T_{r_μ}(i_1!c-Ind_K^G Λ), retaining the geometric shift and half Tate twist from the local-shtuka realization; these do not affect vanishing.",
+        "Use the integral spectral Bernstein centre Zspec(G,Λ) acting on this realization. Its map to End_G(c-Ind_K^G Λ)=H_K^op is compared to the Satake map by precomposing the Hecke involution [KgK]↦[Kg^{-1}K]. This inversion is essential to recover the stated parameter ρ̄_𝔪. The action commutes with colimits, coefficient reduction and Hecke functors.",
+        "After reduction modulo ℓ and localization at 𝔪, each irreducible smooth J_b constituent has the same FS parameter ρ̄_𝔪, by spectral/Satake compatibility. IG.7/koshikawa-parameter-irrelevance rules out such a constituent when J_b is nonsplit, giving mod-ℓ vanishing.",
+        "Recover integral localized vanishing by the finite-generation and integral-localization argument of Koshikawa §4 using FS IX.3.1. Request the exact smooth finite-generation/Nakayama interface over the local spherical algebra; ordinary finite-dimensional vector-space Nakayama is insufficient. Descend from the faithful q^{1/2} coefficient extension."
       ],
       "acceptance": [
         "For b basic and G = GL_2, μ = (1, 0): the Lubin–Tate tower; J_b = D^× is not quasi-split, so the cohomology localized at a generic unramified parameter vanishes."
@@ -8178,7 +8251,9 @@
         "HeckeStacksAndLocalShtukas:HS2/minuscule-rigidification",
         "HeckeStacksAndLocalShtukas:HS2/levels-and-tower-limit",
         "ExcursionOperatorsAndSpectralAction:ES5",
-        "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison"
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-parameter-irrelevance",
+        "ExcursionOperatorsAndSpectralAction:ES3",
+        "SmoothRepresentationsOfLocalGroups:SR.6"
       ],
       "sources": [
         {
@@ -8192,9 +8267,122 @@
           "locator": "§1.1, p. 1 (definition of 'generic' for the unramified L-parameter ρ_m); used globally in Conjecture 1.2, p. 2",
           "excerpt": "Let us say that ρm is generic if, for every i ∈ I, the eigenvalues α1 , . . . , αni of ρm (FrobF ) regarded as an element of GLni (Fℓ ) satisfy αj ′ /αj 6= q for all j 6= j ′ .",
           "match": "Koshikawa's definition of generic."
+        },
+        {
+          "sourceId": "kos21",
+          "locator": "§4, pp.5–6",
+          "excerpt": "as ib∗, Trµ, and i1! commute with colimits.",
+          "match": "Coefficient reduction, the central action, Hecke inversion and finite generation are used in §4; read the entire argument."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "koshikawaSpectralSatake",
+          "role": "compatibility",
+          "statement": "The integral spectral-to-spherical map is the action on c-Ind_K^G Λ followed by Hecke inversion [KgK]↦[Kg^{-1}K]; its reduction evaluated at 𝔪 gives precisely the unramified parameter ρ̄_𝔪."
+        },
+        {
+          "name": "koshikawaSpectralSatakeReduction",
+          "role": "compatibility",
+          "statement": "For a residue embedding at 𝔪 and a compatible character χ of the q^{1/2}-extended spherical Hecke algebra, the mod-ℓ FS parameter of χ∘spectralSatakeMap is unramified and its Frobenius polynomials are exactly localUnramifiedParam(𝔪,emb)."
+        }
+      ]
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound",
+      "parentStageId": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "realises": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7"
+      ],
+      "title": "Ordinary local cohomology has the semiperverse lower bound (Koshikawa Corollary 8.2)",
+      "kind": "theorem",
+      "statement": "For the quasi-split unitary datum, p completely split, ℓ≠p, put F=Rπ°_{HT,*}𝔽_ℓ and let i₀:Fℓ(ℚ_p)→Fℓ_C be the closed ordinary locus. Then RΓ_{Fℓ(ℚ_p)}(Fℓ_C,F)=RΓ_c(Fℓ(ℚ_p),Ri₀!F) lies in D^{≥d}(𝔽_ℓ). The same bound holds for RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!F) for the sufficiently small compact opens used at finite level. This is an unlocalized costalk bound, not a stalk bound.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply IG.4/semiperversity on the cofinal formal models, with the requested torsion/nonconstructible costalk continuity interface.",
+        "For each formal model the ordinary locus specializes to a finite closed set Z. The perverse lower bound gives Ri_Z!Rψ(F) in ordinary D^{≥d}, because δ=0 on Z.",
+        "Use the support fibre sequence i_Z*Ri_Z!Rψ(F)→Rψ(F)→Rj_Z*j_Z*Rψ(F), with Ri_Z! the right adjoint of i_Z*. Compare it with the generic-fibre support sequence by nearby cycles.",
+        "Refine the formal models. RΓ_{ordinary}(Fℓ_C,F) identifies with Rlim RΓ_Z(𝔽ℓ_k,Rψ(F)); the ordinary lower half is stable under derived inverse limits. This is an inverse limit, not a filtered colimit.",
+        "Apply the equivariant version for [Fℓ(ℚ_p)/K_p], using the requested continuous étale quotient and support comparison. For pro-p K_p, p≠ℓ makes invariants exact; general compact opens require derived invariants, whose lower half is stable."
+      ],
+      "acceptance": [
+        "The special-fibre support sets have δ=0, so the perverse lower bound becomes an ordinary cohomological bound ≥d; for an imaginary quadratic datum with n=1 this excludes degree 0 ordinary costalk cohomology."
+      ],
+      "prerequisites": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/equivariant-sites-and-nearby-cycles",
+        "DiamondEtaleCohomology:C6",
+        "SchemeAndStackFoundations:SF.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
+      ],
+      "sources": [
+        {
+          "sourceId": "kos21",
+          "locator": "Corollary 8.2 and Lemma 8.3, pp.13–14",
+          "excerpt": "belongs to D≥d(Fℓ).",
+          "match": "The lower bound comes from ordinary support, finite closed specialization sets and derived inverse limits."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "koshikawaOrdinaryCostalkBound",
+          "role": "characterisation",
+          "statement": "For the quasi-split unitary datum, p completely split, ℓ≠p, put F=Rπ°_{HT,*}𝔽_ℓ and let i₀:Fℓ(ℚ_p)→Fℓ_C be the closed ordinary locus. Then RΓ_{Fℓ(ℚ_p)}(Fℓ_C,F)=RΓ_c(Fℓ(ℚ_p),Ri₀!F) lies in D^{≥d}(𝔽_ℓ). The same bound holds for RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!F) for the sufficiently small compact opens used at finite level. This is an unlocalized costalk bound, not a stalk bound."
+        }
+      ]
+    },
+    {
+      "id": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk",
+      "parentStageId": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "realises": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7"
+      ],
+      "title": "Local spherical localization identifies ordinary costalk and stalk cohomology (Koshikawa Proposition 1.7)",
+      "kind": "theorem",
+      "statement": "With F=Rπ°_{HT,*}𝔽_ℓ and i₀ the closed ordinary locus, let 𝔪_p be a maximal ideal of the local spherical ℤ_ℓ Hecke algebra at p with generic unramified parameter. The natural map RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!F)_{𝔪_p}→RΓ_c([Fℓ(ℚ_p)/K_p],i₀*F)_{𝔪_p} is an isomorphism. Localization is at p only. No away-p minimal-stratum theorem or Pink formula is used.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Filter F by Newton support. The cone of the costalk-to-stalk comparison is built from Ri₀!i_b!i_b*F for b≠b₀; the support triangle uses the right adjunction i_* ⊣ Ri!.",
+        "Write i_b*F=q_K^b*V_b with V_b a bounded admissible smooth J_b complex furnished by the product formula. The map q_K:[Fℓ/K_p]→Bun_G is ℓ-cohomologically smooth (Koshikawa Lemma 6.1), so smooth base change identifies Ri₀!i_b!i_b*F with q_K^{b₀}*(Ri^{b₀}!i^b_!V_b). The required bounded-admissible/reflexive sheaf comparison is a VS4/SR supplier, not automatic for arbitrary complexes.",
+        "On the ordinary Bun_G stratum the dualizing object is κ^{-1}[−2d] (Lemma 9.1). The character κ is exactly the one in both equivariant Tate twists of Lemma 7.6. For A=Ri^{b₀}!i^b_!V_b, smooth duality transforms the tensor vanishing into RHom_{J_{b₀}}(RΓ_c(M_{b₀,K_p},𝔽_ℓ(d))_{𝔪_p},A^*)=0. With the dualizing identification this Hom shifted by [−2d] becomes RHom_{J_{b₀}}(RΓ_c(M_{b₀,K_p},𝔽_ℓ)_{𝔪_p},D(A)), and reflexivity identifies the target with i^{b₀}*D(i^b_!V_b). No self-duality of the local compact cohomology is assumed.",
+        "Retain the opposite action, equivariant Tate twist and [2d] shift in (Ri^{b₀}!i^b_!V_b)^op⊗^L_{C_c(J_{b₀})}RΓ_c(M_{b₀,K_p},𝔽_ℓ(d))_{𝔪_p}[2d]. Apply the precise smooth-dual tensor/Hom and reflexivity supplier contracts from the preceding step; algebraic duality for arbitrary smooth complexes is insufficient.",
+        "The ordinary local factor has spectral support ρ̄_{𝔪_p} by integral Satake compatibility. Every constituent of V_b has nongeneric-unramified support by koshikawa-parameter-irrelevance, since b≠b₀ gives a nonsplit J_b. Spectral duality preserves the generic unramified condition; disjoint central supports force the entire derived Hom, including Ext, to vanish. This proves the comparison by the finite Newton filtration."
+      ],
+      "acceptance": [
+        "The map is localized at the local spherical ideal 𝔪_p alone, including F⁺=ℚ and without a length condition; the ordinary upper cohomological degree bound is not inferred from this comparison."
+      ],
+      "prerequisites": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-parameter-irrelevance",
+        "IgusaVarietiesAndTorsionConcentration:IG.3/mantovan-formula",
+        "IgusaVarietiesAndTorsionConcentration:IG.3/product-formula",
+        "BunGAndNewtonStrata:BG3",
+        "DiamondEtaleCohomology:C6",
+        "ExcursionOperatorsAndSpectralAction:ES3",
+        "ExcursionOperatorsAndSpectralAction:ES4",
+        "ExcursionOperatorsAndSpectralAction:ES6:duality",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "VStackSheavesAndLisseCategories:VS4"
+      ],
+      "sources": [
+        {
+          "sourceId": "kos21",
+          "locator": "Proposition 1.7, p.3; proof §9, pp.14–16; Lemma 9.1, p.15",
+          "excerpt": "is an isomorphism.",
+          "match": "The comparison is derived using smooth base change, ordinary dualizing shift, smooth duality and spectral support, not by stalk vanishing alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "koshikawaOrdinaryCostalkStalk",
+          "role": "compatibility",
+          "statement": "With F=Rπ°_{HT,*}𝔽_ℓ and i₀ the closed ordinary locus, let 𝔪_p be a maximal ideal of the local spherical ℤ_ℓ Hecke algebra at p with generic unramified parameter. The natural map RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!F)_{𝔪_p}→RΓ_c([Fℓ(ℚ_p)/K_p],i₀*F)_{𝔪_p} is an isomorphism. Localization is at p only. No away-p minimal-stratum theorem or Pink formula is used."
+        }
+      ]
     },
     {
       "id": "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-generic-vanishing",
@@ -8209,9 +8397,9 @@
         "p completely split in F; K_p hyperspecial; ρ̄_{𝔪_p} generic (α_{j′}/α_j ≠ q)."
       ],
       "proofSteps": [
-        "Use Koshikawa §9 and the Newton filtration. The Mantovan factor includes RΓ(Ig^b)^{op}⊗^L_{C_c(J_b)}RΓ_c(M_b,𝔽_ℓ(d_b))[2d_b]; retain its opposite action, twist and shift.",
-        "Local generic vanishing removes the nonordinary terms. At the ordinary stratum use the localized costalk–stalk isomorphism of Proposition 1.7 (proved using the support triangle of Lemma 8.3), not the away-p minimal-stratum theorem of IG.4.",
-        "The required lower costalk bound is Corollary 8.2. Its inputs include the ℓ-cohomological smoothness in Lemma 6.1 and Bun_G dualizing computation of Lemma 9.1, together with Lemma 3.1 spectral support. Pass to global cohomology and compact-open invariants; duality gives the compact-support upper bound. Stalk vanishing alone never implies a costalk bound."
+        "Mantovan filters RΓ(S_{K^p},𝔽_ℓ) with terms RΓ(Ig^b,𝔽_ℓ)^op⊗^L_{C_c(J_b)}RΓ_c(M_{b,∞},𝔽_ℓ(d_b))[2d_b]. At hyperspecial K_p use the corresponding finite-level local factor. For p completely split and the quasi-split unitary datum, b nonordinary implies J_b nonsplit, so local generic vanishing kills every nonordinary term.",
+        "The ordinary term identifies with RΓ_c([Fℓ(ℚ_p)/K_p],i₀*F)_{𝔪_p}. Apply koshikawa-ordinary-costalk-stalk to replace this by ordinary costalk cohomology and koshikawa-ordinary-costalk-bound to obtain D^{≥d}. This is local spherical localization, independent of the away-p trace/Pink route.",
+        "Identify finite-level global cohomology through the good-reduction and equivariant product comparisons. Use duality at the dual local Hecke ideal to obtain H_c^i=0 for i>d: inversion/contragredient and the common Tate scalar preserve the generic eigenvalue-ratio condition. No length or F⁺≠ℚ hypothesis enters."
       ],
       "acceptance": [
         "For F imaginary quadratic (F⁺ = ℚ), where the twisted trace formula of IG.5 has proper cuspidal subsets, this theorem still applies."
@@ -8222,9 +8410,9 @@
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing",
         "IgusaVarietiesAndTorsionConcentration:IG.3/mantovan-formula",
-        "IgusaVarietiesAndTorsionConcentration:IG.6/igusa-pink-formula",
-        "IgusaVarietiesAndTorsionConcentration:IG.0/quasi-split-unitary-datum",
-        "BunGAndNewtonStrata:BG3"
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk",
+        "IgusaVarietiesAndTorsionConcentration:IG.0/quasi-split-unitary-datum"
       ],
       "sources": [
         {
@@ -8305,11 +8493,9 @@
     },
     {
       "supplier": "BunGAndNewtonStrata:BG3",
-      "need": "The Newton stratification of the flag variety Fℓ_{G,μ} = ⊔_{b∈B(G,μ^{−1})} Fℓ^b (pullback of the Bun_G strata along the Beauville–Laszlo map Fℓ_{G,μ} → Bun_G, CS17 §3): locally closed partially proper strata with Fℓ^{≥b} closed and x ∈ Fℓ^b iff the bundle ℰ_x is ℰ_b. The dimension formula dim Fℓ^b = d − d_b is proved in IG.3, not requested.",
+      "need": "For the minuscule modification map q_K:[Fℓ/K_p]→Bun_G used by Koshikawa Lemma 6.1, supply ℓ-cohomological smoothness and smooth base change for the Newton-stratum maps, and the ordinary-stratum dualizing object κ^{-1}[−2d] of Lemma 9.1, compatible with the character κ on the Igusa and local factors in Lemma 7.6. BG3/stratum-dimension alone gives the dimension, not this orientation character. IG owns the resulting Proposition 1.7 application; do not import it wholesale from BG3.",
       "neededBy": [
-        "IgusaVarietiesAndTorsionConcentration:IG.3/flag-newton-strata-dimension",
-        "IgusaVarietiesAndTorsionConcentration:IG.3/local-hodge-tate-period-map",
-        "IgusaVarietiesAndTorsionConcentration:IG.4/minimal-stratum-lower-bound"
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
       ]
     },
     {
@@ -8351,8 +8537,9 @@
     },
     {
       "supplier": "ExcursionOperatorsAndSpectralAction:ES5",
-      "need": "Fargues–Scholze semisimple L-parameters of smooth irreducible representations of the groups J_b(F) and the spectral action on the cohomology of local Shimura varieties.",
+      "need": "Mod-ℓ FS parameters of irreducible smooth representations of GL_n inner forms, with central characters and twisted Levi embedding conventions; identify their reduced parameters with the semisimplified characteristic-zero lifts of supercuspidal support (FS IX.5.2). ES5 parameter assignment is not the integral categorical action.",
       "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-parameter-irrelevance",
         "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing"
       ]
     },
@@ -8409,10 +8596,11 @@
     },
     {
       "supplier": "LefschetzPencilsAndVanishingCycles:LPV.6",
-      "need": "Left t-exactness of nearby cycles for the perverse t-structure with torsion coefficients 𝔽_ℓ (Illusie, Autour du théorème de monodromie locale, Cor. 4.5), over the valuation ring O_C of a complete algebraically closed field through finite-type models over complete discretely valued subrings; the packet node is stated for rational ℓ-adic coefficients.",
+      "need": "Nearby-cycle left t-exactness for the non-compact lower bound and full t-exactness for the compact finite-level application for the perverse t-structure with torsion coefficients 𝔽_ℓ (Illusie, Autour du théorème de monodromie locale, Cor. 4.5), over the valuation ring O_C of a complete algebraically closed field through finite-type models over complete discretely valued subrings; the packet node is stated for rational ℓ-adic coefficients. Require naturality under the specified auxiliary level changes and toroidal boundary comparisons.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.4/compact-perversity",
-        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity"
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models"
       ]
     },
     {
@@ -8434,13 +8622,17 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.0",
-      "need": "The abelian category of smooth representations of a locally profinite group with coefficients in 𝔽_ℓ, ℤ_ℓ or ℚ̄_ℓ, its bounded-below derived category D^+_sm and derived invariants RΓ_cont(K, −) for compact open K.",
+      "need": "Exact smooth invariants of compact pro-p groups for p≠ℓ on Λ-modules with p invertible, with the pro-p hypothesis explicit. The general derived invariants and geometric comparison are separately requested from SR.0:derived-extension and SF.2.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-cohomology",
         "IgusaVarietiesAndTorsionConcentration:IG.1/alternating-igusa-cohomology",
         "IgusaVarietiesAndTorsionConcentration:IG.3/mantovan-formula",
         "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-parabolic-induction",
-        "IgusaVarietiesAndTorsionConcentration:IG.6/parabolic-induction-derived-invariants"
+        "IgusaVarietiesAndTorsionConcentration:IG.6/parabolic-induction-derived-invariants",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent"
       ]
     },
     {
@@ -8508,11 +8700,12 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.5",
-      "need": "Extend the constructible perverse lower-bound interface to the nonconstructible complexes on special fibres of O_C formal models used in CSnc §4.6: integral pushforward preserves the lower bound, uniform costalk bounds and filtered continuity. State its domain and torsion coefficients explicitly.",
+      "need": "For torsion Λ of characteristic ℓ≠p on the finite-type k-targets obtained by reduction of finitely presented O_C/p models, extend the perverse lower-bound costalk criterion H^i(i_x!K)=0 for i<a−dim closure{x} to the uniformly bounded finite-level nearby-cycle complexes and their two-level filtered colimits. Prove integral pushforward preservation with the source dimension function pulled back from the base, uniform costalk bounds and continuity for those systems; do not posit constructibility or a perverse t-structure on every scheme. Also give the stalk upper criterion, its uniform continuity, and two-sided pushforward comparison from finite-type approximants for the compact application (CS17 Proposition 6.1.3; CSnc Remark 2.8.4 and proof Theorem 4.6.1 pp.61–63).",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models",
         "IgusaVarietiesAndTorsionConcentration:IG.4/compact-perversity",
-        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity"
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound"
       ]
     },
     {
@@ -8526,34 +8719,100 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Hecke-equivariant continuous étale Cartan–Leray/Hochschild–Serre for the finite and profinite Shimura/Igusa towers, localized complexes and finite-level descent. Distinguish this geometric statement from group-cohomology Hochschild–Serre and Betti finite-cover statements.",
+      "need": "For actual finite/profinite étale Shimura and Igusa torsor towers, give Hecke-equivariant geometric Cartan–Leray RΓ(X,Λ)≅RΓ_cont(Q,RΓ(X∞,Λ)) and its relative sheaf version, compatible with nearby cycles, uniform geometric costalk lower bounds, localization and finite-level descent. Derived invariants are left t-exact on the bounded-below complexes; no exactness is claimed for an ℓ-power group on ℓ-torsion. Include both p-level and ℓ-level transition maps and algebraized open/finite minimal-level charts. Abstract group or Betti Hochschild–Serre is not this interface. Include compatibility of these level maps and comparison functors with restriction to toroidal boundary charts.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
         "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
-        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent"
+        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models"
       ]
     },
     {
-      "supplier": "SmoothRepresentationsOfLocalGroups:SR.0",
-      "need": "Exactness of invariants of compact pro-p groups on smooth ℓ-torsion modules for p≠ℓ, and derived invariants for general compact opens. Apply to continuous étale Cartan–Leray for Shimura towers; the ALS ℓ-group lowest-degree lemma is not applicable to pro-p towers.",
+      "supplier": "PELModuli:M0",
+      "need": "Local unramified PEL scalar extension: finite étale ℤ_p-orders with their fraction fields, decomposition of B into matrix algebras over these unramified fields, maximality of the matrix integer orders, and equivalence of a B-linear isotropic weight-(0,1) projector with μ(t)=(1−P)+tP in the similitude group, c∘μ=id (CS17 §4.2 pp.696–697).",
       "neededBy": [
-        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
-        "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
-        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent"
+        "IgusaVarietiesAndTorsionConcentration:IG.0/unramified-local-pel-datum"
       ]
     },
     {
-      "supplier": "ExcursionOperatorsAndSpectralAction:ES5",
-      "need": "Integral and mod-ℓ spectral action on local-shtuka cohomology with spherical Hecke/Satake compatibility, mod-ℓ parameters for J_b and generic unramified irrelevance for non-quasi-split inner forms, as used in Koshikawa §§3–4. Specify how this follows from characteristic-zero GL_n/inner-form compatibility and reduction.",
+      "supplier": "ExcursionOperatorsAndSpectralAction:ES3",
+      "need": "Integral action over ℤ_ℓ[q^{1/2}] on local-shtuka compact cohomology; compatibility with colimits, Hecke functors and coefficient reduction. Give the map Zspec→End(c-Ind_K^GΛ)=H_K^op followed by [KgK]↦[Kg^{-1}K], and identify its evaluation at 𝔪 with ρ̄_𝔪. Include the shifted/half-twisted local-shtuka realization FS IX.3.1 used in Koshikawa §4.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
+      ]
+    },
+    {
+      "supplier": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "need": "FS parameter compatibility with products and mod-ℓ reduction of integral supercuspidal lifts. Together with ES7:parabolic retain normalized induction or the precise modulus-twisted Levi embedding for unnormalized induction (Koshikawa §§2–3).",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-parameter-irrelevance"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "need": "Mínguez–Sécherre Theorem 3.27/Remark 3.28 as used in Koshikawa Theorem 2.1 and Lemma 3.1: lift irreducible mod-ℓ supercuspidals of GL_m(D), D/F a division algebra, to integral characteristic-zero supercuspidals. Give supercuspidal-support and semisimplified reduction interfaces. No assertion that every irreducible representation lifts as an irreducible is required.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-parameter-irrelevance"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.6",
+      "need": "Exact finite-generation/integral-localization passage in Koshikawa §4 using FS IX.3.1: after faithful q^{1/2} coefficient extension, mod-ℓ localized local-shtuka vanishing implies integral ℤ_ℓ localized vanishing. Specify the smooth finite-generation and integral Bernstein/spherical module hypotheses for Nakayama; do not substitute finite-dimensional-vector-space finiteness.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing"
       ]
     },
     {
-      "supplier": "BunGAndNewtonStrata:BG3",
-      "need": "Koshikawa Proposition 1.7, Corollary 8.2 and Lemmas 6.1, 8.3, 9.1: localized ordinary costalk–stalk comparison, support triangle, ℓ-cohomologically smooth pullback and dualizing shift on Bun_G needed for the lower costalk bound; explain interfaces to the mod-ℓ spectral-support lemma 3.1.",
+      "supplier": "ExcursionOperatorsAndSpectralAction:ES4",
+      "need": "For bounded admissible stratum complexes, identify spectral support from irreducible constituents, prove disjoint central supports annihilate derived Hom (all Ext), and give support under duality with the ES6 Chevalley/contragredient involution. Generic unramified support must remain generic after duality; coefficients are 𝔽_ℓ (Koshikawa §9).",
       "neededBy": [
-        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-generic-vanishing"
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "need": "For the bounded admissible complex V_b of Koshikawa §9, supply reflexive smooth duality and the opposite-action derived tensor/derived-Hom dictionary over C_c(J_b), retaining κ and the shifts from the dualizing object. Use FS V.6.2 to establish reflexivity of i^b_!V_b and the target i^{b₀}*D(i^b_!V_b) in the actual application. Do not assume that the entire local compact cohomology complex is admissible or self-dual.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
+      ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C6",
+      "need": "For ℓ≠p give the support fibre sequence i_*Ri!→id→Rj_*j* with the right adjunction i_*⊣Ri!, smooth base change for costalks along q_K and equivariant compact-support cohomology on the flag quotient; commute support with the formal-model derived inverse limit in Koshikawa Corollary 8.2.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
+      ]
+    },
+    {
+      "supplier": "ExcursionOperatorsAndSpectralAction:ES6:duality",
+      "need": "Identify the dual spectral action on bounded admissible stratum sheaves with the Chevalley/contragredient involution, preserving generic unramified support and matching smooth duality/κ twists used by Koshikawa §9.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "need": "Construct derived continuous invariants for general compact opens and the ℓ-power tame tower, preserve ordinary lower bounds, and compare them with the geometric étale Cartan–Leray complexes requested from SF.2. For IG.4 require compatibility with nearby cycles and geometric costalks on the specified uniformly bounded systems; group-cohomology or Betti finite-cover statements alone do not supply it. The early SR.0 export is only the abelian-category/invariants carrier.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-cohomology",
+        "IgusaVarietiesAndTorsionConcentration:IG.1/alternating-igusa-cohomology",
+        "IgusaVarietiesAndTorsionConcentration:IG.3/mantovan-formula",
+        "IgusaVarietiesAndTorsionConcentration:IG.6/boundary-parabolic-induction",
+        "IgusaVarietiesAndTorsionConcentration:IG.6/parabolic-induction-derived-invariants",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-bound",
+        "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
+        "IgusaVarietiesAndTorsionConcentration:IG.5/concentrated-cohomology-gives-constituent",
+        "IgusaVarietiesAndTorsionConcentration:IG.7/level-descent"
+      ]
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS4",
+      "need": "The actual FS V.2.2 comparison D_ét(Bun_G^b,𝔽_ℓ)≃D_sm(J_b(ℚ_p),𝔽_ℓ) used in Koshikawa §9, compatible with q_K^b pullback and bounded admissible V_b. For nonbasic b retain the connected Banach–Colmez kernel in Bun_G^b=[*/G̃_b] and prove the coefficient-category comparison; do not replace the stack by [*/J_b] without that theorem. Import the reflexivity characterization from the appropriate duality supplier.",
+      "neededBy": [
+        "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-ordinary-costalk-stalk"
       ]
     }
   ],
@@ -8565,7 +8824,7 @@
         "Lemma-level refinement of the CS17 §4.1–4.2 local theory (Chai–Oort internal Hom, Proposition 4.2.11 case by case: EL, GSp, GU) once the roadmap reaches lemma level.",
         "Harris–Taylor integral models at Drinfeld level and Mantovan's [Man08] smoothness are cited, not planned (gaps \"Harris–Taylor Drinfeld-level models\" and \"Mantovan compactification of Igusa varieties\").",
         "B(G, μ) and the algebraic B(G)/J_b data are imported from BunGAndNewtonStrata BG0–BG1 (requested); re-point to an algebraic substage if RT-AREA-geomlanglands/32 is applied.",
-        "Complete the LocalPELDatum cocharacter/unramified-order carrier and integral G-structured representative theorem; review marks the current carrier unverified."
+        "IntegralSlopeRepresentative existence is an exact R07.2 supplier obligation; the full unramified/cocharacter carrier and rational-versus-integral separation are now specified."
       ]
     },
     {
@@ -8573,8 +8832,7 @@
       "status": "planned",
       "remaining": [
         "Igusa varieties of the first kind rest on the Harris–Taylor Drinfeld-level models (recorded gap).",
-        "Hilbert/Katz–Hida ordinary towers are not this layer's objects; the RS-14 links to Hilbert consumers are proposed for removal (restructure).",
-        "Reconcile the first-kind étale-level definition, the h↔j index dictionary and the all-base quasi-isogeny moduli equivalence with the reader document."
+        "Hilbert/Katz–Hida ordinary towers are not this layer's objects; the RS-14 links to Hilbert consumers are proposed for removal (restructure)."
       ]
     },
     {
@@ -8582,8 +8840,7 @@
       "status": "planned",
       "remaining": [
         "CSnc Corollary 3.2.14 (toroidal quasi-isogeny invariance) rests on a recorded gap; the main argument is routed through the minimal (fundamental) representative instead, which needs the gap \"minimal p-divisible groups are completely slope divisible\".",
-        "The Lan–Stroh erratum on separate powers of p (§3.6, Kottwitz–Rapoport strata) could not be obtained; it concerns parahoric level, not the good-reduction level used here.",
-        "Replace or prove the universal mixed-Newton EO non-example with an actual datum/label/witness."
+        "The Lan–Stroh erratum on separate powers of p (§3.6, Kottwitz–Rapoport strata) could not be obtained; it concerns parahoric level, not the good-reduction level used here."
       ]
     },
     {
@@ -8599,9 +8856,9 @@
       "stageId": "IgusaVarietiesAndTorsionConcentration:IG.4",
       "status": "planned",
       "remaining": [
-        "Torsion (𝔽_ℓ) left t-exactness of nearby cycles over O_C is requested from LefschetzPencilsAndVanishingCycles LPV.6 (its packet node is stated for rational coefficients).",
+        "Torsion (𝔽_ℓ) nearby-cycle left t-exactness for the non-compact bound and full t-exactness for the compact bound over O_C are requested from LefschetzPencilsAndVanishingCycles LPV.6; its existing node has rational coefficients.",
         "The cycle with LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface is to be broken by citing IG.4/finite-level-formal-models (restructure proposal).",
-        "Supply nonnoetherian integral-model descent and enlarged nonconstructible perverse lower bounds; finite-type/constructible contracts are insufficient."
+        "Supply the nonnoetherian integral-model descent and uniform geometric-costalk continuity for the nonconstructible two-level systems; the compact application also needs stalk continuity and two-sided pushforward comparison. Finite-type constructible contracts are insufficient."
       ]
     },
     {
@@ -8627,7 +8884,7 @@
       "remaining": [
         "LTXZZ Proposition D.1.3 and Corollary D.1.4 (compact case) are handed to the proposed compact-unitary Part II (restructure proposal); only Definition D.1.1 is planned here.",
         "Koshikawa's local vanishing rests on Fargues–Scholze inputs requested from ExcursionOperatorsAndSpectralAction ES5 and ES7:GLn-comparison.",
-        "Supply mod-ℓ spectral action/Satake compatibility and the ordinary costalk–stalk/dualizing argument for Koshikawa; reconcile arbitrary-level descent at a reselected good witness prime."
+        "The three Koshikawa application nodes give the local irrelevance, ordinary costalk bound and localized comparison route. Integral spectral/Satake, supercuspidal lifting, smooth duality/orientation and continuity remain explicitly requested supplier interfaces."
       ]
     }
   ],
@@ -8680,12 +8937,12 @@
       "detail": "Both are requested (HodgeTateAndCanonicalSubgroups T2, which has no packet; VectorBundlesAndIsocrystals VB2, whose node classifies vector bundles, not G-bundles or G-Dieudonné modules over B⁺_cris). RT-AREA-padic-1/25 proposes a FiniteFlatGroupsAndIntegralPadicHodgeTheory stage for the Scholze–Weinstein results; not live."
     },
     {
-      "title": "Torsion left t-exactness of nearby cycles over O_C",
+      "title": "Torsion nearby-cycle exactness over O_C",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity",
         "IgusaVarietiesAndTorsionConcentration:IG.4/compact-perversity"
       ],
-      "detail": "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness is stated for rational ℓ-adic coefficients over a henselian trait; IG.4 needs 𝔽_ℓ coefficients and only the lower bound ^pD^{≥d}, over O_C via finite-type models (Illusie 1994, Cor. 4.5). Requested from LPV.6."
+      "detail": "LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness is stated for rational ℓ-adic coefficients over a henselian trait; IG.4 needs torsion 𝔽_ℓ coefficients over O_C through finite-type models (Illusie 1994, Cor. 4.5). The non-compact application needs the lower bound; compact-perversity needs both halves. The exact extension and compatibility with level change and boundary charts are requested from LPV.6."
     },
     {
       "title": "Harris–Taylor Drinfeld-level integral models and Igusa varieties of the first kind",
@@ -8724,21 +8981,14 @@
     },
     {
       "title": "Local PEL admissibility and integral representatives",
-      "detail": "The suggested LocalPELDatum now records nondegeneracy and a finite full lattice, but still lacks the unramified-centre/maximal-order and B-linear, isotropic, c∘μ=id cocharacter conditions. Its arbitrary idempotent is insufficient to define the stated PEL moduli problem. Supply these fields and the integral existence theorem before accepting this prototype contract.",
+      "detail": "The local PEL carrier now has the unramified matrix-field decomposition, maximal integral order and B-linear isotropic similitude cocharacter conditions. The remaining supplier obligation is nonemptiness of IntegralSlopeRepresentative for the PEL classes used: rational B-action/quasi-polarization alone does not give integral O_B-action, determinant condition, principal polarization or complete slope divisibility. This exact R07.2 request remains a planning terminal.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.0/unramified-local-pel-datum"
       ]
     },
     {
-      "title": "EO non-example needs an actual witness",
-      "detail": "The suggested ekedahlOortStratum_ne_leaf asserts a mixed-Newton EO stratum for every datum with n≥2. The cited sources establish general non-refinement, not that universal assertion. Provide an explicit PEL datum, p, EO label and two Newton classes, or justify the universal claim. Do not count a generic slogan as a checked negative test.",
-      "neededBy": [
-        "IgusaVarietiesAndTorsionConcentration:IG.2/ekedahl-oort-stratification"
-      ]
-    },
-    {
       "title": "Nonnoetherian integral models and enlarged perversity",
-      "detail": "Give the finite-presentation descent from O_C/p models to finite-type residue-field models in CSnc p.62 and the enlarged perverse category for their pushforwards. The finite-type 𝔽_p finiteness lemma and constructible EDC.5 do not cover these contracts.",
+      "detail": "The plan now separates raw O_C/p finite-presentation factorization, direct affine integrality and residue-field base change. Its lower bound is the explicit geometric costalk criterion on finite-type k-targets and integral sources. EDC.5 still owes integral pushforward and uniform continuity for the specific nonconstructible two-level nearby-cycle systems; LPV.6 owes the torsion nearby-cycle/comparison extension. No arbitrary-scheme perverse t-structure or finite-over-F_p assertion is made.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.4/finite-level-formal-models",
         "IgusaVarietiesAndTorsionConcentration:IG.4/semiperversity"
@@ -8755,14 +9005,14 @@
     },
     {
       "title": "Mod-ℓ spectral action for Koshikawa",
-      "detail": "Supply the mod-ℓ/integral action, spherical Satake compatibility and irrelevance argument. Existing ES5 parameter assignment and characteristic-zero ES7 comparison do not close the stated torsion proof.",
+      "detail": "IG now owns the Lemma 3.1 supercuspidal-support irrelevance application. Requested ES3/ES5/ES6/ES7 and SR.5/SR.6 contracts separately identify the integral categorical action with Hecke inversion, mod-ℓ parameter reduction, characteristic-zero inner-form LLC, supercuspidal lifting and the integral finite-generation passage. These are precise supplier obligations, not supplied by ES5 alone.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-local-vanishing"
       ]
     },
     {
       "title": "Koshikawa ordinary costalk closure",
-      "detail": "Supply the Proposition 1.7/Corollary 8.2 costalk argument and its smoothness, dualizing and support inputs. Away-p Hecke minimal-stratum bounds do not apply to the local spherical ideal 𝔪_p. The corrected target theorem is sourced correctly but its roadmap proof remains unclosed.",
+      "detail": "The source-level Corollary 8.2 and Proposition 1.7 applications are now planned as key theorem nodes with the support inverse limit, smooth base change, κ^{-1}[−2d] dualizing object, smooth-dual tensor/Hom dictionary and disjoint spectral support argument. The remaining BG3/EDC/SF/SR/ES requests supply these general interfaces; no away-p minimal-stratum bound is substituted for local spherical localization.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.7/koshikawa-generic-vanishing"
       ]
@@ -9195,7 +9445,8 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2301.10509v3",
       "read": "2026-10-07",
-      "citation": "Caraiani–Newton, arXiv v3 (no published version); E7 is scoped to this text."
+      "citation": "Caraiani–Newton, arXiv v3 (no published version); E7 is scoped to this text.",
+      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3"
     },
     {
       "kind": "preprint",
