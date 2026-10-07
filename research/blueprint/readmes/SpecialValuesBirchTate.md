@@ -1,28 +1,32 @@
 # Birch–Tate and arithmetic special-value formulas
 
-This target-level planning pass covers B.1–B.8. It retains the 44 declarations of
-the preceding checkpoints and adds seven targets, including rationality independent
-of Birch–Tate, denominator integrality, change of S, the real-place correction at
-two and the integral equivariant statement. The packet is complete as a planning
-pass: all eight stages are **planned**, with explicit supplier requests and three
-recorded gaps. No stage is closed and no declaration is claimed implemented.
+This second revision covers all 51 reviewed targets across B.1–B.8. It preserves
+six definitions, 25 API items, 23 named tests and 15 planets. All eight stages are
+**planned**; the packet is complete at target granularity, with 17 exact
+supplier requests and four recorded gaps. No stage is closed and every
+implementation status remains unchecked.
 
 The [packet](../packets/SpecialValuesBirchTate.json) fixes the declaration ids,
 direct dependencies, sources, API and tests. The
 [suggested signatures](../suggested/SpecialValuesBirchTate.lean) are non-exhaustive
-prototypes. Their native Mathlib portion elaborates; signatures needing unlanded
-supplier objects are explicit comments, as the campaign's review contract requires.
-The unavailable Tau Ceti object files prevent checking the original three-import
-prototype. This is evidence about the executable portion only.
+prototypes. The [prior independent review](../reviews/REV-SpecialValuesBirchTate.md)
+reported a successful pinned-Mathlib run with exactly three admitted-proof warnings
+for the active native signatures and arithmetic examples. All K-theory,
+cohomology, Iwasawa and motivic interfaces remain inside comments and were not
+compiler checked. That run did not build the three cited Tau Ceti modules.
+This revision did not compile: no existing pinned Lean build was available and
+available memory was below WORKERS.md’s 20 GB threshold. Its Lean changes are
+comments only. The [revision handoff](../handoff/BP-SpecialValuesBirchTate~2.md)
+records the source, interface and consistency checks.
 
 ## Conventions and ownership
 
 The baseline is Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and
 Tau Ceti **f790474821cf4256814db967cb154e7af3d0c369**. The reviewed library audit
-was read before extending the plan, and the statements and hypotheses of all 69
-baseline citations were inspected at those commits. Native ideal/L-series,
-quadratic-ring, gamma, Bernoulli and valuation APIs are reused. The two upstream
-style references read in full are ArithmeticDirichletSeries and GlobalNumberFields.
+was read before the revision, and the statements and hypotheses of all 78
+baseline citations are retained at those commits. Native ideal/L-series,
+quadratic-ring, gamma, Bernoulli and valuation APIs are reused. The prior plan and independent review used ArithmeticDirichletSeries and
+GlobalNumberFields as their full-read style references; that provenance is retained.
 
 Write \(\mathcal O_F\) for the ring of integers, \(r_1,r_2\) for its signature,
 \(Nv=\#k(v)\), and \(S\) for a finite set of finite primes. The analytically
@@ -53,12 +57,22 @@ B.6 applies those outputs to the \(K_2/W_2\) identity. Its retained dictionary i
 a special-value adapter, not a second construction. At \(2\), the minus module is
 the kernel of the norm; an eigenspace cannot silently replace it.
 
-The higher arithmetic Chern/real-place comparisons are **MotivicEtaleKTheory:M.3,
-M.7**'s. Integral motivic \(H^1,H^2\) and the regulator lattice are **M.8/PS.3**'s;
+The exact degree-two Galois/Tate maps, coefficient compatibility and signed
+residues come from **MotivicEtaleKTheory:M.3/tate-s-integer** and
+**M.3/symbol-residue-compatibility**. Their supplier uses the finite-prime set
+together with all archimedean places; the Euler products here still remove only
+finite primes. The normalized agreement with Chern classes belongs to **M.8**
+under **RS-08**, while the higher corrected real-place comparisons belong to
+**M.7**. Integral motivic \(H^1,H^2\) and the regulator lattice are **M.8/PS.3**'s;
 matching p-adic completions does not determine an integral lattice and its maps.
 **PeriodsAndSpecialValues:PS.4–PS.5** and **GeneralAlgebraicKTheory:K.5** own the
 fundamental-line, ETNC and relative-K infrastructure. B.8 only specializes the
 ETNC predicate to Tate motives.
+
+The classical B.5 route distinguishes the meromorphic function 𝒢₂ from its
+pole-cleared numerator P₂; the main-conjecture μ comparison uses P₂/2. The
+second-kind character inverse, exact norm-kernel/quotient map and exceptional
+character remain explicit supplier gates.
 
 The inherited source corrections are retained and rechecked against the recorded
 versions. The old Handbook/K-book source status at two is not a statement about
@@ -76,10 +90,10 @@ assertions are conjecture statements with defined inputs, not theorem claims.
 | B.1 | planned | 1 targets; Birch–Tate formula | The imported continuation/completion adapter is BorelRegulators:R.5/completed-zeta-conventions (latest supplier review needs_changes). K₂ finiteness and W₂ positivity are exact N.3:ranks/N.4 imports; no duplicate construction is planned. |
 | B.2 | planned | 11 targets; Sign of ζ_F(−1); Primewise Birch–Tate | Discharge the exact Deligne–Ribet untruncated integrality request to L3. Rationality is now a target node using the Borel rank-zero supplier; validate that supplier’s normalization in its review. |
 | B.3 | planned | 9 targets; Birch–Tate for ℚ | Close T.5’s independent K₂(ℤ) upper bound and N.8’s independent quadratic generation upper bound before claiming the two independent examples complete. The D=5 factorization is fully outlined from Cohen and the native L-series API; a general quadratic family is outside the stated example target. |
-| B.4 | planned | 5 targets; Odd-primary Birch–Tate (Wiles) | Discharge the M.3 natural Tate comparison, N.6 coefficient/descent and I.2/I.5/L2/L3 finite Euler-characteristic inputs, including the trivial-character pole term. No full higher norm-residue theorem is used here. |
-| B.5 | planned | 7 targets; Federer's 2-adic main conjecture; Kolster's 2-primary Birch–Tate implication; Birch–Tate for totally real abelian fields | Discharge the exact Kolster 1987 finite sequence (N.6), Iwasawa unit cohomology and compact-dual no-finite-submodule theorem (I.2), twist/evaluation (L2), Ferrero–Washington (L4) and second-kind character convention (DirichletPadicLFunctions L2). The arbitrary-ramification auxiliary-tower comparison is a source-based proof outline, not a checked equivalence. |
+| B.4 | planned | 5 targets; Odd-primary Birch–Tate (Wiles) | Use the exact M.3/tate-s-integer comparison and its coefficient/naturality statements. Discharge N.6 and I.2/I.5/L2/L3’s remaining coefficient/descent and finite Euler-characteristic inputs, including the trivial-character pole term. No full higher norm-residue theorem is used here. |
+| B.5 | planned | 7 targets; Federer's 2-adic main conjecture; Kolster's 2-primary Birch–Tate implication; Birch–Tate for totally real abelian fields | Discharge the exact Kolster 1987 finite sequence (N.6), Iwasawa unit cohomology and compact-dual no-finite-submodule theorem (I.2), twist/evaluation (L2), Ferrero–Washington (L4) and second-kind character convention (DirichletPadicLFunctions L2). The arbitrary-ramification auxiliary-tower comparison is a source-based proof outline, not a checked equivalence. Discharge the explicit arbitrary-ramification comparison gap: Kronecker–Weber from its existing upstream owner, the χ=ω supplier case, norm-kernel/quotient maps, and the second-kind involution in the u^s variable. The packet and definitive reader distinguish meromorphic 𝒢₂ from the pole-cleared P₂ and retain these exact supplier gates. |
 | B.6 | planned | 5 targets; Birch–Tate conjecture (totally real) | I.10 must supply entries (a),(b),(f),(i) of the exact comparison and finite-specialization diagram, including all finite/Tor contributions; the all-prime Birch–Tate theorem remains a proof target dependent on this gap. I.9’s theorem is imported, not rebuilt. |
-| B.7 | planned | 6 targets; S-modified zeta function; S-integral Birch–Tate | Discharge naturality of the actual M.3/M.7 Chern/residue maps and I.10 compact-support descent under S enlargement, with real corrections at 2. Regulator compatibility uses the integral torsion-free localization isomorphism and normalized R.4/R.7 covolume. |
+| B.7 | planned | 6 targets; S-modified zeta function; S-integral Birch–Tate | Use the exact M.3 Tate/Galois maps, their signed residue identity and L.1 finite-field K-group table. Discharge M.8’s normalized Chern/Galois agreement, M.7’s higher corrected real-place maps and I.10’s compact-support descent under S enlargement. Regulator compatibility uses the integral torsion-free localization isomorphism and normalized R.4/R.7 covolume. |
 | B.8 | planned | 7 targets; Odd-primary Lichtenbaum formula (totally real); Real-place correction at two; Abelian higher special-value formula; Integral equivariant special-value statement | Discharge M.7’s two congruence-class real-place comparison sequences; prove the derived scalar correction from those maps. M.8/PS.3 must fix the actual integral motivic lattice and regulator normalization. PS.4–PS.5/K.5 must supply the relative-K/fundamental-line statement objects and Coherence/perfectness interface. The general motivic and ETNC formulas are conjecture statements, not unresolved theorem claims. |
 
 ## B.1 — The statement and its imported inputs
@@ -102,12 +116,12 @@ Let F be a number field, ζ_F : ℂ → ℂ its Dedekind zeta function continued
 
 **Uses that determine the API.**
 
-- `SpecialValuesBirchTate:B.2/birch-tate-iff-valuations`: Split into its sign and its prime valuations..
-- `SpecialValuesBirchTate:B.3/birch-tate-for-the-rationals`: Proved for ℚ from independent inputs..
-- `SpecialValuesBirchTate:B.7/birch-tate-for-s-integers`: Shown equivalent to the S-modified formula..
-- `SpecialValuesBirchTate:B.4`: The odd-primary theorem proves its ℓ-adic valuation for every odd ℓ..
-- `SpecialValuesBirchTate:B.5`: The abelian theorem proves it for totally real abelian F/ℚ..
-- `ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate`: The certified examples compare their K₂ orders with it..
+- `SpecialValuesBirchTate:B.2/birch-tate-iff-valuations`: Split into its sign and its prime valuations.
+- `SpecialValuesBirchTate:B.3/birch-tate-for-the-rationals`: Proved for ℚ from independent inputs.
+- `SpecialValuesBirchTate:B.7/birch-tate-for-s-integers`: Shown equivalent to the S-modified formula.
+- `SpecialValuesBirchTate:B.4`: The odd-primary theorem proves its ℓ-adic valuation for every odd ℓ.
+- `SpecialValuesBirchTate:B.5`: The abelian theorem proves it for totally real abelian F/ℚ.
+- `ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate`: The certified examples compare their K₂ orders with it.
 
 **Working API.**
 
@@ -116,7 +130,7 @@ Let F be a number field, ζ_F : ℂ → ℂ its Dedekind zeta function continued
 - `TauCeti.BirchTate.BirchTateFormula.zeta_ne_zero` (other): BirchTateFormula F → ζ_F(−1) ≠ 0, since K₂(𝓞_F) is finite and nonempty and w₂(F) ≥ 1.
 - `TauCeti.BirchTate.BirchTateFormula.w2_mul_zeta_eq_intCast` (other): BirchTateFormula F → w₂(F) * ζ_F(−1) = ((−1)^(finrank ℚ F) * Nat.card (K2 (𝓞 F)) : ℤ), an integer (B.2/denominator-consequence).
 
-**Discriminating tests.** Each named test is an example in the suggested file.
+**Discriminating tests.** The suggested file gives representative examples; interfaces on unavailable supplier objects remain comments.
 
 - `TauCeti.BirchTate.birchTateFormula_rat_of_values` (computation): If ζ_ℚ(−1) = −1/12, Nat.card (K2 (𝓞 ℚ)) = 2 and wInvariant 2 ℚ = 24, then BirchTateFormula ℚ.
 - `TauCeti.BirchTate.not_birchTateFormula_rat_twist_one` (non-example): With ζ_ℚ(−1) = −1/12, #K₂(𝓞_ℚ) = 2 and wInvariant 1 ℚ = 2, the formula with w₁(ℚ) in place of w₂(ℚ) is false: −1 ≠ −1/12.
@@ -126,11 +140,12 @@ Let F be a number field, ζ_F : ℂ → ℂ its Dedekind zeta function continued
 
 **Direct dependencies.** `BorelRegulators:R.5/completed-zeta-conventions`, `K2SymbolsBrauer:T.1/k2-definition`, `ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite`, `ArithmeticKTheory:N.4/the-w-invariant`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `mathlib:NumberField.dedekindZeta`, `mathlib:NumberField.IsTotallyReal`, `mathlib:Module.finrank`, `mathlib:NumberField.RingOfIntegers`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15: The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, before Corollary 3.4, p. 15: w₂(F) is the order of H⁰(F, ℚ/ℤ(2)), the N.4 invariant, not the number of roots of unity in F.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15: The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, before Corollary 3.4, p. 15: w₂(F) is the order of H⁰(F, ℚ/ℤ(2)), the N.4 invariant, not the number of roots of unity in F.
 
 **Acceptance.** For F = ℚ the formula reads −1/12 = (−1)·2/24 and holds (B.3/birch-tate-for-the-rationals). Replacing w₂ by w₁ = #μ(F), or the ring of integers by the field, or dropping the sign, makes the formula false for ℚ (the unit tests).
 
 **Stage status: planned.** The imported continuation/completion adapter is BorelRegulators:R.5/completed-zeta-conventions (latest supplier review needs_changes). K₂ finiteness and W₂ positivity are exact N.3:ranks/N.4 imports; no duplicate construction is planned.
+
 
 ## B.2 — Rationality, sign and primewise reconstruction
 
@@ -184,17 +199,18 @@ For every number field F and real σ > 1, NumberField.dedekindZeta F σ is a rea
 
 Let F be a number field with r_1 real and r_2 complex places, d_F its discriminant and Λ_F(s) = |d_F|^{s/2} Γ_ℝ(s)^{r_1} Γ_ℂ(s)^{r_2} ζ_F(s) its completed zeta function (R.5/completed-zeta-conventions; Γ_ℝ, Γ_ℂ are Mathlib's Complex.Gammaℝ and Complex.Gammaℂ), holomorphic on ℂ ∖ {0, 1} with Λ_F(1 − s) = Λ_F(s). Then for every s ∈ ℂ ∖ {0, 1}, ζ_F(s) = |d_F|^{−s/2} · (Γ_ℝ(s)⁻¹)^{r_1} · (Γ_ℂ(s)⁻¹)^{r_2} · Λ_F(s), where Γ_ℝ⁻¹ and Γ_ℂ⁻¹ = (2π)^s/(2Γ(s)) are the entire reciprocal gamma factors. The value of ζ_F at a pole of a gamma factor is obtained from this identity of holomorphic functions, never by evaluating Λ_F divided by a gamma factor that Lean totalises to zero.
 
-**Hypotheses and boundary.** F a number field; ζ_F and Λ_F as imported from R.5/completed-zeta-conventions.
+**Hypotheses and boundary.** F a number field; ζ_F and Λ_F as imported from R.5/completed-zeta-conventions. NumberField.discr_ne_zero supplies d_F ≠ 0, so the real base |d_F| is positive; this is a consequence of the number-field hypothesis, not an additional assumption on F.
 
 **Construction or proof.**
 
-1. On Re s > 1 all gamma factors are nonzero (Complex.Gammaℝ_ne_zero_of_re_pos and Γ(s) ≠ 0), and the identity is the definition of Λ_F rearranged.
-2. Both sides are holomorphic on U = ℂ ∖ {0, 1}: the left by R.5/completed-zeta-conventions, the right because Γ_ℝ⁻¹ (Complex.differentiable_Gammaℝ_inv) and 1/Γ (Complex.differentiable_one_div_Gamma) are entire and Λ_F is holomorphic on U.
-3. U is connected (the complement of a finite set in ℂ), so the identity principle AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, applied at a point of Re s > 1, extends the equality to all of U.
+1. Use NumberField.discr_ne_zero and the integral discriminant to obtain |d_F| ≥ 1. For this fixed positive base, |d_F|^z = exp(z log |d_F|), so s ↦ |d_F|^(−s/2) is entire, its usual exponential identities hold, and none of its values vanishes.
+2. On Re s > 1 all gamma factors are nonzero (Complex.Gammaℝ_ne_zero_of_re_pos and Γ(s) ≠ 0), and the identity is the definition of Λ_F rearranged.
+3. Both sides are holomorphic on U = ℂ ∖ {0, 1}: the left by R.5/completed-zeta-conventions, the right because the positive-base discriminant power is entire, Γ_ℝ⁻¹ (Complex.differentiable_Gammaℝ_inv) and 1/Γ (Complex.differentiable_one_div_Gamma) are entire and Λ_F is holomorphic on U.
+4. U is connected (the complement of a finite set in ℂ), so the identity principle AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, applied at a point of Re s > 1, extends the equality to all of U.
 
-**Direct dependencies.** `BorelRegulators:R.5/completed-zeta-conventions`, `mathlib:Complex.Gammaℝ`, `mathlib:Complex.Gammaℂ`, `mathlib:Complex.Gammaℝ_ne_zero_of_re_pos`, `mathlib:Complex.differentiable_Gammaℝ_inv`, `mathlib:Complex.differentiable_one_div_Gamma`, `mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, `mathlib:NumberField.discr`.
+**Direct dependencies.** `BorelRegulators:R.5/completed-zeta-conventions`, `mathlib:Complex.Gammaℝ`, `mathlib:Complex.Gammaℂ`, `mathlib:Complex.Gammaℝ_ne_zero_of_re_pos`, `mathlib:Complex.differentiable_Gammaℝ_inv`, `mathlib:Complex.differentiable_one_div_Gamma`, `mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, `mathlib:NumberField.discr`, `mathlib:NumberField.discr_ne_zero`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.8, proof, PDF p. 524 (book p. 516): The sign theorem at k = 1; the proof below derives it from the functional equation.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, after Conjecture 3.5, p. 15: For n = 2 the order is r_2, so ζ_F(−1) = 0 as soon as F has a complex place.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.8, proof, PDF p. 524 (book p. 516): The sign theorem at k = 1; the proof below derives it from the functional equation; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, after Conjecture 3.5, p. 15: For n = 2 the order is r_2, so ζ_F(−1) = 0 as soon as F has a complex place.
 
 **Acceptance.** At s = −1 and r_2 ≥ 1 the right side vanishes because 1/Γ(−1) = 0, which is the zero of ζ_F at −1; at s = −1 and r_2 = 0 no gamma factor has a pole and the right side is |d_F|^{1/2} Γ_ℝ(−1)^{−r_1} Λ_F(2).
 
@@ -214,11 +230,11 @@ Let F be a totally real number field of degree n = [F:ℚ] and discriminant d_F.
 2. B.2/zeta-via-reciprocal-gamma at s = −1: ζ_F(−1) = |d_F|^{1/2} Γ_ℝ(−1)^{−n} Λ_F(−1), and the functional equation gives Λ_F(−1) = Λ_F(2).
 3. At s = 2 every factor is regular: Λ_F(2) = |d_F| Γ_ℝ(2)^n ζ_F(2) = |d_F| π^{−n} ζ_F(2) (B.2/gamma-factor-values).
 4. With Γ_ℝ(−1) = −2π (B.2/gamma-factor-values): ζ_F(−1) = |d_F|^{1/2} (−2π)^{−n} |d_F| π^{−n} ζ_F(2) = (−1)^n |d_F|^{3/2} ζ_F(2)/(2π²)^n.
-5. ζ_F(2) is a real number ≥ 1 (B.2/dedekind-zeta-real-positive), and |d_F| ≥ 1, so (−1)^n ζ_F(−1) is a positive real.
+5. NumberField.discr_ne_zero makes the integer discriminant nonzero, so |d_F| ≥ 1; its real 3/2 power is strictly positive and agrees with the complex power in the displayed formula. Also π > 0 and ζ_F(2) is a real number ≥ 1 (B.2/dedekind-zeta-real-positive). Thus (−1)^n ζ_F(−1) is a strictly positive real.
 
-**Direct dependencies.** `SpecialValuesBirchTate:B.2/zeta-via-reciprocal-gamma`, `SpecialValuesBirchTate:B.2/gamma-factor-values`, `SpecialValuesBirchTate:B.2/dedekind-zeta-real-positive`, `BorelRegulators:R.5/completed-zeta-conventions`, `mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero`, `mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank`, `mathlib:NumberField.discr`.
+**Direct dependencies.** `SpecialValuesBirchTate:B.2/zeta-via-reciprocal-gamma`, `SpecialValuesBirchTate:B.2/gamma-factor-values`, `SpecialValuesBirchTate:B.2/dedekind-zeta-real-positive`, `BorelRegulators:R.5/completed-zeta-conventions`, `mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero`, `mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank`, `mathlib:NumberField.discr`, `mathlib:NumberField.discr_ne_zero`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.8, proof, PDF p. 524 (book p. 516): The sign theorem at k = 1; the proof below derives it from the functional equation.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.8, proof, PDF p. 524 (book p. 516): The sign theorem at k = 1; the proof below derives it from the functional equation; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
 
 **Acceptance.** For F = ℚ (n = 1, d = 1): ζ(−1) = −ζ(2)/(2π²) = −(π²/6)/(2π²) = −1/12, agreeing with B.3/zeta-of-the-rationals-at-minus-one. For F = ℚ(√5) (n = 2, d = 5): the sign is +, agreeing with ζ_{ℚ(√5)}(−1) = 1/30 (B.3/sqrt-five-zeta-at-minus-one).
 
@@ -239,7 +255,7 @@ Let F be a number field with r_2 ≥ 1 complex places. Then ζ_F(−1) = 0, and 
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.2/zeta-via-reciprocal-gamma`, `SpecialValuesBirchTate:B.1/birch-tate-formula`, `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `mathlib:Complex.differentiable_one_div_Gamma`, `mathlib:Complex.Gamma_neg_nat_eq_zero`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, PDF p. 523 (book p. 515); corrected in ArithmeticKTheory/E18: Read with the correction recorded as ArithmeticKTheory/E18: a zero, not a pole, of order r_2.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, after Conjecture 3.5, p. 15: For n = 2 the order is r_2, so ζ_F(−1) = 0 as soon as F has a complex place.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, PDF p. 523 (book p. 515); corrected in ArithmeticKTheory/E18: Read with the correction recorded as ArithmeticKTheory/E18: a zero, not a pole, of order r_2; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, after Conjecture 3.5, p. 15: For n = 2 the order is r_2, so ζ_F(−1) = 0 as soon as F has a complex place.
 
 **Acceptance.** For F = ℚ(i): ζ_{ℚ(i)}(−1) = 0 while #K₂(ℤ[i])/w₂(ℚ(i)) = 1/24 (ArithmeticKTheory N.8/gaussian-and-imaginary-quadratic).
 
@@ -280,7 +296,7 @@ For a totally real number field F: BirchTateFormula(F) holds if and only if |ζ_
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.1/birch-tate-formula`, `SpecialValuesBirchTate:B.2/zeta-minus-one-sign`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15: The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15: The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
 
 **Acceptance.** The analytic sign is used once, here; the arithmetic (B.4–B.6) proves only the absolute value, prime by prime.
 
@@ -301,7 +317,7 @@ Let F be totally real and let q ∈ ℚ with ζ_F(−1) = q (B.2/zeta-minus-one-
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.2/birch-tate-iff-absolute-value`, `SpecialValuesBirchTate:B.2/positive-rational-from-valuations`, `SpecialValuesBirchTate:B.2/zeta-minus-one-sign`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`, `mathlib:padicValRat.div`, `mathlib:padicValRat.of_nat`, `SpecialValuesBirchTate:B.2/zeta-minus-one-rationality`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15: The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Birch-Tate Conjecture 3.5, p. 15: The same conjecture with the sign left open; the sign is B.2/zeta-minus-one-sign; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
 
 **Acceptance.** For ℚ: q = −1/12, #K₂ = 2, w₂ = 24: v_2: 1 = 3 + (−2); v_3: 0 = 1 + (−1); all other ℓ: 0 = 0 + 0. This is the form the odd-primary theorem (B.4) proves for each odd ℓ, keeping the sign apart.
 
@@ -344,7 +360,7 @@ For a totally real number field F there is a unique nonzero rational q_F with ζ
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.2/zeta-minus-one-sign`, `BorelRegulators:R.4/regulator-covolume`, `BorelRegulators:R.5/zeta-zero-order`, `BorelRegulators:R.5/zeta-leading-coefficient`, `BorelRegulators:R.5/borel-zeta-proportionality`, `ArithmeticKTheory:N.3:ranks/borel-rank-theorem`.
 
-**Source passages.** [Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), §10.5.1, Theorem 10.5.3, p. 218: Siegel’s rationality theorem for totally real negative odd integers.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2 §3, p. 15: Rank-zero case of the leading-term and regulator conventions.
+**Source passages.** [Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), §10.5.1, Theorem 10.5.3, p. 218: Siegel’s rationality theorem for totally real negative odd integers; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2 §3, p. 15: Rank-zero case of the leading-term and regulator conventions.
 
 **Acceptance.** For ℚ, q_F = −1/12; for ℚ(√5), q_F = 1/30. No K₂ order enters the rationality proof.
 
@@ -371,6 +387,7 @@ For totally real F, the rational value q_F = ζ_F(−1) satisfies w₂(F)q_F ∈
 **Acceptance.** 24·(−1/12)=−2; 120·(1/30)=4. These are denominator checks, not independent computations of tame-kernel orders.
 
 **Stage status: planned.** Discharge the exact Deligne–Ribet untruncated integrality request to L3. Rationality is now a target node using the Borel rank-zero supplier; validate that supplier’s normalization in its review.
+
 
 ## B.3 — Independent rational and real quadratic examples
 
@@ -454,7 +471,7 @@ BirchTateFormula(ℚ) holds: ζ_ℚ(−1) = −1/12 = (−1)^1 · 2/24, from thr
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.1/birch-tate-formula`, `SpecialValuesBirchTate:B.3/zeta-of-the-rationals-at-minus-one`, `SpecialValuesBirchTate:B.3/k2-of-the-rationals-ring-of-integers`, `ArithmeticKTheory:N.4/w2-of-the-rationals-and-the-divisibility-tests`, `mathlib:Module.finrank_self`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, the paragraph after Conjecture 8.6, PDF p. 523 (book p. 515): The three independent inputs of Birch–Tate for ℚ.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, the paragraph after Conjecture 8.6, PDF p. 523 (book p. 515): The three independent inputs of Birch–Tate for ℚ; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
 
 **Acceptance.** Sign: the unsigned right side +1/12 is wrong. Twist: w₁(ℚ) = 2 in place of w₂(ℚ) = 24 gives −1. Denominator: 12 divides w₂(ℚ) = 24 (B.2/denominator-consequence). Each is a unit test of B.1/birch-tate-formula.
 
@@ -470,12 +487,12 @@ Let F = ℚ(√5) and χ₅ the quadratic character mod 5, χ₅(n) = legendreSy
 
 **Construction or proof.**
 
-1. 𝓞_F = ℤ[ω] with ω = (1 + √5)/2 (Tau Ceti NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one), and ω has minimal polynomial X² − X − 1 of discriminant 5.
+1. 𝓞_F = ℤ[ω] with ω = (1 + √5)/2 (Tau Ceti NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one), and ω has minimal polynomial X² − X − 1 of discriminant 5. Since ω² − ω − 1 = 0 and [F:ℚ] = 2, its monic quadratic is the minimal polynomial; RingOfIntegers.exponent_eq_one_iff gives exponent ω = 1, so p ∤ exponent ω for every prime p.
 2. Both sides are multiplicative in n: the ideal count by unique factorisation of ideals and multiplicativity of the absolute norm (the Euler product of TauCeti.dedekindZeta_eulerProduct_hasProd), the divisor sum as a convolution of multiplicative functions. So it suffices to take n = p^k.
-3. Splitting of p in 𝓞_F by Kummer–Dedekind (KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk; the conductor of ℤ[ω] is the whole ring): p = 5 ramifies (X² − X − 1 ≡ (X − 3)² mod 5); p = 2 is inert (X² + X + 1 is irreducible mod 2) and χ₅(2) = −1; for odd p ≠ 5, p splits exactly when 5 is a square mod p, which by quadratic reciprocity (legendreSym.quadratic_reciprocity_one_mod_four, 5 ≡ 1 mod 4) is χ₅(p) = 1, and is inert when χ₅(p) = −1.
-4. Count ideals of norm p^k: split, k + 1 = Σ_{j ≤ k} 1^j; inert, 1 if k is even and 0 if odd = Σ_{j ≤ k} (−1)^j; ramified, 1 = 1 + 0 + ⋯. In each case this is Σ_{d | p^k} χ₅(d).
+3. Use NumberField.Ideal.primesOverSpanEquivMonicFactorsMod, with exponent ω = 1, for the primes over p. Its inertiaDeg and ramificationIdx theorems give factor degree and multiplicity; Ideal.pow_inertiaDeg then gives the residue norm p^f. The more general normalizedFactorsMapEquivNormalizedFactorsMinPolyMk supplies prime support only. At p = 5 the polynomial is (X − 3)², giving one prime of norm 5 and ramification index 2. At p = 2 it is the irreducible X² + X + 1, giving one prime of norm 4. For odd p ≠ 5, the discriminant test and quadratic reciprocity identify splitting with χ₅(p) = 1, and inertia with χ₅(p) = −1.
+4. Count ideals of norm p^k: split, k + 1 = Σ_{j ≤ k} 1^j; inert, 1 if k is even and 0 if odd = Σ_{j ≤ k} (−1)^j; ramified, 1 = 1 + 0 + ⋯. In each case this is Σ_{d | p^k} χ₅(d). Absolute norm is the existing multiplicative monoid hom Ideal.absNorm: map_mul and map_pow turn the prime exponents in unique ideal factorization into these norm counts.
 
-**Direct dependencies.** `tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one`, `tauceti:TauCeti.dedekindZetaCoeff`, `tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd`, `mathlib:KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk`, `mathlib:legendreSym`, `mathlib:legendreSym.quadratic_reciprocity_one_mod_four`, `mathlib:LSeries.convolution`, `mathlib:DirichletCharacter`, `mathlib:Ideal.absNorm`.
+**Direct dependencies.** `tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one`, `tauceti:TauCeti.dedekindZetaCoeff`, `tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd`, `mathlib:KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk`, `mathlib:legendreSym`, `mathlib:legendreSym.quadratic_reciprocity_one_mod_four`, `mathlib:LSeries.convolution`, `mathlib:DirichletCharacter`, `mathlib:Ideal.absNorm`, `mathlib:RingOfIntegers.exponent_eq_one_iff`, `mathlib:NumberField.Ideal.primesOverSpanEquivMonicFactorsMod`, `mathlib:NumberField.Ideal.inertiaDeg_primesOverSpanEquivMonicFactorsMod_symm_apply'`, `mathlib:NumberField.Ideal.ramificationIdx_primesOverSpanEquivMonicFactorsMod_symm_apply'`, `mathlib:Ideal.pow_inertiaDeg`, `mathlib:Ideal.inertiaDeg_pos`.
 
 **Source passages.** [Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), §10.5.2, Proposition 10.5.5, printed p. 219: Quadratic splitting at every prime gives ζ_F = ζ·L(χ_D); specialize the fundamental discriminant to D = 5.
 
@@ -496,7 +513,7 @@ For F = ℚ(√5), the continued Dedekind zeta function satisfies ζ_F(s) = riem
 1. On Re s > 1: both series converge absolutely, so LSeries (1 ⍟ χ₅) s = LSeries 1 s · LSeries χ₅ s (LSeries_convolution'), which is riemannZeta s · L(s, χ₅) (LSeries_one_eq_riemannZeta, DirichletCharacter.LFunction_eq_LSeries). By B.3/sqrt-five-ideal-count the left side is NumberField.dedekindZeta F s.
 2. L(·, χ₅) is entire because χ₅ ≠ 1 (DirichletCharacter.differentiable_LFunction), riemannZeta is holomorphic off 1, and ζ_F is holomorphic off 1 (R.5/completed-zeta-conventions); the identity principle on the connected set ℂ ∖ {1} finishes.
 
-**Direct dependencies.** `SpecialValuesBirchTate:B.3/sqrt-five-ideal-count`, `BorelRegulators:R.5/completed-zeta-conventions`, `mathlib:LSeries_convolution'`, `mathlib:LSeries_one_eq_riemannZeta`, `mathlib:DirichletCharacter.LFunction_eq_LSeries`, `mathlib:DirichletCharacter.differentiable_LFunction`, `mathlib:DirichletCharacter.LFunction`, `mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`.
+**Direct dependencies.** `SpecialValuesBirchTate:B.3/sqrt-five-ideal-count`, `BorelRegulators:R.5/completed-zeta-conventions`, `mathlib:LSeries_convolution'`, `mathlib:LSeries_one_eq_riemannZeta`, `mathlib:DirichletCharacter.LFunction_eq_LSeries`, `mathlib:DirichletCharacter.differentiable_LFunction`, `mathlib:DirichletCharacter.LFunction`, `mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, `mathlib:differentiableAt_riemannZeta`.
 
 **Source passages.** [Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), §10.5.2, Proposition 10.5.5, printed p. 219: Quadratic splitting at every prime gives ζ_F = ζ·L(χ_D); specialize the fundamental discriminant to D = 5.
 
@@ -520,7 +537,7 @@ For F = ℚ(√5): L(−1, χ₅) = −2/5, and ζ_F(−1) = (−1/12)·(−2/5)
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.3/sqrt-five-zeta-factorisation`, `mathlib:ZMod.LFunction_def_even`, `mathlib:HurwitzZeta.hurwitzZeta_neg_nat`, `mathlib:Polynomial.bernoulli`, `mathlib:riemannZeta_neg_nat_eq_bernoulli`, `mathlib:bernoulli_two`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, PDF p. 523 (book p. 515): Birch–Tate is a theorem for ℚ(√5), which is abelian over ℚ; the example must still compute #K₂ independently.; [Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), §10.5.2, Proposition 10.5.5, p. 219; §10.3 negative-integer Dirichlet values: The quadratic factorization followed by the explicit Bernoulli-polynomial sum gives the value, independently of K₂.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, PDF p. 523 (book p. 515): Birch–Tate is a theorem for ℚ(√5), which is abelian over ℚ; the example must still compute #K₂ independently; [Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), §10.5.2, Proposition 10.5.5, printed p. 219 (PDF p. 242); §10.3.1, Theorem 10.3.1 p. 186 and Corollary 10.3.3 pp. 188–189 (PDF pp. 209, 211–212): The quadratic factorization followed by the explicit Bernoulli-polynomial sum gives the value, independently of K₂.
 
 **Acceptance.** The sign is + = (−1)^2, as B.2/zeta-minus-one-sign requires for a real quadratic field. The value is exact; no numerical approximation is compared with a rational candidate.
 
@@ -537,12 +554,12 @@ For F = ℚ(√5): w₂^{(2)}(F) = 8, w₂^{(3)}(F) = 3, w₂^{(5)}(F) = 5 and w
 **Construction or proof.**
 
 1. Criterion (ArithmeticKTheory N.4/computing-w-from-the-cyclotomic-character, and N.4/two-primary-w-invariant at 2): ℓ^ν divides w₂(F) exactly when Gal(F(μ_{ℓ^ν})/F) has exponent dividing 2.
-2. ℓ = 5: ℚ(√5) ⊂ ℚ(μ₅), so Gal(F(μ₅)/F) has order 2 and 5 | w₂; Gal(F(μ₂₅)/F) is cyclic of order 10, so 25 ∤ w₂.
-3. ℓ = 3: F ∩ ℚ(μ₉) = ℚ, so Gal(F(μ₃)/F) ≅ (ℤ/3)^× has order 2 and Gal(F(μ₉)/F) ≅ (ℤ/9)^× is cyclic of order 6: w₂^{(3)} = 3.
-4. ℓ = 2: F ∩ ℚ(μ₁₆) = ℚ (the quadratic subfields of ℚ(μ₁₆) are ℚ(i), ℚ(√2), ℚ(√−2)), so Gal(F(μ₈)/F) ≅ (ℤ/8)^× has exponent 2 and Gal(F(μ₁₆)/F) ≅ (ℤ/16)^× has exponent 4: w₂^{(2)} = 8.
+2. For ℓ = 5, choose a primitive fifth root ζ and t = ζ + ζ⁻¹. The relation t² + t − 1 = 0 gives (2t + 1)² = 5, identifying F with the real quadratic subfield of ℚ(μ₅). The explicit cyclotomic Galois equivalence gives relative group C₂ at level 5, and its restriction compatibility gives C₁₀ at level 25. Thus 5 divides w₂ but 25 does not.
+3. For ℓ = 3, F is real and the real subfield of ℚ(μ₉) has degree 3. The intersection has degree dividing both 2 and 3, so it is ℚ. The cyclotomic groups at levels 3 and 9 are C₂ and C₆, respectively, giving w₂^(3) = 3.
+4. For ℓ = 2, the real subfield of ℚ(μ₁₆) has cyclic Galois group C₄, with unique quadratic subfield ℚ(√2), realized by (ζ₈ + ζ₈⁻¹)² = 2. The field F is not ℚ(√2), since 5/2 is not a rational square, so its intersection with ℚ(μ₁₆) is ℚ. Explicit ZMod-unit calculations give exponent 2 at level 8 and exponent 4 at level 16, hence w₂^(2) = 8. These are finite cyclotomic computations for this example, not a new general intersection theory.
 5. ℓ ≥ 7: Gal(F(μ_ℓ)/F) is cyclic of order ℓ − 1 or (ℓ − 1)/2, at least 3, so ℓ ∤ w₂ (and N.4/finiteness-of-the-w-invariant bounds the primes: ℓ − 1 ≤ 2·2).
 
-**Direct dependencies.** `ArithmeticKTheory:N.4/computing-w-from-the-cyclotomic-character`, `ArithmeticKTheory:N.4/two-primary-w-invariant`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `ArithmeticKTheory:N.4/the-w-invariant`, `mathlib:IsCyclotomicExtension`.
+**Direct dependencies.** `ArithmeticKTheory:N.4/computing-w-from-the-cyclotomic-character`, `ArithmeticKTheory:N.4/two-primary-w-invariant`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `ArithmeticKTheory:N.4/the-w-invariant`, `mathlib:IsCyclotomicExtension`, `mathlib:IsCyclotomicExtension.Rat.galEquivZMod`, `mathlib:IsCyclotomicExtension.Rat.galEquivZMod_restrictNormal_apply`.
 
 **Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, before Corollary 3.4, p. 15: w₂(F) is the order of H⁰(F, ℚ/ℤ(2)), the N.4 invariant, not the number of roots of unity in F.
 
@@ -565,11 +582,12 @@ Given the independently certified order #K₂(𝓞_{ℚ(√5)}) = 4 (ArithmeticK
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.1/birch-tate-formula`, `SpecialValuesBirchTate:B.3/sqrt-five-zeta-at-minus-one`, `SpecialValuesBirchTate:B.3/sqrt-five-w2`, `ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, PDF p. 523 (book p. 515): Birch–Tate is a theorem for ℚ(√5), which is abelian over ℚ; the example must still compute #K₂ independently.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, PDF p. 523 (book p. 515): Birch–Tate is a theorem for ℚ(√5), which is abelian over ℚ; the example must still compute #K₂ independently; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
 
 **Acceptance.** The three numbers 1/30, 4 and 120 come from three independent computations. N.8 owns the unit/class-group bounds and the certificate; B.3 owns only the independent ζ-value, w₂ computation and the resulting equality test (RT-AREA-ktheory-1/11).
 
 **Stage status: planned.** Close T.5’s independent K₂(ℤ) upper bound and N.8’s independent quadratic generation upper bound before claiming the two independent examples complete. The D=5 factorization is fully outlined from Cohen and the native L-series API; a general quadratic family is outside the stated example target.
+
 
 ## B.4 — The historical odd-primary theorem
 
@@ -584,9 +602,9 @@ Let F be a number field, ℓ a prime and S_ℓ the set of primes of 𝓞_F above
 **Construction or proof.**
 
 1. B.7/k2-order-of-s-integers gives #K₂(𝓞_{F,S_ℓ}) = #K₂(𝓞_F)·∏_{v|ℓ}(Nv − 1). This is the localisation sequence 0 → K₂(𝓞_F) → K₂(𝓞_{F,S}) → ⊕_{v∈S} k(v)^× → 0 of K2SymbolsBrauer T.5, whose third term is the tame-symbol diagram.
-2. Each Nv is a power of ℓ, so Nv − 1 ≡ −1 mod ℓ, and v_ℓ of the product is 0.
+2. For v above ℓ, Ideal.pow_inertiaDeg and Ideal.inertiaDeg_pos give Nv = ℓ^f with f > 0. Thus ℓ ∤ Nv − 1, and the valuation of the residue-factor product is zero.
 
-**Direct dependencies.** `SpecialValuesBirchTate:B.7/k2-order-of-s-integers`, `mathlib:padicValNat.mul`, `mathlib:padicValNat.eq_zero_of_not_dvd`.
+**Direct dependencies.** `SpecialValuesBirchTate:B.7/k2-order-of-s-integers`, `mathlib:padicValNat.mul`, `mathlib:padicValNat.eq_zero_of_not_dvd`, `mathlib:Ideal.pow_inertiaDeg`, `mathlib:Ideal.inertiaDeg_pos`.
 
 **Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, before Theorem 3.3, p. 14: Kolster works with 𝓞_F[1/p] throughout; the passage to 𝓞_F is this lemma.
 
@@ -600,15 +618,15 @@ Let F be a number field, ℓ a prime and S_ℓ the set of primes of 𝓞_F above
 
 Let F be a number field and ℓ an odd prime. Then K₂(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)). In particular v_ℓ(#K₂(𝓞_F)) = v_ℓ(#H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))).
 
-**Hypotheses and boundary.** ℓ odd keeps the real places out of the étale cohomology of 𝓞_F[1/ℓ]. The stage takes the degree-two comparison from T.7 and M.3, not from the general norm-residue theorem.
+**Hypotheses and boundary.** The public B.4 interface remains scoped to odd ℓ. The exact imported M.3/tate-s-integer theorem also covers ℓ=2 and real places; that degree-two fact does not supply a general higher comparison at two. In its notation take S_total=S_∞∪S_f, where S_f is this packet’s finite-prime set, so the rings of S-integers agree.
 
 **Construction or proof.**
 
-1. Tate's comparison for S-integers (MotivicEtaleKTheory M.3), with S ⊇ S_ℓ: K₂(𝓞_{F,S})/ℓ^r ≅ H²_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}) for every r, compatibly in r.
-2. K₂(𝓞_{F,S}) is finite (ArithmeticKTheory N.3), so K₂(𝓞_{F,S}) ⊗ ℤ_ℓ = lim_r K₂(𝓞_{F,S})/ℓ^r. The groups H¹_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}) are finite, so the limit is H²_ét(𝓞_{F,S}, ℤ_ℓ(2)) with no lim¹ term.
-3. Take S = S_ℓ and pass from 𝓞_F[1/ℓ] to 𝓞_F by the previous lemma.
+1. Apply MotivicEtaleKTheory:M.3/tate-s-integer(b) to obtain the actual natural Galois/Tate-symbol isomorphism K₂(𝓞_{F,S_f})⊗ℤ_ℓ ≅ H²_cont(𝓞_{F,S_f},ℤ_ℓ(2)); continuous cohomology is the intended ℓ-adic meaning of H²_ét here. The supplier’s S includes S_∞ and all primes above ℓ. No Galois symbol or general comparison theory is reconstructed in B.4.
+2. Parts (c) and (d) of the same exact supplier give the finite-level maps for every r≥1, their agreement with the adic symbol, coefficient compatibility and naturality under S_f⊆T_f. Its coefficient-limit argument, including the real-place H³ issue at ℓ=2, belongs to that supplier. These are Galois/Tate maps; identification with a Chern-class normalization is a separate M.8 input when required.
+3. Take S = S_ℓ. Use the actual injection and cokernel of T.5/relative-s-integer-sequence: 0 → K₂(𝓞_F) → K₂(𝓞_F[1/ℓ]) → ⊕_{v|ℓ} k(v)^× → 0. Each residue-unit group has prime-to-ℓ order Nv − 1 by the norm calculation. Tensoring with the flat ℤ-module ℤ_ℓ kills this finite cokernel and preserves exactness, so the induced K₂ map is an isomorphism after tensoring. Compose it with the natural Tate/limit comparison. The preceding valuation equality alone does not construct this isomorphism.
 
-**Direct dependencies.** `SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell`, `MotivicEtaleKTheory:M.3`, `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`.
+**Direct dependencies.** `SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell`, `MotivicEtaleKTheory:M.3/tate-s-integer`, `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`, `K2SymbolsBrauer:T.5/relative-s-integer-sequence`, `mathlib:Ideal.pow_inertiaDeg`, `mathlib:Ideal.inertiaDeg_pos`.
 
 **Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, after Corollary 3.4, p. 15: H²(𝓞_F, ℤ(2)) ≅ K₂(𝓞_F), citing Tate [35].
 
@@ -632,7 +650,7 @@ Let F be a number field and ℓ an odd prime. The coefficient sequence 0 → ℤ
 
 **Direct dependencies.** `ArithmeticKTheory:N.4/the-w-invariant`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `ArithmeticKTheory:N.6`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the coefficient sequence, p. 9: H¹_tors ≅ H⁰(ℚ_p/ℤ_p(n)); stated for every n, but it needs n ≠ 0 (source issue E5).; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, Proposition 2.1, p. 10: The ranks, rk H¹(F, ℤ_p(n)) = r₂ for even n.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the coefficient sequence, p. 9: H¹_tors ≅ H⁰(ℚ_p/ℤ_p(n)); stated for every n, but it needs n ≠ 0 (source issue E5); [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, Proposition 2.1, p. 10: The ranks, rk H¹(F, ℤ_p(n)) = r₂ for even n.
 
 **Acceptance.** F = ℚ, ℓ = 3: H¹_ét(ℤ[1/3], ℤ_3(2)) ≅ W₂(ℚ)_3 = ℤ/3, matching w₂(ℚ) = 24. Twist 0: H⁰(ℚ_ℓ/ℤ_ℓ) = ℚ_ℓ/ℤ_ℓ is divisible, and H¹(𝓞_F[1/ℓ], ℤ_ℓ) is torsion-free, so the finiteness of W₂ is what makes the lemma work.
 
@@ -651,12 +669,12 @@ Let F be a totally real number field and ℓ an odd prime. Then v_ℓ(|ζ_F(−1
 1. Let E = F(μ_ℓ); G = Gal(E/F) has order dividing ℓ − 1, prime to ℓ. Put ψ = ω² as a character of G, so that χ = ψω^{−2} is trivial. Let X be the Iwasawa module of the maximal abelian ℓ-extension of E_∞ unramified outside ℓ, and Λ = ℤ_ℓ[[T]], T = γ − 1.
 2. Wiles's main conjecture (IntegralIwasawaTheory I.5), with his μ = μ(G_ψ) (Theorem 1.4 of the 1990 paper), gives char(X_ψ) = (G_ψ(T)) when ψ ≠ 1. Here L_ℓ(1 − s, ψ) = G_ψ(κ(γ)^s − 1)/H_ψ(κ(γ)^s − 1), with H_ψ = 1 unless ψ = 1.
 3. Descent (Proposition 3.1): Hom(X, ℚ_ℓ/ℤ_ℓ(2)) = H¹_ét(𝓞_{E_∞}[1/ℓ], ℚ_ℓ/ℤ_ℓ(2)), Galois descent to E, and Corollary 2.2. Together they give (X_ψ(−2)_Γ)^∨ ≅ H²_ét(𝓞_E[1/ℓ], ℤ_ℓ(2))^{χ^{−1}} = H²_ét(𝓞_E[1/ℓ], ℤ_ℓ(2))^G ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2)), by codescent (Proposition 2.3(2)) since ℓ ∤ |G|.
-4. Evaluation (Proposition 3.2): X_ψ(−2) has no nonzero finite Λ-submodule, so its Γ-invariants vanish and |X_ψ(−2)_Γ| ~ f(κ(γ)² − 1), where f(κ(γ)²(1 + T) − 1) is its characteristic polynomial (Lemma 1.2). By the main conjecture this is ~ L_ℓ(−1, ψ) = ζ_F(−1)·∏_{v|ℓ}(1 − Nv), and each factor 1 − Nv is an ℓ-adic unit.
+4. Evaluation (Proposition 3.2): X_ψ(−2) has no nonzero finite Λ-submodule, so its Γ-invariants vanish and |X_ψ(−2)_Γ| ~ f(κ(γ)² − 1), where f(κ(γ)²(1 + T) − 1) is its characteristic polynomial (Lemma 1.2). For ψ ≠ 1 this is ~ L_ℓ(−1, ψ) = ζ_F(−1)·∏_{v|ℓ}(1 − Nv), and each Euler factor is an ℓ-adic unit. For ψ = 1 the main-conjecture numerator instead gives f(κ(γ)² − 1) ~ (κ(γ)² − 1)L_ℓ(−1, 1); retain this pole-clearing factor until the H⁰ denominator is accounted for in the next step.
 5. The trivial character. ψ = ω²|_G is trivial exactly when [F(μ_ℓ):F] divides 2, which is exactly when W₂(F)_ℓ ≠ 0. In that case the pole factor H_1(T) = T contributes |H⁰(E, ℚ_ℓ/ℤ_ℓ(2))^{ω²}| = |H⁰(F, ℚ_ℓ/ℤ_ℓ(2))| ~ κ(γ)² − 1. Otherwise H⁰(F, ℚ_ℓ/ℤ_ℓ(2)) = 0. Either way the displayed identity follows (Theorem 3.3).
 
 **Direct dependencies.** `IntegralIwasawaTheory:I.5`, `IntegralIwasawaTheory:I.2`, `IntegralIwasawaTheory:L2`, `ArithmeticKTheory:N.6`, `AutomorphicPadicLFunctions:L3`, `SpecialValuesBirchTate:B.2/birch-tate-iff-valuations`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, the set-up, p. 13: E = F_ψ(μ_p), G of order prime to p.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Proposition 3.1, p. 14: The descent.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Theorem 3.3, p. 15: The theorem, applied with χ = 1, n = 2 and S = S_ℓ.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §1, Iwasawa's Main Conjecture 1.3 (Wiles), p. 9: Wiles's theorem, the input from IntegralIwasawaTheory I.5.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, the set-up, p. 13: E = F_ψ(μ_p), G of order prime to p; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Proposition 3.1, p. 14: The descent; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Theorem 3.3, p. 15: The theorem, applied with χ = 1, n = 2 and S = S_ℓ; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §1, Iwasawa's Main Conjecture 1.3 (Wiles), p. 9: Wiles's theorem, the input from IntegralIwasawaTheory I.5.
 
 **Acceptance.** F = ℚ, ℓ = 3: v_3(1/12) = −1 = 0 − 1, with H² = 0 and H⁰ = ℤ/3. F = ℚ(√5), ℓ = 5: ζ_F(−1) = 1/30, v_5 = −1; [F(μ_5):F] = 2, so H⁰(F, ℚ_5/ℤ_5(2)) = ℤ/5 and H² has trivial 5-part.
 
@@ -680,7 +698,8 @@ Let F be a totally real number field and ℓ an odd prime. Then v_ℓ(#K₂(𝓞
 
 **Acceptance.** F = ℚ: ℓ = 3 gives 0 = 1 + (−1); ℓ ≥ 5 gives 0 = 0 + 0 (w₂(ℚ) = 24, ζ(−1) = −1/12). F = ℚ(√5): ℓ = 3 and ℓ = 5 both give 0 = 1 + (−1) (w₂ = 120, ζ_F(−1) = 1/30), so #K₂ is a power of 2, matching 4 (B.3).
 
-**Stage status: planned.** Discharge the M.3 natural Tate comparison, N.6 coefficient/descent and I.2/I.5/L2/L3 finite Euler-characteristic inputs, including the trivial-character pole term. No full higher norm-residue theorem is used here.
+**Stage status: planned.** Use the exact M.3/tate-s-integer comparison and its coefficient/naturality statements. Discharge N.6 and I.2/I.5/L2/L3’s remaining coefficient/descent and finite Euler-characteristic inputs, including the trivial-character pole term. No full higher norm-residue theorem is used here.
+
 
 ## B.5 — The classical totally real abelian theorem
 
@@ -712,7 +731,7 @@ Let F be a totally real number field. Put F_0 = F(√−1). Let e ≥ 2 be maxim
 - `TauCeti.BirchTate.federerMainConjecture_mul_unit` (compatibility): Replacing f_F by ε f_F, with ε a unit of Λ, leaves the predicate unchanged.
 - `TauCeti.BirchTate.federerMainConjecture_change_generator` (compatibility): Under the Iwasawa coordinate isomorphism associated to γ′ = γ^c, c ∈ ℤ₂×, and the corresponding unit correction of the pole factor, the predicate is equivalent in the two coordinates.
 
-**Discriminating tests.** Each named test is an example in the suggested file.
+**Discriminating tests.** The suggested file gives representative examples; interfaces on unavailable supplier objects remain comments.
 
 - `TauCeti.BirchTate.twoAdicZetaSeries_rat_valuation` (computation): F = ℚ: e = 2, A_∞^- = 0 (the class numbers of ℚ(ζ_{2^n}) are odd), so f = 1; G(u^{−1} − 1) = ζ_{ℚ,2}(−1)·(u^{−1} − u) = (1/12)(u^{−1} − u), and u^{−1} − u ~ 2³, so v_2(G(u^{−1} − 1)) = 1 = [ℚ:ℚ], as the conjecture predicts. For u = 5 the value is (1/12)(1/5 − 5) = −2/5.
 - `TauCeti.BirchTate.twoAdicZetaSeries_sqrtTwo_valuation` (computation): F = ℚ(√2) = ℚ(ζ_8)^+: e = 3, F_∞ = ℚ(μ_{2^∞}), so f = 1. ζ_F(−1) = ζ(−1)·L(−1, χ_8) = (−1/12)(−B_{2,χ_8}/2) = 1/12 with B_{2,χ_8} = 2. L_2(χ_0, −1) = ζ_F(−1)·(1 − 2) and u^{−1} − u ~ 2⁴, so v_2(G(u^{−1} − 1)) = 2 = [F:ℚ].
@@ -720,7 +739,7 @@ Let F be a totally real number field. Put F_0 = F(√−1). Let e ≥ 2 be maxim
 
 **Direct dependencies.** `IntegralIwasawaTheory:I.2`, `AutomorphicPadicLFunctions:L3`, `mathlib:NumberField.IsTotallyReal`, `mathlib:PowerSeries`, `mathlib:PadicInt`, `mathlib:Ideal.span`, `mathlib:Module.finrank`.
 
-**Source passages.** [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Conjecture 3 and the definition of G(T), p. 250: Federer's conjecture as Kolster states it.; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), the tower F_n, Γ, γ_0 and u, p. 248: The abstract; the tower is set up on the same page.
+**Source passages.** [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Conjecture 3 and the definition of G(T), p. 250: Federer's conjecture as Kolster states it; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), the tower F_n, Γ, γ_0 and u, p. 248: The abstract; the tower is set up on the same page.
 
 **Acceptance.** The factor 2^{[F:ℚ]} is part of the conjecture: without it the statement fails already for F = ℚ. The definition makes sense for every totally real F; B.5 proves it for F abelian over ℚ, and B.6 for all F.
 
@@ -744,7 +763,7 @@ Let F be a totally real number field, F_0 = F(√−1), e ≥ 2 maximal with ζ_
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `SpecialValuesBirchTate:B.1/birch-tate-formula`, `ArithmeticKTheory:N.6`, `IntegralIwasawaTheory:I.2`, `mathlib:NumberField.Units.finrank_eq`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero`.
 
-**Source passages.** [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Theorem 1, p. 249: Theorem 1.; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), proof of Theorem 1, p. 249: Kolster's exact sequence.; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), proof of Theorem 1, p. 249: Iwasawa's Proposition 2.
+**Source passages.** [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Theorem 1, p. 249: Theorem 1; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), proof of Theorem 1, p. 249: Kolster's exact sequence; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), proof of Theorem 1, p. 249: Iwasawa's Proposition 2.
 
 **Acceptance.** F = ℚ: A_∞^- = 0 and the formula gives |K_2(ℤ)(2)| = 2, matching K_2(ℤ) ≅ ℤ/2 (B.3).
 
@@ -789,7 +808,7 @@ Let F be a totally real number field with FedererMainConjecture(F). Then |K_2(o_
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa`, `SpecialValuesBirchTate:B.5/minus-module-coinvariant-order`, `SpecialValuesBirchTate:B.2/birch-tate-iff-valuations`, `ArithmeticKTheory:N.4/two-primary-w-invariant`, `ArithmeticKTheory:N.4/exceptional-fields-at-two`, `AutomorphicPadicLFunctions:L3`.
 
-**Source passages.** [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Theorem 5, p. 250: Theorem 5.; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), proof of Theorem 5, p. 250: The chain of ~.
+**Source passages.** [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Theorem 5, p. 250: Theorem 5; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), proof of Theorem 5, p. 250: The chain of ~.
 
 **Acceptance.** Only the 2-adic valuation is compared: the odd primes and the sign come from B.4 and B.2.
 
@@ -801,21 +820,21 @@ Let F be a totally real number field with FedererMainConjecture(F). Then |K_2(o_
 
 Let F be a totally real number field, abelian over ℚ. Then FedererMainConjecture(F) holds.
 
-**Hypotheses and boundary.** Neither Kolster nor Greither writes this comparison; Greither asserts the consequence. The steps below are the proof planned here. Greither's Theorem 3.2 needs the base field unramified at 2, which F need not be; the first step replaces F by such a field with the same F_∞.
+**Hypotheses and boundary.** Greither p. 454 asserts the Birch–Tate consequence, but does not write this arbitrary-ramification comparison. It remains a proof target, with the exact convention/minus-module gap and supplier requests below. The prior independent review did not verify the proposed final equality; this revision preserves that gap. Greither's Theorem 3.2 needs the base field unramified at 2, which F need not be; the first step replaces F by such a field with the same F_∞.
 
 **Construction or proof.**
 
-1. Reduction to a field unramified at 2. F ⊂ ℚ(μ_{m2^∞}) with m odd, and F(μ_{2^∞}) = F′(μ_{2^∞}) for F′ = F(μ_{2^∞}) ∩ ℚ(μ_m), which is abelian and unramified at 2 but possibly imaginary (F = ℚ(√6) gives F′ = ℚ(√−3)). Put K_0 = F′(√−1), Δ′ = Gal(K_0/ℚ) ∋ j and Γ′ = Gal(K_∞/K_0) with generator γ′ and u′ = κ(γ′). Then F_∞ = K_∞ and Gal(F_∞/ℚ) = Δ′ × Γ′.
-2. Kolster's Γ = Gal(F_∞/F(√−1)) is procyclic and open, so Γ = {(φ(γ), γ) : γ ∈ Γ′^{2^b}} for some b ≥ 0 and some homomorphism φ: Γ′^{2^b} → Δ′ fixing √−1. Let γ_1 generate Γ′^{2^b}; then γ_0 = (φ(γ_1), γ_1) and u = u′^{2^b}. Gal(F_∞/F) = ⟨j⟩ × Γ, so the even characters of F are the products χ̌·ρ, with χ̌ an even character of Δ′ and ρ a character of Γ′ such that ρ(γ_1) = χ̌(φ(γ_1))^{−1}. Since φ fixes √−1, χ̌(φ(γ_1)) = χ(φ(γ_1))^{−1} for χ = ωχ̌^{−1}, so the condition is ρ(γ_1) = χ(φ(γ_1)). There are 2^b such ρ for each χ̌, so [F:ℚ] = 2^b·|Δ′|/2.
-3. Same module. A_∞^- is the direct limit over the common tower, so it is one ℤ_2[[Δ′ × Γ′]]-module; f_F is its dual's characteristic polynomial for the subgroup Γ. Minus parts taken as kernels of norms or as quotients by (1 + j) differ by finite groups, which do not change characteristic ideals. By Greither's Lemma 3.3, X = lim← A_2(K_n) is quasi-isomorphic to Ǎ_∞ with the action (σφ)(x) = φ(σx). So for each odd χ of Δ′, ℚ_2 ⊗ X_χ ≅ ℚ_2 ⊗ Ǎ_{∞,χ}^-.
-4. Zeros of f_F. μ(f_F) = 0 by Ferrero–Washington at p = 2 (IntegralIwasawaTheory L4). So f_F = unit·Q with Q distinguished, and the roots of Q are the eigenvalues minus 1 of γ_0 on ℂ_2 ⊗ Ǎ_∞^-. This space is the sum of its χ-isotypic parts, χ odd, and there γ_0 acts as χ(φ(γ_1))·γ_1. By Greither's Theorem 3.2, char(X_χ) = (½G_2(T′, χ̌)), with ½G_2(T′, 1)·(T′ − q_0) for χ = ω, where q_0 = u′ − 1. So the eigenvalues of γ_1 on the χ-part are 1 + y for the zeros y of G_2(·, χ̌), and those of γ_0 are χ(φ(γ_1))·(1 + y)^{2^b}, with multiplicity.
-5. Zeros of G_F. For abelian F, ζ_{F,2}(s) = ∏_ψ L_2(s, ψ) with the Euler factors at 2 removed. For ψ = χ̌ρ the twist by the second-kind character ρ substitutes the root of unity attached to ρ(γ′) into G_2(·, χ̌) (Washington, Theorem 7.10, with the convention fixed by DirichletPadicLFunctions L2). As a function of 1 + T = u^s = (u′^s)^{2^b}, the zeros of ∏_ρ L_2(s, χ̌ρ) over the 2^b admissible ρ are exactly the χ(φ(γ_1))·(1 + y)^{2^b}. The pole factors multiply to ∏_ρ(ζ_ρu′^s − u′) = ±(u^s − u), Kolster's denominator.
-6. μ-invariants. Each ½G_2(·, χ̌) has μ = 0, because X_χ is a quotient of X^- ⊗ ℤ_2(χ) and so is finitely generated over ℤ_2. Root-of-unity substitutions preserve μ, and there are [F:ℚ] pairs (χ̌, ρ), each contributing one factor 2. So G_F = 2^{[F:ℚ]}·unit·P with P distinguished.
-7. P and Q have the same roots with multiplicity, so (G_F) = (2^{[F:ℚ]}·f_F) in Λ, which is FedererMainConjecture(F).
+1. Consume ClassFieldTheory Layer 13’s kroneckerWeber before placing F in ℚ(μ_{m2^∞}) with m odd. Put F′=F(μ_{2^∞})∩ℚ(μ_m). The disjoint cyclotomic factors show F(μ_{2^∞})=F′(μ_{2^∞}); F′ is abelian and unramified at 2 and can be imaginary. Put K₀=F′(√−1), Δ′=Gal(K₀/ℚ), Γ′=Gal(K_∞/K₀), γ′ a generator and u′=κ(γ′). Then the common full tower K_∞ is Kolster’s F_∞, and its rational Galois group is Δ′×Γ′.
+2. Kolster's Γ = Gal(F_∞/F(√−1)) is procyclic and open, so Γ = {(φ(γ), γ) : γ ∈ Γ′^{2^b}} for some b ≥ 0 and some homomorphism φ: Γ′^{2^b} → Δ′ fixing √−1. Set γ_1=(γ′)^{2^b}, the corresponding generator of Γ′^{2^b}, and choose γ_0 = (φ(γ_1), γ_1) and u = u′^{2^b}. Gal(F_∞/F) = ⟨j⟩ × Γ, so the even characters of F are the products χ̌·ρ, with χ̌ an even character of Δ′ and ρ a character of Γ′ such that ρ(γ_1) = χ̌(φ(γ_1))^{−1}. Since φ fixes √−1, χ̌(φ(γ_1)) = χ(φ(γ_1))^{−1} for χ = ωχ̌^{−1}, so the condition is ρ(γ_1) = χ(φ(γ_1)). There are 2^b such ρ for each χ̌, so [F:ℚ] = 2^b·|Δ′|/2.
+3. The common tower identifies the direct-limit class module before restricting to Kolster’s open Γ. For the passage from its norm-kernel minus part to the quotient by (1+j), request the actual comparison from I.2. Under Ferrero–Washington μ=0 the relevant compact modules are finite over ℤ₂, so kernels/cokernels killed by 2 are finite; this justifies passage to rational eigenspaces/characteristic ideals only once the maps are established. Greither Lemma 3.3 uses the covariant dual action (σφ)(x)=φ(σx), not inverse action.
+4. Write 𝒢₂(T′,ψ) for Greither’s meromorphic function and P₂(T′,ψ)=(T′−q₀)^δ 𝒢₂(T′,ψ) for its analytic numerator, q₀=u′−1 and δ=1 iff ψ=1. Use char(X_χ)=(P₂(T′,χ̌)/2) for odd χ, with χ̌=ωχ⁻¹. The exceptional χ=ω numerator P₂/2 is a unit by the separate p. 470 argument (request the corrected supplier case, E7). Consequently the γ′ eigenvalues are 1+y for roots y of P₂, and γ₀=(φ(γ₁),γ₁) has eigenvalues χ(φ(γ₁))(1+y)^(2^b). No roots or μ-invariant are assigned to an uncleared meromorphic function.
+5. Use ζ_{F,2}(s)=∏_{ψ}L₂(s,ψ), with dyadic factors removed, and the exact second-kind convention requested from L2. In Greither’s u^s variable the root argument requires ζρ=ρ(γ′)⁻¹. Then ρ(γ₁)=χ(φ(γ₁)) implies ζρ^(2^b)=χ(φ(γ₁))⁻¹, so a zero ζρ u′^s=1+y gives u^s=χ(φ(γ₁))(1+y)^(2^b), matching the module eigenvalue. Only χ̌=1 contributes denominators; its admissible ρ multiply the pole factors to a unit times u^s−u, exactly once. Establish the requested involution convention before concluding this root match; with ζρ=ρ(γ′), the two multipliers are inverse and the inherited argument fails.
+6. Use μ(P₂/2)=0 on the integral pole-cleared numerators, including the unit exceptional case, and justify its preservation under the finite character substitutions and coefficient descent. The product has [F:ℚ] analytic numerator factors, each contributing one 2, so the intended result is G_F=2^[F:ℚ]·unit·P with P distinguished. This is part of the requested arbitrary-ramification comparison, not an application of μ to 𝒢₂ at its pole.
+7. After the exact L2 convention, I.2 finite minus comparison and exceptional Greither case are supplied, the root and μ computations identify P with f_F’s distinguished polynomial Q and imply (G_F)=(2^[F:ℚ]f_F). The endpoint is the proof target; the outstanding comparison is explicitly recorded as a gap.
 
-**Direct dependencies.** `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p`, `EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality`, `EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts`, `IntegralIwasawaTheory:L4`, `DirichletPadicLFunctions:L2`, `AutomorphicPadicLFunctions:L3`.
+**Direct dependencies.** `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p`, `EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality`, `EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts`, `IntegralIwasawaTheory:L4`, `DirichletPadicLFunctions:L2`, `AutomorphicPadicLFunctions:L3`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`, `IntegralIwasawaTheory:I.2`.
 
-**Source passages.** [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §1, closing remark, p. 454: Greither's statement that his theorem and Kolster's give the 2-part of Birch–Tate.; [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §3, Lemma 3.3, p. 469: The comparison of X with the dual of A_∞.; [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §1, the Main Conjecture (= Theorem 3.2), p. 452: Greither's main conjecture with the one-half normalisation.
+**Source passages.** [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §1, closing remark, p. 454: Greither's statement that his theorem and Kolster's give the 2-part of Birch–Tate; [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §3, Lemma 3.3, p. 469: The comparison of X with the dual of A_∞; [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §1, the Main Conjecture (= Theorem 3.2), p. 452: The inclusive odd-character statement p. 452, with the meromorphic G₂ normalization and single exceptional pole; the χ=ω argument is on p. 470. The contradictory exclusion printed in Theorem 3.2 p. 469 is source issue E7; [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §3, exceptional-character argument in the proof of Theorem 3.2, p. 470: The source proves X_ω finite, so its characteristic ideal is (1); this separate case must be exported by the supplier.
 
 **Acceptance.** The abelian hypothesis is on F/ℚ itself; the auxiliary field F′ is abelian because F is. F = ℚ(√2): F′ = ℚ, b = 1 and φ is trivial; both sides are (2²) = (4), with f = 1.
 
@@ -833,7 +852,7 @@ Let F be a totally real number field, abelian over ℚ. Then v_2(#K_2(o_F)) = v_
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`, `SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate`.
 
-**Source passages.** [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §1, closing remark, p. 454: The claim.; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Theorem 5, p. 250: The implication used.
+**Source passages.** [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), §1, closing remark, p. 454: The claim; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Theorem 5, p. 250: The implication used.
 
 **Acceptance.** F = ℚ(√2): w_2(F) = 48 and ζ_F(−1) = 1/12, so v_2(#K_2(ℤ[√2])) = 4 − 2 = 2.
 
@@ -857,7 +876,8 @@ Let F be a totally real number field, abelian over ℚ. Then BirchTateFormula(F)
 
 **Acceptance.** This is the historical endpoint the stage keeps separately available: it uses only the abelian main conjectures (Mazur–Wiles at odd ℓ, Greither at 2), not the modern all-prime theorem of B.6. F = ℚ(√5) is abelian, and the formula gives #K₂(𝓞_F) = w₂(F)·ζ_F(−1) = 120·(1/30) = 4 (B.3).
 
-**Stage status: planned.** Discharge the exact Kolster 1987 finite sequence (N.6), Iwasawa unit cohomology and compact-dual no-finite-submodule theorem (I.2), twist/evaluation (L2), Ferrero–Washington (L4) and second-kind character convention (DirichletPadicLFunctions L2). The arbitrary-ramification auxiliary-tower comparison is a source-based proof outline, not a checked equivalence.
+**Stage status: planned.** Discharge the exact Kolster 1987 finite sequence (N.6), Iwasawa unit cohomology and compact-dual no-finite-submodule theorem (I.2), twist/evaluation (L2), Ferrero–Washington (L4) and second-kind character convention (DirichletPadicLFunctions L2). The arbitrary-ramification auxiliary-tower comparison is a source-based proof outline, not a checked equivalence. Discharge the explicit arbitrary-ramification comparison gap: Kronecker–Weber from its existing upstream owner, the χ=ω supplier case, norm-kernel/quotient maps, and the second-kind involution in the u^s variable. The packet and definitive reader distinguish meromorphic 𝒢₂ from the pole-cleared P₂ and retain these exact supplier gates.
+
 
 ## B.6 — The modern route and exact finite descent
 
@@ -893,7 +913,7 @@ this recorded comparison gap.
 
 **Comparison** `SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary`. Declaration: `TauCeti.BirchTate.twoAdicZetaSeries_eq_kurihara`.
 
-Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and infinite places of F, F_∞/F the cyclotomic ℤ_2-extension (Kolster's F_∞^+), Λ = ℤ_2[[Gal(F_∞/F)]] = ℤ_2[[T]] with T = γ − 1, and K_∞ = F(μ_{2^∞}) (Kolster's F_∞). Choose γ to be the restriction of Kolster's γ_0 ∈ Gal(K_∞/F(√−1)), so that u = κ(γ_0). Let g = g_{F_∞/F,S} be Kurihara's Deligne–Ribet pseudo-measure, with (γ − 1)g ∈ Λ, and ι_u the automorphism of Λ with γ ↦ κ(γ)γ^{−1}, i.e. T ↦ u(1 + T)^{−1} − 1. Let X_{F_∞,S} be the Galois group of the maximal abelian pro-2 extension of F_∞ unramified outside S. Then Kolster's G_F satisfies G_F(T) = (T + 1 − u)·g(u(1 + T)^{−1} − 1) in Λ. Equivalently (G_F) = ι_u((γ − 1)g)·Λ.
+Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and infinite places of F, F_∞/F the cyclotomic ℤ_2-extension (Kolster's F_∞^+), Λ = ℤ_2[[Gal(F_∞/F)]] = ℤ_2[[T]] with T = γ − 1, and K_∞ = F(μ_{2^∞}) (Kolster's F_∞). Choose γ to be the restriction of Kolster's γ_0 ∈ Gal(K_∞/F(√−1)), so that u = κ(γ_0). Let g = g_{F_∞/F,S} be Kurihara's Deligne–Ribet pseudo-measure, with (γ − 1)g ∈ Λ, and ι_u the automorphism of Λ with γ ↦ κ(γ)γ^{−1}, i.e. T ↦ u(1 + T)^{−1} − 1. Let X_{F_∞,S} be the Galois group of the maximal abelian pro-2 extension of F_∞ unramified outside S. Then Kolster's G_F satisfies G_F(T) = (T + 1 − u)·g(u(1 + T)^{−1} − 1) in Λ. Consequently (G_F) = ι_u((γ − 1)g)·Λ.
 
 **Hypotheses and boundary.** S-truncation: Kurihara's L_S removes the Euler factors at the dyadic places, as Kolster's 2-adic L-function does. This is the B.6 special-value adapter of the dictionary owned by IntegralIwasawaTheory:I.10 (accepted RS-16); I.10 exports the coefficient-ring map and convergence/uniqueness result. It is not a second construction of the dictionary.
 
@@ -906,7 +926,7 @@ Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and in
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `IntegralIwasawaTheory:I.9`, `AutomorphicPadicLFunctions:L3`, `mathlib:PowerSeries`, `IntegralIwasawaTheory:I.10`.
 
-**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.1, the p-adic L-function g_{K∞/k,S}, p. 23: The set-up of §4.1, with p = 2 allowed.; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Conjecture 3 and the definition of G(T), p. 250: Kolster's G with L₂(χ₀, s) = G(u^s − 1)/(u^s − u).
+**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.1, the p-adic L-function g_{K∞/k,S}, p. 23: The set-up of §4.1, with p = 2 allowed; [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Conjecture 3 and the definition of G(T), p. 250: Kolster's G with L₂(χ₀, s) = G(u^s − 1)/(u^s − u).
 
 **Acceptance.** F = ℚ: G(u^{−1} − 1) = ζ_{ℚ,S}(−1)·(u^{−1} − u) and g(u² − 1) = ζ_{ℚ,S}(−1) = (1 − 2)ζ(−1) = 1/12; with u = 5 these are −2/5 and 1/12, and (u^{−1} − u)·(1/12) = −2/5.
 
@@ -927,7 +947,7 @@ Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and in
 
 **Direct dependencies.** `IntegralIwasawaTheory:I.9`.
 
-**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.2, Theorem 4.1, p. 24: Theorem 4.1, for every p including 2.; [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.2, the remarks after the proof, p. 27: (γ − 1)g at the augmentation prime.
+**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.1, Theorem 4.1, printed p. 24; proof in §4.2, p. 24: Theorem 4.1, for every p including 2; [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.2, the remarks after the proof, p. 27: (γ − 1)g at the augmentation prime.
 
 **Acceptance.** The finite cokernel in Kurihara Lemma 4.2(1) vanishes at height-one localization, but its finite-specialization Euler characteristic must still be accounted for.
 
@@ -961,7 +981,7 @@ Let F be a totally real number field, p = 2, S = S_2 ∪ S_∞ the dyadic and in
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary`, `SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f`, `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate`, `IntegralIwasawaTheory:I.10`, `ArithmeticKTheory:N.4/two-primary-w-invariant`.
 
-**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.2, Lemma 4.2(1), p. 25: The order-2 cokernel at p = 2.; [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.1, the complex RΓc, p. 22: The compact-support convention of §4.
+**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.2, Lemma 4.2(1), p. 25: The order-2 cokernel at p = 2; [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.1, the complex RΓc, p. 22: The compact-support convention of §4.
 
 **Acceptance.** The table is tested on ℚ before being applied in general, as the stage requires. For M = Λ/(2,T), char_Λ(M) is the unit ideal but M/TM has order 2; this prevents any proof that discards finite modules before evaluating an order.
 
@@ -983,7 +1003,7 @@ Let F be a totally real number field. Then FedererMainConjecture(F) holds.
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary`, `SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f`, `SpecialValuesBirchTate:B.6/kolster-kurihara-comparison-table`, `SpecialValuesBirchTate:B.5/federer-main-conjecture`.
 
-**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.2, Theorem 4.1, p. 24: The input over an arbitrary totally real base.
+**Source passages.** [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), §4.1, Theorem 4.1, printed p. 24; proof in §4.2, p. 24: The input over an arbitrary totally real base.
 
 **Acceptance.** F = ℚ: both sides are (2).
 
@@ -1011,6 +1031,7 @@ Let F be a totally real number field. Then BirchTateFormula(F) holds: ζ_F(−1)
 
 **Stage status: planned.** I.10 must supply entries (a),(b),(f),(i) of the exact comparison and finite-specialization diagram, including all finite/Tor contributions; the all-prime Birch–Tate theorem remains a proof target dependent on this gap. I.9’s theorem is imported, not rebuilt.
 
+
 ## B.7 — S-integers, Euler factors and naturality
 
 <a id="B-7-s-modified-dedekind-zeta"></a>
@@ -1030,10 +1051,10 @@ Let F be a number field and S a finite set of maximal ideals of 𝓞_F (IsDedeki
 
 **Uses that determine the API.**
 
-- `SpecialValuesBirchTate:B.7/birch-tate-for-s-integers`: Its value at −1 is compared with #K₂(𝓞_{F,S})/w₂(F)..
-- `SpecialValuesBirchTate:B.4`: The passage from 𝓞_F to 𝓞_F[1/ℓ] takes S to be the primes above ℓ..
-- `IntegralIwasawaTheory:I.10`: The S-Euler factors in the B.6 comparison table are these factors at s = −1..
-- `ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime`: The S-integer examples compare with ζ_{ℚ,{p}}(−1)..
+- `SpecialValuesBirchTate:B.7/birch-tate-for-s-integers`: Its value at −1 is compared with #K₂(𝓞_{F,S})/w₂(F).
+- `SpecialValuesBirchTate:B.4`: The passage from 𝓞_F to 𝓞_F[1/ℓ] takes S to be the primes above ℓ.
+- `IntegralIwasawaTheory:I.10`: The S-Euler factors in the B.6 comparison table are these factors at s = −1.
+- `ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime`: The S-integer examples compare with ζ_{ℚ,{p}}(−1).
 
 **Working API.**
 
@@ -1043,7 +1064,7 @@ Let F be a number field and S a finite set of maximal ideals of 𝓞_F (IsDedeki
 - `TauCeti.BirchTate.sModifiedZeta_eq_LSeries_restrictAway` (compatibility): On Re s > 1 sModifiedZeta F S equals the L-series of the Euler-product data restricted away from S (TauCeti.EulerProductData.restrictAway).
 - `TauCeti.BirchTate.sModifiedZeta_neg_one` (characterisation): sModifiedZeta F S (−1) = (−1)^#S * dedekindZetaCont F (−1) * ∏ v ∈ S, (Nv − 1) (B.7/euler-factors-at-minus-one).
 
-**Discriminating tests.** Each named test is an example in the suggested file.
+**Discriminating tests.** The suggested file gives representative examples; interfaces on unavailable supplier objects remain comments.
 
 - `TauCeti.BirchTate.sModifiedZeta_empty_eq` (degenerate): With S = ∅ the function is dedekindZetaCont F itself.
 - `TauCeti.BirchTate.sModifiedZeta_rat_two_neg_one` (computation): For ℚ and S = {(2)}: ζ_{ℚ,S}(−1) = (−1/12)(1 − 2) = 1/12; the sign changes.
@@ -1115,7 +1136,7 @@ Let F be a number field and S a finite set of maximal ideals of 𝓞_F. Then Bir
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.1/birch-tate-formula`, `SpecialValuesBirchTate:B.7/euler-factors-at-minus-one`, `SpecialValuesBirchTate:B.7/k2-order-of-s-integers`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §1, p. 8: The S-modified zeta function is ζ_F with the Euler factors at S removed.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §1, p. 8: The S-modified zeta function is ζ_F with the Euler factors at S removed; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515): The formula of B.1, with (−1)^{r_1} = (−1)^{[F:ℚ]} for totally real F.
 
 **Acceptance.** For ℚ and S = {(2)}: 1/12 = (+1) · 2/24; for S = {(3)}: 1/6 = (+1) · 4/24. Keeping the unmodified sign (−1)^{[F:ℚ]} after removing a prime gives −1/12 ≠ 1/12.
 
@@ -1147,24 +1168,25 @@ For finite S ⊆ T of finite primes of F, ζ_{F,T}(s) = ζ_{F,S}(s) ∏_{v∈T�
 
 **Comparison** `SpecialValuesBirchTate:B.7/localisation-comparison-naturality`. Declaration: `TauCeti.BirchTate.chern_localisation_square`.
 
-For finite S ⊆ T containing the primes above ℓ, the Chern/Tate maps from K₂(𝓞_{F,S})⊗ℤ_ℓ to H²_ét(𝓞_{F,S},ℤ_ℓ(2)) commute with inclusion to T, cohomology restriction and each residue boundary. For ℓ odd the two rows are identified exact localization rows. At 2 with real places use M.7’s corrected complexes and their real-place maps. The denominator W₂(F) map is the identity. For n ≥ 2 the rational higher-K comparisons and archimedean regulators commute with the same inclusions; the induced odd-degree torsion-free lattice map is an isomorphism, hence its normalized regulator covolume is unchanged.
+For finite sets S_f⊆T_f of finite primes containing the primes above ℓ, the actual Tate/Galois maps h_{S_f}:K₂(𝓞_{F,S_f})⊗ℤ_ℓ→H²_cont(𝓞_{F,S_f},ℤ_ℓ(2)) commute with inclusions, cohomology restriction and coefficient transitions. At finite coefficient level m=ℓ^r, the chosen residue convention is ∂_v∘h_{F,m}=−κ_{k(v)}∘∂^{tame}_v for v∈T_f∖S_f; the commuting boundary square therefore uses −κ_{k(v)}, and the compatible limits give the adic localization comparison. Import M.8’s separate normalized agreement before expressing this Tate/Galois comparison with Chern-class maps. For higher comparisons at 2 with real places use M.7’s corrected complexes and real-place maps. The denominator W₂(F) map is the identity. For n≥2 the rational higher-K comparisons and archimedean regulators commute with the same inclusions; the induced odd-degree torsion-free lattice map is an isomorphism, so its normalized regulator covolume is unchanged.
 
-**Hypotheses and boundary.** S ⊆ T finite, primes above ℓ included; degree two uses M.3, higher weights M.7; at 2 the real-place corrected comparison is required. The regulator assertion is for K_{2n−1}, n ≥ 2. It is not the degree-one S-unit formula.
+**Hypotheses and boundary.** S_f⊆T_f are finite and contain the primes above ℓ. For M.3/tate-s-integer use S_total=S_∞∪S_f and T_total=S_∞∪T_f; no archimedean Euler factor is deleted. The degree-two Galois/Tate maps and residue sign are exact M.3 imports, their comparison to Chern classes belongs to M.8 under RS-08, and the higher corrected real-place maps belong to M.7. The regulator assertion is for K_{2n−1}, n ≥ 2. It is not the degree-one S-unit formula.
 
 **Construction or proof.**
 
-1. Use M.3’s natural Chern maps and compatible coefficient/residue maps on the Dedekind localization sequence supplied by N.2 and T.5. Tensor the finite degree-two row with ℤ_ℓ and take the compatible coefficient limits.
-2. M.7 gives the corrected real-place diagram at 2; its archimedean terms are unchanged by removing finite primes. I.10 supplies the same compatibility in the compact-support/descent comparison of B.6.
-3. In degree 2n−1, finite-field K_{2n−2} vanishes, so the higher localization map is surjective with finite kernel. It induces an isomorphism on torsion-free integral lattices. Apply the natural regulator map from R.4/R.7 and its coordinate measure.
+1. Use the actual Galois/Tate maps and finite-level/adic naturality in M.3/tate-s-integer(b)–(d), with M.3/symbol-residue-compatibility fixing ∂∘h=−κ∘tame. Tensor the finite degree-two row of T.5 with the flat ℤ-module ℤ_ℓ and use the compatible coefficient maps. For a Chern formulation, request the exact normalized Chern/Galois agreement from M.8; do not rename the Tate map as c₂,₂ without that comparison.
+2. M.7 gives the corrected higher real-place diagram at 2; its archimedean terms are unchanged by removing finite primes. I.10 supplies the same compatibility in the compact-support/descent comparison of B.6.
+3. In degree 2n−1 with n≥2, KTheoryFiniteLocalFields:L.1/quillen-k-groups gives K_{2n−2}(k(v))=0 and finite positive odd K groups for every residue field, including characteristic two. The higher localization map is therefore surjective with finite kernel and induces an isomorphism on torsion-free integral lattices. Apply the natural regulator map from R.4/R.7 and its coordinate measure.
 4. The ζ leading coefficient is multiplied by ∏_{v∈T∖S}(1−Nv^(n−1)), a nonzero real factor; its order of vanishing is unchanged. Track this factor alongside the finite localization terms, without inferring an integral K-isomorphism from rationalization.
 
-**Direct dependencies.** `SpecialValuesBirchTate:B.7/enlarging-s`, `K2SymbolsBrauer:T.5/relative-s-integer-sequence`, `ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain`, `ArithmeticKTheory:N.3/finite-S-localisation-defect`, `ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence`, `MotivicEtaleKTheory:M.3`, `MotivicEtaleKTheory:M.7`, `IntegralIwasawaTheory:I.10`, `BorelRegulators:R.4/borel-regulator`, `BorelRegulators:R.4/regulator-covolume`, `BorelRegulators:R.7/regulator-factor-two`, `KTheoryFiniteLocalFields:L.1`.
+**Direct dependencies.** `SpecialValuesBirchTate:B.7/enlarging-s`, `K2SymbolsBrauer:T.5/relative-s-integer-sequence`, `ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain`, `ArithmeticKTheory:N.3/finite-S-localisation-defect`, `ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence`, `MotivicEtaleKTheory:M.3/tate-s-integer`, `MotivicEtaleKTheory:M.7`, `IntegralIwasawaTheory:I.10`, `BorelRegulators:R.4/borel-regulator`, `BorelRegulators:R.4/regulator-covolume`, `BorelRegulators:R.7/regulator-factor-two`, `KTheoryFiniteLocalFields:L.1/quillen-k-groups`, `MotivicEtaleKTheory:M.3/symbol-residue-compatibility`, `MotivicEtaleKTheory:M.8`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1 §1, printed p. 8; Lecture 2 §3, pp. 13–15: The cohomological descent and main-conjecture evaluation retain the same finite-S Euler factors.; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.11.11 proof and V.11.12(4); VI.9.4–9.5: V.11 constructs the natural étale Chern maps. VI.9.4 uses the natural real-place restriction map, and VI.9.5 identifies the odd higher groups for S-integers. Residue compatibility and corrected integral comparisons are imported from M.3/M.7, not inferred from rationalized ranks.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1 §1, printed p. 8; Lecture 2 §3, pp. 13–15: The cohomological descent and main-conjecture evaluation retain the same finite-S Euler factors; [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.11.11 proof and V.11.12(4), printed pp. 457–459 (PDF pp. 465–467); VI.9.4–9.5, printed pp. 519–520 (PDF pp. 527–528): V.11 constructs natural Chern classes in its stated geometric setting and their étale realizations; it does not by itself give the arithmetic Galois-symbol comparison or residue normalization. VI.9.4 uses arithmetic real-place restriction, and VI.9.5 identifies the odd higher groups for S-integers. M.3 supplies the actual Galois/Tate maps and signed residues, M.8 the separate normalized Chern/Galois agreement, and M.7 the higher corrected integral comparisons. The regulator claim uses the induced isomorphism of torsion-free integral lattices, not rationalized rank equality alone.
 
-**Acceptance.** For ℚ, ℓ=3, S={(3)}, T={(2),(3)}, the added norm factor 2−1=1 leaves the 3-primary row unchanged while the zeta sign flips. Adding a prime of norm q with ℓ | q−1 gives a nontrivial residue ℓ-part; the theorem cannot claim invariance of that primary group.
+**Acceptance.** For ℚ, ℓ=3, S={(3)}, T={(2),(3)}, the added norm factor 2−1=1 leaves the 3-primary row unchanged while the zeta sign flips. Adding a prime of norm q with ℓ | q−1 gives a nontrivial residue ℓ-part; the theorem cannot claim invariance of that primary group. The residue sign is visible at an odd coefficient: for k(v)=𝔽₇ and m=3, choose a unit u whose residue generates 𝔽₇× and a uniformizer π. Then κ(ū) has order 3, so ∂h{u,π}=−κ(ū) differs from +κ(ū). An uncorrected square with +κ loses the supplier’s convention.
 
-**Stage status: planned.** Discharge naturality of the actual M.3/M.7 Chern/residue maps and I.10 compact-support descent under S enlargement, with real corrections at 2. Regulator compatibility uses the integral torsion-free localization isomorphism and normalized R.4/R.7 covolume.
+**Stage status: planned.** Use the exact M.3 Tate/Galois maps, their signed residue identity and L.1 finite-field K-group table. Discharge M.8’s normalized Chern/Galois agreement, M.7’s higher corrected real-place maps and I.10’s compact-support descent under S enlargement. Regulator compatibility uses the integral torsion-free localization isomorphism and normalized R.4/R.7 covolume.
+
 
 ## B.8 — Higher values and integral conjecture statements
 
@@ -1186,6 +1208,10 @@ order \(2^{r_1}w_n\{2\}\). At \(n\equiv0\pmod4\), the even group is the kernel
 of the surjective real restriction \(H^2\to(\mathbb Z/2)^{r_1}\), and the odd
 torsion has order \(w_n\{2\}\). The maps and surjectivity are M.7's comparison
 outputs, not an inference from degree two.
+
+For ℚ, the local cohomological ratios are 2/8=1/4 at n=2 and 2/16=1/8
+at n=4. The separate full-order checks are 2·2/48=1/12 and 2·1/240=1/120.
+The number 240 is the full order w₄(ℚ), not the order of a 2-primary H¹ group.
 
 The classical even-weight abelian consequence uses Rognes–Weibel's Kolster
 appendix, A.1–A.3; it does not extend B.6's modern weight-two gate by replacing
@@ -1212,7 +1238,7 @@ For n ≥ 2, import the actual integral motivic groups from M.8/PS.3 and their a
 1. Finiteness: H²_ét(𝓞_F[1/p], ℤ_p(n)) is finite, and trivial for almost all p (Proposition 2.1(4), N.6).
 2. Ranks: rk_{ℤ_p} H¹_ét(𝓞_F[1/p], ℤ_p(n)) = rk H¹(F, ℤ_p(n)) = r₁ + r₂ or r₂ for odd or even n (Proposition 2.1(3), (5)).
 3. Torsion: the coefficient sequence gives H¹(ℤ_p(n))_tors ≅ H⁰(ℚ_p/ℤ_p(n)) for n ≠ 0 (B.4's w₂ lemma with twist n), of order w_n^{(p)}(F).
-4. n = 2: B.4/k2-ell-part-as-etale-cohomology at odd ℓ, and Tate's theorem at 2 (M.3).
+4. n=2: use B.4/k2-ell-part-as-etale-cohomology at odd ℓ. At ℓ=2, the exact M.3/tate-s-integer(b) theorem still identifies the dyadic-localized K₂ primary part with H², including real places; B.4/k2-ell-part-unchanged-by-inverting-ell gives the same 2-primary order for K₂(𝓞_F). Thus all primary orders agree and h₂(F)=#K₂(𝓞_F). This degree-two argument does not extrapolate to higher weights.
 
 **Uses that determine the API.**
 
@@ -1227,15 +1253,15 @@ For n ≥ 2, import the actual integral motivic groups from M.8/PS.3 and their a
 - `TauCeti.BirchTate.card_torsion_etaleH1Model` (characterisation): The imported H¹ torsion has order w_n(F).
 - `TauCeti.BirchTate.hInvariant_two` (relation): h₂(F) = #K₂(𝓞_F), through Tate’s actual comparison, including its degree-two case at 2.
 
-**Discriminating tests.** Each named test is an example in the suggested file.
+**Discriminating tests.** The suggested file gives representative examples; interfaces on unavailable supplier objects remain comments.
 
 - `TauCeti.BirchTate.hInvariant_two_rat` (computation): h_2(ℚ) = #K₂(ℤ) = 2.
 - `TauCeti.BirchTate.rank_etaleH1Model_rat_two` (computation): For ℚ and n = 2 the rank is r₂ = 0 (K₃(ℤ) ≅ ℤ/48 is finite), not r₁ + r₂ = 1 as Kolster prints (E6).
 - `TauCeti.BirchTate.card_torsion_etaleH1Model_rat_two` (non-example): #H¹(ℤ, ℤ(2))_tors = w₂(ℚ) = 24 differs from #K₃(ℤ)_tors = 48: the cohomological model and K-theory differ at 2.
 
-**Direct dependencies.** `ArithmeticKTheory:N.6`, `ArithmeticKTheory:N.4/the-w-invariant`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `MotivicEtaleKTheory:M.3`, `SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology`, `SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology`, `MotivicEtaleKTheory:M.8`, `PeriodsAndSpecialValues:PS.3`.
+**Direct dependencies.** `ArithmeticKTheory:N.6`, `ArithmeticKTheory:N.4/the-w-invariant`, `ArithmeticKTheory:N.4/finiteness-of-the-w-invariant`, `MotivicEtaleKTheory:M.3/tate-s-integer`, `SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology`, `SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology`, `MotivicEtaleKTheory:M.8`, `PeriodsAndSpecialValues:PS.3`, `SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the global models, p. 11: H²(𝓞_F, ℤ(n)) as a product; its order h_n(F).; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the group H¹(𝓞_F, ℤ(n)), p. 11: The printed ranks are interchanged (source issue E6).
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the global models, p. 11: H²(𝓞_F, ℤ(n)) as a product; its order h_n(F); [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the group H¹(𝓞_F, ℤ(n)), p. 11: The printed ranks are interchanged (source issue E6).
 
 **Acceptance.** For ℚ and n = 2: h_2(ℚ) = #K₂(ℤ) = 2 and #H¹(ℤ, ℤ(2))_tors = w₂(ℚ) = 24, while K₃(ℤ) ≅ ℤ/48. So the torsion of the cohomological H¹ is not that of K₃ at 2.
 
@@ -1264,7 +1290,7 @@ Let F be a number field and n ≥ 2. Let ζ*_F(1 − n) be the leading coefficie
 - `TauCeti.BirchTate.MotivicLichtenbaumFormula` (constructor): |ζ*_F(1 − n)| = #H²(𝓞_F, ℤ(n))/#H¹(𝓞_F, ℤ(n))_tors · R_n^M(F).
 - `TauCeti.BirchTate.lichtenbaumFormulaOddPart_two_iff` (characterisation): For F totally real, LichtenbaumFormulaOddPart(F, 2) ↔ the Birch–Tate valuation identity at every odd ℓ.
 
-**Discriminating tests.** Each named test is an example in the suggested file.
+**Discriminating tests.** The suggested file gives representative examples; interfaces on unavailable supplier objects remain comments.
 
 - `TauCeti.BirchTate.lichtenbaumFormulaOddPart_rat_two` (computation): ℚ, n = 2: ζ(−1) = −1/12, #K₂(ℤ) = 2, #K₃(ℤ) = 48, R = 1. At ℓ = 3, −1 = 0 − 1; at ℓ ≥ 5, 0 = 0 − 0.
 - `TauCeti.BirchTate.not_lichtenbaum_rat_two_at_two` (non-example): The K-theoretic formula including 2 would say 1/12 = 2/48 = 1/24, which is false.
@@ -1274,7 +1300,7 @@ Let F be a number field and n ≥ 2. Let ζ*_F(1 − n) be the leading coefficie
 
 **Direct dependencies.** `BorelRegulators:R.4/regulator-covolume`, `SpecialValuesBirchTate:B.8/cohomological-h2-model`, `SpecialValuesBirchTate:B.1/birch-tate-formula`, `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`, `mathlib:padicValRat`, `BorelRegulators:R.5/zeta-zero-order`, `BorelRegulators:R.5/zeta-leading-coefficient`, `BorelRegulators:R.5/borel-zeta-proportionality`, `MotivicEtaleKTheory:M.8`, `PeriodsAndSpecialValues:PS.3`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15: The K-theoretic form.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, the order of vanishing, p. 15: Orders of vanishing and Borel's ranks.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Motivic Lichtenbaum Conjecture 3.7, p. 16: The motivic form.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, the regulators, p. 16: R_n^M against R_n^B.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15: The K-theoretic form; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, the order of vanishing, p. 15: Orders of vanishing and Borel's ranks; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Motivic Lichtenbaum Conjecture 3.7, p. 16: The motivic form; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, the regulators, p. 16: R_n^M against R_n^B.
 
 **Acceptance.** The K-theoretic form genuinely needs 'up to powers of 2': see the ℚ, n = 2 non-example. The motivic form holds exactly for ℚ and n = 2.
 
@@ -1292,12 +1318,12 @@ Let F be totally real, n ≥ 2 even and ℓ an odd prime. Then v_ℓ(|ζ_F(1 −
 
 1. This is B.4/etale-euler-characteristic-and-zeta with the twist 2 replaced by n. E = F(μ_ℓ); ψ = ω^n as a character of G = Gal(E/F), so χ = ψω^{−n} = 1.
 2. Descent: (X_ψ(−n)_Γ)^∨ ≅ H²_ét(𝓞_E[1/ℓ], ℤ_ℓ(n))^G ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) (Proposition 3.1, codescent). For totally real F and even n, H¹(ℚ_ℓ/ℤ_ℓ(n)) ≅ H²(ℤ_ℓ(n)) (Corollary 2.2(a)).
-3. Evaluation: X_ψ(−n) has no nonzero finite submodule, and its characteristic polynomial is f(κ(γ)^n(1 + T) − 1). So |X_ψ(−n)_Γ| ~ f(κ(γ)^n − 1) ~ L_ℓ(1 − n, ψ) = ζ_F(1 − n)·∏_{v|ℓ}(1 − Nv^{n−1}), and the Euler factors are ℓ-adic units.
+3. Evaluation: X_ψ(−n) has no nonzero finite submodule, and its characteristic polynomial is f(κ(γ)^n(1 + T) − 1). Thus |X_ψ(−n)_Γ| ~ f(κ(γ)^n − 1). For ψ ≠ 1, Proposition 3.2 gives this value ~ L_ℓ(1 − n, ψ) = ζ_F(1 − n)·∏_{v|ℓ}(1 − Nv^{n−1}), with ℓ-adic-unit Euler factors. For ψ = 1, the numerator gives f(κ(γ)^n − 1) ~ (κ(γ)^n − 1)L_ℓ(1 − n, 1); the next step identifies that extra factor with the H⁰ denominator.
 4. ψ = ω^n|_G is trivial exactly when W_n(F)_ℓ ≠ 0; then the pole factor contributes #H⁰(F, ℚ_ℓ/ℤ_ℓ(n)) ~ κ(γ)^n − 1. Otherwise W_n(F)_ℓ = 0.
 
 **Direct dependencies.** `IntegralIwasawaTheory:I.5`, `IntegralIwasawaTheory:I.2`, `IntegralIwasawaTheory:L2`, `ArithmeticKTheory:N.6`, `AutomorphicPadicLFunctions:L3`, `SpecialValuesBirchTate:B.8/cohomological-h2-model`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Theorem 3.3, p. 15: Theorem 3.3 with χ = 1.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Corollary 3.4, p. 15: Corollary 3.4.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Theorem 3.3, p. 15: Theorem 3.3 with χ = 1; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Corollary 3.4, p. 15: Corollary 3.4.
 
 **Acceptance.** n = 2 is B.4/etale-euler-characteristic-and-zeta. ℚ, n = 4, ℓ = 5: ζ(−3) = 1/120, v₅ = −1; w₄(ℚ) = 240 (v₅ = 1), so H²_ét(ℤ[1/5], ℤ_5(4)) has trivial 5-part.
 
@@ -1319,7 +1345,7 @@ Let F be totally real and n ≥ 2 even. Then LichtenbaumFormulaOddPart(F, n) hol
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic`, `SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements`, `MotivicEtaleKTheory:M.7`, `ArithmeticKTheory:N.5/e-invariant-kernel-cokernel`.
 
-**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the comparison with K-theory, p. 11: K_{2n−i} against motivic and étale cohomology.; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15: The statement proved away from 2.
+**Source passages.** [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 1, §2, the comparison with K-theory, p. 11: K_{2n−i} against motivic and étale cohomology; [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Lecture 2, §3, Lichtenbaum Conjecture 3.6, p. 15: The statement proved away from 2.
 
 **Acceptance.** n = 2 recovers B.4/odd-primary-birch-tate through Tate's comparison. ℚ, n = 4: the odd part of #K₆(ℤ) is 1.
 
@@ -1336,14 +1362,14 @@ For totally real F, even n ≥ 2 and R=𝓞_F[1/2], let a = v₂(#K_{2n−2}(�
 **Construction or proof.**
 
 1. Consume M.7’s actual Chern/real-restriction comparison and N.5/e-invariant-kernel-cokernel; no new étale K-theory is constructed here.
-2. If n ≡ 2 mod 4, the even K group is H², while the odd K group has torsion order 2^r₁ w_n. If n ≡ 0 mod 4, the even K group is ker(H² → (ℤ/2)^r₁) with surjective real restriction, and the odd group has torsion order w_n. H¹ has order w_n in both cases.
+2. Write A{2} for the 2-primary subgroup and w_n^{(2)} for the 2-primary part of w_n. If n ≡ 2 mod 4, K_{2n−2}(𝓞_F){2} ≅ H²_ét(R,ℤ₂(n)), while K_{2n−1}(𝓞_F){2} has order 2^r₁ w_n^{(2)}. If n ≡ 0 mod 4, K_{2n−2}(𝓞_F){2} is the kernel of the surjective real restriction H²_ét(R,ℤ₂(n)) → (ℤ/2)^r₁, and K_{2n−1}(𝓞_F){2} has order w_n^{(2)}. H¹_ét(R,ℤ₂(n)) has order w_n^{(2)} in both cases. These are local orders; the full w_n and K-group orders are used only after the odd-prime comparisons.
 3. Compute the finite orders in these two map-level sequences. Inverting dyadic primes does not change the 2-primary K groups because the residue orders q^j−1 are odd.
 
 **Direct dependencies.** `MotivicEtaleKTheory:M.7`, `ArithmeticKTheory:N.5/e-invariant-kernel-cokernel`, `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`, `ArithmeticKTheory:N.4/the-w-invariant`.
 
 **Source passages.** [Two-primary algebraic K-theory of rings of integers in number fields](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf), Theorem 0.1, p. 1; Theorems 0.3 and 0.6, pp. 2–4: The even-weight order ratio follows from the actual 2-adic arithmetic comparison and the two congruence classes.
 
-**Acceptance.** ℚ, n=2: 2·2/48=1/12, while 2/48=1/24 is wrong. ℚ, n=4: K₆(ℤ) is the trivial group of order 1 and #K₇(ℤ)=240, so the corrected ratio is 1/120; H² has order 2 and H¹ order 240.
+**Acceptance.** ℚ, n=2: #H²_ét(ℤ[1/2],ℤ₂(2))=2 and #H¹_ét(ℤ[1/2],ℤ₂(2))=w₂(ℚ)^{(2)}=8. The local ratio is 1/4=2·2/16, since #K₃(ℤ){2}=16. Separately, the full global check is 2·2/48=1/12; omitting the real-place factor gives 2/48=1/24. ℚ, n=4: K₆(ℤ) is trivial, #K₇(ℤ)=240 and #K₇(ℤ){2}=16. The local groups have #H²=2 and #H¹=w₄(ℚ)^{(2)}=16, so #H²/#H¹=1/8=2·1/16. Separately, the full global check is 2·1/240=1/120. The full order 240 is not the order of the 2-primary H¹ group.
 
 <a id="B-8-higher-values-real-abelian"></a>
 
@@ -1353,7 +1379,7 @@ For totally real F, even n ≥ 2 and R=𝓞_F[1/2], let a = v₂(#K_{2n−2}(�
 
 For F totally real and abelian over ℚ and even n=2k≥2, ζ_F(1−n) = (−1)^(k r₁)·2^r₁·#K_{2n−2}(𝓞_F)/#K_{2n−1}(𝓞_F).
 
-**Hypotheses and boundary.** F/ℚ abelian and totally real; n even, n ≥ 2. All displayed K groups are finite.
+**Hypotheses and boundary.** F/ℚ abelian and totally real; n even, n ≥ 2. All displayed K groups are finite. The classical p=2 argument also needs the separate χ=ω/unit branch of the Greither supplier at its ℚ base. The exact exceptional-character export is requested for this consumer as well as B.5; it is not supplied by the current χ≠ω qualifier.
 
 **Construction or proof.**
 
@@ -1363,7 +1389,7 @@ For F totally real and abelian over ℚ and even n=2k≥2, ζ_F(1−n) = (−1)^
 
 **Direct dependencies.** `SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real`, `SpecialValuesBirchTate:B.8/real-place-two-correction`, `EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p`, `BorelRegulators:R.5/leading-term-functional-equation`, `BorelRegulators:R.5/borel-zeta-proportionality`, `SpecialValuesBirchTate:B.2/positive-rational-from-valuations`, `IntegralIwasawaTheory:I.2`, `IntegralIwasawaTheory:L2`, `IntegralIwasawaTheory:I.10`, `AutomorphicPadicLFunctions:L3`, `MotivicEtaleKTheory:M.7`.
 
-**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.8, printed pp. 515–516: The full corrected finite-group equality for totally real abelian fields.; [Two-primary algebraic K-theory of rings of integers in number fields](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf), Theorem 0.2, p. 2; Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3, pp. 45–47: The classical 2-primary special-value consequence holds for even weight and totally real abelian fields.
+**Source passages.** [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI.8.8, printed pp. 515–516: The full corrected finite-group equality for totally real abelian fields; [Two-primary algebraic K-theory of rings of integers in number fields](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf), Theorem 0.2, p. 2; Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3, pp. 45–47: The classical 2-primary special-value consequence holds for even weight and totally real abelian fields.
 
 **Acceptance.** At n=2 the odd K-group order is 2^r₁ w₂, so this reduces to Birch–Tate. ℚ, n=4: ζ(−3)=1/120=2·1/240.
 
@@ -1375,7 +1401,7 @@ For F totally real and abelian over ℚ and even n=2k≥2, ζ_F(1−n) = (−1)^
 
 Define tateMotive_etnc_statement(L/E,n) by specializing the PS.5 ETNC predicate to the following data. For a finite Galois extension L/E with G=Gal(L/E), n≥2, take the Tate motive M=h⁰(Spec L)(1−n) with action A=ℚ[G], integral order 𝒜=ℤ[G] and a projective 𝒜-structure. Assuming Burns–Flach’s Coherence hypothesis and the required analytic continuation/order assertions, the imported ETNC predicate is TΩ(M,𝒜)=δ̂¹_{𝒜,ℝ}(L*(A M,0))+RΩ(M,𝒜)=0 in K₀(𝒜,ℝ). Its rationality part is membership in K₀(𝒜,ℚ); its integral part is vanishing. The local equivalent uses the perfect compact-support complex, comparison trivialization and reduced-norm correction in K₀(𝒜_p,ℚ_p). The twist 1−n puts the Dedekind/Artin value at 1−n when the motive is evaluated at s=0.
 
-**Hypotheses and boundary.** L/E finite Galois; integral lattice/projective structure, perfectness and Coherence are supplied by PS.4–PS.5. The general assertion is a conjecture, not a theorem deduced from Borel rational proportionality. Noncommutative coefficients require the center-valued leading term, reduced norm and extended boundary. An ordinary determinant or scalar valuation cannot replace them.
+**Hypotheses and boundary.** L/E finite Galois; integral lattice/projective structure, perfectness and Coherence are supplied by PS.4–PS.5. The general assertion is a conjecture, not a theorem deduced from Borel rational proportionality. Noncommutative coefficients require the center-valued leading term, reduced norm and extended boundary. An ordinary determinant or scalar valuation cannot replace them. For a nontrivial G, the leading order is a function on the simple central components; the scalar Dedekind order is only their aggregate.
 
 **Construction or proof.**
 
@@ -1386,7 +1412,7 @@ Define tateMotive_etnc_statement(L/E,n) by specializing the PS.5 ETNC predicate 
 
 **Uses that determine the API.**
 
-- `SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements`: This integral/equivariant statement is recorded alongside the positive scalar formula. Taking a scalar image loses information and has no automatic converse..
+- `SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements`: This integral/equivariant statement is recorded alongside the positive scalar formula. Taking a scalar image loses information and has no automatic converse.
 
 **Working API.**
 
@@ -1395,23 +1421,24 @@ Define tateMotive_etnc_statement(L/E,n) by specializing the PS.5 ETNC predicate 
 - `TauCeti.BirchTate.tateMotive_etnc_statement_iff_local` (compatibility): Under rationality and Coherence, the predicate is equivalent to vanishing of the corrected local class in K₀(𝒜_p,ℚ_p) for every prime p.
 - `TauCeti.BirchTate.tateMotive_etnc_statement_lattice_invariant` (compatibility): Under Coherence and the analytic/order hypotheses, two projective structures on the same Tate motive give the same corrected TΩ, hence equivalent predicates. Use the compact-support finite-quotient trivialization of Burns–Flach Lemma 5 and the global gluing of Lemma 6; the corrections compose under a third change. This is not invariance of an arbitrary uncorrected integral section under scaling.
 
-**Discriminating tests.** Each named test is an example in the suggested file.
+**Discriminating tests.** The suggested file gives representative examples; interfaces on unavailable supplier objects remain comments.
 
 - `TauCeti.BirchTate.tateMotive_etnc_trivial_group_weight_two` (compatibility): For G trivial, F=ℚ, n=2, the positive scalar image uses h₂/w₂=2/24=1/12; the K-theoretic image is 2·2/48=1/12. These are images of the determinant statement, not converses.
-- `TauCeti.BirchTate.tateMotive_etnc_complex_leading_term` (non-example): For L=ℚ(i), E=ℚ, n=2 the exact leading order is one. The input is the nonzero leading coefficient, whereas the scalar Dedekind value ζ_L(−1)=0 is not a unit and cannot be passed to δ̂¹.
+- `TauCeti.BirchTate.tateMotive_etnc_complex_leading_term` (non-example): For L=ℚ(i), E=ℚ and n=2, the scalar Dedekind leading order is one, while the center-valued Artin order is (0,1) in the trivial/quadratic components of ℚ[C₂]. The extended boundary receives the pair of nonzero componentwise leading coefficients. The raw center-valued L-value has a zero quadratic component and cannot be passed as a unit to δ̂¹; the scalar check ζ_L(−1)=0 detects the need for leading terms but does not replace this center-valued input.
 - `TauCeti.BirchTate.tateMotive_etnc_integral_index` (non-example): For the order ℤ and a rank-one integral line with basis e, the rational section 2e has index 2. Its relative K₀(ℤ,ℚ) class has nonzero 2-component; a predicate that merely asks for nonzero rational proportionality would accept it incorrectly.
 
 **Direct dependencies.** `PeriodsAndSpecialValues:PS.4`, `PeriodsAndSpecialValues:PS.5`, `GeneralAlgebraicKTheory:K.5`, `BorelRegulators:R.4/regulator-determinant`, `BorelRegulators:R.4/regulator-covolume`, `BorelRegulators:R.5/zeta-zero-order`, `BorelRegulators:R.5/zeta-leading-coefficient`, `SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements`, `SpecialValuesBirchTate:B.8/real-place-two-correction`.
 
-**Source passages.** [Tamagawa numbers for motives with (non-commutative) coefficients](https://ems.press/content/serial-article-files/25892?nt=1), §4.2, Lemmas 5–6 and their consequence, pp. 527–529; Lemma 9, pp. 534–535; §4.3, Conjectures 4–6 and Remark 9, pp. 535–537: The precise relative-K-group conjecture, sign convention, local correction and graded determinant framework.
+**Source passages.** [Tamagawa numbers for motives with (non-commutative) coefficients](https://ems.press/content/serial-article-files/25892?nt=1), §3.4, Lemma 5 pp. 526–528, Lemma 6 and their consequence pp. 528–529; §4.2, Lemma 9 pp. 534–535; §4.3, Conjectures 4–6 and Remark 9 pp. 535–537: The precise relative-K-group conjecture, sign convention, local correction and graded determinant framework.
 
-**Acceptance.** For G trivial, n=2 and ℚ, the scalar weight-two check is 2/24=1/12; expressing the same K-theoretic ratio as 2/48 requires the real-place factor 2. For ℚ(i), n=2, order d_n=1: ζ_F(−1)=0, while the leading coefficient and rank-one regulator are nonzero. A rational section twice an integral basis is nonzero after scalar extension but does not generate the integral line; rational proportionality is strictly weaker than this predicate.
+**Acceptance.** For G trivial, n=2 and ℚ, the scalar weight-two check is 2/24=1/12; expressing the same K-theoretic ratio as 2/48 requires the real-place factor 2. For L=ℚ(i), E=ℚ and n=2, the scalar Dedekind order is d_n=1: ζ_L(−1)=0, while its leading coefficient and rank-one regulator are nonzero. The ℚ[C₂] center has trivial and quadratic components with Artin orders (0,1); its leading-term input is the pair of nonzero componentwise leading coefficients. The raw value has a zero quadratic component and is not a central unit. A rational section twice an integral basis is nonzero after scalar extension but does not generate the integral line; rational proportionality is strictly weaker than this predicate.
 
 **Stage status: planned.** Discharge M.7’s two congruence-class real-place comparison sequences; prove the derived scalar correction from those maps. M.8/PS.3 must fix the actual integral motivic lattice and regulator normalization. PS.4–PS.5/K.5 must supply the relative-K/fundamental-line statement objects and Coherence/perfectness interface. The general motivic and ETNC formulas are conjecture statements, not unresolved theorem claims.
 
+
 ## Exact supplier requests and remaining gaps
 
-The following requests are dependencies of this plan. They do not assert that the supplier has finished the output.
+There are 17 exact requests and 4 recorded gaps. The request names the supplying owner and every direct consumer. A complete target-level plan can retain these explicit proof obligations; no affected theorem is claimed formally closed.
 
 ### `AutomorphicPadicLFunctions:L3`
 
@@ -1427,9 +1454,9 @@ Consumers: `SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa`, `Speci
 
 ### `IntegralIwasawaTheory:I.2`
 
-For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+. Also, for odd p and E/F abelian of degree prime to p containing μ_p, with E_∞ its cyclotomic ℤ_p-extension: Hom(X_S, ℚ_p/ℤ_p(n)) = H¹_ét(𝓞^S_{E_∞}, ℚ_p/ℤ_p(n)), and the twists X_ψ(−n) of the even components have no nonzero finite Λ-submodule. Also at p=2, for the S-ramified X(F) of a totally real F, X and the even twists X(−n) have no nonzero finite Λ-submodules; use the explicit duality to Galois cohomology in Rognes–Weibel Appendix A.1.
+For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+. Also, for odd p and E/F abelian of degree prime to p containing μ_p, with E_∞ its cyclotomic ℤ_p-extension: Hom(X_S, ℚ_p/ℤ_p(n)) = H¹_ét(𝓞^S_{E_∞}, ℚ_p/ℤ_p(n)), and the twists X_ψ(−n) of the even components have no nonzero finite Λ-submodule. Also at p=2, for the S-ramified X(F) of a totally real F, X and the even twists X(−n) have no nonzero finite Λ-submodules; use the explicit duality to Galois cohomology in Rognes–Weibel Appendix A.1. For the common abelian tower in B.5, also export the norm-kernel minus/quotient-by-(1+j) comparison and its dual, with the actual maps and bounded finite kernel/cokernel under μ=0. Use it only for characteristic ideals and rational eigenspaces; do not erase finite groups in a finite-order computation.
 
-Consumers: `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa`, `SpecialValuesBirchTate:B.5/minus-module-coinvariant-order`, `SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta`, `SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic`, `SpecialValuesBirchTate:B.8/higher-values-real-abelian`.
+Consumers: `SpecialValuesBirchTate:B.5/federer-main-conjecture`, `SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa`, `SpecialValuesBirchTate:B.5/minus-module-coinvariant-order`, `SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta`, `SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic`, `SpecialValuesBirchTate:B.8/higher-values-real-abelian`, `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`.
 
 ### `IntegralIwasawaTheory:L2`
 
@@ -1445,7 +1472,7 @@ Consumers: `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`.
 
 ### `DirichletPadicLFunctions:L2`
 
-Twists by characters of the second kind at p = 2: for χ of the first kind and ρ of finite order on Γ, L₂(s, χρ) = G₂(ζu^s − 1, χ)/(ζu^s − u)^{δ(χ)}, with ζ the root of unity attached to ρ(γ) and δ(χ) = 1 exactly for trivial χ (Washington, Theorem 7.10), with the convention for ζ (ρ(γ) or its inverse) fixed explicitly.
+Fix the second-kind character formula in Greither’s variable T=u^s−1, including the character involution. Write 𝒢₂(T,ψ)=Greither’s meromorphic G₂ and P₂(T,ψ)=(T−(u−1))^δ 𝒢₂(T,ψ), δ=1 iff ψ is trivial. Then L₂(s,ψρ)=𝒢₂(ζρ u^s−1,ψ)=P₂(ζρ u^s−1,ψ)/(ζρ u^s−u)^δ. Determine ζρ from the actual coefficient action, rather than importing the u^(1−s) convention without its change of variables. For the covariant dual and graph used in B.5, the proposed equality of roots requires ζρ=ρ(γ)⁻¹: prove this translation, or revise the dual/character dictionary consistently. Preserve the single trivial-character pole, the integral normalization P₂/2 and multiplicities. This is the precise unresolved convention gate recorded in the B.5 gap.
 
 Consumers: `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`.
 
@@ -1455,15 +1482,9 @@ Wiles's main conjecture for a totally real field F and an odd prime p (Kolster, 
 
 Consumers: `SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta`, `SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic`.
 
-### `MotivicEtaleKTheory:M.3`
-
-Tate's degree-two comparison for S-integers: for a number field F, a prime ℓ and S ⊇ {v | ℓ}, K₂(𝓞_{F,S})/ℓ^r ≅ H²_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}), compatibly in r (the stage's public statement), for ℓ odd. Supply naturality for S⊆T and all residue/coefficient maps, and the Tate degree-two H² identification at 2 as used in h₂ (not an uncorrected higher-degree formula).
-
-Consumers: `SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology`, `SpecialValuesBirchTate:B.8/cohomological-h2-model`, `SpecialValuesBirchTate:B.7/localisation-comparison-naturality`.
-
 ### `MotivicEtaleKTheory:M.7`
 
-The Quillen–Lichtenbaum outputs at odd ℓ and n ≥ 2 for rings of integers: K_{2n−2}(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) and K_{2n−1}(𝓞_F) ⊗ ℤ_ℓ ≅ H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) (the stage's 'expected arithmetic outputs'); and, for the correction at 2 with real places, the corrected sequences. Specifically for F totally real and even n, provide the two congruence-class sequences of Rognes–Weibel Theorem 0.6: n≡2 mod4, K_{2n−2}{2}≅H² and #K_{2n−1}{2}=2^r₁w_n{2}; n≡0 mod4, K_{2n−2}{2}≅ker(H²→(ℤ/2)^r₁) with surjective real restriction and #K_{2n−1}{2}=w_n{2}. Their maps commute with finite-S localization. Include the coefficient and Hochschild–Serre identifications in Appendix A.1, relating finite X(−n) coinvariants to H²_ét, with H¹ order w_n for totally real F and even n.
+The Quillen–Lichtenbaum outputs at odd ℓ and n ≥ 2 for rings of integers: K_{2n−2}(𝓞_F) ⊗ ℤ_ℓ ≅ H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) and K_{2n−1}(𝓞_F) ⊗ ℤ_ℓ ≅ H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(n)) (the stage's 'expected arithmetic outputs'); and, for the correction at 2 with real places, the corrected sequences. Specifically for F totally real and even n, provide the two congruence-class sequences of Rognes–Weibel Theorem 0.6: n≡2 mod4, K_{2n−2}{2}≅H² and #K_{2n−1}{2}=2^r₁w_n{2}; n≡0 mod4, K_{2n−2}{2}≅ker(H²→(ℤ/2)^r₁) with surjective real restriction and #K_{2n−1}{2}=w_n{2}. Their maps commute with finite-S localization. Include the coefficient and Hochschild–Serre identifications in Appendix A.1, relating finite X(−n) coinvariants to H²_ét, with H¹_ét(𝓞_F[1/ℓ],ℤ_ℓ(n)) of order w_n^{(ℓ)} for totally real F and even n, at each coefficient prime ℓ used. These are primary orders, not the full w_n.
 
 Consumers: `SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real`, `SpecialValuesBirchTate:B.7/localisation-comparison-naturality`, `SpecialValuesBirchTate:B.8/real-place-two-correction`, `SpecialValuesBirchTate:B.8/higher-values-real-abelian`.
 
@@ -1487,9 +1508,9 @@ Consumers: `SpecialValuesBirchTate:B.8/cohomological-h2-model`, `SpecialValuesBi
 
 ### `MotivicEtaleKTheory:M.8`
 
-The actual integral arithmetic H¹/H² motivic groups, their regulator and Chern maps, with arithmetic localization and the integral-lattice comparison used in the full motivic scalar formula.
+The actual integral arithmetic H¹/H² motivic groups, their regulator and Chern maps, with arithmetic localization and the integral-lattice comparison used in the full motivic scalar formula. For B.7, supply the separately owned normalized comparison between the degree-two Chern map and M.3’s Galois/Tate symbol, with naturality under S_f⊆T_f and the residue boundaries (RS-08). The required diagonal convention is c₂,₂=−h on symbols; transport it through the actual arithmetic maps, rather than inferring a coherent scheme comparison from that symbol calculation. The imported Tate identity is ∂∘h=−κ∘tame, so the Chern boundary sign must be obtained through this normalized agreement; h=c₂,₂ is not assumed.
 
-Consumers: `SpecialValuesBirchTate:B.8/cohomological-h2-model`, `SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements`.
+Consumers: `SpecialValuesBirchTate:B.8/cohomological-h2-model`, `SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements`, `SpecialValuesBirchTate:B.7/localisation-comparison-naturality`.
 
 ### `PeriodsAndSpecialValues:PS.4`
 
@@ -1509,11 +1530,17 @@ Relative K₀(𝒜,ℝ) for an order in a semisimple ℚ-algebra, its localizati
 
 Consumers: `SpecialValuesBirchTate:B.8/integral-equivariant-tate-statement`.
 
-### `KTheoryFiniteLocalFields:L.1`
+### `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`
 
-Finite-field K_{2j}=0 for j≥1 and the finite positive odd groups, as used to prove that localization on K_{2n−1}, n≥2, is surjective with finite kernel. This supplies the integral torsion-free lattice isomorphism before taking a regulator determinant.
+The existing kroneckerWeber theorem: every finite abelian extension F/ℚ embeds into a cyclotomic field. Apply its conductor-normalized form to place F in ℚ(μ_{m2^a}) with m odd, before passing to the common 2-power tower. No class-field theorem is re-planned here.
 
-Consumers: `SpecialValuesBirchTate:B.7/localisation-comparison-naturality`.
+Consumers: `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`.
+
+### `EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p`
+
+Export the separate exceptional χ = ω case char(X_ω) = (1), from Greither pp. 452 and 470, alongside the χ ≠ ω equality. The current supplier statement retains the incompatible χ ≠ ω qualifier in its trivial-check-χ branch (source issue E7). Keep Greither’s G₂ as a meromorphic function; its trivial-character pole-cleared numerator P₂=(T−q₀)G₂ has (1/2)P₂ a unit.
+
+Consumers: `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`, `SpecialValuesBirchTate:B.8/higher-values-real-abelian`.
 
 ### Gap: The upper bound in K₂(ℤ) ≅ ℤ/2
 
@@ -1533,59 +1560,154 @@ IntegralIwasawaTheory:I.10 owns the missing exact comparison under RS-16: norm-k
 
 Affects: `SpecialValuesBirchTate:B.6/kolster-kurihara-comparison-table`, `SpecialValuesBirchTate:B.6/federer-conjecture-all-totally-real`, `SpecialValuesBirchTate:B.6/birch-tate-all-totally-real`.
 
+### Gap: The arbitrary-ramification abelian comparison and second-kind involution
+
+The B.5 graph argument uses the covariant dual χ and even analytic χ̌=ωχ⁻¹. Its zeros match only after translating second-kind twisting to Greither’s u^s variable with ζρ=ρ(γ′)⁻¹ (or making the corresponding consistent change of dual action). The inherited request left this convention open, and the proof also treated Greither’s meromorphic G₂ as an integral numerator in its μ calculation. The numerator/pole distinction is corrected here. L2 must prove the exact involution, I.2 the finite norm-kernel/quotient comparison under μ=0, and the Greither supplier the separate χ=ω case. The abelian endpoint remains a source-supported proof target, not a verified equivalence.
+
+Affects: `SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields`.
+
 ## Source register and corrections
 
-Download hashes and version records are fixed in the packet. This register distinguishes fresh source reads from the inherited checkpoint provenance.
+The eight source records retain the exact editions and historical reading evidence. The revision adds dated source reads; older download records remain provenance, including both Cambridge wrapper hashes. The independent review’s seven source findings are reproduced with their recorded verdicts and edition-specific scope.
 
 ### Kbook.2013
 
 [The K-book: An Introduction to Algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Charles A. Weibel. Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013); printed page = PDF page − 8; accessed 2026-09-28
 
-Read date: Inherited 2026-09-29 provenance; cited passages rechecked 2026-10-06. Sections: VI.8.1–8.8 (PDF pp. 522–524, book pp. 514–516): Classical Data 8.1, the Birch–Tate Conjecture 8.6 and the paragraph after it, Wiles's Theorem 8.7 with its note, Theorem 8.8 and the first paragraph of its proof (the sign from the functional equation). Fresh read 2026-10-06: VI.8.6–8.8, printed pp. 515–516. Fresh read 2026-10-06: V.11.11 proof and V.11.12(4), construction/naturality and ℓ-adic étale Chern classes; VI.9.4 proof and VI.9.5 statement/proof, real-place restriction and odd higher S-integer groups.
+SHA-256: `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- VI.8.1–8.8 (PDF pp. 522–524, book pp. 514–516): Classical Data 8.1, the Birch–Tate Conjecture 8.6 and the paragraph after it, Wiles's Theorem 8.7 with its note, Theorem 8.8 and the first paragraph of its proof (the sign from the functional equation).
+- Fresh read 2026-10-06: VI.8.6–8.8, printed pp. 515–516.
+- Fresh read 2026-10-06: V.11.11 proof and V.11.12(4), construction/naturality and ℓ-adic étale Chern classes; VI.9.4 proof and VI.9.5 statement/proof, real-place restriction and odd higher S-integer groups.
+- Revision 2026-10-07: fresh download hash matches; VI.8.6–8.8 printed pp. 515–516 (PDF pp. 523–524), V.11.11 proof and V.11.12(4) pp. 457–459 (PDF pp. 465–467), and VI.9.4–9.5 pp. 519–520 (PDF pp. 527–528). The arithmetic residue comparisons remain explicit supplier imports.
+- Revision 2026-10-07 additionally checked IV.1.13, printed p. 269 (PDF p. 277): Quillen’s finite-field table for every q, supporting the exact L.1 supplier used by the regulator-localization adapter.
+- V.11.13, printed p. 458 (PDF p. 466), was also read with the Chern-class construction: the diagonal Chern/Milnor composite carries (−1)^(i−1)(i−1)!, hence the negative sign in degree two. Its arithmetic/coherent realization remains the exact M.8 request.
 
 ### kolster-park-city-2009
 
 [Special values of L-functions at negative integers](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf), Manfred Kolster. Lecture notes, IAS/Park City Mathematics Series (author preprint, 2009, 22 pages); printed page = PDF page; accessed 2026-09-28
 
-Read date: Inherited 2026-09-29 provenance; cited passages rechecked 2026-10-06. Sections: Introduction (p. 3); Lecture 1 §1 through the imprimitive p-adic L-functions (pp. 5–8); Lecture 2 §3, Theorem 3.3 to the Motivic Lichtenbaum Conjecture 3.7 (pp. 15–16). Fresh read 2026-10-06: Lecture 1 §2 pp. 9–11 and Lecture 2 §3–start §4 pp. 13–16. E3–E6 are scoped to this author preprint; no version of record was obtained. Fresh read 2026-10-06 also rechecked the finite-S Iwasawa/L-function conventions in Lecture 1 §1 (printed pp. 7–8).
+SHA-256: `5772ace94ba4b247ae745cf32c6b3b079fe25e0de46af057cb4e971a1c3ead28`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- Introduction (p. 3); Lecture 1 §1 through the imprimitive p-adic L-functions (pp. 5–8); Lecture 2 §3, Theorem 3.3 to the Motivic Lichtenbaum Conjecture 3.7 (pp. 15–16).
+- Fresh read 2026-10-06: Lecture 1 §2 pp. 9–11 and Lecture 2 §3–start §4 pp. 13–16. E3–E6 are scoped to this author preprint; no version of record was obtained.
+- Fresh read 2026-10-06 also rechecked the finite-S Iwasawa/L-function conventions in Lecture 1 §1 (printed pp. 7–8).
+- Revision 2026-10-07: fresh hash matches; pp. 7–16 read, including finite-S Euler factors, coefficient sequence/ranks, descent and codescent, Proposition 3.2 with its nontrivial-character restriction, the H⁰ pole correction, higher-value and integrality statements. Pages 8–9, 11 and 14–16 were also checked as images. E3–E6 remain scoped to this author copy; no published-volume access or new erratum search is claimed.
 
 ### KOLSTER-1989
 
 [A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf), Manfred Kolster. Canad. Math. Bull. 32 (2) (1989), 248–251; Cambridge Core PDF, 4 pages, printed page = PDF page + 247. Formulas were checked on the page images. Re-downloaded 2026-10-06; the Cambridge wrapper hash differs from the inherited 2026-09-29 download, and printed p. 250 was rechecked on the page image.
 
-Read date: 2026-10-06. Sections: The whole note: introduction and set-up (p. 248), Theorem 1 and its proof (pp. 249–250), Lemma 2, Conjecture 3 (Federer), Conjecture 4 and Theorem 5 with its proof (p. 250)
+SHA-256: `ce649cf4085c501f755517afb0dd7bc9a9798ad1ee9a37116d7b5aae98073f2f`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- The whole note: introduction and set-up (p. 248), Theorem 1 and its proof (pp. 249–250), Lemma 2, Conjecture 3 (Federer), Conjecture 4 and Theorem 5 with its proof (p. 250)
+- Revision 2026-10-07: fresh Cambridge hash matches the 2026-10-06 download; all printed pp. 248–251 read, and p. 250 visually checked for the numerator, denominator, covariant action and E1–E2. The exact finite sequence and original Federer/Iwasawa inputs remain delegated to their owners.
 
 ### GREITHER-1992
 
 [Class groups of abelian fields, and the main conjecture](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf), Cornelius Greither. Ann. Inst. Fourier (Grenoble) 42 (1992), no. 3, 449–499; Numdam scan with OCR text layer (journal page = PDF page + 447).
 
-Read date: 2026-09-29. Sections: §1: the Main Conjecture (= Theorem 3.2) and the closing remark on Birch–Tate (pp. 452–454) §3: Lemma 3.3 (p. 469). The whole article is decomposed in EulerSystemsCyclotomicMainConjecture L4, whose nodes are imported. Fresh read 2026-10-06: Theorem 3.2 and its introductory consequences (pp. 452–454), Lemma 3.3 (p. 469).
+SHA-256: `8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- §1: the Main Conjecture (= Theorem 3.2) and the closing remark on Birch–Tate (pp. 452–454)
+- §3: Lemma 3.3 (p. 469). The whole article is decomposed in EulerSystemsCyclotomicMainConjecture L4, whose nodes are imported.
+- Fresh read 2026-10-06: Theorem 3.2 and its introductory consequences (pp. 452–454), Lemma 3.3 (p. 469).
+- Independent review 2026-10-06: §1 pp. 451–454; §3 Theorem 3.2, Lemma 3.3 and exceptional χ=ω argument pp. 469–470; p. 469 visually checked (E7).
+- Revision 2026-10-07: fresh hash matches; printed pp. 451–454 and 469–470 read in full, with images of pp. 452, 469–470. The PDF has 52 pages; printed page = one-based PDF page + 447. Meromorphic 𝒢₂, pole-cleared P₂/2, covariant duality and the exceptional χ=ω branch were checked; the exact arbitrary-ramification comparison remains a supplier gap.
 
 ### KURIHARA-2025
 
 [On class groups and Iwasawa modules of CM-fields](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf), Masato Kurihara. Author copy (2025), 37 pages, printed page = PDF page; the copy in the programme's reference catalogue.
 
-Read date: 2026-09-29. Sections: §4 in full: §4.1 the formulation (pp. 22–24), Theorem 4.1, §4.2 the proof with Lemma 4.2 and the three remarks, Corollary 4.3 (pp. 24–28), §4.3 Proposition 4.4 (p. 28) Fresh read 2026-10-06: §4.1–§4.2 (pp. 22–27); the inherited complete §4 reading remains provenance, not a claim to a second full read.
+SHA-256: `22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- §4 in full: §4.1 the formulation (pp. 22–24), Theorem 4.1, §4.2 the proof with Lemma 4.2 and the three remarks, Corollary 4.3 (pp. 24–28), §4.3 Proposition 4.4 (p. 28)
+- Fresh read 2026-10-06: §4.1–§4.2 (pp. 22–27); the inherited complete §4 reading remains provenance, not a claim to a second full read.
+- Revision 2026-10-07: fresh hash matches; §4 printed pp. 22–28 read, including Theorem 4.1 in §4.1 p. 24, its §4.2 proof, Lemma 4.2 and the order-two cokernel, Corollary 4.3 and the odd-prime restriction on Proposition 4.4. The I.10 finite-specialization gate remains open.
 
 ### ROGNES-WEIBEL-2000
 
 [Two-primary algebraic K-theory of rings of integers in number fields](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf), John Rognes and Charles A. Weibel; appendix by Manfred Kolster. J. Amer. Math. Soc. 13 (2000), 1–54; author-hosted journal copy
 
-Read date: 2026-10-06. Sections: Introduction, Theorems 0.1–0.3 and 0.6 (pp. 1–4); Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3 (pp. 45–47). The full K/cohomology comparison proof remains M.7’s.
+SHA-256: `9d770c079313ccc26f29da641d301269edf12985f122fd107ab201f086e8f446`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- Introduction, Theorems 0.1–0.3 and 0.6 (pp. 1–4); Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3 (pp. 45–47). The full K/cohomology comparison proof remains M.7’s.
+- Independent review 2026-10-06 also read the full induction/root computation in Appendix A.2 pp. 48–49; its variable is u^(1−s), requiring translation before use in the Greither u^s convention.
+- Revision 2026-10-07: fresh hash matches; introduction pp. 1–4 and Appendix A pp. 45–49 read, with the induction/root calculation on pp. 48–49 also checked as images. The local real-place formula uses only 2-primary orders. The second-kind variable is u^(1−s), and the trivial-character μ comparison remains distinct from the polynomial induction.
 
 ### BURNS-FLACH-2001
 
 [Tamagawa numbers for motives with (non-commutative) coefficients](https://ems.press/content/serial-article-files/25892?nt=1), David Burns and Matthias Flach. Documenta Mathematica 6 (2001), 501–570; publisher PDF
 
-Read date: 2026-10-06. Sections: §4.2 Lemma 9 and §4.3 Conjectures 4–6, Remark 9 (pp. 534–537); general determinant constructions remain PS.4–PS.5’s. Fresh read 2026-10-06: conclusion of Lemma 5 and Lemma 6 with proof, pp. 527–529, and the consequence that Ξ(M)ℤ and RΩ are independent of S and the projective structure under Coherence.
+SHA-256: `d9caa72585d3ae77f34fd1798289345ca2d7a0f4284933c1c0945cb0f0994e5b`.
+
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- §4.2 Lemma 9 and §4.3 Conjectures 4–6, Remark 9 (pp. 534–537); general determinant constructions remain PS.4–PS.5’s.
+- Fresh read 2026-10-06: conclusion of Lemma 5 and Lemma 6 with proof, pp. 527–529, and the consequence that Ξ(M)ℤ and RΩ are independent of S and the projective structure under Coherence.
+- Independent review 2026-10-06: §3.4 Lemma 5 from p. 526, Lemma 6 and consequence through p. 529; correct section locator is §3.4, not §4.2.
+- Revision 2026-10-07: fresh hash matches; §3.4 pp. 526–529 and §§4.2–4.3 pp. 534–537 read. The finite-quotient/gluing argument makes the corrected TΩ intrinsic; Conjecture 4 uses center-component leading orders, with rationality and the corrected local class kept separate.
 
 ### COHEN-ANT-2007
 
-[Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), Henri Cohen. Graduate Texts in Mathematics 240, Springer, 2007; university-hosted book PDF
+[Number Theory, Volume II: Analytic and Modern Tools](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf), Henri Cohen. Graduate Texts in Mathematics 240, Springer, 2007; university-hosted book PDF; printed page = PDF page − 23.
 
-Read date: 2026-10-06. Sections: §10.5.1 Theorem 10.5.3 (p. 218); §10.5.2 Proposition 10.5.5 and its Euler-factor proof (p. 219); §10.3.1 Theorem 10.3.1 and Corollary 10.3.3 with proof (pp. 186–189).
+SHA-256: `e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0`.
 
-Kolster 1989 printed p. 250 was also inspected on the page image. The re-downloaded Cambridge PDF has a different wrapper hash; both downloads remain documented. E3–E6 concern the 2009 author preprint: the published Park City volume was not obtained. Searches found no erratum for the inherited findings; they still require independent review. No new source error is asserted by this pass.
+Recorded source-read date: 2026-10-07.
+
+**Sections and provenance.**
+
+- §10.5.1 Theorem 10.5.3 (p. 218); §10.5.2 Proposition 10.5.5 and its Euler-factor proof (p. 219); §10.3.1 Theorem 10.3.1 and Corollary 10.3.3 with proof (pp. 186–189).
+- Revision 2026-10-07: fresh download hash matches; Theorem 10.5.3 printed p. 218 (PDF p. 241), Proposition 10.5.5 and its Euler-factor proof p. 219 (PDF p. 242), Theorem 10.3.1 with proof and Corollary 10.3.3 pp. 186–189 (PDF pp. 209–212).
+
+### Download version history
+
+| Date | Kind | Source copy | SHA-256 |
+| --- | --- | --- | --- |
+| 2026-09-28 | author copy | [Charles A. Weibel, The K-book (author-hosted draft of 29 August 2013)](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf) | `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845` |
+| 2026-09-28 | author copy | [Manfred Kolster, Special values of L-functions at negative integers (IAS/Park City lecture notes, 2009)](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf) | `5772ace94ba4b247ae745cf32c6b3b079fe25e0de46af057cb4e971a1c3ead28` |
+| 2026-09-29 | published | [Manfred Kolster, Canad. Math. Bull. 32 (1989), 248–251](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf) | `6b8052fcbe89970b2a39af04a5e6c067bf9bb3844330330c7b32a5cc28271ce7` |
+| 2026-09-29 | published | [Cornelius Greither, Ann. Inst. Fourier 42 (1992), 449–499 (Numdam scan)](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf) | `8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da` |
+| 2026-09-29 | author copy | [Masato Kurihara, On class groups and Iwasawa modules of CM-fields (2025)](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf) | `22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33` |
+| 2026-10-06 | published | [John Rognes and Charles A. Weibel; appendix by Manfred Kolster, Two-primary algebraic K-theory of rings of integers in number fields; J. Amer. Math. Soc. 13 (2000), 1–54; author-hosted journal copy](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf) | `9d770c079313ccc26f29da641d301269edf12985f122fd107ab201f086e8f446` |
+| 2026-10-06 | published | [David Burns and Matthias Flach, Tamagawa numbers for motives with (non-commutative) coefficients; Documenta Mathematica 6 (2001), 501–570; publisher PDF](https://ems.press/content/serial-article-files/25892?nt=1) | `d9caa72585d3ae77f34fd1798289345ca2d7a0f4284933c1c0945cb0f0994e5b` |
+| 2026-10-06 | published | [Henri Cohen, Number Theory, Volume II: Analytic and Modern Tools; Graduate Texts in Mathematics 240, Springer, 2007; university-hosted book PDF](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf) | `e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0` |
+| 2026-10-06 | published | [Kolster 1989, fresh Cambridge PDF, printed p. 250 visually rechecked; old hash retained above as download provenance](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf) | `ce649cf4085c501f755517afb0dd7bc9a9798ad1ee9a37116d7b5aae98073f2f` |
+| 2026-10-07 | author copy | [Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory; revision-2 fresh download matches the reviewed edition; section-specific reads are recorded in sources.readSections.](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf) | `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845` |
+| 2026-10-07 | published | [Henri Cohen, Number Theory, Volume II: Analytic and Modern Tools; revision-2 fresh download matches the reviewed edition; section-specific reads are recorded in sources.readSections.](https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf) | `e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0` |
+| 2026-10-07 | author copy | [Manfred Kolster, Special values of L-functions at negative integers; revision-2 fresh download matches the reviewed edition; exact passages and access limits are recorded in sources.readSections.](https://maine-quebec.mat.ulaval.ca/09/Kolster09.pdf) | `5772ace94ba4b247ae745cf32c6b3b079fe25e0de46af057cb4e971a1c3ead28` |
+| 2026-10-07 | published | [Manfred Kolster, A relation between the 2-primary parts of the main conjecture and the Birch–Tate-conjecture; revision-2 fresh download matches the reviewed edition; exact passages and access limits are recorded in sources.readSections.](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBA978AE0673CACCF3656F4E23200201/S0008439500000862a.pdf/a-relation-between-the-2-primary-parts-of-the-main-conjecture-and-the-birch-tate-conjecture.pdf) | `ce649cf4085c501f755517afb0dd7bc9a9798ad1ee9a37116d7b5aae98073f2f` |
+| 2026-10-07 | published | [Cornelius Greither, Class groups of abelian fields, and the main conjecture; revision-2 fresh download matches the reviewed edition; exact passages and access limits are recorded in sources.readSections.](http://www.numdam.org/item/AIF_1992__42_3_449_0.pdf) | `8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da` |
+| 2026-10-07 | author copy | [Masato Kurihara, On class groups and Iwasawa modules of CM-fields; revision-2 fresh download matches the reviewed edition; exact passages and access limits are recorded in sources.readSections.](https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf) | `22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33` |
+| 2026-10-07 | published | [John Rognes and Charles A. Weibel; appendix by Manfred Kolster, Two-primary algebraic K-theory of rings of integers in number fields; revision-2 fresh download matches the reviewed edition; exact passages and access limits are recorded in sources.readSections.](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf) | `9d770c079313ccc26f29da641d301269edf12985f122fd107ab201f086e8f446` |
+| 2026-10-07 | published | [David Burns and Matthias Flach, Tamagawa numbers for motives with (non-commutative) coefficients; revision-2 fresh download matches the reviewed edition; exact passages and access limits are recorded in sources.readSections.](https://ems.press/content/serial-article-files/25892?nt=1) | `d9caa72585d3ae77f34fd1798289345ca2d7a0f4284933c1c0945cb0f0994e5b` |
 
 ### SpecialValuesBirchTate/E1 — misprint
 
@@ -1599,6 +1721,10 @@ Kolster 1989 printed p. 250 was also inspected on the page image. The re-downloa
 
 Affects: nothing. Known correction: new. Searched: Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked); web search for an erratum to Kolster's note (none found).
 
+**Recorded checks.** Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: The published p. 250 image prints ζ_e; e denotes the tower index, while the same line and interpolation use the field E. This is a typographical correction.
+
 ### SpecialValuesBirchTate/E2 — misprint
 
 **Version and locator.** KOLSTER-1989; before Lemma 2, p. 250
@@ -1610,6 +1736,10 @@ Affects: nothing. Known correction: new. Searched: Cambridge Core article page f
 **Reason.** A_∞^- = lim→ A_n^- is a union of the images of the finite Λ-modules A_n^-, so it has nonzero finite Λ-submodules whenever it is nonzero. The evaluation argument needs the compact dual Ǎ_∞^- (hence Ǎ_∞^-(−1)) to have none, so that Ǎ_∞^-(−1)^Γ = 0 and |Ǎ_∞^-(−1)_Γ| ~ f(u^{−1} − 1). The OCR and the page image both show A_∞^- without the accent.
 
 Affects: nothing. Known correction: new. Searched: Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked); web search for an erratum to Kolster's note (none found).
+
+**Recorded checks.** Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: The published p. 250 image omits the dual accent. The discrete direct-limit module contains the finite images from its levels; the no-finite-submodule hypothesis used for evaluation concerns its compact Pontryagin dual.
 
 ### SpecialValuesBirchTate/E3 — misprint
 
@@ -1623,6 +1753,10 @@ Affects: nothing. Known correction: new. Searched: Cambridge Core article page f
 
 Affects: nothing. Known correction: new. Searched: the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there); the published volume (IAS/Park City Mathematics Series) was not accessed; research/errata/REGISTER.md: no entry for these notes.
 
+**Recorded checks.** Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: The author copy p. 16 refers to Theorem 3.4, but the numbered result on p. 15 is Corollary 3.4. No assertion about the inaccessible published volume is made.
+
 ### SpecialValuesBirchTate/E4 — misprint
 
 **Version and locator.** kolster-park-city-2009; Lecture 1, §2, p. 9 (author copy)
@@ -1635,6 +1769,10 @@ Affects: nothing. Known correction: new. Searched: the author's copy at maine-qu
 
 Affects: nothing. Known correction: new. Searched: the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there); the published volume (IAS/Park City Mathematics Series) was not accessed; research/errata/REGISTER.md: no entry for these notes.
 
+**Recorded checks.** Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: The author-copy p. 9 image prints lowercase f in H⁰; no such field is defined, whereas F is the base field in the coefficient sequence.
+
 ### SpecialValuesBirchTate/E5 — error
 
 **Version and locator.** kolster-park-city-2009; Lecture 1, §2, p. 9 (author copy)
@@ -1645,7 +1783,11 @@ Affects: nothing. Known correction: new. Searched: the author's copy at maine-qu
 
 **Reason.** By the preceding sentence the kernel of δ₁ is the maximal divisible subgroup of H⁰(ℚ_p/ℤ_p(n)). For n = 0 this is all of H⁰(o′_F, ℚ_p/ℤ_p) = ℚ_p/ℤ_p, while H¹_ét(o′_F, ℤ_p) = Hom_cts(G_F^{(p)}, ℤ_p) is torsion-free. For n ≠ 0 the cyclotomic character has infinite image, so H⁰ is finite and the isomorphism holds. The notes use it only for n ≥ 2.
 
-Affects: nothing. Known correction: new. Searched: the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there); the published volume (IAS/Park City Mathematics Series) was not accessed; research/errata/REGISTER.md: no entry for these notes.
+Affects: a stated result. Known correction: new. Searched: the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there); the published volume (IAS/Park City Mathematics Series) was not accessed; research/errata/REGISTER.md: no entry for these notes.
+
+**Recorded checks.** Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: At n = 0, H⁰(ℚ_p/ℤ_p) is divisible and H¹ with ℤ_p coefficients is torsion-free. The displayed coefficient sequence quotients by the maximal divisible subgroup. The n ≠ 0 correction is correct and suffices for n ≥ 2.
 
 ### SpecialValuesBirchTate/E6 — error
 
@@ -1657,11 +1799,29 @@ Affects: nothing. Known correction: new. Searched: the author's copy at maine-qu
 
 **Reason.** The same paragraph requires H¹(o_F, ℤ(n)) ⊗ ℤ_p ≅ H¹_ét(o′_F, ℤ_p(n)), whose rank is r₁ + r₂ for odd n and r₂ for even n by the notes' own Proposition 2.1(5) (p. 10); these are also Borel's ranks of K_{2n−1}(o_F) (p. 15). For F = ℚ and n = 2 the printed rank is 1, but H¹_ét(ℤ[1/p], ℤ_p(2)) is finite (r₂ = 0), matching K₃(ℤ) ≅ ℤ/48. Checked on the page image.
 
-Affects: nothing. Known correction: new. Searched: the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there); the published volume (IAS/Park City Mathematics Series) was not accessed; research/errata/REGISTER.md: no entry for these notes.
+Affects: a stated result. Known correction: new. Searched: the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there); the published volume (IAS/Park City Mathematics Series) was not accessed; research/errata/REGISTER.md: no entry for these notes.
+
+**Recorded checks.** Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: The author-copy p. 11 image reverses the ranks. Its Proposition 2.1(5) on p. 10 gives odd weight r₁+r₂ and even weight r₂; ℚ in weight 2 is a direct counterexample to the printed even rank.
+
+### SpecialValuesBirchTate/E7 — misprint
+
+**Version and locator.** GREITHER-1992; §3, Theorem 3.2, printed p. 469 (Numdam published scan); compare §1 p. 452 and the proof p. 470
+
+**Printed.** For every odd character χ ≠ ω of K₀
+
+**Correction.** Allow every odd χ; state the χ = ω (equivalently ρ = 1) branch separately with characteristic ideal (1).
+
+**Reason.** The extra χ ≠ ω excludes the second displayed branch ρ = ωχ⁻¹ = 1. The introductory statement p. 452 allows every odd character, and p. 470 proves X_ω finite and char(X_ω) = (1). The page image confirms that the exclusion is printed, rather than introduced by OCR.
+
+Affects: nothing. Known correction: The same published article, the introductory theorem on p. 452 and the exceptional-character argument on p. 470, give the intended inclusive statement.. Searched: Numdam article record and AIF publisher search for this title and an erratum (2026-10-06); no separate correction located; The introductory statement and proof in the published scan.
+
+**Independent review.** confirmed by `REV-SpecialValuesBirchTate`: Read pp. 452, 469–470 and visually checked p. 469: the χ ≠ ω qualifier contradicts the displayed trivial-ρ branch; the source itself resolves the intended meaning.
 
 ## Pinned baseline inputs
 
-These declarations supply only the indicated inputs, not the missing arithmetic special-value conclusions. Each statement was read at the pinned commit; a name search alone was not treated as evidence.
+These 78 declarations supply only the stated inputs. The prior independent review read their statements and hypotheses at the two recorded commits. This revision repeats the source audit; its evidence and the separate no-compilation limitation are recorded in the revision handoff.
 
 | Declaration | Module | Provides |
 | --- | --- | --- |
@@ -1684,7 +1844,12 @@ These declarations supply only the indicated inputs, not the missing arithmetic 
 | `mathlib:HurwitzZeta.hurwitzZeta_neg_nat` | `Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean` | ζ(x, −k) = −B_{k+1}(x)/(k+1) for k ≥ 1 and x ∈ [0, 1]. |
 | `mathlib:Ideal.absNorm` | `Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean` | The absolute norm Nv = #(𝓞_F/v). |
 | `mathlib:Ideal.absNorm_eq_one_iff` | `Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean` | An ideal has absolute norm 1 iff it is the whole ring. |
+| `mathlib:Ideal.inertiaDeg_pos` | `Mathlib/RingTheory/RamificationInertia/Inertia.lean` | For a prime ideal q of S with S module-finite over R, its inertia degree over R is positive. Applied with R = ℤ and S the ring of integers. |
+| `mathlib:Ideal.pow_inertiaDeg` | `Mathlib/RingTheory/RamificationInertia/Inertia.lean` | For a Dedekind domain R infinite and finite over ℤ, a prime ideal P lying over (p) satisfies p ^ inertiaDeg(P/ℤ) = absNorm P, for p : ℕ. Applied only to the ring of integers of a number field. |
+| `mathlib:Ideal.span` | `Mathlib/RingTheory/Ideal/Span.lean` | The ideal generated by a set. |
 | `mathlib:IsCyclotomicExtension` | `Mathlib/NumberTheory/Cyclotomic/Basic.lean` | Cyclotomic extensions, for the fields F(μ_{ℓ^ν}). |
+| `mathlib:IsCyclotomicExtension.Rat.galEquivZMod` | `Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean` | For n nonzero and a number field K that is a cyclotomic extension of ℚ of level {n}, Gal(K/ℚ) is multiplicatively equivalent to (ZMod n)ˣ. This supplies the concrete cyclotomic Galois groups, not an intersection theorem for arbitrary F. |
+| `mathlib:IsCyclotomicExtension.Rat.galEquivZMod_restrictNormal_apply` | `Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean` | For nonzero m,n with m ∣ n and compatible cyclotomic fields F ⊆ K at those levels, restriction Gal(K/ℚ) → Gal(F/ℚ) agrees with reduction on ZMod units. |
 | `mathlib:IsDedekindDomain.HeightOneSpectrum` | `Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean` | The maximal ideals (finite places) of 𝓞_F. |
 | `mathlib:KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk` | `Mathlib/NumberTheory/KummerDedekind.lean` | Kummer–Dedekind: prime factors of p𝓞 against factors of the minimal polynomial mod p. |
 | `mathlib:LSeries` | `Mathlib/NumberTheory/LSeries/Basic.lean` | The L-series of an arithmetic sequence. |
@@ -1696,17 +1861,26 @@ These declarations supply only the indicated inputs, not the missing arithmetic 
 | `mathlib:Nat.card_pi` | `Mathlib/SetTheory/Cardinal/Finite.lean` | The order of a finite product is the product of the orders. |
 | `mathlib:Nat.card_units` | `Mathlib/Algebra/GroupWithZero/Units/Fintype.lean` | #(k^×) = #k − 1 for a finite field k. |
 | `mathlib:Nat.eq_iff_prime_padicValNat_eq` | `Mathlib/Data/Nat/Factorization/Basic.lean` | Two positive naturals are equal iff all their prime valuations agree. |
+| `mathlib:NumberField.Ideal.inertiaDeg_primesOverSpanEquivMonicFactorsMod_symm_apply'` | `Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean` | Under the same prime/no-index-prime hypotheses, the corresponding prime ideal has inertia degree equal to the reduced factor’s natural degree. |
+| `mathlib:NumberField.Ideal.primesOverSpanEquivMonicFactorsMod` | `Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean` | For a number field, prime p and θ in its ring of integers with p ∤ exponent θ, primes above (p) are equivalent to the monic irreducible factors of the reduced minimal polynomial. |
+| `mathlib:NumberField.Ideal.ramificationIdx_primesOverSpanEquivMonicFactorsMod_symm_apply'` | `Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean` | Under the same prime/no-index-prime hypotheses, the corresponding prime ideal’s ramification index is the multiplicity of that factor in the reduced minimal polynomial. |
 | `mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank` | `Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean` | r_1 + 2r_2 = [F:ℚ]. |
 | `mathlib:NumberField.IsTotallyReal` | `Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean` | The hypothesis that every infinite place is real. |
 | `mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero` | `Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean` | A totally real field has no complex places. |
 | `mathlib:NumberField.RingOfIntegers` | `Mathlib/NumberTheory/NumberField/Basic.lean` | The ring of integers 𝓞_F. |
+| `mathlib:NumberField.Units.finrank_eq` | `Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean` | Dirichlet's unit theorem: the free rank of (𝓞 K)ˣ is Units.rank K. |
+| `mathlib:NumberField.Units.rank` | `Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean` | rank K = card (InfinitePlace K) − 1. |
 | `mathlib:NumberField.dedekindZeta` | `Mathlib/NumberTheory/NumberField/DedekindZeta.lean` | The Dedekind zeta function as the L-series of the ideal count (meaningful on Re s > 1). |
 | `mathlib:NumberField.discr` | `Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean` | The discriminant d_F. |
+| `mathlib:NumberField.discr_ne_zero` | `Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean` | The integral absolute discriminant of every number field is nonzero; hence its absolute value is positive and at least one. |
+| `mathlib:PadicInt` | `Mathlib/NumberTheory/Padics/PadicIntegers.lean` | The p-adic integers ℤ_[p]. |
 | `mathlib:Polynomial.bernoulli` | `Mathlib/NumberTheory/BernoulliPolynomials.lean` | The Bernoulli polynomials. |
+| `mathlib:PowerSeries` | `Mathlib/RingTheory/PowerSeries/Basic.lean` | Formal power series R⟦X⟧; Λ = ℤ_2⟦T⟧. |
 | `mathlib:QuotientGroup.quotientKerEquivOfSurjective` | `Mathlib/GroupTheory/QuotientGroup/Basic.lean` | First isomorphism theorem for a surjective homomorphism. |
 | `mathlib:Rat.den_dvd` | `Mathlib/Data/Rat/Lemmas.lean` | The reduced denominator of a/b divides b. |
 | `mathlib:Rat.num_div_den` | `Mathlib/Algebra/Ring/Rat.lean` | A rational number is its numerator over its denominator. |
 | `mathlib:Rat.ringOfIntegersEquiv` | `Mathlib/NumberTheory/NumberField/Basic.lean` | 𝓞_ℚ ≃+* ℤ. |
+| `mathlib:RingOfIntegers.exponent_eq_one_iff` | `Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean` | For θ in the ring of integers, exponent θ = 1 iff ℤ[θ] is the whole ring; the quadratic integral generator discharges the no-index-prime hypothesis. |
 | `mathlib:Set.integer` | `Mathlib/RingTheory/DedekindDomain/SInteger.lean` | The ring of S-integers. |
 | `mathlib:Subgroup.card_mul_index` | `Mathlib/GroupTheory/Index.lean` | #H · [G:H] = #G. |
 | `mathlib:ZMod.LFunction_def_even` | `Mathlib/NumberTheory/LSeries/ZMod.lean` | L(s, Φ) for even Φ as a sum of even Hurwitz zeta functions. |
@@ -1714,6 +1888,8 @@ These declarations supply only the indicated inputs, not the missing arithmetic 
 | `mathlib:differentiableAt_riemannZeta` | `Mathlib/NumberTheory/LSeries/RiemannZeta.lean` | riemannZeta is holomorphic away from 1. |
 | `mathlib:legendreSym` | `Mathlib/NumberTheory/LegendreSymbol/Basic.lean` | The Legendre symbol, the character χ₅ = (·/5). |
 | `mathlib:legendreSym.quadratic_reciprocity_one_mod_four` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean` | Quadratic reciprocity for a prime ≡ 1 (mod 4). |
+| `mathlib:padicValNat.eq_zero_of_not_dvd` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | v_p(n) = 0 when p ∤ n. |
+| `mathlib:padicValNat.mul` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | v_p(ab) = v_p(a) + v_p(b) for nonzero a, b. |
 | `mathlib:padicValRat` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | The p-adic valuation of a rational number. |
 | `mathlib:padicValRat.div` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | v_p(q/r) = v_p(q) − v_p(r) for nonzero q, r. |
 | `mathlib:padicValRat.mul` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | v_p(qr) = v_p(q) + v_p(r) for nonzero q, r. |
@@ -1727,10 +1903,3 @@ These declarations supply only the indicated inputs, not the missing arithmetic 
 | `tauceti:TauCeti.dedekindZetaCoeff_rat` | `TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean` | Over ℚ there is exactly one ideal of each norm. |
 | `tauceti:TauCeti.dedekindZeta_eq_LSeries_dedekindZetaCoeff` | `TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean` | Mathlib's dedekindZeta is the L-series of dedekindZetaCoeff. |
 | `tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd` | `TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean` | The Euler product of the Dedekind zeta function on Re s > 1. |
-| `mathlib:PowerSeries` | `Mathlib/RingTheory/PowerSeries/Basic.lean` | Formal power series R⟦X⟧; Λ = ℤ_2⟦T⟧. |
-| `mathlib:PadicInt` | `Mathlib/NumberTheory/Padics/PadicIntegers.lean` | The p-adic integers ℤ_[p]. |
-| `mathlib:Ideal.span` | `Mathlib/RingTheory/Ideal/Span.lean` | The ideal generated by a set. |
-| `mathlib:NumberField.Units.finrank_eq` | `Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean` | Dirichlet's unit theorem: the free rank of (𝓞 K)ˣ is Units.rank K. |
-| `mathlib:NumberField.Units.rank` | `Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean` | rank K = card (InfinitePlace K) − 1. |
-| `mathlib:padicValNat.mul` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | v_p(ab) = v_p(a) + v_p(b) for nonzero a, b. |
-| `mathlib:padicValNat.eq_zero_of_not_dvd` | `Mathlib/NumberTheory/Padics/PadicVal/Basic.lean` | v_p(n) = 0 when p ∤ n. |
