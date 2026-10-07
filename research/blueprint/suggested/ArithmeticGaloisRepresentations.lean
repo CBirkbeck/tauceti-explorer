@@ -170,8 +170,10 @@ structure Iso (ρ : ContinuousRep Γ A M) (σ : ContinuousRep Γ A N) where
 def charpoly [Module.Free A M] (ρ : ContinuousRep Γ A M) (g : Γ) : Polynomial A :=
   (ρ g).charpoly
 
-/-- The determinant character `Γ →* Aˣ`, the action on the top exterior power for a carrier of
-constant rank (`LinearMap.det ∘ ρ` when the carrier is free). -/
+/-- The determinant character `Γ →* Aˣ` of a finite projective carrier, defined
+through a finite free complement. For constant rank it is the top exterior power;
+for a free carrier it is `LinearMap.det ∘ ρ`. The complement independence, also
+for varying local rank, is R01.1/determinant-through-a-complement. -/
 def det (ρ : ContinuousRep Γ A M) : Γ →* Aˣ := sorry
 
 /-- The rank-one representation `A(χ)` of a continuous character. -/
@@ -3756,6 +3758,20 @@ example (ρ : ContinuousRep W E V) (F : W) (hF : deg F = Multiplicative.ofAdd (-
 
 end OfEllAdic
 
+/- The local-field specialisation of R01.2/weil-deligne-representation is made
+only after fixing K with finite residue field of cardinality q, W=W_K and the
+continuous inclusion W_K→G_K identifying deg.ker homeomorphically with I_K.
+The degree is the residue action (geometric Frobenius has degree −1), and
+t is the surjective trivialised ℓ-adic tame character, ℓ≠char(k_K).
+The abstract signatures use the explicit `IsTameCharacter` package: compact/open
+inertia, equivariance and factorisation of every finite ℓ-quotient of an open
+inertia subgroup. Surjectivity of an arbitrary t alone is insufficient.
+Transporting that package from the actual local Weil group is a supplier-bound
+prototype, pending ClassFieldTheory layer 9 and LocalFieldsRamification layer 4.
+The conductor comparison below additionally fixes the same inclusion and
+inertia image, the residue cardinality, the full tame-character package and
+the finite coefficient-field/module-topology hypotheses. -/
+
 /-! ### The ℓ-adic representation of the Weil group attached to a Weil–Deligne representation (ArithmeticGaloisRepresentations:R01.2/ell-adic-representation-of-a-weil-deligne-representation) -/
 
 /-- ArithmeticGaloisRepresentations:R01.2/ell-adic-representation-of-a-weil-deligne-representation:
@@ -4728,6 +4744,7 @@ theorem invariants_inertia_eq_ker_monodromy {W : Type*} [Group W] [TopologicalSp
     {deg : W →* Multiplicative ℤ} {ι : W →ₜ* Field.absoluteGaloisGroup K}
     {q ℓ : ℕ} [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[K]) ≠ 0) {E : Type*} [Field E]
     [TopologicalSpace E] [Algebra ℚ_[ℓ] E]
+    [FiniteDimensional ℚ_[ℓ] E] [IsModuleTopology ℚ_[ℓ] E]
     {V : Type*} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
     [TopologicalSpace V] [IsModuleTopology E V]
     (hι : Function.Injective ι)
@@ -4736,7 +4753,9 @@ theorem invariants_inertia_eq_ker_monodromy {W : Type*} [Group W] [TopologicalSp
     (ρ : ContinuousRep (Field.absoluteGaloisGroup K) E V) (F : W)
     (hF : deg F = Multiplicative.ofAdd (-1)) (t : deg.ker →* Multiplicative ℤ_[ℓ])
     (ht : Function.Surjective t)
-    (htP : ∀ σ : deg.ker, ι σ ∈ GaloisRep.localWildInertiaGroup K → t σ = 1) :
+    (htP : ∀ σ : deg.ker, ι σ ∈ GaloisRep.localWildInertiaGroup K → t σ = 1)
+    (htame : WeilDeligneRep.IsTameCharacter deg q t)
+    (hq : q = Nat.card (𝓀[K])) :
     invariants ρ.toRepresentation (GaloisRep.inertiaGroup K) =
       LinearMap.ker (WeilDeligneRep.ofEllAdic (q := q) (ρ.res ι) F hF t).N ⊓
         invariants (WeilDeligneRep.ofEllAdic (q := q) (ρ.res ι) F hF t).r deg.ker := by sorry
@@ -4886,7 +4905,10 @@ theorem artinConductor_eq_wdConductor {ℓ : ℕ} [Fact ℓ.Prime] (hℓ : (ℓ 
     (hP : (Set.range fun σ : GaloisRep.localWildInertiaGroup K => ρ σ).Finite) (F : W)
     (hF : deg F = Multiplicative.ofAdd (-1)) (t : deg.ker →* Multiplicative ℤ_[ℓ])
     (ht : Function.Surjective t)
-    (htP : ∀ σ : deg.ker, ι σ ∈ GaloisRep.localWildInertiaGroup K → t σ = 1) :
+    (htP : ∀ σ : deg.ker, ι σ ∈ GaloisRep.localWildInertiaGroup K → t σ = 1)
+    (htame : WeilDeligneRep.IsTameCharacter deg q t)
+    (hq : q = Nat.card (𝓀[K]))
+    [FiniteDimensional ℚ_[ℓ] E] [IsModuleTopology ℚ_[ℓ] E] :
     artinConductor ρ = wdConductor K ι (WeilDeligneRep.ofEllAdic (q := q) (ρ.res ι) F hF t) := by
   sorry
 
@@ -4966,6 +4988,16 @@ NumberFieldArithmetic). -/
 def localConductorExponent (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V)
     (v : HeightOneSpectrum (𝓞 F)) : ℕ := sorry
 
+/-- Exclude coefficient-characteristic places, and places above any prime admitting
+ a continuous coefficient embedding from its p-adic field. At the remaining
+ places the local conductor uses coefficients of characteristic different from
+ the residue characteristic. The coefficient tiers and finite wild-image
+ hypotheses are those of the packet's local conductor nodes. -/
+def AdmissibleExcludedPlaces (S : Set (HeightOneSpectrum (𝓞 F))) : Prop :=
+  (ringChar C ≠ 0 → ∀ v, (ringChar C : 𝓞 F) ∈ v.asIdeal → v ∈ S) ∧
+    (∀ (ℓ : ℕ) [Fact ℓ.Prime] (ι : ℚ_[ℓ] →+* C), Continuous ι →
+      ∀ v, (ℓ : 𝓞 F) ∈ v.asIdeal → v ∈ S)
+
 /-- The `Σ`-conductor `N^Σ(ρ) = ∏_{v ∉ Σ} 𝔭_v^{a_v(ρ)}`. -/
 def globalConductor (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V)
     (S : Set (HeightOneSpectrum (𝓞 F))) : Ideal (𝓞 F) :=
@@ -4979,19 +5011,32 @@ def primeToPConductor (p : ℕ) [CharP C p] [Finite C]
 
 variable {F}
 
-/-- `v_𝔭(N^Σ(ρ)) = a_v(ρ)` for `v ∉ Σ` and `0` for `v ∈ Σ`, for `ρ` ramified at finitely many
+/-- These typed global identities cover finite-image representations, discrete coefficient
+fields and finite extensions of a p-adic field with their canonical module topology (`hcoeff`).
+The algebraic-closure coefficient case uses finite-extension descent from R01.1.
+`v_𝔭(N^Σ(ρ)) = a_v(ρ)` for `v ∉ Σ` and `0` for `v ∈ Σ`, for `ρ` ramified at finitely many
 places (`hfin`, a hypothesis of the node: without it the product defining `N^Σ(ρ)` is infinite,
 and a nonzero ideal cannot have infinitely many prime factors). -/
 theorem globalConductor_eq_prod (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V)
+
+    (hcoeff : (Set.range (fun g => ρ g)).Finite ∨ DiscreteTopology C ∨
+      ∃ (ℓ : ℕ) (hp : Fact ℓ.Prime), letI := hp;
+        ∃ (inst : Algebra ℚ_[ℓ] C), letI := inst;
+          FiniteDimensional ℚ_[ℓ] C ∧ IsModuleTopology ℚ_[ℓ] C)
     (hfin : (GaloisRep.ramificationSet F ρ.toRepresentation).Finite)
-    (S : Set (HeightOneSpectrum (𝓞 F))) (v : HeightOneSpectrum (𝓞 F)) :
+    (S : Set (HeightOneSpectrum (𝓞 F))) (hS : AdmissibleExcludedPlaces F (C := C) S) (v : HeightOneSpectrum (𝓞 F)) :
     (v ∉ S → v.asIdeal ^ localConductorExponent F ρ v ∣ globalConductor F ρ S ∧
       ¬ v.asIdeal ^ (localConductorExponent F ρ v + 1) ∣ globalConductor F ρ S) ∧
     (v ∈ S → ¬ v.asIdeal ∣ globalConductor F ρ S) := by sorry
 
 theorem globalConductor_eq_one_iff (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V)
+
+    (hcoeff : (Set.range (fun g => ρ g)).Finite ∨ DiscreteTopology C ∨
+      ∃ (ℓ : ℕ) (hp : Fact ℓ.Prime), letI := hp;
+        ∃ (inst : Algebra ℚ_[ℓ] C), letI := inst;
+          FiniteDimensional ℚ_[ℓ] C ∧ IsModuleTopology ℚ_[ℓ] C)
     (hfin : (GaloisRep.ramificationSet F ρ.toRepresentation).Finite)
-    (S : Set (HeightOneSpectrum (𝓞 F))) :
+    (S : Set (HeightOneSpectrum (𝓞 F))) (hS : AdmissibleExcludedPlaces F (C := C) S) :
     globalConductor F ρ S = ⊤ ↔ ∀ v ∉ S, GaloisRep.IsUnramifiedAt F ρ.toRepresentation v := by
   sorry
 
@@ -5017,8 +5062,13 @@ theorem globalConductor_add {V' : Type*} [AddCommGroup V'] [Module C V'] [Module
     (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V)
     (ρ' : ContinuousRep (Field.absoluteGaloisGroup F) C V')
     (ρ'' : ContinuousRep (Field.absoluteGaloisGroup F) C V'')
+
+    (hcoeff : (Set.range (fun g => ρ'' g)).Finite ∨ DiscreteTopology C ∨
+      ∃ (ℓ : ℕ) (hp : Fact ℓ.Prime), letI := hp;
+        ∃ (inst : Algebra ℚ_[ℓ] C), letI := inst;
+          FiniteDimensional ℚ_[ℓ] C ∧ IsModuleTopology ℚ_[ℓ] C)
     (hfin : (GaloisRep.ramificationSet F ρ''.toRepresentation).Finite)
-    (S : Set (HeightOneSpectrum (𝓞 F))) :
+    (S : Set (HeightOneSpectrum (𝓞 F))) (hS : AdmissibleExcludedPlaces F (C := C) S) :
     (∀ e : (V × V') ≃ₗ[C] V'', (∀ g, e.toLinearMap ∘ₗ LinearMap.prodMap (ρ g) (ρ' g) =
         ρ'' g ∘ₗ e.toLinearMap) →
       globalConductor F ρ'' S = globalConductor F ρ S * globalConductor F ρ' S) ∧
@@ -7327,1429 +7377,493 @@ end TauCeti
 
 
 /-! # The declarations of layer R01.6 -/
-/-! # R01.6: Tate modules of abelian varieties
-
-Mathlib has no abelian varieties. This section works with an honest minimal stand-in,
-`TauCeti.AlgebraicGeometry.AbelianVariety`, which records exactly the data the statements below
-use: the group of geometric points with its Galois action, the dimension, and the structure of
-the torsion subgroups. Here the types that depend on the geometry (`Hom`, `dual`, `Polarization`,
-`baseChange`, `GoodReductionModel`, ...) are opaque data (`sorry`), and no condition that needs
-the geometry is stated. Elliptic curves use Mathlib's `WeierstrassCurve` and
-`WeierstrassCurve.localPolynomial`.
-
-What replaces the stand-in in the roadmap:
-
-* already in the pinned Tau Ceti (`TauCeti/AlgebraicGeometry/AbelianVariety/`): the structure
-  `TauCeti.AlgebraicGeometry.AbelianVariety` (a proper geometrically integral group scheme over
-  `Spec K`: fields `toOver`, `grpObj`, `isProper`, `geometricallyIntegral`) and `AbelianVariety.dim`
-  replace the structure and `dim` below; the morphisms `A ⟶ B` of its category with
-  `AbelianVariety.End`, `End.toHom` and `AbelianVariety.mulBy` replace `Hom`, `End`, `End.toHom`;
-  `AbelianVariety.baseChange`, `Hom.baseChange`, `AbelianVariety.prod`, `AbelianVariety.trivial`
-  and `AbelianVariety.IsIsogeny` replace `baseChange`, `prod`, `zero` and `Hom.IsIsogeny`;
-* not yet in Tau Ceti, supplied by other layers: the group `A(K̄)` of geometric points with its
-  Galois action and the torsion counts (fields `Points`, `isOpen_stabilizer`, `divisible`,
-  `finite_torsion`, `card_torsion`: AbelianSchemesAndArithmeticModuli A3); `Hom.degree` (A3);
-  `dual`, `Hom.dual`, `Polarization` (Tau Ceti JacobianChallenge layer E); `GoodReductionModel`
-  (NeronModelsAndSemistableAbelianVarieties R11.1, abelian-scheme-model); `qFrobenius` (recorded as
-  a gap of the packet); `ofWeierstrass` (AbelianSchemesAndArithmeticModuli A1);
-* `G_K` is Mathlib's `Field.absoluteGaloisGroup K`; its identification with `Gal(K^sep/K)` is Tau
-  Ceti's `TauCeti.absoluteGaloisGroupRestrictEquiv`. -/
-
-namespace TauCeti
-
-universe u
-
-namespace AlgebraicGeometry
-
-open Polynomial IsDedekindDomain NumberField ValuativeRel
-
-/-! ## The stand-in carrier -/
-
-/-- Stand-in for an abelian variety of dimension `g` over a field `K`, replaced in the roadmap by
-Tau Ceti's `TauCeti.AlgebraicGeometry.AbelianVariety` (a proper geometrically integral group scheme
-over `Spec K`) with `AbelianVariety.dim`; the fields below are theorems about that object (points
-and torsion counts: AbelianSchemesAndArithmeticModuli A3), not extra data. The stand-in is: the group
-`A(K̄)` of geometric points (`K̄ = AlgebraicClosure K`), with the coordinatewise action of
-`G_K = Field.absoluteGaloisGroup K`, such that each point has an open stabiliser, `A(K̄)` is
-divisible, `A[N](K̄)` is finite for `N ≠ 0`, and `#A[N](K̄) = N^{2g}` for `N` invertible in `K`. -/
-structure AbelianVariety (K : Type u) [Field K] where
-  /-- The group `A(K̄)` of geometric points. -/
-  Points : Type u
-  [instAddCommGroup : AddCommGroup Points]
-  /-- The coordinatewise action of `G_K` on geometric points. -/
-  [instGaloisAction : DistribMulAction (Field.absoluteGaloisGroup K) Points]
-  /-- The dimension `g`. -/
-  dim : ℕ
-  /-- Every geometric point is defined over a finite extension of `K`. -/
-  isOpen_stabilizer : ∀ x : Points, IsOpen {σ : Field.absoluteGaloisGroup K | σ • x = x}
-  /-- `[N] : A → A` is surjective on geometric points for `N ≠ 0`. -/
-  divisible : ∀ (N : ℕ) (x : Points), N ≠ 0 → ∃ y : Points, N • y = x
-  /-- `A[N](K̄)` is finite for `N ≠ 0`. -/
-  finite_torsion : ∀ N : ℕ, N ≠ 0 → Finite (AddSubgroup.torsionBy Points (N : ℤ))
-  /-- `#A[N](K̄) = N^{2g}` for `N` invertible in `K`. -/
-  card_torsion : ∀ N : ℕ, (N : K) ≠ 0 →
-    Nat.card (AddSubgroup.torsionBy Points (N : ℤ)) = N ^ (2 * dim)
+/-! # R01.6: Tate modules on the actual Tau Ceti geometric carrier
 
-namespace AbelianVariety
+The carrier is the pinned `TauCeti.AlgebraicGeometry.AbelianVariety`: a proper
+geometrically integral group scheme. It is never replaced here by a structure of
+points, dimension and torsion counts. The available shared Lean check builds
+Mathlib, and does not contain compiled Tau Ceti geometry modules. Moreover the
+point functor, torsion comparison, duality, specialization and model predicates
+needed below are supplier exports recorded in the packet. These signatures
+therefore remain comment-block prototypes against that actual carrier; no opaque
+replacement `Hom`, `dual`, `Polarization` or `GoodReductionModel` is introduced.
+Each API and unit-test name is retained below with its exact mathematical type.
+They must be elaborated after the named supplier vocabulary exists.
 
-attribute [instance] instAddCommGroup instGaloisAction
+Intended imports include `TauCeti.AlgebraicGeometry.AbelianVariety.Basic`,
+the dimension declarations in `TauCeti.AlgebraicGeometry.AbelianVariety.Basic` and the packet’s eventual
+point/torsion modules. The packet, including its exact prerequisite IDs, is the
+definitive specification.
+-/
 
-attribute [local instance] ContinuousRep.Bundled.isAddCommGroup ContinuousRep.Bundled.isModule
-  ContinuousRep.Bundled.isFinite ContinuousRep.Bundled.isProjective
-  ContinuousRep.Bundled.isTopologicalSpace ContinuousRep.Bundled.isModuleTopology
+/- ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety
 
-/-- `5` is prime (used by the unit tests). -/
-instance fact_prime_five : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
-
-/-- Every element of `Nat.Primes` is prime (used for adelic products over all primes). -/
-instance instFactPrimes (p : Nat.Primes) : Fact (p : ℕ).Prime := ⟨p.2⟩
-
-/-! ### The `ℓ`-adic Tate module of an abelian group -/
-
-/-- The `ℓ`-adic Tate module `lim_n G[ℓ^n]` (transition maps `[ℓ]`) of an abelian group `G`: the
-compatible systems `(x_n)` with `ℓ^n x_n = 0` and `ℓ x_{n+1} = x_n`. -/
-def ellAdicTateModule (G : Type*) [AddCommGroup G] (ℓ : ℕ) : AddSubgroup (ℕ → G) where
-  carrier := {x | ∀ n, ℓ ^ n • x n = 0 ∧ ℓ • x (n + 1) = x n}
-  add_mem' := sorry
-  zero_mem' := sorry
-  neg_mem' := sorry
-
-namespace ellAdicTateModule
-
-variable (G : Type*) [AddCommGroup G] (ℓ : ℕ)
-
-/-- `ℤ_ℓ` acts by `a • (x_n) = ((a mod ℓ^n) • x_n)_n`. -/
-instance instModule [Fact ℓ.Prime] : Module ℤ_[ℓ] (ellAdicTateModule G ℓ) := sorry
-
-/-- The inverse-limit topology of the discrete groups `G[ℓ^n]`. -/
-instance instTopologicalSpace : TopologicalSpace (ellAdicTateModule G ℓ) :=
-  TopologicalSpace.induced (fun x => (x : ℕ → G)) (@Pi.topologicalSpace ℕ (fun _ => G) fun _ => ⊥)
-
-end ellAdicTateModule
-
-/-- The Tate twist `ℤ_ℓ(1) = lim_n μ_{ℓ^n}(K̄)`, written additively; `G_K` acts on it through
-`χ_ℓ`. Stand-in for R01.1's `ContinuousRep.TateTwist.zlOne` (another section). -/
-abbrev tateTwistOne (K : Type u) [Field K] (ℓ : ℕ) :
-    AddSubgroup (ℕ → Additive (AlgebraicClosure K)ˣ) :=
-  ellAdicTateModule (Additive (AlgebraicClosure K)ˣ) ℓ
-
-variable {K : Type u} [Field K]
-
-/-! ### Opaque geometric data supplied by Tau Ceti -/
-
-/-- Homomorphisms `A → B` of abelian varieties over `K` (Tau Ceti: homomorphisms of group schemes
-over `K`); opaque in this stand-in. -/
-def Hom (A B : AbelianVariety K) : Type u := sorry
-
-instance (A B : AbelianVariety K) : AddCommGroup (Hom A B) := sorry
-
-/-- The effect of a homomorphism on geometric points (Galois-equivariant, see `Hom.map_smul`). -/
-def Hom.toPointsHom {A B : AbelianVariety K} : Hom A B →+ (A.Points →+ B.Points) := sorry
-
-theorem Hom.map_smul {A B : AbelianVariety K} (α : Hom A B) (σ : Field.absoluteGaloisGroup K)
-    (x : A.Points) : α.toPointsHom (σ • x) = σ • α.toPointsHom x := by
-  sorry
-
-/-- The identity homomorphism. -/
-def Hom.id (A : AbelianVariety K) : Hom A A := sorry
-
-/-- Composition of homomorphisms. -/
-def Hom.comp {A B C : AbelianVariety K} (β : Hom B C) (α : Hom A B) : Hom A C := sorry
-
-/-- The degree of a homomorphism: the rank of the finite group scheme `ker α` (`0` if `α` is not
-an isogeny). -/
-def Hom.degree {A B : AbelianVariety K} (α : Hom A B) : ℕ := sorry
-
-/-- An isogeny: surjective with finite kernel (on geometric points, equivalently as a morphism of
-abelian varieties). -/
-def Hom.IsIsogeny {A B : AbelianVariety K} (α : Hom A B) : Prop :=
-  Function.Surjective α.toPointsHom ∧ Finite α.toPointsHom.ker
-
-/-- The endomorphism ring `End_K(A)`. -/
-def End (A : AbelianVariety K) : Type u := Hom A A
-
-instance (A : AbelianVariety K) : Ring (End A) := sorry
-
-/-- An endomorphism as a homomorphism. -/
-def End.toHom {A : AbelianVariety K} (α : End A) : Hom A A := α
-
-/-- The endomorphism algebra `End⁰_K(A) = End_K(A) ⊗ ℚ`. -/
-abbrev End0 (A : AbelianVariety K) : Type u := ℚ ⊗[ℤ] End A
-
-/-- The dual abelian variety `A^∨` (Tau Ceti JacobianChallenge E / AbelianSchemes A2). -/
-def dual (A : AbelianVariety K) : AbelianVariety K := sorry
-
-/-- The dual homomorphism `α^∨ : B^∨ → A^∨`. -/
-def Hom.dual {A B : AbelianVariety K} (α : Hom A B) : Hom B.dual A.dual := sorry
-
-/-- Polarizations of `A` (isogenies `A → A^∨` of the form `φ_L` for an ample `L`); opaque. -/
-def Polarization (A : AbelianVariety K) : Type u := sorry
-
-/-- The isogeny `λ : A → A^∨` underlying a polarization. -/
-def Polarization.toHom {A : AbelianVariety K} (μ : Polarization A) : Hom A A.dual := sorry
-
-/-- Base change `A_L` along a field extension `L/K` (Tau Ceti `AbelianVariety.baseChange`). -/
-def baseChange (A : AbelianVariety K) (L : Type u) [Field L] [Algebra K L] :
-    AbelianVariety L := sorry
-
-/-- The base change of a polarization. -/
-def Polarization.baseChange {A : AbelianVariety K} (μ : Polarization A) (L : Type u) [Field L]
-    [Algebra K L] : Polarization (A.baseChange L) := sorry
-
-/-- The product `A × B` (Tau Ceti `AbelianVariety.prod`). -/
-def prod (A B : AbelianVariety K) : AbelianVariety K where
-  Points := A.Points × B.Points
-  dim := A.dim + B.dim
-  isOpen_stabilizer := sorry
-  divisible := sorry
-  finite_torsion := sorry
-  card_torsion := sorry
-
-/-- The product polarization `λ × μ`. -/
-def Polarization.prod {A B : AbelianVariety K} (μ : Polarization A) (ν : Polarization B) :
-    Polarization (A.prod B) := sorry
-
-variable (K) in
-/-- The zero abelian variety `Spec K` (`g = 0`). -/
-def zero : AbelianVariety K where
-  Points := PUnit
-  dim := 0
-  isOpen_stabilizer := sorry
-  divisible := sorry
-  finite_torsion := sorry
-  card_torsion := sorry
-
-/-- The `q`-power Frobenius endomorphism `π` of an abelian variety over a finite field
-`k = 𝔽_q` (raising coordinates to the `q`-th power). Opaque: for `g > 1` no library or roadmap
-node upstream of R01.6 defines it (a gap of the packet); for elliptic curves it is Tau Ceti's
-`TauCeti.Isogeny.frobeniusIsogeny`. -/
-def qFrobenius {k : Type u} [Field k] [Finite k] (B : AbelianVariety k) : Hom B B := sorry
-
-/-! ### Elliptic curves -/
-
-/-- The abelian variety `E_W` of dimension one defined by an elliptic Weierstrass curve: the
-points are `(W⁄K̄).Point` and `σ ∈ G_K` acts by `WeierstrassCurve.Affine.Point.map σ`. In the
-roadmap this identification is supplied by AbelianSchemesAndArithmeticModuli A1 (one-dimensional
-abelian schemes are the elliptic curves, through the Weierstrass presentation). -/
-def ofWeierstrass (W : WeierstrassCurve K) [W.IsElliptic] : AbelianVariety K := by
-  classical
-  exact
-    { Points := (W.baseChange (AlgebraicClosure K)).toAffine.Point
-      instGaloisAction :=
-        { smul := fun σ P =>
-            WeierstrassCurve.Affine.Point.map (W' := W.toAffine) (S := K)
-              (σ : AlgebraicClosure K ≃ₐ[K] AlgebraicClosure K).toAlgHom P
-          one_smul := sorry
-          mul_smul := sorry
-          smul_zero := sorry
-          smul_add := sorry }
-      dim := 1
-      isOpen_stabilizer := sorry
-      divisible := sorry
-      finite_torsion := sorry
-      card_torsion := sorry }
-
-/-- The canonical principal polarization `φ_{𝒪(O)} : P ↦ t_P^*𝒪(O) ⊗ 𝒪(O)⁻¹ = [(O) − (P)]` of an
-elliptic curve (the opposite of the Abel–Jacobi identification `P ↦ [(P) − (O)]`, which is not a
-polarization). -/
-def canonicalPolarization (W : WeierstrassCurve K) [W.IsElliptic] :
-    Polarization (ofWeierstrass W) := sorry
-
-variable (K) in
-/-- The Weierstrass curve `y² = x³ − x` (conductor `32`, CM by `ℤ[i]`). -/
-def cmCurve : WeierstrassCurve K := ⟨0, 0, 0, -1, 0⟩
-
-variable (K) in
-/-- The Weierstrass curve `y² = x³ + 1` (supersingular at `p ≡ 2 mod 3`). -/
-def curveX3Plus1 : WeierstrassCurve K := ⟨0, 0, 0, 0, 1⟩
-
-/-- `Δ(y² = x³ − x) = 64`. -/
-instance [CharZero K] : (cmCurve K).IsElliptic := sorry
-
-/-- `Δ(y² = x³ − x) = 64 ≠ 0` in `𝔽_5`. -/
-instance : (cmCurve (ZMod 5)).IsElliptic := sorry
-
-/-- `Δ(y² = x³ + 1) = −432 ≠ 0` in characteristic `5`. -/
-instance : (curveX3Plus1 (ZMod 5)).IsElliptic := sorry
-
-/-- `Δ(y² = x³ + 1) = −432 ≠ 0` in characteristic `5`. -/
-instance : (curveX3Plus1 (AlgebraicClosure (ZMod 5))).IsElliptic := sorry
-
-/-! ### The ℓ-adic Tate module of an abelian variety as a continuous Galois representation (ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety) -/
-
-/-- `A[N](K^sep) = A[N](K̄)`, the `N`-torsion of the geometric points; for `N` invertible in `K` a
-finite free `ℤ/N`-module of rank `2g` with its `G_K`-action. -/
-abbrev torsionPoints (A : AbelianVariety K) (N : ℕ) : AddSubgroup A.Points :=
-  AddSubgroup.torsionBy A.Points (N : ℤ)
-
-instance (A : AbelianVariety K) (N : ℕ) : Module (ZMod N) (A.torsionPoints N) :=
-  AddSubgroup.torsionBy.zmodModule
-
-/-- The pointwise Galois action on `A[N](K̄)`. -/
-instance (A : AbelianVariety K) (N : ℕ) :
-    DistribMulAction (Field.absoluteGaloisGroup K) (A.torsionPoints N) where
-  smul σ x := ⟨σ • (x : A.Points), sorry⟩
-  one_smul := sorry
-  mul_smul := sorry
-  smul_zero := sorry
-  smul_add := sorry
-
-/-- For `N` invertible in `K`, `A[N](K^sep)` has `N^{2g}` elements and is (noncanonically)
-isomorphic to `(ℤ/N)^{2g}`; `[N] : A[MN](K^sep) → A[M](K^sep)` is surjective. -/
-theorem torsionPoints_card (A : AbelianVariety K) (N : ℕ) (hN : (N : K) ≠ 0) :
-    Nat.card (A.torsionPoints N) = N ^ (2 * A.dim) ∧
-      Nonempty (A.torsionPoints N ≃+ (Fin (2 * A.dim) → ZMod N)) ∧
-      ∀ (M : ℕ) (x : A.torsionPoints M),
-        ∃ y : A.torsionPoints (M * N), N • (y : A.Points) = (x : A.Points) := by
-  sorry
-
-/-- `T_ℓA := lim_n A[ℓ^n](K^sep)` along `[ℓ]`, a `ℤ_ℓ`-module with the inverse-limit topology.
-Defined for every prime `ℓ`; the roadmap uses it for `ℓ ≠ char K` (see `tateModule_free` and the
-test `tateModule_char_p_excluded`). -/
-abbrev tateModule (A : AbelianVariety K) (ℓ : ℕ) : AddSubgroup (ℕ → A.Points) :=
-  ellAdicTateModule A.Points ℓ
-
-section TateInstances
-
-variable (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-
-/-- `T_ℓA` is free over `ℤ_ℓ` (from finiteness of `A[ℓ]` and divisibility). -/
-instance : Module.Free ℤ_[ℓ] (A.tateModule ℓ) := sorry
-
-/-- `T_ℓA` is finitely generated over `ℤ_ℓ`. -/
-instance : Module.Finite ℤ_[ℓ] (A.tateModule ℓ) := sorry
-
-/-- The inverse-limit topology on `T_ℓA` is the `ℓ`-adic topology and is the module topology. -/
-instance tateModule_isModuleTopology : IsModuleTopology ℤ_[ℓ] (A.tateModule ℓ) := sorry
-
-end TateInstances
-
-namespace tateModule
-
-/-- The projection `T_ℓA → A[ℓ^n](K^sep)`, `x ↦ x_n` (`G_K`-equivariant; `ℤ_ℓ` acts on the
-target through `ℤ/ℓ^n`). -/
-def toTorsion (A : AbelianVariety K) (ℓ n : ℕ) :
-    A.tateModule ℓ →+ A.torsionPoints (ℓ ^ n) where
-  toFun x := ⟨(x : ℕ → A.Points) n, sorry⟩
-  map_zero' := sorry
-  map_add' := sorry
-
-end tateModule
-
-/-- `T_ℓA` is free of rank `2g` over `ℤ_ℓ` for `ℓ ≠ char K`. -/
-theorem tateModule_free (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) :
-    Module.Free ℤ_[ℓ] (A.tateModule ℓ) ∧ Module.finrank ℤ_[ℓ] (A.tateModule ℓ) = 2 * A.dim := by
-  sorry
-
-namespace tateModule
-
-/-- `T_ℓA / ℓ^n T_ℓA ≃ A[ℓ^n](K^sep)`, induced by `tateModule.toTorsion` (`G_K`-equivariant, see
-the test `tateModule_mod_pow_equiv_galois`). -/
-def modPowEquiv (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (n : ℕ) :
-    (A.tateModule ℓ ⧸ (Ideal.span {(ℓ : ℤ_[ℓ]) ^ n} • ⊤ : Submodule ℤ_[ℓ] (A.tateModule ℓ))) ≃+
-      A.torsionPoints (ℓ ^ n) := sorry
-
-/-- Two elements of `T_ℓA` are equal iff their images in every `A[ℓ^n](K^sep)` agree. -/
-theorem ext {A : AbelianVariety K} {ℓ : ℕ} {x y : A.tateModule ℓ}
-    (h : ∀ n, tateModule.toTorsion A ℓ n x = tateModule.toTorsion A ℓ n y) : x = y := by
-  sorry
-
-end tateModule
-
-/-- `ρ_{A,ℓ}`: `(T_ℓA, σ ↦ ((σ x_n))_n)` as a continuous representation of `G_K` over `ℤ_ℓ`; its
-Mathlib `ContRepresentation` is obtained by forgetting joint continuity. -/
-def tateModuleRep (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
-    ContinuousRep (Field.absoluteGaloisGroup K) ℤ_[ℓ] (A.tateModule ℓ) where
-  toRepresentation :=
-    { toFun := fun σ =>
-        { toFun := fun x => ⟨fun n => σ • (x : ℕ → A.Points) n, sorry⟩
-          map_add' := sorry
-          map_smul' := sorry }
-      map_one' := sorry
-      map_mul' := sorry }
-  continuous_action := sorry
-
-section Rational
-
-variable (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-
-/-- The module topology on `V_ℓA = ℚ_ℓ ⊗_{ℤ_ℓ} T_ℓA`. -/
-instance : TopologicalSpace (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ) := moduleTopology ℚ_[ℓ] _
-
-instance : IsModuleTopology ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ) := ⟨rfl⟩
-
-end Rational
-
-/-- `V_ℓA := ℚ_ℓ ⊗_{ℤ_ℓ} T_ℓA`, the coefficient extension of `tateModuleRep` to `ℚ_ℓ`. -/
-def rationalTateModule (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
-    ContinuousRep (Field.absoluteGaloisGroup K) ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ) where
-  toRepresentation :=
-    { toFun := fun σ => LinearMap.baseChange ℚ_[ℓ] (A.tateModuleRep ℓ σ)
-      map_one' := sorry
-      map_mul' := sorry }
-  continuous_action := sorry
-
-namespace tateModule
-
-/-- `T_ℓα : T_ℓA → T_ℓB`, `(x_n) ↦ (α(x_n))`, for a homomorphism `α : A → B`. -/
-def map {A B : AbelianVariety K} (α : Hom A B) (ℓ : ℕ) [Fact ℓ.Prime] :
-    A.tateModule ℓ →ₗ[ℤ_[ℓ]] B.tateModule ℓ where
-  toFun x := ⟨fun n => α.toPointsHom ((x : ℕ → A.Points) n), sorry⟩
-  map_add' := sorry
-  map_smul' := sorry
-
-/-- `T_ℓ(id) = id`. -/
-theorem map_id (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
-    tateModule.map (Hom.id A) ℓ = LinearMap.id := by
-  sorry
-
-/-- `T_ℓ(βα) = T_ℓβ ∘ T_ℓα`. -/
-theorem map_comp {A B C : AbelianVariety K} (β : Hom B C) (α : Hom A B) (ℓ : ℕ)
-    [Fact ℓ.Prime] : tateModule.map (β.comp α) ℓ = tateModule.map β ℓ ∘ₗ tateModule.map α ℓ := by
-  sorry
-
-/-- `T_ℓ(α + α′) = T_ℓα + T_ℓα′`. -/
-theorem map_add {A B : AbelianVariety K} (α α' : Hom A B) (ℓ : ℕ) [Fact ℓ.Prime] :
-    tateModule.map (α + α') ℓ = tateModule.map α ℓ + tateModule.map α' ℓ := by
-  sorry
-
-/-- For a field extension `L/K` and a `K`-embedding `K̄ → L̄` of algebraic closures (not only for
-`L ⊆ K̄`: completions `F → F_v` are covered), `T_ℓ(A_L) ≅ T_ℓA` and `ρ_{A_L,ℓ}` is the
-restriction of `ρ_{A,ℓ}` along `G_L → G_K`. -/
-theorem baseChange (A : AbelianVariety K) (L : Type u) [Field L] [Algebra K L]
-    [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
-    [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)] (ℓ : ℕ) [Fact ℓ.Prime] :
-    ∃ e : (A.baseChange L).tateModule ℓ ≃ₗ[ℤ_[ℓ]] A.tateModule ℓ,
-      ∀ (σ : Field.absoluteGaloisGroup L) (x : (A.baseChange L).tateModule ℓ),
-        e ((A.baseChange L).tateModuleRep ℓ σ x) =
-          A.tateModuleRep ℓ (GaloisRep.localEmbeddingMap K L σ) (e x) := by
-  sorry
-
-end tateModule
-
-/-- The kernel of `G_K → Aut(A[N](K^sep))`, i.e. `G_{K(A[N])}`. -/
-def torsionKernel (A : AbelianVariety K) (N : ℕ) : Subgroup (Field.absoluteGaloisGroup K) where
-  carrier := {σ | ∀ x : A.torsionPoints N, σ • x = x}
-  mul_mem' := sorry
-  one_mem' := sorry
-  inv_mem' := sorry
-
-namespace tateModule
-
-/-- `ker(ρ_{A,ℓ} mod ℓ^n)` is the kernel `G_{K(A[ℓ^n])}` of the action on `A[ℓ^n](K^sep)`, an open
-normal subgroup of finite index. (The description as the fixer of the field generated by the
-coordinates of the torsion points needs the coordinates, absent from the stand-in.) -/
-theorem kernel_mod_pow (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (n : ℕ) :
-    (∀ σ, σ ∈ A.torsionKernel (ℓ ^ n) ↔ ∀ x : A.tateModule ℓ,
-        A.tateModuleRep ℓ σ x - x ∈
-          (Ideal.span {(ℓ : ℤ_[ℓ]) ^ n} • ⊤ : Submodule ℤ_[ℓ] (A.tateModule ℓ))) ∧
-      IsOpen (A.torsionKernel (ℓ ^ n) : Set (Field.absoluteGaloisGroup K)) ∧
-      (A.torsionKernel (ℓ ^ n)).Normal ∧ (A.torsionKernel (ℓ ^ n)).FiniteIndex := by
-  sorry
-
-end tateModule
-
-/-- `T̂A := lim_N A[N](K^sep)` over `N` invertible in `K`: compatible systems `(x_N)` with
-`N x_N = 0` and `(N/M) x_N = x_M` for `M ∣ N`; canonically `∏_{ℓ ≠ char K} T_ℓA`
-(`adelicTateModule.equivPi`), with the product action of `G_K`. -/
-def adelicTateModule (A : AbelianVariety K) :
-    AddSubgroup ({N : ℕ // (N : K) ≠ 0} → A.Points) where
-  carrier := {x | (∀ N : {N : ℕ // (N : K) ≠ 0}, (N : ℕ) • x N = 0) ∧
-    ∀ N M : {N : ℕ // (N : K) ≠ 0}, (M : ℕ) ∣ N → ((N : ℕ) / M) • x N = x M}
-  add_mem' := sorry
-  zero_mem' := sorry
-  neg_mem' := sorry
-
-namespace adelicTateModule
-
-/-- `T̂A ≅ ∏_{ℓ ≠ char K} T_ℓA`. -/
-def equivPi (A : AbelianVariety K) :
-    A.adelicTateModule ≃+ ((ℓ : {ℓ : ℕ // ℓ.Prime ∧ (ℓ : K) ≠ 0}) → A.tateModule ℓ) := sorry
-
-end adelicTateModule
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_rank_eq. -/
-example : Module.finrank ℤ_[5] ((ofWeierstrass (cmCurve ℚ)).tateModule 5) = 2 ∧
-    Nat.card ((ofWeierstrass (cmCurve ℚ)).tateModule 5 ⧸
-      (Ideal.span {(5 : ℤ_[5])} • ⊤ : Submodule ℤ_[5] ((ofWeierstrass (cmCurve ℚ)).tateModule 5)))
-      = 25 := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_of_dim_zero. -/
-example (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) :
-    Subsingleton ((zero K).tateModule ℓ) ∧
-      ∀ σ, (zero K).tateModuleRep ℓ σ = LinearMap.id := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_ne_limit_rational_torsion.
-The limit of the `ℓ^n`-torsion of the rational points is the set of `G_ℚ`-fixed elements of `T_ℓE`,
-which is `0`, while `T_ℓE` has rank `2`. -/
-example (ℓ : ℕ) [Fact ℓ.Prime] :
-    (∀ x : (ofWeierstrass (cmCurve ℚ)).tateModule ℓ,
-        (∀ σ, (ofWeierstrass (cmCurve ℚ)).tateModuleRep ℓ σ x = x) → x = 0) ∧
-      Module.finrank ℤ_[ℓ] ((ofWeierstrass (cmCurve ℚ)).tateModule ℓ) = 2 := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_char_p_excluded.
-For the supersingular curve `y² = x³ + 1` over `F̄_5`, `E[5^n](F̄_5) = 0`, so the limit at
-`ℓ = 5 = char K` is `0`, not of rank `2g = 2`. -/
-example :
-    (ofWeierstrass (curveX3Plus1 (AlgebraicClosure (ZMod 5)))).torsionPoints 5 = ⊥ ∧
-      Subsingleton ((ofWeierstrass (curveX3Plus1 (AlgebraicClosure (ZMod 5)))).tateModule 5) := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_mod_pow_equiv_galois. -/
-example (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (n : ℕ)
-    (σ : Field.absoluteGaloisGroup K) (x : A.tateModule ℓ) :
-    tateModule.modPowEquiv A ℓ n (Submodule.Quotient.mk (A.tateModuleRep ℓ σ x)) =
-      σ • tateModule.modPowEquiv A ℓ n (Submodule.Quotient.mk x) := by
-  sorry
-
-/-! ### Finite torsion, the residual representation and rational cyclic isogenies (ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation, (a) and (c): the
-residual representation `T_ℓA/ℓT_ℓA` is `A[ℓ](K^sep)` (`tateModule.modPowEquiv`, `n = 1`), of
-dimension `2g` over `𝔽_ℓ`; for an elliptic curve the `G_K`-stable subgroups `L ⊂ E[ℓ]` of order
-`ℓ` are exactly the kernels of `K`-rational isogenies of degree `ℓ`, and `G_K` acts on such an `L`
-through a character `ψ : G_K → 𝔽_ℓ^×`. (Part (b), on lattices in `V_ℓA`, is R01.1's
-lattice-independence applied to `rationalTateModule`. In the node the quotient by a stable line is
-Vélu's quotient of the Weierstrass curve, Tau Ceti EllipticCurves Layer 1; here it is expressed
-with the stand-in `Hom`. That `ψ` can be non-trivial for `ℓ` odd is an existence statement about
-quadratic twists, `WeierstrassCurve.quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map`
-in Tau Ceti, and is not stated; the case `ℓ = 2` is `torsion_stable_line_two`.) -/
-theorem torsion_residual_and_isogeny (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) :
-    (∀ A : AbelianVariety K, Module.finrank (ZMod ℓ) (A.torsionPoints ℓ) = 2 * A.dim) ∧
-    ∀ (W : WeierstrassCurve K) [W.IsElliptic] (L : AddSubgroup (ofWeierstrass W).Points),
-      L ≤ (ofWeierstrass W).torsionPoints ℓ → Nat.card L = ℓ →
-      (((∀ σ : Field.absoluteGaloisGroup K, ∀ x ∈ L, σ • x ∈ L) ↔
-          ∃ (B : AbelianVariety K) (φ : Hom (ofWeierstrass W) B),
-            φ.IsIsogeny ∧ φ.degree = ℓ ∧ φ.toPointsHom.ker = L) ∧
-        ((∀ σ : Field.absoluteGaloisGroup K, ∀ x ∈ L, σ • x ∈ L) →
-          ∃ ψ : Field.absoluteGaloisGroup K →* (ZMod ℓ)ˣ,
-            ∀ σ, ∀ x ∈ L, σ • x = ((ψ σ : ZMod ℓ).val) • x)) := by
-  sorry
-
-/-- ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation, (c) for `ℓ = 2`:
-`𝔽_2^×` is trivial, so a `G_K`-stable subgroup of order `2` is fixed pointwise: it is generated by
-a `K`-rational point of order `2`, and `ρ̄_{E,2}` is reducible iff `E` has such a point. -/
-theorem torsion_stable_line_two (W : WeierstrassCurve K) [W.IsElliptic]
-    (L : AddSubgroup (ofWeierstrass W).Points) (hL : L ≤ (ofWeierstrass W).torsionPoints 2)
-    (hcard : Nat.card L = 2)
-    (hst : ∀ σ : Field.absoluteGaloisGroup K, ∀ x ∈ L, σ • x ∈ L) :
-    ∀ σ : Field.absoluteGaloisGroup K, ∀ x ∈ L, σ • x = x := by
-  sorry
-
-/-! ### Comparison with the Tate module of a Weierstrass curve (Tau Ceti EllipticCurves Layer 2) (ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison: for an elliptic
-Weierstrass curve, `E_W[N](K^sep)` is `Submodule.torsionBy ℤ (W⁄K̄).Point N` with the action
-`Point.map σ`, free of rank two over `ℤ/N` for `N` invertible in `K`; hence `T_ℓ(E_W)` is the
-Tate module `lim E[ℓ^n]` of Tau Ceti EllipticCurves Layer 2 (not in Mathlib, so the comparison of
-isogeny maps and Weil pairings is not stated here: the point map of a Tau Ceti isogeny is a
-Layer 1 milestone, absent from the pinned library, and for `λ = φ_{𝒪(O)} : P ↦ [(O) − (P)]` the
-pairing `e^λ_N` equals the pairing `e_N(S, T) = g(X + S)/g(X)` of AEC III.8.1 exactly, while on the
-class of `(T) − (O)` Milne's `g/(g ∘ t_S)` is its inverse). The count `#E[N] = N²` over an
-algebraically closed field is `TauCeti.Isogeny.card_ker_mulByIntIsogeny` in the pinned library. -/
-theorem ofWeierstrass_torsion (W : WeierstrassCurve K) [W.IsElliptic] (N : ℕ)
-    (hN : (N : K) ≠ 0) :
-    (ofWeierstrass W).dim = 1 ∧
-      Nonempty ((ofWeierstrass W).torsionPoints N ≃+ (Fin 2 → ZMod N)) := by
-  sorry
-
-/-! ### Functoriality: homomorphisms, products, isogenies and base change (ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies) -/
-
-namespace tateModule
-
-/-- The isomorphism `(T_ℓpr₁, T_ℓpr₂) : T_ℓ(A × B) ≅ T_ℓA ⊕ T_ℓB`. -/
-def prodEquiv (A B : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
-    (A.prod B).tateModule ℓ ≃ₗ[ℤ_[ℓ]] A.tateModule ℓ × B.tateModule ℓ := sorry
-
-end tateModule
-
-/-- ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies: `T_ℓ` is an
-additive functor to `ℤ_ℓ[G_K]`-modules, compatible with products; for an isogeny `φ` of degree
-`d`, `T_ℓφ` is injective with cokernel of order the `ℓ`-part of `d`; and `ψφ = [m]` gives
-`T_ℓψ ∘ T_ℓφ = m`. (Base change is `tateModule.baseChange`; transport of structure along
-`τ : K ≅ K′` is not stated.) -/
-theorem tateModule_functoriality (A B : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : K) ≠ 0) :
-    (∀ (α : Hom A B) (σ : Field.absoluteGaloisGroup K) (x : A.tateModule ℓ),
-        tateModule.map α ℓ (A.tateModuleRep ℓ σ x) = B.tateModuleRep ℓ σ (tateModule.map α ℓ x)) ∧
-    (∀ (σ : Field.absoluteGaloisGroup K) (x : (A.prod B).tateModule ℓ),
-        tateModule.prodEquiv A B ℓ ((A.prod B).tateModuleRep ℓ σ x) =
-          (A.tateModuleRep ℓ σ (tateModule.prodEquiv A B ℓ x).1,
-            B.tateModuleRep ℓ σ (tateModule.prodEquiv A B ℓ x).2)) ∧
-    (∀ φ : Hom A B, φ.IsIsogeny →
-        Function.Injective (tateModule.map φ ℓ) ∧
-          Nat.card (B.tateModule ℓ ⧸ LinearMap.range (tateModule.map φ ℓ)) =
-            ℓ ^ (φ.degree.factorization ℓ)) ∧
-    (∀ (φ : Hom A B) (ψ : Hom B A) (m : ℕ), ψ.comp φ = m • Hom.id A →
-        ∀ x, tateModule.map ψ ℓ (tateModule.map φ ℓ x) = (m : ℤ_[ℓ]) • x) := by
-  sorry
-
-/-! ### The Weil pairing on Tate modules, polarization pairings and the similitude character (ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules) -/
-
-/-- A3's perfect Weil pairing `e_N : A[N] × A^∨[N] → μ_N` (imported; opaque here). -/
-def weilPairingFinite (A : AbelianVariety K) (N : ℕ) :
-    A.torsionPoints N →+ A.dual.torsionPoints N →+ Additive (rootsOfUnity N (AlgebraicClosure K)) :=
-  sorry
-
-/-- `e_ℓ : T_ℓA × T_ℓA^∨ → ℤ_ℓ(1)`, `((a_n), (a′_n)) ↦ (e_{ℓ^n}(a_n, a′_n))_n`. -/
-def weilPairing (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
-    A.tateModule ℓ →ₗ[ℤ_[ℓ]] A.dual.tateModule ℓ →ₗ[ℤ_[ℓ]] tateTwistOne K ℓ := sorry
-
-/-- `e_ℓ` reduces mod `ℓ^n` to `e_{ℓ^n}`. -/
-theorem weilPairing_mod_pow (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (n : ℕ)
-    (x : A.tateModule ℓ) (y : A.dual.tateModule ℓ) :
-    ((weilPairing A ℓ x y : tateTwistOne K ℓ) : ℕ → Additive (AlgebraicClosure K)ˣ) n =
-      Additive.ofMul (((Additive.toMul (weilPairingFinite A (ℓ ^ n)
-        (tateModule.toTorsion A ℓ n x) (tateModule.toTorsion A.dual ℓ n y)) :
-          rootsOfUnity (ℓ ^ n) (AlgebraicClosure K)) : (AlgebraicClosure K)ˣ)) := by
-  sorry
-
-/-- `y ↦ e_ℓ(·, y)` is an isomorphism `T_ℓA^∨ ≅ Hom(T_ℓA, ℤ_ℓ(1))` (equivariant by
-`weilPairing_galois`). -/
-theorem weilPairing_perfect (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) :
-    Function.Bijective (weilPairing A ℓ).flip := by
-  sorry
-
-/-- `e_ℓ(σx, σy) = χ_ℓ(σ) e_ℓ(x, y)`. -/
-theorem weilPairing_galois (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (σ : Field.absoluteGaloisGroup K) (x : A.tateModule ℓ) (y : A.dual.tateModule ℓ) :
-    weilPairing A ℓ (A.tateModuleRep ℓ σ x) (A.dual.tateModuleRep ℓ σ y) =
-      ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) • weilPairing A ℓ x y := by
-  sorry
-
-/-- Adjunction: `e_ℓ(x, T_ℓα^∨ y) = e_ℓ(T_ℓα x, y)`. -/
-theorem weilPairing_map_dual {A B : AbelianVariety K} (α : Hom A B) (ℓ : ℕ) [Fact ℓ.Prime]
-    (x : A.tateModule ℓ) (y : B.dual.tateModule ℓ) :
-    weilPairing A ℓ x (tateModule.map α.dual ℓ y) = weilPairing B ℓ (tateModule.map α ℓ x) y := by
-  sorry
-
-/-- `e^λ_ℓ(x, y) := e_ℓ(x, T_ℓλ y)` for `λ : A → A^∨`. -/
-def polarizationPairing (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (μ : Hom A A.dual) :
-    A.tateModule ℓ →ₗ[ℤ_[ℓ]] A.tateModule ℓ →ₗ[ℤ_[ℓ]] tateTwistOne K ℓ :=
-  (weilPairing A ℓ).compl₂ (tateModule.map μ ℓ)
-
-/-- `e^λ_ℓ` is alternating for a polarization `λ` (the general `φ_L` form needs line bundles,
-absent from the stand-in). -/
-theorem polarizationPairing_alternating (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (μ : Polarization A) (x : A.tateModule ℓ) : polarizationPairing A ℓ μ.toHom x x = 0 := by
-  sorry
-
-/-- For a polarization of degree `d`, `e^λ_ℓ` is nondegenerate (over `ℚ_ℓ`), and perfect over
-`ℤ_ℓ` iff `ℓ ∤ d`. -/
-theorem polarizationPairing_perfect_iff (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : K) ≠ 0) (μ : Polarization A) :
-    Function.Injective (polarizationPairing A ℓ μ.toHom) ∧
-      (Function.Bijective (polarizationPairing A ℓ μ.toHom) ↔ ¬ ℓ ∣ μ.toHom.degree) := by
-  sorry
-
-/-- Rosati, integral case: if `β = α^†` is an endomorphism, i.e. `λ ∘ β = α^∨ ∘ λ`, then
-`e^λ_ℓ(αx, y) = e^λ_ℓ(x, βy)`. The statement on `V_ℓA` for `α ∈ End(A) ⊗ ℚ` is
-`weilPairing_rosati` of AbelianSchemesAndArithmeticModuli:A2/rosati-involution, which owns the
-Rosati involution; `End⁰` does not act on the lattice, so only the integral case is stated. -/
-theorem polarizationPairing_rosati (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (μ : Polarization A) (α β : Hom A A) (h : μ.toHom.comp β = α.dual.comp μ.toHom)
-    (x y : A.tateModule ℓ) :
-    polarizationPairing A ℓ μ.toHom (tateModule.map α ℓ x) y =
-      polarizationPairing A ℓ μ.toHom x (tateModule.map β ℓ y) := by
-  sorry
-
-/-- `e^{λ×μ}_ℓ` on `T_ℓ(A × B) = T_ℓA ⊕ T_ℓB` is the orthogonal sum `e^λ_ℓ ⊥ e^μ_ℓ`. -/
-theorem polarizationPairing_prod (A B : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (μ : Polarization A) (ν : Polarization B) (x y : (A.prod B).tateModule ℓ) :
-    polarizationPairing (A.prod B) ℓ (μ.prod ν).toHom x y =
-      polarizationPairing A ℓ μ.toHom (tateModule.prodEquiv A B ℓ x).1
-          (tateModule.prodEquiv A B ℓ y).1 +
-        polarizationPairing B ℓ ν.toHom (tateModule.prodEquiv A B ℓ x).2
-          (tateModule.prodEquiv A B ℓ y).2 := by
-  sorry
-
-/-- `e^λ_ℓ(σx, σy) = χ_ℓ(σ)·e^λ_ℓ(x, y)` for `σ ∈ G_K` and `λ : A → A^∨` defined over `K`: every
-`ρ_{A,ℓ}(σ)` preserves `e^λ_ℓ` up to the scalar `χ_ℓ(σ)`. -/
-theorem polarizationPairing_galois (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (μ : Hom A A.dual) (σ : Field.absoluteGaloisGroup K) (x y : A.tateModule ℓ) :
-    polarizationPairing A ℓ μ (A.tateModuleRep ℓ σ x) (A.tateModuleRep ℓ σ y) =
-      ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) • polarizationPairing A ℓ μ x y := by
-  sorry
-
-/-- The group of similitudes `GSp(M, e) = {g | ∃ c ∈ R^×, e(gx, gy) = c·e(x, y)}` of a bilinear
-form with values in an `R`-module. -/
-def symplecticSimilitudes {R M N : Type*} [CommRing R] [AddCommGroup M] [Module R M]
-    [AddCommGroup N] [Module R N] (e : M →ₗ[R] M →ₗ[R] N) :
-    Subgroup (LinearMap.GeneralLinearGroup R M) where
-  carrier := {g | ∃ c : Rˣ, ∀ x y, e ((g : M →ₗ[R] M) x) ((g : M →ₗ[R] M) y) = (c : R) • e x y}
-  mul_mem' := sorry
-  one_mem' := sorry
-  inv_mem' := sorry
-
-/-- The isometry group `Sp(M, e) = {g | e(gx, gy) = e(x, y)}`. -/
-def symplecticIsometries {R M N : Type*} [CommRing R] [AddCommGroup M] [Module R M]
-    [AddCommGroup N] [Module R N] (e : M →ₗ[R] M →ₗ[R] N) :
-    Subgroup (LinearMap.GeneralLinearGroup R M) where
-  carrier := {g | ∀ x y, e ((g : M →ₗ[R] M) x) ((g : M →ₗ[R] M) y) = e x y}
-  mul_mem' := sorry
-  one_mem' := sorry
-  inv_mem' := sorry
-
-/-- Compatibility form of `polarizationPairing_galois`: `ρ_{A,ℓ}(G_K) ⊆ GSp(T_ℓA, e^λ_ℓ)` with
-multiplier `χ_ℓ` (hence `⊆ GSp(V_ℓA, e^λ_ℓ)` for every polarization; the integral form is a
-perfect pairing exactly when `ℓ ∤ deg λ`). The group is the group of similitudes of
-G7/similitude-groups, here `symplecticSimilitudes` above. -/
-theorem image_le_GSp (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (μ : Polarization A) :
-    (Representation.asGroupHom (A.tateModuleRep ℓ).toRepresentation).range ≤
-        symplecticSimilitudes (polarizationPairing A ℓ μ.toHom) ∧
-      ∀ (σ : Field.absoluteGaloisGroup K) (x y : A.tateModule ℓ),
-        polarizationPairing A ℓ μ.toHom (A.tateModuleRep ℓ σ x) (A.tateModuleRep ℓ σ y) =
-          ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) •
-            polarizationPairing A ℓ μ.toHom x y := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_galois. -/
-example (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0)
-    (σ : Field.absoluteGaloisGroup K) (x : A.tateModule ℓ) (y : A.dual.tateModule ℓ) :
-    weilPairing A ℓ (A.tateModuleRep ℓ σ x) (A.dual.tateModuleRep ℓ σ y) =
-      ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) • weilPairing A ℓ x y := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_elliptic_det. -/
-example (W : WeierstrassCurve K) [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) :
-    (∀ b : Module.Basis (Fin 2) ℤ_[ℓ] ((ofWeierstrass W).tateModule ℓ),
-        Submodule.span ℤ_[ℓ]
-          {polarizationPairing (ofWeierstrass W) ℓ (canonicalPolarization W).toHom (b 0) (b 1)} =
-            ⊤) ∧
-      ∀ σ : Field.absoluteGaloisGroup K,
-        LinearMap.det ((ofWeierstrass W).tateModuleRep ℓ σ) =
-          ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_zero_dim. -/
-example (ℓ : ℕ) [Fact ℓ.Prime] (μ : Polarization (zero K)) :
-    (∀ x y, polarizationPairing (zero K) ℓ μ.toHom x y = 0) ∧
-      Function.Bijective (polarizationPairing (zero K) ℓ μ.toHom) := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_not_perfect.
-For `λ = [ℓ] ∘ λ_E`, `e^λ_ℓ = ℓ · e^{λ_E}_ℓ` is not perfect. -/
-example (W : WeierstrassCurve K) [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) :
-    (∀ x y, polarizationPairing (ofWeierstrass W) ℓ (ℓ • (canonicalPolarization W).toHom) x y =
-      (ℓ : ℤ_[ℓ]) • polarizationPairing (ofWeierstrass W) ℓ (canonicalPolarization W).toHom x y) ∧
-      ¬ Function.Bijective
-        (polarizationPairing (ofWeierstrass W) ℓ (ℓ • (canonicalPolarization W).toHom)) := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_target_twist.
-For complex conjugation `c` on `ℚ̄`, `e_ℓ(cx, cy) = −e_ℓ(x, y)`: the pairing is not Galois-invariant
-with values in `ℤ_ℓ`. -/
-example (A : AbelianVariety ℚ) (ℓ : ℕ) [Fact ℓ.Prime] (v : InfinitePlace ℚ) (hv : v.IsReal)
-    (x : A.tateModule ℓ) (y : A.dual.tateModule ℓ) :
-    weilPairing A ℓ (A.tateModuleRep ℓ (GaloisRep.complexConjugation ℚ v hv) x)
-        (A.dual.tateModuleRep ℓ (GaloisRep.complexConjugation ℚ v hv) y) =
-      -weilPairing A ℓ x y := by
-  sorry
-
-/-! ### The determinant of a symplectic similitude (ArithmeticGaloisRepresentations:R01.6/determinant-of-a-symplectic-similitude) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-symplectic-similitude, matrix form: over
-a commutative ring, `Aᵀ J A = μ J` with `μ` a unit implies `det A = μ^g`. Mathlib has the case
-`μ = 1` (`SymplecticGroup.det_eq_one`) and Tau Ceti the case `g = 1`
-(`Matrix.det_eq_of_transpose_mul_J_mul_eq_smul`). -/
-theorem det_of_transpose_mul_J_mul_eq_smul {g : Type*} [Fintype g] [DecidableEq g] {R : Type*}
-    [CommRing R] (M : Matrix (g ⊕ g) (g ⊕ g) R) (c : Rˣ)
-    (h : M.transpose * Matrix.J g R * M = (c : R) • Matrix.J g R) :
-    M.det = (c : R) ^ Fintype.card g := by
-  sorry
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-symplectic-similitude: a nondegenerate
-alternating form lives on a space of even dimension `2g`, and an endomorphism `h` with
-`B(hx, hy) = μ·B(x, y)` has `det h = μ^g` (`μ = 0` allowed). -/
-theorem det_of_symplectic_similitude {k V : Type*} [Field k] [AddCommGroup V] [Module k V]
-    [FiniteDimensional k V] (B : LinearMap.BilinForm k V) (hB : B.Nondegenerate) (hA : B.IsAlt)
-    (h : V →ₗ[k] V) (c : k) (hh : ∀ x y, B (h x) (h y) = c * B x y) :
-    ∃ g : ℕ, Module.finrank k V = 2 * g ∧ LinearMap.det h = c ^ g := by
-  sorry
-
-/-! ### Determinant of the Tate module and oddness over real places (ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness, (a), (b): `det ρ_{A,ℓ} = χ_ℓ^g`
-on the lattice `T_ℓA`, for every `ℓ ≠ char K` and with no condition on the degree of a
-polarization (for an elliptic curve, `det ρ_{E,ℓ} = χ_ℓ`, which for a Weierstrass curve is the
-determinant theorem of Tau Ceti EllipticCurves Layer 2). The proof is
-`det_of_symplectic_similitude` applied to `polarizationPairing_galois`. -/
-theorem tateModule_det (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0)
-    (σ : Field.absoluteGaloisGroup K) :
-    LinearMap.det (A.tateModuleRep ℓ σ) =
-      ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) ^ A.dim := by
-  sorry
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness, (c): at a real place of a
-number field, `tr ρ_{A,ℓ}(c) = 0` and `det ρ_{A,ℓ}(c) = (−1)^g` for every prime `ℓ` (so an elliptic
-curve is odd). (That the `±1`-eigenspaces are Lagrangian for `e^λ_ℓ ⊗ ℚ_ℓ` and part (d) are not
-restated.) -/
-theorem tateModule_odd [NumberField K] (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
-    (v : InfinitePlace K) (hv : v.IsReal) :
-    LinearMap.trace ℤ_[ℓ] _ (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv)) = 0 ∧
-      LinearMap.det (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv)) =
-        (-1) ^ A.dim := by
-  sorry
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness, (c), integral form: the
-eigenlattices `T_ℓA^± = ker(c ∓ 1)` of a complex conjugation have rank `g`; `T_ℓA` is their direct
-sum when `ℓ` is odd, and for `ℓ = 2` only `2 T_2A ⊆ T_2A^+ ⊕ T_2A^-` holds (the sum is proper
-whenever `c` acts non-trivially on `A[2]`, e.g. for `y² = x³ + 1`). -/
-theorem tateModule_conj_eigenlattices [NumberField K] (A : AbelianVariety K) (ℓ : ℕ)
-    [Fact ℓ.Prime] (v : InfinitePlace K) (hv : v.IsReal) :
-    Module.finrank ℤ_[ℓ] (LinearMap.ker
-        (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv) - LinearMap.id)) = A.dim ∧
-      Module.finrank ℤ_[ℓ] (LinearMap.ker
-        (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv) + LinearMap.id)) = A.dim ∧
-      (ℓ ≠ 2 → IsCompl
-        (LinearMap.ker (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv) - LinearMap.id))
-        (LinearMap.ker (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv) + LinearMap.id))) ∧
-      ∀ x : A.tateModule ℓ, (2 : ℤ_[ℓ]) • x ∈
-        LinearMap.ker (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv) - LinearMap.id) ⊔
-        LinearMap.ker (A.tateModuleRep ℓ (GaloisRep.complexConjugation K v hv) + LinearMap.id) := by
-  sorry
-
-/-! ### The determinant and trace of a Weierstrass isogeny on the Tate module (ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module,
-(b), in the stand-in: for a homomorphism `α : E_{W₁} → E_{W₂}` of elliptic curves and `ℓ ≠ char K`,
-`e₂(T_ℓα x, T_ℓα y) = deg α · e₁(x, y)` for the pairings of the canonical polarizations (the
-`ℓ`-adic Weil pairings of `W₁`, `W₂`); for `α = 0` both sides vanish. Parts (c), (d) below are
-deduced from it. -/
-theorem ofWeierstrass_polarizationPairing_map (W₁ W₂ : WeierstrassCurve K) [W₁.IsElliptic]
-    [W₂.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0)
-    (α : Hom (ofWeierstrass W₁) (ofWeierstrass W₂)) (x y : (ofWeierstrass W₁).tateModule ℓ) :
-    polarizationPairing (ofWeierstrass W₂) ℓ (canonicalPolarization W₂).toHom
-        (tateModule.map α ℓ x) (tateModule.map α ℓ y) =
-      (α.degree : ℤ_[ℓ]) •
-        polarizationPairing (ofWeierstrass W₁) ℓ (canonicalPolarization W₁).toHom x y := by
-  sorry
-
-/-- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module,
-(c), (d), in the stand-in: for an endomorphism `α` of the elliptic curve `E_W` and `ℓ ≠ char K`,
-`det(T_ℓα) = deg α`, and if `β = 1 − α` then `tr(T_ℓα) = 1 + deg α − deg β`; both are integers
-independent of `ℓ`. The node states this for Tau Ceti's `TauCeti.Isogeny W W` with
-`TauCeti.Isogeny.degree` (the degree of a function-field extension), a type that is not in Mathlib;
-applied to `frobeniusIsogeny` and `oneSubFrobeniusIsogeny` it gives `det = q` and
-`tr = q + 1 − #E(𝔽_q)` (`degree_frobeniusIsogeny`, `degree_oneSubFrobeniusIsogeny_eq_pointCount`). -/
-theorem ofWeierstrass_det_trace_map (W : WeierstrassCurve K) [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : K) ≠ 0) (α β : Hom (ofWeierstrass W) (ofWeierstrass W))
-    (hβ : β = Hom.id (ofWeierstrass W) - α) :
-    LinearMap.det (tateModule.map α ℓ) = (α.degree : ℤ_[ℓ]) ∧
-      LinearMap.trace ℤ_[ℓ] _ (tateModule.map α ℓ) =
-        1 + (α.degree : ℤ_[ℓ]) - (β.degree : ℤ_[ℓ]) := by
-  sorry
-
-/-! ### Local results over a nonarchimedean local field -/
-
-section Local
-
-variable {F : Type u} [Field F] [ValuativeRel F] [TopologicalSpace F]
-  [IsNonarchimedeanLocalField F]
-
-/-- Abelian-scheme models of `A` over `𝒪[F]` (good reduction means this type is nonempty);
-opaque data, replaced in the roadmap by an abelian scheme over `𝒪[F]` with generic fibre `A`
-(NeronModelsAndSemistableAbelianVarieties R11.1, abelian-scheme-model: it is the Néron model, so
-unique). It is data, a model with its special fibre, not a proposition: the condition "`A` has good
-reduction" is `Nonempty` of this type and cannot be stated otherwise in the stand-in. -/
-def GoodReductionModel (A : AbelianVariety F) : Type u := sorry
-
-/-- The special fibre `A_v := 𝒜 ⊗ 𝓀[F]` of a model. -/
-def GoodReductionModel.specialFiber {A : AbelianVariety F} (𝒜 : GoodReductionModel A) :
-    AbelianVariety 𝓀[F] := sorry
-
-/-! ### Specialisation of torsion points of an abelian scheme over the integers of a local field (ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction, on Tate
-modules: for an abelian scheme over `𝒪[F]` and `ℓ` different from the residue characteristic,
-inertia acts trivially on `T_ℓA`, and there is a `ℤ_ℓ`-isomorphism `r : T_ℓA ≅ T_ℓA_k` (reduction
-of torsion points) carrying an arithmetic Frobenius lift to the action of the `q`-power
-automorphism of `k̄`. (The node states it at each finite level, with every torsion point defined
-over `F^{ur}` and full equivariance for `G_F → Gal(k̄/k)`; the maximal unramified extension and
-that map are not available here, so equivariance is stated for the Frobenius lift, which with the
-triviality of inertia determines the action of the decomposition group.) -/
-theorem torsion_specialisation (A : AbelianVariety F) (𝒜 : GoodReductionModel A) (ℓ : ℕ)
-    [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    (∀ g ∈ GaloisRep.inertiaGroup F, ∀ x : A.tateModule ℓ, A.tateModuleRep ℓ g x = x) ∧
-      ∃ (r : A.tateModule ℓ ≃ₗ[ℤ_[ℓ]] 𝒜.specialFiber.tateModule ℓ)
-        (φ : Field.absoluteGaloisGroup 𝓀[F]),
-        (∀ y : AlgebraicClosure 𝓀[F],
-          φ.toRingEquiv y = y ^ Nat.card 𝓀[F]) ∧
-        ∀ x : A.tateModule ℓ, r (A.tateModuleRep ℓ (GaloisRep.arithFrobLift F) x) =
-          𝒜.specialFiber.tateModuleRep ℓ φ (r x) := by
-  sorry
-
-/-! ### Unramifiedness and the Frobenius polynomial at a place of good reduction (ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial (local form, `F = F_v`):
-at good reduction and `ℓ ≠ p`, `ρ_{A,ℓ}` is unramified, its Frobenius polynomial
-`P_v = det(X − ρ(Frob))` is the characteristic polynomial of `T_ℓ(π_v)` on `T_ℓA_v`, with constant
-term `q^g` and `X^{2g} P_v(q/X) = q^g P_v(X)`. (Integrality and `ℓ`-independence of `P_v` for
-`g > 1`, Milne AV Proposition 10.20, are not proved in this layer and not stated; for elliptic
-curves see `ofWeierstrass_det_trace_map` and `localEulerFactor_compare_localPolynomial`. Parts (a),
-(b) are `torsion_specialisation`.) -/
-theorem goodReduction_frobCharpoly (A : AbelianVariety F) (𝒜 : GoodReductionModel A) (ℓ : ℕ)
-    [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    GaloisRep.IsUnramified (A.tateModuleRep ℓ) ∧
-      GaloisRep.frobCharpoly (A.tateModuleRep ℓ) =
-        LinearMap.charpoly (tateModule.map (qFrobenius 𝒜.specialFiber) ℓ) ∧
-      (GaloisRep.frobCharpoly (A.tateModuleRep ℓ)).coeff 0 = (Nat.card 𝓀[F] : ℤ_[ℓ]) ^ A.dim ∧
-      ∀ x : ℚ_[ℓ], x ≠ 0 →
-        x ^ (2 * A.dim) * ((GaloisRep.frobCharpoly (A.tateModuleRep ℓ)).map
-            (algebraMap ℤ_[ℓ] ℚ_[ℓ])).eval ((Nat.card 𝓀[F] : ℚ_[ℓ]) / x) =
-          (Nat.card 𝓀[F] : ℚ_[ℓ]) ^ A.dim *
-            ((GaloisRep.frobCharpoly (A.tateModuleRep ℓ)).map (algebraMap ℤ_[ℓ] ℚ_[ℓ])).eval x := by
-  sorry
-
-/-! ### The Tate module of a Tate curve (ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve, the consequence for the
-inertia action that can be stated without the Tate curve: an elliptic curve with split
-multiplicative reduction (isomorphic to a Tate curve `E_q` by Tate's theorem) has, for `ℓ` different
-from the residue characteristic, unipotent and non-trivial inertia action on `T_ℓE`. (The node
-gives the exact sequence `0 → ℤ_ℓ(1) → T_ℓE_q → ℤ_ℓ → 0` from the uniformisation `K̄^×/q^ℤ`, the
-Kummer cocycle `κ` of `q`, and `κ = v(q)·t_ℓ` on inertia with `t_ℓ` the tame character of R01.2;
-the Tate curve is in Tau Ceti EllipticCurves Layer 4, not in Mathlib.) -/
-theorem tateCurve_inertia_unipotent [CharZero F] [IsFractionRing 𝒪[F] F] (W : WeierstrassCurve F)
-    [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0)
-    (hW : (W.minimal 𝒪[F]).HasSplitMultiplicativeReduction 𝒪[F]) :
-    (∀ g ∈ GaloisRep.inertiaGroup F,
-        ((ofWeierstrass W).tateModuleRep ℓ g - LinearMap.id) ∘ₗ
-          ((ofWeierstrass W).tateModuleRep ℓ g - LinearMap.id) = 0) ∧
-      ∃ g ∈ GaloisRep.inertiaGroup F, (ofWeierstrass W).tateModuleRep ℓ g ≠ LinearMap.id := by
-  sorry
-
-/-! ### Comparison with Mathlib's WeierstrassCurve.localPolynomial (ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial) -/
-
-/-- The inertia coinvariants `(V_ℓA)_I`: the quotient by `span {ρ(g)v − v | g ∈ I}`. -/
-def inertiaCoinvariantsKernel (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime] :
-    Submodule ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ) :=
-  Submodule.span ℚ_[ℓ]
-    {w | ∃ g ∈ GaloisRep.inertiaGroup F, ∃ v, w = A.rationalTateModule ℓ g v - v}
-
-/-- ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial (local form,
-over a local field `F` with its ring of integers `𝒪[F]`; for `F = p.adicCompletion` of a number
-field the form with Mathlib's `p.adicCompletionIntegers` is
-`localPolynomial_adicCompletion_eq_localEulerFactor` below): if the minimal model has good or
-multiplicative reduction, `localPolynomial 𝒪[F] W = det(1 − X·Frob | (V_ℓE)_I)`, the local Euler
-factor of `H¹ = V_ℓE^∨` (`localEulerFactor_eq_coinvariants`); at good reduction inertia acts
-trivially, so this is `det(1 − X·Frob | V_ℓE)`, and at split (resp. nonsplit) multiplicative
-reduction it is `1 − X` (resp. `1 + X`). The reduction is elliptic at good reduction by Mathlib's
-`WeierstrassCurve.hasGoodReduction_iff_isElliptic_reduction`. Additive reduction, part (c) of the
-node, is `localPolynomial_additive` below (in characteristic `0`), so that by Mathlib's trichotomy
-`hasGoodReduction_or_hasMultiplicativeReduction_or_hasAdditiveReduction` the comparison holds at
-every place. -/
-theorem localPolynomial_eq_det_coinvariants [IsFractionRing 𝒪[F] F] (W : WeierstrassCurve F)
-    [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0)
-    (hW : (W.minimal 𝒪[F]).HasGoodReduction 𝒪[F] ∨
-      (W.minimal 𝒪[F]).HasMultiplicativeReduction 𝒪[F]) :
-    (WeierstrassCurve.localPolynomial 𝒪[F] W).map (Int.castRingHom ℚ_[ℓ]) =
-      (LinearMap.charpoly (((ofWeierstrass W).inertiaCoinvariantsKernel ℓ).mapQ
-        ((ofWeierstrass W).inertiaCoinvariantsKernel ℓ)
-        ((ofWeierstrass W).rationalTateModule ℓ (GaloisRep.arithFrobLift F)) sorry)).reverse := by
-  sorry
-
-/-- ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial, (c): at
-additive reduction over a local field of characteristic `0` (every reduction type, every residue
-characteristic), `V_ℓE` has no non-zero inertia invariants and no non-zero inertia coinvariants,
-and Mathlib's `localPolynomial` is `1`: the Euler factor of `H¹ = V_ℓE^∨`. -/
-theorem localPolynomial_additive [CharZero F] [IsFractionRing 𝒪[F] F] (W : WeierstrassCurve F)
-    [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0)
-    (hW : (W.minimal 𝒪[F]).HasAdditiveReduction 𝒪[F]) :
-    (∀ v : ℚ_[ℓ] ⊗[ℤ_[ℓ]] (ofWeierstrass W).tateModule ℓ,
-        (∀ g ∈ GaloisRep.inertiaGroup F, (ofWeierstrass W).rationalTateModule ℓ g v = v) → v = 0) ∧
-      (ofWeierstrass W).inertiaCoinvariantsKernel ℓ = ⊤ ∧
-      WeierstrassCurve.localPolynomial 𝒪[F] W = 1 := by
-  sorry
-
-/-! ### The local Euler factor of an abelian variety at a finite place (ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety) -/
-
-section FirstCohomology
-
-variable (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime]
-
-/-- The module topology on `H¹_ℓ(A) = V_ℓA^∨`. -/
-instance : TopologicalSpace (Module.Dual ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ)) :=
-  moduleTopology ℚ_[ℓ] _
-
-instance : IsModuleTopology ℚ_[ℓ] (Module.Dual ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ)) := ⟨rfl⟩
-
-end FirstCohomology
-
-/-- `H¹_ℓ(A) := V_ℓA^∨` with the dual action. -/
-def firstCohomologyRep (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime] :
-    ContinuousRep (Field.absoluteGaloisGroup F) ℚ_[ℓ]
-      (Module.Dual ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ)) :=
-  ⟨(A.rationalTateModule ℓ).toRepresentation.dual, sorry⟩
-
-/-- The inertia invariants `H¹_ℓ(A)^{I}`. -/
-def inertiaInvariants (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime] :
-    Submodule ℚ_[ℓ] (Module.Dual ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ)) where
-  carrier := {f | ∀ g ∈ GaloisRep.inertiaGroup F, A.firstCohomologyRep ℓ g f = f}
-  add_mem' := sorry
-  zero_mem' := sorry
-  smul_mem' := sorry
-
-/-- `L_v(A, T) := det(1 − T·Φ | H¹_ℓ(A)^{I})` with `Φ` a geometric Frobenius (the inverse of
-`GaloisRep.arithFrobLift`), computed as the reverse of the characteristic polynomial. -/
-def localEulerFactor (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime] : ℚ_[ℓ][X] :=
-  (LinearMap.charpoly ((A.firstCohomologyRep ℓ (GaloisRep.arithFrobLift F)⁻¹).restrict
-    (p := A.inertiaInvariants ℓ) (q := A.inertiaInvariants ℓ) sorry)).reverse
-
-/-- `L_v(A, T) = det(1 − T·Frob | (V_ℓA)_I)` with the arithmetic Frobenius. -/
-theorem localEulerFactor_eq_coinvariants (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    A.localEulerFactor ℓ =
-      (LinearMap.charpoly ((A.inertiaCoinvariantsKernel ℓ).mapQ (A.inertiaCoinvariantsKernel ℓ)
-        (A.rationalTateModule ℓ (GaloisRep.arithFrobLift F)) sorry)).reverse := by
-  sorry
-
-/-- At good reduction, `L_v(A, T) = T^{2g} P_v(1/T) = det(1 − T·π_v | V_ℓA_v)`. -/
-theorem localEulerFactor_of_goodReduction (A : AbelianVariety F) (𝒜 : GoodReductionModel A)
-    (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    A.localEulerFactor ℓ =
-        ((GaloisRep.frobCharpoly (A.tateModuleRep ℓ)).map (algebraMap ℤ_[ℓ] ℚ_[ℓ])).reverse ∧
-      A.localEulerFactor ℓ =
-        ((LinearMap.charpoly (tateModule.map (qFrobenius 𝒜.specialFiber) ℓ)).reverse).map
-          (algebraMap ℤ_[ℓ] ℚ_[ℓ]) := by
-  sorry
-
-/-- Isogenous abelian varieties have the same local Euler factors. -/
-theorem localEulerFactor_isogeny {A B : AbelianVariety F} (φ : Hom A B) (hφ : φ.IsIsogeny)
-    (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    A.localEulerFactor ℓ = B.localEulerFactor ℓ := by
-  sorry
-
-/-- `L_v(A × B, T) = L_v(A, T) L_v(B, T)`. -/
-theorem localEulerFactor_prod (A B : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    (A.prod B).localEulerFactor ℓ = A.localEulerFactor ℓ * B.localEulerFactor ℓ := by
-  sorry
-
-/-- `deg L_v(A, T) ≤ 2g`, with equality iff `V_ℓA` is unramified. -/
-theorem localEulerFactor_natDegree_le (A : AbelianVariety F) (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : 𝓀[F]) ≠ 0) :
-    (A.localEulerFactor ℓ).natDegree ≤ 2 * A.dim ∧
-      ((A.localEulerFactor ℓ).natDegree = 2 * A.dim ↔
-        GaloisRep.IsUnramified (A.rationalTateModule ℓ)) := by
-  sorry
-
-/- TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_eq_weilDeligne: `L_v(A, T)` equals
-R01.2's local Euler factor `det(1 − T·r(Φ) | (ker N)^{I})` of the Weil–Deligne representation
-`WD(H¹_ℓ(A))` attached by Grothendieck's monodromy theorem. (The Weil group and the functor `WD`
-belong to R01.2, another section.) -/
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_goodReduction.
-For `y² = x³ − x` at `5`: `L_5(E, T) = 1 + 2T + 5T²` for every `ℓ ≠ 5`. -/
-example (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 5) :
-    (ofWeierstrass (cmCurve ℚ_[5])).localEulerFactor ℓ = 1 + 2 * X + 5 * X ^ 2 := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_zero. -/
-example (ℓ : ℕ) [Fact ℓ.Prime] : (zero F).localEulerFactor ℓ = 1 := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_compare_localPolynomial.
-(Local form, over a local field `F` with `𝒪[F]`; the form at a prime of a number field is
-`localPolynomial_adicCompletion_eq_localEulerFactor` below.) -/
-example [IsFractionRing 𝒪[F] F] (W : WeierstrassCurve F) [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : 𝓀[F]) ≠ 0)
-    (hW : (W.minimal 𝒪[F]).HasGoodReduction 𝒪[F] ∨
-      (W.minimal 𝒪[F]).HasMultiplicativeReduction 𝒪[F]) :
-    (ofWeierstrass W).localEulerFactor ℓ =
-      (WeierstrassCurve.localPolynomial 𝒪[F] W).map (Int.castRingHom ℚ_[ℓ]) := by
-  sorry
-
-/-- The base change of an elliptic Weierstrass curve is elliptic (Mathlib has the instance for
-`WeierstrassCurve.map`; `baseChange` is a definition, so it is restated). -/
-instance isElliptic_baseChange {k : Type*} [Field k] (W : WeierstrassCurve k) [W.IsElliptic]
-    (L : Type*) [Field L] [Algebra k L] : (W.baseChange L).IsElliptic :=
-  inferInstanceAs (W.map (algebraMap k L)).IsElliptic
-
-/-- ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial, (d), in the
-expression that occurs in Mathlib's `WeierstrassCurve.LFunction`: for an elliptic Weierstrass curve
-`W` over a number field `k`, every prime `p` of `𝓞 k` (good, multiplicative or additive reduction)
-and every `ℓ` different from the residue characteristic, the local polynomial of
-`W.baseChange (p.adicCompletion k)` over `p.adicCompletionIntegers k` is the local Euler factor of
-`H¹ = V_ℓE^∨` at `p`. The two instance arguments are the local-field structure of
-`p.adicCompletion k`: in Tau Ceti they are the instances
-`IsDedekindDomain.HeightOneSpectrum.instValuativeRelAdicCompletion` and
-`isNonarchimedeanLocalField_adicCompletion`, and
-`IsDedekindDomain.HeightOneSpectrum.integer_eq_adicCompletionIntegers` identifies
-`𝒪[p.adicCompletion k]` with `p.adicCompletionIntegers k` (Mathlib has no such instance; a
-valuative relation making the completion, with its adic topology, a nonarchimedean local field has
-that ring of integers, so the statement does not depend on the instance). -/
-theorem localPolynomial_adicCompletion_eq_localEulerFactor {k : Type u} [Field k] [NumberField k]
-    (W : WeierstrassCurve k) [W.IsElliptic] (p : HeightOneSpectrum (𝓞 k))
-    [ValuativeRel (p.adicCompletion k)] [IsNonarchimedeanLocalField (p.adicCompletion k)]
-    (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓞 k ⧸ p.asIdeal) ≠ 0) :
-    ((W.baseChange (p.adicCompletion k)).localPolynomial (p.adicCompletionIntegers k)).map
-        (Int.castRingHom ℚ_[ℓ]) =
-      (ofWeierstrass (W.baseChange (p.adicCompletion k))).localEulerFactor ℓ := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_not_on_V.
-`det(1 − TΦ_5 | V_ℓE) = 1 + (2/5)T + (1/5)T²` for `y² = x³ − x`, which is not the Euler factor. -/
-example (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 5) :
-    (LinearMap.charpoly ((ofWeierstrass (cmCurve ℚ_[5])).rationalTateModule ℓ
-        (GaloisRep.arithFrobLift ℚ_[5])⁻¹)).reverse =
-      1 + C (2 / 5 : ℚ_[ℓ]) * X + C (1 / 5 : ℚ_[ℓ]) * X ^ 2 := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_tate_curve.
-Split multiplicative reduction (a Tate curve `E_q`, by Tate's uniformisation): `L(E_q, T) = 1 − T`. -/
-example [IsFractionRing 𝒪[F] F] (W : WeierstrassCurve F) [W.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime]
-    (hℓ : (ℓ : 𝓀[F]) ≠ 0) (hW : (W.minimal 𝒪[F]).HasSplitMultiplicativeReduction 𝒪[F]) :
-    (ofWeierstrass W).localEulerFactor ℓ = 1 - X := by
-  sorry
-
-end Local
-
-/-! ### Tate modules with endomorphism coefficients and their λ-adic components (ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients) -/
-
-section Coefficients
-
-variable (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] {E : Type} [Field E] [NumberField E]
-
-namespace tateModule
-
-/-- `End_K(A)` acts on `T_ℓA` (functoriality), commuting with `ρ_{A,ℓ}`, extended
-`ℤ_ℓ`-linearly: the `O ⊗ ℤ_ℓ`-module structure for any order `O ⊆ End_K(A)`; its
-rationalisation is `rationalEndAction`. -/
-def endAction : ℤ_[ℓ] ⊗[ℤ] End A →ₐ[ℤ_[ℓ]] Module.End ℤ_[ℓ] (A.tateModule ℓ) := sorry
-
-/-- The endomorphism action commutes with `ρ_{A,ℓ}`. -/
-theorem endAction_comm (a : ℤ_[ℓ] ⊗[ℤ] End A) (σ : Field.absoluteGaloisGroup K) :
-    tateModule.endAction A ℓ a ∘ₗ A.tateModuleRep ℓ σ =
-      A.tateModuleRep ℓ σ ∘ₗ tateModule.endAction A ℓ a := by
-  sorry
-
-end tateModule
-
-/-- The `E ⊗ ℚ_ℓ`-module structure on `V_ℓA` for `E ⊆ End⁰_K(A)`. -/
-def rationalEndAction (ι : E →+* End0 A) :
-    ℚ_[ℓ] ⊗[ℚ] E →ₐ[ℚ_[ℓ]] Module.End ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ) := sorry
-
-/-- The `λ`-component `V_λA = e_λ V_ℓA` (`e_λ` the idempotent of the factor `E_λ` of
-`E ⊗ ℚ_ℓ`), a `ℚ_ℓ[G_K]`-submodule. -/
-def lambdaComponent (ι : E →+* End0 A) (P : HeightOneSpectrum (𝓞 E)) :
-    Submodule ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] A.tateModule ℓ) := sorry
-
-/-- `V_λA := V_ℓA ⊗_{E⊗ℚ_ℓ} E_λ` as a continuous `E_λ`-representation of `G_K`, for `λ ∣ ℓ`. -/
-def lambdaTateModule (ι : E →+* End0 A) (P : HeightOneSpectrum (𝓞 E))
-    (hP : (ℓ : 𝓞 E) ∈ P.asIdeal) :
-    ContinuousRep.Bundled.{u, 0, u} (Field.absoluteGaloisGroup K) (P.adicCompletion E) := sorry
-
-namespace lambdaTateModule
-
-open Classical in
-/-- `V_ℓA = ⊕_{λ ∣ ℓ} V_λA`. -/
-theorem decomposition (ι : E →+* End0 A) :
-    DirectSum.IsInternal fun P : {P : HeightOneSpectrum (𝓞 E) // (ℓ : 𝓞 E) ∈ P.asIdeal} =>
-      lambdaComponent A ℓ ι P.1 := by
-  sorry
-
-end lambdaTateModule
-
-/-- `dim_{E_λ} V_λA = 2g/[E : ℚ]`. The node states it under the hypothesis that `V_ℓA` is free
-over `E ⊗ ℚ_ℓ` (Milne AV Proposition 10.23, not proved in this layer); that hypothesis needs the
-`E ⊗ ℚ_ℓ`-module structure on `V_ℓA`, which is only available here as the algebra map
-`rationalEndAction`, so it is left out of the statement. -/
-theorem lambdaTateModule_finrank (hℓ : (ℓ : K) ≠ 0) (ι : E →+* End0 A)
-    (P : HeightOneSpectrum (𝓞 E)) (hP : (ℓ : 𝓞 E) ∈ P.asIdeal) :
-    Module.finrank (P.adicCompletion E) (lambdaTateModule A ℓ ι P hP).carrier *
-      Module.finrank ℚ E = 2 * A.dim := by
-  sorry
-
-/-- `T_λA := T_ℓA ⊗_{O_E⊗ℤ_ℓ} O_{E,λ}`, a `G_K`-stable `O_{E,λ}`-lattice in `V_λA`, for
-`O_E ⊆ End_K(A)`. -/
-def integralLambdaTateModule (ι : 𝓞 E →+* End A) (P : HeightOneSpectrum (𝓞 E))
-    (hP : (ℓ : 𝓞 E) ∈ P.asIdeal) :
-    ContinuousRep.Bundled.{u, 0, u} (Field.absoluteGaloisGroup K) (P.adicCompletionIntegers E) :=
-  sorry
-
-/-- `A[λ](K^sep) = {x : αx = 0 for all α ∈ λ}` (inside `A[ℓ]` when `ℓ ∈ λ`), an
-`O_E/λ[G_K]`-module isomorphic to the residual `λ`-adic representation `T_λA/λT_λA`; the
-isomorphism is canonical (`A[λ] = e_λ A[ℓ]`) when `λ` is unramified over `ℓ`, and in general it is
-multiplication by `ϖ^{e−1}`, defined up to a scalar. -/
-def lambdaTorsion (ι : 𝓞 E →+* End A) (P : HeightOneSpectrum (𝓞 E)) : AddSubgroup A.Points where
-  carrier := {x | ∀ a ∈ P.asIdeal, (End.toHom (ι a)).toPointsHom x = 0}
-  add_mem' := sorry
-  zero_mem' := sorry
-  neg_mem' := sorry
-
-/-- When `O_E ⊆ End_K(A)`, `T_λA` is a free `O_{E,λ}`-module (finitely generated and torsion-free
-over a discrete valuation ring), of rank `dim_{E_λ} V_λA`, and `T_ℓA = ⊕_{λ ∣ ℓ} T_λA`. (Only the
-freeness is stated: the comparison of ranks needs the two carriers `lambdaTateModule` and
-`integralLambdaTateModule` related, which the opaque definitions do not provide.) -/
-theorem integralLambdaTateModule_free (ι : 𝓞 E →+* End A) (P : HeightOneSpectrum (𝓞 E))
-    (hP : (ℓ : 𝓞 E) ∈ P.asIdeal) :
-    Module.Free (P.adicCompletionIntegers E) (integralLambdaTateModule A ℓ ι P hP).carrier := by
-  sorry
-
-/-- For totally real `E` of degree `g` (GL₂-type) acting through `O_E ⊆ End_K(A)` by Rosati-fixed
-endomorphisms of a polarization: `det_{E_λ} ρ_{A,λ} = χ_ℓ` (`ℚ_ℓ → E_λ` the continuous embedding). -/
-theorem lambdaTateModule_det [IsTotallyReal E] (hℓ : (ℓ : K) ≠ 0) (ι : 𝓞 E →+* End A)
-    (μ : Polarization A) (hR : ∀ a, μ.toHom.comp (End.toHom (ι a)) = (End.toHom (ι a)).dual.comp μ.toHom)
-    (hd : Module.finrank ℚ E = A.dim) (ι0 : E →+* End0 A)
-    (hι : ∀ a : 𝓞 E, ι0 a = (1 : ℚ) ⊗ₜ[ℤ] ι a) (P : HeightOneSpectrum (𝓞 E))
-    (hP : (ℓ : 𝓞 E) ∈ P.asIdeal) [Algebra ℚ_[ℓ] (P.adicCompletion E)]
-    [ContinuousSMul ℚ_[ℓ] (P.adicCompletion E)] (σ : Field.absoluteGaloisGroup K) :
-    LinearMap.det ((lambdaTateModule A ℓ ι0 P hP).rep σ) =
-      algebraMap ℚ_[ℓ] (P.adicCompletion E)
-        ((GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]ˣ) : ℤ_[ℓ]) := by
-  sorry
-
-/-- Under the same hypotheses, over a number field, `det_{E_λ} ρ_{A,λ}(c) = −1` at every real
-place. -/
-theorem lambdaTateModule_odd [NumberField K] [IsTotallyReal E] (ι : 𝓞 E →+* End A)
-    (μ : Polarization A) (hR : ∀ a, μ.toHom.comp (End.toHom (ι a)) = (End.toHom (ι a)).dual.comp μ.toHom)
-    (hd : Module.finrank ℚ E = A.dim) (ι0 : E →+* End0 A)
-    (hι : ∀ a : 𝓞 E, ι0 a = (1 : ℚ) ⊗ₜ[ℤ] ι a) (P : HeightOneSpectrum (𝓞 E))
-    (hP : (ℓ : 𝓞 E) ∈ P.asIdeal) (v : InfinitePlace K) (hv : v.IsReal) :
-    LinearMap.det ((lambdaTateModule A ℓ ι0 P hP).rep (GaloisRep.complexConjugation K v hv)) =
-      -1 := by
-  sorry
-
-/- TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_frobenius: at a place `v ∤ ℓ` of
-good reduction, `ρ_{A,λ}(Frob_v)` is the `E_λ`-linear map induced by the Frobenius endomorphism
-`π_v` of `A_v`, which commutes with `E` acting on `A_v` through the reduction of endomorphisms.
-(The action of `E` on the special fibre needs the extension of homomorphisms to the abelian
-scheme, NeronModelsAndSemistableAbelianVarieties R11.1 abelian-scheme-model and group-law, absent
-from the stand-in. That the `E_λ`-characteristic polynomial comes from a polynomial over `E`
-independent of `λ` is not asserted by the node.) -/
-
-/- TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule.coefficientExtension: for an
-embedding `E_λ → ℚ̄_ℓ`, `V_λA ⊗_{E_λ} ℚ̄_ℓ` is the corresponding summand `V_ι` of
-`V_ℓA ⊗_{ℚ_ℓ} ℚ̄_ℓ = ⊕_{ι : E → ℚ̄_ℓ} V_ι` (R01.1/coefficient-extension, another section). -/
-
-end Coefficients
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_cm_rank_one.
-`y² = x³ − x` over `ℚ(i)`, `End = ℤ[i]`, `ℓ = 5 = λλ̄`: each `V_λE` is one-dimensional. -/
-example (ι : CyclotomicField 4 ℚ →+* End0 (ofWeierstrass (cmCurve (CyclotomicField 4 ℚ))))
-    (P : HeightOneSpectrum (𝓞 (CyclotomicField 4 ℚ)))
-    (hP : ((5 : ℕ) : 𝓞 (CyclotomicField 4 ℚ)) ∈ P.asIdeal) :
-    Module.finrank (P.adicCompletion (CyclotomicField 4 ℚ))
-      (lambdaTateModule (ofWeierstrass (cmCurve (CyclotomicField 4 ℚ))) 5 ι P hP).carrier = 1 := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_rationals.
-For `E = ℚ`, the only `λ` is `ℓ` and `V_λA = V_ℓA`. -/
-example (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] (ι : ℚ →+* End0 A)
-    (P : HeightOneSpectrum (𝓞 ℚ)) (hP : (ℓ : 𝓞 ℚ) ∈ P.asIdeal) :
-    lambdaComponent A ℓ ι P = ⊤ := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_not_over_smaller_field.
-For `y² = x³ − x` over `ℚ`, no faithful `ℚ(i) ⊗ ℚ_ℓ`-action on `V_ℓE` commutes with `G_ℚ`
-(complex conjugation anticommutes with `[i]`). -/
-example (ℓ : ℕ) [Fact ℓ.Prime] :
-    ¬ ∃ f : ℚ_[ℓ] ⊗[ℚ] CyclotomicField 4 ℚ →ₐ[ℚ_[ℓ]]
-        Module.End ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℤ_[ℓ]] (ofWeierstrass (cmCurve ℚ)).tateModule ℓ),
-      Function.Injective f ∧ ∀ σ a,
-        f a ∘ₗ (ofWeierstrass (cmCurve ℚ)).rationalTateModule ℓ σ =
-          (ofWeierstrass (cmCurve ℚ)).rationalTateModule ℓ σ ∘ₗ f a := by
-  sorry
-
-open Classical in
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_sum.
-`V_ℓA = ⊕_{λ∣ℓ} V_λA` and `dim_{ℚ_ℓ} V_λA = [E_λ : ℚ_ℓ] · dim_{E_λ} V_λA`. -/
-example (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] {E : Type} [Field E] [NumberField E]
-    (ι : E →+* End0 A) (P : HeightOneSpectrum (𝓞 E)) (hP : (ℓ : 𝓞 E) ∈ P.asIdeal)
-    [Algebra ℚ_[ℓ] (P.adicCompletion E)] [ContinuousSMul ℚ_[ℓ] (P.adicCompletion E)] :
-    DirectSum.IsInternal (fun Q : {Q : HeightOneSpectrum (𝓞 E) // (ℓ : 𝓞 E) ∈ Q.asIdeal} =>
-        lambdaComponent A ℓ ι Q.1) ∧
-      Module.finrank ℚ_[ℓ] (lambdaComponent A ℓ ι P) =
-        Module.finrank ℚ_[ℓ] (P.adicCompletion E) *
-          Module.finrank (P.adicCompletion E)
-            (lambdaTateModule A ℓ ι P hP).carrier := by
-  sorry
-
-/-! ### Galois generic and p-Galois generic abelian varieties (ArithmeticGaloisRepresentations:R01.6/galois-generic-abelian-varieties) -/
-
-/-- The `ℓ`-adic (pointwise-convergence, i.e. `ℓ`-adic) topology on `End_{ℤ_ℓ}(T_ℓA)`; it induces
-the topology of `GL(T_ℓA)`. -/
-instance (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
-    TopologicalSpace (Module.End ℤ_[ℓ] (A.tateModule ℓ)) :=
-  TopologicalSpace.induced (fun f x => f x) inferInstance
-
-/-- The `p`-adic image `ρ_{A,p}(G_k) ⊆ GL(T_pA)` (contained in `GSp(T_pA, e^λ_p)` by
-`image_le_GSp`), a closed subgroup. -/
-def pAdicImage (A : AbelianVariety K) (p : ℕ) [Fact p.Prime] :
-    Subgroup (LinearMap.GeneralLinearGroup ℤ_[p] (A.tateModule p)) :=
-  (Representation.asGroupHom (A.tateModuleRep p).toRepresentation).range
-
-/-- `A` is `p`-Galois generic (Masser–Zannier): `ρ_{A,p}(G_k)` is open in `GSp(T_pA, e^λ_p)`, the
-group of `ℤ_p`-automorphisms of `T_pA` preserving `e^λ_p` up to a unit (`symplecticSimilitudes`,
-defined directly, without G7/similitude-groups). The node takes `λ` principal. -/
-def IsPGaloisGeneric (A : AbelianVariety K) (μ : Polarization A) (p : ℕ) [Fact p.Prime] : Prop :=
-  IsOpen (((pAdicImage A p).subgroupOf (symplecticSimilitudes (polarizationPairing A p μ.toHom)) :
-    Set (symplecticSimilitudes (polarizationPairing A p μ.toHom))))
-
-/-- The adelic representation `ρ̂_A : G_k → ∏_p GL(T_pA)`. -/
-def adelicRep (A : AbelianVariety K) :
-    Field.absoluteGaloisGroup K →* ((p : Nat.Primes) →
-      LinearMap.GeneralLinearGroup ℤ_[(p : ℕ)] (A.tateModule p)) :=
-  MonoidHom.pi fun p => Representation.asGroupHom (A.tateModuleRep p).toRepresentation
-
-/-- `A` is Galois generic: `ρ̂_A(G_k)` is open in `∏_p GSp(T_pA, e^λ_p) = GSp(T̂A, e^λ)` (the
-standard adelic formulation; Masser–Zannier refer to Pink for the definition). -/
-def IsGaloisGeneric (A : AbelianVariety K) (μ : Polarization A) : Prop :=
-  IsOpen (((adelicRep A).range.subgroupOf
-      (Subgroup.pi Set.univ fun p : Nat.Primes =>
-        symplecticSimilitudes (polarizationPairing A p μ.toHom))) :
-    Set (Subgroup.pi Set.univ fun p : Nat.Primes =>
-        symplecticSimilitudes (polarizationPairing A p μ.toHom)))
-
-/-- `p`-Galois generic iff the image has finite index (a closed subgroup of a profinite group). -/
-theorem isPGaloisGeneric_iff_finiteIndex [NumberField K] (A : AbelianVariety K)
-    (μ : Polarization A) (p : ℕ) [Fact p.Prime] :
-    IsPGaloisGeneric A μ p ↔
-      ((pAdicImage A p).subgroupOf
-        (symplecticSimilitudes (polarizationPairing A p μ.toHom))).FiniteIndex := by
-  sorry
-
-namespace IsGaloisGeneric
-
-/-- Galois generic implies `p`-Galois generic for every `p`. -/
-theorem isPGaloisGeneric {A : AbelianVariety K} {μ : Polarization A}
-    (h : IsGaloisGeneric A μ) (p : ℕ) [Fact p.Prime] : IsPGaloisGeneric A μ p := by
-  sorry
-
-end IsGaloisGeneric
-
-/-- Invariance under a finite extension `L/k`. -/
-theorem isPGaloisGeneric_baseChange_iff [NumberField K] (A : AbelianVariety K)
-    (μ : Polarization A) (L : Type u) [Field L] [Algebra K L] [FiniteDimensional K L]
-    (p : ℕ) [Fact p.Prime] :
-    IsPGaloisGeneric (A.baseChange L) (μ.baseChange L) p ↔ IsPGaloisGeneric A μ p := by
-  sorry
-
-/-- For two principal polarizations `λ`, `λ′` of `A`: `A` is `p`-Galois generic with respect to
-`λ` iff it is with respect to `λ′`, and then `e^{λ′}_p` is a `ℤ_p^×`-multiple of `e^λ_p`. -/
-theorem isPGaloisGeneric_polarization_indep [NumberField K] (A : AbelianVariety K)
-    (μ μ' : Polarization A) (hμ : μ.toHom.degree = 1) (hμ' : μ'.toHom.degree = 1) (p : ℕ)
-    [Fact p.Prime] :
-    (IsPGaloisGeneric A μ p ↔ IsPGaloisGeneric A μ' p) ∧
-      (IsPGaloisGeneric A μ p → ∃ c : ℤ_[p]ˣ, ∀ x y : A.tateModule p,
-        polarizationPairing A p μ'.toHom x y =
-          (c : ℤ_[p]) • polarizationPairing A p μ.toHom x y) := by
-  sorry
-
-/-- The general symplectic group `GSp_{2g}(R) = {M | Mᵀ J M = c J, c ∈ R^×}`. -/
-def gspMatrix (g : Type*) [Fintype g] [DecidableEq g] (R : Type*) [CommRing R] :
-    Subgroup (Matrix.GeneralLinearGroup (g ⊕ g) R) where
-  carrier := {M | ∃ c : Rˣ, (M : Matrix (g ⊕ g) (g ⊕ g) R).transpose * Matrix.J g R *
-    (M : Matrix (g ⊕ g) (g ⊕ g) R) = (c : R) • Matrix.J g R}
-  mul_mem' := sorry
-  one_mem' := sorry
-  inv_mem' := sorry
-
-/-- For a symplectic basis `b` of `(T_pA, e^λ_p)` (`e^λ_p(b i, b j) = J i j • ζ`, `ζ` a generator of
-`ℤ_p(1)`), `A` is `p`-Galois generic iff the framed image is open in `GSp_{2g}(ℤ_p)`. -/
-theorem isPGaloisGeneric_iff_framed [NumberField K] (A : AbelianVariety K)
-    (μ : Polarization A) (p : ℕ) [Fact p.Prime]
-    (b : Module.Basis (Fin A.dim ⊕ Fin A.dim) ℤ_[p] (A.tateModule p)) (ζ : tateTwistOne K p)
-    (hζ : Submodule.span ℤ_[p] {ζ} = ⊤)
-    (hb : ∀ i j, polarizationPairing A p μ.toHom (b i) (b j) = Matrix.J (Fin A.dim) ℤ_[p] i j • ζ) :
-    IsPGaloisGeneric A μ p ↔
-      IsOpen ((((pAdicImage A p).map
-          (Units.mapEquiv (LinearMap.toMatrixAlgEquiv b).toMulEquiv).toMonoidHom).subgroupOf
-            (gspMatrix (Fin A.dim) ℤ_[p])) : Set (gspMatrix (Fin A.dim) ℤ_[p])) := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_cm.
-`y² = x³ − x` over `ℚ` (CM) is not `p`-Galois generic for any `p`. -/
-example (p : ℕ) [Fact p.Prime] (μ : Polarization (ofWeierstrass (cmCurve ℚ))) :
-    ¬ IsPGaloisGeneric (ofWeierstrass (cmCurve ℚ)) μ p := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_finiteIndex. -/
-example [NumberField K] (A : AbelianVariety K) (μ : Polarization A) (p : ℕ) [Fact p.Prime] :
-    IsPGaloisGeneric A μ p ↔
-      ((pAdicImage A p).subgroupOf
-        (symplecticSimilitudes (polarizationPairing A p μ.toHom))).FiniteIndex := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.not_open_in_Sp.
-The image is never inside `Sp(T_pA, e^λ_p)`: its multiplier `χ_p` has infinite image. -/
-example [NumberField K] (A : AbelianVariety K) (hA : 1 ≤ A.dim) (μ : Polarization A) (p : ℕ)
-    [Fact p.Prime] :
-    ¬ pAdicImage A p ≤ symplecticIsometries (polarizationPairing A p μ.toHom) := by
-  sorry
-
-/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.isGaloisGeneric_baseChange. -/
-example [NumberField K] (A : AbelianVariety K) (μ : Polarization A) (L : Type u) [Field L]
-    [Algebra K L] [FiniteDimensional K L] :
-    IsGaloisGeneric (A.baseChange L) (μ.baseChange L) ↔ IsGaloisGeneric A μ := by
-  sorry
-
-/-! ### Serre: independence and connectedness of the ℓ-adic images after a finite extension (ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness, (1): after a
-finite extension `L/K`, `ρ̂_A(G_L) = ∏_ℓ ρ_{A,ℓ}(G_L)` (`ℓ`-independence), as quoted from
-Richard–Yafaev Theorem 4.9, which gives no proof (the proofs are Serre's and Larsen–Pink's, not
-sources of the roadmap). (Zariski connectedness
-of the images, part (2), needs Zariski closures in `GL(V_ℓA)`, absent from Mathlib; in the node
-one field `L` serves (1) and (2). The independence of `ℓ` of `ker(G_K → G_ℓ/G_ℓ°)` is not
-asserted by the node.) -/
-theorem serre_independence [NumberField K] (A : AbelianVariety K) :
-    ∃ L : IntermediateField K (AlgebraicClosure K), FiniteDimensional K L ∧
-      (L.fixingSubgroup.map (adelicRep A)) =
-        Subgroup.pi Set.univ fun p : Nat.Primes =>
-          (L.fixingSubgroup.map (adelicRep A)).map (Pi.evalMonoidHom _ p) := by
-  sorry
-
-/-! ### Specialization of Tate modules and Galois images in a family (Noot, after Serre) (ArithmeticGaloisRepresentations:R01.6/noot-specialization) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/noot-specialization (the limit step): Abelian schemes
-over a base `S` are absent from Mathlib, so the specialisation isomorphisms
-`s : X_η[n](K̄) ≅ X_σ[n](F̄)` of the finite étale `X[n]` (A3) are taken as input, as one
-`D_σ`-equivariant isomorphism of torsion subgroups (characteristic `0`); then for every `ℓ`,
-`T_ℓX_η ≅ T_ℓX_σ` `D_σ`-equivariantly and `ρ_{X_η,ℓ}(D_σ) ≅ ρ_{X_σ,ℓ}(Gal(F̄/F(σ)))`. -/
-theorem noot_specialization {k : Type u} [Field k] (A : AbelianVariety K) (B : AbelianVariety k)
-    (D : Subgroup (Field.absoluteGaloisGroup K)) (π : D →* Field.absoluteGaloisGroup k)
-    (hπ : Function.Surjective π) (s : AddCommGroup.torsion A.Points ≃+ AddCommGroup.torsion B.Points)
-    (hs : ∀ (d : D) (x y : AddCommGroup.torsion A.Points),
-      (y : A.Points) = (d : Field.absoluteGaloisGroup K) • (x : A.Points) →
-        (s y : B.Points) = π d • (s x : B.Points))
-    (ℓ : ℕ) [Fact ℓ.Prime] :
-    ∃ e : A.tateModule ℓ ≃ₗ[ℤ_[ℓ]] B.tateModule ℓ,
-      ∀ (d : D) (x : A.tateModule ℓ),
-        e (A.tateModuleRep ℓ d x) = B.tateModuleRep ℓ (π d) (e x) := by
-  sorry
-
-/-! ### Required examples: χ_p, the split Tate curve, supersingular good reduction, a CM curve over Q, Frobenius conventions (ArithmeticGaloisRepresentations:R01.6/required-examples) -/
-
-/-- ArithmeticGaloisRepresentations:R01.6/required-examples, (1), (3), (5): `χ_p(c) = −1`; on
-`T_ℓE` for `y² = x³ − x` over `𝔽_5` the arithmetic Frobenius has characteristic polynomial
-`X² + 2X + 5` and the local factor is `1 + 2T + 5T²`; for the supersingular `y² = x³ + 1` over
-`𝔽_5`, `X² + 5`. (The Tate curve (2) is `tateCurve_inertia_unipotent` and
-`localEulerFactor_tate_curve`; the CM statements (4) are owned by
-ComplexMultiplicationAndExplicitReciprocity CM.4.) -/
-theorem required_examples (p : ℕ) [Fact p.Prime] (v : InfinitePlace ℚ) (hv : v.IsReal)
-    (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 5) :
-    ((GaloisRep.cyclotomicCharacter ℚ p (GaloisRep.complexConjugation ℚ v hv) : ℤ_[p]ˣ) : ℤ_[p])
-        = -1 ∧
-      LinearMap.charpoly (tateModule.map (qFrobenius (ofWeierstrass (cmCurve (ZMod 5)))) ℓ) =
-        X ^ 2 + 2 * X + 5 ∧
-      (LinearMap.charpoly
-          (tateModule.map (qFrobenius (ofWeierstrass (cmCurve (ZMod 5)))) ℓ)).reverse =
-        1 + 2 * X + 5 * X ^ 2 ∧
-      LinearMap.charpoly
-          (tateModule.map (qFrobenius (ofWeierstrass (curveX3Plus1 (ZMod 5)))) ℓ) =
-        X ^ 2 + 5 := by
-  sorry
-
-end AbelianVariety
-
-end AlgebraicGeometry
-
-end TauCeti
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction to K^sep identifies it, as a topological group, with Gal(K^sep/K): Tau Ceti absoluteGaloisGroupRestrictEquiv; Mathlib gives Field.absoluteGaloisGroup only its group and topological-group structure, and compactness is obtained through this isomorphism); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. For n ≥ 0 put A[ℓ^n] := ker([ℓ^n] : A → A) ([ℓ^n] is Tau Ceti AbelianVariety.mulBy), a finite étale K-group scheme of order ℓ^{2gn} (AbelianSchemesAndArithmeticModuli A3), and A[ℓ^n](K^sep) = A[ℓ^n](K̄) its group of geometric points, with the transition maps [ℓ] : A[ℓ^{n+1}](K^sep) → A[ℓ^n](K^sep). Define T_ℓA := lim_n A[ℓ^n](K^sep), with the inverse-limit topology of the discrete finite groups, V_ℓA := T_ℓA ⊗_{Z_ℓ} Q_ℓ, and the prime-to-char K adelic module T̂A := lim_N A[N](K^sep) (N invertible in K) = ∏_{ℓ ≠ char K} T_ℓA. Then: (a) each A[ℓ^n](K^sep) is a free Z/ℓ^n-module of rank 2g, the transition maps are surjective, and T_ℓA is a free Z_ℓ-module (Z_ℓ is Mathlib's PadicInt ℓ) of rank 2g whose inverse-limit topology is the ℓ-adic topology (equivalently Mathlib's module topology, IsModuleTopology Z_ℓ); (b) the projection induces a canonical G_K-equivariant isomorphism T_ℓA/ℓ^n T_ℓA ≅ A[ℓ^n](K^sep); (c) G_K acts Z_ℓ-linearly on T_ℓA through its coordinatewise action on A[ℓ^n](K̄), the action map G_K × T_ℓA → T_ℓA is jointly continuous, and so (T_ℓA, ρ_{A,ℓ}) is an object of ContinuousRep G_K Z_ℓ (ArithmeticGaloisRepresentations:R01.1/continuous-representation) of rank 2g, with V_ℓA its coefficient extension to Q_ℓ; (d) the kernel of G_K → Aut(A[ℓ^n](K^sep)) is the open subgroup G_{K(A[ℓ^n])} fixing the finite Galois extension K(A[ℓ^n]) generated by the coordinates of the ℓ^n-torsion points, and ρ_{A,ℓ} factors through Gal(K(A[ℓ^∞])/K); (e) the construction is made for every algebraic closure of K, and a K-isomorphism ι : K̄ → K̄′ of algebraic closures induces the group isomorphism G_K ≅ Aut(K̄′/K), σ ↦ ισι^{−1}, and a Z_ℓ-isomorphism T_ℓA ≅ T′_ℓA intertwining the two actions; this isomorphism is not canonical: replacing ι by ι∘τ with τ ∈ G_K composes it with x ↦ τx and the group isomorphism with conjugation by τ, so (T_ℓA, ρ_{A,ℓ}) is determined up to the inner automorphisms of G_K. A choice of Z_ℓ-basis gives the framed form ρ_{A,ℓ} : G_K → GL_{2g}(Z_ℓ) (R01.1/framed-representation), well defined up to GL_{2g}(Z_ℓ)-conjugacy. The Tate module is covariant in A. It is not defined for ℓ = char K (there A[ℓ](K^sep) has order at most ℓ^g).
+
+API signatures on the actual geometric carrier:
+
+TauCeti.AlgebraicGeometry.AbelianVariety.torsionPoints : A[N](K^sep) for N invertible in K: the N-torsion Submodule.torsionBy ℤ (A(K^sep)) N of the K^sep-points, a finite Z/N-module with its G_K-action.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule : T_ℓA := lim_n A[ℓ^n](K^sep) along [ℓ], as a Z_ℓ-module with the inverse-limit topology.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.toTorsion : The projection T_ℓA → A[ℓ^n](K^sep), G_K-equivariant and Z_ℓ-linear (Z_ℓ acting through Z/ℓ^n).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_free : T_ℓA is a free Z_ℓ-module of rank 2g; Module.finrank Z_ℓ T_ℓA = 2·dim A.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.modPowEquiv : T_ℓA/ℓ^n T_ℓA ≃ A[ℓ^n](K^sep), G_K-equivariant.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.ext : Two elements of T_ℓA are equal iff their images in A[ℓ^n](K^sep) agree for every n.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModuleRep : (T_ℓA, ρ_{A,ℓ}) as a ContinuousRep G_K Z_ℓ (R01.1/continuous-representation); its underlying Mathlib ContRepresentation is obtained by forgetting joint continuity.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.rationalTateModule : V_ℓA := T_ℓA ⊗_{Z_ℓ} Q_ℓ as the coefficient extension of tateModuleRep to Q_ℓ (R01.1/coefficient-extension).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.map : A homomorphism α : A → B over K induces T_ℓα : T_ℓA → T_ℓB, (x_n) ↦ (α(x_n)), with map_id, map_comp, and map_add for the group structure of Hom(A, B).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.baseChange : For a field extension L/K and a K-embedding j : K̄ → L̄ of algebraic closures, j induces a Z_ℓ-isomorphism T_ℓA ≅ T_ℓ(A_L) (A_L is Tau Ceti AbelianVariety.baseChange) which intertwines ρ_{A_L,ℓ} with ρ_{A,ℓ} ∘ res_j, where res_j : G_L → G_K is restriction along j. For L ⊆ K̄ algebraic over K this reads T_ℓ(A_L) = T_ℓA with ρ_{A_L,ℓ} the restriction of ρ_{A,ℓ} to G_L; for a completion L = F_v of a number field F it gives the restriction of ρ_{A,ℓ} to a decomposition group.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.kernel_mod_pow : ker(ρ_{A,ℓ} mod ℓ^n) = G_{K(A[ℓ^n])}, an open normal subgroup of finite index.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.adelicTateModule : T̂A := lim_N A[N](K^sep) over N invertible in K, canonically ∏_{ℓ ≠ char K} T_ℓA, with the product action of G_K.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.torsionPoints_card : For N invertible in K, A[N](K^sep) has N^{2g} elements and is (noncanonically) isomorphic to (Z/N)^{2g}; [N] : A[MN](K^sep) → A[M](K^sep) is surjective.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_isModuleTopology : The inverse-limit topology on T_ℓA is the ℓ-adic topology and is the module topology: IsModuleTopology Z_ℓ (T_ℓA).
+
+
+Unit-test examples (same names as the packet):
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_rank_eq : For E : y² = x³ − x over Q (g = 1) and ℓ = 5, T_5E is free of rank 2 over Z_5 and T_5E/5T_5E has exactly 25 elements.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_of_dim_zero : If A is the zero abelian variety Spec K (g = 0), then T_ℓA = 0 and ρ_{A,ℓ} is the zero representation, for every ℓ ≠ char K.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_ne_limit_rational_torsion : The tempting definition lim_n A[ℓ^n](K) using K-rational points is wrong: for E : y² = x³ − x over Q, E(Q)[ℓ^∞] is finite for every ℓ, so lim_n E[ℓ^n](Q) = 0, whereas T_ℓE ≅ Z_ℓ².
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_char_p_excluded : For a supersingular elliptic curve E over F̄_p (e.g. y² = x³ + 1 over F̄_5) one has E[p^n](F̄_p) = 0, so the formula lim E[p^n] would give 0 at ℓ = p = char K; the construction requires ℓ ≠ char K.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_mod_pow_equiv_galois : For every n, the reduction map T_ℓA/ℓ^n T_ℓA → A[ℓ^n](K^sep) is a G_K-equivariant isomorphism; for n = 1 it identifies ρ_{A,ℓ} mod ℓ with the pointwise Galois action on A[ℓ](K^sep).
+
+
+Proof obligations:
+Order and étaleness: AbelianSchemesAndArithmeticModuli A3 proves [n] finite locally free of rank n^{2g} and étale when n is invertible on the base; over K with ℓ ≠ char K, A[ℓ^n] is finite étale of order ℓ^{2gn}, so #A[ℓ^n](K^sep) = ℓ^{2gn} and the K^sep- and K̄-points agree (Milne AV, Remark 7.3, p. 34).
+Structure: applying the count to every m | ℓ^n and the structure theorem for finite abelian groups gives A[ℓ^n](K^sep) ≅ (Z/ℓ^n)^{2g} (Milne AV, Remark 7.3, p. 34).
+Surjective transitions: [ℓ] : A → A is a finite étale surjective isogeny (A3), so every K^sep-point of A[ℓ^n] lifts to a K^sep-point of A[ℓ^{n+1}]; the inverse limit of free Z/ℓ^n-modules of rank 2g along surjections reducing compatibly is free of rank 2g over Z_ℓ with T_ℓA/ℓ^n ≅ A[ℓ^n](K^sep) (Milne AV, Proposition 10.5, p. 45).
+Galois action: σ ∈ G_K acts on A(K̄) through the functoriality of points along the K-automorphism σ (coordinates); it commutes with [ℓ^n], so preserves A[ℓ^n](K̄) and commutes with the transition maps; hence it acts Z_ℓ-linearly on T_ℓA.
+Continuity: each A[ℓ^n](K^sep) is finite and pointwise defined over the finite Galois extension K(A[ℓ^n]), so the action on it factors through the finite quotient Gal(K(A[ℓ^n])/K) and is continuous for the discrete topology (R01.1/finite-coefficients-and-finite-quotients); joint continuity on the inverse limit follows level by level, and the module topology on the finite free Z_ℓ-module T_ℓA is its inverse-limit topology.
+Independence of choices: an isomorphism of algebraic closures over K transports torsion points and Galois actions compatibly; this is the transport-of-structure argument of R01.1/restriction-dual-tensor-twist applied to the isomorphism of profinite groups it induces.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation
+
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. (a) For every n ≥ 1 the G_K-module T_ℓA/ℓ^nT_ℓA is canonically isomorphic to A[ℓ^n](K^sep) with its pointwise action; in particular the residual representation ρ̄_{A,ℓ} := T_ℓA ⊗_{Z_ℓ} F_ℓ (R01.1/reduction-and-residual-semisimplification) is the G_K-module A[ℓ](K^sep) of dimension 2g over F_ℓ. (b) For every G_K-stable Z_ℓ-lattice Λ ⊂ V_ℓA, (Λ/ℓΛ)^ss ≅ A[ℓ](K^sep)^ss as F_ℓ[G_K]-modules (R01.1/continuity-descent-and-lattice-independence). (c) Let E be an elliptic curve over K (Weierstrass, IsElliptic). The G_K-stable F_ℓ-lines L ⊂ E[ℓ](K^sep) are exactly the K-rational cyclic subgroups of order ℓ, i.e. the kernels of the cyclic K-rational isogenies of degree ℓ out of E (the quotient E → E/L of the Weierstrass curve by a finite Galois-stable subgroup of points, given by Vélu's formulas in Tau Ceti EllipticCurves Layer 1); so ρ̄_{E,ℓ} is reducible over F_ℓ iff E admits a K-rational isogeny of degree ℓ. On such a line G_K acts through a character ψ : G_K → F_ℓ^×, and on the quotient E[ℓ]/L through χ̄_ℓ ψ^{−1} (node determinant-and-oddness); For ℓ odd ψ need not be trivial, so reducibility of ρ̄_{E,ℓ} does not imply that E has a K-rational point of order ℓ. For ℓ = 2 the group F_2^× is trivial, so every G_K-stable line in E[2](K^sep) is generated by a K-rational point of order 2, and ρ̄_{E,2} is reducible iff E has a K-rational point of order 2.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a) is part (b) of node tate-module-of-an-abelian-variety, restated for consumers; n = 1 is the comparison of the residual representation with the existing pointwise action requested by the stage.
+(b) Λ and T_ℓA are both G_K-stable lattices in V_ℓA; R01.1/continuity-descent-and-lattice-independence gives (Λ/ℓΛ)^ss ≅ (T_ℓA/ℓT_ℓA)^ss, and (a) identifies the latter.
+(c) E[ℓ](K̄) has ℓ² elements (already in the pinned library: TauCeti.Isogeny.card_ker_mulByIntIsogeny over the algebraically closed K̄, with mem_ker_mulByIntIsogeny_iff identifying the kernel of [ℓ] with the ℓ-torsion), and Layer 2 gives its structure (Z/ℓ)². A G_K-stable line L is a finite G_K-stable subgroup of E(K^sep); Tau Ceti EllipticCurves Layer 1 constructs the quotient isogeny E → E/L by Vélu's formulas, defined over K, separable of degree ℓ with kernel L. Conversely an isogeny of degree ℓ defined over K is separable (ℓ ≠ char K) and its kernel is a subgroup of order ℓ of E(K^sep) stable under G_K (Layer 1), i.e. a G_K-stable line of E[ℓ](K^sep). The character ψ is the action on L ≅ F_ℓ; the quotient character follows from det ρ̄_{E,ℓ} = χ̄_ℓ (node determinant-and-oddness).
+Non-triviality of ψ (ℓ odd): let L/K be a separable quadratic extension with quadratic character ε_L (Tau Ceti Algebra.IsQuadraticExtension.quadraticCharacter) and E^L = WeierstrassCurve.quadraticTwist E L. Tau Ceti's quadraticTwistPointEquiv gives an additive isomorphism E^L(K̄) ≅ E(K̄), and quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map says that it carries the action of σ ∈ G_K to ε_L(σ|_L)·σ. Restricting to ℓ-torsion: E^L[ℓ] ≅ E[ℓ] ⊗ ε_L, so E and E^L have the same stable lines and ψ is replaced by ψ·ε_L. A rational point of order ℓ on E (ψ = 1) gives ψ = ε_L ≠ 1 on E^L. For ℓ = 2 the character ε_L is trivial mod 2 and nothing changes. The library twists by a separable quadratic extension, in every characteristic, not by an element d.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison
+
+Let K be a field, W a Weierstrass curve over K with [W.IsElliptic], E_W the elliptic curve it defines (the projective closure of W.toAffine, an abelian variety of dimension 1 whose L-points are W⁄L.Point functorially in the field L/K), and ℓ a prime ≠ char K. Tau Ceti EllipticCurves Layer 2 constructs E[N] = Submodule.torsionBy ℤ (W⁄K^sep).Point N ≃+ (ZMod N)² (the count #E[N] = N² over an algebraically closed field is already in the pinned library, TauCeti.Isogeny.card_ker_mulByIntIsogeny), the Weil pairing e_N valued in rootsOfUnity N K^sep, the Tate module T_ℓW := lim E[ℓ^n] with its continuous G_K-representation into Module.Aut Z_ℓ (T_ℓW) and det = χ_ℓ. Then the identification E_W(K^sep) = (W⁄K^sep).Point induces, for every n, a G_K-equivariant group isomorphism E_W[ℓ^n](K^sep) ≅ Submodule.torsionBy ℤ (W⁄K^sep).Point ℓ^n compatible with the transition maps, hence an isomorphism T_ℓ(E_W) ≅ T_ℓW of continuous Z_ℓ[G_K]-modules, under which: (i) the point map W₁(K^sep) → W₂(K^sep) of a Tau Ceti isogeny φ : TauCeti.Isogeny W₁ W₂ (a milestone of EllipticCurves Layer 1, named toPointHom there; the pinned library has the isogeny type, its degree and its kernel, but no point map yet) corresponds to T_ℓ of the induced homomorphism E_{W₁} → E_{W₂}; (ii) Tau Ceti's e_{ℓ^n} corresponds to the polarization pairing e^λ_{ℓ^n} of node weil-pairing-on-tate-modules for the canonical principal polarization λ = φ_{𝒪(O)} : E → E^∨, P ↦ t_P^*𝒪(O) ⊗ 𝒪(O)^{−1} = class of (O) − (P) (the opposite of the Abel–Jacobi identification P ↦ class of (P) − (O), which is φ of the inverse of an ample bundle and not a polarization). The sign is pinned by the formulas: with e_N(a, a′) = g/(g∘t_a) on geometric points (Milne AV §13, the normalisation requested from A3) and e_N(S, T) = g(X + S)/g(X) (AEC III.8.1, the normalisation of Layer 2), e^λ_N(S, T) = e_N(S, T) exactly, whereas e_N(S, class of (T) − (O)) = e_N(S, T)^{−1}; if either supplier pins the opposite normalisation the comparison lemma carries an inversion, and no other statement of this layer depends on the sign; (iii) the determinant theorem of Layer 2 and node determinant-and-oddness give the same character χ_ℓ. Consequently every statement of this layer about T_ℓA for abelian varieties applies to Tau Ceti's T_ℓW, and every Layer-2 statement about T_ℓW applies to T_ℓ(E_W).
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+Both inverse systems are built from the same groups: E_W(K^sep)[ℓ^n] and the ℓ^n-torsion submodule of (W⁄K^sep).Point coincide under the point identification, and multiplication by ℓ corresponds because the group laws coincide.
+Galois equivariance: σ acts on both sides by acting on coordinates (Mathlib WeierstrassCurve.Affine.Point.map along σ), so the identification is G_K-equivariant at each level and hence on the limits; continuity is level-wise on both sides.
+Isogenies: a Tau Ceti isogeny is a coordinate-ring pullback; its point map (EllipticCurves Layer 1: ideal extension to the intermediate ring followed by the relative norm, additive by construction) is the map on points of the morphism of abelian varieties it defines under the identification of A1.
+Weil pairing: over K^sep, let T ∈ E[N] and D = (T) − (O); choose f with div f = N·D and g with g^N = f ∘ [N], so that div g = [N]^*D. Milne's pairing (AV §13, the form of A3's pairing on geometric points) is e_N(S, class of D) = g/(g∘t_S) = g(X)/g(X + S), and the pairing of Tau Ceti Layer 2 (AEC III.8.1) is e_N(S, T) = g(X + S)/g(X); they are inverse to each other. Since λ(T) = class of (O) − (T) = −(class of D), bilinearity gives e^λ_N(S, T) = e_N(S, T). Compatibility in N passes this to the ℓ-adic pairings.
+Determinant: both equal χ_ℓ since both pairings are perfect alternating and Galois-equivariant into Z_ℓ(1).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies
+
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. (a) Every homomorphism α : A → B of abelian varieties over K induces a Z_ℓ-linear G_K-equivariant map T_ℓα : T_ℓA → T_ℓB, (x_n) ↦ (α(x_n)); T_ℓ(id) = id, T_ℓ(βα) = T_ℓβ ∘ T_ℓα, T_ℓ(α + α′) = T_ℓα + T_ℓα′, so Hom_K(A, B) → Hom_{Z_ℓ[G_K]}(T_ℓA, T_ℓB) is a group homomorphism and End_K(A) → End_{Z_ℓ[G_K]}(T_ℓA) a ring homomorphism (End_K(A) is Tau Ceti AbelianVariety.End), which extends Z_ℓ-linearly to Hom_K(A, B) ⊗ Z_ℓ. (b) For the product A × B (Tau Ceti AbelianVariety.prod), (T_ℓpr_1, T_ℓpr_2) : T_ℓ(A × B) → T_ℓA ⊕ T_ℓB is an isomorphism of continuous representations. (c) Let φ : A → B be an isogeny (finite surjective, Tau Ceti IsIsogeny) of degree d. Then T_ℓφ is injective and there is a canonical G_K-equivariant isomorphism coker(T_ℓφ) ≅ (ker φ)(K^sep)[ℓ^∞]; in particular #coker(T_ℓφ) = d_ℓ, the ℓ-part of d, and V_ℓφ : V_ℓA → V_ℓB is an isomorphism of Q_ℓ[G_K]-modules. If ℓ ∤ d, T_ℓφ is an isomorphism and φ induces G_K-isomorphisms A[ℓ^n](K^sep) ≅ B[ℓ^n](K^sep) for all n. If ψ : B → A satisfies ψφ = [m], then T_ℓψ ∘ T_ℓφ = m. (d) For a field extension L/K and a K-embedding j : K̄ → L̄ of algebraic closures, j induces bijections A[ℓ^n](K^sep) → A_L[ℓ^n](L^sep) (A[ℓ^n] is finite étale, so its geometric points do not change under an extension of separably closed fields), and the resulting Z_ℓ-isomorphism T_ℓA ≅ T_ℓ(A_L) intertwines ρ_{A_L,ℓ} with ρ_{A,ℓ} ∘ res_j, where res_j : G_L → G_K is restriction along j (Tau Ceti AbelianVariety.baseChange). For L ⊆ K̄ algebraic over K this reads T_ℓ(A_L) = T_ℓA|_{G_L}; for a completion L = F_v of a number field F and an embedding j : F̄ → F̄_v, res_j is the embedding of G_{F_v} onto the decomposition group of the place of F̄ defined by j. (e) For a field isomorphism τ : K → K′ extended to τ̄ : K̄ → K̄′, transport of structure gives a Z_ℓ-isomorphism T_ℓA ≅ T_ℓ(A^τ) intertwining ρ_{A,ℓ}(σ) with ρ_{A^τ,ℓ}(τ̄στ̄^{−1}).
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a) α commutes with [ℓ^n] and with the Galois action on coordinates; additivity holds level-wise because the group law on Hom(A, B) is pointwise (Milne AV, §10, p. 45).
+(b) A × B represents the product functor on points, so (A × B)[ℓ^n](K^sep) = A[ℓ^n](K^sep) × B[ℓ^n](K^sep) compatibly with transitions and Galois.
+(c) Put G = ker φ, a finite K-group scheme of order d (A3). On K^sep-points, 0 → G(K^sep)[ℓ^∞] → A[ℓ^∞](K^sep) → B[ℓ^∞](K^sep) → 0 is exact (φ is surjective on K̄-points; if φ(a) = b with b of ℓ-power order then a is torsion and its ℓ-primary component is again a preimage of b; ℓ-power torsion points are K^sep-rational; and A[ℓ^∞](K^sep) is divisible. Surjectivity of A(K^sep) → B(K^sep) itself fails for an inseparable isogeny over an imperfect field and is not used). Applying the snake lemma to multiplication by ℓ^n and passing to the limit (Hom(Q_ℓ/Z_ℓ, −) is left exact and G(K^sep)[ℓ^∞] is finite, so T_ℓG = 0) gives 0 → T_ℓA → T_ℓB → G(K^sep)[ℓ^∞] → 0. The ℓ-primary part of G is étale since ℓ is invertible, so its order is d_ℓ (Milne AV, proof of Proposition 10.20, p. 52, uses exactly #Coker(T_ℓβ) = #Ker(β)(ℓ)).
+The quasi-inverse: the kernel G of φ is killed by its order m = d (a finite commutative group scheme is killed by its order; "exponent" has no meaning for a non-étale G), so [m] factors through A/G ≅ B and ψ exists with ψφ = [m] (A3, isogenies and quotients); then T_ℓψ T_ℓφ = T_ℓ[m] = m; hence V_ℓφ is invertible (Milne AV Ch. IV, Corollary 3.6, p. 142).
+(d) and (e) are transport of structure, using R01.1/restriction-dual-tensor-twist for the restricted and conjugated representations.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules
+
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let A^∨ be the dual abelian variety and Z_ℓ(1) = lim μ_{ℓ^n}(K̄) the Tate twist (R01.1/tate-twist; μ_{ℓ^n}(K̄) is Mathlib's rootsOfUnity (ℓ^n) K̄, and it lies in K^sep because ℓ ≠ char K), on which G_K acts through χ_ℓ = cyclotomicCharacter K̄ ℓ. From A3's perfect Weil pairings e_{ℓ^n} : A[ℓ^n] × A^∨[ℓ^n] → μ_{ℓ^n}, which satisfy e_{ℓ^{n+1}}(a, a′)^ℓ = e_{ℓ^n}(ℓa, ℓa′), define e_ℓ : T_ℓA × T_ℓA^∨ → Z_ℓ(1), e_ℓ((a_n), (a′_n)) := (e_{ℓ^n}(a_n, a′_n))_n. Then e_ℓ is Z_ℓ-bilinear, perfect (it induces an isomorphism T_ℓA^∨ ≅ Hom_{Z_ℓ}(T_ℓA, Z_ℓ(1)) = (T_ℓA)^∨(1) of continuous representations, R01.1/restriction-dual-tensor-twist) and Galois-equivariant: e_ℓ(σx, σy) = χ_ℓ(σ)·e_ℓ(x, y) for σ ∈ G_K, writing Z_ℓ(1) additively. For a homomorphism λ : A → A^∨ put e^λ_ℓ(x, y) := e_ℓ(x, T_ℓλ(y)). Properties: (i) adjunction e_ℓ(x, T_ℓα^∨(y)) = e_ℓ(T_ℓα(x), y) for α : A → B, x ∈ T_ℓA, y ∈ T_ℓB^∨; (ii) if λ = φ_L for a line bundle L (in particular if λ is a polarization), e^λ_ℓ is alternating; (iii) for a polarization λ of degree d, e^λ_ℓ ⊗ Q_ℓ is nondegenerate, and e^λ_ℓ is perfect over Z_ℓ iff ℓ ∤ d (always when λ is principal); (iv) for α ∈ End(A) ⊗ Q and the Rosati involution α ↦ α^† of λ (AbelianSchemesAndArithmeticModuli:A2/rosati-involution, which states this adjunction; it is cited, not planned again), e^λ_ℓ(αx, y) = e^λ_ℓ(x, α^†y) on V_ℓA; (v) for polarizations λ, μ of A, B, e^{λ×μ}_ℓ is the orthogonal sum on T_ℓA ⊕ T_ℓB; (vi) consequently every ρ_{A,ℓ}(σ) preserves e^λ_ℓ up to the scalar χ_ℓ(σ): e^λ_ℓ(ρ_{A,ℓ}(σ)x, ρ_{A,ℓ}(σ)y) = χ_ℓ(σ)·e^λ_ℓ(x, y) for all x, y in T_ℓA, and likewise on V_ℓA. So G_K acts on the nondegenerate alternating space (V_ℓA, e^λ_ℓ) by similitudes with similitude character (multiplier) χ_ℓ, and on the lattice T_ℓA, on which e^λ_ℓ is perfect exactly when ℓ ∤ deg λ (in particular for principal λ). Reducing mod ℓ^n recovers A3's pairings e_{ℓ^n} and e^λ_{ℓ^n}.
+
+API signatures on the actual geometric carrier:
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing : e_ℓ : T_ℓA × T_ℓA^∨ → Z_ℓ(1), a Z_ℓ-bilinear map, the limit of A3's e_{ℓ^n}.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_mod_pow : e_ℓ reduces mod ℓ^n to A3's e_{ℓ^n} on A[ℓ^n](K^sep) × A^∨[ℓ^n](K^sep).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_perfect : T_ℓA^∨ ≅ (T_ℓA)^∨(1) as continuous Z_ℓ[G_K]-modules via y ↦ e_ℓ(·, y).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_galois : e_ℓ(σx, σy) = χ_ℓ(σ)·e_ℓ(x, y).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_map_dual : e_ℓ(x, T_ℓα^∨ y) = e_ℓ(T_ℓα x, y) for α : A → B.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing : e^λ_ℓ(x, y) := e_ℓ(x, T_ℓλ y) for λ : A → A^∨.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_alternating : e^{φ_L}_ℓ(x, x) = 0 for every line bundle L; hence e^λ_ℓ is alternating for a polarization λ.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_perfect_iff : For a polarization λ of degree d, e^λ_ℓ is perfect over Z_ℓ iff ℓ ∤ d; it is nondegenerate over Q_ℓ always.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_rosati : On V_ℓA: e^λ_ℓ(αx, y) = e^λ_ℓ(x, α^†y) for α ∈ End(A) ⊗ Q; this is weilPairing_rosati of AbelianSchemesAndArithmeticModuli:A2/rosati-involution read for the pairing of this node.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_prod : e^{λ×μ}_ℓ on T_ℓ(A × B) = T_ℓA ⊕ T_ℓB is e^λ_ℓ ⊥ e^μ_ℓ.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.image_le_GSp : For a polarization λ defined over K, ρ_{A,ℓ}(G_K) is contained in the group of similitudes of (V_ℓA, e^λ_ℓ), with multiplier χ_ℓ; when ℓ ∤ deg λ it is contained in the group of similitudes of the lattice (T_ℓA, e^λ_ℓ), which a symplectic basis identifies with GSp_{2g}(Z_ℓ). In the notation of G7/similitude-groups: ρ_{A,ℓ}(G_K) ⊆ GSp(V_ℓA, e^λ_ℓ), and ρ_{A,ℓ}(G_K) ⊆ GSp(T_ℓA, e^λ_ℓ) ≅ GSp_{2g}(Z_ℓ) when ℓ ∤ deg λ. It is polarizationPairing_galois read in that group.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_galois : e^λ_ℓ(σx, σy) = χ_ℓ(σ)·e^λ_ℓ(x, y) for σ ∈ G_K and λ : A → A^∨ defined over K.
+
+
+Unit-test examples (same names as the packet):
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_galois : For σ ∈ G_K, x ∈ T_ℓA, y ∈ T_ℓA^∨: e_ℓ(σx, σy) = χ_ℓ(σ)·e_ℓ(x, y) in Z_ℓ(1).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_elliptic_det : For an elliptic curve E with its canonical principal polarization and any basis (P, Q) of T_ℓE, e_ℓ(P, Q) generates Z_ℓ(1) and det ρ_{E,ℓ}(σ) = χ_ℓ(σ) for all σ ∈ G_K.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_zero_dim : For A = 0 the pairings are the zero pairing on the zero module (perfect).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_not_perfect : For E an elliptic curve and λ = [ℓ]∘λ_E, e^λ_ℓ = ℓ·e_ℓ is not perfect over Z_ℓ; a definition demanding perfectness for every polarization is wrong.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_target_twist : The pairing is not Galois-invariant with values in Z_ℓ: for complex conjugation c on Q̄ ⊂ C, e_ℓ(cx, cy) = −e_ℓ(x, y) ≠ e_ℓ(x, y) whenever e_ℓ(x, y) ≠ 0, because χ_ℓ(c) = −1.
+
+
+Proof obligations:
+Compatibility of levels: e_{ℓ^{n+1}}(a, a′)^ℓ = e_{ℓ^n}(ℓa, ℓa′) (Milne AV Lemma 13.1, p. 57; A3 for the scheme-theoretic pairing), so the sequence (e_{ℓ^n}(a_n, a′_n)) is an element of lim μ_{ℓ^n} = Z_ℓ(1).
+Perfectness: each e_{ℓ^n} is perfect (A3, Cartier duality A^∨[n] = A[n]^D), and a compatible system of perfect pairings of free Z/ℓ^n-modules of rank 2g gives a perfect pairing of the limits.
+Galois equivariance: A3's pairing is a morphism of K-group schemes, so e_{ℓ^n}(σa, σa′) = σ(e_{ℓ^n}(a, a′)) = e_{ℓ^n}(a, a′)^{χ_ℓ(σ) mod ℓ^n} by Mathlib cyclotomicCharacter.spec, whose instance hypothesis (K̄ has enough ℓ^i-th roots of unity for every i) is Mathlib's AlgebraicClosure.hasEnoughRootsOfUnity_pow, available because ℓ ≠ char K.
+(i), (ii), (iv): Milne AV Proposition 13.2 (a)–(d), p. 58; (iv) is the adjunction stated by AbelianSchemesAndArithmeticModuli:A2/rosati-involution (from (i) and α^† = λ^{−1}α^∨λ: e(αx, λy) = e(x, α^∨λy) = e(x, λα^†y)). For (ii) at ℓ = 2: Proposition 13.2(d) gives a homomorphism to Hom(∧²T_ℓA, Z_ℓ(1)), i.e. e^L_ℓ(x, x) = 0; skew-symmetry alone gives 2e(x, x) = 0, which suffices because Z_ℓ(1) is torsion-free.
+(iii): ker(T_ℓλ ⊗ Q_ℓ) = 0 because λ is an isogeny (node functoriality-products-and-isogenies (c)); over Z_ℓ the discriminant of e^λ_ℓ is #coker T_ℓλ = d_ℓ.
+(vi): from equivariance, e^λ_ℓ(σx, σy) = χ_ℓ(σ) e^λ_ℓ(x, y), which is the definition of a similitude with multiplier χ_ℓ(σ).
+(v): under (A × B)^∨ = A^∨ × B^∨ the pairing e_ℓ of A × B is the orthogonal sum of those of A and B, by (i) applied to the two inclusions and the two projections; node functoriality-products-and-isogenies (b) identifies T_ℓ(A × B), and λ × μ is the product homomorphism.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-symplectic-similitude
+
+Let k be a field, V a k-vector space of finite dimension with a nondegenerate alternating bilinear form B (so dim V = 2g is even), h a k-linear endomorphism of V and μ ∈ k with B(hx, hy) = μ·B(x, y) for all x, y in V. Then det h = μ^g. In matrix form, over any commutative ring R: if A is a square matrix of size 2g with AᵀJA = μJ for Mathlib's standard matrix J = Matrix.J and μ ∈ R^×, then det A = μ^g.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+Symplectic basis: by induction on dim V there is a basis e_1, …, e_g, f_1, …, f_g with B(e_i, f_j) = δ_ij and B(e_i, e_j) = B(f_i, f_j) = 0. Choose e_1 ≠ 0 and f_1 with B(e_1, f_1) = 1 (nondegeneracy); the plane P = ⟨e_1, f_1⟩ meets its orthogonal in 0, the orthogonal has dimension dim V − 2 (Mathlib LinearMap.BilinForm.finrank_orthogonal), and B is nondegenerate and alternating on it. In particular dim V is even.
+In such a basis the Gram matrix of B is ±Matrix.J (Mathlib's J = fromBlocks 0 (−1) 1 0), and the matrix A of h satisfies AᵀJA = μJ.
+Case μ = 0 (g ≥ 1): the image of h is totally isotropic, so its dimension is at most g < 2g by finrank_orthogonal, and det h = 0 = μ^g.
+Case μ a unit: in the ring R′ = R[t]/(t² − μ), which is free over R with basis 1, t and in which t is a unit, the matrix t^{−1}A satisfies (t^{−1}A)ᵀJ(t^{−1}A) = J, so it lies in Matrix.symplecticGroup (SymplecticGroup.mem_iff') and has determinant 1 (Mathlib SymplecticGroup.det_eq_one); hence det A = t^{2g} = μ^g in R′, and R → R′ is injective.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness
+
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let λ be a polarization of A (abelian varieties over a field are projective, so one exists). (a) det_{Z_ℓ} ρ_{A,ℓ} = det_{Q_ℓ} ρ_{V_ℓA} = χ_ℓ^g for every ℓ ≠ char K (the determinant of an automorphism of the lattice T_ℓA is its determinant on V_ℓA), hence ∧^{2g}_{Z_ℓ} T_ℓA ≅ Z_ℓ(g) as Z_ℓ[G_K]-modules (every Z_ℓ-isomorphism between these free modules of rank one is G_K-equivariant), with no condition on deg λ. (b) For an elliptic curve E: ∧²T_ℓE ≅ Z_ℓ(1) and det ρ_{E,ℓ} = χ_ℓ. For a Weierstrass curve this is the determinant theorem of Tau Ceti EllipticCurves Layer 2 for its T_ℓW; it is cited, not proved again (node elliptic-tate-module-comparison (iii) matches it with (a) for g = 1). What this node adds is the residual statement det ρ̄_{E,ℓ} = χ̄_ℓ = modularCyclotomicCharacter (the mod-ℓ cyclotomic character) on E[ℓ](K^sep). (c) Oddness: suppose ι : K → R is a real place, extend ι to K̄ → C, and let c ∈ G_K be the induced complex conjugation (c² = 1, χ_ℓ(c) = −1). Then for every prime ℓ (including ℓ = 2) the ±1-eigenspaces V^± of ρ_{V_ℓA}(c) are Lagrangian for e^λ_ℓ ⊗ Q_ℓ, both of dimension g; hence tr ρ_{V_ℓA}(c) = 0 and det ρ_{V_ℓA}(c) = (−1)^g. The eigenlattices T_ℓA^± := T_ℓA ∩ V^± are saturated and free of rank g; T_ℓA = T_ℓA^+ ⊕ T_ℓA^− when ℓ is odd, while for ℓ = 2 one only has 2T_2A ⊆ T_2A^+ ⊕ T_2A^− ⊆ T_2A, and the second inclusion can be strict. For an elliptic curve, det ρ_{E,ℓ}(c) = −1; when K is a number field this says that ρ_{E,ℓ} is odd at that real place in the sense of R01.4/odd-representation; and for ℓ odd ρ̄_{E,ℓ}(c) is conjugate to diag(1, −1). For ℓ = 2, det ρ̄_{E,2}(c) = 1 = −1 holds automatically and ρ̄_{E,2}(c) may be trivial. (d) Over a number field K, det ρ_{E,ℓ}(Frob_v) = q_v for every place v ∤ ℓ at which ρ_{E,ℓ} is unramified (R01.2/cyclotomic-and-dirichlet-characters: χ_ℓ(arithmetic Frob_v) = q_v).
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a) By node weil-pairing-on-tate-modules (vi), ρ(σ) preserves the nondegenerate alternating form e^λ_ℓ ⊗ Q_ℓ on V_ℓA up to the scalar χ_ℓ(σ); node determinant-of-a-symplectic-similitude gives det ρ_{V_ℓA}(σ) = χ_ℓ(σ)^g. A Z_ℓ-basis of T_ℓA is a Q_ℓ-basis of V_ℓA, so det_{Z_ℓ} ρ_{A,ℓ}(σ) is the same element of Z_ℓ^×. G_K acts on the free rank-one module ∧^{2g}T_ℓA through det = χ_ℓ^g, as it does on Z_ℓ(g) (R01.1/tate-twist), so any Z_ℓ-isomorphism between them is equivariant.
+(b) is (a) for g = 1 with the canonical principal polarization; reduction mod ℓ gives det ρ̄ = χ̄_ℓ (Mathlib cyclotomicCharacter.toZModPow identifies χ_ℓ mod ℓ^n with modularCyclotomicCharacter; the hypothesis of the latter, that K̄ has exactly ℓ^n roots of unity of order dividing ℓ^n, is HasEnoughRootsOfUnity.natCard_rootsOfUnity, available because ℓ ≠ char K). Tau Ceti EllipticCurves Layer 2 states the same determinant theorem for its T_ℓW (node elliptic-tate-module-comparison).
+(c) c acts on roots of unity by inversion; cyclotomicCharacter.spec at a primitive ℓ^n-th root of unity gives χ_ℓ(c) ≡ −1 mod ℓ^n for every n, and PadicInt.ext_of_toZModPow gives χ_ℓ(c) = −1 (the instance hypothesis of spec is AlgebraicClosure.hasEnoughRootsOfUnity_pow). For x, y ∈ V^+: e(x, y) = e(cx, cy) = χ_ℓ(c)e(x, y) = −e(x, y), so 2e(x, y) = 0 and e(x, y) = 0 since Q_ℓ(1) is torsion-free; likewise for V^−. Since c² = 1 and char Q_ℓ = 0, V = V^+ ⊕ V^−; an isotropic subspace W of a 2g-dimensional nondegenerate alternating space lies in its orthogonal, of dimension 2g − dim W (Mathlib LinearMap.BilinForm.finrank_orthogonal), so dim W ≤ g; hence both eigenspaces are Lagrangian of dimension g. Hence tr = g − g = 0 and det = (−1)^g. For ℓ odd the same argument works on E[ℓ] over F_ℓ (2 is invertible), giving eigenvalues 1, −1.
+ℓ = 2 caveat: over F_2, −1 = 1 and the argument shows nothing; for y² = x³ − x every 2-torsion point is real, so ρ̄_{E,2}(c) = 1.
+(d) is (b) evaluated at a Frobenius element, using R01.2/frobenius-characteristic-polynomial (well defined at unramified places).
+Eigenlattices: T_ℓA^± are the kernels of c ∓ 1 on T_ℓA, hence saturated of rank dim V^± = g. For ℓ odd, x = (x + cx)/2 + (x − cx)/2 splits T_ℓA. For ℓ = 2, 2x = (x + cx) + (x − cx) gives 2T_2A ⊆ T_2A^+ ⊕ T_2A^−; if the sum were all of T_2A, c would act on T_2A/2T_2A through diag(1, −1) ≡ 1, so the splitting fails whenever c acts non-trivially on A[2](K^sep).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module
+
+Let K be a field, ℓ a prime different from char K, W₁ and W₂ elliptic Weierstrass curves over K and φ : TauCeti.Isogeny W₁ W₂ an isogeny in Tau Ceti's sense (a coordinate-ring pullback preserving the point at infinity). Let T_ℓφ : T_ℓW₁ → T_ℓW₂ be the map induced on Tau Ceti's Tate modules by the point map of φ over K^sep. Then: (a) T_ℓφ is Z_ℓ-linear and G_K-equivariant, T_ℓ(ψ ∘ φ) = T_ℓψ ∘ T_ℓφ, and T_ℓ of the multiplication-by-n isogeny is multiplication by n; (b) for the ℓ-adic Weil pairings e_1, e_2 of W₁, W₂: e_2(T_ℓφ x, T_ℓφ y) = φ.degree · e_1(x, y) for all x, y in T_ℓW₁, where φ.degree is TauCeti.Isogeny.degree, the degree of the function-field extension defined by the pullback; (c) if W₁ = W₂ = W, then det(T_ℓφ | T_ℓW) = φ.degree, the image in Z_ℓ of a natural number independent of ℓ; (d) if moreover ψ : TauCeti.Isogeny W W has point map P ↦ P − φ(P), then tr(T_ℓφ | T_ℓW) = 1 + φ.degree − ψ.degree, an integer independent of ℓ, and the characteristic polynomial of T_ℓφ is X² − (1 + φ.degree − ψ.degree)X + φ.degree.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a) The point map of the base change of φ to K^sep is a homomorphism commuting with G_K (φ is defined over K) and with multiplication by ℓ, so it maps E₁[ℓ^n] to E₂[ℓ^n] compatibly in n; composition and [n] by Layer 1.
+(b) Let φ̂ be the dual isogeny, with φ̂ ∘ φ = [φ.degree] (Layer 1). The Weil pairing is compatible with isogenies through the dual, e_N(φP, Q) = e_N(P, φ̂Q) (Layer 2); hence e_2(φx, φy) = e_1(x, φ̂φy) = e_1(x, φ.degree·y) = φ.degree·e_1(x, y) at every level ℓ^n and in the limit.
+(c) e := e_1 is perfect and alternating on the free rank-two module T_ℓW (Layer 2); in a basis (b_1, b_2) with e(b_1, b_2) a generator of Z_ℓ(1) its Gram matrix is a unit multiple of Mathlib's J, and (b) says AᵀJA = φ.degree·J for the matrix A of T_ℓφ; Tau Ceti's Matrix.det_eq_of_transpose_mul_J_mul_eq_smul gives det A = φ.degree.
+(d) T_ℓψ = 1 − T_ℓφ by the hypothesis on point maps, and det(1 − A) = 1 − tr A + det A for a 2 × 2 matrix (Mathlib Matrix.det_fin_two); apply (c) to φ and to ψ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction
+
+Let K be a nonarchimedean local field with valuation ring O, uniformiser π, residue field k of characteristic p, maximal unramified extension K^ur ⊆ K̄ and inertia group I_K = Gal(K̄/K^ur). Let 𝒜 be an abelian scheme over O of relative dimension g with generic fibre A and special fibre A_k, and ℓ a prime different from p. Then for every n ≥ 0: (a) every point of A[ℓ^n](K̄) is defined over K^ur, so I_K acts trivially on A[ℓ^n](K̄); (b) A[ℓ^n](K^ur) = 𝒜[ℓ^n](O^ur) for the valuation ring O^ur of K^ur, and reduction modulo the maximal ideal is a group isomorphism red_n : A[ℓ^n](K̄) → A_k[ℓ^n](k̄), equivariant for G_K → Gal(k̄/k); (c) the red_n are compatible with multiplication by ℓ, and their limit is a Z_ℓ-isomorphism r : T_ℓA → T_ℓA_k, equivariant for G_K → Gal(k̄/k); in particular I_K acts trivially on T_ℓA.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+By A3, G := 𝒜[ℓ^n] = Spec B is finite étale over O of rank ℓ^{2gn} (ℓ^n is invertible in O). So B is a finite free O-algebra, B ⊗ K is étale over K and B ⊗ k = B/πB is étale over k: finite products of finite separable field extensions (Mathlib Algebra.Etale.iff_exists_algEquiv_prod), each of dimension ℓ^{2gn}; in particular A[ℓ^n](K̄) = Hom_K(B ⊗ K, K̄) and A_k[ℓ^n](k̄) = Hom_k(B/πB, k̄) both have ℓ^{2gn} elements.
+Let x : B → K̄ be a point and L the subfield generated over K by x(B), finite and separable over K. B is integral over O, so x(B) lies in the valuation ring O_L. Let m be the kernel of B → O_L → k_L, a maximal ideal of B. Since B/πB is a product of fields, the maximal ideal of B_m is generated by π, a non-zero-divisor (B is flat over O); so B_m is a discrete valuation ring with uniformiser π. The map B_m → O_L is injective (its kernel is a prime not containing π) and its image generates L, so B_m and O_L are discrete valuation rings with the same fraction field, one inside the other: B_m = O_L. Hence π is a uniformiser of O_L and k_L = B/m is separable over k: L/K is unramified (LocalFieldsRamification Layer 2: e = 1 and separable residue extension), x is defined over K^ur and fixed by I_K. This proves (a) and the first part of (b).
+Reduction: red_n(x) is the composite B → O_L → k_L ⊆ k̄. If red_n(x) = red_n(y), then x and y have the same maximal ideal m and are two K-embeddings of the unramified field Frac(B_m) into K^ur inducing the same embedding of residue fields, hence equal (residue correspondence for unramified extensions, LocalFieldsRamification Layer 2). So red_n is injective, and bijective by the count of step 1. It is the restriction of the specialisation homomorphism 𝒜(O^ur) → A_k(k̄) of the group scheme, hence a group homomorphism, and it commutes with G_K acting on O^ur and, through its quotient Gal(k̄/k), on k̄.
+(c): the maps red_n commute with [ℓ] because specialisation is a homomorphism; pass to the limit as in node tate-module-of-an-abelian-variety.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial
+
+Let F be a number field, v a finite place of F with completion F_v (Tau Ceti NumberFieldArithmetic Layer 5), valuation ring O_v, residue field k_v = F_{q_v} of characteristic p, and fix a decomposition group D_w ⊆ G_F and inertia I_w at a place w | v of F̄ (R01.2/decomposition-group-at-a-place). Let A be an abelian variety of dimension g over F with good reduction at v: A_{F_v} is the generic fibre of an abelian scheme 𝒜 over O_v, with special fibre A_v := 𝒜 ⊗ k_v. Let π_v ∈ End(A_v) be the q_v-Frobenius endomorphism (raising coordinates to the q_v-th power) and ℓ ≠ p. Then: (a) V_ℓA is unramified at v (R01.2/unramified-and-ramification-set): I_w acts trivially on T_ℓA. (b) Reduction 𝒜[ℓ^n](O_v^{sh}) gives a D_w-equivariant isomorphism r : T_ℓA ≅ T_ℓA_v, where D_w acts on the right through D_w → Gal(k̄_v/k_v). (c) Every arithmetic Frobenius Frob_w ∈ D_w (lifting x ↦ x^{q_v}) acts on T_ℓA as r^{−1} ∘ T_ℓ(π_v) ∘ r; a geometric Frobenius acts as the inverse. (d) Hence the Frobenius characteristic polynomial P_v(V_ℓA, X) := det(X − ρ_{A,ℓ}(Frob_w) | V_ℓA) of R01.2/frobenius-characteristic-polynomial equals det(X − V_ℓπ_v | V_ℓA_v), depends only on v (not on w or the Frobenius lift), and has constant term q_v^g and the functional equation X^{2g}P_v(q_v/X) = q_v^g P_v(X) (from the Weil pairing). (e) For elliptic curves (g = 1; W an elliptic Weierstrass curve over F whose minimal model over O_v has Mathlib WeierstrassCurve.HasGoodReduction, with the Tate module T_ℓW of Tau Ceti EllipticCurves Layer 2, for which (a) is Néron–Ogg–Shafarevich (i) of Layer 4, (b) is requested from Layer 4 (its text has the reduction map on points and Néron–Ogg–Shafarevich, but not the isomorphism E(F_v^{ur})[ℓ^n] ≅ Ẽ(k̄_v)[ℓ^n] or its equivariance for D_w → Gal(k̄_v/k_v)), and (c) follows from (b) and the point map of the Frobenius isogeny (Layer 3)): P_v(X) = X² − a_v X + q_v with a_v = WeierstrassCurve.frobeniusTrace of the reduction = q_v + 1 − #Ẽ(k_v) ∈ Z, independent of ℓ ≠ p. (f) For general g, P_v(X) is the characteristic polynomial P_{π_v} of the endomorphism π_v in the sense of AbelianSchemesAndArithmeticModuli A6: monic of degree 2g in Z[X] and independent of ℓ ≠ p — this integrality and ℓ-independence is Milne AV Proposition 10.20 applied to π_v; it is not proved in this layer and no prerequisite of this node supplies it. Convention: with H¹ := V_ℓA^∨, det(1 − T·Φ_w | H¹) = det(1 − T·Frob_w | V_ℓA) = T^{2g}P_v(1/T) for a geometric Frobenius Φ_w (the roadmap's convention), whereas det(1 − T·Φ_w | V_ℓA) = Q_v(T/q_v) with Q_v(T) := T^{2g}P_v(1/T) (by the functional equation in (d)); the latter is not the Euler factor.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a),(b): node specialisation-of-torsion-at-good-reduction applied to the abelian scheme 𝒜 over O_v: every point of A[ℓ^n](F̄_v) is defined over F_v^{ur}, I_w acts trivially, and reduction is a D_w-equivariant bijection onto A_v[ℓ^n](k̄_v), compatible with [ℓ] and so with limits (Milne AV Ch. IV, proof of Theorem 3.5, p. 141, has the same count: A(K_v^un)_{ℓ^n} = A_0(k^al)_{ℓ^n} has ℓ^{2n dim A} elements). The passage from F to F_v is node functoriality-products-and-isogenies (d).
+(c): for x ∈ A_v(k̄_v), the arithmetic Frobenius of Gal(k̄_v/k_v) raises coordinates to the q_v-th power, which is π_v(x) (Milne AV Ch. II, §1, p. 75, the Frobenius map on points; Ch. IV, p. 142: 'Frob_w acts on V_ℓA as π'); transport by r.
+(d): conjugate Frobenius lifts differ by elements of I_w (trivial action) and conjugation in G_F, so the characteristic polynomial depends only on v (R01.2/frobenius-characteristic-polynomial). The constant term: det ρ(Frob_w) = χ_ℓ(Frob_w)^g = q_v^g (node determinant-and-oddness (a) and R01.2/cyclotomic-and-dirichlet-characters). The functional equation: ρ(Frob_w) is a similitude of multiplier q_v for e^λ_ℓ, so its eigenvalues are stable under α ↦ q_v/α with multiplicities.
+(e): for a Weierstrass curve, (a) for T_ℓW is Néron–Ogg–Shafarevich (i) of Tau Ceti EllipticCurves Layer 4 (good reduction ⇒ unramified, AEC VII.7.1), and (b) is the reduction isomorphism E(F_v^{ur})[ℓ^n] ≅ Ẽ(k̄_v)[ℓ^n], compatible with D_w → Gal(k̄_v/k_v), which is requested from Layer 4 (the layer text has the reduction map on points, not this isomorphism); (c) then follows: on the reduction W̃ = W′.reduction the arithmetic Frobenius acts on W̃(k̄_v) through the point map of Tau Ceti's frobeniusIsogeny W̃, which is (x, y) ↦ (x^q, y^q) (Layer 3). Tau Ceti's Isogeny.degree is the degree of a function-field extension attached to a coordinate-ring pullback, not a determinant on a Tate module; the bridge is node determinant-of-a-weierstrass-isogeny-on-the-tate-module: det(T_ℓφ) = φ.degree for an isogeny φ of W̃, and tr(T_ℓφ) = 1 + φ.degree − ψ.degree when the point map of ψ is 1 − (the point map of φ). Take φ = frobeniusIsogeny W̃ and ψ = oneSubFrobeniusIsogeny W̃ (in the pinned library the isogeny of 1 − π in the hom-group: ofIsogeny_oneSubFrobeniusIsogeny; that its point map is P ↦ P − π(P) is the additivity of the point map on the hom-group, requested from Tau Ceti EllipticCurves Layer 1, whose text builds the sum in the hom-group as the pointwise sum of isogenies but names no lemma for the point map of a sum or difference): det(T_ℓπ_v) = q_v by degree_frobeniusIsogeny (it also follows from (d)), and tr(T_ℓπ_v) = 1 + q_v − W̃.pointCount by degree_oneSubFrobeniusIsogeny_eq_pointCount, which is frobeniusTrace W̃ = q_v + 1 − #Ẽ(k_v) (frobeniusTrace_eq_card_point; Milne EC, second edition, II Proposition 6.4, p. 71, IV Theorem 9.4, p. 150, and V Propositions 7.5 and 8.3, pp. 217 and 221; DDT Proposition 2.11(a), p. 57). Both are integers independent of ℓ.
+(f): P_{π_v} = det(X − V_ℓπ_v) with integer coefficients independent of ℓ is Milne AV Proposition 10.20 (p. 50) for α = π_v ∈ End(A_v); it is not a prerequisite of this node and (f) is not proved in this layer.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve
+
+Let K be a finite extension of Q_p with normalised valuation v, residue field of cardinality q_K, inertia group I_K, and let q ∈ K^× with |q| < 1; let E_q be the Tate curve (Tau Ceti EllipticCurves Layer 4), ℓ a prime, and T_ℓE_q its Tate module (Layer 2). Then: (a) the uniformisation K̄^×/q^Z ≅ E_q(K̄) identifies E_q[ℓ^n](K̄) with {x ∈ K̄^× : x^{ℓ^n} ∈ q^Z}/q^Z, G_K-equivariantly, and x ↦ m for x^{ℓ^n} = q^m gives exact sequences 0 → μ_{ℓ^n}(K̄) → E_q[ℓ^n](K̄) → Z/ℓ^n → 0 of G_K-modules, compatible in n, with trivial action on Z/ℓ^n; in the limit 0 → Z_ℓ(1) → T_ℓE_q → Z_ℓ → 0; (b) for a compatible system (q_n) of ℓ^n-th roots of q (q_{n+1}^ℓ = q_n), the element t = (q_n mod q^Z)_n of T_ℓE_q maps to 1 ∈ Z_ℓ, and σ(t) = t + κ(σ) for σ ∈ G_K, where κ(σ) = (σ(q_n)/q_n)_n ∈ Z_ℓ(1) is the Kummer cocycle of q; so in a basis (ζ, t), ζ a generator of Z_ℓ(1), ρ(σ) has matrix (χ_ℓ(σ), κ(σ); 0, 1); (c) if ℓ ≠ p, then κ(σ) = v(q)·t_ℓ(σ) for σ ∈ I_K, with t_ℓ the ℓ-adic tame character (R01.2/ell-adic-tame-character); hence I_K acts on T_ℓE_q through the unipotent matrices (1, v(q)t_ℓ(σ); 0, 1), non-trivially because t_ℓ is surjective and v(q) ≠ 0; (d) consequently, for ℓ ≠ p: (V_ℓE_q)^{I_K} = Q_ℓ(1), on which an arithmetic Frobenius acts by q_K; the inertia coinvariants (V_ℓE_q)_{I_K} are Q_ℓ with trivial action; E_q[ℓ](K̄) is unramified iff ℓ divides v(q); and the mod-ℓ^n representation is ramified for ℓ^n not dividing v(q).
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a) Tau Ceti Layer 4: for every finite extension L/K, L^×/q^Z ≅ E_q(L), compatibly in L and Galois-equivariantly; take the union over L ⊆ K̄. A class x has order dividing ℓ^n iff x^{ℓ^n} ∈ q^Z; the map x ↦ m is well defined mod ℓ^n on classes, surjective (an ℓ^n-th root of q maps to 1) with kernel μ_{ℓ^n}, and G_K fixes m because σ(x)^{ℓ^n} = σ(q^m) = q^m. Compatibility with the transition maps (raising to the ℓ-th power on K̄^×/q^Z corresponds to multiplication by ℓ on E_q): if x_{n+1}^{ℓ^{n+1}} = q^{m_{n+1}} then (x_{n+1}^ℓ)^{ℓ^n} = q^{m_{n+1}}. The limit of the finite exact sequences is exact (R01.1/tate-twist for lim μ_{ℓ^n} = Z_ℓ(1)).
+(b) σ(q_n) is another ℓ^n-th root of q, so σ(q_n) = κ_n(σ)q_n with κ_n(σ) ∈ μ_{ℓ^n}, compatible in n; written additively in T_ℓE_q this is σ(t) = t + κ(σ). G_K acts on Z_ℓ(1) through χ_ℓ.
+(c) Write q = u·ϖ^{v(q)} with ϖ a uniformiser and u a unit. On I_K, which acts trivially on μ_{ℓ^n} for ℓ ≠ p, Kummer cocycles are homomorphisms and κ_q = κ_u + v(q)·κ_ϖ. By R01.2/ell-adic-tame-character (ii), κ_ϖ restricted to I_K is t_ℓ; by (i) of the same node t_ℓ does not depend on the uniformiser, and applying this to the uniformisers ϖ and uϖ gives κ_u = 0 on I_K (the ℓ^n-th roots of a unit generate unramified extensions). So κ_q = v(q)·t_ℓ on I_K; t_ℓ is surjective onto Z_ℓ(1).
+(d) The fixed vectors of the matrices (1, a; 0, 1), a ≠ 0, are the multiples of ζ; an arithmetic Frobenius acts on Q_ℓ(1) by χ_ℓ = q_K (R01.2/cyclotomic-and-dirichlet-characters); the coinvariants are the quotient Z_ℓ-line with trivial action. Mod ℓ^n the action of I_K is trivial iff ℓ^n divides v(q).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial
+
+Let F be a number field, W an elliptic Weierstrass curve over F, p a height-one prime of O_F (IsDedekindDomain.HeightOneSpectrum), R = p.adicCompletionIntegers F, K = p.adicCompletion F, q = #(O_F/p), and ℓ a prime not dividing q. Mathlib defines localPolynomial R (W.baseChange K) ∈ Z[X] from the minimal model W′ = (W.baseChange K).minimal R as 1 − aX + qX² with a = q + 1 − Nat.card (W′.reduction R).toAffine.Point if W′ has good reduction, 1 − X if split multiplicative, 1 + X if nonsplit multiplicative, 1 otherwise; by Mathlib's trichotomy (hasGoodReduction_or_hasMultiplicativeReduction_or_hasAdditiveReduction) "otherwise" is additive reduction. Write V_ℓE for the rational Tate module of Tau Ceti's T_ℓW, Φ_v for a geometric Frobenius and I_v for the inertia group at p. Then: (a) if W′ has good reduction, a equals Tau Ceti's frobeniusTrace of W′.reduction R (the reduction is elliptic by WeierstrassCurve.hasGoodReduction_iff_isElliptic_reduction, and WeierstrassCurve.pointCount_eq_card_point applies), and localPolynomial R (W.baseChange K) = det(1 − X·Frob_v | V_ℓE) = det(1 − X·Φ_v | V_ℓE^∨) = L_v(V_ℓE^∨, X), the local Euler factor of R01.2/local-euler-factor of H¹ = V_ℓE^∨ (it is L_v(E_W, X) of node local-euler-factor-of-an-abelian-variety once W is realised as an abelian variety, node elliptic-tate-module-comparison), for every ℓ ∤ q; (b) if W′ has split multiplicative reduction, localPolynomial = 1 − X = det(1 − X·Φ_v | (V_ℓE^∨)^{I_v}); if nonsplit multiplicative, localPolynomial = 1 + X = det(1 − X·Φ_v | (V_ℓE^∨)^{I_v}); (c) if W′ has additive reduction, (V_ℓE)^{I_v} = 0, hence (V_ℓE^∨)^{I_v} = 0 and localPolynomial = 1 = det(1 − X·Φ_v | (V_ℓE^∨)^{I_v}); this holds for every additive reduction type and every residue characteristic, 2 and 3 included (K has characteristic 0); (d) consequently, for every prime p of O_F and every ℓ ∤ q, localPolynomial R (W.baseChange K) = L_v(V_ℓE^∨, X), and Mathlib's WeierstrassCurve.LFunction, the Euler product of WeierstrassCurve.localEulerFactor, has at every prime the Euler factor of the Galois representation V_ℓE^∨. The analogous statement for abelian varieties of dimension > 1 at places of bad reduction is NeronModelsAndSemistableAbelianVarieties R11.5/local-euler-polynomial and is not asserted here.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(a) Good reduction: node good-reduction-frobenius-polynomial (e) gives det(X − Frob_v | V_ℓE) = X² − aX + q with a = frobeniusTrace(W′.reduction R); hence det(1 − X·Frob_v | V_ℓE) = 1 − aX + qX². This is Mathlib's good-reduction branch: the reduction is elliptic (WeierstrassCurve.hasGoodReduction_iff_isElliptic_reduction), and pointCount_eq_card_point, whose finiteness hypothesis on the set of affine solutions holds because the residue field is finite, identifies Mathlib's Nat.card of the affine point type (point at infinity included) with Tau Ceti's pointCount. Transposition: geometric Frobenius on V^∨ is the transpose of arithmetic Frobenius on V, so the two determinants agree; the minimal model is used on both sides (Mathlib's localPolynomial minimises first; good reduction of the curve is HasGoodReduction of the minimal model).
+(b) Split multiplicative: E_K ≅ E_q for a Tate parameter q (Tate's theorem, ATAEC V.5.3, in the direction requested from EllipticCurves Layer 4), and node tate-module-of-the-tate-curve gives (V_ℓE)^{I_v} = Q_ℓ(1) with inertia coinvariants Q_ℓ; dually (V_ℓE^∨)^{I_v} = Q_ℓ with trivial action of Φ_v: the factor is 1 − X (DDT Proposition 2.12(a), p. 57). Nonsplit: E is the quadratic twist of a curve E′ with split multiplicative reduction by the unramified quadratic extension L/K (requested from EllipticCurves Layer 5, whose milestone says only that split reduction is acquired after a separable quadratic twist), and Tau Ceti's quadraticTwistPointEquiv with quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map, for M = K̄, gives T_ℓE ≅ T_ℓE′ ⊗ δ with δ the quadratic character of L/K, which is unramified; so (V_ℓE^∨)^{I_v} is the line (V_ℓE′^∨)^{I_v} twisted by δ, on which Φ_v acts by δ(Φ_v) = −1: the factor is 1 + X.
+(c) Additive reduction. Let ρ be the action on V = V_ℓE. The determinant of ρ is trivial on I_v: det ρ = χ_ℓ (Layer 2) and χ_ℓ is unramified at p because ℓ ∤ q (R01.2/cyclotomic-and-dirichlet-characters). Case 1, j(E) integral: E has potential good reduction (Layer 4, the j-integrality criterion), so ρ(I_v) is finite (Layer 4, Néron–Ogg–Shafarevich (ii)), and it is non-trivial because the reduction is not good (Néron–Ogg–Shafarevich (i), direction unramified ⇒ good). If a vector v ≠ 0 were fixed by I_v, every ρ(σ), σ ∈ I_v, would be upper triangular in a basis (v, w) with diagonal (1, det ρ(σ)) = (1, 1), hence unipotent; a finite group of unipotent matrices over Q_ℓ is trivial: contradiction. Case 2, j(E) not integral: there is q_E ∈ K^× with |q_E| < 1 and j(E_{q_E}) = j(E) (Tate, ATAEC V.5.3; requested from Layer 4). Since |j(E)| > 1, j(E) ≠ 0, 1728, so E is isomorphic over K to E_{q_E} or to its quadratic twist by a separable quadratic extension L/K (requested from Layer 5: part of its classification of twists). The first is excluded (E_{q_E} has split multiplicative reduction). L/K unramified is excluded too: E would become isomorphic to E_{q_E} over the unramified extension L, and the reduction type does not change under unramified extensions (requested from Layer 4), so E would have multiplicative reduction. Hence L/K is ramified, T_ℓE ≅ T_ℓE_{q_E} ⊗ δ_L (quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map), and for σ ∈ I_v with δ_L(σ) = −1 the operator ρ(σ) is −1 times a unipotent one (node tate-module-of-the-tate-curve), which has no non-zero fixed vector. In both cases V^{I_v} = 0. The Weil pairing (Layer 2) gives V^∨ ≅ V(−1), and I_v acts trivially on Q_ℓ(1), so (V^∨)^{I_v} = V^{I_v}(−1) = 0 and the Euler factor is 1.
+(d) By the trichotomy of reduction types (Mathlib hasGoodReduction_or_hasMultiplicativeReduction_or_hasAdditiveReduction), (a)–(c) cover every prime. Mathlib's LFunction is the Euler product over all primes of WeierstrassCurve.localEulerFactor, the arithmetic function of the power series 1/localPolynomial, so its factors are those of V_ℓE^∨.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety
+
+Let F_v be a nonarchimedean local field with residue field F_{q_v} of characteristic p (or a number field F with a finite place v, through R01.2/local-restriction), A an abelian variety over F_v of dimension g, and ℓ ≠ p. Put H¹_ℓ(A) := V_ℓA^∨ = Hom_{Q_ℓ}(V_ℓA, Q_ℓ) with the dual action (R01.1/restriction-dual-tensor-twist). Define L_v(A, T) := det(1 − T·Φ_v | H¹_ℓ(A)^{I_v}) ∈ Q_ℓ[T], Φ_v a geometric Frobenius (R01.2/local-euler-factor applied to the ℓ-adic representation H¹_ℓ(A), equivalently to its Weil–Deligne representation through R01.2/grothendieck-monodromy-and-the-weil-deligne-functor, where (ker N)^{I_v} = H¹_ℓ(A)^{I_v}). Equivalently L_v(A, T) = det(1 − T·Frob_v | (V_ℓA)_{I_v}) with the arithmetic Frobenius on inertia coinvariants. Properties: (a) well defined: independent of the choice of Φ_v and of the decomposition group; (b) at a place of good reduction (ℓ ≠ p), L_v(A, T) = T^{2g}P_v(1/T) = det(1 − T·π_v | V_ℓA_v) with P_v of node good-reduction-frobenius-polynomial; for elliptic curves it lies in Z[T] and is independent of ℓ; for general g this holds under statement (f) of that node, which is not proved in this layer; (c) isogeny invariance: if A and B are F_v-isogenous then L_v(A, T) = L_v(B, T); (d) multiplicativity: L_v(A × B, T) = L_v(A, T)L_v(B, T); (e) degree ≤ 2g, with equality iff V_ℓA is unramified. For a number field F, the partial L-function of A outside a finite set S ⊇ {bad places} is the formal Euler product ∏_{v ∉ S} L_v(A, q_v^{−s})^{−1}. Independence of ℓ at places of bad reduction, and integrality there, are not asserted: they are NeronModelsAndSemistableAbelianVarieties R11.5 (semistable reduction and the Néron model), which consumes this stage.
+
+API signatures on the actual geometric carrier:
+
+TauCeti.AlgebraicGeometry.AbelianVariety.firstCohomologyRep : H¹_ℓ(A) := V_ℓA^∨ as a continuous Q_ℓ-representation of G_K (dual, R01.1).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor : L_v(A, T) := det(1 − T·Φ_v | H¹_ℓ(A)^{I_v}) ∈ Q_ℓ[T].
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_eq_coinvariants : L_v(A, T) = det(1 − T·Frob_v | (V_ℓA)_{I_v}) with the arithmetic Frobenius.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_of_goodReduction : At good reduction, L_v(A, T) = T^{2g}P_v(1/T) = det(1 − T·π_v | V_ℓA_v).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_isogeny : Isogenous abelian varieties have the same local Euler factors.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_prod : L_v(A × B, T) = L_v(A, T)·L_v(B, T).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_natDegree_le : deg L_v(A, T) ≤ 2g, with equality iff V_ℓA is unramified at v.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_eq_weilDeligne : L_v(A, T) equals R01.2's local Euler factor of the Weil–Deligne representation WD(H¹_ℓ(A)).
+
+
+Unit-test examples (same names as the packet):
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_goodReduction : For E : y² = x³ − x over Q and v = 5, localEulerFactor E 5 = 1 + 2T + 5T² for every ℓ ≠ 5.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_zero : For A = 0, L_v(A, T) = 1.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_compare_localPolynomial : For an elliptic Weierstrass curve W over a number field with good or multiplicative reduction at p, localEulerFactor (E_W) p = WeierstrassCurve.localPolynomial (p.adicCompletionIntegers F) (W.baseChange (p.adicCompletion F)) under Z[T] ⊂ Q_ℓ[T].
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_not_on_V : Using V_ℓA with the geometric Frobenius instead of H¹ = V_ℓA^∨ gives det(1 − TΦ_5 | V_ℓE) = 1 + (2/5)T + (1/5)T² for y² = x³ − x at 5, which is not the Euler factor (not in Z[T]).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_tate_curve : For a Tate curve E_q over Q_p (split multiplicative), L_p(E_q, T) = 1 − T: the inertia invariants of H¹ are one-dimensional with trivial Frobenius.
+
+
+Proof obligations:
+Definition: R01.2/local-euler-factor gives det(1 − T·r(Φ_v) | (ker N)^{I_v}) for a Weil–Deligne representation and, for an ℓ-adic representation with ℓ ≠ p, the Grothendieck monodromy functor identifies (ker N)^{I_v} with the inertia invariants (R01.2/grothendieck-monodromy-and-the-weil-deligne-functor).
+Coinvariant form: (V^∨)^{I} = ((V)_{I})^∨ and the geometric Frobenius acting on V^∨ by f ↦ f ∘ Φ_v^{−1} is the transpose of the arithmetic Frobenius on V, so the determinants agree.
+(b): V_ℓA is unramified (node good-reduction-frobenius-polynomial (a)), so the invariants are all of H¹ and det(1 − TΦ_v | V^∨) = det(1 − T Frob_v | V) = T^{2g}P_v(1/T).
+(c): an isogeny induces an isomorphism V_ℓA ≅ V_ℓB of Q_ℓ[G_{F_v}]-modules (node functoriality-products-and-isogenies (c)); (d): node functoriality (b); (e): dim H¹^{I} ≤ 2g with equality iff I acts trivially on V^∨, i.e. on V.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients
+
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let E ⊆ End⁰_K(A) := End_K(A) ⊗ Q (End_K(A) is Tau Ceti AbelianVariety.End) be a number field (a Q-subalgebra that is a field, same unit) of degree d, and O := E ∩ End_K(A) its order. (a) O ⊗ Z_ℓ acts on T_ℓA and E ⊗ Q_ℓ on V_ℓA through node functoriality-products-and-isogenies (a), commuting with ρ_{A,ℓ}(G_K) because the endomorphisms are defined over K. (b) E ⊗_Q Q_ℓ = ∏_{λ|ℓ} E_λ via the idempotents e_λ, so V_ℓA = ⊕_{λ|ℓ} V_λA with V_λA := V_ℓA ⊗_{E⊗Q_ℓ} E_λ = e_λV_ℓA, each a continuous E_λ-linear representation ρ_{A,λ} : G_K → Aut_{E_λ}(V_λA) (R01.1/continuous-representation over the coefficient field E_λ). (c) If V_ℓA is free over E ⊗ Q_ℓ (this is Milne AV Proposition 10.23, with rank 2g/d; it is a hypothesis of the statements that use it and is not proved in this layer), each V_λA has E_λ-dimension 2g/d; GL₂-type (d = g): dim 2; CM type (d = 2g): dim 1. (d) If O_E ⊆ End_K(A), T_λA := T_ℓA ⊗_{O_E⊗Z_ℓ} O_{E,λ} is a G_K-stable O_{E,λ}-lattice in V_λA and its reduction T_λA/λT_λA is isomorphic, as a G_K-module over O_E/λ, to the λ-torsion A[λ](K^sep) := {x ∈ A[ℓ](K^sep) : αx = 0 for all α ∈ λ} (the residual λ-adic representation): canonically, as the summand e_λA[ℓ](K^sep), when λ is unramified over ℓ, and in general through x ↦ ϖ^{e−1}x mod ℓ for a uniformiser ϖ of O_{E,λ} and its ramification index e, an isomorphism defined up to a scalar of (O_E/λ)^×. Since O_{E,λ} is a discrete valuation ring and T_λA is finitely generated and torsion-free, T_λA is free over O_{E,λ} of rank dim_{E_λ}V_λA; hence T_ℓA = ⊕_{λ|ℓ} T_λA is projective over O_E ⊗ Z_ℓ, and free of rank 2g/d under (c). For a non-maximal order O = E ∩ End_K(A), freeness of T_ℓA over O ⊗ Z_ℓ is not asserted at the primes ℓ dividing the index [O_E : O] (for elliptic curves with complex multiplication it holds for every order: Serre 1972, §4.5). (e) Determinant and oddness of λ-components: if E is totally real and the Rosati involution of a polarization λ_0 is the identity on E, then e^{λ_0}_ℓ is E-balanced (e(αx, y) = e(x, αy)), V_λA ⊥ V_λ′A for λ ≠ λ′, each V_λA carries a nondegenerate E_λ-bilinear alternating form with similitude character χ_ℓ, so for GL₂-type det_{E_λ}ρ_{A,λ} = χ_ℓ, and at a real place each V_λA is odd: det_{E_λ}ρ_{A,λ}(c) = −1. For a primitive abelian variety of GL₂-type over Q with E = End⁰_Q(A), totally real or a CM field, the determinant is εχ_ℓ with ε of finite order (Ribet 1992, Lemma 3.1); that refinement uses Hodge–Tate theory and is not asserted here. (f) Frobenius (K a number field): at a place v ∤ ℓ of good reduction, E acts on the reduction A_v through the reduction homomorphism End_K(A) → End_{k_v}(A_v) (a homomorphism between the generic fibres of abelian schemes over O_v extends uniquely: NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model and R11.1/group-law), compatibly with the specialisation isomorphism of node good-reduction-frobenius-polynomial (b); ρ_{A,λ}(Frob_v) is the E_λ-linear map induced by π_v, which commutes with E acting on A_v. That its E_λ-characteristic polynomial is the image of a polynomial with coefficients in E independent of λ (strict compatibility of the system (ρ_λ), quoted by Ribet 1992, §3, p. 4, from Shimura's book) is not a consequence of Milne AV Proposition 10.23 and is not asserted here. (g) Over a smaller field: if E ⊆ End⁰_L(A) for a finite Galois extension L/K and E is stable under the action of Gal(L/K) on End⁰_L(A), then V_ℓA is an E ⊗ Q_ℓ[G_L]-module and G_K acts semilinearly through Gal(L/K) → Aut(E).
+
+API signatures on the actual geometric carrier:
+
+TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.endAction : Module (O ⊗ Z_ℓ) T_ℓA and Module (E ⊗ Q_ℓ) V_ℓA, commuting with ρ_{A,ℓ}.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule : V_λA := V_ℓA ⊗_{E⊗Q_ℓ} E_λ as a continuous E_λ-representation of G_K.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule.decomposition : V_ℓA ≃ ⊕_{λ|ℓ} V_λA as E ⊗ Q_ℓ[G_K]-modules.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_finrank : If V_ℓA is free over E ⊗ Q_ℓ (Milne AV Proposition 10.23), dim_{E_λ} V_λA = 2g/[E : Q] for every λ | ℓ.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.integralLambdaTateModule : T_λA := T_ℓA ⊗_{O_E⊗Z_ℓ} O_{E,λ}, a G_K-stable lattice when O_E ⊆ End_K(A).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTorsion : A[λ](K^sep) = {x ∈ A[ℓ](K^sep) : λx = 0}, an O_E/λ[G_K]-module isomorphic to T_λA/λT_λA; the isomorphism is canonical (A[λ] = e_λA[ℓ]) when λ is unramified over ℓ.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_det : For totally real E with Rosati-fixed action and GL₂-type: det_{E_λ}ρ_{A,λ} = χ_ℓ.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_odd : Under the same hypotheses, det_{E_λ}ρ_{A,λ}(c) = −1 for every complex conjugation c.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_frobenius : At good v ∤ ℓ, ρ_{A,λ}(Frob_v) is induced by the E-linear Frobenius endomorphism π_v of A_v.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule.coefficientExtension : For an embedding E_λ → Q̄_ℓ, V_λA ⊗ Q̄_ℓ is the corresponding summand of V_ℓA ⊗_{Q_ℓ} Q̄_ℓ = ⊕_{ι:E→Q̄_ℓ} V_ι (R01.1/coefficient-extension).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.integralLambdaTateModule_free : When O_E ⊆ End_K(A), T_λA is a free O_{E,λ}-module of rank dim_{E_λ}V_λA and T_ℓA = ⊕_{λ|ℓ} T_λA.
+
+
+Unit-test examples (same names as the packet):
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_cm_rank_one : For E : y² = x³ − x over Q(i) with End = Z[i] and ℓ = 5, V_5E = V_λE ⊕ V_λ̄E with each summand one-dimensional over Q_5.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_rationals : For E = Q ⊆ End⁰_K(A), there is one λ = ℓ and V_λA = V_ℓA.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_not_over_smaller_field : For E : y² = x³ − x over Q, V_ℓE is not a Q(i) ⊗ Q_ℓ[G_Q]-module: complex conjugation anticommutes with [i], so ρ_{E,ℓ}(c) is not Q(i)-linear; the coefficient action requires the endomorphisms to be defined over K.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_sum : V_ℓA = ⊕_{λ|ℓ} V_λA as Q_ℓ[G_K]-modules and dim_{Q_ℓ}V_λA = [E_λ : Q_ℓ]·dim_{E_λ}V_λA.
+
+
+Proof obligations:
+(a) Functoriality of T_ℓ in endomorphisms (node functoriality-products-and-isogenies (a)), extended Q_ℓ-linearly; Galois commutation because α ∈ End_K(A) commutes with the coordinate action of G_K.
+(b) Chinese remainder decomposition E ⊗ Q_ℓ = ∏ E_λ; each summand e_λV_ℓA is G_K-stable because e_λ commutes with ρ.
+(c) Rank: V_ℓA is free over E ⊗ Q_ℓ of rank 2g/d (Milne AV Prop. 10.23; Ribet 1992, §2 for GL₂-type: 'free of rank two over E ⊗ Q_ℓ').
+(e) For α ∈ E, α^† = α gives e(αx, y) = e(x, αy) (node weil-pairing-on-tate-modules (iv)); then e(e_λx, e_λ′y) = e(x, e_λe_λ′y) = 0 for λ ≠ λ′. A Q_ℓ-bilinear E-balanced form e on V_λ is Tr_{E_λ/Q_ℓ} ∘ ψ for a unique E_λ-bilinear form ψ, characterised by Tr(a·ψ(x, y)) = e(ax, y) for a ∈ E_λ: this is the nondegeneracy of the trace form of the separable extension E_λ/Q_ℓ (Mathlib traceForm_nondegenerate). ψ is alternating because e(ax, x) = e(x, ax) = −e(ax, x), nondegenerate since e is, and the similitude property passes to it by uniqueness. On the 2-dimensional space V_λ the matrix A of ρ_λ(σ) in a symplectic basis satisfies AᵀJA = χ_ℓ(σ)·J, so det A = χ_ℓ(σ) by Tau Ceti's Matrix.det_eq_of_transpose_mul_J_mul_eq_smul. Oddness: the argument of node determinant-and-oddness (c) applied inside each V_λ (c commutes with E) gives V_λ^± isotropic of E_λ-dimension 1.
+(d) O_E ⊗ Z_ℓ = ∏_{λ|ℓ} O_{E,λ}, so T_ℓA = ⊕ T_λA with T_λA = e_λT_ℓA a lattice in V_λA, and a finitely generated torsion-free module over the discrete valuation ring O_{E,λ} is free. λ-torsion: A[ℓ](K^sep) = T_ℓA/ℓT_ℓA = ⊕_λ T_λA/ϖ_λ^{e_λ}T_λA; the elements killed by λ form ϖ^{e−1}T_λA/ϖ^{e}T_λA, which multiplication by ϖ^{e−1} identifies with T_λA/ϖT_λA; for e = 1 this is the summand e_λA[ℓ](K^sep) = A[ℓ](K^sep) ⊗_{O_E/ℓ} O_E/λ. All maps commute with G_K because the endomorphisms are defined over K.
+(f) An endomorphism of A over K extends uniquely to the abelian scheme over O_v (R11.1/abelian-scheme-model: an abelian scheme is the Néron model of its generic fibre; R11.1/group-law: homomorphisms extend) and restricts to A_v; the extension commutes with the specialisation of torsion points, so the action of E on V_ℓA corresponds under r to its action on V_ℓA_v. By node good-reduction-frobenius-polynomial (c) Frob_v acts as π_v, which commutes with every endomorphism of A_v defined over k_v.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/galois-generic-abelian-varieties
+
+Let k be a number field and (A, λ) a principally polarized abelian variety over k of dimension g ≥ 1. For a prime p write GSp(T_pA, e^λ_p) for the group of Z_p-linear automorphisms g of T_pA for which there is ν(g) ∈ Z_p^× with e^λ_p(gx, gy) = ν(g)·e^λ_p(x, y) for all x, y; it is a closed subgroup of Aut_{Z_p}(T_pA), a symplectic Z_p-basis identifies it with GSp_{2g}(Z_p), uniquely up to conjugation, and it is the group of Z_p-points of the similitude group of G7/similitude-groups (not needed for the definition). By node weil-pairing-on-tate-modules (vi) the action ρ_{A,p} of G_k on the p-power torsion has image in it. A is p-Galois generic if ρ_{A,p}(G_k) is open in GSp(T_pA, e^λ_p) (equivalently, being closed, of finite index). Let ρ̂_A : G_k → ∏_p GSp(T_pA, e^λ_p) = GSp(T̂A, e^λ) ≅ GSp_{2g}(Ẑ) be the action on all torsion (adelic Tate module, node tate-module-of-an-abelian-variety). A is Galois generic if ρ̂_A(G_k) is open in GSp_{2g}(Ẑ). Both notions are independent of the choice of symplectic basis, and of the principal polarization: if ρ_{A,p}(G_k) is open in GSp(T_pA, e^λ_p), every G_k-equivariant alternating form V_pA × V_pA → Q_p(1) is invariant under an open subgroup of Sp(V_pA, e^λ_p) and hence a multiple of e^λ_p, so every polarization of A defines the same similitude group. Galois generic implies p-Galois generic for every p (projection to a factor is open); the converse implication (Cadoret) and isogeny/conjugation invariance are statements of AbelianVarietiesIsogenousToNoJacobian G0, which consumes this definition.
+
+API signatures on the actual geometric carrier:
+
+TauCeti.AlgebraicGeometry.AbelianVariety.pAdicImage : ρ_{A,p}(G_k) ⊆ GSp(T_pA, e^λ_p)(Z_p), a closed subgroup.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.IsPGaloisGeneric : The predicate: ρ_{A,p}(G_k) is open in GSp(T_pA, e^λ_p)(Z_p).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.IsGaloisGeneric : The predicate: ρ̂_A(G_k) is open in GSp(T̂A, e^λ)(Ẑ) ≅ GSp_{2g}(Ẑ).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_finiteIndex : Open iff of finite index (closed subgroups of profinite groups).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.IsGaloisGeneric.isPGaloisGeneric : Galois generic ⇒ p-Galois generic for every p.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_baseChange_iff : Invariance under finite extension of k.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_framed : For any symplectic basis, A is p-Galois generic iff the framed image is open in GSp_{2g}(Z_p).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_polarization_indep : For two principal polarizations λ, λ′ of A: A is p-Galois generic with respect to λ iff it is with respect to λ′, and then e^{λ′}_p is a Z_p^×-multiple of e^λ_p.
+
+
+Unit-test examples (same names as the packet):
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_cm : For E : y² = x³ − x over Q (g = 1), E is not p-Galois generic for any p: ρ_{E,p}(G_Q) is contained in the normaliser of a Cartan subgroup of GL_2(Z_p), a closed subgroup of infinite index.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_finiteIndex : A is p-Galois generic iff ρ_{A,p}(G_k) has finite index in GSp(T_pA, e^λ_p)(Z_p).
+
+TauCeti.AlgebraicGeometry.AbelianVariety.not_open_in_Sp : The definition must use GSp and not Sp: ρ_{A,p}(G_k) is never contained in Sp(T_pA, e^λ_p), since its multiplier χ_p has infinite image on G_k; a definition 'open in Sp_{2g}(Z_p)' is never satisfied.
+
+TauCeti.AlgebraicGeometry.AbelianVariety.isGaloisGeneric_baseChange : For a finite extension k′/k, A is (p-)Galois generic over k iff A_{k′} is (p-)Galois generic over k′.
+
+
+Proof obligations:
+The images are compact (G_k is profinite and ρ continuous), hence closed; a closed subgroup of a profinite group is open iff of finite index.
+Basis independence: two symplectic bases differ by an element of GSp_{2g}(Z_p) (resp. GSp_{2g}(Ẑ)), and conjugation preserves openness.
+Galois generic ⇒ p-Galois generic: the projection GSp_{2g}(Ẑ) → GSp_{2g}(Z_p) is a continuous open surjective homomorphism, and the image of an open subgroup under an open map is open.
+Base change: for a finite extension k′/k, G_{k′} is open of finite index in G_k, so (p-)Galois genericity over k and over k′ are equivalent.
+Independence of the polarization, by transvections. Fix a generator of Z_p(1), so that e := e^λ_p has values in Z_p. The image U = ρ_{A,p}(G_k) is open in GSp(T_pA, e), so U ∩ Sp(T_pA, e) contains every element of Sp(T_pA, e) congruent to 1 modulo p^n for some n; in particular it contains the transvections τ_{v,a} : x ↦ x + a·e(x, v)·v for v ∈ T_pA and a ∈ p^nZ_p, a ≠ 0 (they preserve e because e is alternating). Let e′ be a G_k-equivariant alternating form on V_pA with values in Q_p(1). If ρ_{A,p}(σ) = τ_{v,a}, then χ_p(σ) is the multiplier of τ_{v,a} for e, which is 1, so e′ is invariant under τ_{v,a}; expanding e′(τ_{v,a}x, τ_{v,a}y) = e′(x, y) and using e′(v, v) = 0 gives e(y, v)·e′(x, v) = e(x, v)·e′(y, v) for all x, y, first for v ∈ T_pA and then for all v ∈ V_pA since both sides are quadratic in v. For v ≠ 0 choose y with e(y, v) = 1: e′(x, v) = c(v)·e(x, v) with c(v) = e′(y, v). For linearly independent v, w the forms e(·, v), e(·, w) are linearly independent, and additivity of e′(·, v + w) gives c(v) = c(v + w) = c(w); c(tv) = c(v) for t ≠ 0; since dim V_pA = 2g ≥ 2, c is constant and e′ = c·e. Applied to e′ = e^{λ′}_p for a polarization λ′ this gives e^{λ′}_p = c·e^λ_p with c ∈ Q_p^× (c ∈ Z_p^× if both are principal), so GSp(V_pA, e^{λ′}_p) = GSp(V_pA, e^λ_p) and GSp(T_pA, e^{λ′}_p) = GSp(T_pA, e^λ_p). If the image is not open for λ, it is not open for λ′ either, by symmetry.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness
+
+Let A be an abelian variety over a number field K, ρ̂ : G_K → ∏_ℓ GL(T_ℓA) its adelic representation (node tate-module-of-an-abelian-variety), and for a subgroup U ⊆ ∏_ℓ GL(T_ℓA) let U_ℓ be its image in GL(T_ℓA). Say U satisfies the ℓ-independence property if U = ∏_ℓ U_ℓ (Richard–Yafaev, Def. 2.4, stated there for subgroups of M(A_f); the property does not depend on the ambient group), and U_ℓ is Zariski connected if its Zariski closure in GL(V_ℓA) (a Q_ℓ-algebraic group) is connected. Then there is a finite extension L/K such that U := ρ̂(G_L) (1) satisfies the ℓ-independence property and (2) has every U_ℓ Zariski connected (G7/zariski-closure-and-monodromy-groups). These are parts (1) and (2) of Richard–Yafaev Theorem 4.9, attributed there to Serre. A single L serving all ℓ in (2) follows from the sharper statement that the kernel of G_K → G_ℓ/G_ℓ° (G_ℓ the Zariski closure of ρ_ℓ(G_K)) is independent of ℓ; that statement is not in the text of Theorem 4.9, it is the content of the references given there (Serre, Œuvres IV, nos. 133 and 135; Larsen–Pink 1992, 6.14), which are not sources of this roadmap, and it is not asserted here. The third clause of that theorem, U ⊆ M(Ẑ) for the Mumford–Tate group M, rests on Deligne's theorem that Hodge cycles on abelian varieties are absolutely Hodge, whose owners (ShimuraData D1, AutomorphicBundles B1) consume this stage; it is not stated here.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(2) is quoted: Richard–Yafaev refer to Serre, Œuvres IV, no. 133 (p. 15) and no. 135 (2.2.3, p. 31), and to Larsen–Pink 1992, 6.14 (p. 623).
+(1) is quoted: Richard–Yafaev refer to Serre, Œuvres IV, no. 136, Théorème 1 (p. 34), and to Serre 2013, §3.1.
+One field for both: choose L_2 with (2). Property (2) persists for every finite extension of L_2, because a subgroup of finite index of a group with connected Zariski closure has the same Zariski closure (the closure of the subgroup is a closed subgroup of finite index of a connected group). Apply (1) to A over L_2 to get L ⊇ L_2 with (1). The order matters: (1) need not persist under a further finite extension, since a subgroup of finite index of a product of groups need not be a product.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/noot-specialization
+
+Let F be a field of finite type over Q, S a normal absolutely irreducible F-variety with function field K = F(S), η : Spec K → S the generic point, X/S an abelian scheme of relative dimension g. (a) For every closed point σ of S, with a point σ̄ of the normalisation S̄ of S in K̄ over it and decomposition group D_σ ⊆ G_K, the specialisation maps s_n : X_η[n](K̄) ≅ X[n](S̄) ≅ X_σ[n](F̄) are group isomorphisms (X[n] is finite étale over S, AbelianSchemesAndArithmeticModuli A3), compatible in n and D_σ-equivariant, where D_σ acts on the right through D_σ ↠ Gal(F̄/F(σ)); their limit is a D_σ-equivariant isomorphism T_ℓX_η ≅ T_ℓX_σ for every ℓ (and on adelic Tate modules), so ρ_{X_η,ℓ}(D_σ) = ρ_{X_σ,ℓ}(Gal(F̄/F(σ))) ⊆ ρ_{X_η,ℓ}(G_K). This is Noot §1.2 and the diagram Richard–Yafaev use in the proof of Proposition 4.8. Serre's complement (Noot Prop. 1.3: for each ℓ some closed point σ gives equality of images) needs Hilbert irreducibility for compact ℓ-adic Lie quotients (Serre, Lectures on the Mordell–Weil theorem, 10.6), which is in the scope of InverseGaloisAndArithmeticFundamentalGroups IG.2 and is not planned there yet; it is not stated here. The consequence End_K̄(X_η) = End_F̄(X_σ) for a closed point σ as in Proposition 1.3 (Noot Cor. 1.5) uses Faltings' theorem over fields of finite type and belongs to FaltingsFinitenessAndIsogenyTheorems.
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+X[n] → S is finite étale (A3, n invertible since char F = 0); a point of X_η[n](K̄) extends uniquely to an S̄-point (finiteness), and specialising at σ̄ is a bijection onto X_σ[n](F̄) (étaleness) (Noot §1.2, p. 163). Compatibility with D_σ: D_σ preserves σ̄ and acts on the residue field through Gal(F̄/F(σ)). Pass to limits as in node tate-module-of-an-abelian-variety.
+Richard–Yafaev's use (proof of Prop. 4.8): F := Q in Noot's notation, a number field F′ ⊆ K̄ and A_{F′} with T_A ≅ T_{A_{F′}}, the commutative diagram giving ρ(D_{F′}) = ρ′(Gal(F̄′/F′)) — which is (a) — and the endomorphism identity (10), which is Noot Cor. 1.5 and depends on Faltings ([FW, VI, 3]).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.6/required-examples
+
+(1) χ_p: the Tate module of μ_{p^∞} is Z_p(1) with G_Q acting through χ_p, χ_p(Frob_ℓ) = ℓ for ℓ ≠ p, χ_p(c) = −1, HT(χ_p) = +1; it is det T_pE for every elliptic curve E/Q (node determinant-and-oddness). (2) Split Tate curve: for a p-adic field K, q ∈ K^× with |q| < 1 and ℓ ≠ p, Tau Ceti's uniformisation K̄^×/q^Z ≅ E_q(K̄) gives 0 → Z_ℓ(1) → T_ℓE_q → Z_ℓ → 0, the extension class being the Kummer class of q; inertia acts through a nontrivial unipotent (so V_ℓE_q is ramified, with (V_ℓE_q)^{I} = Q_ℓ(1)), the Frobenius polynomial on V_ℓ^{I} is X − q_K (q_K the cardinality of the residue field of K, not the Tate parameter q) and L(E_q, T) = 1 − T; example 11a3 at 11. (3) Supersingular good reduction: y² = x³ + 1 over Q at p ∈ {5, 11, 17, 23} has a_p = 0 and P_p(X) = X² + p; in general, for a curve over Q (residue field F_p), good supersingular reduction at p ≥ 5 forces a_p = 0 (p | a_p and |a_p| ≤ 2√p < p). (4) CM curve over Q: y² = x³ − x (CM by Z[i]): ρ_{E,ℓ}(G_Q) lies in the normaliser of the Cartan subgroup (Z[i] ⊗ Z_ℓ)^×, ρ_{E,ℓ}|_{G_{Q(i)}} is abelian (the λ-adic Hecke character), V_ℓE ⊗ Q̄_ℓ ≅ Ind_{G_{Q(i)}}^{G_Q} ψ, and a_p = 0 for p ≡ 3 mod 4. (5) Frobenius conventions on a finite field: for E/F_q with a = q + 1 − #E(F_q), the arithmetic Frobenius φ : x ↦ x^q acts on T_ℓE as π (characteristic polynomial X² − aX + q), the geometric Frobenius φ^{−1} as π^{−1} (X² − (a/q)X + 1/q), and on H¹ = V_ℓE^∨ the geometric Frobenius has characteristic polynomial X² − aX + q, so det(1 − TΦ | H¹) = 1 − aT + qT² is the local factor; for y² = x³ − x over F_5: X² + 2X + 5, X² + (2/5)X + 1/5, X² + 2X + 5 and 1 + 2T + 5T².
+
+API signatures on the actual geometric carrier:
+
+
+Unit-test examples (same names as the packet):
+
+
+Proof obligations:
+(1): R01.1/tate-twist and R01.2/cyclotomic-and-dirichlet-characters; det by node determinant-and-oddness (b).
+(2): node tate-module-of-the-tate-curve (the exact sequence, the Kummer cocycle of q, and its restriction v(q)·t_ℓ to inertia), which rests on the uniformisation of Tau Ceti EllipticCurves Layer 4 (DDT Prop. 2.12); the local factor by node comparison-with-weierstrass-local-polynomial (b).
+(3): node good-reduction-frobenius-polynomial (e) and the point counts; Tau Ceti EllipticCurves Layer 3 (supersingular iff p | a_p over F_p, Hasse bound).
+(4): node tate-module-with-endomorphism-coefficients (acceptance), Serre 1972 §4.5; induction by R01.1/continuous-induction; a_p = 0 for inert p since Frob_p lies in the non-identity coset of the normaliser, of trace 0.
+(5): the finite-field form of the argument for node good-reduction-frobenius-polynomial (c): the arithmetic Frobenius of Gal(F̄_q/F_q) acts on E(F̄_q) as π (coordinates raised to the q-th power), hence on T_ℓE as T_ℓπ; Tau Ceti EllipticCurves Layer 3 gives deg(1 − π) = #E(F_q) and Layer 2 gives det = deg, so the characteristic polynomial is X² − aX + q; node local-euler-factor-of-an-abelian-variety for the transpose.
+-/
 
 /-! # The declarations of layer G7 -/
 namespace TauCeti
@@ -11712,3 +10826,783 @@ theorem TaylorWilesImageConditions.restrict_of_image_eq {k : Type} [Field k] {n 
 end ResidualImage
 
 end TauCeti
+
+/-! # Declaration index for the 300-node revision
+
+The following entries separate the mathematical clauses of the existing typed
+prototypes. Each names its original prototype section and gives its exact
+statement. Each auxiliary is a separate planned declaration. The typed
+prototype sections still package several of these clauses; this index records
+the signature to extract, rather than claiming that all 110 auxiliary names
+have been individually elaborated. Conditions needing unavailable supplier
+vocabulary remain explicit mathematical comments, never opaque propositions. -/
+
+/- ArithmeticGaloisRepresentations:R01.1/exterior-power-base-change
+Prototype section: ArithmeticGaloisRepresentations:R01.1/exterior-powers-of-finite-projective-modules
+Suggested auxiliary name: exterior_power_base_change
+Let A be a commutative ring, M an A-module and r a natural number. For every commutative A-algebra B there is a natural B-linear equivalence B ⊗_A ⋀^r_A M ≅ ⋀^r_B(B ⊗_A M), sending b ⊗ (m₁ ∧ ⋯ ∧ mᵣ) to b·((1 ⊗ m₁) ∧ ⋯ ∧ (1 ⊗ mᵣ)). It intertwines the exterior powers of linear maps.
+Hypotheses: Let A be a commutative ring, M an A-module and r a natural number.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/exterior-power-rank
+Prototype section: ArithmeticGaloisRepresentations:R01.1/exterior-powers-of-finite-projective-modules
+Suggested auxiliary name: exterior_power_rank
+Let A be a commutative ring, M an A-module and r a natural number. If M is finite projective of constant rank n, then ⋀^r_A M has constant rank binom(n,r). In particular its top exterior power has rank one and ⋀^r_A M=0 for r>n.
+Hypotheses: Let A be a commutative ring, M an A-module and r a natural number.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/equivariant-functions-are-continuous
+Prototype section: ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism
+Suggested auxiliary name: equivariant_functions_are_continuous
+Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRep over a commutative topological ring A, and (gᵢ)ᵢ∈I a finite right transversal for H in Γ. Write C_H(Γ,U) for continuous functions satisfying f(hx)=σ(h)f(x), with compact-open topology. Every set-theoretic function f:Γ→U with f(hx)=σ(h)f(x) is continuous.
+Hypotheses: Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRep over a commutative topological ring A, and (gᵢ)ᵢ∈I a finite right transversal for H in Γ. Write C_H(Γ,U) for continuous functions satisfying f(hx)=σ(h)f(x), with compact-open topology.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/induced-module-versus-coind
+Prototype section: ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism
+Suggested auxiliary name: induced_module_versus_coind
+Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRep over a commutative topological ring A, and (gᵢ)ᵢ∈I a finite right transversal for H in Γ. Write C_H(Γ,U) for continuous functions satisfying f(hx)=σ(h)f(x), with compact-open topology. The compact-open topology on C_H(Γ,U) is its finite-projective A-module topology, and the identity on equivariant functions identifies the induced ContinuousRep with Mathlib ContRepresentation.coind along H→Γ.
+Hypotheses: Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRep over a commutative topological ring A, and (gᵢ)ᵢ∈I a finite right transversal for H in Γ. Write C_H(Γ,U) for continuous functions satisfying f(hx)=σ(h)f(x), with compact-open topology.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/finite-galois-factorisation
+Prototype section: ArithmeticGaloisRepresentations:R01.1/finite-coefficients-and-finite-quotients
+Suggested auxiliary name: finite_galois_factorisation
+Let Γ be profinite. For Γ=G_F and discrete coefficients as above, joint continuity is equivalent to factorisation through Gal(L/F) for a finite Galois extension L/F in Fˢᵉᵖ. For imperfect F take fixed fields in Fˢᵉᵖ rather than in F̄.
+Hypotheses: Let Γ be profinite.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/artin-representations-have-finite-image
+Prototype section: ArithmeticGaloisRepresentations:R01.1/finite-coefficients-and-finite-quotients
+Suggested auxiliary name: artin_representations_have_finite_image
+Let Γ be profinite. Every continuous homomorphism Γ→GL_n(ℂ), with the usual complex topology, has open kernel and finite image.
+Hypotheses: Let Γ be profinite.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/descent-of-qlbar-representations
+Prototype section: ArithmeticGaloisRepresentations:R01.1/baire-descent-to-a-finite-coefficient-field
+Suggested auxiliary name: descent_of_qlbar_representations
+Let ℓ be prime, Q̄_ℓ=PadicAlgCl ℓ with its valuation topology, and Γ a compact Hausdorff group. Every finite-dimensional ContinuousRep V over Q̄_ℓ is V_E⊗_E Q̄_ℓ for a ContinuousRep over a coefficient field E. Any finite collection of such objects and equivariant linear maps descends to one coefficient field; two descended morphisms equal over Q̄_ℓ are already equal over a common enlargement. Thus base change identifies the filtered 2-colimit of these categories with ContinuousReps over Q̄_ℓ.
+Hypotheses: Let ℓ be prime, Q̄_ℓ=PadicAlgCl ℓ with its valuation topology, and Γ a compact Hausdorff group.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/lattices-are-compact-open
+Prototype section: ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices
+Suggested auxiliary name: lattices_are_compact_open
+Let E be a nonarchimedean local field with valuation ring O_E, and V a finite-dimensional E-space with its module topology. A lattice is a finitely generated O_E-submodule spanning V. Every lattice Λ is compact open in V, and its stabiliser GL(Λ) is a compact open subgroup of GL(V), identified with GL_n(O_E) after a lattice basis choice.
+Hypotheses: Let E be a nonarchimedean local field with valuation ring O_E, and V a finite-dimensional E-space with its module topology. A lattice is a finitely generated O_E-submodule spanning V.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/continuous-representations-have-stable-lattices
+Prototype section: ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices
+Suggested auxiliary name: continuous_representations_have_stable_lattices
+Let E be a nonarchimedean local field with valuation ring O_E, and V a finite-dimensional E-space with its module topology. A lattice is a finitely generated O_E-submodule spanning V. If Γ is profinite and V carries a ContinuousRep of Γ over E, it has a Γ-stable O_E-lattice. In a lattice basis its action is a continuous homomorphism Γ→GL_n(O_E).
+Hypotheses: Let E be a nonarchimedean local field with valuation ring O_E, and V a finite-dimensional E-space with its module topology. A lattice is a finitely generated O_E-submodule spanning V.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/separating-elements-for-simple-modules
+Prototype section: ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-algebraically-closed
+Suggested auxiliary name: separating_elements_for_simple_modules
+Let k be algebraically closed, Γ a monoid, and all representations finite-dimensional over k. For pairwise non-isomorphic simple Γ-representations T₁,…,Tᵣ, the action homomorphism k[Γ]→∏ⱼEnd_k(Tⱼ) is surjective.
+Hypotheses: Let k be algebraically closed, Γ a monoid, and all representations finite-dimensional over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/trace-congruence-for-semisimple-representations
+Prototype section: ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-algebraically-closed
+Suggested auxiliary name: trace_congruence_for_semisimple_representations
+Let k be algebraically closed, Γ a monoid, and all representations finite-dimensional over k. For semisimple ρ₁,ρ₂ with equal trace functions, each simple T occurs with multiplicities a_T,b_T satisfying (a_T:k)=(b_T:k). In characteristic zero these are equal as natural numbers; in characteristic p>0 they are congruent modulo p.
+Hypotheses: Let k be algebraically closed, Γ a monoid, and all representations finite-dimensional over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/traces-over-f2-in-dimension-two
+Prototype section: ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces
+Suggested auxiliary name: traces_over_f2_in_dimension_two
+Let k be a field and V,W finite-dimensional semisimple representations of Γ of the same dimension d. If Γ is a group, k=F₂ and d=2, equality of trace functions still implies V≅W.
+Hypotheses: Let k be a field and V,W finite-dimensional semisimple representations of Γ of the same dimension d.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/reduction-of-roots-of-unity
+Prototype section: ArithmeticGaloisRepresentations:R01.1/residue-field-of-the-algebraic-closure-of-q-ell
+Suggested auxiliary name: reduction_of_roots_of_unity
+Let ℓ be prime, Q̄_ℓ=PadicAlgCl ℓ, O={x:‖x‖≤1}, 𝔪={x:‖x‖<1}, and κ=O/𝔪. For m≥1 prime to ℓ, reduction induces a group isomorphism μ_m(Q̄_ℓ)≃μ_m(κ).
+Hypotheses: Let ℓ be prime, Q̄_ℓ=PadicAlgCl ℓ, O={x:‖x‖≤1}, 𝔪={x:‖x‖<1}, and κ=O/𝔪.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/residue-fields-of-coefficient-fields
+Prototype section: ArithmeticGaloisRepresentations:R01.1/residue-field-of-the-algebraic-closure-of-q-ell
+Suggested auxiliary name: residue_fields_of_coefficient_fields
+Let ℓ be prime, Q̄_ℓ=PadicAlgCl ℓ, O={x:‖x‖≤1}, 𝔪={x:‖x‖<1}, and κ=O/𝔪. For each coefficient field E⊂Q̄_ℓ reduction embeds k_E into κ; these images cover κ. If q is an ℓ-power, the unique subfield of κ with q elements is contained in k_E for E=Q_ℓ(μ_{q−1}).
+Hypotheses: Let ℓ be prime, Q̄_ℓ=PadicAlgCl ℓ, O={x:‖x‖≤1}, 𝔪={x:‖x‖<1}, and κ=O/𝔪.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/residual-representation-well-defined
+Prototype section: ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence
+Suggested auxiliary name: residual_representation_well_defined
+Let Γ be profinite, E a coefficient field with ring O_E, uniformiser ϖ and residue k_E, and V a finite-dimensional ContinuousRep. For V over Q̄_ℓ, choose any coefficient descent V_E and integral model Λ. The isomorphism class of ((Λ/ϖΛ)⊗_{k_E}κ)^ss is independent of E, of the descent and of Λ.
+Hypotheses: Let Γ be profinite, E a coefficient field with ring O_E, uniformiser ϖ and residue k_E, and V a finite-dimensional ContinuousRep.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/residual-representation-properties
+Prototype section: ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence
+Suggested auxiliary name: residual_representation_properties
+Let Γ be profinite, E a coefficient field with ring O_E, uniformiser ϖ and residue k_E, and V a finite-dimensional ContinuousRep. The residual representation over κ is continuous, semisimple, has finite image and is defined over a finite field. For every g its characteristic polynomial is the reduction of that of V; its isomorphism class depends only on these polynomials.
+Hypotheses: Let Γ be profinite, E a coefficient field with ring O_E, uniformiser ϖ and residue k_E, and V a finite-dimensional ContinuousRep.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/stable-lattice-unique-up-to-homothety
+Prototype section: ArithmeticGaloisRepresentations:R01.1/self-dual-lattice-for-absolutely-irreducible-residual
+Suggested auxiliary name: stable_lattice_unique_up_to_homothety
+Let Γ be profinite, E a coefficient field with uniformiser ϖ, and V a ContinuousRep whose residual representation over k_E is irreducible. All integral models of V are ϖ^jΛ₀ for one integral model Λ₀ and integers j.
+Hypotheses: Let Γ be profinite, E a coefficient field with uniformiser ϖ, and V a ContinuousRep whose residual representation over k_E is irreducible.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/integral-symplectic-model
+Prototype section: ArithmeticGaloisRepresentations:R01.1/self-dual-lattice-for-absolutely-irreducible-residual
+Suggested auxiliary name: integral_symplectic_model
+Let Γ be profinite, E a coefficient field with uniformiser ϖ, and V a ContinuousRep whose residual representation over k_E is irreducible. In the alternating case, dim_E V=2g and the stable self-dual lattice has an O_E-symplectic basis. Thus the E-valued representation is GSp_{2g}(E)-conjugate to a continuous O_E-valued symplectic-similitude representation with multiplier μ.
+Hypotheses: Let Γ be profinite, E a coefficient field with uniformiser ϖ, and V a ContinuousRep whose residual representation over k_E is irreducible.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/clifford-restriction-semisimple
+Prototype section: ArithmeticGaloisRepresentations:R01.1/semisimplicity-under-restriction-and-induction
+Suggested auxiliary name: clifford_restriction_semisimple
+Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k. If H is normal and V is semisimple over Γ, then Res_H V is semisimple in every characteristic.
+Hypotheses: Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/clifford-isotypic-decomposition
+Prototype section: ArithmeticGaloisRepresentations:R01.1/semisimplicity-under-restriction-and-induction
+Suggested auxiliary name: clifford_isotypic_decomposition
+Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k. If H is normal and V is irreducible over Γ, then Res_H V≅(W₁⊕⋯⊕Wₜ)^{⊕e}, where the Wᵢ are the distinct Γ-conjugates of any one simple constituent and all multiplicities are equal; t is the index of its open isomorphism-class stabiliser.
+Hypotheses: Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/semisimple-if-restriction-semisimple
+Prototype section: ArithmeticGaloisRepresentations:R01.1/semisimplicity-under-restriction-and-induction
+Suggested auxiliary name: semisimple_if_restriction_semisimple
+Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k. If [Γ:H] is invertible in k and Res_H V is semisimple, then V is semisimple.
+Hypotheses: Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/restriction-to-open-subgroup-semisimple
+Prototype section: ArithmeticGaloisRepresentations:R01.1/semisimplicity-under-restriction-and-induction
+Suggested auxiliary name: restriction_to_open_subgroup_semisimple
+Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k. If [H:N] is invertible in k and V is semisimple, then Res_H V is semisimple.
+Hypotheses: Let k be a field, Γ profinite, H an open subgroup, N its open normal core, and all representations finite-dimensional ContinuousReps over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/reductive-residual-representation
+Prototype section: ArithmeticGaloisRepresentations:R01.1/reductive-integral-models
+Suggested auxiliary name: reductive_residual_representation
+Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ profinite. The Ĝ-completely reducible semisimplification of any integral conjugate reduced into Ĝ(F̄_ℓ) is continuous and independent of all choices up to Ĝ(F̄_ℓ)-conjugacy.
+Hypotheses: Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ profinite.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.1/reductive-integral-models-gln
+Prototype section: ArithmeticGaloisRepresentations:R01.1/reductive-integral-models
+Suggested auxiliary name: reductive_integral_models_gln
+Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ profinite. For Ĝ=GL_n the integral conjugates are framed stable lattices, complete reducibility is ordinary semisimplicity, and the reductive residual isomorphism class is the residual class from R01.1/residual-representation-well-defined.
+Hypotheses: Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ profinite.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-equivariant
+Prototype section: ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension
+Suggested auxiliary name: finite_wild_factorisation_equivariant
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. For such L the wild action factors uniquely through Gal(L/K)₁ with image ρ(P_K); conjugation by any element of Gal(L/K) is intertwined with conjugation by any lift in G_K.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-enlargement
+Prototype section: ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension
+Suggested auxiliary name: finite_wild_factorisation_enlargement
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. Every finite Galois L′/K containing L still kills the wild kernel, and the representation on Gal(L′/K)₁ is obtained by composing with restriction to L.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation
+Prototype section: ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension
+Suggested auxiliary name: finite_inertia_factorisation
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. If ρ(I_K) is finite, L can be chosen so that the inertia action factors through Gal(L/K)₀.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character
+Prototype section: ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality
+Suggested auxiliary name: conductor_of_a_character
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. For a ramified character χ with finite wild image, Sw(χ)=u(χ) and a(χ)=1+u(χ), where u(χ) is its upper break and is an integer. For tame ramified χ the break is zero.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group
+Prototype section: ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality
+Suggested auxiliary name: artin_conductor_integral_finite_group
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. For a finite Galois extension L/K and a characteristic-zero representation W of Gal(L/K), a(W) and Sw(W) are nonnegative integers.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices
+Prototype section: ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality
+Suggested auxiliary name: conductor_independence_of_choices
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. The conductors do not depend on the auxiliary finite Galois extension, the algebraic closure, or the valuation extension, and are invariant under representation isomorphism.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria
+Prototype section: ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality
+Suggested auxiliary name: conductor_vanishing_criteria
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. Then a(V)=0 iff inertia acts trivially; Sw(V)=0 iff wild inertia acts trivially; and a(V)=codim V^{I_K} iff V is tame.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/wild-character-lift
+Prototype section: ArithmeticGaloisRepresentations:R01.3/swan-conductor-orbit-formula
+Suggested auxiliary name: wild_character_lift
+Let M/K₀ be a finite totally ramified Galois extension in the local setting, with inertia G₀, wild group G₁ and lower groups G_i. Let F be algebraically closed of characteristic different from p. Every simple F[G₁]-module θ has a characteristic-zero lift θ̃ preserving invariant dimensions for every subgroup of G₁. The G₀-stabilisers of θ and θ̃ agree, and θ̃ extends to its stabiliser T because T/G₁ is cyclic.
+Hypotheses: Let M/K₀ be a finite totally ramified Galois extension in the local setting, with inertia G₀, wild group G₁ and lower groups G_i. Let F be algebraically closed of characteristic different from p.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-an-orbit
+Prototype section: ArithmeticGaloisRepresentations:R01.3/swan-conductor-orbit-formula
+Suggested auxiliary name: swan_conductor_of_an_orbit
+Let M/K₀ be a finite totally ramified Galois extension in the local setting, with inertia G₀, wild group G₁ and lower groups G_i. Let F be algebraically closed of characteristic different from p. Let θ be a simple F[G₁]-module, θ̃ its characteristic-zero lift and T⊆G₀ its isomorphism-class stabiliser, as in R01.3/wild-character-lift. If θ̃_T extends θ̃ to T, then Res_{G₁}Ind_T^{G₀}θ̃_T is the sum of the distinct orbit conjugates, once each, and Sw(Ind_T^{G₀}θ̃_T)=[G₀:T]sw(θ).
+Hypotheses: Let M/K₀ be a finite totally ramified Galois extension in the local setting, with inertia G₀, wild group G₁ and lower groups G_i. Let F be algebraically closed of characteristic different from p.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/swan-additive
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: swan_additive
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. For an exact sequence 0→V′→V→V″→0, Sw(V)=Sw(V′)+Sw(V″). In particular Sw(V)=Sw(Vˢˢ).
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-dual
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: conductor_dual
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. Sw(V∨)=Sw(V) and a(V∨)=a(V), even with infinite inertia image.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: conductor_twist_unramified_tame
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. An unramified character twist preserves a and Sw. A tame character twist preserves the positive breaks and Sw, but can change the tame Artin contribution.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: conductor_twist_dominant_character
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. If a continuous character χ has break u(χ)>0 strictly larger than every break of V, then every break of V⊗χ is u(χ), Sw(V⊗χ)=u(χ)dim V and a(V⊗χ)=a(χ)dim V.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: conductor_unramified_base_change
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. Finite unramified extension, and passage to the completion of K^ur, preserve a and Sw.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: conductor_tame_base_change
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. For a finite tame extension L/K of ramification index e, all positive breaks are multiplied by e and Sw_L(V|_{G_L})=e·Sw_K(V).
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars
+Prototype section: ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance
+Suggested auxiliary name: conductor_extend_scalars
+Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap. Extension of the coefficient field preserves Sw and a.
+Hypotheses: Let K be complete for a normalised discrete valuation with perfect residue field of characteristic p>0. Let F be a topological field of characteristic different from p, and V a finite-dimensional continuous F-representation of G_K with finite wild image. The arbitrary-perfect-residue-field case retains the recorded ramification-theory gap.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor
+Prototype section: ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors
+Suggested auxiliary name: quadratic_induction_conductor
+Let F′/F be a finite extension of number fields and ρ a finite-dimensional representation of G_{F′} with global conductor defined outside Σ′, the places above an admissible excluded set Σ. For F=Q, F′=M quadratic and ψ a finite-order character, N(Ind ψ)=|d_M|·Nm_{M/Q}(f(ψ)), where f(ψ) is its Artin conductor ideal. For ℓ-adic ψ use prime-to-ℓ parts; equality with a Hecke-character conductor retains the class-field-theory comparison gap.
+Hypotheses: Let F′/F be a finite extension of number fields and ρ a finite-dimensional representation of G_{F′} with global conductor defined outside Σ′, the places above an admissible excluded set Σ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/induced-inertia-invariants
+Prototype section: ArithmeticGaloisRepresentations:R01.3/invariants-of-an-induced-representation
+Suggested auxiliary name: induced_inertia_invariants
+Let Γ be profinite, H open, D closed normal, and U a continuous finite-dimensional representation of H. For L/K finite separable in the local setting with residue degree f, dim(Ind_{G_L}^{G_K}V)^{I_K}=f dimV^{I_L}.
+Hypotheses: Let Γ be profinite, H open, D closed normal, and U a continuous finite-dimensional representation of H.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/induced-finite-wild-image
+Prototype section: ArithmeticGaloisRepresentations:R01.3/invariants-of-an-induced-representation
+Suggested auxiliary name: induced_finite_wild_image
+Let Γ be profinite, H open, D closed normal, and U a continuous finite-dimensional representation of H. If V has finite wild image on G_L, then Ind_{G_L}^{G_K}V has finite wild image.
+Hypotheses: Let Γ be profinite, H open, D closed normal, and U a continuous finite-dimensional representation of H.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-reduction
+Prototype section: ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor
+Suggested auxiliary name: swan_conductor_of_reduction
+In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ. Sw(ρ̄_Λ)=Sw(ρ)=Sw(ρ̄_Λˢˢ).
+Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/conductor-of-residual-semisimplification
+Prototype section: ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor
+Suggested auxiliary name: conductor_of_residual_semisimplification
+In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ. a(ρ̄_Λˢˢ)≤a(ρ̄_Λ)≤a(ρ), and a(ρ̄_Λˢˢ) is independent of Λ.
+Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/global-conductor-of-reduction
+Prototype section: ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor
+Suggested auxiliary name: global_conductor_of_reduction
+In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ. For a global ℓ-adic ρ of finite ramification, N^{(ℓ)}(ρ̄_Λ) divides N^{(ℓ)}(ρ), with quotient ∏_{v∤ℓ}p_v^{dimρ̄_Λ^{I_v}−dimV^{I_v}}; the residual semisimplification conductor also divides it.
+Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor
+Prototype section: ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations
+Suggested auxiliary name: tame_two_dimensional_conductor
+Let K be a nonarchimedean local field of residue characteristic p; conductor coefficients have characteristic different from p. If dimV=2, wild inertia acts trivially and V^{I_K}=0, then a(V)=2. This includes a pair of nontrivial tame inertia characters and induction of a tame character of the unramified quadratic extension whose inertia restriction is nontrivial (with a non-norm character giving the irreducible case).
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p; conductor coefficients have characteristic different from p.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/dyadic-quadratic-conductors
+Prototype section: ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations
+Suggested auxiliary name: dyadic_quadratic_conductors
+Let K be a nonarchimedean local field of residue characteristic p; conductor coefficients have characteristic different from p. The ramified quadratic characters of G_{Q₂} have conductor two for Q₂(√−1), Q₂(√3), and three for Q₂(√±2), Q₂(√±6).
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p; conductor coefficients have characteristic different from p.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/triadic-cubic-conductor
+Prototype section: ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations
+Suggested auxiliary name: triadic_cubic_conductor
+Let K be a nonarchimedean local field of residue characteristic p; conductor coefficients have characteristic different from p. Every ramified character of order three of G_{Q₃} has conductor two.
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p; conductor coefficients have characteristic different from p.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/artin-schreier-break
+Prototype section: ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor
+Suggested auxiliary name: artin_schreier_break
+Let K have characteristic p>0, be complete for a normalised discrete valuation with perfect residue field, and let u∈K have v(u)=−m<0 with p∤m. Put L=K(α), α^p−α=u. L/K is cyclic of degree p, totally ramified, with unique lower and upper break m.
+Hypotheses: Let K have characteristic p>0, be complete for a normalised discrete valuation with perfect residue field, and let u∈K have v(u)=−m<0 with p∤m. Put L=K(α), α^p−α=u.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/artin-schreier-twist
+Prototype section: ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor
+Suggested auxiliary name: artin_schreier_twist
+Let K have characteristic p>0, be complete for a normalised discrete valuation with perfect residue field, and let u∈K have v(u)=−m<0 with p∤m. Put L=K(α), α^p−α=u. For a nontrivial character ψ of Gal(L/K) over conductor coefficients of characteristic different from p, and a continuous representation V in the local conductor setting, if all breaks of V are smaller than m, every break of V⊗ψ is m, Sw(V⊗ψ)=m·dimV and a(V⊗ψ)=(m+1)dimV.
+Hypotheses: Let K have characteristic p>0, be complete for a normalised discrete valuation with perfect residue field, and let u∈K have v(u)=−m<0 with p∤m. Put L=K(α), α^p−α=u.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/deligne-artin-schreier-at-infinity
+Prototype section: ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor
+Suggested auxiliary name: deligne_artin_schreier_at_infinity
+Let K have characteristic p>0, be complete for a normalised discrete valuation with perfect residue field, and let u∈K have v(u)=−m<0 with p∤m. Put L=K(α), α^p−α=u. For finite k and y∈k[[x]] of valuation d prime to p, the character cut out by T^p−T=y⁻¹ has conductor d+1. Thus the sheaf F_j in Deligne 1974 §8 has Swan conductor d at infinity, as in (8.12)–(8.13).
+Hypotheses: Let K have characteristic p>0, be complete for a normalised discrete valuation with perfect residue field, and let u∈K have v(u)=−m<0 with p∤m. Put L=K(α), α^p−α=u.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent
+Prototype section: ArithmeticGaloisRepresentations:R01.3/ogg-formula
+Suggested auxiliary name: ogg_formula_descent
+Let E/K be elliptic over the local perfect-residue-field setting, Δ_min its minimal Weierstrass discriminant, X its minimal proper regular model, and m the number of geometric irreducible components of X_k, without multiplicities. Passage to the completed strict henselisation preserves v(Δ_min), f(E), and m.
+Hypotheses: Let E/K be elliptic over the local perfect-residue-field setting, Δ_min its minimal Weierstrass discriminant, X its minimal proper regular model, and m the number of geometric irreducible components of X_k, without multiplicities.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame
+Prototype section: ArithmeticGaloisRepresentations:R01.3/ogg-formula
+Suggested auxiliary name: ogg_formula_tame
+Let E/K be elliptic over the local perfect-residue-field setting, Δ_min its minimal Weierstrass discriminant, X its minimal proper regular model, and m the number of geometric irreducible components of X_k, without multiplicities. If p≥5, v(Δ_min)=f(E)+m−1.
+Hypotheses: Let E/K be elliptic over the local perfect-residue-field setting, Δ_min its minimal Weierstrass discriminant, X its minimal proper regular model, and m the number of geometric irreducible components of X_k, without multiplicities.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/saito-genus-one
+Prototype section: ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant
+Suggested auxiliary name: saito_genus_one
+Let R be a complete DVR with perfect residue field of characteristic p, K its fraction field, C/K a smooth projective geometrically connected curve of genus at least one, and X/R its minimal regular model. For C=E elliptic, ordΔ_{X/R}=v(Δ_min) and χ(X_k̄)=m−1+ε(E), whereas χ(X_K̄)=0. Consequently −Art(X/R)=f(E)+m−1.
+Hypotheses: Let R be a complete DVR with perfect residue field of characteristic p, K its fraction field, C/K a smooth projective geometrically connected curve of genus at least one, and X/R its minimal regular model.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-values
+Prototype section: ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds
+Suggested auxiliary name: elliptic_conductor_values
+Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic. f(E)=0 for good, one for multiplicative, and 2+δ(E) for additive reduction. When p≥5 the last value is two.
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-potentially-multiplicative
+Prototype section: ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds
+Suggested auxiliary name: elliptic_conductor_potentially_multiplicative
+Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic. If E has additive potentially multiplicative reduction, with ramified quadratic twisting character χ, then f(E)=2a(χ). Over Q₂ the possibilities are four and six.
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-bound-residue-3
+Prototype section: ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds
+Suggested auxiliary name: elliptic_conductor_bound_residue_3
+Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic. For K/Q₃ finite, f(E)≤2+3v_K(3).
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-isogeny-invariance
+Prototype section: ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds
+Suggested auxiliary name: elliptic_conductor_isogeny_invariance
+Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic. K-isogenous elliptic curves have the same f. Over a number field their conductor ideals agree.
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-over-q
+Prototype section: ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds
+Suggested auxiliary name: elliptic_conductor_over_q
+Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic. For E/Q, p|N_E iff bad reduction at p, v_p(N_E)=1 iff multiplicative reduction, and N_E divides 2⁸·3⁵·∏_{p≥5,p|N_E}p².
+Hypotheses: Let K be a nonarchimedean local field of residue characteristic p, and E/K elliptic.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/residual-conductor-good
+Prototype section: ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell
+Suggested auxiliary name: residual_conductor_good
+Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E). If E has good reduction, a(E[ℓ])=0.
+Hypotheses: Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/residual-conductor-multiplicative
+Prototype section: ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell
+Suggested auxiliary name: residual_conductor_multiplicative
+Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E). For multiplicative reduction, a(E[ℓ])=0 if ℓ divides v(Δ_min), and one otherwise.
+Hypotheses: Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-multiplicative
+Prototype section: ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell
+Suggested auxiliary name: residual_conductor_potentially_multiplicative
+Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E). For additive potentially multiplicative reduction and odd ℓ, a(E[ℓ])=f(E).
+Hypotheses: Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good
+Prototype section: ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell
+Suggested auxiliary name: residual_conductor_potentially_good
+Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E). For additive potentially good reduction, if ℓ does not divide the order of the ℓ-adic inertia image, a(E[ℓ])=f(E). This condition holds for ℓ≥5.
+Hypotheses: Let E/K be elliptic over a nonarchimedean local field of residue characteristic p, and ℓ≠p prime. E[ℓ] is the reduction of T_ℓE; its Swan conductor equals δ(E).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/rational-lines-of-a-split-nonscalar-element
+Prototype section: ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible
+Suggested auxiliary name: rational_lines_of_a_split_nonscalar_element
+Let k be a field and ρ:Γ→GL₂(k) a representation. If ρ(Γ) contains a nonscalar element whose characteristic polynomial splits over k, every ρ-stable line after arbitrary field extension is defined over k. Hence irreducibility is equivalent to absolute irreducibility.
+Hypotheses: Let k be a field and ρ:Γ→GL₂(k) a representation.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/absolute-irreducibility-from-dyadic-conjugation
+Prototype section: ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible
+Suggested auxiliary name: absolute_irreducibility_from_dyadic_conjugation
+Let k be a field and ρ:Γ→GL₂(k) a representation. In characteristic two, for Γ=G_F, if ρ(c_v)≠1 at a real place, irreducibility implies absolute irreducibility. Without this condition the irreducible C₃-representation on F₂² becomes reducible over F₄.
+Hypotheses: Let k be a field and ρ:Γ→GL₂(k) a representation.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images
+Prototype section: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
+Suggested auxiliary name: conjugacy_of_standard_projective_images
+Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄. For q=p^r≥4, subgroups isomorphic to PSL₂(F_q), respectively PGL₂(F_q), form one conjugacy class in PGL₂(k̄). In characteristics two and five, A₅ is conjugate to PSL₂(F₄), respectively PSL₂(F₅).
+Hypotheses: Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field
+Prototype section: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
+Suggested auxiliary name: projective_image_and_its_coefficient_field
+Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄. If G⊂GL₂(k), k finite, acts absolutely irreducibly on k̄², its projective image is noncyclic, fixes no point, and is dihedral, exceptional, or conjugate to PSL₂(F₀) or PGL₂(F₀). In the last case F₀⊂k is generated by tr(g)²/det(g), g∈G.
+Hypotheses: Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field
+Prototype section: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
+Suggested auxiliary name: linear_image_over_the_projective_trace_field
+Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄. Let G⊂GL₂(k̄) be finite. If the projective image of G is conjugate to PSL₂(F₀) or PGL₂(F₀), #F₀≥4, then after conjugation [G,G]=SL₂(F₀) and G⊂k̄ˣ·GL₂(F₀). Conversely containment of SL₂(F₁), #F₁≥4, forces a standard projective image over F₀⊃F₁.
+Hypotheses: Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image
+Prototype section: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
+Suggested auxiliary name: dyadic_solvable_projective_image
+Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄. For p=2 a finite irreducible solvable G⊂GL₂(k̄) has dihedral projective image of order 2n with n odd at least three.
+Hypotheses: Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image
+Prototype section: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
+Suggested auxiliary name: dyadic_nonsolvable_projective_image
+Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄. For p=2 a finite irreducible nonsolvable G⊂GL₂(k̄) has projective image conjugate to PSL₂(F_{2^r})=PGL₂(F_{2^r}) for r≥2.
+Hypotheses: Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion
+Prototype section: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
+Suggested auxiliary name: large_order_projective_image_criterion
+Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄. Let G⊂GL₂(k̄) be finite. For absolutely irreducible G⊂GL₂(k̄), an element of projective order greater than five excludes A₄,S₄,A₅. Under this order hypothesis, if G is solvable its projective image is dihedral. Under the same hypothesis, if G is outside every torus normaliser, it contains a conjugate of SL₂(F_p).
+Hypotheses: Let p be prime, k̄=F̄_p, and π:GL₂(k̄)→PGL₂(k̄). Finite-field subgroups are regarded inside k̄.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/prime-to-ell-subgroups-of-gl2
+Prototype section: ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field
+Suggested auxiliary name: prime_to_ell_subgroups_of_gl2
+Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V). If ℓ∤#G, its projective image is cyclic, dihedral, A₄,S₄ or A₅. Cyclic and dihedral cases put G respectively in a Cartan or its normaliser. A₅ requires ℓ≡±1 mod5; at ℓ=2,3 only cyclic and dihedral cases occur.
+Hypotheses: Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/semisimple-subgroups-over-a-prime-field
+Prototype section: ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field
+Suggested auxiliary name: semisimple_subgroups_over_a_prime_field
+Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V). If G acts semisimply on V, it contains SL(V), lies in a Cartan, lies in a Cartan normaliser, or has projective image A₄,S₄,A₅. A reducible semisimple image lies in a split Cartan.
+Hypotheses: Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/subgroup-containing-a-cartan
+Prototype section: ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field
+Suggested auxiliary name: subgroup_containing_a_cartan
+Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V). If G contains a Cartan or a split half-Cartan, with ℓ≠5 in the split cases, then G=GL(V), lies in a Borel, or lies in a Cartan normaliser.
+Hypotheses: Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.4/normal-subgroup-containing-a-cartan
+Prototype section: ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field
+Suggested auxiliary name: normal_subgroup_containing_a_cartan
+Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V). If ℓ≠2, G is normal in GL(V), and contains a Cartan or split half-Cartan, then G=GL(V).
+Hypotheses: Let ℓ be prime, V a two-dimensional F_ℓ-space and G⊂GL(V).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level
+Prototype section: ArithmeticGaloisRepresentations:R01.5/frobenius-density
+Suggested auxiliary name: frobenius_density_finite_level
+Let K be a number field, G_K its absolute Galois group with the Krull topology, and Σ a set of finite places of Dirichlet density one. Frobenius means arithmetic Frobenius, with all places above v allowed. For U open normal in G_K and g∈G_K, the v∈Σ unramified in L=K̄^U for which some w|v has every Frobenius lift in gU have Dirichlet density #C/[G_K:U]>0, where C is the conjugacy class of gU.
+Hypotheses: Let K be a number field, G_K its absolute Galois group with the Krull topology, and Σ a set of finite places of Dirichlet density one. Frobenius means arithmetic Frobenius, with all places above v allowed.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/frobenius-density-image
+Prototype section: ArithmeticGaloisRepresentations:R01.5/frobenius-density
+Suggested auxiliary name: frobenius_density_image
+Let K be a number field, G_K its absolute Galois group with the Krull topology, and Σ a set of finite places of Dirichlet density one. Frobenius means arithmetic Frobenius, with all places above v allowed. If φ:G_K→H is a continuous homomorphism into a Hausdorff group and φ(I_w)=1 above every v∈Σ, the well-defined φ(Frob_w) are dense in the compact subgroup φ(G_K). Two continuous maps from φ(G_K) to a Hausdorff space that agree on these images agree everywhere.
+Hypotheses: Let K be a number field, G_K its absolute Galois group with the Krull topology, and Σ a set of finite places of Dirichlet density one. Frobenius means arithmetic Frobenius, with all places above v allowed.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius
+Prototype section: ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius
+Suggested auxiliary name: forall_image_of_forall_frobenius
+Let K be a number field, φ:G_K→H a continuous map to a finite discrete group, S its finite ramification set, and T any finite set of places. Any property holding at φ(Frob_w) for every w above every v outside a finite exceptional set holds on every element of φ(G_K).
+Hypotheses: Let K be a number field, φ:G_K→H a continuous map to a finite discrete group, S its finite ramification set, and T any finite set of places.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors
+Prototype section: ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols
+Suggested auxiliary name: multiquadratic_sign_vectors
+Let d₁,…,dᵣ be nonzero integers and εᵢ∈{±1}, and put M=Q(√d₁,…,√dᵣ). An automorphism σ of M/Q with σ(√dᵢ)=εᵢ√dᵢ exists iff every square subproduct ∏_{i∈J}dᵢ has ∏_{i∈J}εᵢ=1. The degree [M:Q] equals the order of the subgroup of Qˣ/Qˣ² generated by the dᵢ.
+Hypotheses: Let d₁,…,dᵣ be nonzero integers and εᵢ∈{±1}, and put M=Q(√d₁,…,√dᵣ).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/recognition-on-a-dense-subset
+Prototype section: ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent
+Suggested auxiliary name: recognition_on_a_dense_subset
+Let Γ be profinite, E₁,E₂ topological fields with continuous embeddings into a common Hausdorff topological field E, and ρᵢ continuous n-dimensional representations. Write Wᵢ=Vᵢ⊗_{Eᵢ}E. If their characteristic polynomials agree in E[X] on a dense subset D⊂Γ, then W₁ˢˢ≅W₂ˢˢ. If both Wᵢ are semisimple, W₁≅W₂.
+Hypotheses: Let Γ be profinite, E₁,E₂ topological fields with continuous embeddings into a common Hausdorff topological field E, and ρᵢ continuous n-dimensional representations. Write Wᵢ=Vᵢ⊗_{Eᵢ}E.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/recognition-by-traces
+Prototype section: ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent
+Suggested auxiliary name: recognition_by_traces
+Let Γ be profinite, E₁,E₂ topological fields with continuous embeddings into a common Hausdorff topological field E, and ρᵢ continuous n-dimensional representations. Write Wᵢ=Vᵢ⊗_{Eᵢ}E. If n! is invertible in E, equality of traces on D suffices for W₁ˢˢ≅W₂ˢˢ; for G_K take the Frobenius images over a density-one unramified set.
+Hypotheses: Let Γ be profinite, E₁,E₂ topological fields with continuous embeddings into a common Hausdorff topological field E, and ρᵢ continuous n-dimensional representations. Write Wᵢ=Vᵢ⊗_{Eᵢ}E.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/rank-two-trace-determinant-identities
+Prototype section: ArithmeticGaloisRepresentations:R01.5/rank-two-trace-and-determinant-comparison
+Suggested auxiliary name: rank_two_trace_determinant_identities
+Let A be a commutative ring, Γ a group, and ρ:Γ→GL₂(A). Put T=tr∘ρ and δ=det∘ρ. Then δ:Γ→Aˣ is a homomorphism, T(1)=2, T(gh)=T(hg), and δ(g)T(g⁻¹h)−T(g)T(h)+T(gh)=0 for all g,h.
+Hypotheses: Let A be a commutative ring, Γ a group, and ρ:Γ→GL₂(A). Put T=tr∘ρ and δ=det∘ρ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/rank-two-recognition
+Prototype section: ArithmeticGaloisRepresentations:R01.5/rank-two-trace-and-determinant-comparison
+Suggested auxiliary name: rank_two_recognition
+Let A be a commutative ring, Γ a group, and ρ:Γ→GL₂(A). Put T=tr∘ρ and δ=det∘ρ. If A is Hausdorff, Γ is topological, and two continuous representations have equal trace and determinant on a dense subset, they have equal characteristic polynomials and determinant laws everywhere. If A is a field, their semisimplifications are isomorphic. Over G_K a density-one unramified Frobenius set suffices.
+Hypotheses: Let A be a commutative ring, Γ a group, and ρ:Γ→GL₂(A). Put T=tr∘ρ and δ=det∘ρ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/surjectivity-onto-product-of-endomorphism-algebras
+Prototype section: ArithmeticGaloisRepresentations:R01.5/absolutely-irreducible-determined-by-trace
+Suggested auxiliary name: surjectivity_onto_product_of_endomorphism_algebras
+Let k be a field and ρ₁,…,ρᵣ pairwise nonisomorphic finite-dimensional absolutely irreducible k-representations of a group Γ. The map k[Γ]→∏_i End_k(V_i) is surjective.
+Hypotheses: Let k be a field and ρ₁,…,ρᵣ pairwise nonisomorphic finite-dimensional absolutely irreducible k-representations of a group Γ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/linear-independence-of-absolutely-irreducible-characters
+Prototype section: ArithmeticGaloisRepresentations:R01.5/absolutely-irreducible-determined-by-trace
+Suggested auxiliary name: linear_independence_of_absolutely_irreducible_characters
+Let k be a field and ρ₁,…,ρᵣ pairwise nonisomorphic finite-dimensional absolutely irreducible k-representations of a group Γ. The functions trρ_i:Γ→k are linearly independent over k.
+Hypotheses: Let k be a field and ρ₁,…,ρᵣ pairwise nonisomorphic finite-dimensional absolutely irreducible k-representations of a group Γ.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-constituent
+Prototype section: ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure
+Suggested auxiliary name: image_algebra_of_a_constituent
+Let k be perfect, W a finite-dimensional simple k[Γ]-module, and B its image algebra. Write B=M_a(Δ), Z=centre(Δ), [Δ:Z]=s² and m=as. For each τ the trace field of ρ_τ is τ(Z), its central simple image algebra is B⊗_{Z,τ}τ(Z), and its Schur index is s.
+Hypotheses: Let k be perfect, W a finite-dimensional simple k[Γ]-module, and B its image algebra. Write B=M_a(Δ), Z=centre(Δ), [Δ:Z]=s² and m=as.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation
+Prototype section: ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure
+Suggested auxiliary name: simple_module_of_an_irreducible_representation
+Let k be perfect, W a finite-dimensional simple k[Γ]-module, and B its image algebra. Write B=M_a(Δ), Z=centre(Δ), [Δ:Z]=s² and m=as. Conversely an absolutely irreducible ρ over k̄ with finite trace field over k belongs to the scalar extension of a unique simple k[Γ]-module W_ρ. The simple modules over k correspond to the Galois orbits of such ρ.
+Hypotheses: Let k be perfect, W a finite-dimensional simple k[Γ]-module, and B its image algebra. Write B=M_a(Δ), Z=centre(Δ), [Δ:Z]=s² and m=as.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/galois-action-on-constituents
+Prototype section: ArithmeticGaloisRepresentations:R01.5/descent-obstruction
+Suggested auxiliary name: galois_action_on_constituents
+Let k be perfect, k̄ an algebraic closure, and ρ a finite-dimensional semisimple representation over k̄ whose irreducible constituents have finite trace fields over k. The characteristic polynomials of ρ lie in k iff Gal(k̄/k) preserves its multiset of irreducible constituents, including multiplicities.
+Hypotheses: Let k be perfect, k̄ an algebraic closure, and ρ a finite-dimensional semisimple representation over k̄ whose irreducible constituents have finite trace fields over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible
+Prototype section: ArithmeticGaloisRepresentations:R01.5/descent-obstruction
+Suggested auxiliary name: descent_obstruction_absolutely_irreducible
+Let k be perfect, k̄ an algebraic closure, and ρ a finite-dimensional semisimple representation over k̄ whose irreducible constituents have finite trace fields over k. For an absolutely irreducible ρ with trace field k, a k-form exists iff β(ρ)=1 in Br(k). For an extension L/k inside k̄, an L-form exists iff β(ρ) maps to 1 in Br(L).
+Hypotheses: Let k be perfect, k̄ an algebraic closure, and ρ a finite-dimensional semisimple representation over k̄ whose irreducible constituents have finite trace fields over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form
+Prototype section: ArithmeticGaloisRepresentations:R01.5/descent-obstruction
+Suggested auxiliary name: descent_obstruction_determinant_form
+Let k be perfect, k̄ an algebraic closure, and ρ a finite-dimensional semisimple representation over k̄ whose irreducible constituents have finite trace fields over k. For a k-valued determinant D attached to ρ, the Chenevier 2.16 factorisation is D=∏_O N_{Z_O/k}∘Nrd_{S_O/Z_O}^{m_O}, with one factor for each constituent orbit O and S_O its central simple image algebra. This records determinant descent even when the representation has no k-form.
+Hypotheses: Let k be perfect, k̄ an algebraic closure, and ρ a finite-dimensional semisimple representation over k̄ whose irreducible constituents have finite trace fields over k.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/residual-realisability-over-frobenius-field
+Prototype section: ArithmeticGaloisRepresentations:R01.5/finite-field-realisability
+Suggested auxiliary name: residual_realisability_over_frobenius_field
+Let k⊂k′ be finite fields and Γ profinite. For continuous semisimple ρ:G_K→GL_n(F̄_p), let k be generated over F_p by the coefficients of its unramified Frobenius polynomials. Then k is finite and ρ is the base change of a continuous k-representation.
+Hypotheses: Let k⊂k′ be finite fields and Γ profinite.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-semisimple-representation
+Prototype section: ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent
+Suggested auxiliary name: image_algebra_of_a_semisimple_representation
+Let M be a characteristic-zero field, M̄ its algebraic closure and r:Γ→GL_n(M̄) semisimple with traces in M. The M-span B of r(Γ) is a finite-dimensional semisimple M-algebra and B⊗_M M̄ maps isomorphically to the M̄-span B_{M̄} of r(Γ).
+Hypotheses: Let M be a characteristic-zero field, M̄ its algebraic closure and r:Γ→GL_n(M̄) semisimple with traces in M.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent-continuous
+Prototype section: ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent
+Suggested auxiliary name: rational_eigenvalue_descent_continuous
+Let M be a characteristic-zero field, M̄ its algebraic closure and r:Γ→GL_n(M̄) semisimple with traces in M. Under the distinct-rational-eigenvalue hypothesis of R01.5/rational-eigenvalue-descent, if Γ is profinite, M is a coefficient field and r is continuous, its M-form is continuous and admits a stable O_M-lattice.
+Hypotheses: Let M be a characteristic-zero field, M̄ its algebraic closure and r:Γ→GL_n(M̄) semisimple with traces in M.; Γ is profinite and the distinct-rational-eigenvalue hypothesis supplies the M-form.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/additive-haar-invariant-under-units
+Prototype section: ArithmeticGaloisRepresentations:R01.5/haar-measure-on-open-subgroups-of-gl-n
+Suggested auxiliary name: additive_haar_invariant_under_units
+Let A be a compact Hausdorff topological ring with additive Haar probability μ⁺. Left and right multiplication by any unit preserve μ⁺.
+Hypotheses: Let A be a compact Hausdorff topological ring with additive Haar probability μ⁺.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/unit-group-of-a-compact-ring
+Prototype section: ArithmeticGaloisRepresentations:R01.5/haar-measure-on-open-subgroups-of-gl-n
+Suggested auxiliary name: unit_group_of_a_compact_ring
+Let A be a compact Hausdorff topological ring with additive Haar probability μ⁺. The unit group Aˣ is compact, and its inclusion into A identifies its topology with the subspace topology.
+Hypotheses: Let A be a compact Hausdorff topological ring with additive Haar probability μ⁺.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/additive-measure-of-gl-n-of-integers
+Prototype section: ArithmeticGaloisRepresentations:R01.5/haar-measure-on-open-subgroups-of-gl-n
+Suggested auxiliary name: additive_measure_of_gl_n_of_integers
+Let A be a compact Hausdorff topological ring with additive Haar probability μ⁺. For A=M_n(O_E), residue field size q, μ⁺(GL_n(O_E))=∏_{i=1}^n(1−q⁻ⁱ).
+Hypotheses: Let A be a compact Hausdorff topological ring with additive Haar probability μ⁺.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/polynomial-zero-sets-in-open-subgroups-of-gl-n
+Prototype section: ArithmeticGaloisRepresentations:R01.5/polynomial-zero-sets-are-haar-null
+Suggested auxiliary name: polynomial_zero_sets_in_open_subgroups_of_gl_n
+Let A be a compact Hausdorff second-countable topological integral domain with no isolated points, and use additive Haar probability. For O_E and G open in GL_n(O_E), a nonzero polynomial over E has Haar-null zero set on G. Hence a polynomial vanishing on a positive-measure subset of G is zero, and a polynomial not identically zero on G has null zero set there.
+Hypotheses: Let A be a compact Hausdorff second-countable topological integral domain with no isolated points, and use additive Haar probability.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen
+Prototype section: ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev
+Suggested auxiliary name: haar_measure_chebotarev_clopen
+Let K be a number field, ρ:G_K→G a continuous surjection to a profinite group, unramified outside a finite set S, and μ=TauCeti.haarProb G. For conjugation-stable C⊂G put Σ_C={v∉S:ρ(Frob_v)∈C}. If C is open and closed, Σ_C has both Dirichlet and natural density μ(C).
+Hypotheses: Let K be a number field, ρ:G_K→G a continuous surjection to a profinite group, unramified outside a finite set S, and μ=TauCeti.haarProb G. For conjugation-stable C⊂G put Σ_C={v∉S:ρ(Frob_v)∈C}.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null
+Prototype section: ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev
+Suggested auxiliary name: haar_measure_chebotarev_boundary_null
+Let K be a number field, ρ:G_K→G a continuous surjection to a profinite group, unramified outside a finite set S, and μ=TauCeti.haarProb G. For conjugation-stable C⊂G put Σ_C={v∉S:ρ(Frob_v)∈C}. If μ(∂C)=0, Σ_C has Dirichlet density μ(C).
+Hypotheses: Let K be a number field, ρ:G_K→G a continuous surjection to a profinite group, unramified outside a finite set S, and μ=TauCeti.haarProb G. For conjugation-stable C⊂G put Σ_C={v∉S:ρ(Frob_v)∈C}.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero
+Prototype section: ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev
+Suggested auxiliary name: polynomial_conditions_on_frobenius_have_density_zero
+Let K be a number field, ρ:G_K→G a continuous surjection to a profinite group, unramified outside a finite set S, and μ=TauCeti.haarProb G. For conjugation-stable C⊂G put Σ_C={v∉S:ρ(Frob_v)∈C}. For G open in GL_n(O_E), a polynomial f on M_n(E) that is conjugation invariant and does not vanish identically on G defines a density-zero set of Frobenius places. If f is not invariant, the closed null set ∩_{h∈G}h{f=0}h⁻¹ gives the statement for entire conjugacy classes.
+Hypotheses: Let K be a number field, ρ:G_K→G a continuous surjection to a profinite group, unramified outside a finite set S, and μ=TauCeti.haarProb G. For conjugation-stable C⊂G put Σ_C={v∉S:ρ(Frob_v)∈C}.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/carayol-symplectic
+Prototype section: ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition
+Suggested auxiliary name: carayol_symplectic
+Let R be a complete Noetherian local ring with finite residue field k and maximal ideal m, Γ profinite, and r,r′:Γ→GL_d(R) continuous lifts of the same absolutely irreducible residual representation. If r,r′ take values in GSp_{2a}(R) for the same alternating form J and multiplier ν, the strict conjugator belongs to ker(GSp_{2a}(R)→GSp_{2a}(k)).
+Hypotheses: Let R be a complete Noetherian local ring with finite residue field k and maximal ideal m, Γ profinite, and r,r′:Γ→GL_d(R) continuous lifts of the same absolutely irreducible residual representation.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/carayol-gluing
+Prototype section: ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition
+Suggested auxiliary name: carayol_gluing
+Let R be a complete Noetherian local ring with finite residue field k and maximal ideal m, Γ profinite, and r,r′:Γ→GL_d(R) continuous lifts of the same absolutely irreducible residual representation. Let a_j be decreasing open ideals forming a neighbourhood basis of zero. Continuous lifts r_j over R/a_j with prescribed degree-d polynomials P_γ mod a_j on a fixed dense set can be strictly conjugated to a compatible system, which glues to a continuous lift over R, unique up to strict conjugacy. For GSp impose the same form and multiplier at each level.
+Hypotheses: Let R be a complete Noetherian local ring with finite residue field k and maximal ideal m, Γ profinite, and r,r′:Γ→GL_d(R) continuous lifts of the same absolutely irreducible residual representation.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/frobenius-annihilation-extends
+Prototype section: ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria
+Suggested auxiliary name: frobenius_annihilation_extends
+Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified. Then P_ρ(g)(s(g))=0 for every g∈G_Q and on the Zariski closure of (ρ,s)(G_Q).
+Hypotheses: Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-sp4
+Prototype section: ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria
+Suggested auxiliary name: gsp4_semisimplicity_sp4
+Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified. If the Zariski closure of ρ(G_Q) contains Sp₄, then s≅ρ^{⊕m} for m≥1.
+Hypotheses: Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-induced-constituents
+Prototype section: ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria
+Suggested auxiliary name: gsp4_semisimplicity_induced_constituents
+Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified. If the Zariski closure contains SL₂×SL₂ and ρ is absolutely irreducible but reducible on an index-two G_E, write ρ|_{G_E}=ϱ⊕ϱᶜ. Every irreducible subquotient of s|_{G_E} is ϱ or ϱᶜ.
+Hypotheses: Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-no-self-extensions
+Prototype section: ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria
+Suggested auxiliary name: gsp4_semisimplicity_no_self_extensions
+Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified. Under the induced-monodromy hypotheses, s|_{G_E} contains no nonsplit self-extension of ϱ or ϱᶜ.
+Hypotheses: Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/asai-eigenvalues-off-the-subgroup
+Prototype section: ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria
+Suggested auxiliary name: asai_eigenvalues_off_the_subgroup
+Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified. In the induced case let ν be the similitude character, so detϱ=ν|_{G_E}. For g∉G_E, the characteristic polynomial on A=Asai(ϱ)⊗ν⁻¹ is (X²−1)(X²−tX+1), t=trϱ(g²)/ν(g). Its eigenvalues are 1,−1,λ,λ⁻¹, with multiplicities.
+Hypotheses: Let p be prime, ρ:G_Q→GSp₄(Q̄_p), s:G_Q→GL_n(Q̄_p) continuous, n≥1, and assume P_ρ(Frob_l)(s(Frob_l))=0 on a density-one set of primes where both are unramified.
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/potentially-abelian-restriction
+Prototype section: ArithmeticGaloisRepresentations:R01.5/potentially-abelian-representations
+Suggested auxiliary name: potentially_abelian_restriction
+Let F be a field, E algebraically closed of characteristic zero, ρ:G_F→GL_n(E) continuous irreducible, and L/F finite Galois with abelian ρ(G_L). The restriction is ⊕_{i=1}^bχ_i^{⊕a}, ab=n, with distinct continuous characters forming one Gal(L/F)-orbit for χ^σ(h)=χ(σ̃hσ̃⁻¹).
+Hypotheses: Let F be a field, E algebraically closed of characteristic zero, ρ:G_F→GL_n(E) continuous irreducible, and L/F finite Galois with abelian ρ(G_L).
+-/
+
+/- ArithmeticGaloisRepresentations:R01.5/potentially-abelian-scalar-case
+Prototype section: ArithmeticGaloisRepresentations:R01.5/potentially-abelian-representations
+Suggested auxiliary name: potentially_abelian_scalar_case
+Let F be a field, E algebraically closed of characteristic zero, ρ:G_F→GL_n(E) continuous irreducible, and L/F finite Galois with abelian ρ(G_L). For the given L, b=1 iff ρ(G_L) consists of scalars, which implies finite projective image. Conversely finite projective image gives b=1 for L chosen as the fixed field of its kernel.
+Hypotheses: Let F be a field, E algebraically closed of characteristic zero, ρ:G_F→GL_n(E) continuous irreducible, and L/F finite Galois with abelian ρ(G_L).
+-/
