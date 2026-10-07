@@ -1,0 +1,11 @@
+# Handoff: REV-RelativeFarguesFontaine--RF0
+
+Completed independent review, verdict **needs_changes**, by Codex session `codex-5DwsAv`, issue #482, 7 October 2026. This is not a checkpoint. No second job was claimed.
+
+The report and packet `review.checked` cover all73 nodes: 41 verified, 13 corrected, 19 unverifiable. Clear source, API, direct-dependency and Lean fixes are already applied. All26 baseline declarations were read at their pins. The packet remains complete with eight planned and zero closed stages; honest supplier gaps are preserved. Four additional source findings E11–E14 are recorded; 13 of14 findings confirmed, E3 rejected.
+
+Resume with the 19 unverifiable entries in `research/blueprint/packets/RelativeFarguesFontaine--RF0.json` and the required-revision section of `research/blueprint/reviews/REV-RelativeFarguesFontaine--RF0.md`. Resolve the concrete algebraic signature and discriminating-test failures, then obtain a fresh independent review. Do not promote this packet on this verdict. The reader was read-only in this review; its exact synchronization instructions are in the report. Use an authorized revision job to update it.
+
+Supplier work remains requested, particularly non-adic coefficient completion at R0, integral criterion at P1, corrected perfectoid tensor input at P3, ordinary module descent extending D3, pre-adic objects extending D6, and LocalFields PartII LT/logarithm. Early all-E degree reconstruction must not import later Pic/BC classification circularly.
+
+Validation: blueprint checker zero errors/warnings; embedded source issue/version validation passes; API/test name coverage passes. lean-check exits0 with only sorry warnings. Shared Mathlib is exactly pinned; shared Tau HEAD differs, but all14 Tau files in the imported dependency cone are byte-identical to f790474. Do not describe this as a build from the exact Tau checkout. Hansen–Kedlaya §7 was readable in the public indexed PDF, but its direct binary fetch was HTTP406, so its hash was not revalidated. Publisher samples/full-text access limits and all public source URLs/versions are preserved in the report/packet. Scratch is disposable; nothing needed for revision exists only there.
