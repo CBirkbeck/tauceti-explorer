@@ -57,14 +57,17 @@ Conventions of the prototype.
 * Hecke algebras are Mathlib's `HeckeRing (⊤ : Submonoid Gf) K R` with Tau Ceti's convolution
   ring structure; the prime-to-`S` restriction of the document is suppressed.
 * Unit tests appear as `example`s preceded by `-- test: <name>`.
-* Elaboration: the shared build at the pins used for checking contains Mathlib but not Tau Ceti's
-  `NumberTheory/HeckeRing` and `AlgebraicTopology` modules, so this file imports Mathlib only:
-  Tau Ceti's `LocalCoefficientSystem` (an abbreviation for functors from the fundamental groupoid
-  to `ModuleCat R`) is written out, and its Hecke ring structure is supplied by a marked stand-in
-  instance. The file elaborates with `sorry` as its only warning (lean-check, 7 October 2026).
-* Thirty-seven declarations (listed in the handoff note) are name-only placeholders whose Lean
-  statement is `True`: the roadmap document states them in full, and their Lean signatures are
-  the first refinement for a follow-up.
+* Independent review REV-ArithmeticLocallySymmetricSpaces (7 October 2026): `needs_changes`.
+  This file imports Mathlib only, expands Tau Ceti's local-coefficient alias and supplies a
+  stand-in Hecke ring instance. The protocol requires the actual pinned Tau Ceti imports.
+  The available shared build has the exact Mathlib pin but Tau Ceti commit cf386627, rather
+  than f790474; it was not compiled in this review, as WORKERS.md requires a build at both pins.
+  The preceding author's elaboration claim is not independent pinned validation.
+* There are ten named declarations with conclusion `True`, 27 `True` examples, and two further
+  existential-`True` declarations. These are unresolved signature/test obligations, not the
+  packet's mathematical statements. Several other signatures are weaker than, or contradict,
+  the packet (see the review report). The reader also requires reconciliation with the
+  corrected packet in a revision authorized to edit it.
 -/
 
 open CategoryTheory MonoidalCategory
@@ -84,8 +87,8 @@ namespace LocallySymmetric
 
 /-- Stand-in for Tau Ceti's `HeckeCosetModule.instRingHeckeRing`
 (`TauCeti/NumberTheory/HeckeRing/Associativity.lean`): the convolution ring structure on the
-Hecke ring. The shared build used to elaborate this file does not contain that Tau Ceti module;
-with it available, delete this stand-in and import the module. -/
+Hecke ring. This stand-in is not a validation of the pinned convolution API. The revision must
+import the pinned Tau Ceti module and delete this instance. -/
 instance heckeRingStandIn {G : Type*} [Group G] {Δ : Submonoid G} {H : Subgroup G}
     [IsHeckeTriple Δ H H] {R : Type*} [CommRing R] : Ring (HeckeRing Δ H R) := sorry
 
@@ -346,6 +349,8 @@ theorem component_decomposition (K : Subgroup D.Gf) (reps : Finset D.Gf)
       Quotient (MulAction.orbitRel (arithmeticSubgroup K (r : D.Gf)) D.X)) := sorry
 
 /-- `proper-action-stabilizers`: the arithmetic subgroups act properly discontinuously. -/
+-- REVIEW: arbitrary Datum permits GF = ℤ, Gf = 1, X = point, contradicting this signature.
+-- Supply the actual arithmetic datum and the properness theorem before using it.
 theorem properlyDiscontinuous_arithmeticSubgroup (K : Subgroup D.Gf) (g : D.Gf)
     (hK : IsCompact (K : Set D.Gf)) (hKo : IsOpen (K : Set D.Gf)) :
     ProperlyDiscontinuousSMul (arithmeticSubgroup K g) D.X := sorry
@@ -403,6 +408,8 @@ def gamma0 (c : ℕ) : Subgroup (GL (Fin 2) O) where
   inv_mem' := sorry
 
 /-- `Γ₁(𝔪^c)`: additionally the lower-right entry is `1` modulo `𝔪^c`. -/
+-- REVIEW: this GL₂ condition is not the projective Γ₁ preimage of the packet,
+-- which requires the two diagonal entries to agree modulo the level.
 def gamma1 (c : ℕ) : Subgroup (GL (Fin 2) O) where
   carrier := {g | (g : Matrix (Fin 2) (Fin 2) O) 1 0 ∈ IsLocalRing.maximalIdeal O ^ c ∧
     (g : Matrix (Fin 2) (Fin 2) O) 1 1 - 1 ∈ IsLocalRing.maximalIdeal O ^ c}
@@ -833,6 +840,8 @@ variable {G : Type} [Group G] (U : Subgroup G) [IsHeckeTriple (⊤ : Submonoid G
 @[instance_reducible] def invariantsModule {M : Type} [AddCommGroup M] (ρ : Representation ℤ G M) :
     Module (HeckeRing (⊤ : Submonoid G) U ℤ) (Representation.invariants (ρ.comp U.subtype)) := sorry
 
+-- REVIEW: hreps must also specify disjoint cosets; distinct group elements can
+-- represent the same coset, so the current sum overcounts.
 theorem smul_eq_trace {M : Type} [AddCommGroup M] (ρ : Representation ℤ G M) (g : G)
     (reps : Finset G)
     (hreps : ∀ x : G, x ∈ DoubleCoset.doubleCoset g (U : Set G) (U : Set G) ↔
@@ -1071,6 +1080,7 @@ def integrateUnipotent :
 def satakeUnnormalized : HeckeRing (⊤ : Submonoid G) U ℤ →+* HeckeRing (⊤ : Submonoid M) UM ℤ :=
   (integrateUnipotent U P M UM).comp (restrictParabolic U P)
 
+-- REVIEW: arbitrary δinv and existential t do not state the positive-element basis formula.
 theorem satakeUnnormalized_basis (m : M) (δinv : ℕ) :
     ∃ t, satakeUnnormalized U P M UM t =
       HeckeCosetModule.of (Finsupp.single (HeckeCoset.mk UM UM ⟨m, Submonoid.mem_top m⟩) (δinv : ℤ)) := sorry
@@ -1079,6 +1089,8 @@ theorem satake_compat_normalized : True := trivial
 
 theorem parabolicInduction_invariants : True := trivial
 
+-- REVIEW: this arithmetic equality does not test Satake. The corrected packet has
+-- S(Tp) = p[diag(p,1)] + [diag(1,p)] for integration f(tn), vol(N(ℤp)) = 1.
 -- test: satake_GL2_Tp
 example (p : ℤ) : (1 : ℤ) + p = p + 1 := add_comm _ _
 
@@ -1111,6 +1123,8 @@ theorem heckeLocalize.heckeAlgebra (C : DerivedCategory (ModuleCat.{u} O)) (T : 
     (e : T) (he : IsIdempotentElem e) :
     ∃ φ : T →+* End (heckeLocalize O C T e he), ∀ t, φ (e * t) = φ t := sorry
 
+-- REVIEW: the output triangle must have the localized vertices and maps, including δ;
+-- the current conclusion is satisfied by an unrelated zero triangle.
 theorem heckeLocalize.triangle (C₁ C₂ C₃ : DerivedCategory (ModuleCat.{u} O))
     (f : C₁ ⟶ C₂) (g : C₂ ⟶ C₃) (δ : C₃ ⟶ C₁⟦(1 : ℤ)⟧)
     (hT : Pretriangulated.Triangle.mk f g δ ∈ distTriang _) (e₁ : End C₁) (e₂ : End C₂)
@@ -1205,6 +1219,8 @@ def dualityPairing (i : ℕ) : Hc i →ₗ[k] H (d - i) →ₗ[k] k := sorry
 /-- The relative pairing on `(X̄_K, ∂X̄_K)`. -/
 def dualityPairing_relative (i : ℕ) : Hc i →ₗ[k] H (d - i) →ₗ[k] k := sorry
 
+-- REVIEW: arbitrary H and Hc need not have equal complementary dimensions. State
+-- the geometric duality hypotheses and use integer degrees (or require i ≤ d).
 theorem dualityPairing_perfect [∀ i, FiniteDimensional k (Hc i)] [∀ i, FiniteDimensional k (H i)]
     (i : ℕ) : Function.Bijective (dualityPairing k Hc H d i) := sorry
 
@@ -1237,10 +1253,14 @@ variable (k : Type) [Field k] (Hstar : Type) [AddCommGroup Hstar] [Module k Hsta
 /-- Cuspidal cohomology as a subspace of `H^*(X_K, V)`. -/
 def cuspidalCohomology : Submodule k Hstar := sorry
 
+-- REVIEW: an arbitrary map with prescribed image need not admit an injection
+-- from the same domain; this is not the arithmetic cuspidal injectivity theorem.
 theorem cuspidalCohomology_injective (Hcusp : Type) [AddCommGroup Hcusp] [Module k Hcusp]
     (ι : Hcusp →ₗ[k] Hstar) (hι : LinearMap.range ι = cuspidalCohomology k Hstar) :
     ∃ ι' : Hcusp →ₗ[k] Hstar, Function.Injective ι' ∧ LinearMap.range ι' = LinearMap.range ι := sorry
 
+-- REVIEW: Hint is arbitrary; choosing ⊥ forces the proposed cuspidal space to vanish.
+-- Define interior cohomology from the actual forget-supports map.
 theorem cuspidalCohomology_le_interior (Hint : Submodule k Hstar) :
     cuspidalCohomology k Hstar ≤ Hint := sorry
 
@@ -1263,6 +1283,7 @@ example : True := trivial
 example (Hint : Submodule k Hstar) : cuspidalCohomology k Hstar ≤ Hint :=
   cuspidalCohomology_le_interior k Hstar Hint
 
+-- REVIEW: the packet requires a replacement example; Saito–Kurokawa lifts are cuspidal CAP.
 -- test: cuspidal_ne_interior
 example : True := trivial
 
