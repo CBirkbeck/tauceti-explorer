@@ -1,6 +1,7 @@
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/GeometricSatakeAndFusion--GS0.md` is definitive.
+This file is not the roadmap and is not exhaustive. The corrected blueprint packet is the mathematical specification for this review.
+The reader document needs synchronization in the next authorized revision;
+see REV-GeometricSatakeAndFusion--GS0.md before treating its older text as definitive.
 These statements suggest Lean forms so contributors and reviewers converge on
 names and signatures. They claim no implementation; implementationStatus is
 unchecked throughout. Proofs and unfinished constructions use `sorry`.
@@ -24,6 +25,10 @@ import Mathlib.RingTheory.WittVector.Defs
 import Mathlib.FieldTheory.Perfect
 import Mathlib.Algebra.Category.Ring.Basic
 import Mathlib.Algebra.Category.ModuleCat.Basic
+import Mathlib.Algebra.Category.ModuleCat.Abelian
+import Mathlib.CategoryTheory.Limits.Shapes.Kernels
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.AlgebraicGeometry.Scheme
 import Mathlib.AlgebraicGeometry.Morphisms.Proper
 import Mathlib.CategoryTheory.Action
@@ -96,8 +101,13 @@ theorem localHeckeAction_unit_stabilizer (G : Type u) [Group G] (H : Subgroup G)
 /-- Unit test `hecke_trivial_group` (degenerate): For the trivial group there is one modification and one automorphism. -/
 example (h : PUnit × PUnit) : h.1 = h.2 := by sorry
 
-/-- Unit test `hecke_identity_automorphisms` (non-example): For the subgroup of all integer additive units encoded multiplicatively, the identity modification retains nontrivial diagonal automorphisms; the quotient is not the orbit set. -/
-example (G : Type u) [Group G] (H : Subgroup G) (h : H) : @SMul.smul (H × H) G (localHeckeAction G H).toSMul (h,h) 1 = 1 := by sorry
+/-- Unit test `hecke_identity_automorphisms` (non-example): For the additive integers encoded multiplicatively, the identity modification retains nontrivial diagonal automorphisms; the quotient is not the orbit set. -/
+example :
+    let H := (⊤ : Subgroup (Multiplicative ℤ))
+    let h : H := ⟨Multiplicative.ofAdd 1, Subgroup.mem_top _⟩
+    (h : Multiplicative ℤ) ≠ 1 ∧
+      @SMul.smul (H × H) (Multiplicative ℤ)
+        (localHeckeAction (Multiplicative ℤ) H).toSMul (h,h) 1 = 1 := by sorry
 
 /-- Unit test `hecke_double_action` (computation): For G=H, (h,1) sends the identity to h, whereas (1,h) sends it to h inverse. -/
 example (G : Type u) [Group G] (h : (⊤ : Subgroup G)) : @SMul.smul (((⊤ : Subgroup G)) × ((⊤ : Subgroup G))) G (localHeckeAction G ⊤).toSMul (h,1) 1 = (h : G) := by sorry
@@ -323,27 +333,47 @@ example (X : AlgebraicGeometry.Scheme.{u}) (oneStepDet : TauCeti.AlgebraicGeomet
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models
 For h>N, the finite-type truncated matrix locus det₀=⋯=det_{N−1}=0 with det_N invertible is a normal complete intersection. The normalized finite-jet quotient supplies Zhu’s canonical weakly normal model Gr′_μ. Compatible transition maps between these models may require Frobenius twists. The canonical Demazure model Gr̃′_N is a smooth projective model obtained from chains of p-divisible groups, with determinant comparison to the product of their Hodge lines.
-Prototype boundary: Finite-type, normalization, model perfection and Frobenius-twisted transition conditions are supplied by SF0/SF1. The typed target carrier and morphisms omit those conditions. The sketch-only Dieudonné comparison is a recorded gap; Conjecture III is not a theorem. -/
-def canonicalWittModel (n N h : ℕ) : AlgebraicGeometry.Scheme.{u} :=
+Prototype boundary: The coefficient input is explicitly a perfect field of characteristic p. Finite-type, normalization, model perfection and Frobenius-twisted transition conditions are supplied by SF0/SF1. The canonical model and its maps use Mathlib Scheme. The sketch-only Dieudonné comparison is a recorded gap; Conjecture III is not a theorem. -/
+def canonicalWittModel (p : ℕ) [Fact p.Prime] (k : Type u)
+    [Field k] [CharP k p] [PerfectRing k p] (n N h : ℕ) : AlgebraicGeometry.Scheme.{u} :=
   by sorry
 
-/-- API: A sufficiently deep finite-jet level has a transition to a shallower canonical model; compatibility can require a Frobenius twist. -/
-def canonicalWittModel_transition (n N h h' : ℕ) (hh : N < h) (hh' : h ≤ h') : canonicalWittModel.{u} n N h' ⟶ canonicalWittModel n N h := by sorry
+/-- API: Canonical models compare across jet depth, after the specified Frobenius twist. -/
+def canonicalWittModel_transition (p : ℕ) [Fact p.Prime] (k : Type u)
+    [Field k] [CharP k p] [PerfectRing k p] (n N h h' : ℕ)
+    (hh : N < h) (hh' : h ≤ h') :
+    canonicalWittModel p k n N h' ⟶ canonicalWittModel p k n N h := by sorry
 
-/-- API: The canonical model is identified with the normalized jet quotient, not an arbitrary scheme having the same perfection. -/
-theorem canonicalWittModel_normalized_quotient (n N h : ℕ) (normalizedJetQuotient : AlgebraicGeometry.Scheme.{u}) : Nonempty (canonicalWittModel n N h ≅ normalizedJetQuotient) := by sorry
+/-- API: The specified normalized jet quotient gives the canonical model. Its geometric identity is omitted. -/
+theorem canonicalWittModel_normalized_quotient (p : ℕ) [Fact p.Prime] (k : Type u)
+    [Field k] [CharP k p] [PerfectRing k p] (n N h : ℕ) (hh : N < h)
+    (normalizedJetQuotient : AlgebraicGeometry.Scheme.{u}) :
+    Nonempty (canonicalWittModel p k n N h ≅ normalizedJetQuotient) := by sorry
 
-/-- API: Its scheme perfection is the specified Witt Schubert bound. -/
-theorem canonicalWittModel_perfection (n N h : ℕ) (perf : AlgebraicGeometry.Scheme.{u} ⥤ AlgebraicGeometry.Scheme.{u}) (bound : AlgebraicGeometry.Scheme.{u}) : Nonempty (perf.obj (canonicalWittModel n N h) ≅ bound) := by sorry
+/-- API: The supplied geometric perfection functor identifies the model with its specified Witt bound. -/
+theorem canonicalWittModel_perfection (p : ℕ) [Fact p.Prime] (k : Type u)
+    [Field k] [CharP k p] [PerfectRing k p] (n N h : ℕ) (hh : N < h)
+    (perf : AlgebraicGeometry.Scheme.{u} ⥤ AlgebraicGeometry.Scheme.{u})
+    (bound : AlgebraicGeometry.Scheme.{u}) :
+    Nonempty (perf.obj (canonicalWittModel p k n N h) ≅ bound) := by sorry
 
-/-- Unit test `canonical_model_zero` (degenerate): The N=0 canonical bound agrees with its point model. -/
-example (n h : ℕ) (point : AlgebraicGeometry.Scheme.{u}) : Nonempty (canonicalWittModel.{u} n 0 h ≅ point) := by sorry
+/-- Unit test `canonical_model_zero` (degenerate): N=0 is the point over the specified perfect field. -/
+example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] [PerfectRing k p]
+    (n h : ℕ) (hh : 0 < h) :
+    Nonempty (canonicalWittModel p k n 0 h ≅
+      AlgebraicGeometry.Spec (CommRingCat.of k)) := by sorry
 
-/-- Unit test `canonical_model_not_choice` (non-example): The comparison fixes the normalized quotient model; sharing a perfection does not specify the canonical model. -/
-example (n N h : ℕ) (quotient : AlgebraicGeometry.Scheme.{u}) : Nonempty (canonicalWittModel n N h ≅ quotient) := by sorry
+/-- Unit test `canonical_model_rank_one` (computation): A GL₁ bound is a single lattice over k. -/
+example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] [PerfectRing k p]
+    (N h : ℕ) (hh : N < h) :
+    Nonempty (canonicalWittModel p k 1 N h ≅
+      AlgebraicGeometry.Spec (CommRingCat.of k)) := by sorry
 
-/-- Unit test `canonical_model_existing_scheme` (compatibility): The canonical model is an ordinary Mathlib Scheme, not a newly invented perfect-scheme carrier. -/
-example (n N h : ℕ) : AlgebraicGeometry.Scheme.{u} := by sorry
+/-- Unit test `canonical_model_not_choice` (non-example): Perfection kills nonzero nilpotents;
+sharing a perfection therefore does not determine an ordinary finite model. -/
+example :
+    let ε : TrivSqZeroExt (ZMod 2) (ZMod 2) := TrivSqZeroExt.inr (R := ZMod 2) (1 : ZMod 2)
+    ε ≠ 0 ∧ ε^2 = 0 := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization
 On Gr_SL_n over the ramified Witt coefficient ring, lattices have determinant trivialization. For a≪0 define L_M as det̃(p^aW_{O_E}(R)^n/M)⊗det̃(p^aW_{O_E}(R)^n/W_{O_E}(R)^n)⁻¹, independent of a. It is ample on every proper bound. Translations differ from L only by a line on the base, giving a G_m-central extension of the loop group acting on L.
@@ -562,7 +592,7 @@ example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] 
 example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] [HasZeroObject D] [HasShift D ℤ] [∀ n : ℤ, (shiftFunctor D n).Additive] [Pretriangulated D] (t : Triangulated.TStructure D) (tensor : ModuleCat.{u} R → D ⥤ D) (DU : Type u) [Category.{v} DU] (forgetULA : DU ⥤ D) (A : DU) (h : ¬ t.heart (forgetULA.obj A)) : ¬ flatPerverse R D t tensor (forgetULA.obj A) := by sorry
 
 /-! GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor
-F^I(A)=⊕_i H^iRπ_*(A|Gr^I_G) is a locally constant sheaf of finite projective Λ-modules on the leg base. It is exact, faithful and conservative on Satake objects. It has the semi-infinite filtration whose graded pieces are shifted constant terms; over a general base this does not yet give a canonical splitting or a switch-invariant tensor identification.
+F^I(A)=⊕_i H^iRπ_*(A|Gr^I_G) is a locally constant sheaf of finite projective Λ-modules on the leg base. It is exact, faithful and conservative on Satake objects. It has the semi-infinite filtration whose graded pieces are shifted constant terms; over a general base this does not yet give a canonical splitting or a switch-invariant tensor identification. If ker F(f)→F(A) is split, f:A→B has a kernel in Satake and F preserves it; if F(B)→coker F(f) is split, the analogous cokernel exists and is preserved. These split conditions are essential over integral coefficients and do not make Satake abelian.
 Prototype boundary: S must be the actual Satake category and H the geometric cohomology functors. Finite support in degree and the CT filtration hypotheses are omitted from the finite-projectivity/faithfulness signatures. No canonical splitting or tensor identification is stated. -/
 def satakeFibre (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) : S ⥤ ModuleCat.{u} R :=
   by sorry
@@ -612,13 +642,31 @@ example (lam μ : ℤ) : torusConvolutionLabels {lam} {μ} = {lam+μ} := by sorr
 /-- Unit test `convolution_twisted_diagram` (compatibility): The typed object formula keeps both a-star descent and b-star pushforward; substituting the external product alone does not satisfy it. -/
 example (D DP DC : Type u) [Category.{v} D] [Category.{v} DP] [Category.{v} DC] (box : D ⥤ D ⥤ DP) (astar : DP ⥤ DC) (bstar : DC ⥤ D) (A B : D) : ((heckeConvolution D DP DC box astar bstar).obj A).obj B = bstar.obj (astar.obj ((box.obj A).obj B)) := by sorry
 
+/-- API: Split kernel lifting in FS VI.7.10(ii), including preservation of its universal cone. -/
+theorem satakeFibre_kernel (R : Type u) [CommRing R] (S : Type u)
+    [Category.{v} S] [Preadditive S] (H : ℤ → S ⥤ ModuleCat.{u} R)
+    [∀ i : ℤ, (H i).Additive] (A B : S) (f : A ⟶ B)
+    [IsSplitMono (kernel.ι ((satakeFibre R S H).map f))] :
+    HasKernel f ∧ PreservesLimit (parallelPair f 0) (satakeFibre R S H) := by sorry
+
+/-- API: Split cokernel lifting in FS VI.7.10(iii), including preservation of its universal cocone. -/
+theorem satakeFibre_cokernel (R : Type u) [CommRing R] (S : Type u)
+    [Category.{v} S] [Preadditive S] (H : ℤ → S ⥤ ModuleCat.{u} R)
+    [∀ i : ℤ, (H i).Additive] (A B : S) (f : A ⟶ B)
+    [IsSplitEpi (cokernel.π ((satakeFibre R S H).map f))] :
+    HasCokernel f ∧ PreservesColimit (parallelPair f 0) (satakeFibre R S H) := by sorry
+
+/-- Unit test `fibre_unbounded_nonexample` (non-example): One finite projective module
+in each degree does not give finite total cohomology. -/
+example : ¬ Module.Finite ℚ (ℤ →₀ ℚ) := by sorry
+
 /-! GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change
 For finite I, pull back Gr_G and Hck_G along (Div¹_𝒴)^I→Div^{|I|}_𝒴 given by addition of Cartier divisors. Formation commutes with base change. Over disjoint divisors the completed rings split as products and Gr factors as the product of the individual Grassmannians. Equal untilts are counted once in the product, but their cocharacters add in the bound.
 Prototype boundary: The typed coweight core adds labels at collisions; divisor-completion base change and disjoint-product v-sheaf isomorphisms need RF2. -/
 theorem orderedLegCollision {n : ℕ} (a b : Fin n → ℤ) : (fun i => a i + b i) = a + b := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent
-For finite E′/E splitting G, base change identifies loop spaces, torsor-modification functors and each Galois-stable union of Schubert strata with the split constructions over E′. Descent returns the orbit-labelled cell Gr_{μ̄} and bound Gr_{≤μ̄}; this asserts no reductive O_E-model for a ramified G.
+For finite Galois E′/E splitting G, base change identifies loop spaces, torsor-modification functors and each Galois-stable union of Schubert strata with the split constructions over E′. Descent returns the orbit-labelled cell Gr_{μ̄} and bound Gr_{≤μ̄}; this asserts no reductive O_E-model for a ramified G.
 Prototype boundary: Only isomorphism detection is typed. Effective Galois descent and split orbit-bound data are omitted. -/
 theorem genericGaloisDescent (D Dsplit : Type u) [Category.{v} D] [Category.{v} Dsplit] (restriction : D ⥤ Dsplit) (A B : D) (f : A ⟶ B) [IsIso (restriction.map f)] : IsIso f := by sorry
 
@@ -668,12 +716,12 @@ Prototype boundary: degree must be the determinant degree on a nonconstant prope
 theorem determinantCurveDegree (degree : ℤ) : 0 < degree := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel
-For every dominant positive lam, Gr_{≤lam} is the perfection of a projective F_p-scheme and its determinant line is ample on a finite Frobenius model. Consequently all pole-bounded GL_n lattice pieces are perfections of projective varieties.
+For every dominant positive λ, Gr_{≤λ} is the perfection of a projective F_p-scheme and its determinant line is ample on a finite Frobenius model. Consequently all pole-bounded GL_n lattice pieces are perfections of projective varieties.
 Prototype boundary: Only scheme properness is typed; X/f must be the finite model of the bound over the base field. Projectivity/ample line notions are imported from SF5 and omitted. -/
 theorem wittProjectiveBound (X Y : AlgebraicGeometry.Scheme.{u}) (f : X ⟶ Y) : AlgebraicGeometry.IsProper f := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison
-Pass from each pfp perfect bounded scheme or algebraic space to compatible finite-type models up to Frobenius. Perfection preserves fibre products and underlying topological dimension, and induces an equivalence of étale topoi. The associated v-sheaf maps by scheme diamondification to the special fibre of the integral Grassmannian.
+For the bounded Witt schemes/algebraic spaces, import compatible finite-type models up to Frobenius, dimension and fibre-product compatibility and étale-topos equivalence from SF0/SF1. Apply those general results to identify their scheme diamondification with the characteristic-p fibre of the integral Grassmannian, by equality of the lattice/torsor functors. This node owns the Witt comparison application; SF owns the general model and perfection theory.
 Prototype boundary: These categories must be the specified étale categories of a perfect Witt bound and its scheme diamond; supplier geometry is omitted. -/
 def wittEtaleComparison (Dscheme Ddiamond : Type u) [Category.{v} Dscheme] [Category.{v} Ddiamond] : Dscheme ≌ Ddiamond := by sorry
 
@@ -693,7 +741,7 @@ Prototype boundary: Only topological properness is typed; spaces/map must be a c
 theorem integralParahoricProperBounds (X Y : Type u) [TopologicalSpace X] [TopologicalSpace Y] (f : X → Y) (K : Set Y) (hK : IsCompact K) : IsCompact (f ⁻¹' K) := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart
-For p>2, GL₂ and N=2, Gr̄₂ has an open chart equal to the perfection of Spec k[x,y,z]/(x²−yz), via A=((p+[x],−[y]),([z],p−[x])). Together with the open exact-type orbit it covers Gr̄₂. Its Demazure resolution is the perfection of P(O(1)⊕O(−1)). The open decomposition locus of W₃-matrices X with [lam]det X=p² is characterized by X=Ag with g∈GL₂(W₃); the representative A is unique.
+For p>2, GL₂ and N=2, Gr̄₂ has an open chart equal to the perfection of Spec k[x,y,z]/(x²−yz), via A=((p+[x],−[y]),([z],p−[x])). Together with the open exact-type orbit it covers Gr̄₂. Its Demazure resolution is the perfection of P(O(1)⊕O(−1)). The open decomposition locus of W₃-matrices X with [λ]det X=p² is characterized by X=Ag with g∈GL₂(W₃); the representative A is unique.
 Prototype boundary: Only the closed-orbit equation is typed. The perfect cone open immersion and the corrected W₃ right-factor integrality are recorded separately as a gap. -/
 theorem rankTwoConeClosedOrbit (K : Type u) [CommRing K] : (0 : K)^2 - 0*0 = 0 := by sorry
 
@@ -708,7 +756,7 @@ Prototype boundary: Only the ordinary-product length/dimension inequality is typ
 theorem flagConvolutionFibreBound (lu lv luv dimFibre : ℕ) : lu + lv ≤ 2*dimFibre + luv := by sorry
 
 /-! GeometricSatakeAndFusion:GS1/semi-infinite-affineness
-On the Witt special fibre, S_lam∩Gr_{≤μ} is affine and perfectly finitely presented. It is the nonvanishing locus of a section of a positive power of the ample determinant line on the appropriate closed weight-bound union. Nonempty intersections with the exact μ-cell are equidimensional of dimension ⟨ρ,μ+lam⟩.
+On the Witt special fibre, S_λ∩Gr_{≤μ} is affine and perfectly finitely presented. It is the nonvanishing locus of a section of the ample determinant line on the closed weight-bound union. When nonempty, this bounded intersection is equidimensional of dimension ⟨ρ,μ+λ⟩; the same holds for its nonempty open intersection with the exact μ-cell. Neither dimension formula is asserted for an empty intersection.
 Prototype boundary: X must be the specified nonempty semi-infinite intersection on its pfp model. General perfect-space affineness requires the SF model interface. -/
 theorem semiInfiniteBoundAffine (X : AlgebraicGeometry.Scheme.{u}) : AlgebraicGeometry.IsAffine X := by sorry
 
@@ -718,8 +766,8 @@ Prototype boundary: Only the normalized dimension equality is typed; the nonempt
 theorem mvCycleDimension (dimension rhoPairing : ℤ) : dimension = rhoPairing := by sorry
 
 /-! GeometricSatakeAndFusion:GS1/prounipotent-equivariance
-For a group with a finite congruence filtration whose graded pieces are affine vector-group diamonds, forgetting equivariance gives an equivalence on bounded constructible derived categories with prime-to-p coefficients. Applied to L⁺_mG on a bounded Schubert locus, sufficiently deep congruence equivariance adds no data.
-Prototype boundary: D/DEq must be the supplied bounded complex and prounipotent-equivariant categories. Smoothness and pro-unipotent hypotheses are omitted. -/
+Let H be a group small v-sheaf over S with closed congruence subgroups H^{≥m}, complete separated filtered presentation, and, v-locally on S, finite filtrations of each successive quotient by affine-line diamonds of untilts. If the action on X factors through H^{<m}=H/H^{≥m}, m>0, pullback D_ét(H^{<m}\X,Λ)→D_ét(H\X,Λ) is an equivalence for coefficients killed by an integer prime to p. Consequently the deep congruence kernel adds no equivariance data. H itself need not have a finite filtration.
+Prototype boundary: D/DEq are the actual finite-quotient and full filtered-equivariant derived categories. The closed filtration, factorized action, spatial continuity and prime-to-p coefficient hypotheses are supplied by VS1 and omitted from this equivalence signature. -/
 def prounipotentEquivariance (D DEq : Type u) [Category.{v} D] [Category.{v} DEq] : D ≌ DEq := by sorry
 
 /-! GeometricSatakeAndFusion:GS1/constant-term-conservativity
@@ -729,8 +777,19 @@ theorem constantTermConservative (D DT : Type u) [Category.{v} D] [Category.{v} 
 
 /-! GeometricSatakeAndFusion:GS1/ula-constant-term-criterion
 For a bounded Hecke complex A, the following are equivalent: A is ULA; CT_B A is ULA; for every D→Div^d the torus constant-term pushforward over D is locally constant with perfect stalks. On one-leg or disjoint-leg bases the ULA category is stable under Verdier duality, tensor and internal Hom, cell !/* extensions and cell !/* restrictions.
-Prototype boundary: Only the locally finite-projective coefficient core is typed; the bounded constant-term perfect complex, étale locality and ULA criterion are omitted. -/
-theorem ulaConstantTermPerfect (R : Type u) [CommRing R] (CTcohomology : ModuleCat.{u} R) : Module.Finite R CTcohomology ∧ Module.Projective R CTcohomology := by sorry
+Prototype boundary: The typed coefficient core states that a geometric CT stalk admits a bounded cochain model of finite projective terms representing that derived object. Those terms are a strict perfect model, not the individual cohomology modules. The identification with the actual CT stalk, étale local constancy and ULA hypotheses require the supplied sheaf carriers and are omitted. -/
+theorem ulaConstantTermPerfect (R : Type u) [CommRing R]
+    [HasDerivedCategory.{w} (ModuleCat.{u} R)]
+    (CTstalk : DerivedCategory (ModuleCat.{u} R)) :
+    ∃ K : CochainComplex (ModuleCat.{u} R) ℤ,
+      Nonempty ((DerivedCategory.Q (C := ModuleCat.{u} R)).obj K ≅ CTstalk) ∧
+      (∃ a b : ℤ, ∀ i : ℤ, i < a ∨ b < i → IsZero (K.X i)) ∧
+      (∀ i : ℤ, Module.Finite R (K.X i) ∧ Module.Projective R (K.X i)) := by sorry
+
+/-- Regression: The two-term perfect complex R --2--> R for R=ℤ/4 has
+cohomology R/(2), which is not projective. ULA does not imply projective cohomology. -/
+example : ¬ Module.Projective (ZMod 4)
+    ((ZMod 4) ⧸ Ideal.span ({2} : Set (ZMod 4))) := by sorry
 
 /-! GeometricSatakeAndFusion:GS1/integral-family-comparison
 For a split integral model and one leg, restriction induces equivalences D^ULA(Hck_{Spd O_C},Λ)≃D^ULA(Hck_{Spd C},Λ)≃D^ULA(Hck_{Spd k̄},Λ), compatible with finite Schubert bounds and coefficient change. The special side is identified with perfected scheme charts by the L1/L3 comparison; this is an actual restriction equivalence, not a formal analogy between lattice rings.
@@ -744,11 +803,13 @@ theorem perverseConstantTermExact (D : Type u) [Category.{v} D] [Preadditive D] 
 
 /-! GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound
 For fixed μ, Δ_μ→∇_μ is an isomorphism after rationalization, and over Z_ℓ its kernel and cokernel are killed by some ℓ^a uniformly under base change. The rational special-fibre equivariant perverse category is semisimple with simple IC_μ indexed by dominant coweights and constant equivariant local systems.
-Prototype boundary: M must be the indicated finite cone cohomology on a fixed bound after rational comparison. Uniformity in coefficients/degree and the geometry are omitted. -/
-theorem standardCostandardBoundedTorsion (R : Type u) [CommRing R] (M : ModuleCat.{u} R) : ∃ N : ℕ, ∀ x : M, (N : R) • x = 0 := by sorry
+Prototype boundary: R is explicitly a ℤ_ℓ-algebra, ℓ is prime, and the bound is ℓ^a. M must be the specified standard-to-costandard kernel or cokernel. The source supplies one a(μ) independent of R; this single-module core omits the geometric μ/family identification, not the coefficient algebra or the nonvacuous power bound. -/
+theorem standardCostandardBoundedTorsion (ℓ : ℕ) [Fact ℓ.Prime]
+    (R : Type u) [CommRing R] [Algebra ℤ_[ℓ] R] (M : ModuleCat.{u} R) :
+    ∃ a : ℕ, ∀ x : M, (ℓ^a : R) • x = 0 := by sorry
 
 /-! GeometricSatakeAndFusion:GS1/rational-weight-concentration
-For rational equivariant perverse A on the Witt Grassmannian, H_c^i(S_lam,A)=0 unless i=⟨2ρ,lam⟩. The resulting weight functors are exact. For μ minuscule the weight multiplicities are one at Weyl orbit weights; for quasi-minuscule μ the zero-weight multiplicity is the number of simple roots of the relevant highest-root length. General concentration follows by generation from minimal convolutions.
+For rational equivariant perverse A on the Witt Grassmannian, H_c^i(S_λ,A)=0 unless i=⟨2ρ,λ⟩. The resulting weight functors are exact. For μ minuscule the weight multiplicities are one at Weyl orbit weights; for quasi-minuscule μ the zero-weight multiplicity is the number of simple coroots of G in the Weyl orbit of the quasi-minuscule coweight (the short simple coroots); equivalently count the corresponding simple roots of the dual root system. General concentration follows by generation from minimal convolutions.
 Prototype boundary: W must be the concentrated rational weight module of the specified IC object. Its MV basis and the degree-vanishing assertions require enhanced cohomology interfaces and are omitted. -/
 theorem rationalWeightsFinite (K : Type u) [Field K] (W : ModuleCat.{u} K) : Module.Finite K W := by sorry
 
@@ -769,12 +830,12 @@ theorem rationalConvolutionSemismall (sourceDimension stratumDimension fibreDime
 
 /-! GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula
 If A and B are ULA bounded Hecke complexes, A⋆B is ULA over the leg base.
-Prototype boundary: The typed core is dualizability of composed proper relative ULA kernels, using the existing rigid-category API; geometric ULA conditions are omitted. -/
-@[instance_reducible] def convolutionULAKernelDual (D : Type u) [Category.{v} D] [MonoidalCategory D] [RigidCategory D] (A B : D) : HasRightDual (A ⊗ B) := by sorry
+Prototype boundary: The algebraic core composes two individually right-dualizable proper relative ULA kernels. It does not assume the entire ambient category is rigid; the geometric ULA/kernel identification requires VS1. -/
+@[instance_reducible] def convolutionULAKernelDual (D : Type u) [Category.{v} D] [MonoidalCategory D] (A B : D) [HasRightDual A] [HasRightDual B] : HasRightDual (A ⊗ B) := by sorry
 
 /-! GeometricSatakeAndFusion:GS2:Satake-closure/convolution-perverse-nonpositive
-For ULA A,B in relative perverse degrees ≤0, A⋆B is perverse ≤0. The proof uses an elementary two-leg collision family: away from the diagonal it is the external product, and its torus constant terms are locally constant perfect complexes, so the nonpositive bound extends to the collision fibre.
-Prototype boundary: D/conv must be the ULA Hecke category and its convolution. The two-leg family and geometric hypotheses are omitted; GS3 fusion is not assumed. -/
+For any bounded Hecke complexes A,B in relative perverse degrees ≤0, A⋆B is perverse ≤0. First reduce by ordered collision-stratum excision and cell devissage to shifted cell constants with ULA factors. For those generators an elementary two-leg family is an external product away from the diagonal; locally constant perfect torus constant terms carry the nonpositive bound to the collision fibre. This is FS VI.8.1(ii), before VI.9 symmetric fusion.
+Prototype boundary: D/conv denote the full bounded-support Hecke derived category and its convolution, with the stated geometric perverse t-structure. The devissage, two-leg family and geometric identities are omitted. Inputs need not be ULA; only the reduced generators are ULA. GS3 fusion and ambient rigidity are not assumed. -/
 theorem convolutionPerverseNonpositive (D : Type u) [Category.{v} D] [Preadditive D] [HasZeroObject D] [HasShift D ℤ] [∀ n : ℤ, (shiftFunctor D n).Additive] [Pretriangulated D] (t : Triangulated.TStructure D) (conv : D ⥤ D ⥤ D) (A B : D) (hA : t.le 0 A) (hB : t.le 0 B) : t.le 0 ((conv.obj A).obj B) := by sorry
 
 /-! GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability
