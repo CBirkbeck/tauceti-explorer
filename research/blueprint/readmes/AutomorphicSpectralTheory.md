@@ -5744,6 +5744,12 @@ The associate cuspidal exponential formula is fully specified. The target’s ar
 
 Consumers: `AutomorphicSpectralTheory:AS.1/cuspidal-constant-term`.
 
+### Local analytic extensions beyond representation carriers
+
+SR.3 supplies admissible/tempered representation carriers, not the complete Harish-Chandra estimates, rank-one continuation or Langlands classification requested here. AF.1 now plans langlands-classification, discrete-series, archimedean-llc-gln and casselman-wallach-globalization in the single real-representation owner; its original classification/discrete-series proofs and faithful native signatures remain recorded gaps. Reuse those precise contracts rather than create another real classification owner. SR.4 supplies Satake and spherical constant terms, not a proof of the analytic Gindikin–Karpelevich c-function. Reuse the planned SR/AF interfaces and request the additional analytic inputs from their respective owners; SR.1 finite Hecke convolution also needs the unitary integrated L¹ norm bound before the analytic Hilbert action is used.
+
+Consumers: `AutomorphicSpectralTheory:AS.2/local-intertwiner`, `AutomorphicSpectralTheory:AS.2/local-normalization`, `AutomorphicSpectralTheory:AS.2/yu-066`, `AutomorphicSpectralTheory:AS.4/hecke-central-compatibility`, `AutomorphicSpectralTheory:AS.6/automorphic-kernel`.
+
 ### Local Harish-Chandra analytic inputs beyond suppliers
 
 The reviewed SR and AF stages provide representation-theoretic carriers, but a complete proof of the μ-function/Plancherel scalar and rank-one local meromorphic integrals needs the real and nonarchimedean Harish-Chandra harmonic-analysis theorems cited by Arthur 1989. No precise supplier node for these general analytic theorems exists in the packets inspected; identify their statements and ownership before claiming analytic closure.

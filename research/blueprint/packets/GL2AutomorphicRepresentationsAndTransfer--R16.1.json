@@ -1444,12 +1444,12 @@
       "title": "The explicit archimedean GL₂ cases",
       "kind": "theorem",
       "declaration": "TauCeti.GL2Blueprint.archimedeanClassification",
-      "statement": "Import archimedean Weil groups, Langlands classification and globalizations from the proposed AF.1b owner (requested through current AF.1). For GL₂(ℝ), real reducible parameters χ₁⊕χ₂ correspond to the appropriate Langlands quotient of normalized induction, including its finite-dimensional exceptional quotients. An irreducible parameter Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), integer m≥1, corresponds to D_{m+1}⊗|det|^t, the full O(2) representation whose positive-determinant restriction has holomorphic and antiholomorphic pieces. For m=0 the parameter splits and one obtains the limit boundary; it is not an irreducible Weil parameter. For GL₂(ℂ), every parameter is a pair of continuous quasicharacters and the representation is the corresponding Langlands quotient; GL₂(ℂ) has no discrete series modulo center.",
+      "statement": "Import the existing AF.1/weil-group-real, AF.1/archimedean-llc-gln and AF.1/casselman-wallach-globalization nodes of the single AF real-representation owner. The proposed AF.1b split preserves these contracts; it is not an installed stage. For GL₂(ℝ), real reducible parameters χ₁⊕χ₂ correspond to the appropriate Langlands quotient of normalized induction, including its finite-dimensional exceptional quotients. An irreducible parameter Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), integer m≥1, corresponds to D_{m+1}⊗|det|^t, the full O(2) representation whose positive-determinant restriction has holomorphic and antiholomorphic pieces. For m=0 the parameter splits and one obtains the limit boundary; it is not an irreducible Weil parameter. For GL₂(ℂ), every parameter is a pair of continuous quasicharacters and the representation is the corresponding Langlands quotient; GL₂(ℂ) has no discrete series modulo center.",
       "hypotheses": [
         "Admissible irreducible Harish–Chandra modules with their Casselman–Wallach globalizations; explicit chamber/order in a Langlands quotient."
       ],
       "proofSteps": [
-        "Specialize AF.1b Langlands classification and Wℝ/Wℂ classification to rank two.",
+        "Specialize AF.1/archimedean-llc-gln and AF.1/weil-group-real to rank two, using AF.1/casselman-wallach-globalization for the smooth realization.",
         "Compare the lowest SO(2) weights with JL §5 and the complex principal-series coordinates with JL §6.",
         "Keep full O(2), connected-group constituents, finite-dimensional quotients and limit cases distinct."
       ],
@@ -1459,14 +1459,15 @@
       "prerequisites": [
         "AutomorphicFormsOnReductiveGroups:AF.1/weil-group-real",
         "AutomorphicFormsOnReductiveGroups:AF.1/gl2-real-discrete-series",
-        "AutomorphicFormsOnReductiveGroups:AF.1"
+        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+        "AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization"
       ],
       "sources": [
         {
           "sourceId": "jl70",
           "locator": "§5 Lemmas 5.6–5.7; §6 Lemma 6.1, beginning printed p. 110",
           "excerpt": "Representations",
-          "match": "JL §5–§6 give the concrete real/complex modules and boundary cases. Modern archimedean Weil parametrization and globalization are imported through the AF.1/AF.1b request, not asserted to be proved by these passages."
+          "match": "JL §5–§6 give the concrete real/complex modules and boundary cases. Modern archimedean Weil parametrization and globalization are imported from the exact AF.1 nodes, not asserted to be proved by these passages."
         }
       ],
       "library": {
@@ -1717,7 +1718,7 @@
         "Archimedean local reciprocity, absolute value |z|ℂ=|z|², gamma and additive-character conventions fixed."
       ],
       "proofSteps": [
-        "Import AF.1b archimedean LLC and AL.1 archimedean character factors via the current AF.1 request.",
+        "Import AF.1/archimedean-llc-gln and AL.1 archimedean character factors; the proposed AF.1b split does not change the current supplier node.",
         "Decompose the Weil parameter into its real one-dimensional or induced two-dimensional summands.",
         "Apply the gamma duplication formula for the m=0 boundary and compare D_k lowest weights."
       ],
@@ -1726,7 +1727,7 @@
       ],
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification",
-        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.2"
       ],
@@ -1735,7 +1736,7 @@
           "sourceId": "jl70",
           "locator": "§5 printed pp. 96–97, explicit character L/epsilon formulas and induced-real factor",
           "excerpt": "Γ",
-          "match": "JL pp. 96–97 state the real/complex character factors and the real induced factor. The modern parameter classification is a separate AF.1b input; AL.1 fixes the gamma/epsilon conventions."
+          "match": "JL pp. 96–97 state the real/complex character factors and the real induced factor. The modern parameter classification is the separate AF.1/archimedean-llc-gln input; AL.1 fixes the gamma/epsilon conventions."
         }
       ],
       "library": {
@@ -3523,8 +3524,6 @@
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
       "need": "Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
       "neededBy": [
-        "GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.3/archimedean-factor-comparison",
         "GL2AutomorphicRepresentationsAndTransfer:R16.5/full-gl2-converse",
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
         "GL2AutomorphicRepresentationsAndTransfer:R17.1/real-quaternionic-comparison",
