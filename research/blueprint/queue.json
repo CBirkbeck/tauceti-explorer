@@ -22377,9 +22377,10 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentations.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #685"
+   "note": "deliverables arrived from an external worker on issue #685",
+   "finishedAt": "2026-10-07T00:45:58Z"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentations",
@@ -37228,7 +37229,8 @@
     "REV-GeneralAlgebraicKTheory--K.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeneralAlgebraicKTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #233"
   },
   {
    "id": "ASM-GeneralizedHeegnerCycles",
